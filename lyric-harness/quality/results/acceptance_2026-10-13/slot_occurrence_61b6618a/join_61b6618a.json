@@ -1,0 +1,6907 @@
+{
+ "tool_equality_v2_kind_vs_v3_literal": {
+  "fce4bf0f": {
+   "cases": 95760,
+   "different": 0,
+   "examples": []
+  },
+  "67889851": {
+   "cases": 191520,
+   "different": 0,
+   "examples": []
+  }
+ },
+ "literal_to_occurrence": {
+  "fce4bf0f": {
+   "cur | agree -> occ_agree": 57289,
+   "cur | agree_unbound -> edit_unbound": 2190,
+   "cur | excluded_transformed -> excluded_transformed": 3864,
+   "cur | grader_elsewhere -> occ_wrong": 696,
+   "cur | no_word_refused -> no_word_refused": 18175,
+   "cur | refused -> refused_bound": 13065,
+   "cur | refused_grader_elsewhere -> refused_bound": 111,
+   "cur | refused_unbound -> refused_unbound": 361,
+   "cur | resolver_mismatch -> resolver_mismatch": 4,
+   "cur | wrong_word -> occ_wrong": 5
+  },
+  "67889851": {
+   "cur | agree -> occ_agree": 71745,
+   "cur | agree_unbound -> edit_unbound": 2724,
+   "cur | excluded_transformed -> excluded_transformed": 540,
+   "cur | grader_elsewhere -> occ_wrong": 989,
+   "cur | no_word_refused -> no_word_refused": 18748,
+   "cur | refused -> refused_bound": 954,
+   "cur | refused_unbound -> refused_unbound": 60,
+   "v1 | agree -> occ_agree": 57471,
+   "v1 | agree_unbound -> edit_unbound": 2198,
+   "v1 | excluded_transformed -> excluded_transformed": 540,
+   "v1 | grader_elsewhere -> occ_wrong": 696,
+   "v1 | no_word_refused -> no_word_refused": 18829,
+   "v1 | refused -> refused_bound": 15380,
+   "v1 | refused_grader_elsewhere -> refused_bound": 153,
+   "v1 | refused_unbound -> refused_unbound": 484,
+   "v1 | resolver_mismatch -> resolver_mismatch": 4,
+   "v1 | wrong_word -> occ_wrong": 5
+  },
+  "head": {
+   "cur | agree -> occ_agree": 71745,
+   "cur | agree_unbound -> edit_unbound": 382,
+   "cur | excluded_transformed -> excluded_transformed": 540,
+   "cur | no_word_refused -> no_word_refused": 18748,
+   "cur | refused -> refused_bound": 954,
+   "cur | refused_unbound -> refused_unbound": 2402,
+   "cur | wrong_word -> occ_agree": 989,
+   "v1 | agree -> occ_agree": 57471,
+   "v1 | agree_unbound -> edit_unbound": 2198,
+   "v1 | excluded_transformed -> excluded_transformed": 540,
+   "v1 | grader_elsewhere -> occ_wrong": 696,
+   "v1 | no_word_refused -> no_word_refused": 18829,
+   "v1 | refused -> refused_bound": 15380,
+   "v1 | refused_grader_elsewhere -> refused_bound": 153,
+   "v1 | refused_unbound -> refused_unbound": 484,
+   "v1 | resolver_mismatch -> resolver_mismatch": 4,
+   "v1 | wrong_word -> occ_wrong": 5
+  }
+ },
+ "cohorts_678_to_head": {
+  "base_agreed_now_fails | grader_elsewhere": {
+   "total": 138,
+   "fate": {
+    "occ occ_agree / literal wrong_word": 138
+   }
+  },
+  "base_excluded_now_measured | grader_elsewhere": {
+   "total": 42,
+   "fate": {
+    "occ occ_agree / literal wrong_word": 42
+   }
+  },
+  "base_refused_now_fails | grader_elsewhere": {
+   "total": 113,
+   "fate": {
+    "occ occ_agree / literal wrong_word": 113
+   }
+  },
+  "same_kind_other_words | grader_elsewhere": {
+   "total": 10,
+   "fate": {
+    "occ occ_agree / literal wrong_word": 10
+   }
+  },
+  "unchanged_same_failure | grader_elsewhere": {
+   "total": 686,
+   "fate": {
+    "occ occ_agree / literal wrong_word": 686
+   }
+  }
+ },
+ "cohort_examples": {
+  "base_agreed_now_fails | grader_elsewhere -> occ_agree": [
+   {
+    "mode": "cur:sung",
+    "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+    "slot": "head",
+    "v2_678": [
+     "1",
+     "Well",
+     "1"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       1,
+       2
+      ],
+      "text": "1"
+     },
+     "bound": {
+      "span": [
+       4,
+       8
+      ],
+      "text": "Well"
+     },
+     "edited": {
+      "span": [
+       4,
+       8
+      ],
+      "text": "Well"
+     },
+     "result": "(1) Zqzq, here we be, then, wi' the vu'st poor lwoad"
+    }
+   },
+   {
+    "mode": "cur:sung",
+    "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+    "slot": "headrime",
+    "v2_678": [
+     "1",
+     "Well",
+     "1"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       1,
+       2
+      ],
+      "text": "1"
+     },
+     "bound": {
+      "span": [
+       4,
+       8
+      ],
+      "text": "Well"
+     },
+     "edited": {
+      "span": [
+       4,
+       8
+      ],
+      "text": "Well"
+     },
+     "result": "(1) Zqzq, here we be, then, wi' the vu'st poor lwoad"
+    }
+   },
+   {
+    "mode": "cur:sung",
+    "line": "(2) The road, George, no.  There's na'r a road.  That's wrong.",
+    "slot": "head",
+    "v2_678": [
+     "2",
+     "The",
+     "2"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       1,
+       2
+      ],
+      "text": "2"
+     },
+     "bound": {
+      "span": [
+       4,
+       7
+      ],
+      "text": "The"
+     },
+     "edited": {
+      "span": [
+       4,
+       7
+      ],
+      "text": "The"
+     },
+     "result": "(2) Zqzq road, George, no.  There's na'r a road.  That's wrong."
+    }
+   }
+  ],
+  "base_excluded_now_measured | grader_elsewhere -> occ_agree": [
+   {
+    "mode": "cur:sung",
+    "line": "(Lest the smoke his sight o’erwhelm,)",
+    "slot": "endword",
+    "v2_678": [
+     "o’erwhelm",
+     "sight",
+     "o’erwhelm"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       26,
+       35
+      ],
+      "text": "o’erwhelm"
+     },
+     "bound": {
+      "span": [
+       20,
+       25
+      ],
+      "text": "sight"
+     },
+     "edited": {
+      "span": [
+       20,
+       25
+      ],
+      "text": "sight"
+     },
+     "result": "(Lest the smoke his zqzq o’erwhelm,)"
+    }
+   },
+   {
+    "mode": "cur:stripped",
+    "line": "(I’m good at thet),” sez he,",
+    "slot": "head",
+    "v2_678": [
+     "sez",
+     "he",
+     "sez"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       21,
+       24
+      ],
+      "text": "sez"
+     },
+     "bound": {
+      "span": [
+       25,
+       27
+      ],
+      "text": "he"
+     },
+     "edited": {
+      "span": [
+       25,
+       27
+      ],
+      "text": "he"
+     },
+     "result": "(I’m good at thet),” sez zqzq,"
+    }
+   },
+   {
+    "mode": "cur:stripped",
+    "line": "(I’m good at thet),” sez he,",
+    "slot": "headrime",
+    "v2_678": [
+     "sez",
+     "he",
+     "sez"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       21,
+       24
+      ],
+      "text": "sez"
+     },
+     "bound": {
+      "span": [
+       25,
+       27
+      ],
+      "text": "he"
+     },
+     "edited": {
+      "span": [
+       25,
+       27
+      ],
+      "text": "he"
+     },
+     "result": "(I’m good at thet),” sez zqzq,"
+    }
+   }
+  ],
+  "base_refused_now_fails | grader_elsewhere -> occ_agree": [
+   {
+    "mode": "cur:stripped",
+    "line": "O'er the parchment (not a rhyme),",
+    "slot": "head",
+    "v2_678": [
+     "O'er",
+     "the",
+     "O'er"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       0,
+       4
+      ],
+      "text": "O'er"
+     },
+     "bound": {
+      "span": [
+       5,
+       8
+      ],
+      "text": "the"
+     },
+     "edited": {
+      "span": [
+       5,
+       8
+      ],
+      "text": "the"
+     },
+     "result": "O'er zqzq parchment (not a rhyme),"
+    }
+   },
+   {
+    "mode": "cur:stripped",
+    "line": "O'er the parchment (not a rhyme),",
+    "slot": "headrime",
+    "v2_678": [
+     "O'er",
+     "the",
+     "O'er"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       0,
+       4
+      ],
+      "text": "O'er"
+     },
+     "bound": {
+      "span": [
+       5,
+       8
+      ],
+      "text": "the"
+     },
+     "edited": {
+      "span": [
+       5,
+       8
+      ],
+      "text": "the"
+     },
+     "result": "O'er zqzq parchment (not a rhyme),"
+    }
+   },
+   {
+    "mode": "cur:sung",
+    "line": "O'er the parchment (not a rhyme),",
+    "slot": "head",
+    "v2_678": [
+     "O'er",
+     "the",
+     "O'er"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       0,
+       4
+      ],
+      "text": "O'er"
+     },
+     "bound": {
+      "span": [
+       5,
+       8
+      ],
+      "text": "the"
+     },
+     "edited": {
+      "span": [
+       5,
+       8
+      ],
+      "text": "the"
+     },
+     "result": "O'er zqzq parchment (not a rhyme),"
+    }
+   }
+  ],
+  "same_kind_other_words | grader_elsewhere -> occ_agree": [
+   {
+    "mode": "cur:sung",
+    "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+    "slot": "head",
+    "v2_678": [
+     "1",
+     "road",
+     "1"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       1,
+       2
+      ],
+      "text": "1"
+     },
+     "bound": {
+      "span": [
+       8,
+       12
+      ],
+      "text": "road"
+     },
+     "edited": {
+      "span": [
+       8,
+       12
+      ],
+      "text": "road"
+     },
+     "result": "(1) Noo zqzq!  Ees 'tis, the road that we do goo."
+    }
+   },
+   {
+    "mode": "cur:sung",
+    "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+    "slot": "headrime",
+    "v2_678": [
+     "1",
+     "road",
+     "1"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       1,
+       2
+      ],
+      "text": "1"
+     },
+     "bound": {
+      "span": [
+       8,
+       12
+      ],
+      "text": "road"
+     },
+     "edited": {
+      "span": [
+       8,
+       12
+      ],
+      "text": "road"
+     },
+     "result": "(1) Noo zqzq!  Ees 'tis, the road that we do goo."
+    }
+   },
+   {
+    "mode": "cur:sung",
+    "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+    "slot": "head",
+    "v2_678": [
+     "3",
+     "wag",
+     "3"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       1,
+       2
+      ],
+      "text": "3"
+     },
+     "bound": {
+      "span": [
+       13,
+       16
+      ],
+      "text": "wag"
+     },
+     "edited": {
+      "span": [
+       13,
+       16
+      ],
+      "text": "wag"
+     },
+     "result": "(3) 'Twoon't zqzq. We shall but snap our gear,"
+    }
+   }
+  ],
+  "unchanged_same_failure | grader_elsewhere -> occ_agree": [
+   {
+    "mode": "cur:stripped",
+    "line": "The'd cut us out a figure aïght (8), d'ye know.",
+    "slot": "head",
+    "v2_678": [
+     "The'd",
+     "cut",
+     "The'd"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       0,
+       5
+      ],
+      "text": "The'd"
+     },
+     "bound": {
+      "span": [
+       6,
+       9
+      ],
+      "text": "cut"
+     },
+     "edited": {
+      "span": [
+       6,
+       9
+      ],
+      "text": "cut"
+     },
+     "result": "The'd zqzq us out a figure aïght (8), d'ye know."
+    }
+   },
+   {
+    "mode": "cur:stripped",
+    "line": "The'd cut us out a figure aïght (8), d'ye know.",
+    "slot": "headrime",
+    "v2_678": [
+     "The'd",
+     "cut",
+     "The'd"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       0,
+       5
+      ],
+      "text": "The'd"
+     },
+     "bound": {
+      "span": [
+       6,
+       9
+      ],
+      "text": "cut"
+     },
+     "edited": {
+      "span": [
+       6,
+       9
+      ],
+      "text": "cut"
+     },
+     "result": "The'd zqzq us out a figure aïght (8), d'ye know."
+    }
+   },
+   {
+    "mode": "cur:sung",
+    "line": "The'd cut us out a figure aïght (8), d'ye know.",
+    "slot": "head",
+    "v2_678": [
+     "The'd",
+     "cut",
+     "The'd"
+    ],
+    "head": {
+     "named": {
+      "span": [
+       0,
+       5
+      ],
+      "text": "The'd"
+     },
+     "bound": {
+      "span": [
+       6,
+       9
+      ],
+      "text": "cut"
+     },
+     "edited": {
+      "span": [
+       6,
+       9
+      ],
+      "text": "cut"
+     },
+     "result": "The'd zqzq us out a figure aïght (8), d'ye know."
+    }
+   }
+  ]
+ },
+ "v1_678_vs_head_literal": {
+  "cases": 95760,
+  "different": 0,
+  "transitions": {}
+ },
+ "head_occurrence_failures": {
+  "count": 705,
+  "by": {
+   "v1:stripped | head | occ_wrong": 91,
+   "v1:stripped | headrime | occ_wrong": 91,
+   "v1:stripped | endword | occ_wrong": 166,
+   "v1:stripped | end | resolver_mismatch": 2,
+   "v1:stripped | end | occ_wrong": 5,
+   "v1:sung | head | occ_wrong": 91,
+   "v1:sung | headrime | occ_wrong": 91,
+   "v1:sung | endword | occ_wrong": 166,
+   "v1:sung | end | resolver_mismatch": 2
+  },
+  "cases": [
+   {
+    "mode": "v1:stripped",
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      1,
+      4
+     ],
+     "text": "Fra"
+    },
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "by"
+    },
+    "edited": {
+     "span": [
+      1,
+      4
+     ],
+     "text": "Fra"
+    },
+    "result": "\"Zqzq Pandolf\" by design, for never read"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      1,
+      4
+     ],
+     "text": "Fra"
+    },
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "by"
+    },
+    "edited": {
+     "span": [
+      1,
+      4
+     ],
+     "text": "Fra"
+    },
+    "result": "\"Zqzq Pandolf\" by design, for never read"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "\"Give your burnt offerings o'er,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      27,
+      31
+     ],
+     "text": "o'er"
+    },
+    "bound": {
+     "span": [
+      17,
+      26
+     ],
+     "text": "offerings"
+    },
+    "edited": {
+     "span": [
+      27,
+      31
+     ],
+     "text": "o'er"
+    },
+    "result": "\"Give your burnt offerings zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "'S the rwose that do blow in the zummer.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      33,
+      39
+     ],
+     "text": "zummer"
+    },
+    "bound": {
+     "span": [
+      29,
+      32
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      33,
+      39
+     ],
+     "text": "zummer"
+    },
+    "result": "'S the rwose that do blow in the zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      43,
+      47
+     ],
+     "text": "drow"
+    },
+    "bound": {
+     "span": [
+      39,
+      42
+     ],
+     "text": "an'"
+    },
+    "edited": {
+     "span": [
+      43,
+      47
+     ],
+     "text": "drow"
+    },
+    "result": "(1) An' teäke an' cut a lock o' frith, an' zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) Come, William, dig away!  Why you do spuddle",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      41,
+      48
+     ],
+     "text": "spuddle"
+    },
+    "bound": {
+     "span": [
+      38,
+      40
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      41,
+      48
+     ],
+     "text": "spuddle"
+    },
+    "result": "(1) Come, William, dig away!  Why you do zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) He idden! (2) Ees he is! (3) He's out o' zight.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      45,
+      50
+     ],
+     "text": "zight"
+    },
+    "bound": {
+     "span": [
+      42,
+      44
+     ],
+     "text": "o'"
+    },
+    "edited": {
+     "span": [
+      45,
+      50
+     ],
+     "text": "zight"
+    },
+    "result": "(1) He idden! (2) Ees he is! (3) He's out o' zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) He's geäme a runnèn too. Why, he do mwore",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      40,
+      45
+     ],
+     "text": "mwore"
+    },
+    "bound": {
+     "span": [
+      37,
+      39
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      40,
+      45
+     ],
+     "text": "mwore"
+    },
+    "result": "(1) He's geäme a runnèn too. Why, he do zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      4,
+      8
+     ],
+     "text": "Lo'k"
+    },
+    "bound": {
+     "span": [
+      9,
+      14
+     ],
+     "text": "there"
+    },
+    "edited": {
+     "span": [
+      4,
+      8
+     ],
+     "text": "Lo'k"
+    },
+    "result": "(1) Zqzq there, thik fellor is a-vell lik' lead,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      4,
+      8
+     ],
+     "text": "Lo'k"
+    },
+    "bound": {
+     "span": [
+      9,
+      14
+     ],
+     "text": "there"
+    },
+    "edited": {
+     "span": [
+      4,
+      8
+     ],
+     "text": "Lo'k"
+    },
+    "result": "(1) Zqzq there, thik fellor is a-vell lik' lead,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      4,
+      7
+     ],
+     "text": "Noo"
+    },
+    "bound": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "road"
+    },
+    "edited": {
+     "span": [
+      4,
+      7
+     ],
+     "text": "Noo"
+    },
+    "result": "(1) Zqzq road!  Ees 'tis, the road that we do goo."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      4,
+      7
+     ],
+     "text": "Noo"
+    },
+    "bound": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "road"
+    },
+    "edited": {
+     "span": [
+      4,
+      7
+     ],
+     "text": "Noo"
+    },
+    "result": "(1) Zqzq road!  Ees 'tis, the road that we do goo."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) There be the greyhounds! lo'k! an' there's the heäre!",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      51,
+      56
+     ],
+     "text": "heäre"
+    },
+    "bound": {
+     "span": [
+      47,
+      50
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      51,
+      56
+     ],
+     "text": "heäre"
+    },
+    "result": "(1) There be the greyhounds! lo'k! an' there's the zqzq!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "lwoad"
+    },
+    "bound": {
+     "span": [
+      42,
+      46
+     ],
+     "text": "poor"
+    },
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "lwoad"
+    },
+    "result": "(1) Well, here we be, then, wi' the vu'st poor zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      42,
+      46
+     ],
+     "text": "vall"
+    },
+    "bound": {
+     "span": [
+      36,
+      41
+     ],
+     "text": "won't"
+    },
+    "edited": {
+     "span": [
+      42,
+      46
+     ],
+     "text": "vall"
+    },
+    "result": "(1) You overzet en!  No, Jeämes, he won't zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(2) An' that's a meesh that he've a-took avore.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      41,
+      46
+     ],
+     "text": "avore"
+    },
+    "bound": {
+     "span": [
+      34,
+      40
+     ],
+     "text": "a-took"
+    },
+    "edited": {
+     "span": [
+      41,
+      46
+     ],
+     "text": "avore"
+    },
+    "result": "(2) An' that's a meesh that he've a-took zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      49,
+      55
+     ],
+     "text": "drough"
+    },
+    "bound": {
+     "span": [
+      45,
+      48
+     ],
+     "text": "get"
+    },
+    "edited": {
+     "span": [
+      49,
+      55
+     ],
+     "text": "drough"
+    },
+    "result": "(2) Do goo, George, no.  The pleäce we can't get zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(2) Do wag. (1) Do goo at last.  (3) Well done.  'Tis drough.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      54,
+      60
+     ],
+     "text": "drough"
+    },
+    "bound": {
+     "span": [
+      49,
+      53
+     ],
+     "text": "'Tis"
+    },
+    "edited": {
+     "span": [
+      54,
+      60
+     ],
+     "text": "drough"
+    },
+    "result": "(2) Do wag. (1) Do goo at last.  (3) Well done.  'Tis zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(2) Done vor a crown. They woon't! He's gwäin to groun'.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      49,
+      55
+     ],
+     "text": "groun'"
+    },
+    "bound": {
+     "span": [
+      46,
+      48
+     ],
+     "text": "to"
+    },
+    "edited": {
+     "span": [
+      49,
+      55
+     ],
+     "text": "groun'"
+    },
+    "result": "(2) Done vor a crown. They woon't! He's gwäin to zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(2) Ees, got awoy, in coo'se, I never zeed",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      38,
+      42
+     ],
+     "text": "zeed"
+    },
+    "bound": {
+     "span": [
+      32,
+      37
+     ],
+     "text": "never"
+    },
+    "edited": {
+     "span": [
+      38,
+      42
+     ],
+     "text": "zeed"
+    },
+    "result": "(2) Ees, got awoy, in coo'se, I never zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(2) If I can clim' en; but 'tis my consaït,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "consaït"
+    },
+    "bound": {
+     "span": [
+      32,
+      34
+     ],
+     "text": "my"
+    },
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "consaït"
+    },
+    "result": "(2) If I can clim' en; but 'tis my zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(2) Vrom vu'st to last they had but little chance",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      4,
+      8
+     ],
+     "text": "Vrom"
+    },
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "to"
+    },
+    "edited": {
+     "span": [
+      4,
+      8
+     ],
+     "text": "Vrom"
+    },
+    "result": "(2) Zqzq vu'st to last they had but little chance"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(2) Vrom vu'st to last they had but little chance",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      4,
+      8
+     ],
+     "text": "Vrom"
+    },
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "to"
+    },
+    "edited": {
+     "span": [
+      4,
+      8
+     ],
+     "text": "Vrom"
+    },
+    "result": "(2) Zqzq vu'st to last they had but little chance"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      4,
+      12
+     ],
+     "text": "'Twoon't"
+    },
+    "bound": {
+     "span": [
+      13,
+      16
+     ],
+     "text": "wag"
+    },
+    "edited": {
+     "span": [
+      4,
+      12
+     ],
+     "text": "'Twoon't"
+    },
+    "result": "(3) zqzq wag. We shall but snap our gear,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      4,
+      12
+     ],
+     "text": "'Twoon't"
+    },
+    "bound": {
+     "span": [
+      13,
+      16
+     ],
+     "text": "wag"
+    },
+    "edited": {
+     "span": [
+      4,
+      12
+     ],
+     "text": "'Twoon't"
+    },
+    "result": "(3) zqzq wag. We shall but snap our gear,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(3) He is! (1) He idden! (3) Ah! 'tis well his tooes",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "tooes"
+    },
+    "bound": {
+     "span": [
+      43,
+      46
+     ],
+     "text": "his"
+    },
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "tooes"
+    },
+    "result": "(3) He is! (1) He idden! (3) Ah! 'tis well his zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(3) No! no! I wish the squier would let me feäre",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      43,
+      48
+     ],
+     "text": "feäre"
+    },
+    "bound": {
+     "span": [
+      40,
+      42
+     ],
+     "text": "me"
+    },
+    "edited": {
+     "span": [
+      43,
+      48
+     ],
+     "text": "feäre"
+    },
+    "result": "(3) No! no! I wish the squier would let me zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "(3) Oh! there's the heäre, a-meäkèn for the drong.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      44,
+      49
+     ],
+     "text": "drong"
+    },
+    "bound": {
+     "span": [
+      40,
+      43
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      44,
+      49
+     ],
+     "text": "drong"
+    },
+    "result": "(3) Oh! there's the heäre, a-meäkèn for the zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "A Carlin auld and teugh.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      18,
+      23
+     ],
+     "text": "teugh"
+    },
+    "bound": {
+     "span": [
+      14,
+      17
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      18,
+      23
+     ],
+     "text": "teugh"
+    },
+    "result": "A Carlin auld and zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "A half behind, an' half upzides.\"",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      24,
+      31
+     ],
+     "text": "upzides"
+    },
+    "bound": {
+     "span": [
+      19,
+      23
+     ],
+     "text": "half"
+    },
+    "edited": {
+     "span": [
+      24,
+      31
+     ],
+     "text": "upzides"
+    },
+    "result": "A half behind, an' half zqzq.\""
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "A-leävèn there alwone to murn",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      25,
+      29
+     ],
+     "text": "murn"
+    },
+    "bound": {
+     "span": [
+      22,
+      24
+     ],
+     "text": "to"
+    },
+    "edited": {
+     "span": [
+      25,
+      29
+     ],
+     "text": "murn"
+    },
+    "result": "A-leävèn there alwone to zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Aft thee an' I, in aught hours' gaun,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "gaun"
+    },
+    "bound": {
+     "span": [
+      25,
+      31
+     ],
+     "text": "hours'"
+    },
+    "edited": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "gaun"
+    },
+    "result": "Aft thee an' I, in aught hours' zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Along the leäne an' the hedge's zide;",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "zide"
+    },
+    "bound": {
+     "span": [
+      24,
+      31
+     ],
+     "text": "hedge's"
+    },
+    "edited": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "zide"
+    },
+    "result": "Along the leäne an' the hedge's zqzq;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An awful, a tremendous night is this, meseems!",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      38,
+      45
+     ],
+     "text": "meseems"
+    },
+    "bound": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "this"
+    },
+    "edited": {
+     "span": [
+      38,
+      45
+     ],
+     "text": "meseems"
+    },
+    "result": "An awful, a tremendous night is this, zqzq!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' I says \"'M go' to be a Raggedy Man!--",
+    "slot": "end",
+    "occurrence": "resolver_mismatch",
+    "literal": "resolver_mismatch",
+    "named": {
+     "span": [
+      35,
+      38
+     ],
+     "text": "Man"
+    },
+    "bound": null,
+    "edited": null,
+    "result": null
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' get the brutes the power themsel's",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      29,
+      38
+     ],
+     "text": "themsel's"
+    },
+    "bound": {
+     "span": [
+      23,
+      28
+     ],
+     "text": "power"
+    },
+    "edited": {
+     "span": [
+      29,
+      38
+     ],
+     "text": "themsel's"
+    },
+    "result": "An' get the brutes the power zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' lissen'd to thy merry zong",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      26,
+      30
+     ],
+     "text": "zong"
+    },
+    "bound": {
+     "span": [
+      20,
+      25
+     ],
+     "text": "merry"
+    },
+    "edited": {
+     "span": [
+      26,
+      30
+     ],
+     "text": "zong"
+    },
+    "result": "An' lissen'd to thy merry zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' she has twa sparkling roguish een.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      34,
+      37
+     ],
+     "text": "een"
+    },
+    "bound": {
+     "span": [
+      16,
+      25
+     ],
+     "text": "sparkling"
+    },
+    "edited": {
+     "span": [
+      34,
+      37
+     ],
+     "text": "een"
+    },
+    "result": "An' she has twa sparkling roguish zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' the brown leaf had fa'n:",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      23,
+      27
+     ],
+     "text": "fa'n"
+    },
+    "bound": {
+     "span": [
+      19,
+      22
+     ],
+     "text": "had"
+    },
+    "edited": {
+     "span": [
+      23,
+      27
+     ],
+     "text": "fa'n"
+    },
+    "result": "An' the brown leaf had zqzq:"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' the cheäk-burnèn seasons o' mowèn,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      32,
+      37
+     ],
+     "text": "mowèn"
+    },
+    "bound": {
+     "span": [
+      29,
+      31
+     ],
+     "text": "o'"
+    },
+    "edited": {
+     "span": [
+      32,
+      37
+     ],
+     "text": "mowèn"
+    },
+    "result": "An' the cheäk-burnèn seasons o' zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' the vo'k wer a-gather'd woonce mwore,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      35,
+      40
+     ],
+     "text": "mwore"
+    },
+    "bound": {
+     "span": [
+      17,
+      27
+     ],
+     "text": "a-gather'd"
+    },
+    "edited": {
+     "span": [
+      35,
+      40
+     ],
+     "text": "mwore"
+    },
+    "result": "An' the vo'k wer a-gather'd woonce zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' twitt'rèn birds did hop in drough",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      31,
+      37
+     ],
+     "text": "drough"
+    },
+    "bound": {
+     "span": [
+      28,
+      30
+     ],
+     "text": "in"
+    },
+    "edited": {
+     "span": [
+      31,
+      37
+     ],
+     "text": "drough"
+    },
+    "result": "An' twitt'rèn birds did hop in zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' when vrom a meetèn o' me'th",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      26,
+      31
+     ],
+     "text": "me'th"
+    },
+    "bound": {
+     "span": [
+      23,
+      25
+     ],
+     "text": "o'"
+    },
+    "edited": {
+     "span": [
+      26,
+      31
+     ],
+     "text": "me'th"
+    },
+    "result": "An' when vrom a meetèn o' zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+    "slot": "end",
+    "occurrence": "resolver_mismatch",
+    "literal": "resolver_mismatch",
+    "named": {
+     "span": [
+      50,
+      54
+     ],
+     "text": "head"
+    },
+    "bound": null,
+    "edited": null,
+    "result": "An' your fact'ry gals (soon ez we split) 'll make zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And _France_ will banish _Perkenite_,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      26,
+      35
+     ],
+     "text": "Perkenite"
+    },
+    "bound": {
+     "span": [
+      18,
+      24
+     ],
+     "text": "banish"
+    },
+    "edited": {
+     "span": [
+      26,
+      35
+     ],
+     "text": "Perkenite"
+    },
+    "result": "And _France_ will banish _Zqzq_,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And a \"Ben Dieu garde M'sieu'!\"",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      22,
+      29
+     ],
+     "text": "M'sieu'"
+    },
+    "bound": {
+     "span": [
+      16,
+      21
+     ],
+     "text": "garde"
+    },
+    "edited": {
+     "span": [
+      22,
+      29
+     ],
+     "text": "M'sieu'"
+    },
+    "result": "And a \"Ben Dieu garde Zqzq!\""
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And a merry tale he hummeth",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      20,
+      27
+     ],
+     "text": "hummeth"
+    },
+    "bound": {
+     "span": [
+      17,
+      19
+     ],
+     "text": "he"
+    },
+    "edited": {
+     "span": [
+      20,
+      27
+     ],
+     "text": "hummeth"
+    },
+    "result": "And a merry tale he zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And beat'st thy gen'rous breast, that o're",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      38,
+      42
+     ],
+     "text": "o're"
+    },
+    "bound": {
+     "span": [
+      33,
+      37
+     ],
+     "text": "that"
+    },
+    "edited": {
+     "span": [
+      38,
+      42
+     ],
+     "text": "o're"
+    },
+    "result": "And beat'st thy gen'rous breast, that zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And deep be your meed",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      17,
+      21
+     ],
+     "text": "meed"
+    },
+    "bound": {
+     "span": [
+      12,
+      16
+     ],
+     "text": "your"
+    },
+    "edited": {
+     "span": [
+      17,
+      21
+     ],
+     "text": "meed"
+    },
+    "result": "And deep be your zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And does March over Rocks, let's huzza, huzza, huzza,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "huzza"
+    },
+    "bound": {
+     "span": [
+      27,
+      32
+     ],
+     "text": "let's"
+    },
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "huzza"
+    },
+    "result": "And does March over Rocks, let's huzza, huzza, zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And lang ere blaws the winter wun',",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      30,
+      34
+     ],
+     "text": "wun'"
+    },
+    "bound": {
+     "span": [
+      23,
+      29
+     ],
+     "text": "winter"
+    },
+    "edited": {
+     "span": [
+      30,
+      34
+     ],
+     "text": "wun'"
+    },
+    "result": "And lang ere blaws the winter zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And or I wad anither jad,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      21,
+      24
+     ],
+     "text": "jad"
+    },
+    "bound": {
+     "span": [
+      9,
+      12
+     ],
+     "text": "wad"
+    },
+    "edited": {
+     "span": [
+      21,
+      24
+     ],
+     "text": "jad"
+    },
+    "result": "And or I wad anither zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "And their hands could not wield an assagay,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "assagay"
+    },
+    "bound": {
+     "span": [
+      32,
+      34
+     ],
+     "text": "an"
+    },
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "assagay"
+    },
+    "result": "And their hands could not wield an zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "As closely twined wi' earliest thochts,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "thochts"
+    },
+    "bound": {
+     "span": [
+      22,
+      30
+     ],
+     "text": "earliest"
+    },
+    "edited": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "thochts"
+    },
+    "result": "As closely twined wi' earliest zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "As erst in life's young morning, around his Hieland hame.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      52,
+      56
+     ],
+     "text": "hame"
+    },
+    "bound": {
+     "span": [
+      40,
+      43
+     ],
+     "text": "his"
+    },
+    "edited": {
+     "span": [
+      52,
+      56
+     ],
+     "text": "hame"
+    },
+    "result": "As erst in life's young morning, around his Hieland zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "As one in long-lamented widowhood,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      24,
+      33
+     ],
+     "text": "widowhood"
+    },
+    "bound": {
+     "span": [
+      10,
+      23
+     ],
+     "text": "long-lamented"
+    },
+    "edited": {
+     "span": [
+      24,
+      33
+     ],
+     "text": "widowhood"
+    },
+    "result": "As one in long-lamented zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "As she used, in years agone,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      22,
+      27
+     ],
+     "text": "agone"
+    },
+    "bound": {
+     "span": [
+      16,
+      21
+     ],
+     "text": "years"
+    },
+    "edited": {
+     "span": [
+      22,
+      27
+     ],
+     "text": "agone"
+    },
+    "result": "As she used, in years zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "As thankless as the sea vor raïn,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      28,
+      32
+     ],
+     "text": "raïn"
+    },
+    "bound": {
+     "span": [
+      20,
+      23
+     ],
+     "text": "sea"
+    },
+    "edited": {
+     "span": [
+      28,
+      32
+     ],
+     "text": "raïn"
+    },
+    "result": "As thankless as the sea vor zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "As thou wast hymnèd on the shores of Baiæ?",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "Baiæ"
+    },
+    "bound": {
+     "span": [
+      34,
+      36
+     ],
+     "text": "of"
+    },
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "Baiæ"
+    },
+    "result": "As thou wast hymnèd on the shores of Zqzq?"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "As, in the music of a chaunt",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      22,
+      28
+     ],
+     "text": "chaunt"
+    },
+    "bound": {
+     "span": [
+      20,
+      21
+     ],
+     "text": "a"
+    },
+    "edited": {
+     "span": [
+      22,
+      28
+     ],
+     "text": "chaunt"
+    },
+    "result": "As, in the music of a zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Ask it o' yoursel'.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      10,
+      18
+     ],
+     "text": "yoursel'"
+    },
+    "bound": {
+     "span": [
+      7,
+      9
+     ],
+     "text": "o'"
+    },
+    "edited": {
+     "span": [
+      10,
+      18
+     ],
+     "text": "yoursel'"
+    },
+    "result": "Ask it o' zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Athirt the strings from high to low.",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Athirt"
+    },
+    "bound": {
+     "span": [
+      7,
+      10
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Athirt"
+    },
+    "result": "Zqzq the strings from high to low."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Athirt the strings from high to low.",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Athirt"
+    },
+    "bound": {
+     "span": [
+      7,
+      10
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Athirt"
+    },
+    "result": "Zqzq the strings from high to low."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Avore couldst work or stand,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "bound": {
+     "span": [
+      14,
+      18
+     ],
+     "text": "work"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "result": "Zqzq couldst work or stand,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Avore couldst work or stand,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "bound": {
+     "span": [
+      14,
+      18
+     ],
+     "text": "work"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "result": "Zqzq couldst work or stand,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Avore he got vur on;",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "bound": {
+     "span": [
+      6,
+      8
+     ],
+     "text": "he"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "result": "Zqzq he got vur on;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Avore he got vur on;",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "bound": {
+     "span": [
+      6,
+      8
+     ],
+     "text": "he"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "result": "Zqzq he got vur on;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Avore the night do dim our zight,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      27,
+      32
+     ],
+     "text": "zight"
+    },
+    "bound": {
+     "span": [
+      23,
+      26
+     ],
+     "text": "our"
+    },
+    "edited": {
+     "span": [
+      27,
+      32
+     ],
+     "text": "zight"
+    },
+    "result": "Avore the night do dim our zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Avore the night do dim our zight,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "bound": {
+     "span": [
+      6,
+      9
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "result": "Zqzq the night do dim our zight,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Avore the night do dim our zight,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "bound": {
+     "span": [
+      6,
+      9
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Avore"
+    },
+    "result": "Zqzq the night do dim our zight,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Aye, John, I have, John; an' I ben't afeärd",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      37,
+      43
+     ],
+     "text": "afeärd"
+    },
+    "bound": {
+     "span": [
+      29,
+      30
+     ],
+     "text": "I"
+    },
+    "edited": {
+     "span": [
+      37,
+      43
+     ],
+     "text": "afeärd"
+    },
+    "result": "Aye, John, I have, John; an' I ben't zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Bedim to-day thy flow'ry sh'oud,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      25,
+      31
+     ],
+     "text": "sh'oud"
+    },
+    "bound": {
+     "span": [
+      13,
+      16
+     ],
+     "text": "thy"
+    },
+    "edited": {
+     "span": [
+      25,
+      31
+     ],
+     "text": "sh'oud"
+    },
+    "result": "Bedim to-day thy flow'ry zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Bedim to-day thy flow'ry sh'oud,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Bedim"
+    },
+    "bound": {
+     "span": [
+      6,
+      12
+     ],
+     "text": "to-day"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Bedim"
+    },
+    "result": "Zqzq to-day thy flow'ry sh'oud,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Bedim to-day thy flow'ry sh'oud,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Bedim"
+    },
+    "bound": {
+     "span": [
+      6,
+      12
+     ],
+     "text": "to-day"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Bedim"
+    },
+    "result": "Zqzq to-day thy flow'ry sh'oud,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Beseechingly, and seem",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      12
+     ],
+     "text": "Beseechingly"
+    },
+    "bound": {
+     "span": [
+      14,
+      17
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      12
+     ],
+     "text": "Beseechingly"
+    },
+    "result": "Zqzq, and seem"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Beseechingly, and seem",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      12
+     ],
+     "text": "Beseechingly"
+    },
+    "bound": {
+     "span": [
+      14,
+      17
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      12
+     ],
+     "text": "Beseechingly"
+    },
+    "result": "Zqzq, and seem"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Bethink itself, and muse and brood?",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Bethink"
+    },
+    "bound": {
+     "span": [
+      8,
+      14
+     ],
+     "text": "itself"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Bethink"
+    },
+    "result": "Zqzq itself, and muse and brood?"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Bethink itself, and muse and brood?",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Bethink"
+    },
+    "bound": {
+     "span": [
+      8,
+      14
+     ],
+     "text": "itself"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Bethink"
+    },
+    "result": "Zqzq itself, and muse and brood?"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Blessèd of our fathers' God!\"",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Blessèd"
+    },
+    "bound": {
+     "span": [
+      8,
+      10
+     ],
+     "text": "of"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Blessèd"
+    },
+    "result": "Zqzq of our fathers' God!\""
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Blessèd of our fathers' God!\"",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Blessèd"
+    },
+    "bound": {
+     "span": [
+      8,
+      10
+     ],
+     "text": "of"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Blessèd"
+    },
+    "result": "Zqzq of our fathers' God!\""
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Both. For a' the joys that gowd can gie,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      36,
+      39
+     ],
+     "text": "gie"
+    },
+    "bound": {
+     "span": [
+      32,
+      35
+     ],
+     "text": "can"
+    },
+    "edited": {
+     "span": [
+      36,
+      39
+     ],
+     "text": "gie"
+    },
+    "result": "Both. For a' the joys that gowd can zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Bright rose the sun of Gettysburg that morrow morningtide,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      46,
+      57
+     ],
+     "text": "morningtide"
+    },
+    "bound": {
+     "span": [
+      39,
+      45
+     ],
+     "text": "morrow"
+    },
+    "edited": {
+     "span": [
+      46,
+      57
+     ],
+     "text": "morningtide"
+    },
+    "result": "Bright rose the sun of Gettysburg that morrow zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Brochin an' brogues an' a';",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Brochin"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "an'"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Brochin"
+    },
+    "result": "Zqzq an' brogues an' a';"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Brochin an' brogues an' a';",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Brochin"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "an'"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Brochin"
+    },
+    "result": "Zqzq an' brogues an' a';"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "But true men await me afar in Duhallow,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      30,
+      38
+     ],
+     "text": "Duhallow"
+    },
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "in"
+    },
+    "edited": {
+     "span": [
+      30,
+      38
+     ],
+     "text": "Duhallow"
+    },
+    "result": "But true men await me afar in Zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "But while she vell, my Meäker's greäce",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      32,
+      38
+     ],
+     "text": "greäce"
+    },
+    "bound": {
+     "span": [
+      20,
+      22
+     ],
+     "text": "my"
+    },
+    "edited": {
+     "span": [
+      32,
+      38
+     ],
+     "text": "greäce"
+    },
+    "result": "But while she vell, my Meäker's zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "By elem trees a-growèn roun'.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      23,
+      28
+     ],
+     "text": "roun'"
+    },
+    "bound": {
+     "span": [
+      14,
+      22
+     ],
+     "text": "a-growèn"
+    },
+    "edited": {
+     "span": [
+      23,
+      28
+     ],
+     "text": "roun'"
+    },
+    "result": "By elem trees a-growèn zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Calleth and cryeth in mortal dread--",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Calleth"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Calleth"
+    },
+    "result": "Zqzq and cryeth in mortal dread--"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Calleth and cryeth in mortal dread--",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Calleth"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Calleth"
+    },
+    "result": "Zqzq and cryeth in mortal dread--"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Can'st tell us where's the heäre? (4) He's got awoy.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      47,
+      51
+     ],
+     "text": "awoy"
+    },
+    "bound": {
+     "span": [
+      43,
+      46
+     ],
+     "text": "got"
+    },
+    "edited": {
+     "span": [
+      47,
+      51
+     ],
+     "text": "awoy"
+    },
+    "result": "Can'st tell us where's the heäre? (4) He's got zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Can'st tell us where's the heäre? (4) He's got awoy.",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Can'st"
+    },
+    "bound": {
+     "span": [
+      7,
+      11
+     ],
+     "text": "tell"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Can'st"
+    },
+    "result": "Zqzq tell us where's the heäre? (4) He's got awoy."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Can'st tell us where's the heäre? (4) He's got awoy.",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Can'st"
+    },
+    "bound": {
+     "span": [
+      7,
+      11
+     ],
+     "text": "tell"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Can'st"
+    },
+    "result": "Zqzq tell us where's the heäre? (4) He's got awoy."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Canopied with azure air,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Canopied"
+    },
+    "bound": {
+     "span": [
+      9,
+      13
+     ],
+     "text": "with"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Canopied"
+    },
+    "result": "Zqzq with azure air,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Canopied with azure air,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Canopied"
+    },
+    "bound": {
+     "span": [
+      9,
+      13
+     ],
+     "text": "with"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Canopied"
+    },
+    "result": "Zqzq with azure air,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Cat and the fiddlety,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      12,
+      20
+     ],
+     "text": "fiddlety"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      12,
+      20
+     ],
+     "text": "fiddlety"
+    },
+    "result": "Cat and the zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Clasping my neck round, an' clamb'rin' my knee;",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Clasping"
+    },
+    "bound": {
+     "span": [
+      9,
+      11
+     ],
+     "text": "my"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Clasping"
+    },
+    "result": "Zqzq my neck round, an' clamb'rin' my knee;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Clasping my neck round, an' clamb'rin' my knee;",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Clasping"
+    },
+    "bound": {
+     "span": [
+      9,
+      11
+     ],
+     "text": "my"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Clasping"
+    },
+    "result": "Zqzq my neck round, an' clamb'rin' my knee;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Come, let's stroll down so vur's the poun',",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "poun'"
+    },
+    "bound": {
+     "span": [
+      33,
+      36
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "poun'"
+    },
+    "result": "Come, let's stroll down so vur's the zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Content some day (a far-off day)",
+    "slot": "end",
+    "occurrence": "occ_wrong",
+    "literal": "wrong_word",
+    "named": {
+     "span": [
+      13,
+      16
+     ],
+     "text": "day"
+    },
+    "bound": {
+     "span": [
+      13,
+      16
+     ],
+     "text": "day"
+    },
+    "edited": {
+     "span": [
+      28,
+      31
+     ],
+     "text": "day"
+    },
+    "result": "Content some day (a far-off zqzq)"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Contented I lived in my canty auld biggin',",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "biggin'"
+    },
+    "bound": {
+     "span": [
+      30,
+      34
+     ],
+     "text": "auld"
+    },
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "biggin'"
+    },
+    "result": "Contented I lived in my canty auld zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Contentment and innocence mingle sae weel",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "weel"
+    },
+    "bound": {
+     "span": [
+      26,
+      32
+     ],
+     "text": "mingle"
+    },
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "weel"
+    },
+    "result": "Contentment and innocence mingle sae zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Couldst thou but call those spirits round,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Couldst"
+    },
+    "bound": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "thou"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Couldst"
+    },
+    "result": "Zqzq thou but call those spirits round,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Couldst thou but call those spirits round,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Couldst"
+    },
+    "bound": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "thou"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Couldst"
+    },
+    "result": "Zqzq thou but call those spirits round,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Couldst thou withdraw thy hand one day",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Couldst"
+    },
+    "bound": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "thou"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Couldst"
+    },
+    "result": "Zqzq thou withdraw thy hand one day"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Couldst thou withdraw thy hand one day",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Couldst"
+    },
+    "bound": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "thou"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Couldst"
+    },
+    "result": "Zqzq thou withdraw thy hand one day"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Curst were thy minions, their roster and scutcheon,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      41,
+      50
+     ],
+     "text": "scutcheon"
+    },
+    "bound": {
+     "span": [
+      37,
+      40
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      41,
+      50
+     ],
+     "text": "scutcheon"
+    },
+    "result": "Curst were thy minions, their roster and zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Curst were thy minions, their roster and scutcheon,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Curst"
+    },
+    "bound": {
+     "span": [
+      6,
+      10
+     ],
+     "text": "were"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Curst"
+    },
+    "result": "Zqzq were thy minions, their roster and scutcheon,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Curst were thy minions, their roster and scutcheon,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Curst"
+    },
+    "bound": {
+     "span": [
+      6,
+      10
+     ],
+     "text": "were"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Curst"
+    },
+    "result": "Zqzq were thy minions, their roster and scutcheon,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Dauntless and patient, to dare and to do--",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "Dauntless"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "Dauntless"
+    },
+    "result": "Zqzq and patient, to dare and to do--"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Dauntless and patient, to dare and to do--",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "Dauntless"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "Dauntless"
+    },
+    "result": "Zqzq and patient, to dare and to do--"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Do stan' so thick as sheep in vwold:",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      30,
+      35
+     ],
+     "text": "vwold"
+    },
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "in"
+    },
+    "edited": {
+     "span": [
+      30,
+      35
+     ],
+     "text": "vwold"
+    },
+    "result": "Do stan' so thick as sheep in zqzq:"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Dool and sorrow, dool and sorrow,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Dool"
+    },
+    "bound": {
+     "span": [
+      5,
+      8
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Dool"
+    },
+    "result": "Zqzq and sorrow, dool and sorrow,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Dool and sorrow, dool and sorrow,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Dool"
+    },
+    "bound": {
+     "span": [
+      5,
+      8
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Dool"
+    },
+    "result": "Zqzq and sorrow, dool and sorrow,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Down to the Bay o' Fundy,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      19,
+      24
+     ],
+     "text": "Fundy"
+    },
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "o'"
+    },
+    "edited": {
+     "span": [
+      19,
+      24
+     ],
+     "text": "Fundy"
+    },
+    "result": "Down to the Bay o' Zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Draws as Daylight fainteth;",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      18,
+      26
+     ],
+     "text": "fainteth"
+    },
+    "bound": {
+     "span": [
+      9,
+      17
+     ],
+     "text": "Daylight"
+    },
+    "edited": {
+     "span": [
+      18,
+      26
+     ],
+     "text": "fainteth"
+    },
+    "result": "Draws as Daylight zqzq;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "E'en the glens where we sat,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'en"
+    },
+    "bound": {
+     "span": [
+      5,
+      8
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'en"
+    },
+    "result": "Zqzq the glens where we sat,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "E'en the glens where we sat,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'en"
+    },
+    "bound": {
+     "span": [
+      5,
+      8
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'en"
+    },
+    "result": "Zqzq the glens where we sat,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "E'en tried the body.",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'en"
+    },
+    "bound": {
+     "span": [
+      5,
+      10
+     ],
+     "text": "tried"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'en"
+    },
+    "result": "Zqzq tried the body."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "E'en tried the body.",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'en"
+    },
+    "bound": {
+     "span": [
+      5,
+      10
+     ],
+     "text": "tried"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'en"
+    },
+    "result": "Zqzq tried the body."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "E'er any fickle Loon shall keep us in hold:",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'er"
+    },
+    "bound": {
+     "span": [
+      5,
+      8
+     ],
+     "text": "any"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'er"
+    },
+    "result": "Zqzq any fickle Loon shall keep us in hold:"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "E'er any fickle Loon shall keep us in hold:",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'er"
+    },
+    "bound": {
+     "span": [
+      5,
+      8
+     ],
+     "text": "any"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "E'er"
+    },
+    "result": "Zqzq any fickle Loon shall keep us in hold:"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Eileen Aroon!",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      7,
+      12
+     ],
+     "text": "Aroon"
+    },
+    "bound": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Eileen"
+    },
+    "edited": {
+     "span": [
+      7,
+      12
+     ],
+     "text": "Aroon"
+    },
+    "result": "Eileen Zqzq!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Enchantress of the souls of mortals!",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      11
+     ],
+     "text": "Enchantress"
+    },
+    "bound": {
+     "span": [
+      12,
+      14
+     ],
+     "text": "of"
+    },
+    "edited": {
+     "span": [
+      0,
+      11
+     ],
+     "text": "Enchantress"
+    },
+    "result": "Zqzq of the souls of mortals!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Enchantress of the souls of mortals!",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      11
+     ],
+     "text": "Enchantress"
+    },
+    "bound": {
+     "span": [
+      12,
+      14
+     ],
+     "text": "of"
+    },
+    "edited": {
+     "span": [
+      0,
+      11
+     ],
+     "text": "Enchantress"
+    },
+    "result": "Zqzq of the souls of mortals!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Exiret, magnum dextera fecit iter.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      29,
+      33
+     ],
+     "text": "iter"
+    },
+    "bound": {
+     "span": [
+      8,
+      14
+     ],
+     "text": "magnum"
+    },
+    "edited": {
+     "span": [
+      29,
+      33
+     ],
+     "text": "iter"
+    },
+    "result": "Exiret, magnum dextera fecit zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Exiret, magnum dextera fecit iter.",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Exiret"
+    },
+    "bound": {
+     "span": [
+      8,
+      14
+     ],
+     "text": "magnum"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Exiret"
+    },
+    "result": "Zqzq, magnum dextera fecit iter."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Exiret, magnum dextera fecit iter.",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Exiret"
+    },
+    "bound": {
+     "span": [
+      8,
+      14
+     ],
+     "text": "magnum"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Exiret"
+    },
+    "result": "Zqzq, magnum dextera fecit iter."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Fareweel, the braes o' Aberfoyle!",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      23,
+      32
+     ],
+     "text": "Aberfoyle"
+    },
+    "bound": {
+     "span": [
+      20,
+      22
+     ],
+     "text": "o'"
+    },
+    "edited": {
+     "span": [
+      23,
+      32
+     ],
+     "text": "Aberfoyle"
+    },
+    "result": "Fareweel, the braes o' Zqzq!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Fareweel, the braes o' Aberfoyle!",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Fareweel"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Fareweel"
+    },
+    "result": "Zqzq, the braes o' Aberfoyle!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Fareweel, the braes o' Aberfoyle!",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Fareweel"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Fareweel"
+    },
+    "result": "Zqzq, the braes o' Aberfoyle!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Flecked with the shade of bar and grate within my lonely cell;",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Flecked"
+    },
+    "bound": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "with"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Flecked"
+    },
+    "result": "Zqzq with the shade of bar and grate within my lonely cell;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Flecked with the shade of bar and grate within my lonely cell;",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Flecked"
+    },
+    "bound": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "with"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Flecked"
+    },
+    "result": "Zqzq with the shade of bar and grate within my lonely cell;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "For anything tougher than suet;",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      26,
+      30
+     ],
+     "text": "suet"
+    },
+    "bound": {
+     "span": [
+      21,
+      25
+     ],
+     "text": "than"
+    },
+    "edited": {
+     "span": [
+      26,
+      30
+     ],
+     "text": "suet"
+    },
+    "result": "For anything tougher than zqzq;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Fortunam moveat loco superbus.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      21,
+      29
+     ],
+     "text": "superbus"
+    },
+    "bound": {
+     "span": [
+      16,
+      20
+     ],
+     "text": "loco"
+    },
+    "edited": {
+     "span": [
+      21,
+      29
+     ],
+     "text": "superbus"
+    },
+    "result": "Fortunam moveat loco zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Fortunam moveat loco superbus.",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Fortunam"
+    },
+    "bound": {
+     "span": [
+      16,
+      20
+     ],
+     "text": "loco"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Fortunam"
+    },
+    "result": "Zqzq moveat loco superbus."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Fortunam moveat loco superbus.",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Fortunam"
+    },
+    "bound": {
+     "span": [
+      16,
+      20
+     ],
+     "text": "loco"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Fortunam"
+    },
+    "result": "Zqzq moveat loco superbus."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Frae God's ain priest the people's hearts",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Frae"
+    },
+    "bound": {
+     "span": [
+      5,
+      10
+     ],
+     "text": "God's"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Frae"
+    },
+    "result": "Zqzq God's ain priest the people's hearts"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Frae God's ain priest the people's hearts",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Frae"
+    },
+    "bound": {
+     "span": [
+      5,
+      10
+     ],
+     "text": "God's"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Frae"
+    },
+    "result": "Zqzq God's ain priest the people's hearts"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Frolicked and danced, and had their way,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "Frolicked"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "Frolicked"
+    },
+    "result": "Zqzq and danced, and had their way,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Frolicked and danced, and had their way,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "Frolicked"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "Frolicked"
+    },
+    "result": "Zqzq and danced, and had their way,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Furl it, fold it, it is best;",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Furl"
+    },
+    "bound": {
+     "span": [
+      5,
+      7
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Furl"
+    },
+    "result": "Zqzq it, fold it, it is best;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Furl it, fold it, it is best;",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Furl"
+    },
+    "bound": {
+     "span": [
+      5,
+      7
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "Furl"
+    },
+    "result": "Zqzq it, fold it, it is best;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Fy, let us a' to the wedding,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "Fy"
+    },
+    "bound": {
+     "span": [
+      4,
+      7
+     ],
+     "text": "let"
+    },
+    "edited": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "Fy"
+    },
+    "result": "Zqzq, let us a' to the wedding,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Fy, let us a' to the wedding,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "Fy"
+    },
+    "bound": {
+     "span": [
+      4,
+      7
+     ],
+     "text": "let"
+    },
+    "edited": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "Fy"
+    },
+    "result": "Zqzq, let us a' to the wedding,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Gars ony dress look weel.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      20,
+      24
+     ],
+     "text": "weel"
+    },
+    "bound": {
+     "span": [
+      15,
+      19
+     ],
+     "text": "look"
+    },
+    "edited": {
+     "span": [
+      20,
+      24
+     ],
+     "text": "weel"
+    },
+    "result": "Gars ony dress look zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Get without repining;",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      12,
+      20
+     ],
+     "text": "repining"
+    },
+    "bound": {
+     "span": [
+      4,
+      11
+     ],
+     "text": "without"
+    },
+    "edited": {
+     "span": [
+      12,
+      20
+     ],
+     "text": "repining"
+    },
+    "result": "Get without zqzq;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Girded well with her ocean crags,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Girded"
+    },
+    "bound": {
+     "span": [
+      7,
+      11
+     ],
+     "text": "well"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Girded"
+    },
+    "result": "Zqzq well with her ocean crags,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Girded well with her ocean crags,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Girded"
+    },
+    "bound": {
+     "span": [
+      7,
+      11
+     ],
+     "text": "well"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Girded"
+    },
+    "result": "Zqzq well with her ocean crags,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Haply, when from those eyes",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Haply"
+    },
+    "bound": {
+     "span": [
+      7,
+      11
+     ],
+     "text": "when"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Haply"
+    },
+    "result": "Zqzq, when from those eyes"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Haply, when from those eyes",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Haply"
+    },
+    "bound": {
+     "span": [
+      7,
+      11
+     ],
+     "text": "when"
+    },
+    "edited": {
+     "span": [
+      0,
+      5
+     ],
+     "text": "Haply"
+    },
+    "result": "Zqzq, when from those eyes"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "He lifted beams an' blocks o' stwone,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      30,
+      36
+     ],
+     "text": "stwone"
+    },
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "o'"
+    },
+    "edited": {
+     "span": [
+      30,
+      36
+     ],
+     "text": "stwone"
+    },
+    "result": "He lifted beams an' blocks o' zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Heedless; the trees upon the Common show",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Heedless"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Heedless"
+    },
+    "result": "Zqzq; the trees upon the Common show"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Heedless; the trees upon the Common show",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Heedless"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Heedless"
+    },
+    "result": "Zqzq; the trees upon the Common show"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Her, San Sisto names, and Her, Foligno,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "Foligno"
+    },
+    "bound": {
+     "span": [
+      26,
+      29
+     ],
+     "text": "Her"
+    },
+    "edited": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "Foligno"
+    },
+    "result": "Her, San Sisto names, and Her, Zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Herself i' th' silken sepulchre;",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      22,
+      31
+     ],
+     "text": "sepulchre"
+    },
+    "bound": {
+     "span": [
+      15,
+      21
+     ],
+     "text": "silken"
+    },
+    "edited": {
+     "span": [
+      22,
+      31
+     ],
+     "text": "sepulchre"
+    },
+    "result": "Herself i' th' silken zqzq;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "His Brains ne'er incumbred,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      17,
+      26
+     ],
+     "text": "incumbred"
+    },
+    "bound": {
+     "span": [
+      11,
+      16
+     ],
+     "text": "ne'er"
+    },
+    "edited": {
+     "span": [
+      17,
+      26
+     ],
+     "text": "incumbred"
+    },
+    "result": "His Brains ne'er zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "His gear may buy him kye and yowes,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      29,
+      34
+     ],
+     "text": "yowes"
+    },
+    "bound": {
+     "span": [
+      25,
+      28
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      29,
+      34
+     ],
+     "text": "yowes"
+    },
+    "result": "His gear may buy him kye and zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "I fancied first the womenkind;",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      20,
+      29
+     ],
+     "text": "womenkind"
+    },
+    "bound": {
+     "span": [
+      16,
+      19
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      20,
+      29
+     ],
+     "text": "womenkind"
+    },
+    "result": "I fancied first the zqzq;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "I faund that it tremblit tenderlie.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      25,
+      34
+     ],
+     "text": "tenderlie"
+    },
+    "bound": {
+     "span": [
+      13,
+      15
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      25,
+      34
+     ],
+     "text": "tenderlie"
+    },
+    "result": "I faund that it tremblit zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "I found in Connaught the just, redundance",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      31,
+      41
+     ],
+     "text": "redundance"
+    },
+    "bound": {
+     "span": [
+      25,
+      29
+     ],
+     "text": "just"
+    },
+    "edited": {
+     "span": [
+      31,
+      41
+     ],
+     "text": "redundance"
+    },
+    "result": "I found in Connaught the just, zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "I love you (love you)",
+    "slot": "end",
+    "occurrence": "occ_wrong",
+    "literal": "wrong_word",
+    "named": {
+     "span": [
+      7,
+      10
+     ],
+     "text": "you"
+    },
+    "bound": {
+     "span": [
+      7,
+      10
+     ],
+     "text": "you"
+    },
+    "edited": {
+     "span": [
+      17,
+      20
+     ],
+     "text": "you"
+    },
+    "result": "I love you (love zqzq)"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "I thought them something like yoursel'.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      30,
+      38
+     ],
+     "text": "yoursel'"
+    },
+    "bound": {
+     "span": [
+      25,
+      29
+     ],
+     "text": "like"
+    },
+    "edited": {
+     "span": [
+      30,
+      38
+     ],
+     "text": "yoursel'"
+    },
+    "result": "I thought them something like zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "In as many virtues dight",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      19,
+      24
+     ],
+     "text": "dight"
+    },
+    "bound": {
+     "span": [
+      11,
+      18
+     ],
+     "text": "virtues"
+    },
+    "edited": {
+     "span": [
+      19,
+      24
+     ],
+     "text": "dight"
+    },
+    "result": "In as many virtues zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "In grave _Diebus_",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      10,
+      16
+     ],
+     "text": "Diebus"
+    },
+    "bound": {
+     "span": [
+      3,
+      8
+     ],
+     "text": "grave"
+    },
+    "edited": {
+     "span": [
+      10,
+      16
+     ],
+     "text": "Diebus"
+    },
+    "result": "In grave _Zqzq_"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "In troth I needna swither,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "swither"
+    },
+    "bound": {
+     "span": [
+      9,
+      10
+     ],
+     "text": "I"
+    },
+    "edited": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "swither"
+    },
+    "result": "In troth I needna zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Invention flagged, the lute had got unstrung,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      36,
+      44
+     ],
+     "text": "unstrung"
+    },
+    "bound": {
+     "span": [
+      32,
+      35
+     ],
+     "text": "got"
+    },
+    "edited": {
+     "span": [
+      36,
+      44
+     ],
+     "text": "unstrung"
+    },
+    "result": "Invention flagged, the lute had got zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Is out with the kine,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      16,
+      20
+     ],
+     "text": "kine"
+    },
+    "bound": {
+     "span": [
+      12,
+      15
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      16,
+      20
+     ],
+     "text": "kine"
+    },
+    "result": "Is out with the zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Joyless and gray,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Joyless"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Joyless"
+    },
+    "result": "Zqzq and gray,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Joyless and gray,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Joyless"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Joyless"
+    },
+    "result": "Zqzq and gray,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Kingcup and daffodilly,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      12,
+      22
+     ],
+     "text": "daffodilly"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      12,
+      22
+     ],
+     "text": "daffodilly"
+    },
+    "result": "Kingcup and zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Kingcup and daffodilly,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Kingcup"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Kingcup"
+    },
+    "result": "Zqzq and daffodilly,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Kingcup and daffodilly,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Kingcup"
+    },
+    "bound": {
+     "span": [
+      8,
+      11
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      0,
+      7
+     ],
+     "text": "Kingcup"
+    },
+    "result": "Zqzq and daffodilly,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Making one divine concent",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "concent"
+    },
+    "bound": {
+     "span": [
+      11,
+      17
+     ],
+     "text": "divine"
+    },
+    "edited": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "concent"
+    },
+    "result": "Making one divine zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Muses, who know and rule all minstrelsy",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      29,
+      39
+     ],
+     "text": "minstrelsy"
+    },
+    "bound": {
+     "span": [
+      25,
+      28
+     ],
+     "text": "all"
+    },
+    "edited": {
+     "span": [
+      29,
+      39
+     ],
+     "text": "minstrelsy"
+    },
+    "result": "Muses, who know and rule all zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "My hertes wounde, whyl that hit is grene,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      35,
+      40
+     ],
+     "text": "grene"
+    },
+    "bound": {
+     "span": [
+      32,
+      34
+     ],
+     "text": "is"
+    },
+    "edited": {
+     "span": [
+      35,
+      40
+     ],
+     "text": "grene"
+    },
+    "result": "My hertes wounde, whyl that hit is zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Nae blade o' grass has been forgot",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Nae"
+    },
+    "bound": {
+     "span": [
+      4,
+      9
+     ],
+     "text": "blade"
+    },
+    "edited": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Nae"
+    },
+    "result": "Zqzq blade o' grass has been forgot"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Nae blade o' grass has been forgot",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Nae"
+    },
+    "bound": {
+     "span": [
+      4,
+      9
+     ],
+     "text": "blade"
+    },
+    "edited": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Nae"
+    },
+    "result": "Zqzq blade o' grass has been forgot"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Nerved by the thought alone--",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Nerved"
+    },
+    "bound": {
+     "span": [
+      7,
+      9
+     ],
+     "text": "by"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Nerved"
+    },
+    "result": "Zqzq by the thought alone--"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Nerved by the thought alone--",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Nerved"
+    },
+    "bound": {
+     "span": [
+      7,
+      9
+     ],
+     "text": "by"
+    },
+    "edited": {
+     "span": [
+      0,
+      6
+     ],
+     "text": "Nerved"
+    },
+    "result": "Zqzq by the thought alone--"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Noo bolted door can keep em out;",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Noo"
+    },
+    "bound": {
+     "span": [
+      4,
+      10
+     ],
+     "text": "bolted"
+    },
+    "edited": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Noo"
+    },
+    "result": "Zqzq bolted door can keep em out;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Noo bolted door can keep em out;",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Noo"
+    },
+    "bound": {
+     "span": [
+      4,
+      10
+     ],
+     "text": "bolted"
+    },
+    "edited": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Noo"
+    },
+    "result": "Zqzq bolted door can keep em out;"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Noo vrost can whiten in the sheäde,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      28,
+      34
+     ],
+     "text": "sheäde"
+    },
+    "bound": {
+     "span": [
+      24,
+      27
+     ],
+     "text": "the"
+    },
+    "edited": {
+     "span": [
+      28,
+      34
+     ],
+     "text": "sheäde"
+    },
+    "result": "Noo vrost can whiten in the zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Noo vrost can whiten in the sheäde,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Noo"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "can"
+    },
+    "edited": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Noo"
+    },
+    "result": "Zqzq vrost can whiten in the sheäde,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Noo vrost can whiten in the sheäde,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Noo"
+    },
+    "bound": {
+     "span": [
+      10,
+      13
+     ],
+     "text": "can"
+    },
+    "edited": {
+     "span": [
+      0,
+      3
+     ],
+     "text": "Noo"
+    },
+    "result": "Zqzq vrost can whiten in the sheäde,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Nor poverty the mind appal.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      21,
+      26
+     ],
+     "text": "appal"
+    },
+    "bound": {
+     "span": [
+      16,
+      20
+     ],
+     "text": "mind"
+    },
+    "edited": {
+     "span": [
+      21,
+      26
+     ],
+     "text": "appal"
+    },
+    "result": "Nor poverty the mind zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Nor was his suit deny'd.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      17,
+      23
+     ],
+     "text": "deny'd"
+    },
+    "bound": {
+     "span": [
+      12,
+      16
+     ],
+     "text": "suit"
+    },
+    "edited": {
+     "span": [
+      17,
+      23
+     ],
+     "text": "deny'd"
+    },
+    "result": "Nor was his suit zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Now smoking and frothing",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      16,
+      24
+     ],
+     "text": "frothing"
+    },
+    "bound": {
+     "span": [
+      12,
+      15
+     ],
+     "text": "and"
+    },
+    "edited": {
+     "span": [
+      16,
+      24
+     ],
+     "text": "frothing"
+    },
+    "result": "Now smoking and zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Now, Fanny, 'tis too bad, you teazèn maïd!",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "maïd"
+    },
+    "bound": {
+     "span": [
+      26,
+      29
+     ],
+     "text": "you"
+    },
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "maïd"
+    },
+    "result": "Now, Fanny, 'tis too bad, you teazèn zqzq!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "O city of the deep! from Sybil grots",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      31,
+      36
+     ],
+     "text": "grots"
+    },
+    "bound": {
+     "span": [
+      25,
+      30
+     ],
+     "text": "Sybil"
+    },
+    "edited": {
+     "span": [
+      31,
+      36
+     ],
+     "text": "grots"
+    },
+    "result": "O city of the deep! from Sybil zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "O' Knapton Hill. We'll ax en. (1) Here, my bwoy!",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      43,
+      47
+     ],
+     "text": "bwoy"
+    },
+    "bound": {
+     "span": [
+      40,
+      42
+     ],
+     "text": "my"
+    },
+    "edited": {
+     "span": [
+      43,
+      47
+     ],
+     "text": "bwoy"
+    },
+    "result": "O' Knapton Hill. We'll ax en. (1) Here, my zqzq!"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "O' Zunday evenèns, eärm in eärm,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      27,
+      31
+     ],
+     "text": "eärm"
+    },
+    "bound": {
+     "span": [
+      24,
+      26
+     ],
+     "text": "in"
+    },
+    "edited": {
+     "span": [
+      27,
+      31
+     ],
+     "text": "eärm"
+    },
+    "result": "O' Zunday evenèns, eärm in zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "O'er thy languor stooping,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "O'er"
+    },
+    "bound": {
+     "span": [
+      5,
+      8
+     ],
+     "text": "thy"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "O'er"
+    },
+    "result": "Zqzq thy languor stooping,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "O'er thy languor stooping,",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "O'er"
+    },
+    "bound": {
+     "span": [
+      5,
+      8
+     ],
+     "text": "thy"
+    },
+    "edited": {
+     "span": [
+      0,
+      4
+     ],
+     "text": "O'er"
+    },
+    "result": "Zqzq thy languor stooping,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Obscured with the false fires of his sceme,",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "sceme"
+    },
+    "bound": {
+     "span": [
+      33,
+      36
+     ],
+     "text": "his"
+    },
+    "edited": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "sceme"
+    },
+    "result": "Obscured with the false fires of his zqzq,"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Of how a dawn diviner",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      14,
+      21
+     ],
+     "text": "diviner"
+    },
+    "bound": {
+     "span": [
+      9,
+      13
+     ],
+     "text": "dawn"
+    },
+    "edited": {
+     "span": [
+      14,
+      21
+     ],
+     "text": "diviner"
+    },
+    "result": "Of how a dawn zqzq"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Oh! they hae nae winsome love like mine, in the wars o' Germanie.",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      56,
+      64
+     ],
+     "text": "Germanie"
+    },
+    "bound": {
+     "span": [
+      53,
+      55
+     ],
+     "text": "o'"
+    },
+    "edited": {
+     "span": [
+      56,
+      64
+     ],
+     "text": "Germanie"
+    },
+    "result": "Oh! they hae nae winsome love like mine, in the wars o' Zqzq."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Or the early milkmaid carolling?",
+    "slot": "endword",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      22,
+      31
+     ],
+     "text": "carolling"
+    },
+    "bound": {
+     "span": [
+      7,
+      12
+     ],
+     "text": "early"
+    },
+    "edited": {
+     "span": [
+      22,
+      31
+     ],
+     "text": "carolling"
+    },
+    "result": "Or the early milkmaid zqzq?"
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Ov other vo'k an' others' charity.",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "Ov"
+    },
+    "bound": {
+     "span": [
+      3,
+      8
+     ],
+     "text": "other"
+    },
+    "edited": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "Ov"
+    },
+    "result": "Zqzq other vo'k an' others' charity."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Ov other vo'k an' others' charity.",
+    "slot": "headrime",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "Ov"
+    },
+    "bound": {
+     "span": [
+      3,
+      8
+     ],
+     "text": "other"
+    },
+    "edited": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "Ov"
+    },
+    "result": "Zqzq other vo'k an' others' charity."
+   },
+   {
+    "mode": "v1:stripped",
+    "line": "Pillow'd on my Nora's heart,",
+    "slot": "head",
+    "occurrence": "occ_wrong",
+    "literal": "grader_elsewhere",
+    "named": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Pillow'd"
+    },
+    "bound": {
+     "span": [
+      9,
+      11
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      0,
+      8
+     ],
+     "text": "Pillow'd"
+    },
+    "result": "Zqzq on my Nora's heart,"
+   }
+  ]
+ },
+ "head_edit_unbound": {
+  "by_mode": {
+   "cur:stripped": {
+    "total": 191,
+    "hyphen": 3,
+    "numeral": 7,
+    "other": 181
+   },
+   "cur:sung": {
+    "total": 191,
+    "hyphen": 3,
+    "numeral": 7,
+    "other": 181
+   },
+   "v1:stripped": {
+    "total": 1099,
+    "hyphen": 38,
+    "other": 1061
+   },
+   "v1:sung": {
+    "total": 1099,
+    "hyphen": 38,
+    "other": 1061
+   }
+  },
+  "by_mode_slot_shape": {
+   "cur:stripped | end | hyphen": 3,
+   "cur:stripped | end | numeral": 7,
+   "cur:stripped | end | other": 181,
+   "cur:sung | end | hyphen": 3,
+   "cur:sung | end | numeral": 7,
+   "cur:sung | end | other": 181,
+   "v1:stripped | T1 | hyphen": 6,
+   "v1:stripped | T1 | other": 93,
+   "v1:stripped | T2 | hyphen": 4,
+   "v1:stripped | T2 | other": 166,
+   "v1:stripped | T3 | hyphen": 2,
+   "v1:stripped | T3 | other": 134,
+   "v1:stripped | T4 | hyphen": 4,
+   "v1:stripped | T4 | other": 141,
+   "v1:stripped | T5 | hyphen": 5,
+   "v1:stripped | T5 | other": 132,
+   "v1:stripped | T6 | hyphen": 3,
+   "v1:stripped | T6 | other": 92,
+   "v1:stripped | T7 | hyphen": 1,
+   "v1:stripped | T7 | other": 77,
+   "v1:stripped | T8 | other": 48,
+   "v1:stripped | end | hyphen": 5,
+   "v1:stripped | end | other": 174,
+   "v1:stripped | endword | hyphen": 1,
+   "v1:stripped | endword | other": 1,
+   "v1:stripped | head | hyphen": 1,
+   "v1:stripped | head | other": 1,
+   "v1:stripped | headrime | hyphen": 6,
+   "v1:stripped | headrime | other": 2,
+   "v1:sung | T1 | hyphen": 6,
+   "v1:sung | T1 | other": 93,
+   "v1:sung | T2 | hyphen": 4,
+   "v1:sung | T2 | other": 166,
+   "v1:sung | T3 | hyphen": 2,
+   "v1:sung | T3 | other": 134,
+   "v1:sung | T4 | hyphen": 4,
+   "v1:sung | T4 | other": 141,
+   "v1:sung | T5 | hyphen": 5,
+   "v1:sung | T5 | other": 132,
+   "v1:sung | T6 | hyphen": 3,
+   "v1:sung | T6 | other": 92,
+   "v1:sung | T7 | hyphen": 1,
+   "v1:sung | T7 | other": 77,
+   "v1:sung | T8 | other": 48,
+   "v1:sung | end | hyphen": 5,
+   "v1:sung | end | other": 174,
+   "v1:sung | endword | hyphen": 1,
+   "v1:sung | endword | other": 1,
+   "v1:sung | head | hyphen": 1,
+   "v1:sung | head | other": 1,
+   "v1:sung | headrime | hyphen": 6,
+   "v1:sung | headrime | other": 2
+  },
+  "top_words": {
+   "cur:stripped": [
+    [
+     "drough",
+     3
+    ],
+    [
+     "avore",
+     3
+    ],
+    [
+     "hame",
+     3
+    ],
+    [
+     "10",
+     2
+    ],
+    [
+     "wi'",
+     2
+    ],
+    [
+     "mwore",
+     2
+    ],
+    [
+     "zight",
+     2
+    ],
+    [
+     "weel",
+     2
+    ],
+    [
+     "M'sieu'",
+     2
+    ],
+    [
+     "yoursel'",
+     2
+    ],
+    [
+     "o'er",
+     2
+    ],
+    [
+     "Exmoor",
+     1
+    ],
+    [
+     "Quean",
+     1
+    ],
+    [
+     "Cuckolds",
+     1
+    ],
+    [
+     "upon't",
+     1
+    ],
+    [
+     "lwoad",
+     1
+    ],
+    [
+     "drow",
+     1
+    ],
+    [
+     "consaït",
+     1
+    ],
+    [
+     "vall",
+     1
+    ],
+    [
+     "spuddle",
+     1
+    ],
+    [
+     "heäre",
+     1
+    ],
+    [
+     "drong",
+     1
+    ],
+    [
+     "groun'",
+     1
+    ],
+    [
+     "tooes",
+     1
+    ],
+    [
+     "bwoy",
+     1
+    ]
+   ],
+   "cur:sung": [
+    [
+     "drough",
+     3
+    ],
+    [
+     "avore",
+     3
+    ],
+    [
+     "hame",
+     3
+    ],
+    [
+     "10",
+     2
+    ],
+    [
+     "wi'",
+     2
+    ],
+    [
+     "mwore",
+     2
+    ],
+    [
+     "zight",
+     2
+    ],
+    [
+     "weel",
+     2
+    ],
+    [
+     "M'sieu'",
+     2
+    ],
+    [
+     "yoursel'",
+     2
+    ],
+    [
+     "o'er",
+     2
+    ],
+    [
+     "Exmoor",
+     1
+    ],
+    [
+     "Quean",
+     1
+    ],
+    [
+     "Cuckolds",
+     1
+    ],
+    [
+     "upon't",
+     1
+    ],
+    [
+     "lwoad",
+     1
+    ],
+    [
+     "drow",
+     1
+    ],
+    [
+     "consaït",
+     1
+    ],
+    [
+     "vall",
+     1
+    ],
+    [
+     "spuddle",
+     1
+    ],
+    [
+     "heäre",
+     1
+    ],
+    [
+     "drong",
+     1
+    ],
+    [
+     "groun'",
+     1
+    ],
+    [
+     "tooes",
+     1
+    ],
+    [
+     "bwoy",
+     1
+    ]
+   ],
+   "v1:stripped": [
+    [
+     "wi'",
+     31
+    ],
+    [
+     "o'er",
+     22
+    ],
+    [
+     "vor",
+     11
+    ],
+    [
+     "avore",
+     7
+    ],
+    [
+     "nae",
+     7
+    ],
+    [
+     "Wi'",
+     7
+    ],
+    [
+     "wer",
+     6
+    ],
+    [
+     "mwore",
+     6
+    ],
+    [
+     "maun",
+     6
+    ],
+    [
+     "weel",
+     6
+    ],
+    [
+     "sae",
+     6
+    ],
+    [
+     "frae",
+     6
+    ],
+    [
+     "d'ye",
+     5
+    ],
+    [
+     "wull",
+     5
+    ],
+    [
+     "fleetness--",
+     5
+    ],
+    [
+     "thro'",
+     5
+    ],
+    [
+     "hame",
+     5
+    ],
+    [
+     "kye",
+     5
+    ],
+    [
+     "drough",
+     4
+    ],
+    [
+     "Vor",
+     4
+    ],
+    [
+     "hae",
+     4
+    ],
+    [
+     "ov",
+     4
+    ],
+    [
+     "M'sieu'",
+     4
+    ],
+    [
+     "Saviour",
+     4
+    ],
+    [
+     "evenèn",
+     4
+    ]
+   ],
+   "v1:sung": [
+    [
+     "wi'",
+     31
+    ],
+    [
+     "o'er",
+     22
+    ],
+    [
+     "vor",
+     11
+    ],
+    [
+     "avore",
+     7
+    ],
+    [
+     "nae",
+     7
+    ],
+    [
+     "Wi'",
+     7
+    ],
+    [
+     "wer",
+     6
+    ],
+    [
+     "mwore",
+     6
+    ],
+    [
+     "maun",
+     6
+    ],
+    [
+     "weel",
+     6
+    ],
+    [
+     "sae",
+     6
+    ],
+    [
+     "frae",
+     6
+    ],
+    [
+     "d'ye",
+     5
+    ],
+    [
+     "wull",
+     5
+    ],
+    [
+     "fleetness--",
+     5
+    ],
+    [
+     "thro'",
+     5
+    ],
+    [
+     "hame",
+     5
+    ],
+    [
+     "kye",
+     5
+    ],
+    [
+     "drough",
+     4
+    ],
+    [
+     "Vor",
+     4
+    ],
+    [
+     "hae",
+     4
+    ],
+    [
+     "ov",
+     4
+    ],
+    [
+     "M'sieu'",
+     4
+    ],
+    [
+     "Saviour",
+     4
+    ],
+    [
+     "evenèn",
+     4
+    ]
+   ]
+  }
+ }
+}

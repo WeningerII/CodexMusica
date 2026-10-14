@@ -1,0 +1,513 @@
+{
+ "workflow": "wf_b47992a7-c31",
+ "candidate": "67889851144dd2a7eefedd9960a868978fb7bfae",
+ "agents": [
+  {
+   "agent": "library-tests",
+   "result": {
+    "task": "BB8 independent acceptance, library-tests: Library test gaps on reader-batch commit-1 candidate 67889851 (wt-678), with main 8b1d2ad2 (wt-main) as control. (1) repo Library gates and mcp reader/library tests; (2) the fallback IndexedDB store 'codex-musica-library-analysis-v1' with lib.device absent: legacy migration, unchanged control, v9 blocked; (3) the Library -> Lyrics whole-reading handoff when a choice is BLOCKED.",
+    "verdict": "MIXED",
+    "checks": [
+     {
+      "id": "C1",
+      "claim": "node scripts/check_library_regression.js passes on the candidate, and its output matches main",
+      "expected": "exit 0 on both trees, no missing, demoted or revised units",
+      "observed": "Candidate exit 0, 'PASS — every baseline unit is accounted for'. Baseline 5226b4fb: 20865 unchanged, 11355 unchanged-non-readable, 4660 added. Baseline 317c5afa: 25525 unchanged, 11355 unchanged-non-readable. 0 missing, demoted or revised. Main's output is byte-identical (diff empty). Caveat: this was the default --committed mode, which reconciles the committed baselines against each other. The candidate build's own manifest (--current) needs a catalog snapshot that is not available here.",
+      "status": "pass",
+      "independent": false,
+      "evidence": "$O/regression_wt-678.log, $O/regression_wt-main.log (O=<scratch>/h678/library-tests)"
+     },
+     {
+      "id": "C2",
+      "claim": "The FULL node scripts/check_library_page.js (all sections, no --only) passes on the candidate",
+      "expected": "PASS on both trees, with no candidate-only failure",
+      "observed": "Candidate: PASS 270/270, twice (exit 0, about 46 s). The 48 extra checks are the new 'declarations' section (12 checks x 4 theme/width combos), all ok. Main: run 1 FAIL 221/222 ('[light 390] collection page renders — 0 rows', in the explore section, which the candidate does not change); run 2 PASS 222/222. That is a main-only flake, and the candidate passed it both times. Method: the script's own build under TMPDIR=<scratch> crashed Chromium at launch (SIGTRAP). So I built exactly as its build() does (CODEX_LIBRARY=1 node scripts/build_html.js --out=... --quiet) into scratch and ran the full check with --built=<dir>.",
+      "status": "pass",
+      "independent": false,
+      "evidence": "page_wt-678.log, page_wt-678.run2.log, page_wt-main.log, page_wt-main.run2.log, page_wt-678.tmpdir-crash.log, build-wt-678/, build-wt-main/"
+     },
+     {
+      "id": "C3",
+      "claim": "The task's exact command 'node --test mcp/test_reader_job_store.mjs mcp/test_reader_integration.mjs' passes",
+      "expected": "all tests pass on both trees",
+      "observed": "Both trees: 25 tests, 24 pass, 0 fail, 1 skipped, exit 0. All 24 job_store tests pass. test_reader_integration SKIPS itself on both trees: its condition needs lyric-harness/library/snapshot/manifest.json, which does not exist, plus cmudict. Building that snapshot is a full catalog build from the pinned corpus (32,220 units), which the CPU and disk limits rule out.",
+      "status": "pass",
+      "independent": false,
+      "evidence": "mcp_exact_wt-678.log, mcp_exact_wt-main.log, mcp_*_test_reader_integration.log; mcp/test_reader_integration.mjs:15-23"
+     },
+     {
+      "id": "C3b",
+      "claim": "test_reader_integration actually exercises interruption and resume against the real catalog",
+      "expected": "run, not skipped",
+      "observed": "Skipped on both trees (no catalog snapshot).",
+      "status": "not_run",
+      "independent": false,
+      "evidence": "mcp_wt-678_test_reader_integration.log: 'ok 1 ... # SKIP'"
+     },
+     {
+      "id": "C4",
+      "claim": "The other mcp/test_reader_*.mjs and mcp/test_library_*.mjs files pass on the candidate with no candidate-only failure",
+      "expected": "pass counts equal to main or higher, 0 fail",
+      "observed": "Candidate / main pass counts: reader_job_store 24/24 and 24/24; reader_client 11/11 and 10/10 (the candidate adds one test: a job queued across the word cut is refused STALE_READING, never run and never rewritten); reader_store_bounds 29/29 on both; library_search 24/24 on both; library_viewer_routes 25/25 on both; library_exports 12/12 on both; library_corpus 14/14 on both; library_fixtures 1/1 on both. Main's first pass failed 7 of 9 files with ERR_MODULE_NOT_FOUND 'express' because wt-main had no mcp/node_modules (an environment gap). I added an untracked symlink matching wt-678's, reran, and then removed it.",
+      "status": "pass",
+      "independent": false,
+      "evidence": "mcp_wt-678_*.log, mcp_wt-main_*.log, mcp_wt-main_*.nomodules.log"
+     },
+     {
+      "id": "C4b",
+      "claim": "mcp/test_library_search_parity.mjs and test_library_exports_parity.mjs pass",
+      "expected": "run",
+      "observed": "Not run. Both take a directory argument, the library-site export built in .github/workflows/library-site.yml from a full catalog snapshot plus a pnpm site build, and that is not available here.",
+      "status": "not_run",
+      "independent": false,
+      "evidence": "mcp/test_library_search_parity.mjs:23-26; .github/workflows/library-site.yml:242,248"
+     },
+     {
+      "id": "C5",
+      "claim": "The extra Library script tests pass (scripts/test_library_*.js, test_lyric_tokens.js)",
+      "expected": "0 fail",
+      "observed": "Candidate / main: test_library_declarations 8/8 and absent (new file); test_lyric_tokens 5/5 and absent (new file); test_library_import 15/15 on both; test_library_chunk_generations 6/6 on both; test_library_import_browser 1/1 on both. Its first pass failed on BOTH trees because Playwright's default headless shell 1223 is not installed (environment); it passes with CHROMIUM_EXECUTABLE_PATH=/opt/pw-browsers/chromium, the variable the test itself reads.",
+      "status": "pass",
+      "independent": false,
+      "evidence": "scripts_wt-678_*.log, scripts_wt-main_*.log, scripts_*_test_library_import_browser.nobrowser.log"
+     },
+     {
+      "id": "C6",
+      "claim": "With lib.device absent, the real inspector migrates an UNMARKED legacy record for 'Oh--oh, oh my love' token 2 'oh' in the fallback store 'codex-musica-library-analysis-v1' to token 3, on chars 8-10, with a notice",
+      "expected": "token 3, chars 8-10, a notice, the record marked v2 with the original kept, the same result as the lib.device path, and the control row unchanged",
+      "observed": "Candidate, my Playwright script against the real built reader and analysis chunk. core.lib.device existed and I deleted it before the reader mounted (verified present, then absent). Nothing was written to codex-musica-library-v1, so the fallback store was used. Stored record after load: pronunciations[0].token 3 'oh', token_cut 'v2', renumbered [{word:'oh',from:2,to:3}], legacy_declarations equal to the seed. Geometry from the page's CMLyricTokens: v1 token 2 'oh' covers [[8,10]], v2 token 3 'oh' covers [[8,10]], line.slice(8,10)=='oh'. Harness cross-check: wt-base line_tokens = [Oh--oh, oh, my, love]; wt-678 line_tokens = [Oh, oh, oh, my, love], and _v1_token_spans gives 'oh' [[8,10]]. Status notice [data-cut=renumbered] and toast: '... “oh” token 2 → 3.' The control row ('my love is true' token 2) is byte-identical. The stored record and the notice text are identical to the same seed sent through the lib.device path in a fresh context. After a reload: no second migration (record byte-identical) and the notice is still shown. Analyze then POSTs token 3 plus the unchanged control row. Main control: no migration, no notice, and it POSTs token 2.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "fallback_idb.js; fallback_wt-678.json/.log (CHECKS all true); fallback_wt-main.json/.log; tok_xcheck.py, tok_xcheck.out"
+     },
+     {
+      "id": "C6b",
+      "claim": "An unchanged control record (already token_cut v2, a second reading) stays byte-identical in the fallback store",
+      "expected": "byte-identical across loads, and when its own reading is opened",
+      "observed": "JSON of the EPI_B record was identical after load 1, after load 2 and after opening EPI_B itself, with no notice. Same on main.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "fallback_wt-678.json checks.control_record_B_byte_identical, control_B_no_notice"
+     },
+     {
+      "id": "C7",
+      "claim": "A record marked with the unknown cut 'v9' is blocked in the fallback store, sends nothing and is not rewritten",
+      "expected": "undecided shown naming v9 and the accepted v2; no POST /analyses; record unchanged",
+      "observed": "Candidate: [data-cut=undecided] reads '“oh” · token 2 · Oh--oh, oh my love: its record names the word cut “v9”; this page accepts only “v2”'. Clicking Analyze sent no POST /analyses (both the stub log and my own request capture are empty) and showed 'Nothing was sent...'. The stored record is byte-identical before and after. Main control: v9 is ignored and Analyze POSTs token 2.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "fallback_wt-678.json step 'v9' and checks.v9_*; fallback_wt-main.json"
+     },
+     {
+      "id": "C8",
+      "claim": "When a choice is BLOCKED, the Library -> Lyrics whole-reading handoff never carries it into Lyrics under a stale number",
+      "expected": "only current-cut rows reach Lyrics",
+      "observed": "Candidate, real 'Open in Lyrics' button with lib.device present. Unmarked record [oh t2 (rebinds), '--and' t2 on 'ways:--and the road' (blocked)]: the envelope, Lyrics app.lyricMeta.libraryOrigin.declarations, the codex-musica-library-drafts record and the 'Export source details' download all hold exactly [oh:3]. A 'v9' record gives pronunciations [] everywhere. The Library keeps the originals in its own device record (undecided[] plus legacy_declarations; the v9 record is untouched). Main control carries [oh:2, --and:2] and [oh:2]: v1 numbers with no mark. The same results held with the click made immediately and with the inspector collapsed.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "lyrics_handoff.js; handoff_wt-678.json/.log; handoff_wt-main.json/.log"
+     },
+     {
+      "id": "C8b",
+      "claim": "The omission of a blocked choice is visible somewhere in Lyrics (source history, notice)",
+      "expected": "some trace in Lyrics that N saved choices were left out",
+      "observed": "None. After the handoff the only Lyrics toast is 'Library working copy imported. Your previous draft is under History.' The Lyrics surface text (about 20 KB), the History panel (Library source card: title, 'Complete reading', eligibility, Export source details), libraryOrigin, the drafts IndexedDB record and the exported source-details JSON hold no mention of a decision, an undecided or omitted choice, '--and', token_cut or legacy rows. For a v9 record Lyrics receives an empty pronunciations list that looks like 'no choices'. The only signal is on the Library side before the click: the inspector alert, plus a load toast for unmarked records only ('needs your decision before a new analysis'; that wording covers analysis, not handoff). 'Open in Lyrics' itself neither warns nor refuses. No doc promises visibility: mcp/LYRICS_RUNTIME.md says handoff choices are 'source history only: kept verbatim' and does not say that set-aside choices are not carried.",
+      "status": "fail",
+      "independent": true,
+      "evidence": "handoff_wt-678.json scenarios.blocked_row and .v9: toasts_after_handoff, lyrics.surface_text, history_text, export_source_details, omission_mentioned_in_lyrics all false; src/library/reader.js declarationsFor/buildEnvelope; src/library/analysis.js savedInterpretation (source read)"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "The Library -> Lyrics handoff drops blocked (undecided) pronunciation choices without leaving any trace in Lyrics. For a 'v9'-marked record the whole set arrives as pronunciations: []. Lyrics' later 'Download' working copy re-sends origin.declarations (src/library-import.js makeWorkingCopyEnvelope; source read, not executed), so a round trip back keeps only the reduced set. The originals survive only in the Library device record. This is not a regression against main (main carries the stale v1 numbers instead), but it is an invisible loss in Lyrics.",
+      "severity": "minor",
+      "evidence": "handoff_wt-678.json blocked_row/v9; src/library/reader.js:1163-1167 (ana.declarations), src/library/analysis.js:698-755; src/pages/lyrics.js:4931"
+     },
+     {
+      "summary": "Main-only flake in check_library_page: '[light 390] collection page renders — 0 rows' failed once on main and passed on rerun. The candidate passed 270/270 twice. Not a candidate defect.",
+      "severity": "note",
+      "evidence": "page_wt-main.log vs page_wt-main.run2.log"
+     },
+     {
+      "summary": "Environment notes. (a) check_library_page with TMPDIR set to the long scratch path: Chromium exits SIGTRAP at launch. Hypothesis, not verified: the profile or socket path length. Worked around with --built. (b) test_library_import_browser needs CHROMIUM_EXECUTABLE_PATH here on both trees. (c) wt-main had no mcp/node_modules. (d) After both trees' test runs, 66 chunk-gen-* temp dirs were left in TMPDIR; not attributed to a tree; deleted.",
+      "severity": "note",
+      "evidence": "page_wt-678.tmpdir-crash.log; scripts_*_test_library_import_browser.nobrowser.log; mcp_wt-main_*.nomodules.log; COMMANDS.txt"
+     },
+     {
+      "summary": "Test method caveat for task 2: the shipped core always provides lib.device. The fallback store was reached by deleting core.lib.device at runtime before the reader mounted, so this path runs only when core lacks device.",
+      "severity": "note",
+      "evidence": "fallback_idb.js openNoDevice(); src/library/core.js:262 (device in lib)"
+     },
+     {
+      "summary": "Race probes were negative on both trees: clicking 'Open in Lyrics' as soon as it appears, or with the inspector collapsed through its remembered setting, still carried the saved declarations. A loss of declarations from the handoff before loadInterpretation resolves was not reproduced at this timing.",
+      "severity": "note",
+      "evidence": "handoff_wt-*.json scenarios valid_v2_immediate, valid_v2_inspector_closed, blocked_row_inspector_closed"
+     }
+    ],
+    "not_covered": [
+     "test_reader_integration: skipped on both trees (no lyric-harness/library/snapshot; a full pinned-corpus catalog build is out of the CPU and disk budget)",
+     "test_library_search_parity / test_library_exports_parity: need library-site build output directories",
+     "check_library_regression --current against a manifest of the candidate build (needs a catalog snapshot); only the default committed mode was run",
+     "STALE_READING refusal of jobs queued before the cut: covered only by the author's new test_reader_client test (11/11), with no independent probe",
+     "My Playwright scenarios ran at light/1280 only (no dark or 390 width)",
+     "Lyrics 'Download' working-copy round trip (makeWorkingCopyEnvelope): source read only",
+     "Real legacy device data: the line 'Oh--oh, oh my love' is synthetic, saved against Epithalamion (none of EPI_A's 232 head-page lyric lines changes word count between v1 and v2)",
+     "test_reader.py, record.py and slot_binding.py were not run, as instructed"
+    ],
+    "artifacts_dir": "<scratch>/h678/library-tests"
+   }
+  },
+  {
+   "agent": "legacy-replay-exec",
+   "result": {
+    "task": "BB8 legacy-replay-exec: execute the five legacy-replay properties of R2's reader-batch commit-1 candidate (67889851) against the pre-batch harness (wt-base fce4bf0f), with my own fixtures (all pre-batch states were made with the BASE tree's own verbs), CLI verbs only, venv311 Python, LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data.",
+    "verdict": "PASS",
+    "checks": [
+     {
+      "id": "1a",
+      "claim": "tryline --propose=defer: on an UNMARKED pre-batch state with explicit --reader-scheme=v2 refuses",
+      "expected": "exit 2, READER_SCHEME_MISMATCH naming v1, state file untouched",
+      "observed": "rc=2: 'REFUSED — READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.' No VERDICT is printed. The state sha256 is unchanged. `finish` (the resuming verb) on the same state with the same flag refuses with identical words (rc=2, state unchanged).",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. State made by base `finish d12.txt --seed=23 --lines=12 --propose=defer:` (rc 4; no reader_scheme field). Outputs: out/t1a_cand_tryline_unmarked_flagv2.out and out/t1a_cand_finish_unmarked_flagv2.out. Fixture: fx/t1_unmarked_state.json. All paths are under <scratch>/h678/legacy-replay-exec/"
+     },
+     {
+      "id": "1b",
+      "claim": "tryline on a v2 state with explicit --reader-scheme=v1 refuses",
+      "expected": "exit 2 READER_SCHEME_MISMATCH; with no flag or with an explicit v2 it is answered under v2",
+      "observed": "--reader-scheme=v1: rc=2, 'READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v2, and this call declares v1. Resume it under --reader-scheme=v2 (or with no --reader-scheme), or start a new run.' No flag gives rc=0 ACCEPTED with reader_scheme v2. Explicit v2 gives the same. State bytes are unchanged.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. v2 state made by candidate `finish` (fx/t1_v2_state.json, reader_scheme v2 at top level and in answered). Outputs: out/t1b_cand_tryline_v2state_{flagv1,noflag,flagv2}.out"
+     },
+     {
+      "id": "1c",
+      "claim": "tryline on a state recording an unknown scheme refuses",
+      "expected": "exit 2 naming the unknown value and the accepted set, with or without a flag",
+      "observed": "reader_scheme 'v9' with no flag, --reader-scheme=v1 and --reader-scheme=v2: each rc=2, 'recorded reader scheme 'v9' is not one this build reads (v1, v2)'. '' and 'V2' are refused the same way. Exception: \"reader_scheme\": null is NOT refused. It is answered as v2 (rc=0); see unexpected findings.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. out/t1c_cand_tryline_v9state_flag{none,v1,v2}.out, t1c_cand_tryline_{empty,upper,null}state_noflag.out; state files hash-checked unchanged (t1v2/others.sha)"
+     },
+     {
+      "id": "1d",
+      "claim": "With no flag, tryline inherits the state's recorded scheme (unmarked -> v1)",
+      "expected": "Unmarked state + no flag reads v1 and the answer equals what base's own tryline prints",
+      "observed": "rc=3, REJECTED, reader_scheme v1. The output is byte-identical to base's tryline on the same state once the random /tmp/finish_bp_* blueprint path is normalised, except one added key \"reader_scheme\":\"v1\" in the lyric result. An explicit --reader-scheme=v1 output is identical to the no-flag output. Sensitivity check: the same state hand-marked v2 gives rc=0 ACCEPTED (fixed 2, 0 new flags), not REJECTED, so the inherited scheme really changes the reading. Base tryline also writes the draft's .briefed.json ledger; that behaviour predates the batch.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. out/t1d_base_tryline_unmarked.out vs out/t1d_cand_tryline_unmarked_{noflag,flagv1}.out (normalised copies are in t1/*.norm); out/t1d_sens_cand_tryline_unmarked_handmarkedv2.out; out/t1_ledger_probe_base_tryline.out"
+     },
+     {
+      "id": "2a",
+      "claim": "A v2 call: checkpoint's answered block replays under v2 and refuses an explicit v1",
+      "expected": "Replay with no flag reads v2, matches the run; --reader-scheme=v1 is refused",
+      "observed": "My own stub writer (fx/bb8writer.py) and draft (fx/t2_d2.txt, numeral end 'half past 10'). The candidate `revise d2.txt AA --propose=call:bb8writer:factory` with LYRIC_CHECKPOINT_PATH writes a checkpoint with reader_scheme v2 and answered.reader_scheme v2. The extracted answered block replays with rc=0 and reader_scheme v2, giving the same final draft as the call run. No flag and --reader-scheme=v2 produce byte-identical stdout. --reader-scheme=v1 gives rc=2: 'READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v2, and this call declares v1. Replay it under --reader-scheme=v2 (or with no --reader-scheme).'",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. fx/ck_v2.json, fx/rp_v2.json; out/t2_cand_call_fresh_v2.out, out/t2_cand_replay_v2file_{noflag,flagv2,flagv1}.out"
+     },
+     {
+      "id": "2b",
+      "claim": "A PRE-BATCH (base-made) call checkpoint's answered block replays as v1",
+      "expected": "No flag reads v1 and equals base's own replay of the same file; an explicit v2 refuses",
+      "observed": "Base call run -> fx/ck_base.json (no reader_scheme); its answered block -> fx/rp_v1.json. On the candidate with no flag: rc=3, v1. After deleting the single substring '\"reader_scheme\":\"v1\",' the stdout is byte-identical (cmp) to base's own replay of the file. --reader-scheme=v1 gives the same result. --reader-scheme=v2 gives rc=2 READER_SCHEME_MISMATCH naming --reader-scheme=v1. Also: the base checkpoint resumed through call: on the candidate writes checkpoint bytes identical to what base writes, and the stdout differs only by the reader_scheme key. --reader-scheme=v2 on it is refused rc=2 and the checkpoint is untouched. A fresh candidate call checkpoint under --reader-scheme=v1 has no reader_scheme key and equals base's fresh checkpoint apart from the random journal_id and the outcome_ids derived from it.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. out/t2_base_replay_v1file.out vs out/t2_cand_replay_v1file_{noflag,flagv1,flagv2}.out; out/t2_base_call_resume_basecheckpoint.out vs out/t2_cand_call_resume_basecheckpoint_{noflag,flagv2}.out; t2/ck_resume_after_{base,cand}.json (cmp equal); t2/ck_cand_v1.json"
+     },
+     {
+      "id": "3",
+      "claim": "A pre-batch deferred state resumed on the candidate leaves rows and fingerprint/digest/run_key unchanged versus base resuming the same state; every difference is explained",
+      "expected": "Only differences that follow from the batch or from rules that predate it",
+      "observed": "Three base-made states (suspended+answered, deadline-stopped, suspended-unanswered), each resumed on base and on the candidate with byte comparison. (1) The written state differs in exactly two paths in every resumed case: the added reader_scheme 'v1', and cursor.scorer (7f458a3b… on base, cc3678e7… on the candidate). Equal: input_draft, accepted_lines, outcomes, group_outcomes, dispositions, answered rows with their draft fingerprints, complete.{draft,final}, cursor.digest (800dad0e…/5c213eda…), cursor.run_key (3c9728f3…, the same on both trees, so the v1 run key is the pre-batch key), and k1/k2. answered carries no reader_scheme. The draft ledger (.briefed.json) is byte-equal. (2) In stdout, base trusts its own cursor (cursor_resumed true) and the candidate replays from round 1 (cursor_resumed false, cursor_stripped 'run_key'). That yields a different number of mid-run 'lyric checkpoint' lines (3 vs 6 in the answered case), the first checkpoint's status/round ('resumed' 1 vs 'started' 0), and memo counters. Cause, isolated: the scorer-identity gate (_scorer_identity hashes the harness source, so it changes with any source edit; the code exists identically in base). Against base resuming the same state with its cursor removed, the only differences are reader_scheme, cursor.scorer, cursor_stripped ('missing' vs 'run_key'), and the first checkpoint echoing the input cursor. Diagnostic: with cursor.scorer set to the candidate's identity, the candidate resumes from the cursor and its output equals base's identical-file resume except reader_scheme and scorer. (3) An unanswered pending question writes nothing on either tree: written state is byte-identical to the input, and stdout differs only by the reader_scheme key.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. Fixtures fx/t3_{suspended,stopped,suspended_answered,*_nocursor,suspended_answered_candscorer}.json; structural diffs t3/cmp_*.txt (made with my cmp.py); outputs out/t3{A,B,C,D}_*.out; written states t3/res/*.state.json"
+     },
+     {
+      "id": "4",
+      "claim": "A pre-batch --voices run resumed on the candidate: tier-2/pivot behaviour (group briefs, default_propose_group) matches base exactly",
+      "expected": "Same tier-2 question (prompt, record, question hash), same replay of the recorded group answer, same stub splices",
+      "observed": "Draft 'I left my heart beside the door (the rain)' / shore / pain / anymore, `--voices revise --groups=1,2;1.T7,3 --attempts=1 --propose=defer:`. I walked base to a propose_group question. Resuming the tier-1-answered state on the candidate (no flag, and with --reader-scheme=v1) regenerates exactly base's tier-2 question: pending prompt, record and question_sha256 0404578c… are all equal. That prompt contains the pre-batch quirk 'Besides group A [1, 2], L1 must also answer: pain'. A hand-marked v2 copy asks a different question (hash 340ac2aa…, no such line, different option list), so the fixture discriminates. Resuming the group-answered state: the candidate replays the recorded group answer (replayed_answers 1, stale_answers 0) and reaches the same outcome and next question. Written state equals base's cursor-less replay apart from reader_scheme and scorer. The ledger is equal. An end-slot variant (--groups=1,2;1,3) gives the same results. default_propose_group is not reachable from the CLI (source read: stub returns (None, None), defer supplies its own group proposer), so I exercised it at the API level. revise_loop with the stub declared and a --voices lexicon: the GroupBrief objects, the stub's output and the LoopResult are equal for base and candidate v1, and differ for v2. A duck-typed splice sweep (9 lines x 11 places, 99 cases): candidate v1 equals base on all 99, called as revise_loop's partial calls it and also with strip_parens=False. v2 differs on 52.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. fx/t4b_*; t4b/res/*.state.json; out/t4bA_*, t4bB_*, t4bS_*; t4/ (end-slot variant); t4d/drive_pg.py with pg_{base,v1,v2}.json; t4d/stub_splice.py with splice_{base,v1,v2}.json"
+     },
+     {
+      "id": "5",
+      "claim": "Policy 5: a resumed v1 run resolves named places (endword, head, headrime, line) and T<k> under v1",
+      "expected": "Candidate v1 resume and grade equal base's; v2 differs on cut-changed lines",
+      "observed": "Draft lines 'Oh--oh, oh my love', 'Up--i--de--i--de--i--di,', 'I gave it all my heart.    10', and others; groups 1.T4,4; 2.endword,5.endword; 3.endword,6.endword; 1.head,6.head; 2.headrime,4.headrime; 3.line,5.line. Grade (brief): candidate --reader-scheme=v1 equals base apart from the reader_scheme key. Bindings under v1: T4 'love'; endword L2 'Up--i--de--i--de--i--di', L3 'heart'; head 'Oh--oh'; headrime L2 the whole dash token; line L3 judged and VIOLATED. Under v2 the bindings are 'my', 'di', 'Oh', 'Up', and line is UNJUDGED. Base-made deferred state, answered then resumed: the candidate (no flag, and v1) gives the same pending tier-2 question, accepted_lines and outcomes as base (both base resumes). The written state differs only in reader_scheme and scorer against base's cursor-less replay. A hand-marked v2 copy gives a different question (L1 ('my') VIOLATED, HOMEOTELEUTON Up/Cup, different offers).",
+      "status": "pass",
+      "independent": true,
+      "evidence": "Executed. fx/t5_d6.txt, fx/t5_groups.txt, fx/t5_answered*.json; out/t5_{base_brief,cand_brief_flagv1,cand_brief_v2}.out; out/t5A_*, t5S_*; t5/cmp_*.txt"
+     },
+     {
+      "id": "author",
+      "claim": "Author's legacy-replay tests pass on the candidate",
+      "expected": "OK",
+      "observed": "9 selected tests: LegacyReplay x8 and LexiconCut.test_a_v1_voices_tier2_cut_is_the_pre_batch_one. Ran 9 tests in 260.6s, OK. test_reader.py was not run whole.",
+      "status": "pass",
+      "independent": false,
+      "evidence": "author_tests.log (venv311, cwd wt-678/lyric-harness)"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "A deferred state that records \"reader_scheme\": null is not refused. It is resumed as new work under v2 and rewritten as reader_scheme v2 (state and answered). A replay file holding the same null IS refused ('recorded reader scheme None is not one this build reads'), so the two record readers disagree. Cause: _defer_record_scheme returns st.get('reader_scheme','v1'), which is None when the key holds null, and None means new work in _defer_scheme_check and _recorded_reader_scheme. Only a hand-edited or foreign-written state can hold null; no writer in this build produces one.",
+      "severity": "minor",
+      "evidence": "out/t1c_cand_tryline_nullstate_noflag.out (rc 0, ACCEPTED, reader_scheme v2); out/t5N_cand_resume_nullscheme.out plus t5/res/t5N_cand_resume_nullscheme.state.json (written back as v2; pending equals the v2-marked run, not the v1 run); out/t2_cand_replay_nullfile_noflag.out (rc 2 refused)"
+     },
+     {
+      "summary": "Outside this task's v1 scope (v2 new work): on a line ending in a numeral, the named place `endword` binds the preceding word and certifies the pair, while `end` and a bare N refuse it. Example: lines 'I gave it all my heart.    10' / 'you took the very best part'. --groups=1.endword,2.endword gives L1 ('heart') HOLDS, rhyme:1:2:0 answered, certified True, with only a SUBSTITUTED_END_WORD note. --groups=1,2 and 1.end,2.end give UNJUDGED, refused, certified False. This works against the M1 rule in raw_final_token's docstring ('heart.    10' ends on '10', refused, rather than yielding 'heart' in silence). LYRICS_RUNTIME claims only that endword 'names a different word on 1' line. Base binds 'heart' for both spellings.",
+      "severity": "minor",
+      "evidence": "out/x_v2_brief_*.out, out/x_base_brief_{endword,bare}.out; also visible in out/t5_cand_brief_v2.out (group C)"
+     },
+     {
+      "summary": "Outside this task's v1 scope: the v2 stock-stub splice under a --voices cut refuses the aside for the default end slot but splices inside the aside for `endword`. 'I left my heart beside the door (the rain)': slot None gives None; endword gives '(the zephyr)'. It is mechanical stub behaviour only.",
+      "severity": "note",
+      "evidence": "t4d/splice_v2.json"
+     },
+     {
+      "summary": "This predates the batch (the same code is in base): cursor_stripped reports 'run_key' when only the scorer identity differs, and here run_key is provably equal. Separately, base's own cursor-trusted resume and its cursor-less replay write different `status` ('resumed' vs 'grading') and different cursor.loop.menus. The candidate always matches the replay form, because any source change moves _scorer_identity.",
+      "severity": "note",
+      "evidence": "base lyric_harness.py:8407-8408; t4b/cmp_t4bA_base_step1__t4bA_cand_step1.txt vs t4b/cmp_t4bA_base_step1_nocursor__t4bA_cand_step1.txt"
+     }
+    ],
+    "not_covered": [
+     "The connector/MCP path (mcp/state_codec.js CONTINUATION_MIGRATION_REQUIRED) and the warm worker were not exercised. Everything here is harness CLI plus two small Python API drivers.",
+     "default_propose_group was exercised only at the API level (revise_loop with the stub explicitly declared, and a duck-typed splice sweep). Source read: no CLI spelling reaches it, so no CLI-level comparison is possible.",
+     "Batch questions (propose_batch) and multi-round deferred runs past the second question were not exercised.",
+     "The JS/Library/Lyrics-page migration of saved choices (website surfaces) was not exercised.",
+     "A pre-batch checkpoint resumed after more than one round, and lexicon-supplement-bearing states, were not exercised.",
+     "Each comparison is one Python version (3.11 venv) and one draft per property. These are not corpus sweeps."
+    ],
+    "artifacts_dir": "<scratch>/h678/legacy-replay-exec"
+   }
+  },
+  {
+   "agent": "harness-misc",
+   "result": {
+    "task": "BB8 harness-misc acceptance for R2 reader-batch commit-1 candidate 67889851. Task 1: in warm processes, check whether reader caches keyed by scheme (meter_bands._READERS, eng._LEX/_CUT_LEX, fit._LEX, supplemented lexicons) leak between v1 and v2 requests, compared with cold processes. Task 2: state at the candidate of R2's earlier 1b findings (a) to (e), each run on candidate v2, candidate v1 and base fce4bf0f.",
+    "verdict": "MIXED",
+    "checks": [
+     {
+      "id": "T1-warm-v2-then-v1",
+      "claim": "A warm process that serves v2 requests and then v1 requests answers each one exactly as a cold single-request process does",
+      "expected": "14/14 requests byte-identical to cold (exit code, stdout, stderr; api fields)",
+      "observed": "14/14 SAME (meter, meterlow, api, gradesup, gradeplain, gradevoices, gradepron, each @v2 then @v1). Requests went through mcp/worker.py run_one, the warm worker's own entrance. Grade = `song bp.json draft.txt --groups=2,3,4;5,6;7,8;10,11;15,16 --returns=7,12;8,13;9,14 --subdivision 1`. The draft holds 'Oh--oh, oh my love', 'Thundered the battery’s double bass--', \"I know it 's true\" and 'The river owes us nothing, not since 1999'. api = MB.reader('fallback-low'), MB.measure_line, FT.read_line (default, low and voices), English tokens/unreadable/derived, all under reader_scheme_scope.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "h678/harness-misc/t1/compare.out; warm_v2_then_v1.json; cold/*.json"
+     },
+     {
+      "id": "T1-warm-v1-then-v2",
+      "claim": "The reverse order (v1 requests, then v2) also matches cold",
+      "expected": "14/14 identical",
+      "observed": "14/14 SAME",
+      "status": "pass",
+      "independent": true,
+      "evidence": "t1/compare.out; warm_v1_then_v2.json"
+     },
+     {
+      "id": "T1-interleaved",
+      "claim": "Requests that alternate schemes one at a time, including an api-first order, match cold",
+      "expected": "all identical",
+      "observed": "Order C (14 requests alternating per kind, grade first) and order D (api@v1, gradesup@v2, api@v2, gradesup@v1, meterlow@v2, gradeplain@v1, gradeplain@v2): DIFFS 0",
+      "status": "pass",
+      "independent": true,
+      "evidence": "t1/compare_interleaved.out; warm_interleaved_C.json; warm_interleaved_D.json"
+     },
+     {
+      "id": "T1-probe-sensitivity",
+      "claim": "The probe can tell the two schemes apart, and cold runs are deterministic",
+      "expected": "for each of the 7 request kinds, cold v1 differs from cold v2; a repeated cold run is identical",
+      "observed": "All 7 kinds: v1 != v2. Examples: meter v2 L5 '3 syl OOV:[Catch-22, 4ever]' vs v1 '6 syl'; grade v1 lists SCHEME_VIOLATION L16, v2 lists L8 with 1999 UNJUDGED; gradepron v2 exits 3, v1 exits 2 (no token 8 under v1). measure_line is pinned to v1, so it gives the same answer under both scopes, as designed. cold2 repeats of gradesup@v2, gradesup@v1 and api@v1 equal cold.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "t1/compare.out; t1/api_v1_vs_v2.txt"
+     },
+     {
+      "id": "T1-scheme-restored",
+      "claim": "After each warm CLI request, the process scheme goes back to its default",
+      "expected": "LH._ACTIVE_READER_SCHEME is None after every run_one",
+      "observed": "None after all 42 CLI requests in A, B, C and D",
+      "status": "pass",
+      "independent": true,
+      "evidence": "scheme_after field in t1/warm_*.json"
+     },
+     {
+      "id": "T2a-swap_end_word",
+      "claim": "(a) swap_end_word no longer splices onto a fragment for 'I said ×' and similar lines under v2",
+      "expected": "v2 refuses where v1/base refuse; ordinary lines still swap",
+      "observed": "'I said ×' -> None in v2, v1 and base. '× marks the spot' -> '× marks the zebra' in all three. 'love ×night' and 'x ×2' -> None in all three. 'K1×δQ' and 'sing÷δnight' -> None in all three. 'I said yes' -> 'I said zebra' in all three. Pre-batch defect kept in v1 on purpose: 'I love you (love you)' -> v1/base 'I love you (love zebra)', v2 None. Status: FIXED.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "t2/a.txt; out_cand_v2.json / out_cand_v1.json / out_base.json"
+     },
+     {
+      "id": "T2b-split_right",
+      "claim": "(b) Every hyphen spelling of a broken-rhyme line end (king- with -, U+2010, U+2011, U+00AD) gets one verdict, and broken rhyme still holds",
+      "expected": "v2: the same True verdict for every spelling (the commit's claim and its test's assertion)",
+      "observed": "CHANGED. The spellings are now consistent, but the verdict they share is a refusal. Under v2 the token is 'king-', and the production relation judge, relation_phonology_for(Lexicon()) = English with fallback None, cannot read it. The stream records unreadable [(0,6,'king-')], no unit carries split_right, and the next line still gets split_left=True. broken2.txt, broken rhyme on Windhover L1~L4: v2 production judge {'-': None, U+2010: None, U+2011: None, '-'+U+00AD: None, U+00AD+'-': None}; v1 and base {'-': True, all others False}; v2 with English(fallback='high'), the author's test phonology: all True. End to end through the lyric_check verb, `brief windhover.txt --groups=1,4 --relation='schema:broken rhyme'`: v2 gives 'L1 (king-) — UNJUDGED', SCHEME_UNREADABLE, certified:false, pairs_refused:1. It does the same with --fallback=high and with --lexicon-supplement=v2. v1 and base: 'HOLDS', certified:true, pairs_judged:1. In the same v2 run, line_anchors reads 'king-' (2 anchors, oov []).",
+      "status": "fail",
+      "independent": true,
+      "evidence": "t2/b.txt, broken_cand.txt, broken_base.txt, broken2.txt, wh/brief_v2.out, brief_v1.out, brief_base.out, brief_v2_fbhigh.out, brief_v2default_sup.out"
+     },
+     {
+      "id": "T2c-grid-fragment-key",
+      "claim": "(c) Under v2, rime_cmudict.end_occurrence keys nothing when the last run is only a fragment of the last token, and _qafiya_parts refuses the line",
+      "expected": "v2 key None where the end is a fragment; v1/base unchanged",
+      "observed": "'I said ×': v2 ['said',None,None], v1/base ['said',None,'EH D']. 'love ×night': v2 key None, v1/base 'AY T'. 'the night'+U+0333: v2 None, v1/base token 2 'AY T'. _rhyme_code(['I said ×','where they led']): v2 None + EndWordFailure(word='said'), v1/base [0,0]. qafiya unreadable for 'I said ×': v2 True, v1/base False. '× marks the spot' -> ['spot',4,'AA T'] in all three. The same holds with a --voices lexicon. Status: FIXED in v2; v1 = base.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "t2/c.txt"
+     },
+     {
+      "id": "T2d-any-reading-pin",
+      "claim": "(d) With asides sung (--voices), the any-reading search finds and pins a two-reading word that sits inside (...)",
+      "expected": "v2 voices: True with a witness; negative control stays False",
+      "observed": "Schema 'perfect rhyme', plain lexicon vs voices lexicon. 'she wrote it all (and read)' ~ 'and went to bed': v2 voices plain=None, any=True, witness ['read = R EH1 D']. Same line ~ 'the sowing seed': any=True, witness ['read = R IY1 D']. Mid-line aside T1 '(read)' ~ bed: True. Two-reading aside word, end outside the aside: True. Negative 'he lost his hat': False. v1 and base on the same cases: None, because the stream lexicon has strip_parens=True and cannot locate the token. Controls without an aside are True in all three. Status: FIXED in v2; still present in v1, identical to base.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "t2/d.txt; out_*.json d_any_reading_pin"
+     },
+     {
+      "id": "T2e-supplement-transcribe_word",
+      "claim": "(e) SupplementedLexicon.transcribe_word normalises a word before looking it up under v2",
+      "expected": "v2 finds the supplement row for U+2010 / U+00AD / NFD spellings; v1 = base",
+      "observed": "v2: 'twenty'+U+2010+'two', 'twen'+U+00AD+'ty-two', 'twenty-two'+U+00AD, 'street'+U+00AD+'light' and 'Twenty'+U+2010+'Two' all -> the supplement row (e.g. T W EH1 N T IY0 T UW2). v1 and base: ([], True). 'o’er' and \"o'er\": ([], True) in all three; the apostrophe fold already existed, so this pair does not separate before from after. 'cafe'+U+0301 as a bare word: OOV in all three. Status: FIXED.",
+      "status": "pass",
+      "independent": true,
+      "evidence": "t2/e.txt"
+     },
+     {
+      "id": "AUTH-targeted",
+      "claim": "The author's regression tests for (a) to (e) and the meter_bands fallback pass",
+      "expected": "OK",
+      "observed": "6 tests OK in 9.98 s with venv311: Normalisation broken-rhyme and supplement tests, LoopSwaps end-word, Declarations grid endpoint, LexiconCut any-reading, SharedFallback. The broken-rhyme test builds English(fallback='high'), so it does not exercise the production judge (see T2b).",
+      "status": "pass",
+      "independent": false,
+      "evidence": "h678/harness-misc/author/targeted.log"
+     },
+     {
+      "id": "AUTH-warmworker",
+      "claim": "The author's WarmWorker tests pass",
+      "expected": "OK",
+      "observed": "3 tests OK in 43 s; child peak RSS 574 MiB",
+      "status": "pass",
+      "independent": false,
+      "evidence": "author/warmworker.log"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "Under v2, the default for new work, the production relation judge refuses every word broken across a line end ('king-' in any hyphen spelling, plain ASCII '-' included). The 'broken rhyme' schema and perfect rhyme on such a pair go from True (v1 and base) to None, so lyric_check reports the pair UNJUDGED and the draft is not certified. The fix only makes all spellings agree on that refusal. The commit's regression test passes because it builds English(fallback='high'). relation_phonology_for always uses fallback None, so --fallback=high on the CLI does not help either. Root cause: the v2 cut keeps the token as 'king-'; English.syllabify and transcribe_word refuse 'king-' without G2P; split_right is set only on read units (relations.py ~963, read at ~2214). line_anchors reads 'king-' in the same run, so two surfaces now disagree.",
+      "severity": "blocker",
+      "evidence": "t2/broken2.txt (v2 production: None for all 5 spellings; v1/base: '-' True); t2/wh/brief_v2.out vs brief_v1.out/brief_base.out (UNJUDGED, certified:false vs HOLDS, certified:true); brief_v2_fbhigh.out and brief_v2default_sup.out also UNJUDGED. Scope estimate from a raw grep (not a harness count): 18 lines in corpus/song end in a letter plus a hyphen. Severity is blocker because this contradicts the commit's stated v2 verdict and changes certification on new work. The answer is a refusal, not a wrong verdict, and the population is small."
+     },
+     {
+      "summary": "SupplementedLexicon.pronunciation_variants still looks a bare word up without normalising it under v2. transcribe_word finds the row for 'twenty'+U+2010+'two', but pronunciation_variants of the same word returns [], so direct callers still disagree.",
+      "severity": "minor",
+      "evidence": "t2/e.txt: supplemented_variants for twenty‐two, twen\\xadty-two and street\\xadlight are [] in v2, v1 and base, while supplemented transcribe_word in v2 returns the row"
+     },
+     {
+      "summary": "NFC under v2 makes a decomposed 'café' (cafe + U+0301) out of vocabulary inside a line. v1 and base read it as 'cafe' (K AH0 F EY1) by dropping the mark. NFC and NFD spellings now agree, but on OOV, so meter syllable counts and OOV lists change for NFD text.",
+      "severity": "note",
+      "evidence": "t2/e.txt supplemented_line_transcribe 'so café': v2 OOV ['café'], v1/base reads cafe. Task 1 meter L6: v1 6 syl OOV [o'er]; v2 4 syl OOV [o'er, café]"
+     },
+     {
+      "summary": "Under v2, swap_end_word replaces a free-standing numeral end token: 'say it × 2' -> 'say it × zebra'. v1 and base refuse this line. It is consistent with v2 treating '2' as the end word, but it is new behaviour.",
+      "severity": "note",
+      "evidence": "t2/a.txt 'say it × 2'"
+     },
+     {
+      "summary": "Existing behaviour, identical in all three trees: line_anchors on 'I said ×' reports the readable word 'said' as the unreadable end (oov ['said']). Also, the grid's end_occurrence keys a trailing-aside word ('the end (of the night)' -> 'night', 'the night (of ×)' -> 'of', plain lexicon) while line_anchors' end word is 'end' / 'night'.",
+      "severity": "note",
+      "evidence": "t2/a.txt line_anchors_end; t2/c.txt end_occurrence vs line_anchors_end"
+     },
+     {
+      "summary": "The brief verb (lyric_check) exits 0 under v2 even though it reports certified:false and pairs_refused:1 on the Windhover case. I only observed this; I did not check the brief exit policy against base, because base certifies the case.",
+      "severity": "note",
+      "evidence": "t2/wh/brief_v2.out rc=0"
+     }
+    ],
+    "not_covered": [
+     "I did not run test_reader.py whole, record.py or slot_binding.py, per the hard rules.",
+     "Task 1 covered meter, song (grade) with and without the supplement, --voices, --pronunciations, --fallback=low, and the in-process meter_bands/fit/eng API. In warm sequences I did not cover revise, finish, tryline, screen, recover or the Library run_reader path; only the author's WarmWorker tests cover the Library path (independent=false).",
+     "Task 1 used one 16-line song and 6 probe lines, not a corpus. The base tree was not part of task 1 because it has no scheme.",
+     "For (a) I tested swap_end_word only. I did not test swap_at_slot with non-default slots or a full revise loop.",
+     "For (b), the 18-line figure is a raw text grep, an estimate. I did not run a harness sweep, per the no-corpus-sweep rule.",
+     "I do not know R2's original wording of the 1b findings. I worked from the candidate commit 40d222daa message and the task text; for '× marks the spot' every tree swaps and keys normally."
+    ],
+    "artifacts_dir": "<scratch>/h678/harness-misc"
+   }
+  },
+  {
+   "agent": "verify:library-tests:1",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The core finding reproduces, but it needs four corrections.\n\nWhat happens on the candidate (67889851): a whole-reading \"Open in Lyrics\" hands over only the current-cut rows of the saved interpretation. The set-aside (undecided) pronunciation choices are left out, and Lyrics shows nothing about it.\n\nThis omission is deliberate, not accidental:\n- The `savedInterpretation` comment in analysis.js says it.\n- The author's test `scripts/test_library_declarations.js` \"the Lyrics handoff carries the current cut's rows only (route 3)\" asserts it.\n- The Library inspector's own alert says the choice \"is not sent\".\n\nWhat is missing is any notice at handoff time or in Lyrics. So the defect is a missing notice, not a broken drop.\n\nCorrections:\n\n(1) v9 record: only the `pronunciations` list arrives empty. Other declaration kinds still travel; a `narrative` declaration on the same v9 record arrives intact.\n\n(2) \"Round trip\": Export > \"Download text and sources\" carries the reduced set twice, in `payload.declarations` and in `provenance.workingCopy.declarations`. Re-importing that file into Lyrics gives the reduced set again. Only Lyrics imports these files; there is no path back into the Library (source read). This repeats the handoff's loss; it is not a second loss.\n\n(3) Main (8b1d2ad2) drops nothing. It hands every stored row over verbatim:\n- the legacy record: `oh` token 2 and `--and` token 2\n- the v9 record: `oh` token 2\n\nThose numbers are main's own cut (v1), so they are not stale on main. Measured against main, leaving the row out of Lyrics' source history and exports is new candidate behaviour (intended and tested by the author), not \"no regression\". The kept row is renumbered to v2.\n\nEffect: on both trees Lyrics never sends `origin.declarations` to the grader (source read; mcp/LYRICS_RUNTIME.md:246-248 calls them source history only). So the loss is limited to source-history completeness, and \"minor\" stands.\n\n(4) \"Invisible\" is understated:\n- Lyrics never shows carried declarations on either tree; its surface text is byte-identical whether a row was dropped or not. The only places a trace could appear are the exported JSON files, and they have none.\n- On the Library side, the undecided alert is visible only when the inspector is open at desktop width.\n- The toast appears only on the first, migrating load of an unmarked record, and never for a v9 record.\n- I executed fully silent paths where the row is dropped with no visible notice anywhere: v9 with the inspector collapsed (1280 px), v9 at 390 px with default settings, and an already-migrated record on a second visit with the inspector collapsed.\n\nConfirmed as stated: the originals survive only in the Library device record.\n- An unmarked record is rewritten as `token_cut: \"v2\"`, keeping `undecided` (the full row) and `legacy_declarations` (the original numbering).\n- A v9 record is left exactly as stored.\n\nSide note: the author's route-3 test calls the exported `declarations()`, which the reader does not use. The reader reads the controller's `declarations` getter. The browser gives the same result either way.",
+    "evidence": "EXECUTED, my own Playwright script. Script: <scratch>/h678/verify-library-tests-1/vt.js\n- Fresh builds b-wt-678 and b-wt-main; each tree's own static server and Render stub; the real \"Open in Lyrics\" button.\n- Exact commands are in COMMANDS.txt. Raw results: vt_wt-678.json, vt_wt-main.json, vt2_*.json; downloaded files in dl-*/.\n\nCandidate, legacy record (oh token 2 + `--and` token 2):\n- Envelope, `app.lyricMeta.libraryOrigin`, Export source details, and the working copy (`payload.declarations` and `workingCopy.declarations`): all `[{pronunciations:[oh token 3]}]`.\n- Re-import of the working copy: also `[oh token 3]`.\n- Library record after: `token_cut` v2, `undecided` = [`--and` token 2], `legacy_declarations` = [oh 2, `--and` 2].\n\nCandidate, v9 records:\n- v9_pron: `pronunciations: []` at every hop; the Library record is unchanged (still v9, oh 2).\n- v9_mixed: `narrative` survives at every hop, `pronunciations: []`.\n\nMain, same scenarios: every hop carries both rows verbatim (oh 2, `--and` 2), or for v9 the oh 2 row. No undecided UI.\n\nLyrics surface `innerText` (20,285 chars) is identical between legacy_blocked and valid_v2 on both trees.\n\nSilent paths on the candidate (vt2_wt-678.json):\n- v9_insp_closed: `rd-noinsp` set, alert not visible, no toast, sends `[]`.\n- v9_390: alert not visible, no toast, sends `[]`.\n- second_visit_insp_closed: no toast, alert not visible, `--and` dropped.\n- legacy_blocked_390: toast shown, alert not visible.\n- The only toast seen anywhere is \"1 saved pronunciation choice needs your decision before a new analysis.\", and only on the first migrating load.\n- After the handoff, the only toast is \"Library working copy imported…\".\n\nSOURCE READ (not executed):\n- reader.js:1163-1176: `declarationsFor` reads `ana.declarations`.\n- analysis.js:1949: that getter returns `st.declarations`.\n- analysis.js:697-755: `savedInterpretation` leaves set-aside rows out.\n- library-import.js:209 and 221: the only reader of `origin.declarations`.\n- lyrics.js:4931: the working-copy download; lyrics.js:5705: the only envelope import.\n- Main's lyric-harness has no v2 scheme (`git log fce4bf0f..8b1d2ad2` shows only Lyrics repairs).\n\nAUTHOR TEST (independent=false): `scripts/test_library_declarations.js` passes 8/8, including the route-3 test that asserts the omission. Log: author_test_library_declarations_wt-678.log.\n\nTracked files are untouched in both trees."
+   }
+  },
+  {
+   "agent": "verify:library-tests:0",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "FAIL stands: the claim \"the omission of a blocked choice is visible somewhere in Lyrics\" is false on 67889851 (executed). After \"Open in Lyrics\" (whole reading), Lyrics holds no trace that a choice was left out. This holds for three records: an unmarked record with a row no word covers (`--and`), a v2 record with a persisted `undecided` list, and a `token_cut:\"v9\"` record. Five places were checked, at both 1280 and 390 px: (1) toasts after the click (only \"Library working copy imported. Your previous draft is under History.\"), (2) the Lyrics surface text (20,285 / 19,943 chars) and the History panel, (3) lyMeta().libraryOrigin, (4) every IndexedDB store and localStorage, (5) both downloads (\"Export source details\" and \"Download text and sources\"). None of them mentions a decision, an undecided or omitted choice, `--and`, token_cut, legacy rows or a renumbering. The rebound row also arrives as token 3 with no note that it was token 2. A v9 record arrives as `declarations:[{\"pronunciations\":[]}]`. \"Open in Lyrics\" neither warns nor refuses.\n\nFour corrections to the tester's wording:\n(a) \"The only signal is on the Library side\" is true only for the wide layout. At 390 px the inspector (`.rd-insp`) is display:none behind \"Inspect\", so the decision alert is not on screen. There, the only signal is the toast \"N saved pronunciation choice(s) need(s) your decision before a new analysis\". That toast fires once, on the load that migrates an UNMARKED record. A v9 record, or a record already migrated with a persisted `undecided` list, gets no toast. So on a phone it shows no on-screen signal at all before the handoff unless the user opens Inspect.\n(b) The behaviour is not pre-existing, though it is designed. On main 8b1d2ad2 nothing is omitted: every stored row (`--and`, and `oh` still on token 2) reaches Lyrics verbatim in libraryOrigin.declarations, the drafts IndexedDB, localStorage and both downloads. The omission comes from fb8f17ef3 (`declarations()` -> `savedInterpretation(stored).declarations`), and the author pins it as intended (\"the Lyrics handoff carries the current cut's rows only\", scripts/test_library_declarations.js:319).\n(c) Lyrics never shows carried choices in its UI text on either tree. They live only in stored and exported source history, so \"visible\" can only mean presence in source history, and in that sense main differs from the candidate.\n(d) No doc or test requires a Lyrics-side trace. mcp/LYRICS_RUNTIME.md:246-248 says carried choices are \"source history only: kept verbatim\". That holds for the envelope as built, but the doc does not say that set-aside rows are dropped, or rebound rows renumbered, before the envelope is built. So this is a fair reviewer finding (a missing disclosure), not a broken contract.",
+    "evidence": "Own Playwright probe in <scratch>/h678/verify-library-tests-0/ (COMMANDS.txt, c8b_probe.js, summarize.py, summary.txt, c8b_{wt-678,wt-main}_{1280,390}.json/.log, shots-*/). Own builds b-wt-678 and b-wt-main (CODEX_LIBRARY=1 build_html.js). The record `interpretation:<EPI_A>:<rev>` is seeded in IndexedDB from a same-origin static URL before the app loads. A first pass seeded after an app load, which let that page migrate the record and lost its toast; this is fixed and every output was re-run.\n\nEXECUTED, wt-678, at both widths (5 scenarios):\n- Every scenario: hash goes to #lyrics; the only toast after the click is \"Library working copy imported. Your previous draft is under History.\"; every Lyrics-side term scan is false (toasts, surface_text, history_text, libraryOrigin, both downloads, the codex-musica-library-drafts IndexedDB, localStorage).\n- Carried pronunciations, by scenario:\n  - unmarked_blocked and v2_persisted_undecided: [oh token 3] only\n  - unknown_cut_v9 and unmarked_only_blocked: [] (empty)\n  - v2_clean: [oh token 3] (control)\n- Library side at 1280: the [data-cut=undecided] alert is visible.\n- Library side at 390: the alert is not visible; .rd-insp is display:none behind \"Inspect\" (screenshot unknown_cut_v9-390-library-before-click.png).\n- Load toast: only unmarked_blocked and unmarked_only_blocked get \"1 saved pronunciation choice needs your decision before a new analysis.\"; v2_persisted_undecided and unknown_cut_v9 get none.\n\nEXECUTED, wt-main (8b1d2ad2), both widths: there is no alert and no toast. Lyrics receives every stored row verbatim, for example unmarked_blocked -> [oh token 2, --and token 2]. `--and` is found in libraryOrigin, both downloads, the drafts IndexedDB and localStorage. So main does not omit anything; the candidate's omission is new.\n\nEXECUTED, both trees: carried rows ('Oh--oh', 'the singer', 'AA1') never appear in the Lyrics surface or History text. They appear only in downloads and storage.\n\nSOURCE READ (wt-678):\n- src/library/reader.js:1163-1176: declarationsFor -> ana.declarations, which is st.declarations.\n- src/library/analysis.js:1248-1262 declarations() and loadInterpretation: kept rows only; the toast fires only when migrated (unmarked).\n- src/pages/lyrics.js:2493 (the import toast) and 4584 (lyLibrarySourceMarkup): no declarations content.\n- mcp/LYRICS_RUNTIME.md:246-248.\n\nAUTHOR TEST (independent=false): scripts/test_library_declarations.js passes 8/8 on wt-678, including \"the Lyrics handoff carries the current cut's rows only (route 3)\".\n\nTrees wt-678 and wt-main are unchanged (git status shows only the pre-existing untracked node_modules links)."
+   }
+  },
+  {
+   "agent": "verify:legacy-replay-exec:0",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The finding holds. I reproduced it from scratch with my own draft, fixtures and scripts. It needs four corrections.\n\n(1) \"Resumed as new work under v2\" is right only when no flag is given. A null is taken as \"no record\", so the call reads the state under whatever scheme it resolves. With no flag that is v2, and the state is written back with reader_scheme v2 in both the state and its answered block. With --reader-scheme=v1 the state is read and written back as v1. Neither explicit flag triggers READER_SCHEME_MISMATCH.\n\n(2) There are three record readers, not two, and the deferred state is the only one that accepts null. A replay file holding null is refused under any flag: \"recorded reader scheme None is not one this build reads (v1, v2)\". A kitchen (call:) checkpoint holding null is also refused, but with a different message whose advice cannot be followed: \"READER_SCHEME_MISMATCH: this run was started under reader scheme None ... resume it with no --reader-scheme (or --reader-scheme=None)\". Running with no flag is exactly what was refused, and --reader-scheme=None is itself refused (\"wants v1 or v2\").\n\n(3) The cause is confirmed. JSON null loads as Python None, and None is also the code's marker for \"no record / new work\". `_defer_record_scheme` returns `st.get('reader_scheme','v1')`, which gives None for a key that is present but null. `_defer_scheme_check` accepts None, and `_defer_proposer` then sets `st['reader_scheme'] = None or here`. Null is the only non-scheme value that gets through: \"\" and \"v9\" are refused. This contradicts the candidate's own docstrings, which say an unknown recorded scheme is refused by the proposer.\n\n(4) The problem is new in the candidate. Base fce4bf0f and main 8b1d2ad2 contain no reader_scheme code. Executed on base, a null field is simply ignored: resume, tryline and replay give exactly the same results as with the field absent, all v1.\n\nOn who can produce a null: no writer in this build does (source read). A caller-held state on the raw MCP engine is, however, written to the harness state file from the caller's own JSON (mcp/lyric_tools.js ~2643-2693). So a \"foreign-written\" state can arrive through the connector as well as by hand edit. I read this in the source but did not execute it.\n\nSeverity: minor. The effect is not cosmetic, though: answers that were asked under v1 are silently re-judged under v2 and the run is permanently relabelled v2.",
+    "evidence": "All paths are under <scratch>/h678/verify-legacy-replay-exec-0/. Exact invocations are in COMMANDS.txt; raw output is in out/. These are my own executed runs.\n\nSetup: the pre-batch harness (wt-base) ran `finish draft.txt --seed=23 --lines=12 --propose=defer:st/base.json`, rc 4. The resulting state has no reader_scheme and a pending propose_batch question for L6 and L9. Line 5 contains \"1987\", so the v1 and v2 cuts differ. Fixtures were built by mkfx.py: fx/{ans,unans}_{absent,null,v1,v2,v9}.json.\n\ntryline (candidate, no flag) on the unanswered states:\n- null: rc 0, VERDICT ACCEPTED, reader_scheme v2. Identical to the v2-marked state apart from the /tmp blueprint name.\n- absent and v1: rc 3, REJECTED, v1. Same verdict as base, which carries no reader_scheme field.\n- v9: rc 2, refused.\n- null with --reader-scheme=v1: rc 3, v1.\n- null with --reader-scheme=v2: rc 0, v2.\n- Base on absent and on null: identical.\n- tryline wrote nothing back to any of the state files.\n\nResume via `finish` (candidate, no flag) on the answered states: out/R_*; comparison in out/cmp_states.txt.\n- The null state was written back with reader_scheme v2 in both the state and its answered block. Its pending record and prompt and its accepted lines are exactly those of the v2-marked state, and not those of the absent, v1 or base runs.\n- Effect, from out/accepted_diff.txt: under v1 the L6 answer \"the water ran so cold\" is accepted and the next question is L8. Under null (= v2) the L9 answer \"the stone is in the yard\" is accepted instead and the next question is L10.\n- null with --reader-scheme=v1 is written back as v1 and matches the absent run.\n- v9: rc 2, refused, state left unchanged.\n- Base resume of null equals base resume of absent.\n\nReplay, using the answered block plus a variant field: out/P_*.\n- null: rc 2, \"recorded reader scheme None is not one this build reads (v1, v2)\", with no flag, with --reader-scheme=v1 and with --reader-scheme=v2.\n- absent, v1 and v2: rc 3, finished.\n- Base replay of null: rc 3, the same as absent.\n\nKitchen checkpoint, using my own stub module mod/skepwriter.py and LYRIC_CHECKPOINT_PATH: out/K_*.\n- null: rc 2, \"READER_SCHEME_MISMATCH: this run was started under reader scheme None, and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=None)\". With --reader-scheme=v1 the same message ends \"reads v1\".\n- --reader-scheme=None: rc 2, \"--reader-scheme wants v1 or v2, got 'None'\".\n- v2-marked checkpoint: rc 3, finished.\n\nIn-process probe (probe.py, out/probe.out): for null, `_defer_record_scheme`=None, `_defer_scheme_check` returns None (accepted), and `_recorded_reader_scheme` gives None for defer, replay and checkpoint alike. \"\" and \"v9\" are refused by `_defer_scheme_check`.\n\nSource reads:\n- lyric_harness.py 8394-8411 (`_defer_record_scheme`), 8414-8440 (`_defer_scheme_check`), 8506-8515 (write-back `_run_scheme or _here_scheme`), 8089-8092 (replay refusal), 9258-9263 (checkpoint mismatch).\n- `git grep reader_scheme` finds 0 files in wt-base and wt-main.\n- mcp/lyric_tools.js 2643-2693 writes a caller-held state into the harness state file (source read only, not executed).\n\nAuthor's tests (independent=false): LegacyReplay.test_a_recorded_state_names_the_scheme_a_resume_reads, test_the_deferred_scheme_check_writes_nothing and test_an_explicit_other_scheme_refuses_to_resume all pass (out/author_tests.log). None of them covers a null reader_scheme.\n\nOut of scope, noted only: candidate resumes of the pre-batch state report cursor_resumed false, cursor_stripped \"run_key\" and memo_asked 7, where base reports cursor_resumed true and memo_asked 6. The resulting pending question and accepted lines are still identical to base.\n\nAll three trees are unmodified (git status shows only the untracked node_modules that were already there). My scratch directory is 2.1 MB, with no large files left behind."
+   }
+  },
+  {
+   "agent": "verify:legacy-replay-exec:1",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The finding reproduces, but it puts the cause in the wrong place. It is an old endword gap that v2 has now reached on numeral ends, not a new reader-v2 defect.\n\n(1) Reproduced on the candidate under v2 (executed). On 'I gave it all my heart.    10' / 'you took the very best part':\n- --groups=1.endword,2.endword binds L1 to 'heart'. The rhyme:1:2:0 obligation is answered and certified=True, with only a SUBSTITUTED_END_WORD note.\n- --groups=1,2 and 1.end,2.end return UNJUDGED ('10'), refused, certified=False, with SCHEME_UNREADABLE.\n- Only the numeral line's placement matters: 1.endword,2 is certified on 'heart'; 1,2.endword is refused on '10'.\n\n(2) The binding is not new. quality/slots.resolve resolves every non-default slot over word_syllable_map. For locus line_final_token it takes runs[order[-1]], the last word the dictionary could read. slots.py is byte-identical in base fce4bf0f, main 8b1d2ad2 and candidate 67889851. On base (executed), 'I gave it all my heart zzzqx' with 1.endword,2.endword binds 'heart' and is certified, while 1,2 refuses 'zzzqx'. So the split where endword binds the last readable word and certifies while bare/end refuse already existed in base for unreadable alphabetic end words. In base a numeral was invisible to every placement, so bare, end and endword all bound 'heart' consistently and without comment. v2 made bare/end see the numeral (the documented M1 rule). It did not touch slots.resolve, so endword is now the only placement that still skips a numeral end. That is new in v2 only as an inconsistency on numeral-end lines (LYRICS_RUNTIME counts 539 such lines in the corpus for `end`).\n\n(3) The doc and docstring points are correct, with two caveats. The M1 text is in raw_final_token's docstring, and endword never calls raw_final_token. The substitution is also not fully silent, because a note names '10'->'heart'. But LYRICS_RUNTIME says the named places are definitions 'the grader applies to the line as the running reader cuts it' and that endword 'names a different word on 1' line. Neither statement admits that endword still binds the word before a numeral end and certifies the pair.\n\n(4) Additional item, new in v2. For numeral ends, the SUBSTITUTED_END_WORD evidence says the line is 'ALREADY flagged above by UNREADABLE_END_WORD'. No UNREADABLE_END_WORD is emitted for numeral ends in any spelling, because that finding covers only cause 'token'. In the endword case that note is the line's only disclosure, and its text is wrong. Compare zzzqx with endword, which does carry UNREADABLE_END_WORD.\n\n(5) v1 is preserved (executed): candidate with --reader-scheme=v1 binds 'heart' and certifies for bare and endword, the same as base.\n\nSeverity minor is right.",
+    "evidence": "All runs are mine, in <scratch>/h678/verify-legacy-replay-exec-1/. Commands are in COMMANDS.txt, raw output in out/, a digest in summary.txt, and the summary script is summ.py. Fixtures in fx/ were written fresh: num.txt (the same two lines), junk.txt ('heart zzzqx') and ctl.txt.\n\nEXECUTED, candidate wt-678 under v2 (brief, venv311, LYRIC_STAGED_DATA set):\n- c_num_endword: certified=True, judged=1, rhyme answered. Findings: MODAL_RHYME, SUBSTITUTED_END_WORD, FLOOR_LOCUS_SCOPE. Text: 'at 2.endword: L1 ('heart') — HOLDS'.\n- c_num_bare and c_num_end: certified=False, refused, \"L1 ('10') — UNJUDGED\", SCHEME_UNREADABLE.\n- c_num_brief_mixed (1.endword,2): certified=True on 'heart'.\n- c_num_brief_mixed2 (1,2.endword): refused on '10'.\n\nEXECUTED, base wt-base fce4bf0f:\n- b_num_bare, b_num_end, b_num_endword: all certified=True, all bind 'heart', no SUBSTITUTED note.\n- Pre-existing gap: b_junk_endword is certified=True and binds 'heart' (UNREADABLE_END_WORD and SUBSTITUTED_END_WORD notes), while b_junk_bare is refused ('zzzqx'). Candidate c_junk_* outputs are identical in outcome.\n\nEXECUTED, candidate under --reader-scheme=v1: c1_num_bare and c1_num_endword are certified on 'heart', the same as base.\n\nEXECUTED direct probe (probe_resolve.py; out/probe_cand_v2.out, probe_cand_v1.out, probe_base_none.out):\n- Under v2, slots.resolve(1.endword) gives 'heart' on 'heart.    10', 'nineteen' on 'we met in nineteen 99', and 'was' on 'the year was 1999'. On the same lines raw_final_token, line_anchors, 1 and 1.end give '10', '99' and '1999' with 0 anchors.\n- On base and candidate v1 every placement gives 'heart'.\n- On 'heart zzzqx', endword gives 'heart' in all trees.\n\nEXECUTED git checks:\n- slots.py is unchanged base→candidate and main→candidate.\n- lyric_harness.py, slots.py and readability.py are identical between base fce4bf0f and main 8b1d2ad2. Main was not run because it has no cmudict; that it behaves like base is an inference from the identical source.\n- My four matching outputs are byte-identical to the tester's x_v2_brief_* and x_base_brief_* files once the fixture path is normalised.\n- Trees are unchanged before and after (git_status_before.txt and git_status_after.txt).\n\nSOURCE READS (not executed):\n- slots.resolve: the `elif rule.locus == \"line_final_token\": lo, hi = runs[order[-1]]` line, with runs built from word_syllable_map widx.\n- readability.py: UNREADABLE_END_WORD is emitted only for cause 'token'. The SUBSTITUTED_END_WORD evidence text counts every unreadable-final line, numeral cause included, as 'ALREADY flagged above by UNREADABLE_END_WORD'.\n- LYRICS_RUNTIME.md lines 257-264.\n- Author's tests (independent=false, grep only, not run): test_reader.py checks the grid's end_occurrence refusing 'heart.    10'. I found no test of endword on a numeral end.\n- Two runs (c_num_verify_*) were refused for wrong argv and are not used as evidence."
+   }
+  },
+  {
+   "agent": "verify:harness-misc:0",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The check fails, and the tester's observations hold, with three corrections. (1) The cause is the v2 cut itself, not commit 40d222da. At its parent 15027bbc the production judge already returns None under v2 for all five spellings. 40d222da changed one thing for the production judge: line 2's split_left is now True for U+2010/U+2011. The verdict did not change. Source read: the cause is English.tokens_for_line's v2 branch (382c36438 'one English reader cut'). It makes the relation stream's last token 'king-' where v1/base used relations.tokenise's 'king', and PH.get('eng').syllabify('king-') returns [] when fallback is None. (2) The --lexicon-supplement=v2 row is not a v2 regression. Base fce4bf0f and candidate v1 with --lexicon-supplement=v2 also give 'L1 (king-) — UNJUDGED', pairs_refused 1, certified false, because base's tokens_for_line with a lexicon already returns line_tokens' 'king-'. The regression is on the default plain reader only, with or without --fallback=high: base/v1 HOLDS, v2 UNJUDGED. (3) The tester's 'expected' over-reads the commit. Its message promises only 'one broken-rhyme verdict' and makes no claim that the verdict is True. True is asserted only by the author's test, under English(fallback='high'), which no production path builds. Precise statement: in 67889851 under v2, every spelling of the line-final 'king-' (ASCII -, U+2010, U+2011, -U+00AD, U+00AD-) gets the same broken-rhyme verdict (one verdict, as the commit says). With the production relation judge (relation_phonology_for(Lexicon()) is the registered English, fallback None) that verdict is a refusal (None). The stream marks (0,6,'king-') unreadable, no unit carries split_right, and line 2 has split_left=True. Broken rhyme 'holds' (True for all five) only under English(fallback='high'/'low'), the author's test phonology. End to end, `brief` (the connector's lyric_check) with --groups=1,4 --relation='schema:broken rhyme' on Windhover L1-4 with ASCII 'king-' gives 'L1 (king-) — UNJUDGED', SCHEME_UNREADABLE, pairs_judged 0, pairs_refused 1, certified false under v2 (explicit or default, with or without --fallback=high). Base fce4bf0f and candidate v1 give HOLDS, pairs_judged 1, certified true, also with base --fallback=high. So for the plain ASCII spelling, the only one that held before, v2 turns a held broken rhyme into a refusal on the default reader. For the other four spellings it turns base/v1's False into a refusal. In the same v2 run, line_anchors/word_syllable_map read 'king-' as K IH1 NG (2 anchors, oov []) and the collision findings score 'king-' ~ 'riding'. The relation judge and the anchor reader therefore disagree in one run. main 8b1d2ad2 has byte-identical relations.py, eng.py, revise.py and lyric_harness.py to base (source read; not executed, no cmudict there).",
+    "evidence": "All under <scratch>/h678/verify-harness-misc-0/ (COMMANDS.txt has exact invocations). I wrote my own scripts.\n\n1. br.py: broken rhyme L1~L4 verdict for 5 spellings x 4 phonologies (executed).\n- br_678_v2.json: production judge (is the registered English, fallback None) gives None x5, as does PH.get('eng'); English(fallback='high'/'low') gives True x5. Stream unreadable has [0,6,'king-'], last unit on line 0 is 'minion' with split_right False, and line 2 split_left is True. read('king-') is None with no fallback; lex.transcribe_word('king-') is ([],True).\n- br_678_v1.json and br_base.json: True for '-', False for the other four, under every phonology. The stream's last unit is 'king' with split_right True.\n- br_parent_v2.json (15027bbc, the parent of 40d222da, via git archive): production gives None x5 already, so the refusal predates the split_final commit. English(fallback='high') there gives True for '-', False for the others, and line 2 split_left is False for U+2010.\n\n2. readers.out: under v2, English.tokens_for_line ends 'king-' and relations.tokenise ends 'king'. Under v1/base, tokens_for_line is None, so the stream falls back to tokenise. PH.get('eng').syllabify('king-') is [] in every tree. anch.out: line_anchors under v2 has 2 readings ending ('king-', K IH NG) and oov []. word_syllable_map gives word_read ('king',).\n\n3. e2e/summary.txt (brief verb; wh_ascii.txt is byte-identical to the tester's fixture):\n- UNJUDGED (judged 0, refused 1, certified False, SCHEME_UNREADABLE): 678 v2 ascii, u2010, shyhy; 678 default (v2) ascii; 678 v2 --fallback=high; 678 default --lexicon-supplement=v2; 678 v1 --lexicon-supplement=v2; base --lexicon-supplement=v2.\n- HOLDS (judged 1, certified True): 678 v1 ascii, base ascii, base --fallback=high.\nSo the supplement row is pre-existing in base. Source read: relation_phonology_for ignores the Lexicon's --fallback in both trees.\n\n4. dash.out: 'of past regrets and future Fears-' (from corpus/song, FitzGerald) — the v2 stream marks (0,5,'Fears-') unreadable, while v1 and base read 'Fears'. So the v2 token cut drops any word+hyphen line end from the production relation stream, not only broken rhyme. Executed at stream level. The tested schema answered None even on the clean line, so no verdict comparison is claimed. Estimate: 18 lines in corpus/song end in a letter plus a single hyphen.\n\n5. Source read: git blob hashes for relations.py, eng.py, revise.py and lyric_harness.py are identical at fce4bf0f and 8b1d2ad2. In the candidate, 40d222da's message says only 'gives one broken-rhyme verdict'.\n\n6. Author's test (independent=false): venv311 unittest quality.test_reader.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line gives OK (author_test.log). It asserts True only under English(fallback='high'), which is not the production judge.\n\nHousekeeping: no tracked files were modified (git status clean apart from node_modules). The 166 MB parent extraction was deleted. One v1 U+2010 brief run was killed after about 5 CPU minutes and is not used."
+   }
+  },
+  {
+   "agent": "verify:harness-misc:1",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "Confirmed, with the scope corrected in two directions. Under reader scheme v2 (the candidate's default for new work), the production declared-relation judge reads lines through `relation_phonology_for`, which always builds English with the registered fallback None. That judge refuses (None) the line-end token whenever the v2 cut keeps a single hyphen attached to it. It covers 'king-' in all five spellings (ASCII '-', U+2010, U+2011, '-'+U+00AD, U+00AD+'-'), and also 'king-,', 'king-.' and dash-used-as-punctuation such as 'anguish-'. A spaced ' -', a '--' or an em dash is split off and still reads. So 'broken rhyme' and 'perfect rhyme' on such a pair change: v1 and pre-batch give broken True for ASCII '-', False for the other spellings, and perfect True; v2 gives None for both, for every spelling. End to end, `brief` (the verb behind lyric_check) reports the pair UNJUDGED, rhyme obligation refused, certified:false, where v1 and base report HOLDS, certified:true. This happens ONLY when the pair has a declared schema relation (`--relation=schema:broken rhyme` or `schema:perfect rhyme`). With no declared relation, v2 still HOLDS and certifies, because the default end-rhyme judge reads 'king-' through line_anchors as K IH1 NG. Neither `--fallback=high` nor `--lexicon-supplement=v2` changes the refusal.\n\nThis is new, not pre-existing: base fce4bf0f has the same lyric-harness as main 8b1d2ad2 (no diff), and `--reader-scheme=v1` on the candidate matches base exactly, so resumed pre-batch runs are unaffected. Root cause: the v2 stream takes its tokens from `English.tokens_for_line` ('king-'), while v1 and base used `relations.tokenise` ('king'). `English.syllabify('king-')` returns [] without G2P in every tree. The unit is never built, so `split_right` is never set and `a_is_split_token` cannot fire.\n\nThe commit message (40d222daa) promises only \"one broken-rhyme verdict\", which is literally met (all None). It is the regression test that pins True, and it does so only because it builds `English(fallback='high')`, a phonology the relation-judge path never builds. In the same run, line_anchors and the floor's SCHEME_COLLISION ('king-' ~ 'riding' PROMOTED_RHYME) read the token the declared judge refuses. MISSING.md's 2026-08-21 repin says `broken rhyme` \"realises\" on eng; under v2 it never does for an English hyphen split.\n\nThe outcome is a refusal, not a wrong verdict. The population is small, from a raw grep and not a harness count: 18 lines in corpus/song and 4 in corpus/library end in a letter plus a hyphen, and several of those are dash punctuation, not split words. Whether that makes it a blocker or a major regression is a policy call. The regression itself is real.",
+    "evidence": "All files are under <scratch>/h678/verify-harness-misc-1/ (exact invocations in COMMANDS.txt). All results below are executed, from my own scripts, unless labelled otherwise.\n\n- **Verdict matrix (probe_cand.txt, probe_base.txt).** Candidate under v2:\n  - `relation_phonology_for(None)`, `relation_phonology_for(Lexicon())` and `English()` all have fallback None. For all 5 spellings the last token is 'king-', line 0 has unreadable token [0,6,'king-'], 0 split_right units, and broken = perfect = None.\n  - `English(fallback='high')` gives True/True for all 5 spellings.\n  - Candidate v1 and base are identical: '-' gives broken True, perfect True; U+2010, U+2011, '-'+U+00AD and U+00AD+'-' give broken False, perfect True.\n- **Root cause (probe2_*.txt).**\n  - Stream tokens: v2 gives 'king-'; v1 and base give 'king'.\n  - `syllabify('king-')` returns [] with fallback None in all trees; `read('king-')` with fallback high gives K IH1 NG.\n  - `Lexicon().transcribe_word('king-')` returns ([], True) in all trees.\n- **Second surface (probe3_*.txt).** `LH.line_anchors` under v2 reads word 'king-' with onset K, nucleus IH, coda NG.\n- **Shape sweep (probe4_*.txt).** Under v2 the following are unread and give perfect/broken None vs 'wing': 'king-,', 'king-.', 'king-  ', 'anguish-', U+2010. These read under v2: 'king -', 'king--', 'king—' (em dash). Mid-line 'king-' is unread under v2 but the end rhyme stays True. v1 and base read all of these.\n- **End to end with `brief`, my own fixtures (e2e/).**\n  - wh.txt with schema:broken rhyme: v2 default gives pairs_judged 0, refused 1, certified:false, both lines UNJUDGED. `--reader-scheme=v1` and base give judged 1, certified:true, HOLDS.\n  - `--fallback=high` and `--lexicon-supplement=v2` under v2: still UNJUDGED, certified:false.\n  - schema:perfect rhyme: v2 gives UNJUDGED, certified:false; v1 and base give HOLDS, certified:true.\n  - No `--relation`: v2, v1 and base all give HOLDS, certified:true. This is the scope correction.\n  - bar.txt ('bar-' / 'star', schema:broken rhyme): v2 gives UNJUDGED, certified:false; v1 and base give HOLDS, certified:true.\n  - wh_cand_default.out also shows SCHEME_COLLISION 'king-' ~ 'riding' PROMOTED_RHYME in the same run.\n- **Pre-existing check.** `git diff --quiet fce4bf0f 8b1d2ad2 -- lyric-harness/` shows no diff, so base equals main for the harness.\n- **Source reads (not executed).**\n  - quality/revise.py:958-992: `relation_phonology_for` passes `fallback=_relation_phonology().fallback`, which is the registered `English()` (eng.py:605) with fallback None. The plain-lexicon branch ignores the lexicon's own fallback.\n  - relations.py:920 (cut via `split_final`), :963 (`split_right` set only on read units), :1987 and :2214 (where it is read).\n  - test_reader.py:325-352: the test builds `English(fallback=\"high\")`.\n  - MISSING.md:684: `broken rhyme` \"realises\".\n- **Scope grep (scope_grep.txt, raw regex, an estimate).** 18 lines in corpus/song (1468 files) and 4 in corpus/library end in a letter plus a hyphen; examples include 'Fears-', 'anguish-' and 'roo-'.\n- **Author's test (independent=false).** `quality.test_reader.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line` passes OK on venv311 (author_test.log)."
+   }
+  },
+  {
+   "agent": "verify:harness-misc:2",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "The finding is correct, but it is aimed too narrowly and the word \"still\" gives the wrong idea of what changed.\n\n1. Not specific to SupplementedLexicon. Neither the plain LH.Lexicon.pronunciation_variants nor SupplementedLexicon.pronunciation_variants normalises its input. Neither does whole_reading or dictionary_readings, both of which build on pronunciation_variants (executed). Under v2 they return [] or None for 'twenty'+U+2010+'two', 'twen'+U+00AD+'ty-two', 'twenty-two'+U+00AD, 'street'+U+00AD+'light' and 'hel'+U+00AD+'lo'. transcribe_word, which normalises under v2 in both classes, returns the reading for the same spellings. One exception: SupplementedLexicon's _key folds U+2011 in every tree, so its pronunciation_variants finds 'twenty'+U+2011+'two'. Plain Lexicon.pronunciation_variants returns [] for that spelling too.\n\n2. The method is old; the disagreement is new. The pronunciation_variants methods are unchanged from base, and base and v1 return the same [] (executed). Base 8b1d2ad2 (wt-main) is byte-identical to fce4bf0f for lexicon_supplement.py, lyric_harness.py, eng.py and rhyme_types.py (source diff, not executed). In base and v1, transcribe_word also misses these spellings (OOV), so the two methods agree there. The candidate added v2 normalisation to transcribe_word only, so the two methods disagree only under v2.\n\n3. This breaks no documented contract. The candidate's comment and its test (test_a_supplemented_bare_word_is_normalised_as_a_token_is) cover transcribe_word only. The line-level paths agree because line_tokens hands them normalised tokens: transcribe, the pronunciation menu and the end-anchor variants.\n\n4. The effect reaches beyond direct callers (executed, v2 only):\n   - English.parses(readings='all') on a raw U+00AD spelling keeps only the first reading. 'li'+U+00AD+'ve' gives [L AY V], while 'live' gives both readings. 're'+U+00AD+'ad' behaves the same way.\n   - Because of that, the CLI `types` verb gives different verdicts for spellings the reader treats as the same token. 'li'+U+00AD+'ve -- five' and 're'+U+00AD+'ad -- bed' (with --position=end) come out as perfect rhyme, rhyme (channels)=True. 'live -- five' and 'read -- bed' come out as consonance only, rhyme=False. In v1 and base, 'li'+U+00AD+'ve' is refused as UNREADABLE.\n   - English.read under v2 over a v2-supplement SupplementedLexicon returns the supplement row for 'street'+U+00AD+'light' but labels its source 'CMUdict' instead of 'moby:3205:attested'. In v1 and base it returns None.\n\nSeverity \"minor\" still fits, since it needs U+00AD or U+2010 in a bare-word input, but the `types` verdict change is visible to users.",
+    "evidence": "All runs are mine unless marked as the author's. Everything is in <scratch>/h678/verify-harness-misc-2/, and COMMANDS.txt there lists the exact invocations.\n\n- probe.py, run on the candidate (v2 and v1, scheme set explicitly) and on wt-base. Outputs: out_{v2,v1,base}.json; side-by-side view in show.txt. Results:\n  - For 'twenty'+U+2010+'two': S.transcribe_word gives T W EH1 N T IY0 T UW2 in v2 and OOV in v1 and base. S.pronunciation_variants(raw) is [] in all three. S.pronunciation_variants(normalise_word(w)) returns the row. whole_reading is None and dictionary_readings is [] in all three.\n  - P (plain Lexicon) shows the same pattern.\n  - 'twenty'+U+2011+'two': S.pronunciation_variants returns the row in all trees, because _key in lexicon_supplement.py:411 folds U+2011. P.pronunciation_variants is [] while P.transcribe_word hits in v2.\n  - street+U+00AD+light and streetli+U+00AD+ght: S.transcribe_word in v2 gives S T R IY1 T L AY2 T. S.pronunciation_variants, whole_reading and dictionary_readings are empty.\n  - Line transcribe ('so '+w) reads the normalised token in v2 for every case, so the line paths agree.\n- probe_eng.py, outputs eng_{v2,v1,base}.txt. Under v2, English.read('street'+U+00AD+'light') returns the phones with source CMUdict, while 'streetlight' gives source moby:3205:attested. v1 and base return None.\n- probe_parses.py, outputs parses_cand.txt and parses_base.txt. Under v2, parses('li'+U+00AD+'ve') gives 1 parse, L AY V, and pronunciation_variants gives []. parses('live') gives 2. 'hel'+U+00AD+'lo' and 're'+U+00AD+'ad' behave the same way. In v1 and base the U+00AD spellings give an empty parse.\n- CLI `types` runs:\n  - types_v2_diff_live_five.txt and types_v2_diff_read_bed.txt: 'li'+U+00AD+'ve -- five' gives NAMES: perfect rhyme..., rhyme (channels)=True. 'live -- five' gives consonance, slant rhyme (consonant), rhyme=False. read/bed shows the same split.\n  - live/give and read/seed give identical output for both spellings.\n  - types_cand.txt and types_base.txt: in v1 and base, 'li'+U+00AD+'ve -- give' is UNREADABLE.\n- Source reads:\n  - The candidate's diff adds normalise_word only to Lexicon.transcribe_word (lyric_harness.py:1165-1170) and SupplementedLexicon.transcribe_word (lexicon_supplement.py:588-593).\n  - pronunciation_variants (lyric_harness.py:1138, lexicon_supplement.py:563) is unchanged from fce4bf0f. So is eng.py parses (eng.py:528), which calls lex.pronunciation_variants(word) on the raw word.\n  - rhyme_types splits members on whitespace only (rhyme_types.py:1115).\n  - `git diff --stat 8b1d2ad2 fce4bf0f` over the four files is empty, so main equals base here. This is a source comparison only; it was not run in main because cmudict is not staged there.\n- Author's test (independent=false): with venv311, quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is passes (author_test.log). It checks only transcribe_word and transcribe, never pronunciation_variants.\n- The original tester's evidence (t2/e.txt) matches my results. The tester did not misread anything; the only problems were the scope (SupplementedLexicon only) and the word \"still\"."
+   }
+  }
+ ],
+ "still_running_when_saved": []
+}

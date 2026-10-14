@@ -1,0 +1,330 @@
+{
+ "workflow": "wf_acadb4a0-2d5",
+ "reviewed_tool": "slot_occurrence.py revision 3.0 (sha256 c9e282c3...), receipts in v3.0/",
+ "head": "61b6618ae9373e00b60d3df3ab2d19cc11cc93cc",
+ "agents": [
+  {
+   "agent": "recompute",
+   "result": {
+    "lens": "INDEPENDENT RECOMPUTE (own scripts over the raw dumps; slot_occurrence_join.py and join.py not used; join.py cohort rules reimplemented from its text)",
+    "verdict": "claims_hold_with_qualifications",
+    "findings": [
+     {
+      "severity": "qualification",
+      "claim": "The 'end' slot at the head is unchanged, but it now edits a different word from 'endword' on 371 cur line-modes. At 67889851 that count was 0.",
+      "evidence": "endpair.py: at 67889851, end and endword edit the same span on 6,434 line-modes and never on different spans. At 61b6618a, 6,058 are the same and 371 differ, all of them end=edit_unbound with endword=occ_agree. On those lines 'end' still replaces the literal last word, which the grader cannot read (for example 'Quean', 'Exmoor', or the line number '10'). 'endword' now replaces an earlier word the grader binds ('cruel', 'that', 'me'). 5 further line-modes flip from both editing the same span to end edit_unbound with endword refused_unbound. This is consistent with BB8's '191 edit_unbound per mode on end' residual, but 'end slot unchanged' should not be read as meaning the end-family slots still agree with each other.",
+      "repro": "cd <scratch>/so3/skeptic-recompute && ../../venv311/bin/python -I endpair.py ; extra_out.json keys residual191_endword_same_line (377 of 382 residual line-modes have endword occ_agree on an earlier word) and end_on_endword_cohort_lines (371 edit_unbound, 52 refused_unbound)"
+     },
+     {
+      "severity": "qualification",
+      "claim": "All 989 cohort cases pass only under v3's occurrence contract. Under v2's literal rule the head reads them as wrong_word, and the v2 tool cannot measure the head's production call at all.",
+      "evidence": "recompute_out.json v3_literal_counts 61b6618a: cur:stripped wrong_word 414, cur:sung wrong_word 575. Every cohort's head_fate is 'occ_agree/wrong_word'. so3/sb_v2tool_61b6618a.json has swap_keywords_replicated [] and production_use_not_replicated 3 (the lex keyword), so its FAIL (controls_failed 40) is not a comparable measure. Acceptance therefore rests on accepting tool v3's gate definition.",
+      "repro": "../../venv311/bin/python -I recompute.py recompute_out.json; python -c \"import json;r=json.load(open('../sb_v2tool_61b6618a.json'));print(r['pins']['swap_keywords_replicated'],r['unresolved'])\""
+     },
+     {
+      "severity": "note",
+      "claim": "occ_agree shows the reviser agrees with the grader's binding. It does not show that the binding is the musically right word, and the agreement is partly by construction because both sides call slots.resolve.",
+      "evidence": "In the cohort, 'endword' can bind a word up to about 3 tokens before the line end (regex estimate: 0 tokens between for 365, 1 for 46, 2 for 10, 3 for 2 of the 423 endword cases). Examples: 'by' in \"Wha, by Castalia's wimplin streamies,\" and 'the' in 'The spirit of the pedagogue'. head and headrime skip unreadable first words, for example 'Heedless; the trees...' binds 'the'. The reviser at the head uses loop._RESOLVE = _SL.resolve (loop.py:329), and the oracle uses the same function, so this tests the index-to-raw-span plumbing. The rigged negative controls cover a disagreeing grader.",
+      "repro": "extra_out.json tokens_between_named_and_bound_estimate; sample40.txt; grep -n _RESOLVE wt-61b/lyric-harness/quality/loop.py"
+     },
+     {
+      "severity": "note",
+      "claim": "The 2,342 edit_unbound -> refused_unbound cases are a capability change. At 67889851 the reviser replaced unreadable or OOV words at these slots; at the head it refuses. The evidence does not show whether any production path targets such slots.",
+      "evidence": "All 2,342 have head result None, 678 edited==named, and head bound None. The top named words are dialect or OOV forms: wi' 29, o'er 19, vor 11, nae 7, plus Saviour, fleetness and Pillow'd. Refusing is safe because it makes no wrong edit.",
+      "repro": "../../venv311/bin/python -I extra.py extra_out.json (keys 2342_checks..., 2342_top_named_words_cur_stripped, 2342_sample)"
+     },
+     {
+      "severity": "note",
+      "claim": "The population sha in the receipts is a content hash, not the file's sha256sum.",
+      "evidence": "Receipt pins.population.sha256 = 641a3c27... = sha256('\\n'.join(nonempty lines)). sha256sum population.txt = 87946276..., which differs only by the trailing newline (file == joined + '\\n' is True). All 3,990 lines are unique, so (mode, line, slot) is a valid key.",
+      "repro": "sha256sum /home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt; recompute_out.json population"
+     },
+     {
+      "severity": "note",
+      "claim": "Provenance is pinned by commit and tool sha. It is not pinned by dirty state, and the v3 tool and join files are untracked.",
+      "evidence": "Receipt commits equal the worktree HEADs: fce4bf0f1b4b..., 67889851144d..., 61b6618ae937.... The receipt loop_sha256 values equal the current worktree loop.py files. git status shows only untracked node_modules in wt-678 and wt-61b. The v3 pins have no tracked_changes field; only the v2-tool run at the head records tracked_changes false. slot_occurrence.py and slot_occurrence_join.py are untracked (?? in the main repo), and their sha c9e282c3... matches the receipt pin. slot_binding.py sha 42e878a0... matches the receipt pin and is unmodified (last commit 0568c4c9a). 61b6618a over 58de1816 changes only docs and map.",
+      "repro": "git -C <wt> rev-parse HEAD; git -C <wt> status --porcelain; sha256sum <wt>/lyric-harness/quality/loop.py; git -C /home/user/CodexMusica status --porcelain"
+     },
+     {
+      "severity": "note",
+      "claim": "Every zero count is for the 3,990-line population only, not the full corpus.",
+      "evidence": "The population is the aside-line selection (984/1,056 lines, 934 shared) plus a 3,000-line seeded sample (seed 20261014), per slot_match_67889851/README.md.",
+      "repro": "cat /home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/README.md"
+     },
+     {
+      "severity": "note",
+      "claim": "The occurrence check was actually exercised: in about 100 of the 989 cases (regex estimate) the line holds another same-spelled copy of the bound word, and every one edited the bound occurrence.",
+      "evidence": "dupcheck.py: multi-occurrence 100, single 889, edited==bound in all 989. Examples: the second 'willow' in '(Hey, but I'm doleful, willow, willow waly!)', the second 'half' in 'A half behind, an' half upzides.', and the third 'his' in 'Than eärn his life. (3) His life wer his avore.'",
+      "repro": "../../venv311/bin/python -I dupcheck.py"
+     }
+    ],
+    "numbers_checked": [
+     {
+      "what": "head cur occ_wrong / unplaceable_edit / no_op_edit / resolver_mismatch",
+      "bb8": "0/0/0/0",
+      "yours": "0/0/0/0 (both cur modes)",
+      "match": true
+     },
+     {
+      "what": "head per-mode outcomes cur:stripped",
+      "bb8": "(receipt) occ_agree 33591, no_word_refused 12513, refused_bound 250, refused_unbound 1071, edit_unbound 191",
+      "yours": "identical; receipt 'outcomes' == recount for all 3 trees",
+      "match": true
+     },
+     {
+      "what": "head per-mode outcomes cur:sung",
+      "bb8": "(receipt) occ_agree 39143, no_word_refused 6235, refused_bound 704, refused_unbound 1331, edit_unbound 191",
+      "yours": "identical",
+      "match": true
+     },
+     {
+      "what": "67889851 cur occ_wrong",
+      "bb8": "989 (414+575)",
+      "yours": "414+575=989, and the set equals the 989 v2 FAIL cases",
+      "match": true
+     },
+     {
+      "what": "v3 literal == v2 kind, every case",
+      "bb8": "equal at fce4bf0f and 67889851",
+      "yours": "0 diffs of 91,896 (fce) and 0 of 190,440 (678); named/bound/edited text also 0 diffs; exclusion sets equal",
+      "match": true
+     },
+     {
+      "what": "67889851 cohorts",
+      "bb8": "138 base_agreed / 42 base_excluded / 113 base_refused / 10 same_kind_other_words / 686 unchanged",
+      "yours": "138 / 42 / 113 (111 refused_grader_elsewhere + 2 refused) / 10 / 686; base_other_failure 0; all grader_elsewhere",
+      "match": true
+     },
+     {
+      "what": "cohort fate at head",
+      "bb8": "all 989 occ_agree",
+      "yours": "989 occ_agree (literal wrong_word 989); bound span identical 678 vs head 989; 678 edit elsewhere 989; result == line with only the bound span replaced: 989/989 (two independent checks)",
+      "match": true
+     },
+     {
+      "what": "edit_unbound -> refused_unbound",
+      "bb8": "2,342: T<n> 2292, headrime 26, head 12, endword 12",
+      "yours": "2,342: T<n> 2292 (T1 309, T2 402, T3 354, T4 358, T5 329, T6 239, T7 178, T8 123), headrime 26, head 12, endword 12; stripped 1057 / sung 1285",
+      "match": true
+     },
+     {
+      "what": "full cur transition 678 -> head",
+      "bb8": "(implied: only the 989 and 2,342 move)",
+      "yours": "occ_agree->occ_agree 71745, no_word_refused 18748, edit_unbound->refused_unbound 2342, occ_wrong->occ_agree 989, refused_bound 954, edit_unbound->edit_unbound 382, refused_unbound 60; named/bound never change",
+      "match": true
+     },
+     {
+      "what": "default end slot unchanged",
+      "bb8": "unchanged (occurrence, edited span, result)",
+      "yours": "7,935/7,935 cur end cases identical in occurrence, literal, named, bound, edited, result",
+      "match": true
+     },
+     {
+      "what": "head residual edit_unbound per cur mode",
+      "bb8": "191, all end: 181 other / 7 numeral / 3 hyphen",
+      "yours": "191 per mode, all end: 181 / 7 / 3; all literal agree_unbound with edited==named; equals 678's end edit_unbound (191/mode)",
+      "match": true
+     },
+     {
+      "what": "v1 identity 67889851 vs head",
+      "bb8": "identical",
+      "yours": "95,220/95,220 records identical in every field; v1 exclusion sets equal",
+      "match": true
+     },
+     {
+      "what": "v1 failures at head = fce4bf0f base failures",
+      "bb8": "701 occ_wrong + 4 resolver_mismatch",
+      "yours": "705 = 705, same keys and identical records (spans and result): stripped 353+2, sung 348+2",
+      "match": true
+     },
+     {
+      "what": "gate at head",
+      "bb8": "FAIL on v1 only",
+      "yours": "receipt failures only v1:*:occ_wrong; unresolved only v1 resolver_mismatch",
+      "match": true
+     },
+     {
+      "what": "coverage per dump",
+      "bb8": "(implicit) every (mode,line,slot) present",
+      "yours": "0 missing / 0 extra / 0 bad-shape line-modes in all 5 dumps; cases 91,896 (fce) and 190,440 (678, head) = expected; excluded 161+161 (fce), 22+23+22+23 (678, head)",
+      "match": true
+     },
+     {
+      "what": "population sha in receipts",
+      "bb8": "641a3c27...",
+      "yours": "641a3c27... = content sha (joined lines); file sha256sum is 87946276... (trailing newline only)",
+      "match": true
+     },
+     {
+      "what": "receipt commits vs worktree HEAD",
+      "bb8": "fce4bf0f / 67889851 / 61b6618a",
+      "yours": "all three equal git rev-parse HEAD of wt-base / wt-678 / wt-61b; loop_sha256 also equal",
+      "match": true
+     },
+     {
+      "what": "seeded sample of 40 head occ_agree (seed 20261014)",
+      "bb8": "(asked) exactly the bound span replaced",
+      "yours": "40/40 by hand from the raw result; 40/40 re-derived at wt-61b via slots.resolve with my own widx-to-span mapping plus a fresh production swap_at_slot call (lex, scheme, strip_parens)",
+      "match": true
+     }
+    ],
+    "files": [
+     "<scratch>/so3/skeptic-recompute/recompute.py",
+     "<scratch>/so3/skeptic-recompute/recompute_out.json",
+     "<scratch>/so3/skeptic-recompute/extra.py",
+     "<scratch>/so3/skeptic-recompute/extra_out.json",
+     "<scratch>/so3/skeptic-recompute/textcheck.py",
+     "<scratch>/so3/skeptic-recompute/endpair.py",
+     "<scratch>/so3/skeptic-recompute/dupcheck.py",
+     "<scratch>/so3/skeptic-recompute/resolve40.py",
+     "<scratch>/so3/skeptic-recompute/resolve40_out.txt",
+     "<scratch>/so3/skeptic-recompute/sample40.txt"
+    ],
+    "summary": "I recomputed every number in BB8's reading from the five raw dumps with my own scripts, and all of them match. Under v2 at 61b6618a there are 0 occ_wrong, 0 unplaceable, 0 no-op and 0 resolver_mismatch. All 989 of 67889851's v2 failures are grader_elsewhere, split into cohorts of 138, 42, 113, 10 and 686, and every one is occ_agree at the head. The bound span is unchanged and the result replaces exactly that span, checked twice independently on all 989; 100 of those lines (a regex estimate) hold another word with the same spelling, and the edit still landed on the bound one. Of the 2,342 edit_unbound -> refused_unbound cases, 2,292 are on T<n>, 26 on headrime, 12 on head and 12 on endword. The end slot is unchanged in every field on all 7,935 cases. The 191-per-mode residual is all on end (181 other, 7 numeral, 3 hyphen). All 95,220 v1 records are identical to 67889851, and the 705 v1 failures are the same records as fce4bf0f's base failures, so the gate is FAIL on v1 only. v3's literal verdict equals v2's kind on every case at both earlier trees (0 diffs in 91,896 and 190,440), and so do the named, bound and edited texts. Coverage is complete in every dump. The receipt commits and loop.py shas match the worktrees. The receipt's population sha is a content hash that differs from sha256sum only by the trailing newline. In the 40-case seeded sample, all 40 reproduce by hand and when re-derived at wt-61b with slots.resolve and a fresh call to the production swap. Two qualifications. First, the 989 pass only under v3's occurrence contract: v2's literal rule reads them as wrong_word, and the v2 tool cannot replicate the head's lex keyword. Second, the end and endword slots now edit different words on 371 cur line-modes, where at 67889851 they never did: end still edits the unreadable last word, and endword edits an earlier word the grader binds. Smaller notes: the agreement is partly by construction (shared slots.resolve); the 2,342 refusals remove edits of OOV and dialect words; the v3 tool files are untracked and have no dirty-state pin; and the zero counts cover the 3,990-line population only. No worktree or tracked file was modified."
+   }
+  },
+  {
+   "agent": "tool-review",
+   "result": {
+    "lens": "tool-review: slot_occurrence.py v3.0 (sha c9e282c3, the version that produced so3/so_*.json) read line by line against slot_binding.py v2 (sha 42e878a0, unchanged) and production at 61b6618a (loop.swap_at_slot, _bound_index, _end_occurrence_bound, swap_end_word, _RESOLVE; revise._splice; revise_loop's propose partials)",
+    "verdict": "claims_hold_with_qualifications",
+    "findings": [
+     {
+      "severity": "blocking",
+      "claim": "The v3.0 gate never checks where an edit lands when the grader binds nothing. occurrence() returns edit_unbound for ANY edit with bound None, including an edit on a slot that names no word (named None), which v2 failed as wrong_word. edit_unbound feeds only the policy_residual counter, never failures. So the cur-mode '0 failures' cannot catch an edit on the wrong word wherever the grader binds nothing. At 61b6618a no such wrong edit actually exists: the literal column and my independent post-edit check show it. But the v3.0 gate did not establish that. Tool 3.1 (sha 88237781, rewritten on disk at 06:57:22 during this review) makes edit_unbound FAILING. That closes the hole, but under the revised rule 61b6618a's cur scheme reads FAIL (191 per mode), not the 'v1-only FAIL' BB8 reported.",
+      "evidence": "(a) Three deliberately wrong swaps, fed through the tool's own occurrence() (AST-extracted verbatim from the pinned v3.0), leave the cur-mode failures empty. W7 (unreadable end word, edit the last READABLE word instead): 185 stripped / 186 sung cases, all edit_unbound. W8 (unreadable T<n>, edit the nearest readable neighbour, the 'compacted index' production's docstring forbids): 1,011 / 1,227, all edit_unbound. W3 (T<n> past the line end, edit the last word): 6,669 / 6,235, all edit_unbound. Example: 'O'er the parchment (not a rhyme),' T1 edited to 'O'er zqzq parchment ...' reads edit_unbound. (b) End to end: the pinned v3.0 main() run with quality.loop.swap_at_slot replaced by that broken splice returns failures={v1:stripped:occ_wrong 353, v1:sung:occ_wrong 348}, the same as the genuine 61b receipt. It reports 0 controls failed and 0 negatives failed. Only policy_residual_edit_unbound moves, from 191/191 to 7,855/7,627. In its own dump the literal column reads wrong_word for 7,831/7,604 of those cases. (c) At 61b6618a, all 191 edit_unbound per cur mode have literal agree_unbound, edited == named, with 0 named-None cases. The post-edit check confirms all 191.",
+      "repro": "SP=<scratch>; SK=$SP/so3/skeptic-tool-review; POP=/home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt; cd $SP/wt-61b/lyric-harness; export LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data; $SP/venv311/bin/python $SK/probe_wrong_swaps.py $PWD $POP $SP/so3/so_61b6618a.jsonl.gz $SK/wrong_swaps_61b6618a.json ; $SP/venv311/bin/python $SK/run_tool_with_bad_swap.py $SK/so_badswap_61b6618a $POP $PWD (receipt: $SK/so_badswap_61b6618a.json/.jsonl.gz) ; $SP/venv311/bin/python $SK/e1_receipt_checks.py $SP/so3/so_61b6618a.jsonl.gz"
+     },
+     {
+      "severity": "qualification",
+      "claim": "The oracle is not independent of production for non-default slots, so '0 occ_wrong' there holds largely by construction. Production's _bound_index and the tool's _bound both read the widx of the same slots.resolve, and both map it through the same reader_line pieces (the tool via reader_token_spans, which is reader_line). The real evidence is narrower: that the splice offsets equal those pieces, plus the refusal counts. I found no path that yields a false occ_agree. The mark is absent from the line, so _edited is an exact single-span reconstruction. The tool's endpoint rule (w[-1]/w[0]), _fold laxness and the missing T<n> index check can only turn a case into a refusal, because production requires a single token and widx == n-1. A casing mismatch would surface as unplaceable_edit, which is a FAIL, not a pass. An independent post-edit check, which needs neither the tool nor raw pieces on the original line, corroborates every occ_agree.",
+      "evidence": "Post-edit check: splice a readable word, re-read the edited line's token TEXT list, and require the grader's slot on the edited line to bind that word. For head/headrime/endword it also requires that the replaced token was readable. Receipt occ_agree confirmed 33,591/33,591 (stripped) and 39,143/39,143 (sung); edit_unbound confirmed 191/191 each; 0 contradicted. The 22/23 excluded 'transformed' (multi-piece) line-modes, which the tool never tests: production edits them in 222/227 slot cases, and all were confirmed. Synthetic fuzz: 2,470 lines built from repeated mixed-case words, asides holding repeats, numerals, '_110', hyphen and '--' compounds, apostrophes, spaced 's, soft hyphen, NFD accents and '×'. Result: 14,526/15,996 occ_agree, all post-edit ok; 0 occ_wrong, unplaceable, no_op or resolver_mismatch; reader_line pieces ascending in every line.",
+      "repro": "cd $SP/wt-61b/lyric-harness; LYRIC_STAGED_DATA=... $SP/venv311/bin/python $SK/probe_postedit.py $PWD $POP $SP/so3/so_61b6618a.jsonl.gz $SK/postedit_61b6618a.json ; $SP/venv311/bin/python $SK/probe_fuzz.py $PWD 2500 7 $SK/fuzz_61b6618a.json"
+     },
+     {
+      "severity": "qualification",
+      "claim": "Q1 (lexicon faithfulness). The tool passes the same build_lexicon('v2','none') object to both swap and oracle. That replicates production only for a run with --lexicon-supplement=v2, no --fallback and no --pronunciations. Production can also pass: --fallback=high|low; supplement none or another version; a lexicon with declared occurrence readings (for_line scoping, Reviser.for_revision); and a freshly built voices lexicon instead of copy.copy. The tool checks keyword NAMES only, not values. loop.py's values come from _lex_cut, which under v1 passes strip_parens=True while _splice passes lex.strip_parens; both are ignored under v1, and the two coincide under v2. My probes: production stays consistent under every variant I could build. Not run: fallback=low.",
+      "evidence": "Each probe runs the tool's own occurrence() with real production at 61b6618a, cur modes, on the full population. fb_high: bindings moved in 438 (stripped) / 520 (sung) cases, all occ_agree or refused_bound, 0 failures, 0 mismatch. decl (1,508 / 1,817 validated declarations: unreadable first/last tokens made readable, plus a distinct reading on the last occurrence of each repeated word): bindings moved in 1,566 / 1,929 cases, 0 failures, 0 mismatch; examples: 'O'er the parchment' head moves from 'the' to 'O'er', and production follows. supp_none and voices_fresh (SupplementedLexicon(version='v2', strip_parens=False)): identical to the receipt record for record. Supplement v2 (205 rows) changes the readable-token set of 0 of the 3,990 lines, so the receipt says nothing about supplement-dependent bindings. promote: the grader passes promote=self._promote() (revise.py:1645-1648), but resolve forwards promote only to line_anchors for the default slot, whose endpoint is always the last token, so it cannot change occurrence identity.",
+      "repro": "cd $SK; ./run_lex.sh fb_high decl supp_none voices_fresh   (outputs $SK/lex_<variant>.json/.log); supplement-effect check: inline script in transcript comparing word_syllable_map widx sets for build_lexicon('v2','none') vs ('none','none') over $POP -> 0 lines differ"
+     },
+     {
+      "severity": "qualification",
+      "claim": "Q3: the negative controls are meaningful at 61b6618a. The rigged SL.resolve reaches only the oracle, and a production edit on the wrong occurrence is caught at population scale. Their coverage is thin, though: base mode only (cur:stripped), 4 rig cases plus 8 wrong-occurrence lines. v3.0's required CONTROLS (v2's 12 no-aside lines) contain no case where the grader skips the literal word, so no required control covers the 989-case cohort's new behaviour (3.1 adds READABLE_CONTROLS).",
+      "evidence": "For all 4 NEGATIVE_CONTROLS: loop._RESOLVE is the real slots.resolve, production's output is byte-identical with and without the rig, and the oracle's bound moves (e.g. 'love, love me do' T2 from [6,10] to [0,4]). Counterfactual with loop._RESOLVE also rigged: production refuses (first_occurrence reads refused_bound, mixed_tags reads resolver_mismatch). That would be 'not caught', i.e. CANNOT TELL, so the design stays safe either way. W1 (the real edit moved to another occurrence of the same spelling): 1,821/1,821 (stripped) and 2,213/2,213 (sung) read occ_wrong.",
+      "repro": "$SK/wrong_swaps_61b6618a.json keys rig_reach and wrong_swaps.W1_other_occurrence (same command as finding 1)"
+     },
+     {
+      "severity": "note",
+      "claim": "The new default-end endpoint-occurrence check (_end_occurrence_bound) is never exercised by this population. It changed 0 of 15,870 end records relative to 67889851 (in every mode). Its power is shown only by my rig counterfactual: with production's _RESOLVE rigged, the 'do me a favour, do' end swap returns None.",
+      "evidence": "Record-level comparison of slot 'end' in so_67889851.jsonl.gz vs so_61b6618a.jsonl.gz: 15,870 vs 15,870 records, 0 differ in (occurrence, literal, edited span, result). rig_reach[1].if_production_followed_rig.swap = null.",
+      "repro": "inline python in transcript over $SP/so3/so_{67889851,61b6618a}.jsonl.gz filtering slot=='end'"
+     },
+     {
+      "severity": "note",
+      "claim": "Q4 gate logic: FAIL dominates, CANNOT TELL triggers correctly, exceptions exit 3, and the dump drops nothing (190,530 records = (3,990x4 - 90)x12 + 90). Against v2, v3.0 regresses or loosens: (i) the named-None and edited!=named paths are no longer failures (finding 1); (ii) the tracked_changes, lexicon identity (supplement and cmudict sha), loop_word_re and population 'accounted' pins are dropped; (iii) a control reading resolver_mismatch counts as FAIL, not CANNOT TELL (conservative mislabel); (iv) there is no per-scheme verdict, so 'FAIL on v1 only' is a manual reading of the failures keys (3.1 adds gate_by_scheme); (v) failing_cases is capped at 300 (listing only). The trees I checked have 0 tracked changes, and their tracked data/ matches main HEAD d10ca4c35, but the v3.0 receipts do not pin this.",
+      "evidence": "slot_occurrence.py v3.0 lines 123-142 (occurrence), 211-227 (gate), 229-242 (pins); slot_binding.py v2 lines 352-353 (named None -> wrong_word), 361-362 (edited != named -> wrong_word), 444-449 (accounted), 479-491 (pins). git status --porcelain --untracked-files=no is empty in wt-61b, wt-678, wt-base and /home/user/CodexMusica.",
+      "repro": "diff by reading; record count: python3 -c 'print((3990*4-90)*12+90)' vs the record count from e1_receipt_checks.py (190530)"
+     },
+     {
+      "severity": "note",
+      "claim": "Attribution: the tool file changed during the review. All my probes ran against a byte-exact reconstruction of v3.0, verified to sha c9e282c3 (the receipts' tool_sha256), with a sha-verified copy of slot_binding.py beside it. I did not run or evaluate 3.1 beyond reading its FAILING set and gate code.",
+      "evidence": "slot_occurrence.py on disk is now sha 88237781 (23,685 bytes, mtime 06:57:22, TOOL_VERSION '3.1'). $SK/v30/slot_occurrence.py has sha c9e282c3 (13,647 bytes); so_extract.py asserts both pins before loading.",
+      "repro": "sha256sum $SK/v30/slot_occurrence.py $SK/v30/slot_binding.py /home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_occurrence.py"
+     }
+    ],
+    "numbers_checked": [
+     {
+      "what": "67889851 cur grader_elsewhere cohort read at head",
+      "bb8": "989, all occ_agree",
+      "yours": "989 (138+42+113+10+686), all occ_agree, literal wrong_word",
+      "match": true
+     },
+     {
+      "what": "67889851 cur edit_unbound -> refused_unbound at head",
+      "bb8": "2,342 (T<n> 2292, headrime 26, head 12, endword 12)",
+      "yours": "2,342 (T<n> 2292, headrime 26, head 12, endword 12); the other 382 stay edit_unbound on end",
+      "match": true
+     },
+     {
+      "what": "head cur edit_unbound per mode",
+      "bb8": "191 per mode, all on end (181 other, 7 numeral, 3 hyphen)",
+      "yours": "191/191, all on end, literal agree_unbound, 0 named-None; join shape 181/7/3",
+      "match": true
+     },
+     {
+      "what": "head cur occ_wrong / unplaceable / no_op / resolver_mismatch",
+      "bb8": "0/0/0/0",
+      "yours": "0/0/0/0 (stripped occ_agree 33,591; sung 39,143)",
+      "match": true
+     },
+     {
+      "what": "head v1 failures",
+      "bb8": "701 occ_wrong + 4 resolver_mismatch, identical to 67889851 v1 and to the fce4bf0f base",
+      "yours": "353+348 occ_wrong, 2+2 resolver_mismatch; join v1 literal differences 0 of 95,760; fce4bf0f cur 353/348 and 2/2",
+      "match": true
+     },
+     {
+      "what": "default end slot unchanged 67889851 -> 61b6618a",
+      "bb8": "unchanged",
+      "yours": "0 of 15,870 end records differ (all modes)",
+      "match": true
+     },
+     {
+      "what": "v2 kind vs v3 literal (tool equality)",
+      "bb8": "(implied, join section 1)",
+      "yours": "0 different of 95,760 (fce4bf0f) and 191,520 (67889851)",
+      "match": true
+     },
+     {
+      "what": "receipt completeness",
+      "bb8": "(not stated)",
+      "yours": "190,530 records = (3,990x4-90)x12+90",
+      "match": true
+     },
+     {
+      "what": "independent post-edit confirmation of occ_agree",
+      "bb8": "(not measured)",
+      "yours": "33,591/33,591 and 39,143/39,143 confirmed; edit_unbound 191/191 confirmed",
+      "match": true
+     },
+     {
+      "what": "gate sensitivity to wrong edits where the grader binds nothing (v3.0)",
+      "bb8": "edit_unbound = policy residual, not failure",
+      "yours": "broken swap (7,831/7,604 literal wrong_word) gives an identical failures dict; only the residual moves, 191 -> 7,855/7,627",
+      "match": false
+     }
+    ],
+    "files": [
+     "<scratch>/so3/skeptic-tool-review/v30/slot_occurrence.py",
+     "<scratch>/so3/skeptic-tool-review/v30/slot_binding.py",
+     "<scratch>/so3/skeptic-tool-review/so_extract.py",
+     "<scratch>/so3/skeptic-tool-review/probe_wrong_swaps.py",
+     "<scratch>/so3/skeptic-tool-review/wrong_swaps_61b6618a.json",
+     "<scratch>/so3/skeptic-tool-review/run_tool_with_bad_swap.py",
+     "<scratch>/so3/skeptic-tool-review/so_badswap_61b6618a.json",
+     "<scratch>/so3/skeptic-tool-review/so_badswap_61b6618a.jsonl.gz",
+     "<scratch>/so3/skeptic-tool-review/probe_lexicons.py",
+     "<scratch>/so3/skeptic-tool-review/run_lex.sh",
+     "<scratch>/so3/skeptic-tool-review/lex_fb_high.json",
+     "<scratch>/so3/skeptic-tool-review/lex_decl.json",
+     "<scratch>/so3/skeptic-tool-review/lex_supp_none.json",
+     "<scratch>/so3/skeptic-tool-review/lex_voices_fresh.json",
+     "<scratch>/so3/skeptic-tool-review/probe_postedit.py",
+     "<scratch>/so3/skeptic-tool-review/postedit_61b6618a.json",
+     "<scratch>/so3/skeptic-tool-review/probe_fuzz.py",
+     "<scratch>/so3/skeptic-tool-review/fuzz_61b6618a.json",
+     "<scratch>/so3/skeptic-tool-review/e1_receipt_checks.py",
+     "/home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_occurrence.py",
+     "/home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_binding.py",
+     "<scratch>/wt-61b/lyric-harness/quality/loop.py",
+     "<scratch>/wt-61b/lyric-harness/quality/revise.py"
+    ],
+    "summary": "Every number BB8 cites for 61b6618a reproduces. That includes the 989-case cohort reading occ_agree, the 2,342 refusals (T<n> 2292, headrime 26, head 12, endword 12), 191 edit_unbound per cur mode on end only, 0 cur failures, v1 identical to 67889851 (701 occ_wrong + 4 resolver_mismatch), and an unchanged default end (0 of 15,870 records differ).\n\nAn independent post-edit check confirms every occ_agree (33,591 stripped, 39,143 sung) and all 191 unbound end edits per mode; it splices a readable word and asks the grader about the edited line, and needs neither the tool nor raw-piece mapping. A 2,470-line synthetic fuzz found 0 false occ_agree, and code reading shows no path that yields one.\n\nQ1, lexicon: the tool's single build_lexicon('v2','none') object is only one of the lexicons production can pass. I added fallback=high, supplement none, a freshly built voices lexicon, and 1,508 / 1,817 declared occurrence readings. These moved bindings in up to 1,929 cases, with 0 failures. The v2 supplement changes no token's readability in this population, and fallback=low was not run.\n\nQ3, negative controls: they are meaningful. The rig reaches only the oracle (loop._RESOLVE is the real resolve, and production output is unchanged under the rig), and a production that followed the rig would refuse, which reads CANNOT TELL. My own wrong-occurrence swap was caught 1,821/1,821 and 2,213/2,213.\n\nQ2/Q4, the gate (blocking): v3.0 counts every edit where the grader binds nothing as a policy residual and never checks where it landed. That includes phantom-slot edits, which v2 failed. The pinned v3.0 tool, run end to end with a deliberately broken swap, returns the same failures dict as the real receipt, with all controls and negative controls passing. Only the residual moves (191 to 7,855 and 7,627), while its own literal column records 7,831 and 7,604 wrong_word. At 61b6618a no wrong edit is actually hidden: all 191 are literal agree_unbound and confirmed post-edit. But the v3.0 gate did not establish that.\n\nTool 3.1 appeared mid-review (sha 88237781; I reviewed v3.0, byte-exact, sha c9e282c3). It now fails edit_unbound, which closes this hole. Under 3.1, though, 61b6618a's cur scheme reads FAIL at 191 per mode, so BB8's 'FAIL on v1 only' reading no longer stands.\n\nFurther qualifications: the oracle shares slots.resolve and reader_line with production, so cur 0 occ_wrong on non-default slots holds largely by construction. The new end-occurrence check is never exercised by this population. v3.0 drops v2's tree-clean and lexicon pins."
+   }
+  }
+ ],
+ "still_running_when_saved": [
+  "counterexamples",
+  "r2-tests"
+ ]
+}
