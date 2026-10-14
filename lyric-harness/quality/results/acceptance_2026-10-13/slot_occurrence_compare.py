@@ -7,11 +7,14 @@ A case is (mode, line, slot); excluded-line placeholders (slot null) are keyed
 (mode, line, None) and compared too. It reports:
 - the sha256 of each uncompressed stream and its record count;
 - per reader scheme: cases, excluded placeholders, evaluated records, and how
-  many are identical in EVERY field (whole-record equality);
+  many are EQUAL IN EVERY FIELD (the parsed JSON records compare equal; this
+  is not a byte comparison of the record lines, whose stream hashes are
+  given separately);
 - the readable default-end check: v2 `end` records reading `occ_agree` in
-  OLD, and how many are byte-identical in NEW;
+  OLD, and how many are equal in every field in NEW;
 - the complete change set: every case whose record differs, with both
   records, and a count by (mode, slot, old occurrence -> new occurrence).
+A dump holding the same case twice is refused, never silently overwritten.
 Read-only.
 """
 import collections, gzip, hashlib, json, sys
@@ -24,7 +27,10 @@ def load(path):
         if not line:
             continue
         r = json.loads(line)
-        recs[(r["mode"], r["line"], r["slot"])] = r
+        k = (r["mode"], r["line"], r["slot"])
+        if k in recs:
+            raise SystemExit(f"{path}: duplicate case {k!r}; a dump must hold one record per case")
+        recs[k] = r
     return hashlib.sha256(raw).hexdigest(), recs
 
 
