@@ -3622,26 +3622,30 @@ async function browserChecks(chromium) {
     });
 
     await step('9d. real send selection', async () => {
-      for (const mode of ['mouse', 'tab-mouse', 'keyboard', 'dock', 'phone']) {
+      for (const mode of ['mouse', 'tab-mouse', 'tab-caret-mouse', 'keyboard', 'dock', 'phone']) {
         const { ctx, page, q } = await boot({ phone: mode === 'phone' });
         const text =
           '[SETUP — rhyme groups — 1.T2,2.end]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight';
         await setDraft(page, text);
-        await page.evaluate(() => {
+        const collapsed = mode === 'tab-caret-mouse';
+        await page.evaluate((caret) => {
           const d = $ui('lyrics-draft');
           d.focus();
           const at = d.value.indexOf('sing it');
-          d.setSelectionRange(at, at + 7, 'backward');
-        });
-        if (mode === 'tab-mouse') {
+          d.setSelectionRange(caret ? at + 2 : at, caret ? at + 2 : at + 7, 'backward');
+        }, collapsed);
+        if (mode.startsWith('tab-')) {
           await page.keyboard.press('Tab');
-          const retained = await page.evaluate(() => {
+          const retained = await page.evaluate((caret) => {
             const d = $ui('lyrics-draft');
             return (
               document.activeElement !== d &&
-              d.value.slice(d.selectionStart, d.selectionEnd) === 'sing it'
+              (caret
+                ? d.selectionStart === d.value.indexOf('sing it') + 2 &&
+                  d.selectionEnd === d.selectionStart
+                : d.value.slice(d.selectionStart, d.selectionEnd) === 'sing it')
             );
-          });
+          }, collapsed);
           check(retained, 'P5 Tab moved focus away while retaining the textarea selection');
         }
         q.replies.push({ reply: 'Fixture review only', history: [], sig: 'fixture' });
@@ -3678,7 +3682,10 @@ async function browserChecks(chromium) {
           };
         });
         check(
-          q.calls.length === 1 && got.selected === 'sing it',
+          q.calls.length === 1 &&
+            (collapsed
+              ? got.start === got.text.indexOf('sing it') + 2 && got.end === got.start
+              : got.selected === 'sing it'),
           `P5/P6 ${mode} selection: ${JSON.stringify(got)}; calls ${q.calls.length}`
         );
         check(

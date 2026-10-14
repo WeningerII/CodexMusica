@@ -110,3 +110,18 @@ recorded its blur boundary. Keyboard activation retains its existing path.
 The focused gate passes 13 assertions across direct mouse, Tab then mouse,
 keyboard, dock and phone (`page_tab_mouse_after.txt`). Other P1–P8 repairs,
 grading policy, and the two excluded extensions are unchanged.
+
+## P5 follow-up: collapsed caret after Tab
+
+The same hybrid path with a collapsed caret inside `sing` fails at
+`2c9bfc874c221875449f0f03ffec2c98217d0126`: the retained caret resets to
+`[0,0]` after one fixture request (`page_tab_caret_before.txt`). The test
+checks Tab really left the textarea with its caret retained, and expects
+the offset two characters into `sing` after migration (68 becomes 77),
+computed from the resulting text rather than the mapping implementation.
+
+The mouse-review focus protection now includes collapsed carets instead of
+requiring either editor focus or a nonempty range. No other action's focus
+handling changes. All six interaction paths pass 16 focused assertions
+(`page_tab_caret_after.txt`); prior range, keyboard, dock and phone controls
+remain in the same gate. No grading, MCP, timeout or excluded-scope changes.

@@ -6256,15 +6256,12 @@ function lyWire(surface) {
     lyRefresh();
   });
   // Keep an editor selection attached to its textarea on a mouse review,
-  // including a selection retained after Tab has moved focus elsewhere.
-  // Disabling the clicked Run button during send otherwise lets the browser reset the just-mapped selection after the click handler returns.
+  // including a collapsed caret retained after Tab has moved focus elsewhere.
+  // Disabling the clicked Run button during send otherwise lets the browser
+  // reset the just-mapped selection after the click handler returns.
   // Keyboard activation still follows its normal focus path.
   surface.addEventListener('mousedown', (e) => {
-    if (
-      e.button === 0 &&
-      (document.activeElement === draft || draft.selectionStart !== draft.selectionEnd) &&
-      e.target.closest('[data-ui="ly-run-review"]')
-    ) {
+    if (e.button === 0 && e.target.closest('[data-ui="ly-run-review"]')) {
       e.preventDefault();
       if (document.activeElement === draft)
         pushHistory(); // replace the prevented blur boundary
