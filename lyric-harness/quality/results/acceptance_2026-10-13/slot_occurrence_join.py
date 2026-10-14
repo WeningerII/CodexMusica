@@ -16,8 +16,14 @@ It reports:
    by occurrence;
 3. the 67889851 `cur` failure cohorts (named as in `slot_match_67889851/`)
    and each case's occurrence and literal verdict at the head;
-4. v1 preservation: the head's v1 literal verdict against 67889851's v1;
-5. every occurrence failure at the head;
+4. v1 preservation, two ways: LITERAL-LABEL equality (the head's v3
+   `literal` against 67889851's v2 `kind`) and WHOLE-RECORD equality (the
+   head's v3 record against 67889851's v3 record, every field), each with
+   the excluded-line placeholders counted apart from evaluated records;
+5. every occurrence failure at the head, as revision 3.1's gate counts them
+   (`occ_wrong`, `unplaceable_edit`, `no_op_edit`, `edit_unbound`), with
+   `resolver_mismatch` reported apart as unresolved (3PO, #527 6163258626:
+   the first version of this join counted the other way round);
 6. the `edit_unbound` residual at the head, by mode, slot and the edited
    token's shape (numeral, hyphen, other).
 """
@@ -25,7 +31,9 @@ import collections, gzip, json, re, sys
 
 SLOTS = ["end", "endword", "head", "headrime"] + [f"T{n}" for n in range(1, 9)]
 FAIL_V2 = {"wrong_word", "grader_elsewhere", "no_op_edit", "resolver_mismatch"}
-FAIL_V3 = {"occ_wrong", "unplaceable_edit", "no_op_edit", "resolver_mismatch"}
+#: revision 3.1's failing outcomes; `resolver_mismatch` is unresolved, apart
+FAIL_V3 = {"occ_wrong", "unplaceable_edit", "no_op_edit", "edit_unbound"}
+UNRESOLVED_V3 = {"resolver_mismatch"}
 REFUSED = ("refused", "refused_unbound", "refused_grader_elsewhere", "no_word_refused")
 
 
@@ -111,16 +119,35 @@ def main(v2b, v2c, v3b, v3c, v3h, out):
     rep["cohort_examples"] = {f"{a} -> {b}": v for (a, b), v in sorted(examples.items())}
     # 4. v1 preservation
     keys = {k for k in set(V2C) | set(V3H) if k[0].startswith("v1:")}
+    placeholder = lambda r: str(r.get("occurrence") or r.get("kind")).startswith("excluded")
+    n_place = sum(1 for k in keys if placeholder(V3H.get(k, absent)))
     d = collections.Counter((V2C.get(k, absent)["kind"], V3H.get(k, absent).get("literal"))
                             for k in keys if V2C.get(k, absent)["kind"] != V3H.get(k, absent).get("literal"))
-    rep["v1_678_vs_head_literal"] = {"cases": len(keys), "different": sum(d.values()),
-                                     "transitions": {f"{a} -> {b}": n for (a, b), n in d.most_common()}}
+    rep["v1_678_vs_head_literal_label"] = {
+        "what": "the head's v3 `literal` against 67889851's v2 `kind`: label equality only",
+        "cases": len(keys), "excluded_placeholders": n_place, "evaluated": len(keys) - n_place,
+        "different": sum(d.values()), "transitions": {f"{a} -> {b}": n for (a, b), n in d.most_common()}}
+    strip = lambda r: {x: v for x, v in r.items()}
+    wk = {k for k in set(V3C) | set(V3H) if k[0].startswith("v1:")}
+    wd = [k for k in sorted(wk) if strip(V3C.get(k, absent)) != strip(V3H.get(k, absent))]
+    rep["v1_678_vs_head_whole_record"] = {
+        "what": "the head's v3 record against 67889851's v3 record, every field "
+                "(occurrence, literal, named, bound, edited, same_spelling, result)",
+        "cases": len(wk), "excluded_placeholders": sum(1 for k in wk if placeholder(V3H.get(k, absent))),
+        "evaluated": len(wk) - sum(1 for k in wk if placeholder(V3H.get(k, absent))),
+        "different": len(wd), "examples": [{"mode": k[0], "line": k[1], "slot": k[2]} for k in wd[:10]]}
     # 5. occurrence failures at the head
     fails = [dict(mode=k[0], line=k[1], slot=k[2], **{x: r.get(x) for x in ("occurrence", "literal", "named", "bound", "edited", "result")})
              for k, r in sorted(V3H.items()) if r["occurrence"] in FAIL_V3]
-    rep["head_occurrence_failures"] = {"count": len(fails),
+    unres = [dict(mode=k[0], line=k[1], slot=k[2]) for k, r in sorted(V3H.items())
+             if r["occurrence"] in UNRESOLVED_V3]
+    by_scheme = collections.Counter((f["mode"].split(":")[0], f["occurrence"]) for f in fails)
+    rep["head_occurrence_failures"] = {"what": "population cases failing revision 3.1's gate at the head",
+                                       "count": len(fails),
+                                       "by_scheme_kind": {f"{a} | {b}": n for (a, b), n in sorted(by_scheme.items())},
                                        "by": dict(collections.Counter(f"{f['mode']} | {f['slot']} | {f['occurrence']}" for f in fails)),
-                                       "cases": fails[:200]}
+                                       "cases_listed": min(len(fails), 200), "cases": fails[:200]}
+    rep["head_unresolved"] = {"count": len(unres), "cases": unres}
     # 6. the edit_unbound residual
     res = collections.Counter()
     words = collections.defaultdict(collections.Counter)

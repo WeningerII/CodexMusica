@@ -182,7 +182,10 @@ Files over 200 KB are gzipped in place. Four Library dumps of about 9 MB each (`
   - R2's earlier findings (a), (c), (d) and (e) are fixed.
   - **(b), broken rhyme across a line end, is a regression under v2,** confirmed by two skeptics:
     - **The case:** a pair whose line ends in a hyphenated word (`king-` in every hyphen spelling, `anguish-` too) and that has a **declared schema relation** (`schema:broken rhyme` or `schema:perfect rhyme`).
-    - **The effect:** that pair now reads UNJUDGED, refused and uncertified on the default reader. Base and v1 read HOLDS, certified, for ASCII `-`.
+    - **The effect:** on the plain default reader, that pair now reads UNJUDGED, refused and uncertified.
+      - For `broken rhyme`, base and v1 gave True for ASCII `-` and False for the other four spellings (U+2010, U+2011, `-`+U+00AD, U+00AD+`-`). So only ASCII `-` held before; the other four go from False to None. `perfect rhyme` gave True on base and v1.
+      - With `--lexicon-supplement=v2`, base and v1 already refused, so the regression is the plain default reader (3PO, #527 6163315071).
+      - The 18 hyphen-ended corpus lines are a raw grep, not a count of affected runs.
     - **The cause:** the v2 cut (`382c36438`) gives the relation judge the token `king-`, which it cannot read without G2P. In the same run, `line_anchors` reads it, so the two disagree.
     - **Not affected:** pairs with no declared relation still hold under v2.
     - **R2's commit:** its message promised one verdict for every spelling, which is met, as a refusal. Only its test asserts True, and the test builds `English(fallback='high')`, which no production path builds.

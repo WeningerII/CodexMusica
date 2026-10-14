@@ -273,12 +273,26 @@ It is fit for bounded diagnostic use on this candidate, and the candidate gate i
 - **2,342 cases where the grader binds nothing now refuse** instead of editing the literal word: 2,292 `T<n>`, 26 `headrime`, 12 `head` and 12 `endword`.
 - **The default `end` slot is unchanged on every case.**
 - **The v2 residual: 191 per mode, all on `end`:** 181 other words, 7 numerals and 3 hyphenated. The default end replaces a last word the grader binds no syllable on, when `line_anchors` names it as the endpoint. 3PO's review rules this an **open contract failure** (`quality/loop.py:479-515` at `61b6618a`): a named literal endpoint is weaker than a grader-bound occurrence. A relaxed policy needs an explicit decision. As a consequence, `end` and `endword` now edit **different** words on 371 v2 line-modes, where at `67889851` they never did.
-- **v1 at `61b6618a`** is identical to `67889851`'s v1 on all 95,760 cases. Its failures are `fce4bf0f`'s failures, unchanged pre-batch behaviour, and are labelled separately.
+- **v1 at `61b6618a` is identical to `67889851`'s v1.** There are 95,760 v1 cases: 95,220 evaluated records and 540 excluded-line placeholders. Two separate equalities hold, both in the join:
+  - **literal-label equality:** the head's `literal` against `67889851`'s v2 `kind`;
+  - **whole-record equality:** every field of the head's v3 record against `67889851`'s v3 record.
+
+  Its failures are `fce4bf0f`'s failures, unchanged pre-batch behaviour, and are labelled separately.
+- **Counted as revision 3.1's gate counts them** (`join_61b6618a.json`, `head_occurrence_failures`): the head has **3,281** population failures, as follows. **4** `resolver_mismatch` cases, all v1, are reported apart as unresolved. The receipt also records **18** declared-path failures, all v1. 3PO (#527 6163258626) caught that the first version of the join still counted revision 3.0's set.
+
+  | | count |
+  |---|---:|
+  | v2 `edit_unbound` | 382 |
+  | v1 `edit_unbound` | 2,198 |
+  | v1 `occ_wrong` | 701 |
+- **The declared-path outcomes under v2** are 165 edits that agree and 9 refusals where the grader binds nothing; there are no failures among them.
 
 **What this does not establish:**
 - The zero counts cover the 3,990-line population, the controls and the 7 declared lines only, not the corpus.
 - `occ_agree` shows that the reviser edits what the grader binds. It does not show that the binding is the musically right word, and both sides call `slots.resolve`, so the agreement is partly by construction. The negative controls show that the oracle catches a wrong occurrence; they cannot show that the grader's choice is right.
-- The declared-reading cases use one lexicon and readings declared by this probe, not a real song's declarations.
+- The declared-reading cases use one lexicon and readings declared by this probe, not a real song's declarations. They exercise the splice helpers (`Reviser._splice`, `default_propose`, `default_propose_group`), not the ingestion of persisted choices or a full revision loop.
+- A splice path missing on a tree is skipped without a verdict in revisions 3.1 and 3.2. The expected three are present at `61b6618a` (`declared_paths` in the receipt); the replacement head's qualification will assert all three.
+- The oracle and production share `slots.resolve` and the raw-token machinery. That, and the fact that the skeptic reports reviewed revision 3.0, are the documented limits on independence.
 
 ## The disputed dictionary rows
 
