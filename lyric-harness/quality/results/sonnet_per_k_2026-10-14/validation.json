@@ -1,0 +1,10 @@
+{
+  "input_hashes_reverified": 429,
+  "input_mismatches": [],
+  "replicate_seeds": [4242, 4243, 4244, 4245, 4246, 4247, 4248, 4249, 4250, 4251],
+  "real_pairs": 1102,
+  "null_pairs_per_replicate": [1096, 1098, 1098, 1099, 1099, 1098, 1102, 1097, 1097, 1102],
+  "buckets": 5,
+  "thetas": [0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9],
+  "source_prefix_verbatim": true
+}

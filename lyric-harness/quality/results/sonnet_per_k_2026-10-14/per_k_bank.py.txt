@@ -1,0 +1,75 @@
+"""Per-k-bucket crossover, search_null's own sweep cut by realized k.
+usage: per_k.py ROOT [weak]"""
+import sys, os, random, statistics as st
+ROOT = sys.argv[1]
+sys.path.insert(0, ROOT); os.chdir(ROOT)
+import lyric_harness as LH
+from quality import search_null as SN
+if len(sys.argv) > 2 and sys.argv[2] == "weak":
+    _o = LH.line_anchors
+    def _w(lex, text, promote=False, endpoint_pronunciations=None, small_end=None):
+        return _o(lex, text, promote=promote, endpoint_pronunciations=endpoint_pronunciations,
+                  small_end="weak" if small_end is None else small_end)
+    LH.line_anchors = _w
+lex = LH.Lexicon(); decl = LH.Declaration()
+units = SN.sonnet_units(lex)
+def scored(pairs):
+    out = []
+    for ca, cb, wa, wb in pairs:
+        s = LH.best_score(ca, cb, decl, wa, wb)
+        s2 = LH.best_score([SN.endword_only(ca)], [SN.endword_only(cb)], decl, wa, wb)
+        out.append((s["spans"]["search_k"] if s else 0, s["total"] if s else 0.0, s2["total"] if s2 else 0.0))
+    return out
+real = scored([p for u in units for p in SN.scheme_pairs(u)])
+reps = []
+for r in range(SN.REPLICATES):
+    rng = random.Random(SN.SEED + r); perm = []
+    for u in units:
+        sh = list(u); rng.shuffle(sh); perm += SN.scheme_pairs(sh)
+    reps.append(scored(perm))
+def inb(k, b):
+    lo, hi = b; return k >= lo and (hi is None or k <= hi)
+def lift(rows, th):
+    if not rows: return None
+    return 100 * (sum(a >= th for _, a, _ in rows) - sum(c >= th for _, _, c in rows)) / len(rows)
+print("total real pairs", len(real))
+for b in [None] + list(SN.PER_K_BUCKETS):
+    R = [x for x in real if b is None or inb(x[0], b)]
+    N = [[x for x in t if b is None or inb(x[0], b)] for t in reps]
+    if not R: continue
+    buys = {}
+    for th in SN.THETAS:
+        rl = lift(R, th); nl = [lift(t, th) for t in N if t]
+        buys[th] = (rl, st.median(nl), sum(rl > v for v in nl), len(nl))
+    cross = None
+    ths = list(SN.THETAS)
+    for a, c in zip(ths, ths[1:]):
+        ba = buys[a][0] - buys[a][1]; bc = buys[c][0] - buys[c][1]
+        if ba < 0 <= bc or ba <= 0 < bc:
+            cross = a + (c - a) * (-ba) / (bc - ba); break
+    rl, nm, wins, n = buys[0.75]
+    print(f"bucket {b}: real pairs {len(R)}, null pairs per rep {[len(t) for t in N][:3]}..., "
+          f"crossover {cross if cross is None else round(cross, 4)}, buys@0.75 {rl - nm:+.2f} pp, "
+          f"real>null in {wins} of {n}")
+    print("    buys by theta:", {th: round(v[0] - v[1], 2) for th, v in buys.items()})
+
+# Lossless diagnostic banking only; estimator above is copied verbatim.
+import json, pathlib
+output_dir=pathlib.Path(__file__).resolve().parent
+json.dump(dict(real=real,replicates=reps,seed=SN.SEED,replicate_count=SN.REPLICATES,thetas=SN.THETAS),open(output_dir/'raw_scores.json','w'),indent=2)
+rows=[]
+for b in [None]+list(SN.PER_K_BUCKETS):
+    R=[x for x in real if b is None or inb(x[0],b)]
+    N=[[x for x in t if b is None or inb(x[0],b)] for t in reps]
+    if not R:continue
+    grid=[]
+    for th in SN.THETAS:
+        rl=lift(R,th); nl=[lift(t,th) for t in N if t]
+        grid.append(dict(theta=th,real_lift_pp=rl,null_lift_pp=nl,null_median_pp=st.median(nl),buys_pp=rl-st.median(nl),clears=sum(rl>v for v in nl),replicates=len(nl)))
+    cross=None
+    for a,c in zip(grid,grid[1:]):
+        ba,bc=a['buys_pp'],c['buys_pp']
+        if ba<0<=bc or ba<=0<bc:
+            cross=a['theta']+(c['theta']-a['theta'])*(-ba)/(bc-ba);break
+    rows.append(dict(bucket=b,real_pairs=len(R),null_pairs_per_replicate=[len(t) for t in N],crossover=cross,grid=grid))
+json.dump(rows,open(output_dir/'per_k_rows.json','w'),indent=2)
