@@ -317,10 +317,16 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (APOSTROPHES, load_lyric_lines, line_tokens,
                            raw_final_token, reader_line,
-                           resolve_reader_scheme)
+                           resolve_reader_scheme, _scheme_of)
 from quality import slots as _SL  # noqa: E402
 from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
                             draft_fingerprint)
+
+#: The grader's slot resolution, bound ONCE at import (`slots.resolve`
+#: itself, not a copy). A test rig that replaces `slots.resolve` afterwards
+#: simulates a grader that disagrees with the loop -- which an acceptance
+#: oracle has to CATCH -- rather than silently steering the loop along.
+_RESOLVE = _SL.resolve
 
 __all__ = ["LineAttempt", "AnchorSlot", "GroupBrief", "RoundResult",
            "LoopResult",
@@ -367,7 +373,7 @@ def _cased(old, new_word):
     return new_word.lower()
 
 
-def swap_end_word(text, new_word, scheme=None):
+def swap_end_word(text, new_word, scheme=None, lex=None):
     """-> `text` with its LAST token replaced by `new_word`; `None` if it
     cannot be done without guessing.
 
@@ -396,7 +402,28 @@ def swap_end_word(text, new_word, scheme=None):
     `×`/`÷`) would fuse the candidate onto that token, and a run whose raw
     span covers a printed symbol would delete it, so both refuse; the re-read
     line must be the old one with exactly its last token replaced.
+
+    `lex` is the GRADING lexicon (the reviser's own, with its declared
+    occurrence readings and aside rule). Under `v2`, when it is given, the
+    swap also checks the ENDPOINT OCCURRENCE: the token it replaces must be
+    the one `line_anchors` (through `slots.resolve`) ends its anchors on --
+    the last syllable of every reading carries that token's `widx` and
+    spelling -- or, where the grader binds no syllable there (an unreadable
+    end word), the one `line_anchors` names as its endpoint after its own
+    `actual_last` guard held. Anything else refuses (`_end_occurrence_bound`).
+    The anchors may start in an earlier word (a weak end word, a rhyme that
+    begins before it); only the endpoint is compared, because that is the
+    word this swap replaces. Without `lex` the swap is the protections above
+    alone and claims no agreement with a grader: production callers pass it.
+    A `scheme` that disagrees with `lex`'s own refuses (a conflicting
+    coordinate is never resolved in either direction). Under `v1` `lex` is
+    not read: the pre-batch body runs verbatim.
     """
+    if lex is not None and scheme is not None and (
+            resolve_reader_scheme(scheme) != _scheme_of(lex)):
+        return None
+    if lex is not None and scheme is None:
+        scheme = _scheme_of(lex)
     if resolve_reader_scheme(scheme) == "v2":
         final = raw_final_token(text, scheme="v2")
         rl = reader_line(text, strip_parens=False, scheme="v2")
@@ -424,6 +451,8 @@ def swap_end_word(text, new_word, scheme=None):
         mid = [t.text for t in reader_line(cased, strip_parens=False, scheme="v2").tokens]
         if after != before[:-1] + mid:
             return None
+        if lex is not None and not _end_occurrence_bound(lex, text, tokens[-1]):
+            return None
         return new
     matches = list(_WORD_RE.finditer(text))
     if not matches:
@@ -441,7 +470,103 @@ def swap_end_word(text, new_word, scheme=None):
     return text[:last.start()] + cased + text[last.end():]
 
 
-def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=True):
+def _lex_line(lex, text):
+    """-> the grading lexicon as it reads `text`: `for_line` scopes a
+    lexicon's declared occurrence readings to this line, exactly as
+    `word_syllable_map` and `line_anchors` scope it before they cut."""
+    return lex.for_line(text) if hasattr(lex, "for_line") else lex
+
+
+def _end_occurrence_bound(lex, text, replaced):
+    """-> True when `replaced` (the reader token `swap_end_word` replaces, in
+    the asides-kept cut it splices in) is the OCCURRENCE the default end slot
+    binds under the grading lexicon `lex`. Identity is the token's position
+    and raw pieces, never its spelling (`do me a favour, do` has two `do`).
+
+    The binding is `slots.resolve`'s for the default slot, i.e.
+    `line_anchors`, called (no second reading of it): every reading's LAST
+    syllable must carry the `widx` of the last token of the lexicon's own cut
+    and that token's spelling, and that token must be `replaced` (the same
+    raw pieces). Where the grader binds no syllable (an unreadable end word),
+    `line_anchors` still names its endpoint: the label it returns is the
+    line's actual last token once its `actual_last` guard held, and that
+    token must be `replaced`. A reading with an untagged last syllable, two
+    readings ending on different words, or an endpoint that is not
+    `replaced` refuses."""
+    lx = _lex_line(lex, text)
+    toks = reader_line(text, getattr(lx, "strip_parens", True), scheme="v2").tokens
+    if not toks:
+        return False
+    last = toks[-1]
+    if last.pieces != replaced.pieces or last.text != replaced.text:
+        return False
+    try:
+        anchors, label, _ = _RESOLVE(lex, text, 1)
+    except _SL.SlotUnsupported:
+        return False
+    if not anchors:
+        return (label == last.text and
+                raw_final_token(text, getattr(lx, "strip_parens", True),
+                                scheme="v2") == last.text)
+    for reading in anchors:
+        if not reading:
+            return False
+        syl = reading[-1]
+        w = syl.get("widx")
+        if (not isinstance(w, int) or isinstance(w, bool) or w != len(toks) - 1
+                or syl.get("word") != last.text):
+            return False
+    return True
+
+
+def _bound_index(lex, text, slot):
+    """-> (widx, tokens): the ONE reader token a NON-DEFAULT slot binds under
+    the grading lexicon `lex`, in the lexicon's own cut; None when it binds
+    none or cannot be placed on exactly one.
+
+    Read from `slots.resolve` itself -- the grader's resolution, with the
+    lexicon's scheme, aside rule and declared occurrence readings -- through
+    the `widx` it puts on every syllable it returns. Never by label or text
+    equality: a repeated word is told apart by its position. `head`,
+    `headrime` and `endword` bind the first/last READABLE word
+    (`word_syllable_map` skips an unreadable numeral, dash fragment or
+    unread word), so the bound token may not be the literal first/last one;
+    `T<n>` keeps the index it declares and binds nothing when that word is
+    unreadable. Refused (None): no anchors (the grader refuses the slot), a
+    syllable without a `widx` or with a spelling other than its token's,
+    readings on more than one token, an index outside the cut, a `T<n>`
+    answer on any token but the n-th, a scheme other than `v2`."""
+    lx = _lex_line(lex, text)
+    if _scheme_of(lx) != "v2":
+        return None
+    try:
+        anchors, _, _ = _RESOLVE(lex, text, slot)
+    except _SL.SlotUnsupported:
+        return None
+    if not anchors:
+        return None
+    found, words = set(), set()
+    for reading in anchors:
+        if not reading:
+            return None
+        for syl in reading:
+            w = syl.get("widx")
+            if not isinstance(w, int) or isinstance(w, bool):
+                return None
+            found.add(w)
+            words.add(syl.get("word"))
+    if len(found) != 1:
+        return None
+    w = found.pop()
+    toks = reader_line(text, getattr(lx, "strip_parens", True), scheme="v2").tokens
+    if not 0 <= w < len(toks) or words != {toks[w].text}:
+        return None
+    if slot.rule.locus == "any_token" and w != _SL._declared_token(slot.rule):
+        return None
+    return w, toks
+
+
+def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=None, lex=None):
     """-> `text` with the token the SLOT names replaced; `None` if it cannot
     be done without guessing.
 
@@ -456,42 +581,63 @@ def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=True):
     THE DEFAULT SLOT IS `swap_end_word`, CALLED. Same discipline
     `slots.resolve` uses for `line_anchors`: the ordinary case is not
     reimplemented, so every existing run keeps its exact behaviour including
-    the paren-stripping refusal that function documents.
+    the paren-stripping refusal that function documents. `lex` goes with it
+    (its endpoint-occurrence check under `v2`).
 
     A slot naming no token in this line returns None — the loop's own "no
     move here" — rather than falling back to a token nearby.
 
-    Under reader scheme `v2` the token index is `line_tokens`' and the span is
-    that token's own raw pieces (`reader_line`), so a line with an aside, a
-    numeral or a dash run is no longer refused for disagreeing with a second
-    regex. `strip_parens` is the grading lexicon's aside rule (a `--voices`
-    lexicon passes False): the grader resolves a slot through
-    `word_syllable_map`, which counts asides exactly when the lexicon keeps
-    them, so the token index here has to count them the same way or `T2` on
-    `(oh) hello my world` splices `my` while the grader binds `hello`. Under
-    `v1` it is ignored (the pre-batch cut refuses every line with an aside).
-    A v2 splice whose re-read line is not the old one with exactly that token
-    replaced (the candidate fused onto a neighbour) is refused.
+    UNDER READER SCHEME `v2` THE SPLICE IS THE GRADER'S OWN BINDING
+    (2026-10-14, BB8's slot-match acceptance at 67889851). A slot edit
+    replaces exactly the reader token `slots.resolve(lex, text, slot)` binds
+    (`_bound_index`: its syllables' `widx`, in the grading lexicon's cut),
+    via that token's raw pieces -- half-open codepoint offsets into the
+    original line. It replaced the literal first/last/n-th token before,
+    while the grader skips an unreadable token to the nearest readable word:
+    `(1) An' teäke ...` sung edited `1` where the grader binds `An'`, a
+    margin number `... deed, _110` edited `110` where `endword` binds
+    `deed`, `Meinself--und Gott.` edited `Meinself` where `head` binds
+    `und`. `lex` is therefore REQUIRED under `v2` for a non-default slot:
+    without it no binding is known and the swap refuses (a generic lexicon
+    built here would not establish agreement with the reviser's grade).
+    The grader refusing the slot, an answer on more than one token, missing
+    provenance, a `T<n>` whose word is unreadable (its index is kept, never
+    compacted to a neighbour), an unsupported locus (`line`), a raw span
+    that holds more than word material, or a re-read line that is not the
+    old one with exactly that token replaced (the candidate fused onto a
+    neighbour) all refuse. `scheme` or `strip_parens`, when passed beside
+    `lex`, must agree with the lexicon's own (its scheme; its aside rule
+    under `v2`), else the swap refuses.
+
+    Under `v1` `lex` and `strip_parens` are not read: the pre-batch body
+    runs verbatim, including its refusal of a line whose regex words
+    disagree with `line_tokens` (every line with an aside).
     """
+    if lex is not None and scheme is not None and (
+            resolve_reader_scheme(scheme) != _scheme_of(lex)):
+        return None
+    if lex is not None and scheme is None:
+        scheme = _scheme_of(lex)
     if _SL.is_default(slot):
-        return swap_end_word(text, new_word, scheme=scheme)
+        return swap_end_word(text, new_word, scheme=scheme, lex=lex)
     slot = _SL.as_slot(slot)
     if resolve_reader_scheme(scheme) == "v2":
-        tokens = reader_line(text, strip_parens, scheme="v2").tokens
-        locus = slot.rule.locus
-        if not tokens:
+        if lex is None:
             return None
-        if locus == "line_final_token":
-            idx = len(tokens) - 1
-        elif locus == "line_initial_token":
-            idx = 0
-        elif locus == "any_token":
-            idx = _SL._declared_token(slot.rule)
-        else:
+        if (strip_parens is not None and
+                bool(strip_parens) != bool(getattr(_lex_line(lex, text), "strip_parens", True))):
             return None
-        if idx is None or not 0 <= idx < len(tokens):
+        if slot.rule.locus not in ("line_final_token", "line_initial_token", "any_token"):
+            # `line` covers every token: "replace the word" names no one.
             return None
+        bound = _bound_index(lex, text, slot)
+        if bound is None:
+            return None
+        idx, tokens = bound
+        sp = getattr(_lex_line(lex, text), "strip_parens", True)
         hit = tokens[idx]
+        if not _only_word_material(text, hit.pieces):
+            return None
         start, end = hit.pieces[0][0], hit.pieces[-1][1]
         cased = _cased(hit.text, new_word)
         new = text[:start] + cased + text[end:]
@@ -502,8 +648,8 @@ def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=True):
         # would then bind another word, so the move is refused unless the
         # re-read line is the old one with exactly this token replaced.
         before = [t.text for t in tokens]
-        after = [t.text for t in reader_line(new, strip_parens, scheme="v2").tokens]
-        mid = [t.text for t in reader_line(cased, strip_parens, scheme="v2").tokens]
+        after = [t.text for t in reader_line(new, sp, scheme="v2").tokens]
+        mid = [t.text for t in reader_line(cased, sp, scheme="v2").tokens]
         tail = len(before) - idx - 1
         if (after[:idx] != before[:idx] or after[idx:len(after) - tail] != mid
                 or after[len(after) - tail:] != before[idx + 1:]):
@@ -669,7 +815,7 @@ def _open_by_rule(briefs, pursue=frozenset()):
 
 
 def default_propose(brief, lines, attempt, reasons=None, whole=(), *, scheme=None,
-                    strip_parens=True):
+                    strip_parens=True, lex=None):
     """-> a replacement line for `brief.line_no`, or `None` to give up.
 
     The MECHANICAL stub tier 1 ships with: walk `brief.candidates` in the
@@ -691,14 +837,15 @@ def default_propose(brief, lines, attempt, reasons=None, whole=(), *, scheme=Non
     # slot IS declared, splicing the end word would answer a flag about the
     # line's HEAD by rewriting its ending — the stub proving the loop's
     # control flow would be proving it against the wrong word.
-    # `scheme`/`strip_parens` are the grading lexicon's cut (`revise_loop`
-    # binds them from its reviser), so a slot is spliced where it is graded.
+    # `scheme`/`strip_parens` are the grading lexicon's cut and `lex` the
+    # grading lexicon itself (`revise_loop` binds all three from its
+    # reviser), so a slot is spliced on the occurrence the grader binds.
     return swap_at_slot(brief.text, brief.slot or brief.line_no,
                         brief.candidates[attempt], scheme=scheme,
-                        strip_parens=strip_parens)
+                        strip_parens=strip_parens, lex=lex)
 
 
-def default_propose_group(group_brief, *, scheme=None, strip_parens=True):
+def default_propose_group(group_brief, *, scheme=None, strip_parens=True, lex=None):
     """-> one replacement line per member of the group, or `None`.
 
     Tier 2's stub, the same mechanism `default_propose` is for tier 1: one
@@ -730,7 +877,7 @@ def default_propose_group(group_brief, *, scheme=None, strip_parens=True):
             return None
         text, word, slot = prop
         new = swap_at_slot(text, m if slot is None else slot, word, scheme=scheme,
-                           strip_parens=strip_parens)
+                           strip_parens=strip_parens, lex=lex)
         if new is None:
             return None
         out.append(new)
@@ -2380,12 +2527,15 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         reviser = reviser.for_revision(lines)
     _group_declared = propose_group is not None
     # The stock stubs splice under the reviser's own cut (its scheme and, under
-    # v2, its aside rule), the coordinate `grade()` resolves a slot in.
+    # v2, its aside rule), the coordinate `grade()` resolves a slot in, and
+    # carry its GRADING lexicon (declared occurrence readings included) so
+    # the splice lands on the occurrence `grade()` binds, or refuses.
     _sp, _sch = _lex_cut(reviser)
+    _glex = getattr(reviser, "lex", None)
     propose = propose or functools.partial(default_propose, scheme=_sch,
-                                           strip_parens=_sp)
+                                           strip_parens=_sp, lex=_glex)
     propose_group = propose_group or functools.partial(
-        default_propose_group, scheme=_sch, strip_parens=_sp)
+        default_propose_group, scheme=_sch, strip_parens=_sp, lex=_glex)
     rdecl = reviser.rdecl
     # READ OFF THE DECLARATION, never a parameter of its own: a caller tunes
     # this the way it tunes `modal_exclusion`, and one coordinate has one

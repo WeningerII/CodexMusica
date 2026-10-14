@@ -4497,11 +4497,15 @@ class Reviser:
     def _splice(self, text, slot, word):
         """-> `text` with `word` spliced in at `slot` under this lexicon's
         cut (its reader scheme and its aside rule, the coordinate `grade()`
-        resolves the slot in), or None where the loop has no such move."""
+        resolves the slot in), or None where the loop has no such move.
+        The grading lexicon itself goes too, so under `v2` the splice
+        replaces the occurrence `grade()`'s own `slots.resolve` binds (with
+        this lexicon's declared readings), or refuses."""
         from quality.loop import swap_at_slot
         import lyric_harness as _LH
         return swap_at_slot(text, slot, word, scheme=_LH._scheme_of(self.lex),
-                            strip_parens=getattr(self.lex, "strip_parens", True))
+                            strip_parens=getattr(self.lex, "strip_parens", True),
+                            lex=self.lex)
 
     def _anchors_at(self, text, slot, word):
         """-> bool. Whether `word`, spliced in at `slot`, gives the grade an

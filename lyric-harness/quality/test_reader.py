@@ -778,19 +778,26 @@ class LoopSwaps(unittest.TestCase):
                                   ("(oh) hello my world", "1.T2", "hello")):
             s = SL.parse_slot(slot)
             self.assertEqual(SL.resolve(lex, text, s)[1], bound)
-            new = swap_at_slot(text, s, "goodbye", scheme="v2", strip_parens=False)
+            new = swap_at_slot(text, s, "goodbye", scheme="v2", strip_parens=False,
+                               lex=lex)
             self.assertEqual(SL.resolve(lex, new, s)[1], "goodbye", (text, new))
             self.assertTrue(Reviser(lex)._anchors_at(text, s, "goodbye"))
-            # The reviser's own trial splice follows its lexicon's aside rule:
-            # T2 of `(oh) zzzqx world` is the unreadable `zzzqx`, so only a
-            # splice AT it gives the grade an anchor there.
-            self.assertTrue(Reviser(lex)._anchors_at("(oh) zzzqx world",
+            # The reviser's own trial splice follows its lexicon's aside rule.
+            # T2 of `(oh) zzzqx world` is the unreadable `zzzqx`: the grader
+            # binds nothing there, and since the slot-binding repair
+            # (2026-10-14) a T<n> splice keeps its index and REFUSES an
+            # unreadable word rather than guess (it gave True before).
+            self.assertFalse(Reviser(lex)._anchors_at("(oh) zzzqx world",
+                                                      SL.parse_slot("1.T2"), "goodbye"))
+            self.assertTrue(Reviser(lex)._anchors_at("(oh) hello world",
                                                      SL.parse_slot("1.T2"), "goodbye"))
             # v1 still refuses every line with an aside.
             self.assertIsNone(swap_at_slot(text, s, "goodbye", scheme="v1",
                                            strip_parens=False))
         # Property: whichever aside rule the lexicon declares, the token the
-        # splice replaced is the token at the slot's index in the grader's cut.
+        # splice replaced is the token the grader binds, in the grader's cut
+        # (for T<n> the token at its index; for the head the first READABLE
+        # token, which `slots.resolve` reports through its `widx`).
         # Plain-letter lines, so a retokenised splice cannot join a mark or a
         # repertoire character next to it (a separate question).
         plain = []
@@ -800,15 +807,20 @@ class LoopSwaps(unittest.TestCase):
                           if re.fullmatch(r"[A-Za-z' ,.!?;:]+", ln.strip())
                           and len(ln.split()) >= 3]
         checked = 0
+        lexes = {True: LH.Lexicon(strip_parens=True, reader_scheme="v2"),
+                 False: LH.Lexicon(strip_parens=False, reader_scheme="v2")}
         for k, base in enumerate(plain[:1500]):
             text = ("(oh) " + base) if k % 2 else base.replace(" ", " (ah) ", 1)
             for sp in (True, False):
                 before = LH.line_tokens(text, sp, "v2")
+                glex = lexes[sp]
                 for slot, idx in (("1.head", 0), ("1.T2", 1), ("1.T3", 2)):
                     new = swap_at_slot(text, SL.parse_slot(slot), "zqx",
-                                       scheme="v2", strip_parens=sp)
+                                       scheme="v2", strip_parens=sp, lex=glex)
                     if new is None or idx >= len(before):
                         continue
+                    anc = SL.resolve(glex, text, SL.parse_slot(slot))[0]
+                    idx = anc[0][0]["widx"]
                     after = LH.line_tokens(new, sp, "v2")
                     self.assertEqual(after[idx].lower(), "zqx", (text, sp, slot))
                     self.assertEqual(after[:idx] + after[idx + 1:],
@@ -841,15 +853,24 @@ class LoopSwaps(unittest.TestCase):
                 self.assertTrue(seen)
                 self.assertEqual({(k["scheme"], k["strip_parens"]) for k in seen},
                                  {("v2", sp)})
+                # ... and the GRADING lexicon itself, so the splice lands on
+                # the occurrence the grader binds (slot-binding repair).
+                self.assertTrue(all(k["lex"] is lex for k in seen))
         finally:
             LP.default_propose = real
         # And the stub itself splices the token the grader binds.
         from types import SimpleNamespace
         from quality import slots as SL
-        b = SimpleNamespace(text="(oh) zzzqx world", slot=SL.parse_slot("1.T2"),
+        voices = LH.Lexicon(strip_parens=False, reader_scheme="v2")
+        b = SimpleNamespace(text="(oh) hello world", slot=SL.parse_slot("1.T2"),
                             line_no=1, candidates=["goodbye"])
-        self.assertEqual(LP.default_propose(b, [b.text], 0, scheme="v2", strip_parens=False),
+        self.assertEqual(LP.default_propose(b, [b.text], 0, scheme="v2", strip_parens=False,
+                                            lex=voices),
                          "(oh) goodbye world")
+        # An unreadable T2 binds nothing, so the stub refuses there.
+        b.text = "(oh) zzzqx world"
+        self.assertIsNone(LP.default_propose(b, [b.text], 0, scheme="v2", strip_parens=False,
+                                             lex=voices))
 
     def test_an_end_word_swap_never_misses_the_printed_end(self):
         # Regression: the v2 end-word swap replaced the last raw run whenever
@@ -958,19 +979,405 @@ class LoopSwaps(unittest.TestCase):
         # so the grader bound `Zqxrun` and the slot after it vanished.
         from quality import slots as SL
         from quality.loop import swap_at_slot
-        for text, slot in (("Olo\u0323\u0301run love", "1.head"),
-                           ("my do\u0323\u0301run night", "1.T2")):
+        from quality.pronunciation import validate_choices
+
+        def declared(text, k, sp):
+            # A declared reading makes the k-th token readable, so the grader
+            # binds IT (the splice targets the grader-bound occurrence).
+            lex = LH.Lexicon(strip_parens=sp, reader_scheme="v2")
+            word = LH.line_tokens(text, sp, "v2")[k - 1]
+            lex.pronunciations = validate_choices([{
+                "line": text, "token": k, "word": word, "phones": ["OW1", "L", "OW0"],
+                "basis": "declared", "source": "test"}], lex)
+            return lex
+        for text, slot, k in (("Olo\u0323\u0301run love", "1.head", 1),
+                              ("my do\u0323\u0301run night", "1.T2", 2)):
             for sp in (True, False):
                 new = swap_at_slot(text, SL.parse_slot(slot), "zqx", scheme="v2",
-                                   strip_parens=sp)
+                                   strip_parens=sp, lex=declared(text, k, sp))
                 if new is not None:
                     before = LH.line_tokens(text, sp, "v2")
                     after = LH.line_tokens(new, sp, "v2")
                     self.assertEqual(len(after), len(before), (text, new))
         self.assertIsNone(swap_at_slot("Olo\u0323\u0301run love", SL.parse_slot("1.head"),
-                                       "zqx", scheme="v2"))
+                                       "zqx", scheme="v2",
+                                       lex=declared("Olo\u0323\u0301run love", 1, True)))
         self.assertEqual(swap_at_slot("Olo run love", SL.parse_slot("1.head"), "zqx",
-                                      scheme="v2"), "Zqx run love")
+                                      scheme="v2", lex=declared("Olo run love", 1, True)),
+                         "Zqx run love")
+
+
+class SlotBinding(unittest.TestCase):
+    """Under v2 the reviser's slot splice replaces the GRADER-BOUND occurrence
+    (the reader token whose `widx` `slots.resolve` puts on the syllables it
+    binds, with the grading lexicon's scheme, aside rule and declared
+    readings) or refuses. BB8's slot-match acceptance at 67889851 found the
+    v2 splice replacing the literal first/last token while the grader skips
+    an unreadable one (a numeral, a dash fragment, an unread word) to the
+    nearest readable word. v1 stays the pre-batch body, its refusals included.
+
+    The expected v1 strings are what `quality.loop.swap_at_slot(text, slot,
+    word)` returns on the pre-batch tree fce4bf0f."""
+
+    W = "zqx"
+
+    @classmethod
+    def setUpClass(cls):
+        cls.st = LH.Lexicon(reader_scheme="v2")
+        cls.su = LH.Lexicon(reader_scheme="v2", strip_parens=False)
+        cls.v1 = LH.Lexicon(reader_scheme="v1")
+        cls.v1s = LH.Lexicon(reader_scheme="v1", strip_parens=False)
+
+    def swap(self, text, slot, lex, **kw):
+        from quality import slots as SL
+        from quality.loop import swap_at_slot
+        kw.setdefault("scheme", LH._scheme_of(lex))
+        kw.setdefault("strip_parens", lex.strip_parens)
+        return swap_at_slot(text, SL.parse_slot("1." + slot), self.W, lex=lex, **kw)
+
+    @staticmethod
+    def bound_span(lex, text, slot):
+        """The oracle: the raw span of the token the grader binds, read from
+        `slots.resolve`'s own `widx` tags (never by spelling); None if none."""
+        from quality import slots as SL
+        anchors, _, _ = SL.resolve(lex, text, SL.parse_slot("1." + slot))
+        if not anchors:
+            return None
+        if slot == "end":
+            w = {a[-1]["widx"] for a in anchors}
+        else:
+            w = {s["widx"] for a in anchors for s in a}
+        if len(w) != 1:
+            return None
+        tok = LH.reader_line(text, lex.strip_parens, "v2").tokens[w.pop()]
+        return tok.pieces[0][0], tok.pieces[-1][1]
+
+    def edited_span(self, text, new):
+        """-> the (a, b) whose replacement by the cased marker rebuilds `new`
+        exactly, from every reader token span (asides kept); None if none."""
+        from quality.loop import _cased
+        hits = [(t.pieces[0][0], t.pieces[-1][1])
+                for t in LH.reader_line(text, False, "v2").tokens
+                if text[:t.pieces[0][0]] + _cased(t.text, self.W) + text[t.pieces[-1][1]:] == new]
+        return hits[0] if len(hits) == 1 else None
+
+    def assertEditsBound(self, text, slot, lex, expected):
+        new = self.swap(text, slot, lex)
+        self.assertEqual(new, expected, (text, slot, lex.strip_parens))
+        if expected is not None:
+            self.assertEqual(self.edited_span(text, new), self.bound_span(lex, text, slot),
+                             (text, slot))
+
+    def test_a_numeral_head_edits_the_word_the_grader_binds(self):
+        from quality import slots as SL
+        text = "(1) An' teäke an' cut a lock o' frith, an' drow"
+        # Premise: sung, the aside numeral `1` is token 0 and unreadable, so
+        # the grader's head is `An'` (token 1); stripped, `An'` is token 0.
+        self.assertEqual(SL.resolve(self.su, text, SL.parse_slot("1.head"))[1], "An'")
+        self.assertEqual(LH.line_tokens(text, False, "v2")[0], "1")
+        for lex in (self.su, self.st):
+            self.assertEditsBound(text, "head", lex, "(1) Zqx teäke an' cut a lock o' frith, an' drow")
+            self.assertEditsBound(text, "headrime", lex, "(1) Zqx teäke an' cut a lock o' frith, an' drow")
+            # `drow` is unread, so `endword` binds the last READABLE word.
+            self.assertEditsBound(text, "endword", lex, "(1) An' teäke an' cut a lock o' frith, zqx drow")
+        # T<n> keeps its index: T1 sung is the unreadable `1`, refused, never
+        # compacted onto `An'`; T2 sung is `An'`.
+        self.assertIsNone(self.swap(text, "T1", self.su))
+        self.assertEditsBound(text, "T2", self.su, "(1) Zqx teäke an' cut a lock o' frith, an' drow")
+        self.assertIsNone(self.swap(text, "T2", self.st))       # `teäke` is unread
+        for lex in (self.v1, self.v1s):
+            self.assertEqual(self.swap(text, "head", lex), "(1) Zqx teäke an' cut a lock o' frith, an' drow")
+            self.assertEqual(self.swap(text, "T2", lex), "(1) An' zqx an' cut a lock o' frith, an' drow")
+            self.assertEqual(self.swap(text, "endword", lex), "(1) An' teäke an' cut a lock o' frith, an' zqx")
+
+    def test_a_trailing_margin_numeral(self):
+        from quality import slots as SL
+        text = "'Till the Canon atoned the deed,              _110"
+        self.assertEqual(LH.line_tokens(text, True, "v2")[-1], "110")
+        for lex in (self.st, self.su):
+            self.assertEqual(SL.resolve(lex, text, SL.parse_slot("1.endword"))[1], "deed")
+            self.assertEditsBound(text, "endword", lex,
+                                  "'Till the Canon atoned the zqx,              _110")
+            # The DEFAULT end binds no syllable on the numeral, and
+            # line_anchors names it as the endpoint (its actual_last guard
+            # held): swap_end_word replaces that endpoint, as at 67889851.
+            self.assertEqual(SL.resolve(lex, text, 1)[:2], ([], "110"))
+            self.assertEqual(self.swap(text, "end", lex),
+                             "'Till the Canon atoned the deed,              _zqx")
+        for lex in (self.v1, self.v1s):
+            for slot in ("endword", "end"):
+                self.assertEqual(self.swap(text, slot, lex),
+                                 "'Till the Canon atoned the zqx,              _110")
+
+    def test_a_dash_fragment_head(self):
+        text = "Meinself--und Gott."
+        for lex in (self.st, self.su):
+            self.assertEditsBound(text, "head", lex, "Meinself--zqx Gott.")
+            self.assertIsNone(self.swap(text, "T1", lex))     # `Meinself` unread
+            self.assertEditsBound(text, "T2", lex, "Meinself--zqx Gott.")
+            self.assertEditsBound(text, "end", lex, "Meinself--und Zqx.")
+        for lex in (self.v1, self.v1s):
+            self.assertEqual(self.swap(text, "head", lex), "Zqx Gott.")
+            self.assertEqual(self.swap(text, "T2", lex), "Meinself--und Zqx.")
+
+    def test_an_aside_line_the_base_refused(self):
+        text = '"Abraham, forbear, (the angel cry\'d)'
+        self.assertEditsBound(text, "endword", self.st, '"Zqx, forbear, (the angel cry\'d)')
+        self.assertEditsBound(text, "endword", self.su, '"Abraham, forbear, (the zqx cry\'d)')
+        for lex in (self.st, self.su):
+            self.assertIsNone(self.swap(text, "T2", lex))     # `forbear` unread
+        for lex in (self.v1, self.v1s):
+            for slot in ("endword", "head", "end", "T1"):
+                self.assertIsNone(self.swap(text, slot, lex), (slot, lex.strip_parens))
+
+    def test_the_cases_wrong_before_the_batch(self):
+        # grader_elsewhere on fce4bf0f and at 67889851 alike.
+        text = "O'er the parchment (not a rhyme),"
+        for lex in (self.st, self.su):
+            self.assertEditsBound(text, "head", lex, "O'er zqx parchment (not a rhyme),")
+            self.assertIsNone(self.swap(text, "T1", lex))
+        text2 = "(Lest the smoke his sight o’erwhelm,)"
+        self.assertEditsBound(text2, "endword", self.su, "(Lest the smoke his zqx o’erwhelm,)")
+        self.assertIsNone(self.swap(text2, "endword", self.st))   # no token outside the aside
+        for lex in (self.v1, self.v1s):
+            for t in (text, text2):
+                for slot in ("head", "endword"):
+                    self.assertIsNone(self.swap(t, slot, lex), (t, slot))
+
+    def test_a_token_slot_after_a_numeral(self):
+        text = "1 love you so"
+        for lex in (self.st, self.su):
+            self.assertIsNone(self.swap(text, "T1", lex))
+            self.assertEditsBound(text, "T2", lex, "1 zqx you so")
+            self.assertEditsBound(text, "head", lex, "1 zqx you so")
+            self.assertEditsBound(text, "T3", lex, "1 love zqx so")
+        for lex in (self.v1, self.v1s):
+            self.assertEqual(self.swap(text, "T1", lex), "1 zqx you so")
+            self.assertEqual(self.swap(text, "T2", lex), "1 love zqx so")
+
+    def test_repeated_words_bind_by_position_not_spelling(self):
+        from unittest import mock
+        import quality.loop as LP
+        text = "do me a favour, do"
+        for slot in ("end", "endword", "T5"):
+            new = self.swap(text, slot, self.st)
+            self.assertEqual(new, "do me a favour, zqx")
+            self.assertEqual(self.edited_span(text, new), (16, 18))
+        for slot in ("head", "T1"):
+            self.assertEqual(self.edited_span(text, self.swap(text, slot, self.st)), (0, 2))
+        self.assertEqual(self.edited_span("love, love me do", self.swap("love, love me do", "T2", self.st)),
+                         (6, 10))
+        # A grader that bound the FIRST `do` for `endword` is followed to
+        # offsets (0, 2): the occurrence is its widx, not the word `do`.
+        real = LP._RESOLVE
+
+        def first(lex, line, member, promote=False):
+            anchors, label, oov = real(lex, line, member, promote=promote)
+            return [[dict(s, widx=0, word="do") for s in a] for a in anchors], label, oov
+        with mock.patch.object(LP, "_RESOLVE", first):
+            self.assertEqual(self.swap(text, "endword", self.st), "zqx me a favour, do")
+            self.assertIsNone(self.swap(text, "T5", self.st))     # T5 keeps index 4
+            self.assertIsNone(self.swap(text, "end", self.st))    # endpoint is not the last token
+        # NEGATIVE CONTROL: this oracle catches an edit of the wrong
+        # occurrence although its spelling matches the bound word.
+        wrong = "zqx me a favour, do"
+        self.assertEqual(text[0:2], text[16:18])
+        self.assertNotEqual(self.edited_span(text, wrong), self.bound_span(self.st, text, "endword"))
+
+    def test_aside_modes_normalisation_and_enclitic_pieces(self):
+        from quality.pronunciation import validate_choices
+        text = "(oh) hello my world"
+        self.assertEditsBound(text, "T2", self.su, "(oh) zqx my world")
+        self.assertEditsBound(text, "T2", self.st, "(oh) hello zqx world")
+        self.assertEditsBound(text, "head", self.su, "(zqx) hello my world")
+        self.assertEditsBound(text, "head", self.st, "(oh) zqx my world")
+        # A spaced enclitic is one token in two disjoint pieces; the splice
+        # covers both and the gap between them.
+        text = "There 's high hope"
+        self.assertEqual(LH.reader_line(text).tokens[0].pieces, ((0, 5), (6, 8)))
+        self.assertEditsBound(text, "head", self.st, "Zqx high hope")
+        self.assertEditsBound(text, "T2", self.st, "There 's zqx hope")
+        # Offsets are codepoints of the ORIGINAL (non-NFC) line: `cafe` +
+        # U+0301 is one token over [0, 5). Unread by the plain lexicon, so the
+        # head binds `night`; with a declared reading it binds `café`.
+        text = "café night is long"
+        self.assertEditsBound(text, "head", self.st, "café zqx is long")
+        lex = copy.copy(self.st)
+        lex.pronunciations = validate_choices([{
+            "line": text, "token": 1, "word": "café", "phones": ["K", "AE0", "F", "EY1"],
+            "basis": "declared", "source": "test"}], lex)
+        self.assertEditsBound(text, "head", lex, "zqx night is long")
+        self.assertEditsBound(text, "T1", lex, "zqx night is long")
+        self.assertIsNone(self.swap(text, "T1", self.st))
+
+    def test_the_revisers_own_lexicon_decides_the_occurrence(self):
+        # A declared occurrence reading makes `O'er` readable for THIS
+        # reviser; a generic lexicon would bind `the`. The reviser's splice
+        # (`_splice`/`_anchors_at`) follows its own grading lexicon.
+        from quality import slots as SL
+        from quality.pronunciation import validate_choices
+        from quality.revise import Reviser
+        text = "O'er the parchment (not a rhyme),"
+        lex = copy.copy(self.st)
+        lex.pronunciations = validate_choices([{
+            "line": text, "token": 1, "word": "O'er", "phones": ["AO1", "R"],
+            "basis": "declared", "source": "test"}], lex)
+        head = SL.parse_slot("1.head")
+        self.assertEqual(Reviser(lex)._splice(text, head, "zqx"), "Zqx the parchment (not a rhyme),")
+        self.assertEqual(Reviser(self.st)._splice(text, head, "zqx"), "O'er zqx parchment (not a rhyme),")
+        self.assertEqual(Reviser(self.st)._splice("Meinself--und Gott.", head, "zqx"),
+                         "Meinself--zqx Gott.")
+        self.assertTrue(Reviser(self.st)._anchors_at("Meinself--und Gott.", head, "night"))
+        # Under v1 the same declared lexicon changes nothing: the pre-batch body.
+        v1 = copy.copy(self.v1)
+        v1.pronunciations = []
+        self.assertIsNone(Reviser(v1)._splice(text, head, "zqx"))
+
+    def test_empty_unread_and_unplaceable_bindings_refuse(self):
+        from unittest import mock
+        import quality.loop as LP
+        from quality import slots as SL
+        for text in ("", "zzqx qqzx"):
+            for slot in ("head", "headrime", "endword", "T1"):
+                self.assertIsNone(self.swap(text, slot, self.st), (text, slot))
+        self.assertIsNone(self.swap("zzqx night", "line", self.st))   # no whole-line move
+        real = LP._RESOLVE
+        text = "love me do"
+
+        def rig(kind):
+            def resolve(lex, line, member, promote=False):
+                anchors, label, oov = real(lex, line, member, promote=promote)
+                if kind == "two_words":
+                    return anchors + [[dict(s, widx=s["widx"] + 1) for s in anchors[0]]], label, oov
+                if kind == "untagged":
+                    return [[{k: v for k, v in s.items() if k != "widx"} for s in a] for a in anchors], label, oov
+                if kind == "respelled":
+                    return [[dict(s, word="xx") for s in a] for a in anchors], label, oov
+                if kind == "out_of_range":
+                    return [[dict(s, widx=9) for s in a] for a in anchors], label, oov
+                raise SL.SlotUnsupported("rigged")
+            return resolve
+        for kind in ("two_words", "untagged", "respelled", "out_of_range", "unsupported"):
+            with mock.patch.object(LP, "_RESOLVE", rig(kind)):
+                for slot in ("head", "endword", "T2", "end"):
+                    self.assertIsNone(self.swap(text, slot, self.st), (kind, slot))
+        self.assertEqual(self.swap(text, "head", self.st), "zqx me do")
+
+    def test_the_default_end_checks_its_endpoint_occurrence(self):
+        from unittest import mock
+        import quality.loop as LP
+        from quality import slots as SL
+        from quality.loop import swap_at_slot, swap_end_word
+        text = "I want to hold it"
+        anchors, _, _ = SL.resolve(self.st, text, 1)
+        # Premise: the anchors start in earlier words (`it` is weak), so the
+        # one-token rule of the other slots would refuse; the endpoint is `it`.
+        self.assertGreater(len({s["widx"] for a in anchors for s in a}), 1)
+        self.assertEqual({a[-1]["widx"] for a in anchors}, {4})
+        self.assertEqual(swap_end_word(text, "zqx", lex=self.st), "I want to hold zqx")
+        self.assertEqual(self.swap(text, "end", self.st), "I want to hold zqx")
+        self.assertEqual(swap_end_word("the night was zzqx", "zqx", lex=self.st), "the night was zqx")
+        real = LP._RESOLVE
+
+        def ends_early(lex, line, member, promote=False):
+            anchors, label, oov = real(lex, line, member, promote=promote)
+            return [[dict(s, widx=3, word="hold") for s in a] for a in anchors], label, oov
+        with mock.patch.object(LP, "_RESOLVE", ends_early):
+            self.assertIsNone(swap_end_word(text, "zqx", lex=self.st))
+            self.assertIsNone(swap_at_slot(text, SL.parse_slot("1.end"), "zqx", lex=self.st))
+            # without the grading lexicon the protections alone run, as before
+            self.assertEqual(swap_end_word(text, "zqx", scheme="v2"), "I want to hold zqx")
+            # and v1 never reads it
+            self.assertEqual(swap_end_word(text, "zqx", lex=self.v1), "I want to hold zqx")
+
+        def unbound(lex, line, member, promote=False):
+            return [], "hold", []
+        with mock.patch.object(LP, "_RESOLVE", unbound):
+            self.assertIsNone(swap_end_word(text, "zqx", lex=self.st))
+        # The default slot delegates to swap_end_word, carrying the lexicon.
+        seen = []
+        real_end = LP.swap_end_word
+
+        def rec(t, w, scheme=None, lex=None):
+            seen.append((scheme, lex))
+            return real_end(t, w, scheme=scheme, lex=lex)
+        with mock.patch.object(LP, "swap_end_word", rec):
+            swap_at_slot(text, SL.parse_slot("1.end"), "zqx", lex=self.su)
+            swap_at_slot(text, 1, "zqx", scheme="v1")
+        self.assertEqual(seen, [("v2", self.su), ("v1", None)])
+
+    def test_the_direct_helper_line_and_group_paths(self):
+        from types import SimpleNamespace
+        from quality import slots as SL
+        from quality.loop import (default_propose, default_propose_group, swap_at_slot)
+        text = "(1) An' teäke an' cut a lock o' frith, an' drow"
+        head = SL.parse_slot("1.head")
+        # Direct helper: no grading lexicon, no known binding -> refuse
+        # (the pre-repair v2 splice edited `1` here).
+        self.assertIsNone(swap_at_slot(text, head, "zqx", scheme="v2", strip_parens=False))
+        self.assertIsNone(swap_at_slot(text, head, "zqx", scheme="v2"))
+        # Conflicting coordinates refuse rather than pick one.
+        self.assertIsNone(swap_at_slot(text, head, "zqx", scheme="v1", lex=self.su))
+        self.assertIsNone(swap_at_slot(text, head, "zqx", strip_parens=True, lex=self.su))
+        self.assertEqual(swap_at_slot(text, head, "zqx", lex=self.su),
+                         "(1) Zqx teäke an' cut a lock o' frith, an' drow")
+        # Line stub.
+        b = SimpleNamespace(text=text, slot=head, line_no=1, candidates=["zqx"])
+        self.assertEqual(default_propose(b, [text], 0, scheme="v2", strip_parens=False, lex=self.su),
+                         "(1) Zqx teäke an' cut a lock o' frith, an' drow")
+        self.assertIsNone(default_propose(b, [text], 0, scheme="v2", strip_parens=False))
+        # Group stub: every member at its own binding, or None.
+        props = {1: (text, "zqx", head), 2: ("Meinself--und Gott.", "zqx", head),
+                 3: ("1 love you so", "zqx", SL.parse_slot("1.T2"))}
+        g = SimpleNamespace(members=(1, 2, 3), proposal_for=props.get)
+        self.assertEqual(default_propose_group(g, scheme="v2", strip_parens=False, lex=self.su),
+                         ("(1) Zqx teäke an' cut a lock o' frith, an' drow",
+                          "Meinself--zqx Gott.", "1 zqx you so"))
+        self.assertIsNone(default_propose_group(g, scheme="v2", strip_parens=False))
+        props[3] = ("1 love you so", "zqx", SL.parse_slot("1.T1"))
+        self.assertIsNone(default_propose_group(g, scheme="v2", strip_parens=False, lex=self.su))
+
+    def test_v1_is_unchanged_whatever_lexicon_is_passed(self):
+        from quality import slots as SL
+        from quality.loop import swap_at_slot
+        for text, slot, want in (("(oh) hello world", "head", None),
+                                 ("Meinself--und Gott.", "head", "Zqx Gott."),
+                                 ("1 love you so", "T1", "1 zqx you so"),
+                                 ("love, love me do", "T2", "love, zqx me do"),
+                                 ("There 's high hope", "head", None),
+                                 ("hold me (hold me) closer now", "T3", None)):
+            s = SL.parse_slot("1." + slot)
+            for lex in (self.v1, self.v1s, None):
+                for sp in (True, False):
+                    self.assertEqual(swap_at_slot(text, s, "zqx", scheme="v1", strip_parens=sp, lex=lex),
+                                     want, (text, slot, sp))
+
+    def test_every_v2_edit_lands_on_the_bound_token(self):
+        # Property over corpus lines (numerals, dashes, asides and unread
+        # words included), both aside rules: an edit replaces exactly the
+        # token the grader binds; where the grader binds none, it refuses.
+        lines = []
+        for p in sorted((ROOT / "corpus" / "song").glob("eng_*.txt"))[::7]:
+            lines += [ln for ln in LH.load_lyric_lines(str(p))][:120]
+        edits = refusals = moved = 0
+        for text in lines[:1200]:
+            for lex in (self.st, self.su):
+                toks = LH.reader_line(text, lex.strip_parens, "v2").tokens
+                for slot in ("head", "headrime", "endword", "T1", "T2", "T3"):
+                    new = self.swap(text, slot, lex)
+                    want = self.bound_span(lex, text, slot)
+                    if new is None:
+                        refusals += 1
+                        continue
+                    self.assertIsNotNone(want, (text, slot, lex.strip_parens, new))
+                    self.assertEqual(self.edited_span(text, new), want, (text, slot, new))
+                    edits += 1
+                    lit = toks[0] if slot.startswith("head") else toks[-1] if slot == "endword" else None
+                    if lit is not None and (lit.pieces[0][0], lit.pieces[-1][1]) != want:
+                        moved += 1
+        self.assertGreater(edits, 3000)
+        self.assertGreater(refusals, 100)
+        self.assertGreater(moved, 10)     # the literal token is not the bound one
 
 
 class Declarations(unittest.TestCase):
