@@ -16,6 +16,9 @@
 //      every byte; an identical-cut line whose earlier end anchor looked up
 //      other words is a changed line, and no other identical-cut corpus line
 //      is (browser 9d: typing, Undo/Redo across an open and an import).
+//   E. An explicit `N.end` member and a bare `N` keep their identity through
+//      migration, Keep, the forms, section reorder, export/import and the
+//      wire, untouched sibling groups included; `.end` is never added.
 //   W. What the page sends the writer carries no [SETUP] row: the harness reads
 //      every whole-line bracket as a section mark (lyric-harness/quality/
 //      recover.py _sections_from_marks), so a [SETUP] row would open a section.
@@ -127,6 +130,173 @@ const withAvoid = (t) =>
     '[SETUP — title — "Leave the Light On"]',
     `[SETUP — title — "Leave the Light On"]\n${AVOID}`
   );
+
+// ── E. an explicit `N.end` and a bare `N` keep their identity ────────────
+// 3PO #519 6163216518: a member written `2.end` names the end explicitly;
+// a bare `4` is the whole-line/default member. Every path that writes a
+// member back keeps the spelling the writer used -- untouched sibling groups
+// in the same row included -- and the tools receive exactly that spelling.
+// `.end` is never added to a bare member.
+function unitEndIdentity() {
+  stage = 'E. N.end vs bare N';
+  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+  const draft = {
+    value: '',
+    selectionStart: 0,
+    selectionEnd: 0,
+    selectionDirection: 'none',
+    setSelectionRange() {},
+  };
+  const toasts = [];
+  const app = { lyricMeta: { version: 1, ui: {} }, history: [], historyIndex: -1, lyrics: '' };
+  const ctx = vm.createContext({
+    console,
+    setTimeout: () => 0,
+    clearTimeout: () => {},
+    $ui: (id) => (id === 'lyrics-draft' ? draft : null),
+    uiRegisterPage: () => {},
+    uiCount: (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`,
+    chatState: { generation: 0, lyric: null, busy: false },
+    UI: {},
+    app,
+    lyricMetaOf: (v) => (v && v.version === 1 ? v : { version: 1, notes: {}, ui: {} }),
+    uiAutosave: () => {},
+    uiSaveLyrics: () => (app.lyrics = draft.value),
+    sessionSnapshot: () => ({ lyrics: app.lyrics, lyricMeta: { ...app.lyricMeta } }),
+    pushHistory: () => {},
+    showToast: (m, tone) => toasts.push([m, tone]),
+  });
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8'), ctx);
+  vm.runInContext(src, ctx, { filename: 'src/pages/lyrics.js' });
+  const run = (code, vars = {}) => {
+    Object.assign(ctx, vars);
+    return vm.runInContext(code, ctx);
+  };
+  ctx.lyRefresh = () => {};
+  const OH = 'Oh--oh, oh my love'; // its cut changes: `oh` is word 2, then 3
+  const DOVE = 'You are the one I dream of my dove';
+  const PLAIN = 'we sing it plain tonight';
+  const song = `[VERSE]\n${OH}\n${DOVE}\n${PLAIN}\n${DOVE}\n\n[CHORUS]\n${PLAIN}\n${DOVE}\n${PLAIN}\n${DOVE}`;
+  // A row's members as written, page notes and the cut mark set aside.
+  const row = (text, key) => text.split('\n').find((l) => l.startsWith(`[SETUP — ${key} —`)) || '';
+  const members = (text, key) =>
+    row(text, key)
+      .replace(/^\[SETUP — [^—]+ — /, '')
+      .replace(/ — cut \S+\]$|\]$/, '')
+      .split(/[;,]/)
+      .map((m) => m.replace(/\s+\(.*\)$/, '').trim());
+  const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+  // 1. Migration: the T member on the changed line is renumbered; `2.end`,
+  //    the bare `4` and the untouched sibling groups keep their spelling; a
+  //    named member on the changed line is carried in its own spelling.
+  const legacy =
+    '[SETUP — rhyme groups — 2.end,4,1.T2;3.end, 4.head;6.end,8;1.end,5]\n' +
+    '[SETUP — returns — 2.end,6;1,7.end]\n\n' +
+    song;
+  const mig = run('lyMigrateSavedReadings(__t).text', { __t: legacy });
+  const G = ['2.end', '4', '1.T3', '3.end', '4.head', '6.end', '8', '1.end', '5'];
+  const R = ['2.end', '6', '1', '7.end'];
+  check(same(members(mig, 'rhyme groups'), G), `migration respelled: ${row(mig, 'rhyme groups')}`);
+  check(same(members(mig, 'returns'), R), `migration respelled returns: ${row(mig, 'returns')}`);
+  check(
+    row(mig, 'rhyme groups').includes('1.end (carried across the word-cut change)') &&
+      row(mig, 'returns').includes(';1 (carried across the word-cut change),7.end'),
+    `the carried members lost their spelling: ${row(mig, 'rhyme groups')} | ${row(mig, 'returns')}`
+  );
+  // The wire: exactly the writer's spelling (page notes never sent).
+  const wire = run('lyDeclarationsOf(lyParse(__t))', { __t: mig });
+  check(
+    same(wire.groups.split(/[;,]/), G) && same(wire.returns.split(/[;,]/), R),
+    `the tools received another spelling: ${wire.groups} | ${wire.returns}`
+  );
+
+  // 2. Keep the link, on both carried members: the kept member and every
+  //    sibling keep the writer's spelling.
+  draft.value = mig;
+  for (const key of ['rhyme groups', 'returns']) {
+    const model = run('lyParse(lyDraft().value)');
+    const d = run('lySetupOf(__m, __k)[0]', { __m: model, __k: key });
+    const groups = run('lyRowGroups(__d)', { __d: d });
+    const gi = groups.findIndex((g) => g.some((m) => m.carried));
+    const mi = groups[gi].findIndex((m) => m.carried);
+    run('lyCarriedDecide(__id, true)', { __id: `${key}|${d.i}|${gi}|${mi}` });
+  }
+  const kept = draft.value;
+  check(
+    same(members(kept, 'rhyme groups'), G) && same(members(kept, 'returns'), R),
+    `Keep respelled: ${row(kept, 'rhyme groups')} | ${row(kept, 'returns')}`
+  );
+  check(!/carried across/.test(kept), 'Keep left a carried note');
+  const keptWire = run('lyDeclarationsOf(lyParse(__t))', { __t: kept });
+  check(
+    same(keptWire.groups.split(/[;,]/), G) && same(keptWire.returns.split(/[;,]/), R),
+    `the tools received another spelling after Keep: ${keptWire.groups} | ${keptWire.returns}`
+  );
+
+  // 3. A form edit (the rhymes and repeats forms merge the existing groups
+  //    with the new link): the existing members keep their spelling, the
+  //    page-made link is bare.
+  let formed = run(
+    'LY_FORMS.rhymes.apply(lyParse(__t), null, { relation: "", members: [{ line: 3, place: "end" }, { line: 7, place: "end" }] }, ["members"]).text',
+    { __t: kept }
+  );
+  formed = run(
+    'LY_FORMS["repeats-voices"].apply(lyParse(__t), null, { voices: "unsung", placed: [{ line: 5, place: "end" }, { line: 7, place: "head" }] }, ["placed"]).text',
+    { __t: formed }
+  );
+  check(
+    same(members(formed, 'rhyme groups'), [...G, '3', '7']) &&
+      same(members(formed, 'returns'), [...R, '5', '7.head']),
+    `a form edit respelled: ${row(formed, 'rhyme groups')} | ${row(formed, 'returns')}`
+  );
+
+  // 4. Section reorder and assembly: lines move, places do not.
+  draft.value = formed;
+  run('lyEditSections((p) => { p.blocks.reverse(); }, "Sections reordered.")');
+  const moved = draft.value;
+  const shift = (ms) =>
+    ms.map((m) => m.replace(/^\d+/, (n) => String(Number(n) <= 4 ? Number(n) + 4 : Number(n) - 4)));
+  check(
+    same(members(moved, 'rhyme groups'), shift([...G, '3', '7'])) &&
+      same(members(moved, 'returns'), shift([...R, '5', '7.head'])),
+    `reorder respelled: ${row(moved, 'rhyme groups')} | ${row(moved, 'returns')}`
+  );
+
+  // 5. Export (the draft text, as Download text writes it) and import (.txt):
+  //    byte for byte.
+  draft.value = '';
+  run('lyImportText(__t, "Imported.")', { __t: moved });
+  check(draft.value === moved, 'export/import changed the text');
+
+  // 6. A row marked with a cut this page does not read, merged by a form:
+  //    its members bind nothing and keep their spelling, `2.end` included.
+  const alien = `[SETUP — returns — 2.end,6;4,8.end — cut v9]\n\n${song}`;
+  const merged = run(
+    'LY_FORMS["repeats-voices"].apply(lyParse(__t), null, { voices: "unsung", placed: [{ line: 3, place: "end" }, { line: 7, place: "end" }] }, ["placed"]).text',
+    { __t: alien }
+  );
+  check(
+    same(members(merged, 'returns'), ['2.end', '6', '4', '8.end', '3', '7']) &&
+      row(merged, 'returns').includes('2.end (marked cut v9: not read here)') &&
+      row(merged, 'returns').includes(';4 (marked cut v9: not read here)'),
+    `an unknown-cut member was respelled: ${row(merged, 'returns')}`
+  );
+  const named = run('lyUndecidedMembers(lyParse(__t)).map((m) => m.raw)', { __t: alien });
+  check(same(named, ['2.end', '6', '4', '8.end']), `Review names other members: ${named}`);
+  // Re-reading the merged row keeps it (no second respelling).
+  const again = run(
+    'lyGroupsText(lySetupOf(lyParse(__t), "returns").flatMap((d) => lyRowGroups(d)))',
+    { __t: merged }
+  );
+  check(
+    again ===
+      row(merged, 'returns')
+        .replace(/^\[SETUP — returns — /, '')
+        .replace(/ — cut v2\]$/, ''),
+    `a second pass respelled: ${again}`
+  );
+}
 
 // ── W. the writer payload, unit-level ─────────────────────────────────────
 function unitWriterPayload() {
@@ -3267,6 +3437,7 @@ async function browserChecks(chromium) {
   await unitSavedReadings();
   await unitPolicyA();
   await unitBoundaries();
+  unitEndIdentity();
   unitHeadersAndIdentity();
   if (flags['unit-only']) {
     if (failures.length) {

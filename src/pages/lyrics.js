@@ -552,7 +552,7 @@ const lyUndecidedMembers = (model) =>
         .map((m) => ({
           key,
           i: d.i,
-          raw: m.place && m.place !== 'end' ? `${m.line}.${m.place}` : `${m.line}`,
+          raw: lyMemberSpelling(m),
           unknownCut: m.unknownCut,
         }))
     )
@@ -929,6 +929,11 @@ const lyLineRef = (ns) =>
 const lySectionOfLine = (model, n) => model.sung[n - 1]?.section || null;
 
 // A rhyme-group or returns spelling ('1,3.head;2,4') → groups of members.
+// Each member remembers whether its place was WRITTEN (`explicit`): `2.end`
+// names the end explicitly, a bare `2` is the whole-line/default member.
+// The two bind alike today, but they are different declarations, so every
+// path that writes a member back (the row text, the wire, Keep, the forms,
+// section reorder and assembly) keeps the one the writer used.
 function lyParseGroups(value) {
   return String(value || '')
     .split(';')
@@ -939,10 +944,11 @@ function lyParseGroups(value) {
         .filter(Boolean)
         .map((m) => {
           const mm = /^(\d+)(?:\.(end|endword|head|headrime|line|T\d{1,3}))?$/.exec(m);
-          if (mm) return { line: Number(mm[1]), place: mm[2] || 'end', raw: m };
+          if (mm) return { line: Number(mm[1]), place: mm[2] || 'end', explicit: !!mm[2], raw: m };
           // A word place kept under its earlier number (lyMigrateSavedReadings).
           const old = /^(\d+)\.(T\d{1,3})\s+\(numbered under the earlier cut\)$/.exec(m);
-          if (old) return { line: Number(old[1]), place: old[2], raw: m, undecided: true };
+          if (old)
+            return { line: Number(old[1]), place: old[2], explicit: true, raw: m, undecided: true };
           // A named place kept across the word-cut change, until the writer
           // keeps or removes it.
           const kept =
@@ -953,6 +959,7 @@ function lyParseGroups(value) {
             return {
               line: Number(kept[1]),
               place: kept[2] || 'end',
+              explicit: !!kept[2],
               raw: m.replace(/\s+\(.*$/, ''),
               carried: true,
             };
@@ -965,6 +972,7 @@ function lyParseGroups(value) {
             return {
               line: Number(alien[1]),
               place: alien[2] || 'end',
+              explicit: !!alien[2],
               raw: m,
               undecided: true,
               unknownCut: alien[3].toLowerCase(),
@@ -974,17 +982,13 @@ function lyParseGroups(value) {
     )
     .filter((g) => g.length);
 }
-const lyMemberPlain = (m) => (m.place && m.place !== 'end' ? `${m.line}.${m.place}` : `${m.line}`);
 // A member as the writer spelled its place (`2.end` stays `2.end`, `2` stays
-// `2`), on the line it is on now; a member the page made, or whose place
-// moved, in the page's own spelling. Members are never respelled for show.
-function lyMemberSpelling(m) {
-  const mm = /^\d+((?:\.(?:end|endword|head|headrime|line|T\d{1,3}))?)$/.exec(
-    String(m.raw || '').trim()
-  );
-  if (!mm || (mm[1] ? mm[1].slice(1) : 'end') !== m.place) return lyMemberPlain(m);
-  return `${m.line}${mm[1]}`;
-}
+// `2`), on the line it is on now. A member the page made has no written
+// place where it is the end (`explicit` unset): the page's own spelling is
+// the bare line. Members are never respelled for show, and `.end` is never
+// added to a bare member or dropped from an explicit one.
+const lyMemberSpelling = (m) =>
+  m.place && (m.place !== 'end' || m.explicit) ? `${m.line}.${m.place}` : `${m.line}`;
 // Groups -> the row's text, each member's state included.
 const lyGroupsText = (groups) =>
   groups
@@ -994,7 +998,7 @@ const lyGroupsText = (groups) =>
           m.bad
             ? m.raw
             : m.unknownCut
-              ? `${lyMemberPlain(m)} (marked cut ${m.unknownCut}: not read here)`
+              ? `${lyMemberSpelling(m)} (marked cut ${m.unknownCut}: not read here)`
               : m.undecided
                 ? `${m.line}.${m.place} ${LY_MEMBER_UNDECIDED}`
                 : m.carried
@@ -1428,7 +1432,7 @@ function lyLocalChecks(model) {
           title: `${what} is marked with a word cut this page does not read`,
           where: lyLineRef([...new Set(alien.map((m) => m.line))]),
           lines: [...new Set(alien.map((m) => m.line))].filter((n) => model.sung[n - 1]),
-          text: `${alien.map(lyMemberPlain).join(', ')} ${alien.length === 1 ? 'is' : 'are'} marked “cut ${[...new Set(alien.map((m) => m.unknownCut))].join('”, “cut ')}”; this page reads only “${LY_READING_CUT}”, so ${alien.length === 1 ? 'it binds' : 'they bind'} no word. Remove the link and declare it again. Until then nothing is sent to the writer.`,
+          text: `${alien.map(lyMemberSpelling).join(', ')} ${alien.length === 1 ? 'is' : 'are'} marked “cut ${[...new Set(alien.map((m) => m.unknownCut))].join('”, “cut ')}”; this page reads only “${LY_READING_CUT}”, so ${alien.length === 1 ? 'it binds' : 'they bind'} no word. Remove the link and declare it again. Until then nothing is sent to the writer.`,
           actions: [['ly-drop-undecided', 'Remove the link', 'trash-2', key], tool],
         });
       const kept = groups.flat().filter((m) => m.undecided && !m.unknownCut);

@@ -296,6 +296,11 @@ does and does not protect one built before the release.
     close this.
   - **The website's rhyme links and declared returns** (team policy A): every
     row it writes carries `— cut v2` after its members (never sent to a tool).
+    A member keeps the spelling the writer used: `2.end` (the end, named) stays
+    `2.end` and a bare `4` (the whole-line/default member) stays `4`, through
+    the migration, Keep, the forms, section reorder, export/import and what
+    the tools receive, sibling groups included; `.end` is never added to a
+    bare member. A member the page itself makes for the end is bare.
     In an unmarked row (legacy by compatibility policy) a `N.Tk` is rebound by
     span identity, or kept under its old number as
     `N.Tk (numbered under the earlier cut)`, binding nothing and stopping every
