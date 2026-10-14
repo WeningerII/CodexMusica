@@ -2277,20 +2277,36 @@ class WarmWorker(unittest.TestCase):
     scheme it is keyed by.
 
     TEST-PROCESS ISOLATION, NOT A CAPACITY BOUND. Each complete sequential
-    scenario (a new lyrics request then a legacy one then a Library
-    analysis; a legacy lyrics request then a Library analysis; a new lyrics
-    request then a Library analysis) runs whole inside one child process of
-    its own (`WarmWorkerBody`), as one worker would serve it. The Library
+    scenario runs whole inside one child process of its own
+    (`WarmWorkerBody`), as one worker would serve it: a new lyrics request
+    then a legacy one then a Library analysis; a legacy lyrics request then
+    a Library analysis; a new lyrics request then a Library analysis; and,
+    COLD, a legacy lyrics request then a new one, a Library analysis then a
+    new lyrics request, and a Library analysis then a legacy one. The Library
     reader guards its resident memory against the deployment envelope
     (`library.analysis._resource_guard`, 1 GiB by default), and inside this
     whole suite's process the other classes' corpora already hold more than
     that, so the guard would refuse for memory the worker never holds. The
     envelope is NOT raised: each child asserts the guard is active at the
     unchanged 1 GiB and that the Library analysis passed through it, and
-    reports its peak resident memory (VmHWM), which this test prints. A pass
-    here says these scenarios fit the envelope in a fresh process; it is not
-    a bound on a long-lived worker's memory (measured separately:
-    `quality/results/warm_worker_rss_2026-10-13/`)."""
+    reports its peak resident memory (VmHWM); this parent then ASSERTS that
+    peak is below that same unchanged 1 GiB envelope (no new threshold) and
+    prints it. A pass here says these scenarios fit the envelope in a fresh
+    process; it is not a bound on a long-lived worker's memory (measured
+    separately: `quality/results/warm_worker_rss_2026-10-13/`). The worker
+    keeps one cache entry per reader scheme in each lexicon cache, so its
+    caches are bounded by the two schemes (at most two retained per cache),
+    not growing per request; that is what `_caches_hold_their_schemes`
+    checks, not a memory bound.
+
+    COLD FIRST USE (BB8 #519 6161601064 F9). Between requests a child only
+    READS the caches (`_caches_hold_their_schemes`: every entry present holds
+    lexicons of the scheme it is keyed by, and no cache holds a scheme beyond
+    the two); it never builds one. So the first request under the other
+    scheme builds that scheme's lexicons itself, inside a real request -- the
+    path the meter_bands regression took -- instead of finding them primed by
+    the check. Only after a scenario's LAST request does `_caches_agree`
+    (which builds both schemes' lexicons to compare them) run."""
 
     def _child(self, name):
         env = {**os.environ, _WARM_CHILD: "1"}
@@ -2305,15 +2321,43 @@ class WarmWorker(unittest.TestCase):
         self.assertEqual(len(peak), 1, r.stdout[-2000:])
         rec = json.loads(peak[0])
         self.assertEqual((rec["scenario"], rec["guard_envelope_bytes"]), (name, 1 << 30))
-        self.assertGreater(rec["guard_calls"], 0)
+        # A scenario with a Library analysis passed it through the guard.
+        if rec["library_analyses"]:
+            self.assertGreater(rec["guard_calls"], 0)
+        self.assert_within_guard(rec)
         print(f"\n    [test-process isolation] {name}: child peak RSS (VmHWM) "
               f"{rec['peak_rss_bytes']:,} bytes ({rec['peak_rss_bytes'] / 2**20:.0f} MiB) "
               f"against the unchanged {rec['guard_envelope_bytes'] / 2**20:.0f} MiB guard; "
               f"guard checks passed {rec['guard_calls']}; {rec['python']}",
               file=sys.stderr, flush=True)
 
+    def assert_within_guard(self, rec):
+        """The child's peak resident memory is below the Library guard's
+        UNCHANGED envelope (1 GiB, the value the child asserted it ran under);
+        not a new threshold."""
+        self.assertEqual(rec["guard_envelope_bytes"], 1 << 30)
+        self.assertLess(rec["peak_rss_bytes"], rec["guard_envelope_bytes"],
+                        f"{rec['scenario']}: child peak RSS {rec['peak_rss_bytes']:,} bytes is not "
+                        f"below the unchanged {rec['guard_envelope_bytes']:,}-byte guard")
+
+    def test_the_peak_assertion_refuses_a_peak_at_the_guard(self):
+        """`assert_within_guard` fails a child whose peak reaches the guard."""
+        rec = {"scenario": "x", "guard_envelope_bytes": 1 << 30, "peak_rss_bytes": 1 << 30}
+        with self.assertRaises(AssertionError):
+            self.assert_within_guard(rec)
+        self.assert_within_guard({**rec, "peak_rss_bytes": (1 << 30) - 1})
+
     def test_a_legacy_lyrics_request_then_a_library_analysis(self):
         self._child("test_a_legacy_lyrics_request_then_a_library_analysis")
+
+    def test_cold_a_legacy_lyrics_request_then_a_new_one(self):
+        self._child("test_cold_a_legacy_lyrics_request_then_a_new_one")
+
+    def test_cold_a_library_analysis_then_a_new_lyrics_request(self):
+        self._child("test_cold_a_library_analysis_then_a_new_lyrics_request")
+
+    def test_cold_a_library_analysis_then_a_legacy_lyrics_request(self):
+        self._child("test_cold_a_library_analysis_then_a_legacy_lyrics_request")
 
     def test_a_new_lyrics_request_then_a_legacy_one(self):
         self._child("test_a_new_lyrics_request_then_a_legacy_one")
@@ -2378,6 +2422,7 @@ class WarmWorkerBody(unittest.TestCase):
             "guard_envelope_bytes": int(os.environ.get("LIBRARY_READER_MAX_RSS_MIB",
                                                        "1024")) * 1024 * 1024,
             "guard_calls": self.guard_calls[0],
+            "library_analyses": getattr(self, "analyses", 0),
             "python": f"{platform.python_implementation()} {platform.python_version()}"}),
             flush=True)
 
@@ -2457,6 +2502,42 @@ class WarmWorkerBody(unittest.TestCase):
                 self.assertEqual(phonology("eng").reader_scheme, scheme)
         self.assertEqual(eng._lexicon().reader_scheme, "v2")
 
+    def _caches_hold_their_schemes(self):
+        """READ-ONLY: every lexicon cache entry that exists holds lexicons of
+        the scheme it is keyed by, and no cache holds a scheme beyond the two.
+        Builds nothing (no `eng._lexicon()`, `MB.reader`, `phonology` or
+        `_fallback()` call), so the next request meets the caches exactly as
+        the last one left them."""
+        import quality.fit as FT
+        import quality.lexicon_supplement as LS
+        import quality.meter_bands as MB
+        from quality.phonology import eng
+        schemes = set(LH.READER_SCHEMES)
+        self.assertEqual(LH.resolve_reader_scheme(None), "v2")
+        self.assertFalse(LH._READER_SCHEME_DECLARED)
+        self.assertLessEqual(set(eng._LEX), schemes)
+        for scheme, lex in eng._LEX.items():
+            self.assertEqual(lex.reader_scheme, scheme)
+        for key, lex in FT._LEX.items():
+            if len(key) == 3:
+                self.assertIn(key[2], schemes)
+                self.assertEqual(lex.reader_scheme, key[2])
+        for key, lex in LS._SUPPLEMENTED.items():
+            self.assertIn(key[-1], schemes)
+            self.assertEqual(lex.reader_scheme, key[-1])
+        for (scheme, aside), lex in eng._CUT_LEX.items():
+            self.assertEqual((lex.reader_scheme, lex.strip_parens), (scheme, aside))
+        for (mode, scheme), ph in MB._READERS.items():
+            self.assertIn(scheme, schemes)
+            fb = getattr(ph, "_fb", None)
+            if fb is not None:
+                # A fallback built so far reads through the lexicon it was
+                # built on, never the other scheme's.
+                built_on = getattr(fb[1], "lex", None)
+                base = fb[0].cmu_lexicon() if hasattr(fb[0], "cmu_lexicon") else fb[0]
+                self.assertEqual(built_on.reader_scheme, fb[0].reader_scheme, (mode, scheme))
+                self.assertEqual(base.reader_scheme, fb[0].reader_scheme, (mode, scheme))
+
     def _rebound(self, bound):
         from quality.pronunciation import rebind_occurrences
         want = rebind_occurrences(self.rows, "v1", "v2", strip_parens=False)
@@ -2467,6 +2548,7 @@ class WarmWorkerBody(unittest.TestCase):
         """One Library analysis, through the guard: it rebinds and the guard
         was consulted (it is active, not bypassed)."""
         before = self.guard_calls[0]
+        self.analyses = getattr(self, "analyses", 0) + 1
         moved = self._rebound(self._library())
         self.assertGreater(self.guard_calls[0], before)
         return moved
@@ -2475,30 +2557,140 @@ class WarmWorkerBody(unittest.TestCase):
         legacy = self.fx["states"][0]["state"]
         rec, written = self._lyrics(legacy)
         self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v1", "v1"))
-        self._caches_agree()
+        self._caches_hold_their_schemes()
         moved = self._analysed()
         self.assertGreater(moved, 0)
+        self._caches_hold_their_schemes()
         self._caches_agree()
         self._report()
 
     def test_a_new_lyrics_request_then_a_legacy_one(self):
         rec, written = self._lyrics(None)
         self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v2", "v2"))
-        self._caches_agree()
+        self._caches_hold_their_schemes()
         rec, written = self._lyrics(self.fx["states"][1]["state"])
         self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v1", "v1"))
-        self._caches_agree()
+        self._caches_hold_their_schemes()
         self.assertGreater(self._analysed(), 0)
+        self._caches_hold_their_schemes()
         self._caches_agree()
         self._report()
 
     def test_a_new_lyrics_request_then_a_library_analysis(self):
         rec, written = self._lyrics(None)
         self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v2", "v2"))
-        self._caches_agree()
+        self._caches_hold_their_schemes()
         self.assertGreater(self._analysed(), 0)
+        self._caches_hold_their_schemes()
         self._caches_agree()
         self._report()
+
+    def _cold(self, scheme):
+        """No lexicon of `scheme` is cached yet: its first use comes next."""
+        from quality.phonology import eng
+        self.assertNotIn(scheme, eng._LEX, f"{scheme} was primed before its first request")
+
+    def test_cold_a_legacy_lyrics_request_then_a_new_one(self):
+        rec, written = self._lyrics(self.fx["states"][0]["state"])
+        self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v1", "v1"))
+        self._caches_hold_their_schemes()
+        self._cold("v2")
+        rec, written = self._lyrics(None)
+        self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v2", "v2"))
+        self._caches_hold_their_schemes()
+        self._caches_agree()
+        self._report()
+
+    def test_cold_a_library_analysis_then_a_new_lyrics_request(self):
+        self.assertGreater(self._analysed(), 0)
+        self._caches_hold_their_schemes()
+        rec, written = self._lyrics(None)
+        self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v2", "v2"))
+        self._caches_hold_their_schemes()
+        self._caches_agree()
+        self._report()
+
+    def test_cold_a_library_analysis_then_a_legacy_lyrics_request(self):
+        self.assertGreater(self._analysed(), 0)
+        self._caches_hold_their_schemes()
+        rec, written = self._lyrics(self.fx["states"][1]["state"])
+        self.assertEqual((rec["reader_scheme"], written["reader_scheme"]), ("v1", "v1"))
+        self._caches_hold_their_schemes()
+        self._caches_agree()
+        self._report()
+
+
+class NamedPlaceLookup(unittest.TestCase):
+    """11. Identical cut, different END binding (BB8 #519 6161601064, A.2).
+
+    The cause, with the harness's own functions: under v1 `line_anchors`
+    re-cuts the words before the last from their space-joined text, which
+    joins an enclitic the printed line sets apart (`knap, 's` -> `knap's`,
+    `M.P.'s` -> `P's`); v2 reads each token at its own position. The page's
+    named-place notice fires on exactly that condition
+    (`lyLineCutChanged`, `CMLyricTokens.v1GraderLookup`); the population
+    receipt is `quality/results/named_place_lookup_2026-10-14/`."""
+
+    RECEIPT = HERE / "results" / "named_place_lookup_2026-10-14" / "result.json"
+
+    @classmethod
+    def setUpClass(cls):
+        from quality.phonology import eng
+        cls.r = json.loads(cls.RECEIPT.read_text(encoding="utf-8"))
+        cls.lex = {}
+        for scheme in LH.READER_SCHEMES:
+            with LH.reader_scheme_scope(scheme):
+                cls.lex[scheme] = eng._lexicon()
+
+    def end(self, scheme, line):
+        with LH.reader_scheme_scope(scheme):
+            anchors, label, _ = LH.line_anchors(self.lex[scheme], line)
+        return ([[(s["nucleus"], tuple(s["coda"]), tuple(s["onset"]), s["stress"]) for s in a]
+                 for a in anchors], label)
+
+    def cut(self, line):
+        old = LH._v1_token_spans(line, True)
+        cur = [(t.text, tuple(tuple(p) for p in t.pieces))
+               for t in LH.reader_line(line, True, scheme="v2").tokens]
+        return old, cur
+
+    def lookup_differs(self, line):
+        words = LH._line_tokens_v1(line, True)
+        return (LH._line_tokens_v1(" ".join(words[:-1]), True) + words[-1:]) != words
+
+    def test_the_six_and_their_cause(self):
+        named = ["Below the knap, 's a runnèn still;", "When in that house M.P.'s divide,",
+                 "\u201cAlso, some few I. O. U.\u2019s and bets,\u201d"]
+        changed = [x for x in self.r["end_changed"] if x["latin"]]
+        self.assertTrue(set(named) <= {x["line"] for x in changed})
+        for x in changed:
+            line = x["line"]
+            old, cur = self.cut(line)
+            self.assertEqual([(t, tuple(map(tuple, p))) for t, p in old], cur, line)
+            self.assertTrue(self.lookup_differs(line), line)
+            self.assertNotEqual(self.end("v1", line), self.end("v2", line), line)
+        # The cause, named: v1 looked the enclitic up joined to the word before.
+        with LH.reader_scheme_scope("v1"):
+            _, words, oov = self.lex["v1"].transcribe("Below the knap 's a runnèn",
+                                                      phrase_final=False)
+        self.assertIn("knap's", words)
+
+    def test_the_condition_is_broader_than_the_end_and_says_so(self):
+        """The receipt's lookup lines whose end did not move keep their end:
+        the condition is about the lines read, not a list of six."""
+        quiet = [x["line"] for x in self.r["lookup_differs"] if not x["end_changed"]]
+        self.assertEqual(len(quiet), len(self.r["lookup_differs"]) - len(
+            [x for x in self.r["end_changed"] if x["lookup_differs"]]))
+        for line in quiet:
+            self.assertTrue(self.lookup_differs(line), line)
+            self.assertEqual(self.end("v1", line), self.end("v2", line), line)
+
+    def test_identical_cut_controls_do_not_fire(self):
+        for line in ["we sing it plain tonight", "You are the one I dream of",
+                     "It's the cat's own hat", "the bird 's song"]:
+            old, cur = self.cut(line)
+            self.assertEqual([(t, tuple(map(tuple, p))) for t, p in old], cur, line)
+            self.assertFalse(self.lookup_differs(line), line)
 
 
 class MirrorFixture(unittest.TestCase):

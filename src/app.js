@@ -1,4 +1,4 @@
-/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 /* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine */
 
 
@@ -14602,6 +14602,8 @@ async function restoreSavedWorkspace(key,fork){
   if(typeof d.lyrics==='string'){app.lyrics=d.lyrics;app.lyricMeta=lyricMetaOf(d.lyricMeta);}
   if(typeof UI!=='undefined')UI.lyricRevision++;
   const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
+  // An open boundary (src/pages/lyrics.js): saved word numbers migrate before the step is recorded.
+  if(draft&&typeof uiLyricsOpened==='function')uiLyricsOpened();
   closeModal('modal-saved');pushHistory();renderAll();
   showToast(`${fork?'Copied':'Loaded'} "${app.workspaceName}"`,'success');
 }

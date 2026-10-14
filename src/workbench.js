@@ -1,5 +1,5 @@
 /* exported UI, UI_ICONS, uiEmptyState, uiFind, uiFocus, uiStart, uiReceiveReply, uiOpenSurface, uiSync, uiRegisterPage, uiAddGenre, uiAddInstrument, uiNewTask, uiSaveLyrics, uiExport, uiImport, uiRecipeGenres, uiCount, uiTabIndex, uiDownload, uiSubroute, uiRouteOf, uiOpenInLyrics */
-/* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError */
+/* global UILayout, CMLibraryImport, _whenWorkspace, _workspaceReady, uiEnsureWorkspace, _releaseEngine, _renderBootError, uiLyricsOpened */
 /* global lyricMetaOf, ChainItem, renderSidebar, Room, Tuning, compileRecipeStack, envCardOf, renderSidebarTraditions, _revealSelectedCard, Inst, Tradition, UITheme, _chatPersistedState, surpriseTradition, CHAT_BACKEND, CHAT_STORAGE_KEY, _CARD_TRANSIENTS, _addedInstrumentMessage, _chatRecover, _chatReset, _chatSetBusy, _chatSyncCount, addInstrumentFromPicker, app, chatState, esc, icon, importTraditionWithFeedback, isMobileLayout, normalizeWorkspaceCards, pushHistory, redo, renderAll, renderDetail, showToast, undo, uiInspectInstrument, uiLyricsWaiting, _engineLive, engineReady, storedSessionText */
 /* The shared application shell: one header, one navigation, one recipe
    workspace and session, one AI writer, one set of panels. Built alongside the
@@ -645,6 +645,8 @@ async function uiImport(file) {
     app.lyrics = typeof s.lyrics === 'string' ? s.lyrics : '';
     app.lyricMeta = lyricMetaOf(s.lyricMeta);
     $ui('lyrics-draft').value = app.lyrics;
+    // An open boundary: saved word numbers migrate before the step is recorded.
+    if (typeof uiLyricsOpened === 'function') uiLyricsOpened();
     uiSaveLyrics();
     pushHistory();
     renderAll();
@@ -2078,6 +2080,9 @@ function uiRestoreSession() {
       app.cards = normalizeWorkspaceCards(saved.cards || saved.workspace?.cards);
       app.workspaceName = saved.name || saved.title || 'Untitled session';
     }
+    // An open boundary: saved word numbers migrate before the first step,
+    // once the whole session (cards included) is in place to be saved.
+    if (typeof uiLyricsOpened === 'function') uiLyricsOpened();
     app.history = [];
     app.historyIndex = -1;
     pushHistory();

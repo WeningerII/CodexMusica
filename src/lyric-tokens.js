@@ -310,6 +310,23 @@
     return spans.length === want.length && spans.every((s, k) => s.text === want[k]) ? spans : null;
   }
 
+  // MIGRATION ONLY: the words the grader's pre-release end anchor LOOKED UP
+  // for a line (reader scheme v1's `line_anchors`), which are not always its
+  // cut. It read the words before the last by re-cutting them joined with
+  // single spaces (`lex.transcribe(" ".join(words[:-1]))`, the v1 body of
+  // `Lexicon.transcribe`), and the end word alone. Re-cutting is not
+  // idempotent: an enclitic the printed line sets apart from its host by
+  // punctuation (`knap, 's`, `M.P.'s`, `U.’s`) is a word of its own in the
+  // cut, and the space join made it a SPACED enclitic, so the re-cut joined
+  // it to the word before (`knap's`, `P's`, `U's`). Scheme v2 reads every
+  // token at its own position (`transcribe_tokens`), so its lookup words are
+  // its cut. -> the v1 lookup words ([] for a line with no word).
+  function v1GraderLookup(text, stripParens = true) {
+    const cut = v1GraderTokens(text, stripParens);
+    if (!cut.length) return cut;
+    return [...v1GraderTokens(cut.slice(0, -1).join(' '), stripParens), cut[cut.length - 1]];
+  }
+
   // MIGRATION ONLY: word `token` of `line` under an earlier cut -> the
   // current cut's { token, word } covering exactly the same characters, or
   // { blocked: reason }. `old` is that earlier cut located in the line
@@ -338,7 +355,15 @@
     return { token: hits[0].k + 1, word: hits[0].t.text };
   }
 
-  const api = { SCHEME, readerLine, lineTokens, v1GraderSpans, v1GraderTokens, rebindBySpan };
+  const api = {
+    SCHEME,
+    readerLine,
+    lineTokens,
+    v1GraderSpans,
+    v1GraderTokens,
+    v1GraderLookup,
+    rebindBySpan,
+  };
   root.CMLyricTokens = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

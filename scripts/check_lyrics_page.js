@@ -9,6 +9,13 @@
 //   R. Readings saved before the reader's v2 cut rebind by span identity, or
 //      are flagged for the writer's decision and stop every send; the marker
 //      is written after the migration; a post-release draft is untouched.
+//   B. The migration runs only at a boundary (open, import, send), never
+//      from the typing refresh; no Undo step of its own; the selection is
+//      mapped; renumbered numbers stay listed in Review until dismissed; no
+//      message claims when a row was written; an unchanged-binding row keeps
+//      every byte; an identical-cut line whose earlier end anchor looked up
+//      other words is a changed line, and no other identical-cut corpus line
+//      is (browser 9d: typing, Undo/Redo across an open and an import).
 //   W. What the page sends the writer carries no [SETUP] row: the harness reads
 //      every whole-line bracket as a section mark (lyric-harness/quality/
 //      recover.py _sections_from_marks), so a [SETUP] row would open a section.
@@ -45,7 +52,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport */
+/* global document, localStorage, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -665,10 +672,10 @@ async function unitPolicyA() {
       const text = song([`[SETUP — ${key} — ${n('dash')}${sp},${n('plain')}${sp}]`]);
       const got = migrate(text);
       const row = got.text.split('\n')[0];
-      const plainSp = sp === '.end' ? '' : sp; // the page writes `.end` as a bare number
+      // Only the carried member is rewritten; each member keeps the writer's
+      // own spelling (`.end` stays `.end`), and the row gains the mark.
       check(
-        row ===
-          `[SETUP — ${key} — ${n('dash')}${plainSp} ${CARRIED},${n('plain')}${plainSp} — cut v2]`,
+        row === `[SETUP — ${key} — ${n('dash')}${sp} ${CARRIED},${n('plain')}${sp} — cut v2]`,
         `${label}: not kept named and carried: ${row}`
       );
       check(
@@ -688,8 +695,7 @@ async function unitPolicyA() {
       const d = decl(got.text);
       const field = key === 'returns' ? 'returns' : 'groups';
       check(
-        d[field] === `${n('dash')}${plainSp},${n('plain')}${plainSp}` &&
-          !d[`${field}_need_decision`],
+        d[field] === `${n('dash')}${sp},${n('plain')}${sp}` && !d[`${field}_need_decision`],
         `${label}: the tools would receive ${JSON.stringify(d)}`
       );
       check(refusal(got.text) === '', `${label}: a carried member blocked the send`);
@@ -960,7 +966,8 @@ async function unitPolicyA() {
   );
   // No notice anywhere on a draft whose lines' cuts are all unchanged, for
   // every named spelling at once (asides read by neither cut included); a
-  // counted place there only gains the mark, on the same number.
+  // counted place there whose number names the same word keeps every byte
+  // (F6: the existing text contract; no mark appended to an unchanged row).
   const allQuiet = song([
     `[SETUP — rhyme groups — ${n('plain')},${n('plain2')};${n('plain')}.end,${n('plain2')}.endword;${n('plain')}.head,${n('plain2')}.headrime;${n('plain')}.line,${n('plain2')}.line]`,
     `[SETUP — returns — ${n('aside')},${n('plain2')};${n('plain')}.head,${n('aside')}.head]`,
@@ -974,11 +981,314 @@ async function unitPolicyA() {
   );
   const quietT = migrate(song([`[SETUP — returns — ${n('plain')}.T2,${n('plain2')}.T3]`]));
   check(
-    quietT.text.split('\n')[0] ===
-      `[SETUP — returns — ${n('plain')}.T2,${n('plain2')}.T3 — cut v2]` &&
+    quietT.text.split('\n')[0] === `[SETUP — returns — ${n('plain')}.T2,${n('plain2')}.T3]` &&
       quietT.moved.length === 0 &&
       carriedNotes(quietT.text).length === 0,
     `a counted place on an unchanged line moved or was noticed: ${quietT.text.split('\n')[0]}`
+  );
+}
+
+// ── B. where the migration runs, and what it keeps (BB8 #519 6161601064) ──
+// F1: the migration runs at a boundary (open, import, send), never from the
+// typing refresh, and keeps the existing Undo contract: no step of its own,
+// the writer's text recorded first at an in-page boundary, the open or
+// import step holding the migrated text, the selection mapped onto the same
+// characters. F4: every renumbered number is listed in a Review card that
+// stays until dismissed. F5: no message claims when a row was written. F6:
+// a row whose binding does not change keeps every byte (no mark); a
+// rewritten row respells only the members that changed. A.2: a line whose
+// cut is identical but whose earlier end anchor looked up other words
+// (an enclitic set apart by punctuation, joined by the earlier re-cut) is a
+// changed line, and no other identical-cut line of the corpus is.
+async function unitBoundaries() {
+  stage = 'B. boundaries';
+  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+  const sel = { start: 0, end: 0, dir: 'none' };
+  const draft = {
+    value: '',
+    get selectionStart() {
+      return sel.start;
+    },
+    get selectionEnd() {
+      return sel.end;
+    },
+    get selectionDirection() {
+      return sel.dir;
+    },
+    setSelectionRange(a, b, d = 'none') {
+      Object.assign(sel, { start: a, end: b, dir: d });
+    },
+  };
+  const toasts = [];
+  const app = { lyricMeta: { version: 1, ui: {} }, history: [], historyIndex: -1, lyrics: '' };
+  const snapshot = () => ({ lyrics: app.lyrics, lyricMeta: { ...app.lyricMeta } });
+  const ctx = vm.createContext({
+    console,
+    setTimeout: () => 0,
+    clearTimeout: () => {},
+    $ui: (id) => (id === 'lyrics-draft' ? draft : null),
+    uiRegisterPage: () => {},
+    uiCount: (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`,
+    chatState: { generation: 0, lyric: null, busy: false },
+    UI: {},
+    app,
+    lyricMetaOf: (v) => (v && v.version === 1 ? v : { version: 1, notes: {}, ui: {} }),
+    uiAutosave: () => {},
+    uiSaveLyrics: () => (app.lyrics = draft.value),
+    sessionSnapshot: snapshot,
+    // src/app.js pushHistory: a step after the change, an identical one merged.
+    pushHistory: () => {
+      const snap = JSON.stringify(snapshot());
+      const prev = app.history[app.historyIndex];
+      if (prev && JSON.parse(prev).lyrics === app.lyrics) {
+        app.history[app.historyIndex] = snap;
+        return;
+      }
+      app.history = app.history.slice(0, app.historyIndex + 1);
+      app.history.push(snap);
+      app.historyIndex = app.history.length - 1;
+    },
+    showToast: (m, tone) => toasts.push([m, tone]),
+  });
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8'), ctx);
+  vm.runInContext(src, ctx, { filename: 'src/pages/lyrics.js' });
+  const run = (code, vars = {}) => {
+    Object.assign(ctx, vars);
+    return vm.runInContext(code, ctx);
+  };
+  ctx.lyRefresh = () => {};
+  const steps = () => app.history.map((h) => JSON.parse(h).lyrics);
+  const OH = 'Oh--oh, oh my love';
+  const DOVE = 'You are the one I dream of my dove';
+  const PLAIN = 'we sing it plain tonight';
+  const body = `[VERSE]\n${OH}\n${DOVE}\n${OH}\n${PLAIN}`;
+  const LEGACY = '[SETUP — returns — 1.T2,3.T2]';
+  const MIGRATED = '[SETUP — returns — 1.T3,3.T3 — cut v2]';
+
+  // 1. F1, an in-page boundary (send, mount): the writer's own text is
+  // recorded first, the migrated text replaces that same step, Undo goes to
+  // the step before the writer's text, and the selection stays on its words.
+  const before = `[SETUP — title — "Song"]\n\n${body}`;
+  const typed = `${LEGACY}\n${before}`; // a legacy row pasted in, not yet recorded
+  app.history = [];
+  app.historyIndex = -1;
+  draft.value = before;
+  app.lyrics = before;
+  run('pushHistory()');
+  draft.value = typed;
+  const at = typed.indexOf('dream');
+  draft.setSelectionRange(at, at + 'dream of'.length, 'backward');
+  toasts.length = 0;
+  check(run('lyEnsureTokenScheme()') === true, 'the send boundary did not migrate');
+  check(draft.value === typed.replace(LEGACY, MIGRATED), `migrated text: ${draft.value}`);
+  check(
+    draft.value.slice(sel.start, sel.end) === 'dream of' && sel.dir === 'backward',
+    `the selection moved off the writer's words: “${draft.value.slice(sel.start, sel.end)}” ${sel.dir}`
+  );
+  check(
+    JSON.stringify(steps()) === JSON.stringify([before, draft.value]) && app.historyIndex === 1,
+    `Undo history across the boundary: ${JSON.stringify(steps())}`
+  );
+  check(!steps().includes(typed), 'a history step holds the unmarked rows');
+  check(run('lyEnsureTokenScheme()') === false && app.history.length === 2, 'migrated twice');
+
+  // 2. F1, an open (src/workbench.js / src/app.js call uiLyricsOpened, then
+  // record the step): Undo returns to the draft from before the open and
+  // Redo to the migrated text; neither holds the unmarked rows.
+  const other = `[VERSE]\n${PLAIN}`;
+  app.history = [];
+  app.historyIndex = -1;
+  draft.value = other;
+  app.lyrics = other;
+  run('pushHistory()');
+  const opened = `${LEGACY}\n\n${body}`;
+  draft.value = opened;
+  check(run('uiLyricsOpened()') === true, 'the open boundary did not migrate');
+  check(app.history.length === 1, 'the open boundary recorded a step of its own');
+  run('pushHistory()');
+  check(
+    JSON.stringify(steps()) === JSON.stringify([other, opened.replace(LEGACY, MIGRATED)]),
+    `open: ${JSON.stringify(steps())}`
+  );
+
+  // 3. F1, a .txt import: one step, holding the migrated text.
+  const file = `${opened}\n${PLAIN}`;
+  run('lyImportText(__t, "Imported.")', { __t: file });
+  check(
+    steps().length === 3 && steps()[2] === file.replace(LEGACY, MIGRATED),
+    `import: ${JSON.stringify(steps())}`
+  );
+
+  // 4. F4: every renumbered number listed in Review until dismissed --
+  // after the toast is gone, after a boundary that moves nothing, and after
+  // a later import that renumbers more (which the card adds).
+  const card = (text) =>
+    Array.from(run('lyLocalChecks(lyParse(__t))', { __t: text })).find(
+      (x) => x.id === 'renumbered'
+    );
+  let c = card(draft.value);
+  check(
+    c &&
+      c.tone === 'note' &&
+      /a declared return on “oh”, line 1: word 2 → 3/.test(c.text) &&
+      /a declared return on “oh”, line 3: word 2 → 3/.test(c.text) &&
+      c.actions.some((a) => a[0] === 'ly-renumbered-dismiss'),
+    `no persistent card listing the renumbered items: ${JSON.stringify(c)}`
+  );
+  run('lyEnsureTokenScheme()');
+  check(card(draft.value), 'the card went away at a boundary that renumbered nothing');
+  const reading = `[SETUP — reading — token 2 "oh" in ${JSON.stringify(OH)} — OW1 — declared — source: me]`;
+  const many = `${reading}\n[SETUP — rhyme groups — 1.T4,2.T9,4.T5]\n\n${body}`;
+  toasts.length = 0;
+  run('lyImportText(__t, "Imported.")', { __t: many });
+  c = card(draft.value);
+  check(
+    c &&
+      /the reading for “oh”, lines 1 and 3: word 2 → 3/.test(c.text) &&
+      /a rhyme link on “love”, line 1: word 4 → 5/.test(c.text) &&
+      /line 3: word 2 → 3/.test(c.text),
+    `the card does not list every renumbered item: ${c && c.text}`
+  );
+  check(
+    /Review lists each one until you dismiss it/.test(toasts.map((t) => t[0]).join(' ')),
+    `the toast does not point to the card: ${JSON.stringify(toasts)}`
+  );
+  check(
+    JSON.stringify(app.lyricMeta.ui).length <= 4000,
+    'the card overflows the page context limit'
+  );
+  for (let k = 0; k < 60; k++)
+    run('lyRecordRenumbered(__d)', {
+      __d: {
+        text: draft.value,
+        moved: [{ kind: 'rhyme groups', word: `word${k}`.repeat(4), n: 1, from: 2, to: 3 }],
+      },
+    });
+  c = card(draft.value);
+  check(
+    JSON.stringify(app.lyricMeta.ui).length <= 4000 && !!c && /no longer listed/.test(c.text),
+    'an overfull card was not bounded and counted'
+  );
+  run('LY_ACTIONS["ly-renumbered-dismiss"]()');
+  check(!card(draft.value), 'Dismiss did not remove the card');
+
+  // 5. F5: removing a link that binds no word claims nothing about when the
+  // row was written, for a row marked with another cut and for a legacy one.
+  for (const [text, want] of [
+    [`[SETUP — rhyme groups — 1,2 — cut v9]\n\n${body}`, /cut v9/],
+    [
+      run('lyMigrateSavedReadings(__t).text', {
+        __t: `[SETUP — rhyme groups — 1.T1,2;3,4]\n\n[VERSE]\nU--h, u--h, Lawdy,\n${DOVE}\n${OH}\n${PLAIN}`,
+      }),
+      /compatibility policy/,
+    ],
+  ]) {
+    draft.value = text;
+    toasts.length = 0;
+    run('LY.model = lyParse(lyDraft().value); LY_ACTIONS["ly-drop-undecided"]("rhyme groups")');
+    const said = toasts.map((t) => t[0]).join(' ');
+    check(
+      want.test(said) && !/before this release|pre-release|saved before/.test(said),
+      `the removal message claims provenance: ${said}`
+    );
+  }
+
+  // 6. F6: a row whose binding the migration does not change keeps every
+  // byte -- the review identity included; a rewritten row respells only the
+  // member that changed, in the writer's own spelling and separators.
+  const quiet = [
+    `[SETUP — reading — token 2 "sing" in ${JSON.stringify(PLAIN)} — S IH1 NG — declared — source: me]`,
+    '[SETUP — rhyme groups — 2.end, 4.T5]',
+    `\n[VERSE]\n${PLAIN}\n${DOVE}\n${PLAIN}\n${DOVE}`,
+  ].join('\n');
+  check(
+    run('lyMigrateSavedReadings(__t).text', { __t: quiet }) === quiet,
+    `an unchanged-binding row changed bytes: ${run('lyMigrateSavedReadings(__t).text', { __t: quiet }).split('\n').slice(0, 2)}`
+  );
+  draft.value = quiet;
+  const id = run('lyIdentity(lyParse(__t))', { __t: quiet });
+  check(
+    run('lyEnsureTokenScheme()') === false &&
+      draft.value === quiet &&
+      run('lyIdentity(lyParse(lyDraft().value))') === id,
+    'the review identity of an unchanged draft moved'
+  );
+  check(
+    run('lyMigrateSavedReadings(__t).text', {
+      __t: `[SETUP — returns — 2.end, 1.T2]\n\n[VERSE]\n${OH}\n${PLAIN}`,
+    }).split('\n')[0] === '[SETUP — returns — 2.end, 1.T3 — cut v2]',
+    'a rewritten row respelled a member that did not change'
+  );
+
+  // 7. A.2: lines whose cut is identical under both readings and whose end
+  // binding still moved, because the earlier end anchor re-cut its own
+  // space-joined tokens and joined an enclitic set apart by punctuation.
+  const receipt = JSON.parse(
+    fs.readFileSync(
+      path.join(ROOT, 'lyric-harness/quality/results/named_place_lookup_2026-10-14/result.json'),
+      'utf8'
+    )
+  );
+  const six = [
+    "Below the knap, 's a runnèn still;",
+    "When in that house M.P.'s divide,",
+    '“Also, some few I. O. U.’s and bets,”',
+  ];
+  for (const line of six) {
+    const cuts = run('lyLineCuts(__l, false)', { __l: line });
+    check(
+      cuts.old.length === cuts.cur.length &&
+        cuts.old.every(
+          (o, k) =>
+            o.text === cuts.cur[k].text &&
+            JSON.stringify(o.pieces) === JSON.stringify(cuts.cur[k].pieces)
+        ),
+      `fixture: the cut of “${line}” is no longer identical`
+    );
+    check(run('lyLineCutChanged(__l, false)', { __l: line }), `no notice trigger for “${line}”`);
+    const got = run('lyMigrateSavedReadings(__t)', {
+      __t: `[SETUP — rhyme groups — 1,2]\n\n[VERSE]\n${line}\n${PLAIN}`,
+    });
+    check(got.carried.length === 1, `“${line}”: the named place was not carried`);
+  }
+  check(
+    receipt.end_changed.filter((x) => x.latin).every((x) => x.lookup_differs),
+    'the receipt holds an end-binding change the lookup condition does not explain'
+  );
+  for (const x of receipt.end_changed.filter((y) => y.latin))
+    check(run('lyLineCutChanged(__l, false)', { __l: x.line }), `no trigger for “${x.line}”`);
+  // The negative control: every identical-cut line of the English song
+  // corpus that the condition does not name stays quiet; the page fires on
+  // exactly the receipt's lines and no other.
+  const dir = path.join(ROOT, 'lyric-harness/corpus/song');
+  const fired = [];
+  let identical = 0;
+  for (const f of fs
+    .readdirSync(dir)
+    .filter((x) => /^eng_.*\.txt$/.test(x))
+    .sort())
+    for (const raw of fs.readFileSync(path.join(dir, f), 'utf8').split('\n')) {
+      const l = raw.trim();
+      if (!l || l.startsWith('#') || l.startsWith('---') || l.startsWith('[')) continue;
+      const cuts = run('lyLineCuts(__l, false)', { __l: l });
+      if (
+        !cuts.old ||
+        cuts.old.length !== cuts.cur.length ||
+        cuts.old.some(
+          (o, k) =>
+            o.text !== cuts.cur[k].text ||
+            JSON.stringify(o.pieces) !== JSON.stringify(cuts.cur[k].pieces)
+        )
+      )
+        continue;
+      identical++;
+      if (run('lyLineCutChanged(__l, false)', { __l: l })) fired.push(`${f}\t${l}`);
+    }
+  const want = receipt.lookup_differs.map((x) => `${x.file}\t${x.line}`);
+  check(
+    identical === receipt.population.identical_cut &&
+      JSON.stringify(fired) === JSON.stringify(want),
+    `identical-cut population ${identical} (receipt ${receipt.population.identical_cut}); fired ${fired.length} (receipt ${want.length}): ${JSON.stringify(fired.filter((x) => !want.includes(x)).slice(0, 5))}`
   );
 }
 
@@ -2448,7 +2758,11 @@ async function browserChecks(chromium) {
       // A draft saved before this release: its rows carry no cut mark.
       const got = await page.evaluate((t) => {
         $ui('lyrics-draft').value = t;
+        // Opened as the shell opens a saved session: the open boundary,
+        // then the step.
+        uiLyricsOpened();
         uiSaveLyrics();
+        pushHistory();
         lyRefresh(true);
         return {
           text: $ui('lyrics-draft').value,
@@ -2486,7 +2800,11 @@ async function browserChecks(chromium) {
       const post = await page.evaluate(
         (t) => {
           $ui('lyrics-draft').value = t;
+          // Opened as the shell opens a saved session: the open boundary,
+          // then the step.
+          uiLyricsOpened();
           uiSaveLyrics();
+          pushHistory();
           lyRefresh(true);
           return $ui('lyrics-draft').value;
         },
@@ -2625,7 +2943,11 @@ async function browserChecks(chromium) {
         }));
       await page.evaluate((t) => {
         $ui('lyrics-draft').value = t;
+        // Opened as the shell opens a saved session: the open boundary,
+        // then the step.
+        uiLyricsOpened();
         uiSaveLyrics();
+        pushHistory();
         lyRefresh(true);
       }, pre);
       let st = await state();
@@ -2703,6 +3025,214 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    // ── 9d. the migration runs at a boundary, never while the writer types
+    // (BB8 #519 6161601064 F1); Undo/Redo across an open and an import that
+    // migrated; the renumbered card outlives the toast and a reload (F4) ──
+    await step('9d. migration boundaries', async () => {
+      const { ctx, page } = await boot();
+      const OH = 'Oh--oh, oh my love';
+      const DOVE = 'You are the one I dream of my dove';
+      const base = `[SETUP — title — "Song"]\n\n[VERSE]\n${DOVE}\n${OH}`;
+      await setDraft(page, base);
+      // Rows without the cut mark, written in by hand (the state a draft
+      // holds between boundaries): one above the lines, one after them.
+      const TOP = '[SETUP — rhyme groups — 2.T4,1.T2]';
+      const END = '[SETUP — returns — 2.T2,1.T2]';
+      const held = `${TOP}\n${base}\n${END}`;
+      await page.evaluate((t) => {
+        const d = $ui('lyrics-draft');
+        Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set.call(d, t);
+        d.dispatchEvent(new Event('input'));
+      }, held);
+      // BB8's worst case: '--oh my' typed after "dove", a key at a time, each
+      // slower than the page's 120 ms refresh. Rewriting the draft under the
+      // writer sent the caret to the end, so the keys landed after the last
+      // row's `]` and that declaration stopped being one.
+      await page.evaluate((w) => {
+        const d = $ui('lyrics-draft');
+        d.focus();
+        const at = d.value.indexOf(w) + w.length;
+        d.setSelectionRange(at, at);
+      }, DOVE);
+      await page.keyboard.type('--oh my', { delay: 200 });
+      await page.waitForTimeout(400);
+      const typed = held.replace(DOVE, `${DOVE}--oh my`);
+      const caretAt = typed.indexOf('--oh my') + '--oh my'.length;
+      let st = await page.evaluate(() => {
+        const d = $ui('lyrics-draft');
+        const decl = lyDeclarationsOf(lyParse(d.value));
+        return {
+          text: d.value,
+          caret: [d.selectionStart, d.selectionEnd],
+          groups: decl.groups || null,
+          returns: decl.returns || null,
+        };
+      });
+      check(st.text === typed, `typing was rewritten under the writer: ${JSON.stringify(st.text)}`);
+      check(
+        st.caret[0] === caretAt && st.caret[1] === caretAt,
+        `the caret moved while typing: ${st.caret} (want ${caretAt})`
+      );
+      check(
+        st.groups === '2.T4,1.T2' && st.returns === '2.T2,1.T2',
+        `a declaration was lost while typing: ${JSON.stringify([st.groups, st.returns])}`
+      );
+      // The send boundary migrates, keeps the caret on the same character,
+      // and records no step of its own: Undo returns to the draft from
+      // before the writer's typing, Redo to the migrated text.
+      st = await page.evaluate(() => {
+        const changed = lyEnsureTokenScheme();
+        const d = $ui('lyrics-draft');
+        return { changed, text: d.value, caret: [d.selectionStart, d.selectionEnd] };
+      });
+      const migrated = typed
+        .replace(TOP, '[SETUP — rhyme groups — 2.T5,1.T2 — cut v2]')
+        .replace(END, '[SETUP — returns — 2.T3,1.T2 — cut v2]');
+      check(st.changed && st.text === migrated, `the send boundary: ${JSON.stringify(st.text)}`);
+      const shifted = migrated.indexOf('--oh my') + '--oh my'.length;
+      check(
+        st.caret[0] === shifted && st.caret[1] === shifted,
+        `the caret was not mapped through the rewrite: ${st.caret} (want ${shifted})`
+      );
+      const undoRedo = async () => {
+        await page.evaluate(() => $ui('btn-undo').click());
+        const u = await page.evaluate(() => $ui('lyrics-draft').value);
+        await page.evaluate(() => $ui('btn-redo').click());
+        const r = await page.evaluate(() => $ui('lyrics-draft').value);
+        return [u, r];
+      };
+      let [u, r] = await undoRedo();
+      check(
+        u === base,
+        `Undo after the boundary restored ${JSON.stringify(u)}, not the draft before`
+      );
+      check(r === migrated, `Redo did not return to the migrated text: ${JSON.stringify(r)}`);
+      // An import that migrates: Undo restores the draft before it, exactly,
+      // and does not bring back (or re-migrate) the unmarked row; Redo
+      // returns to the migrated import.
+      const reading = `[SETUP — reading — token 2 "oh" in ${JSON.stringify(OH)} — OW1 — declared — source: me]`;
+      const file = `${reading}\n\n[VERSE]\n${OH}\n${DOVE}`;
+      await page.setInputFiles('#ly-file', {
+        name: 'old-song.txt',
+        mimeType: 'text/plain',
+        buffer: Buffer.from(file, 'utf8'),
+      });
+      await page.waitForFunction((l) => $ui('lyrics-draft').value.includes(l), DOVE, {
+        timeout: 10000,
+      });
+      const imported = await page.evaluate(() => $ui('lyrics-draft').value);
+      const wantImported = file.replace(
+        reading,
+        `[SETUP — reading — token 3 "oh" in ${JSON.stringify(OH)} — OW1 — declared — source: me — cut v2]`
+      );
+      check(imported === wantImported, `the import was not migrated: ${JSON.stringify(imported)}`);
+      [u, r] = await undoRedo();
+      check(u === migrated, `Undo across the import restored ${JSON.stringify(u)}`);
+      check(r === wantImported, `Redo across the import restored ${JSON.stringify(r)}`);
+      // F4: the card lists the renumbered reading after the toast is gone.
+      await page.evaluate(() => showToast('Something else', 'success'));
+      const card = () =>
+        page.evaluate(() => {
+          lyRefresh(true);
+          const i = LY.items.find((x) => x.id === 'renumbered');
+          return i ? i.text : null;
+        });
+      let c = await card();
+      check(
+        !!c && /the reading for “oh”, line 1: word 2 → 3/.test(c),
+        `no persistent Review card after the import: ${c}`
+      );
+      check(
+        /renumbered to the current word cut/.test(await pane(page, 'review')),
+        'Review does not show the renumbered card'
+      );
+      // A reload keeps it (the page context's display state).
+      await page.waitForFunction(
+        () => /renumbered/.test(localStorage.getItem('codex-workbench-v1') || ''),
+        null,
+        { timeout: 5000 }
+      );
+      await page.reload();
+      await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready && !!LY.model, null, {
+        timeout: 60000,
+      });
+      c = await card();
+      check(!!c && /word 2 → 3/.test(c), `the card did not survive a reload: ${c}`);
+      await page.evaluate(() => LY_ACTIONS['ly-renumbered-dismiss']());
+      check((await card()) === null, 'Dismiss did not remove the card');
+      // A Library working copy with an unmarked reading: the same card.
+      const lib = await page.evaluate(async (text) => {
+        const meta = {
+          version: 1,
+          brief: '',
+          notes: {},
+          drafts: {},
+          ui: {},
+          libraryOrigin: {
+            version: 1,
+            handoffId: 'handoff:' + crypto.randomUUID(),
+            digest: '0'.repeat(64),
+            importedAt: Date.now(),
+            adapted: false,
+            title: 'Song',
+            language: 'eng',
+            scope: 'whole',
+            provenance: {
+              snapshotId: 'snap:1',
+              unitId: 'unit:1',
+              workId: 'work:1',
+              editionId: 'ed:1',
+              revisionId: 'rev:1',
+            },
+            lineage: [],
+            declarations: [],
+          },
+        };
+        let err = null;
+        try {
+          await lyLibraryImport(await CMLibraryImport.makeWorkingCopyEnvelope(text, meta));
+        } catch (e) {
+          err = e.message;
+        }
+        await new Promise((res) => setTimeout(res, 800));
+        return { err, text: $ui('lyrics-draft').value };
+      }, file);
+      check(
+        lib.err === null && lib.text === wantImported,
+        `the Library working copy was not migrated: ${JSON.stringify(lib)}`
+      );
+      c = await card();
+      check(
+        !!c && /the reading for “oh”, line 1: word 2 → 3/.test(c),
+        `no persistent card after a Library working-copy import: ${c}`
+      );
+      // An open through the shell: a stored session with an unmarked row is
+      // migrated at start, before the first step (nothing to Undo into).
+      const stored = `${END}\n\n[VERSE]\n${DOVE}\n${OH}`;
+      await page.evaluate((t) => {
+        for (const store of [localStorage, sessionStorage]) {
+          const key = store === localStorage ? 'codex-workbench-v1' : 'codex-workbench-recovery';
+          const s = JSON.parse(store.getItem(key) || localStorage.getItem('codex-workbench-v1'));
+          s.lyrics = t;
+          store.setItem(key, JSON.stringify(s));
+        }
+      }, stored);
+      await page.reload();
+      await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready && !!LY.model, null, {
+        timeout: 60000,
+      });
+      st = await page.evaluate(() => ({
+        text: $ui('lyrics-draft').value,
+        steps: app.history.map((h) => JSON.parse(h).lyrics),
+      }));
+      const openedWant = stored.replace(END, '[SETUP — returns — 2.T3,1.T2 — cut v2]');
+      check(
+        st.text === openedWant && st.steps.length === 1 && st.steps[0] === openedWant,
+        `the stored session was not migrated at open: ${JSON.stringify(st)}`
+      );
+      await ctx.close();
+    });
+
     // ── screenshots: a suggestion, light and dark, desktop and phone ─────
     if (SHOTS) {
       stage = 'screenshots';
@@ -2736,6 +3266,7 @@ async function browserChecks(chromium) {
   unitWriterPayload();
   await unitSavedReadings();
   await unitPolicyA();
+  await unitBoundaries();
   unitHeadersAndIdentity();
   if (flags['unit-only']) {
     if (failures.length) {

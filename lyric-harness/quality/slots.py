@@ -444,10 +444,24 @@ def placement_word(place):
     THE COORDINATE THAT SAYS WHETHER TWO BINDINGS MEET (`MISSING.md` M-80).
     This table binds FOUR names to only TWO words at the ends of a line —
     `end` and `endword` are both the last word (its rhyme span and the whole
-    of it), `head`, `headrime` and `T1` are all the first — so "these are
-    different placements" and "these are different words" are different
-    questions, and only the second one answers whether two rhyme groups land
-    on one word. `quality/plan.py` asked the first for as long as it drew
+    of it), `head`, `headrime` and `T1` are all filed under the first — so
+    "these are different placements" and "these are different words" are
+    different questions, and only the second one answers whether two rhyme
+    groups land on one word.
+
+    FILED UNDER, NOT BOUND TO (2026-10-14, BB8 #519 6161601064). This is a
+    planning coordinate, and it is the grader's word only while the line's
+    first token is readable. `resolve` binds `head`/`headrime` to the first
+    token that CONTRIBUTES SYLLABLES (`line_initial_token` takes the first of
+    `_token_runs`, which skips a token with no reading), and binds `T1` to
+    token 1 itself, or to nothing when token 1 has no reading (`want not in
+    runs`). So where the first token is unreadable (a numeral without a
+    declared reading, an unsupported hyphenated word, a dictionary miss) --
+    `4ever we go` -- `head` binds `we` while `T1` binds no word, and two
+    groups filed here under word 1 may in fact meet on different words or on
+    none. Likewise `endword` binds the last readable token (the default `end`
+    refuses an unreadable end word) while `T<n>` names its own index. Nothing here changes what the grader binds;
+    this docstring only stops claiming the two are one place. `quality/plan.py` asked the first for as long as it drew
     placements at all, and 94% of its plans put two declared groups on one
     word as a result.
 

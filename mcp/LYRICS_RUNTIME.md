@@ -229,8 +229,33 @@ does and does not protect one built before the release.
     copy). A row without it is legacy by compatibility policy (hand-typed or
     imported text can be unmarked too, so this is a reading rule, not a claim
     about when the row was written): it is rebound by span identity, or blocked
-    for the writer's decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`);
-    a number it changes is reported to the writer, not changed in silence.
+    for the writer's decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`).
+    - It runs only at a boundary: when a session is opened (restored at
+      start, a saved session loaded or copied, a session file imported, the
+      Lyrics page mounted), when a `.txt` or Library working copy is
+      imported, and before anything is sent to the writer. Never from the
+      typing refresh, so the draft is not rewritten under the writer.
+    - It adds no Undo step. At an open or import, the step that event
+      records already holds the migrated text, so Undo returns to the draft
+      from before it and Redo to the migrated text. At an in-page boundary
+      (send, mount), the writer's text is recorded first, exactly as leaving
+      the editor records it, and the migrated text replaces that same step.
+    - Undo and Redo never run the migration. A step still holding an
+      unmarked row (one typed or pasted by hand since the last boundary) is
+      migrated at the next boundary.
+    - The selection is mapped through the rewrite onto the same characters,
+      and no declaration is dropped.
+    - A row whose number names the same characters under both cuts keeps
+      every byte and gains no mark. That is the page's existing contract:
+      setup rows are hashed into the version a review certifies. Only a row
+      the migration rewrites gains the mark, and inside it only the changed
+      members are respelled. The cost is that such a row stays legacy, and
+      is re-read under the earlier cut if its line is later edited across
+      the cut. That cost is open for the owner; nothing decides it here.
+    - Every number the migration changes is reported twice: in a toast, and
+      in a Review card listing each one ("word 2 → 3"). The card persists in
+      the page context across later imports and reloads until the writer
+      dismisses it.
   - The Library tab: every pronunciation choice it saves on a device carries
     `token_cut: "v2"` on the saved record (the page's own storage; the rows
     sent keep their six fields). A record without it is legacy by
@@ -285,6 +310,40 @@ does and does not protect one built before the release.
     Remove it. Those words are the page's display, not the grader's evidence:
     the grader decides what the place binds. On a line whose cut did not
     change the member is carried silently and the row is not rewritten.
+    A line also counts as changed when its cut is identical but the words
+    the earlier grader looked up are not.
+    - The cause: v1's `line_anchors` re-cut the words before the last from
+      their space-joined text. That joined an enclitic the printed line sets
+      apart to the word before it: `Below the knap, 's a runnèn still;`
+      looked up `knap's`, and `When in that house M.P.'s divide,` looked up
+      `P's` (P IY1 Z). The current reader reads `'s` alone, so the rhyme's
+      start moves.
+    - Measured on the English song corpus
+      (`lyric-harness/quality/results/named_place_lookup_2026-10-14/`), out
+      of 271,092 identical-cut sung lines:
+      - 8 change their END binding, and the condition names all 8;
+      - the condition fires on 24 lines in all, the 8 plus 16 where the
+        lookup differs but the end anchor does not reach the joined word;
+      - it fires on none of the other 271,068.
+      - 7 more non-Latin lines differ only in the label's Unicode
+        normalisation, with nothing bound under either scheme.
+- **Pre-existing, not caused by this batch and not fixed in it** (BB8 #519
+  6161601064, 3PO 6161637870). They are listed so they are not read as
+  regressions:
+  - A Library job refused `STALE_READING` (queued or paused across a
+    release) still offers a Resume that cannot succeed
+    (`src/library/analysis.js`: the Resume button shown for every paused,
+    cancelled or failed job).
+  - Under reader scheme v1, the default end slot's swap splices into an echo
+    aside that repeats the end word (`my love (my love)` edits the aside).
+    The v1 replay keeps that wrong edit byte-identical, because v1 is the
+    pre-batch body verbatim (`lyric-harness/quality/loop.py` `swap_at_slot` docstring).
+  - The standalone Library Site (`sites/library`) posts device pronunciation
+    choices to the server without this release's migration.
+  - Two items await the owner's scope decision and are not touched here: a
+    retained 30-day Library chunk that saves declarations without their cut
+    (F2), and the mixed-version deploy window between page, server and
+    queued jobs (F3).
 - **A run resumed under v1 resolves every place under v1.** A state recorded
   under reader scheme v1 (a pre-batch harness state replayed with the harness,
   or an explicit `--reader-scheme=v1`) keeps the whole pre-batch reading (D1):

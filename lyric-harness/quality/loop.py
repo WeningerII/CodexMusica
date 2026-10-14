@@ -386,7 +386,10 @@ def swap_end_word(text, new_word, scheme=None, lex=None):
     reading of "the last word" (the last regex match with no paren-
     stripping) would disagree with the canonical one: a parenthetical after
     the rhyme word is exactly the kind of case doctrine 1 says may not be
-    read twice, differently, in one codebase.
+    read twice, differently, in one codebase. Under `v1` the two readings
+    compare spellings only, so an echo aside whose last word repeats the end
+    word (`my love (my love)`) agrees and is spliced inside the aside: a
+    pre-existing v1 behaviour, kept for replay (see `swap_at_slot`).
 
     Under reader scheme `v2` (`scheme`, None = this process's) the span is
     `reader_line`'s own: the last raw run, refused when it is a kept aside or
@@ -610,8 +613,16 @@ def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=None, lex=None)
     under `v2`), else the swap refuses.
 
     Under `v1` `lex` and `strip_parens` are not read: the pre-batch body
-    runs verbatim, including its refusal of a line whose regex words
-    disagree with `line_tokens` (every line with an aside).
+    runs verbatim. A NON-DEFAULT slot there refuses a line whose regex words
+    disagree with `line_tokens` -- every line whose aside holds a word. The
+    DEFAULT end slot does NOT refuse every aside line: it is `swap_end_word`'s
+    v1 body, which compares only the last regex word with `raw_final_token`,
+    so on an echo aside that repeats the end word it splices INTO the aside
+    (`I give you all my love (my love)` -> `... my love (my dove)`, while the
+    grader binds the `love` outside it). That is pre-existing v1 behaviour,
+    kept byte-identical for historical replay and disclosed, not repaired
+    (`mcp/LYRICS_RUNTIME.md`, pre-existing items); under `v2` the swap
+    refuses a kept aside's run and checks the endpoint occurrence.
     """
     if lex is not None and scheme is not None and (
             resolve_reader_scheme(scheme) != _scheme_of(lex)):
