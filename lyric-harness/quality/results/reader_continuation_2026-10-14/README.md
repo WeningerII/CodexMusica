@@ -43,14 +43,17 @@ Use the repository's Python runtime and lexical assets. The browser run here
 used installed Chromium 151.0.7922.173 through Playwright; the browser binary
 was not the Playwright-downloaded revision.
 
+From the repository root, enter the harness directory first:
+
 ```sh
+cd lyric-harness
 git show 8ea94ac9d5141eb5062a8094351a9330f4edc38c:src/pages/lyrics.js > /tmp/reader-before.js
-node scripts/check_lyrics_page.js --unit-only --unit-source=/tmp/reader-before.js
-node scripts/check_lyrics_page.js --unit-only
-node scripts/check_lyrics_page.js
-node --test scripts/test_library_import.js scripts/test_library_chunk_generations.js
-CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium node scripts/test_library_import_browser.js
-CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium node scripts/test_library_import_shipped.js
+node ../scripts/check_lyrics_page.js --unit-only --unit-source=/tmp/reader-before.js
+node ../scripts/check_lyrics_page.js --unit-only
+node ../scripts/check_lyrics_page.js
+node --test ../scripts/test_library_import.js ../scripts/test_library_chunk_generations.js
+CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium node ../scripts/test_library_import_browser.js
+CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium node ../scripts/test_library_import_shipped.js
 ```
 
 The first command pair intentionally produces six failing assertions against
