@@ -1,0 +1,23 @@
+Workspace code /workspace/acceptance-code, previous evidence /workspace/acceptance-evidence, results /workspace/acceptance-final.
+Code first 84f7fa94f416936f5ee274e5bde2440455e5dedc, then 37f7bcb76a1429f152d0b01a90ef7b943f39554c (docs/evidence-only delta verified).
+Node24.19.0, Python3.12.14, Chromium151.0.7922.173, pinned requirements from prior evidence; see pins.json.
+
+CODEX_LIBRARY=1 node scripts/build_html.js --out=acceptance.html --quiet --check
+# Built acceptance.html equals shipped codex.html, SHA256 8f48b426266657dce959828afc627302e6f040573521248f2d09761824937249.
+PATH=/workspace/acceptance-venv/bin:$PATH PLAYWRIGHT_BROWSERS_PATH=/tmp/acceptance-browsers node scripts/check_lyrics_page.js --html=acceptance.html
+node /workspace/acceptance-results/selection/sel6.js cand click,kbd MIG,NOMIG
+node /workspace/acceptance-final/baseline.js /workspace/acceptance-code
+PATH=/workspace/acceptance-venv/bin:$PATH python3 lyric-harness/quality/test_reader.py Normalisation
+PATH=/workspace/acceptance-venv/bin:$PATH python3 lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutations.py C
+PATH=/workspace/acceptance-venv/bin:$PATH python3 lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutations.py F2
+node /workspace/acceptance-final/library_delay.js
+MODES=undo-before-debounce OUT=/workspace/acceptance-final/library_early_undo.json node /workspace/acceptance-final/library_delay.js
+node /workspace/acceptance-final/notices.js
+node /workspace/acceptance-final/mobile.js
+node /workspace/acceptance-final/order_matrix.js cand
+PATH=/workspace/acceptance-venv/bin:$PATH python3 /workspace/acceptance-final/order_bind.py /workspace/acceptance-code /workspace/acceptance-final/order_bind_inputs.json /workspace/acceptance-final/order_bindings.json
+# After switching to exact37f7bcb7:
+node /workspace/acceptance-final/sel_tab.js cand tabclick MIG,NOMIG
+node /workspace/acceptance-final/a_page_drive.js /workspace/acceptance-code acceptance.html /workspace/acceptance-final/a_page_37f.json
+
+Probes retain explicit workspace paths; adjust root/output constants when reproducing elsewhere. order_com.js and lib6.js serve acceptance.html and intercept all service calls. All provider replies are local fixtures. sel_tab.js waits two requestAnimationFrame callbacks before recording the post-send selection, then returns to editor through real keyboard Tab traversal and types ZQ. The failure is represented as kept=false in receipts; the probe itself records cases rather than exiting nonzero for each lost selection.

@@ -1,0 +1,152 @@
+[
+  {
+    "tree": "cand",
+    "trig": "tabclick",
+    "doc": "MIG",
+    "sel": "sung_sing",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "afterTab": {
+      "text": "[SETUP — returns — 1.T2, 2.end]\n\n[VERSE]\nOh--oh, oh my love\nI sing the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "active": "BODY"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T3, 2.end"
+    ],
+    "rewrittenAtSend": true,
+    "ensure": [
+      {
+        "r": true,
+        "sel": [
+          73,
+          73,
+          "forward"
+        ],
+        "active": false
+      }
+    ],
+    "after": {
+      "sel": [
+        0,
+        0,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      73,
+      73
+    ],
+    "kept": false,
+    "row0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "backPresses": 22,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        0,
+        0,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 0,
+    "typedRow": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "parsedAfterTyping": {
+      "setup": [],
+      "decl": {}
+    },
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "trig": "tabclick",
+    "doc": "NOMIG",
+    "sel": "sung_sing",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        65,
+        65,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "afterTab": {
+      "text": "[SETUP — returns — 2.end, 7.end]\n\n[VERSE]\nOh--oh, oh my love\nI sing the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "sel": [
+        65,
+        65,
+        "forward"
+      ],
+      "active": "BODY"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [
+      {
+        "r": false,
+        "sel": [
+          65,
+          65,
+          "forward"
+        ],
+        "active": false
+      }
+    ],
+    "after": {
+      "sel": [
+        65,
+        65,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      65,
+      65
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 25,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        65,
+        65,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 65,
+    "typedRow": "I siZQng the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  }
+]

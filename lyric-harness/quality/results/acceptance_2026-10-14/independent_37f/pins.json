@@ -1,0 +1,28 @@
+{
+  "tested_latest_head": "37f7bcb76a1429f152d0b01a90ef7b943f39554c",
+  "prior_candidate": "84f7fa94f416936f5ee274e5bde2440455e5dedc",
+  "baseline": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+  "runtime_diff_84f_to_latest": [],
+  "files": {
+    "codex.html": "8f48b426266657dce959828afc627302e6f040573521248f2d09761824937249",
+    "acceptance.html": "8f48b426266657dce959828afc627302e6f040573521248f2d09761824937249",
+    "src/pages/lyrics.js": "7f6f5573b9b866af9631af92ec5806378b675aa302a21c2e276dd2c07dbc80f8",
+    "src/lyric-tokens.js": "806dbed10e9c65cedaf897f0d4333333ec85dc9e50bea22693d524653234476b",
+    "src/app.js": "27e66c1bbc53bd7cef855bf9038117a23d94360066616a5a66bfe2e37549e25d",
+    "src/library-import.js": "345dbbf475adaf1177cb92ddbb13e0ebd47037a07096496082c4cfe3e3c4a757",
+    "scripts/check_lyrics_page.js": "9ea4b1dc9f8aed62c81ef1883934b38db1fb6f7327a4ea687127e1a519801653",
+    "lyric-harness/quality/test_reader.py": "2b8190d7094a77b4ad8809ca142701e136f30c3a5de5020ab992a79178981c70",
+    "lyric-harness/quality/loop.py": "e9e5646119d27dcfbeab4bd9a9ec9f9a82828d3a3e5a91f2462f5f540b4f044f",
+    "lyric-harness/quality/relations.py": "53e0793017305e084f84be9c0675584953eb90ff865ead67e8be1b9099b8e1b6",
+    "lyric-harness/quality/phonology/eng.py": "5e3de90fe8bbb749015c7bc17a5df550e3ed7a63af096e6e359ec061b115509b",
+    "lyric-harness/cmudict.dict": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+    "lyric-harness/data/runtime_assets.json": "c4fcefd938b6dbdd3692e7c3364f34232cf6616634f8501a5c0974dc8454fd7b",
+    "lyric-harness/data/lexicon_supplement_versions.json": "fe1f2362a80f213d973f4ef05267aeccd26efa0183ea22cbe8666e4999f8a209",
+    "package-lock.json": "a60532eca22f2eb2f6988b93a7e0f2afc85b0e8f4d92c08b8313a4643a4ab184",
+    "mcp/requirements-runtime.txt": "dbe8aa8246d4710810fd37bec3bb856dc21b18eda2bde5218bb2fddbbac39320"
+  },
+  "node": "v24.19.0",
+  "python": "3.12.14",
+  "chromium": "151.0.7922.173",
+  "playwright": "1.60.0"
+}

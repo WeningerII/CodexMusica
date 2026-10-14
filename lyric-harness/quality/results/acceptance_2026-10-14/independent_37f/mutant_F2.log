@@ -1,0 +1,43 @@
+test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) ... 
+  test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) (first='king-', declared=True, other='wing') ... FAIL
+  test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) (first='king-', declared=True, other='hat') ... FAIL
+  test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) (first='king-,', declared=True, other='wing') ... FAIL
+  test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) (first='king-,', declared=True, other='hat') ... FAIL
+
+======================================================================
+FAIL: test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) (first='king-', declared=True, other='wing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 509, in test_a_declared_broken_token_reading_precedes_stem_recovery
+    self.assertIs(RL.line_pairs_for(
+AssertionError: True is not False
+
+======================================================================
+FAIL: test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) (first='king-', declared=True, other='hat')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 509, in test_a_declared_broken_token_reading_precedes_stem_recovery
+    self.assertIs(RL.line_pairs_for(
+AssertionError: False is not True
+
+======================================================================
+FAIL: test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) (first='king-,', declared=True, other='wing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 509, in test_a_declared_broken_token_reading_precedes_stem_recovery
+    self.assertIs(RL.line_pairs_for(
+AssertionError: True is not False
+
+======================================================================
+FAIL: test_a_declared_broken_token_reading_precedes_stem_recovery (test_reader.Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery) (first='king-,', declared=True, other='hat')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 509, in test_a_declared_broken_token_reading_precedes_stem_recovery
+    self.assertIs(RL.line_pairs_for(
+AssertionError: False is not True
+
+----------------------------------------------------------------------
+Ran 1 test in 2.824s
+
+FAILED (failures=4)
+MUTANT F2 KILLED

@@ -1,0 +1,74 @@
+[
+  {
+    "label": "range",
+    "before": {
+      "text": "[SETUP — rhyme groups — 1.T2,2.end]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight",
+      "selection": [
+        66,
+        73
+      ],
+      "selected": "sing it"
+    },
+    "cached": [
+      75,
+      82,
+      0
+    ],
+    "after": {
+      "text": "[SETUP — rhyme groups — 1.T3,2.end — cut v2]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight",
+      "start": 75,
+      "end": 82
+    },
+    "pass": true,
+    "calls": 1,
+    "errors": []
+  },
+  {
+    "label": "caret",
+    "before": {
+      "text": "[SETUP — rhyme groups — 1.T2,2.end]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight",
+      "selection": [
+        83,
+        83
+      ],
+      "selected": ""
+    },
+    "cached": [
+      92,
+      92,
+      0
+    ],
+    "after": {
+      "text": "[SETUP — rhyme groups — 1.T3,2.end — cut v2]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight",
+      "start": 92,
+      "end": 92
+    },
+    "pass": true,
+    "calls": 1,
+    "errors": []
+  },
+  {
+    "label": "newline",
+    "before": {
+      "text": "[SETUP — rhyme groups — 1.T2,2.end]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight",
+      "selection": [
+        62,
+        63
+      ],
+      "selected": "\n"
+    },
+    "cached": [
+      71,
+      72,
+      0
+    ],
+    "after": {
+      "text": "[SETUP — rhyme groups — 1.T3,2.end — cut v2]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight",
+      "start": 71,
+      "end": 72
+    },
+    "pass": true,
+    "calls": 1,
+    "errors": []
+  }
+]

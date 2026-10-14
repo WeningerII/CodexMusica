@@ -1,0 +1,5 @@
+[
+  { label: 'range', pass: true, error: undefined },
+  { label: 'caret', pass: true, error: undefined },
+  { label: 'newline', pass: true, error: undefined }
+]

@@ -1,0 +1,24 @@
+Independent P5 qualification at exact 2c9bfc874c221875449f0f03ffec2c98217d0126
+Verdict: nonempty hybrid selection repaired; collapsed hybrid caret STILL FAILS.
+
+Environment remained available. Read actual diff and committed page_tab_mouse_before.txt/page_tab_mouse_after.txt. Only new runtime change expands the mousedown guard to nonempty retained textarea selections and refocuses the editor. The guard still excludes an unfocused collapsed caret. Shipped codex.html is copied verbatim to acceptance.html for this run (hashes in pins.json). No production files changed.
+
+Eight independent Tab-out -> mouse Run review cases after two animation frames and actual keyboard return:
+- migrating nonempty sung range and declaration-row range: 2/2 preserved;
+- migrating collapsed sung caret and declaration-row caret: 0/2 preserved;
+- four no-rewrite controls: 4/4 preserved.
+All eight sent once to the local chat fixture. No page errors.
+
+Additional EXACT requested fixture: collapsed caret in 'sing' at [64,64], then real Tab, then mouse Run review. Selection survives Tab; migration maps it to [73,73]; after two frames it is [0,0]. Keyboard return retains [0,0]. Typing ZQ prefixes the SETUP row (zero setup rows after typing). No-rewrite control retains [65,65] and inserts in 'siZQng' as expected. See sing_2c9.json and sing.log.
+
+Existing new focused test passes 13 assertions, but tests a nonempty selection. Its pass does not close the independent collapsed-caret failure.
+
+Commands from /workspace/acceptance-code at this SHA:
+cp codex.html acceptance.html
+node /workspace/acceptance-final/sel_tab.js cand tabclick MIG,NOMIG
+node /workspace/acceptance-2c9/sing_tab.js cand tabclick MIG,NOMIG
+PATH=/workspace/acceptance-venv/bin:$PATH PLAYWRIGHT_BROWSERS_PATH=/tmp/acceptance-browsers node scripts/check_lyrics_page.js --html=acceptance.html --browser-only --browser-filter='real send selection'
+
+sel_tab.js and lib6.js are retained in sibling independent_37f. sing_tab.js uses the same helper with one precise sung caret. Paths are explicit and must be relocated to another workspace. Chromium151.0.7922.173; Node24.19.0; Python3.12.14. Both script-driven setup and real browser interactions are identified in source. No paid providers, merge, deployment, or inbox action.
+
+Other scoped results are retained in independent_37f: 611-assertion page pass, 503-entry notices/reload, delayed Library writes and early Undo/reopen, 25 paired action-order scenarios and 75 bound-payload checks, narrow caret/newline preservation, P1/P2 before/after and P7 mutant kills. Those passes remain separately scoped; they do not cancel this P5 blocker. No old37f CI result is claimed for2c9. Four revise shards/full MCP suite remain unrun here. Owner-gated Library compatibility/queued-job extension and empty-replacement extension remain unimplemented.

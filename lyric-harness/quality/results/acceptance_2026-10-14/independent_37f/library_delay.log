@@ -1,0 +1,23 @@
+[
+  {
+    mode: 'undo-before-debounce',
+    pass: undefined,
+    error: "AssertionError [ERR_ASSERTION]: '[SETUP — rhyme groups — 1.T4,4]\\n' +\n" +
+      "  '[SETUP — returns — 1,3;1.line,3.line;1.head,3.head;2.end,4.end]\\n' +\n" +
+      "  '\\n' +\n" +
+      "  '[VERSE]\\n' +\n" +
+      "  'Oh--oh, oh my love\\n' +\n" +
+      "  'You are the one I dream of my dove\\n' +\n" +
+      "  'Oh--oh, oh my love\\n' +\n" +
+      "  'we sing it plain tonight' == '[SETUP — rhyme groups — 1.T5,4 — cut v2]\\n' +\n" +
+      "  '[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\\n' +\n" +
+      "  '\\n' +\n" +
+      "  '[VERSE]\\n' +\n" +
+      "  'Oh--oh, oh my love\\n' +\n" +
+      "  'You are the one I dream of my dove\\n' +\n" +
+      "  'Oh--oh, oh my love\\n' +\n" +
+      "  'we sing it plain tonight'\n" +
+      '    at /workspace/acceptance-final/library_delay.js:28:47'
+  },
+  { mode: 'held-B-write', pass: true, error: undefined }
+]
