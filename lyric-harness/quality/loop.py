@@ -411,9 +411,10 @@ def swap_end_word(text, new_word, scheme=None, lex=None):
     swap also checks the ENDPOINT OCCURRENCE: the token it replaces must be
     the one `line_anchors` (through `slots.resolve`) ends its anchors on --
     the last syllable of every reading carries that token's `widx` and
-    spelling -- or, where the grader binds no syllable there (an unreadable
-    end word), the one `line_anchors` names as its endpoint after its own
-    `actual_last` guard held. Anything else refuses (`_end_occurrence_bound`).
+    spelling. Where the grader binds ZERO syllables on the end (an unread
+    word, a numeral, a hyphenated word without a whole reading) the swap
+    refuses: no occurrence is bound, so none can be agreed with. Anything
+    else refuses too (`_end_occurrence_bound`).
     The anchors may start in an earlier word (a weak end word, a rhyme that
     begins before it); only the endpoint is compared, because that is the
     word this swap replaces. Without `lex` the swap is the protections above
@@ -490,12 +491,14 @@ def _end_occurrence_bound(lex, text, replaced):
     `line_anchors`, called (no second reading of it): every reading's LAST
     syllable must carry the `widx` of the last token of the lexicon's own cut
     and that token's spelling, and that token must be `replaced` (the same
-    raw pieces). Where the grader binds no syllable (an unreadable end word),
-    `line_anchors` still names its endpoint: the label it returns is the
-    line's actual last token once its `actual_last` guard held, and that
-    token must be `replaced`. A reading with an untagged last syllable, two
-    readings ending on different words, or an endpoint that is not
-    `replaced` refuses."""
+    raw pieces). Where the grader binds ZERO syllables (an unreadable end
+    word: an unread word, a numeral, a hyphenated word without a whole
+    reading) it refuses, even though `line_anchors` still names an endpoint
+    label there: a label is not a binding, and the reviser edits only an
+    occurrence the grader binds (3PO #519 6163216518; BB8's 191-per-mode
+    unbound default-end edits, #527 6163195621). A reading with an untagged
+    last syllable, two readings ending on different words, or an endpoint
+    that is not `replaced` refuses too."""
     lx = _lex_line(lex, text)
     toks = reader_line(text, getattr(lx, "strip_parens", True), scheme="v2").tokens
     if not toks:
@@ -504,13 +507,16 @@ def _end_occurrence_bound(lex, text, replaced):
     if last.pieces != replaced.pieces or last.text != replaced.text:
         return False
     try:
-        anchors, label, _ = _RESOLVE(lex, text, 1)
+        anchors, _, _ = _RESOLVE(lex, text, 1)
     except _SL.SlotUnsupported:
         return False
     if not anchors:
-        return (label == last.text and
-                raw_final_token(text, getattr(lx, "strip_parens", True),
-                                scheme="v2") == last.text)
+        # ZERO bound syllables: the grader binds nothing on this line's end
+        # (an unread word, a numeral, a hyphenated word with no whole
+        # reading), so no occurrence is known to agree with and the swap
+        # refuses (3PO #519 6163216518). A multi-word anchor that binds
+        # syllables never waived this: its endpoint is checked below.
+        return False
     for reading in anchors:
         if not reading:
             return False

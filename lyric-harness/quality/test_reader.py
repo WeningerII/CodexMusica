@@ -1098,12 +1098,12 @@ class SlotBinding(unittest.TestCase):
             self.assertEqual(SL.resolve(lex, text, SL.parse_slot("1.endword"))[1], "deed")
             self.assertEditsBound(text, "endword", lex,
                                   "'Till the Canon atoned the zqx,              _110")
-            # The DEFAULT end binds no syllable on the numeral, and
-            # line_anchors names it as the endpoint (its actual_last guard
-            # held): swap_end_word replaces that endpoint, as at 67889851.
+            # The DEFAULT end binds ZERO syllables on the numeral (line_anchors
+            # names it as a label only), so the swap refuses: a label is not a
+            # binding (3PO #519 6163216518). At 67889851 and 61b6618a it
+            # replaced the numeral.
             self.assertEqual(SL.resolve(lex, text, 1)[:2], ([], "110"))
-            self.assertEqual(self.swap(text, "end", lex),
-                             "'Till the Canon atoned the deed,              _zqx")
+            self.assertIsNone(self.swap(text, "end", lex))
         for lex in (self.v1, self.v1s):
             for slot in ("endword", "end"):
                 self.assertEqual(self.swap(text, slot, lex),
@@ -1276,7 +1276,6 @@ class SlotBinding(unittest.TestCase):
         self.assertEqual({a[-1]["widx"] for a in anchors}, {4})
         self.assertEqual(swap_end_word(text, "zqx", lex=self.st), "I want to hold zqx")
         self.assertEqual(self.swap(text, "end", self.st), "I want to hold zqx")
-        self.assertEqual(swap_end_word("the night was zzqx", "zqx", lex=self.st), "the night was zqx")
         real = LP._RESOLVE
 
         def ends_early(lex, line, member, promote=False):
@@ -1294,6 +1293,12 @@ class SlotBinding(unittest.TestCase):
             return [], "hold", []
         with mock.patch.object(LP, "_RESOLVE", unbound):
             self.assertIsNone(swap_end_word(text, "zqx", lex=self.st))
+
+        def unbound_named(lex, line, member, promote=False):
+            # zero syllables, the endpoint label naming the replaced token
+            return [], "it", []
+        with mock.patch.object(LP, "_RESOLVE", unbound_named):
+            self.assertIsNone(swap_end_word(text, "zqx", lex=self.st))
         # The default slot delegates to swap_end_word, carrying the lexicon.
         seen = []
         real_end = LP.swap_end_word
@@ -1305,6 +1310,48 @@ class SlotBinding(unittest.TestCase):
             swap_at_slot(text, SL.parse_slot("1.end"), "zqx", lex=self.su)
             swap_at_slot(text, 1, "zqx", scheme="v1")
         self.assertEqual(seen, [("v2", self.su), ("v1", None)])
+
+    def test_a_default_end_binding_zero_syllables_refuses(self):
+        # 3PO #519 6163216518: where the grader binds ZERO syllables on the
+        # line's end (an unread word, a numeral, a hyphenated word with no
+        # whole reading) the default-end splice refuses on every production
+        # path; readable ends, multi-word anchors included, splice as before.
+        from types import SimpleNamespace
+        from quality import slots as SL
+        from quality.loop import default_propose, default_propose_group, swap_end_word
+        from quality.revise import Reviser
+        unbound = ("the night was zzqx", "I gave the rent of Exmoor",
+                   "and so we sang it 45", "the bells were ringing a-heav\u00e8n",
+                   "a song of brook-zzqx")
+        readable = (("I want to hold it", "I want to hold zqx"),
+                    ("do me a favour, do", "do me a favour, zqx"),
+                    ("the night was cold", "the night was zqx"),
+                    ("(1) An' cut a lock", "(1) An' cut a zqx"))
+        for lex in (self.st, self.su):
+            for text in unbound:
+                anchors, label, _ = SL.resolve(lex, text, 1)
+                self.assertEqual(anchors, [], text)       # premise: zero bound
+                self.assertEqual(label, LH.reader_line(text, lex.strip_parens, "v2").tokens[-1].text)
+                self.assertIsNone(swap_end_word(text, "zqx", lex=lex), text)
+                self.assertIsNone(self.swap(text, "end", lex), text)
+                b = SimpleNamespace(text=text, slot=None, line_no=1, candidates=["zqx"])
+                self.assertIsNone(default_propose(b, [text], 0, scheme="v2",
+                                                  strip_parens=lex.strip_parens, lex=lex), text)
+                g = SimpleNamespace(members=(1, 2),
+                                    proposal_for={1: ("the night was cold", "zqx", None),
+                                                  2: (text, "zqx", None)}.get)
+                self.assertIsNone(default_propose_group(g, scheme="v2",
+                                                        strip_parens=lex.strip_parens, lex=lex))
+                self.assertIsNone(Reviser(lex)._splice(text, 1, "zqx"), text)
+            for text, want in readable:
+                self.assertTrue(SL.resolve(lex, text, 1)[0], text)
+                self.assertEqual(swap_end_word(text, "zqx", lex=lex), want)
+                self.assertEqual(self.swap(text, "end", lex), want)
+                self.assertEqual(Reviser(lex)._splice(text, 1, "zqx"), want)
+                self.assertEqual(self.edited_span(text, want), self.bound_span(lex, text, "end"))
+        # v1 keeps the pre-batch splice (its unread end words included).
+        self.assertEqual(swap_end_word("the night was zzqx", "zqx", lex=self.v1), "the night was zqx")
+        self.assertEqual(swap_end_word("the night was zzqx", "zqx", scheme="v1"), "the night was zqx")
 
     def test_the_direct_helper_line_and_group_paths(self):
         from types import SimpleNamespace
@@ -1353,31 +1400,41 @@ class SlotBinding(unittest.TestCase):
                                      want, (text, slot, sp))
 
     def test_every_v2_edit_lands_on_the_bound_token(self):
+        from quality import slots as SL
         # Property over corpus lines (numerals, dashes, asides and unread
         # words included), both aside rules: an edit replaces exactly the
         # token the grader binds; where the grader binds none, it refuses.
         lines = []
         for p in sorted((ROOT / "corpus" / "song").glob("eng_*.txt"))[::7]:
             lines += [ln for ln in LH.load_lyric_lines(str(p))][:120]
-        edits = refusals = moved = 0
+        edits = refusals = moved = end_edits = end_unbound = 0
         for text in lines[:1200]:
             for lex in (self.st, self.su):
                 toks = LH.reader_line(text, lex.strip_parens, "v2").tokens
-                for slot in ("head", "headrime", "endword", "T1", "T2", "T3"):
+                for slot in ("end", "head", "headrime", "endword", "T1", "T2", "T3"):
                     new = self.swap(text, slot, lex)
                     want = self.bound_span(lex, text, slot)
+                    if slot == "end" and not SL.resolve(lex, text, 1)[0]:
+                        # the default end binds ZERO syllables: it must refuse
+                        end_unbound += 1
+                        self.assertIsNone(new, (text, lex.strip_parens))
                     if new is None:
                         refusals += 1
                         continue
                     self.assertIsNotNone(want, (text, slot, lex.strip_parens, new))
                     self.assertEqual(self.edited_span(text, new), want, (text, slot, new))
                     edits += 1
+                    if slot == "end":
+                        end_edits += 1
+                        continue
                     lit = toks[0] if slot.startswith("head") else toks[-1] if slot == "endword" else None
                     if lit is not None and (lit.pieces[0][0], lit.pieces[-1][1]) != want:
                         moved += 1
         self.assertGreater(edits, 3000)
         self.assertGreater(refusals, 100)
         self.assertGreater(moved, 10)     # the literal token is not the bound one
+        self.assertGreater(end_edits, 1000)   # readable default ends still splice
+        self.assertGreater(end_unbound, 10)   # and the unbound ones were exercised
 
 
 class Declarations(unittest.TestCase):
