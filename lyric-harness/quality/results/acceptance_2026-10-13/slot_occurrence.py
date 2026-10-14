@@ -96,7 +96,7 @@ from types import SimpleNamespace
 OUT, POP = sys.argv[1], sys.argv[2]
 ROOT = os.path.abspath(sys.argv[3] if len(sys.argv) > 3 else os.getcwd())
 HERE = os.path.dirname(os.path.abspath(__file__))
-TOOL_VERSION = "3.1"
+TOOL_VERSION = "3.1"  # 3.1 pins: lexicon identity and population accounting (tool-review skeptic)
 FAILING = ("occ_wrong", "unplaceable_edit", "no_op_edit", "edit_unbound")
 #: (line, slot): the real swap's edit is moved to another occurrence of the
 #: same spelling; the oracle must call it occ_wrong.
@@ -226,6 +226,8 @@ def main():
 
     lines = [l for l in open(POP, encoding="utf-8").read().split("\n") if l]
     tally = {m: {} for m in lexes}
+    admitted = 0
+    admitted_by = {m: 0 for m in lexes}
     excluded = {"transformed": 0, "not_reproduced": 0}
     fails = []
     with gzip.open(OUT + ".jsonl.gz", "wt", encoding="utf-8") as gz:
@@ -238,6 +240,8 @@ def main():
                                          "occurrence": "excluded_" + ("transformed" if sp is None else "not_reproduced")},
                                         ensure_ascii=False) + "\n")
                     continue
+                admitted += 1
+                admitted_by[m] += 1
                 for slot in sb.SLOTS:
                     k, named, bound, edited, new = occurrence(line, slot, lex, sp)
                     lit = sb._classify(line, slot, lex, sp)[0]
@@ -362,13 +366,17 @@ def main():
                           "kind": k, "real_edit": list(ed), "rigged_edit": [a, b]})
 
     neg_failed = [n for n in negatives if n["kind"] != n["expected"]]
-    ctrl_failed = [c for c in controls if c["occurrence"] not in ("occ_agree", "unmapped")]
-    ctrl_unres = [c for c in controls if c["occurrence"] == "unmapped"]
+    ctrl_failed = [c for c in controls if c["occurrence"] not in ("occ_agree", "unmapped", "resolver_mismatch")]
+    ctrl_unres = [c for c in controls if c["occurrence"] in ("unmapped", "resolver_mismatch")]
     read_cur = [c for c in readable if scheme_of(c["mode"]) == "cur"]
     read_failed = [c for c in read_cur if c["occurrence"] not in ("occ_agree", "unmapped", "resolver_mismatch")]
     read_unres = [c for c in read_cur if c["occurrence"] in ("unmapped", "resolver_mismatch")]
     decl_failed = [d for d in declared if d["occurrence"] in FAILING + ("path_error", "declaration_refused")]
     decl_unres = [d for d in declared if d["occurrence"] in ("resolver_mismatch", "unmapped")]
+
+    intended = len(lines) * len(lexes)
+    accounted = (admitted + excluded["transformed"] + excluded["not_reproduced"] == intended
+                 and all(sum(tally[m].values()) == sum(1 for _ in sb.SLOTS) * (admitted_by[m]) for m in lexes))
 
     def verdict(schemes):
         f, u = {}, {}
@@ -395,7 +403,7 @@ def main():
             u["declared_paths_unresolved"] = len(sel(decl_unres))
         if neg_failed:
             u["negative_controls_failed"] = len(neg_failed)
-        if excluded["not_reproduced"]:
+        if excluded["not_reproduced"] or not accounted:
             u["coverage_lost"] = excluded["not_reproduced"]
         if odd or other:
             u["production_use_not_replicated"] = len(odd) + len(other)
@@ -427,6 +435,19 @@ def main():
                     "loop_sha256": _sha(os.path.join(ROOT, "quality", "loop.py")),
                     "revise_sha256": _sha(os.path.join(ROOT, "quality", "revise.py")),
                     "swap_keywords_replicated": list(kws), "modes": list(lexes),
+                    "loop_word_re": WR is not None,
+                    "lexicon": {"class": type(base).__name__, "fallback": "none",
+                                "supplement": {"version": "v2",
+                                               "path": getattr(base, "supplement_path", None)
+                                               and os.path.relpath(base.supplement_path, ROOT),
+                                               "sha256": getattr(base, "supplement_path", None)
+                                               and _sha(base.supplement_path)},
+                                "cmudict_sha256": _sha(LH.CMUDICT_PATH)
+                                if os.path.exists(getattr(LH, "CMUDICT_PATH", "")) else None,
+                                "reader_scheme": {m: LH._scheme_of(l) if hasattr(LH, "_scheme_of") else None
+                                                  for m, l in lexes.items()}},
+                    "population_accounted": {"intended_line_modes": intended, "admitted": admitted,
+                                             "excluded": dict(excluded), "accounted": accounted},
                     "population": {"path": os.path.basename(POP), "lines": len(lines),
                                    "sha256": hashlib.sha256("\n".join(lines).encode()).hexdigest(),
                                    "sha256_note": "of the non-empty lines joined by newlines",
