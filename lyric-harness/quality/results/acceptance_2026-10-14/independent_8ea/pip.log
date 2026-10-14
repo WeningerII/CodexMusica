@@ -1,0 +1,19 @@
+Collecting nltk==3.10.3 (from -r mcp/requirements-runtime.txt (line 2))
+  Downloading nltk-3.10.3-py3-none-any.whl (1.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 27.3 MB/s eta 0:00:00
+Collecting defusedxml==0.7.1 (from -r mcp/requirements-runtime.txt (line 4))
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Collecting click==8.5.0 (from -r mcp/requirements-runtime.txt (line 6))
+  Downloading click-8.5.0-py3-none-any.whl (125 kB)
+Collecting joblib==1.5.3 (from -r mcp/requirements-runtime.txt (line 8))
+  Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Collecting regex==2026.9.3 (from -r mcp/requirements-runtime.txt (line 10))
+  Downloading regex-2026.9.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (801 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 802.0/802.0 kB 25.3 MB/s eta 0:00:00
+Collecting tqdm==4.70.0 (from -r mcp/requirements-runtime.txt (line 140))
+  Downloading tqdm-4.70.0-py3-none-any.whl (80 kB)
+Installing collected packages: tqdm, regex, joblib, defusedxml, click, nltk
+Successfully installed click-8.5.0 defusedxml-0.7.1 joblib-1.5.3 nltk-3.10.3 regex-2026.9.3 tqdm-4.70.0
+
+[notice] A new release of pip is available: 25.0.1 -> 26.2.1
+[notice] To update, run: python3 -m pip install --upgrade pip

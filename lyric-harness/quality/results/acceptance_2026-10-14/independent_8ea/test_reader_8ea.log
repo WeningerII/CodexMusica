@@ -1,0 +1,872 @@
+..EEEEE.EEEFFF..E..FFFFE...FFFFFFFFEE.E.EE.E..E.E....E.EEE.E.EEEEEEE...E.EE..EEEFFFFFF.ssssss
+======================================================================
+ERROR: test_a_declaration_never_changes_the_token_cut (__main__.Declarations.test_a_declaration_never_changes_the_token_cut)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1858, in test_a_declaration_never_changes_the_token_cut
+    plain = LH.Lexicon(strip_parens=False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_a_declared_reading_binds_every_kind_of_token (__main__.Declarations.test_a_declared_reading_binds_every_kind_of_token)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1725, in test_a_declared_reading_binds_every_kind_of_token
+    base = LH.Lexicon()
+           ^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_an_undeclared_numeral_is_refused_on_every_surface (__main__.Declarations.test_an_undeclared_numeral_is_refused_on_every_surface)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1896, in test_an_undeclared_numeral_is_refused_on_every_surface
+    lu = FT.read_line(text)
+         ^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/fit.py", line 566, in read_line
+    lex = getattr(phon, "lexicon", None) or _english_lexicon(
+                                            ^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/fit.py", line 899, in _english_lexicon
+    lex = _lh.Lexicon(strip_parens=strip_parens, fallback=fallback,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_the_grid_endpoint_binds_through_the_reader (__main__.Declarations.test_the_grid_endpoint_binds_through_the_reader)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1768, in test_the_grid_endpoint_binds_through_the_reader
+    base = LH.Lexicon()
+           ^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_the_grid_refuses_a_numeral_end_and_binds_after_a_dash_run (__main__.Declarations.test_the_grid_refuses_a_numeral_end_and_binds_after_a_dash_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1825, in test_the_grid_refuses_a_numeral_end_and_binds_after_a_dash_run
+    base = LH.Lexicon()
+           ^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_the_library_claims_exact_only_for_spans_that_rebuild (__main__.HangulSegments.test_the_library_claims_exact_only_for_spans_that_rebuild)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 786, in test_the_library_claims_exact_only_for_spans_that_rebuild
+    _, records, _ = TA.complete(TA.source(full), schemas=[])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/../library/test_analysis.py", line 30, in complete
+    session = AnalysisSession(reading, declarations, requested, checkpoint,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/../library/analysis.py", line 296, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_a_call_checkpoints_answered_block_replays_on_its_scheme (__main__.LegacyReplay.test_a_call_checkpoints_answered_block_replays_on_its_scheme)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2497, in test_a_call_checkpoints_answered_block_replays_on_its_scheme
+    fresh = json.loads(ck.read_text(encoding="utf-8"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpcdabz2k5/fresh.json'
+
+======================================================================
+ERROR: test_a_legacy_resume_reads_alike_cold_and_after_v2_work (__main__.LegacyReplay.test_a_legacy_resume_reads_alike_cold_and_after_v2_work)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2607, in test_a_legacy_resume_reads_alike_cold_and_after_v2_work
+    answered(legacy, True)
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2591, in answered
+    st = json.loads(path.read_text(encoding="utf-8"))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmpisrtb814/legacy.json'
+
+======================================================================
+ERROR: test_a_request_does_not_leak_its_scheme_into_the_process (__main__.LegacyReplay.test_a_request_does_not_leak_its_scheme_into_the_process)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 14976, in cli
+    main()
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 9836, in wrapper
+    return fn(*a, **kw)
+           ^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 9977, in main
+    lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2529, in test_a_request_does_not_leak_its_scheme_into_the_process
+    LH.cli()
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 15003, in cli
+    _refuse(str(e))
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 7582, in _refuse
+    sys.exit(2)
+SystemExit: 2
+
+======================================================================
+ERROR: test_process_memos_tell_the_schemes_apart (__main__.LegacyReplay.test_process_memos_tell_the_schemes_apart)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2545, in test_process_memos_tell_the_schemes_apart
+    r = Reviser(lex=LH.Lexicon(reader_scheme=scheme))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_a_v1_voices_tier2_cut_is_the_pre_batch_one (__main__.LexiconCut.test_a_v1_voices_tier2_cut_is_the_pre_batch_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1962, in test_a_v1_voices_tier2_cut_is_the_pre_batch_one
+    rv = Reviser(lex=LH.Lexicon(strip_parens=False, reader_scheme="v1"))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_consumers_cut_under_the_lexicons_scheme (__main__.LexiconCut.test_consumers_cut_under_the_lexicons_scheme)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1922, in test_consumers_cut_under_the_lexicons_scheme
+    lex = LH.Lexicon(reader_scheme=own, strip_parens=sp)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_the_any_reading_search_cuts_as_the_stream_does (__main__.LexiconCut.test_the_any_reading_search_cuts_as_the_stream_does)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1983, in test_the_any_reading_search_cuts_as_the_stream_does
+    phon = relation_phonology_for(LH.Lexicon(strip_parens=False))
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_a_slot_swap_counts_asides_as_the_lexicon_does (__main__.LoopSwaps.test_a_slot_swap_counts_asides_as_the_lexicon_does)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 970, in test_a_slot_swap_counts_asides_as_the_lexicon_does
+    lex = LH.Lexicon(strip_parens=False, reader_scheme="v2")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_a_slot_swap_never_fuses_onto_the_next_token (__main__.LoopSwaps.test_a_slot_swap_never_fuses_onto_the_next_token)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1191, in test_a_slot_swap_never_fuses_onto_the_next_token
+    strip_parens=sp, lex=declared(text, k, sp))
+                         ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1181, in declared
+    lex = LH.Lexicon(strip_parens=sp, reader_scheme="v2")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_an_end_word_swap_never_fuses_or_deletes_a_symbol (__main__.LoopSwaps.test_an_end_word_swap_never_fuses_or_deletes_a_symbol)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1115, in test_an_end_word_swap_never_fuses_or_deletes_a_symbol
+    self.assertFalse(Reviser(LH.Lexicon(fallback="low"))._anchors_at(text, end, "zebra"),
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_the_loops_stock_stubs_splice_under_the_revisers_cut (__main__.LoopSwaps.test_the_loops_stock_stubs_splice_under_the_revisers_cut)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1045, in test_the_loops_stock_stubs_splice_under_the_revisers_cut
+    lex = LH.Lexicon(strip_parens=sp, reader_scheme="v2")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: setUpClass (__main__.NamedPlaceLookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 3052, in setUpClass
+    cls.lex[scheme] = eng._lexicon()
+                      ^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/phonology/eng.py", line 134, in _lexicon
+    _LEX[scheme] = _lh.Lexicon(reader_scheme=scheme)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_the_end_word_after_a_symbol_reads_as_after_a_note (__main__.NfcMarkSymbols.test_the_end_word_after_a_symbol_reads_as_after_a_note)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 749, in test_the_end_word_after_a_symbol_reads_as_after_a_note
+    lex = LH.Lexicon(reader_scheme=scheme)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_a_declared_relation_reads_the_word_broken_at_the_line_end (__main__.Normalisation.test_a_declared_relation_reads_the_word_broken_at_the_line_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 388, in test_a_declared_relation_reads_the_word_broken_at_the_line_end
+    judge = RV.relation_phonology_for(LH.Lexicon(reader_scheme="v2"))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_a_supplemented_bare_word_is_normalised_as_a_token_is (__main__.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 511, in test_a_supplemented_bare_word_is_normalised_as_a_token_is
+    self.assertEqual(LH.Lexicon().transcribe_word("streetlight"), ([], True))
+                     ^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_bare_word_variants_are_normalised_as_a_token_is (__main__.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 532, in test_bare_word_variants_are_normalised_as_a_token_is
+    v2, v1 = LH.Lexicon(reader_scheme="v2"), LH.Lexicon(reader_scheme="v1")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_punctuation_after_the_hyphen_is_read_not_continued (__main__.Normalisation.test_punctuation_after_the_hyphen_is_read_not_continued)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 432, in test_punctuation_after_the_hyphen_is_read_not_continued
+    lex = LH.Lexicon(reader_scheme="v2")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_the_brief_verb_judges_the_declared_broken_word (__main__.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v2', relation='schema:broken rhyme', draft='five.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 504, in test_the_brief_verb_judges_the_declared_broken_word
+    self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 490, in brief
+    return row["reader_scheme"], {
+           ~~~^^^^^^^^^^^^^^^^^
+KeyError: 'reader_scheme'
+
+======================================================================
+ERROR: test_the_brief_verb_judges_the_declared_broken_word (__main__.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v2', relation='schema:perfect rhyme', draft='five.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 504, in test_the_brief_verb_judges_the_declared_broken_word
+    self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 490, in brief
+    return row["reader_scheme"], {
+           ~~~^^^^^^^^^^^^^^^^^
+KeyError: 'reader_scheme'
+
+======================================================================
+ERROR: test_the_brief_verb_judges_the_declared_broken_word (__main__.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v2', relation='', draft='five.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 504, in test_the_brief_verb_judges_the_declared_broken_word
+    self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 490, in brief
+    return row["reader_scheme"], {
+           ~~~^^^^^^^^^^^^^^^^^
+KeyError: 'reader_scheme'
+
+======================================================================
+ERROR: test_the_brief_verb_judges_the_declared_broken_word (__main__.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v1', relation='schema:perfect rhyme', draft='five.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 504, in test_the_brief_verb_judges_the_declared_broken_word
+    self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 490, in brief
+    return row["reader_scheme"], {
+           ~~~^^^^^^^^^^^^^^^^^
+KeyError: 'reader_scheme'
+
+======================================================================
+ERROR: test_the_brief_verb_judges_the_declared_broken_word (__main__.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v1', relation='', draft='five.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 504, in test_the_brief_verb_judges_the_declared_broken_word
+    self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 490, in brief
+    return row["reader_scheme"], {
+           ~~~^^^^^^^^^^^^^^^^^
+KeyError: 'reader_scheme'
+
+======================================================================
+ERROR: test_the_brief_verb_judges_the_declared_broken_word (__main__.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v1', relation='schema:broken rhyme', draft='one.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 504, in test_the_brief_verb_judges_the_declared_broken_word
+    self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 490, in brief
+    return row["reader_scheme"], {
+           ~~~^^^^^^^^^^^^^^^^^
+KeyError: 'reader_scheme'
+
+======================================================================
+ERROR: test_the_broken_rhyme_split_reads_the_normalised_line (__main__.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 343, in test_the_broken_rhyme_split_reads_the_normalised_line
+    st = RL.build_stream(lines, phon)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/relations.py", line 906, in build_stream
+    declared_tokens = (line_phon.tokens_for_line(raw)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/phonology/eng.py", line 354, in tokens_for_line
+    rl = lh.reader_line(text, strip_parens=self._aside_rule(),
+                                           ^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/phonology/eng.py", line 299, in _aside_rule
+    return self._lexicon().strip_parens
+           ^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/phonology/eng.py", line 272, in _lexicon
+    return self.lexicon if self.lexicon is not None else _lexicon()
+                                                         ^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/phonology/eng.py", line 134, in _lexicon
+    _LEX[scheme] = _lh.Lexicon(reader_scheme=scheme)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_no_numeral_reaches_g2p_or_a_piece_reader (__main__.Numerals.test_no_numeral_reaches_g2p_or_a_piece_reader)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 235, in test_no_numeral_reaches_g2p_or_a_piece_reader
+    lex = LH.Lexicon(fallback="low")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_undeclared_numeral_end_word_is_refused_with_its_cause (__main__.Numerals.test_undeclared_numeral_end_word_is_refused_with_its_cause)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 262, in test_undeclared_numeral_end_word_is_refused_with_its_cause
+    lex = LH.Lexicon()
+          ^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: setUpClass (__main__.OneCoordinate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 822, in setUpClass
+    cls.lex = LH.Lexicon()
+              ^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: test_a_v1_scope_never_leaves_its_fallback_to_a_v2_read (__main__.SharedFallback.test_a_v1_scope_never_leaves_its_fallback_to_a_v2_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2664, in test_a_v1_scope_never_leaves_its_fallback_to_a_v2_read
+    MB.measure_line("we sing it 4ever and a day", r)
+  File "/workspace/acceptance-code/lyric-harness/quality/meter_bands.py", line 167, in measure_line
+    lu = FT.read_line(text, phon=phon) if phon is not None \
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/fit.py", line 566, in read_line
+    lex = getattr(phon, "lexicon", None) or _english_lexicon(
+                                            ^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/fit.py", line 899, in _english_lexicon
+    lex = _lh.Lexicon(strip_parens=strip_parens, fallback=fallback,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: setUpClass (__main__.SlotBinding)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 1220, in setUpClass
+    cls.st = LH.Lexicon(reader_scheme="v2")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+ERROR: setUpClass (__main__.V1Frozen)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 98, in setUpClass
+    cls.lex = {True: LH.Lexicon(strip_parens=True, reader_scheme="v1"),
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+======================================================================
+FAIL: test_a_pre_batch_checkpoint_resumes_byte_for_byte (__main__.LegacyReplay.test_a_pre_batch_checkpoint_resumes_byte_for_byte) (flags=())
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2445, in test_a_pre_batch_checkpoint_resumes_byte_for_byte
+    self.assertEqual(r.returncode, fx["resume_exit"], r.stdout[-600:])
+AssertionError: 2 != 3 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_a_pre_batch_checkpoint_resumes_byte_for_byte (__main__.LegacyReplay.test_a_pre_batch_checkpoint_resumes_byte_for_byte) (flags=('--reader-scheme=v1',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2445, in test_a_pre_batch_checkpoint_resumes_byte_for_byte
+    self.assertEqual(r.returncode, fx["resume_exit"], r.stdout[-600:])
+AssertionError: 2 != 3 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_a_pre_batch_checkpoint_resumes_byte_for_byte (__main__.LegacyReplay.test_a_pre_batch_checkpoint_resumes_byte_for_byte)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2451, in test_a_pre_batch_checkpoint_resumes_byte_for_byte
+    self.assertIn("READER_SCHEME_MISMATCH", r.stdout)
+AssertionError: 'READER_SCHEME_MISMATCH' not found in '  REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.\n  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}\n'
+
+======================================================================
+FAIL: test_pre_batch_states_resume_as_v1_through_the_cli (__main__.LegacyReplay.test_pre_batch_states_resume_as_v1_through_the_cli) (state='stopped')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2185, in test_pre_batch_states_resume_as_v1_through_the_cli
+    self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
+AssertionError: 2 != 4 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_pre_batch_states_resume_as_v1_through_the_cli (__main__.LegacyReplay.test_pre_batch_states_resume_as_v1_through_the_cli) (state='started')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2185, in test_pre_batch_states_resume_as_v1_through_the_cli
+    self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
+AssertionError: 2 != 4 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_pre_batch_states_resume_as_v1_through_the_cli (__main__.LegacyReplay.test_pre_batch_states_resume_as_v1_through_the_cli) (state='grading+cursor')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2185, in test_pre_batch_states_resume_as_v1_through_the_cli
+    self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
+AssertionError: 2 != 4 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_pre_batch_states_resume_as_v1_through_the_cli (__main__.LegacyReplay.test_pre_batch_states_resume_as_v1_through_the_cli) (state='suspended+answer')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2185, in test_pre_batch_states_resume_as_v1_through_the_cli
+    self.assertEqual(r.returncode, rec["replay_exit"], r.stdout[-600:])
+AssertionError: 2 != 0 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_tryline_reads_a_deferred_state_under_its_recorded_scheme (__main__.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) (state='legacy', flags=('--reader-scheme=v2',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2286, in test_tryline_reads_a_deferred_state_under_its_recorded_scheme
+    self.assertIn(cause, said)
+AssertionError: 'READER_SCHEME_MISMATCH' not found in 'REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.'
+
+======================================================================
+FAIL: test_tryline_reads_a_deferred_state_under_its_recorded_scheme (__main__.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) (state='v2', flags=('--reader-scheme=v1',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2286, in test_tryline_reads_a_deferred_state_under_its_recorded_scheme
+    self.assertIn(cause, said)
+AssertionError: 'READER_SCHEME_MISMATCH' not found in 'REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.'
+
+======================================================================
+FAIL: test_tryline_reads_a_deferred_state_under_its_recorded_scheme (__main__.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) (state='v9', flags=())
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2286, in test_tryline_reads_a_deferred_state_under_its_recorded_scheme
+    self.assertIn(cause, said)
+AssertionError: "recorded reader scheme 'v9'" not found in 'REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.'
+
+======================================================================
+FAIL: test_tryline_reads_a_deferred_state_under_its_recorded_scheme (__main__.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) (state='v9', flags=('--reader-scheme=v2',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2286, in test_tryline_reads_a_deferred_state_under_its_recorded_scheme
+    self.assertIn(cause, said)
+AssertionError: "recorded reader scheme 'v9'" not found in 'REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.'
+
+======================================================================
+FAIL: test_tryline_reads_a_deferred_state_under_its_recorded_scheme (__main__.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) (inherits='legacy', flags=())
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2295, in test_tryline_reads_a_deferred_state_under_its_recorded_scheme
+    self.assertIn(r.returncode, (0, 3), r.stdout[-600:])
+AssertionError: 2 not found in (0, 3) :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_tryline_reads_a_deferred_state_under_its_recorded_scheme (__main__.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) (inherits='legacy', flags=('--reader-scheme=v1',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2295, in test_tryline_reads_a_deferred_state_under_its_recorded_scheme
+    self.assertIn(r.returncode, (0, 3), r.stdout[-600:])
+AssertionError: 2 not found in (0, 3) :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_tryline_reads_a_deferred_state_under_its_recorded_scheme (__main__.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) (inherits='v2', flags=())
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2295, in test_tryline_reads_a_deferred_state_under_its_recorded_scheme
+    self.assertIn(r.returncode, (0, 3), r.stdout[-600:])
+AssertionError: 2 not found in (0, 3) :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_tryline_reads_a_deferred_state_under_its_recorded_scheme (__main__.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) (inherits='v2', flags=('--reader-scheme=v2',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2295, in test_tryline_reads_a_deferred_state_under_its_recorded_scheme
+    self.assertIn(r.returncode, (0, 3), r.stdout[-600:])
+AssertionError: 2 not found in (0, 3) :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+======================================================================
+FAIL: test_a_legacy_lyrics_request_then_a_library_analysis (__main__.WarmWorker.test_a_legacy_lyrics_request_then_a_library_analysis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2757, in test_a_legacy_lyrics_request_then_a_library_analysis
+    self._child("test_a_legacy_lyrics_request_then_a_library_analysis")
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2722, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : test_a_legacy_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorkerBody.test_a_legacy_lyrics_request_then_a_library_analysis) ... FAIL
+
+======================================================================
+FAIL: test_a_legacy_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorkerBody.test_a_legacy_lyrics_request_then_a_library_analysis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2967, in test_a_legacy_lyrics_request_then_a_library_analysis
+    rec, written = self._lyrics(legacy)
+                   ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2845, in _lyrics
+    self.assertEqual(code, 4, out[-600:])
+AssertionError: 2 != 4 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.025s
+
+FAILED (failures=1)
+
+
+======================================================================
+FAIL: test_a_new_lyrics_request_then_a_legacy_one (__main__.WarmWorker.test_a_new_lyrics_request_then_a_legacy_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2769, in test_a_new_lyrics_request_then_a_legacy_one
+    self._child("test_a_new_lyrics_request_then_a_legacy_one")
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2722, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : test_a_new_lyrics_request_then_a_legacy_one (quality.test_reader.WarmWorkerBody.test_a_new_lyrics_request_then_a_legacy_one) ... FAIL
+
+======================================================================
+FAIL: test_a_new_lyrics_request_then_a_legacy_one (quality.test_reader.WarmWorkerBody.test_a_new_lyrics_request_then_a_legacy_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2977, in test_a_new_lyrics_request_then_a_legacy_one
+    rec, written = self._lyrics(None)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2845, in _lyrics
+    self.assertEqual(code, 4, out[-600:])
+AssertionError: 2 != 4 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.012s
+
+FAILED (failures=1)
+
+
+======================================================================
+FAIL: test_a_new_lyrics_request_then_a_library_analysis (__main__.WarmWorker.test_a_new_lyrics_request_then_a_library_analysis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2772, in test_a_new_lyrics_request_then_a_library_analysis
+    self._child("test_a_new_lyrics_request_then_a_library_analysis")
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2722, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : test_a_new_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorkerBody.test_a_new_lyrics_request_then_a_library_analysis) ... FAIL
+
+======================================================================
+FAIL: test_a_new_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorkerBody.test_a_new_lyrics_request_then_a_library_analysis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2989, in test_a_new_lyrics_request_then_a_library_analysis
+    rec, written = self._lyrics(None)
+                   ^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2845, in _lyrics
+    self.assertEqual(code, 4, out[-600:])
+AssertionError: 2 != 4 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.011s
+
+FAILED (failures=1)
+
+
+======================================================================
+FAIL: test_cold_a_legacy_lyrics_request_then_a_new_one (__main__.WarmWorker.test_cold_a_legacy_lyrics_request_then_a_new_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2760, in test_cold_a_legacy_lyrics_request_then_a_new_one
+    self._child("test_cold_a_legacy_lyrics_request_then_a_new_one")
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2722, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : test_cold_a_legacy_lyrics_request_then_a_new_one (quality.test_reader.WarmWorkerBody.test_cold_a_legacy_lyrics_request_then_a_new_one) ... FAIL
+
+======================================================================
+FAIL: test_cold_a_legacy_lyrics_request_then_a_new_one (quality.test_reader.WarmWorkerBody.test_cold_a_legacy_lyrics_request_then_a_new_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 3003, in test_cold_a_legacy_lyrics_request_then_a_new_one
+    rec, written = self._lyrics(self.fx["states"][0]["state"])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2845, in _lyrics
+    self.assertEqual(code, 4, out[-600:])
+AssertionError: 2 != 4 :   REFUSED — LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+  lyric result: {"status":"refused","exit":2,"refusal":"LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.","version":1,"transport_token":null}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.011s
+
+FAILED (failures=1)
+
+
+======================================================================
+FAIL: test_cold_a_library_analysis_then_a_legacy_lyrics_request (__main__.WarmWorker.test_cold_a_library_analysis_then_a_legacy_lyrics_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2766, in test_cold_a_library_analysis_then_a_legacy_lyrics_request
+    self._child("test_cold_a_library_analysis_then_a_legacy_lyrics_request")
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2722, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : test_cold_a_library_analysis_then_a_legacy_lyrics_request (quality.test_reader.WarmWorkerBody.test_cold_a_library_analysis_then_a_legacy_lyrics_request) ... ERROR
+
+======================================================================
+ERROR: test_cold_a_library_analysis_then_a_legacy_lyrics_request (quality.test_reader.WarmWorkerBody.test_cold_a_library_analysis_then_a_legacy_lyrics_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 3023, in test_cold_a_library_analysis_then_a_legacy_lyrics_request
+    self.assertGreater(self._analysed(), 0)
+                       ^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2961, in _analysed
+    moved = self._rebound(self._library())
+                          ^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2872, in _library
+    result = self.W.run_reader(payload, "r")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/mcp/worker.py", line 124, in run_reader
+    session = AnalysisSession(payload["source"], payload.get("declarations"), requested,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2860, in __init__
+    super().__init__(*a, **kw)
+  File "/workspace/acceptance-code/lyric-harness/library/analysis.py", line 296, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.179s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_cold_a_library_analysis_then_a_new_lyrics_request (__main__.WarmWorker.test_cold_a_library_analysis_then_a_new_lyrics_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2763, in test_cold_a_library_analysis_then_a_new_lyrics_request
+    self._child("test_cold_a_library_analysis_then_a_new_lyrics_request")
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2722, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : test_cold_a_library_analysis_then_a_new_lyrics_request (quality.test_reader.WarmWorkerBody.test_cold_a_library_analysis_then_a_new_lyrics_request) ... ERROR
+
+======================================================================
+ERROR: test_cold_a_library_analysis_then_a_new_lyrics_request (quality.test_reader.WarmWorkerBody.test_cold_a_library_analysis_then_a_new_lyrics_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 3014, in test_cold_a_library_analysis_then_a_new_lyrics_request
+    self.assertGreater(self._analysed(), 0)
+                       ^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2961, in _analysed
+    moved = self._rebound(self._library())
+                          ^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2872, in _library
+    result = self.W.run_reader(payload, "r")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/mcp/worker.py", line 124, in run_reader
+    session = AnalysisSession(payload["source"], payload.get("declarations"), requested,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/quality/test_reader.py", line 2860, in __init__
+    super().__init__(*a, **kw)
+  File "/workspace/acceptance-code/lyric-harness/library/analysis.py", line 296, in __init__
+    lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 1033, in __init__
+    fetch_data(download=False)
+  File "/workspace/acceptance-code/lyric-harness/lyric_harness.py", line 148, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.
+
+----------------------------------------------------------------------
+Ran 1 test in 0.167s
+
+FAILED (errors=1)
+
+
+----------------------------------------------------------------------
+Ran 72 tests in 12.564s
+
+FAILED (failures=21, errors=36, skipped=6)
