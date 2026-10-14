@@ -16,6 +16,11 @@ F1, F4-F10 and A.2-six findings. It is also local and unpushed, with no CI
 run; see "Broad fix round" below. Every section before it describes
 `58de1816`, unchanged.
 
+**Update, contract-blocker round.** Code commits `3e77a5d97`, `82fe130e4` and
+`0af39c6ff` (on top of `6955e342`) close 3PO's contract blockers (#519
+6163216518) and the three items of #527 6163315071. They are local and
+unpushed too, with no CI run; see "Contract-blocker round" at the end.
+
 ## Baselines
 
 - Harness baseline: `fce4bf0f`. Main's seven later commits touch no harness
@@ -374,3 +379,133 @@ Not re-run at `643e292e`, with the reason for each:
 
 - `search_null --check` and `audit_corpus --verify-shape`: their held failures are cited from CI 38503980117.
 - The revision-loop job, `test_verbs` and `test_production_revision`: the only harness code changed is two docstrings (`quality/slots.py`, `quality/loop.py`). The comparator closure fingerprint is unchanged, and `quality/test_mutation.py --static` still applies every anchor.
+
+## Contract-blocker round (3PO #519 6163216518; #527 6163315071)
+
+Code commits, on top of `6955e342`, all local and unpushed, with no CI run:
+
+- `3e77a5d97` — default end: zero bound syllables refuse (item 1);
+- `82fe130e4` — Lyrics: an explicit `N.end` and a bare `N` keep their
+  identity (item 2);
+- `0af39c6ff` — the declared relation reads the word broken at the line
+  end; a present-`null` scheme is refused; bare-word variants are normalised
+  (items 3-5).
+
+Interpreter for every Python result in this section: `/dev/shm/py311/bin/python`,
+CPython 3.11.17 (CI pins 3.11.16). Each behaviour change has a test that fails
+when the change is reverted; the revert results are given per item.
+
+| item | what changed | test that fails when it is reverted |
+|---|---|---|
+| 1. default end, zero binding | Under v2, `quality/loop.py` `_end_occurrence_bound` refuses where `slots.resolve` binds ZERO syllables on the line's end (an unread word, a numeral, a hyphenated word without a whole reading). Before, it accepted `line_anchors`' endpoint label there. Readable ends, multi-word anchors included, splice exactly as before. v1 is untouched. Without a grading lexicon the direct helper keeps its protections-only behaviour; every production path passes the lexicon. | `quality/test_reader.py` `SlotBinding`, 15 tests: the new `test_a_default_end_binding_zero_syllables_refuses` (through `swap_end_word`, `swap_at_slot`, `default_propose`, `default_propose_group` and `Reviser._splice`, both aside modes, with readable controls); `test_a_trailing_margin_numeral` now requires the refusal (it permitted the edit); `test_the_default_end_checks_its_endpoint_occurrence` lost its permitted unread-end edit and gained a rigged zero binding whose label names the replaced token; the corpus property `test_every_v2_edit_lands_on_the_bound_token` now covers the default end. Reverting `loop.py` fails 4 of the 15. |
+| 2. `N.end` vs bare `N` | `lyParseGroups` records, for every member shape, whether the place was written (`explicit`); `lyMemberSpelling` spells from that flag. `N.end` stays `N.end`, a bare `N` stays bare, and a member the page makes for the end is bare. `.end` is never added globally. This covers the row text, the wire (`lyDeclarationsOf`), Keep, the rhymes and repeats forms (`lySetSetup`), section reorder and assembly, and untouched sibling groups. At 61b6618a every end member was written bare. The broad fix (643e292e) had closed most paths by re-reading raw text; members of a row marked with an unknown cut still lost `.end` when a form merged the row, and Review named them bare. | `scripts/check_lyrics_page.js` unit E (13 assertions): a row mixing `2.end`, bare `4` and `1.T2` with untouched siblings, plus a returns row, through migration (carried members included), the wire, Keep, both forms, a section reorder, export/import, and an unknown-cut row merged by a form and re-read. Reverting the page to 643e292e fails 2; 61b6618a's page fails 8 before the import step, which that page lacks. |
+| 3. declared broken / perfect rhyme on `king-` | Under v2 the registered relation reader (`relation_phonology_for` of a plain lexicon: fallback refused) read the canonical token `king-` as no word. `line_anchors` read `king`. `English.split_final_stem` names the printed part of a line-final broken word (v2 only), and `relations.build_stream` reads it through the same phonology and fallback policy. It does so only for the last token of a split line, only after the token itself read nothing, and never for a printed boundary. `2-` stays a refused numeral, `read('king-')` is still None, and there is no G2P or relation-engine change. | `Normalisation.test_a_declared_relation_reads_the_word_broken_at_the_line_end`: the production reader, 5 spellings × v1/v2 × declared broken/perfect, numeral and printed-boundary controls. `Normalisation.test_the_brief_verb_judges_the_declared_broken_word`: `brief` with declared broken, declared perfect and undeclared, under v2 and v1. Reverting the stream change fails the first test and both declared v2 `brief` runs. |
+| 4. present-`null` scheme | `_record_scheme`: an absent field is v1, and a present value is returned as written. The deferred resume (checked first, before the state is touched), `tryline`'s pre-flight, the replay file and the kitchen checkpoint refuse a present value they do not read (`null` included) in one message. The checkpoint no longer advises `--reader-scheme=None`. | `LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch`; the files are byte-identical after each refusal. Reverting it fails: a null deferred state resumed. |
+| 5. bare-word variants | Under v2, `Lexicon.pronunciation_variants` and `SupplementedLexicon.pronunciation_variants`/`reading_source` look a bare word up under `normalise_word`, as `transcribe_word` and line tokens already were. A row found that way is credited to its own source. Declared readings are matched on the spelling they name. v1 is unchanged. | `Normalisation.test_bare_word_variants_are_normalised_as_a_token_is`; reverting the Lexicon lookup, the supplement lookup or the provenance key each fails it. |
+
+### Item 1: BB8's tool, re-run
+
+Receipt: `quality/results/slot_default_end_zero_binding_2026-10-14/` (README,
+`summary.json`, `changed_cases.json`).
+
+- **Tool and inputs.** BB8's `slot_occurrence.py` 3.3 and `slot_binding.py`,
+  from `bb8/shape-sweep-2026-10-13` at `9ae80be5`, on the documented 3,990-line
+  population.
+- **Run unmodified.** Version 3.3 replicates the `lex=` keyword itself, so the
+  `sb_dump.py` lexicon delta and path change disclosed above are not needed
+  here.
+- **Trees.** `git archive` copies with the staged data copied in, so the
+  tool's commit pins read null and the commits are named in the receipt.
+
+| | `61b6618a` (reproduction) | `0af39c6f` |
+|---|---:|---:|
+| v2 gate | FAIL | **PASS** |
+| v2 `edit_unbound` (stripped / sung) | 191 / 191 | **0 / 0** |
+| v2 `refused_unbound` | 1,071 / 1,331 | 1,262 / 1,522 |
+| v2 `occ_agree` | 33,591 / 39,143 | 33,591 / 39,143 (unchanged) |
+| v2 `occ_wrong` / unplaceable / no-op | 0 | 0 |
+| controls / readable controls / negative controls / v2 declared paths failed | 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 |
+| v1 | pre-batch failures | identical, record for record |
+
+- The `61b6618a` run reproduces BB8's committed outcome counts exactly.
+- **Exactly 382 records change**, all v2 default `end`: 191 per mode go from
+  `edit_unbound` to `refused_unbound`. That is REPAIRED 0 / REFUSED 191 /
+  NO-OP 0 per mode.
+- Per mode, those 191 split as 181 unread words, 7 numerals and 3 hyphenated
+  words.
+- All 6,052 readable v2 default-end `occ_agree` records are byte-identical,
+  multi-word anchors included.
+- No non-end record changed, so the 989-case cohort is as at `61b6618a`,
+  where BB8 reproduced it as REPAIRED 989 (all `occ_agree`).
+- The overall verdict is still FAIL, on v1 alone: 353/348 `occ_wrong` and
+  1,099 `edit_unbound` per mode, 18 declared-path cases and 2 resolver
+  mismatches per mode. That is unchanged pre-batch behaviour.
+- The verdict per scheme reads v2 PASS.
+
+### Item 3: corpus reach
+
+On the English song corpus (281,069 lines), 18 lines end on a word broken by a
+hyphen (`split_final`, not a printed boundary).
+
+- 13 are now read in the relation stream: `Fears-`, `Yes-`, `modi-`,
+  `anguish-`, `e-`, `im-`, `in-`, `them-`, `over-`, `Gentle-`, `turnpike-`,
+  `red-` and `heart-`.
+- 5 stay refused, because the stem has no reading: `roo-`, `rotundi-`,
+  `brevi-`, `pati-`, `inden-`.
+- BB8's 18 was a raw grep, not an affected-run count. The change touches
+  only those lines' relation streams.
+
+Verdicts, the five spellings (ASCII `-`, U+2010, U+2011, `-`U+00AD,
+U+00AD`-`):
+
+| | before (0af39c6f's parent) | after |
+|---|---|---|
+| v2 declared broken rhyme | None, all five | True, all five |
+| v2 declared perfect rhyme | None, all five | True, all five |
+| v1 declared broken rhyme | True (ASCII), False (other four) | unchanged |
+| v1 declared perfect rhyme | True, all five | unchanged |
+| v2, `2-` (numeral) | None | None |
+
+- `brief` under v2 certifies all five pairs: declared broken, declared perfect
+  and undeclared.
+- `brief` under v1 certifies declared perfect and undeclared on all five, and
+  declared broken on ASCII.
+- `brief` under v1 was not run on the four non-ASCII broken-rhyme pairs, which
+  read False. There `brief` runs its candidate search: 4,126 grade calls in 80
+  s, unfinished. Those four are asserted in-process instead.
+- Under v2 the supplemented relation reader now reads `king-` too, because the
+  rule lives in the shared English stream. Under base and v1 it refused there,
+  and v1 still does.
+
+### Local results at `0af39c6ff`
+
+| suite | result |
+|---|---|
+| Python suites (CI `suites` list, all 3 shards' 109 files, test_reader included, 3 at a time) | 108 rc=0; 1 failing, `quality/test_comparator_pin.py`, the held comparator exception (the same and only failing suite as CI shard 2 at 678898511) |
+| `quality/test_reader.py`, one process | 98 tests OK, 6 skips (the six child bodies, each run by its parent; 93 + 5 new). Child peaks (VmHWM) under the unchanged 1024 MiB guard: 453 / 538 / 459 MiB for the three existing scenarios, 537 / 468 / 471 MiB for the cold ones |
+| `quality/test_plan.py`, `quality/test_capacity.py` | rc=0, rc=0 |
+| revision-loop job, shards 1-4 (`TEST_REVISE_SHARD`/`TEST_LOOP_SHARD`/`TEST_LOOP_REDESIGN_SHARD`=k/4) | 12 of 12 rc=0: test_revise 516/454/192/188 s, test_loop 220/228/186/116 s, test_loop_redesign 924/544/230/262 s |
+| `quality/test_verbs.py`, `TEST_VERBS_SHARD`=k/8 (CI's eight shards) | 8 of 8 rc=0 (264/350/328/540/278/490/178/340 s) |
+| `node scripts/check_lyrics_page.js` (unit + browser) | PASS, 542 assertions (346 unit, unit E's 13 among them) |
+| `npm run lint`, `npm run format:check`, `npm run check:fresh`, `scripts/check_doc_paths.js` | All PASS. check:fresh: api/, codex.html and the other published files are byte-identical to a fresh build |
+| `map/build.py --check` | current |
+| `quality/test_mutation.py --static`, `quality/mutate.py --dry-run` | rc=0, every anchor applies; 59/59 (33 M, 26 Q) |
+| `meter_bands --check`, `schema_end_reading --check`, `schema_window --check`, `door_census --check`, `chance_rate --check` | All PASS |
+| `search_null --check`, `audit_corpus --verify-shape`, `check_comparator_pin.py`, `counters.py --check` | The held failures, exactly as listed below; nothing else moved |
+
+### Held pins at this head
+
+- **Comparator: MOVED, held**, the agreed exception, still 1 of 7 inputs (the
+  `lyric_harness.py` closure). Pin `9d5d8146…`. The measured value is now
+  `51316f79…` (it was `515cac8d…` at 58de1816 and 643e292e), because items 4
+  and 5 edit `lyric_harness.py`. Nothing re-pins it.
+- **search_null**: sonnet k=3-4 813 -> 808 and k=5-8 208 -> 207, the same held
+  drift. Every theta row is `[ok]`.
+- **audit_corpus**: NOTE 1856 -> 1861, the same held figure.
+- **counters, public-symbol row**: committed 1719, measured **1739**, the same
+  as at 67889851. This round adds no symbol to the declared population. The
+  new helpers `_record_scheme` and `_malformed_scheme_message` are private, and
+  `English.split_final_stem` is a method, which the row does not count.
+
+No re-pin is applied on this branch. The proposals stay on
+`claude/reader-batch-2026-10-13-repins`.
