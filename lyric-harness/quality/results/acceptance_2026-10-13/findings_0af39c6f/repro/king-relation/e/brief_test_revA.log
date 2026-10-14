@@ -1,0 +1,100 @@
+test_the_brief_verb_judges_the_declared_broken_word (quality.test_reader.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) ... 
+  test_the_brief_verb_judges_the_declared_broken_word (quality.test_reader.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v2', relation='schema:broken rhyme', draft='five.txt') ... FAIL
+  test_the_brief_verb_judges_the_declared_broken_word (quality.test_reader.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v2', relation='schema:perfect rhyme', draft='five.txt') ... FAIL
+
+======================================================================
+FAIL: test_the_brief_verb_judges_the_declared_broken_word (quality.test_reader.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v2', relation='schema:broken rhyme', draft='five.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/king-relation/e/revA/lyric-harness/quality/test_reader.py", line 459, in test_the_brief_verb_judges_the_declared_broken_word
+    self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+AssertionError: Tuples differ: ('v2'[14 chars]0': 'refused', 'rhyme:5:8:1': 'refused', 'rhym[80 chars]alse) != ('v2'[14 chars]0': 'answered', 'rhyme:5:8:1': 'answered', 'rh[84 chars]True)
+
+First differing element 1:
+{'rhyme:1:4:0': 'refused', 'rhyme:5:8:1': 'refused', 'rhym[72 chars]sed'}
+{'rhyme:1:4:0': 'answered', 'rhyme:5:8:1': 'answered', 'rh[77 chars]red'}
+
+  ('v2',
+-  {'rhyme:13:16:3': 'refused',
+?                      ----
+
++  {'rhyme:13:16:3': 'answered',
+?                     +++++
+
+-   'rhyme:17:20:4': 'refused',
+?                      ----
+
++   'rhyme:17:20:4': 'answered',
+?                     +++++
+
+-   'rhyme:1:4:0': 'refused',
+?                    ----
+
++   'rhyme:1:4:0': 'answered',
+?                   +++++
+
+-   'rhyme:5:8:1': 'refused',
+?                    ----
+
++   'rhyme:5:8:1': 'answered',
+?                   +++++
+
+-   'rhyme:9:12:2': 'refused'},
+?                     ----
+
++   'rhyme:9:12:2': 'answered'},
+?                    +++++
+
+-  False)
++  True)
+
+======================================================================
+FAIL: test_the_brief_verb_judges_the_declared_broken_word (quality.test_reader.Normalisation.test_the_brief_verb_judges_the_declared_broken_word) (scheme='v2', relation='schema:perfect rhyme', draft='five.txt')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/king-relation/e/revA/lyric-harness/quality/test_reader.py", line 459, in test_the_brief_verb_judges_the_declared_broken_word
+    self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+AssertionError: Tuples differ: ('v2'[14 chars]0': 'refused', 'rhyme:5:8:1': 'refused', 'rhym[80 chars]alse) != ('v2'[14 chars]0': 'answered', 'rhyme:5:8:1': 'answered', 'rh[84 chars]True)
+
+First differing element 1:
+{'rhyme:1:4:0': 'refused', 'rhyme:5:8:1': 'refused', 'rhym[72 chars]sed'}
+{'rhyme:1:4:0': 'answered', 'rhyme:5:8:1': 'answered', 'rh[77 chars]red'}
+
+  ('v2',
+-  {'rhyme:13:16:3': 'refused',
+?                      ----
+
++  {'rhyme:13:16:3': 'answered',
+?                     +++++
+
+-   'rhyme:17:20:4': 'refused',
+?                      ----
+
++   'rhyme:17:20:4': 'answered',
+?                     +++++
+
+-   'rhyme:1:4:0': 'refused',
+?                    ----
+
++   'rhyme:1:4:0': 'answered',
+?                   +++++
+
+-   'rhyme:5:8:1': 'refused',
+?                    ----
+
++   'rhyme:5:8:1': 'answered',
+?                   +++++
+
+-   'rhyme:9:12:2': 'refused'},
+?                     ----
+
++   'rhyme:9:12:2': 'answered'},
+?                    +++++
+
+-  False)
++  True)
+
+----------------------------------------------------------------------
+Ran 1 test in 274.340s
+
+FAILED (failures=2)

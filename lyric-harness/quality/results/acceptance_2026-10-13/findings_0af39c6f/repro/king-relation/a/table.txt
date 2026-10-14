@@ -1,0 +1,96 @@
+base {'type': 'English', 'fallback': None, 'reader_scheme': 'NA', 'has_split_final_stem': False, 'is_registered_eng': True, 'read_king-': 'None', 'syllabify_king-': '[]', 'syllabify_king': True}
+695_v1 {'type': 'English', 'fallback': None, 'reader_scheme': 'v1', 'has_split_final_stem': False, 'is_registered_eng': True, 'read_king-': 'None', 'syllabify_king-': '[]', 'syllabify_king': True}
+0af_v1 {'type': 'English', 'fallback': None, 'reader_scheme': 'v1', 'has_split_final_stem': True, 'is_registered_eng': True, 'read_king-': 'None', 'syllabify_king-': '[]', 'syllabify_king': True, 'stems': {'king-': None, 'king': None, '2-': None, 'king--': None, 'dapple-dawn-': None, '×king-': None, 'king-,': None}}
+678_v2 {'type': 'English', 'fallback': None, 'reader_scheme': 'v2', 'has_split_final_stem': False, 'is_registered_eng': True, 'read_king-': 'None', 'syllabify_king-': '[]', 'syllabify_king': True}
+695_v2 {'type': 'English', 'fallback': None, 'reader_scheme': 'v2', 'has_split_final_stem': False, 'is_registered_eng': True, 'read_king-': 'None', 'syllabify_king-': '[]', 'syllabify_king': True}
+0af_v2 {'type': 'English', 'fallback': None, 'reader_scheme': 'v2', 'has_split_final_stem': True, 'is_registered_eng': True, 'read_king-': 'None', 'syllabify_king-': '[]', 'syllabify_king': True, 'stems': {'king-': 'king', 'king': None, '2-': '2', 'king--': None, 'dapple-dawn-': 'dapple-dawn', '×king-': '×king', 'king-,': None}}
+
+case                                        base    695_v1    0af_v1    678_v2    695_v2    0af_v2   (broken/perfect)
+king-|wing                                   T/T       T/T       T/T       -/-       -/-       T/T
+kingu2010|wing                               F/T       F/T       F/T       -/-       -/-       T/T
+kingu2011|wing                               F/T       F/T       F/T       -/-       -/-       T/T
+king-u00ad|wing                              F/T       F/T       F/T       -/-       -/-       T/T
+kingu00ad-|wing                              F/T       F/T       F/T       -/-       -/-       T/T
+anguish-|languish                            T/T       T/T       T/T       -/-       -/-       T/T
+anguishu2010|languish                        F/T       F/T       F/T       -/-       -/-       T/T
+anguishu2011|languish                        F/T       F/T       F/T       -/-       -/-       T/T
+anguish-u00ad|languish                       F/T       F/T       F/T       -/-       -/-       T/T
+anguishu00ad-|languish                       F/T       F/T       F/T       -/-       -/-       T/T
+king(bare)|wing                              F/T       F/T       F/T       F/T       F/T       F/T
+anguish-|wing [non-rhyme]                    F/F       F/F       F/F       -/-       -/-       F/F
+queen-|wing [non-rhyme]                      F/F       F/F       F/F       -/-       -/-       F/F
+king-,|wing                                  F/T       F/T       F/T       -/-       -/-       -/-
+king-.|wing                                  F/T       F/T       F/T       -/-       -/-       -/-
+king-!|wing                                  F/T       F/T       F/T       -/-       -/-       -/-
+king-"|wing                                  F/T       F/T       F/T       -/-       -/-       -/-
+king- (trailing spaces)|wing                 T/T       T/T       T/T       -/-       -/-       T/T
+king -|wing [spaced hyphen]                  F/T       F/T       F/T       F/T       F/T       F/T
+king--|wing [double hyphen]                  F/T       F/T       F/T       F/T       F/T       F/T
+king—|wing [em dash]                         F/T       F/T       F/T       F/T       F/T       F/T
+king —|wing [spaced em dash]                 F/T       F/T       F/T       F/T       F/T       F/T
+king–|wing [en dash]                         F/T       F/T       F/T       F/T       F/T       F/T
+king‒|wing [figure dash]                     F/T       F/T       F/T       F/T       F/T       F/T
+king-—|wing                                  F/T       F/T       F/T       -/-       -/-       -/-
+2-|wing                                      F/F       F/F       F/F       -/-       -/-       -/-
+2‐|wing                                      F/F       F/F       F/F       -/-       -/-       -/-
+22-|wing                                     F/F       F/F       F/F       -/-       -/-       -/-
+king2-|wing                                  T/T       T/T       T/T       -/-       -/-       -/-
+क-|wing                                      -/-       -/-       -/-       -/-       -/-       -/-
+×king-|wing                                  T/T       T/T       T/T       -/-       -/-       -/-
+我king-|wing                                  -/-       -/-       -/-       -/-       -/-       -/-
+king×-|wing                                  F/T       F/T       F/T       -/-       -/-       -/-
+king-×|wing                                  F/T       F/T       F/T       -/-       -/-       -/-
+roo-|kangaroo                                -/-       -/-       -/-       -/-       -/-       -/-
+xyzzq-|wing                                  -/-       -/-       -/-       -/-       -/-       -/-
+dapple-dawn-|dawn                            -/-       -/-       -/-       -/-       -/-       -/-
+hill-zide-|wing                              -/-       -/-       -/-       -/-       -/-       -/-
+a-king-|wing                                 -/-       -/-       -/-       -/-       -/-       -/-
+king-dom|wing [no break]                     -/-       -/-       -/-       -/-       -/-       -/-
+mid king- then wing                          F/F       F/F       F/F       F/F       F/F       F/F
+wimplingz|wing                               -/-       -/-       -/-       -/-       -/-       -/-
+o'er|wing                                    -/-       -/-       -/-       -/-       -/-       -/-
+
+unread_L1 per mode
+king-|wing                             base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:[]
+kingu2010|wing                         base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:[]
+kingu2011|wing                         base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:[]
+king-u00ad|wing                        base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:[]
+kingu00ad-|wing                        base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:[]
+anguish-|languish                      base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['anguish-'] | 695_v2:['anguish-'] | 0af_v2:[]
+anguishu2010|languish                  base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['anguish-'] | 695_v2:['anguish-'] | 0af_v2:[]
+anguishu2011|languish                  base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['anguish-'] | 695_v2:['anguish-'] | 0af_v2:[]
+anguish-u00ad|languish                 base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['anguish-'] | 695_v2:['anguish-'] | 0af_v2:[]
+anguishu00ad-|languish                 base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['anguish-'] | 695_v2:['anguish-'] | 0af_v2:[]
+king(bare)|wing                        base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:[] | 695_v2:[] | 0af_v2:[]
+anguish-|wing [non-rhyme]              base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['anguish-'] | 695_v2:['anguish-'] | 0af_v2:[]
+queen-|wing [non-rhyme]                base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['queen-'] | 695_v2:['queen-'] | 0af_v2:[]
+king-,|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:['king-']
+king-.|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:['king-']
+king-!|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:['king-']
+king-"|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:['king-']
+king- (trailing spaces)|wing           base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:[]
+king -|wing [spaced hyphen]            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:[] | 695_v2:[] | 0af_v2:[]
+king--|wing [double hyphen]            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:[] | 695_v2:[] | 0af_v2:[]
+king—|wing [em dash]                   base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:[] | 695_v2:[] | 0af_v2:[]
+king —|wing [spaced em dash]           base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:[] | 695_v2:[] | 0af_v2:[]
+king–|wing [en dash]                   base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:[] | 695_v2:[] | 0af_v2:[]
+king‒|wing [figure dash]               base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:[] | 695_v2:[] | 0af_v2:[]
+king-—|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:['king-']
+2-|wing                                base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['2-'] | 695_v2:['2-'] | 0af_v2:['2-']
+2‐|wing                                base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['2-'] | 695_v2:['2-'] | 0af_v2:['2-']
+22-|wing                               base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['22-'] | 695_v2:['22-'] | 0af_v2:['22-']
+king2-|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king2-'] | 695_v2:['king2-'] | 0af_v2:['king2-']
+क-|wing                                base:['क'] | 695_v1:['क'] | 0af_v1:['क'] | 678_v2:['क-'] | 695_v2:['क-'] | 0af_v2:['क-']
+×king-|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['×king-', 'king-'] | 695_v2:['×king-', 'king-'] | 0af_v2:['×king-', 'king-']
+我king-|wing                            base:['我king'] | 695_v1:['我king'] | 0af_v1:['我king'] | 678_v2:['king-', '我king-'] | 695_v2:['king-', '我king-'] | 0af_v2:['king-', '我king-']
+king×-|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king×-'] | 695_v2:['king×-'] | 0af_v2:['king×-']
+king-×|wing                            base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-×'] | 695_v2:['king-×'] | 0af_v2:['king-×']
+roo-|kangaroo                          base:['roo'] | 695_v1:['roo'] | 0af_v1:['roo'] | 678_v2:['roo-'] | 695_v2:['roo-'] | 0af_v2:['roo-']
+xyzzq-|wing                            base:['xyzzq'] | 695_v1:['xyzzq'] | 0af_v1:['xyzzq'] | 678_v2:['xyzzq-'] | 695_v2:['xyzzq-'] | 0af_v2:['xyzzq-']
+dapple-dawn-|dawn                      base:['dapple-dawn'] | 695_v1:['dapple-dawn'] | 0af_v1:['dapple-dawn'] | 678_v2:['dapple-dawn-'] | 695_v2:['dapple-dawn-'] | 0af_v2:['dapple-dawn-']
+hill-zide-|wing                        base:['hill-zide'] | 695_v1:['hill-zide'] | 0af_v1:['hill-zide'] | 678_v2:['hill-zide-'] | 695_v2:['hill-zide-'] | 0af_v2:['hill-zide-']
+a-king-|wing                           base:['a-king'] | 695_v1:['a-king'] | 0af_v1:['a-king'] | 678_v2:['a-king-'] | 695_v2:['a-king-'] | 0af_v2:['a-king-']
+king-dom|wing [no break]               base:['king-dom'] | 695_v1:['king-dom'] | 0af_v1:['king-dom'] | 678_v2:['king-dom'] | 695_v2:['king-dom'] | 0af_v2:['king-dom']
+mid king- then wing                    base:[] | 695_v1:[] | 0af_v1:[] | 678_v2:['king-'] | 695_v2:['king-'] | 0af_v2:['king-']
+wimplingz|wing                         base:['wimplingz'] | 695_v1:['wimplingz'] | 0af_v1:['wimplingz'] | 678_v2:['wimplingz'] | 695_v2:['wimplingz'] | 0af_v2:['wimplingz']
+o'er|wing                              base:["o'er"] | 695_v1:["o'er"] | 0af_v1:["o'er"] | 678_v2:["o'er"] | 695_v2:["o'er"] | 0af_v2:["o'er"]

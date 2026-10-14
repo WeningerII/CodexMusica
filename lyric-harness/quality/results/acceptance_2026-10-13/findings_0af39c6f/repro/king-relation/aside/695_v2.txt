@@ -1,0 +1,9 @@
+v2 'king- (he sings)' {'broken rhyme': None, 'perfect rhyme': None} unread: ['king-'] | anchors: True 'king-'
+v2 'king-  ' {'broken rhyme': None, 'perfect rhyme': None} unread: ['king-'] | anchors: True 'king-'
+v2 'king-\t' {'broken rhyme': None, 'perfect rhyme': None} unread: ['king-'] | anchors: True 'king-'
+v2 'King-' {'broken rhyme': None, 'perfect rhyme': None} unread: ['King-'] | anchors: True 'King-'
+v2 'KING-' {'broken rhyme': None, 'perfect rhyme': None} unread: ['KING-'] | anchors: True 'KING-'
+v2 'king’s-' {'broken rhyme': None, 'perfect rhyme': None} unread: ["king's-"] | anchors: True "king's-"
+v2 "o'er-" {'broken rhyme': None, 'perfect rhyme': None} unread: ["o'er-"] | anchors: False "o'er-"
+v2 "kings'-" {'broken rhyme': None, 'perfect rhyme': None} unread: ["kings'-"] | anchors: True "kings'-"
+v2 'king-\xad' {'broken rhyme': None, 'perfect rhyme': None} unread: ['king-'] | anchors: True 'king-'

@@ -1,0 +1,14 @@
+v2 'x-ray-'         stream_reads: True perfect: False | anchors: True AGREE
+v2 'well-known-'    stream_reads: True perfect: False | anchors: True AGREE
+v2 'twenty-two-'    stream_reads: True perfect: False | anchors: True AGREE
+v2 'co-op-'         stream_reads: True perfect: False | anchors: True AGREE
+v2 'self-'          stream_reads: True perfect: False | anchors: True AGREE
+v2 'Catch-22-'      stream_reads: False perfect: None | anchors: False AGREE
+v2 're-'            stream_reads: True perfect: False | anchors: True AGREE
+v2 'a-'             stream_reads: True perfect: False | anchors: True AGREE
+v2 'I-'             stream_reads: True perfect: False | anchors: True AGREE
+v2 "'tis-"          stream_reads: True perfect: False | anchors: True AGREE
+v2 "ev'ry-"         stream_reads: False perfect: None | anchors: False AGREE
+v2 'o-'             stream_reads: True perfect: False | anchors: True AGREE
+v2 'ding-dong-'     stream_reads: True perfect: False | anchors: True AGREE
+v2 'sing-song-'     stream_reads: False perfect: None | anchors: True DISAGREE

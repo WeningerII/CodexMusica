@@ -1,0 +1,12 @@
+--- quality/relations.py
++++ quality/relations.py (relations.mutC_stem_g2p)
+@@ -946,7 +946,8 @@
+                         # the phonology names the printed part it reads,
+                         # as `line_anchors` does; the token keeps its text.
+                         stem = token_phon.split_final_stem(w)
+-                        sy = token_phon.syllabify(stem) if stem else []
++                        from quality.phonology.eng import English as _E
++                        sy = _E(fallback='high').syllabify(stem) if stem else []
+                     if sy:
+                         read.append((ti, w, sy))
+                     else:

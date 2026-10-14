@@ -1,0 +1,24 @@
+F
+======================================================================
+FAIL: test_a_declared_relation_reads_the_word_broken_at_the_line_end (quality.test_reader.Normalisation.test_a_declared_relation_reads_the_word_broken_at_the_line_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/king-relation/e/rev/lyric-harness/quality/test_reader.py", line 410, in test_a_declared_relation_reads_the_word_broken_at_the_line_end
+    self.assertEqual(got["unread"], unread, first)
+AssertionError: Lists differ: ['我king-'] != ['king-', '我king-']
+
+First differing element 0:
+'我king-'
+'king-'
+
+Second list contains 1 additional elements.
+First extra element 1:
+'我king-'
+
+- ['我king-']
++ ['king-', '我king-'] : the minion, 我king-
+
+----------------------------------------------------------------------
+Ran 1 test in 32.630s
+
+FAILED (failures=1)

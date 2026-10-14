@@ -1,0 +1,1749 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "mode": "v1",
+ "rows": [
+  {
+   "label": "king-|wing",
+   "first": "I caught this morning morning's minion, king-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": true,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": true,
+   "anchors_last": "king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-"
+    ]
+   ]
+  },
+  {
+   "label": "kingu2010|wing",
+   "first": "I caught this morning morning's minion, king\u2010",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "kingu2011|wing",
+   "first": "I caught this morning morning's minion, king\u2011",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "king-u00ad|wing",
+   "first": "I caught this morning morning's minion, king-\u00ad",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-"
+    ]
+   ]
+  },
+  {
+   "label": "kingu00ad-|wing",
+   "first": "I caught this morning morning's minion, king\u00ad-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "anguish-|languish",
+   "first": "I caught this morning morning's minion, anguish-",
+   "last": "High there, how he rung upon the rein of a wimpling languish",
+   "broken rhyme": true,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "anguish"
+   ],
+   "L1_last_unit_token": "anguish",
+   "L1_split_right": true,
+   "anchors_last": "anguish-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [],
+     "minion"
+    ],
+    [
+     "AE",
+     [
+      "NG"
+     ],
+     "anguish-"
+    ],
+    [
+     "IH",
+     [
+      "SH"
+     ],
+     "anguish-"
+    ]
+   ]
+  },
+  {
+   "label": "anguishu2010|languish",
+   "first": "I caught this morning morning's minion, anguish\u2010",
+   "last": "High there, how he rung upon the rein of a wimpling languish",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "anguish"
+   ],
+   "L1_last_unit_token": "anguish",
+   "L1_split_right": false,
+   "anchors_last": "anguish",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [],
+     "minion"
+    ],
+    [
+     "AE",
+     [
+      "NG"
+     ],
+     "anguish"
+    ],
+    [
+     "IH",
+     [
+      "SH"
+     ],
+     "anguish"
+    ]
+   ]
+  },
+  {
+   "label": "anguishu2011|languish",
+   "first": "I caught this morning morning's minion, anguish\u2011",
+   "last": "High there, how he rung upon the rein of a wimpling languish",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "anguish"
+   ],
+   "L1_last_unit_token": "anguish",
+   "L1_split_right": false,
+   "anchors_last": "anguish",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [],
+     "minion"
+    ],
+    [
+     "AE",
+     [
+      "NG"
+     ],
+     "anguish"
+    ],
+    [
+     "IH",
+     [
+      "SH"
+     ],
+     "anguish"
+    ]
+   ]
+  },
+  {
+   "label": "anguish-u00ad|languish",
+   "first": "I caught this morning morning's minion, anguish-\u00ad",
+   "last": "High there, how he rung upon the rein of a wimpling languish",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "anguish"
+   ],
+   "L1_last_unit_token": "anguish",
+   "L1_split_right": false,
+   "anchors_last": "anguish-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [],
+     "minion"
+    ],
+    [
+     "AE",
+     [
+      "NG"
+     ],
+     "anguish-"
+    ],
+    [
+     "IH",
+     [
+      "SH"
+     ],
+     "anguish-"
+    ]
+   ]
+  },
+  {
+   "label": "anguishu00ad-|languish",
+   "first": "I caught this morning morning's minion, anguish\u00ad-",
+   "last": "High there, how he rung upon the rein of a wimpling languish",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "anguish"
+   ],
+   "L1_last_unit_token": "anguish",
+   "L1_split_right": false,
+   "anchors_last": "anguish",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [],
+     "minion"
+    ],
+    [
+     "AE",
+     [
+      "NG"
+     ],
+     "anguish"
+    ],
+    [
+     "IH",
+     [
+      "SH"
+     ],
+     "anguish"
+    ]
+   ]
+  },
+  {
+   "label": "king(bare)|wing",
+   "first": "I caught this morning morning's minion, king",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "anguish-|wing [non-rhyme]",
+   "first": "I caught this morning morning's minion, anguish-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": false,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "anguish"
+   ],
+   "L1_last_unit_token": "anguish",
+   "L1_split_right": true,
+   "anchors_last": "anguish-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [],
+     "minion"
+    ],
+    [
+     "AE",
+     [
+      "NG"
+     ],
+     "anguish-"
+    ],
+    [
+     "IH",
+     [
+      "SH"
+     ],
+     "anguish-"
+    ]
+   ]
+  },
+  {
+   "label": "queen-|wing [non-rhyme]",
+   "first": "I caught this morning morning's minion, queen-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": false,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "queen"
+   ],
+   "L1_last_unit_token": "queen",
+   "L1_split_right": true,
+   "anchors_last": "queen-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IY",
+     [
+      "N"
+     ],
+     "queen-"
+    ]
+   ]
+  },
+  {
+   "label": "king-,|wing",
+   "first": "I caught this morning morning's minion, king-,",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-"
+    ]
+   ]
+  },
+  {
+   "label": "king-.|wing",
+   "first": "I caught this morning morning's minion, king-.",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-"
+    ]
+   ]
+  },
+  {
+   "label": "king-!|wing",
+   "first": "I caught this morning morning's minion, king-!",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-"
+    ]
+   ]
+  },
+  {
+   "label": "king-\"|wing",
+   "first": "I caught this morning morning's minion, king-\"",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-"
+    ]
+   ]
+  },
+  {
+   "label": "king- (trailing spaces)|wing",
+   "first": "I caught this morning morning's minion, king-   ",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": true,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": true,
+   "anchors_last": "king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-"
+    ]
+   ]
+  },
+  {
+   "label": "king -|wing [spaced hyphen]",
+   "first": "I caught this morning morning's minion, king -",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "king--|wing [double hyphen]",
+   "first": "I caught this morning morning's minion, king--",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king--",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king--"
+    ]
+   ]
+  },
+  {
+   "label": "king\u2014|wing [em dash]",
+   "first": "I caught this morning morning's minion, king\u2014",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "king \u2014|wing [spaced em dash]",
+   "first": "I caught this morning morning's minion, king \u2014",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "king\u2013|wing [en dash]",
+   "first": "I caught this morning morning's minion, king\u2013",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "king\u2012|wing [figure dash]",
+   "first": "I caught this morning morning's minion, king\u2012",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "king-\u2014|wing",
+   "first": "I caught this morning morning's minion, king-\u2014",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-"
+    ]
+   ]
+  },
+  {
+   "label": "2-|wing",
+   "first": "I caught this morning morning's minion, 2-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": false,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": true,
+   "anchors_last": "minion",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "AO",
+     [
+      "R"
+     ],
+     "morning's"
+    ],
+    [
+     "IH",
+     [
+      "NG",
+      "Z"
+     ],
+     "morning's"
+    ],
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ]
+   ]
+  },
+  {
+   "label": "2\u2010|wing",
+   "first": "I caught this morning morning's minion, 2\u2010",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": false,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "minion",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "AO",
+     [
+      "R"
+     ],
+     "morning's"
+    ],
+    [
+     "IH",
+     [
+      "NG",
+      "Z"
+     ],
+     "morning's"
+    ],
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ]
+   ]
+  },
+  {
+   "label": "22-|wing",
+   "first": "I caught this morning morning's minion, 22-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": false,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": true,
+   "anchors_last": "minion",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "AO",
+     [
+      "R"
+     ],
+     "morning's"
+    ],
+    [
+     "IH",
+     [
+      "NG",
+      "Z"
+     ],
+     "morning's"
+    ],
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ]
+   ]
+  },
+  {
+   "label": "king2-|wing",
+   "first": "I caught this morning morning's minion, king2-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": true,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": true,
+   "anchors_last": "king",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king"
+    ]
+   ]
+  },
+  {
+   "label": "\u0915-|wing",
+   "first": "I caught this morning morning's minion, \u0915-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "\u0915"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "\u0915"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "\u0915-",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "\u0915-"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "\u00d7king-|wing",
+   "first": "I caught this minion, \u00d7king-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": true,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": true,
+   "anchors_last": "king-",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "king-"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "\u6211king-|wing",
+   "first": "the minion, \u6211king-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "\u6211king"
+   ],
+   "L1_tokens": [
+    "the",
+    "minion",
+    "\u6211king"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "\u6211king-",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "\u6211king-"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "king\u00d7-|wing",
+   "first": "I caught this morning morning's minion, king\u00d7-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "king"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "king-\u00d7|wing",
+   "first": "I caught this morning morning's minion, king-\u00d7",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": true,
+   "unread_L1": [],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king"
+   ],
+   "L1_last_unit_token": "king",
+   "L1_split_right": false,
+   "anchors_last": "king-",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "king-"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "roo-|kangaroo",
+   "first": "I caught this morning morning's minion, roo-",
+   "last": "High there, how he rung upon the rein of a kangaroo",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "roo"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "roo"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "roo-",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "roo"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "xyzzq-|wing",
+   "first": "I caught this morning morning's minion, xyzzq-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "xyzzq"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "xyzzq"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "xyzzq-",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "xyzzq"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "dapple-dawn-|dawn",
+   "first": "I caught this morning morning's minion, dapple-dawn-",
+   "last": "High there, how he rung upon the rein of a wimpling dawn",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "dapple-dawn"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "dapple-dawn"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "dapple-dawn-",
+   "anchors_n": 2,
+   "anchors_oov": [
+    "dapple"
+   ],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "minion"
+    ],
+    [
+     "AO",
+     [
+      "N"
+     ],
+     "dapple-dawn-"
+    ]
+   ]
+  },
+  {
+   "label": "hill-zide-|wing",
+   "first": "I caught this morning morning's minion, hill-zide-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "hill-zide"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "hill-zide"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "hill-zide-",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "zide"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "a-king-|wing",
+   "first": "I caught this morning morning's minion, a-king-",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "a-king"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "a-king"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "a-king-",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [],
+     "minion"
+    ],
+    [
+     "AH",
+     [],
+     "a-king-"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "a-king-"
+    ]
+   ]
+  },
+  {
+   "label": "king-dom|wing [no break]",
+   "first": "I caught this morning morning's minion, king-dom",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "king-dom"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "king-dom"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "king-dom",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "king-dom"
+    ],
+    [
+     "AA",
+     [
+      "M"
+     ],
+     "king-dom"
+    ]
+   ]
+  },
+  {
+   "label": "mid king- then wing",
+   "first": "the king- of all and wing",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": false,
+   "perfect rhyme": false,
+   "unread_L1": [],
+   "L1_tokens": [
+    "the",
+    "king",
+    "of",
+    "all",
+    "and",
+    "wing"
+   ],
+   "L1_last_unit_token": "wing",
+   "L1_split_right": false,
+   "anchors_last": "wing",
+   "anchors_n": 2,
+   "anchors_oov": [],
+   "anchors_first": [
+    [
+     "AO",
+     [],
+     "all"
+    ],
+    [
+     "AH",
+     [
+      "N"
+     ],
+     "and"
+    ],
+    [
+     "IH",
+     [
+      "NG"
+     ],
+     "wing"
+    ]
+   ]
+  },
+  {
+   "label": "wimplingz|wing",
+   "first": "I caught this morning morning's minion, wimplingz",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "wimplingz"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "wimplingz"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "wimplingz",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "wimplingz"
+   ],
+   "anchors_first": null
+  },
+  {
+   "label": "o'er|wing",
+   "first": "I caught this morning morning's minion, o'er",
+   "last": "High there, how he rung upon the rein of a wimpling wing",
+   "broken rhyme": null,
+   "perfect rhyme": null,
+   "unread_L1": [
+    "o'er"
+   ],
+   "L1_tokens": [
+    "I",
+    "caught",
+    "this",
+    "morning",
+    "morning's",
+    "minion",
+    "o'er"
+   ],
+   "L1_last_unit_token": "minion",
+   "L1_split_right": false,
+   "anchors_last": "o'er",
+   "anchors_n": 0,
+   "anchors_oov": [
+    "o'er"
+   ],
+   "anchors_first": null
+  }
+ ],
+ "judge": {
+  "type": "English",
+  "fallback": null,
+  "reader_scheme": "v1",
+  "has_split_final_stem": false,
+  "is_registered_eng": true,
+  "read_king-": "None",
+  "syllabify_king-": "[]",
+  "syllabify_king": true
+ }
+}

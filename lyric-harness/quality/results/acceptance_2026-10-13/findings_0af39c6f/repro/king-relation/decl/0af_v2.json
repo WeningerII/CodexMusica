@@ -1,0 +1,126 @@
+{
+ "tokens": [
+  "I",
+  "caught",
+  "this",
+  "morning",
+  "morning's",
+  "minion",
+  "king-"
+ ],
+ "none": {
+  "broken rhyme": true,
+  "perfect rhyme": true,
+  "unread_L1": [],
+  "L1_last_syllables": [
+   "Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+  ],
+  "anchor0": [
+   [
+    "IH",
+    []
+   ],
+   [
+    "AH",
+    [
+     "N"
+    ]
+   ],
+   [
+    "IH",
+    [
+     "NG"
+    ]
+   ]
+  ],
+  "judge_fallback": null
+ },
+ "declared kingdom K IH1 NG D AH0 M": {
+  "broken rhyme": false,
+  "perfect rhyme": false,
+  "unread_L1": [],
+  "L1_last_syllables": [
+   "Syllable(text='king-', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)",
+   "Syllable(text='king-', onset=('D',), nucleus='AH', coda=('M',), prominence=0, moras=1)"
+  ],
+  "anchor0": [
+   [
+    "IH",
+    []
+   ],
+   [
+    "AH",
+    [
+     "N"
+    ]
+   ],
+   [
+    "IH",
+    [
+     "NG"
+    ]
+   ],
+   [
+    "AH",
+    [
+     "M"
+    ]
+   ]
+  ],
+  "judge_fallback": null
+ },
+ "declared kin K IH1 N": {
+  "broken rhyme": false,
+  "perfect rhyme": false,
+  "unread_L1": [],
+  "L1_last_syllables": [
+   "Syllable(text='king-', onset=('K',), nucleus='IH', coda=('N',), prominence=1, moras=1)"
+  ],
+  "anchor0": [
+   [
+    "IH",
+    []
+   ],
+   [
+    "AH",
+    [
+     "N"
+    ]
+   ],
+   [
+    "IH",
+    [
+     "N"
+    ]
+   ]
+  ],
+  "judge_fallback": null
+ },
+ "declared king K IH1 NG": {
+  "broken rhyme": true,
+  "perfect rhyme": true,
+  "unread_L1": [],
+  "L1_last_syllables": [
+   "Syllable(text='king-', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"
+  ],
+  "anchor0": [
+   [
+    "IH",
+    []
+   ],
+   [
+    "AH",
+    [
+     "N"
+    ]
+   ],
+   [
+    "IH",
+    [
+     "NG"
+    ]
+   ]
+  ],
+  "judge_fallback": null
+ }
+}

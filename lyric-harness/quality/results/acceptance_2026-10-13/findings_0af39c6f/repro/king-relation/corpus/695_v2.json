@@ -1,0 +1,705 @@
+{
+ "files": 1344,
+ "lines_all": 374480,
+ "lines_nonblank": 363090,
+ "split": [
+  {
+   "file": "eng_british_edward_fitzgerald.txt",
+   "line": "TO-DAY of past Regrets and future Fears-",
+   "last": "Fears-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "Fears-"
+  },
+  {
+   "file": "eng_british_edward_fitzgerald.txt",
+   "line": "End in the Nothing all Things end in--Yes-",
+   "last": "Yes-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "Yes-"
+  },
+  {
+   "file": "eng_british_edward_lear.txt",
+   "line": "And would probably give me the roo-",
+   "last": "roo-",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "roo-"
+  },
+  {
+   "file": "eng_british_edward_lear.txt",
+   "line": "Yet I wish that I could modi-",
+   "last": "modi-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "modi-"
+  },
+  {
+   "file": "eng_british_emily_bronte.txt",
+   "line": "No! the morning sunshine mocks my anguish-",
+   "last": "anguish-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "anguish-"
+  },
+  {
+   "file": "eng_british_lewis_carroll.txt",
+   "line": "I’m sure you couldn’t do it, e-",
+   "last": "e-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "e-"
+  },
+  {
+   "file": "eng_british_lewis_carroll.txt",
+   "line": "Can get, and look for no im-",
+   "last": "im-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "im-"
+  },
+  {
+   "file": "eng_british_robert_herrick.txt",
+   "line": "Put purple grapes or cherries in-",
+   "last": "in-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "in-"
+  },
+  {
+   "file": "eng_british_thomas_campion.txt",
+   "line": "Ever perfect, ever in them-",
+   "last": "them-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "them-"
+  },
+  {
+   "file": "eng_hall_thomas_durfey.txt",
+   "line": "  He shall not over-",
+   "last": "over-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "over-"
+  },
+  {
+   "file": "eng_hall_thomas_durfey.txt",
+   "line": "      Some say they are Gentle-",
+   "last": "Gentle-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "Gentle-"
+  },
+  {
+   "file": "eng_hbv_george_canning.txt",
+   "line": "Who in their coaches roll along the turnpike-",
+   "last": "turnpike-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "turnpike-"
+  },
+  {
+   "file": "eng_hbv_henry_augustin_beers.txt",
+   "line": "(Campanula rotundi-",
+   "last": "rotundi-",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "rotundi-"
+  },
+  {
+   "file": "eng_hbv_henry_augustin_beers.txt",
+   "line": "So a little extra brevi-",
+   "last": "brevi-",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "brevi-"
+  },
+  {
+   "file": "eng_hbv_richard_harris_barham.txt",
+   "line": "To give him next morning a couple of red-",
+   "last": "red-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "red-"
+  },
+  {
+   "file": "eng_hymn_watts.txt",
+   "line": "Sincerity professed, and grace tried; or, The heart-",
+   "last": "heart-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "heart-"
+  },
+  {
+   "file": "eng_pah_benjamin_franklin.txt",
+   "line": "She frowns, and she chides, and she loses all pati-",
+   "last": "pati-",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "pati-"
+  },
+  {
+   "file": "eng_pah_francis_bret_harte.txt",
+   "line": "Just beside the deep inden-",
+   "last": "inden-",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "inden-"
+  }
+ ],
+ "punct_after_hyphen": [
+  {
+   "file": "eng_british_lewis_carroll.txt",
+   "line": "Then the ominous words “It’s a Boo-”",
+   "last": "Boo-",
+   "stream_reads_last": false,
+   "anchors": true,
+   "anchor_last": "Boo-"
+  },
+  {
+   "file": "eng_hbv_helen_barron_bostwick.txt",
+   "line": "# author: Helen Barron Bostwick (1826-?)",
+   "last": "Bostwick",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Bostwick"
+  },
+  {
+   "file": "eng_oxford_alexander_scott.txt",
+   "line": "# author: Alexander Scott (1520?-158-)",
+   "last": "Scott",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Scott"
+  },
+  {
+   "file": "eng_oxford_george_fox.txt",
+   "line": "# author: George Fox (1815-?)",
+   "last": "Fox",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Fox"
+  },
+  {
+   "file": "eng_pah_amanda_theodosia_jones.txt",
+   "line": "# author: Amanda Theodosia Jones (1835-)",
+   "last": "Jones",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Jones"
+  },
+  {
+   "file": "eng_pah_amelia_josephine_burr.txt",
+   "line": "# author: Amelia Josephine Burr (1878-)",
+   "last": "Burr",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Burr"
+  },
+  {
+   "file": "eng_pah_barrett_eastman.txt",
+   "line": "# author: Barrett Eastman (1869-)",
+   "last": "Eastman",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Eastman"
+  },
+  {
+   "file": "eng_pah_burton_egbert_stevenson.txt",
+   "line": "# author: Burton Egbert Stevenson (1872-)",
+   "last": "Stevenson",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Stevenson"
+  },
+  {
+   "file": "eng_pah_caroline_hazard.txt",
+   "line": "# author: Caroline Hazard (1856-)",
+   "last": "Hazard",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Hazard"
+  },
+  {
+   "file": "eng_pah_caroline_king_duer.txt",
+   "line": "# author: Caroline King Duer (1865-)",
+   "last": "Duer",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Duer"
+  },
+  {
+   "file": "eng_pah_charles_de_kay.txt",
+   "line": "# author: Charles De Kay (1848-)",
+   "last": "Kay",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Kay"
+  },
+  {
+   "file": "eng_pah_charles_edward_russell.txt",
+   "line": "# author: Charles Edward Russell (1860-)",
+   "last": "Russell",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Russell"
+  },
+  {
+   "file": "eng_pah_charles_fletcher_lummis.txt",
+   "line": "# author: Charles Fletcher Lummis (1859-)",
+   "last": "Lummis",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Lummis"
+  },
+  {
+   "file": "eng_pah_charles_george_douglas_roberts.txt",
+   "line": "# author: Charles George Douglas Roberts (1860-)",
+   "last": "Roberts",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Roberts"
+  },
+  {
+   "file": "eng_pah_clinton_scollard.txt",
+   "line": "# author: Clinton Scollard (1860-)",
+   "last": "Scollard",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Scollard"
+  },
+  {
+   "file": "eng_pah_dana_burnet.txt",
+   "line": "# author: Dana Burnet (1888-)",
+   "last": "Burnet",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Burnet"
+  },
+  {
+   "file": "eng_pah_daniel_bedinger_lucas.txt",
+   "line": "# author: Daniel Bedinger Lucas (1836-)",
+   "last": "Lucas",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Lucas"
+  },
+  {
+   "file": "eng_pah_daniel_henderson.txt",
+   "line": "# author: Daniel Henderson (1880-)",
+   "last": "Henderson",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Henderson"
+  },
+  {
+   "file": "eng_pah_david_morton.txt",
+   "line": "# author: David Morton (1886-)",
+   "last": "Morton",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Morton"
+  },
+  {
+   "file": "eng_pah_edith_matilda_thomas.txt",
+   "line": "# author: Edith Matilda Thomas (1854-)",
+   "last": "Thomas",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Thomas"
+  },
+  {
+   "file": "eng_pah_edmund_vance_cooke.txt",
+   "line": "# author: Edmund Vance Cooke (1866-)",
+   "last": "Cooke",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Cooke"
+  },
+  {
+   "file": "eng_pah_edwin_arlington_robinson.txt",
+   "line": "# author: Edwin Arlington Robinson (1869-)",
+   "last": "Robinson",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Robinson"
+  },
+  {
+   "file": "eng_pah_edwin_markham.txt",
+   "line": "# author: Edwin Markham (1852-)",
+   "last": "Markham",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Markham"
+  },
+  {
+   "file": "eng_pah_erastus_wolcott_ellsworth.txt",
+   "line": "# author: Erastus Wolcott Ellsworth (1822-)",
+   "last": "Ellsworth",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Ellsworth"
+  },
+  {
+   "file": "eng_pah_ernest_mcgaffey.txt",
+   "line": "# author: Ernest McGaffey (1861-)",
+   "last": "McGaffey",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "McGaffey"
+  },
+  {
+   "file": "eng_pah_florus_b_plimpton.txt",
+   "line": "# author: Florus B. Plimpton (1830-)",
+   "last": "Plimpton",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Plimpton"
+  },
+  {
+   "file": "eng_pah_frederick_whittaker.txt",
+   "line": "# author: Frederick Whittaker (1838-)",
+   "last": "Whittaker",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Whittaker"
+  },
+  {
+   "file": "eng_pah_grace_hazard_conkling.txt",
+   "line": "# author: Grace Hazard Conkling (1878-)",
+   "last": "Conkling",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Conkling"
+  },
+  {
+   "file": "eng_pah_hamlin_garland.txt",
+   "line": "# author: Hamlin Garland (1860-)",
+   "last": "Garland",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Garland"
+  },
+  {
+   "file": "eng_pah_hardwick_drummond_rawnsley.txt",
+   "line": "# author: Hardwick Drummond Rawnsley (1850-)",
+   "last": "Rawnsley",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Rawnsley"
+  },
+  {
+   "file": "eng_pah_henry_john_newbolt.txt",
+   "line": "# author: Henry John Newbolt (1862-)",
+   "last": "Newbolt",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Newbolt"
+  },
+  {
+   "file": "eng_pah_henry_lynden_flash.txt",
+   "line": "# author: Henry Lynden Flash (1835-)",
+   "last": "Flash",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Flash"
+  },
+  {
+   "file": "eng_pah_j_corson_miller.txt",
+   "line": "# author: J. Corson Miller (1883-)",
+   "last": "Miller",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Miller"
+  },
+  {
+   "file": "eng_pah_joel_benton.txt",
+   "line": "# author: Joel Benton (1832-)",
+   "last": "Benton",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Benton"
+  },
+  {
+   "file": "eng_pah_john_h_jewett.txt",
+   "line": "# author: John H. Jewett (1843-)",
+   "last": "Jewett",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Jewett"
+  },
+  {
+   "file": "eng_pah_john_hall_ingham.txt",
+   "line": "# author: John Hall Ingham (1860-)",
+   "last": "Ingham",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Ingham"
+  },
+  {
+   "file": "eng_pah_john_jerome_rooney.txt",
+   "line": "# author: John Jerome Rooney (1866-)",
+   "last": "Rooney",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Rooney"
+  },
+  {
+   "file": "eng_pah_joseph_b_gilder.txt",
+   "line": "# author: Joseph B. Gilder (1858-)",
+   "last": "Gilder",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Gilder"
+  },
+  {
+   "file": "eng_pah_joseph_ignatius_constantine_clarke.txt",
+   "line": "# author: Joseph Ignatius Constantine Clarke (1846-)",
+   "last": "Clarke",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Clarke"
+  },
+  {
+   "file": "eng_pah_joseph_russell_taylor.txt",
+   "line": "# author: Joseph Russell Taylor (1868-)",
+   "last": "Taylor",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Taylor"
+  },
+  {
+   "file": "eng_pah_kinahan_cornwallis.txt",
+   "line": "# author: Kinahan Cornwallis (1835-)",
+   "last": "Cornwallis",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Cornwallis"
+  },
+  {
+   "file": "eng_pah_lewis_worthington_smith.txt",
+   "line": "# author: Lewis Worthington Smith (1866-)",
+   "last": "Smith",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Smith"
+  },
+  {
+   "file": "eng_pah_louis_james_block.txt",
+   "line": "# author: Louis James Block (1851-)",
+   "last": "Block",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Block"
+  },
+  {
+   "file": "eng_pah_minna_irving.txt",
+   "line": "# author: Minna Irving (1872-)",
+   "last": "Irving",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Irving"
+  },
+  {
+   "file": "eng_pah_mrs_charlotte_fiske_bates_rog.txt",
+   "line": "# author: Mrs. Charlotte Fiske Bates Rogé (1838-)",
+   "last": "Rogé",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Rogé"
+  },
+  {
+   "file": "eng_pah_mrs_danske_dandridge.txt",
+   "line": "# author: Mrs. Danske Dandridge (1864-)",
+   "last": "Dandridge",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Dandridge"
+  },
+  {
+   "file": "eng_pah_mrs_florence_earle_coates.txt",
+   "line": "# author: Mrs. Florence Earle Coates (1850-)",
+   "last": "Coates",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Coates"
+  },
+  {
+   "file": "eng_pah_mrs_katherine_margaret_brownlee_sherwood.txt",
+   "line": "# author: Mrs. Katherine Margaret Brownlee Sherwood (1841-)",
+   "last": "Sherwood",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Sherwood"
+  },
+  {
+   "file": "eng_pah_mrs_laura_elizabeth_richards.txt",
+   "line": "# author: Mrs. Laura Elizabeth Richards (1850-)",
+   "last": "Richards",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Richards"
+  },
+  {
+   "file": "eng_pah_mrs_marion_manville_pope.txt",
+   "line": "# author: Mrs. Marion Manville Pope (1859-)",
+   "last": "Pope",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Pope"
+  },
+  {
+   "file": "eng_pah_randall_parrish.txt",
+   "line": "# author: Randall Parrish (1858-)",
+   "last": "Parrish",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Parrish"
+  },
+  {
+   "file": "eng_pah_richard_burton.txt",
+   "line": "# author: Richard Burton (1859-)",
+   "last": "Burton",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Burton"
+  },
+  {
+   "file": "eng_pah_richard_edward_white.txt",
+   "line": "# author: Richard Edward White (1843-)",
+   "last": "White",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "White"
+  },
+  {
+   "file": "eng_pah_richard_handfield_titherington.txt",
+   "line": "# author: Richard Handfield Titherington (1861-)",
+   "last": "Titherington",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Titherington"
+  },
+  {
+   "file": "eng_pah_robert_burns_wilson.txt",
+   "line": "# author: Robert Burns Wilson (1850-)",
+   "last": "Wilson",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Wilson"
+  },
+  {
+   "file": "eng_pah_robert_loveman.txt",
+   "line": "# author: Robert Loveman (1864-)",
+   "last": "Loveman",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Loveman"
+  },
+  {
+   "file": "eng_pah_robert_underwood_johnson.txt",
+   "line": "# author: Robert Underwood Johnson (1853-)",
+   "last": "Johnson",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Johnson"
+  },
+  {
+   "file": "eng_pah_robert_william_chambers.txt",
+   "line": "# author: Robert William Chambers (1865-)",
+   "last": "Chambers",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Chambers"
+  },
+  {
+   "file": "eng_pah_rupert_hughes.txt",
+   "line": "# author: Rupert Hughes (1872-)",
+   "last": "Hughes",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Hughes"
+  },
+  {
+   "file": "eng_pah_thomas_tracy_bouv.txt",
+   "line": "# author: Thomas Tracy Bouvé (1875-)",
+   "last": "Bouvé",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Bouvé"
+  },
+  {
+   "file": "eng_pah_vachel_lindsay.txt",
+   "line": "# author: Vachel Lindsay (1879-)",
+   "last": "Lindsay",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Lindsay"
+  },
+  {
+   "file": "eng_pah_wallace_bruce.txt",
+   "line": "# author: Wallace Bruce (1844-)",
+   "last": "Bruce",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Bruce"
+  },
+  {
+   "file": "eng_pah_wallace_de_groot_cecil_rice.txt",
+   "line": "# author: Wallace de Groot Cecil Rice (1859-)",
+   "last": "Rice",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Rice"
+  },
+  {
+   "file": "eng_pah_will_henry_thompson.txt",
+   "line": "# author: Will Henry Thompson (1848-)",
+   "last": "Thompson",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Thompson"
+  },
+  {
+   "file": "eng_pah_william_douw_schuyler_lighthall.txt",
+   "line": "# author: William Douw Schuyler Lighthall (1857-)",
+   "last": "Lighthall",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Lighthall"
+  },
+  {
+   "file": "eng_pah_william_hamilton_hayne.txt",
+   "line": "# author: William Hamilton Hayne (1856-)",
+   "last": "Hayne",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Hayne"
+  },
+  {
+   "file": "eng_pah_william_henry_babcock.txt",
+   "line": "# author: William Henry Babcock (1849-)",
+   "last": "Babcock",
+   "stream_reads_last": true,
+   "anchors": true,
+   "anchor_last": "Babcock"
+  },
+  {
+   "file": "eng_pah_witter_bynner.txt",
+   "line": "# author: Witter Bynner (1881-)",
+   "last": "Bynner",
+   "stream_reads_last": false,
+   "anchors": false,
+   "anchor_last": "Bynner"
+  }
+ ],
+ "summary": {
+  "split_lines": 18,
+  "stream_reads": 0,
+  "anchors_read": 13,
+  "disagree": 13,
+  "punct_after_hyphen": 68,
+  "punct_disagree": 1
+ }
+}

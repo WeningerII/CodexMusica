@@ -1,0 +1,52 @@
+BB8 king-relation (commit 0af39c6f, king- part) -- exact invocations
+S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad   K=$S/h0af/king-relation   PY=$S/venv311/bin/python (3.11)
+export LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data
+Trees: $S/wt-0af (0af39c6f candidate), $S/wt-695 (6955e342 control), $S/wt-base (fce4bf0f), $S/wt-678 (67889851)
+
+== (a)(c)(d) in-process probe: registered judge (revise.relation_phonology_for(Lexicon)) + line_anchors ==
+$PY $K/probe_rel.py $S/wt-base base $K/a/base.json
+$PY $K/probe_rel.py $S/wt-695 v1   $K/a/695_v1.json
+$PY $K/probe_rel.py $S/wt-695 v2   $K/a/695_v2.json
+$PY $K/probe_rel.py $S/wt-0af v1   $K/a/0af_v1.json
+$PY $K/probe_rel.py $S/wt-0af v2   $K/a/0af_v2.json
+$PY $K/probe_rel.py $S/wt-678 v2   $K/a/678_v2.json
+python3 $K/table.py $K > $K/a/table.txt          # verdict + unread table (a)(c)
+python3 $K/table_d.py $K > $K/a/table_d.txt      # (d) line_anchors vs stream readability on L1's last token
+(inline) row-level diff of a/*.json: 0af_v1==695_v1==base (0 diffs); 0af_v2 vs 695_v2: 65 field diffs, all on the 13 intended rows
+
+== declared reading of king- answers first ==
+$PY $K/probe_decl.py $S/wt-0af/lyric-harness v2 $K/decl/0af_v2.json
+$PY $K/probe_decl.py $S/wt-695/lyric-harness v2 $K/decl/695_v2.json
+
+== corpus (eng_*.txt under corpus/song; split-final lines and hyphen+punctuation residual) ==
+$PY $K/corpus/corpus.py $S/wt-0af v2 $K/corpus/0af_v2.json
+$PY $K/corpus/corpus.py $S/wt-695 v2 $K/corpus/695_v2.json
+
+== (b) brief matrix (runner writes exact per-run commands to $K/b/out/<tag>/CMDS.txt) ==
+$K/b/run_b.sh $K/b/windhover.txt wh 1,4 0     # base: default/fbhigh/sup; 695 & 0af: default/v1/v2/fbhigh/sup; x broken/perfect/none
+python3 $K/b/summ.py $K/b/out/wh > $K/b/summary_wh.txt
+(windhover.txt copied from findings_67889851/.../t2/wh/windhover.txt, md5 7fe46bec8d3740f2bdf55b6e984c274a)
+
+== (e) R2's tests and mutations, on an extracted copy (git archive 0af39c6ff lyric-harness | tar -x -C $K/e/rev; cmudict.dict copied) ==
+cd $K/e/rev/lyric-harness && $PY -m unittest -v quality.test_reader.Normalisation.test_a_declared_relation_reads_the_word_broken_at_the_line_end quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is quality.test_reader.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line  -> e/pristine_inproc.log
+mutants of quality/relations.py generated in $K/e/mut/ (relations.<name>.py; diff against relations.orig.py); each copied over the copy's relations.py, __pycache__/relations*.pyc removed, then:
+  $PY -m unittest quality.test_reader.Normalisation.test_a_declared_relation_reads_the_word_broken_at_the_line_end > $K/e/inproc_<name>.log ; original restored and cmp'd against wt-0af after each loop
+$PY $K/probe_decl.py $K/e/rev/lyric-harness v2 $K/decl/mutF2_stem_overrides_declared.json   (with mutF2 in place)
+$PY $K/e/stem_g2p_check.py $K/e/rev/lyric-harness  (pristine -> e/stem_g2p_pristine.log; mutC in place -> e/stem_g2p_mutC.log)
+
+== extra brief runs (exact per-run lines in $K/b/out/extra/CMDS.txt) ==
+fixtures: $K/b/five.txt (R2's five spellings, 5 stanzas), $K/b/controls.txt (king-, | 2- | roo-~kangaroo | ×king- | xyzzq-; 5 stanzas)
+$K/b/run_extra.sh     # five (v2 x broken/perfect/none; 0af fbhigh, sup), controls (v2, fbhigh x broken/perfect), windhover v1+sup, types king- -- wing
+python3 $K/b/summ.py $K/b/out/extra > $K/b/summary_extra.txt ; cmp of each 0af/695 pair (inline)
+v1 five-spelling briefs, both trees: exact lines in $K/b/out/v1five/CMDS.txt
+
+== additional in-process probes ==
+$PY $K/probe_aside.py $S/wt-{0af,695} {v1,v2} > $K/aside/<tree>_<mode>.txt         # aside-ended, case, apostrophe, trailing-space variants
+$PY $K/probe_hyphstem.py $S/wt-{0af,695} v2 > $K/aside/hyphstem_<tree>_v2.txt       # hyphenated / short stems, stream vs line_anchors
+$PY $K/probe_fbhigh.py $S/wt-{0af,695} v2 ; $PY $K/probe_fbhigh.py $S/wt-0af v1  -> $K/fbhigh/*.txt   # Lexicon(fallback='high'): judge fallback stays None
+
+== (e) brief-verb test ==
+$K/e/run_brief_tests.sh   # pristine copy ($K/e/rev) and reverted copy ($K/e/revA = git archive + relations.revA_stream_revert.py)
+   -> e/brief_test_pristine.log (OK, 330 s), e/brief_test_revA.log (FAILED failures=2: v2 declared broken, v2 declared perfect)
+v1five results: perfect (155 s) and none (116-122 s) byte-identical 0af vs 695; the two v1 declared-broken five-spelling runs were still in the candidate search after ~40 min and were killed by me (partial 702-byte headers identical); v1's four non-ASCII broken verdicts are covered in-process instead (a/0af_v1.json == a/695_v1.json).
+cleanup: $K/e/rev and $K/e/revA (extracted lyric-harness copies, ~170 MB each) deleted after use; worktrees checked: 0 tracked changes in wt-0af, wt-695, wt-base, wt-678.

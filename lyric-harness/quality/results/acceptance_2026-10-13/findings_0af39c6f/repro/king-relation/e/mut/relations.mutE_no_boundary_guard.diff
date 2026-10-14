@@ -1,0 +1,11 @@
+--- quality/relations.py
++++ quality/relations.py (relations.mutE_no_boundary_guard)
+@@ -940,7 +940,7 @@
+                 for ti, w in enumerate(words):
+                     token_phon = line_phon.for_token(ti) if hasattr(line_phon, "for_token") else line_phon
+                     sy = token_phon.syllabify(w) if ti != boundary else []
+-                    if (not sy and cut and ti == len(words) - 1 and ti != boundary
++                    if (not sy and cut and ti == len(words) - 1
+                             and hasattr(token_phon, "split_final_stem")):
+                         # The word broken across the line end (`king-`):
+                         # the phonology names the printed part it reads,

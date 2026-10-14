@@ -1,0 +1,45 @@
+(d) line_anchors(Lexicon, L1) vs relation stream on L1's last token
+cell = anchors-last-word/anchor-word|stream: R(read)/U(unread)  -> AGREE or DIS
+king-|wing                         base:'king-'/'king-'|R AGREE ; 695_v1:'king-'/'king-'|R AGREE ; 0af_v1:'king-'/'king-'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|R AGREE
+kingu2010|wing                     base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|R AGREE
+kingu2011|wing                     base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|R AGREE
+king-u00ad|wing                    base:'king-'/'king-'|R AGREE ; 695_v1:'king-'/'king-'|R AGREE ; 0af_v1:'king-'/'king-'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|R AGREE
+kingu00ad-|wing                    base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|R AGREE
+anguish-|languish                  base:'anguish-'/'anguish-'|R AGREE ; 695_v1:'anguish-'/'anguish-'|R AGREE ; 0af_v1:'anguish-'/'anguish-'|R AGREE ; 695_v2:'anguish-'/'anguish-'|U DIS ; 0af_v2:'anguish-'/'anguish-'|R AGREE
+anguishu2010|languish              base:'anguish'/'anguish'|R AGREE ; 695_v1:'anguish'/'anguish'|R AGREE ; 0af_v1:'anguish'/'anguish'|R AGREE ; 695_v2:'anguish-'/'anguish-'|U DIS ; 0af_v2:'anguish-'/'anguish-'|R AGREE
+anguishu2011|languish              base:'anguish'/'anguish'|R AGREE ; 695_v1:'anguish'/'anguish'|R AGREE ; 0af_v1:'anguish'/'anguish'|R AGREE ; 695_v2:'anguish-'/'anguish-'|U DIS ; 0af_v2:'anguish-'/'anguish-'|R AGREE
+anguish-u00ad|languish             base:'anguish-'/'anguish-'|R AGREE ; 695_v1:'anguish-'/'anguish-'|R AGREE ; 0af_v1:'anguish-'/'anguish-'|R AGREE ; 695_v2:'anguish-'/'anguish-'|U DIS ; 0af_v2:'anguish-'/'anguish-'|R AGREE
+anguishu00ad-|languish             base:'anguish'/'anguish'|R AGREE ; 695_v1:'anguish'/'anguish'|R AGREE ; 0af_v1:'anguish'/'anguish'|R AGREE ; 695_v2:'anguish-'/'anguish-'|U DIS ; 0af_v2:'anguish-'/'anguish-'|R AGREE
+king(bare)|wing                    base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king'/'king'|R AGREE ; 0af_v2:'king'/'king'|R AGREE
+anguish-|wing [non-rhyme]          base:'anguish-'/'anguish-'|R AGREE ; 695_v1:'anguish-'/'anguish-'|R AGREE ; 0af_v1:'anguish-'/'anguish-'|R AGREE ; 695_v2:'anguish-'/'anguish-'|U DIS ; 0af_v2:'anguish-'/'anguish-'|R AGREE
+queen-|wing [non-rhyme]            base:'queen-'/'queen-'|R AGREE ; 695_v1:'queen-'/'queen-'|R AGREE ; 0af_v1:'queen-'/'queen-'|R AGREE ; 695_v2:'queen-'/'queen-'|U DIS ; 0af_v2:'queen-'/'queen-'|R AGREE
+king-,|wing                        base:'king-'/'king-'|R AGREE ; 695_v1:'king-'/'king-'|R AGREE ; 0af_v1:'king-'/'king-'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|U DIS
+king-.|wing                        base:'king-'/'king-'|R AGREE ; 695_v1:'king-'/'king-'|R AGREE ; 0af_v1:'king-'/'king-'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|U DIS
+king-!|wing                        base:'king-'/'king-'|R AGREE ; 695_v1:'king-'/'king-'|R AGREE ; 0af_v1:'king-'/'king-'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|U DIS
+king-"|wing                        base:'king-'/'king-'|R AGREE ; 695_v1:'king-'/'king-'|R AGREE ; 0af_v1:'king-'/'king-'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|U DIS
+king- (trailing spaces)|wing       base:'king-'/'king-'|R AGREE ; 695_v1:'king-'/'king-'|R AGREE ; 0af_v1:'king-'/'king-'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|R AGREE
+king -|wing [spaced hyphen]        base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king'/'king'|R AGREE ; 0af_v2:'king'/'king'|R AGREE
+king--|wing [double hyphen]        base:'king--'/'king--'|R AGREE ; 695_v1:'king--'/'king--'|R AGREE ; 0af_v1:'king--'/'king--'|R AGREE ; 695_v2:'king'/'king'|R AGREE ; 0af_v2:'king'/'king'|R AGREE
+king—|wing [em dash]               base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king'/'king'|R AGREE ; 0af_v2:'king'/'king'|R AGREE
+king —|wing [spaced em dash]       base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king'/'king'|R AGREE ; 0af_v2:'king'/'king'|R AGREE
+king–|wing [en dash]               base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king'/'king'|R AGREE ; 0af_v2:'king'/'king'|R AGREE
+king‒|wing [figure dash]           base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king'/'king'|R AGREE ; 0af_v2:'king'/'king'|R AGREE
+king-—|wing                        base:'king-'/'king-'|R AGREE ; 695_v1:'king-'/'king-'|R AGREE ; 0af_v1:'king-'/'king-'|R AGREE ; 695_v2:'king-'/'king-'|U DIS ; 0af_v2:'king-'/'king-'|U DIS
+2-|wing                            base:'minion'/'minion'|R AGREE ; 695_v1:'minion'/'minion'|R AGREE ; 0af_v1:'minion'/'minion'|R AGREE ; 695_v2:'2-'/None|U AGREE ; 0af_v2:'2-'/None|U AGREE
+2‐|wing                            base:'minion'/'minion'|R AGREE ; 695_v1:'minion'/'minion'|R AGREE ; 0af_v1:'minion'/'minion'|R AGREE ; 695_v2:'2-'/None|U AGREE ; 0af_v2:'2-'/None|U AGREE
+22-|wing                           base:'minion'/'minion'|R AGREE ; 695_v1:'minion'/'minion'|R AGREE ; 0af_v1:'minion'/'minion'|R AGREE ; 695_v2:'22-'/None|U AGREE ; 0af_v2:'22-'/None|U AGREE
+king2-|wing                        base:'king'/'king'|R AGREE ; 695_v1:'king'/'king'|R AGREE ; 0af_v1:'king'/'king'|R AGREE ; 695_v2:'king2-'/None|U AGREE ; 0af_v2:'king2-'/None|U AGREE
+क-|wing                            base:'क-'/None|U AGREE ; 695_v1:'क-'/None|U AGREE ; 0af_v1:'क-'/None|U AGREE ; 695_v2:'क-'/None|U AGREE ; 0af_v2:'क-'/None|U AGREE
+×king-|wing                        base:'king-'/None|R DIS ; 695_v1:'king-'/None|R DIS ; 0af_v1:'king-'/None|R DIS ; 695_v2:'king-'/None|U AGREE ; 0af_v2:'king-'/None|U AGREE
+我king-|wing                        base:'我king-'/None|U AGREE ; 695_v1:'我king-'/None|U AGREE ; 0af_v1:'我king-'/None|U AGREE ; 695_v2:'我king-'/None|U AGREE ; 0af_v2:'我king-'/None|U AGREE
+king×-|wing                        base:'king'/None|R DIS ; 695_v1:'king'/None|R DIS ; 0af_v1:'king'/None|R DIS ; 695_v2:'king'/None|U AGREE ; 0af_v2:'king'/None|U AGREE
+king-×|wing                        base:'king-'/None|R DIS ; 695_v1:'king-'/None|R DIS ; 0af_v1:'king-'/None|R DIS ; 695_v2:'king-'/None|U AGREE ; 0af_v2:'king-'/None|U AGREE
+roo-|kangaroo                      base:'roo-'/None|U AGREE ; 695_v1:'roo-'/None|U AGREE ; 0af_v1:'roo-'/None|U AGREE ; 695_v2:'roo-'/None|U AGREE ; 0af_v2:'roo-'/None|U AGREE
+xyzzq-|wing                        base:'xyzzq-'/None|U AGREE ; 695_v1:'xyzzq-'/None|U AGREE ; 0af_v1:'xyzzq-'/None|U AGREE ; 695_v2:'xyzzq-'/None|U AGREE ; 0af_v2:'xyzzq-'/None|U AGREE
+dapple-dawn-|dawn                  base:'dapple-dawn-'/'dapple-dawn-'|U DIS ; 695_v1:'dapple-dawn-'/'dapple-dawn-'|U DIS ; 0af_v1:'dapple-dawn-'/'dapple-dawn-'|U DIS ; 695_v2:'dapple-dawn-'/'dapple-dawn-'|U DIS ; 0af_v2:'dapple-dawn-'/'dapple-dawn-'|U DIS
+hill-zide-|wing                    base:'hill-zide-'/None|U AGREE ; 695_v1:'hill-zide-'/None|U AGREE ; 0af_v1:'hill-zide-'/None|U AGREE ; 695_v2:'hill-zide-'/None|U AGREE ; 0af_v2:'hill-zide-'/None|U AGREE
+a-king-|wing                       base:'a-king-'/'a-king-'|U DIS ; 695_v1:'a-king-'/'a-king-'|U DIS ; 0af_v1:'a-king-'/'a-king-'|U DIS ; 695_v2:'a-king-'/'a-king-'|U DIS ; 0af_v2:'a-king-'/'a-king-'|U DIS
+king-dom|wing [no break]           base:'king-dom'/'king-dom'|U DIS ; 695_v1:'king-dom'/'king-dom'|U DIS ; 0af_v1:'king-dom'/'king-dom'|U DIS ; 695_v2:'king-dom'/'king-dom'|U DIS ; 0af_v2:'king-dom'/'king-dom'|U DIS
+mid king- then wing                base:'wing'/'wing'|R AGREE ; 695_v1:'wing'/'wing'|R AGREE ; 0af_v1:'wing'/'wing'|R AGREE ; 695_v2:'wing'/'wing'|R AGREE ; 0af_v2:'wing'/'wing'|R AGREE
+wimplingz|wing                     base:'wimplingz'/None|U AGREE ; 695_v1:'wimplingz'/None|U AGREE ; 0af_v1:'wimplingz'/None|U AGREE ; 695_v2:'wimplingz'/None|U AGREE ; 0af_v2:'wimplingz'/None|U AGREE
+o'er|wing                          base:"o'er"/None|U AGREE ; 695_v1:"o'er"/None|U AGREE ; 0af_v1:"o'er"/None|U AGREE ; 695_v2:"o'er"/None|U AGREE ; 0af_v2:"o'er"/None|U AGREE

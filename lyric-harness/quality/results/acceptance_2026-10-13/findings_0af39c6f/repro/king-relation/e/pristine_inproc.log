@@ -1,0 +1,8 @@
+test_a_declared_relation_reads_the_word_broken_at_the_line_end (quality.test_reader.Normalisation.test_a_declared_relation_reads_the_word_broken_at_the_line_end) ... ok
+test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is) ... ok
+test_the_broken_rhyme_split_reads_the_normalised_line (quality.test_reader.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 42.274s
+
+OK

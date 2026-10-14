@@ -1,0 +1,206 @@
+{
+ "workflow": "wf_aaaad385-df5 (BB8, 0af39c6f blocker-head acceptance)",
+ "candidate": "0af39c6ff3bb9f1c0229bbf7bf14f49816e298e2",
+ "agents": [
+  {
+   "agent": "king-relation",
+   "result": {
+    "task": "king-relation: commit 0af39c6f (king- part, item 3) against 3PO's contract -- registered relation judge on line-final broken words (5 hyphen spellings, anguish-, king-, / king-.), brief end-to-end, preserved refusals and v1 identity, line_anchors agreement, and R2's tests under behavioural revert and mutation. Trees: wt-0af (0af39c6f) vs controls wt-695 (6955e342), wt-base (fce4bf0f), wt-678 (67889851).",
+    "verdict": "PASS",
+    "checks": [
+     {
+      "id": "a1-five-spellings",
+      "claim": "Production judge (revise.relation_phonology_for(Lexicon)) now judges declared broken/perfect rhyme on line-final king- in all five hyphen spellings under v2",
+      "expected": "0af v2: broken True, perfect True for -, U+2010, U+2011, -U+00AD, U+00AD-; 6955 v2 None/None; base and v1 ASCII broken True, other four broken False, perfect True",
+      "observed": "0af v2: T/T for all five, unread []. 695 v2 and 678 v2: None/None, unread ['king-']. base, 695 v1, 0af v1: '-' T/T; U+2010, U+2011, -U+00AD, U+00AD- F/T. Judge is PH.get('eng'), fallback None, read('king-') None, syllabify('king-') [] in every tree",
+      "status": "pass",
+      "new_vs_preexisting": "NEW fix at 0af (695/678 v2 refused); v1/base values pre-existing and unchanged",
+      "evidence": "a/0af_v2.json, a/695_v2.json, a/678_v2.json, a/base.json, a/0af_v1.json, a/695_v1.json; table in a/table.txt (probe_rel.py)"
+     },
+     {
+      "id": "a2-anguish-and-nonrhyme-controls",
+      "claim": "Same for anguish- (vs languish). Non-rhymes are judged False, not blanket True",
+      "expected": "anguish-|languish T/T in all spellings at 0af v2; anguish-|wing and queen-|wing F/F",
+      "observed": "0af v2: anguish five spellings T/T. anguish-|wing F/F, queen-|wing F/F (695 v2: None/None). base/v1: ASCII T/T, others F/T; non-rhymes F/F",
+      "status": "pass",
+      "new_vs_preexisting": "NEW (judged at 0af, refused at 695 v2)",
+      "evidence": "a/table.txt rows anguish*, 'anguish-|wing [non-rhyme]', 'queen-|wing [non-rhyme]'"
+     },
+     {
+      "id": "a3-king-comma-period",
+      "claim": "king-, and king-. (hyphen followed by punctuation)",
+      "expected": "Report behaviour. The contract covers the canonical line-final token",
+      "observed": "0af v2 and 695 v2: None/None, unread ['king-'] (also king-!, king-\", king-<em dash>, 'king- (aside)'). base/v1: F/T, read as king. line_anchors reads king- in every mode",
+      "status": "pass",
+      "new_vs_preexisting": "PRE-EXISTING v2 behaviour, byte-identical at 695 and 0af; not repaired (see unexpected_findings)",
+      "evidence": "a/table.txt, a/table_d.txt, aside/0af_v2.txt, aside/695_v2.txt"
+     },
+     {
+      "id": "b1-windhover-brief-matrix",
+      "claim": "brief windhover.txt --groups=1,4 with declared broken, declared perfect and no declared relation: default reader, --reader-scheme=v1/v2, --fallback=high, --lexicon-supplement=v2",
+      "expected": "0af v2 configs certified with pair judged where 6955 v2 refused; v1 unchanged",
+      "observed": "0af default/v2/fbhigh/sup x broken/perfect/none: certified=True, pairs_judged=1, pairs_refused=0, rhyme:1:4:0 answered, 'L1 (king-) HOLDS'. 695 default/v2/fbhigh/sup declared broken and declared perfect: certified=False, judged=0, refused=1, 2x SCHEME_UNREADABLE, 'UNJUDGED'. 695 undeclared: certified True. v1 (both trees) and base default/fbhigh: certified True in all three. base sup declared: refused (pre-existing)",
+      "status": "pass",
+      "new_vs_preexisting": "NEW repair for v2 declared runs; base+supplement refusal pre-existing",
+      "evidence": "b/summary_wh.txt; raw outputs and exact command lines in b/out/wh/ (CMDS.txt)"
+     },
+     {
+      "id": "b2-undeclared-output-delta",
+      "claim": "Undeclared v2 brief changes only by the expected disclosure",
+      "expected": "No verdict or JSON change",
+      "observed": "0af vs 695 v2/fbhigh/sup undeclared: lyric-result JSON identical. Text differs by 3 added 'SCHEMA RELATIONS' disclosure lines, because the pair now stands in schemas",
+      "status": "pass",
+      "new_vs_preexisting": "NEW, expected consequence",
+      "evidence": "inline diff of b/out/wh/0af_v2_none.out vs 695_v2_none.out (also fbhigh, sup), b/out/extra/five_*_v2_none.out"
+     },
+     {
+      "id": "b3-five-spelling-brief",
+      "claim": "R2's five-stanza file via brief, v2/fbhigh/supplement",
+      "expected": "Five pairs answered at 0af",
+      "observed": "0af v2 broken/perfect/none, fbhigh broken/perfect, sup broken/perfect: judged=5, refused=0, certified True. 695 v2 declared broken/perfect: judged=0, refused=5, 10 SCHEME_UNREADABLE",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "b/summary_extra.txt, b/out/extra/five_*"
+     },
+     {
+      "id": "c1-printed-boundary-refusals",
+      "claim": "Printed boundaries and foreign or x-marked tokens still refuse where they did",
+      "expected": "Unchanged from 6955 v2",
+      "observed": "0af v2 identical to 695 v2 on every boundary row. The following refuse: x-king-, CJK+king-, Devanagari-, king-x-, king-x, king-<em dash>. Spaced ' -', '--', em dash, en dash and figure dash never refused in any tree; they read 'king' unsplit and judge F/T, and are unchanged. The brief control file (king-, | 2- | roo-/kangaroo | x-king- | xyzzq-) refused 5/5 under v2 and fbhigh, byte-identical 0af vs 695",
+      "status": "pass",
+      "new_vs_preexisting": "unchanged (0 row diffs outside the 13 intended rows)",
+      "evidence": "a/table.txt; inline row diff 0af_v2 vs 695_v2 = 65 field diffs, all on 13 intended rows; b/out/extra/ctl_* cmp identical"
+     },
+     {
+      "id": "c2-numerals-fragments",
+      "claim": "Numerals and unreadable or fragment stems stay refused; no G2P",
+      "expected": "2-, 22-, king2-, Catch-22-, roo-, xyzzq-, hill-zide-, a-king-, dapple-dawn-, sing-song-, o'er- refused",
+      "observed": "All refused at 0af v2 and 695 v2 (2-/U+2010 2 unread ['2-']; roo- unread ['roo-']; etc.). Corpus: the 5 stems still refused at 0af (roo-, rotundi-, brevi-, pati-, inden-) are also refused by line_anchors",
+      "status": "pass",
+      "new_vs_preexisting": "unchanged",
+      "evidence": "a/table.txt, aside/hyphstem_*.txt, corpus/0af_v2.json"
+     },
+     {
+      "id": "c3-no-global-g2p",
+      "claim": "Registered fallback policy is kept; bare words and non-hyphen unreadables unchanged",
+      "expected": "judge.fallback None; read('king-') None; types king- -- wing still unreadable; mid-line king- unread; wimplingz/o'er refused",
+      "observed": "Judge fallback None in base/v1/v2 at every tree. Under Lexicon(fallback='high') the judge fallback is still None: savour-, inden- and whole 'savour' refused by the judge in both 695 and 0af. types king- -- wing UNREADABLE (v1, v2), byte-identical 0af vs 695. Mid-line king- unread in v2 at both trees. wimplingz and o'er refused everywhere",
+      "status": "pass",
+      "new_vs_preexisting": "unchanged",
+      "evidence": "a/*.json judge block; fbhigh/*.txt; b/out/extra/types_*.out"
+     },
+     {
+      "id": "c4-v1-byte-identity",
+      "claim": "v1 is byte-identical to 6955's v1",
+      "expected": "Identical outputs",
+      "observed": "In-process: 43 rows, 0 diffs 0af_v1 vs 695_v1 vs base. brief v1 windhover broken/perfect/none: byte-identical. v1+supplement broken/perfect: byte-identical (both refused, as base+sup). v1 five-spelling perfect (153,555 B) and none (153,990 B): byte-identical. split_final_stem returns None under v1",
+      "status": "pass",
+      "new_vs_preexisting": "unchanged",
+      "evidence": "cmp results recorded in COMMANDS.txt; b/out/wh/*_v1_*, b/out/extra/wh_*_v1sup_*, b/out/v1five/"
+     },
+     {
+      "id": "c5-declared-reading-first",
+      "claim": "A declared occurrence reading of king- answers before the stem",
+      "expected": "Declared kingdom/kin readings decide the verdict",
+      "observed": "0af v2: none T/T; declared K IH1 NG D AH0 M F/F; declared K IH1 N F/F; declared K IH1 NG T/T. 695 v2 gives the same declared results (none None/None)",
+      "status": "pass",
+      "new_vs_preexisting": "declared path pre-existing and unchanged; stem fallback NEW",
+      "evidence": "decl/0af_v2.json, decl/695_v2.json (probe_decl.py)"
+     },
+     {
+      "id": "d1-line-anchors-agreement",
+      "claim": "line_anchors and the relation judge now agree on king-; no new disagreement",
+      "expected": "DIS at 695 becomes AGREE at 0af for the canonical token; nothing goes from AGREE to DIS",
+      "observed": "13 probe rows go DIS to AGREE (5 king, 5 anguish, 2 non-rhyme, trailing spaces), plus King-, KING-, king's-, kings'-, king-<SHY>, x-ray-, well-known-, twenty-two-, co-op-, self-, re-, a-, I-, 'tis-, o-, ding-dong-. Zero AGREE to DIS transitions. Remaining v2 DIS rows are identical at 695: king-, king-. king-! king-\" king-<em dash>, 'king- (aside)', dapple-dawn-, a-king-, king-dom, sing-song-. The last four are DIS in base too",
+      "status": "pass",
+      "new_vs_preexisting": "NEW agreement; residual disagreements pre-existing",
+      "evidence": "a/table_d.txt, aside/*.txt, aside/hyphstem_*.txt"
+     },
+     {
+      "id": "d2-corpus",
+      "claim": "Commit's corpus figure: 13 of 18 split-final English song lines now read, 5 refused",
+      "expected": "13/18",
+      "observed": "Over 1,344 corpus/song/eng_*.txt files: 18 split-final lines; stream reads 13 at 0af (0 at 695); line_anchors reads the same 13; disagreements 13 at 695, 0 at 0af. Denominator 281,069 not re-derived: I count 363,090 non-blank and 281,399 excluding #/[/--- lines (estimate of their filter)",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "corpus/0af_v2.json, corpus/695_v2.json (corpus.py)"
+     },
+     {
+      "id": "e1-r2-tests-pass",
+      "claim": "R2's new tests pass at 0af",
+      "expected": "OK",
+      "observed": "test_a_declared_relation_reads_the_word_broken_at_the_line_end, test_bare_word_variants_are_normalised_as_a_token_is, test_the_broken_rhyme_split_reads_the_normalised_line: OK (42 s). test_the_brief_verb_judges_the_declared_broken_word: OK (330 s)",
+      "status": "pass",
+      "new_vs_preexisting": "NEW tests",
+      "evidence": "e/pristine_inproc.log, e/brief_test_pristine.log (run on git-archive copy of 0af39c6f)"
+     },
+     {
+      "id": "e2-behavioural-revert",
+      "claim": "Tests fail when the stream change is reverted",
+      "expected": "In-process test fails; the two declared v2 brief runs fail",
+      "observed": "Reverting the relations.py hunk fails the in-process test: {broken None, perfect None, unread ['king-']} != {True, True, []}. The brief test FAILED (failures=2), exactly the v2 declared-broken and v2 declared-perfect subtests (refused x5, certified False). The undeclared v2 and three v1 subtests pass on revert (controls)",
+      "status": "pass",
+      "new_vs_preexisting": "n/a",
+      "evidence": "e/inproc_revA_stream_revert.log, e/brief_test_revA.log, e/mut/relations.revA_stream_revert.py"
+     },
+     {
+      "id": "e3-mutation-sensitivity",
+      "claim": "Mutation sensitivity of the guards in the new branch",
+      "expected": "Guards relevant to the contract are killed",
+      "observed": "Killed: mutD (stem for any token, by the CJK+king- control), mutE (no boundary guard, by the x-king- control), mutF (stem overrides any token, only incidentally via the v1 assertion). Survive: mutC (stem read through English(fallback='high'): inden-, savour-, viewest- become read, test still OK); mutF2 (stem overrides a declared reading of king-: declared kingdom becomes T/T, test still OK); mutG (drop the split-line condition; not a contract property)",
+      "status": "pass",
+      "new_vs_preexisting": "n/a (test-coverage observation)",
+      "evidence": "e/inproc_mut*.log, e/stem_g2p_pristine.log vs e/stem_g2p_mutC.log, decl/mutF2_stem_overrides_declared.json, e/mut/*.py"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "The 'registered fallback policy' for the stem read is not mutation-guarded. Reading the stem through a G2P fallback (mutC) passes R2's in-process test, because the test has no control with an alphabetic stem that is unlisted but G2P-readable. Production behaviour at 0af is correct: such stems are refused.",
+      "severity": "minor",
+      "evidence": "Mutant relations.mutC_stem_g2p.py: test OK (e/inproc_mutC_stem_g2p.log); inden-, savour-, viewest- unread at 0af but read under mutC (e/stem_g2p_pristine.log vs e/stem_g2p_mutC.log). Suggested control: 'savour-' or 'inden-' (corpus: Bret Harte 'Just beside the deep inden-') asserting refusal"
+     },
+     {
+      "summary": "'A declared reading of king- answers first' is stated in the commit message and LYRICS_RUNTIME.md but not tested. A mutant that lets the stem override a declared reading (mutF2) passes R2's test. Behaviour at 0af is correct.",
+      "severity": "minor",
+      "evidence": "decl/0af_v2.json (declared kingdom gives F/F) vs decl/mutF2_stem_overrides_declared.json (declared kingdom gives T/T); e/inproc_mutF2_stem_overrides_declared.log OK"
+     },
+     {
+      "summary": "Residual v1-to-v2 regression outside the repaired shape. Under v2 the judge still refuses a line-final X- token followed by trailing punctuation, a closing quote, an em dash or an aside, while line_anchors reads it. v1/base judged these (perfect True). Real corpus witness: Lewis Carroll 'Then the ominous words “It’s a Boo-”'. This is identical at 6955, so not introduced by 0af, but 0af does not close it.",
+      "severity": "minor",
+      "evidence": "a/table.txt rows king-, king-. king-! king-\" king-<em dash> (0af v2 None/None, v1 F/T); aside/0af_v2.txt 'king- (he sings)'; corpus/0af_v2.json punct_after_hyphen: 68 lines, 1 disagreement (Boo-”), same at 695"
+     },
+     {
+      "summary": "The corpus denominator in the commit and LYRICS_RUNTIME.md (281,069) was not reproduced. The numerator (13 of 18) was reproduced.",
+      "severity": "note",
+      "evidence": "corpus.py over 1,344 eng_*.txt: 374,480 raw / 363,090 non-blank / 281,399 excluding #,[,--- lines. 281,069 also appears in findings_67889851/six_lines/end_census_1.json, so it is probably that census's population (estimate)"
+     },
+     {
+      "summary": "An undeclared v2 brief now prints 3 extra 'SCHEMA RELATIONS' disclosure lines for the king- pair, with an identical result JSON. This is expected, since the stream now reads the token, but it is a visible output delta.",
+      "severity": "note",
+      "evidence": "b/out/wh/0af_v2_none.out vs 695_v2_none.out; b/out/extra/five_*_v2_none.out (3 lines)"
+     },
+     {
+      "summary": "Pre-existing: under v2 the candidate list offers 'ng' as a replacement word. It is identical at 6955 and unrelated to this commit.",
+      "severity": "note",
+      "evidence": "'offered:' line in b/out/wh/695_v2_none.out and 0af_v2_*.out; absent in v1/base"
+     },
+     {
+      "summary": "_line_read_key does not include hyphen_continues, so inside a _line_read_scope a cached line read with the stem could be served to a hyphen_continues=False build. Theoretical only: no caller passes hyphen_continues=False.",
+      "severity": "note",
+      "evidence": "quality/relations.py _line_read_key (line ~789) vs build_stream cut = ... and hyphen_continues; grep finds no caller passing it"
+     }
+    ],
+    "not_covered": [
+     "The v1 declared-broken brief on R2's five-spelling file, both trees. It was still in the candidate search after about 40 minutes and I killed it. Partial headers were identical, and the v1 F verdicts for the four non-ASCII spellings are covered in-process (0 diffs 0af_v1 vs 695_v1).",
+     "Connector/MCP path (lyric_check over /mcp). Only the CLI brief verb and in-process calls were exercised.",
+     "grade/revise/verify verbs (Reviser) on king-. Only brief was run end-to-end; it shares relation_phonology_for/build_stream.",
+     "screen verb's declared-relation column.",
+     "Commit items 4 (null scheme) and 5 (pronunciation_variants normalisation) beyond running test_bare_word_variants_are_normalised_as_a_token_is once (OK). These belong to other labels.",
+     "The full harness test suite. Only R2's targeted tests plus test_the_broken_rhyme_split_reads_the_normalised_line were run.",
+     "--voices (strip_parens=False) relation reader path for king-."
+    ],
+    "artifacts_dir": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/king-relation"
+   }
+  }
+ ]
+}

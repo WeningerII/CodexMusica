@@ -1,0 +1,78 @@
+0af_default_broken       exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_default_none         exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_default_perfect      exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_fbhigh_broken        exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_fbhigh_none          exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_fbhigh_perfect       exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_sup_broken           exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_sup_none             exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_sup_perfect          exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_v1_broken            exit=0  scheme=v1 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_v1_none              exit=0  scheme=v1 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_v1_perfect           exit=0  scheme=v1 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_v2_broken            exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_v2_none              exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+0af_v2_perfect           exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+695_default_broken       exit=0  scheme=v2 status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+695_default_none         exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+695_default_perfect      exit=0  scheme=v2 status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+695_fbhigh_broken        exit=0  scheme=v2 status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+695_fbhigh_none          exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+695_fbhigh_perfect       exit=0  scheme=v2 status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+695_sup_broken           exit=0  scheme=v2 status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+695_sup_none             exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+695_sup_perfect          exit=0  scheme=v2 status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+695_v1_broken            exit=0  scheme=v1 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+695_v1_none              exit=0  scheme=v1 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+695_v1_perfect           exit=0  scheme=v1 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+695_v2_broken            exit=0  scheme=v2 status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+695_v2_none              exit=0  scheme=v2 status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+695_v2_perfect           exit=0  scheme=v2 status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+base_default_broken      exit=0  scheme=None status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+base_default_none        exit=0  scheme=None status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+base_default_perfect     exit=0  scheme=None status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+base_fbhigh_broken       exit=0  scheme=None status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+base_fbhigh_none         exit=0  scheme=None status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+base_fbhigh_perfect      exit=0  scheme=None status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=None
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+base_sup_broken          exit=0  scheme=None status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED
+base_sup_none            exit=0  scheme=None status=graded certified=True judged=1 refused=0 rhyme={'rhyme:1:4:0': 'answered'} SCHEME_UNREADABLE=0 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — HOLDS, but carries NOTE HOMEOTELEUTON, which the loop still asks to change
+base_sup_perfect         exit=0  scheme=None status=graded certified=False judged=0 refused=1 rhyme={'rhyme:1:4:0': 'refused'} SCHEME_UNREADABLE=2 sup=v2
+                                must answer group A [1, 4]: L1 ('king-') — UNJUDGED || must answer group A [1, 4]: L4 ('wing') — UNJUDGED

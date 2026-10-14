@@ -1,0 +1,19 @@
+F
+======================================================================
+FAIL: test_a_declared_relation_reads_the_word_broken_at_the_line_end (quality.test_reader.Normalisation.test_a_declared_relation_reads_the_word_broken_at_the_line_end)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/king-relation/e/rev/lyric-harness/quality/test_reader.py", line 399, in test_a_declared_relation_reads_the_word_broken_at_the_line_end
+    self.assertEqual(self._declared("v1", king),
+AssertionError: {'broken rhyme': None, 'perfect rhyme': None, 'unread': ['king']} != {'broken rhyme': True, 'perfect rhyme': True, 'unread': []}
+- {'broken rhyme': None, 'perfect rhyme': None, 'unread': ['king']}
+?                  ^^^                    ^^^              ------
+
++ {'broken rhyme': True, 'perfect rhyme': True, 'unread': []}
+?                  ^^^                    ^^^
+ : -
+
+----------------------------------------------------------------------
+Ran 1 test in 7.145s
+
+FAILED (failures=1)

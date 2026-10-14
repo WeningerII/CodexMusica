@@ -1,0 +1,8 @@
+v1 lex.fallback= None judge.fallback= None 'savour-' {'broken rhyme': None, 'perfect rhyme': None} unread: ['savour'] | line_anchors reads: False
+v1 lex.fallback= None judge.fallback= None 'savour' {'broken rhyme': None, 'perfect rhyme': None} unread: ['savour'] | line_anchors reads: False
+v1 lex.fallback= None judge.fallback= None 'inden-' {'broken rhyme': None, 'perfect rhyme': None} unread: ['inden'] | line_anchors reads: False
+v1 lex.fallback= None judge.fallback= None 'king-' {'broken rhyme': False, 'perfect rhyme': False} unread: [] | line_anchors reads: True
+v1 lex.fallback= high judge.fallback= None 'savour-' {'broken rhyme': None, 'perfect rhyme': None} unread: ['savour'] | line_anchors reads: True
+v1 lex.fallback= high judge.fallback= None 'savour' {'broken rhyme': None, 'perfect rhyme': None} unread: ['savour'] | line_anchors reads: True
+v1 lex.fallback= high judge.fallback= None 'inden-' {'broken rhyme': None, 'perfect rhyme': None} unread: ['inden'] | line_anchors reads: True
+v1 lex.fallback= high judge.fallback= None 'king-' {'broken rhyme': False, 'perfect rhyme': False} unread: [] | line_anchors reads: True
