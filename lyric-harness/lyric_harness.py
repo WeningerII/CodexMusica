@@ -1143,10 +1143,18 @@ class Lexicon:
         CLAUDE.md standing rule 5 a check passes when any one holds it.
         """
         raw = fold_apostrophes(word).lower().strip('"“”.,;:!?()[]')
-        key = raw.strip("'")
         choice = getattr(self, "_pronunciation_choice", None)
         if choice and fold_apostrophes(choice["word"]).lower() == raw:
             return [list(choice["phones"])]
+        # The dictionary is looked up under the reader's entry normalisation
+        # for a bare word (`normalise_word`: NFC, U+2010/U+2011 folded, U+00AD
+        # removed), as `transcribe_word` and every `reader_line` token are, so
+        # `re\u00adad` has the readings `read` has. A declared reading is
+        # matched on the spelling it names (above), unchanged. Scheme v1
+        # looks the bare word up exactly as before the batch.
+        if _scheme_of(self) == "v2":
+            raw = fold_apostrophes(normalise_word(word)).lower().strip('"“”.,;:!?()[]')
+        key = raw.strip("'")
         prons = [list(p) for p in self.entries.get(key, ())]
         reduced = []
         if key.endswith("in"):
@@ -8086,10 +8094,9 @@ def _replay_proposer(path):
     # v1). `main` inherits it when no `--reader-scheme` is declared
     # (`_recorded_reader_scheme`); a declared other one refuses, as a
     # deferred run's does.
-    _rs = rec.get("reader_scheme", "v1")
+    _rs = _record_scheme(rec)
     if _rs not in READER_SCHEMES:
-        _refuse(f"--propose=replay:{path} — recorded reader scheme {_rs!r} "
-                f"is not one this build reads ({', '.join(READER_SCHEMES)})")
+        _refuse(_malformed_scheme_message(f"--propose=replay:{path}", _rs))
     if _rs != resolve_reader_scheme(None) and _READER_SCHEME_DECLARED:
         _refuse("READER_SCHEME_MISMATCH: this replay file was recorded under "
                 f"reader scheme {_rs}, and this call declares "
@@ -8344,6 +8351,26 @@ def _defer_state(path):
     return st
 
 
+def _record_scheme(rec):
+    """-> the reader scheme a record (a deferred state, a kitchen checkpoint,
+    a replay file or an `answered` block) names: `v1` when the field is
+    ABSENT (the record predates it), else the value AS WRITTEN -- a present
+    `null` stays None and an unknown name stays itself, so the caller can
+    tell a pre-batch record from a malformed one (3PO #527 6163315071)."""
+    return rec["reader_scheme"] if "reader_scheme" in rec else "v1"
+
+
+def _malformed_scheme_message(where, value):
+    """-> the one refusal for a recorded reader scheme that is present but
+    not one this build reads (`null` included): absent means pre-batch `v1`,
+    so a present value must name a scheme."""
+    shown = "null" if value is None else repr(value)
+    return (f"{where} — recorded reader scheme {shown} is malformed: a record "
+            f"either names one this build reads ({', '.join(READER_SCHEMES)}) "
+            "or omits the field (a pre-batch record, read as v1). Restore the "
+            "field the run wrote, or start a new run.")
+
+
 def _recorded_reader_scheme(args):
     """-> the reader scheme a resumed run recorded -- `v1` for a record that
     predates the field -- or None when the call starts new work. Read before
@@ -8387,7 +8414,7 @@ def _recorded_reader_scheme(args):
     else:
         # A checkpoint, or a replay file (a finished state's `answered`
         # block): one without the field predates it.
-        scheme = st.get("reader_scheme", "v1")
+        scheme = _record_scheme(st)
     return scheme if scheme in READER_SCHEMES else None
 
 
@@ -8408,7 +8435,7 @@ def _defer_record_scheme(st, recorded):
     (`_defer_proposer` refuses an unknown one)."""
     if not recorded:
         return None
-    return st.get("reader_scheme", "v1")
+    return _record_scheme(st)
 
 
 def _defer_scheme_check(path, st):
@@ -8427,10 +8454,13 @@ def _defer_scheme_check(path, st):
     `--reader-scheme` naming another scheme than the state's. With no flag,
     `main` has already inherited the recorded scheme."""
     here = resolve_reader_scheme(None)
-    run = _defer_record_scheme(st, recorded=os.path.exists(path))
-    if run not in (None,) + READER_SCHEMES:
-        _refuse(f"--propose=defer:{path} — recorded reader scheme {run!r} "
-                f"is not one this build reads ({', '.join(READER_SCHEMES)})")
+    recorded = os.path.exists(path)
+    run = _defer_record_scheme(st, recorded=recorded)
+    # A present `"reader_scheme": null` is malformed, never new work: only a
+    # missing file is new work (`recorded` False); a record without the
+    # field is pre-batch v1.
+    if recorded and run not in READER_SCHEMES:
+        _refuse(_malformed_scheme_message(f"--propose=defer:{path}", run))
     if run not in (None, here) and _READER_SCHEME_DECLARED:
         _refuse("READER_SCHEME_MISMATCH: this deferred run was started under "
                 f"reader scheme {run}, and this call declares "
@@ -8479,6 +8509,10 @@ def _defer_proposer(path, lines=None):
     from quality import propose as PR
     from quality.revise import draft_fingerprint as _dfp
     st = _defer_state(path)
+    # The recorded reader scheme is checked FIRST, before this function
+    # touches the state (a malformed one -- `null`, an unknown name -- refuses
+    # with the state exactly as read); it is applied below.
+    _run_scheme = _defer_scheme_check(path, st)
     # THE RUN KEEPS THE SUPPLEMENT IT WAS STARTED UNDER. A resumed state
     # replays every recorded answer, so reading it under another supplement
     # would re-judge the same song on different words. A state written before
@@ -8504,7 +8538,6 @@ def _defer_proposer(path, lines=None):
     # mismatch is an explicit `--reader-scheme` naming the other one, and it
     # refuses. The state keeps the scheme the run started under.
     _here_scheme = resolve_reader_scheme(None)
-    _run_scheme = _defer_scheme_check(path, st)
     st["reader_scheme"] = _run_scheme or _here_scheme
     # The `answered` block is a replay file (below), so it carries the scheme
     # too -- under v2 only: the pre-batch block carried no such key, and a
@@ -9255,7 +9288,10 @@ def _checkpoint_proposer(one, two, lines, config_key, spec):
             prior = json.loads(checkpoint_bytes)
             if not isinstance(prior, dict):
                 raise ValueError("checkpoint must be an object")
-            run_scheme = prior.get("reader_scheme", "v1")
+            run_scheme = _record_scheme(prior)
+            if run_scheme not in READER_SCHEMES:
+                raise ValueError(_malformed_scheme_message(
+                    "LYRIC_CHECKPOINT_PATH", run_scheme))
             if run_scheme != here_scheme:
                 raise ValueError(
                     f"READER_SCHEME_MISMATCH: this run was started under reader "

@@ -354,6 +354,35 @@ does and does not protect one built before the release.
   or an explicit `--reader-scheme=v1`) keeps the whole pre-batch reading (D1):
   counts and named places alike resolve under the earlier cut, exactly as they
   did when the state was written.
+- **A recorded reader scheme is absent or named; `null` is malformed.** A
+  deferred state, a kitchen checkpoint, a replay file or an `answered` block
+  without the `reader_scheme` field predates it and resumes as v1. A field that
+  is present but holds `null` (or any name other than `v1`/`v2`) is malformed:
+  the resume, `tryline`'s pre-flight, the checkpoint and the replay all refuse
+  it with one message, before the record is touched. This build never writes
+  `null`; only a hand-edited or foreign record holds one. Whether a connector
+  caller can deliver such a record at all is established by source reading
+  only, not by a test: the refusal is the harness's, wherever the record
+  arrives from.
+- **A word broken across the line end** (`king-` / `dom of daylight's…`): the
+  current cut keeps the hyphen inside the token, and a hyphenated word reads
+  only whole, so the declared-relation reader (the registered English reader a
+  plain lexicon gets, fallback refused) read `king-` as no word while
+  `line_anchors` read `king`, and a declared `broken rhyme` or `perfect rhyme`
+  on that pair went unjudged. The relation stream now reads the printed part of
+  the line-final broken word through the same phonology and its own fallback
+  policy (`English.split_final_stem`), and only after the token itself read
+  nothing (a declared reading of `king-` answers first). A numeral broken there
+  (`2-`) and a printed boundary stay refused, and the bare word `king-` still
+  has no reading. All five hyphen spellings give one verdict; v1 keeps its own
+  answers (ASCII `-` only). On the English song corpus, 13 of the 18 lines that
+  end on such a word (of 281,069) are now read in the stream; 5 stay refused.
+- **A bare word is looked up as a token is.** Under v2,
+  `pronunciation_variants` (and `English.parses`, `whole_reading` and the
+  `types` verb built on it) looks a bare word up under the reader's entry
+  normalisation, as `transcribe_word` and every line token already did, and a
+  supplement row found that way is credited to its own source. v1 and declared
+  readings are unchanged.
 
 ## What the money limits establish
 

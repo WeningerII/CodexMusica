@@ -940,6 +940,13 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                 for ti, w in enumerate(words):
                     token_phon = line_phon.for_token(ti) if hasattr(line_phon, "for_token") else line_phon
                     sy = token_phon.syllabify(w) if ti != boundary else []
+                    if (not sy and cut and ti == len(words) - 1 and ti != boundary
+                            and hasattr(token_phon, "split_final_stem")):
+                        # The word broken across the line end (`king-`):
+                        # the phonology names the printed part it reads,
+                        # as `line_anchors` does; the token keeps its text.
+                        stem = token_phon.split_final_stem(w)
+                        sy = token_phon.syllabify(stem) if stem else []
                     if sy:
                         read.append((ti, w, sy))
                     else:

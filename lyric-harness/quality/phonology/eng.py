@@ -385,6 +385,32 @@ class English(Phonology):
             text = lh.normalise_word(text)
         return bool(self._SPLIT_FINAL.search(text))
 
+    def split_final_stem(self, word):
+        """-> the spelling the relation stream reads for a line's LAST token
+        when the line ends on a word broken by a hyphen (`split_final`), or
+        None.
+
+        Under `v2` the token cut keeps the hyphen of `king-` inside the token
+        (D3), and a hyphenated word reads only whole (`read`), so the
+        canonical token `king-` -- every hyphen spelling folds to it -- read
+        as no word, while `line_anchors` reads the printed part before the
+        break: a declared `broken rhyme` or `perfect rhyme` on that line went
+        from judged to refused (BB8 #527, 3PO 6163315071). The stream asks
+        this only for the line-final token of a split line, and only after
+        the token itself read nothing (a declared reading of `king-` answers
+        first); the stem is then read by this same phonology, with its own
+        fallback policy and every guard (`2-` stays a refused numeral, a
+        stem that is itself hyphenated reads whole or not at all). No other
+        token, and no bare-word reading, changes. `v1` answers None: its
+        stream cut `king` without the hyphen already."""
+        import lyric_harness as lh
+        if self.reader_scheme == "v1":
+            return None
+        w = lh.normalise_word(word)
+        if not w.endswith("-") or not re.search(r"[\w’']-$", w):
+            return None
+        return w[:-1]
+
     def _fallback(self):
         """-> the G2P fallback over the lexicon this phonology reads through
         NOW. Without its own lexicon a phonology reads through the shared one

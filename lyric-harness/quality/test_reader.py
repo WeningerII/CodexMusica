@@ -351,6 +351,113 @@ class Normalisation(unittest.TestCase):
                          {"-": True, "\u2010": False, "\u2011": False,
                           "-\u00ad": False, "\u00ad-": False})
 
+    #: The five spellings the v2 reader folds to the one token `king-`.
+    HYPHENS = ("-", "\u2010", "\u2011", "-\u00ad", "\u00ad-")
+    TAIL = ["dom of daylight's dauphin, dapple-dawn-drawn Falcon, in his riding",
+            "Of the rolling level underneath him steady air, and striding",
+            "High there, how he rung upon the rein of a wimpling wing"]
+
+    def _declared(self, scheme, first):
+        """-> {relation: verdict} for L1~L4 through the PRODUCTION relation
+        reader (`revise.relation_phonology_for` of a plain lexicon), plus the
+        line-1 tokens the stream refused."""
+        import quality.relations as RL
+        import quality.revise as RV
+        with LH.reader_scheme_scope(scheme):
+            judge = RV.relation_phonology_for(LH.Lexicon(reader_scheme=scheme))
+            st = RL.build_stream([first] + self.TAIL, judge)
+            out = {rel: RL.line_pairs_for(RL.REGISTRY[rel], st, keep_refusal=True,
+                                          requested_pairs={(1, 4)}).verdict((1, 4))
+                   for rel in ("broken rhyme", "perfect rhyme")}
+            out["unread"] = [w for (li, _, w) in st.unreadable if li == 0]
+            return out
+
+    def test_a_declared_relation_reads_the_word_broken_at_the_line_end(self):
+        # BB8 (#527, receipts at de44bd78) and 3PO (#527 6163315071): under v2
+        # the REGISTERED relation reader -- what `relation_phonology_for` gives
+        # a plain lexicon, fallback refused -- could not read the canonical
+        # token `king-` that `line_anchors` reads, so a declared broken rhyme
+        # went True -> None (ASCII) or False -> None (the other four
+        # spellings), and a declared perfect rhyme True -> None. The stream
+        # now reads the printed part of the line-final broken word through the
+        # same phonology; v1, numerals, printed boundaries and bare words keep
+        # their answers.
+        from quality import phonology as PH
+        import quality.revise as RV
+        with LH.reader_scheme_scope("v2"):
+            judge = RV.relation_phonology_for(LH.Lexicon(reader_scheme="v2"))
+            self.assertIs(judge, PH.get("eng"))          # the production reader
+            self.assertIsNone(judge.fallback)            # its fallback policy
+            self.assertIsNone(judge.read("king-"))       # no bare-word change
+            self.assertEqual(judge.split_final_stem("king-"), "king")
+            self.assertIsNone(judge.split_final_stem("king"))
+        for h in self.HYPHENS:
+            king = "I caught this morning morning's minion, king" + h
+            self.assertEqual(self._declared("v2", king),
+                             {"broken rhyme": True, "perfect rhyme": True, "unread": []}, h)
+            # v1: the pre-batch raw-line answers, unchanged
+            self.assertEqual(self._declared("v1", king),
+                             {"broken rhyme": h == "-", "perfect rhyme": True, "unread": []}, h)
+            # a numeral broken at the line end stays a refused numeral (D14)
+            two = "I caught this morning morning's minion, 2" + h
+            self.assertEqual(self._declared("v2", two),
+                             {"broken rhyme": None, "perfect rhyme": None, "unread": ["2-"]}, h)
+        # A printed boundary is never read, the broken word before it neither.
+        for first, unread in (("I caught this morning morning's minion, \u0915-", ["\u0915-"]),
+                              ("I caught this minion, \u00d7king-", ["\u00d7king-", "king-"]),
+                              ("the minion, \u6211king-", ["king-", "\u6211king-"])):
+            got = self._declared("v2", first)
+            self.assertEqual(got["unread"], unread, first)
+            self.assertEqual((got["broken rhyme"], got["perfect rhyme"]), (None, None), first)
+        with LH.reader_scheme_scope("v1"):
+            self.assertIsNone(PH.get("eng").split_final_stem("king-"))
+
+    def test_the_brief_verb_judges_the_declared_broken_word(self):
+        # The same through the `brief` verb (the connector's lyric_check), one
+        # run per scheme and relation over the five spellings at once (groups
+        # 1,4;5,8;...): every pair judged and holding under v2, declared
+        # broken, declared perfect and undeclared alike. Under v1 the declared
+        # perfect and the undeclared pairs hold, and the declared broken rhyme
+        # holds for ASCII `-`; the other four v1 broken-rhyme pairs are False
+        # (asserted in-process above), where `brief` runs its candidate search
+        # (minutes), so that run is not repeated here.
+        work = Path(tempfile.mkdtemp())
+        self.addCleanup(__import__("shutil").rmtree, work, True)
+        five = work / "five.txt"
+        five.write_text("\n\n".join("\n".join(["I caught this morning morning's minion, king" + h]
+                                               + self.TAIL) for h in self.HYPHENS) + "\n",
+                        encoding="utf-8")
+        one = work / "one.txt"
+        one.write_text("\n".join(["I caught this morning morning's minion, king-"] + self.TAIL) + "\n",
+                       encoding="utf-8")
+        env = {k: v for k, v in os.environ.items()
+               if k not in ("LYRIC_CONTROL_TOKEN", "LYRIC_CHECKPOINT_PATH",
+                            "LYRIC_REQUEST_DEADLINE_MS")}
+
+        def brief(scheme, draft, groups, relation):
+            r = subprocess.run([sys.executable, str(ROOT / "lyric_harness.py"),
+                                f"--reader-scheme={scheme}", "brief", str(draft),
+                                f"--groups={groups}"]
+                               + ([f"--relation={relation}"] if relation else []),
+                               capture_output=True, text=True, env=env, cwd=ROOT, timeout=900)
+            row = json.loads([l for l in r.stdout.splitlines()
+                              if l.startswith("  lyric result: ")][-1][len("  lyric result: "):])
+            return row["reader_scheme"], {
+                o["id"]: o["status"] for o in row["coverage"]["obligations"]
+                if o["layer"] == "rhyme"}, row["coverage"]["certified"]
+
+        all5 = "1,4;5,8;9,12;13,16;17,20"
+        pairs5 = {f"rhyme:{a}:{a + 3}:{k}": "answered" for k, a in enumerate((1, 5, 9, 13, 17))}
+        runs = [("v2", five, all5, "schema:broken rhyme", pairs5),
+                ("v2", five, all5, "schema:perfect rhyme", pairs5),
+                ("v2", five, all5, "", pairs5),
+                ("v1", five, all5, "schema:perfect rhyme", pairs5),
+                ("v1", five, all5, "", pairs5),
+                ("v1", one, "1,4", "schema:broken rhyme", {"rhyme:1:4:0": "answered"})]
+        for scheme, draft, groups, relation, want in runs:
+            with self.subTest(scheme=scheme, relation=relation, draft=draft.name):
+                self.assertEqual(brief(scheme, draft, groups, relation), (scheme, want, True))
+
     def test_a_supplemented_bare_word_is_normalised_as_a_token_is(self):
         # Regression: SupplementedLexicon.transcribe_word looked a supplement
         # row up under the raw spelling, so a bare-word caller missed the row
@@ -366,6 +473,48 @@ class Normalisation(unittest.TestCase):
         v1 = LS.SupplementedLexicon(version=LS.canonical_version("v2"), reader_scheme="v1")
         self.assertEqual(v1.transcribe_word("streetlight"), (want, False))
         self.assertNotEqual(v1.transcribe_word("street\u00adlight"), (want, False))
+
+    def test_bare_word_variants_are_normalised_as_a_token_is(self):
+        # 3PO #527 6163315071 (BB8's minor): `pronunciation_variants` (and the
+        # readers built on it: `English.parses`, `whole_reading`, the `types`
+        # verb) looked a bare word up under its raw spelling, while
+        # `transcribe_word` and every `reader_line` token are normalised under
+        # v2. Now one normalisation, the provenance follows the row actually
+        # found, and v1 and declared readings are unchanged.
+        import copy as _copy
+        import quality.lexicon_supplement as LS
+        from quality.phonology.eng import English
+        v2, v1 = LH.Lexicon(reader_scheme="v2"), LH.Lexicon(reader_scheme="v1")
+        for spelling, plain in (("re\u00adad", "read"), ("th\u00ade", "the"),
+                                ("x\u2010ray", "x-ray"), ("x\u2011ray", "x-ray")):
+            want = v2.pronunciation_variants(plain)
+            self.assertTrue(want, plain)
+            # the token a line reads is the normalised spelling
+            self.assertEqual(LH.line_tokens("I " + spelling, True, "v2")[-1], plain)
+            self.assertEqual(v2.pronunciation_variants(spelling), want, spelling)
+            self.assertEqual(v2.transcribe_word(spelling), (list(want[0]), False))
+            self.assertEqual(len(English(lexicon=v2).parses(spelling)), len(want), spelling)
+            # scheme v1 looks the raw spelling up, as before the batch
+            self.assertEqual(v1.pronunciation_variants(spelling), [], spelling)
+        # A declared reading is matched on the spelling it names, unchanged.
+        decl = _copy.copy(v2)
+        decl._pronunciation_choice = {"word": "read", "phones": ["R", "IY1", "D"], "source": "me"}
+        self.assertEqual(decl.pronunciation_variants("read"), [["R", "IY1", "D"]])
+        self.assertEqual(decl.pronunciation_variants("re\u00adad"), v2.pronunciation_variants("read"))
+        # The supplement: the row found under the normalised spelling is the
+        # one credited (its source, never CMUdict), and v1 is unchanged.
+        row = ["S", "T", "R", "IY1", "T", "L", "AY2", "T"]
+        sv2 = LS.SupplementedLexicon(version=LS.canonical_version("v2"), reader_scheme="v2")
+        sv1 = LS.SupplementedLexicon(version=LS.canonical_version("v2"), reader_scheme="v1")
+        source = sv2.reading_source("streetlight", row)
+        self.assertTrue(source and source != "cmudict", source)
+        for spelling in ("street\u00adlight", "streetli\u00adght"):
+            self.assertEqual(sv2.pronunciation_variants(spelling), [row], spelling)
+            self.assertEqual(sv2.reading_source(spelling, row), source, spelling)
+            self.assertEqual(sv2.whole_reading(spelling), (row, source), spelling)
+            self.assertEqual(sv1.pronunciation_variants(spelling), [], spelling)
+            self.assertIsNone(sv1.whole_reading(spelling), spelling)
+        self.assertEqual(sv1.whole_reading("streetlight"), (row, source))
 
     def test_soft_hyphen_inside_a_token_changes_no_text(self):
         # Every interior position of every piece of every token, joined
@@ -2045,6 +2194,73 @@ class LegacyReplay(unittest.TestCase):
                     self.assertRaises(SystemExit):
                 LH._defer_scheme_check(path, json.loads(Path(path).read_text()))
             self.assertIn("READER_SCHEME_MISMATCH", out.getvalue())
+        finally:
+            LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = saved
+
+    def test_a_present_null_scheme_is_malformed_not_pre_batch(self):
+        # 3PO #527 6163315071: an ABSENT `reader_scheme` is a pre-batch record
+        # (v1); a PRESENT `null` is malformed. A deferred state holding null
+        # was resumed under v2 and a call checkpoint holding null refused
+        # with advice naming `--reader-scheme=None`. Every reader of a record
+        # now refuses a present value it does not read, before it touches
+        # the state, in one set of words.
+        import contextlib
+        import copy as _copy
+        import io
+        from unittest import mock
+        from quality.propose import ProposerUnavailable
+        self.assertEqual(LH._record_scheme({}), "v1")
+        self.assertIsNone(LH._record_scheme({"reader_scheme": None}))
+        self.assertEqual(LH._record_scheme({"reader_scheme": "v9"}), "v9")
+        saved = (LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED)
+        lines = ["the water holds the light", "the morning turns to grey"]
+        try:
+            for active, declared in (("v2", False), ("v2", True), ("v1", True)):
+                LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = active, declared
+                for state in ({"answered": {"propose": [], "propose_group": []},
+                               "reader_scheme": None},
+                              {"version": 1, "answered": {"propose": [["x"]], "propose_group": []},
+                               "pending": None, "input_draft": lines, "accepted_lines": lines,
+                               "reader_scheme": None}):
+                    path = self._state(state)
+                    before = Path(path).read_bytes()
+                    st = json.loads(before)
+                    snap = _copy.deepcopy(st)
+                    with contextlib.redirect_stdout(io.StringIO()) as out, \
+                            self.assertRaises(SystemExit):
+                        LH._defer_scheme_check(path, st)
+                    self.assertIn("recorded reader scheme null is malformed", out.getvalue())
+                    self.assertEqual(st, snap)
+                    # the resuming proposer refuses before any write
+                    with contextlib.redirect_stdout(io.StringIO()) as out, \
+                            self.assertRaises(SystemExit):
+                        LH._defer_proposer(path, lines)
+                    self.assertIn("recorded reader scheme null is malformed", out.getvalue())
+                    self.assertEqual(Path(path).read_bytes(), before)
+                    # main does not inherit a malformed scheme
+                    self.assertIsNone(LH._recorded_reader_scheme(
+                        ["finish", "d.txt", f"--propose=defer:{path}"]))
+                # absent stays the pre-batch v1 record
+                path = self._state({"answered": {"propose": [], "propose_group": []}})
+                if active == "v1" or not declared:
+                    self.assertEqual(LH._defer_scheme_check(path, json.loads(Path(path).read_text())), "v1")
+                # a replay file (an `answered` block) holding null refuses alike
+                rpath = self._state({"propose": [], "propose_group": [], "reader_scheme": None})
+                with contextlib.redirect_stdout(io.StringIO()) as out, \
+                        self.assertRaises(SystemExit):
+                    LH._replay_proposer(rpath)
+                self.assertIn("recorded reader scheme null is malformed", out.getvalue())
+                # a kitchen checkpoint holding null: malformed, never "resume
+                # with --reader-scheme=None"; the file is not rewritten
+                cpath = self._state({"version": 1, "input_draft": lines, "reader_scheme": None,
+                                     "proposals": [], "answered": {"propose": [], "propose_group": []}})
+                before = Path(cpath).read_bytes()
+                with mock.patch.dict(os.environ, {"LYRIC_CHECKPOINT_PATH": cpath}), \
+                        self.assertRaises(ProposerUnavailable) as caught:
+                    LH._checkpoint_proposer(None, None, lines, "k", "call:x")
+                self.assertIn("recorded reader scheme null is malformed", str(caught.exception))
+                self.assertNotIn("None", str(caught.exception))
+                self.assertEqual(Path(cpath).read_bytes(), before)
         finally:
             LH._ACTIVE_READER_SCHEME, LH._READER_SCHEME_DECLARED = saved
 

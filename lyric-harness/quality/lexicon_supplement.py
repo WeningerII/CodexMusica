@@ -486,9 +486,19 @@ class SupplementedLexicon(LH.Lexicon):
                 f"({self.supplement_rows} readings, sha256 "
                 f"{self.supplement_sha256[:12]})")
 
+    def _entry_word(self, word):
+        """-> `word` as this lexicon looks it up: under `v2` the reader's
+        entry normalisation for a bare word (`LH.normalise_word`), as
+        `transcribe_word` and a `reader_line` token of the same spelling are;
+        under `v1` the spelling as given (the pre-batch lookup)."""
+        return LH.normalise_word(word) if LH._scheme_of(self) == "v2" else word
+
     def reading_source(self, word, phones):
-        """-> 'cmudict', a `SOURCES` key, or None if neither holds this reading."""
-        key, phones = _key(word), tuple(phones)
+        """-> 'cmudict', a `SOURCES` key, or None if neither holds this reading.
+        Keyed as `pronunciation_variants` looks the word up (`_entry_word`),
+        so a reviewed row found under the normalised spelling is credited to
+        its source, never to CMUdict."""
+        key, phones = _key(self._entry_word(word)), tuple(phones)
         keys = tuple(dict.fromkeys((key, _bare(key))))
         for k in keys:
             if (k, phones) in self._reading_sources:
@@ -573,7 +583,7 @@ class SupplementedLexicon(LH.Lexicon):
         # token's edge apostrophes before looking it up, so `wi'` (Scots
         # *with*) would read as whatever `wi` is. A reviewed row for the
         # apostrophe-bearing form is about exactly this token, so it leads.
-        key = _key(word)
+        key = _key(self._entry_word(word))
         bare = _bare(key)
         exact = ([list(p) for p in self.entries.get(key, ())
                   if (key, tuple(p)) in self._reading_sources]
