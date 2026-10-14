@@ -1,0 +1,10 @@
+Working code checkout: /workspace/acceptance-68e at 68e213d0aadf589319bce345b8eebc4b0d0a60f1.
+Dependencies reuse installed node_modules from /workspace/acceptance-code via temporary symlinks (removed afterwards).
+
+/workspace/acceptance-venv/bin/python /workspace/acceptance-tail/batch_tail.py > /workspace/acceptance-tail/batch_tail.log 2>&1
+LYRIC_PYTHON=/workspace/acceptance-venv/bin/python LYRIC_STAGED_DATA=/workspace/acceptance-code/lyric-harness/data OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 node /workspace/acceptance-tail/real_tail.mjs > /workspace/acceptance-tail/real_tail.log 2>&1
+
+real_tail_attempt1.mjs was the first attempt; same command/environment, exit1 on the null-vs-undefined tester assertion. Corrected real_tail.mjs exit0.
+
+git diff --name-only 0af39c6f 68e213d0 -- lyric-harness/library sites/library mcp/library_search.js mcp/library_exports.js tests/library/goldens/317c
+# No changed paths. parity_hashes.json hashes git show REF:PATH bytes, not normalized records.

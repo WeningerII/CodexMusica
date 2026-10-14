@@ -1,0 +1,31 @@
+Historical 317c parity disposition: not a blocker for this reader batch.
+
+Search script tests 363 query responses and 20 metadata responses against the
+pinned 317c Worker's goldens. Export script tests nine selection ZIPs (entry order,
+byte count, SHA256) against that same historical export. Neither invokes the
+reader/tokenizer, lyric revise loop, the lyrics-page declaration parser, browser
+caret logic, or draft-to-draft Library import/Undo persistence being changed here.
+They validate native Library search/store export compatibility with an already
+materialized historical catalog, not new reader semantics.
+
+Read-only inspection found no compatible installed search/export stores in
+/workspace or /tmp (store.json / export-store.json / historical317c manifests).
+The committed goldens are expected results, not the required input stores.
+The dedicated .github/workflows/library-site.yml workflow reconstructs snapshot
+317c5afae76bfce833ed10fd06d48ddd9ffa17053fbf02d7c461e80abedf86b7 from
+031b7de424714d4b0e53e138c8e227df2592bb0c, then builds the search/export stores.
+That would create missing catalog data, which this task expressly forbids.
+No reconstruction or fabricated substitute was attempted; scripts not run.
+
+parity_hashes.json proves identical SHA256s at 0af39c6f, 8ea94ac9, a09703a0 and
+68e213d0 for both test scripts, their native implementation/casefold dependency,
+store builders, workflow and all committed 317c golden files. The complete
+lyric-harness/library and sites/library trees likewise have no changes between
+0af and 68e (git diff --name-only returned no paths). Thus there is no changed
+contract in this batch requiring renewed historical parity qualification.
+
+Existing independent_gates_68e receipts already passed the native Library search,
+exports, routes, corpus and reader store/client fixture tests. Those passes do
+not claim historical golden parity; historical parity remains unrun. The absent
+actual catalog interruption/resume test remains explicitly skipped as previously
+reported, separate from this focused lyric continuation evidence.

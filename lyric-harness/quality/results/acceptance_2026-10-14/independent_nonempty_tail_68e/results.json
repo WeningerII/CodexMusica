@@ -1,0 +1,11 @@
+{
+  "head": "68e213d0aadf589319bce345b8eebc4b0d0a60f1",
+  "batch_exit_code": 0,
+  "batch_duration_seconds": 0.05353665351867676,
+  "real_exit_code": 0,
+  "real_call_seconds": 34.363,
+  "real_calls": 4,
+  "real_host_continuation_limit": 3,
+  "first_attempt_exit_code": 1,
+  "first_attempt_reason": "tester expected undefined on cache miss, actual documented null"
+}

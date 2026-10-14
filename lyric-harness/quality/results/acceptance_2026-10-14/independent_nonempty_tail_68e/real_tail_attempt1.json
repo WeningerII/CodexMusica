@@ -1,0 +1,101 @@
+{
+  "head": "68e213d0aadf589319bce345b8eebc4b0d0a60f1",
+  "host_call_limit": 4,
+  "host_continuation_limit": 3,
+  "timeout_ms": 120000,
+  "input": [
+    "Cat",
+    "Dog",
+    "Sun"
+  ],
+  "edits": [
+    "I watched the window like a diplomat",
+    "She tumbled down the stairs, an acrobat"
+  ],
+  "calls": [
+    {
+      "number": 1,
+      "seconds": 14.231,
+      "exit_code": 4,
+      "status": "awaiting_proposal",
+      "run_id": "run_1e59a00d0f544fe584f1af95ccef19b41c246ce77963c59355cdb3a412ce8448",
+      "run_revision": 1,
+      "final_draft": [
+        "Cat",
+        "Dog",
+        "Sun"
+      ],
+      "pending": {
+        "kind": "propose",
+        "record": {
+          "line": 2,
+          "attempt": 0,
+          "round": 1,
+          "draft": "db1a426948d0",
+          "text": null
+        },
+        "prompt": "REVISE ONE LINE — L2 of a 3-line draft.\n\nYou are given a draft, one line of it a grader has flagged, everything that grader\nmeasured, and the rules it will apply to what you send back. Rewrite that ONE line.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE LINE TO REVISE\n  L2: Dog\n\nTHE WHOLE DRAFT (context — only L2 may change)\n     L1  Cat\n  >> L2  Dog\n     L3  Sun\n\nWHAT THE GRADER FOUND ON L2 (1)\n  [flag] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2, 3] but do not stand in the relation it requires (lines 1, 2)\n      evidence: does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.644; 'Cat' ~ 'Dog')\n\nWHOLE-DRAFT FINDINGS — PRESERVE THESE CONSTRAINTS (1)\n  These are measured over the WHOLE DRAFT. Preserve their constraints while changing only the permitted lines.\n  A permitted rewrite may improve or clear a whole-draft finding; it is not required to clear every one in this single edit.\n  The grader reads them too: a revision that makes one WORSE is rejected.\n  [note] OUT_OF_CALIBRATED_LENGTH: 3 tokens is outside every calibrated length; the length-sensitive checks did not run\n      evidence: profiles cover section 28-36 (reach 14-72), sonnet 105-123 (reach 52-246), lyric 4-3244 (reach 4-3244) tokens, each with its own declared reach. MATTR in particular is a moving average over a 50-token window (declared: FloorDeclaration.mattr_window) and silently degrades to plain type-token ratio below that, so a threshold measured at one length is a different statistic at another. WHAT DID RUN: the relation-level checks (self-rhyme, radif, cliche, shared suffix), which read no percentile and do not depend on length. Of those, only REPEAT_IN_VERSE can still be a FLAG here — a word rhymed with itself is a fact about the two lines and needs no calibration. CLICHE_PAIR is a NOTE at this length: nothing about the membership test changes, but the only false-positive rates it has were measured in the two SUPERSEDED band rows — 7.33% at 150-350 tokens (`song`, seed 5th-95th 5.69-8.71%) and 4.51% at 50-150 tokens (`short`, seed 5th-95th 3.96-5.08%) — and neither covers 3 tokens. REPINNED 2026-09-05 (M-239): this branch used to add that out here the check runs at 14.74% against 6.35% in band (285 corpus items, 42 firing); that 285-item population was the corpus outside the 2026-08-14 BAND table, and under the live table it is empty — no corpus item sits under 4 or over 3,245 tokens, so there is no measured rate out here at all (doctrine 22), which is exactly why this is a note. RADIF_LICENSED and SHARED_SUFFIX are notes at every length\n\nTHE RHYME MANDATE ON L2\n  group A [1, 2, 3] at its end word — this line must stand in at least one relation with: L1 ('Cat'), L3 ('Sun') — VIOLATED, this is the word to change\n  NO JOINT CANDIDATE at field_depth=complete pool, field_band='grader': this bounded search found no word that answers all of those groups at once; no impossibility is proved.\n    ~~The MANDATE, not the line, is what needs revising — a one-line rewrite here is re-running a search that has already come back empty.~~ STRUCK 2026-09-03 (M-202): the grader flags PAIRS, not the conjunction, so a word that answers the VIOLATED call and leaves the others standing is accepted — measured, first try.\n    WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN (2 of 2 call(s) here answerable):\n      Cat — 24 word(s): matt, pratt, habitat, diplomat, pussycat, democrat, copycat, format, aristocrat, chitchat, laundromat, wildcat, bureaucrat, platt, doormat, thermostat, acrobat, tomcat, matte, snapchat, bobcat, spratt, caveat, wombat\n      Sun — 6 word(s): someone, everyone, anyone, grandson, hon, shotgun\n    Read the mandate above for WHICH call is VIOLATED and which HOLDS. Answering a violated call\n    trades nothing; answering one that holds breaks the other pair and is rejected as a new flag.\n\nOFFERED — words for the end word that answer every group bound there\n  26 word(s) the band admitted are NOT offered: this place is judged by its group's declared\n  relation, and it did not certify them (can, but, an, man, than, shut, cut, plan, …).\n  The list below is what that relation accepts — the same judge the verdict uses.\n  (no JOINT candidate field was offered — and that is NOT 'nothing answers this line'. The\n  searched fields yielded no joint offer. WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN is listed\n  above as suggestions; a rewrite must fix a finding without breaking or losing coverage of another obligation.)\n\nFORBIDDEN — do not MOVE L2 TO any of these (0)\n  (none — the modal head was COMPUTED for this line and came back EMPTY, which is not\n  the same as it not having been asked.\n  Every word the head held fails the relation this place declares, so none of them\n  could be taken here and none is listed.\n  Doctrine 9 is not being applied to you here; it found nothing to apply.)\n\nTHE WORD ALREADY THERE — a DIFFERENT rule from the one above (1)\n  dog\n  This is the end word L2 already has. Re-proposing it is not a revision — but it\n  is NOT rejected outright the way the list above is: the grader asks whether a modal\n  candidate was TAKEN, and keeping the word you were given takes nothing. A line that\n  keeps it is refused by rule 4 below ('nothing was fixed') UNLESS the rewrite repaired\n  something else — a meter finding, say — in which case keeping it is accepted.\n\nLINES THAT MUST NOT CHANGE\n  L1 — the grader found nothing on them.\n  The tool applies your one answer to L2. Every other line stays byte-identical. Changing one is rejected\n  outright even if the change is an improvement.\n\nWHAT THE GRADER ENFORCES ON YOUR ANSWER\n  1. ONE line back, and it replaces L2. The draft stays 3 lines — a different\n     line count is rejected outright: this loop revises lines, it does not restructure\n     the draft.\n  2. ONLY L2 changes (declared returns are mirrored). Any other line that comes back different is rejected\n     outright, whatever else the revision achieved.\n  3. The end word L2 MOVES TO is not one of the FORBIDDEN words above. That is\n     checked before anything else about the line and rejects on its own. KEEPING the\n     word already there is not a move and is not rejected here — see item 4.\n  4. The line must FIX at least one finding. A rewrite that is differently defective\n     is rejected as 'nothing was fixed'.\n  5. It may not trade one defect for another: new FLAG findings anywhere in the draft\n     — including on lines you did not touch — reject it once they exceed the declared\n     `allow_net_new` (0 by default). New NOTES do not reject.\n\nHOW TO ANSWER\n  Send the line and nothing else: one line, no quotation marks around it, no line\n  number, no commentary, no code fence. If you must explain yourself first, put the\n  line LAST, alone on its own line, beginning with `LINE: `. Anything ambiguous —\n  two candidate lines, a quoted line, an explanation with no marker — is discarded\n  unread and costs you this attempt.\n  The line is at most 200 characters; a longer one is not accepted.",
+        "answer": null
+      },
+      "accepted_lines": [
+        "Cat",
+        "Dog",
+        "Sun"
+      ],
+      "outcomes": [],
+      "answered": {
+        "propose": [],
+        "propose_group": [],
+        "reader_scheme": "v2"
+      }
+    },
+    {
+      "number": 2,
+      "seconds": 4.525,
+      "exit_code": -1,
+      "status": "interrupted",
+      "run_id": "run_1e59a00d0f544fe584f1af95ccef19b41c246ce77963c59355cdb3a412ce8448",
+      "run_revision": 2,
+      "final_draft": [
+        "Cat",
+        "I watched the window like a diplomat",
+        "Sun"
+      ],
+      "pending": null,
+      "accepted_lines": [
+        "Cat",
+        "I watched the window like a diplomat",
+        "Sun"
+      ],
+      "outcomes": [
+        {
+          "line": 2,
+          "attempt": 0,
+          "round": 1,
+          "text": "I watched the window like a diplomat",
+          "accepted": true,
+          "reasons": [
+            "fixed 2, introduced 0, changed only [2]"
+          ]
+        }
+      ],
+      "answered": {
+        "propose": [
+          {
+            "line": 2,
+            "attempt": 0,
+            "round": 1,
+            "draft": "db1a426948d0",
+            "text": "I watched the window like a diplomat",
+            "batch": null
+          }
+        ],
+        "propose_group": [],
+        "reader_scheme": "v2"
+      }
+    }
+  ],
+  "omitted_tail": [
+    3
+  ]
+}

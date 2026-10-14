@@ -1,0 +1,45 @@
+Focused nonempty-tail qualification at 68e213d0aadf589319bce345b8eebc4b0d0a60f1
+
+PASS 1: genuine capacity-split batch tail, real _defer_proposer journal.
+Unmodified 1 MiB working cap; fixture prompts use 100000 high-plane characters
+per brief. Four briefs genuinely split into first [1,2], omitted [3,4]. Explicit
+assertion requires a nonempty omitted tail. Four host continuations maximum and
+used: repeat initial pending question, supply first answers, repeat pending tail
+after a second interruption, supply tail answers. Exact pending prompts survive
+serialized disk reloads. Accepted edit L1='accepted one' persists; rejected L2
+remains 'original two'. Tail answers are recorded but not falsely accepted before
+verification. Fixture acceptance then retains L3='accepted three', L4='accepted four'.
+Important: rendering and verification outcomes are fixtures; journal admission,
+serialization, replay and outcome retention are real. This is not native-grader
+or MCP proof of capacity splitting. batch_tail.json contains steps and exact edits.
+
+PASS 2: actual SDK -> MCP handler -> Python worker -> native judge, no mocks or
+providers. Input ['Cat','Dog','Sun'], AAA / class:RHYME, attempts1, backtrack0,
+max_rounds1. Initial question is L2; explicitly asserted nonempty remaining tail
+[3] is unanswered. Actual accepted L2 edit:
+  Dog -> I watched the window like a diplomat
+Abort occurs on the actual accepted checkpoint; returned status is interrupted.
+Kill worker and evict cached run, then resume exclusively from returned state.
+L2 edit survives; pending L3 is still unanswered and is asked on resume. Actual
+accepted L3 edit:
+  Sun -> She tumbled down the stairs, an acrobat
+Final accepted draft is ['Cat', <diplomat line>, <acrobat line>]; original replay
+draft stays ['Cat','Dog','Sun']. Both accepted outcomes asserted. Host bound is
+FOUR total tool calls / THREE continuations, all used, 120000ms timeout per call.
+This case is a dependent serial tail, not journal-capacity splitting. The two
+cases are complementary; no single end-to-end capacity-split proof is claimed.
+real_tail.json contains exact states/outcomes and per-call durations.
+
+Attempt 1 failed only in this new tester: RunStore.byId cache miss returns null,
+where my assertion expected undefined. No production defect or behavior change.
+Original test source/log/partial receipt retained as real_tail_attempt1.*.
+Corrected assertion alone, reran focused case, exit0. batch_tail.py also exited0.
+
+Historical317c parity: not rerun, not a reader-batch blocker. See parity_scope.txt
+and parity_hashes.json for exact contracts, input absence, prohibitions, and
+unchanged SHA256 evidence. No missing catalog data created. Existing skipped
+actual-catalog reader test remains separately untested; these lyric cases do not
+replace it. All previous expensive receipts preserved; no full-suite rerun.
+No production edits, provider calls, merges/deploys, inbox posts or owner-gated
+scope expansion. Local Node24.19.0/Python3.12.14, pinned runtime packages/data as
+recorded in independent_gates_68e. Local evidence, not CI/deployment certification.

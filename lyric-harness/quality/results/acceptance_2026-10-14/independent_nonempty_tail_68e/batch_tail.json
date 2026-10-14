@@ -1,0 +1,312 @@
+{
+  "head": "68e213d0aadf589319bce345b8eebc4b0d0a60f1",
+  "host_continuation_limit": 4,
+  "continuations": 4,
+  "working_cap": 1048576,
+  "initial": [
+    "original one",
+    "original two",
+    "original three",
+    "original four"
+  ],
+  "steps": [
+    {
+      "label": "first capacity-split question",
+      "pending_lines": [
+        1,
+        2
+      ],
+      "accepted_lines": [
+        "original one",
+        "original two",
+        "original three",
+        "original four"
+      ],
+      "answered": {
+        "propose": [],
+        "propose_group": [],
+        "reader_scheme": "v2"
+      },
+      "outcomes": [],
+      "journal_bytes": 800600
+    },
+    {
+      "label": "tail asked, first accepted edit retained",
+      "pending_lines": [
+        3,
+        4
+      ],
+      "accepted_lines": [
+        "accepted one",
+        "original two",
+        "original three",
+        "original four"
+      ],
+      "answered": {
+        "propose": [
+          {
+            "line": 1,
+            "attempt": 0,
+            "round": 1,
+            "draft": "df0f4b6d2e85",
+            "text": "accepted one",
+            "batch": [
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "line": 2,
+            "attempt": 0,
+            "round": 1,
+            "draft": "df0f4b6d2e85",
+            "text": "rejected two",
+            "batch": [
+              1,
+              0,
+              1
+            ]
+          }
+        ],
+        "propose_group": [],
+        "reader_scheme": "v2"
+      },
+      "outcomes": [
+        {
+          "line": 1,
+          "attempt": 0,
+          "round": 1,
+          "text": "accepted one",
+          "accepted": true,
+          "reasons": []
+        },
+        {
+          "line": 2,
+          "attempt": 0,
+          "round": 1,
+          "text": "rejected two",
+          "accepted": false,
+          "reasons": [
+            "fixture rejection"
+          ]
+        }
+      ],
+      "journal_bytes": 800974
+    },
+    {
+      "label": "tail answers folded but not falsely accepted",
+      "pending_lines": null,
+      "accepted_lines": [
+        "accepted one",
+        "original two",
+        "original three",
+        "original four"
+      ],
+      "answered": {
+        "propose": [
+          {
+            "line": 1,
+            "attempt": 0,
+            "round": 1,
+            "draft": "df0f4b6d2e85",
+            "text": "accepted one",
+            "batch": [
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "line": 2,
+            "attempt": 0,
+            "round": 1,
+            "draft": "df0f4b6d2e85",
+            "text": "rejected two",
+            "batch": [
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "line": 3,
+            "attempt": 0,
+            "round": 1,
+            "draft": "6359c50af401",
+            "text": "accepted three",
+            "batch": [
+              3,
+              0,
+              1
+            ]
+          },
+          {
+            "line": 4,
+            "attempt": 0,
+            "round": 1,
+            "draft": "6359c50af401",
+            "text": "accepted four",
+            "batch": [
+              3,
+              0,
+              1
+            ]
+          }
+        ],
+        "propose_group": [],
+        "reader_scheme": "v2"
+      },
+      "outcomes": [
+        {
+          "line": 1,
+          "attempt": 0,
+          "round": 1,
+          "text": "accepted one",
+          "accepted": true,
+          "reasons": []
+        },
+        {
+          "line": 2,
+          "attempt": 0,
+          "round": 1,
+          "text": "rejected two",
+          "accepted": false,
+          "reasons": [
+            "fixture rejection"
+          ]
+        }
+      ],
+      "journal_bytes": 922
+    },
+    {
+      "label": "fixture verification accepted tail edits",
+      "pending_lines": null,
+      "accepted_lines": [
+        "accepted one",
+        "original two",
+        "accepted three",
+        "accepted four"
+      ],
+      "answered": {
+        "propose": [
+          {
+            "line": 1,
+            "attempt": 0,
+            "round": 1,
+            "draft": "df0f4b6d2e85",
+            "text": "accepted one",
+            "batch": [
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "line": 2,
+            "attempt": 0,
+            "round": 1,
+            "draft": "df0f4b6d2e85",
+            "text": "rejected two",
+            "batch": [
+              1,
+              0,
+              1
+            ]
+          },
+          {
+            "line": 3,
+            "attempt": 0,
+            "round": 1,
+            "draft": "6359c50af401",
+            "text": "accepted three",
+            "batch": [
+              3,
+              0,
+              1
+            ]
+          },
+          {
+            "line": 4,
+            "attempt": 0,
+            "round": 1,
+            "draft": "6359c50af401",
+            "text": "accepted four",
+            "batch": [
+              3,
+              0,
+              1
+            ]
+          }
+        ],
+        "propose_group": [],
+        "reader_scheme": "v2"
+      },
+      "outcomes": [
+        {
+          "line": 1,
+          "attempt": 0,
+          "round": 1,
+          "text": "accepted one",
+          "accepted": true,
+          "reasons": []
+        },
+        {
+          "line": 2,
+          "attempt": 0,
+          "round": 1,
+          "text": "rejected two",
+          "accepted": false,
+          "reasons": [
+            "fixture rejection"
+          ]
+        },
+        {
+          "line": 3,
+          "attempt": 0,
+          "round": 1,
+          "text": "accepted three",
+          "accepted": true,
+          "reasons": []
+        },
+        {
+          "line": 4,
+          "attempt": 0,
+          "round": 1,
+          "text": "accepted four",
+          "accepted": true,
+          "reasons": []
+        }
+      ],
+      "journal_bytes": 1093
+    }
+  ],
+  "scope": "real journal admission/replay; fixture-rendered prompts and fixture verification outcomes",
+  "first_subset": [
+    1,
+    2
+  ],
+  "omitted_tail": [
+    3,
+    4
+  ],
+  "pass_result": true,
+  "duration_seconds": 0.05353665351867676,
+  "actual_retained_edits": [
+    {
+      "line": 1,
+      "before": "original one",
+      "after": "accepted one"
+    },
+    {
+      "line": 3,
+      "before": "original three",
+      "after": "accepted three"
+    },
+    {
+      "line": 4,
+      "before": "original four",
+      "after": "accepted four"
+    }
+  ]
+}

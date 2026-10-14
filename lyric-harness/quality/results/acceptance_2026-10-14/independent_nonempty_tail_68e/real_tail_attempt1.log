@@ -1,0 +1,20 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ null
+- undefined
+
+    at file:///workspace/acceptance-tail/real_tail.mjs:25:68 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: null,
+  expected: undefined,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0
