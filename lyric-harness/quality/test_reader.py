@@ -466,9 +466,9 @@ class Normalisation(unittest.TestCase):
         from quality.phonology.eng import English
         with LH.reader_scheme_scope("v2"):
             judge = RV.relation_phonology_for(LH.Lexicon(reader_scheme="v2"))
-            enabled = English(fallback="high", reader_scheme="v2")
+            fallback_phonology = English(fallback="high", reader_scheme="v2")
             self.assertIsNone(judge.read("viewest"))
-            reading = enabled.read("viewest")
+            reading = fallback_phonology.read("viewest")
             self.assertIsNotNone(reading)
             self.assertNotEqual(reading.layer, "dictionary")
             for ending in ("-", "-,"):
@@ -477,7 +477,7 @@ class Normalisation(unittest.TestCase):
                     refused = RL.build_stream(lines, judge)
                     self.assertEqual(refused.unreadable,
                                      [(0, 1, "viewest-"), (1, 1, "viewest")])
-                    allowed = RL.build_stream(lines, enabled)
+                    allowed = RL.build_stream(lines, fallback_phonology)
                     self.assertEqual(allowed.unreadable, [])
                     for stream, expected in ((refused, None), (allowed, False)):
                         self.assertIs(RL.line_pairs_for(
