@@ -1,0 +1,14 @@
+[c61b] prog/A_send (draft value differs from the fixture)
+   after input : ["[SETUP — rhyme groups — 1 (carried across the word-cut change),8;2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1 (carried across the word-cut change),8;2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1,8;2,3"}] via click -> []
+   after send  : ["[SETUP — rhyme groups — 1 (carried across the word-cut change),8;2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."] action ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."] send ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."]
+   card        : action null send null
+[c61b] prog/B_remove (draft value differs from the fixture)
+   after input : ["[SETUP — rhyme groups — 1 (carried across the word-cut change),8;2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1 (carried across the word-cut change),8 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   sent        : [{"groups":"1,8"}] via click -> []
+   after send  : ["[SETUP — rhyme groups — 1 (carried across the word-cut change),8 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   toasts      : input ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."] action ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review.","Rhyme link removed. Undo restores it.\nUndo"] send ["Rhyme link removed. Undo restores it.\nUndo"]
+   card        : action null send null

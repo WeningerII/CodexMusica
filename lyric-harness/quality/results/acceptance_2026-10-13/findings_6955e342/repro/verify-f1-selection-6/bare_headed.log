@@ -1,0 +1,16 @@
+headed click                handler->[22,22] 500ms->[0,0] refocus->[0,0]  changed at "frame 0" t=115
+headed click_same           handler->[15,15] 500ms->[13,13] refocus->[13,13]  changed at "frame 0" t=47
+headed click_noval_sel      handler->[13,13] 500ms->[13,13] refocus->[13,13]
+headed mousedown            handler->[22,22] 500ms->[22,22] refocus->[22,22]
+headed pointerup            handler->[22,22] 500ms->[0,0] refocus->[0,0]  changed at "frame 0" t=41
+headed click_pd             handler->[22,22] 500ms->[22,22] refocus->[22,22]
+headed click_div            handler->[22,22] 500ms->[22,22] refocus->[22,22]
+headed click_raf            handler->[22,22] 500ms->[22,22] refocus->[22,22]
+headed click_t0             handler->[22,22] 500ms->[22,22] refocus->[22,22]  changed at "frame 0" t=58
+headed click_neverfocused   handler->[22,22] 500ms->[22,22] refocus->[22,22]
+headed click_blurfirst      handler->[22,22] 500ms->[0,0] refocus->[0,0]  changed at "frame 0" t=42
+headed click_clickelse      handler->[22,22] 500ms->[22,22] refocus->[22,22]
+headed kbd_enter            handler->[22,22] 500ms->[22,22] refocus->[22,22]
+headed kbd_space            handler->[22,22] 500ms->[22,22] refocus->[22,22]
+headed tab_enter            handler->[22,22] 500ms->[22,22] refocus->[22,22]
+browser 141.0.7390.37

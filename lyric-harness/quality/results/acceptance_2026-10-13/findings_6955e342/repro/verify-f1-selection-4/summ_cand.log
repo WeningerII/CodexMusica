@@ -1,0 +1,7 @@
+e2e_cand_prog-chat-kbd-click_paste.json cand paste
+   prog {"cases":22,"threw":0,"migratedBefore":0,"migratedAtBoundary":22,"sameChars":9,"predMatch":22,"predNull":0,"requests":22,"focusedAfter":22}
+   chat {"cases":22,"threw":0,"migratedBefore":0,"migratedAtBoundary":22,"sameChars":9,"predMatch":22,"predNull":0,"requests":22,"focusedAfter":22}
+   kbd {"cases":22,"threw":0,"migratedBefore":0,"migratedAtBoundary":22,"sameChars":9,"predMatch":22,"predNull":0,"requests":22,"focusedAfter":0}
+   click {"cases":22,"threw":0,"migratedBefore":0,"migratedAtBoundary":22,"sameChars":0,"predMatch":0,"predNull":0,"requests":22,"focusedAfter":0}
+   prog/chat/kbd identical after-selection: 22/22
+   click after-selections: ["[0,0]"]

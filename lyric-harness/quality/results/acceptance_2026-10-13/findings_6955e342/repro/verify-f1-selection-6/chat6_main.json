@@ -1,0 +1,31 @@
+{
+  "tree": "main",
+  "before": [
+    63,
+    63,
+    "forward"
+  ],
+  "menuFound": 1,
+  "afterMenu": {
+    "sel": [
+      63,
+      63,
+      "forward"
+    ],
+    "active": "chat-input"
+  },
+  "chatActive": "chat-input",
+  "reached": 1,
+  "sentReturns": [
+    "1.T2, 2.end"
+  ],
+  "rewritten": false,
+  "after": [
+    63,
+    63,
+    "forward"
+  ],
+  "expectedWalk": 63,
+  "row0": "[SETUP — returns — 1.T2, 2.end]",
+  "errors": []
+}

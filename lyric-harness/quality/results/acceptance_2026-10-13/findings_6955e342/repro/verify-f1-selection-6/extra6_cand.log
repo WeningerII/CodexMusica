@@ -1,0 +1,18 @@
+cand every_button {"tab":"review","i":0,"where":"ly-head","cls":"cm-btn cm-btn-primary ly-run"}: before=[63,63,"forward"] after=[0,0,"forward"] expected=72 LOST
+   trace [["ensure returned true",1707,72],["first rAF",1740,0],["t+0 task",1750,0],["500ms",2307,0]]
+cand every_button {"tab":"review","i":1,"where":"ly-panel-review","cls":"cm-btn cm-btn-primary ly-block"}: before=[63,63,"forward"] after=[0,0,"forward"] expected=72 LOST
+   trace [["ensure returned true",1978,72],["first rAF",2014,0],["t+0 task",2019,0],["500ms",2534,0]]
+cand every_button {"tab":"writer","i":0,"where":"ly-head","cls":"cm-btn cm-btn-primary ly-run"}: before=[63,63,"forward"] after=[72,72,"forward"] expected=72 KEPT
+   trace [["ensure returned true",1664,72],["first rAF",1698,72],["t+0 task",1703,72],["500ms",2214,72]]
+cand click_else_first: before=[63,63,"forward"] after=[72,72,"forward"] expected=72 KEPT clicked {"x":1033.65625,"y":31.5,"text":"Autosaved","el":"SPAN.ui-autosave-text"} {"active":"BODY","docSel":"ui-autosave-text"}
+   trace [["ensure returned true",1903,72],["first rAF",1924,72],["t+0 task",1928,72],["500ms",2446,72]]
+cand tab_out_click: before=[63,63,"forward"] after=[0,0,"forward"] expected=72 LOST afterTab=BODY
+   trace [["ensure returned true",1678,72],["first rAF",1735,0],["t+0 task",1745,0],["500ms",2256,0]]
+cand timing: before=[63,63,"forward"] after=[0,0,"forward"] expected=72 LOST
+   trace [["ensure returned true",1720,72],["first rAF",1762,0],["t+0 task",1769,0],["500ms",2300,0]]
+cand fix_raf: before=[63,63,"forward"] after=[72,72,"forward"] expected=72 KEPT
+   trace [["ensure returned true",1922,72],["first rAF",1965,0],["t+0 task",1976,72],["500ms",2501,72]]
+cand fix_mousedown_pd: before=[63,63,"forward"] after=[72,72,"forward"] expected=72 KEPT
+   trace [["ensure returned true",1484,72],["first rAF",1508,72],["t+0 task",1512,72],["500ms",2033,72]]
+cand mouse_return: before=[63,63,"forward"] after=[0,0,"forward"] expected=72 LOST mouseReturn=[93,93,"forward"]
+   trace [["ensure returned true",1569,72],["first rAF",1611,0],["t+0 task",1619,0],["500ms",2153,0]]

@@ -1,0 +1,166 @@
+S1 desktop: {
+ "toasts": [
+  "Imported old-song.txt. Undo restores the previous draft.\nUndo"
+ ],
+ "item": null,
+ "li": null,
+ "docScrollW": 1440,
+ "vw": 1440
+}
+S1 phone: {
+ "toasts": [
+  "Imported old-song.txt. Undo restores the previous draft.\nUndo"
+ ],
+ "item": null,
+ "li": null,
+ "docScrollW": 390,
+ "vw": 390
+}
+S2: {
+ "preCard": false,
+ "toasts": [
+  "Imported big.txt. Undo restores the previous draft.\nUndo"
+ ],
+ "title": null,
+ "metaItems": null,
+ "metaMore": null,
+ "uiLen": 41,
+ "cardTail": null,
+ "cardHead": null,
+ "evictedCount": 60,
+ "evictedKinds": {
+  "rhyme groups": 30,
+  "reading": 30
+ },
+ "evictedTextRows": [
+  1,
+  1,
+  2,
+  2,
+  3,
+  3,
+  4,
+  4,
+  5,
+  5,
+  6,
+  6,
+  7,
+  7,
+  8,
+  8,
+  9,
+  9,
+  10,
+  10,
+  11,
+  11,
+  12,
+  12,
+  13,
+  13,
+  14,
+  14,
+  15,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23,
+  24,
+  25,
+  26,
+  27,
+  28,
+  29,
+  30,
+  31,
+  32,
+  33,
+  34,
+  35,
+  36,
+  37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
+  44,
+  45
+ ],
+ "firstListed": null,
+ "listedKindsInOrder": null,
+ "toastNamedListed": [],
+ "cardMentionsReadingOh": false,
+ "groupRowsBeforeReadingRowsInText": true,
+ "errors": []
+}
+S2 reload: {"title":null,"same":true}
+S3: {
+ "toasts": [
+  "Imported trunc.txt. Undo restores the previous draft.\nUndo"
+ ],
+ "cardText": null,
+ "ohLinesInDraft": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "readingScopeFromPage": {
+  "line": "Oh--oh, oh my love",
+  "token": 3,
+  "word": "oh",
+  "sungWithText": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
+ },
+ "cardOhLineRef": null,
+ "cardLongWords": null,
+ "toastLongWords": [],
+ "metaItems": null,
+ "errors": []
+}
+S4: {
+ "toastA": [
+  "Imported a.txt. Undo restores the previous draft.\nUndo"
+ ],
+ "cardAfterA": null,
+ "toastB": [
+  "Imported a.txt. Undo restores the previous draft.\nUndo",
+  "Imported b.txt. Undo restores the previous draft.\nUndo"
+ ],
+ "cardAfterB": null,
+ "currentSungLinesB": [
+  "Oh--oh, oh my bravo",
+  "Oh--oh, oh my banjo",
+  "A third line here"
+ ],
+ "aEntriesLine1Now": "Oh--oh, oh my bravo",
+ "aWordsInCurrentDraft": [
+  {
+   "w": "apple",
+   "inDraft": false
+  },
+  {
+   "w": "anchor",
+   "inDraft": false
+  }
+ ],
+ "cardHasSourceLabel": false,
+ "afterReload": null,
+ "errors": []
+}

@@ -1,0 +1,4 @@
+returned after 9 Shift+Tab: [19,39,"forward"] [SETUP — returns — «1.T3, 2.end — cut v2»]
+typed: [SETUP — returns — ZQ]
+after Ctrl+Z: [SETUP — returns — Z] [20,20,"forward"]
+after 2nd Ctrl+Z: [SETUP — returns — 1.T3, 2.end — cut v2] [19,39,"forward"]

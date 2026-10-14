@@ -1,0 +1,13 @@
+{"who":"ly-editor","attr":"data-size","val":"0","sel":[19,23]}
+{"who":"ly-page","attr":"data-outline","val":"open","sel":[19,39]}
+{"who":"ly-editor","attr":"data-size","val":"0","sel":[19,39]}
+{"who":"ly-page","attr":"data-mobile","val":"song","sel":[19,39]}
+{"who":"ly-page","attr":"data-tab","val":"review","sel":[19,39]}
+{"ev":"selectionchange","sel":[0,0],"active":"BODY"}
+{"ev":"selectionchange","sel":[0,0],"active":"BODY"}
+{"who":"ly-page","attr":"data-outline","val":"open","sel":[0,0]}
+{"who":"ly-editor","attr":"data-size","val":"0","sel":[0,0]}
+{"who":"ly-page","attr":"data-mobile","val":"song","sel":[0,0]}
+{"who":"ly-page","attr":"data-tab","val":"review","sel":[0,0]}
+MICRO {"hidden":{"before":[2,6],"after":[2,6]},"display":{"before":[2,6],"after":[2,6]},"disabled":{"before":[2,6],"after":[2,6]},"readonly":{"before":[2,6],"after":[2,6]},"none":{"before":[2,6],"after":[2,6]}}
+FINAL [0,0,"forward"] BODY

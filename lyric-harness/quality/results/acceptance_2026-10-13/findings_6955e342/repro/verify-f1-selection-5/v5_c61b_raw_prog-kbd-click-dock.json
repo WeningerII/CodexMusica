@@ -1,0 +1,3037 @@
+{
+  "label": "c61b",
+  "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b",
+  "put": "raw",
+  "cases": [
+    {
+      "id": "c61b.raw.prog.CARRIED.caret_in_2end",
+      "trig": "prog",
+      "case": "CARRIED",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        28,
+        28,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED.sel_2end",
+      "trig": "prog",
+      "case": "CARRIED",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        31,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED.sel_2end_back",
+      "trig": "prog",
+      "case": "CARRIED",
+      "sel": "sel_2end_back",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          31,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          31,
+          "backward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        31,
+        "backward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED.caret_in_1end",
+      "trig": "prog",
+      "case": "CARRIED",
+      "sel": "caret_in_1end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        21,
+        21,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 ZQ(carried across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 ZQ(carried across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED.caret_before_2",
+      "trig": "prog",
+      "case": "CARRIED",
+      "sel": "caret_before_2",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        26,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQied across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQied across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED.caret_after_row",
+      "trig": "prog",
+      "case": "CARRIED",
+      "sel": "caret_after_row",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        32,
+        32,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried acZQross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried acZQross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED_BOTTOM.caret_in_2end",
+      "trig": "prog",
+      "case": "CARRIED_BOTTOM",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          167,
+          167,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          167,
+          167,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        167,
+        167,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED_BOTTOM.sel_2end",
+      "trig": "prog",
+      "case": "CARRIED_BOTTOM",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          165,
+          170,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          165,
+          170,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        165,
+        170,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED_RHY.caret_in_2end",
+      "trig": "prog",
+      "case": "CARRIED_RHY",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          33,
+          33,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "groups": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          33,
+          33,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        33,
+        33,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — rhyme groups — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED_RHY.sel_2end",
+      "trig": "prog",
+      "case": "CARRIED_RHY",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          31,
+          36,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "groups": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          31,
+          36,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        31,
+        36,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — rhyme groups — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED_TWO.other_caret_5end",
+      "trig": "prog",
+      "case": "CARRIED_TWO",
+      "sel": "other_caret_5end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          58,
+          58,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          58,
+          58,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        58,
+        58,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried across the word-cut change),ZQ2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried across the word-cut change),ZQ2 — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED_TWO.other_sel_6",
+      "trig": "prog",
+      "case": "CARRIED_TWO",
+      "sel": "other_sel_6",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          64,
+          65,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          64,
+          65,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        64,
+        65,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried across the word-cut change),2 — cuZQ v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried across the word-cut change),2 — cuZQ v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.CARRIED_TWO.first_caret_in_2end",
+      "trig": "prog",
+      "case": "CARRIED_TWO",
+      "sel": "first_caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        28,
+        28,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.TWO_ROWS.other_caret_5end",
+      "trig": "prog",
+      "case": "TWO_ROWS",
+      "sel": "other_caret_5end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups| — 5.end, 6]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — rhyme groups| — 5.end, 6]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1.T3,2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        57,
+        57,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups| — 5.end, 6]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groupsZQ — 5.end, 6]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1.T3,2 — cut v2]",
+          "[SETUP — rhyme groupsZQ — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.prog.TWO_ROWS.other_sel_6",
+      "trig": "prog",
+      "case": "TWO_ROWS",
+      "sel": "other_sel_6",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5.e«n»d, 6]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — rhyme groups — 5.e«n»d, 6]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1.T3,2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        63,
+        64,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 5.e«n»d, 6]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 5.eZQd, 6]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1.T3,2 — cut v2]",
+          "[SETUP — rhyme groups — 5.eZQd, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED.caret_in_2end",
+      "trig": "kbd",
+      "case": "CARRIED",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        28,
+        28,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED.sel_2end",
+      "trig": "kbd",
+      "case": "CARRIED",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        31,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED.sel_2end_back",
+      "trig": "kbd",
+      "case": "CARRIED",
+      "sel": "sel_2end_back",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          31,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          31,
+          "backward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        31,
+        "backward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED.caret_in_1end",
+      "trig": "kbd",
+      "case": "CARRIED",
+      "sel": "caret_in_1end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        21,
+        21,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 ZQ(carried across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 ZQ(carried across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED.caret_before_2",
+      "trig": "kbd",
+      "case": "CARRIED",
+      "sel": "caret_before_2",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        26,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQied across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQied across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED.caret_after_row",
+      "trig": "kbd",
+      "case": "CARRIED",
+      "sel": "caret_after_row",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        32,
+        32,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried acZQross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried acZQross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED_BOTTOM.caret_in_2end",
+      "trig": "kbd",
+      "case": "CARRIED_BOTTOM",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          167,
+          167,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          167,
+          167,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        167,
+        167,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED_BOTTOM.sel_2end",
+      "trig": "kbd",
+      "case": "CARRIED_BOTTOM",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          165,
+          170,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          165,
+          170,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        165,
+        170,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED_RHY.caret_in_2end",
+      "trig": "kbd",
+      "case": "CARRIED_RHY",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          33,
+          33,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "groups": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          33,
+          33,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        33,
+        33,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — rhyme groups — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED_RHY.sel_2end",
+      "trig": "kbd",
+      "case": "CARRIED_RHY",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          31,
+          36,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "groups": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          31,
+          36,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        31,
+        36,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — rhyme groups — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED_TWO.other_caret_5end",
+      "trig": "kbd",
+      "case": "CARRIED_TWO",
+      "sel": "other_caret_5end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          58,
+          58,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          58,
+          58,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        58,
+        58,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried across the word-cut change),ZQ2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried across the word-cut change),ZQ2 — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED_TWO.other_sel_6",
+      "trig": "kbd",
+      "case": "CARRIED_TWO",
+      "sel": "other_sel_6",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          64,
+          65,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          64,
+          65,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        64,
+        65,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried across the word-cut change),2 — cuZQ v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried across the word-cut change),2 — cuZQ v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.CARRIED_TWO.first_caret_in_2end",
+      "trig": "kbd",
+      "case": "CARRIED_TWO",
+      "sel": "first_caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        28,
+        28,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.TWO_ROWS.other_caret_5end",
+      "trig": "kbd",
+      "case": "TWO_ROWS",
+      "sel": "other_caret_5end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups| — 5.end, 6]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups| — 5.end, 6]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1.T3,2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        57,
+        57,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups| — 5.end, 6]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groupsZQ — 5.end, 6]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1.T3,2 — cut v2]",
+          "[SETUP — rhyme groupsZQ — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.kbd.TWO_ROWS.other_sel_6",
+      "trig": "kbd",
+      "case": "TWO_ROWS",
+      "sel": "other_sel_6",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5.e«n»d, 6]"
+      },
+      "kbdFocusedButton": true,
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 5.e«n»d, 6]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1.T3,2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        63,
+        64,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 5.e«n»d, 6]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 5.eZQd, 6]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1.T3,2 — cut v2]",
+          "[SETUP — rhyme groups — 5.eZQd, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED.caret_in_2end",
+      "trig": "click",
+      "case": "CARRIED",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        28,
+        28,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED.sel_2end",
+      "trig": "click",
+      "case": "CARRIED",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        31,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED.sel_2end_back",
+      "trig": "click",
+      "case": "CARRIED",
+      "sel": "sel_2end_back",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          31,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          31,
+          "backward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        31,
+        "backward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED.caret_in_1end",
+      "trig": "click",
+      "case": "CARRIED",
+      "sel": "caret_in_1end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        21,
+        21,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 ZQ(carried across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 ZQ(carried across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED.caret_before_2",
+      "trig": "click",
+      "case": "CARRIED",
+      "sel": "caret_before_2",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        26,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQied across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQied across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED.caret_after_row",
+      "trig": "click",
+      "case": "CARRIED",
+      "sel": "caret_after_row",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        32,
+        32,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried acZQross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried acZQross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED_BOTTOM.caret_in_2end",
+      "trig": "click",
+      "case": "CARRIED_BOTTOM",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          167,
+          167,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          167,
+          167,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        167,
+        167,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED_BOTTOM.sel_2end",
+      "trig": "click",
+      "case": "CARRIED_BOTTOM",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          165,
+          170,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          165,
+          170,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        165,
+        170,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED_RHY.caret_in_2end",
+      "trig": "click",
+      "case": "CARRIED_RHY",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          33,
+          33,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "groups": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          33,
+          33,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        33,
+        33,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — rhyme groups — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED_RHY.sel_2end",
+      "trig": "click",
+      "case": "CARRIED_RHY",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          31,
+          36,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "groups": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          31,
+          36,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        31,
+        36,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — rhyme groups — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED_TWO.other_caret_5end",
+      "trig": "click",
+      "case": "CARRIED_TWO",
+      "sel": "other_caret_5end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          58,
+          58,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          58,
+          58,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        58,
+        58,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried across the word-cut change),ZQ2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried across the word-cut change),ZQ2 — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED_TWO.other_sel_6",
+      "trig": "click",
+      "case": "CARRIED_TWO",
+      "sel": "other_sel_6",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          64,
+          65,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          64,
+          65,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        64,
+        65,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried across the word-cut change),2 — cuZQ v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried across the word-cut change),2 — cuZQ v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.CARRIED_TWO.first_caret_in_2end",
+      "trig": "click",
+      "case": "CARRIED_TWO",
+      "sel": "first_caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        28,
+        28,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.TWO_ROWS.other_caret_5end",
+      "trig": "click",
+      "case": "TWO_ROWS",
+      "sel": "other_caret_5end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups| — 5.end, 6]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups| — 5.end, 6]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1.T3,2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        57,
+        57,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups| — 5.end, 6]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groupsZQ — 5.end, 6]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1.T3,2 — cut v2]",
+          "[SETUP — rhyme groupsZQ — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.click.TWO_ROWS.other_sel_6",
+      "trig": "click",
+      "case": "TWO_ROWS",
+      "sel": "other_sel_6",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5.e«n»d, 6]"
+      },
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 5.e«n»d, 6]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1.T3,2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        63,
+        64,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 5.e«n»d, 6]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 5.eZQd, 6]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1.T3,2 — cut v2]",
+          "[SETUP — rhyme groups — 5.eZQd, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED.caret_in_2end",
+      "trig": "dock",
+      "case": "CARRIED",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        28,
+        28,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED.sel_2end",
+      "trig": "dock",
+      "case": "CARRIED",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        31,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED.sel_2end_back",
+      "trig": "dock",
+      "case": "CARRIED",
+      "sel": "sel_2end_back",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          31,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          31,
+          "backward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        31,
+        "backward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED.caret_in_1end",
+      "trig": "dock",
+      "case": "CARRIED",
+      "sel": "caret_in_1end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        21,
+        21,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 |(carried across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 ZQ(carried across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 ZQ(carried across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED.caret_before_2",
+      "trig": "dock",
+      "case": "CARRIED",
+      "sel": "caret_before_2",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        26,
+        26,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr|ied across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQied across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQied across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED.caret_after_row",
+      "trig": "dock",
+      "case": "CARRIED",
+      "sel": "caret_after_row",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        32,
+        32,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried ac|ross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried acZQross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried acZQross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED_BOTTOM.caret_in_2end",
+      "trig": "dock",
+      "case": "CARRIED_BOTTOM",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          167,
+          167,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          167,
+          167,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        167,
+        167,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED_BOTTOM.sel_2end",
+      "trig": "dock",
+      "case": "CARRIED_BOTTOM",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          165,
+          170,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          165,
+          170,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        165,
+        170,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED_RHY.caret_in_2end",
+      "trig": "dock",
+      "case": "CARRIED_RHY",
+      "sel": "caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          33,
+          33,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "groups": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          33,
+          33,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        33,
+        33,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — rhyme groups — 1 (carrieZQd across the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED_RHY.sel_2end",
+      "trig": "dock",
+      "case": "CARRIED_RHY",
+      "sel": "sel_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          31,
+          36,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "groups": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          31,
+          36,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]"
+      ],
+      "expected": [
+        31,
+        36,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 1 (carr«ied a»cross the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 1 (carrZQcross the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — rhyme groups — 1 (carrZQcross the word-cut change),2 — cut v2]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED_TWO.other_caret_5end",
+      "trig": "dock",
+      "case": "CARRIED_TWO",
+      "sel": "other_caret_5end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          58,
+          58,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          58,
+          58,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        58,
+        58,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried across the word-cut change),|2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried across the word-cut change),ZQ2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried across the word-cut change),ZQ2 — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED_TWO.other_sel_6",
+      "trig": "dock",
+      "case": "CARRIED_TWO",
+      "sel": "other_sel_6",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          64,
+          65,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          64,
+          65,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        64,
+        65,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carried across the word-cut change),2 — cu«t» v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carried across the word-cut change),2 — cuZQ v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carried across the word-cut change),2 — cuZQ v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.CARRIED_TWO.first_caret_in_2end",
+      "trig": "dock",
+      "case": "CARRIED_TWO",
+      "sel": "first_caret_in_2end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        28,
+        28,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — returns — 1 (carrie|d across the word-cut change),2 — cut v2]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1 (carrieZQd across the word-cut change),2 — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.TWO_ROWS.other_caret_5end",
+      "trig": "dock",
+      "case": "TWO_ROWS",
+      "sel": "other_caret_5end",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups| — 5.end, 6]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups| — 5.end, 6]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1.T3,2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        57,
+        57,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups| — 5.end, 6]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groupsZQ — 5.end, 6]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1.T3,2 — cut v2]",
+          "[SETUP — rhyme groupsZQ — 5.end, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    },
+    {
+      "id": "c61b.raw.dock.TWO_ROWS.other_sel_6",
+      "trig": "dock",
+      "case": "TWO_ROWS",
+      "sel": "other_sel_6",
+      "preTextEqualsInput": false,
+      "before": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5.e«n»d, 6]"
+      },
+      "dockFocus": "chat-input",
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "after": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "[SETUP — rhyme groups — 5.e«n»d, 6]"
+      },
+      "afterRows": [
+        "[SETUP — returns — 1.T3,2 — cut v2]",
+        "[SETUP — rhyme groups — 5.end, 6]"
+      ],
+      "expected": [
+        63,
+        64,
+        "forward"
+      ],
+      "selOK": true,
+      "expectedShown": "[SETUP — rhyme groups — 5.e«n»d, 6]",
+      "unchangedRowBytesKept": true,
+      "typedRow": "[SETUP — rhyme groups — 5.eZQd, 6]",
+      "typedParsed": {
+        "setup": [
+          "[SETUP — returns — 1.T3,2 — cut v2]",
+          "[SETUP — rhyme groups — 5.eZQd, 6]"
+        ],
+        "sungCount": 6
+      },
+      "errors": []
+    }
+  ]
+}

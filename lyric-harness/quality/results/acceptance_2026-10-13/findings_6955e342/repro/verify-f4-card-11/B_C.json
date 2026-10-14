@@ -1,0 +1,237 @@
+{
+ "B": {
+  "mainAfterImport": {
+   "adapted": false,
+   "label": "V11b · Complete reading"
+  },
+  "mainAfterEdit": {
+   "adapted": true,
+   "label": "V11b · Complete reading · Adapted",
+   "firstRow": "[SETUP — returns — 1.T3,2.T3]"
+  },
+  "M": {
+   "text": "[SETUP — returns — 1.T3,2.T3]\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love",
+   "payloadDeclarations": [],
+   "wcAdapted": true,
+   "wcDeclarations": [
+    {
+     "token_cut": "probe",
+     "pronunciations": [
+      {
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "OW1"
+       ]
+      }
+     ],
+     "note": "v11b probe"
+    }
+   ]
+  },
+  "cand": {
+   "adapted": true,
+   "label": "V11b · Complete reading · Adapted",
+   "changedRows": [
+    [
+     "[SETUP — returns — 1.T3,2.T3]",
+     "[SETUP — returns — 1.T4,2.T4 — cut v2]"
+    ]
+   ],
+   "redownload": {
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": []
+   }
+  },
+  "p61b": {
+   "adapted": true,
+   "label": "V11b · Complete reading · Adapted",
+   "changedRows": [
+    [
+     "[SETUP — returns — 1.T3,2.T3]",
+     "[SETUP — returns — 1.T4,2.T4 — cut v2]"
+    ]
+   ],
+   "redownload": {
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": []
+   }
+  },
+  "main": {
+   "adapted": false,
+   "label": "V11b · Complete reading",
+   "changedRows": [],
+   "redownload": {
+    "payloadDeclarations": [],
+    "wcAdapted": false,
+    "wcDeclarations": []
+   }
+  },
+  "base": {
+   "adapted": false,
+   "label": "V11b · Complete reading",
+   "changedRows": [],
+   "redownload": {
+    "payloadDeclarations": [],
+    "wcAdapted": false,
+    "wcDeclarations": []
+   }
+  }
+ },
+ "C": {
+  "main": {
+   "adapted": false,
+   "label": "V11b · Complete reading"
+  },
+  "candReload": {
+   "adapted": true,
+   "storedAdapted": true,
+   "label": "V11b · Complete reading · Adapted",
+   "firstRow": "[SETUP — returns — 1.T4,2.T4 — cut v2]",
+   "originalFirstRow": "[SETUP — returns — 1.T3,2.T3]",
+   "renumberedCard": true
+  },
+  "servedCandidate": true
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "B.main.import",
+   "claim": "main: fresh working copy imported",
+   "observed": {
+    "adapted": false,
+    "label": "V11b · Complete reading"
+   },
+   "status": "info"
+  },
+  {
+   "id": "B.main.edit",
+   "claim": "main: after typing the returns row",
+   "observed": {
+    "adapted": true,
+    "label": "V11b · Complete reading · Adapted",
+    "firstRow": "[SETUP — returns — 1.T3,2.T3]"
+   },
+   "status": "info"
+  },
+  {
+   "id": "B.M",
+   "claim": "main download M (the realistic working copy holding an unmarked row)",
+   "observed": {
+    "text": "[SETUP — returns — 1.T3,2.T3]\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love",
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11b probe"
+     }
+    ]
+   },
+   "status": "info"
+  },
+  {
+   "id": "B.cand",
+   "claim": "M imported unedited into cand, then downloaded",
+   "observed": {
+    "adapted": true,
+    "label": "V11b · Complete reading · Adapted",
+    "changedRows": [
+     [
+      "[SETUP — returns — 1.T3,2.T3]",
+      "[SETUP — returns — 1.T4,2.T4 — cut v2]"
+     ]
+    ],
+    "redownload": {
+     "payloadDeclarations": [],
+     "wcAdapted": true,
+     "wcDeclarations": []
+    }
+   },
+   "status": "info"
+  },
+  {
+   "id": "B.p61b",
+   "claim": "M imported unedited into p61b, then downloaded",
+   "observed": {
+    "adapted": true,
+    "label": "V11b · Complete reading · Adapted",
+    "changedRows": [
+     [
+      "[SETUP — returns — 1.T3,2.T3]",
+      "[SETUP — returns — 1.T4,2.T4 — cut v2]"
+     ]
+    ],
+    "redownload": {
+     "payloadDeclarations": [],
+     "wcAdapted": true,
+     "wcDeclarations": []
+    }
+   },
+   "status": "info"
+  },
+  {
+   "id": "B.main",
+   "claim": "M imported unedited into main, then downloaded",
+   "observed": {
+    "adapted": false,
+    "label": "V11b · Complete reading",
+    "changedRows": [],
+    "redownload": {
+     "payloadDeclarations": [],
+     "wcAdapted": false,
+     "wcDeclarations": []
+    }
+   },
+   "status": "info"
+  },
+  {
+   "id": "B.base",
+   "claim": "M imported unedited into base, then downloaded",
+   "observed": {
+    "adapted": false,
+    "label": "V11b · Complete reading",
+    "changedRows": [],
+    "redownload": {
+     "payloadDeclarations": [],
+     "wcAdapted": false,
+     "wcDeclarations": []
+    }
+   },
+   "status": "info"
+  },
+  {
+   "id": "C.main",
+   "claim": "main: M imported",
+   "observed": {
+    "adapted": false,
+    "label": "V11b · Complete reading"
+   },
+   "status": "info"
+  },
+  {
+   "id": "C.cand",
+   "claim": "the same origin reloaded on the candidate (no edit)",
+   "observed": {
+    "adapted": true,
+    "storedAdapted": true,
+    "label": "V11b · Complete reading · Adapted",
+    "firstRow": "[SETUP — returns — 1.T4,2.T4 — cut v2]",
+    "originalFirstRow": "[SETUP — returns — 1.T3,2.T3]",
+    "renumberedCard": true
+   },
+   "status": "info"
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+# verify-f4-card-6: adversarial skeptic of f4-card c5 (card vs draft after Undo of a .txt import)
+gh api repos/WeningerII/CodexMusica/issues/comments/{6161601064,6161637870,6161683534,6161695192} --jq '.user.login + " " + .created_at + "\n" + .body' > pr_comment_<id>.md   # read-only: F4 / F1 agreed contract text
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 &&  CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6/build-wt-695/built-wt-695.html --quiet
+cmp built-wt-695.html vs wt-695/codex.html: IDENTICAL; library/code chunks: OK (6 files)
+  wt-695 HEAD 6955e342963a90bdf470741266cea0dd84f0a797; git status: ?? node_modules 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b &&  CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6/build-wt-61b/built-wt-61b.html --quiet
+cmp built-wt-61b.html vs wt-61b/codex.html: IDENTICAL; library/code chunks: OK (6 files)
+  wt-61b HEAD 61b6618ae9373e00b60d3df3ab2d19cc11cc93cc; git status: ?? node_modules 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 &&  CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6/build-wt-678/built-wt-678.html --quiet
+cmp built-wt-678.html vs wt-678/codex.html: IDENTICAL; library/code chunks: OK (6 files)
+  wt-678 HEAD 67889851144dd2a7eefedd9960a868978fb7bfae; git status: ?? mcp/node_modules ?? node_modules 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main &&  CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6/build-wt-main/built-wt-main.html --quiet
+cmp built-wt-main.html vs wt-main/codex.html: IDENTICAL; library/code chunks: OK (6 files)
+  wt-main HEAD 8b1d2ad2cea5d9848cc6568dcce62b00747ab2f3; git status: ?? node_modules 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && NODE_PATH=/home/user/CodexMusica/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6/build-wt-base/built-wt-base.html --quiet
+cmp built-wt-base.html vs wt-base/codex.html: IDENTICAL; library/code chunks: OK (6 files)
+  wt-base HEAD fce4bf0f1b4b274d1c44c67831a6e40b22a8802c; git status: 
+python3 (inline) edit of v6.js: removed U6 (ui.tab check is re-synced by render, not a clean control) and a stray snapshot
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6 && node v6.js cand > v6_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6 && node v6.js prev61b > v6_prev61b.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6 && node v6.js prev678 > v6_prev678.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6 && node v6.js main > v6_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6 && node v6.js base > v6_base.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6 && node summ.js cand prev61b prev678 main base > summ_all.txt
+for t in wt-main wt-base wt-61b wt-678 wt-695; do awk '/^const LYRIC_META_LIMITS/{p=1} p{print} /^function updateHistoryButtons/{exit}' $S/$t/src/app.js | md5sum; done > history_code_md5.txt   # lyricMetaOf/lyricMetaHistory/sessionSnapshot/pushHistory/_restoreSnapshot/undo/redo identical?
+rm -rf build-wt-*   # built pages deleted after the runs (each was cmp-IDENTICAL to its tree's codex.html, library/code chunks identical)
+# NOTES
+# - Every browser run: Chromium /opt/pw-browsers/chromium, headless; page = my CODEX_LIBRARY=1 build of the tree, other files from the tree root;
+#   mcp.codexmusica.com routed to an in-process stub (no provider, no network). No CHAT_SECRET used. No tracked file modified.
+# - Undo/Redo were real pointer clicks on the shell's #btn-undo / #btn-redo (visible in all trees: logged as "(mouse)").
+# - The toast log is a loose MutationObserver trace (it re-records the toast still on screen after a splice); it is not used for any verdict.
+# - U5 is a SIMULATION of the c5 expectation (B's entries pruned at Undo, by script), to show what Redo then shows; it is not page behaviour.
+# - "cardAfterRedo FAIL" on prev61b/prev678/main/base only means no card exists on those trees (their expectations are the candidate's).

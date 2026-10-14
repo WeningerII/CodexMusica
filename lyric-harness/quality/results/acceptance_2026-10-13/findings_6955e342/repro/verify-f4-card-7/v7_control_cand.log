@@ -1,0 +1,44 @@
+{
+ "tree": "cand",
+ "afterImport": {
+  "hist": [
+   1,
+   2
+  ],
+  "tab": "tools",
+  "tool": "",
+  "ui": {
+   "tab": "tools",
+   "tool": "",
+   "outline": true
+  },
+  "importedIsSong": true
+ },
+ "afterDisplayChanges": {
+  "hist": [
+   1,
+   2
+  ],
+  "tab": "history",
+  "tool": "rhymes",
+  "ui": {
+   "tab": "history",
+   "tool": "rhymes",
+   "outline": true
+  }
+ },
+ "afterUndo": {
+  "hist": [
+   0,
+   2
+  ],
+  "tab": "history",
+  "tool": "rhymes",
+  "ui": {
+   "tab": "history",
+   "tool": "rhymes",
+   "outline": true
+  },
+  "draftIsPreImport": true
+ }
+}

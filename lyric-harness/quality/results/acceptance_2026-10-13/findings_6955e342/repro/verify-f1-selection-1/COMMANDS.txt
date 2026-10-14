@@ -1,0 +1,13 @@
+# verify-f1-selection-1 — adversarial verification of f1-selection item b10 (native Ctrl+Z after a send boundary)
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; O=$S/h695/verify-f1-selection-1
+for t in wt-695 wt-main wt-61b wt-678 wt-base; do ( cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build/built-$t.html --quiet ); cmp $O/build/built-$t.html $S/$t/codex.html; done
+cd $O && node native_undo.js cand replica > native_undo_cand_replica.log 2>&1
+cd $O && for t in cand main base c61b c678; do node native_undo.js $t > native_undo_$t.log 2>&1 & done; wait
+cd $O && node summarize.js > summary_all.txt
+cd $O && node dock_probe.js cand; node dock_probe.js main
+# edited native_undo.js: dock scenarios click #ly-tab-writer first (the chat form lives in the Lyrics Writer panel)
+cd $O && for t in cand main base c61b c678; do node native_undo.js $t dockSend,dockSendMarked > native_undo_${t}_dock.log 2>&1 & done; wait
+cd $O && node chromium_micro.js > chromium_micro.log
+cd $O && for t in cand main; do for w in UNMARKED MARKED; do node dock_deep.js $t $w 25 > dock_deep_${t}_$w.log 2>&1 & done; done; wait
+# deleted build/built-*.html and build/library after recording sha256 (build/sha256_built.txt); all four builds were byte-equal to the tree's committed codex.html, which the server serves
+# outputs: native_undo_<tree>.json/.log (all scenarios; dock scenarios in native_undo_<tree>_dock.log/_dockSend-dockSendMarked.json), dock_deep_<tree>_<UNMARKED|MARKED>.json/.log, chromium_micro.json/.log, summary_all.txt

@@ -1,0 +1,119 @@
+{
+ "res": {
+  "M1": [
+   {
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": "A",
+    "brief": "brief A",
+    "draftId": null,
+    "idb": []
+   },
+   {
+    "head": "[SETUP — title — \"Quiet B\"]",
+    "marker": null,
+    "brief": "",
+    "draftId": "draft:8e2989e3",
+    "idb": [
+     {
+      "id": "draft:8e2989e3",
+      "head": "[SETUP — title — \"Quiet B\"]",
+      "marker": null,
+      "brief": ""
+     },
+     {
+      "id": "draft:b2847cce",
+      "head": "[SETUP — title — \"Quiet A\"]",
+      "marker": "A",
+      "brief": "brief A"
+     }
+    ]
+   },
+   {
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": null,
+    "brief": "brief A",
+    "draftId": "draft:b2847cce",
+    "idb": [
+     {
+      "id": "draft:8e2989e3",
+      "head": "[SETUP — title — \"Quiet B\"]",
+      "marker": null,
+      "brief": ""
+     },
+     {
+      "id": "draft:b2847cce",
+      "head": "[SETUP — title — \"Quiet A\"]",
+      "marker": null,
+      "brief": "brief A"
+     }
+    ]
+   }
+  ],
+  "M2": [
+   {
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": "A",
+    "brief": "brief A",
+    "draftId": null,
+    "idb": []
+   },
+   {
+    "head": "[SETUP — title — \"Quiet B\"]",
+    "marker": null,
+    "brief": "brief B",
+    "draftId": null,
+    "idb": []
+   },
+   {
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": null,
+    "brief": "",
+    "draftId": null,
+    "idb": []
+   }
+  ]
+ },
+ "log": [
+  {
+   "id": "main.M1.liveMarker",
+   "claim": "after Undo across a Library import, the display state of A comes back",
+   "expected": "marker A",
+   "observed": null,
+   "verdict": "FAIL"
+  },
+  {
+   "id": "main.M1.storedMarker",
+   "claim": "A's stored Library draft keeps A's display state after the Undo",
+   "expected": "marker A",
+   "observed": {
+    "id": "draft:b2847cce",
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": null,
+    "brief": "brief A"
+   },
+   "verdict": "FAIL"
+  },
+  {
+   "id": "main.M1.brief",
+   "claim": "the brief (creative context) is restored by that Undo",
+   "expected": "brief A",
+   "observed": "brief A",
+   "verdict": "PASS"
+  },
+  {
+   "id": "main.M2.liveMarker",
+   "claim": "after Undo across a session import, the display state of A comes back",
+   "expected": "marker A",
+   "observed": null,
+   "verdict": "FAIL"
+  },
+  {
+   "id": "main.M2.brief",
+   "claim": "the brief is restored by that Undo",
+   "expected": "brief A",
+   "observed": "",
+   "verdict": "FAIL"
+  }
+ ],
+ "errs": []
+}

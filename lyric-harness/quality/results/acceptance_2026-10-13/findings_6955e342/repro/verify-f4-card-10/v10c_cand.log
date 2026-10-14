@@ -1,0 +1,4 @@
+S5 desktop {"top":530.21875,"bottom":798.21875,"left":1108,"right":1384,"vw":1440,"vh":900,"docScrollW":1440,"toastShown":false,"dismissVisible":true}
+S5 phone {"top":463.21875,"bottom":713.21875,"left":33,"right":347,"vw":390,"vh":844,"docScrollW":390,"toastShown":false,"dismissVisible":true}
+S6a txtA->LibB {"afterTxtA":["apple","anchor"],"afterLibB":["bravo","banjo"],"errors":[]}
+S6b LibA->txtB {"afterLibA":["apple","anchor"],"afterTxtB":["apple","anchor","bravo","banjo"],"errors":[]}

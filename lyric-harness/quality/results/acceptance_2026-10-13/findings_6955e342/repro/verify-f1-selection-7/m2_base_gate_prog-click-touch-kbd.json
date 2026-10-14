@@ -1,0 +1,423 @@
+{
+  "tree": "base",
+  "scen": "gate",
+  "doc": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+  "runs": {
+    "gate/prog/sung_walk": {
+      "textChangedAtSetDraft": false,
+      "pending": 1,
+      "before": {
+        "sel": [
+          30,
+          30
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaret": [
+        30,
+        30,
+        0
+      ],
+      "gateButtons": 1,
+      "sends": 1,
+      "rewritten": true,
+      "firstRowsAfter": [
+        "[SETUP — require — love]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          163,
+          163
+        ],
+        "shown": "Love above|"
+      },
+      "expected": {
+        "sel": [
+          56,
+          56
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          30,
+          30
+        ],
+        "shown": "[VER|SE]",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": false,
+      "typedRow": "[VERZQSE]",
+      "errors": []
+    },
+    "gate/prog/sung_sel_wellworn": {
+      "textChangedAtSetDraft": false,
+      "pending": 1,
+      "before": {
+        "sel": [
+          51,
+          60
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaret": [
+        51,
+        60,
+        0
+      ],
+      "gateButtons": 1,
+      "sends": 1,
+      "rewritten": true,
+      "firstRowsAfter": [
+        "[SETUP — require — love]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          163,
+          163
+        ],
+        "shown": "Love above|"
+      },
+      "expected": {
+        "sel": [
+          77,
+          86
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          51,
+          60
+        ],
+        "shown": "Oh--oh, oh my lov«e\nI walk »the line tonight",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": false,
+      "typedRow": "Oh--oh, oh my lovZQthe line tonight",
+      "errors": []
+    },
+    "gate/click/sung_walk": {
+      "textChangedAtSetDraft": false,
+      "pending": 1,
+      "before": {
+        "sel": [
+          30,
+          30
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaret": [
+        30,
+        30,
+        0
+      ],
+      "gateButtons": 1,
+      "sends": 1,
+      "rewritten": true,
+      "firstRowsAfter": [
+        "[SETUP — require — love]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          163,
+          163
+        ],
+        "shown": "Love above|"
+      },
+      "expected": {
+        "sel": [
+          56,
+          56
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          0,
+          0
+        ],
+        "shown": "|[SETUP — require — love]",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": false,
+      "sameChars": false,
+      "typedRow": "ZQ[SETUP — require — love]",
+      "errors": []
+    },
+    "gate/click/sung_sel_wellworn": {
+      "textChangedAtSetDraft": false,
+      "pending": 1,
+      "before": {
+        "sel": [
+          51,
+          60
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaret": [
+        51,
+        60,
+        0
+      ],
+      "gateButtons": 1,
+      "sends": 1,
+      "rewritten": true,
+      "firstRowsAfter": [
+        "[SETUP — require — love]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          163,
+          163
+        ],
+        "shown": "Love above|"
+      },
+      "expected": {
+        "sel": [
+          77,
+          86
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          0,
+          0
+        ],
+        "shown": "|[SETUP — require — love]",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": false,
+      "sameChars": false,
+      "typedRow": "ZQ[SETUP — require — love]",
+      "errors": []
+    },
+    "gate/touch/sung_walk": {
+      "textChangedAtSetDraft": false,
+      "pending": 1,
+      "before": {
+        "sel": [
+          30,
+          30
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaret": [
+        30,
+        30,
+        0
+      ],
+      "gateButtons": 1,
+      "sends": 1,
+      "rewritten": true,
+      "firstRowsAfter": [
+        "[SETUP — require — love]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          163,
+          163
+        ],
+        "shown": "Love above|"
+      },
+      "expected": {
+        "sel": [
+          56,
+          56
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          0,
+          0
+        ],
+        "shown": "|[SETUP — require — love]",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": false,
+      "sameChars": false,
+      "typedRow": "ZQ[SETUP — require — love]",
+      "errors": []
+    },
+    "gate/touch/sung_sel_wellworn": {
+      "textChangedAtSetDraft": false,
+      "pending": 1,
+      "before": {
+        "sel": [
+          51,
+          60
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaret": [
+        51,
+        60,
+        0
+      ],
+      "gateButtons": 1,
+      "sends": 1,
+      "rewritten": true,
+      "firstRowsAfter": [
+        "[SETUP — require — love]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          163,
+          163
+        ],
+        "shown": "Love above|"
+      },
+      "expected": {
+        "sel": [
+          77,
+          86
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          0,
+          0
+        ],
+        "shown": "|[SETUP — require — love]",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": false,
+      "sameChars": false,
+      "typedRow": "ZQ[SETUP — require — love]",
+      "errors": []
+    },
+    "gate/kbd/sung_walk": {
+      "textChangedAtSetDraft": false,
+      "pending": 1,
+      "before": {
+        "sel": [
+          30,
+          30
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaret": [
+        30,
+        30,
+        0
+      ],
+      "gateButtons": 1,
+      "sends": 1,
+      "rewritten": true,
+      "firstRowsAfter": [
+        "[SETUP — require — love]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          163,
+          163
+        ],
+        "shown": "Love above|"
+      },
+      "expected": {
+        "sel": [
+          56,
+          56
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          30,
+          30
+        ],
+        "shown": "[VER|SE]",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": false,
+      "typedRow": "[VERZQSE]",
+      "errors": []
+    },
+    "gate/kbd/sung_sel_wellworn": {
+      "textChangedAtSetDraft": false,
+      "pending": 1,
+      "before": {
+        "sel": [
+          51,
+          60
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaret": [
+        51,
+        60,
+        0
+      ],
+      "gateButtons": 1,
+      "sends": 1,
+      "rewritten": true,
+      "firstRowsAfter": [
+        "[SETUP — require — love]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          163,
+          163
+        ],
+        "shown": "Love above|"
+      },
+      "expected": {
+        "sel": [
+          77,
+          86
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          51,
+          60
+        ],
+        "shown": "Oh--oh, oh my lov«e\nI walk »the line tonight",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": false,
+      "typedRow": "Oh--oh, oh my lovZQthe line tonight",
+      "errors": []
+    }
+  }
+}

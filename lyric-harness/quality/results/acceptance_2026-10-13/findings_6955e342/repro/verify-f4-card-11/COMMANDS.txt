@@ -1,0 +1,30 @@
+# verify-f4-card-11 — adversarial re-check of f4-card claim "Library working copy marked Adapted on import when its unmarked rows migrate"
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; O=$S/h695/verify-f4-card-11
+# All writes under $O. No tracked file edited, nothing committed or pushed, no CHAT_SECRET used.
+for t in wt-695 wt-61b wt-678 wt-main wt-base; do git -C $S/$t rev-parse HEAD; git -C $S/$t status --short; done
+wt-695 6955e342963a90bdf470741266cea0dd84f0a797 status:[?? node_modules ]
+wt-61b 61b6618ae9373e00b60d3df3ab2d19cc11cc93cc status:[?? node_modules ]
+wt-678 67889851144dd2a7eefedd9960a868978fb7bfae status:[?? mcp/node_modules ?? node_modules ]
+wt-main 8b1d2ad2cea5d9848cc6568dcce62b00747ab2f3 status:[?? node_modules ]
+wt-base fce4bf0f1b4b274d1c44c67831a6e40b22a8802c status:[]
+for t in wt-695 wt-61b wt-678 wt-main; do (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build/$t/built.html --quiet); cmp $O/build/$t/built.html $S/$t/codex.html; done
+(cd $S/wt-base && NODE_PATH=$S/wt-main/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build/wt-base/built.html --quiet); cmp built vs wt-base/codex.html
+rm -rf $O/build   # builds verified identical; tree roots served directly
+cd $O && node v11.js cand > A_cand.log 2>&1
+cd $O && node v11.js main > A_main.log 2>&1   # control
+cd $O && node v11.js base > A_base.log 2>&1   # control
+cd $O && node v11.js p61b > A_p61b.log 2>&1   # control
+cd $O && node v11.js p678 > A_p678.log 2>&1   # control
+cd $O && node v11b.js > B_C.log 2>&1   # realistic main-made working copy -> each tree; upgrade on one origin
+cd $O && node v11c.js cand > C_cand.log 2>&1   # screenshot of the Library source card
+cd $O && node v11c.js main > C_main.log 2>&1   # screenshot of the Library source card
+cd $O && node v11d.js > D.log 2>&1   # main-written reading row in a working copy -> cand/p678/main/base
+# NOTES
+# - All browser runs: Chromium /opt/pw-browsers/chromium (Playwright from wt-695/node_modules), local http server over the tree root
+#   (each tree's codex.html verified byte-identical to its CODEX_LIBRARY=1 build; library/code chunks identical), mcp.codexmusica.com
+#   routed to an in-process stub. No CHAT_SECRET. wt-61b and wt-678 serve byte-identical codex.html (sha256 47b9b914...).
+# - Downloads use the page's own LY_ACTIONS['ly-download'] handler (what "Download text and sources" runs), captured as browser downloads.
+# - Static reads: wt-695 src/pages/lyrics.js:2695 (lyLibraryActivate -> lyEnsureTokenScheme('open')), :2782-2788 (lyLibraryPersist
+#   adapted = draft !== lyLibraryRecord.originalText); src/library-import.js:172 (adapted:false at import), :184 (originalText: p.text),
+#   :221 (payload.declarations = origin.adapted ? [] : ...). Same adapted/declarations code on main (lyrics.js:2048, library-import.js:180/217).
+# - grep -rl "[SETUP" wt-695/library -> nothing: a Library handoff text never carries a [SETUP] row.

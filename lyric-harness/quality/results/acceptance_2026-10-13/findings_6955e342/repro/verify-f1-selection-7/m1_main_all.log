@@ -1,0 +1,112 @@
+[main] prog/sung_walk: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[63,63],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[63,63,0],"liveSel":[63,63]}
+   boundary {"mobile":"review","sel":[63,63],"shown":"I w|alk the line tonight","songCaret":[63,63,0]}
+   restored {"mobile":"song","sel":[63,63],"shown":"I w|alk the line tonight","chars":"","focused":false}
+   expected {"sel":[63,63],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[main] prog/sung_sel_wellworn: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[84,93,0],"liveSel":[84,93]}
+   boundary {"mobile":"review","sel":[84,93],"shown":"«Well-worn» shoes upon the floor","songCaret":[84,93,0]}
+   restored {"mobile":"song","sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn","focused":false}
+   expected {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[main] prog/row_in_2end: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":""}
+   onReview {"mobile":"review","songCaret":[27,27,0],"liveSel":[27,27]}
+   boundary {"mobile":"review","sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","songCaret":[27,27,0]}
+   restored {"mobile":"song","sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":"","focused":false}
+   expected {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   typed ZQ row: "[SETUP — returns — 1.T2, 2.ZQend]"
+[main] prog/row_before_1T: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]"}
+   typed ZQ row: "[SETUP — returns — ZQ1.T2, 2.end]"
+[main] click/sung_walk: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[63,63],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[63,63,0],"liveSel":[63,63]}
+   boundary {"mobile":"review","sel":[63,63],"shown":"I w|alk the line tonight","songCaret":[63,63,0]}
+   restored {"mobile":"song","sel":[63,63],"shown":"I w|alk the line tonight","chars":"","focused":false}
+   expected {"sel":[63,63],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[main] click/sung_sel_wellworn: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[84,93,0],"liveSel":[84,93]}
+   boundary {"mobile":"review","sel":[84,93],"shown":"«Well-worn» shoes upon the floor","songCaret":[84,93,0]}
+   restored {"mobile":"song","sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn","focused":false}
+   expected {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[main] click/row_in_2end: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":""}
+   onReview {"mobile":"review","songCaret":[27,27,0],"liveSel":[27,27]}
+   boundary {"mobile":"review","sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","songCaret":[27,27,0]}
+   restored {"mobile":"song","sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":"","focused":false}
+   expected {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   typed ZQ row: "[SETUP — returns — 1.T2, 2.ZQend]"
+[main] click/row_before_1T: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]"}
+   typed ZQ row: "[SETUP — returns — ZQ1.T2, 2.end]"
+[main] touch/sung_walk: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[63,63],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[63,63,0],"liveSel":[63,63]}
+   boundary {"mobile":"review","sel":[63,63],"shown":"I w|alk the line tonight","songCaret":[63,63,0]}
+   restored {"mobile":"song","sel":[63,63],"shown":"I w|alk the line tonight","chars":"","focused":false}
+   expected {"sel":[63,63],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[main] touch/sung_sel_wellworn: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[84,93,0],"liveSel":[84,93]}
+   boundary {"mobile":"review","sel":[84,93],"shown":"«Well-worn» shoes upon the floor","songCaret":[84,93,0]}
+   restored {"mobile":"song","sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn","focused":false}
+   expected {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[main] touch/row_in_2end: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":""}
+   onReview {"mobile":"review","songCaret":[27,27,0],"liveSel":[27,27]}
+   boundary {"mobile":"review","sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","songCaret":[27,27,0]}
+   restored {"mobile":"song","sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":"","focused":false}
+   expected {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   typed ZQ row: "[SETUP — returns — 1.T2, 2.ZQend]"
+[main] touch/row_before_1T: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]"}
+   typed ZQ row: "[SETUP — returns — ZQ1.T2, 2.end]"
+[main] kbd/sung_walk: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[63,63],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[63,63,0],"liveSel":[63,63]}
+   boundary {"mobile":"review","sel":[63,63],"shown":"I w|alk the line tonight","songCaret":[63,63,0]}
+   restored {"mobile":"song","sel":[63,63],"shown":"I w|alk the line tonight","chars":"","focused":false}
+   expected {"sel":[63,63],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[main] kbd/sung_sel_wellworn: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[84,93,0],"liveSel":[84,93]}
+   boundary {"mobile":"review","sel":[84,93],"shown":"«Well-worn» shoes upon the floor","songCaret":[84,93,0]}
+   restored {"mobile":"song","sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn","focused":false}
+   expected {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[main] kbd/row_in_2end: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":""}
+   onReview {"mobile":"review","songCaret":[27,27,0],"liveSel":[27,27]}
+   boundary {"mobile":"review","sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","songCaret":[27,27,0]}
+   restored {"mobile":"song","sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":"","focused":false}
+   expected {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   typed ZQ row: "[SETUP — returns — 1.T2, 2.ZQend]"
+[main] kbd/row_before_1T: migratedAtSetDraft=false sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]"}
+   typed ZQ row: "[SETUP — returns — ZQ1.T2, 2.end]"

@@ -1,0 +1,24 @@
+## M1 A(marker A) -> Library B -> Undo (the C7 path)
+    A marked {"head":"[SETUP — title — \"Quiet A\"]","marker":"A","brief":"brief A","draftId":null,"idb":[]}
+    after Library B {"head":"[SETUP — title — \"Quiet B\"]","marker":null,"brief":"","draftId":"draft:8e2989e3","idb":[{"id":"draft:8e2989e3","head":"[SETUP — title — \"Quiet B\"]","marker":null,"brief":""},{"id":"draft:b2847cce","head":"[SETUP — title — \"Quiet A\"]","marker":"A","brief":"brief A"}]}
+    after Undo +1.5s {"head":"[SETUP — title — \"Quiet A\"]","marker":null,"brief":"brief A","draftId":"draft:b2847cce","idb":[{"id":"draft:8e2989e3","head":"[SETUP — title — \"Quiet B\"]","marker":null,"brief":""},{"id":"draft:b2847cce","head":"[SETUP — title — \"Quiet A\"]","marker":null,"brief":"brief A"}]}
+[FAIL] main.M1.liveMarker: after Undo across a Library import, the display state of A comes back
+    expected: marker A
+    observed: null
+[FAIL] main.M1.storedMarker: A's stored Library draft keeps A's display state after the Undo
+    expected: marker A
+    observed: {"id":"draft:b2847cce","head":"[SETUP — title — \"Quiet A\"]","marker":null,"brief":"brief A"}
+[PASS] main.M1.brief: the brief (creative context) is restored by that Undo
+    expected: brief A
+    observed: brief A
+## M2 A(marker A) -> session import -> Undo (the C8 path)
+    A marked {"head":"[SETUP — title — \"Quiet A\"]","marker":"A","brief":"brief A","draftId":null,"idb":[]}
+    after session import {"head":"[SETUP — title — \"Quiet B\"]","marker":null,"brief":"brief B","draftId":null,"idb":[]}
+    after Undo {"head":"[SETUP — title — \"Quiet A\"]","marker":null,"brief":"","draftId":null,"idb":[]}
+[FAIL] main.M2.liveMarker: after Undo across a session import, the display state of A comes back
+    expected: marker A
+    observed: null
+[FAIL] main.M2.brief: the brief is restored by that Undo
+    expected: brief A
+    observed: 
+page errors: 0 []

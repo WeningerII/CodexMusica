@@ -1,0 +1,25 @@
+# verify-f1-selection-0 : adversarial re-check of f1-selection item b9 (mount boundary, lyrics.js:6148)
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; D=$S/h695/verify-f1-selection-0
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-wt-695.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-wt-695.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/codex.html
+wt-695 IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-wt-main.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-wt-main.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/codex.html
+wt-main IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-wt-base.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-wt-base.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/codex.html
+wt-base DIFFERS
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-wt-61b.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-wt-61b.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b/codex.html
+wt-61b IDENTICAL
+# wt-base build fails: no node_modules in wt-base (not symlinked); base codex.html used only for static grep
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0 && node mount_probe.js cand inject > mount_probe_cand_inject.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0 && node mount_probe.js cand hook > mount_probe_cand_hook.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0 && node mount_probe.js c61b hook > mount_probe_c61b_hook.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0 && node mount_probe.js c678 hook > mount_probe_c678_hook.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0 && node mount_probe.js main hook > mount_probe_main_hook.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0 && node mount_probe.js c61b inject > mount_probe_c61b_inject.log 2>&1 ; node mount_probe.js main inject > mount_probe_main_inject.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0 && python3 summarize.py > summary.txt
+rm -f /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/built-*.html ; rm -rf /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-0/library   (cleanup; builds were cmp-identical to each tree's codex.html, which the probe serves)
+wt-695: 0 tracked/untracked changes besides node_modules
+wt-61b: 0 tracked/untracked changes besides node_modules
+wt-678: 0 tracked/untracked changes besides node_modules
+wt-main: 0 tracked/untracked changes besides node_modules
+# static checks (read-only): grep -n lyEnsureTokenScheme/uiLyricsOpened in src of wt-main, wt-base, wt-61b, wt-678, wt-695 ; git -C wt-695 show 643e292e6 -- src/pages/lyrics.js | grep '^+.*lyEnsureTokenScheme();'  (mount call added in 643e292e)
+# grep -n 'Lyrics page mounted|covers any other way in' wt-695/src/pages/lyrics.js -> 399, 410, 6147 ; wt-695/mcp/LYRICS_RUNTIME.md 235, 241

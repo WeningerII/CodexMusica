@@ -1,0 +1,2 @@
+322:    ? ` ${uiCount(done.moved.length, 'saved word number')} without the current cut mark ${done.moved.length === 1 ? 'was' : 'were'} renumbered to the current word cut, on the same characters: ${done.moved
+322:    ? ` ${uiCount(done.moved.length, 'saved word number')} without the current cut mark ${done.moved.length === 1 ? 'was' : 'were'} renumbered to the current word cut, on the same characters: ${done.moved

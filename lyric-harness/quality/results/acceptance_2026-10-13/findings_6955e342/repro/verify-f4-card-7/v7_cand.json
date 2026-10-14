@@ -1,0 +1,212 @@
+{
+ "tree": "cand",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7/build-wt-695/built-wt-695.html",
+ "steps": [
+  {
+   "name": "A1.import",
+   "histBefore": [
+    0,
+    1
+   ],
+   "histAfter": [
+    1,
+    2
+   ],
+   "draftChanged": true,
+   "migrated": true,
+   "rowsAfter": [
+    "[SETUP — title — \"Old Song\"]",
+    "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+    "[SETUP — rhyme groups — 1.T5,2 — cut v2]",
+    "[SETUP — returns — 1.T4,3.T4 — cut v2]"
+   ],
+   "toasts": [
+    {
+     "t": 832,
+     "text": "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it.",
+     "show": true,
+     "buttons": []
+    }
+   ],
+   "card": {
+    "shown": true,
+    "text": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss",
+    "buttons": [
+     "ly-renumbered-dismiss:Dismiss"
+    ],
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "dismissButtons": 1
+   }
+  },
+  {
+   "name": "A2.dismiss",
+   "histBefore": [
+    1,
+    2
+   ],
+   "histAfter": [
+    1,
+    2
+   ],
+   "draftUnchanged": true,
+   "newToastEvents": [
+    {
+     "t": 3034,
+     "text": "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it.",
+     "show": false,
+     "buttons": []
+    }
+   ],
+   "toastNow": {
+    "text": "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it.",
+    "show": false
+   },
+   "dialogs": [],
+   "modalBefore": 0,
+   "modalAfter": 0,
+   "card": {
+    "shown": false,
+    "text": null,
+    "buttons": [],
+    "meta": null,
+    "dismissButtons": 0
+   },
+   "metaUiKeys": [
+    "tab",
+    "tool",
+    "outline"
+   ]
+  },
+  {
+   "name": "A3.undoAfterDismiss",
+   "how": "mouse #btn-undo",
+   "histAfter": [
+    0,
+    2
+   ],
+   "draftEqualsPreImport": true,
+   "draftEqualsImported": false,
+   "card": {
+    "shown": false,
+    "meta": null
+   },
+   "toasts": []
+  },
+  {
+   "name": "A4.redo",
+   "how": "mouse #btn-redo",
+   "histAfter": [
+    1,
+    2
+   ],
+   "draftEqualsImported": true,
+   "card": {
+    "shown": false,
+    "meta": null
+   }
+  },
+  {
+   "name": "A5.reloadAfterDismiss",
+   "draftEqualsImported": true,
+   "card": {
+    "shown": false,
+    "meta": null
+   }
+  },
+  {
+   "name": "A6.reimportSameFile",
+   "card": {
+    "shown": true,
+    "text": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss"
+   },
+   "toasts": [
+    {
+     "t": 1266,
+     "text": "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it.",
+     "show": true,
+     "buttons": []
+    }
+   ]
+  },
+  {
+   "name": "B1.typeThenDismiss",
+   "typedAppended": true,
+   "histAfterTyping": [
+    1,
+    2
+   ],
+   "histAfterDismissClick": [
+    2,
+    3
+   ],
+   "card": {
+    "shown": false,
+    "meta": null
+   }
+  },
+  {
+   "name": "B2.undo",
+   "how": "mouse #btn-undo",
+   "hist": [
+    1,
+    3
+   ],
+   "draftEqualsImported": true,
+   "draftHasTyped": false,
+   "card": {
+    "shown": false
+   }
+  },
+  {
+   "name": "B3.redo",
+   "how": "mouse #btn-redo",
+   "draftEqualsTyped": true,
+   "card": {
+    "shown": false
+   }
+  }
+ ],
+ "pageErrors": []
+}

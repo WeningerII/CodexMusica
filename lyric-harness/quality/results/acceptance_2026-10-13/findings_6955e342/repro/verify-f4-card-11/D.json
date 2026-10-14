@@ -1,0 +1,34 @@
+{
+ "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer]",
+ "cand": {
+  "adapted": true,
+  "label": "V11d · Complete reading · Adapted",
+  "changedRows": [
+   [
+    "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer]",
+    "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]"
+   ]
+  ]
+ },
+ "p678": {
+  "adapted": true,
+  "label": "V11d · Complete reading · Adapted",
+  "changedRows": [
+   [
+    "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer]",
+    "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer — cut v2]"
+   ]
+  ]
+ },
+ "main": {
+  "adapted": false,
+  "label": "V11d · Complete reading",
+  "changedRows": []
+ },
+ "base": {
+  "adapted": false,
+  "label": "V11d · Complete reading",
+  "changedRows": []
+ },
+ "pageErrors": []
+}

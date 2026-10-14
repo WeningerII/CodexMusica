@@ -1,0 +1,42 @@
+UNIT {"C_sel_T2":{"ret":true,"sel":[19,39],"len":179,"row":"[SETUP — returns — 1.T3, 2.end — cut v2]"},"C_after_T2":{"ret":true,"sel":[39,39],"len":179,"row":"[SETUP — returns — 1.T3, 2.end — cut v2]"},"S_body":{"ret":true,"sel":[81,81],"len":179,"row":"[SETUP — returns — 1.T3, 2.end — cut v2]"}}
+TRACE [
+ {
+  "op": "value=",
+  "same": false,
+  "len": 179,
+  "before": [
+   19,
+   23
+  ],
+  "after": [
+   179,
+   179
+  ],
+  "stack": [
+   "at lyEnsureTokenScheme (http://127.0.0.1:37001/codex.html:270:7045)",
+   "at lySubmitLyricsAction (http://127.0.0.1:37001/codex.html:270:171158)",
+   "at ly-run-review (http://127.0.0.1:37001/codex.html:270:180421)",
+   "at HTMLDocument.<anonymous> (http://127.0.0.1:37001/codex.html:250:29249)"
+  ]
+ },
+ {
+  "op": "setSelectionRange",
+  "args": [
+   19,
+   39,
+   "forward"
+  ],
+  "after": [
+   19,
+   39
+  ],
+  "stack": [
+   "at lyEnsureTokenScheme (http://127.0.0.1:37001/codex.html:270:7141)",
+   "at lySubmitLyricsAction (http://127.0.0.1:37001/codex.html:270:171158)",
+   "at ly-run-review (http://127.0.0.1:37001/codex.html:270:180421)",
+   "at HTMLDocument.<anonymous> (http://127.0.0.1:37001/codex.html:250:29249)"
+  ]
+ }
+]
+POLL [{"t":1206,"s":"19,23,true,block"},{"t":1449,"s":"0,0,true,block"}]
+FINAL [0,0,"forward"] BODY

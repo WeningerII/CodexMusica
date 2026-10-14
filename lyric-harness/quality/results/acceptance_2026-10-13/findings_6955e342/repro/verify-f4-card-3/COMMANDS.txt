@@ -10,3 +10,13 @@
 2026-10-14T10:15:53+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-3 && node v4.js cand evict > v4_cand_evict.log 2>&1
 2026-10-14T10:16:23+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-3 && node v4.js prev61b lines > v4_prev61b_lines.log 2>&1
 2026-10-14T10:16:42+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-3 && node v4.js prev678 lines > v4_prev678_lines.log 2>&1
+2026-10-14T10:17:02+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-3 && node v4.js main lines > v4_main_lines.log 2>&1
+2026-10-14T10:17:22+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-3 && node v4.js base lines > v4_base_lines.log 2>&1
+# NOTES
+# - All browser runs: Chromium /opt/pw-browsers/chromium, local http server over each tree root (wt-695/61b/main codex.html verified
+#   byte-identical to a CODEX_LIBRARY=1 build; wt-678/wt-base served as committed), mcp.codexmusica.com routed to an in-process stub.
+#   No CHAT_SECRET used. No tracked file modified (git status: only untracked node_modules symlinks, as before).
+# - v4.js 'lines': one reading (token 2 "oh" in "Oh--oh, oh my chorus line", no cut mark) on a line sung K times, single-entry import.
+# - v4.js 'evict': F filler readings + the chorus reading first or last in setup order, one .txt import.
+# - Outputs: v4_<tree>_<mode>.json/.log, card_cand_K6i.png, env_<tree>_*.json (Library working-copy envelopes used for the lib path).
+2026-10-14T10:18:16+00:00 git status --porcelain on 5 trees; grep lyRecordRenumbered callers

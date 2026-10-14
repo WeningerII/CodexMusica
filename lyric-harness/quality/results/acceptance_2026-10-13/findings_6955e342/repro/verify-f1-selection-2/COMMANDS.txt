@@ -1,0 +1,39 @@
+# verify-f1-selection-2 COMMANDS.txt (started 2026-10-14T11:17:20Z)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-695.html --quiet
+  cmp built-wt-695.html wt-695/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-61b.html --quiet
+  cmp built-wt-61b.html wt-61b/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-678.html --quiet
+  cmp built-wt-678.html wt-678/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-main.html --quiet
+  cmp built-wt-main.html wt-main/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-base.html --quiet
+  cmp built-wt-base.html wt-base/codex.html -> DIFFERENT
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && NODE_PATH=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-base.html --quiet   (wt-base has no node_modules; NODE_PATH borrows wt-main's)
+  cmp built-wt-base.html wt-base/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node sel.js cand chatClick top > sel_cand_chatClick_top.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node sel.js cand chatClick,reviewKbd,reviewClick,reviewProg top,bottom > sel_cand_all.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node sel.js main chatClick,reviewKbd,reviewClick,reviewProg top,bottom > sel_main_all.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node sel.js base chatClick,reviewKbd,reviewClick,reviewProg top,bottom > sel_base_all.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node sel.js c61b chatClick,reviewKbd,reviewClick,reviewProg top,bottom > sel_c61b_all.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node sel.js c678 chatClick,reviewKbd,reviewClick,reviewProg top,bottom > sel_c678_all.log 2>&1
+python3 (inline) check of prior 48/48: after.sel vs pagePredicted in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f1-selection/c_selection_cand_{prog,chat,click}.json
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node bare_click_probe.js > bare_click_probe.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node ctl_noinput.js c61b > ctl_noinput_c61b.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node ctl_noinput.js c678 > ctl_noinput_c678.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node ctl_noinput.js cand > ctl_noinput_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node ctl_noinput.js main > ctl_noinput_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && node columns.js > columns.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && SELSET=body node sel.js cand chatClick,reviewKbd,reviewClick top,bottom > sel_cand_body.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && SELSET=body node sel.js main chatClick,reviewKbd,reviewClick top,bottom > sel_main_body.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2 && python3 summarize.py > summary.txt
+rm -rf /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built   (cleanup: built pages were cmp-identical to each tree's codex.html; sha256 cand 92d2d418..., 61b=678 47b9b914..., main acf45264..., base fc0b32a3...)
+wt-695: ?? node_modules 
+wt-61b: ?? node_modules 
+wt-678: ?? mcp/node_modules ?? node_modules 
+wt-main: ?? node_modules 
+wt-base: 
+# check above: git status --short per tree -> only untracked node_modules (wt-678 also mcp/node_modules); no tracked file changed
+# notes: sel.js gained the SELSET=body option (python edit) after the *_all runs; the default (2.end) path is unchanged, so the *_all logs/JSON stand.
+# notes: in sel.js, returnByShiftTab.hops reads 1 when the editor already had focus (reviewProg): no Shift+Tab was pressed there.
+# notes: on c61b/c678 the real paste is rewritten by the typing refresh before the caret is placed (pasteKept=false), so their sel_* "before" offsets are on the migrated row; ctl_noinput_* is their boundary control (value set without an input event).

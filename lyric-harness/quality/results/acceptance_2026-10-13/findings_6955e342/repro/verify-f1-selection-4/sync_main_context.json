@@ -1,0 +1,346 @@
+{
+ "tree": "main",
+ "how": "context",
+ "cases": [
+  {
+   "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+   "label": "sel 2.end",
+   "before": [
+    30,
+    35,
+    true
+   ],
+   "after": [
+    30,
+    35,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 1.T2, 2.end]",
+   "shownAfter": "[SETUP — rhyme groups — 1.T2, «2.end»]",
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     35,
+     35
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 175,
+   "later": [
+    30,
+    35,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+   "label": "caret 2.|end",
+   "before": [
+    32,
+    32,
+    true
+   ],
+   "after": [
+    32,
+    32,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 1.T2, 2.end]",
+   "shownAfter": "[SETUP — rhyme groups — 1.T2, 2.|end]",
+   "ref": [
+    [
+     32,
+     32
+    ],
+    [
+     32,
+     32
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 175,
+   "later": [
+    32,
+    32,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "caret 2.|end",
+   "before": [
+    26,
+    26,
+    true
+   ],
+   "after": [
+    26,
+    26,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "shownAfter": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]",
+   "ref": [
+    [
+     26,
+     26
+    ],
+    [
+     26,
+     26
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 192,
+   "later": [
+    26,
+    26,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "sel 4",
+   "before": [
+    30,
+    31,
+    true
+   ],
+   "after": [
+    30,
+    31,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "shownAfter": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]",
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     31,
+     31
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 192,
+   "later": [
+    30,
+    31,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "sel 3.T2",
+   "before": [
+    38,
+    42,
+    true
+   ],
+   "after": [
+    38,
+    42,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "shownAfter": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]",
+   "ref": [
+    [
+     38,
+     38
+    ],
+    [
+     42,
+     42
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 192,
+   "later": [
+    38,
+    42,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "caret 5|.end",
+   "before": [
+    45,
+    45,
+    true
+   ],
+   "after": [
+    45,
+    45,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "shownAfter": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]",
+   "ref": [
+    [
+     45,
+     45
+    ],
+    [
+     45,
+     45
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 192,
+   "later": [
+    45,
+    45,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "sel 6",
+   "before": [
+    51,
+    52,
+    true
+   ],
+   "after": [
+    51,
+    52,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "shownAfter": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]",
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     52,
+     52
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 192,
+   "later": [
+    51,
+    52,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+   "label": "sel 4.T2",
+   "before": [
+    51,
+    55,
+    true
+   ],
+   "after": [
+    51,
+    55,
+    "forward"
+   ],
+   "newRow": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+   "shownAfter": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]",
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     55,
+     55
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 195,
+   "later": [
+    51,
+    55,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 1.T2,2]",
+   "label": "caret |2",
+   "before": [
+    29,
+    29,
+    true
+   ],
+   "after": [
+    29,
+    29,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 1.T2,2]",
+   "shownAfter": "[SETUP — rhyme groups — 1.T2,|2]",
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     29,
+     29
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 170,
+   "later": [
+    29,
+    29,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 1.T2,2]",
+   "label": "sel 2",
+   "before": [
+    29,
+    30,
+    true
+   ],
+   "after": [
+    29,
+    30,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 1.T2,2]",
+   "shownAfter": "[SETUP — rhyme groups — 1.T2,«2»]",
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     30,
+     30
+    ]
+   ],
+   "sameChars": true,
+   "docLen": 170,
+   "later": [
+    29,
+    30,
+    "forward"
+   ],
+   "laterText": true
+  }
+ ]
+}

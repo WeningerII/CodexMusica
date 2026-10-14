@@ -1,0 +1,110 @@
+=== cand (built-wt-695.html) pageErrors=[]
+  ## U1 txt A -> txt B -> Undo -> Redo -> Undo -> reload
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor"] title="2 saved word numbers renumbered to the current word cut" storedRenumbered=2 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor","bravo","banjo"] title="4 saved word numbers renumbered to the current word cut" storedRenumbered=4 histKeys=["version","brief","notes"]
+   after Undo (mouse)             head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor","bravo","banjo"] title="4 saved word numbers renumbered to the current word cut" storedRenumbered=4 histKeys=["version","brief","notes"]
+   after Redo (mouse)             head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor","bravo","banjo"] title="4 saved word numbers renumbered to the current word cut" storedRenumbered=4 histKeys=["version","brief","notes"]
+   after second Undo              head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor","bravo","banjo"] title="4 saved word numbers renumbered to the current word cut" storedRenumbered=4 histKeys=["version","brief","notes"]
+   after reload (draft A)         head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor","bravo","banjo"] title="4 saved word numbers renumbered to the current word cut" storedRenumbered=4 histKeys=["version","brief","notes"]
+  ## U2 txt A -> txt B (no Undo): card words vs draft
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor"] title="2 saved word numbers renumbered to the current word cut" storedRenumbered=2 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor","bravo","banjo"] title="4 saved word numbers renumbered to the current word cut" storedRenumbered=4 histKeys=["version","brief","notes"]
+  ## U3 txt A -> Undo
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor"] title="2 saved word numbers renumbered to the current word cut" storedRenumbered=2 histKeys=["version","brief","notes"]
+   after Undo                     head=""                           row=(none)                                           card=["apple","anchor"] title="2 saved word numbers renumbered to the current word cut" storedRenumbered=2 histKeys=["version","brief","notes"]
+  ## U4 txt A -> txt B -> Undo -> txt B again
+   after Undo                     head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor","bravo","banjo"] title="4 saved word numbers renumbered to the current word cut" storedRenumbered=4 histKeys=["version","brief","notes"]
+   after B again                  head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor","bravo","banjo","bravo","banjo"] title="6 saved word numbers renumbered to the current word cut" storedRenumbered=6 histKeys=["version","brief","notes"]
+  ## U5 SIMULATION: prune B entries at Undo, then Redo
+   after Undo + simulated prune   head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor"] title="2 saved word numbers renumbered to the current word cut" storedRenumbered=4 histKeys=["version","brief","notes"]
+   after Redo                     head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=["apple","anchor"] title="2 saved word numbers renumbered to the current word cut" storedRenumbered=2 histKeys=["version","brief","notes"]
+=== prev61b (built-wt-61b.html) pageErrors=[]
+  ## U1 txt A -> txt B -> Undo -> Redo -> Undo -> reload
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Undo (mouse)             head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Redo (mouse)             head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after second Undo              head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after reload (draft A)         head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U2 txt A -> txt B (no Undo): card words vs draft
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U3 txt A -> Undo
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Undo                     head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U4 txt A -> txt B -> Undo -> txt B again
+   after Undo                     head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B again                  head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U5 SIMULATION: prune B entries at Undo, then Redo
+   after Undo + simulated prune   head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Redo                     head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+=== prev678 (built-wt-678.html) pageErrors=[]
+  ## U1 txt A -> txt B -> Undo -> Redo -> Undo -> reload
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Undo (mouse)             head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Redo (mouse)             head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after second Undo              head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after reload (draft A)         head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U2 txt A -> txt B (no Undo): card words vs draft
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U3 txt A -> Undo
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Undo                     head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U4 txt A -> txt B -> Undo -> txt B again
+   after Undo                     head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B again                  head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U5 SIMULATION: prune B entries at Undo, then Redo
+   after Undo + simulated prune   head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Redo                     head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]      card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+=== main (built-wt-main.html) pageErrors=[]
+  ## U1 txt A -> txt B -> Undo -> Redo -> Undo -> reload
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Undo (mouse)             head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Redo (mouse)             head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after second Undo              head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after reload (draft A)         head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U2 txt A -> txt B (no Undo): card words vs draft
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U3 txt A -> Undo
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Undo                     head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U4 txt A -> txt B -> Undo -> txt B again
+   after Undo                     head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B again                  head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U5 SIMULATION: prune B entries at Undo, then Redo
+   after Undo + simulated prune   head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Redo                     head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+=== base (built-wt-base.html) pageErrors=[]
+  ## U1 txt A -> txt B -> Undo -> Redo -> Undo -> reload
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Undo (mouse)             head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Redo (mouse)             head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after second Undo              head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after reload (draft A)         head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U2 txt A -> txt B (no Undo): card words vs draft
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B                        head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U3 txt A -> Undo
+   fresh                          head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after A                        head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Undo                     head=""                           row=(none)                                           card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U4 txt A -> txt B -> Undo -> txt B again
+   after Undo                     head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after B again                  head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+  ## U5 SIMULATION: prune B entries at Undo, then Redo
+   after Undo + simulated prune   head="[SETUP — title — \"Song A\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]
+   after Redo                     head="[SETUP — title — \"Song B\"]" row=[SETUP — rhyme groups — 1.T4,2.T4]               card=[] title=- storedRenumbered=0 histKeys=["version","brief","notes"]

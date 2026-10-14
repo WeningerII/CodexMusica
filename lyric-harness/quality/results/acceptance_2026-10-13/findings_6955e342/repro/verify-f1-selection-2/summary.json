@@ -1,0 +1,349 @@
+{
+ "base": {
+  "chatClick": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 0,
+   "sameChars": 6,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T2, 2.ZQend]": 2,
+    "[SETUP — returns — 1.T2, ZQ]": 4
+   }
+  },
+  "reviewKbd": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 0,
+   "sameChars": 6,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T2, 2.ZQend]": 2,
+    "[SETUP — returns — 1.T2, ZQ]": 4
+   }
+  },
+  "reviewClick": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 0,
+   "sameChars": 6,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T2, 2.ZQend]": 2,
+    "[SETUP — returns — 1.T2, ZQ]": 4
+   }
+  },
+  "reviewProg": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 0,
+   "sameChars": 6,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T2, 2.ZQend]": 2,
+    "[SETUP — returns — 1.T2, ZQ]": 4
+   }
+  }
+ },
+ "c61b": {
+  "chatClick": {
+   "cases": 6,
+   "pasteKept": 0,
+   "migratedAtBoundary": 0,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]": 2,
+    "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]": 4
+   }
+  },
+  "reviewKbd": {
+   "cases": 6,
+   "pasteKept": 0,
+   "migratedAtBoundary": 0,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]": 2,
+    "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]": 4
+   }
+  },
+  "reviewClick": {
+   "cases": 6,
+   "pasteKept": 0,
+   "migratedAtBoundary": 0,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]": 2,
+    "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]": 4
+   }
+  },
+  "reviewProg": {
+   "cases": 6,
+   "pasteKept": 0,
+   "migratedAtBoundary": 0,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]": 2,
+    "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]": 4
+   }
+  }
+ },
+ "c678": {
+  "chatClick": {
+   "cases": 6,
+   "pasteKept": 0,
+   "migratedAtBoundary": 0,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]": 2,
+    "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]": 4
+   }
+  },
+  "reviewKbd": {
+   "cases": 6,
+   "pasteKept": 0,
+   "migratedAtBoundary": 0,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]": 2,
+    "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]": 4
+   }
+  },
+  "reviewClick": {
+   "cases": 6,
+   "pasteKept": 0,
+   "migratedAtBoundary": 0,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]": 2,
+    "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]": 4
+   }
+  },
+  "reviewProg": {
+   "cases": 6,
+   "pasteKept": 0,
+   "migratedAtBoundary": 0,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]": 2,
+    "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]": 4
+   }
+  }
+ },
+ "cand": {
+  "chatClick": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 6,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 6,
+   "afterSel": {
+    "top [27, 27]->[39, 39]": 1,
+    "top [25, 30]->[39, 39]": 2,
+    "bottom [166, 166]->[178, 178]": 1,
+    "bottom [164, 169]->[178, 178]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]": 6
+   }
+  },
+  "reviewKbd": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 6,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 6,
+   "afterSel": {
+    "top [27, 27]->[39, 39]": 1,
+    "top [25, 30]->[39, 39]": 2,
+    "bottom [166, 166]->[178, 178]": 1,
+    "bottom [164, 169]->[178, 178]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]": 6
+   }
+  },
+  "reviewClick": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 6,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[0, 0]": 1,
+    "top [25, 30]->[0, 0]": 2,
+    "bottom [166, 166]->[0, 0]": 1,
+    "bottom [164, 169]->[0, 0]": 2
+   },
+   "ZQrow": {
+    "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]": 3,
+    "ZQ[VERSE]": 3
+   }
+  },
+  "reviewProg": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 6,
+   "sameChars": 0,
+   "afterEqLyMapOffset": 6,
+   "afterSel": {
+    "top [27, 27]->[39, 39]": 1,
+    "top [25, 30]->[39, 39]": 2,
+    "bottom [166, 166]->[178, 178]": 1,
+    "bottom [164, 169]->[178, 178]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]": 6
+   }
+  }
+ },
+ "main": {
+  "chatClick": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 0,
+   "sameChars": 6,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T2, 2.ZQend]": 2,
+    "[SETUP — returns — 1.T2, ZQ]": 4
+   }
+  },
+  "reviewKbd": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 0,
+   "sameChars": 6,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T2, 2.ZQend]": 2,
+    "[SETUP — returns — 1.T2, ZQ]": 4
+   }
+  },
+  "reviewClick": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 0,
+   "sameChars": 6,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T2, 2.ZQend]": 2,
+    "[SETUP — returns — 1.T2, ZQ]": 4
+   }
+  },
+  "reviewProg": {
+   "cases": 6,
+   "pasteKept": 6,
+   "migratedAtBoundary": 0,
+   "sameChars": 6,
+   "afterEqLyMapOffset": 0,
+   "afterSel": {
+    "top [27, 27]->[27, 27]": 1,
+    "top [25, 30]->[25, 30]": 2,
+    "bottom [166, 166]->[166, 166]": 1,
+    "bottom [164, 169]->[164, 169]": 2
+   },
+   "ZQrow": {
+    "[SETUP — returns — 1.T2, 2.ZQend]": 2,
+    "[SETUP — returns — 1.T2, ZQ]": 4
+   }
+  }
+ }
+}

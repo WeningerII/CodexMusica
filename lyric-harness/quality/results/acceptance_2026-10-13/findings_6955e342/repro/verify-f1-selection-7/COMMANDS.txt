@@ -1,0 +1,37 @@
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/build/built-wt-695.html --quiet
+cmp built-wt-695.html wt-695/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/build/built-wt-main.html --quiet
+cmp built-wt-main.html wt-main/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/build/built-wt-61b.html --quiet
+cmp built-wt-61b.html wt-61b/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/build/built-wt-678.html --quiet
+cmp built-wt-678.html wt-678/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && NODE_PATH=/home/user/CodexMusica/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/build/built-wt-base.html --quiet
+cmp built-wt-base.html wt-base/codex.html -> IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m1.js cand prog,click > m1_cand_prog-click.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m1.js cand click trace > m1_cand_click_trace.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m1.js cand touch,kbd > m1_cand_touch-kbd.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m1.js main prog,click,touch,kbd > m1_main_all.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m1.js base prog,click,touch,kbd > m1_base_all.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m1.js c61b prog,click,touch,kbd > m1_c61b_all.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m1.js c678 prog,click,touch,kbd > m1_c678_all.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node probe_fixcount.js main > probe_fixcount_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node probe_fixcount.js cand > probe_fixcount_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js main fixcount prog,click,touch,kbd > m2_main_fixcount.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js cand fixcount prog,click,touch,kbd > m2_cand_fixcount.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js main gate prog,click,touch,kbd > m2_main_gate.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js cand gate prog,click,touch,kbd > m2_cand_gate.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js base gate prog,click,touch,kbd > m2_base_gate.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js cand nomig prog,click,touch,kbd > m2_cand_nomig.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node probe_zero.js main click > probe_zero_main_click.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node probe_zero.js main touch > probe_zero_main_touch.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node probe_zero.js main prog > probe_zero_main_prog.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node probe_zero.js main click > probe_zero2_main_click.log 2>&1  # (probe_zero.js edited: samples after setSelectionRange and after the page's click handler)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node probe_zero.js main prog > probe_zero2_main_prog.log 2>&1  # (probe_zero.js edited: samples after setSelectionRange and after the page's click handler)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js c61b gate prog,touch > m2_c61b_gate.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js c61b fixcount prog,touch > m2_c61b_fixcount.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && node m2.js base fixcount prog,touch > m2_base_fixcount.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && VW=900 VH=800 VMOBILE=0 TAG=desktop900 node m1.js cand prog,click,kbd > m1_cand_desktop900.log 2>&1  # lib7.boot now reads VW/VH/VMOBILE (defaults unchanged: 390x844 mobile)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && VW=900 VH=800 VMOBILE=0 node m2.js main gate prog,click > m2_main_gate_desktop900.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7 && INSERT=1 TAG=paste node m1.js cand prog,touch > m1_cand_paste.log 2>&1  # m1.js: INSERT=1 pastes DOC via keyboard.insertText instead of setDraft
+rm -f /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/build/built-*.html  # built pages deleted after the runs (cmp results above)

@@ -1,0 +1,51 @@
+## U1 txt A -> txt B -> Undo -> Redo -> Undo -> reload
+   [fresh] draftHead= words=[] inDraft={} paneHasCard=false hIdx=0/1 histHasRenumbered=false toasts=[]
+   [after A] draftHead=[SETUP — title — "Song A"] words=["apple","anchor"] inDraft={"apple":true,"anchor":true} paneHasCard=true hIdx=1/2 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."]
+   [after B] draftHead=[SETUP — title — "Song B"] words=["apple","anchor","bravo","banjo"] inDraft={"apple":false,"anchor":false,"bravo":true,"banjo":true} paneHasCard=true hIdx=2/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+   [after Undo (mouse)] draftHead=[SETUP — title — "Song A"] words=["apple","anchor","bravo","banjo"] inDraft={"apple":true,"anchor":true,"bravo":false,"banjo":false} paneHasCard=true hIdx=1/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+[PASS] cand.u1.undoText: Undo of import B restores the draft from before B, exactly
+    expected: draft === draft after A
+    observed: {"equal":true}
+[INFO] cand.u1.cardAfterUndo: the card after Undo of import B (the c5 observation)
+    expected: c5 tester: apple, anchor only; R2's claim: listed until dismissed
+    observed: {"words":["apple","anchor","bravo","banjo"],"inDraft":{"apple":true,"anchor":true,"bravo":false,"banjo":false},"cardText":"Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."}
+[PASS] cand.u1.historyHasNoCard: no Undo step records the card (lyricMeta.ui is not in a history snapshot)
+    expected: no snapshot contains "renumbered"; snapshot lyricMeta keys exclude ui
+    observed: {"anyHas":false,"keys":["[\"version\",\"brief\",\"notes\"]"]}
+   [after Redo (mouse)] draftHead=[SETUP — title — "Song B"] words=["apple","anchor","bravo","banjo"] inDraft={"apple":false,"anchor":false,"bravo":true,"banjo":true} paneHasCard=true hIdx=2/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+[PASS] cand.u1.redoText: Redo restores the migrated draft B
+    expected: draft === draft after B
+    observed: {"equal":true}
+[PASS] cand.u1.cardAfterRedo: the card after Redo
+    expected: apple, anchor, bravo, banjo (B evidence present with B text)
+    observed: ["apple","anchor","bravo","banjo"]
+   [after second Undo] draftHead=[SETUP — title — "Song A"] words=["apple","anchor","bravo","banjo"] inDraft={"apple":true,"anchor":true,"bravo":false,"banjo":false} paneHasCard=true hIdx=1/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+   [after reload (draft A)] draftHead=[SETUP — title — "Song A"] words=["apple","anchor","bravo","banjo"] inDraft={"apple":true,"anchor":true,"bravo":false,"banjo":false} paneHasCard=true hIdx=0/1 histHasRenumbered=false toasts=[]
+[INFO] cand.u1.reload: after reload on A the card and draft
+    expected: informational
+    observed: {"draftHead":"[SETUP — title — \"Song A\"]","words":["apple","anchor","bravo","banjo"],"draftEqualsA":true}
+## U2 txt A -> txt B (no Undo): card words vs draft
+   [after A] draftHead=[SETUP — title — "Song A"] words=["apple","anchor"] inDraft={"apple":true,"anchor":true} paneHasCard=true hIdx=1/2 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."]
+   [after B] draftHead=[SETUP — title — "Song B"] words=["apple","anchor","bravo","banjo"] inDraft={"apple":false,"anchor":false,"bravo":true,"banjo":true} paneHasCard=true hIdx=2/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+[INFO] cand.u2.laterImport: after import B the card lists A entries whose text is no longer in the draft
+    expected: R2 claim: survives a later import (f4-card scored this PASS as c1.accumulate)
+    observed: {"words":["apple","anchor","bravo","banjo"],"inDraft":{"apple":false,"anchor":false,"bravo":true,"banjo":true}}
+## U3 txt A -> Undo
+   [fresh] draftHead= words=[] inDraft={} paneHasCard=false hIdx=0/1 histHasRenumbered=false toasts=[]
+   [after A] draftHead=[SETUP — title — "Song A"] words=["apple","anchor"] inDraft={"apple":true,"anchor":true} paneHasCard=true hIdx=1/2 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."]
+   [after Undo] draftHead= words=["apple","anchor"] inDraft={"apple":false,"anchor":false} paneHasCard=true hIdx=0/2 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."]
+[INFO] cand.u3.cardOverStart: after Undo of the only import the card and draft
+    expected: informational
+    observed: {"draftEqualsFresh":true,"draftHead":"","words":["apple","anchor"],"inDraft":{"apple":false,"anchor":false}}
+## U4 txt A -> txt B -> Undo -> txt B again
+   [after Undo] draftHead=[SETUP — title — "Song A"] words=["apple","anchor","bravo","banjo"] inDraft={"apple":true,"anchor":true,"bravo":false,"banjo":false} paneHasCard=true hIdx=1/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+   [after B again] draftHead=[SETUP — title — "Song B"] words=["apple","anchor","bravo","banjo","bravo","banjo"] inDraft={"apple":false,"anchor":false,"bravo":true,"banjo":true} paneHasCard=true hIdx=2/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+[INFO] cand.u4.reimport: importing B again after its Undo: card entries
+    expected: informational (duplicates?)
+    observed: {"words":["apple","anchor","bravo","banjo","bravo","banjo"],"title":"6 saved word numbers renumbered to the current word cut"}
+## U5 SIMULATION: prune B entries at Undo, then Redo
+   [after Undo + simulated prune] draftHead=[SETUP — title — "Song A"] words=["apple","anchor"] inDraft={"apple":true,"anchor":true} paneHasCard=true hIdx=1/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+   [after Redo] draftHead=[SETUP — title — "Song B"] words=["apple","anchor"] inDraft={"apple":false,"anchor":false} paneHasCard=true hIdx=2/3 histHasRenumbered=false toasts=["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."]
+[INFO] cand.u5.simRedo: SIMULATED prune-on-Undo, then Redo: is B evidence back with B text?
+    expected: informational
+    observed: {"draftHead":"[SETUP — title — \"Song B\"]","words":["apple","anchor"],"bRowMarked":true}

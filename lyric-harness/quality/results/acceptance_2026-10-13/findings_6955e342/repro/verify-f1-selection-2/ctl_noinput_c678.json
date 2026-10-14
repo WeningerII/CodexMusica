@@ -1,0 +1,116 @@
+[
+  {
+    "id": "c678.refresh.caret_2.|end",
+    "before": {
+      "sel": [
+        27,
+        27
+      ],
+      "shown": "[SETUP — returns — 1.T2, 2.|end]"
+    },
+    "after": {
+      "sel": [
+        174,
+        174
+      ],
+      "len": 174,
+      "row1": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "shown": "Love above|"
+    }
+  },
+  {
+    "id": "c678.refresh.sel_2end",
+    "before": {
+      "sel": [
+        25,
+        30
+      ],
+      "shown": "[SETUP — returns — 1.T2, «2.end»]"
+    },
+    "after": {
+      "sel": [
+        174,
+        174
+      ],
+      "len": 174,
+      "row1": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "shown": "Love above|"
+    }
+  },
+  {
+    "id": "c678.reviewProg.caret_2.|end",
+    "before": {
+      "sel": [
+        27,
+        27
+      ],
+      "shown": "[SETUP — returns — 1.T2, 2.|end]"
+    },
+    "after": {
+      "sel": [
+        174,
+        174
+      ],
+      "len": 174,
+      "row1": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "shown": "Love above|"
+    }
+  },
+  {
+    "id": "c678.reviewProg.sel_2end",
+    "before": {
+      "sel": [
+        25,
+        30
+      ],
+      "shown": "[SETUP — returns — 1.T2, «2.end»]"
+    },
+    "after": {
+      "sel": [
+        174,
+        174
+      ],
+      "len": 174,
+      "row1": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "shown": "Love above|"
+    }
+  },
+  {
+    "id": "c678.reviewKbd.caret_2.|end",
+    "before": {
+      "sel": [
+        27,
+        27
+      ],
+      "shown": "[SETUP — returns — 1.T2, 2.|end]"
+    },
+    "after": {
+      "sel": [
+        174,
+        174
+      ],
+      "len": 174,
+      "row1": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "shown": "Love above|"
+    }
+  },
+  {
+    "id": "c678.reviewKbd.sel_2end",
+    "before": {
+      "sel": [
+        25,
+        30
+      ],
+      "shown": "[SETUP — returns — 1.T2, «2.end»]"
+    },
+    "after": {
+      "sel": [
+        174,
+        174
+      ],
+      "len": 174,
+      "row1": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "shown": "Love above|"
+    }
+  }
+]

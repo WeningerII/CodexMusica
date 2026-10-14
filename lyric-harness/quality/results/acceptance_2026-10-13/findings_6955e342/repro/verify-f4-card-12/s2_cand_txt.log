@@ -1,0 +1,22 @@
+[FAIL] s2.fourLines: a reading on a line sung 6 times: lines the card names
+    expected: all 6 lines [1..6]
+    observed: {"stored":[1,2,3,4],"pageSays":"the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3"}
+[FAIL] s2.fortyChars: words over 40 characters: what the card names
+    expected: full words 58/57 chars
+    observed: [{"kind":"reading","word":"Pneumonoultramicroscopicsilicovolcanocon","len":40,"n":[7],"from":4,"to":5},{"kind":"rhyme groups","word":"Pneumonoultramicroscopicsilicovolcanocon","len":40,"n":[7],"from":4,"to":5},{"kind":"rhyme groups","word":"Pneumonoultramicroscopicsilicovolcanocon","len":40,"n":[8],"from":4,"to":5}]
+[FAIL] s2.fortyChars.distinct: two different long words that share their first 40 characters: can the card text tell them apart by word?
+    expected: distinct words
+    observed: ["Pneumonoultramicroscopicsilicovolcanocon","Pneumonoultramicroscopicsilicovolcanocon","Pneumonoultramicroscopicsilicovolcanocon"]
+[FAIL] s2.fortyChars.ellipsis: is the cut word marked as cut in the rendered card?
+    expected: an ellipsis or a note
+    observed: ["“Pneumonoultramicroscopicsilicovolcanocon”","“Pneumonoultramicroscopicsilicovolcanocon”","“Pneumonoultramicroscopicsilicovolcanocon”"]
+[PASS] s2.allEntries: every moved entry has an item (kind, from, to, first line)
+    expected: 4 items
+    observed: 4
+{"K":20,"listed":20,"more":0,"sampleItem":{"kind":"reading","word":"Supercalifragilisticexpialidocious-and-m","n":[1,2,3,4],"from":4,"to":5},"storedLen":2071}
+{"K":30,"listed":30,"more":0,"sampleItem":{"kind":"reading","word":"Supercalifragilisticexpialidocious-and-m","n":[1,2,3,4],"from":4,"to":5},"storedLen":3122}
+{"K":31,"listed":30,"more":1,"sampleItem":{"kind":"reading","word":"Supercalifragilisticexpialidocious-and-m","n":[5,6,7,8],"from":4,"to":5},"storedLen":3130}
+{"K":32,"listed":30,"more":2,"sampleItem":{"kind":"reading","word":"Supercalifragilisticexpialidocious-and-m","n":[9,10,11,12],"from":4,"to":5},"storedLen":3138}
+{"K":35,"listed":29,"more":6,"sampleItem":{"kind":"reading","word":"Supercalifragilisticexpialidocious-and-m","n":[25,26,27,28],"from":4,"to":5},"storedLen":3048}
+{"K":40,"listed":29,"more":11,"sampleItem":{"kind":"reading","word":"Supercalifragilisticexpialidocious-and-m","n":[45,46,47,48],"from":4,"to":5},"storedLen":3069}
+page errors: 0 []

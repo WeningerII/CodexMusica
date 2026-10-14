@@ -1,0 +1,52 @@
+{
+ "tree": "prev61b",
+ "scen": {
+  "C2": {
+   "afterReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 898,
+     "h": 22
+    },
+    "cardInDom": false,
+    "cardVisible": false,
+    "cardRect": null,
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": false,
+    "cardInItems": false,
+    "metaEntries": 0,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "count:0"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterClick": {
+    "open": true,
+    "sum": "Local checks 1"
+   },
+   "afterTyping": {
+    "open": false,
+    "sum": "Local checks 1"
+   },
+   "reopened": {
+    "open": true,
+    "sum": "Local checks 1"
+   },
+   "afterTabSwitch": {
+    "open": false,
+    "sum": "Local checks 1"
+   }
+  }
+ },
+ "pageErrors": []
+}

@@ -1,0 +1,30 @@
+c61b.context sel 2.end      "[SETUP — rhyme groups — 1.T2, 2.end]"
+   before [30,35,true]  after [179,179,forward] of len 179  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 1.T3,2 — cut v2]"  ref [[29,39],[29,39]]  400ms later [179,179,forward] textSame=true
+c61b.context caret 2.|end   "[SETUP — rhyme groups — 1.T2, 2.end]"
+   before [32,32,true]  after [179,179,forward] of len 179  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 1.T3,2 — cut v2]"  ref [[29,39],[29,39]]  400ms later [179,179,forward] textSame=true
+c61b.context caret 2.|end   "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [26,26,true]  after [190,190,forward] of len 190  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"  ref [[25,25],[25,25]]  400ms later [190,190,forward] textSame=true
+c61b.context sel 4          "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [30,31,true]  after [190,190,forward] of len 190  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"  ref [[26,26],[27,27]]  400ms later [190,190,forward] textSame=true
+c61b.context sel 3.T2       "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [38,42,true]  after [190,190,forward] of len 190  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"  ref [[33,33],[37,37]]  400ms later [190,190,forward] textSame=true
+c61b.context caret 5|.end   "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [45,45,true]  after [190,190,forward] of len 190  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"  ref [[38,39],[38,39]]  400ms later [190,190,forward] textSame=true
+c61b.context sel 6          "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [51,52,true]  after [190,190,forward] of len 190  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"  ref [[40,40],[41,50]]  400ms later [190,190,forward] textSame=true
+c61b.context sel 4.T2       "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   before [51,55,true]  after [185,185,forward] of len 185  sameChars=false  "Love above|"
+   newRow "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"  ref [[32,32],[36,45]]  400ms later [185,185,forward] textSame=true
+c61b.context caret |2       "[SETUP — rhyme groups — 1.T2,2]"
+   before [29,29,true]  after [179,179,forward] of len 179  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 1.T3,2 — cut v2]"  ref [[29,29],[29,29]]  400ms later [179,179,forward] textSame=true
+c61b.context sel 2          "[SETUP — rhyme groups — 1.T2,2]"
+   before [29,30,true]  after [179,179,forward] of len 179  sameChars=false  "Love above|"
+   newRow "[SETUP — rhyme groups — 1.T3,2 — cut v2]"  ref [[29,29],[30,39]]  400ms later [179,179,forward] textSame=true

@@ -1,0 +1,48 @@
+main.sync.CARRIED.caret_in_2end: preUnchanged=true migrated=false
+   before   {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   rows     ["[SETUP — returns — 1.end, 2.end]"]
+   now      {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   settled  {"sel":[28,28,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, 2.|end]","textSameAsImmediate":true}
+   sent     [{"returns":"1.end, 2.end"}]
+main.sync.CARRIED.sel_2end: preUnchanged=true migrated=false
+   before   {"sel":[26,31,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   rows     ["[SETUP — returns — 1.end, 2.end]"]
+   now      {"sel":[26,31,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   settled  {"sel":[26,31,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, «2.end»]","textSameAsImmediate":true}
+   sent     [{"returns":"1.end, 2.end"}]
+main.sync.CARRIED.sel_2end_back: preUnchanged=true migrated=false
+   before   {"sel":[26,31,"backward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   rows     ["[SETUP — returns — 1.end, 2.end]"]
+   now      {"sel":[26,31,"backward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   settled  {"sel":[26,31,"backward"],"focused":true,"shown":"[SETUP — returns — 1.end, «2.end»]","textSameAsImmediate":true}
+   sent     [{"returns":"1.end, 2.end"}]
+main.sync.CARRIED.caret_in_1end: preUnchanged=true migrated=false
+   before   {"sel":[21,21,"forward"],"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   rows     ["[SETUP — returns — 1.end, 2.end]"]
+   now      {"sel":[21,21,"forward"],"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   settled  {"sel":[21,21,"forward"],"focused":true,"shown":"[SETUP — returns — 1.|end, 2.end]","textSameAsImmediate":true}
+   sent     [{"returns":"1.end, 2.end"}]
+main.sync.TWO_ROWS.other_caret_5end: preUnchanged=true migrated=false
+   before   {"sel":[57,57,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   rows     ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   now      {"sel":[57,57,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   settled  {"sel":[57,57,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5|.end, 6]","textSameAsImmediate":true}
+   sent     [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.sync.TWO_ROWS.other_sel_6: preUnchanged=true migrated=false
+   before   {"sel":[63,64,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   rows     ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   now      {"sel":[63,64,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   settled  {"sel":[63,64,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5.end, «6»]","textSameAsImmediate":true}
+   sent     [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.sync.CARRIED_TWO.other_caret_5end: preUnchanged=true migrated=false
+   before   {"sel":[58,58,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   rows     ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   now      {"sel":[58,58,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   settled  {"sel":[58,58,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5|.end, 6]","textSameAsImmediate":true}
+   sent     [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+main.sync.CARRIED_TWO.first_caret_in_2end: preUnchanged=true migrated=false
+   before   {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   rows     ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   now      {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   settled  {"sel":[28,28,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, 2.|end]","textSameAsImmediate":true}
+   sent     [{"groups":"5.end, 6","returns":"1.end, 2.end"}]

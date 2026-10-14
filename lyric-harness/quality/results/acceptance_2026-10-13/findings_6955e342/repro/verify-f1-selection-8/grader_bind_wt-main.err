@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/grader_bind.py", line 9, in <module>
+    lex = LH.Lexicon() if scheme is None else LH.Lexicon(reader_scheme=scheme)
+          ^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/lyric_harness.py", line 1022, in __init__
+    fetch_data(download=False)
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness/lyric_harness.py", line 144, in fetch_data
+    raise LexicalAssetUnavailable(
+lyric_harness.LexicalAssetUnavailable: LEXICAL_ASSET_MISSING: cmudict.dict is not staged; run the explicit fetch_data() setup step before grading. No runtime download was attempted.

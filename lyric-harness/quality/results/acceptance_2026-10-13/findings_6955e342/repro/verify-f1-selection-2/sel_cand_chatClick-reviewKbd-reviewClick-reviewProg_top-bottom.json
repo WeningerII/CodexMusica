@@ -1,0 +1,1652 @@
+{
+  "label": "cand",
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+  "page": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-695.html",
+  "browser": "141.0.7390.37",
+  "cases": [
+    {
+      "id": "cand.chatClick.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        27,
+        27
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.chatClick.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.chatClick.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.chatClick.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        166,
+        166
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.chatClick.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.chatClick.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewKbd.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        27,
+        27
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewKbd.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewKbd.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewKbd.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        166,
+        166
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewKbd.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewKbd.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewClick.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        27,
+        27
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 22,
+        "reached": true,
+        "sel": [
+          0,
+          0,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 0,
+        "rowNow": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {},
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewClick.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 22,
+        "reached": true,
+        "sel": [
+          0,
+          0,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 0,
+        "rowNow": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {},
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewClick.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 22,
+        "reached": true,
+        "sel": [
+          0,
+          0,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 0,
+        "rowNow": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {},
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewClick.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "shown": "|[VERSE]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        166,
+        166
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 22,
+        "reached": true,
+        "sel": [
+          0,
+          0,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 0,
+        "rowNow": "ZQ[VERSE]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T3, 2.end"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewClick.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "shown": "|[VERSE]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 22,
+        "reached": true,
+        "sel": [
+          0,
+          0,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 0,
+        "rowNow": "ZQ[VERSE]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T3, 2.end"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewClick.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "shown": "|[VERSE]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 22,
+        "reached": true,
+        "sel": [
+          0,
+          0,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 0,
+        "rowNow": "ZQ[VERSE]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T3, 2.end"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewProg.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        27,
+        27
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewProg.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewProg.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        39,
+        39
+      ],
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          39,
+          39,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 39,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewProg.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        166,
+        166
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewProg.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.reviewProg.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": false,
+      "pageMapPredicted": [
+        178,
+        178
+      ],
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          178,
+          178,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 178,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        },
+        "refusal": "Nothing was sent. 2 word places in a rhyme link or declared return (1.T3 marked cut v2zq, 2 marked cut v2zq) are marked with a word cut this page does not read; it accepts only “cut v2”. Remove that link and declare it again, in Review."
+      },
+      "errors": []
+    }
+  ]
+}

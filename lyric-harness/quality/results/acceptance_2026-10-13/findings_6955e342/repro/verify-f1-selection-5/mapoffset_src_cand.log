@@ -1,0 +1,7 @@
+row lengths 32 78 common prefix 24 "[SETUP — returns — 1.end" common suffix 1 "]"
+|2.end   before 26 -> page 77, same characters 63 DIFFERS
+2.|end   before 28 -> page 77, same characters 65 DIFFERS
+2.end|   before 31 -> page 77, same characters 68 DIFFERS
+1.|end   before 21 -> page 21, same characters 21 OK
+after ]  before 32 -> page 78, same characters 78 OK
+walk     before 63 -> page 109, same characters 109 OK

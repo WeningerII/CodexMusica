@@ -1,0 +1,346 @@
+{
+ "tree": "c61b",
+ "how": "review",
+ "cases": [
+  {
+   "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+   "label": "sel 2.end",
+   "before": [
+    30,
+    35,
+    true
+   ],
+   "after": [
+    179,
+    179,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     29,
+     39
+    ],
+    [
+     29,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 179,
+   "later": [
+    179,
+    179,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+   "label": "caret 2.|end",
+   "before": [
+    32,
+    32,
+    true
+   ],
+   "after": [
+    179,
+    179,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     29,
+     39
+    ],
+    [
+     29,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 179,
+   "later": [
+    179,
+    179,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "caret 2.|end",
+   "before": [
+    26,
+    26,
+    true
+   ],
+   "after": [
+    190,
+    190,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     25,
+     25
+    ],
+    [
+     25,
+     25
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 190,
+   "later": [
+    190,
+    190,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "sel 4",
+   "before": [
+    30,
+    31,
+    true
+   ],
+   "after": [
+    190,
+    190,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     26,
+     26
+    ],
+    [
+     27,
+     27
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 190,
+   "later": [
+    190,
+    190,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "sel 3.T2",
+   "before": [
+    38,
+    42,
+    true
+   ],
+   "after": [
+    190,
+    190,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     37,
+     37
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 190,
+   "later": [
+    190,
+    190,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "caret 5|.end",
+   "before": [
+    45,
+    45,
+    true
+   ],
+   "after": [
+    190,
+    190,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     38,
+     39
+    ],
+    [
+     38,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 190,
+   "later": [
+    190,
+    190,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "label": "sel 6",
+   "before": [
+    51,
+    52,
+    true
+   ],
+   "after": [
+    190,
+    190,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     40,
+     40
+    ],
+    [
+     41,
+     50
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 190,
+   "later": [
+    190,
+    190,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+   "label": "sel 4.T2",
+   "before": [
+    51,
+    55,
+    true
+   ],
+   "after": [
+    185,
+    185,
+    "forward"
+   ],
+   "newRow": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     32,
+     32
+    ],
+    [
+     36,
+     45
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 185,
+   "later": [
+    185,
+    185,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 1.T2,2]",
+   "label": "caret |2",
+   "before": [
+    29,
+    29,
+    true
+   ],
+   "after": [
+    179,
+    179,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     29,
+     29
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 179,
+   "later": [
+    179,
+    179,
+    "forward"
+   ],
+   "laterText": true
+  },
+  {
+   "row": "[SETUP — rhyme groups — 1.T2,2]",
+   "label": "sel 2",
+   "before": [
+    29,
+    30,
+    true
+   ],
+   "after": [
+    179,
+    179,
+    "forward"
+   ],
+   "newRow": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+   "shownAfter": "Love above|",
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "docLen": 179,
+   "later": [
+    179,
+    179,
+    "forward"
+   ],
+   "laterText": true
+  }
+ ]
+}

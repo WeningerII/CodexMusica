@@ -1,0 +1,3967 @@
+{
+ "tree": "c61b",
+ "page": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-4/built-wt-61b.html",
+ "feed": "value",
+ "cases": [
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3,1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 181,
+    "row0": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "3,1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3,1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 181,
+    "row0": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "3,1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3,1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 181,
+    "row0": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "3,1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3,1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 181,
+    "row0": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "3,1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3,1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 181,
+    "row0": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "3,1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3,1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 181,
+    "row0": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "3,1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     190,
+     190,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2,4;1.T3,3.T2;5,6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 190,
+    "row0": "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "2,4;1.T3,3.T2;5,6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     185,
+     185,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2,4;5,6;1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 185,
+    "row0": "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "2,4;5,6;1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     179,
+     179,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 179,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     174,
+     174,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 174,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "returns": "1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3,1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 181,
+    "row0": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "3,1.T3,2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "c61b",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "shown": "Love above|"
+   },
+   "after": {
+    "sel": [
+     181,
+     181,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "Love above|",
+    "row": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3,1.T3,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 181,
+    "row0": "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]",
+    "lineOfZQ": 11
+   },
+   "parseTyped": {
+    "groups": "3,1.T3,2"
+   },
+   "errors": []
+  }
+ ]
+}

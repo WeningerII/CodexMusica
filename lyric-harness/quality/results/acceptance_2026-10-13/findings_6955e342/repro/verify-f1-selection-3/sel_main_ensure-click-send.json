@@ -1,0 +1,4212 @@
+{
+  "tree": "main",
+  "dir": "wt-main",
+  "cases": [
+    {
+      "id": "main.ensure.RET.C_in_T2.none",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]"
+      },
+      "typedLine": "[SETUP — returns — 1.TZQ2, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — 1.TZQ2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.TZQ2, 2.end]",
+            "value": "1.TZQ2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.TZQ2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.TZQ2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.TZQ2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.RET.C_after_T2.none",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "typedLine": "[SETUP — returns — 1.T2ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — 1.T2ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2ZQ, 2.end]",
+            "value": "1.T2ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.RET.C_sel_T2.none",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "typedLine": "[SETUP — returns — ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — ZQ, 2.end]",
+            "value": "ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.RET.U_sel_2end.none",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "typedLine": "[SETUP — returns — 1.T2, ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, ZQ]",
+            "value": "1.T2, ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.RET.S_body_walk.none",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "typedLine": "I wZQalk the line tonight",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.RHY.C_after_T2.none",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]"
+      },
+      "typedLine": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+            "value": "1.T2ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "1.T2ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "1.T2ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.RHY.C_sel_T2.none",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+      },
+      "typedLine": "[SETUP — rhyme groups — ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — rhyme groups — ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — ZQ, 2.end]",
+            "value": "ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.RET_LAST.C_after_T2.none",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]"
+      },
+      "typedLine": "[SETUP — returns — 2.end, 1.T2ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 2.end, 1.T2ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, 1.T2ZQ]",
+            "value": "2.end, 1.T2ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, 1.T2ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, 1.T2ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.RET_LAST.C_sel_T2.none",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]"
+      },
+      "typedLine": "[SETUP — returns — 2.end, ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 2.end, ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, ZQ]",
+            "value": "2.end, ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.READ.C_sel_num.none",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+            "value": "token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me",
+            "malformed": true
+          }
+        ],
+        "decl": {}
+      },
+      "nextContext": {
+        "declarations": {}
+      },
+      "reviewItems": [
+        "input|A reading declaration cannot be read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.READ.C_after_num.none",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+            "value": "token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me",
+            "malformed": true
+          }
+        ],
+        "decl": {}
+      },
+      "nextContext": {
+        "declarations": {}
+      },
+      "reviewItems": [
+        "input|A reading declaration cannot be read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.ensure.READ.U_sel_OW1.none",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "ensureReturned": "absent",
+      "migrated": false,
+      "sentDecl": [],
+      "after": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "sameChars": true,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "ZQ"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "ZQ"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      },
+      "reviewItems": [],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.C_in_T2.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]"
+      },
+      "typedLine": "[SETUP — returns — 1.TZQ2, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — 1.TZQ2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.TZQ2, 2.end]",
+            "value": "1.TZQ2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.TZQ2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.TZQ2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.TZQ2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.C_in_T2.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.C_after_T2.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "typedLine": "[SETUP — returns — 1.T2ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — 1.T2ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2ZQ, 2.end]",
+            "value": "1.T2ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.C_after_T2.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.C_sel_T2.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "typedLine": "[SETUP — returns — ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — ZQ, 2.end]",
+            "value": "ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.C_sel_T2.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.U_sel_2end.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "typedLine": "[SETUP — returns — 1.T2, ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, ZQ]",
+            "value": "1.T2, ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.U_sel_2end.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.S_body_walk.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 24,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "typedLine": "I wZQalk the line tonight",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET.S_body_walk.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RHY.C_after_T2.tab",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "groups": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]"
+      },
+      "typedLine": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+            "value": "1.T2ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "1.T2ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "1.T2ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RHY.C_after_T2.mouse",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "groups": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          37,
+          37,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RHY.C_sel_T2.tab",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "groups": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+      },
+      "typedLine": "[SETUP — rhyme groups — ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — rhyme groups — ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — ZQ, 2.end]",
+            "value": "ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RHY.C_sel_T2.mouse",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "groups": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          37,
+          37,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET_LAST.C_after_T2.tab",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "2.end, 1.T2"
+        }
+      ],
+      "after": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]"
+      },
+      "typedLine": "[SETUP — returns — 2.end, 1.T2ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 2.end, 1.T2ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, 1.T2ZQ]",
+            "value": "2.end, 1.T2ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, 1.T2ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, 1.T2ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET_LAST.C_after_T2.mouse",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "2.end, 1.T2"
+        }
+      ],
+      "after": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 2.end, 1.T2]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, 1.T2]",
+            "value": "2.end, 1.T2",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, 1.T2"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, 1.T2"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET_LAST.C_sel_T2.tab",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "2.end, 1.T2"
+        }
+      ],
+      "after": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]"
+      },
+      "typedLine": "[SETUP — returns — 2.end, ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 2.end, ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, ZQ]",
+            "value": "2.end, ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.RET_LAST.C_sel_T2.mouse",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "2.end, 1.T2"
+        }
+      ],
+      "after": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 2.end, 1.T2]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, 1.T2]",
+            "value": "2.end, 1.T2",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, 1.T2"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, 1.T2"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.READ.C_sel_num.tab",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+            "value": "token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me",
+            "malformed": true
+          }
+        ],
+        "decl": {}
+      },
+      "nextContext": {
+        "declarations": {}
+      },
+      "reviewItems": [
+        "input|A reading declaration cannot be read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.READ.C_sel_num.mouse",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 412
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          71,
+          71,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "reviewItems": [
+        "input|Choose how “oh” is read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.READ.C_after_num.tab",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+            "value": "token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me",
+            "malformed": true
+          }
+        ],
+        "decl": {}
+      },
+      "nextContext": {
+        "declarations": {}
+      },
+      "reviewItems": [
+        "input|A reading declaration cannot be read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.READ.C_after_num.mouse",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 412
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          71,
+          71,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "reviewItems": [
+        "input|Choose how “oh” is read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.click.READ.U_sel_OW1.tab",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "tabPresses": 21,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "ZQ"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "ZQ"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      },
+      "reviewItems": [],
+      "errors": []
+    },
+    {
+      "id": "main.click.READ.U_sel_OW1.mouse",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "buttonCount": 2,
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "BODY"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 412
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          71,
+          71,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "reviewItems": [
+        "input|Choose how “oh” is read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.C_in_T2.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]"
+      },
+      "typedLine": "[SETUP — returns — 1.TZQ2, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — 1.TZQ2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.TZQ2, 2.end]",
+            "value": "1.TZQ2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.TZQ2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.TZQ2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.TZQ2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.C_in_T2.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T|2, 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.C_after_T2.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "typedLine": "[SETUP — returns — 1.T2ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — 1.T2ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2ZQ, 2.end]",
+            "value": "1.T2ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.C_after_T2.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2|, 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.C_sel_T2.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "typedLine": "[SETUP — returns — ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — returns — ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — ZQ, 2.end]",
+            "value": "ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.C_sel_T2.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.U_sel_2end.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "typedLine": "[SETUP — returns — 1.T2, ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, ZQ]",
+            "value": "1.T2, ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.U_sel_2end.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.S_body_walk.tab",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 12,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "typedLine": "I wZQalk the line tonight",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET.S_body_walk.mouse",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RHY.C_after_T2.tab",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "groups": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]"
+      },
+      "typedLine": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — 1.T2ZQ, 2.end]",
+            "value": "1.T2ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "1.T2ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "1.T2ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RHY.C_after_T2.mouse",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "groups": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          37,
+          37,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RHY.C_sel_T2.tab",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "groups": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+      },
+      "typedLine": "[SETUP — rhyme groups — ZQ, 2.end]",
+      "rowAfterTyping": "[SETUP — rhyme groups — ZQ, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — ZQ, 2.end]",
+            "value": "ZQ, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "ZQ, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "ZQ, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RHY.C_sel_T2.mouse",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "groups": "1.T2, 2.end"
+        }
+      ],
+      "after": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          37,
+          37,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "rhyme groups",
+            "raw": "[SETUP — rhyme groups — 1.T2, 2.end]",
+            "value": "1.T2, 2.end",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "groups": "1.T2, 2.end"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "groups": "1.T2, 2.end"
+        }
+      },
+      "reviewItems": [
+        "input|A rhyme link points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET_LAST.C_after_T2.tab",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "2.end, 1.T2"
+        }
+      ],
+      "after": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]"
+      },
+      "typedLine": "[SETUP — returns — 2.end, 1.T2ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 2.end, 1.T2ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, 1.T2ZQ]",
+            "value": "2.end, 1.T2ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, 1.T2ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, 1.T2ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET_LAST.C_after_T2.mouse",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "2.end, 1.T2"
+        }
+      ],
+      "after": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, 1.T2|]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 2.end, 1.T2]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, 1.T2]",
+            "value": "2.end, 1.T2",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, 1.T2"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, 1.T2"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET_LAST.C_sel_T2.tab",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "2.end, 1.T2"
+        }
+      ],
+      "after": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]"
+      },
+      "typedLine": "[SETUP — returns — 2.end, ZQ]",
+      "rowAfterTyping": "[SETUP — returns — 2.end, ZQ]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, ZQ]",
+            "value": "2.end, ZQ",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, ZQ"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, ZQ"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at ZQ, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.RET_LAST.C_sel_T2.mouse",
+      "row": "[SETUP — returns — 2.end, 1.T2]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "returns": "2.end, 1.T2"
+        }
+      ],
+      "after": {
+        "sel": [
+          26,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 2.end, «1.T2»]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 380
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "shown": "|"
+      },
+      "typedLine": "ZQ",
+      "rowAfterTyping": "[SETUP — returns — 2.end, 1.T2]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "returns",
+            "raw": "[SETUP — returns — 2.end, 1.T2]",
+            "value": "2.end, 1.T2",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "returns": "2.end, 1.T2"
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "returns": "2.end, 1.T2"
+        }
+      },
+      "reviewItems": [
+        "input|A declared return points at 1.T2, which the draft does not have"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.READ.C_sel_num.tab",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+            "value": "token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me",
+            "malformed": true
+          }
+        ],
+        "decl": {}
+      },
+      "nextContext": {
+        "declarations": {}
+      },
+      "reviewItems": [
+        "input|A reading declaration cannot be read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.READ.C_sel_num.mouse",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 412
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          71,
+          71,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "reviewItems": [
+        "input|Choose how “oh” is read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.READ.C_after_num.tab",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+            "value": "token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me",
+            "malformed": true
+          }
+        ],
+        "decl": {}
+      },
+      "nextContext": {
+        "declarations": {}
+      },
+      "reviewItems": [
+        "input|A reading declaration cannot be read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.READ.C_after_num.mouse",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 412
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          71,
+          71,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "reviewItems": [
+        "input|Choose how “oh” is read"
+      ],
+      "errors": []
+    },
+    {
+      "id": "main.send.READ.U_sel_OW1.tab",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "tabPresses": 9,
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "ZQ"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "ZQ"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      },
+      "reviewItems": [],
+      "errors": []
+    },
+    {
+      "id": "main.send.READ.U_sel_OW1.mouse",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "preUnchangedByRefresh": true,
+      "before": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "lyrics-draft"
+      },
+      "chatActive": "chat-input",
+      "migrated": false,
+      "sentDecl": [
+        {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "me"
+            }
+          ]
+        }
+      ],
+      "after": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]",
+        "active": "chat-input"
+      },
+      "sameChars": true,
+      "draftBox": {
+        "x": 337,
+        "y": 282,
+        "width": 708,
+        "height": 412
+      },
+      "refocused": {
+        "active": "lyrics-draft",
+        "sel": [
+          71,
+          71,
+          "forward"
+        ],
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"
+      },
+      "typedLine": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "rowAfterTyping": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+      "parsedAfterTyping": {
+        "setup": [
+          {
+            "key": "reading",
+            "raw": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]",
+            "value": "token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me",
+            "malformed": false
+          }
+        ],
+        "decl": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "nextContext": {
+        "declarations": {
+          "readings_not_chosen": [
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "state": "needs a choice"
+            }
+          ]
+        }
+      },
+      "reviewItems": [
+        "input|Choose how “oh” is read"
+      ],
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+main.raw.prog.CARRIED.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[28,28,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.prog.CARRIED.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,31,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[26,31,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [26,31,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.prog.CARRIED.sel_2end_back: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,31,"backward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[26,31,"backward"],"focused":true,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [26,31,"backward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.prog.CARRIED.caret_in_1end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[21,21,"forward"],"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   after  {"sel":[21,21,"forward"],"focused":true,"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   expect [21,21,"forward"] "[SETUP — returns — 1.|end, 2.end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.ZQend, 2.end]"
+main.raw.prog.CARRIED.caret_before_2: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,26,"forward"],"shown":"[SETUP — returns — 1.end, |2.end]"}
+   after  {"sel":[26,26,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, |2.end]"}
+   expect [26,26,"forward"] "[SETUP — returns — 1.end, |2.end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ2.end]"
+main.raw.prog.CARRIED.caret_after_row: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[32,32,"forward"],"shown":"[SETUP — returns — 1.end, 2.end]|"}
+   after  {"sel":[32,32,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, 2.end]|"}
+   expect [32,32,"forward"] "[SETUP — returns — 1.end, 2.end]|"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.end]ZQ"
+main.raw.prog.CARRIED_BOTTOM.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[167,167,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[167,167,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [167,167,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.prog.CARRIED_BOTTOM.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[165,170,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[165,170,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [165,170,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.prog.CARRIED_RHY.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[33,33,"forward"],"shown":"[SETUP — rhyme groups — 1.end, 2.|end]"}
+   after  {"sel":[33,33,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 1.end, 2.|end]"}
+   expect [33,33,"forward"] "[SETUP — rhyme groups — 1.end, 2.|end]"
+   rows ["[SETUP — rhyme groups — 1.end, 2.end]"]
+   sent [{"groups":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 1.end, 2.ZQend]"
+main.raw.prog.CARRIED_RHY.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[31,36,"forward"],"shown":"[SETUP — rhyme groups — 1.end, «2.end»]"}
+   after  {"sel":[31,36,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 1.end, «2.end»]"}
+   expect [31,36,"forward"] "[SETUP — rhyme groups — 1.end, «2.end»]"
+   rows ["[SETUP — rhyme groups — 1.end, 2.end]"]
+   sent [{"groups":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 1.end, ZQ]"
+main.raw.prog.CARRIED_TWO.other_caret_5end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[58,58,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   after  {"sel":[58,58,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   expect [58,58,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5ZQ.end, 6]"
+main.raw.prog.CARRIED_TWO.other_sel_6: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[64,65,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   after  {"sel":[64,65,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   expect [64,65,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5.end, ZQ]"
+main.raw.prog.CARRIED_TWO.first_caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[28,28,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.prog.TWO_ROWS.other_caret_5end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[57,57,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   after  {"sel":[57,57,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   expect [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+   rows ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5ZQ.end, 6]"
+main.raw.prog.TWO_ROWS.other_sel_6: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[63,64,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   after  {"sel":[63,64,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   expect [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+   rows ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5.end, ZQ]"
+main.raw.kbd.CARRIED.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[28,28,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.kbd.CARRIED.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,31,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[26,31,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [26,31,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.kbd.CARRIED.sel_2end_back: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,31,"backward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[26,31,"backward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [26,31,"backward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.kbd.CARRIED.caret_in_1end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[21,21,"forward"],"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   after  {"sel":[21,21,"forward"],"focused":false,"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   expect [21,21,"forward"] "[SETUP — returns — 1.|end, 2.end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.ZQend, 2.end]"
+main.raw.kbd.CARRIED.caret_before_2: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,26,"forward"],"shown":"[SETUP — returns — 1.end, |2.end]"}
+   after  {"sel":[26,26,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, |2.end]"}
+   expect [26,26,"forward"] "[SETUP — returns — 1.end, |2.end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ2.end]"
+main.raw.kbd.CARRIED.caret_after_row: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[32,32,"forward"],"shown":"[SETUP — returns — 1.end, 2.end]|"}
+   after  {"sel":[32,32,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.end]|"}
+   expect [32,32,"forward"] "[SETUP — returns — 1.end, 2.end]|"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.end]ZQ"
+main.raw.kbd.CARRIED_BOTTOM.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[167,167,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[167,167,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [167,167,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.kbd.CARRIED_BOTTOM.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[165,170,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[165,170,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [165,170,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.kbd.CARRIED_RHY.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[33,33,"forward"],"shown":"[SETUP — rhyme groups — 1.end, 2.|end]"}
+   after  {"sel":[33,33,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 1.end, 2.|end]"}
+   expect [33,33,"forward"] "[SETUP — rhyme groups — 1.end, 2.|end]"
+   rows ["[SETUP — rhyme groups — 1.end, 2.end]"]
+   sent [{"groups":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 1.end, 2.ZQend]"
+main.raw.kbd.CARRIED_RHY.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[31,36,"forward"],"shown":"[SETUP — rhyme groups — 1.end, «2.end»]"}
+   after  {"sel":[31,36,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 1.end, «2.end»]"}
+   expect [31,36,"forward"] "[SETUP — rhyme groups — 1.end, «2.end»]"
+   rows ["[SETUP — rhyme groups — 1.end, 2.end]"]
+   sent [{"groups":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 1.end, ZQ]"
+main.raw.kbd.CARRIED_TWO.other_caret_5end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[58,58,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   after  {"sel":[58,58,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   expect [58,58,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5ZQ.end, 6]"
+main.raw.kbd.CARRIED_TWO.other_sel_6: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[64,65,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   after  {"sel":[64,65,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   expect [64,65,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5.end, ZQ]"
+main.raw.kbd.CARRIED_TWO.first_caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[28,28,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.kbd.TWO_ROWS.other_caret_5end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[57,57,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   after  {"sel":[57,57,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   expect [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+   rows ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5ZQ.end, 6]"
+main.raw.kbd.TWO_ROWS.other_sel_6: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[63,64,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   after  {"sel":[63,64,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   expect [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+   rows ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5.end, ZQ]"
+main.raw.click.CARRIED.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[28,28,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.click.CARRIED.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,31,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[26,31,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [26,31,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.click.CARRIED.sel_2end_back: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,31,"backward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[26,31,"backward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [26,31,"backward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.click.CARRIED.caret_in_1end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[21,21,"forward"],"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   after  {"sel":[21,21,"forward"],"focused":false,"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   expect [21,21,"forward"] "[SETUP — returns — 1.|end, 2.end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.ZQend, 2.end]"
+main.raw.click.CARRIED.caret_before_2: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,26,"forward"],"shown":"[SETUP — returns — 1.end, |2.end]"}
+   after  {"sel":[26,26,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, |2.end]"}
+   expect [26,26,"forward"] "[SETUP — returns — 1.end, |2.end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ2.end]"
+main.raw.click.CARRIED.caret_after_row: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[32,32,"forward"],"shown":"[SETUP — returns — 1.end, 2.end]|"}
+   after  {"sel":[32,32,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.end]|"}
+   expect [32,32,"forward"] "[SETUP — returns — 1.end, 2.end]|"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.end]ZQ"
+main.raw.click.CARRIED_BOTTOM.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[167,167,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[167,167,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [167,167,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.click.CARRIED_BOTTOM.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[165,170,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[165,170,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [165,170,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.click.CARRIED_RHY.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[33,33,"forward"],"shown":"[SETUP — rhyme groups — 1.end, 2.|end]"}
+   after  {"sel":[33,33,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 1.end, 2.|end]"}
+   expect [33,33,"forward"] "[SETUP — rhyme groups — 1.end, 2.|end]"
+   rows ["[SETUP — rhyme groups — 1.end, 2.end]"]
+   sent [{"groups":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 1.end, 2.ZQend]"
+main.raw.click.CARRIED_RHY.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[31,36,"forward"],"shown":"[SETUP — rhyme groups — 1.end, «2.end»]"}
+   after  {"sel":[31,36,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 1.end, «2.end»]"}
+   expect [31,36,"forward"] "[SETUP — rhyme groups — 1.end, «2.end»]"
+   rows ["[SETUP — rhyme groups — 1.end, 2.end]"]
+   sent [{"groups":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 1.end, ZQ]"
+main.raw.click.CARRIED_TWO.other_caret_5end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[58,58,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   after  {"sel":[58,58,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   expect [58,58,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5ZQ.end, 6]"
+main.raw.click.CARRIED_TWO.other_sel_6: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[64,65,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   after  {"sel":[64,65,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   expect [64,65,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5.end, ZQ]"
+main.raw.click.CARRIED_TWO.first_caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[28,28,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.click.TWO_ROWS.other_caret_5end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[57,57,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   after  {"sel":[57,57,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   expect [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+   rows ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5ZQ.end, 6]"
+main.raw.click.TWO_ROWS.other_sel_6: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[63,64,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   after  {"sel":[63,64,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   expect [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+   rows ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5.end, ZQ]"
+main.raw.dock.CARRIED.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[28,28,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.dock.CARRIED.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,31,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[26,31,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [26,31,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.dock.CARRIED.sel_2end_back: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,31,"backward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[26,31,"backward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [26,31,"backward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.dock.CARRIED.caret_in_1end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[21,21,"forward"],"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   after  {"sel":[21,21,"forward"],"focused":false,"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   expect [21,21,"forward"] "[SETUP — returns — 1.|end, 2.end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.ZQend, 2.end]"
+main.raw.dock.CARRIED.caret_before_2: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[26,26,"forward"],"shown":"[SETUP — returns — 1.end, |2.end]"}
+   after  {"sel":[26,26,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, |2.end]"}
+   expect [26,26,"forward"] "[SETUP — returns — 1.end, |2.end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ2.end]"
+main.raw.dock.CARRIED.caret_after_row: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[32,32,"forward"],"shown":"[SETUP — returns — 1.end, 2.end]|"}
+   after  {"sel":[32,32,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.end]|"}
+   expect [32,32,"forward"] "[SETUP — returns — 1.end, 2.end]|"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.end]ZQ"
+main.raw.dock.CARRIED_BOTTOM.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[167,167,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[167,167,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [167,167,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.dock.CARRIED_BOTTOM.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[165,170,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   after  {"sel":[165,170,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   expect [165,170,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+   rows ["[SETUP — returns — 1.end, 2.end]"]
+   sent [{"returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, ZQ]"
+main.raw.dock.CARRIED_RHY.caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[33,33,"forward"],"shown":"[SETUP — rhyme groups — 1.end, 2.|end]"}
+   after  {"sel":[33,33,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 1.end, 2.|end]"}
+   expect [33,33,"forward"] "[SETUP — rhyme groups — 1.end, 2.|end]"
+   rows ["[SETUP — rhyme groups — 1.end, 2.end]"]
+   sent [{"groups":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 1.end, 2.ZQend]"
+main.raw.dock.CARRIED_RHY.sel_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[31,36,"forward"],"shown":"[SETUP — rhyme groups — 1.end, «2.end»]"}
+   after  {"sel":[31,36,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 1.end, «2.end»]"}
+   expect [31,36,"forward"] "[SETUP — rhyme groups — 1.end, «2.end»]"
+   rows ["[SETUP — rhyme groups — 1.end, 2.end]"]
+   sent [{"groups":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 1.end, ZQ]"
+main.raw.dock.CARRIED_TWO.other_caret_5end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[58,58,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   after  {"sel":[58,58,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   expect [58,58,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5ZQ.end, 6]"
+main.raw.dock.CARRIED_TWO.other_sel_6: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[64,65,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   after  {"sel":[64,65,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   expect [64,65,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5.end, ZQ]"
+main.raw.dock.CARRIED_TWO.first_caret_in_2end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   after  {"sel":[28,28,"forward"],"focused":false,"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   expect [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+   rows ["[SETUP — returns — 1.end, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.end, 2.end"}]
+   ZQ -> "[SETUP — returns — 1.end, 2.ZQend]"
+main.raw.dock.TWO_ROWS.other_caret_5end: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[57,57,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   after  {"sel":[57,57,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   expect [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+   rows ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5ZQ.end, 6]"
+main.raw.dock.TWO_ROWS.other_sel_6: migrated=false rewriteAsExpected=undefined selOK=true unchangedRowKept=true
+   before {"sel":[63,64,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   after  {"sel":[63,64,"forward"],"focused":false,"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   expect [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+   rows ["[SETUP — returns — 1.T2, 2.end]","[SETUP — rhyme groups — 5.end, 6]"]
+   sent [{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+   ZQ -> "[SETUP — rhyme groups — 5.end, ZQ]"

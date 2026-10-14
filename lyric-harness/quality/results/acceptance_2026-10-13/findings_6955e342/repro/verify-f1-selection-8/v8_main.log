@@ -1,0 +1,118 @@
+[main] prog/A_send
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T4,8; 2,3"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send []
+   card        : action null send null
+[main] prog/B_remove
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   sent        : [{"groups":"1.T4,8"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   toasts      : input [] action ["Rhyme link removed. Undo restores it.\nUndo"] send ["Rhyme link removed. Undo restores it.\nUndo"]
+   card        : action null send null
+[main] prog/C_add
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"]
+   sent        : [{"groups":"1.T4,8;2,3;5,7"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"]
+   toasts      : input [] action ["Rhyme link saved.\nUndo"] send ["Rhyme link saved.\nUndo"]
+   card        : action null send null
+[main] prog/D_returns
+   after input : ["[SETUP — returns — 1.T4,4.T5]"]  list ["Line 1 · word 4 = Line 4 · word 5"]
+   after action: ["[SETUP — returns — 1.T4,4.T5;6,9]"]  list ["Line 1 · word 4 = Line 4 · word 5","Line 6 = Line 9"]
+   sent        : [{"returns":"1.T4,4.T5;6,9"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"},{"member":"4.T5","current_cut_word":"oh","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — returns — 1.T4,4.T5;6,9]"]  list ["Line 1 · word 4 = Line 4 · word 5","Line 6 = Line 9"]
+   toasts      : input [] action ["Placed return declared.\nUndo"] send ["Placed return declared.\nUndo"]
+   card        : action null send null
+[main] prog/E_title
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — title — Test title]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"title":"Test title","groups":"1.T4,8; 2,3"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — title — Test title]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action ["Title set.\nUndo"] send ["Title set.\nUndo"]
+   card        : action null send null
+[main] prog/F_reload
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   before reload: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T4,8; 2,3"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send []
+   card        : action null send null
+[main] prog/G_B_reload
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   before reload: ["[SETUP — rhyme groups — 1.T4,8]"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   sent        : [{"groups":"1.T4,8"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   toasts      : input [] action [] send []
+   card        : action null send null
+[main] prog/H_dock
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   dock context: {"declarations":{"groups":"1.T4,8; 2,3"},"blocked":null}
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T4,8; 2,3"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send []
+   card        : action null send null
+[main] paste/A_send
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T4,8; 2,3"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send []
+   card        : action null send null
+[main] paste/B_remove
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   sent        : [{"groups":"1.T4,8"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   toasts      : input [] action ["Rhyme link removed. Undo restores it.\nUndo"] send ["Rhyme link removed. Undo restores it.\nUndo"]
+   card        : action null send null
+[main] paste/C_add
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"]
+   sent        : [{"groups":"1.T4,8;2,3;5,7"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"]
+   toasts      : input [] action ["Rhyme link saved.\nUndo"] send ["Rhyme link saved.\nUndo"]
+   card        : action null send null
+[main] paste/D_returns
+   after input : ["[SETUP — returns — 1.T4,4.T5]"]  list ["Line 1 · word 4 = Line 4 · word 5"]
+   after action: ["[SETUP — returns — 1.T4,4.T5;6,9]"]  list ["Line 1 · word 4 = Line 4 · word 5","Line 6 = Line 9"]
+   sent        : [{"returns":"1.T4,4.T5;6,9"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"},{"member":"4.T5","current_cut_word":"oh","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — returns — 1.T4,4.T5;6,9]"]  list ["Line 1 · word 4 = Line 4 · word 5","Line 6 = Line 9"]
+   toasts      : input [] action ["Placed return declared.\nUndo"] send ["Placed return declared.\nUndo"]
+   card        : action null send null
+[main] paste/E_title
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — title — Test title]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"title":"Test title","groups":"1.T4,8; 2,3"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — title — Test title]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action ["Title set.\nUndo"] send ["Title set.\nUndo"]
+   card        : action null send null
+[main] paste/F_reload
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   before reload: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T4,8; 2,3"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send []
+   card        : action null send null
+[main] paste/G_B_reload
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   before reload: ["[SETUP — rhyme groups — 1.T4,8]"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   sent        : [{"groups":"1.T4,8"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   toasts      : input [] action [] send []
+   card        : action null send null
+[main] paste/H_dock
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   dock context: {"declarations":{"groups":"1.T4,8; 2,3"},"blocked":null}
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T4,8; 2,3"}] via click -> [{"member":"1.T4","current_cut_word":"love","earlier_cut_word":"n/a (page has one cut)"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send []
+   card        : action null send null

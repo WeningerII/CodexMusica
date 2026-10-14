@@ -1,0 +1,41 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:61d7af23-031e-44ce-b870-d7357170141d",
+  "draftId": "draft:d46ad766-2f8f-4bb9-80bc-025eebe8cf1c",
+  "createdAt": "2026-10-14T11:03:04.571Z",
+  "payload": {
+    "text": "[SETUP — returns — 1.T3,2.T3]\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love",
+    "title": "V11b",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:ccbb9e46-48c4-45d6-ba86-c7529f70f0cf",
+        "sourceDigest": "91cd6110af705c5aa2d00f08bb0004d8dc57b1fe23ebbe8888e56a7c9dc90a26",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          }
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "ccb6d1d043d2186e7a5656eae6f8bbb227668e8f634fe4ddc2112d3f17e3b37d"
+}

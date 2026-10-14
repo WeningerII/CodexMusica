@@ -1,0 +1,33 @@
+# verify-f4-card-8: adversarial re-check of f4-card d2 ('Line references stay correct after an edit' / cand.d.frozenLines)
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; V=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-8
+2026-10-14T10:36:39+00:00 read f4-card/{COMMANDS.txt,d_card.js,lib.js,d_cand.log,d_cand.json}
+2026-10-14T10:38:22+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-8/build-wt-695/built-wt-695.html --quiet
+#   wt-695: cmp built vs codex.html: IDENTICAL; library chunks: OK
+2026-10-14T10:38:24+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-8/build-wt-61b/built-wt-61b.html --quiet
+#   wt-61b: cmp built vs codex.html: IDENTICAL; library chunks: OK
+2026-10-14T10:38:27+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-8/build-wt-678/built-wt-678.html --quiet
+#   wt-678: cmp built vs codex.html: IDENTICAL; library chunks: OK
+2026-10-14T10:38:30+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-8/build-wt-main/built-wt-main.html --quiet
+#   wt-main: cmp built vs codex.html: IDENTICAL; library chunks: OK
+2026-10-14T10:38:40+00:00 cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && NODE_PATH=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-8/build-wt-base/built-wt-base.html --quiet   # wt-base has no node_modules
+#   wt-base: cmp built vs codex.html: IDENTICAL; library chunks: OK
+rm -rf $V/build-wt-*   # built pages deleted after cmp; each tree root's codex.html is served
+2026-10-14T10:40:31+00:00 cd $V && node v8.js cand > v8_cand.log 2>&1
+2026-10-14T10:41:03+00:00 python3 (inline) edit of v8.js: added run D (fixture 'Red--red, red my rose', a reading the migration renumbers on one line); run C kept as the blocked-reading contrast
+2026-10-14T10:41:03+00:00 cd $V && node v8.js cand > v8_cand.log 2>&1   # rerun with run D
+2026-10-14T10:41:25+00:00 cd $V && node v8.js prev61b > v8_prev61b.log 2>&1
+2026-10-14T10:41:39+00:00 cd $V && node v8.js prev678 > v8_prev678.log 2>&1
+2026-10-14T10:41:53+00:00 cd $V && node v8.js main > v8_main.log 2>&1
+2026-10-14T10:42:06+00:00 cd $V && node v8.js base > v8_base.log 2>&1
+# read-only source/doc lookups: sed -n 440,545p wt-695/src/pages/lyrics.js (lyRecordRenumbered: n captured once from lyParse(done.text) at import; lyRenumberedCheck renders stored n);
+#   sed 915,935p (lyLineRef); 5900-5970 (input handler: no remap of card or setup rows); 1915-1970, 4369-4406 (run items carry stale/'from an earlier version'; card has lines:[] so no 'Show in draft');
+#   grep renumbered in wt-695 src/pages/lyrics.js (17 hits, only 462-539 + 5652 dismiss: display-only), src/library/analysis.js (separate Library structure);
+#   grep lyRenumberedCheck: wt-695 3, wt-61b/wt-678/wt-main/wt-base 0; git log -1 643e292e6; wt-695/mcp/LYRICS_RUNTIME.md 240-275, 325-340;
+#   verify-f4-card-6/pr_comment_{6161601064,6161637870,6161683534,6161695192}.md (F4 contract text, read only)
+# git status after runs: wt-695/61b/main '?? node_modules', wt-678 '?? mcp/node_modules ?? node_modules', wt-base clean (unchanged from before)
+# NOTES
+# - v8.js is my own harness (not the tester's lib.js): imports through the real #ly-file input (.txt), edits by real keystrokes
+#   (caret placed with setSelectionRange, then keyboard.type / Backspace, then blur), reads the page's own LY.model/LY.items/app.lyricMeta.
+# - Chromium /opt/pw-browsers/chromium (playwright from wt-695/node_modules); local http server over each tree root (codex.html cmp-identical to a
+#   fresh CODEX_LIBRARY=1 build for all five trees; built copies deleted); mcp.codexmusica.com routed to an in-process stub. No CHAT_SECRET.
+# - base log == main log except the import file name in the toast; prev678 log == prev61b log (modulo tree name).

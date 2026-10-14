@@ -1,0 +1,18 @@
+## prev678 U  aId=draft:f8b45fd3-c6d9-49f1-bdc7-94b2123b894d bId=draft:226ec97d-e2f3-416d-9841-62b262e8d853
+1 A (controls planted)              | draft "Song A"]      live id          brief=A-brief drafts=["rhymes|song"] probe=A-probe card=null || A rec: drafts=undefined probe=- card=undefined || B rec card=undefined
+2 after Library import of B         | draft "Song B"]      live id 226ec97d brief=- drafts=[] probe=- card=null || A rec: drafts=["rhymes|song"] probe=A-probe card=null || B rec card=null
+3 Undo (mouse #btn-undo) +31ms      | draft "Song A"]      live id f8b45fd3 brief=A-brief drafts=[] probe=- card=null || A rec: drafts=["rhymes|song"] probe=A-probe card=null || B rec card=null
+3 Undo (mouse #btn-undo) +351ms     | draft "Song A"]      live id f8b45fd3 brief=A-brief drafts=[] probe=- card=null || A rec: drafts=["rhymes|song"] probe=A-probe card=null || B rec card=null
+3 Undo (mouse #btn-undo) +802ms     | draft "Song A"]      live id f8b45fd3 brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+3 Undo (mouse #btn-undo) +2001ms    | draft "Song A"]      live id f8b45fd3 brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+4 Review tab clicked                | draft "Song A"]      live id f8b45fd3 brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+                                      rendered: null
+5 after reload                      | draft "Song A"]      live id f8b45fd3 brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+                                      rendered: null
+6 History: Open draft B             | draft "Song B"]      live id 226ec97d brief=- drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+                                      rendered: null opened=true
+7 History: Open draft A             | draft "Song A"]      live id f8b45fd3 brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+                                      rendered: null opened=true
+  hist(last): ["\"Song A\"@f8b45fd3[brief=A-brief]","\"Song B\"@226ec97d","*\"Song A\"@f8b45fd3[brief=A-brief]"]
+  traces: {"A":{},"B":{}}
+  pageErrors: []

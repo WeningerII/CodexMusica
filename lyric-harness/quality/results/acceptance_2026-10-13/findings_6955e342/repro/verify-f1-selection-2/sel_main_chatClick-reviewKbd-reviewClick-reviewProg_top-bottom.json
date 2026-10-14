@@ -1,0 +1,1550 @@
+{
+  "label": "main",
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main",
+  "page": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-main.html",
+  "browser": "141.0.7390.37",
+  "cases": [
+    {
+      "id": "main.chatClick.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        27,
+        27
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          27,
+          27,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 27,
+        "rowNow": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.ZQend"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.chatClick.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.chatClick.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.chatClick.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        166,
+        166
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          166,
+          166,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 166,
+        "rowNow": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.ZQend"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.chatClick.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.chatClick.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewKbd.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        27,
+        27
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          27,
+          27,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 27,
+        "rowNow": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.ZQend"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewKbd.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewKbd.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewKbd.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        166,
+        166
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          166,
+          166,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 166,
+        "rowNow": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.ZQend"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewKbd.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewKbd.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewClick.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        27,
+        27
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          27,
+          27,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 27,
+        "rowNow": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.ZQend"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewClick.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewClick.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewClick.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        166,
+        166
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          166,
+          166,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 166,
+        "rowNow": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.ZQend"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewClick.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewClick.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 21,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewProg.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        27,
+        27
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          27,
+          27,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 27,
+        "rowNow": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.ZQend"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewProg.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewProg.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        25,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewProg.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        166,
+        166
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          166,
+          166,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 166,
+        "rowNow": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.ZQend"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewProg.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewProg.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        164,
+        169
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T2, ZQ]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, ZQ"
+        },
+        "refusal": null
+      },
+      "errors": []
+    }
+  ]
+}

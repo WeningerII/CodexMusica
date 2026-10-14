@@ -1,0 +1,1064 @@
+{
+ "cases": [
+  {
+   "id": "RET.top.U_in_2end",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    27,
+    27
+   ],
+   "page": [
+    39,
+    39
+   ],
+   "ref": [
+    [
+     27,
+     27
+    ],
+    [
+     27,
+     27
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 27,
+   "endColInRow": 27,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.top.U_sel_2end",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    25,
+    30
+   ],
+   "page": [
+    39,
+    39
+   ],
+   "ref": [
+    [
+     25,
+     25
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 25,
+   "endColInRow": 30,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.top.U_sel_2end_back",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    25,
+    30
+   ],
+   "page": [
+    39,
+    39
+   ],
+   "ref": [
+    [
+     25,
+     25
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 25,
+   "endColInRow": 30,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.top.C_in_T2",
+   "kind": "returns",
+   "cat": "C",
+   "before": [
+    22,
+    22
+   ],
+   "page": [
+    22,
+    22
+   ],
+   "ref": [
+    [
+     22,
+     23
+    ],
+    [
+     22,
+     23
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 22,
+   "endColInRow": 22,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "RET.top.C_after_T2",
+   "kind": "returns",
+   "cat": "C",
+   "before": [
+    23,
+    23
+   ],
+   "page": [
+    39,
+    39
+   ],
+   "ref": [
+    [
+     22,
+     23
+    ],
+    [
+     22,
+     23
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 23,
+   "endColInRow": 23,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.top.C_sel_T2",
+   "kind": "returns",
+   "cat": "C",
+   "before": [
+    19,
+    23
+   ],
+   "page": [
+    19,
+    39
+   ],
+   "ref": [
+    [
+     19,
+     19
+    ],
+    [
+     22,
+     23
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 19,
+   "endColInRow": 23,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.bottom.U_in_2end",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    166,
+    166
+   ],
+   "page": [
+    178,
+    178
+   ],
+   "ref": [
+    [
+     166,
+     166
+    ],
+    [
+     166,
+     166
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 27,
+   "endColInRow": 27,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.bottom.U_sel_2end",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    164,
+    169
+   ],
+   "page": [
+    178,
+    178
+   ],
+   "ref": [
+    [
+     164,
+     164
+    ],
+    [
+     169,
+     178
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 25,
+   "endColInRow": 30,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.bottom.U_sel_2end_back",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    164,
+    169
+   ],
+   "page": [
+    178,
+    178
+   ],
+   "ref": [
+    [
+     164,
+     164
+    ],
+    [
+     169,
+     178
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 25,
+   "endColInRow": 30,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.bottom.C_in_T2",
+   "kind": "returns",
+   "cat": "C",
+   "before": [
+    161,
+    161
+   ],
+   "page": [
+    161,
+    161
+   ],
+   "ref": [
+    [
+     161,
+     162
+    ],
+    [
+     161,
+     162
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 22,
+   "endColInRow": 22,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "RET.bottom.C_after_T2",
+   "kind": "returns",
+   "cat": "C",
+   "before": [
+    162,
+    162
+   ],
+   "page": [
+    178,
+    178
+   ],
+   "ref": [
+    [
+     161,
+     162
+    ],
+    [
+     161,
+     162
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 23,
+   "endColInRow": 23,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RET.bottom.C_sel_T2",
+   "kind": "returns",
+   "cat": "C",
+   "before": [
+    158,
+    162
+   ],
+   "page": [
+    158,
+    178
+   ],
+   "ref": [
+    [
+     158,
+     158
+    ],
+    [
+     161,
+     162
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 19,
+   "endColInRow": 23,
+   "firstChangedCol": 22,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RHY.top.U_in_2end",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    32,
+    32
+   ],
+   "page": [
+    44,
+    44
+   ],
+   "ref": [
+    [
+     32,
+     32
+    ],
+    [
+     32,
+     32
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 32,
+   "endColInRow": 32,
+   "firstChangedCol": 27,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RHY.top.U_sel_2end",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    30,
+    35
+   ],
+   "page": [
+    44,
+    44
+   ],
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     35,
+     44
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 30,
+   "endColInRow": 35,
+   "firstChangedCol": 27,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RHY.top.C_in_T2",
+   "kind": "rhyme groups",
+   "cat": "C",
+   "before": [
+    27,
+    27
+   ],
+   "page": [
+    27,
+    27
+   ],
+   "ref": [
+    [
+     27,
+     28
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 27,
+   "endColInRow": 27,
+   "firstChangedCol": 27,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "RHY.top.C_sel_T2",
+   "kind": "rhyme groups",
+   "cat": "C",
+   "before": [
+    24,
+    28
+   ],
+   "page": [
+    24,
+    44
+   ],
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 24,
+   "endColInRow": 28,
+   "firstChangedCol": 27,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RHY_BARE.top.U_before_2",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    29,
+    29
+   ],
+   "page": [
+    38,
+    38
+   ],
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     29,
+     29
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 29,
+   "endColInRow": 29,
+   "firstChangedCol": 27,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RHY_BARE.top.U_sel_2",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    29,
+    30
+   ],
+   "page": [
+    38,
+    39
+   ],
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 29,
+   "endColInRow": 30,
+   "firstChangedCol": 27,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "RHY_BARE.top.U_after_2",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    30,
+    30
+   ],
+   "page": [
+    39,
+    39
+   ],
+   "ref": [
+    [
+     30,
+     39
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 30,
+   "endColInRow": 30,
+   "firstChangedCol": 27,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "MANY.top.U_in_2end",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    26,
+    26
+   ],
+   "page": [
+    26,
+    26
+   ],
+   "ref": [
+    [
+     26,
+     26
+    ],
+    [
+     26,
+     26
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 26,
+   "endColInRow": 26,
+   "firstChangedCol": 36,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "MANY.top.U_sel_4",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    30,
+    31
+   ],
+   "page": [
+    30,
+    31
+   ],
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     31,
+     31
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 30,
+   "endColInRow": 31,
+   "firstChangedCol": 36,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "MANY.top.U_sel_3T2",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    38,
+    42
+   ],
+   "page": [
+    61,
+    61
+   ],
+   "ref": [
+    [
+     38,
+     38
+    ],
+    [
+     42,
+     42
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 38,
+   "endColInRow": 42,
+   "firstChangedCol": 36,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "MANY.top.U_in_5end",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    45,
+    45
+   ],
+   "page": [
+    61,
+    61
+   ],
+   "ref": [
+    [
+     45,
+     45
+    ],
+    [
+     45,
+     45
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 45,
+   "endColInRow": 45,
+   "firstChangedCol": 36,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "MANY.top.U_sel_6",
+   "kind": "rhyme groups",
+   "cat": "U",
+   "before": [
+    51,
+    52
+   ],
+   "page": [
+    61,
+    61
+   ],
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     52,
+     61
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 51,
+   "endColInRow": 52,
+   "firstChangedCol": 36,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "MANY.top.C_sel_1T2",
+   "kind": "rhyme groups",
+   "cat": "C",
+   "before": [
+    33,
+    37
+   ],
+   "page": [
+    33,
+    61
+   ],
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     36,
+     37
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 33,
+   "endColInRow": 37,
+   "firstChangedCol": 36,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "MANY_LAST.top.U_in_2end",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    22,
+    22
+   ],
+   "page": [
+    22,
+    22
+   ],
+   "ref": [
+    [
+     22,
+     22
+    ],
+    [
+     22,
+     22
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 22,
+   "endColInRow": 22,
+   "firstChangedCol": 49,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "MANY_LAST.top.U_sel_6end",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    39,
+    44
+   ],
+   "page": [
+    39,
+    44
+   ],
+   "ref": [
+    [
+     39,
+     39
+    ],
+    [
+     44,
+     44
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 39,
+   "endColInRow": 44,
+   "firstChangedCol": 49,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "MANY_LAST.top.U_sel_4T2",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    51,
+    55
+   ],
+   "page": [
+    63,
+    64
+   ],
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     55,
+     64
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 51,
+   "endColInRow": 55,
+   "firstChangedCol": 49,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "MANY_LAST.top.C_in_1T2",
+   "kind": "returns",
+   "cat": "C",
+   "before": [
+    48,
+    48
+   ],
+   "page": [
+    48,
+    48
+   ],
+   "ref": [
+    [
+     48,
+     48
+    ],
+    [
+     48,
+     48
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 48,
+   "endColInRow": 48,
+   "firstChangedCol": 49,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "CARRIED.top.U_in_2end",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    28,
+    28
+   ],
+   "page": [
+    77,
+    77
+   ],
+   "ref": [
+    [
+     65,
+     65
+    ],
+    [
+     65,
+     65
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 28,
+   "endColInRow": 28,
+   "firstChangedCol": 24,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "CARRIED.top.U_sel_2end",
+   "kind": "returns",
+   "cat": "U",
+   "before": [
+    26,
+    31
+   ],
+   "page": [
+    77,
+    77
+   ],
+   "ref": [
+    [
+     63,
+     63
+    ],
+    [
+     68,
+     77
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 26,
+   "endColInRow": 31,
+   "firstChangedCol": 24,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "CARRIED.top.C_in_1end",
+   "kind": "returns",
+   "cat": "C",
+   "before": [
+    21,
+    21
+   ],
+   "page": [
+    21,
+    21
+   ],
+   "ref": [
+    [
+     21,
+     21
+    ],
+    [
+     21,
+     21
+    ]
+   ],
+   "ok": true,
+   "startColInRow": 21,
+   "endColInRow": 21,
+   "firstChangedCol": 24,
+   "endsBeforeFirstChange": true
+  },
+  {
+   "id": "READ.top.U_sel_OW1",
+   "kind": "reading",
+   "cat": "U",
+   "before": [
+    58,
+    61
+   ],
+   "page": [
+    94,
+    94
+   ],
+   "ref": [
+    [
+     58,
+     58
+    ],
+    [
+     61,
+     61
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 58,
+   "endColInRow": 61,
+   "firstChangedCol": 25,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "READ.top.U_in_source",
+   "kind": "reading",
+   "cat": "U",
+   "before": [
+    78,
+    78
+   ],
+   "page": [
+    94,
+    94
+   ],
+   "ref": [
+    [
+     78,
+     78
+    ],
+    [
+     78,
+     78
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 78,
+   "endColInRow": 78,
+   "firstChangedCol": 25,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "READ.top.U_sel_me",
+   "kind": "reading",
+   "cat": "U",
+   "before": [
+    83,
+    85
+   ],
+   "page": [
+    94,
+    94
+   ],
+   "ref": [
+    [
+     83,
+     83
+    ],
+    [
+     85,
+     94
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 83,
+   "endColInRow": 85,
+   "firstChangedCol": 25,
+   "endsBeforeFirstChange": false
+  },
+  {
+   "id": "READ.top.C_sel_num",
+   "kind": "reading",
+   "cat": "C",
+   "before": [
+    25,
+    26
+   ],
+   "page": [
+    25,
+    94
+   ],
+   "ref": [
+    [
+     25,
+     26
+    ],
+    [
+     25,
+     26
+    ]
+   ],
+   "ok": false,
+   "startColInRow": 25,
+   "endColInRow": 26,
+   "firstChangedCol": 25,
+   "endsBeforeFirstChange": false
+  }
+ ],
+ "tally": {
+  "U": {
+   "n": 24,
+   "ok": 5,
+   "okIds": [
+    "RHY_BARE.top.U_after_2 (NOT before the first changed char: cols 30-30, first change at 27)",
+    "MANY.top.U_in_2end",
+    "MANY.top.U_sel_4",
+    "MANY_LAST.top.U_in_2end",
+    "MANY_LAST.top.U_sel_6end"
+   ],
+   "byKind": {
+    "returns": {
+     "n": 11,
+     "ok": 2
+    },
+    "rhyme groups": {
+     "n": 10,
+     "ok": 3
+    },
+    "reading": {
+     "n": 3,
+     "ok": 0
+    }
+   }
+  },
+  "C": {
+   "n": 12,
+   "ok": 5,
+   "okIds": [
+    "RET.top.C_in_T2",
+    "RET.bottom.C_in_T2",
+    "RHY.top.C_in_T2",
+    "MANY_LAST.top.C_in_1T2",
+    "CARRIED.top.C_in_1end"
+   ],
+   "byKind": {
+    "returns": {
+     "n": 8,
+     "ok": 4
+    },
+    "rhyme groups": {
+     "n": 3,
+     "ok": 1
+    },
+    "reading": {
+     "n": 1,
+     "ok": 0
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,23 @@
+cand {
+ "checks": [
+  {
+   "id": "count:0",
+   "title": "Verse declares 12 lines but has 4",
+   "actions": [
+    [
+     "ly-fix-count",
+     "Set the header to 4 lines",
+     "pencil",
+     0
+    ]
+   ]
+  }
+ ],
+ "buttons": [
+  {
+   "text": "Set the header to 4 lines",
+   "id": "0",
+   "visible": true
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+[c61b] fixcount/prog/sung_walk: pending=0 sends=0 rewritten=true sameChars=false restoredEqualsRaw=true
+   rows0-2  ["[VERSE — 4 lines]","Oh--oh, oh my love","I walk the line tonight"]
+   before   {"sel":[41,41],"shown":"I w|alk the line tonight"} songCaret=[41,41,0]
+   action   {"mobile":"review","sel":[147,147],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[41,41],"shown":"I wa|lk the line tonight","focused":false}
+   expected {"sel":[40,40],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I waZQlk the line tonight"
+[c61b] fixcount/prog/sung_sel_wellworn: pending=0 sends=0 rewritten=true sameChars=false restoredEqualsRaw=true
+   rows0-2  ["[VERSE — 4 lines]","Oh--oh, oh my love","I walk the line tonight"]
+   before   {"sel":[62,71],"shown":"«Well-worn» shoes upon the floor"} songCaret=[62,71,0]
+   action   {"mobile":"review","sel":[147,147],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[62,71],"shown":"W«ell-worn »shoes upon the floor","focused":false}
+   expected {"sel":[61,70],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "WZQshoes upon the floor"
+[c61b] fixcount/touch/sung_walk: pending=0 sends=0 rewritten=true sameChars=false restoredEqualsRaw=false
+   rows0-2  ["[VERSE — 4 lines]","Oh--oh, oh my love","I walk the line tonight"]
+   before   {"sel":[41,41],"shown":"I w|alk the line tonight"} songCaret=[41,41,0]
+   action   {"mobile":"review","sel":[147,147],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[VERSE — 4 lines]","focused":false}
+   expected {"sel":[40,40],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "ZQ[VERSE — 4 lines]"
+[c61b] fixcount/touch/sung_sel_wellworn: pending=0 sends=0 rewritten=true sameChars=false restoredEqualsRaw=false
+   rows0-2  ["[VERSE — 4 lines]","Oh--oh, oh my love","I walk the line tonight"]
+   before   {"sel":[62,71],"shown":"«Well-worn» shoes upon the floor"} songCaret=[62,71,0]
+   action   {"mobile":"review","sel":[147,147],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[VERSE — 4 lines]","focused":false}
+   expected {"sel":[61,70],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ[VERSE — 4 lines]"

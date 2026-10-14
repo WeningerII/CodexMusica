@@ -1,0 +1,56 @@
+[cand] nomig/prog/sung_walk: pending=0 sends=1 rewritten=false sameChars=true restoredEqualsRaw=true
+   rows0-2  ["[SETUP — returns — 1.T3, 2.end — cut v2]","","[VERSE]"]
+   before   {"sel":[72,72],"shown":"I w|alk the line tonight"} songCaret=[72,72,0]
+   action   {"mobile":"review","sel":[72,72],"shown":"I w|alk the line tonight"}
+   restored {"mobile":"song","sel":[72,72],"shown":"I w|alk the line tonight","focused":false}
+   expected {"sel":[72,72],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[cand] nomig/prog/sung_sel_wellworn: pending=0 sends=1 rewritten=false sameChars=true restoredEqualsRaw=true
+   rows0-2  ["[SETUP — returns — 1.T3, 2.end — cut v2]","","[VERSE]"]
+   before   {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"} songCaret=[93,102,0]
+   action   {"mobile":"review","sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   restored {"mobile":"song","sel":[93,102],"shown":"«Well-worn» shoes upon the floor","focused":false}
+   expected {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[cand] nomig/click/sung_walk: pending=0 sends=1 rewritten=false sameChars=true restoredEqualsRaw=true
+   rows0-2  ["[SETUP — returns — 1.T3, 2.end — cut v2]","","[VERSE]"]
+   before   {"sel":[72,72],"shown":"I w|alk the line tonight"} songCaret=[72,72,0]
+   action   {"mobile":"review","sel":[72,72],"shown":"I w|alk the line tonight"}
+   restored {"mobile":"song","sel":[72,72],"shown":"I w|alk the line tonight","focused":false}
+   expected {"sel":[72,72],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[cand] nomig/click/sung_sel_wellworn: pending=0 sends=1 rewritten=false sameChars=true restoredEqualsRaw=true
+   rows0-2  ["[SETUP — returns — 1.T3, 2.end — cut v2]","","[VERSE]"]
+   before   {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"} songCaret=[93,102,0]
+   action   {"mobile":"review","sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   restored {"mobile":"song","sel":[93,102],"shown":"«Well-worn» shoes upon the floor","focused":false}
+   expected {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[cand] nomig/touch/sung_walk: pending=0 sends=1 rewritten=false sameChars=true restoredEqualsRaw=true
+   rows0-2  ["[SETUP — returns — 1.T3, 2.end — cut v2]","","[VERSE]"]
+   before   {"sel":[72,72],"shown":"I w|alk the line tonight"} songCaret=[72,72,0]
+   action   {"mobile":"review","sel":[72,72],"shown":"I w|alk the line tonight"}
+   restored {"mobile":"song","sel":[72,72],"shown":"I w|alk the line tonight","focused":false}
+   expected {"sel":[72,72],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[cand] nomig/touch/sung_sel_wellworn: pending=0 sends=1 rewritten=false sameChars=true restoredEqualsRaw=true
+   rows0-2  ["[SETUP — returns — 1.T3, 2.end — cut v2]","","[VERSE]"]
+   before   {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"} songCaret=[93,102,0]
+   action   {"mobile":"review","sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   restored {"mobile":"song","sel":[93,102],"shown":"«Well-worn» shoes upon the floor","focused":false}
+   expected {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[cand] nomig/kbd/sung_walk: pending=0 sends=1 rewritten=false sameChars=true restoredEqualsRaw=true
+   rows0-2  ["[SETUP — returns — 1.T3, 2.end — cut v2]","","[VERSE]"]
+   before   {"sel":[72,72],"shown":"I w|alk the line tonight"} songCaret=[72,72,0]
+   action   {"mobile":"review","sel":[72,72],"shown":"I w|alk the line tonight"}
+   restored {"mobile":"song","sel":[72,72],"shown":"I w|alk the line tonight","focused":false}
+   expected {"sel":[72,72],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[cand] nomig/kbd/sung_sel_wellworn: pending=0 sends=1 rewritten=false sameChars=true restoredEqualsRaw=true
+   rows0-2  ["[SETUP — returns — 1.T3, 2.end — cut v2]","","[VERSE]"]
+   before   {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"} songCaret=[93,102,0]
+   action   {"mobile":"review","sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   restored {"mobile":"song","sel":[93,102],"shown":"«Well-worn» shoes upon the floor","focused":false}
+   expected {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"

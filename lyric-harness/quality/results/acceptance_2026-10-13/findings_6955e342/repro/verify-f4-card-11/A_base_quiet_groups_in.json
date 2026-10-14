@@ -1,0 +1,65 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:e830bbb4-93c0-4edb-b20b-5e59540b0d38",
+  "draftId": "draft:030b3621-ef64-4c84-92f3-dcea3835e1c5",
+  "createdAt": "2026-10-14T11:00:36.720Z",
+  "payload": {
+    "text": "[SETUP — title — \"Wq\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe sing it plain tonight\nwe bring it home tonight",
+    "title": "V11 quiet_groups",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:59c8e77a-bd82-4126-9564-2b1e8577c458",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "token_cut": "probe",
+            "pronunciations": [
+              {
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ]
+              }
+            ],
+            "note": "v11 probe"
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": [
+      {
+        "token_cut": "probe",
+        "pronunciations": [
+          {
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ]
+          }
+        ],
+        "note": "v11 probe"
+      }
+    ]
+  },
+  "digest": "2bc70ab5e9bb59dbf29caca9dec5327cbd7157e2efd882f7b482124796ec1e7c"
+}

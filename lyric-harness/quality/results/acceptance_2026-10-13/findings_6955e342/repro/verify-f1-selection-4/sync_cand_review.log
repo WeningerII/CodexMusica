@@ -1,0 +1,30 @@
+cand.review sel 2.end      "[SETUP — rhyme groups — 1.T2, 2.end]"
+   before [30,35,true]  after [44,44,forward] of len 184  sameChars=false  "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+   newRow "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"  ref [[30,30],[35,44]]  400ms later [44,44,forward] textSame=true
+cand.review caret 2.|end   "[SETUP — rhyme groups — 1.T2, 2.end]"
+   before [32,32,true]  after [44,44,forward] of len 184  sameChars=false  "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+   newRow "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"  ref [[32,32],[32,32]]  400ms later [44,44,forward] textSame=true
+cand.review caret 2.|end   "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [26,26,true]  after [26,26,forward] of len 201  sameChars=true  "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"  ref [[26,26],[26,26]]  400ms later [26,26,forward] textSame=true
+cand.review sel 4          "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [30,31,true]  after [30,31,forward] of len 201  sameChars=true  "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"  ref [[30,30],[31,31]]  400ms later [30,31,forward] textSame=true
+cand.review sel 3.T2       "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [38,42,true]  after [61,61,forward] of len 201  sameChars=false  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"  ref [[38,38],[42,42]]  400ms later [61,61,forward] textSame=true
+cand.review caret 5|.end   "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [45,45,true]  after [61,61,forward] of len 201  sameChars=false  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"  ref [[45,45],[45,45]]  400ms later [61,61,forward] textSame=true
+cand.review sel 6          "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [51,52,true]  after [61,61,forward] of len 201  sameChars=false  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"  ref [[51,51],[52,61]]  400ms later [61,61,forward] textSame=true
+cand.review sel 4.T2       "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   before [51,55,true]  after [63,64,forward] of len 204  sameChars=false  "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]"
+   newRow "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"  ref [[51,51],[55,64]]  400ms later [63,64,forward] textSame=true
+cand.review caret |2       "[SETUP — rhyme groups — 1.T2,2]"
+   before [29,29,true]  after [38,38,forward] of len 179  sameChars=false  "[SETUP — rhyme groups — 1.T3,2 — cut v|2]"
+   newRow "[SETUP — rhyme groups — 1.T3,2 — cut v2]"  ref [[29,29],[29,29]]  400ms later [38,38,forward] textSame=true
+cand.review sel 2          "[SETUP — rhyme groups — 1.T2,2]"
+   before [29,30,true]  after [38,39,forward] of len 179  sameChars=false  "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]"
+   newRow "[SETUP — rhyme groups — 1.T3,2 — cut v2]"  ref [[29,29],[30,39]]  400ms later [38,39,forward] textSame=true

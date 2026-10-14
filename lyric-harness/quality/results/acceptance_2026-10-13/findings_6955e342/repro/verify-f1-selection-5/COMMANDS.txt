@@ -1,0 +1,21 @@
+# verify-f1-selection-5 — adversarial skeptic for f1-selection claim c5 (carried named place + unchanged second row)
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; O=$S/h695/verify-f1-selection-5
+cd $S/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/built-wt-695.html --quiet ; cmp $O/built-wt-695.html $S/wt-695/codex.html
+cd $S/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/built-wt-main.html --quiet ; cmp $O/built-wt-main.html $S/wt-main/codex.html
+cd $S/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/built-wt-61b.html --quiet ; cmp $O/built-wt-61b.html $S/wt-61b/codex.html
+cd $O && node v5.js $S/wt-695 cand raw prog,kbd,click,dock > v5_cand_raw.log 2>&1
+cd $O && node v5.js $S/wt-main main raw prog,kbd,click,dock > v5_main_raw.log 2>&1
+cd $O && node v5.js $S/wt-61b c61b raw prog,kbd,click,dock > v5_c61b_raw.log 2>&1
+cd $O && node v5.js $S/wt-61b c61b typed prog,kbd,click,dock > v5_c61b_typed.log 2>&1
+cd $O && node v5sync.js $S/wt-695 cand > v5sync_cand.log 2>&1
+cd $O && node v5sync.js $S/wt-main main > v5sync_main.log 2>&1
+cd $O && node v5sync.js $S/wt-61b c61b > v5sync_c61b.log 2>&1
+cd $O && node v5sync.js $S/wt-678 c678 > v5sync_c678.log 2>&1
+cd $S/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python -I $O/wire_parse.py $S/wt-695/lyric-harness > $O/wire_parse_wt-695.json
+cd $S/wt-base/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python -I $O/wire_parse.py $S/wt-base/lyric-harness > $O/wire_parse_wt-base.json
+cd $O && node parse_typed.js $S/wt-695 > parse_typed_cand.log 2>&1
+cd $O && node mapoffset_src.js $S/wt-695 > mapoffset_src_cand.log
+cd $O && node v5sync.js $S/wt-base base > v5sync_base.log 2>&1
+rm -f $O/built-wt-*.html ; rm -rf $O/library   (cleanup: the three builds were byte-identical to each tree's committed codex.html, which the scripts serve)
+# check: git status --short in wt-695, wt-main, wt-61b, wt-678, wt-base -> only untracked node_modules (wt-678 also mcp/node_modules); no tracked file changed
+# note: v5_c61b_raw/typed: on 61b the typing refresh migrated the draft BEFORE the selection was placed (preTextEqualsInput=false), so those runs do not test the mapping; v5sync_*.log is the like-for-like control for every tree

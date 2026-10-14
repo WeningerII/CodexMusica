@@ -1,0 +1,3 @@
+Built /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6/build-wt-695/built-wt-695.html (1,270,053 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)

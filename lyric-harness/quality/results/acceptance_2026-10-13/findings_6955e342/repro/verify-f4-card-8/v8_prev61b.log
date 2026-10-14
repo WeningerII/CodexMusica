@@ -1,0 +1,96 @@
+tree prev61b (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b)
+== run A / afterImport
+  sung (page model): ["1:Oh--oh, oh my love","2:You are the one I dream of my dove","3:Oh--oh, oh my love"]
+  setup rows: ["[SETUP — title — \"Old Song\"]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]","[SETUP — rhyme groups — 1.T5,2 — cut v2]","[SETUP — returns — 1.T4,3.T4 — cut v2]"]
+  readings: [{"token":3,"word":"oh","line":"Oh--oh, oh my love","appliesToSungLines":[1,3]}]
+  groups: [{"kind":"rhyme groups","spec":"1.T5,2 — cut v2","members":[{"member":"1.T5","lineText":"Oh--oh, oh my love","word":"love"},{"member":"2","lineText":"You are the one I dream of my dove","word":null}]},{"kind":"returns","spec":"1.T4,3.T4 — cut v2","members":[{"member":"1.T4","lineText":"Oh--oh, oh my love","word":"my"},{"member":"3.T4","lineText":"Oh--oh, oh my love","word":"my"}]}]
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: []
+  toasts: ["Imported in_prev61b_old-song.txt. Undo restores the previous draft.\nUndo"]
+== run A / afterInsert
+  typedAsExpected: true
+  sung (page model): ["1:A brand new opening line","2:Oh--oh, oh my love","3:You are the one I dream of my dove","4:Oh--oh, oh my love"]
+  setup rows: ["[SETUP — title — \"Old Song\"]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]","[SETUP — rhyme groups — 1.T5,2 — cut v2]","[SETUP — returns — 1.T4,3.T4 — cut v2]"]
+  readings: [{"token":3,"word":"oh","line":"Oh--oh, oh my love","appliesToSungLines":[2,4]}]
+  groups: [{"kind":"rhyme groups","spec":"1.T5,2 — cut v2","members":[{"member":"1.T5","lineText":"A brand new opening line","word":"line"},{"member":"2","lineText":"Oh--oh, oh my love","word":null}]},{"kind":"returns","spec":"1.T4,3.T4 — cut v2","members":[{"member":"1.T4","lineText":"A brand new opening line","word":"opening"},{"member":"3.T4","lineText":"You are the one I dream of my dove","word":"one"}]}]
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: []
+  toasts: ["Imported in_prev61b_old-song.txt. Undo restores the previous draft.\nUndo"]
+== run A / afterReload
+  sung (page model): ["1:A brand new opening line","2:Oh--oh, oh my love","3:You are the one I dream of my dove","4:Oh--oh, oh my love"]
+  setup rows: ["[SETUP — title — \"Old Song\"]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]","[SETUP — rhyme groups — 1.T5,2 — cut v2]","[SETUP — returns — 1.T4,3.T4 — cut v2]"]
+  readings: [{"token":3,"word":"oh","line":"Oh--oh, oh my love","appliesToSungLines":[2,4]}]
+  groups: [{"kind":"rhyme groups","spec":"1.T5,2 — cut v2","members":[{"member":"1.T5","lineText":"A brand new opening line","word":"line"},{"member":"2","lineText":"Oh--oh, oh my love","word":null}]},{"kind":"returns","spec":"1.T4,3.T4 — cut v2","members":[{"member":"1.T4","lineText":"A brand new opening line","word":"opening"},{"member":"3.T4","lineText":"You are the one I dream of my dove","word":"one"}]}]
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: []
+  toasts: []
+== run B / afterImport
+  sung (page model): ["1:Oh--oh, oh my love","2:You are the one I dream of my dove","3:Oh--oh, oh my love"]
+  setup rows: ["[SETUP — title — \"Old Song\"]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]","[SETUP — rhyme groups — 1.T5,2 — cut v2]","[SETUP — returns — 1.T4,3.T4 — cut v2]"]
+  readings: [{"token":3,"word":"oh","line":"Oh--oh, oh my love","appliesToSungLines":[1,3]}]
+  groups: [{"kind":"rhyme groups","spec":"1.T5,2 — cut v2","members":[{"member":"1.T5","lineText":"Oh--oh, oh my love","word":"love"},{"member":"2","lineText":"You are the one I dream of my dove","word":null}]},{"kind":"returns","spec":"1.T4,3.T4 — cut v2","members":[{"member":"1.T4","lineText":"Oh--oh, oh my love","word":"my"},{"member":"3.T4","lineText":"Oh--oh, oh my love","word":"my"}]}]
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: []
+  toasts: ["Imported in_prev61b_old-song.txt. Undo restores the previous draft.\nUndo"]
+== run B / afterDelete
+  editedAsExpected: true
+  sung (page model): ["1:Oh--oh, oh my love","2:You are the one I dream of my dove"]
+  setup rows: ["[SETUP — title — \"Old Song\"]","[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]","[SETUP — rhyme groups — 1.T5,2 — cut v2]","[SETUP — returns — 1.T4,3.T4 — cut v2]"]
+  readings: [{"token":3,"word":"oh","line":"Oh--oh, oh my love","appliesToSungLines":[1]}]
+  groups: [{"kind":"rhyme groups","spec":"1.T5,2 — cut v2","members":[{"member":"1.T5","lineText":"Oh--oh, oh my love","word":"love"},{"member":"2","lineText":"You are the one I dream of my dove","word":null}]},{"kind":"returns","spec":"1.T4,3.T4 — cut v2","members":[{"member":"1.T4","lineText":"Oh--oh, oh my love","word":"my"},{"member":"3.T4","lineText":"(no such line)","word":null}]}]
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: ["A declared return points at 3.T4, which the draft does not have | Declared as 1.T4,3.T4 | lines=[]"]
+  toasts: ["Imported in_prev61b_old-song.txt. Undo restores the previous draft.\nUndo"]
+== run C / afterImport
+  sung (page model): ["1:Morning comes over the hill","2:Evening falls and all is still","3:Red--red, my rose"]
+  setup rows: ["[SETUP — title — \"Rose Song\"]","[SETUP — reading — token 2 \"red\" in \"Red--red, my rose\" — R1 — declared — source: me — needs a decision: numbered under the earlier word cut]"]
+  readings: [{"token":2,"word":"red","line":"Red--red, my rose","appliesToSungLines":[3]}]
+  groups: []
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: ["The reading for “red” saved without the current cut mark needs your decision | line 3 | lines=[3]"]
+  toasts: ["Imported in_prev61b_rose-song.txt. Undo restores the previous draft.\nUndo"]
+== run C / afterInsert
+  typedAsExpected: true
+  sung (page model): ["1:A first new line","2:A second new line","3:Morning comes over the hill","4:Evening falls and all is still","5:Red--red, my rose"]
+  setup rows: ["[SETUP — title — \"Rose Song\"]","[SETUP — reading — token 2 \"red\" in \"Red--red, my rose\" — R1 — declared — source: me — needs a decision: numbered under the earlier word cut]"]
+  readings: [{"token":2,"word":"red","line":"Red--red, my rose","appliesToSungLines":[5]}]
+  groups: []
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: ["The reading for “red” saved without the current cut mark needs your decision | line 5 | lines=[5]"]
+  toasts: ["Imported in_prev61b_rose-song.txt. Undo restores the previous draft.\nUndo"]
+== run D / afterImport
+  sung (page model): ["1:Morning comes over the hill","2:Evening falls and all is still","3:Red--red, red my rose"]
+  setup rows: ["[SETUP — title — \"Rose Two\"]","[SETUP — reading — token 3 \"red\" in \"Red--red, red my rose\" — R1 — declared — source: me — cut v2]"]
+  readings: [{"token":3,"word":"red","line":"Red--red, red my rose","appliesToSungLines":[3]}]
+  groups: []
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: []
+  toasts: ["Imported in_prev61b_rose-two.txt. Undo restores the previous draft.\nUndo"]
+== run D / afterInsert
+  typedAsExpected: true
+  sung (page model): ["1:A first new line","2:A second new line","3:Morning comes over the hill","4:Evening falls and all is still","5:Red--red, red my rose"]
+  setup rows: ["[SETUP — title — \"Rose Two\"]","[SETUP — reading — token 3 \"red\" in \"Red--red, red my rose\" — R1 — declared — source: me — cut v2]"]
+  readings: [{"token":3,"word":"red","line":"Red--red, red my rose","appliesToSungLines":[5]}]
+  groups: []
+  card item text: null
+  card as shown: null showInDraft=null
+  stored meta: null
+  other Review items: []
+  toasts: ["Imported in_prev61b_rose-two.txt. Undo restores the previous draft.\nUndo"]
+pageErrors: []

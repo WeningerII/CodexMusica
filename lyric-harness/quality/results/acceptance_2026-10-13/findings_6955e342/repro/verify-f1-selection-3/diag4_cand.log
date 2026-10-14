@@ -1,0 +1,2 @@
+{"kind":"listener","b":"19,23","e":"19,39","src":"async e=>{const nav=e.target.closest(\"button[data-view]\");if(nav){uiNavigate(nav.dataset.view,{push:true});return}if(!e.target.closest(\"#ui-menu,[data-ui=menu]\"","reg":"click@#document"}
+FINAL [0,0,"forward"]

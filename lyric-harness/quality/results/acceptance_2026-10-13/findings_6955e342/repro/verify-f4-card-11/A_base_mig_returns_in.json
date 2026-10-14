@@ -1,0 +1,65 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:f2145ea9-4e56-4e1d-b7d3-198bddb12752",
+  "draftId": "draft:4cb8d98b-b766-4ac7-9696-2fb9c825bb18",
+  "createdAt": "2026-10-14T11:00:13.960Z",
+  "payload": {
+    "text": "[SETUP — title — \"Wc\"]\n[SETUP — returns — 1.T3,2.T3]\n\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love",
+    "title": "V11 mig_returns",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:60e8e57f-4b4e-4580-96bc-f35364661a94",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "token_cut": "probe",
+            "pronunciations": [
+              {
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ]
+              }
+            ],
+            "note": "v11 probe"
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": [
+      {
+        "token_cut": "probe",
+        "pronunciations": [
+          {
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ]
+          }
+        ],
+        "note": "v11 probe"
+      }
+    ]
+  },
+  "digest": "6b5b6217d3afa2fdd4e5058992e449810bf230e690624b877d5fd9cabbc9ab0b"
+}

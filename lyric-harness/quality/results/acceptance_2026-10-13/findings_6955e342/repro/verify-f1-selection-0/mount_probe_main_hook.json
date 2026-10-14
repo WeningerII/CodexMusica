@@ -1,0 +1,225 @@
+{
+  "tree": "main",
+  "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main",
+  "mode": "hook",
+  "inject": {
+    "wire": 0,
+    "call": 0
+  },
+  "scen": {
+    "restoreLyrics": {
+      "draft": "UNMARKED",
+      "steps": [
+        "UNMARKED"
+      ],
+      "idx": 0,
+      "appLyrics": "UNMARKED",
+      "saved": "UNMARKED",
+      "undoDisabled": true,
+      "renumberedItems": 0,
+      "toasts": [],
+      "probe": [
+        {
+          "tag": "DOMContentLoaded",
+          "t": 165,
+          "hasFn": false,
+          "value": "null",
+          "count": 0,
+          "histLen": 0,
+          "appLyrics": "null",
+          "view": "genre"
+        }
+      ],
+      "errors": []
+    },
+    "restoreGenreThenLyrics": {
+      "draft": "UNMARKED",
+      "steps": [
+        "UNMARKED"
+      ],
+      "idx": 0,
+      "appLyrics": "UNMARKED",
+      "saved": "UNMARKED",
+      "undoDisabled": true,
+      "renumberedItems": 0,
+      "toasts": [],
+      "probe": [
+        {
+          "tag": "DOMContentLoaded",
+          "t": 253,
+          "hasFn": false,
+          "value": "null",
+          "count": 0,
+          "histLen": 0,
+          "appLyrics": "null",
+          "view": "genre"
+        }
+      ],
+      "errors": []
+    },
+    "deferredLibraryThenLyrics": {
+      "atLibrary": {
+        "workspaceReady": true,
+        "view": "library",
+        "draft": "UNMARKED",
+        "probe": [
+          {
+            "tag": "DOMContentLoaded",
+            "t": 150,
+            "hasFn": false,
+            "value": "null",
+            "count": 0,
+            "histLen": 0,
+            "appLyrics": "null",
+            "view": "genre"
+          }
+        ]
+      },
+      "draft": "UNMARKED",
+      "steps": [
+        "UNMARKED"
+      ],
+      "idx": 0,
+      "appLyrics": "UNMARKED",
+      "saved": "UNMARKED",
+      "undoDisabled": true,
+      "renumberedItems": 0,
+      "toasts": [],
+      "probe": [
+        {
+          "tag": "DOMContentLoaded",
+          "t": 150,
+          "hasFn": false,
+          "value": "null",
+          "count": 0,
+          "histLen": 0,
+          "appLyrics": "null",
+          "view": "genre"
+        }
+      ],
+      "errors": []
+    },
+    "legacyKey": {
+      "draft": "UNMARKED",
+      "steps": [
+        "UNMARKED"
+      ],
+      "idx": 0,
+      "appLyrics": "UNMARKED",
+      "saved": "UNMARKED",
+      "undoDisabled": true,
+      "renumberedItems": 0,
+      "toasts": [],
+      "probe": [
+        {
+          "tag": "DOMContentLoaded",
+          "t": 164,
+          "hasFn": false,
+          "value": "null",
+          "count": 0,
+          "histLen": 0,
+          "appLyrics": "null",
+          "view": "genre"
+        }
+      ],
+      "errors": []
+    },
+    "firstRun": {
+      "draft": "EMPTY",
+      "steps": [
+        "EMPTY"
+      ],
+      "idx": 0,
+      "appLyrics": "EMPTY",
+      "saved": "EMPTY",
+      "undoDisabled": true,
+      "renumberedItems": 0,
+      "toasts": [],
+      "probe": [
+        {
+          "tag": "DOMContentLoaded",
+          "t": 415,
+          "hasFn": false,
+          "value": "null",
+          "count": 0,
+          "histLen": 0,
+          "appLyrics": "null",
+          "view": "genre"
+        }
+      ],
+      "errors": []
+    },
+    "typedThenBack": {
+      "typed": {
+        "draft": "TYPED_UNMARKED_ROW+BODY",
+        "saved": "TYPED_UNMARKED_ROW+BODY",
+        "ensureCallsWhileTyping": 0
+      },
+      "afterBack": {
+        "draft": "TYPED_UNMARKED_ROW+BODY",
+        "steps": [
+          "TYPED_UNMARKED_ROW+BODY"
+        ],
+        "idx": 0,
+        "appLyrics": "TYPED_UNMARKED_ROW+BODY",
+        "saved": "TYPED_UNMARKED_ROW+BODY",
+        "undoDisabled": true,
+        "renumberedItems": 0,
+        "toasts": [],
+        "probe": [
+          {
+            "tag": "DOMContentLoaded",
+            "t": 58,
+            "hasFn": false,
+            "value": "null",
+            "count": 0,
+            "histLen": 0,
+            "appLyrics": "null",
+            "view": "genre"
+          }
+        ]
+      },
+      "errors": []
+    },
+    "typedThenReload": {
+      "typed": {
+        "draft": "TYPED_UNMARKED_ROW+BODY",
+        "saved": "TYPED_UNMARKED_ROW+BODY"
+      },
+      "afterReload": {
+        "draft": "TYPED_UNMARKED_ROW+BODY",
+        "steps": [
+          "TYPED_UNMARKED_ROW+BODY"
+        ],
+        "idx": 0,
+        "appLyrics": "TYPED_UNMARKED_ROW+BODY",
+        "saved": "TYPED_UNMARKED_ROW+BODY",
+        "undoDisabled": true,
+        "renumberedItems": 0,
+        "toasts": [],
+        "probe": [
+          {
+            "tag": "DOMContentLoaded",
+            "t": 326,
+            "hasFn": false,
+            "value": "null",
+            "count": 0,
+            "histLen": 0,
+            "appLyrics": "null",
+            "view": "genre"
+          }
+        ]
+      },
+      "errors": []
+    },
+    "syntheticRemount": {
+      "beforeRemount": "TYPED_UNMARKED_ROW+BODY",
+      "afterRemount": {
+        "draft": "EMPTY",
+        "appLyrics": "TYPED_UNMARKED_ROW+BODY",
+        "probe": []
+      },
+      "errors": []
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+ "None (default=v2)": {
+  "1.T4": "my",
+  "1.T5": "love",
+  "1.end": "love"
+ },
+ "v1": {
+  "1.T4": "love",
+  "1.T5": "",
+  "1.end": "love"
+ },
+ "v2": {
+  "1.T4": "my",
+  "1.T5": "love",
+  "1.end": "love"
+ }
+}

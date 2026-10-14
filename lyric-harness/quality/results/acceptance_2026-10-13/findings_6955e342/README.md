@@ -17,6 +17,8 @@
 - `repro/<agent>/` holds each agent's scripts, logs and `COMMANDS.txt`. Scratch paths there read as written, and the README of `findings_67889851/` explains the layout.
 - What is left out: built pages, files over 2 MB (some JSON summaries and copies of harness data), and copies of the trees' own data and code. Files over 200 KB are gzipped in place.
 
+**Scope.** This workflow was stopped at 12:55 UTC, when R2's fourth pass `8ea94ac9` (code `34ecc6bc` and `7c26d40c`) superseded this head. Not run: the F6, A.2 and test-suite skeptics, and `verify:f1-selection:9`. Those items are re-measured at `8ea94ac9`.
+
 **Status labels:**
 - **CONFIRMED:** reproduced by an independent re-run or a skeptic.
 - **TESTER:** one tester's result, with its skeptic still queued.
@@ -61,14 +63,15 @@ When this was written, the skeptics for F1, F6, A.2 and the author tests had not
    - **Not a breach of the card's written contract.** As one skeptic notes, R2's plan promised "a card listing every renumbered item", and both import paths do list every item at small sizes (7 of 7, and 5 of 5).
    - **Also (TESTER):** Dismiss has no Undo, and the card is hidden in a closed section once a review returns items.
    - **Files:** `repro/f4-card/` and `repro/verify-f4-card-*/`.
-4. **TESTER, consistent with 3PO's static review: selection mapping across a rewritten row.** `lyMapOffset` takes one common prefix and suffix for the whole row. A node replica predicts the page's offsets 96/96.
+4. **CONFIRMED (eight F1 skeptics, `repro/verify-f1-selection-0..8/`): selection mapping across a rewritten row.** `lyMapOffset` takes one common prefix and suffix for the whole row. A node replica predicts the page's offsets 96/96.
    - **Unchanged members after the changed one collapse.** In `[SETUP — returns — 1.T2, 2.end]`, a selection `[25,30]` on `2.end` becomes `[39,39]` before `]`.
    - **A selection ending in the changed member grows** to cover `1.T3, 2.end — cut v2`, and typing over it deletes `2.end` and the mark.
    - **Members before the changed one map correctly.**
-   - **Also tester-only, PROVISIONAL:**
-     - a mouse click on Run review leaves the selection at [0,0], because Chromium resets an unfocused textarea's selection after its value changes;
-     - restoring raw pre-boundary offsets can merge two sung lines (`I walk the lineZQWell-worn …`);
-     - setting the draft value clears the browser's native undo for the typed text.
+   - **Confirmed, with the skeptics' corrections:**
+     - a real mouse click on Run review loses the selection to [0,0], but only when that send actually rewrites the draft. The page maps it correctly; Chromium then resets the unfocused editor;
+     - the line merge is a pre-existing defect reached from a new place. In the narrow layout (under 960 px), returning to Song restores `LY.songCaret`'s raw pre-boundary offsets over the correctly mapped ones;
+     - native undo before a send is wiped when that send rewrites rows (`draft.value = …`, `lyrics.js:432`). It is unchanged when nothing is rewritten;
+     - the mount boundary (`lyrics.js:6148`) is dead: it always sees an empty draft, and boot migration happens in `uiRestoreSession`.
    - **Files:** `repro/f1-selection/`.
 5. **TESTER: the WarmWorker "at most two retained per cache" claim is false.** Twelve real requests leave 4 entries in `fit._LEX` and 3 in the supplemented-lexicon cache. Of the three "cold-first-use" scenarios, only v1→v2 asserts that it is cold. Files: `repro/tests-warmworker/`.
 

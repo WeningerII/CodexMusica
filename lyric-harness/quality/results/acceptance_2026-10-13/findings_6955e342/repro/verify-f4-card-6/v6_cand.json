@@ -1,0 +1,1976 @@
+{
+ "tree": "cand",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-6/build-wt-695/built-wt-695.html",
+ "scenarios": {
+  "U1 txt A -> txt B -> Undo -> Redo -> Undo -> reload": [
+   {
+    "tag": "fresh",
+    "words": [],
+    "inDraft": {},
+    "draftHead": "",
+    "draft": "",
+    "card": null,
+    "paneHasCard": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "storedRenumbered": null,
+    "historyIndex": 0,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     }
+    ],
+    "toasts": []
+   },
+   {
+    "tag": "after A",
+    "words": [
+     "apple",
+     "anchor"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true
+    },
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "draft": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 1,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after B",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": false,
+     "anchor": false,
+     "bravo": true,
+     "banjo": true
+    },
+    "draftHead": "[SETUP — title — \"Song B\"]",
+    "draft": "[SETUP — title — \"Song B\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my bravo\nAh--ah, ah my banjo",
+    "card": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 2,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it.",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after Undo (mouse)",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true,
+     "bravo": false,
+     "banjo": false
+    },
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "draft": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "card": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 1,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after Redo (mouse)",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": false,
+     "anchor": false,
+     "bravo": true,
+     "banjo": true
+    },
+    "draftHead": "[SETUP — title — \"Song B\"]",
+    "draft": "[SETUP — title — \"Song B\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my bravo\nAh--ah, ah my banjo",
+    "card": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 2,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after second Undo",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true,
+     "bravo": false,
+     "banjo": false
+    },
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "draft": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "card": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 1,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after reload (draft A)",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true,
+     "bravo": false,
+     "banjo": false
+    },
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "draft": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "card": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 0,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     }
+    ],
+    "toasts": []
+   }
+  ],
+  "U2 txt A -> txt B (no Undo): card words vs draft": [
+   {
+    "tag": "after A",
+    "words": [
+     "apple",
+     "anchor"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true
+    },
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "draft": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 1,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after B",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": false,
+     "anchor": false,
+     "bravo": true,
+     "banjo": true
+    },
+    "draftHead": "[SETUP — title — \"Song B\"]",
+    "draft": "[SETUP — title — \"Song B\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my bravo\nAh--ah, ah my banjo",
+    "card": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 2,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it.",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   }
+  ],
+  "U3 txt A -> Undo": [
+   {
+    "tag": "fresh",
+    "words": [],
+    "inDraft": {},
+    "draftHead": "",
+    "draft": "",
+    "card": null,
+    "paneHasCard": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "storedRenumbered": null,
+    "historyIndex": 0,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     }
+    ],
+    "toasts": []
+   },
+   {
+    "tag": "after A",
+    "words": [
+     "apple",
+     "anchor"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true
+    },
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "draft": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 1,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after Undo",
+    "words": [
+     "apple",
+     "anchor"
+    ],
+    "inDraft": {
+     "apple": false,
+     "anchor": false
+    },
+    "draftHead": "",
+    "draft": "",
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 0,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   }
+  ],
+  "U4 txt A -> txt B -> Undo -> txt B again": [
+   {
+    "tag": "after Undo",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true,
+     "bravo": false,
+     "banjo": false
+    },
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "draft": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "card": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 1,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it.",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after B again",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": false,
+     "anchor": false,
+     "bravo": true,
+     "banjo": true
+    },
+    "draftHead": "[SETUP — title — \"Song B\"]",
+    "draft": "[SETUP — title — \"Song B\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my bravo\nAh--ah, ah my banjo",
+    "card": {
+     "title": "6 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "bravo",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "banjo",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 2,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   }
+  ],
+  "U5 SIMULATION: prune B entries at Undo, then Redo": [
+   {
+    "tag": "after Undo + simulated prune",
+    "words": [
+     "apple",
+     "anchor"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true
+    },
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "draft": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "bravo",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "banjo",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 1,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it.",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "after Redo",
+    "words": [
+     "apple",
+     "anchor"
+    ],
+    "inDraft": {
+     "apple": false,
+     "anchor": false
+    },
+    "draftHead": "[SETUP — title — \"Song B\"]",
+    "draft": "[SETUP — title — \"Song B\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my bravo\nAh--ah, ah my banjo",
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "paneHasCard": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "apple",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "anchor",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "storedRenumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "apple",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "anchor",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "historyIndex": 2,
+    "history": [
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": ""
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song A\"]"
+     },
+     {
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasRenumbered": false,
+      "head": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “bravo” word 4 → 5, “banjo” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   }
+  ]
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "u1.undoText",
+   "claim": "Undo of import B restores the draft from before B, exactly",
+   "expected": "draft === draft after A",
+   "observed": {
+    "equal": true
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "u1.cardAfterUndo",
+   "claim": "the card after Undo of import B (the c5 observation)",
+   "expected": "c5 tester: apple, anchor only; R2's claim: listed until dismissed",
+   "observed": {
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": true,
+     "anchor": true,
+     "bravo": false,
+     "banjo": false
+    },
+    "cardText": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “apple”, line 1: word 4 → 5; a rhyme link on “anchor”, line 2: word 4 → 5; a rhyme link on “bravo”, line 1: word 4 → 5; a rhyme link on “banjo”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "u1.historyHasNoCard",
+   "claim": "no Undo step records the card (lyricMeta.ui is not in a history snapshot)",
+   "expected": "no snapshot contains \"renumbered\"; snapshot lyricMeta keys exclude ui",
+   "observed": {
+    "anyHas": false,
+    "keys": [
+     "[\"version\",\"brief\",\"notes\"]"
+    ]
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "u1.redoText",
+   "claim": "Redo restores the migrated draft B",
+   "expected": "draft === draft after B",
+   "observed": {
+    "equal": true
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "u1.cardAfterRedo",
+   "claim": "the card after Redo",
+   "expected": "apple, anchor, bravo, banjo (B evidence present with B text)",
+   "observed": [
+    "apple",
+    "anchor",
+    "bravo",
+    "banjo"
+   ],
+   "status": "PASS"
+  },
+  {
+   "id": "u1.reload",
+   "claim": "after reload on A the card and draft",
+   "expected": "informational",
+   "observed": {
+    "draftHead": "[SETUP — title — \"Song A\"]",
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "draftEqualsA": true
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "u2.laterImport",
+   "claim": "after import B the card lists A entries whose text is no longer in the draft",
+   "expected": "R2 claim: survives a later import (f4-card scored this PASS as c1.accumulate)",
+   "observed": {
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo"
+    ],
+    "inDraft": {
+     "apple": false,
+     "anchor": false,
+     "bravo": true,
+     "banjo": true
+    }
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "u3.cardOverStart",
+   "claim": "after Undo of the only import the card and draft",
+   "expected": "informational",
+   "observed": {
+    "draftEqualsFresh": true,
+    "draftHead": "",
+    "words": [
+     "apple",
+     "anchor"
+    ],
+    "inDraft": {
+     "apple": false,
+     "anchor": false
+    }
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "u4.reimport",
+   "claim": "importing B again after its Undo: card entries",
+   "expected": "informational (duplicates?)",
+   "observed": {
+    "words": [
+     "apple",
+     "anchor",
+     "bravo",
+     "banjo",
+     "bravo",
+     "banjo"
+    ],
+    "title": "6 saved word numbers renumbered to the current word cut"
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "u5.simRedo",
+   "claim": "SIMULATED prune-on-Undo, then Redo: is B evidence back with B text?",
+   "expected": "informational",
+   "observed": {
+    "draftHead": "[SETUP — title — \"Song B\"]",
+    "words": [
+     "apple",
+     "anchor"
+    ],
+    "bRowMarked": true
+   },
+   "status": "INFO"
+  }
+ ]
+}

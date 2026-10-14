@@ -1,0 +1,16 @@
+## S7
+   1 after Library A: head=[SETUP — title — "Alpha River"] words=["river","river","shiver"] domButtons=1 hist=[2,3] ui=["renumbered","tab","tool","outline"] toasts=["3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “river” word 4 → 5, “river” word 4 → 5, “shiver” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+   2 after session import Q: head=[SETUP — title — "Quiet Field"] words=[] domButtons=0 hist=[3,4] ui=["tab","tool","outline"] toasts=["Session imported"]
+   3 after Undo: head=[SETUP — title — "Alpha River"] words=[] domButtons=0 hist=[2,4] ui=["tab","tool","outline"] toasts=["Session imported"]
+   IDB A before Undo: {"items":[{"kind":"reading","word":"river","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"river","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"shiver","n":[2],"from":4,"to":5}],"more":0}  after Undo + 4 s: null  Q draftId: null
+[INFO] cand.S7.undoErasesStored: the Undo (not the session import) erases A's card from A's stored Library draft
+    expected: informational
+    observed: {"beforeUndo":["river","river","shiver"],"afterUndo":null}
+[INFO] cand.S7.evidenceAnywhere: after the Undo, A's card evidence held anywhere on the device (localStorage, sessionStorage, IndexedDB)
+    expected: informational
+    observed: {"hits":[],"idb":[{"draftId":"draft:4d51bc76-0777-42e5-962e-8d4ecc481c02","head":null,"renumbered":null},{"draftId":"draft:50a1809b-7ab9-4ad4-843d-4779b892c013","head":"[SETUP — title — \"Quiet Field\"]","renumbered":null},{"draftId":"draft:f62bd954-db0d-4a01-972e-7de5d63404d2","head":"[SETUP — title — \"Alpha River\"]","renumbered":null}]}
+   4 after opening Q from History: head=[SETUP — title — "Quiet Field"] words=[] domButtons=0 hist=[4,5] ui=["tab","tool","outline"] toasts=["Session imported","Saved draft restored. No writing request was sent."]
+   5 after opening A from History again: head=[SETUP — title — "Alpha River"] words=[] domButtons=0 hist=[5,6] ui=["tab","tool","outline"] toasts=["Saved draft restored. No writing request was sent."]
+[INFO] cand.S7.gone: after the Undo, reopening A's draft from History no longer brings A's card back
+    expected: informational
+    observed: {"openedQ":true,"openedA":true,"words":[],"head":"[SETUP — title — \"Alpha River\"]"}

@@ -1,0 +1,46 @@
+{
+ "valueThenSel_removeButton": {
+  "mid": [
+   2,
+   9
+  ],
+  "after": [
+   2,
+   9
+  ],
+  "active": "BODY"
+ },
+ "selOnly_removeButton": {
+  "mid": [
+   2,
+   9
+  ],
+  "after": [
+   2,
+   9
+  ],
+  "active": "BODY"
+ },
+ "valueThenSel_keepButton": {
+  "mid": [
+   2,
+   9
+  ],
+  "after": [
+   2,
+   9
+  ],
+  "active": "BUTTON"
+ },
+ "valueThenSel_removeButton_noChange": {
+  "mid": [
+   2,
+   9
+  ],
+  "after": [
+   2,
+   9
+  ],
+  "active": "BODY"
+ }
+}

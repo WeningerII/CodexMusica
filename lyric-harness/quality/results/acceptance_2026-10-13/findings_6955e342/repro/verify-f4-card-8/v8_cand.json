@@ -1,0 +1,877 @@
+{
+ "tree": "cand",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "runs": {
+  "A": {
+   "afterImport": {
+    "draft": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2 — cut v2]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love",
+    "sung": [
+     {
+      "n": 1,
+      "text": "Oh--oh, oh my love"
+     },
+     {
+      "n": 2,
+      "text": "You are the one I dream of my dove"
+     },
+     {
+      "n": 3,
+      "text": "Oh--oh, oh my love"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Old Song\"]",
+     "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+     "[SETUP — rhyme groups — 1.T5,2 — cut v2]",
+     "[SETUP — returns — 1.T4,3.T4 — cut v2]"
+    ],
+    "readings": [
+     {
+      "token": 3,
+      "word": "oh",
+      "line": "Oh--oh, oh my love",
+      "appliesToSungLines": [
+       1,
+       3
+      ]
+     }
+    ],
+    "groups": [
+     {
+      "kind": "rhyme groups",
+      "spec": "1.T5,2 — cut v2",
+      "members": [
+       {
+        "member": "1.T5",
+        "lineText": "Oh--oh, oh my love",
+        "word": "love"
+       },
+       {
+        "member": "2",
+        "lineText": "You are the one I dream of my dove",
+        "word": null
+       }
+      ]
+     },
+     {
+      "kind": "returns",
+      "spec": "1.T4,3.T4 — cut v2",
+      "members": [
+       {
+        "member": "1.T4",
+        "lineText": "Oh--oh, oh my love",
+        "word": "my"
+       },
+       {
+        "member": "3.T4",
+        "lineText": "Oh--oh, oh my love",
+        "word": "my"
+       }
+      ]
+     }
+    ],
+    "card": {
+     "id": "renumbered",
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "where": "Setup",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "lines": []
+    },
+    "cardShown": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss",
+    "cardHasShowInDraft": false,
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "otherItems": [],
+    "toasts": [
+     "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it."
+    ]
+   },
+   "afterInsert": {
+    "draft": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2 — cut v2]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nA brand new opening line\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love",
+    "sung": [
+     {
+      "n": 1,
+      "text": "A brand new opening line"
+     },
+     {
+      "n": 2,
+      "text": "Oh--oh, oh my love"
+     },
+     {
+      "n": 3,
+      "text": "You are the one I dream of my dove"
+     },
+     {
+      "n": 4,
+      "text": "Oh--oh, oh my love"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Old Song\"]",
+     "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+     "[SETUP — rhyme groups — 1.T5,2 — cut v2]",
+     "[SETUP — returns — 1.T4,3.T4 — cut v2]"
+    ],
+    "readings": [
+     {
+      "token": 3,
+      "word": "oh",
+      "line": "Oh--oh, oh my love",
+      "appliesToSungLines": [
+       2,
+       4
+      ]
+     }
+    ],
+    "groups": [
+     {
+      "kind": "rhyme groups",
+      "spec": "1.T5,2 — cut v2",
+      "members": [
+       {
+        "member": "1.T5",
+        "lineText": "A brand new opening line",
+        "word": "line"
+       },
+       {
+        "member": "2",
+        "lineText": "Oh--oh, oh my love",
+        "word": null
+       }
+      ]
+     },
+     {
+      "kind": "returns",
+      "spec": "1.T4,3.T4 — cut v2",
+      "members": [
+       {
+        "member": "1.T4",
+        "lineText": "A brand new opening line",
+        "word": "opening"
+       },
+       {
+        "member": "3.T4",
+        "lineText": "You are the one I dream of my dove",
+        "word": "one"
+       }
+      ]
+     }
+    ],
+    "card": {
+     "id": "renumbered",
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "where": "Setup",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "lines": []
+    },
+    "cardShown": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss",
+    "cardHasShowInDraft": false,
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "otherItems": [],
+    "toasts": [
+     "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it."
+    ],
+    "typedAsExpected": true
+   },
+   "afterReload": {
+    "draft": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2 — cut v2]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nA brand new opening line\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love",
+    "sung": [
+     {
+      "n": 1,
+      "text": "A brand new opening line"
+     },
+     {
+      "n": 2,
+      "text": "Oh--oh, oh my love"
+     },
+     {
+      "n": 3,
+      "text": "You are the one I dream of my dove"
+     },
+     {
+      "n": 4,
+      "text": "Oh--oh, oh my love"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Old Song\"]",
+     "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+     "[SETUP — rhyme groups — 1.T5,2 — cut v2]",
+     "[SETUP — returns — 1.T4,3.T4 — cut v2]"
+    ],
+    "readings": [
+     {
+      "token": 3,
+      "word": "oh",
+      "line": "Oh--oh, oh my love",
+      "appliesToSungLines": [
+       2,
+       4
+      ]
+     }
+    ],
+    "groups": [
+     {
+      "kind": "rhyme groups",
+      "spec": "1.T5,2 — cut v2",
+      "members": [
+       {
+        "member": "1.T5",
+        "lineText": "A brand new opening line",
+        "word": "line"
+       },
+       {
+        "member": "2",
+        "lineText": "Oh--oh, oh my love",
+        "word": null
+       }
+      ]
+     },
+     {
+      "kind": "returns",
+      "spec": "1.T4,3.T4 — cut v2",
+      "members": [
+       {
+        "member": "1.T4",
+        "lineText": "A brand new opening line",
+        "word": "opening"
+       },
+       {
+        "member": "3.T4",
+        "lineText": "You are the one I dream of my dove",
+        "word": "one"
+       }
+      ]
+     }
+    ],
+    "card": {
+     "id": "renumbered",
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "where": "Setup",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "lines": []
+    },
+    "cardShown": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss",
+    "cardHasShowInDraft": false,
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "otherItems": [],
+    "toasts": []
+   }
+  },
+  "B": {
+   "afterImport": {
+    "draft": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2 — cut v2]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love",
+    "sung": [
+     {
+      "n": 1,
+      "text": "Oh--oh, oh my love"
+     },
+     {
+      "n": 2,
+      "text": "You are the one I dream of my dove"
+     },
+     {
+      "n": 3,
+      "text": "Oh--oh, oh my love"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Old Song\"]",
+     "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+     "[SETUP — rhyme groups — 1.T5,2 — cut v2]",
+     "[SETUP — returns — 1.T4,3.T4 — cut v2]"
+    ],
+    "readings": [
+     {
+      "token": 3,
+      "word": "oh",
+      "line": "Oh--oh, oh my love",
+      "appliesToSungLines": [
+       1,
+       3
+      ]
+     }
+    ],
+    "groups": [
+     {
+      "kind": "rhyme groups",
+      "spec": "1.T5,2 — cut v2",
+      "members": [
+       {
+        "member": "1.T5",
+        "lineText": "Oh--oh, oh my love",
+        "word": "love"
+       },
+       {
+        "member": "2",
+        "lineText": "You are the one I dream of my dove",
+        "word": null
+       }
+      ]
+     },
+     {
+      "kind": "returns",
+      "spec": "1.T4,3.T4 — cut v2",
+      "members": [
+       {
+        "member": "1.T4",
+        "lineText": "Oh--oh, oh my love",
+        "word": "my"
+       },
+       {
+        "member": "3.T4",
+        "lineText": "Oh--oh, oh my love",
+        "word": "my"
+       }
+      ]
+     }
+    ],
+    "card": {
+     "id": "renumbered",
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "where": "Setup",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "lines": []
+    },
+    "cardShown": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss",
+    "cardHasShowInDraft": false,
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "otherItems": [],
+    "toasts": [
+     "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it."
+    ]
+   },
+   "afterDelete": {
+    "draft": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2 — cut v2]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove",
+    "sung": [
+     {
+      "n": 1,
+      "text": "Oh--oh, oh my love"
+     },
+     {
+      "n": 2,
+      "text": "You are the one I dream of my dove"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Old Song\"]",
+     "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+     "[SETUP — rhyme groups — 1.T5,2 — cut v2]",
+     "[SETUP — returns — 1.T4,3.T4 — cut v2]"
+    ],
+    "readings": [
+     {
+      "token": 3,
+      "word": "oh",
+      "line": "Oh--oh, oh my love",
+      "appliesToSungLines": [
+       1
+      ]
+     }
+    ],
+    "groups": [
+     {
+      "kind": "rhyme groups",
+      "spec": "1.T5,2 — cut v2",
+      "members": [
+       {
+        "member": "1.T5",
+        "lineText": "Oh--oh, oh my love",
+        "word": "love"
+       },
+       {
+        "member": "2",
+        "lineText": "You are the one I dream of my dove",
+        "word": null
+       }
+      ]
+     },
+     {
+      "kind": "returns",
+      "spec": "1.T4,3.T4 — cut v2",
+      "members": [
+       {
+        "member": "1.T4",
+        "lineText": "Oh--oh, oh my love",
+        "word": "my"
+       },
+       {
+        "member": "3.T4",
+        "lineText": "(no such line)",
+        "word": null
+       }
+      ]
+     }
+    ],
+    "card": {
+     "id": "renumbered",
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "where": "Setup",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "lines": []
+    },
+    "cardShown": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss",
+    "cardHasShowInDraft": false,
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "otherItems": [
+     {
+      "id": "returns:3",
+      "title": "A declared return points at 3.T4, which the draft does not have",
+      "where": "Declared as 1.T4,3.T4",
+      "text": "Line numbers are the harness’s own spelling; they no longer match the text. Choose the members again.",
+      "lines": []
+     }
+    ],
+    "toasts": [
+     "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it."
+    ],
+    "editedAsExpected": true
+   }
+  },
+  "C": {
+   "afterImport": {
+    "draft": "[SETUP — title — \"Rose Song\"]\n[SETUP — reading — token 2 \"red\" in \"Red--red, my rose\" — R1 — declared — source: me — needs a decision: numbered under the earlier word cut]\n\n[VERSE]\nMorning comes over the hill\nEvening falls and all is still\nRed--red, my rose",
+    "sung": [
+     {
+      "n": 1,
+      "text": "Morning comes over the hill"
+     },
+     {
+      "n": 2,
+      "text": "Evening falls and all is still"
+     },
+     {
+      "n": 3,
+      "text": "Red--red, my rose"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Rose Song\"]",
+     "[SETUP — reading — token 2 \"red\" in \"Red--red, my rose\" — R1 — declared — source: me — needs a decision: numbered under the earlier word cut]"
+    ],
+    "readings": [
+     {
+      "token": 2,
+      "word": "red",
+      "line": "Red--red, my rose",
+      "appliesToSungLines": [
+       3
+      ]
+     }
+    ],
+    "groups": [],
+    "card": null,
+    "cardShown": null,
+    "cardHasShowInDraft": null,
+    "meta": null,
+    "otherItems": [
+     {
+      "id": "reading:1",
+      "title": "The reading for “red” saved without the current cut mark needs your decision",
+      "where": "line 3",
+      "text": "It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+      "lines": [
+       3
+      ]
+     }
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark needs your decision before the writer can be asked."
+    ]
+   },
+   "afterInsert": {
+    "draft": "[SETUP — title — \"Rose Song\"]\n[SETUP — reading — token 2 \"red\" in \"Red--red, my rose\" — R1 — declared — source: me — needs a decision: numbered under the earlier word cut]\n\n[VERSE]\nA first new line\nA second new line\nMorning comes over the hill\nEvening falls and all is still\nRed--red, my rose",
+    "sung": [
+     {
+      "n": 1,
+      "text": "A first new line"
+     },
+     {
+      "n": 2,
+      "text": "A second new line"
+     },
+     {
+      "n": 3,
+      "text": "Morning comes over the hill"
+     },
+     {
+      "n": 4,
+      "text": "Evening falls and all is still"
+     },
+     {
+      "n": 5,
+      "text": "Red--red, my rose"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Rose Song\"]",
+     "[SETUP — reading — token 2 \"red\" in \"Red--red, my rose\" — R1 — declared — source: me — needs a decision: numbered under the earlier word cut]"
+    ],
+    "readings": [
+     {
+      "token": 2,
+      "word": "red",
+      "line": "Red--red, my rose",
+      "appliesToSungLines": [
+       5
+      ]
+     }
+    ],
+    "groups": [],
+    "card": null,
+    "cardShown": null,
+    "cardHasShowInDraft": null,
+    "meta": null,
+    "otherItems": [
+     {
+      "id": "reading:1",
+      "title": "The reading for “red” saved without the current cut mark needs your decision",
+      "where": "line 5",
+      "text": "It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.",
+      "lines": [
+       5
+      ]
+     }
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark needs your decision before the writer can be asked."
+    ],
+    "typedAsExpected": true
+   }
+  },
+  "D": {
+   "afterImport": {
+    "draft": "[SETUP — title — \"Rose Two\"]\n[SETUP — reading — token 3 \"red\" in \"Red--red, red my rose\" — R1 — declared — source: me — cut v2]\n\n[VERSE]\nMorning comes over the hill\nEvening falls and all is still\nRed--red, red my rose",
+    "sung": [
+     {
+      "n": 1,
+      "text": "Morning comes over the hill"
+     },
+     {
+      "n": 2,
+      "text": "Evening falls and all is still"
+     },
+     {
+      "n": 3,
+      "text": "Red--red, red my rose"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Rose Two\"]",
+     "[SETUP — reading — token 3 \"red\" in \"Red--red, red my rose\" — R1 — declared — source: me — cut v2]"
+    ],
+    "readings": [
+     {
+      "token": 3,
+      "word": "red",
+      "line": "Red--red, red my rose",
+      "appliesToSungLines": [
+       3
+      ]
+     }
+    ],
+    "groups": [],
+    "card": {
+     "id": "renumbered",
+     "title": "1 saved word number renumbered to the current word cut",
+     "where": "Setup",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “red”, line 3: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+     "lines": []
+    },
+    "cardShown": "1 saved word number renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “red”, line 3: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss",
+    "cardHasShowInDraft": false,
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "red",
+       "n": [
+        3
+       ],
+       "from": 2,
+       "to": 3
+      }
+     ],
+     "more": 0
+    },
+    "otherItems": [],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “red” word 2 → 3. Review lists it until you dismiss it."
+    ]
+   },
+   "afterInsert": {
+    "draft": "[SETUP — title — \"Rose Two\"]\n[SETUP — reading — token 3 \"red\" in \"Red--red, red my rose\" — R1 — declared — source: me — cut v2]\n\n[VERSE]\nA first new line\nA second new line\nMorning comes over the hill\nEvening falls and all is still\nRed--red, red my rose",
+    "sung": [
+     {
+      "n": 1,
+      "text": "A first new line"
+     },
+     {
+      "n": 2,
+      "text": "A second new line"
+     },
+     {
+      "n": 3,
+      "text": "Morning comes over the hill"
+     },
+     {
+      "n": 4,
+      "text": "Evening falls and all is still"
+     },
+     {
+      "n": 5,
+      "text": "Red--red, red my rose"
+     }
+    ],
+    "setup": [
+     "[SETUP — title — \"Rose Two\"]",
+     "[SETUP — reading — token 3 \"red\" in \"Red--red, red my rose\" — R1 — declared — source: me — cut v2]"
+    ],
+    "readings": [
+     {
+      "token": 3,
+      "word": "red",
+      "line": "Red--red, red my rose",
+      "appliesToSungLines": [
+       5
+      ]
+     }
+    ],
+    "groups": [],
+    "card": {
+     "id": "renumbered",
+     "title": "1 saved word number renumbered to the current word cut",
+     "where": "Setup",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “red”, line 3: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+     "lines": []
+    },
+    "cardShown": "1 saved word number renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “red”, line 3: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss",
+    "cardHasShowInDraft": false,
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "red",
+       "n": [
+        3
+       ],
+       "from": 2,
+       "to": 3
+      }
+     ],
+     "more": 0
+    },
+    "otherItems": [],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “red” word 2 → 3. Review lists it until you dismiss it."
+    ],
+    "typedAsExpected": true
+   }
+  }
+ },
+ "pageErrors": []
+}

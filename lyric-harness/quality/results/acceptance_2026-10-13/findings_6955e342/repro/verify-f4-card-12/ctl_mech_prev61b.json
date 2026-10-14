@@ -1,0 +1,119 @@
+{
+ "res": {
+  "M1": [
+   {
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": "A",
+    "brief": "brief A",
+    "draftId": null,
+    "idb": []
+   },
+   {
+    "head": "[SETUP — title — \"Quiet B\"]",
+    "marker": null,
+    "brief": "",
+    "draftId": "draft:18a2ca12",
+    "idb": [
+     {
+      "id": "draft:18a2ca12",
+      "head": "[SETUP — title — \"Quiet B\"]",
+      "marker": null,
+      "brief": ""
+     },
+     {
+      "id": "draft:dfd9ba17",
+      "head": "[SETUP — title — \"Quiet A\"]",
+      "marker": "A",
+      "brief": "brief A"
+     }
+    ]
+   },
+   {
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": null,
+    "brief": "brief A",
+    "draftId": "draft:dfd9ba17",
+    "idb": [
+     {
+      "id": "draft:18a2ca12",
+      "head": "[SETUP — title — \"Quiet B\"]",
+      "marker": null,
+      "brief": ""
+     },
+     {
+      "id": "draft:dfd9ba17",
+      "head": "[SETUP — title — \"Quiet A\"]",
+      "marker": null,
+      "brief": "brief A"
+     }
+    ]
+   }
+  ],
+  "M2": [
+   {
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": "A",
+    "brief": "brief A",
+    "draftId": null,
+    "idb": []
+   },
+   {
+    "head": "[SETUP — title — \"Quiet B\"]",
+    "marker": null,
+    "brief": "brief B",
+    "draftId": null,
+    "idb": []
+   },
+   {
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": null,
+    "brief": "",
+    "draftId": null,
+    "idb": []
+   }
+  ]
+ },
+ "log": [
+  {
+   "id": "prev61b.M1.liveMarker",
+   "claim": "after Undo across a Library import, the display state of A comes back",
+   "expected": "marker A",
+   "observed": null,
+   "verdict": "FAIL"
+  },
+  {
+   "id": "prev61b.M1.storedMarker",
+   "claim": "A's stored Library draft keeps A's display state after the Undo",
+   "expected": "marker A",
+   "observed": {
+    "id": "draft:dfd9ba17",
+    "head": "[SETUP — title — \"Quiet A\"]",
+    "marker": null,
+    "brief": "brief A"
+   },
+   "verdict": "FAIL"
+  },
+  {
+   "id": "prev61b.M1.brief",
+   "claim": "the brief (creative context) is restored by that Undo",
+   "expected": "brief A",
+   "observed": "brief A",
+   "verdict": "PASS"
+  },
+  {
+   "id": "prev61b.M2.liveMarker",
+   "claim": "after Undo across a session import, the display state of A comes back",
+   "expected": "marker A",
+   "observed": null,
+   "verdict": "FAIL"
+  },
+  {
+   "id": "prev61b.M2.brief",
+   "claim": "the brief is restored by that Undo",
+   "expected": "brief A",
+   "observed": "",
+   "verdict": "FAIL"
+  }
+ ],
+ "errs": []
+}

@@ -1,0 +1,30 @@
+main.review sel 2.end      "[SETUP — rhyme groups — 1.T2, 2.end]"
+   before [30,35,true]  after [30,35,forward] of len 175  sameChars=true  "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   newRow "[SETUP — rhyme groups — 1.T2, 2.end]"  ref [[30,30],[35,35]]  400ms later [30,35,forward] textSame=true
+main.review caret 2.|end   "[SETUP — rhyme groups — 1.T2, 2.end]"
+   before [32,32,true]  after [32,32,forward] of len 175  sameChars=true  "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   newRow "[SETUP — rhyme groups — 1.T2, 2.end]"  ref [[32,32],[32,32]]  400ms later [32,32,forward] textSame=true
+main.review caret 2.|end   "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [26,26,true]  after [26,26,forward] of len 192  sameChars=true  "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"  ref [[26,26],[26,26]]  400ms later [26,26,forward] textSame=true
+main.review sel 4          "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [30,31,true]  after [30,31,forward] of len 192  sameChars=true  "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"  ref [[30,30],[31,31]]  400ms later [30,31,forward] textSame=true
+main.review sel 3.T2       "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [38,42,true]  after [38,42,forward] of len 192  sameChars=true  "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"  ref [[38,38],[42,42]]  400ms later [38,42,forward] textSame=true
+main.review caret 5|.end   "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [45,45,true]  after [45,45,forward] of len 192  sameChars=true  "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"  ref [[45,45],[45,45]]  400ms later [45,45,forward] textSame=true
+main.review sel 6          "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   before [51,52,true]  after [51,52,forward] of len 192  sameChars=true  "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   newRow "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"  ref [[51,51],[52,52]]  400ms later [51,52,forward] textSame=true
+main.review sel 4.T2       "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   before [51,55,true]  after [51,55,forward] of len 195  sameChars=true  "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   newRow "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"  ref [[51,51],[55,55]]  400ms later [51,55,forward] textSame=true
+main.review caret |2       "[SETUP — rhyme groups — 1.T2,2]"
+   before [29,29,true]  after [29,29,forward] of len 170  sameChars=true  "[SETUP — rhyme groups — 1.T2,|2]"
+   newRow "[SETUP — rhyme groups — 1.T2,2]"  ref [[29,29],[29,29]]  400ms later [29,29,forward] textSame=true
+main.review sel 2          "[SETUP — rhyme groups — 1.T2,2]"
+   before [29,30,true]  after [29,30,forward] of len 170  sameChars=true  "[SETUP — rhyme groups — 1.T2,«2»]"
+   newRow "[SETUP — rhyme groups — 1.T2,2]"  ref [[29,29],[30,30]]  400ms later [29,30,forward] textSame=true

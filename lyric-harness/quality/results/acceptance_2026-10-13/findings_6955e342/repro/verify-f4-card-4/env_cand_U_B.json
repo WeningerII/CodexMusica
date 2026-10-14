@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:fa479431-78f5-4f00-897d-c4e2bdf25661",
+  "draftId": "draft:559c70b4-50b9-4534-b38c-5953900a79e6",
+  "createdAt": "2026-10-14T10:23:31.908Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T4,2.T4]\n\n[VERSE]\nAh--ah, ah my velvet\nAh--ah, ah my helmet",
+    "title": "Song B",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:v4",
+      "unitId": "unit:v4",
+      "workId": "work:v4",
+      "editionId": "ed:v4",
+      "revisionId": "rev:v4",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:03543965-2025-4c92-ba28-192e1f36f0f4",
+        "sourceDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "fd88c66740c9d2c37117caf0ae3d28bd5a40dddcd2b4dcc6a0bd443f1fe32aaa"
+}

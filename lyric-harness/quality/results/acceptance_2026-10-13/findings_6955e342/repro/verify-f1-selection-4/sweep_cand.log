@@ -1,0 +1,55 @@
+
+RHY: "[SETUP — rhyme groups — 1.T2, 2.end]" -> "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"  firstChangedCol=27 commonSuffix=1 (lyMapOffset sends cols 28..34 to 44)
+  FAIL caret 2.|end         [32,32] -> page [44,44]  ref [[32,32],[32,32]]   [SETUP — rhyme groups — 1.T2, 2.|end]  =>  [SETUP — rhyme groups — 1.T3, 2.end — cut v2|]
+  FAIL sel 2.end            [30,35] -> page [44,44]  ref [[30,30],[35,44]]   [SETUP — rhyme groups — 1.T2, «2.end»]  =>  [SETUP — rhyme groups — 1.T3, 2.end — cut v2|]
+  OK   caret 1.T|2          [27,27] -> page [27,27]  ref [[27,28],[27,28]]   [SETUP — rhyme groups — 1.T|2, 2.end]  =>  [SETUP — rhyme groups — 1.T|3, 2.end — cut v2]
+  FAIL sel 1.T2             [24,28] -> page [24,44]  ref [[24,24],[27,28]]   [SETUP — rhyme groups — «1.T2», 2.end]  =>  [SETUP — rhyme groups — «1.T3, 2.end — cut v2»]
+  member m0:1.T2    changed-member  cols 24-28: carets ok 4/5; whole-member selection FAIL page [24,44]
+  member m1:2.end   member          cols 29-35: carets ok 1/7; whole-member selection FAIL page [44,44]
+
+MANY: "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]" -> "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"  firstChangedCol=36 commonSuffix=1 (lyMapOffset sends cols 37..51 to 61)
+  OK   caret 2.|end         [26,26] -> page [26,26]  ref [[26,26],[26,26]]   [SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]  =>  [SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]
+  OK   sel 4                [30,31] -> page [30,31]  ref [[30,30],[31,31]]   [SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]  =>  [SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]
+  FAIL sel 1.T2             [33,37] -> page [33,61]  ref [[33,33],[36,37]]   [SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]  =>  [SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]
+  FAIL sel 3.T2             [38,42] -> page [61,61]  ref [[38,38],[42,42]]   [SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]  =>  [SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]
+  FAIL caret 5|.end         [45,45] -> page [61,61]  ref [[45,45],[45,45]]   [SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]  =>  [SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]
+  FAIL sel 6                [51,52] -> page [61,61]  ref [[51,51],[52,61]]   [SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]  =>  [SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]
+  member m0:2.end   member          cols 24-29: carets ok 6/6; whole-member selection OK page [24,29]
+  member m1:4       member          cols 30-31: carets ok 2/2; whole-member selection OK page [30,31]
+  member m2:1.T2    changed-member  cols 32-37: carets ok 5/6; whole-member selection FAIL page [32,61]
+  member m3:3.T2    member          cols 38-42: carets ok 0/5; whole-member selection FAIL page [61,61]
+  member m4:5.end   member          cols 43-49: carets ok 0/7; whole-member selection FAIL page [61,61]
+  member m5:6       member          cols 50-52: carets ok 1/3; whole-member selection FAIL page [61,61]
+
+MANY_LAST: "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]" -> "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"  firstChangedCol=49 commonSuffix=2 (lyMapOffset sends cols 50..53 to 63)
+  OK   caret 2.e|nd         [22,22] -> page [22,22]  ref [[22,22],[22,22]]   [SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]  =>  [SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]
+  OK   sel 6.end            [39,44] -> page [39,44]  ref [[39,39],[44,44]]   [SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]  =>  [SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]
+  FAIL sel 4.T2             [51,55] -> page [63,64]  ref [[51,51],[55,64]]   [SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]  =>  [SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]
+  OK   caret 1.T|2          [49,49] -> page [49,49]  ref [[49,50],[49,50]]   [SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]  =>  [SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]
+  member m0:2.end   member          cols 19-24: carets ok 6/6; whole-member selection OK page [19,24]
+  member m1:4.end   member          cols 25-31: carets ok 7/7; whole-member selection OK page [25,31]
+  member m2:5.end   member          cols 32-38: carets ok 7/7; whole-member selection OK page [32,38]
+  member m3:6.end   member          cols 39-44: carets ok 6/6; whole-member selection OK page [39,44]
+  member m4:1.T2    changed-member  cols 45-50: carets ok 5/6; whole-member selection FAIL page [45,63]
+  member m5:4.T2    member          cols 51-55: carets ok 1/5; whole-member selection FAIL page [63,64]
+
+BARE: "[SETUP — rhyme groups — 1.T2,2]" -> "[SETUP — rhyme groups — 1.T3,2 — cut v2]"  firstChangedCol=27 commonSuffix=2 (lyMapOffset sends cols 28..28 to 38)
+  FAIL caret |2 (bare)      [29,29] -> page [38,38]  ref [[29,29],[29,29]]   [SETUP — rhyme groups — 1.T2,|2]  =>  [SETUP — rhyme groups — 1.T3,2 — cut v|2]
+  FAIL sel 2 (bare)         [29,30] -> page [38,39]  ref [[29,29],[30,39]]   [SETUP — rhyme groups — 1.T2,«2»]  =>  [SETUP — rhyme groups — 1.T3,2 — cut v«2»]
+  OK   caret 2|] (bare)     [30,30] -> page [39,39]  ref [[30,39],[30,39]]   [SETUP — rhyme groups — 1.T2,2|]  =>  [SETUP — rhyme groups — 1.T3,2 — cut v2|]
+  member m0:1.T2    changed-member  cols 24-28: carets ok 4/5; whole-member selection FAIL page [24,38]
+  member m1:2       member          cols 29-30: carets ok 1/2; whole-member selection FAIL page [38,39]
+
+RET_BARE: "[SETUP — returns — 1.T2,2]" -> "[SETUP — returns — 1.T3,2 — cut v2]"  firstChangedCol=22 commonSuffix=2 (lyMapOffset sends cols 23..23 to 33)
+  FAIL caret |2 (bare)      [24,24] -> page [33,33]  ref [[24,24],[24,24]]   [SETUP — returns — 1.T2,|2]  =>  [SETUP — returns — 1.T3,2 — cut v|2]
+  FAIL sel 2 (bare)         [24,25] -> page [33,34]  ref [[24,24],[25,34]]   [SETUP — returns — 1.T2,«2»]  =>  [SETUP — returns — 1.T3,2 — cut v«2»]
+  OK   caret 2|] (bare)     [25,25] -> page [34,34]  ref [[25,34],[25,34]]   [SETUP — returns — 1.T2,2|]  =>  [SETUP — returns — 1.T3,2 — cut v2|]
+  member m0:1.T2    changed-member  cols 19-23: carets ok 4/5; whole-member selection FAIL page [19,33]
+  member m1:2       member          cols 24-25: carets ok 1/2; whole-member selection FAIL page [33,34]
+
+BARE_MID: "[SETUP — rhyme groups — 3, 1.T2, 2]" -> "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"  firstChangedCol=30 commonSuffix=2 (lyMapOffset sends cols 31..32 to 42)
+  OK   sel 3 (bare, first)  [24,25] -> page [24,25]  ref [[24,24],[25,25]]   [SETUP — rhyme groups — «3», 1.T2, 2]  =>  [SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]
+  FAIL sel 2 (bare, last)   [33,34] -> page [42,43]  ref [[33,33],[34,43]]   [SETUP — rhyme groups — 3, 1.T2, «2»]  =>  [SETUP — rhyme groups — 3, 1.T3, 2 — cut v«2»]
+  member m0:3       member          cols 24-25: carets ok 2/2; whole-member selection OK page [24,25]
+  member m1:1.T2    changed-member  cols 26-31: carets ok 5/6; whole-member selection FAIL page [26,42]
+  member m2:2       member          cols 32-34: carets ok 1/3; whole-member selection FAIL page [42,43]

@@ -1,0 +1,440 @@
+c61b.prog.value.RHY caret 2.|end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.prog.value.RHY sel 2.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.prog.value.RHY caret 1.T|2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.prog.value.RHY sel 1.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.prog.value.MANY caret 2.|end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.prog.value.MANY sel 4: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.prog.value.MANY sel 1.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.prog.value.MANY sel 3.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.prog.value.MANY caret 5|.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.prog.value.MANY sel 6: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.prog.value.MANY_LAST caret 2.e|nd: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.prog.value.MANY_LAST sel 6.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.prog.value.MANY_LAST sel 4.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.prog.value.MANY_LAST caret 1.T|2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.prog.value.BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.prog.value.BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.prog.value.BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.prog.value.RET_BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.prog.value.RET_BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.prog.value.RET_BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.prog.value.BARE_MID sel 3 (bare, first): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [181,181,"forward"] "Love above|"
+   after  [181,181,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]" decl={"groups":"3,1.T3,2"}
+c61b.prog.value.BARE_MID sel 2 (bare, last): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [181,181,"forward"] "Love above|"
+   after  [181,181,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]" decl={"groups":"3,1.T3,2"}
+c61b.chat.value.RHY caret 2.|end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.chat.value.RHY sel 2.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.chat.value.RHY caret 1.T|2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.chat.value.RHY sel 1.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.chat.value.MANY caret 2.|end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.chat.value.MANY sel 4: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.chat.value.MANY sel 1.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.chat.value.MANY sel 3.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.chat.value.MANY caret 5|.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.chat.value.MANY sel 6: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.chat.value.MANY_LAST caret 2.e|nd: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.chat.value.MANY_LAST sel 6.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.chat.value.MANY_LAST sel 4.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.chat.value.MANY_LAST caret 1.T|2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.chat.value.BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.chat.value.BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.chat.value.BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.chat.value.RET_BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.chat.value.RET_BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.chat.value.RET_BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.chat.value.BARE_MID sel 3 (bare, first): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [181,181,"forward"] "Love above|"
+   after  [181,181,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]" decl={"groups":"3,1.T3,2"}
+c61b.chat.value.BARE_MID sel 2 (bare, last): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [181,181,"forward"] "Love above|"
+   after  [181,181,"forward"] "Love above|" focused=true
+   ref    null null
+   typed  "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]" decl={"groups":"3,1.T3,2"}
+c61b.kbd.value.RHY caret 2.|end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.kbd.value.RHY sel 2.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.kbd.value.RHY caret 1.T|2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.kbd.value.RHY sel 1.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.kbd.value.MANY caret 2.|end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.kbd.value.MANY sel 4: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.kbd.value.MANY sel 1.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.kbd.value.MANY sel 3.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.kbd.value.MANY caret 5|.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.kbd.value.MANY sel 6: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.kbd.value.MANY_LAST caret 2.e|nd: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.kbd.value.MANY_LAST sel 6.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.kbd.value.MANY_LAST sel 4.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.kbd.value.MANY_LAST caret 1.T|2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.kbd.value.BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.kbd.value.BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.kbd.value.BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.kbd.value.RET_BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.kbd.value.RET_BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.kbd.value.RET_BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.kbd.value.BARE_MID sel 3 (bare, first): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [181,181,"forward"] "Love above|"
+   after  [181,181,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]" decl={"groups":"3,1.T3,2"}
+c61b.kbd.value.BARE_MID sel 2 (bare, last): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [181,181,"forward"] "Love above|"
+   after  [181,181,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]" decl={"groups":"3,1.T3,2"}
+c61b.click.value.RHY caret 2.|end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.click.value.RHY sel 2.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.click.value.RHY caret 1.T|2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.click.value.RHY sel 1.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.click.value.MANY caret 2.|end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.click.value.MANY sel 4: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.click.value.MANY sel 1.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.click.value.MANY sel 3.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.click.value.MANY caret 5|.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.click.value.MANY sel 6: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [190,190,"forward"] "Love above|"
+   after  [190,190,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 2,4;1.T3,3.T2;5,6 — cut v2]" decl={"groups":"2,4;1.T3,3.T2;5,6"}
+c61b.click.value.MANY_LAST caret 2.e|nd: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.click.value.MANY_LAST sel 6.end: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.click.value.MANY_LAST sel 4.T2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.click.value.MANY_LAST caret 1.T|2: migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [185,185,"forward"] "Love above|"
+   after  [185,185,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 2,4;5,6;1.T3,4.T2 — cut v2]" decl={"returns":"2,4;5,6;1.T3,4.T2"}
+c61b.click.value.BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.click.value.BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.click.value.BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [179,179,"forward"] "Love above|"
+   after  [179,179,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={"groups":"1.T3,2"}
+c61b.click.value.RET_BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.click.value.RET_BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.click.value.RET_BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [174,174,"forward"] "Love above|"
+   after  [174,174,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — returns — 1.T3,2 — cut v2]" decl={"returns":"1.T3,2"}
+c61b.click.value.BARE_MID sel 3 (bare, first): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [181,181,"forward"] "Love above|"
+   after  [181,181,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]" decl={"groups":"3,1.T3,2"}
+c61b.click.value.BARE_MID sel 2 (bare, last): migratedBefore=false migratedAtBoundary=false sameChars=true predMatch=null req=1
+   before [181,181,"forward"] "Love above|"
+   after  [181,181,"forward"] "Love above|" focused=false
+   ref    null null
+   typed  "[SETUP — rhyme groups — 3,1.T3,2 — cut v2]" decl={"groups":"3,1.T3,2"}

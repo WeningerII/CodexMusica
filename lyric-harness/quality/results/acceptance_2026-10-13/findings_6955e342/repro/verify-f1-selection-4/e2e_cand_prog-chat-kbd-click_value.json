@@ -1,0 +1,5257 @@
+{
+ "tree": "cand",
+ "page": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-4/built-wt-695.html",
+ "feed": "value",
+ "cases": [
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   },
+   "after": {
+    "sel": [
+     44,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    44,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     32,
+     32
+    ],
+    [
+     32,
+     32
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]",
+   "typed": {
+    "at": 44,
+    "row0": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   },
+   "after": {
+    "sel": [
+     44,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    44,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     35,
+     44
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]",
+   "typed": {
+    "at": 44,
+    "row0": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   },
+   "after": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    27,
+    27
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     27,
+     28
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]",
+   "typed": {
+    "at": 27,
+    "row0": "[SETUP — rhyme groups — 1.TZQ3, 2.end — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.TZQ3, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+   },
+   "after": {
+    "sel": [
+     24,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    24,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]",
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    26,
+    26
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     26,
+     26
+    ],
+    [
+     26,
+     26
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 26,
+    "row0": "[SETUP — rhyme groups — 2.ZQend,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.ZQend,4; 1.T3,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    30,
+    31
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     31,
+     31
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 2.end,ZQ; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,ZQ; 1.T3,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     33,
+     61,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     36,
+     37
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 2.end,4; ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     38,
+     38
+    ],
+    [
+     42,
+     42
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     45,
+     45
+    ],
+    [
+     45,
+     45
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     52,
+     61
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    22,
+    22
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     22,
+     22
+    ],
+    [
+     22,
+     22
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+   "typed": {
+    "at": 22,
+    "row0": "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    39,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     39,
+     39
+    ],
+    [
+     44,
+     44
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]",
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,ZQ; 1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   },
+   "after": {
+    "sel": [
+     63,
+     64,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    63,
+    64
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     55,
+     64
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]",
+   "typed": {
+    "at": 63,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "2 (marked cut vzq: not read here),4 (marked cut vzq: not read here)",
+     "5 (marked cut vzq: not read here),6 (marked cut vzq: not read here)",
+     "1.T3 (marked cut vzq: not read here),4.T2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    49,
+    49
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     49,
+     50
+    ],
+    [
+     49,
+     50
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]",
+   "typed": {
+    "at": 49,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     38,
+     38,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v|2]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    38,
+    38
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     29,
+     29
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,|2 — cut v2]",
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     38,
+     39,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    38,
+    39
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]",
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     39,
+     39,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    39,
+    39
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     39
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 1.T3,2« — cut v2»]",
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     33,
+     33,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v|2]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    33
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     24,
+     24
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,|2 — cut v2]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — returns — 1.T3,2 — cut vZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v«2»]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    34
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     25,
+     34
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,«2 — cut v2»]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — returns — 1.T3,2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     34,
+     34,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v2|]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    34,
+    34
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     25,
+     34
+    ],
+    [
+     25,
+     34
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 1.T3,2« — cut v2»]",
+   "typed": {
+    "at": 34,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T3, 2"
+    }
+   ],
+   "pagePrediction": [
+    24,
+    25
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     25,
+     25
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]",
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 1.T3, 2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 1.T3, 2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "prog",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   },
+   "after": {
+    "sel": [
+     42,
+     43,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v«2»]",
+    "row": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T3, 2"
+    }
+   ],
+   "pagePrediction": [
+    42,
+    43
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     34,
+     43
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]",
+   "typed": {
+    "at": 42,
+    "row0": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "3 (marked cut vzq: not read here),1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   },
+   "after": {
+    "sel": [
+     44,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    44,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     32,
+     32
+    ],
+    [
+     32,
+     32
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]",
+   "typed": {
+    "at": 44,
+    "row0": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   },
+   "after": {
+    "sel": [
+     44,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    44,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     35,
+     44
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]",
+   "typed": {
+    "at": 44,
+    "row0": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   },
+   "after": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    27,
+    27
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     27,
+     28
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]",
+   "typed": {
+    "at": 27,
+    "row0": "[SETUP — rhyme groups — 1.TZQ3, 2.end — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.TZQ3, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+   },
+   "after": {
+    "sel": [
+     24,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    24,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]",
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    26,
+    26
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     26,
+     26
+    ],
+    [
+     26,
+     26
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 26,
+    "row0": "[SETUP — rhyme groups — 2.ZQend,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.ZQend,4; 1.T3,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    30,
+    31
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     31,
+     31
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 2.end,ZQ; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,ZQ; 1.T3,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     33,
+     61,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     36,
+     37
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 2.end,4; ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     38,
+     38
+    ],
+    [
+     42,
+     42
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     45,
+     45
+    ],
+    [
+     45,
+     45
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     52,
+     61
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    22,
+    22
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     22,
+     22
+    ],
+    [
+     22,
+     22
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+   "typed": {
+    "at": 22,
+    "row0": "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    39,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     39,
+     39
+    ],
+    [
+     44,
+     44
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]",
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,ZQ; 1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   },
+   "after": {
+    "sel": [
+     63,
+     64,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    63,
+    64
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     55,
+     64
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]",
+   "typed": {
+    "at": 63,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "2 (marked cut vzq: not read here),4 (marked cut vzq: not read here)",
+     "5 (marked cut vzq: not read here),6 (marked cut vzq: not read here)",
+     "1.T3 (marked cut vzq: not read here),4.T2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    49,
+    49
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     49,
+     50
+    ],
+    [
+     49,
+     50
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]",
+   "typed": {
+    "at": 49,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     38,
+     38,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v|2]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    38,
+    38
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     29,
+     29
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,|2 — cut v2]",
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     38,
+     39,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    38,
+    39
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]",
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     39,
+     39,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    39,
+    39
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     39
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 1.T3,2« — cut v2»]",
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     33,
+     33,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v|2]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    33
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     24,
+     24
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,|2 — cut v2]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — returns — 1.T3,2 — cut vZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v«2»]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    34
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     25,
+     34
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,«2 — cut v2»]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — returns — 1.T3,2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     34,
+     34,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v2|]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    34,
+    34
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     25,
+     34
+    ],
+    [
+     25,
+     34
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 1.T3,2« — cut v2»]",
+   "typed": {
+    "at": 34,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T3, 2"
+    }
+   ],
+   "pagePrediction": [
+    24,
+    25
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     25,
+     25
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]",
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 1.T3, 2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 1.T3, 2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "chat",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   },
+   "after": {
+    "sel": [
+     42,
+     43,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v«2»]",
+    "row": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T3, 2"
+    }
+   ],
+   "pagePrediction": [
+    42,
+    43
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     34,
+     43
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]",
+   "typed": {
+    "at": 42,
+    "row0": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "3 (marked cut vzq: not read here),1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   },
+   "after": {
+    "sel": [
+     44,
+     44,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    44,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     32,
+     32
+    ],
+    [
+     32,
+     32
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]",
+   "typed": {
+    "at": 44,
+    "row0": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   },
+   "after": {
+    "sel": [
+     44,
+     44,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    44,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     35,
+     44
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]",
+   "typed": {
+    "at": 44,
+    "row0": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   },
+   "after": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    27,
+    27
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     27,
+     28
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]",
+   "typed": {
+    "at": 27,
+    "row0": "[SETUP — rhyme groups — 1.TZQ3, 2.end — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.TZQ3, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+   },
+   "after": {
+    "sel": [
+     24,
+     44,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    24,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]",
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    26,
+    26
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     26,
+     26
+    ],
+    [
+     26,
+     26
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 26,
+    "row0": "[SETUP — rhyme groups — 2.ZQend,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.ZQend,4; 1.T3,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    30,
+    31
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     31,
+     31
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 2.end,ZQ; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,ZQ; 1.T3,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     33,
+     61,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     36,
+     37
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 2.end,4; ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     38,
+     38
+    ],
+    [
+     42,
+     42
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     45,
+     45
+    ],
+    [
+     45,
+     45
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   },
+   "after": {
+    "sel": [
+     61,
+     61,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     52,
+     61
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]",
+   "typed": {
+    "at": 61,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)",
+     "1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)",
+     "5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    22,
+    22
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     22,
+     22
+    ],
+    [
+     22,
+     22
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+   "typed": {
+    "at": 22,
+    "row0": "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    39,
+    44
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     39,
+     39
+    ],
+    [
+     44,
+     44
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]",
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,ZQ; 1.T3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   },
+   "after": {
+    "sel": [
+     63,
+     64,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    63,
+    64
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     55,
+     64
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]",
+   "typed": {
+    "at": 63,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "2 (marked cut vzq: not read here),4 (marked cut vzq: not read here)",
+     "5 (marked cut vzq: not read here),6 (marked cut vzq: not read here)",
+     "1.T3 (marked cut vzq: not read here),4.T2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    49,
+    49
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     49,
+     50
+    ],
+    [
+     49,
+     50
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]",
+   "typed": {
+    "at": 49,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     38,
+     38,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v|2]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    38,
+    38
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     29,
+     29
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,|2 — cut v2]",
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     38,
+     39,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    38,
+    39
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]",
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     39,
+     39,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v2|]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    39,
+    39
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     30,
+     39
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — 1.T3,2« — cut v2»]",
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — rhyme groups — 1.T3,2 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     33,
+     33,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v|2]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    33
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     24,
+     24
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,|2 — cut v2]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — returns — 1.T3,2 — cut vZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v«2»]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    34
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     25,
+     34
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,«2 — cut v2»]",
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — returns — 1.T3,2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     34,
+     34,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T3,2 — cut v2|]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    34,
+    34
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     25,
+     34
+    ],
+    [
+     25,
+     34
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — returns — 1.T3,2« — cut v2»]",
+   "typed": {
+    "at": 34,
+    "row0": "[SETUP — returns — 1.T3,2 — cut v2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns_need_decision": [
+     "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T3, 2"
+    }
+   ],
+   "pagePrediction": [
+    24,
+    25
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     25,
+     25
+    ]
+   ],
+   "sameChars": true,
+   "refShown": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]",
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 1.T3, 2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 1.T3, 2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "kbd",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   },
+   "after": {
+    "sel": [
+     42,
+     43,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v«2»]",
+    "row": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T3, 2"
+    }
+   ],
+   "pagePrediction": [
+    42,
+    43
+   ],
+   "predictionMatches": true,
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     34,
+     43
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]",
+   "typed": {
+    "at": 42,
+    "row0": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut vZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups_need_decision": [
+     "3 (marked cut vzq: not read here),1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"
+    ]
+   },
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    44,
+    44
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     32,
+     32
+    ],
+    [
+     32,
+     32
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    44,
+    44
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     35,
+     44
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    27,
+    27
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     27,
+     28
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3, 2.end"
+    }
+   ],
+   "pagePrediction": [
+    24,
+    44
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     27,
+     28
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    26,
+    26
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     26,
+     26
+    ],
+    [
+     26,
+     26
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    30,
+    31
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     30,
+     30
+    ],
+    [
+     31,
+     31
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    61
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     36,
+     37
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     38,
+     38
+    ],
+    [
+     42,
+     42
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     45,
+     45
+    ],
+    [
+     45,
+     45
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T3,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": [
+    61,
+    61
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     52,
+     61
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    22,
+    22
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     22,
+     22
+    ],
+    [
+     22,
+     22
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    39,
+    44
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     39,
+     39
+    ],
+    [
+     44,
+     44
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    63,
+    64
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     51,
+     51
+    ],
+    [
+     55,
+     64
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T3,4.T2"
+    }
+   ],
+   "pagePrediction": [
+    49,
+    49
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     49,
+     50
+    ],
+    [
+     49,
+     50
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    38,
+    38
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     29,
+     29
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,|2 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    38,
+    39
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     29,
+     29
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "row": "[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    39,
+    39
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     30,
+     39
+    ],
+    [
+     30,
+     39
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 1.T3,2« — cut v2»]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — returns — 1.T3,2 — cut v2]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    33
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     24,
+     24
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,|2 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — returns — 1.T3,2 — cut v2]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    33,
+    34
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     25,
+     34
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,«2 — cut v2»]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — returns — 1.T3,2 — cut v2]",
+    "row": "[SETUP — returns — 1.T3,2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T3,2"
+    }
+   ],
+   "pagePrediction": [
+    34,
+    34
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     25,
+     34
+    ],
+    [
+     25,
+     34
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — returns — 1.T3,2« — cut v2»]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — returns — 1.T3,2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T3, 2"
+    }
+   ],
+   "pagePrediction": [
+    24,
+    25
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     24,
+     24
+    ],
+    [
+     25,
+     25
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  },
+  {
+   "tree": "cand",
+   "trig": "click",
+   "feed": "value",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   },
+   "after": {
+    "sel": [
+     0,
+     0,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "|[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+   },
+   "migratedAtBoundary": true,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T3, 2"
+    }
+   ],
+   "pagePrediction": [
+    42,
+    43
+   ],
+   "predictionMatches": false,
+   "ref": [
+    [
+     33,
+     33
+    ],
+    [
+     34,
+     43
+    ]
+   ],
+   "sameChars": false,
+   "refShown": "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]",
+   "typed": {
+    "at": 0,
+    "row0": "ZQ[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {},
+   "errors": []
+  }
+ ]
+}

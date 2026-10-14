@@ -1,0 +1,2222 @@
+[
+  {
+    "variant": "click",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      0,
+      0
+    ],
+    "afterScriptFocus": [
+      0,
+      0
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 3,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 4,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 106,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 107,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 107,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 115,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 116,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 116,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 131,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 148,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 165,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 181,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 198,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 620,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "click_same",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      15,
+      15
+    ],
+    "final": [
+      13,
+      13
+    ],
+    "afterScriptFocus": [
+      13,
+      13
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 39,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 39,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 39,
+        "sel": [
+          15,
+          15
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 47,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 48,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 48,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 63,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 80,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 97,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 114,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 131,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 548,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "click_noval_sel",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      13,
+      13
+    ],
+    "final": [
+      13,
+      13
+    ],
+    "afterScriptFocus": [
+      13,
+      13
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 1,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 44,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 45,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 45,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 52,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 69,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 86,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 102,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 119,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 136,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 551,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "mousedown",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "handler:before",
+        "t": 44,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "handler:after",
+        "t": 46,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 46,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "frame 0",
+        "t": 48,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 49,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 49,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 63,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 80,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 96,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 113,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 129,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 555,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "pointerup",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      0,
+      0
+    ],
+    "afterScriptFocus": [
+      0,
+      0
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 35,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 36,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 36,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 41,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 42,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 42,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 57,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 74,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 91,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 108,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 124,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 542,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "click_pd",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "handler:before",
+        "t": 52,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "handler:after",
+        "t": 52,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "frame 0",
+        "t": 60,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 60,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 60,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "frame 1",
+        "t": 73,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "frame 2",
+        "t": 90,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "frame 3",
+        "t": 107,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "frame 4",
+        "t": 124,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "frame 5",
+        "t": 141,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "500ms",
+        "t": 567,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "textarea"
+      }
+    ]
+  },
+  {
+    "variant": "click_div",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 43,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 44,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:after",
+        "t": 44,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "frame 0",
+        "t": 52,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 53,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 53,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 53,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "frame 1",
+        "t": 70,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "frame 2",
+        "t": 86,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "frame 3",
+        "t": 102,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "frame 4",
+        "t": 119,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "frame 5",
+        "t": 136,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "500ms",
+        "t": 555,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "BODY"
+      }
+    ]
+  },
+  {
+    "variant": "click_raf",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 55,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 56,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 56,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "raf re-apply",
+        "t": 57,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 57,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 58,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 58,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 66,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 83,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 99,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 116,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 133,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 564,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "click_t0",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 1,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 55,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 56,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 56,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 58,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 59,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 59,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "t0 re-apply",
+        "t": 59,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 59,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 59,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 74,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 91,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 107,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 124,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 141,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 566,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "click_neverfocused",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 29,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 29,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 40,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 41,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 41,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 57,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 73,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 90,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 106,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 123,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 534,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "click_blurfirst",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      0,
+      0
+    ],
+    "afterScriptFocus": [
+      0,
+      0
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 32,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 32,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 42,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 43,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 43,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 59,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 76,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 92,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 109,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 126,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 536,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "click_clickelse",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 1,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 3,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 54,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 55,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "after clicking page text",
+        "t": 67,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "handler:before",
+        "t": 91,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 91,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 102,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 103,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 103,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 119,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 136,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 152,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 169,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 186,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 598,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "kbd_enter",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 1,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 1,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 1,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "button focused by script",
+        "t": 2,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:before",
+        "t": 4,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 4,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 5,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 20,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 20,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 20,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 36,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 53,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 70,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 86,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 510,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "kbd_space",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 3,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "button focused by script",
+        "t": 3,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:before",
+        "t": 6,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 6,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 10,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 12,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 12,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 26,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 43,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 60,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 77,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 93,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 510,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      }
+    ]
+  },
+  {
+    "variant": "tab_enter",
+    "mode": "headed",
+    "version": "141.0.7390.37",
+    "handlerAfter": [
+      22,
+      22
+    ],
+    "final": [
+      22,
+      22
+    ],
+    "afterScriptFocus": [
+      22,
+      22
+    ],
+    "log": [
+      {
+        "what": "textarea selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 0,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "textarea"
+      },
+      {
+        "what": "textarea blur",
+        "t": 3,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "BODY"
+      },
+      {
+        "what": "after Tab",
+        "t": 5,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:before",
+        "t": 6,
+        "sel": [
+          13,
+          13
+        ],
+        "active": "b"
+      },
+      {
+        "what": "handler:after",
+        "t": 6,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 0",
+        "t": 13,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "textarea selectionchange",
+        "t": 13,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "doc selectionchange",
+        "t": 13,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 1",
+        "t": 29,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 2",
+        "t": 46,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 3",
+        "t": 63,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 4",
+        "t": 79,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "frame 5",
+        "t": 96,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      },
+      {
+        "what": "500ms",
+        "t": 510,
+        "sel": [
+          22,
+          22
+        ],
+        "active": "b"
+      }
+    ]
+  }
+]

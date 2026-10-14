@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:bbe1a7b5-3159-48e1-84c7-8961dba54545",
+  "draftId": "draft:d030df8c-7c6a-4c2e-a4cb-04499ad6432c",
+  "createdAt": "2026-10-14T10:28:11.281Z",
+  "payload": {
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T4,2.T4]\n[SETUP — reading — token 4 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "title": "Alpha River",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:f69f0269-29b5-43c9-be9d-be40c7fe1872",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "91948d59b73bd2cf1c6a43a023857e4dcdfdfcda2041ca96073db8d2628f6e7d"
+}

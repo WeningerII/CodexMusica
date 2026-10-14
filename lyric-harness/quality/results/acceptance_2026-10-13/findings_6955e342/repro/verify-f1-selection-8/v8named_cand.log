@@ -1,0 +1,14 @@
+[cand] prog/A_send
+   after input : ["[SETUP — rhyme groups — 1.end,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.end,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.end,8;2,3"}] via click -> []
+   after send  : ["[SETUP — rhyme groups — 1.end (carried across the word-cut change),8; 2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send ["1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."]
+   card        : action null send null
+[cand] prog/B_remove
+   after input : ["[SETUP — rhyme groups — 1.end,8; 2,3]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.end,8 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   sent        : [{"groups":"1.end,8"}] via click -> []
+   after send  : ["[SETUP — rhyme groups — 1.end,8 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above"]
+   toasts      : input [] action ["Rhyme link removed. Undo restores it.\nUndo"] send ["Rhyme link removed. Undo restores it.\nUndo"]
+   card        : action null send null

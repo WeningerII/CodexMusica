@@ -1,0 +1,734 @@
+{
+ "tree": "cand",
+ "scen": {
+  "A": {
+   "draftAfterImport": "[SETUP — title — \"Old Song\"]\n[SETUP — returns — 1.T4,2.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love\nwe sing it plain tonight\nwe bring it home tonight",
+   "toasts": [
+    "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “my” word 3 → 4, “my” word 3 → 4. Review lists each one until you dismiss it."
+   ],
+   "beforeReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 616,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 706,
+     "h": 238
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": false,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "calls": 1,
+   "afterReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 898,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 989,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterReviewNoRefresh": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 898,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 989,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterReload": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 616,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 706,
+     "h": 238
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": false,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "draftAfterReload": "[SETUP — title — \"Old Song\"]\n[SETUP — returns — 1.T4,2.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love\nwe sing it plain tonight\nwe bring it home tonight"
+  },
+  "B": {
+   "beforeReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 616,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 706,
+     "h": 238
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": false,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "calls": 1,
+   "afterReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 839,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 930,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "certified"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "status": "Finished · certified"
+  },
+  "C": {
+   "afterReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 898,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 989,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterClick": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 776,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 867,
+     "h": 238
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterForcedRefresh": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 776,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 867,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "reopened": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 776,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 867,
+     "h": 238
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterTyping": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 916,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 1007,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "reopened2": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 916,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 1007,
+     "h": 238
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterTabSwitch": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 916,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 1007,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "dismissButtonVisible": true,
+   "afterDismiss": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 0",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 776,
+     "h": 22
+    },
+    "cardInDom": false,
+    "cardVisible": false,
+    "cardRect": null,
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": false,
+    "cardInItems": false,
+    "metaEntries": 0,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   }
+  },
+  "D": {
+   "afterQuietReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 898,
+     "h": 22
+    },
+    "cardInDom": false,
+    "cardVisible": false,
+    "cardRect": null,
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": false,
+    "cardInItems": false,
+    "metaEntries": 0,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "count:0"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "toastsAtImport": [
+    "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “my” word 3 → 4, “my” word 3 → 4. Review lists each one until you dismiss it."
+   ],
+   "afterImport": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 1057,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 1148,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "draftAfterImport": "[SETUP — title — \"Old Song\"]\n[SETUP — returns — 1.T4,2.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love\nwe sing it plain tonight\nwe bring it home tonight"
+  },
+  "D2": {
+   "afterQuietReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 898,
+     "h": 22
+    },
+    "cardInDom": false,
+    "cardVisible": false,
+    "cardRect": null,
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": false,
+    "cardInItems": false,
+    "metaEntries": 0,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "count:0"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "beforeReload": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 1057,
+     "h": 22
+    },
+    "cardInDom": false,
+    "cardVisible": false,
+    "cardRect": null,
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": false,
+    "cardInItems": false,
+    "metaEntries": 0,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "count:0"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterReload": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 2",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 616,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 871,
+     "h": 238
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [],
+    "localItems": [
+     "count:0",
+     "renumbered"
+    ],
+    "hasRun": false,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "draftAfterReload": "[SETUP — title — \"Quiet Song\"]\n[SETUP — returns — 1.T4,2.T4 — cut v2]\n\n[VERSE — 3 lines]\nOh--oh, oh my love\nOh--oh, oh my love\nwe sing it plain tonight\nwe bring it home tonight",
+   "toastsAfterReload": [
+    "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “my” word 3 → 4, “my” word 3 → 4. Review lists each one until you dismiss it."
+   ]
+  },
+  "F": {
+   "beforeReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 744,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 834,
+     "h": 235
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": false,
+    "viewport": 844,
+    "reviewTab": "Review"
+   },
+   "afterReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 1",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 1046,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 1137,
+     "h": 235
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 844,
+    "reviewTab": "Review"
+   }
+  },
+  "H": {
+   "draftAfterImport": "[SETUP — title — \"Old Song\"]\n[SETUP — returns — 1.T4,2.T4 — cut v2]\n\n[VERSE — 3 lines]\nOh--oh, oh my love\nOh--oh, oh my love\nwe sing it plain tonight\nwe bring it home tonight",
+   "toasts": [
+    "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “my” word 3 → 4, “my” word 3 → 4. Review lists each one until you dismiss it."
+   ],
+   "beforeReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": true,
+    "summaryText": "Local checks 2",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 616,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": true,
+    "cardRect": {
+     "top": 871,
+     "h": 238
+    },
+    "paneInnerTextHasCard": true,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [],
+    "localItems": [
+     "count:0",
+     "renumbered"
+    ],
+    "hasRun": false,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "sizeBefore": {
+    "sizeInDom": true,
+    "sizeVisible": true,
+    "sizeInnerText": true
+   },
+   "afterReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 2",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 898,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 1154,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "count:0",
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "sizeAfter": {
+    "sizeInDom": true,
+    "sizeVisible": false,
+    "sizeInnerText": false
+   }
+  }
+ },
+ "pageErrors": []
+}

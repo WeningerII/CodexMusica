@@ -1,0 +1,2 @@
+[main/click] rewrite=true hiddenOnReview={"display":"block","rects":0,"ancestorsHidden":"ly-main"} samples=[["doc-pointerup-capture",147,147],["doc-mouseup-capture",147,147],["doc-click-capture",147,147]] final=[0,0]
+[main/click] rewrite=false hiddenOnReview={"display":"block","rects":0,"ancestorsHidden":"ly-main"} samples=[["doc-pointerup-capture",41,41],["doc-mouseup-capture",41,41],["doc-click-capture",41,41]] final=[41,41]

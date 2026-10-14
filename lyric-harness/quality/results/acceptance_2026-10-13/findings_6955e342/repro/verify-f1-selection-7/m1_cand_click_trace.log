@@ -1,0 +1,36 @@
+[cand] click/sung_walk: migratedAtSetDraft=false sends=1 migratedAtBoundary=true sameChars=false restoredEqualsRaw=false
+   before   {"sel":[63,63],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[63,63,0],"liveSel":[63,63]}
+   boundary {"mobile":"review","sel":[72,72],"shown":"I w|alk the line tonight","songCaret":[63,63,0]}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[SETUP — returns — 1.T3, 2.end — cut v2]","chars":"","focused":false}
+   expected {"sel":[72,72],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+   traceBoundary [{"op":"value=","same":false,"len":179,"stack":"at HTMLTextAreaElement.set (http://127.0.0.1:35521/codex.html:270:198906) < at lyEnsureTokenScheme (http://127.0.0.1:35521/codex.html:270:7045) < at lySubmitLyricsAction (http://127.0.0.1:35521/codex.html:270:171158) < at ly-run-review (http://127.0.0.1:35521/codex.html:270:180421)"},{"op":"ssr","a":72,"b":72,"stack":"at lyEnsureTokenScheme (http://127.0.0.1:35521/codex.html:270:7141) < at lySubmitLyricsAction (http://127.0.0.1:35521/codex.html:270:171158) < at ly-run-review (http://127.0.0.1:35521/codex.html:270:180421) < at HTMLDocument.<anonymous> (http://127.0.0.1:35521/codex.html:250:29249)"}]
+   traceReturn [{"op":"ssr","a":63,"b":63,"stack":"at ly-mobile (http://127.0.0.1:35521/codex.html:270:180135) < at HTMLDocument.<anonymous> (http://127.0.0.1:35521/codex.html:250:29249)"}]
+[cand] click/sung_sel_wellworn: migratedAtSetDraft=false sends=1 migratedAtBoundary=true sameChars=false restoredEqualsRaw=false
+   before   {"sel":[84,93],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[84,93,0],"liveSel":[84,93]}
+   boundary {"mobile":"review","sel":[93,102],"shown":"«Well-worn» shoes upon the floor","songCaret":[84,93,0]}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[SETUP — returns — 1.T3, 2.end — cut v2]","chars":"","focused":false}
+   expected {"sel":[93,102],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+   traceBoundary [{"op":"value=","same":false,"len":179,"stack":"at HTMLTextAreaElement.set (http://127.0.0.1:35521/codex.html:270:198906) < at lyEnsureTokenScheme (http://127.0.0.1:35521/codex.html:270:7045) < at lySubmitLyricsAction (http://127.0.0.1:35521/codex.html:270:171158) < at ly-run-review (http://127.0.0.1:35521/codex.html:270:180421)"},{"op":"ssr","a":93,"b":102,"stack":"at lyEnsureTokenScheme (http://127.0.0.1:35521/codex.html:270:7141) < at lySubmitLyricsAction (http://127.0.0.1:35521/codex.html:270:171158) < at ly-run-review (http://127.0.0.1:35521/codex.html:270:180421) < at HTMLDocument.<anonymous> (http://127.0.0.1:35521/codex.html:250:29249)"}]
+   traceReturn [{"op":"ssr","a":84,"b":93,"stack":"at ly-mobile (http://127.0.0.1:35521/codex.html:270:180135) < at HTMLDocument.<anonymous> (http://127.0.0.1:35521/codex.html:250:29249)"}]
+[cand] click/row_in_2end: migratedAtSetDraft=false sends=1 migratedAtBoundary=true sameChars=false restoredEqualsRaw=false
+   before   {"sel":[27,27],"shown":"[SETUP — returns — 1.T2, 2.|end]","chars":""}
+   onReview {"mobile":"review","songCaret":[27,27,0],"liveSel":[27,27]}
+   boundary {"mobile":"review","sel":[39,39],"shown":"[SETUP — returns — 1.T3, 2.end — cut v2|]","songCaret":[27,27,0]}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[SETUP — returns — 1.T3, 2.end — cut v2]","chars":"","focused":false}
+   expected {"sel":[27,27],"shown":"[SETUP — returns — 1.T3, 2.|end — cut v2]"}
+   typed ZQ row: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+   traceBoundary [{"op":"value=","same":false,"len":179,"stack":"at HTMLTextAreaElement.set (http://127.0.0.1:35521/codex.html:270:198906) < at lyEnsureTokenScheme (http://127.0.0.1:35521/codex.html:270:7045) < at lySubmitLyricsAction (http://127.0.0.1:35521/codex.html:270:171158) < at ly-run-review (http://127.0.0.1:35521/codex.html:270:180421)"},{"op":"ssr","a":39,"b":39,"stack":"at lyEnsureTokenScheme (http://127.0.0.1:35521/codex.html:270:7141) < at lySubmitLyricsAction (http://127.0.0.1:35521/codex.html:270:171158) < at ly-run-review (http://127.0.0.1:35521/codex.html:270:180421) < at HTMLDocument.<anonymous> (http://127.0.0.1:35521/codex.html:250:29249)"}]
+   traceReturn [{"op":"ssr","a":27,"b":27,"stack":"at ly-mobile (http://127.0.0.1:35521/codex.html:270:180135) < at HTMLDocument.<anonymous> (http://127.0.0.1:35521/codex.html:250:29249)"}]
+[cand] click/row_before_1T: migratedAtSetDraft=false sends=1 migratedAtBoundary=true sameChars=false restoredEqualsRaw=false
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T2, 2.end]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T3, 2.end — cut v2]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[SETUP — returns — 1.T3, 2.end — cut v2]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T3, 2.end — cut v2]"}
+   typed ZQ row: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+   traceBoundary [{"op":"value=","same":false,"len":179,"stack":"at HTMLTextAreaElement.set (http://127.0.0.1:35521/codex.html:270:198906) < at lyEnsureTokenScheme (http://127.0.0.1:35521/codex.html:270:7045) < at lySubmitLyricsAction (http://127.0.0.1:35521/codex.html:270:171158) < at ly-run-review (http://127.0.0.1:35521/codex.html:270:180421)"},{"op":"ssr","a":19,"b":19,"stack":"at lyEnsureTokenScheme (http://127.0.0.1:35521/codex.html:270:7141) < at lySubmitLyricsAction (http://127.0.0.1:35521/codex.html:270:171158) < at ly-run-review (http://127.0.0.1:35521/codex.html:270:180421) < at HTMLDocument.<anonymous> (http://127.0.0.1:35521/codex.html:250:29249)"}]
+   traceReturn [{"op":"ssr","a":19,"b":19,"stack":"at ly-mobile (http://127.0.0.1:35521/codex.html:270:180135) < at HTMLDocument.<anonymous> (http://127.0.0.1:35521/codex.html:250:29249)"}]

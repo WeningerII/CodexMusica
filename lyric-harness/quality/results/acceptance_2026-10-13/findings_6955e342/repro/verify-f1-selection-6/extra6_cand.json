@@ -1,0 +1,510 @@
+[
+  {
+    "tree": "cand",
+    "case": "every_button",
+    "target": {
+      "tab": "review",
+      "i": 0,
+      "where": "ly-head",
+      "cls": "cm-btn cm-btn-primary ly-run"
+    },
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1707,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 1740,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 1750,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2307,
+        "sel": [
+          0,
+          0
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "case": "every_button",
+    "target": {
+      "tab": "review",
+      "i": 1,
+      "where": "ly-panel-review",
+      "cls": "cm-btn cm-btn-primary ly-block"
+    },
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1978,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 2014,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 2019,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2534,
+        "sel": [
+          0,
+          0
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "case": "every_button",
+    "target": {
+      "tab": "writer",
+      "i": 0,
+      "where": "ly-head",
+      "cls": "cm-btn cm-btn-primary ly-run"
+    },
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      72,
+      72,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": true,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1664,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 1698,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 1703,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2214,
+        "sel": [
+          72,
+          72
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "case": "click_else_first",
+    "target": null,
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "clickedText": {
+      "x": 1033.65625,
+      "y": 31.5,
+      "text": "Autosaved",
+      "el": "SPAN.ui-autosave-text"
+    },
+    "afterElseClick": {
+      "active": "BODY",
+      "docSel": "ui-autosave-text"
+    },
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      72,
+      72,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": true,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1903,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 1924,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 1928,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2446,
+        "sel": [
+          72,
+          72
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "case": "tab_out_click",
+    "target": null,
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "afterTab": "BODY",
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1678,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 1735,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 1745,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2256,
+        "sel": [
+          0,
+          0
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "case": "timing",
+    "target": null,
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1720,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 1762,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 1769,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2300,
+        "sel": [
+          0,
+          0
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "case": "fix_raf",
+    "target": null,
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      72,
+      72,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": true,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1922,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 1965,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 1976,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2501,
+        "sel": [
+          72,
+          72
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "case": "fix_mousedown_pd",
+    "target": null,
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      72,
+      72,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": true,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1484,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 1508,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 1512,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2033,
+        "sel": [
+          72,
+          72
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "case": "mouse_return",
+    "target": null,
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "ensure returned true",
+        "t": 1569,
+        "sel": [
+          72,
+          72
+        ]
+      },
+      {
+        "w": "first rAF",
+        "t": 1611,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "t+0 task",
+        "t": 1619,
+        "sel": [
+          0,
+          0
+        ]
+      },
+      {
+        "w": "500ms",
+        "t": 2153,
+        "sel": [
+          0,
+          0
+        ]
+      }
+    ],
+    "afterMouseReturn": [
+      93,
+      93,
+      "forward"
+    ],
+    "errors": []
+  }
+]

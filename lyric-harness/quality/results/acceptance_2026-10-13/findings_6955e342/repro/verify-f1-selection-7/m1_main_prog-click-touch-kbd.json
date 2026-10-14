@@ -1,0 +1,1110 @@
+{
+  "tree": "main",
+  "doc": "[SETUP — returns — 1.T2, 2.end]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+  "runs": {
+    "prog/sung_walk": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          63,
+          63,
+          0
+        ],
+        "liveSel": [
+          63,
+          63
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "songCaret": [
+          63,
+          63,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "I wZQalk the line tonight",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I wZQalk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "prog/sung_sel_wellworn": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "chars": "Well-worn"
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          84,
+          93,
+          0
+        ],
+        "liveSel": [
+          84,
+          93
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "songCaret": [
+          84,
+          93,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "chars": "Well-worn",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "ZQ shoes upon the floor",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "ZQ shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "prog/row_in_2end": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          27,
+          27,
+          0
+        ],
+        "liveSel": [
+          27,
+          27
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "songCaret": [
+          27,
+          27,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "[SETUP — returns — 1.T2, 2.ZQend]",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "prog/row_before_1T": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          19,
+          19,
+          0
+        ],
+        "liveSel": [
+          19,
+          19
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "songCaret": [
+          19,
+          19,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "[SETUP — returns — ZQ1.T2, 2.end]",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "click/sung_walk": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          63,
+          63,
+          0
+        ],
+        "liveSel": [
+          63,
+          63
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "songCaret": [
+          63,
+          63,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "I wZQalk the line tonight",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I wZQalk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "click/sung_sel_wellworn": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "chars": "Well-worn"
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          84,
+          93,
+          0
+        ],
+        "liveSel": [
+          84,
+          93
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "songCaret": [
+          84,
+          93,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "chars": "Well-worn",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "ZQ shoes upon the floor",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "ZQ shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "click/row_in_2end": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          27,
+          27,
+          0
+        ],
+        "liveSel": [
+          27,
+          27
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "songCaret": [
+          27,
+          27,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "[SETUP — returns — 1.T2, 2.ZQend]",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "click/row_before_1T": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          19,
+          19,
+          0
+        ],
+        "liveSel": [
+          19,
+          19
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "songCaret": [
+          19,
+          19,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "[SETUP — returns — ZQ1.T2, 2.end]",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "touch/sung_walk": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          63,
+          63,
+          0
+        ],
+        "liveSel": [
+          63,
+          63
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "songCaret": [
+          63,
+          63,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "I wZQalk the line tonight",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I wZQalk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "touch/sung_sel_wellworn": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "chars": "Well-worn"
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          84,
+          93,
+          0
+        ],
+        "liveSel": [
+          84,
+          93
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "songCaret": [
+          84,
+          93,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "chars": "Well-worn",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "ZQ shoes upon the floor",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "ZQ shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "touch/row_in_2end": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          27,
+          27,
+          0
+        ],
+        "liveSel": [
+          27,
+          27
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "songCaret": [
+          27,
+          27,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "[SETUP — returns — 1.T2, 2.ZQend]",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "touch/row_before_1T": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          19,
+          19,
+          0
+        ],
+        "liveSel": [
+          19,
+          19
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "songCaret": [
+          19,
+          19,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "[SETUP — returns — ZQ1.T2, 2.end]",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "kbd/sung_walk": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          63,
+          63,
+          0
+        ],
+        "liveSel": [
+          63,
+          63
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "songCaret": [
+          63,
+          63,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          63,
+          63
+        ],
+        "shown": "I w|alk the line tonight",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "I wZQalk the line tonight",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I wZQalk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "kbd/sung_sel_wellworn": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "chars": "Well-worn"
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          84,
+          93,
+          0
+        ],
+        "liveSel": [
+          84,
+          93
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "songCaret": [
+          84,
+          93,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          84,
+          93
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "chars": "Well-worn",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "ZQ shoes upon the floor",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "ZQ shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "kbd/row_in_2end": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          27,
+          27,
+          0
+        ],
+        "liveSel": [
+          27,
+          27
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "songCaret": [
+          27,
+          27,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          27,
+          27
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "[SETUP — returns — 1.T2, 2.ZQend]",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    },
+    "kbd/row_before_1T": {
+      "mobileAtStart": "song",
+      "textAfterSetDraftMigrated": false,
+      "before": {
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "chars": ""
+      },
+      "onReview": {
+        "mobile": "review",
+        "songCaret": [
+          19,
+          19,
+          0
+        ],
+        "liveSel": [
+          19,
+          19
+        ]
+      },
+      "runReviewButtons": 2,
+      "sends": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "mobile": "review",
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "songCaret": [
+          19,
+          19,
+          0
+        ]
+      },
+      "expected": {
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          19,
+          19
+        ],
+        "shown": "[SETUP — returns — |1.T2, 2.end]",
+        "chars": "",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "[SETUP — returns — ZQ1.T2, 2.end]",
+      "typedSung": [
+        "Oh--oh, oh my love",
+        "I walk the line tonight",
+        "Well-worn shoes upon the floor",
+        "Oh, oh, I said oh",
+        "We're sailing on",
+        "Love above"
+      ],
+      "errors": []
+    }
+  }
+}

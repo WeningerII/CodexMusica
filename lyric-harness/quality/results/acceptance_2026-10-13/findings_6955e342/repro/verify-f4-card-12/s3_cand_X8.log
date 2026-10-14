@@ -1,0 +1,9 @@
+## X8 (C3 clean) .txt A -> Library B -> reload -> open A from History (no Undo)
+    {"tag":"after A","words":["applea","appleb"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","head":"[SETUP — title — \"Song A\"]","draftId":null,"paneHasCard":true,"hist":[1,2]}
+    {"tag":"after Library B","words":["bravoa","bravob"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","head":"[SETUP — title — \"Song B\"]","draftId":"draft:4ef0c846-abe1-4b64-85f8-cbb3b7aeeb04","paneHasCard":true,"hist":[3,4],"idb":[{"id":"draft:4ef0c846","head":"[SETUP — title — \"Song B\"]","words":["bravoa","bravob"]},{"id":"draft:ad9362e6","head":"[SETUP — title — \"Song A\"]","words":["applea","appleb"]}]}
+    {"tag":"after reload","words":["bravoa","bravob"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","head":"[SETUP — title — \"Song B\"]","draftId":"draft:4ef0c846-abe1-4b64-85f8-cbb3b7aeeb04","paneHasCard":true,"hist":[0,1],"idb":[{"id":"draft:4ef0c846","head":"[SETUP — title — \"Song B\"]","words":["bravoa","bravob"]},{"id":"draft:ad9362e6","head":"[SETUP — title — \"Song A\"]","words":["applea","appleb"]}]}
+    {"tag":"after open A from History","words":["applea","appleb"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","head":"[SETUP — title — \"Song A\"]","draftId":"draft:ad9362e6-459c-4453-b866-5072e922dd16","paneHasCard":true,"hist":[1,2]}
+[PASS] X8.isolatedRecoverable: without Undo, A's card stays with A's Library draft and comes back when A is opened
+    expected: applea, appleb
+    observed: ["applea","appleb"]
+page errors: 0 []

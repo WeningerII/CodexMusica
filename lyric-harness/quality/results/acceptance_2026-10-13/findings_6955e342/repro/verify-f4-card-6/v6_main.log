@@ -1,0 +1,51 @@
+## U1 txt A -> txt B -> Undo -> Redo -> Undo -> reload
+   [fresh] draftHead= words=[] inDraft={} paneHasCard=false hIdx=0/1 histHasRenumbered=false toasts=[]
+   [after A] draftHead=[SETUP — title — "Song A"] words=[] inDraft={} paneHasCard=false hIdx=1/2 histHasRenumbered=false toasts=["Imported a.txt. Undo restores the previous draft.\nUndo"]
+   [after B] draftHead=[SETUP — title — "Song B"] words=[] inDraft={} paneHasCard=false hIdx=2/3 histHasRenumbered=false toasts=["Imported a.txt. Undo restores the previous draft.\nUndo","Imported b.txt. Undo restores the previous draft.\nUndo"]
+   [after Undo (mouse)] draftHead=[SETUP — title — "Song A"] words=[] inDraft={} paneHasCard=false hIdx=1/3 histHasRenumbered=false toasts=["Imported b.txt. Undo restores the previous draft.\nUndo"]
+[PASS] main.u1.undoText: Undo of import B restores the draft from before B, exactly
+    expected: draft === draft after A
+    observed: {"equal":true}
+[INFO] main.u1.cardAfterUndo: the card after Undo of import B (the c5 observation)
+    expected: c5 tester: apple, anchor only; R2's claim: listed until dismissed
+    observed: {"words":[],"inDraft":{},"cardText":null}
+[PASS] main.u1.historyHasNoCard: no Undo step records the card (lyricMeta.ui is not in a history snapshot)
+    expected: no snapshot contains "renumbered"; snapshot lyricMeta keys exclude ui
+    observed: {"anyHas":false,"keys":["[\"version\",\"brief\",\"notes\"]"]}
+   [after Redo (mouse)] draftHead=[SETUP — title — "Song B"] words=[] inDraft={} paneHasCard=false hIdx=2/3 histHasRenumbered=false toasts=["Imported b.txt. Undo restores the previous draft.\nUndo"]
+[PASS] main.u1.redoText: Redo restores the migrated draft B
+    expected: draft === draft after B
+    observed: {"equal":true}
+[FAIL] main.u1.cardAfterRedo: the card after Redo
+    expected: apple, anchor, bravo, banjo (B evidence present with B text)
+    observed: []
+   [after second Undo] draftHead=[SETUP — title — "Song A"] words=[] inDraft={} paneHasCard=false hIdx=1/3 histHasRenumbered=false toasts=["Imported b.txt. Undo restores the previous draft.\nUndo"]
+   [after reload (draft A)] draftHead=[SETUP — title — "Song A"] words=[] inDraft={} paneHasCard=false hIdx=0/1 histHasRenumbered=false toasts=[]
+[INFO] main.u1.reload: after reload on A the card and draft
+    expected: informational
+    observed: {"draftHead":"[SETUP — title — \"Song A\"]","words":[],"draftEqualsA":true}
+## U2 txt A -> txt B (no Undo): card words vs draft
+   [after A] draftHead=[SETUP — title — "Song A"] words=[] inDraft={} paneHasCard=false hIdx=1/2 histHasRenumbered=false toasts=["Imported a.txt. Undo restores the previous draft.\nUndo"]
+   [after B] draftHead=[SETUP — title — "Song B"] words=[] inDraft={} paneHasCard=false hIdx=2/3 histHasRenumbered=false toasts=["Imported a.txt. Undo restores the previous draft.\nUndo","Imported b.txt. Undo restores the previous draft.\nUndo"]
+[INFO] main.u2.laterImport: after import B the card lists A entries whose text is no longer in the draft
+    expected: R2 claim: survives a later import (f4-card scored this PASS as c1.accumulate)
+    observed: {"words":[],"inDraft":{}}
+## U3 txt A -> Undo
+   [fresh] draftHead= words=[] inDraft={} paneHasCard=false hIdx=0/1 histHasRenumbered=false toasts=[]
+   [after A] draftHead=[SETUP — title — "Song A"] words=[] inDraft={} paneHasCard=false hIdx=1/2 histHasRenumbered=false toasts=["Imported a.txt. Undo restores the previous draft.\nUndo"]
+   [after Undo] draftHead= words=[] inDraft={} paneHasCard=false hIdx=0/2 histHasRenumbered=false toasts=["Imported a.txt. Undo restores the previous draft.\nUndo"]
+[INFO] main.u3.cardOverStart: after Undo of the only import the card and draft
+    expected: informational
+    observed: {"draftEqualsFresh":true,"draftHead":"","words":[],"inDraft":{}}
+## U4 txt A -> txt B -> Undo -> txt B again
+   [after Undo] draftHead=[SETUP — title — "Song A"] words=[] inDraft={} paneHasCard=false hIdx=1/3 histHasRenumbered=false toasts=["Imported a.txt. Undo restores the previous draft.\nUndo","Imported b.txt. Undo restores the previous draft.\nUndo"]
+   [after B again] draftHead=[SETUP — title — "Song B"] words=[] inDraft={} paneHasCard=false hIdx=2/3 histHasRenumbered=false toasts=["Imported b.txt. Undo restores the previous draft.\nUndo","Imported b2.txt. Undo restores the previous draft.\nUndo"]
+[INFO] main.u4.reimport: importing B again after its Undo: card entries
+    expected: informational (duplicates?)
+    observed: {"words":[],"title":null}
+## U5 SIMULATION: prune B entries at Undo, then Redo
+   [after Undo + simulated prune] draftHead=[SETUP — title — "Song A"] words=[] inDraft={} paneHasCard=false hIdx=1/3 histHasRenumbered=false toasts=["Imported a.txt. Undo restores the previous draft.\nUndo","Imported b.txt. Undo restores the previous draft.\nUndo"]
+   [after Redo] draftHead=[SETUP — title — "Song B"] words=[] inDraft={} paneHasCard=false hIdx=2/3 histHasRenumbered=false toasts=["Imported b.txt. Undo restores the previous draft.\nUndo"]
+[INFO] main.u5.simRedo: SIMULATED prune-on-Undo, then Redo: is B evidence back with B text?
+    expected: informational
+    observed: {"draftHead":"[SETUP — title — \"Song B\"]","words":[],"bRowMarked":false}

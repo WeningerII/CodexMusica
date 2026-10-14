@@ -1,0 +1,68 @@
+{
+  "RET": {
+    "row": "[SETUP — returns — 1.T2, 2.end]",
+    "rowAfter": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+    "wrongOffsets": [
+      "23-29"
+    ],
+    "wrongTargets": [
+      39
+    ],
+    "ambiguousOffsets": [
+      "30"
+    ],
+    "wrongSpan": "\", 2.en\""
+  },
+  "RHY": {
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+    "rowAfter": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+    "wrongOffsets": [
+      "28-34"
+    ],
+    "wrongTargets": [
+      44
+    ],
+    "ambiguousOffsets": [
+      "35"
+    ],
+    "wrongSpan": "\", 2.en\""
+  },
+  "RET_LAST": {
+    "row": "[SETUP — returns — 2.end, 1.T2]",
+    "rowAfter": "[SETUP — returns — 2.end, 1.T3 — cut v2]",
+    "wrongOffsets": [],
+    "wrongTargets": [],
+    "ambiguousOffsets": [
+      "30"
+    ],
+    "wrongSpan": ""
+  },
+  "RET_MID": {
+    "row": "[SETUP — returns — 2.end, 1.T2, 4.end]",
+    "rowAfter": "[SETUP — returns — 2.end, 1.T3, 4.end — cut v2]",
+    "wrongOffsets": [
+      "30-36"
+    ],
+    "wrongTargets": [
+      46
+    ],
+    "ambiguousOffsets": [
+      "37"
+    ],
+    "wrongSpan": "\", 4.en\""
+  },
+  "READ": {
+    "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+    "rowAfter": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+    "wrongOffsets": [
+      "26-84"
+    ],
+    "wrongTargets": [
+      94
+    ],
+    "ambiguousOffsets": [
+      "85"
+    ],
+    "wrongSpan": "\" \\\"oh\\\" in \\\"Oh--oh, oh my love\\\" — OW1 — declared — source: m\""
+  }
+}

@@ -1,0 +1,31 @@
+# verify-f4-card-4: adversarial re-check of f4-card check c3 (C7: Undo across a Library import vs A's card evidence).
+# Own scripts written from scratch (v4c.js; helpers inline). Trees detached, unmodified (git status checked before/after).
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; W=$S/h695/verify-f4-card-4
+cd $S/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$W/build-wt-695/built-wt-695.html --quiet
+cd $S/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=$W/build-wt-main/built-wt-main.html --quiet
+cd $S/wt-base && CODEX_LIBRARY=1 node scripts/build_html.js --out=$W/build-wt-base/built-wt-base.html --quiet
+cd $S/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=$W/build-wt-61b/built-wt-61b.html --quiet
+cd $S/wt-678 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$W/build-wt-678/built-wt-678.html --quiet
+#   wt-695: cmp built-wt-695.html vs wt-695/codex.html: IDENTICAL
+#   wt-main: cmp built-wt-main.html vs wt-main/codex.html: IDENTICAL
+#   wt-base: cmp built-wt-base.html vs wt-base/codex.html: DIFFERENT
+#   wt-61b: cmp built-wt-61b.html vs wt-61b/codex.html: IDENTICAL
+#   wt-678: cmp built-wt-678.html vs wt-678/codex.html: IDENTICAL
+cd $S/wt-base && NODE_PATH=$S/wt-main/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=$W/build-wt-base/built-wt-base.html --quiet   # wt-base has no node_modules; terser resolved from wt-main via NODE_PATH
+#   wt-base: cmp built-wt-base.html vs wt-base/codex.html: IDENTICAL
+cd $W && node v4c.js cand U > v4c_cand_U.log 2>&1
+cd $W && node v4c.js main U > v4c_main_U.log 2>&1
+cd $W && node v4c.js base U > v4c_base_U.log 2>&1
+cd $W && node v4c.js prev61b U > v4c_prev61b_U.log 2>&1
+cd $W && node v4c.js prev678 U > v4c_prev678_U.log 2>&1
+cd $W && node v4c.js cand Q,K,N,L > v4c_cand_QKNL.log 2>&1
+cd $W && for j in v4c_*.json; do node summ.js $W/$j > summ_${j%.json}.txt; done
+rm -rf $W/build-*   # built pages deleted after the cmp (all IDENTICAL); runs served each tree root's codex.html
+# code identity (read-only): lyricMetaHistory.._restoreSnapshot..updateHistoryButtons in src/app.js is identical in main, base, 61b, 695 (diff empty);
+#   lyLibraryActivate/lyLibraryPersist/lyLibraryCapture in src/pages/lyrics.js identical in main, base, 61b, 678 vs 695 except 695's added `lyEnsureTokenScheme('open')`.
+#   grep -c renumbered src/pages/lyrics.js: main 0, base 0, 61b 1, 678 1 (the toast text only), 695 17 (the card).
+# NOTES
+# - Fixture words are new (candle/handle in A, velvet/helmet in B); envelopes are built in Node by each tree's own src/library-import.js and imported via #ly-file.
+# - Snapshots are passive (no page function called); the controls in A are planted with the page's own brief form (clicks), LY_ACTIONS['ly-link-add'] (pending
+#   rhyme-tool member, meta.drafts) and ui.probe + uiAutosave().
+# - Chromium /opt/pw-browsers/chromium; mcp.codexmusica.com routed to an in-process stub; no secret used. git status of every tree unchanged before/after.

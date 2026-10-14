@@ -1,0 +1,120 @@
+[c678] prog/sung_walk: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[67,67],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[67,67,0],"liveSel":[67,67]}
+   boundary {"mobile":"review","sel":[67,67],"shown":"I w|alk the line tonight","songCaret":[67,67,0]}
+   restored {"mobile":"song","sel":[67,67],"shown":"I w|alk the line tonight","chars":"","focused":false}
+   expected {"sel":[67,67],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[c678] prog/sung_sel_wellworn: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[88,97],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[88,97,0],"liveSel":[88,97]}
+   boundary {"mobile":"review","sel":[88,97],"shown":"«Well-worn» shoes upon the floor","songCaret":[88,97,0]}
+   restored {"mobile":"song","sel":[88,97],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn","focused":false}
+   expected {"sel":[88,97],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[c678] prog/row_in_2end: migratedAtSetDraft=true sends=undefined migratedAtBoundary=undefined sameChars=undefined restoredEqualsRaw=undefined
+   before   undefined
+   onReview undefined
+   boundary undefined
+   restored undefined
+   expected undefined
+   typed ZQ row: undefined
+   THREW Error: anchor not found 2.end
+    at /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/m1.js:61:29
+[c678] prog/row_before_1T: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]"}
+   typed ZQ row: "[SETUP — returns — ZQ1.T3,2 — cut v2]"
+[c678] click/sung_walk: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[67,67],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[67,67,0],"liveSel":[67,67]}
+   boundary {"mobile":"review","sel":[67,67],"shown":"I w|alk the line tonight","songCaret":[67,67,0]}
+   restored {"mobile":"song","sel":[67,67],"shown":"I w|alk the line tonight","chars":"","focused":false}
+   expected {"sel":[67,67],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[c678] click/sung_sel_wellworn: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[88,97],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[88,97,0],"liveSel":[88,97]}
+   boundary {"mobile":"review","sel":[88,97],"shown":"«Well-worn» shoes upon the floor","songCaret":[88,97,0]}
+   restored {"mobile":"song","sel":[88,97],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn","focused":false}
+   expected {"sel":[88,97],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[c678] click/row_in_2end: migratedAtSetDraft=true sends=undefined migratedAtBoundary=undefined sameChars=undefined restoredEqualsRaw=undefined
+   before   undefined
+   onReview undefined
+   boundary undefined
+   restored undefined
+   expected undefined
+   typed ZQ row: undefined
+   THREW Error: anchor not found 2.end
+    at /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/m1.js:61:29
+[c678] click/row_before_1T: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]"}
+   typed ZQ row: "[SETUP — returns — ZQ1.T3,2 — cut v2]"
+[c678] touch/sung_walk: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[67,67],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[67,67,0],"liveSel":[67,67]}
+   boundary {"mobile":"review","sel":[67,67],"shown":"I w|alk the line tonight","songCaret":[67,67,0]}
+   restored {"mobile":"song","sel":[67,67],"shown":"I w|alk the line tonight","chars":"","focused":false}
+   expected {"sel":[67,67],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[c678] touch/sung_sel_wellworn: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[88,97],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[88,97,0],"liveSel":[88,97]}
+   boundary {"mobile":"review","sel":[88,97],"shown":"«Well-worn» shoes upon the floor","songCaret":[88,97,0]}
+   restored {"mobile":"song","sel":[88,97],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn","focused":false}
+   expected {"sel":[88,97],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[c678] touch/row_in_2end: migratedAtSetDraft=true sends=undefined migratedAtBoundary=undefined sameChars=undefined restoredEqualsRaw=undefined
+   before   undefined
+   onReview undefined
+   boundary undefined
+   restored undefined
+   expected undefined
+   typed ZQ row: undefined
+   THREW Error: anchor not found 2.end
+    at /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/m1.js:61:29
+[c678] touch/row_before_1T: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]"}
+   typed ZQ row: "[SETUP — returns — ZQ1.T3,2 — cut v2]"
+[c678] kbd/sung_walk: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[67,67],"shown":"I w|alk the line tonight","chars":""}
+   onReview {"mobile":"review","songCaret":[67,67,0],"liveSel":[67,67]}
+   boundary {"mobile":"review","sel":[67,67],"shown":"I w|alk the line tonight","songCaret":[67,67,0]}
+   restored {"mobile":"song","sel":[67,67],"shown":"I w|alk the line tonight","chars":"","focused":false}
+   expected {"sel":[67,67],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "I wZQalk the line tonight"
+[c678] kbd/sung_sel_wellworn: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[88,97],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn"}
+   onReview {"mobile":"review","songCaret":[88,97,0],"liveSel":[88,97]}
+   boundary {"mobile":"review","sel":[88,97],"shown":"«Well-worn» shoes upon the floor","songCaret":[88,97,0]}
+   restored {"mobile":"song","sel":[88,97],"shown":"«Well-worn» shoes upon the floor","chars":"Well-worn","focused":false}
+   expected {"sel":[88,97],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ shoes upon the floor"
+[c678] kbd/row_in_2end: migratedAtSetDraft=true sends=undefined migratedAtBoundary=undefined sameChars=undefined restoredEqualsRaw=undefined
+   before   undefined
+   onReview undefined
+   boundary undefined
+   restored undefined
+   expected undefined
+   typed ZQ row: undefined
+   THREW Error: anchor not found 2.end
+    at /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-7/m1.js:61:29
+[c678] kbd/row_before_1T: migratedAtSetDraft=true sends=1 migratedAtBoundary=false sameChars=true restoredEqualsRaw=true
+   before   {"sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","chars":""}
+   onReview {"mobile":"review","songCaret":[19,19,0],"liveSel":[19,19]}
+   boundary {"mobile":"review","sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","songCaret":[19,19,0]}
+   restored {"mobile":"song","sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]","chars":"","focused":false}
+   expected {"sel":[19,19],"shown":"[SETUP — returns — |1.T3,2 — cut v2]"}
+   typed ZQ row: "[SETUP — returns — ZQ1.T3,2 — cut v2]"

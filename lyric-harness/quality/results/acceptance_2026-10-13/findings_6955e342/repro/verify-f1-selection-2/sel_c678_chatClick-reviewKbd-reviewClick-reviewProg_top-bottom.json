@@ -1,0 +1,1574 @@
+{
+  "label": "c678",
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+  "page": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-678.html",
+  "browser": "141.0.7390.37",
+  "cases": [
+    {
+      "id": "c678.chatClick.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        1,
+        1
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          27,
+          27,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 27,
+        "rowNow": "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2 —ZQ cut v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.chatClick.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        -1,
+        4
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.chatClick.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        -1,
+        4
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.chatClick.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        140,
+        140
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          166,
+          166,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 166,
+        "rowNow": "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2 —ZQ cut v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.chatClick.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        138,
+        143
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.chatClick.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        138,
+        143
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 9,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewKbd.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        1,
+        1
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 19,
+        "reached": true,
+        "sel": [
+          27,
+          27,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 27,
+        "rowNow": "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2 —ZQ cut v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewKbd.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        -1,
+        4
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 19,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewKbd.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        -1,
+        4
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 19,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewKbd.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        140,
+        140
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 19,
+        "reached": true,
+        "sel": [
+          166,
+          166,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 166,
+        "rowNow": "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2 —ZQ cut v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewKbd.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        138,
+        143
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 19,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewKbd.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        138,
+        143
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 19,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewClick.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        1,
+        1
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          27,
+          27,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 27,
+        "rowNow": "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2 —ZQ cut v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewClick.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        -1,
+        4
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewClick.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        -1,
+        4
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewClick.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        140,
+        140
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          166,
+          166,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 166,
+        "rowNow": "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2 —ZQ cut v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewClick.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        138,
+        143
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewClick.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        138,
+        143
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 20,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewProg.top.caret_2.|end",
+      "doc_row_at": 0,
+      "set": [
+        27,
+        27,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        1,
+        1
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          27,
+          27,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 27,
+        "rowNow": "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2 —ZQ cut v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewProg.top.sel_2end_fwd",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        -1,
+        4
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewProg.top.sel_2end_back",
+      "doc_row_at": 0,
+      "set": [
+        25,
+        30,
+        "backward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[SETUP — returns — 1.T3,2 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        -1,
+        4
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          25,
+          30,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 25,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewProg.bottom.caret_2.|end",
+      "doc_row_at": 139,
+      "set": [
+        166,
+        166,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2 —| cut v2]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        140,
+        140
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          166,
+          166,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 166,
+        "rowNow": "[SETUP — returns — 1.T4,2 —ZQ cut v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2 —ZQ cut v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewProg.bottom.sel_2end_fwd",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "forward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        138,
+        143
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    },
+    {
+      "id": "c678.reviewProg.bottom.sel_2end_back",
+      "doc_row_at": 139,
+      "set": [
+        164,
+        169,
+        "backward"
+      ],
+      "pasteKeptBytes": false,
+      "afterPasteText": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above\n\n[SETUP — returns — 1.T3,2 — cut v2]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft",
+        "sameText": false
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T3,2"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T3,2 — cut v2]",
+      "after": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "shown": "[SETUP — returns — 1.T3,2« — cu»t v2]",
+        "active": "lyrics-draft"
+      },
+      "sameCharsWant": [
+        138,
+        143
+      ],
+      "sameChars": false,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 1,
+        "reached": true,
+        "sel": [
+          164,
+          169,
+          "backward"
+        ]
+      },
+      "typedZQ": {
+        "at": 164,
+        "rowNow": "[SETUP — returns — 1.T4,2ZQt v2 — cut v2]"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T4,2ZQt v2"
+        },
+        "refusal": ""
+      },
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+ "1.end, 2.end": [
+  {
+   "lines": [
+    1,
+    2
+   ],
+   "loci": [
+    "end",
+    "end"
+   ],
+   "kind": "placed"
+  }
+ ],
+ "1.end,2.end": [
+  {
+   "lines": [
+    1,
+    2
+   ],
+   "loci": [
+    "end",
+    "end"
+   ],
+   "kind": "placed"
+  }
+ ],
+ "1,2": [
+  {
+   "lines": [
+    1,
+    2
+   ],
+   "loci": [],
+   "kind": "whole_line"
+  }
+ ],
+ "1.T3, 2.end": [
+  {
+   "lines": [
+    1,
+    2
+   ],
+   "loci": [
+    "T3",
+    "end"
+   ],
+   "kind": "placed"
+  }
+ ],
+ "1.T3,2": {
+  "refused": "NoMandate: return class ['1.T3', '2'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."
+ }
+}

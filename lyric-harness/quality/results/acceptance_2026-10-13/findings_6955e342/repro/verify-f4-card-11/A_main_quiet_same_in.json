@@ -1,0 +1,65 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:853c8bf5-db92-4257-9a06-e592869ac0f1",
+  "draftId": "draft:8078616e-2534-4959-bde3-36a6e1e3d491",
+  "createdAt": "2026-10-14T10:59:49.693Z",
+  "payload": {
+    "text": "[SETUP — title — \"Wq\"]\n[SETUP — returns — 1.T2,2.T2]\n\n[VERSE]\nwe sing it plain tonight\nwe sing it plain tonight",
+    "title": "V11 quiet_same",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:05bffef7-ea9d-49db-8f7e-42d6c3140428",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "token_cut": "probe",
+            "pronunciations": [
+              {
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ]
+              }
+            ],
+            "note": "v11 probe"
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": [
+      {
+        "token_cut": "probe",
+        "pronunciations": [
+          {
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ]
+          }
+        ],
+        "note": "v11 probe"
+      }
+    ]
+  },
+  "digest": "b3d871ed1acde0044be1847432442dff3e989cc1c2e1d5a16c4707215e0adb6f"
+}

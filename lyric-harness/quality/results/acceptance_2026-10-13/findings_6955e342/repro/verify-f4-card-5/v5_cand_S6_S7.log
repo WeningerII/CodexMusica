@@ -1,0 +1,21 @@
+## S6
+   1 after Library A: head=[SETUP — title — "Alpha River"] words=["river","river","shiver"] domButtons=1 hist=[2,3] ui=["renumbered","tab","tool","outline"] toasts=["3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “river” word 4 → 5, “river” word 4 → 5, “shiver” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+   2 after session import Q: head=[SETUP — title — "Quiet Field"] words=[] domButtons=0 hist=[3,4] ui=["tab","tool","outline"] toasts=["Session imported"]
+   IDB A after session import + 4 s: {"items":[{"kind":"reading","word":"river","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"river","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"shiver","n":[2],"from":4,"to":5}],"more":0}
+   3 after opening A from History (no Undo): head=[SETUP — title — "Alpha River"] words=["river","river","shiver"] domButtons=1 hist=[5,6] ui=["renumbered","tab","tool","outline"] toasts=["Session imported","Saved draft restored. No writing request was sent."]
+[PASS] cand.S6.noUndo: Library A -> session import -> open A's draft from History (no Undo): A's card is back
+    expected: river, shiver
+    observed: {"idbAAfterImport":["river","river","shiver"],"opened":true,"words":["river","river","shiver"],"head":"[SETUP — title — \"Alpha River\"]"}
+## S7
+   1 after Library A: head=[SETUP — title — "Alpha River"] words=["river","river","shiver"] domButtons=1 hist=[2,3] ui=["renumbered","tab","tool","outline"] toasts=["3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “river” word 4 → 5, “river” word 4 → 5, “shiver” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+   2 after session import Q: head=[SETUP — title — "Quiet Field"] words=[] domButtons=0 hist=[3,4] ui=["tab","tool","outline"] toasts=["Session imported"]
+   3 after Undo: head=[SETUP — title — "Alpha River"] words=[] domButtons=0 hist=[2,4] ui=["tab","tool","outline"] toasts=["Session imported"]
+   IDB A before Undo: {"items":[{"kind":"reading","word":"river","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"river","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"shiver","n":[2],"from":4,"to":5}],"more":0}  after Undo + 4 s: null  Q draftId: null
+[INFO] cand.S7.undoErasesStored: the Undo (not the session import) erases A's card from A's stored Library draft
+    expected: informational
+    observed: {"beforeUndo":["river","river","shiver"],"afterUndo":null}
+   4 after opening Q from History: head=[SETUP — title — "Alpha River"] words=[] domButtons=0 hist=[2,4] ui=["tab","tool","outline"] toasts=["Session imported"]
+   5 after opening A from History again: head=[SETUP — title — "Alpha River"] words=[] domButtons=0 hist=[2,4] ui=["tab","tool","outline"] toasts=["Session imported"]
+[INFO] cand.S7.gone: after the Undo, reopening A's draft from History no longer brings A's card back
+    expected: informational
+    observed: {"openedQ":false,"openedA":false,"words":[],"head":"[SETUP — title — \"Alpha River\"]"}

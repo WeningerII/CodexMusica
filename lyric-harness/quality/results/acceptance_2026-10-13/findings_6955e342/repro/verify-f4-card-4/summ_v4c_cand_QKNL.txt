@@ -1,0 +1,63 @@
+## cand Q  aId=draft:6672657f-2ea9-438e-aec8-c25bf3129fbb bId=draft:348d65ff-46ec-4765-b72c-355b42a8ae4e
+1 A (controls planted)              | draft "Song A"]      live id          brief=A-brief drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || A rec: drafts=undefined probe=- card=undefined || B rec card=undefined
+2 after Library import of B0 (renumbers nothing)| draft "Song Quiet"]  live id 348d65ff brief=- drafts=[] probe=- card=null || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=null
+3 Undo (mouse #btn-undo) +31ms      | draft "Song A"]      live id 6672657f brief=A-brief drafts=[] probe=- card=null || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=null
+3 Undo (mouse #btn-undo) +352ms     | draft "Song A"]      live id 6672657f brief=A-brief drafts=[] probe=- card=null || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=null
+3 Undo (mouse #btn-undo) +801ms     | draft "Song A"]      live id 6672657f brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+3 Undo (mouse #btn-undo) +2001ms    | draft "Song A"]      live id 6672657f brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+4 Review tab clicked                | draft "Song A"]      live id 6672657f brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+                                      rendered: null
+5 after reload                      | draft "Song A"]      live id 6672657f brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+                                      rendered: null
+6 History: Open draft B             | draft "Song Quiet"]  live id 348d65ff brief=- drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+                                      rendered: null opened=true
+7 History: Open draft A             | draft "Song A"]      live id 6672657f brief=A-brief drafts=[] probe=- card=null || A rec: drafts=[] probe=- card=null || B rec card=null
+                                      rendered: null opened=true
+  hist(last): ["\"Song A\"@6672657f[brief=A-brief]","\"Song Quiet\"@348d65ff","*\"Song A\"@6672657f[brief=A-brief]"]
+  traces: {"A":{},"B":{}}
+  pageErrors: []
+## cand K  aId=draft:ee209ff4-c501-4907-b0a4-34e193dfd693 bId=draft:477c0223-9b9b-4150-aae4-1c6a6664d662
+1 A (controls planted)              | draft "Song A"]      live id          brief=A-brief drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || A rec: drafts=undefined probe=- card=undefined || B rec card=undefined
+2 after Library import of B         | draft "Song B"]      live id 477c0223 brief=- drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 Undo (BODY) +34ms                 | draft "Song A"]      live id ee209ff4 brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 Undo (BODY) +351ms                | draft "Song A"]      live id ee209ff4 brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 Undo (BODY) +801ms                | draft "Song A"]      live id ee209ff4 brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 Undo (BODY) +2000ms               | draft "Song A"]      live id ee209ff4 brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+4 Review tab clicked                | draft "Song A"]      live id ee209ff4 brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a declared return on “velvet”, line 1: word 4 → 5; a declared return on “helmet”, line 2: word 4 → 5. Nothing else about them changed.
+5 after reload                      | draft "Song A"]      live id ee209ff4 brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a declared return on “velvet”, line 1: word 4 → 5; a declared return on “helmet”, line 2: word 4 → 5. Nothing else about them changed.
+6 History: Open draft B             | draft "Song B"]      live id 477c0223 brief=- drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a declared return on “velvet”, line 1: word 4 → 5; a declared return on “helmet”, line 2: word 4 → 5. Nothing else about them changed. opened=true
+7 History: Open draft A             | draft "Song A"]      live id ee209ff4 brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a declared return on “velvet”, line 1: word 4 → 5; a declared return on “helmet”, line 2: word 4 → 5. Nothing else about them changed. opened=true
+  hist(last): ["\"Song A\"@ee209ff4[brief=A-brief]","\"Song B\"@477c0223","*\"Song A\"@ee209ff4[brief=A-brief]"]
+  traces: {"A":{},"B":{"velvet":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","app.lyricMeta","idb:codex-musica-library-drafts/drafts"],"helmet":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","app.lyricMeta","idb:codex-musica-library-drafts/drafts"]}}
+  pageErrors: []
+## cand N  aId=draft:1c22fe53-1791-4221-87e7-a19e6b6f8e88 bId=draft:8b8b35fa-1ec5-433b-8694-42b14656f711
+1 A (controls planted)              | draft "Song A"]      live id          brief=A-brief drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || A rec: drafts=undefined probe=- card=undefined || B rec card=undefined
+2 after Library import of B         | draft "Song B"]      live id 8b8b35fa brief=- drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 +3s, no Undo                      | draft "Song B"]      live id 8b8b35fa brief=- drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+4 History: Open draft A             | draft "Song A"]      live id 1c22fe53 brief=A-brief drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a rhyme link on “candle”, line 1: word 4 → 5; a rhyme link on “handle”, line 2: word 4 → 5. Nothing else about them changed. opened=true
+  hist(last): ["(empty)","\"Song A\"","\"Song A\"[brief=A-brief]","\"Song A\"@1c22fe53[brief=A-brief]","\"Song B\"@8b8b35fa","\"Song B\"@8b8b35fa","*\"Song A\"@1c22fe53[brief=A-brief]"]
+  traces: {"A":{"candle":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","app.lyricMeta","idb:codex-musica-library-drafts/drafts"],"handle":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","app.lyricMeta","idb:codex-musica-library-drafts/drafts"]},"B":{"velvet":["idb:codex-musica-library-drafts/drafts"],"helmet":["idb:codex-musica-library-drafts/drafts"]}}
+  pageErrors: []
+## cand L  aId=draft:e48c0aca-762d-4ef1-84f1-39c681cf53ea bId=draft:1b7903b5-c6a5-4b18-8d71-fd7dcd13390a
+1 A (controls planted)              | draft "Song A"]      live id e48c0aca brief=A-brief drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=undefined
+2 after Library import of B         | draft "Song B"]      live id 1b7903b5 brief=- drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 Undo (mouse #btn-undo) +30ms      | draft "Song A"]      live id e48c0aca brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 Undo (mouse #btn-undo) +351ms     | draft "Song A"]      live id e48c0aca brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=["rhymes|song"] probe=A-probe card=["candle:4->5","handle:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 Undo (mouse #btn-undo) +801ms     | draft "Song A"]      live id e48c0aca brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+3 Undo (mouse #btn-undo) +2001ms    | draft "Song A"]      live id e48c0aca brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+4 Review tab clicked                | draft "Song A"]      live id e48c0aca brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a declared return on “velvet”, line 1: word 4 → 5; a declared return on “helmet”, line 2: word 4 → 5. Nothing else about them changed.
+5 after reload                      | draft "Song A"]      live id e48c0aca brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a declared return on “velvet”, line 1: word 4 → 5; a declared return on “helmet”, line 2: word 4 → 5. Nothing else about them changed.
+6 History: Open draft B             | draft "Song B"]      live id 1b7903b5 brief=- drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a declared return on “velvet”, line 1: word 4 → 5; a declared return on “helmet”, line 2: word 4 → 5. Nothing else about them changed. opened=true
+7 History: Open draft A             | draft "Song A"]      live id e48c0aca brief=A-brief drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || A rec: drafts=[] probe=- card=["velvet:4->5","helmet:4->5"] || B rec card=["velvet:4->5","helmet:4->5"]
+                                      rendered: … a declared return on “velvet”, line 1: word 4 → 5; a declared return on “helmet”, line 2: word 4 → 5. Nothing else about them changed. opened=true
+  hist(last): ["\"Song A\"@e48c0aca[brief=A-brief]","\"Song B\"@1b7903b5","*\"Song A\"@e48c0aca[brief=A-brief]"]
+  traces: {"A":{},"B":{"velvet":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","app.lyricMeta","idb:codex-musica-library-drafts/drafts"],"helmet":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","app.lyricMeta","idb:codex-musica-library-drafts/drafts"]}}
+  pageErrors: []

@@ -1,0 +1,128 @@
+{
+  "tree": "cand",
+  "head": null,
+  "runs": [
+    {
+      "method": "prog",
+      "path": "A_send",
+      "input": {
+        "equal": true
+      },
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.end,8; 2,3]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.end,8; 2,3]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.end,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.end,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "c899b4d2564ee3e0e51f6b6996aa886d72ec20e794c119df2d2a1b6c0925f0da",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.end (carried across the word-cut change),8; 2,3 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [
+        "1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "prog",
+      "path": "B_remove",
+      "input": {
+        "equal": true
+      },
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.end,8; 2,3]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.end,8 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_action": [
+        "Rhyme link removed. Undo restores it.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.end,8"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.end,8"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "5d8deab667d3e606c2e0ce9a2cf940f71b2c2eb7fcffb15cb3203a96ffb395a2",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.end,8 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_send": [
+        "Rhyme link removed. Undo restores it.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+main.ensure.RET.C_in_T2.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]"} tabs=
+  typed  "[SETUP — returns — 1.TZQ2, 2.end]"
+  decl   {"returns":"1.TZQ2, 2.end"}
+  next   {"declarations":{"returns":"1.TZQ2, 2.end"}}
+main.ensure.RET.C_after_T2.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]"} tabs=
+  typed  "[SETUP — returns — 1.T2ZQ, 2.end]"
+  decl   {"returns":"1.T2ZQ, 2.end"}
+  next   {"declarations":{"returns":"1.T2ZQ, 2.end"}}
+main.ensure.RET.C_sel_T2.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]"} tabs=
+  typed  "[SETUP — returns — ZQ, 2.end]"
+  decl   {"returns":"ZQ, 2.end"}
+  next   {"declarations":{"returns":"ZQ, 2.end"}}
+main.ensure.RET.U_sel_2end.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"lyrics-draft"}
+  after  {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]"} tabs=
+  typed  "[SETUP — returns — 1.T2, ZQ]"
+  decl   {"returns":"1.T2, ZQ"}
+  next   {"declarations":{"returns":"1.T2, ZQ"}}
+main.ensure.RET.S_body_walk.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"lyrics-draft"}
+  after  {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[63,63,"forward"],"shown":"I w|alk the line tonight"} tabs=
+  typed  "I wZQalk the line tonight"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.ensure.RHY.C_after_T2.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]"} tabs=
+  typed  "[SETUP — rhyme groups — 1.T2ZQ, 2.end]"
+  decl   {"groups":"1.T2ZQ, 2.end"}
+  next   {"declarations":{"groups":"1.T2ZQ, 2.end"}}
+main.ensure.RHY.C_sel_T2.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]"} tabs=
+  typed  "[SETUP — rhyme groups — ZQ, 2.end]"
+  decl   {"groups":"ZQ, 2.end"}
+  next   {"declarations":{"groups":"ZQ, 2.end"}}
+main.ensure.RET_LAST.C_after_T2.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"lyrics-draft"}
+  after  {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]"} tabs=
+  typed  "[SETUP — returns — 2.end, 1.T2ZQ]"
+  decl   {"returns":"2.end, 1.T2ZQ"}
+  next   {"declarations":{"returns":"2.end, 1.T2ZQ"}}
+main.ensure.RET_LAST.C_sel_T2.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"lyrics-draft"}
+  after  {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]"} tabs=
+  typed  "[SETUP — returns — 2.end, ZQ]"
+  decl   {"returns":"2.end, ZQ"}
+  next   {"declarations":{"returns":"2.end, ZQ"}}
+main.ensure.READ.C_sel_num.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"} tabs=
+  typed  "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+  decl   {}
+  next   {"declarations":{}}
+main.ensure.READ.C_after_num.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"} tabs=
+  typed  "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+  decl   {}
+  next   {"declarations":{}}
+main.ensure.READ.U_sel_OW1.none: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"lyrics-draft"}
+  ref    null ""  pageMap=null
+  sent   []
+  refocus(none) {"active":"lyrics-draft","sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"} tabs=
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]"
+  decl   {"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["ZQ"],"basis":"declared","source":"me"}]}
+  next   {"declarations":{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["ZQ"],"basis":"declared","source":"me"}]}}
+main.click.RET.C_in_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]"} tabs=21
+  typed  "[SETUP — returns — 1.TZQ2, 2.end]"
+  decl   {"returns":"1.TZQ2, 2.end"}
+  next   {"declarations":{"returns":"1.TZQ2, 2.end"}}
+main.click.RET.C_in_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.click.RET.C_after_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]"} tabs=21
+  typed  "[SETUP — returns — 1.T2ZQ, 2.end]"
+  decl   {"returns":"1.T2ZQ, 2.end"}
+  next   {"declarations":{"returns":"1.T2ZQ, 2.end"}}
+main.click.RET.C_after_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.click.RET.C_sel_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]"} tabs=21
+  typed  "[SETUP — returns — ZQ, 2.end]"
+  decl   {"returns":"ZQ, 2.end"}
+  next   {"declarations":{"returns":"ZQ, 2.end"}}
+main.click.RET.C_sel_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.click.RET.U_sel_2end.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"lyrics-draft"}
+  after  {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]"} tabs=21
+  typed  "[SETUP — returns — 1.T2, ZQ]"
+  decl   {"returns":"1.T2, ZQ"}
+  next   {"declarations":{"returns":"1.T2, ZQ"}}
+main.click.RET.U_sel_2end.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"lyrics-draft"}
+  after  {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.click.RET.S_body_walk.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"lyrics-draft"}
+  after  {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[63,63,"forward"],"shown":"I w|alk the line tonight"} tabs=24
+  typed  "I wZQalk the line tonight"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.click.RET.S_body_walk.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"lyrics-draft"}
+  after  {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.click.RHY.C_after_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"groups":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]"} tabs=21
+  typed  "[SETUP — rhyme groups — 1.T2ZQ, 2.end]"
+  decl   {"groups":"1.T2ZQ, 2.end"}
+  next   {"declarations":{"groups":"1.T2ZQ, 2.end"}}
+main.click.RHY.C_after_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"groups":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[37,37,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"groups":"1.T2, 2.end"}
+  next   {"declarations":{"groups":"1.T2, 2.end"}}
+main.click.RHY.C_sel_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"groups":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]"} tabs=21
+  typed  "[SETUP — rhyme groups — ZQ, 2.end]"
+  decl   {"groups":"ZQ, 2.end"}
+  next   {"declarations":{"groups":"ZQ, 2.end"}}
+main.click.RHY.C_sel_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"groups":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[37,37,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"groups":"1.T2, 2.end"}
+  next   {"declarations":{"groups":"1.T2, 2.end"}}
+main.click.RET_LAST.C_after_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"lyrics-draft"}
+  after  {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"2.end, 1.T2"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]"} tabs=21
+  typed  "[SETUP — returns — 2.end, 1.T2ZQ]"
+  decl   {"returns":"2.end, 1.T2ZQ"}
+  next   {"declarations":{"returns":"2.end, 1.T2ZQ"}}
+main.click.RET_LAST.C_after_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"lyrics-draft"}
+  after  {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"2.end, 1.T2"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"2.end, 1.T2"}
+  next   {"declarations":{"returns":"2.end, 1.T2"}}
+main.click.RET_LAST.C_sel_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"lyrics-draft"}
+  after  {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"2.end, 1.T2"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]"} tabs=21
+  typed  "[SETUP — returns — 2.end, ZQ]"
+  decl   {"returns":"2.end, ZQ"}
+  next   {"declarations":{"returns":"2.end, ZQ"}}
+main.click.RET_LAST.C_sel_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"lyrics-draft"}
+  after  {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"2.end, 1.T2"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"2.end, 1.T2"}
+  next   {"declarations":{"returns":"2.end, 1.T2"}}
+main.click.READ.C_sel_num.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(tab) {"active":"lyrics-draft","sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"} tabs=21
+  typed  "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+  decl   {}
+  next   {"declarations":{}}
+main.click.READ.C_sel_num.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[71,71,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"} tabs=
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]"
+  decl   {"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}
+  next   {"declarations":{"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}}
+main.click.READ.C_after_num.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(tab) {"active":"lyrics-draft","sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"} tabs=21
+  typed  "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+  decl   {}
+  next   {"declarations":{}}
+main.click.READ.C_after_num.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[71,71,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"} tabs=
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]"
+  decl   {"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}
+  next   {"declarations":{"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}}
+main.click.READ.U_sel_OW1.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(tab) {"active":"lyrics-draft","sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"} tabs=21
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]"
+  decl   {"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["ZQ"],"basis":"declared","source":"me"}]}
+  next   {"declarations":{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["ZQ"],"basis":"declared","source":"me"}]}}
+main.click.READ.U_sel_OW1.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"BODY"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[71,71,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"} tabs=
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]"
+  decl   {"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}
+  next   {"declarations":{"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}}
+main.send.RET.C_in_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]"} tabs=9
+  typed  "[SETUP — returns — 1.TZQ2, 2.end]"
+  decl   {"returns":"1.TZQ2, 2.end"}
+  next   {"declarations":{"returns":"1.TZQ2, 2.end"}}
+main.send.RET.C_in_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[22,22,"forward"],"shown":"[SETUP — returns — 1.T|2, 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.send.RET.C_after_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]"} tabs=9
+  typed  "[SETUP — returns — 1.T2ZQ, 2.end]"
+  decl   {"returns":"1.T2ZQ, 2.end"}
+  next   {"declarations":{"returns":"1.T2ZQ, 2.end"}}
+main.send.RET.C_after_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[23,23,"forward"],"shown":"[SETUP — returns — 1.T2|, 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.send.RET.C_sel_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]"} tabs=9
+  typed  "[SETUP — returns — ZQ, 2.end]"
+  decl   {"returns":"ZQ, 2.end"}
+  next   {"declarations":{"returns":"ZQ, 2.end"}}
+main.send.RET.C_sel_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.send.RET.U_sel_2end.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"lyrics-draft"}
+  after  {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]"} tabs=9
+  typed  "[SETUP — returns — 1.T2, ZQ]"
+  decl   {"returns":"1.T2, ZQ"}
+  next   {"declarations":{"returns":"1.T2, ZQ"}}
+main.send.RET.U_sel_2end.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"lyrics-draft"}
+  after  {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.send.RET.S_body_walk.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"lyrics-draft"}
+  after  {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[63,63,"forward"],"shown":"I w|alk the line tonight"} tabs=12
+  typed  "I wZQalk the line tonight"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.send.RET.S_body_walk.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"lyrics-draft"}
+  after  {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"1.T2, 2.end"}
+  next   {"declarations":{"returns":"1.T2, 2.end"}}
+main.send.RHY.C_after_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"groups":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]"} tabs=9
+  typed  "[SETUP — rhyme groups — 1.T2ZQ, 2.end]"
+  decl   {"groups":"1.T2ZQ, 2.end"}
+  next   {"declarations":{"groups":"1.T2ZQ, 2.end"}}
+main.send.RHY.C_after_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"lyrics-draft"}
+  after  {"sel":[28,28,"forward"],"shown":"[SETUP — rhyme groups — 1.T2|, 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"groups":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[37,37,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"groups":"1.T2, 2.end"}
+  next   {"declarations":{"groups":"1.T2, 2.end"}}
+main.send.RHY.C_sel_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"groups":"1.T2, 2.end"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]"} tabs=9
+  typed  "[SETUP — rhyme groups — ZQ, 2.end]"
+  decl   {"groups":"ZQ, 2.end"}
+  next   {"declarations":{"groups":"ZQ, 2.end"}}
+main.send.RHY.C_sel_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"lyrics-draft"}
+  after  {"sel":[24,28,"forward"],"shown":"[SETUP — rhyme groups — «1.T2», 2.end]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"groups":"1.T2, 2.end"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[37,37,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"groups":"1.T2, 2.end"}
+  next   {"declarations":{"groups":"1.T2, 2.end"}}
+main.send.RET_LAST.C_after_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"lyrics-draft"}
+  after  {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"2.end, 1.T2"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]"} tabs=9
+  typed  "[SETUP — returns — 2.end, 1.T2ZQ]"
+  decl   {"returns":"2.end, 1.T2ZQ"}
+  next   {"declarations":{"returns":"2.end, 1.T2ZQ"}}
+main.send.RET_LAST.C_after_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"lyrics-draft"}
+  after  {"sel":[30,30,"forward"],"shown":"[SETUP — returns — 2.end, 1.T2|]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"2.end, 1.T2"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"2.end, 1.T2"}
+  next   {"declarations":{"returns":"2.end, 1.T2"}}
+main.send.RET_LAST.C_sel_T2.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"lyrics-draft"}
+  after  {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"2.end, 1.T2"}]
+  refocus(tab) {"active":"lyrics-draft","sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]"} tabs=9
+  typed  "[SETUP — returns — 2.end, ZQ]"
+  decl   {"returns":"2.end, ZQ"}
+  next   {"declarations":{"returns":"2.end, ZQ"}}
+main.send.RET_LAST.C_sel_T2.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"lyrics-draft"}
+  after  {"sel":[26,30,"forward"],"shown":"[SETUP — returns — 2.end, «1.T2»]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"returns":"2.end, 1.T2"}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[32,32,"forward"],"shown":"|"} tabs=
+  typed  "ZQ"
+  decl   {"returns":"2.end, 1.T2"}
+  next   {"declarations":{"returns":"2.end, 1.T2"}}
+main.send.READ.C_sel_num.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(tab) {"active":"lyrics-draft","sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"} tabs=9
+  typed  "[SETUP — reading — token ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+  decl   {}
+  next   {"declarations":{}}
+main.send.READ.C_sel_num.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[25,26,"forward"],"shown":"[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[71,71,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"} tabs=
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]"
+  decl   {"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}
+  next   {"declarations":{"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}}
+main.send.READ.C_after_num.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(tab) {"active":"lyrics-draft","sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"} tabs=9
+  typed  "[SETUP — reading — token 2ZQ \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+  decl   {}
+  next   {"declarations":{}}
+main.send.READ.C_after_num.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[26,26,"forward"],"shown":"[SETUP — reading — token 2| \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[71,71,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"} tabs=
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]"
+  decl   {"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}
+  next   {"declarations":{"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}}
+main.send.READ.U_sel_OW1.tab: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(tab) {"active":"lyrics-draft","sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"} tabs=9
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — ZQ — declared — source: me]"
+  decl   {"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["ZQ"],"basis":"declared","source":"me"}]}
+  next   {"declarations":{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["ZQ"],"basis":"declared","source":"me"}]}}
+main.send.READ.U_sel_OW1.mouse: preUnmarked=true migrated=false sameChars=true
+  before {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"lyrics-draft"}
+  after  {"sel":[58,61,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]","active":"chat-input"}
+  ref    null ""  pageMap=null
+  sent   [{"pronunciations":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+  refocus(mouse) {"active":"lyrics-draft","sel":[71,71,"forward"],"shown":"[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declare|d — source: me]"} tabs=
+  typed  "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declareZQd — source: me]"
+  decl   {"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}
+  next   {"declarations":{"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":2,"word":"oh","state":"needs a choice"}]}}

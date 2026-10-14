@@ -1,0 +1,104 @@
+{
+  "rewrite": {
+    "savedAt": 41,
+    "hiddenOnReview": {
+      "display": "block",
+      "rects": 0,
+      "ancestorsHidden": "ly-main"
+    },
+    "samples": [
+      [
+        "doc-pointerup-capture",
+        147,
+        147
+      ],
+      [
+        "doc-mouseup-capture",
+        147,
+        147
+      ],
+      [
+        "doc-click-capture",
+        147,
+        147
+      ],
+      [
+        "after-ssr(41,41)",
+        41,
+        41,
+        "rects=1"
+      ],
+      [
+        "doc-click-bubble-after-page",
+        41,
+        41,
+        "rects=1"
+      ],
+      [
+        "click+timeout0",
+        0,
+        0
+      ],
+      [
+        "click+2raf",
+        0,
+        0
+      ]
+    ],
+    "final": [
+      0,
+      0
+    ]
+  },
+  "norewrite": {
+    "savedAt": 41,
+    "hiddenOnReview": {
+      "display": "block",
+      "rects": 0,
+      "ancestorsHidden": "ly-main"
+    },
+    "samples": [
+      [
+        "doc-pointerup-capture",
+        41,
+        41
+      ],
+      [
+        "doc-mouseup-capture",
+        41,
+        41
+      ],
+      [
+        "doc-click-capture",
+        41,
+        41
+      ],
+      [
+        "after-ssr(41,41)",
+        41,
+        41,
+        "rects=1"
+      ],
+      [
+        "doc-click-bubble-after-page",
+        41,
+        41,
+        "rects=1"
+      ],
+      [
+        "click+timeout0",
+        41,
+        41
+      ],
+      [
+        "click+2raf",
+        41,
+        41
+      ]
+    ],
+    "final": [
+      41,
+      41
+    ]
+  }
+}

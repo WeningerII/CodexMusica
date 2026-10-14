@@ -1,0 +1,322 @@
+[
+  {
+    "id": "c678.sync.CARRIED.caret_in_2end",
+    "preUnchanged": true,
+    "before": {
+      "sel": [
+        28,
+        28,
+        "forward"
+      ],
+      "shown": "[SETUP — returns — 1.end, 2.|end]"
+    },
+    "migrated": true,
+    "rowsAfter": [
+      "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+    ],
+    "afterImmediate": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "shown": "Love above|"
+    },
+    "afterSettled": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "focused": true,
+      "shown": "Love above|",
+      "textSameAsImmediate": true
+    },
+    "sent": [
+      {
+        "returns": "1,2"
+      }
+    ]
+  },
+  {
+    "id": "c678.sync.CARRIED.sel_2end",
+    "preUnchanged": true,
+    "before": {
+      "sel": [
+        26,
+        31,
+        "forward"
+      ],
+      "shown": "[SETUP — returns — 1.end, «2.end»]"
+    },
+    "migrated": true,
+    "rowsAfter": [
+      "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+    ],
+    "afterImmediate": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "shown": "Love above|"
+    },
+    "afterSettled": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "focused": true,
+      "shown": "Love above|",
+      "textSameAsImmediate": true
+    },
+    "sent": [
+      {
+        "returns": "1,2"
+      }
+    ]
+  },
+  {
+    "id": "c678.sync.CARRIED.sel_2end_back",
+    "preUnchanged": true,
+    "before": {
+      "sel": [
+        26,
+        31,
+        "backward"
+      ],
+      "shown": "[SETUP — returns — 1.end, «2.end»]"
+    },
+    "migrated": true,
+    "rowsAfter": [
+      "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+    ],
+    "afterImmediate": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "shown": "Love above|"
+    },
+    "afterSettled": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "focused": true,
+      "shown": "Love above|",
+      "textSameAsImmediate": true
+    },
+    "sent": [
+      {
+        "returns": "1,2"
+      }
+    ]
+  },
+  {
+    "id": "c678.sync.CARRIED.caret_in_1end",
+    "preUnchanged": true,
+    "before": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "shown": "[SETUP — returns — 1.|end, 2.end]"
+    },
+    "migrated": true,
+    "rowsAfter": [
+      "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]"
+    ],
+    "afterImmediate": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "shown": "Love above|"
+    },
+    "afterSettled": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "focused": true,
+      "shown": "Love above|",
+      "textSameAsImmediate": true
+    },
+    "sent": [
+      {
+        "returns": "1,2"
+      }
+    ]
+  },
+  {
+    "id": "c678.sync.TWO_ROWS.other_caret_5end",
+    "preUnchanged": true,
+    "before": {
+      "sel": [
+        57,
+        57,
+        "forward"
+      ],
+      "shown": "[SETUP — rhyme groups — 5|.end, 6]"
+    },
+    "migrated": true,
+    "rowsAfter": [
+      "[SETUP — returns — 1.T3,2 — cut v2]",
+      "[SETUP — rhyme groups — 5.end, 6]"
+    ],
+    "afterImmediate": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "shown": "Love above|"
+    },
+    "afterSettled": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "focused": true,
+      "shown": "Love above|",
+      "textSameAsImmediate": true
+    },
+    "sent": [
+      {
+        "groups": "5.end, 6",
+        "returns": "1.T3,2"
+      }
+    ]
+  },
+  {
+    "id": "c678.sync.TWO_ROWS.other_sel_6",
+    "preUnchanged": true,
+    "before": {
+      "sel": [
+        63,
+        64,
+        "forward"
+      ],
+      "shown": "[SETUP — rhyme groups — 5.end, «6»]"
+    },
+    "migrated": true,
+    "rowsAfter": [
+      "[SETUP — returns — 1.T3,2 — cut v2]",
+      "[SETUP — rhyme groups — 5.end, 6]"
+    ],
+    "afterImmediate": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "shown": "Love above|"
+    },
+    "afterSettled": {
+      "sel": [
+        208,
+        208,
+        "forward"
+      ],
+      "focused": true,
+      "shown": "Love above|",
+      "textSameAsImmediate": true
+    },
+    "sent": [
+      {
+        "groups": "5.end, 6",
+        "returns": "1.T3,2"
+      }
+    ]
+  },
+  {
+    "id": "c678.sync.CARRIED_TWO.other_caret_5end",
+    "preUnchanged": true,
+    "before": {
+      "sel": [
+        58,
+        58,
+        "forward"
+      ],
+      "shown": "[SETUP — rhyme groups — 5|.end, 6]"
+    },
+    "migrated": true,
+    "rowsAfter": [
+      "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+      "[SETUP — rhyme groups — 5.end, 6]"
+    ],
+    "afterImmediate": {
+      "sel": [
+        242,
+        242,
+        "forward"
+      ],
+      "shown": "Love above|"
+    },
+    "afterSettled": {
+      "sel": [
+        242,
+        242,
+        "forward"
+      ],
+      "focused": true,
+      "shown": "Love above|",
+      "textSameAsImmediate": true
+    },
+    "sent": [
+      {
+        "groups": "5.end, 6",
+        "returns": "1,2"
+      }
+    ]
+  },
+  {
+    "id": "c678.sync.CARRIED_TWO.first_caret_in_2end",
+    "preUnchanged": true,
+    "before": {
+      "sel": [
+        28,
+        28,
+        "forward"
+      ],
+      "shown": "[SETUP — returns — 1.end, 2.|end]"
+    },
+    "migrated": true,
+    "rowsAfter": [
+      "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+      "[SETUP — rhyme groups — 5.end, 6]"
+    ],
+    "afterImmediate": {
+      "sel": [
+        242,
+        242,
+        "forward"
+      ],
+      "shown": "Love above|"
+    },
+    "afterSettled": {
+      "sel": [
+        242,
+        242,
+        "forward"
+      ],
+      "focused": true,
+      "shown": "Love above|",
+      "textSameAsImmediate": true
+    },
+    "sent": [
+      {
+        "groups": "5.end, 6",
+        "returns": "1,2"
+      }
+    ]
+  }
+]

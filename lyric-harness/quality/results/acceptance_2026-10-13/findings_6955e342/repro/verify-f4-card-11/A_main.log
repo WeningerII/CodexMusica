@@ -1,0 +1,40 @@
+[INFO] main.A.mig_returns.import: state right after import (no edit)
+    observed: {"adapted":false,"label":"V11 mig_returns · Complete reading","draftEqualsPayload":true,"originalEqualsPayload":true,"changedRows":[],"declarationsKept":true,"renumberedCard":false}
+[INFO] main.A.mig_returns.reload: state after a reload
+    observed: {"adapted":false,"storedAdapted":false,"label":"V11 mig_returns · Complete reading","draftUnchanged":true}
+[INFO] main.A.mig_returns.download: the next working-copy download
+    observed: {"payloadDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"wcAdapted":false,"wcDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"textEqualsDraft":true}
+[INFO] main.A.mig_returns.reimport: the downloaded file imported again
+    observed: {"adapted":false,"label":"V11 mig_returns · Complete reading","originDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}]}
+[INFO] main.A.carried_end.import: state right after import (no edit)
+    observed: {"adapted":false,"label":"V11 carried_end · Complete reading","draftEqualsPayload":true,"originalEqualsPayload":true,"changedRows":[],"declarationsKept":true,"renumberedCard":false}
+[INFO] main.A.carried_end.reload: state after a reload
+    observed: {"adapted":false,"storedAdapted":false,"label":"V11 carried_end · Complete reading","draftUnchanged":true}
+[INFO] main.A.carried_end.download: the next working-copy download
+    observed: {"payloadDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"wcAdapted":false,"wcDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"textEqualsDraft":true}
+[INFO] main.A.carried_end.reimport: the downloaded file imported again
+    observed: {"adapted":false,"label":"V11 carried_end · Complete reading","originDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}]}
+[INFO] main.A.quiet_same.import: state right after import (no edit)
+    observed: {"adapted":false,"label":"V11 quiet_same · Complete reading","draftEqualsPayload":true,"originalEqualsPayload":true,"changedRows":[],"declarationsKept":true,"renumberedCard":false}
+[INFO] main.A.quiet_same.reload: state after a reload
+    observed: {"adapted":false,"storedAdapted":false,"label":"V11 quiet_same · Complete reading","draftUnchanged":true}
+[INFO] main.A.quiet_same.download: the next working-copy download
+    observed: {"payloadDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"wcAdapted":false,"wcDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"textEqualsDraft":true}
+[INFO] main.A.quiet_same.reimport: the downloaded file imported again
+    observed: {"adapted":false,"label":"V11 quiet_same · Complete reading","originDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}]}
+[INFO] main.A.quiet_groups.import: state right after import (no edit)
+    observed: {"adapted":false,"label":"V11 quiet_groups · Complete reading","draftEqualsPayload":true,"originalEqualsPayload":true,"changedRows":[],"declarationsKept":true,"renumberedCard":false}
+[INFO] main.A.quiet_groups.reload: state after a reload
+    observed: {"adapted":false,"storedAdapted":false,"label":"V11 quiet_groups · Complete reading","draftUnchanged":true}
+[INFO] main.A.quiet_groups.download: the next working-copy download
+    observed: {"payloadDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"wcAdapted":false,"wcDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"textEqualsDraft":true}
+[INFO] main.A.quiet_groups.reimport: the downloaded file imported again
+    observed: {"adapted":false,"label":"V11 quiet_groups · Complete reading","originDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}]}
+[INFO] main.A.crlf_plain.import: state right after import (no edit)
+    observed: {"adapted":true,"label":"V11 crlf_plain · Complete reading · Adapted","draftEqualsPayload":false,"originalEqualsPayload":true,"changedRows":[["Oh my love we sing\r","Oh my love we sing"]],"declarationsKept":true,"renumberedCard":false}
+[INFO] main.A.crlf_plain.reload: state after a reload
+    observed: {"adapted":true,"storedAdapted":true,"label":"V11 crlf_plain · Complete reading · Adapted","draftUnchanged":true}
+[INFO] main.A.crlf_plain.download: the next working-copy download
+    observed: {"payloadDeclarations":[],"wcAdapted":true,"wcDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11 probe"}],"textEqualsDraft":true}
+[INFO] main.A.crlf_plain.reimport: the downloaded file imported again
+    observed: {"adapted":false,"label":"V11 crlf_plain · Complete reading","originDeclarations":[]}

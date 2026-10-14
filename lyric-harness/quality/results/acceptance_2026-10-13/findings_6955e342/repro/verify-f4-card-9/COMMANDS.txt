@@ -1,0 +1,17 @@
+# COMMANDS for verify-f4-card-9
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9/build-wt-695/built-wt-695.html --quiet
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9/build-wt-main/built-wt-main.html --quiet
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9/build-wt-61b/built-wt-61b.html --quiet
+# cmp built-*.html vs <tree>/codex.html: IDENTICAL for wt-695, wt-main, wt-61b; library chunks compared file-by-file (see run output)
+cp h695/f4-card/lib.js -> vlib.js with sed: OUT=h695/verify-f4-card-9, TREES += prev61b (wt-61b), prev678 (wt-678), base (wt-base)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9 && node orig_f_collapsed.js cand > orig_f_cand.log 2>&1   # tester's f_collapsed.js verbatim except require('./vlib') and output names
+sed: v9.js tab selectors -> #ly-tab-tools / #ly-tab-review
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9 && node v9.js cand > v9_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9 && node v9.js main A,B,D,H > v9_main_ABDH.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9 && node v9.js prev61b A,B,D,H > v9_prev61b_ABDH.log 2>&1
+# added scenario C2 (re-collapse control with a size-mismatch local check) to v9.js
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9 && node v9.js cand C2 > v9_cand_C2.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9 && node v9.js main C2 > v9_main_C2.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-9 && node v9.js prev61b C2 > v9_prev61b_C2.log 2>&1
+grep renumbered in wt-61b/wt-678 lyrics.js -> grep_renumbered_prev.txt; grep Local-checks open rule in all trees -> grep_local_rule.txt
+git status of all trees -> git_status_after.txt (only untracked node_modules); rm -rf build-wt-695 build-wt-main build-wt-61b (built pages verified identical, deleted for disk)

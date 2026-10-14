@@ -1,0 +1,852 @@
+[
+  {
+    "tree": "cand",
+    "tab": "default",
+    "defaultTab": "tools",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "tabAfter": "review",
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "before click",
+        "t": 1693,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mousedown (capture)",
+        "t": 1842,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "draft blur event",
+        "t": 1847,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mouseup (capture)",
+        "t": 1849,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "click (capture)",
+        "t": 1849,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure:before",
+        "t": 1850,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure returned true",
+        "t": 1856,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "focus() on chat-input",
+        "t": 1857,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "microtask after ensure",
+        "t": 1886,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "first rAF",
+        "t": 1897,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "500ms",
+        "t": 2457,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "tab": "tools",
+    "defaultTab": "tools",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "tabAfter": "review",
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "before click",
+        "t": 1697,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mousedown (capture)",
+        "t": 1785,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "draft blur event",
+        "t": 1791,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mouseup (capture)",
+        "t": 1792,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "click (capture)",
+        "t": 1793,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure:before",
+        "t": 1794,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure returned true",
+        "t": 1800,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "focus() on chat-input",
+        "t": 1801,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "microtask after ensure",
+        "t": 1827,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "first rAF",
+        "t": 1838,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "500ms",
+        "t": 2356,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "tab": "writer",
+    "defaultTab": "tools",
+    "after": [
+      72,
+      72,
+      "forward"
+    ],
+    "tabAfter": "review",
+    "expected": 72,
+    "kept": true,
+    "trace": [
+      {
+        "w": "before click",
+        "t": 1380,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mousedown (capture)",
+        "t": 1456,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "draft blur event",
+        "t": 1460,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mouseup (capture)",
+        "t": 1461,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "click (capture)",
+        "t": 1462,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure:before",
+        "t": 1463,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure returned true",
+        "t": 1468,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "focus() on chat-input",
+        "t": 1468,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "microtask after ensure",
+        "t": 1491,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "None",
+          "anchor": null,
+          "inDraft": false
+        }
+      },
+      {
+        "w": "first rAF",
+        "t": 1500,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "None",
+          "anchor": null,
+          "inDraft": false
+        }
+      },
+      {
+        "w": "500ms",
+        "t": 2024,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "None",
+          "anchor": null,
+          "inDraft": false
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "tab": "review",
+    "defaultTab": "tools",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "tabAfter": "review",
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "before click",
+        "t": 1567,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mousedown (capture)",
+        "t": 1648,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "draft blur event",
+        "t": 1652,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mouseup (capture)",
+        "t": 1654,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "click (capture)",
+        "t": 1654,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure:before",
+        "t": 1655,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure returned true",
+        "t": 1659,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "focus() on chat-input",
+        "t": 1660,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "microtask after ensure",
+        "t": 1677,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "first rAF",
+        "t": 1687,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "500ms",
+        "t": 2207,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "cand",
+    "tab": "history",
+    "defaultTab": "tools",
+    "after": [
+      0,
+      0,
+      "forward"
+    ],
+    "tabAfter": "review",
+    "expected": 72,
+    "kept": false,
+    "trace": [
+      {
+        "w": "before click",
+        "t": 1524,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mousedown (capture)",
+        "t": 1583,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "draft",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "draft blur event",
+        "t": 1586,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "mouseup (capture)",
+        "t": 1588,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "click (capture)",
+        "t": 1588,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure:before",
+        "t": 1589,
+        "sel": [
+          63,
+          63
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "ensure returned true",
+        "t": 1593,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "focus() on chat-input",
+        "t": 1595,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "ly-run-review",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "microtask after ensure",
+        "t": 1619,
+        "sel": [
+          72,
+          72
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "first rAF",
+        "t": 1633,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      },
+      {
+        "w": "500ms",
+        "t": 2153,
+        "sel": [
+          0,
+          0
+        ],
+        "active": "BODY",
+        "docSel": {
+          "type": "Caret",
+          "anchor": "ly-editor",
+          "inDraft": false
+        }
+      }
+    ],
+    "errors": []
+  }
+]

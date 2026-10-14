@@ -1,0 +1,35 @@
+ 0 "|[SET"        ->  0 "|[SET"        want [0] ok
+ 1 "[|SETU"       ->  1 "[|SETU"       want [1] ok
+ 2 "[S|ETUP"      ->  2 "[S|ETUP"      want [2] ok
+ 3 "[SE|TUP "     ->  3 "[SE|TUP "     want [3] ok
+ 4 "[SET|UP —"    ->  4 "[SET|UP —"    want [4] ok
+ 5 "SETU|P — "    ->  5 "SETU|P — "    want [5] ok
+ 6 "ETUP| — r"    ->  6 "ETUP| — r"    want [6] ok
+ 7 "TUP |— re"    ->  7 "TUP |— re"    want [7] ok
+ 8 "UP —| ret"    ->  8 "UP —| ret"    want [8] ok
+ 9 "P — |retu"    ->  9 "P — |retu"    want [9] ok
+10 " — r|etur"    -> 10 " — r|etur"    want [10] ok
+11 "— re|turn"    -> 11 "— re|turn"    want [11] ok
+12 " ret|urns"    -> 12 " ret|urns"    want [12] ok
+13 "retu|rns "    -> 13 "retu|rns "    want [13] ok
+14 "etur|ns —"    -> 14 "etur|ns —"    want [14] ok
+15 "turn|s — "    -> 15 "turn|s — "    want [15] ok
+16 "urns| — 1"    -> 16 "urns| — 1"    want [16] ok
+17 "rns |— 1."    -> 17 "rns |— 1."    want [17] ok
+18 "ns —| 1.T"    -> 18 "ns —| 1.T"    want [18] ok
+19 "s — |1.T2"    -> 19 "s — |1.T3"    want [19] ok
+20 " — 1|.T2,"    -> 20 " — 1|.T3,"    want [20] ok
+21 "— 1.|T2, "    -> 21 "— 1.|T3, "    want [21] ok
+22 " 1.T|2, 2"    -> 22 " 1.T|3, 2"    want [22] ok
+23 "1.T2|, 2."    -> 39 "t v2|]"       want [23] MOVED
+24 ".T2,| 2.e"    -> 39 "t v2|]"       want [24] MOVED
+25 "T2, |2.en"    -> 39 "t v2|]"       want [25] MOVED
+26 "2, 2|.end"    -> 39 "t v2|]"       want [26] MOVED
+27 ", 2.|end]"    -> 39 "t v2|]"       want [27] MOVED
+28 " 2.e|nd]"     -> 39 "t v2|]"       want [28] MOVED
+29 "2.en|d]"      -> 39 "t v2|]"       want [29] MOVED
+30 ".end|]"       -> 39 "t v2|]"       want [30,39] ok
+31 "end]|"        -> 40 " v2]|"        want [40] ok
+moved columns: 23,24,25,26,27,28,29
+"[SETUP — returns — 2.end, 1.T2]" caret 2.|end 21 -> 21 sel [ 19 24 ] -> 19 24
+"[SETUP — returns — 1.T2]" caret 1.T2| 23 -> 32 (new row length 33 )

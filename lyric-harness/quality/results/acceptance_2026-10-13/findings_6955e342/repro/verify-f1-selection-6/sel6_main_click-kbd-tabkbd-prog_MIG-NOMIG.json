@@ -1,0 +1,1914 @@
+[
+  {
+    "tree": "main",
+    "trig": "click",
+    "doc": "MIG",
+    "sel": "sung_walk",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      63,
+      63
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 24,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 63,
+    "typedRow": "I wZQalk the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.end]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "click",
+    "doc": "MIG",
+    "sel": "sung_range_line2",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "BODY"
+    },
+    "expected": [
+      60,
+      83
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 24,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 60,
+    "typedRow": "ZQ",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.end]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "click",
+    "doc": "MIG",
+    "sel": "row_in_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      27,
+      27
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 21,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 27,
+    "typedRow": "[SETUP — returns — 1.T2, 2.ZQend]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.ZQend]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.ZQend"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "click",
+    "doc": "MIG",
+    "sel": "row_range_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "BODY"
+    },
+    "expected": [
+      25,
+      30
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 20,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 25,
+    "typedRow": "[SETUP — returns — 1.T2, ZQ]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, ZQ]"
+      ],
+      "decl": {
+        "returns": "1.T2, ZQ"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "click",
+    "doc": "NOMIG",
+    "sel": "sung_walk",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      64,
+      64
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 25,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 64,
+    "typedRow": "I wZQalk the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "click",
+    "doc": "NOMIG",
+    "sel": "sung_range_line2",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "BODY"
+    },
+    "expected": [
+      61,
+      84
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 25,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 61,
+    "typedRow": "ZQ",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "click",
+    "doc": "NOMIG",
+    "sel": "row_in_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      21,
+      21
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 22,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 21,
+    "typedRow": "[SETUP — returns — 2.ZQend, 7.end]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.ZQend, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.ZQend, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "click",
+    "doc": "NOMIG",
+    "sel": "row_range_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "BODY"
+    },
+    "expected": [
+      19,
+      24
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 21,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 19,
+    "typedRow": "[SETUP — returns — ZQ, 7.end]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — ZQ, 7.end]"
+      ],
+      "decl": {
+        "returns": "ZQ, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "kbd",
+    "doc": "MIG",
+    "sel": "sung_walk",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      63,
+      63
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 23,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 63,
+    "typedRow": "I wZQalk the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.end]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "kbd",
+    "doc": "MIG",
+    "sel": "sung_range_line2",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "BODY"
+    },
+    "expected": [
+      60,
+      83
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 23,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 60,
+    "typedRow": "ZQ",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.end]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "kbd",
+    "doc": "MIG",
+    "sel": "row_in_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      27,
+      27
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 20,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 27,
+    "typedRow": "[SETUP — returns — 1.T2, 2.ZQend]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.ZQend]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.ZQend"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "kbd",
+    "doc": "MIG",
+    "sel": "row_range_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "BODY"
+    },
+    "expected": [
+      25,
+      30
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 19,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 25,
+    "typedRow": "[SETUP — returns — 1.T2, ZQ]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, ZQ]"
+      ],
+      "decl": {
+        "returns": "1.T2, ZQ"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "kbd",
+    "doc": "NOMIG",
+    "sel": "sung_walk",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      64,
+      64
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 24,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 64,
+    "typedRow": "I wZQalk the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "kbd",
+    "doc": "NOMIG",
+    "sel": "sung_range_line2",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "BODY"
+    },
+    "expected": [
+      61,
+      84
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 24,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 61,
+    "typedRow": "ZQ",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "kbd",
+    "doc": "NOMIG",
+    "sel": "row_in_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      21,
+      21
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 21,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 21,
+    "typedRow": "[SETUP — returns — 2.ZQend, 7.end]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.ZQend, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.ZQend, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "kbd",
+    "doc": "NOMIG",
+    "sel": "row_range_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "BODY"
+    },
+    "expected": [
+      19,
+      24
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 20,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 19,
+    "typedRow": "[SETUP — returns — ZQ, 7.end]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — ZQ, 7.end]"
+      ],
+      "decl": {
+        "returns": "ZQ, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "tabkbd",
+    "doc": "MIG",
+    "sel": "sung_walk",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "tabPresses": 13,
+    "tabReached": true,
+    "selAtButton": [
+      63,
+      63,
+      "forward"
+    ],
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      63,
+      63
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 23,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 63,
+    "typedRow": "I wZQalk the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.end]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "tabkbd",
+    "doc": "MIG",
+    "sel": "sung_range_line2",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "tabPresses": 13,
+    "tabReached": true,
+    "selAtButton": [
+      60,
+      83,
+      "backward"
+    ],
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "BODY"
+    },
+    "expected": [
+      60,
+      83
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 23,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 60,
+    "typedRow": "ZQ",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.end]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "tabkbd",
+    "doc": "MIG",
+    "sel": "row_in_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "tabPresses": 13,
+    "tabReached": true,
+    "selAtButton": [
+      27,
+      27,
+      "forward"
+    ],
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      27,
+      27
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 20,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 27,
+    "typedRow": "[SETUP — returns — 1.T2, 2.ZQend]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.ZQend]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.ZQend"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "tabkbd",
+    "doc": "MIG",
+    "sel": "row_range_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "tabPresses": 13,
+    "tabReached": true,
+    "selAtButton": [
+      25,
+      30,
+      "forward"
+    ],
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "BODY"
+    },
+    "expected": [
+      25,
+      30
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 19,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 25,
+    "typedRow": "[SETUP — returns — 1.T2, ZQ]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, ZQ]"
+      ],
+      "decl": {
+        "returns": "1.T2, ZQ"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "tabkbd",
+    "doc": "NOMIG",
+    "sel": "sung_walk",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "tabPresses": 13,
+    "tabReached": true,
+    "selAtButton": [
+      64,
+      64,
+      "forward"
+    ],
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      64,
+      64
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 24,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 64,
+    "typedRow": "I wZQalk the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "tabkbd",
+    "doc": "NOMIG",
+    "sel": "sung_range_line2",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "tabPresses": 13,
+    "tabReached": true,
+    "selAtButton": [
+      61,
+      84,
+      "backward"
+    ],
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "BODY"
+    },
+    "expected": [
+      61,
+      84
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 24,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 61,
+    "typedRow": "ZQ",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "tabkbd",
+    "doc": "NOMIG",
+    "sel": "row_in_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "tabPresses": 13,
+    "tabReached": true,
+    "selAtButton": [
+      21,
+      21,
+      "forward"
+    ],
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "chars": "",
+      "active": "BODY"
+    },
+    "expected": [
+      21,
+      21
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 21,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 21,
+    "typedRow": "[SETUP — returns — 2.ZQend, 7.end]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.ZQend, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.ZQend, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "tabkbd",
+    "doc": "NOMIG",
+    "sel": "row_range_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "tabPresses": 13,
+    "tabReached": true,
+    "selAtButton": [
+      19,
+      24,
+      "forward"
+    ],
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "BODY"
+    },
+    "expected": [
+      19,
+      24
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 20,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 19,
+    "typedRow": "[SETUP — returns — ZQ, 7.end]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — ZQ, 7.end]"
+      ],
+      "decl": {
+        "returns": "ZQ, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "prog",
+    "doc": "MIG",
+    "sel": "sung_walk",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "expected": [
+      63,
+      63
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 36,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        63,
+        63,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 63,
+    "typedRow": "I wZQalk the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.end]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "prog",
+    "doc": "MIG",
+    "sel": "sung_range_line2",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "expected": [
+      60,
+      83
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 36,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        60,
+        83,
+        "backward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 60,
+    "typedRow": "ZQ",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.end]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "prog",
+    "doc": "MIG",
+    "sel": "row_in_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "expected": [
+      27,
+      27
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 33,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        27,
+        27,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 27,
+    "typedRow": "[SETUP — returns — 1.T2, 2.ZQend]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, 2.ZQend]"
+      ],
+      "decl": {
+        "returns": "1.T2, 2.ZQend"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "prog",
+    "doc": "MIG",
+    "sel": "row_range_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "1.T2, 2.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "expected": [
+      25,
+      30
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 1.T2, 2.end]",
+    "backPresses": 32,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        25,
+        30,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 25,
+    "typedRow": "[SETUP — returns — 1.T2, ZQ]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 1.T2, ZQ]"
+      ],
+      "decl": {
+        "returns": "1.T2, ZQ"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "prog",
+    "doc": "NOMIG",
+    "sel": "sung_walk",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "expected": [
+      64,
+      64
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 37,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        64,
+        64,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 64,
+    "typedRow": "I wZQalk the line tonight",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "prog",
+    "doc": "NOMIG",
+    "sel": "sung_range_line2",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "chars": "I walk the line tonight",
+      "active": "draft"
+    },
+    "expected": [
+      61,
+      84
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 37,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        61,
+        84,
+        "backward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 61,
+    "typedRow": "ZQ",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.end, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.end, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "prog",
+    "doc": "NOMIG",
+    "sel": "row_in_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "chars": "",
+      "active": "draft"
+    },
+    "expected": [
+      21,
+      21
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 34,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        21,
+        21,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 21,
+    "typedRow": "[SETUP — returns — 2.ZQend, 7.end]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — 2.ZQend, 7.end]"
+      ],
+      "decl": {
+        "returns": "2.ZQend, 7.end"
+      }
+    },
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "trig": "prog",
+    "doc": "NOMIG",
+    "sel": "row_range_2end",
+    "migratedBeforeSend": false,
+    "before": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "sent": 1,
+    "sentReturns": [
+      "2.end, 7.end"
+    ],
+    "rewrittenAtSend": false,
+    "ensure": [],
+    "after": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "chars": "2.end",
+      "active": "draft"
+    },
+    "expected": [
+      19,
+      24
+    ],
+    "kept": true,
+    "row0": "[SETUP — returns — 2.end, 7.end]",
+    "backPresses": 33,
+    "backReached": true,
+    "onReturn": {
+      "sel": [
+        19,
+        24,
+        "forward"
+      ],
+      "active": "draft"
+    },
+    "typedAt": 19,
+    "typedRow": "[SETUP — returns — ZQ, 7.end]",
+    "parsedAfterTyping": {
+      "setup": [
+        "[SETUP — returns — ZQ, 7.end]"
+      ],
+      "decl": {
+        "returns": "ZQ, 7.end"
+      }
+    },
+    "errors": []
+  }
+]

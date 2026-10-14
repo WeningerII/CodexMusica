@@ -1,0 +1,28 @@
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-695/built-wt-695.html --quiet
+cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-695/built-wt-695.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/codex.html
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-main/built-wt-main.html --quiet
+cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-main/built-wt-main.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/codex.html
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-61b/built-wt-61b.html --quiet
+cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-61b/built-wt-61b.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b/codex.html
+diff -r /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-695/library /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/library
+diff -r /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-main/library /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/library
+diff -r /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-12/build-wt-61b/library /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b/library
+gh api repos/WeningerII/CodexMusica/issues/comments/{6161601064,6164215811,6161695192} > gh_comment_*.md (read-only)
+node s1_capacity.js cand txt 4 > s1_smoke.log 2>&1
+node s1_capacity.js cand txt 40 46 47 48 49 50 51 52 60 100 300 > s1_cand_txt.log 2>&1
+node tok.js wt-695 <lines> > tok.out
+node s2_cuts.js cand txt > s2_cand_txt.log 2>&1
+node s3_cross.js cand > s3_cand.log 2>&1
+node ctl_mech.js main > ctl_mech_main.log 2>&1
+node ctl_mech.js prev61b > ctl_mech_prev61b.log 2>&1
+node ctl_mech.js cand > ctl_mech_cand.log 2>&1
+node s1_capacity.js prev61b txt 60 > s1_prev61b_txt.log 2>&1
+node s1_capacity.js main txt 60 > s1_main_txt.log 2>&1
+node s3_cross.js cand X8 > s3_cand_X8.log 2>&1
+node s4_original.js > s4_original.log 2>&1
+rm -rf build-wt-695 build-wt-main build-wt-61b   # built pages were byte-identical to each tree's codex.html (build_cmp.txt); every built library/ file identical to the tree's (tree has extra files only); pages then served from the tree roots read-only by h.js
+# NOTES
+# - All browser runs: Chromium /opt/pw-browsers/chromium, local http server over the tree root, *.codexmusica.com answered by an in-process stub (no provider, no network). No CHAT_SECRET used. No tracked file modified.
+# - gen.js: odd N adds one extra moved member (truth N+1); truth is by construction, cross-checked against the rewritten row.
+# - ctl_mech.js M2.brief is a TEST ARTIFACT (the brief was set without a history step, so no step held it); only the marker results of M2 are meaningful.
+# - base fce4bf0f is the harness control; its page has no migration and no card (grep), so it was not browser-run.

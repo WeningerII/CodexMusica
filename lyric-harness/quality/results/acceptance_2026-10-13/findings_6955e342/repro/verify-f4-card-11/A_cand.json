@@ -1,0 +1,660 @@
+{
+ "tree": "cand",
+ "cases": {
+  "mig_returns": {
+   "afterImport": {
+    "adapted": true,
+    "label": "V11 mig_returns · Complete reading · Adapted",
+    "draftEqualsPayload": false,
+    "originalEqualsPayload": true,
+    "changedRows": [
+     [
+      "[SETUP — returns — 1.T3,2.T3]",
+      "[SETUP — returns — 1.T4,2.T4 — cut v2]"
+     ]
+    ],
+    "declarationsKept": true,
+    "renumberedCard": true
+   },
+   "afterReload": {
+    "adapted": true,
+    "storedAdapted": true,
+    "label": "V11 mig_returns · Complete reading · Adapted",
+    "draftUnchanged": true
+   },
+   "download": {
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "reimport": {
+    "adapted": false,
+    "label": "V11 mig_returns · Complete reading",
+    "originDeclarations": []
+   }
+  },
+  "carried_end": {
+   "afterImport": {
+    "adapted": true,
+    "label": "V11 carried_end · Complete reading · Adapted",
+    "draftEqualsPayload": false,
+    "originalEqualsPayload": true,
+    "changedRows": [
+     [
+      "[SETUP — returns — 1.end,2.end]",
+      "[SETUP — returns — 1.end (carried across the word-cut change),2.end (carried across the word-cut change) — cut v2]"
+     ]
+    ],
+    "declarationsKept": true,
+    "renumberedCard": false
+   },
+   "afterReload": {
+    "adapted": true,
+    "storedAdapted": true,
+    "label": "V11 carried_end · Complete reading · Adapted",
+    "draftUnchanged": true
+   },
+   "download": {
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "reimport": {
+    "adapted": false,
+    "label": "V11 carried_end · Complete reading",
+    "originDeclarations": []
+   }
+  },
+  "quiet_same": {
+   "afterImport": {
+    "adapted": false,
+    "label": "V11 quiet_same · Complete reading",
+    "draftEqualsPayload": true,
+    "originalEqualsPayload": true,
+    "changedRows": [],
+    "declarationsKept": true,
+    "renumberedCard": false
+   },
+   "afterReload": {
+    "adapted": false,
+    "storedAdapted": false,
+    "label": "V11 quiet_same · Complete reading",
+    "draftUnchanged": true
+   },
+   "download": {
+    "payloadDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "wcAdapted": false,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "reimport": {
+    "adapted": false,
+    "label": "V11 quiet_same · Complete reading",
+    "originDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ]
+   }
+  },
+  "quiet_groups": {
+   "afterImport": {
+    "adapted": false,
+    "label": "V11 quiet_groups · Complete reading",
+    "draftEqualsPayload": true,
+    "originalEqualsPayload": true,
+    "changedRows": [],
+    "declarationsKept": true,
+    "renumberedCard": false
+   },
+   "afterReload": {
+    "adapted": false,
+    "storedAdapted": false,
+    "label": "V11 quiet_groups · Complete reading",
+    "draftUnchanged": true
+   },
+   "download": {
+    "payloadDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "wcAdapted": false,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "reimport": {
+    "adapted": false,
+    "label": "V11 quiet_groups · Complete reading",
+    "originDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ]
+   }
+  },
+  "crlf_plain": {
+   "afterImport": {
+    "adapted": true,
+    "label": "V11 crlf_plain · Complete reading · Adapted",
+    "draftEqualsPayload": false,
+    "originalEqualsPayload": true,
+    "changedRows": [
+     [
+      "Oh my love we sing\r",
+      "Oh my love we sing"
+     ]
+    ],
+    "declarationsKept": true,
+    "renumberedCard": false
+   },
+   "afterReload": {
+    "adapted": true,
+    "storedAdapted": true,
+    "label": "V11 crlf_plain · Complete reading · Adapted",
+    "draftUnchanged": true
+   },
+   "download": {
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "reimport": {
+    "adapted": false,
+    "label": "V11 crlf_plain · Complete reading",
+    "originDeclarations": []
+   }
+  }
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "cand.A.mig_returns.import",
+   "claim": "state right after import (no edit)",
+   "observed": {
+    "adapted": true,
+    "label": "V11 mig_returns · Complete reading · Adapted",
+    "draftEqualsPayload": false,
+    "originalEqualsPayload": true,
+    "changedRows": [
+     [
+      "[SETUP — returns — 1.T3,2.T3]",
+      "[SETUP — returns — 1.T4,2.T4 — cut v2]"
+     ]
+    ],
+    "declarationsKept": true,
+    "renumberedCard": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.mig_returns.reload",
+   "claim": "state after a reload",
+   "observed": {
+    "adapted": true,
+    "storedAdapted": true,
+    "label": "V11 mig_returns · Complete reading · Adapted",
+    "draftUnchanged": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.mig_returns.download",
+   "claim": "the next working-copy download",
+   "observed": {
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.mig_returns.reimport",
+   "claim": "the downloaded file imported again",
+   "observed": {
+    "adapted": false,
+    "label": "V11 mig_returns · Complete reading",
+    "originDeclarations": []
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.carried_end.import",
+   "claim": "state right after import (no edit)",
+   "observed": {
+    "adapted": true,
+    "label": "V11 carried_end · Complete reading · Adapted",
+    "draftEqualsPayload": false,
+    "originalEqualsPayload": true,
+    "changedRows": [
+     [
+      "[SETUP — returns — 1.end,2.end]",
+      "[SETUP — returns — 1.end (carried across the word-cut change),2.end (carried across the word-cut change) — cut v2]"
+     ]
+    ],
+    "declarationsKept": true,
+    "renumberedCard": false
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.carried_end.reload",
+   "claim": "state after a reload",
+   "observed": {
+    "adapted": true,
+    "storedAdapted": true,
+    "label": "V11 carried_end · Complete reading · Adapted",
+    "draftUnchanged": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.carried_end.download",
+   "claim": "the next working-copy download",
+   "observed": {
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.carried_end.reimport",
+   "claim": "the downloaded file imported again",
+   "observed": {
+    "adapted": false,
+    "label": "V11 carried_end · Complete reading",
+    "originDeclarations": []
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.quiet_same.import",
+   "claim": "state right after import (no edit)",
+   "observed": {
+    "adapted": false,
+    "label": "V11 quiet_same · Complete reading",
+    "draftEqualsPayload": true,
+    "originalEqualsPayload": true,
+    "changedRows": [],
+    "declarationsKept": true,
+    "renumberedCard": false
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.quiet_same.reload",
+   "claim": "state after a reload",
+   "observed": {
+    "adapted": false,
+    "storedAdapted": false,
+    "label": "V11 quiet_same · Complete reading",
+    "draftUnchanged": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.quiet_same.download",
+   "claim": "the next working-copy download",
+   "observed": {
+    "payloadDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "wcAdapted": false,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.quiet_same.reimport",
+   "claim": "the downloaded file imported again",
+   "observed": {
+    "adapted": false,
+    "label": "V11 quiet_same · Complete reading",
+    "originDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ]
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.quiet_groups.import",
+   "claim": "state right after import (no edit)",
+   "observed": {
+    "adapted": false,
+    "label": "V11 quiet_groups · Complete reading",
+    "draftEqualsPayload": true,
+    "originalEqualsPayload": true,
+    "changedRows": [],
+    "declarationsKept": true,
+    "renumberedCard": false
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.quiet_groups.reload",
+   "claim": "state after a reload",
+   "observed": {
+    "adapted": false,
+    "storedAdapted": false,
+    "label": "V11 quiet_groups · Complete reading",
+    "draftUnchanged": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.quiet_groups.download",
+   "claim": "the next working-copy download",
+   "observed": {
+    "payloadDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "wcAdapted": false,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.quiet_groups.reimport",
+   "claim": "the downloaded file imported again",
+   "observed": {
+    "adapted": false,
+    "label": "V11 quiet_groups · Complete reading",
+    "originDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ]
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.crlf_plain.import",
+   "claim": "state right after import (no edit)",
+   "observed": {
+    "adapted": true,
+    "label": "V11 crlf_plain · Complete reading · Adapted",
+    "draftEqualsPayload": false,
+    "originalEqualsPayload": true,
+    "changedRows": [
+     [
+      "Oh my love we sing\r",
+      "Oh my love we sing"
+     ]
+    ],
+    "declarationsKept": true,
+    "renumberedCard": false
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.crlf_plain.reload",
+   "claim": "state after a reload",
+   "observed": {
+    "adapted": true,
+    "storedAdapted": true,
+    "label": "V11 crlf_plain · Complete reading · Adapted",
+    "draftUnchanged": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.crlf_plain.download",
+   "claim": "the next working-copy download",
+   "observed": {
+    "payloadDeclarations": [],
+    "wcAdapted": true,
+    "wcDeclarations": [
+     {
+      "token_cut": "probe",
+      "pronunciations": [
+       {
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "OW1"
+        ]
+       }
+      ],
+      "note": "v11 probe"
+     }
+    ],
+    "textEqualsDraft": true
+   },
+   "status": "info"
+  },
+  {
+   "id": "cand.A.crlf_plain.reimport",
+   "claim": "the downloaded file imported again",
+   "observed": {
+    "adapted": false,
+    "label": "V11 crlf_plain · Complete reading",
+    "originDeclarations": []
+   },
+   "status": "info"
+  }
+ ]
+}

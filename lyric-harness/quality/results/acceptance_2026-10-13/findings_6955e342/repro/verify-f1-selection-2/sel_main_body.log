@@ -1,0 +1,60 @@
+main.chatClick.top.body_caret_w|alk: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [63,63,"forward"] "I w|alk the line tonight" active=lyrics-draft
+   after  [63,63,"forward"] "I w|alk the line tonight" active=chat-input
+   want   [63,63]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":12,"reached":true,"sel":[63,63,"forward"]}
+   ZQ ->  {"at":63,"rowNow":"I wZQalk the line tonight"}
+   parsed {"returns":"1.T2, 2.end"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+main.chatClick.bottom.body_caret_w|alk: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [30,30,"forward"] "I w|alk the line tonight" active=lyrics-draft
+   after  [30,30,"forward"] "I w|alk the line tonight" active=chat-input
+   want   [30,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":12,"reached":true,"sel":[30,30,"forward"]}
+   ZQ ->  {"at":30,"rowNow":"I wZQalk the line tonight"}
+   parsed {"returns":"1.T2, 2.end"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+main.reviewKbd.top.body_caret_w|alk: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [63,63,"forward"] "I w|alk the line tonight" active=lyrics-draft
+   after  [63,63,"forward"] "I w|alk the line tonight" active=BODY
+   want   [63,63]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":23,"reached":true,"sel":[63,63,"forward"]}
+   ZQ ->  {"at":63,"rowNow":"I wZQalk the line tonight"}
+   parsed {"returns":"1.T2, 2.end"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+main.reviewKbd.bottom.body_caret_w|alk: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [30,30,"forward"] "I w|alk the line tonight" active=lyrics-draft
+   after  [30,30,"forward"] "I w|alk the line tonight" active=BODY
+   want   [30,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":23,"reached":true,"sel":[30,30,"forward"]}
+   ZQ ->  {"at":30,"rowNow":"I wZQalk the line tonight"}
+   parsed {"returns":"1.T2, 2.end"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+main.reviewClick.top.body_caret_w|alk: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [63,63,"forward"] "I w|alk the line tonight" active=lyrics-draft
+   after  [63,63,"forward"] "I w|alk the line tonight" active=BODY
+   want   [63,63]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":24,"reached":true,"sel":[63,63,"forward"]}
+   ZQ ->  {"at":63,"rowNow":"I wZQalk the line tonight"}
+   parsed {"returns":"1.T2, 2.end"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+main.reviewClick.bottom.body_caret_w|alk: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [30,30,"forward"] "I w|alk the line tonight" active=lyrics-draft
+   after  [30,30,"forward"] "I w|alk the line tonight" active=BODY
+   want   [30,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":24,"reached":true,"sel":[30,30,"forward"]}
+   ZQ ->  {"at":30,"rowNow":"I wZQalk the line tonight"}
+   parsed {"returns":"1.T2, 2.end"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]

@@ -1,0 +1,23 @@
+# verify-f1-selection-3 (adversarial re-check of c2) — started 2026-10-14T11:26:27Z
+git -C wt-695 diff --stat 67889851 61b6618a -- src scripts/build_html.js
+for t in wt-695 wt-61b wt-main; do (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$V/built-$t.html --quiet && cmp $V/built-$t.html $S/$t/codex.html); done
+cd $V && node sel.js cand ensure > sel_cand_ensure.log 2>&1
+node -e (refRange2 sanity table) > refcheck.log
+cd $V && node sel.js cand ensure > sel_cand_ensure.log 2>&1   (rerun with refRange2 reference)
+# sel.js gained RAW=1 (draft set without the typing refresh, for 61b/main controls) and an 'absent' guard for main
+cd $V && node sel.js cand click,send > sel_cand_click-send.log 2>&1
+cd $V && node sel.js c61b ensure,click,send > sel_c61b.log 2>&1
+cd $V && RAW=1 node sel.js c61b ensure,click,send > sel_c61b_raw.log 2>&1
+cd $V && node sel.js main ensure,click,send > sel_main.log 2>&1
+cd $V && for t in cand c61b main; do node diag.js $t > diag_$t.log 2>&1; done
+cd $V && node diag2.js cand > diag2_cand.log 2>&1 ; node diag2.js main > diag2_main.log 2>&1
+cd $V && node diag3.js cand > diag3_cand.log 2>&1
+cd $V && node micro.js > micro.log 2>&1
+cd $V && node diag4.js > diag4_cand.log 2>&1
+cd $V && node micro2.js > micro2.log 2>&1
+cd $V && node undo.js > undo_cand.log 2>&1
+cd $V && node undo.js > undo_cand.log 2>&1  (rerun with a 2nd Ctrl+Z)
+grep -c "lyEnsureTokenScheme|lyMapOffset|cut v2" wt-base/src/pages/lyrics.js ; git merge-base --is-ancestor fce4bf0f 8b1d2ad2
+cd $V && node sweep.js > sweep_cand.log 2>&1
+rm -f $V/built-wt-*.html ; rm -rf $V/library   (cleanup: each build was cmp-identical to its tree's codex.html; rebuild with the build line above to rerun)
+# check: git status --short in wt-695, wt-61b, wt-main, wt-base -> only untracked node_modules; no tracked file changed

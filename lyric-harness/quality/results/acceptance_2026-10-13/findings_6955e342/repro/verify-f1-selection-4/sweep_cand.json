@@ -1,0 +1,3897 @@
+{
+ "page": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-4/built-wt-695.html",
+ "rows": {
+  "RHY": {
+   "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+   "newRow": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+   "moved": [
+    {
+     "kind": "rhyme groups",
+     "word": "oh",
+     "n": 1,
+     "from": 2,
+     "to": 3
+    }
+   ],
+   "carried": [],
+   "blocked": [],
+   "firstChangedCol": 27,
+   "commonSuffix": 1,
+   "pageMiddleTarget": 44,
+   "members": [
+    {
+     "label": "m0:1.T2",
+     "kind": "changed-member",
+     "from": 24,
+     "to": 28,
+     "text": "1.T2",
+     "now": "1.T3",
+     "carets": 5,
+     "caretsOk": 4,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      24,
+      44
+     ],
+     "wholeSelRef": [
+      [
+       24,
+       24
+      ],
+      [
+       27,
+       28
+      ]
+     ]
+    },
+    {
+     "label": "m1:2.end",
+     "kind": "member",
+     "from": 29,
+     "to": 35,
+     "text": " 2.end",
+     "now": " 2.end",
+     "carets": 7,
+     "caretsOk": 1,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      44,
+      44
+     ],
+     "wholeSelRef": [
+      [
+       29,
+       29
+      ],
+      [
+       35,
+       44
+      ]
+     ]
+    }
+   ],
+   "sels": [
+    {
+     "label": "caret 2.|end",
+     "before": [
+      32,
+      32
+     ],
+     "page": [
+      44,
+      44
+     ],
+     "ref": [
+      [
+       32,
+       32
+      ],
+      [
+       32,
+       32
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, 2.|end]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+     "shownRef": "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+    },
+    {
+     "label": "sel 2.end",
+     "before": [
+      30,
+      35
+     ],
+     "page": [
+      44,
+      44
+     ],
+     "ref": [
+      [
+       30,
+       30
+      ],
+      [
+       35,
+       44
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, «2.end»]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+     "shownRef": "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+    },
+    {
+     "label": "caret 1.T|2",
+     "before": [
+      27,
+      27
+     ],
+     "page": [
+      27,
+      27
+     ],
+     "ref": [
+      [
+       27,
+       28
+      ],
+      [
+       27,
+       28
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — rhyme groups — 1.T|2, 2.end]",
+     "shownPage": "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]",
+     "shownRef": "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]"
+    },
+    {
+     "label": "sel 1.T2",
+     "before": [
+      24,
+      28
+     ],
+     "page": [
+      24,
+      44
+     ],
+     "ref": [
+      [
+       24,
+       24
+      ],
+      [
+       27,
+       28
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — «1.T2», 2.end]",
+     "shownPage": "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]",
+     "shownRef": "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+    }
+   ],
+   "positions": [
+    {
+     "col": 0,
+     "page": 0,
+     "lo": 0,
+     "hi": 0,
+     "ok": true,
+     "left": null,
+     "right": "head/head",
+     "shownBefore": "|[SETUP — rhyme groups — 1.T2, 2.end]",
+     "shownPage": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 1,
+     "page": 1,
+     "lo": 1,
+     "hi": 1,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[|SETUP — rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[|SETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 2,
+     "page": 2,
+     "lo": 2,
+     "hi": 2,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[S|ETUP — rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[S|ETUP — rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 3,
+     "page": 3,
+     "lo": 3,
+     "hi": 3,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SE|TUP — rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[SE|TUP — rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 4,
+     "page": 4,
+     "lo": 4,
+     "hi": 4,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SET|UP — rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[SET|UP — rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 5,
+     "page": 5,
+     "lo": 5,
+     "hi": 5,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETU|P — rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[SETU|P — rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 6,
+     "page": 6,
+     "lo": 6,
+     "hi": 6,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP| — rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP| — rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 7,
+     "page": 7,
+     "lo": 7,
+     "hi": 7,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP |— rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP |— rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 8,
+     "page": 8,
+     "lo": 8,
+     "hi": 8,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP —| rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP —| rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 9,
+     "page": 9,
+     "lo": 9,
+     "hi": 9,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — |rhyme groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — |rhyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 10,
+     "page": 10,
+     "lo": 10,
+     "hi": 10,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — r|hyme groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — r|hyme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 11,
+     "page": 11,
+     "lo": 11,
+     "hi": 11,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rh|yme groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rh|yme groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 12,
+     "page": 12,
+     "lo": 12,
+     "hi": 12,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhy|me groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhy|me groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 13,
+     "page": 13,
+     "lo": 13,
+     "hi": 13,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhym|e groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhym|e groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 14,
+     "page": 14,
+     "lo": 14,
+     "hi": 14,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme| groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme| groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 15,
+     "page": 15,
+     "lo": 15,
+     "hi": 15,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme |groups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme |groups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 16,
+     "page": 16,
+     "lo": 16,
+     "hi": 16,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme g|roups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme g|roups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 17,
+     "page": 17,
+     "lo": 17,
+     "hi": 17,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme gr|oups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme gr|oups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 18,
+     "page": 18,
+     "lo": 18,
+     "hi": 18,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme gro|ups — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme gro|ups — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 19,
+     "page": 19,
+     "lo": 19,
+     "hi": 19,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme grou|ps — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme grou|ps — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 20,
+     "page": 20,
+     "lo": 20,
+     "hi": 20,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme group|s — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme group|s — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 21,
+     "page": 21,
+     "lo": 21,
+     "hi": 21,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups| — 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme groups| — 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 22,
+     "page": 22,
+     "lo": 22,
+     "hi": 22,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups |— 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme groups |— 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 23,
+     "page": 23,
+     "lo": 23,
+     "hi": 23,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups —| 1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme groups —| 1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 24,
+     "page": 24,
+     "lo": 24,
+     "hi": 24,
+     "ok": true,
+     "left": "head/head",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — |1.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme groups — |1.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 25,
+     "page": 25,
+     "lo": 25,
+     "hi": 25,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 1|.T2, 2.end]",
+     "shownPage": "[SETUP — rhyme groups — 1|.T3, 2.end — cut v2]"
+    },
+    {
+     "col": 26,
+     "page": 26,
+     "lo": 26,
+     "hi": 26,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 1.|T2, 2.end]",
+     "shownPage": "[SETUP — rhyme groups — 1.|T3, 2.end — cut v2]"
+    },
+    {
+     "col": 27,
+     "page": 27,
+     "lo": 27,
+     "hi": 28,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T|2, 2.end]",
+     "shownPage": "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]"
+    },
+    {
+     "col": 28,
+     "page": 44,
+     "lo": 27,
+     "hi": 28,
+     "ok": false,
+     "left": "m0:1.T2/changed-member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2|, 2.end]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+    },
+    {
+     "col": 29,
+     "page": 44,
+     "lo": 29,
+     "hi": 29,
+     "ok": false,
+     "left": ",/sep",
+     "right": "m1:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2,| 2.end]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+    },
+    {
+     "col": 30,
+     "page": 44,
+     "lo": 30,
+     "hi": 30,
+     "ok": false,
+     "left": "m1:2.end/member",
+     "right": "m1:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, |2.end]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+    },
+    {
+     "col": 31,
+     "page": 44,
+     "lo": 31,
+     "hi": 31,
+     "ok": false,
+     "left": "m1:2.end/member",
+     "right": "m1:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, 2|.end]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+    },
+    {
+     "col": 32,
+     "page": 44,
+     "lo": 32,
+     "hi": 32,
+     "ok": false,
+     "left": "m1:2.end/member",
+     "right": "m1:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, 2.|end]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+    },
+    {
+     "col": 33,
+     "page": 44,
+     "lo": 33,
+     "hi": 33,
+     "ok": false,
+     "left": "m1:2.end/member",
+     "right": "m1:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, 2.e|nd]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+    },
+    {
+     "col": 34,
+     "page": 44,
+     "lo": 34,
+     "hi": 34,
+     "ok": false,
+     "left": "m1:2.end/member",
+     "right": "m1:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, 2.en|d]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+    },
+    {
+     "col": 35,
+     "page": 44,
+     "lo": 35,
+     "hi": 44,
+     "ok": true,
+     "left": "m1:2.end/member",
+     "right": "]/close",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, 2.end|]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]"
+    },
+    {
+     "col": 36,
+     "page": 45,
+     "lo": 45,
+     "hi": 45,
+     "ok": true,
+     "left": "]/close",
+     "right": null,
+     "shownBefore": "[SETUP — rhyme groups — 1.T2, 2.end]|",
+     "shownPage": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]|"
+    }
+   ]
+  },
+  "MANY": {
+   "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+   "newRow": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+   "moved": [
+    {
+     "kind": "rhyme groups",
+     "word": "oh",
+     "n": 1,
+     "from": 2,
+     "to": 3
+    }
+   ],
+   "carried": [],
+   "blocked": [],
+   "firstChangedCol": 36,
+   "commonSuffix": 1,
+   "pageMiddleTarget": 61,
+   "members": [
+    {
+     "label": "m0:2.end",
+     "kind": "member",
+     "from": 24,
+     "to": 29,
+     "text": "2.end",
+     "now": "2.end",
+     "carets": 6,
+     "caretsOk": 6,
+     "wholeSelOk": true,
+     "wholeSelPage": [
+      24,
+      29
+     ],
+     "wholeSelRef": [
+      [
+       24,
+       24
+      ],
+      [
+       29,
+       29
+      ]
+     ]
+    },
+    {
+     "label": "m1:4",
+     "kind": "member",
+     "from": 30,
+     "to": 31,
+     "text": "4",
+     "now": "4",
+     "carets": 2,
+     "caretsOk": 2,
+     "wholeSelOk": true,
+     "wholeSelPage": [
+      30,
+      31
+     ],
+     "wholeSelRef": [
+      [
+       30,
+       30
+      ],
+      [
+       31,
+       31
+      ]
+     ]
+    },
+    {
+     "label": "m2:1.T2",
+     "kind": "changed-member",
+     "from": 32,
+     "to": 37,
+     "text": " 1.T2",
+     "now": " 1.T3",
+     "carets": 6,
+     "caretsOk": 5,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      32,
+      61
+     ],
+     "wholeSelRef": [
+      [
+       32,
+       32
+      ],
+      [
+       36,
+       37
+      ]
+     ]
+    },
+    {
+     "label": "m3:3.T2",
+     "kind": "member",
+     "from": 38,
+     "to": 42,
+     "text": "3.T2",
+     "now": "3.T2",
+     "carets": 5,
+     "caretsOk": 0,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      61,
+      61
+     ],
+     "wholeSelRef": [
+      [
+       38,
+       38
+      ],
+      [
+       42,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "m4:5.end",
+     "kind": "member",
+     "from": 43,
+     "to": 49,
+     "text": " 5.end",
+     "now": " 5.end",
+     "carets": 7,
+     "caretsOk": 0,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      61,
+      61
+     ],
+     "wholeSelRef": [
+      [
+       43,
+       43
+      ],
+      [
+       49,
+       49
+      ]
+     ]
+    },
+    {
+     "label": "m5:6",
+     "kind": "member",
+     "from": 50,
+     "to": 52,
+     "text": " 6",
+     "now": " 6",
+     "carets": 3,
+     "caretsOk": 1,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      61,
+      61
+     ],
+     "wholeSelRef": [
+      [
+       50,
+       50
+      ],
+      [
+       52,
+       61
+      ]
+     ]
+    }
+   ],
+   "sels": [
+    {
+     "label": "caret 2.|end",
+     "before": [
+      26,
+      26
+     ],
+     "page": [
+      26,
+      26
+     ],
+     "ref": [
+      [
+       26,
+       26
+      ],
+      [
+       26,
+       26
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+     "shownRef": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "label": "sel 4",
+     "before": [
+      30,
+      31
+     ],
+     "page": [
+      30,
+      31
+     ],
+     "ref": [
+      [
+       30,
+       30
+      ],
+      [
+       31,
+       31
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]",
+     "shownRef": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "label": "sel 1.T2",
+     "before": [
+      33,
+      37
+     ],
+     "page": [
+      33,
+      61
+     ],
+     "ref": [
+      [
+       33,
+       33
+      ],
+      [
+       36,
+       37
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]",
+     "shownRef": "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "label": "sel 3.T2",
+     "before": [
+      38,
+      42
+     ],
+     "page": [
+      61,
+      61
+     ],
+     "ref": [
+      [
+       38,
+       38
+      ],
+      [
+       42,
+       42
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+     "shownRef": "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+    },
+    {
+     "label": "caret 5|.end",
+     "before": [
+      45,
+      45
+     ],
+     "page": [
+      61,
+      61
+     ],
+     "ref": [
+      [
+       45,
+       45
+      ],
+      [
+       45,
+       45
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+     "shownRef": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+    },
+    {
+     "label": "sel 6",
+     "before": [
+      51,
+      52
+     ],
+     "page": [
+      61,
+      61
+     ],
+     "ref": [
+      [
+       51,
+       51
+      ],
+      [
+       52,
+       61
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+     "shownRef": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+    }
+   ],
+   "positions": [
+    {
+     "col": 0,
+     "page": 0,
+     "lo": 0,
+     "hi": 0,
+     "ok": true,
+     "left": null,
+     "right": "head/head",
+     "shownBefore": "|[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 1,
+     "page": 1,
+     "lo": 1,
+     "hi": 1,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[|SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[|SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 2,
+     "page": 2,
+     "lo": 2,
+     "hi": 2,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[S|ETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[S|ETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 3,
+     "page": 3,
+     "lo": 3,
+     "hi": 3,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SE|TUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SE|TUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 4,
+     "page": 4,
+     "lo": 4,
+     "hi": 4,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SET|UP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SET|UP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 5,
+     "page": 5,
+     "lo": 5,
+     "hi": 5,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETU|P — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETU|P — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 6,
+     "page": 6,
+     "lo": 6,
+     "hi": 6,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP| — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP| — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 7,
+     "page": 7,
+     "lo": 7,
+     "hi": 7,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP |— rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP |— rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 8,
+     "page": 8,
+     "lo": 8,
+     "hi": 8,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP —| rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP —| rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 9,
+     "page": 9,
+     "lo": 9,
+     "hi": 9,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — |rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — |rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 10,
+     "page": 10,
+     "lo": 10,
+     "hi": 10,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — r|hyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — r|hyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 11,
+     "page": 11,
+     "lo": 11,
+     "hi": 11,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rh|yme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rh|yme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 12,
+     "page": 12,
+     "lo": 12,
+     "hi": 12,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhy|me groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhy|me groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 13,
+     "page": 13,
+     "lo": 13,
+     "hi": 13,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhym|e groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhym|e groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 14,
+     "page": 14,
+     "lo": 14,
+     "hi": 14,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme| groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme| groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 15,
+     "page": 15,
+     "lo": 15,
+     "hi": 15,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme |groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme |groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 16,
+     "page": 16,
+     "lo": 16,
+     "hi": 16,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme g|roups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme g|roups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 17,
+     "page": 17,
+     "lo": 17,
+     "hi": 17,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme gr|oups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme gr|oups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 18,
+     "page": 18,
+     "lo": 18,
+     "hi": 18,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme gro|ups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme gro|ups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 19,
+     "page": 19,
+     "lo": 19,
+     "hi": 19,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme grou|ps — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme grou|ps — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 20,
+     "page": 20,
+     "lo": 20,
+     "hi": 20,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme group|s — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme group|s — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 21,
+     "page": 21,
+     "lo": 21,
+     "hi": 21,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups| — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups| — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 22,
+     "page": 22,
+     "lo": 22,
+     "hi": 22,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups |— 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups |— 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 23,
+     "page": 23,
+     "lo": 23,
+     "hi": 23,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups —| 2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups —| 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 24,
+     "page": 24,
+     "lo": 24,
+     "hi": 24,
+     "ok": true,
+     "left": "head/head",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — |2.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — |2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 25,
+     "page": 25,
+     "lo": 25,
+     "hi": 25,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2|.end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2|.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 26,
+     "page": 26,
+     "lo": 26,
+     "hi": 26,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 27,
+     "page": 27,
+     "lo": 27,
+     "hi": 27,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.e|nd,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.e|nd,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 28,
+     "page": 28,
+     "lo": 28,
+     "hi": 28,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.en|d,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.en|d,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 29,
+     "page": 29,
+     "lo": 29,
+     "hi": 29,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — rhyme groups — 2.end|,4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end|,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 30,
+     "page": 30,
+     "lo": 30,
+     "hi": 30,
+     "ok": true,
+     "left": ",/sep",
+     "right": "m1:4/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,|4; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,|4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 31,
+     "page": 31,
+     "lo": 31,
+     "hi": 31,
+     "ok": true,
+     "left": "m1:4/member",
+     "right": ";/sep",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4|; 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4|; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 32,
+     "page": 32,
+     "lo": 32,
+     "hi": 32,
+     "ok": true,
+     "left": ";/sep",
+     "right": "m2:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4;| 1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4;| 1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 33,
+     "page": 33,
+     "lo": 33,
+     "hi": 33,
+     "ok": true,
+     "left": "m2:1.T2/changed-member",
+     "right": "m2:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; |1.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; |1.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 34,
+     "page": 34,
+     "lo": 34,
+     "hi": 34,
+     "ok": true,
+     "left": "m2:1.T2/changed-member",
+     "right": "m2:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1|.T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1|.T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 35,
+     "page": 35,
+     "lo": 35,
+     "hi": 35,
+     "ok": true,
+     "left": "m2:1.T2/changed-member",
+     "right": "m2:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.|T2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.|T3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 36,
+     "page": 36,
+     "lo": 36,
+     "hi": 37,
+     "ok": true,
+     "left": "m2:1.T2/changed-member",
+     "right": "m2:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T|2,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T|3,3.T2; 5.end, 6 — cut v2]"
+    },
+    {
+     "col": 37,
+     "page": 61,
+     "lo": 36,
+     "hi": 37,
+     "ok": false,
+     "left": "m2:1.T2/changed-member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2|,3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 38,
+     "page": 61,
+     "lo": 38,
+     "hi": 38,
+     "ok": false,
+     "left": ",/sep",
+     "right": "m3:3.T2/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,|3.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 39,
+     "page": 61,
+     "lo": 39,
+     "hi": 39,
+     "ok": false,
+     "left": "m3:3.T2/member",
+     "right": "m3:3.T2/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3|.T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 40,
+     "page": 61,
+     "lo": 40,
+     "hi": 40,
+     "ok": false,
+     "left": "m3:3.T2/member",
+     "right": "m3:3.T2/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.|T2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 41,
+     "page": 61,
+     "lo": 41,
+     "hi": 41,
+     "ok": false,
+     "left": "m3:3.T2/member",
+     "right": "m3:3.T2/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T|2; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 42,
+     "page": 61,
+     "lo": 42,
+     "hi": 42,
+     "ok": false,
+     "left": "m3:3.T2/member",
+     "right": ";/sep",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2|; 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 43,
+     "page": 61,
+     "lo": 43,
+     "hi": 43,
+     "ok": false,
+     "left": ";/sep",
+     "right": "m4:5.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2;| 5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 44,
+     "page": 61,
+     "lo": 44,
+     "hi": 44,
+     "ok": false,
+     "left": "m4:5.end/member",
+     "right": "m4:5.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; |5.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 45,
+     "page": 61,
+     "lo": 45,
+     "hi": 45,
+     "ok": false,
+     "left": "m4:5.end/member",
+     "right": "m4:5.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 46,
+     "page": 61,
+     "lo": 46,
+     "hi": 46,
+     "ok": false,
+     "left": "m4:5.end/member",
+     "right": "m4:5.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.|end, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 47,
+     "page": 61,
+     "lo": 47,
+     "hi": 47,
+     "ok": false,
+     "left": "m4:5.end/member",
+     "right": "m4:5.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.e|nd, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 48,
+     "page": 61,
+     "lo": 48,
+     "hi": 48,
+     "ok": false,
+     "left": "m4:5.end/member",
+     "right": "m4:5.end/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.en|d, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 49,
+     "page": 61,
+     "lo": 49,
+     "hi": 49,
+     "ok": false,
+     "left": "m4:5.end/member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end|, 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 50,
+     "page": 61,
+     "lo": 50,
+     "hi": 50,
+     "ok": false,
+     "left": ",/sep",
+     "right": "m5:6/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end,| 6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 51,
+     "page": 61,
+     "lo": 51,
+     "hi": 51,
+     "ok": false,
+     "left": "m5:6/member",
+     "right": "m5:6/member",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, |6]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 52,
+     "page": 61,
+     "lo": 52,
+     "hi": 61,
+     "ok": true,
+     "left": "m5:6/member",
+     "right": "]/close",
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6|]",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]"
+    },
+    {
+     "col": 53,
+     "page": 62,
+     "lo": 62,
+     "hi": 62,
+     "ok": true,
+     "left": "]/close",
+     "right": null,
+     "shownBefore": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]|",
+     "shownPage": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]|"
+    }
+   ]
+  },
+  "MANY_LAST": {
+   "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+   "newRow": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+   "moved": [
+    {
+     "kind": "returns",
+     "word": "oh",
+     "n": 1,
+     "from": 2,
+     "to": 3
+    }
+   ],
+   "carried": [],
+   "blocked": [],
+   "firstChangedCol": 49,
+   "commonSuffix": 2,
+   "pageMiddleTarget": 63,
+   "members": [
+    {
+     "label": "m0:2.end",
+     "kind": "member",
+     "from": 19,
+     "to": 24,
+     "text": "2.end",
+     "now": "2.end",
+     "carets": 6,
+     "caretsOk": 6,
+     "wholeSelOk": true,
+     "wholeSelPage": [
+      19,
+      24
+     ],
+     "wholeSelRef": [
+      [
+       19,
+       19
+      ],
+      [
+       24,
+       24
+      ]
+     ]
+    },
+    {
+     "label": "m1:4.end",
+     "kind": "member",
+     "from": 25,
+     "to": 31,
+     "text": " 4.end",
+     "now": " 4.end",
+     "carets": 7,
+     "caretsOk": 7,
+     "wholeSelOk": true,
+     "wholeSelPage": [
+      25,
+      31
+     ],
+     "wholeSelRef": [
+      [
+       25,
+       25
+      ],
+      [
+       31,
+       31
+      ]
+     ]
+    },
+    {
+     "label": "m2:5.end",
+     "kind": "member",
+     "from": 32,
+     "to": 38,
+     "text": " 5.end",
+     "now": " 5.end",
+     "carets": 7,
+     "caretsOk": 7,
+     "wholeSelOk": true,
+     "wholeSelPage": [
+      32,
+      38
+     ],
+     "wholeSelRef": [
+      [
+       32,
+       32
+      ],
+      [
+       38,
+       38
+      ]
+     ]
+    },
+    {
+     "label": "m3:6.end",
+     "kind": "member",
+     "from": 39,
+     "to": 44,
+     "text": "6.end",
+     "now": "6.end",
+     "carets": 6,
+     "caretsOk": 6,
+     "wholeSelOk": true,
+     "wholeSelPage": [
+      39,
+      44
+     ],
+     "wholeSelRef": [
+      [
+       39,
+       39
+      ],
+      [
+       44,
+       44
+      ]
+     ]
+    },
+    {
+     "label": "m4:1.T2",
+     "kind": "changed-member",
+     "from": 45,
+     "to": 50,
+     "text": " 1.T2",
+     "now": " 1.T3",
+     "carets": 6,
+     "caretsOk": 5,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      45,
+      63
+     ],
+     "wholeSelRef": [
+      [
+       45,
+       45
+      ],
+      [
+       49,
+       50
+      ]
+     ]
+    },
+    {
+     "label": "m5:4.T2",
+     "kind": "member",
+     "from": 51,
+     "to": 55,
+     "text": "4.T2",
+     "now": "4.T2",
+     "carets": 5,
+     "caretsOk": 1,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      63,
+      64
+     ],
+     "wholeSelRef": [
+      [
+       51,
+       51
+      ],
+      [
+       55,
+       64
+      ]
+     ]
+    }
+   ],
+   "sels": [
+    {
+     "label": "caret 2.e|nd",
+     "before": [
+      22,
+      22
+     ],
+     "page": [
+      22,
+      22
+     ],
+     "ref": [
+      [
+       22,
+       22
+      ],
+      [
+       22,
+       22
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+     "shownRef": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "label": "sel 6.end",
+     "before": [
+      39,
+      44
+     ],
+     "page": [
+      39,
+      44
+     ],
+     "ref": [
+      [
+       39,
+       39
+      ],
+      [
+       44,
+       44
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]",
+     "shownRef": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "label": "sel 4.T2",
+     "before": [
+      51,
+      55
+     ],
+     "page": [
+      63,
+      64
+     ],
+     "ref": [
+      [
+       51,
+       51
+      ],
+      [
+       55,
+       64
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]",
+     "shownRef": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+    },
+    {
+     "label": "caret 1.T|2",
+     "before": [
+      49,
+      49
+     ],
+     "page": [
+      49,
+      49
+     ],
+     "ref": [
+      [
+       49,
+       50
+      ],
+      [
+       49,
+       50
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]",
+     "shownRef": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]"
+    }
+   ],
+   "positions": [
+    {
+     "col": 0,
+     "page": 0,
+     "lo": 0,
+     "hi": 0,
+     "ok": true,
+     "left": null,
+     "right": "head/head",
+     "shownBefore": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 1,
+     "page": 1,
+     "lo": 1,
+     "hi": 1,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[|SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[|SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 2,
+     "page": 2,
+     "lo": 2,
+     "hi": 2,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[S|ETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[S|ETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 3,
+     "page": 3,
+     "lo": 3,
+     "hi": 3,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SE|TUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SE|TUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 4,
+     "page": 4,
+     "lo": 4,
+     "hi": 4,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SET|UP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SET|UP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 5,
+     "page": 5,
+     "lo": 5,
+     "hi": 5,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETU|P — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETU|P — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 6,
+     "page": 6,
+     "lo": 6,
+     "hi": 6,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP| — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP| — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 7,
+     "page": 7,
+     "lo": 7,
+     "hi": 7,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP |— returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP |— returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 8,
+     "page": 8,
+     "lo": 8,
+     "hi": 8,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP —| returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP —| returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 9,
+     "page": 9,
+     "lo": 9,
+     "hi": 9,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — |returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — |returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 10,
+     "page": 10,
+     "lo": 10,
+     "hi": 10,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — r|eturns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — r|eturns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 11,
+     "page": 11,
+     "lo": 11,
+     "hi": 11,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — re|turns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — re|turns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 12,
+     "page": 12,
+     "lo": 12,
+     "hi": 12,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — ret|urns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — ret|urns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 13,
+     "page": 13,
+     "lo": 13,
+     "hi": 13,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — retu|rns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — retu|rns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 14,
+     "page": 14,
+     "lo": 14,
+     "hi": 14,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — retur|ns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — retur|ns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 15,
+     "page": 15,
+     "lo": 15,
+     "hi": 15,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — return|s — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — return|s — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 16,
+     "page": 16,
+     "lo": 16,
+     "hi": 16,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — returns| — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns| — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 17,
+     "page": 17,
+     "lo": 17,
+     "hi": 17,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — returns |— 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns |— 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 18,
+     "page": 18,
+     "lo": 18,
+     "hi": 18,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — returns —| 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns —| 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 19,
+     "page": 19,
+     "lo": 19,
+     "hi": 19,
+     "ok": true,
+     "left": "head/head",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — returns — |2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — |2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 20,
+     "page": 20,
+     "lo": 20,
+     "hi": 20,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — returns — 2|.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2|.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 21,
+     "page": 21,
+     "lo": 21,
+     "hi": 21,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — returns — 2.|end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.|end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 22,
+     "page": 22,
+     "lo": 22,
+     "hi": 22,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 23,
+     "page": 23,
+     "lo": 23,
+     "hi": 23,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": "m0:2.end/member",
+     "shownBefore": "[SETUP — returns — 2.en|d, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.en|d, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 24,
+     "page": 24,
+     "lo": 24,
+     "hi": 24,
+     "ok": true,
+     "left": "m0:2.end/member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — returns — 2.end|, 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end|, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 25,
+     "page": 25,
+     "lo": 25,
+     "hi": 25,
+     "ok": true,
+     "left": ",/sep",
+     "right": "m1:4.end/member",
+     "shownBefore": "[SETUP — returns — 2.end,| 4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end,| 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 26,
+     "page": 26,
+     "lo": 26,
+     "hi": 26,
+     "ok": true,
+     "left": "m1:4.end/member",
+     "right": "m1:4.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, |4.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, |4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 27,
+     "page": 27,
+     "lo": 27,
+     "hi": 27,
+     "ok": true,
+     "left": "m1:4.end/member",
+     "right": "m1:4.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4|.end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4|.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 28,
+     "page": 28,
+     "lo": 28,
+     "hi": 28,
+     "ok": true,
+     "left": "m1:4.end/member",
+     "right": "m1:4.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.|end; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.|end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 29,
+     "page": 29,
+     "lo": 29,
+     "hi": 29,
+     "ok": true,
+     "left": "m1:4.end/member",
+     "right": "m1:4.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.e|nd; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.e|nd; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 30,
+     "page": 30,
+     "lo": 30,
+     "hi": 30,
+     "ok": true,
+     "left": "m1:4.end/member",
+     "right": "m1:4.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.en|d; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.en|d; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 31,
+     "page": 31,
+     "lo": 31,
+     "hi": 31,
+     "ok": true,
+     "left": "m1:4.end/member",
+     "right": ";/sep",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end|; 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end|; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 32,
+     "page": 32,
+     "lo": 32,
+     "hi": 32,
+     "ok": true,
+     "left": ";/sep",
+     "right": "m2:5.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end;| 5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end;| 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 33,
+     "page": 33,
+     "lo": 33,
+     "hi": 33,
+     "ok": true,
+     "left": "m2:5.end/member",
+     "right": "m2:5.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; |5.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; |5.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 34,
+     "page": 34,
+     "lo": 34,
+     "hi": 34,
+     "ok": true,
+     "left": "m2:5.end/member",
+     "right": "m2:5.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5|.end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5|.end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 35,
+     "page": 35,
+     "lo": 35,
+     "hi": 35,
+     "ok": true,
+     "left": "m2:5.end/member",
+     "right": "m2:5.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.|end,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.|end,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 36,
+     "page": 36,
+     "lo": 36,
+     "hi": 36,
+     "ok": true,
+     "left": "m2:5.end/member",
+     "right": "m2:5.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.e|nd,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.e|nd,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 37,
+     "page": 37,
+     "lo": 37,
+     "hi": 37,
+     "ok": true,
+     "left": "m2:5.end/member",
+     "right": "m2:5.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.en|d,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.en|d,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 38,
+     "page": 38,
+     "lo": 38,
+     "hi": 38,
+     "ok": true,
+     "left": "m2:5.end/member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end|,6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end|,6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 39,
+     "page": 39,
+     "lo": 39,
+     "hi": 39,
+     "ok": true,
+     "left": ",/sep",
+     "right": "m3:6.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,|6.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,|6.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 40,
+     "page": 40,
+     "lo": 40,
+     "hi": 40,
+     "ok": true,
+     "left": "m3:6.end/member",
+     "right": "m3:6.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6|.end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6|.end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 41,
+     "page": 41,
+     "lo": 41,
+     "hi": 41,
+     "ok": true,
+     "left": "m3:6.end/member",
+     "right": "m3:6.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.|end; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.|end; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 42,
+     "page": 42,
+     "lo": 42,
+     "hi": 42,
+     "ok": true,
+     "left": "m3:6.end/member",
+     "right": "m3:6.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.e|nd; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.e|nd; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 43,
+     "page": 43,
+     "lo": 43,
+     "hi": 43,
+     "ok": true,
+     "left": "m3:6.end/member",
+     "right": "m3:6.end/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.en|d; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.en|d; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 44,
+     "page": 44,
+     "lo": 44,
+     "hi": 44,
+     "ok": true,
+     "left": "m3:6.end/member",
+     "right": ";/sep",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end|; 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end|; 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 45,
+     "page": 45,
+     "lo": 45,
+     "hi": 45,
+     "ok": true,
+     "left": ";/sep",
+     "right": "m4:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end;| 1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end;| 1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 46,
+     "page": 46,
+     "lo": 46,
+     "hi": 46,
+     "ok": true,
+     "left": "m4:1.T2/changed-member",
+     "right": "m4:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; |1.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; |1.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 47,
+     "page": 47,
+     "lo": 47,
+     "hi": 47,
+     "ok": true,
+     "left": "m4:1.T2/changed-member",
+     "right": "m4:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1|.T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1|.T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 48,
+     "page": 48,
+     "lo": 48,
+     "hi": 48,
+     "ok": true,
+     "left": "m4:1.T2/changed-member",
+     "right": "m4:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.|T2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.|T3,4.T2 — cut v2]"
+    },
+    {
+     "col": 49,
+     "page": 49,
+     "lo": 49,
+     "hi": 50,
+     "ok": true,
+     "left": "m4:1.T2/changed-member",
+     "right": "m4:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]"
+    },
+    {
+     "col": 50,
+     "page": 63,
+     "lo": 49,
+     "hi": 50,
+     "ok": false,
+     "left": "m4:1.T2/changed-member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2|,4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v|2]"
+    },
+    {
+     "col": 51,
+     "page": 63,
+     "lo": 51,
+     "hi": 51,
+     "ok": false,
+     "left": ",/sep",
+     "right": "m5:4.T2/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,|4.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v|2]"
+    },
+    {
+     "col": 52,
+     "page": 63,
+     "lo": 52,
+     "hi": 52,
+     "ok": false,
+     "left": "m5:4.T2/member",
+     "right": "m5:4.T2/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4|.T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v|2]"
+    },
+    {
+     "col": 53,
+     "page": 63,
+     "lo": 53,
+     "hi": 53,
+     "ok": false,
+     "left": "m5:4.T2/member",
+     "right": "m5:4.T2/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.|T2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v|2]"
+    },
+    {
+     "col": 54,
+     "page": 63,
+     "lo": 54,
+     "hi": 54,
+     "ok": false,
+     "left": "m5:4.T2/member",
+     "right": "m5:4.T2/member",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T|2]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v|2]"
+    },
+    {
+     "col": 55,
+     "page": 64,
+     "lo": 55,
+     "hi": 64,
+     "ok": true,
+     "left": "m5:4.T2/member",
+     "right": "]/close",
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2|]",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2|]"
+    },
+    {
+     "col": 56,
+     "page": 65,
+     "lo": 65,
+     "hi": 65,
+     "ok": true,
+     "left": "]/close",
+     "right": null,
+     "shownBefore": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]|",
+     "shownPage": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]|"
+    }
+   ]
+  },
+  "BARE": {
+   "row": "[SETUP — rhyme groups — 1.T2,2]",
+   "newRow": "[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+   "moved": [
+    {
+     "kind": "rhyme groups",
+     "word": "oh",
+     "n": 1,
+     "from": 2,
+     "to": 3
+    }
+   ],
+   "carried": [],
+   "blocked": [],
+   "firstChangedCol": 27,
+   "commonSuffix": 2,
+   "pageMiddleTarget": 38,
+   "members": [
+    {
+     "label": "m0:1.T2",
+     "kind": "changed-member",
+     "from": 24,
+     "to": 28,
+     "text": "1.T2",
+     "now": "1.T3",
+     "carets": 5,
+     "caretsOk": 4,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      24,
+      38
+     ],
+     "wholeSelRef": [
+      [
+       24,
+       24
+      ],
+      [
+       27,
+       28
+      ]
+     ]
+    },
+    {
+     "label": "m1:2",
+     "kind": "member",
+     "from": 29,
+     "to": 30,
+     "text": "2",
+     "now": "2",
+     "carets": 2,
+     "caretsOk": 1,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      38,
+      39
+     ],
+     "wholeSelRef": [
+      [
+       29,
+       29
+      ],
+      [
+       30,
+       39
+      ]
+     ]
+    }
+   ],
+   "sels": [
+    {
+     "label": "caret |2 (bare)",
+     "before": [
+      29,
+      29
+     ],
+     "page": [
+      38,
+      38
+     ],
+     "ref": [
+      [
+       29,
+       29
+      ],
+      [
+       29,
+       29
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 1.T2,|2]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3,2 — cut v|2]",
+     "shownRef": "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+    },
+    {
+     "label": "sel 2 (bare)",
+     "before": [
+      29,
+      30
+     ],
+     "page": [
+      38,
+      39
+     ],
+     "ref": [
+      [
+       29,
+       29
+      ],
+      [
+       30,
+       39
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 1.T2,«2»]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]",
+     "shownRef": "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+    },
+    {
+     "label": "caret 2|] (bare)",
+     "before": [
+      30,
+      30
+     ],
+     "page": [
+      39,
+      39
+     ],
+     "ref": [
+      [
+       30,
+       39
+      ],
+      [
+       30,
+       39
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — rhyme groups — 1.T2,2|]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3,2 — cut v2|]",
+     "shownRef": "[SETUP — rhyme groups — 1.T3,2« — cut v2»]"
+    }
+   ],
+   "positions": [
+    {
+     "col": 0,
+     "page": 0,
+     "lo": 0,
+     "hi": 0,
+     "ok": true,
+     "left": null,
+     "right": "head/head",
+     "shownBefore": "|[SETUP — rhyme groups — 1.T2,2]",
+     "shownPage": "|[SETUP — rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 1,
+     "page": 1,
+     "lo": 1,
+     "hi": 1,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[|SETUP — rhyme groups — 1.T2,2]",
+     "shownPage": "[|SETUP — rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 2,
+     "page": 2,
+     "lo": 2,
+     "hi": 2,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[S|ETUP — rhyme groups — 1.T2,2]",
+     "shownPage": "[S|ETUP — rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 3,
+     "page": 3,
+     "lo": 3,
+     "hi": 3,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SE|TUP — rhyme groups — 1.T2,2]",
+     "shownPage": "[SE|TUP — rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 4,
+     "page": 4,
+     "lo": 4,
+     "hi": 4,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SET|UP — rhyme groups — 1.T2,2]",
+     "shownPage": "[SET|UP — rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 5,
+     "page": 5,
+     "lo": 5,
+     "hi": 5,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETU|P — rhyme groups — 1.T2,2]",
+     "shownPage": "[SETU|P — rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 6,
+     "page": 6,
+     "lo": 6,
+     "hi": 6,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP| — rhyme groups — 1.T2,2]",
+     "shownPage": "[SETUP| — rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 7,
+     "page": 7,
+     "lo": 7,
+     "hi": 7,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP |— rhyme groups — 1.T2,2]",
+     "shownPage": "[SETUP |— rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 8,
+     "page": 8,
+     "lo": 8,
+     "hi": 8,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP —| rhyme groups — 1.T2,2]",
+     "shownPage": "[SETUP —| rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 9,
+     "page": 9,
+     "lo": 9,
+     "hi": 9,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — |rhyme groups — 1.T2,2]",
+     "shownPage": "[SETUP — |rhyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 10,
+     "page": 10,
+     "lo": 10,
+     "hi": 10,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — r|hyme groups — 1.T2,2]",
+     "shownPage": "[SETUP — r|hyme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 11,
+     "page": 11,
+     "lo": 11,
+     "hi": 11,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rh|yme groups — 1.T2,2]",
+     "shownPage": "[SETUP — rh|yme groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 12,
+     "page": 12,
+     "lo": 12,
+     "hi": 12,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhy|me groups — 1.T2,2]",
+     "shownPage": "[SETUP — rhy|me groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 13,
+     "page": 13,
+     "lo": 13,
+     "hi": 13,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhym|e groups — 1.T2,2]",
+     "shownPage": "[SETUP — rhym|e groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 14,
+     "page": 14,
+     "lo": 14,
+     "hi": 14,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme| groups — 1.T2,2]",
+     "shownPage": "[SETUP — rhyme| groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 15,
+     "page": 15,
+     "lo": 15,
+     "hi": 15,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme |groups — 1.T2,2]",
+     "shownPage": "[SETUP — rhyme |groups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 16,
+     "page": 16,
+     "lo": 16,
+     "hi": 16,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme g|roups — 1.T2,2]",
+     "shownPage": "[SETUP — rhyme g|roups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 17,
+     "page": 17,
+     "lo": 17,
+     "hi": 17,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme gr|oups — 1.T2,2]",
+     "shownPage": "[SETUP — rhyme gr|oups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 18,
+     "page": 18,
+     "lo": 18,
+     "hi": 18,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme gro|ups — 1.T2,2]",
+     "shownPage": "[SETUP — rhyme gro|ups — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 19,
+     "page": 19,
+     "lo": 19,
+     "hi": 19,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme grou|ps — 1.T2,2]",
+     "shownPage": "[SETUP — rhyme grou|ps — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 20,
+     "page": 20,
+     "lo": 20,
+     "hi": 20,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme group|s — 1.T2,2]",
+     "shownPage": "[SETUP — rhyme group|s — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 21,
+     "page": 21,
+     "lo": 21,
+     "hi": 21,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups| — 1.T2,2]",
+     "shownPage": "[SETUP — rhyme groups| — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 22,
+     "page": 22,
+     "lo": 22,
+     "hi": 22,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups |— 1.T2,2]",
+     "shownPage": "[SETUP — rhyme groups |— 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 23,
+     "page": 23,
+     "lo": 23,
+     "hi": 23,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups —| 1.T2,2]",
+     "shownPage": "[SETUP — rhyme groups —| 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 24,
+     "page": 24,
+     "lo": 24,
+     "hi": 24,
+     "ok": true,
+     "left": "head/head",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — |1.T2,2]",
+     "shownPage": "[SETUP — rhyme groups — |1.T3,2 — cut v2]"
+    },
+    {
+     "col": 25,
+     "page": 25,
+     "lo": 25,
+     "hi": 25,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 1|.T2,2]",
+     "shownPage": "[SETUP — rhyme groups — 1|.T3,2 — cut v2]"
+    },
+    {
+     "col": 26,
+     "page": 26,
+     "lo": 26,
+     "hi": 26,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 1.|T2,2]",
+     "shownPage": "[SETUP — rhyme groups — 1.|T3,2 — cut v2]"
+    },
+    {
+     "col": 27,
+     "page": 27,
+     "lo": 27,
+     "hi": 28,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T|2,2]",
+     "shownPage": "[SETUP — rhyme groups — 1.T|3,2 — cut v2]"
+    },
+    {
+     "col": 28,
+     "page": 38,
+     "lo": 27,
+     "hi": 28,
+     "ok": false,
+     "left": "m0:1.T2/changed-member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2|,2]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3,2 — cut v|2]"
+    },
+    {
+     "col": 29,
+     "page": 38,
+     "lo": 29,
+     "hi": 29,
+     "ok": false,
+     "left": ",/sep",
+     "right": "m1:2/member",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2,|2]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3,2 — cut v|2]"
+    },
+    {
+     "col": 30,
+     "page": 39,
+     "lo": 30,
+     "hi": 39,
+     "ok": true,
+     "left": "m1:2/member",
+     "right": "]/close",
+     "shownBefore": "[SETUP — rhyme groups — 1.T2,2|]",
+     "shownPage": "[SETUP — rhyme groups — 1.T3,2 — cut v2|]"
+    },
+    {
+     "col": 31,
+     "page": 40,
+     "lo": 40,
+     "hi": 40,
+     "ok": true,
+     "left": "]/close",
+     "right": null,
+     "shownBefore": "[SETUP — rhyme groups — 1.T2,2]|",
+     "shownPage": "[SETUP — rhyme groups — 1.T3,2 — cut v2]|"
+    }
+   ]
+  },
+  "RET_BARE": {
+   "row": "[SETUP — returns — 1.T2,2]",
+   "newRow": "[SETUP — returns — 1.T3,2 — cut v2]",
+   "moved": [
+    {
+     "kind": "returns",
+     "word": "oh",
+     "n": 1,
+     "from": 2,
+     "to": 3
+    }
+   ],
+   "carried": [],
+   "blocked": [],
+   "firstChangedCol": 22,
+   "commonSuffix": 2,
+   "pageMiddleTarget": 33,
+   "members": [
+    {
+     "label": "m0:1.T2",
+     "kind": "changed-member",
+     "from": 19,
+     "to": 23,
+     "text": "1.T2",
+     "now": "1.T3",
+     "carets": 5,
+     "caretsOk": 4,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      19,
+      33
+     ],
+     "wholeSelRef": [
+      [
+       19,
+       19
+      ],
+      [
+       22,
+       23
+      ]
+     ]
+    },
+    {
+     "label": "m1:2",
+     "kind": "member",
+     "from": 24,
+     "to": 25,
+     "text": "2",
+     "now": "2",
+     "carets": 2,
+     "caretsOk": 1,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      33,
+      34
+     ],
+     "wholeSelRef": [
+      [
+       24,
+       24
+      ],
+      [
+       25,
+       34
+      ]
+     ]
+    }
+   ],
+   "sels": [
+    {
+     "label": "caret |2 (bare)",
+     "before": [
+      24,
+      24
+     ],
+     "page": [
+      33,
+      33
+     ],
+     "ref": [
+      [
+       24,
+       24
+      ],
+      [
+       24,
+       24
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — returns — 1.T2,|2]",
+     "shownPage": "[SETUP — returns — 1.T3,2 — cut v|2]",
+     "shownRef": "[SETUP — returns — 1.T3,|2 — cut v2]"
+    },
+    {
+     "label": "sel 2 (bare)",
+     "before": [
+      24,
+      25
+     ],
+     "page": [
+      33,
+      34
+     ],
+     "ref": [
+      [
+       24,
+       24
+      ],
+      [
+       25,
+       34
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — returns — 1.T2,«2»]",
+     "shownPage": "[SETUP — returns — 1.T3,2 — cut v«2»]",
+     "shownRef": "[SETUP — returns — 1.T3,«2 — cut v2»]"
+    },
+    {
+     "label": "caret 2|] (bare)",
+     "before": [
+      25,
+      25
+     ],
+     "page": [
+      34,
+      34
+     ],
+     "ref": [
+      [
+       25,
+       34
+      ],
+      [
+       25,
+       34
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — returns — 1.T2,2|]",
+     "shownPage": "[SETUP — returns — 1.T3,2 — cut v2|]",
+     "shownRef": "[SETUP — returns — 1.T3,2« — cut v2»]"
+    }
+   ],
+   "positions": [
+    {
+     "col": 0,
+     "page": 0,
+     "lo": 0,
+     "hi": 0,
+     "ok": true,
+     "left": null,
+     "right": "head/head",
+     "shownBefore": "|[SETUP — returns — 1.T2,2]",
+     "shownPage": "|[SETUP — returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 1,
+     "page": 1,
+     "lo": 1,
+     "hi": 1,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[|SETUP — returns — 1.T2,2]",
+     "shownPage": "[|SETUP — returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 2,
+     "page": 2,
+     "lo": 2,
+     "hi": 2,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[S|ETUP — returns — 1.T2,2]",
+     "shownPage": "[S|ETUP — returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 3,
+     "page": 3,
+     "lo": 3,
+     "hi": 3,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SE|TUP — returns — 1.T2,2]",
+     "shownPage": "[SE|TUP — returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 4,
+     "page": 4,
+     "lo": 4,
+     "hi": 4,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SET|UP — returns — 1.T2,2]",
+     "shownPage": "[SET|UP — returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 5,
+     "page": 5,
+     "lo": 5,
+     "hi": 5,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETU|P — returns — 1.T2,2]",
+     "shownPage": "[SETU|P — returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 6,
+     "page": 6,
+     "lo": 6,
+     "hi": 6,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP| — returns — 1.T2,2]",
+     "shownPage": "[SETUP| — returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 7,
+     "page": 7,
+     "lo": 7,
+     "hi": 7,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP |— returns — 1.T2,2]",
+     "shownPage": "[SETUP |— returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 8,
+     "page": 8,
+     "lo": 8,
+     "hi": 8,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP —| returns — 1.T2,2]",
+     "shownPage": "[SETUP —| returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 9,
+     "page": 9,
+     "lo": 9,
+     "hi": 9,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — |returns — 1.T2,2]",
+     "shownPage": "[SETUP — |returns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 10,
+     "page": 10,
+     "lo": 10,
+     "hi": 10,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — r|eturns — 1.T2,2]",
+     "shownPage": "[SETUP — r|eturns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 11,
+     "page": 11,
+     "lo": 11,
+     "hi": 11,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — re|turns — 1.T2,2]",
+     "shownPage": "[SETUP — re|turns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 12,
+     "page": 12,
+     "lo": 12,
+     "hi": 12,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — ret|urns — 1.T2,2]",
+     "shownPage": "[SETUP — ret|urns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 13,
+     "page": 13,
+     "lo": 13,
+     "hi": 13,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — retu|rns — 1.T2,2]",
+     "shownPage": "[SETUP — retu|rns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 14,
+     "page": 14,
+     "lo": 14,
+     "hi": 14,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — retur|ns — 1.T2,2]",
+     "shownPage": "[SETUP — retur|ns — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 15,
+     "page": 15,
+     "lo": 15,
+     "hi": 15,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — return|s — 1.T2,2]",
+     "shownPage": "[SETUP — return|s — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 16,
+     "page": 16,
+     "lo": 16,
+     "hi": 16,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — returns| — 1.T2,2]",
+     "shownPage": "[SETUP — returns| — 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 17,
+     "page": 17,
+     "lo": 17,
+     "hi": 17,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — returns |— 1.T2,2]",
+     "shownPage": "[SETUP — returns |— 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 18,
+     "page": 18,
+     "lo": 18,
+     "hi": 18,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — returns —| 1.T2,2]",
+     "shownPage": "[SETUP — returns —| 1.T3,2 — cut v2]"
+    },
+    {
+     "col": 19,
+     "page": 19,
+     "lo": 19,
+     "hi": 19,
+     "ok": true,
+     "left": "head/head",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — |1.T2,2]",
+     "shownPage": "[SETUP — returns — |1.T3,2 — cut v2]"
+    },
+    {
+     "col": 20,
+     "page": 20,
+     "lo": 20,
+     "hi": 20,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — 1|.T2,2]",
+     "shownPage": "[SETUP — returns — 1|.T3,2 — cut v2]"
+    },
+    {
+     "col": 21,
+     "page": 21,
+     "lo": 21,
+     "hi": 21,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — 1.|T2,2]",
+     "shownPage": "[SETUP — returns — 1.|T3,2 — cut v2]"
+    },
+    {
+     "col": 22,
+     "page": 22,
+     "lo": 22,
+     "hi": 23,
+     "ok": true,
+     "left": "m0:1.T2/changed-member",
+     "right": "m0:1.T2/changed-member",
+     "shownBefore": "[SETUP — returns — 1.T|2,2]",
+     "shownPage": "[SETUP — returns — 1.T|3,2 — cut v2]"
+    },
+    {
+     "col": 23,
+     "page": 33,
+     "lo": 22,
+     "hi": 23,
+     "ok": false,
+     "left": "m0:1.T2/changed-member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — returns — 1.T2|,2]",
+     "shownPage": "[SETUP — returns — 1.T3,2 — cut v|2]"
+    },
+    {
+     "col": 24,
+     "page": 33,
+     "lo": 24,
+     "hi": 24,
+     "ok": false,
+     "left": ",/sep",
+     "right": "m1:2/member",
+     "shownBefore": "[SETUP — returns — 1.T2,|2]",
+     "shownPage": "[SETUP — returns — 1.T3,2 — cut v|2]"
+    },
+    {
+     "col": 25,
+     "page": 34,
+     "lo": 25,
+     "hi": 34,
+     "ok": true,
+     "left": "m1:2/member",
+     "right": "]/close",
+     "shownBefore": "[SETUP — returns — 1.T2,2|]",
+     "shownPage": "[SETUP — returns — 1.T3,2 — cut v2|]"
+    },
+    {
+     "col": 26,
+     "page": 35,
+     "lo": 35,
+     "hi": 35,
+     "ok": true,
+     "left": "]/close",
+     "right": null,
+     "shownBefore": "[SETUP — returns — 1.T2,2]|",
+     "shownPage": "[SETUP — returns — 1.T3,2 — cut v2]|"
+    }
+   ]
+  },
+  "BARE_MID": {
+   "row": "[SETUP — rhyme groups — 3, 1.T2, 2]",
+   "newRow": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]",
+   "moved": [
+    {
+     "kind": "rhyme groups",
+     "word": "oh",
+     "n": 1,
+     "from": 2,
+     "to": 3
+    }
+   ],
+   "carried": [],
+   "blocked": [],
+   "firstChangedCol": 30,
+   "commonSuffix": 2,
+   "pageMiddleTarget": 42,
+   "members": [
+    {
+     "label": "m0:3",
+     "kind": "member",
+     "from": 24,
+     "to": 25,
+     "text": "3",
+     "now": "3",
+     "carets": 2,
+     "caretsOk": 2,
+     "wholeSelOk": true,
+     "wholeSelPage": [
+      24,
+      25
+     ],
+     "wholeSelRef": [
+      [
+       24,
+       24
+      ],
+      [
+       25,
+       25
+      ]
+     ]
+    },
+    {
+     "label": "m1:1.T2",
+     "kind": "changed-member",
+     "from": 26,
+     "to": 31,
+     "text": " 1.T2",
+     "now": " 1.T3",
+     "carets": 6,
+     "caretsOk": 5,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      26,
+      42
+     ],
+     "wholeSelRef": [
+      [
+       26,
+       26
+      ],
+      [
+       30,
+       31
+      ]
+     ]
+    },
+    {
+     "label": "m2:2",
+     "kind": "member",
+     "from": 32,
+     "to": 34,
+     "text": " 2",
+     "now": " 2",
+     "carets": 3,
+     "caretsOk": 1,
+     "wholeSelOk": false,
+     "wholeSelPage": [
+      42,
+      43
+     ],
+     "wholeSelRef": [
+      [
+       32,
+       32
+      ],
+      [
+       34,
+       43
+      ]
+     ]
+    }
+   ],
+   "sels": [
+    {
+     "label": "sel 3 (bare, first)",
+     "before": [
+      24,
+      25
+     ],
+     "page": [
+      24,
+      25
+     ],
+     "ref": [
+      [
+       24,
+       24
+      ],
+      [
+       25,
+       25
+      ]
+     ],
+     "ok": true,
+     "shownBefore": "[SETUP — rhyme groups — «3», 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]",
+     "shownRef": "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]"
+    },
+    {
+     "label": "sel 2 (bare, last)",
+     "before": [
+      33,
+      34
+     ],
+     "page": [
+      42,
+      43
+     ],
+     "ref": [
+      [
+       33,
+       33
+      ],
+      [
+       34,
+       43
+      ]
+     ],
+     "ok": false,
+     "shownBefore": "[SETUP — rhyme groups — 3, 1.T2, «2»]",
+     "shownPage": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v«2»]",
+     "shownRef": "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]"
+    }
+   ],
+   "positions": [
+    {
+     "col": 0,
+     "page": 0,
+     "lo": 0,
+     "hi": 0,
+     "ok": true,
+     "left": null,
+     "right": "head/head",
+     "shownBefore": "|[SETUP — rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "|[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 1,
+     "page": 1,
+     "lo": 1,
+     "hi": 1,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[|SETUP — rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[|SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 2,
+     "page": 2,
+     "lo": 2,
+     "hi": 2,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[S|ETUP — rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[S|ETUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 3,
+     "page": 3,
+     "lo": 3,
+     "hi": 3,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SE|TUP — rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[SE|TUP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 4,
+     "page": 4,
+     "lo": 4,
+     "hi": 4,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SET|UP — rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[SET|UP — rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 5,
+     "page": 5,
+     "lo": 5,
+     "hi": 5,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETU|P — rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[SETU|P — rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 6,
+     "page": 6,
+     "lo": 6,
+     "hi": 6,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP| — rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP| — rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 7,
+     "page": 7,
+     "lo": 7,
+     "hi": 7,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP |— rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP |— rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 8,
+     "page": 8,
+     "lo": 8,
+     "hi": 8,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP —| rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP —| rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 9,
+     "page": 9,
+     "lo": 9,
+     "hi": 9,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — |rhyme groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — |rhyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 10,
+     "page": 10,
+     "lo": 10,
+     "hi": 10,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — r|hyme groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — r|hyme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 11,
+     "page": 11,
+     "lo": 11,
+     "hi": 11,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rh|yme groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rh|yme groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 12,
+     "page": 12,
+     "lo": 12,
+     "hi": 12,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhy|me groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhy|me groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 13,
+     "page": 13,
+     "lo": 13,
+     "hi": 13,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhym|e groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhym|e groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 14,
+     "page": 14,
+     "lo": 14,
+     "hi": 14,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme| groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme| groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 15,
+     "page": 15,
+     "lo": 15,
+     "hi": 15,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme |groups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme |groups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 16,
+     "page": 16,
+     "lo": 16,
+     "hi": 16,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme g|roups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme g|roups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 17,
+     "page": 17,
+     "lo": 17,
+     "hi": 17,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme gr|oups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme gr|oups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 18,
+     "page": 18,
+     "lo": 18,
+     "hi": 18,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme gro|ups — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme gro|ups — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 19,
+     "page": 19,
+     "lo": 19,
+     "hi": 19,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme grou|ps — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme grou|ps — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 20,
+     "page": 20,
+     "lo": 20,
+     "hi": 20,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme group|s — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme group|s — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 21,
+     "page": 21,
+     "lo": 21,
+     "hi": 21,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups| — 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups| — 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 22,
+     "page": 22,
+     "lo": 22,
+     "hi": 22,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups |— 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups |— 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 23,
+     "page": 23,
+     "lo": 23,
+     "hi": 23,
+     "ok": true,
+     "left": "head/head",
+     "right": "head/head",
+     "shownBefore": "[SETUP — rhyme groups —| 3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups —| 3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 24,
+     "page": 24,
+     "lo": 24,
+     "hi": 24,
+     "ok": true,
+     "left": "head/head",
+     "right": "m0:3/member",
+     "shownBefore": "[SETUP — rhyme groups — |3, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups — |3, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 25,
+     "page": 25,
+     "lo": 25,
+     "hi": 25,
+     "ok": true,
+     "left": "m0:3/member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — rhyme groups — 3|, 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups — 3|, 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 26,
+     "page": 26,
+     "lo": 26,
+     "hi": 26,
+     "ok": true,
+     "left": ",/sep",
+     "right": "m1:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 3,| 1.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups — 3,| 1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 27,
+     "page": 27,
+     "lo": 27,
+     "hi": 27,
+     "ok": true,
+     "left": "m1:1.T2/changed-member",
+     "right": "m1:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 3, |1.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups — 3, |1.T3, 2 — cut v2]"
+    },
+    {
+     "col": 28,
+     "page": 28,
+     "lo": 28,
+     "hi": 28,
+     "ok": true,
+     "left": "m1:1.T2/changed-member",
+     "right": "m1:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 3, 1|.T2, 2]",
+     "shownPage": "[SETUP — rhyme groups — 3, 1|.T3, 2 — cut v2]"
+    },
+    {
+     "col": 29,
+     "page": 29,
+     "lo": 29,
+     "hi": 29,
+     "ok": true,
+     "left": "m1:1.T2/changed-member",
+     "right": "m1:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 3, 1.|T2, 2]",
+     "shownPage": "[SETUP — rhyme groups — 3, 1.|T3, 2 — cut v2]"
+    },
+    {
+     "col": 30,
+     "page": 30,
+     "lo": 30,
+     "hi": 31,
+     "ok": true,
+     "left": "m1:1.T2/changed-member",
+     "right": "m1:1.T2/changed-member",
+     "shownBefore": "[SETUP — rhyme groups — 3, 1.T|2, 2]",
+     "shownPage": "[SETUP — rhyme groups — 3, 1.T|3, 2 — cut v2]"
+    },
+    {
+     "col": 31,
+     "page": 42,
+     "lo": 30,
+     "hi": 31,
+     "ok": false,
+     "left": "m1:1.T2/changed-member",
+     "right": ",/sep",
+     "shownBefore": "[SETUP — rhyme groups — 3, 1.T2|, 2]",
+     "shownPage": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v|2]"
+    },
+    {
+     "col": 32,
+     "page": 42,
+     "lo": 32,
+     "hi": 32,
+     "ok": false,
+     "left": ",/sep",
+     "right": "m2:2/member",
+     "shownBefore": "[SETUP — rhyme groups — 3, 1.T2,| 2]",
+     "shownPage": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v|2]"
+    },
+    {
+     "col": 33,
+     "page": 42,
+     "lo": 33,
+     "hi": 33,
+     "ok": false,
+     "left": "m2:2/member",
+     "right": "m2:2/member",
+     "shownBefore": "[SETUP — rhyme groups — 3, 1.T2, |2]",
+     "shownPage": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v|2]"
+    },
+    {
+     "col": 34,
+     "page": 43,
+     "lo": 34,
+     "hi": 43,
+     "ok": true,
+     "left": "m2:2/member",
+     "right": "]/close",
+     "shownBefore": "[SETUP — rhyme groups — 3, 1.T2, 2|]",
+     "shownPage": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2|]"
+    },
+    {
+     "col": 35,
+     "page": 44,
+     "lo": 44,
+     "hi": 44,
+     "ok": true,
+     "left": "]/close",
+     "right": null,
+     "shownBefore": "[SETUP — rhyme groups — 3, 1.T2, 2]|",
+     "shownPage": "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]|"
+    }
+   ]
+  }
+ }
+}

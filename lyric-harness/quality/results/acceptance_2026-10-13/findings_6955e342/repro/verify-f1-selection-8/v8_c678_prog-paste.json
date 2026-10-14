@@ -1,0 +1,1184 @@
+{
+  "tree": "c678",
+  "head": null,
+  "runs": [
+    {
+      "method": "prog",
+      "path": "A_send",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "60a78dbb4ffb9dd7f1702b66992a173e665e821103ced0f513293bd00aaeeebe",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "prog",
+      "path": "B_remove",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.",
+        "Rhyme link removed. Undo restores it.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "ff93265fb6cd738c2cb36a3a19e4b1063457157a251fcc49b0570e5da1ebfa2c",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_send": [
+        "Rhyme link removed. Undo restores it.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "prog",
+      "path": "C_add",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor",
+        "C C · declared Any Line 5 · on ~ Line 7 · sea"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.",
+        "Rhyme link saved.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8;2,3;5,7"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8;2,3;5,7"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "9b441299bd2b5cb60bf83bae3a1e331808d67baed493b1301ccab84856ba82a1",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor",
+        "C C · declared Any Line 5 · on ~ Line 7 · sea"
+      ],
+      "toasts_after_send": [
+        "Rhyme link saved.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "prog",
+      "path": "D_returns",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — returns — 1.T5,4.T5 — cut v2]"
+      ],
+      "shown_after_input": [
+        "Line 1 · word 5 = Line 4 · word 5"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — returns — 1.T5,4.T5;6,9 — cut v2]"
+      ],
+      "shown_after_action": [
+        "Line 1 · word 5 = Line 4 · word 5",
+        "Line 6 = Line 9"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.",
+        "Placed return declared.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "returns": "1.T5,4.T5;6,9"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "returns": "1.T5,4.T5;6,9"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "ebde7be60ea56a59d9a639970c02cc63e20b6410c5df3ac417832dfc5451a9e2",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        },
+        {
+          "member": "4.T5",
+          "current_cut_word": "oh",
+          "earlier_cut_word": "oh"
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — returns — 1.T5,4.T5;6,9 — cut v2]"
+      ],
+      "shown_after_send": [
+        "Line 1 · word 5 = Line 4 · word 5",
+        "Line 6 = Line 9"
+      ],
+      "toasts_after_send": [
+        "Placed return declared.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "prog",
+      "path": "E_title",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]",
+        "[SETUP — title — Test title]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [
+        "Title set.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "title": "Test title",
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "title": "Test title",
+              "groups": "1.T5,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "f556b1b28843b29d3ff25f58bad91ed4f6eef5dceebbe935b355f5b99ab36fe6",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]",
+        "[SETUP — title — Test title]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [
+        "Title set.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "prog",
+      "path": "F_reload",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_before_reload": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "60a78dbb4ffb9dd7f1702b66992a173e665e821103ced0f513293bd00aaeeebe",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "prog",
+      "path": "G_B_reload",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_before_reload": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_action": [],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "ff93265fb6cd738c2cb36a3a19e4b1063457157a251fcc49b0570e5da1ebfa2c",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_send": [],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "prog",
+      "path": "H_dock",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "dock_context": {
+        "declarations": {
+          "groups": "1.T5,8;2,3"
+        },
+        "blocked": null
+      },
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "60a78dbb4ffb9dd7f1702b66992a173e665e821103ced0f513293bd00aaeeebe",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "paste",
+      "path": "A_send",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "60a78dbb4ffb9dd7f1702b66992a173e665e821103ced0f513293bd00aaeeebe",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "paste",
+      "path": "B_remove",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.",
+        "Rhyme link removed. Undo restores it.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "ff93265fb6cd738c2cb36a3a19e4b1063457157a251fcc49b0570e5da1ebfa2c",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_send": [
+        "Rhyme link removed. Undo restores it.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "paste",
+      "path": "C_add",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor",
+        "C C · declared Any Line 5 · on ~ Line 7 · sea"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.",
+        "Rhyme link saved.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8;2,3;5,7"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8;2,3;5,7"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "9b441299bd2b5cb60bf83bae3a1e331808d67baed493b1301ccab84856ba82a1",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor",
+        "C C · declared Any Line 5 · on ~ Line 7 · sea"
+      ],
+      "toasts_after_send": [
+        "Rhyme link saved.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "paste",
+      "path": "D_returns",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — returns — 1.T5,4.T5 — cut v2]"
+      ],
+      "shown_after_input": [
+        "Line 1 · word 5 = Line 4 · word 5"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — returns — 1.T5,4.T5;6,9 — cut v2]"
+      ],
+      "shown_after_action": [
+        "Line 1 · word 5 = Line 4 · word 5",
+        "Line 6 = Line 9"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.",
+        "Placed return declared.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "returns": "1.T5,4.T5;6,9"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "returns": "1.T5,4.T5;6,9"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "ebde7be60ea56a59d9a639970c02cc63e20b6410c5df3ac417832dfc5451a9e2",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        },
+        {
+          "member": "4.T5",
+          "current_cut_word": "oh",
+          "earlier_cut_word": "oh"
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — returns — 1.T5,4.T5;6,9 — cut v2]"
+      ],
+      "shown_after_send": [
+        "Line 1 · word 5 = Line 4 · word 5",
+        "Line 6 = Line 9"
+      ],
+      "toasts_after_send": [
+        "Placed return declared.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "paste",
+      "path": "E_title",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]",
+        "[SETUP — title — Test title]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [
+        "Title set.\nUndo"
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "title": "Test title",
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "title": "Test title",
+              "groups": "1.T5,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "f556b1b28843b29d3ff25f58bad91ed4f6eef5dceebbe935b355f5b99ab36fe6",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]",
+        "[SETUP — title — Test title]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [
+        "Title set.\nUndo"
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "paste",
+      "path": "F_reload",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_before_reload": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "60a78dbb4ffb9dd7f1702b66992a173e665e821103ced0f513293bd00aaeeebe",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "paste",
+      "path": "G_B_reload",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "rows_before_reload": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_action": [],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "ff93265fb6cd738c2cb36a3a19e4b1063457157a251fcc49b0570e5da1ebfa2c",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "toasts_after_send": [],
+      "renumbered_card_after_send": null,
+      "errors": []
+    },
+    {
+      "method": "paste",
+      "path": "H_dock",
+      "input": {
+        "equal": false
+      },
+      "input_note": "draft value differs from the fixture",
+      "rows_after_input": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_input": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_input": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "dock_context": {
+        "declarations": {
+          "groups": "1.T5,8;2,3"
+        },
+        "blocked": null
+      },
+      "rows_after_action": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_action": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_action": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "renumbered_card_after_action": null,
+      "send": {
+        "via": "click",
+        "n_calls": 1,
+        "declarations": [
+          {
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "lyric_context": [
+          {
+            "version": 1,
+            "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+            "declarations": {
+              "groups": "1.T5,8;2,3"
+            },
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "60a78dbb4ffb9dd7f1702b66992a173e665e821103ced0f513293bd00aaeeebe",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        ]
+      },
+      "sent_member_words": [
+        {
+          "member": "1.T5",
+          "current_cut_word": "love",
+          "earlier_cut_word": null
+        }
+      ],
+      "rows_after_send": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shown_after_send": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "toasts_after_send": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "renumbered_card_after_send": null,
+      "errors": []
+    }
+  ]
+}

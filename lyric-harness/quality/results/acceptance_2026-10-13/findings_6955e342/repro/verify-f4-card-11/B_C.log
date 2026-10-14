@@ -1,0 +1,18 @@
+[INFO] B.main.import: main: fresh working copy imported
+    observed: {"adapted":false,"label":"V11b · Complete reading"}
+[INFO] B.main.edit: main: after typing the returns row
+    observed: {"adapted":true,"label":"V11b · Complete reading · Adapted","firstRow":"[SETUP — returns — 1.T3,2.T3]"}
+[INFO] B.M: main download M (the realistic working copy holding an unmarked row)
+    observed: {"text":"[SETUP — returns — 1.T3,2.T3]\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love","payloadDeclarations":[],"wcAdapted":true,"wcDeclarations":[{"token_cut":"probe","pronunciations":[{"token":2,"word":"oh","phones":["OW1"]}],"note":"v11b probe"}]}
+[INFO] B.cand: M imported unedited into cand, then downloaded
+    observed: {"adapted":true,"label":"V11b · Complete reading · Adapted","changedRows":[["[SETUP — returns — 1.T3,2.T3]","[SETUP — returns — 1.T4,2.T4 — cut v2]"]],"redownload":{"payloadDeclarations":[],"wcAdapted":true,"wcDeclarations":[]}}
+[INFO] B.p61b: M imported unedited into p61b, then downloaded
+    observed: {"adapted":true,"label":"V11b · Complete reading · Adapted","changedRows":[["[SETUP — returns — 1.T3,2.T3]","[SETUP — returns — 1.T4,2.T4 — cut v2]"]],"redownload":{"payloadDeclarations":[],"wcAdapted":true,"wcDeclarations":[]}}
+[INFO] B.main: M imported unedited into main, then downloaded
+    observed: {"adapted":false,"label":"V11b · Complete reading","changedRows":[],"redownload":{"payloadDeclarations":[],"wcAdapted":false,"wcDeclarations":[]}}
+[INFO] B.base: M imported unedited into base, then downloaded
+    observed: {"adapted":false,"label":"V11b · Complete reading","changedRows":[],"redownload":{"payloadDeclarations":[],"wcAdapted":false,"wcDeclarations":[]}}
+[INFO] C.main: main: M imported
+    observed: {"adapted":false,"label":"V11b · Complete reading"}
+[INFO] C.cand: the same origin reloaded on the candidate (no edit)
+    observed: {"adapted":true,"storedAdapted":true,"label":"V11b · Complete reading · Adapted","firstRow":"[SETUP — returns — 1.T4,2.T4 — cut v2]","originalFirstRow":"[SETUP — returns — 1.T3,2.T3]","renumberedCard":true}

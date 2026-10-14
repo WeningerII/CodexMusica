@@ -1,0 +1,55 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:53d87f1d-cbf3-4f4e-8a32-b1f28c91e010",
+  "draftId": "draft:bb852f00-59f6-42d6-a14b-d2226cd9f7c2",
+  "createdAt": "2026-10-14T11:02:07.340Z",
+  "payload": {
+    "text": "Oh my love we sing\nWe bring it home tonight",
+    "title": "V11 crlf_plain",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": true,
+        "importedFromHandoffId": "handoff:07d4ee78-a100-492f-a6bf-ea1059513695",
+        "sourceDigest": "23fb5528c21e4a8e876a034e3a66b9c131942b91798d3a1d46559d84d4371053",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "token_cut": "probe",
+            "pronunciations": [
+              {
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ]
+              }
+            ],
+            "note": "v11 probe"
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          }
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "9b3cd95aa7caa04c07a6c7d6698f96522e78827a6a581a56c7e8fcf4813c48d8"
+}

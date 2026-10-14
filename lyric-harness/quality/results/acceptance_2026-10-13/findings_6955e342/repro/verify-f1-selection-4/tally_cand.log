@@ -1,0 +1,88 @@
+FAIL RET.top.U_in_2end            [27,27] -> [39,39] ref [[27,27],[27,27]]  [SETUP — returns — 1.T3, 2.end — cut v2|]
+FAIL RET.top.U_sel_2end           [25,30] -> [39,39] ref [[25,25],[30,39]]  [SETUP — returns — 1.T3, 2.end — cut v2|]
+FAIL RET.top.U_sel_2end_back      [25,30] -> [39,39] ref [[25,25],[30,39]]  [SETUP — returns — 1.T3, 2.end — cut v2|]
+OK   RET.top.C_in_T2              [22,22] -> [22,22] ref [[22,23],[22,23]]  [SETUP — returns — 1.T|3, 2.end — cut v2]
+FAIL RET.top.C_after_T2           [23,23] -> [39,39] ref [[22,23],[22,23]]  [SETUP — returns — 1.T3, 2.end — cut v2|]
+FAIL RET.top.C_sel_T2             [19,23] -> [19,39] ref [[19,19],[22,23]]  [SETUP — returns — «1.T3, 2.end — cut v2»]
+FAIL RET.bottom.U_in_2end         [166,166] -> [178,178] ref [[166,166],[166,166]]  [SETUP — returns — 1.T3, 2.end — cut v2|]
+FAIL RET.bottom.U_sel_2end        [164,169] -> [178,178] ref [[164,164],[169,178]]  [SETUP — returns — 1.T3, 2.end — cut v2|]
+FAIL RET.bottom.U_sel_2end_back   [164,169] -> [178,178] ref [[164,164],[169,178]]  [SETUP — returns — 1.T3, 2.end — cut v2|]
+OK   RET.bottom.C_in_T2           [161,161] -> [161,161] ref [[161,162],[161,162]]  [SETUP — returns — 1.T|3, 2.end — cut v2]
+FAIL RET.bottom.C_after_T2        [162,162] -> [178,178] ref [[161,162],[161,162]]  [SETUP — returns — 1.T3, 2.end — cut v2|]
+FAIL RET.bottom.C_sel_T2          [158,162] -> [158,178] ref [[158,158],[161,162]]  [SETUP — returns — «1.T3, 2.end — cut v2»]
+FAIL RHY.top.U_in_2end            [32,32] -> [44,44] ref [[32,32],[32,32]]  [SETUP — rhyme groups — 1.T3, 2.end — cut v2|]
+FAIL RHY.top.U_sel_2end           [30,35] -> [44,44] ref [[30,30],[35,44]]  [SETUP — rhyme groups — 1.T3, 2.end — cut v2|]
+OK   RHY.top.C_in_T2              [27,27] -> [27,27] ref [[27,28],[27,28]]  [SETUP — rhyme groups — 1.T|3, 2.end — cut v2]
+FAIL RHY.top.C_sel_T2             [24,28] -> [24,44] ref [[24,24],[27,28]]  [SETUP — rhyme groups — «1.T3, 2.end — cut v2»]
+FAIL RHY_BARE.top.U_before_2      [29,29] -> [38,38] ref [[29,29],[29,29]]  [SETUP — rhyme groups — 1.T3,2 — cut v|2]
+FAIL RHY_BARE.top.U_sel_2         [29,30] -> [38,39] ref [[29,29],[30,39]]  [SETUP — rhyme groups — 1.T3,2 — cut v«2»]
+OK   RHY_BARE.top.U_after_2       [30,30] -> [39,39] ref [[30,39],[30,39]]  [SETUP — rhyme groups — 1.T3,2 — cut v2|]
+OK   MANY.top.U_in_2end           [26,26] -> [26,26] ref [[26,26],[26,26]]  [SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]
+OK   MANY.top.U_sel_4             [30,31] -> [30,31] ref [[30,30],[31,31]]  [SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]
+FAIL MANY.top.U_sel_3T2           [38,42] -> [61,61] ref [[38,38],[42,42]]  [SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]
+FAIL MANY.top.U_in_5end           [45,45] -> [61,61] ref [[45,45],[45,45]]  [SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]
+FAIL MANY.top.U_sel_6             [51,52] -> [61,61] ref [[51,51],[52,61]]  [SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]
+FAIL MANY.top.C_sel_1T2           [33,37] -> [33,61] ref [[33,33],[36,37]]  [SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]
+OK   MANY_LAST.top.U_in_2end      [22,22] -> [22,22] ref [[22,22],[22,22]]  [SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]
+OK   MANY_LAST.top.U_sel_6end     [39,44] -> [39,44] ref [[39,39],[44,44]]  [SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]
+FAIL MANY_LAST.top.U_sel_4T2      [51,55] -> [63,64] ref [[51,51],[55,64]]  [SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]
+OK   MANY_LAST.top.C_in_1T2       [48,48] -> [48,48] ref [[48,48],[48,48]]  [SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.|T3,4.T2 — cut v2]
+FAIL CARRIED.top.U_in_2end        [28,28] -> [77,77] ref [[65,65],[65,65]]  [SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]
+FAIL CARRIED.top.U_sel_2end       [26,31] -> [77,77] ref [[63,63],[68,77]]  [SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]
+OK   CARRIED.top.C_in_1end        [21,21] -> [21,21] ref [[21,21],[21,21]]  [SETUP — returns — 1.|end (carried across the word-cut change), 2.end — cut v2]
+FAIL READ.top.U_sel_OW1           [58,61] -> [94,94] ref [[58,58],[61,61]]  [SETUP — reading — token 3 "oh" in "Oh--oh, oh my love" — OW1 — declared — source: me — cut v2|]
+FAIL READ.top.U_in_source         [78,78] -> [94,94] ref [[78,78],[78,78]]  [SETUP — reading — token 3 "oh" in "Oh--oh, oh my love" — OW1 — declared — source: me — cut v2|]
+FAIL READ.top.U_sel_me            [83,85] -> [94,94] ref [[83,83],[85,94]]  [SETUP — reading — token 3 "oh" in "Oh--oh, oh my love" — OW1 — declared — source: me — cut v2|]
+FAIL READ.top.C_sel_num           [25,26] -> [25,94] ref [[25,26],[25,26]]  [SETUP — reading — token «3 "oh" in "Oh--oh, oh my love" — OW1 — declared — source: me — cut v2»]
+{
+ "U": {
+  "n": 24,
+  "ok": 5,
+  "okIds": [
+   "RHY_BARE.top.U_after_2 (NOT before the first changed char: cols 30-30, first change at 27)",
+   "MANY.top.U_in_2end",
+   "MANY.top.U_sel_4",
+   "MANY_LAST.top.U_in_2end",
+   "MANY_LAST.top.U_sel_6end"
+  ],
+  "byKind": {
+   "returns": {
+    "n": 11,
+    "ok": 2
+   },
+   "rhyme groups": {
+    "n": 10,
+    "ok": 3
+   },
+   "reading": {
+    "n": 3,
+    "ok": 0
+   }
+  }
+ },
+ "C": {
+  "n": 12,
+  "ok": 5,
+  "okIds": [
+   "RET.top.C_in_T2",
+   "RET.bottom.C_in_T2",
+   "RHY.top.C_in_T2",
+   "MANY_LAST.top.C_in_1T2",
+   "CARRIED.top.C_in_1end"
+  ],
+  "byKind": {
+   "returns": {
+    "n": 8,
+    "ok": 4
+   },
+   "rhyme groups": {
+    "n": 3,
+    "ok": 1
+   },
+   "reading": {
+    "n": 1,
+    "ok": 0
+   }
+  }
+ }
+}

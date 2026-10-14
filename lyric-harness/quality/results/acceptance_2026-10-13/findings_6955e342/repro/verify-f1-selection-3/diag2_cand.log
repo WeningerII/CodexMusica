@@ -1,0 +1,6 @@
+wrapped 299
+{"ev":"focus","sel":[170,170]}
+{"ev":"blur","sel":[19,23]}
+{"fn":"lyEnsureTokenScheme","depth":1,"before":[19,23],"after":[19,39],"t":1685}
+{"fn":"lySubmitLyricsAction","depth":0,"before":[19,23],"after":[19,39],"t":1701}
+FINAL [0,0,"forward"] BODY

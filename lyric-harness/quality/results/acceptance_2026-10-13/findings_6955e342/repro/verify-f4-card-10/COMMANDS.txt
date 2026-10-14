@@ -1,0 +1,16 @@
+# verify-f4-card-10 — adversarial re-check of f4-card claim d4 ("Wording and tone are accurate")
+# All writes under this folder. No tracked file edited, nothing committed or pushed, no CHAT_SECRET used.
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; O=$S/h695/verify-f4-card-10
+for t in wt-695 wt-678 wt-61b wt-main wt-base; do git -C $S/$t rev-parse HEAD; git -C $S/$t status --short; grep -c 'renumbered to the current word cut|no longer listed|Review lists|lyRecordRenumbered' ...; done   # presence of card code per tree
+cd $S/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/built-wt-695.html --quiet ; cmp $O/built-wt-695.html $S/wt-695/codex.html
+diff -rq $O/library/code $S/wt-695/library/code -> every built chunk identical; tree additionally keeps analysis.71b110b249.js + generations.json (history). Built outputs deleted; tree roots served directly.
+cd $O && node v10.js cand > v10_cand.log 2>&1
+cd $O && node v10.js prev61b > v10_prev61b.log 2>&1   # control
+cd $O && node v10.js prev678 > v10_prev678.log 2>&1   # control
+cd $O && node v10.js main > v10_main.log 2>&1   # control
+cd $O && node v10.js base > v10_base.log 2>&1   # control
+cd $O && node v10b.js > v10b_cand.log 2>&1   # one-import overflow sweep N=10/20/30/100 (cand)
+cd $O && node v10c.js > v10c_cand.log 2>&1   # clean screenshots after toast; Library/txt mixing paths (cand)
+# Static checks (read-only): wt-695 src/pages/lyrics.js:468-541 (LY_RENUMBERED_ROOM, lyRecordRenumbered slice(0,40)/slice(0,4)/items.shift, lyMigrationToast "Review lists each one", lyRenumberedCheck "earlier one"), :922-927 lyLineRef, :4404-4406 lyItemRow (renders tone icon, title, where, text, actions; never category), :872-876 LY_TONES.note.icon='info'
+# grep -o "[a-zA-Z_]*\.category[^a-zA-Z_]" wt-695/codex.html -> no consumer of a Lyrics item's category in the shipped page
+# git status of every tree after the runs: only the pre-existing untracked node_modules symlinks (wt-678 also mcp/node_modules)

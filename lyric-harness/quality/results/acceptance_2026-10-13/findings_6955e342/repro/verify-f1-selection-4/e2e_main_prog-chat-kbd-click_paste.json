@@ -1,0 +1,3967 @@
+{
+ "tree": "main",
+ "page": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-4/built-wt-main.html",
+ "feed": "paste",
+ "cases": [
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   },
+   "after": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 32,
+    "row0": "[SETUP — rhyme groups — 1.T2, 2.ZQend]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2, 2.ZQend"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   },
+   "after": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 1.T2, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   },
+   "after": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 27,
+    "row0": "[SETUP — rhyme groups — 1.TZQ2, 2.end]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.TZQ2, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+   },
+   "after": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 2.end]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 26,
+    "row0": "[SETUP — rhyme groups — 2.ZQend,4; 1.T2,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.ZQend,4; 1.T2,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 2.end,ZQ; 1.T2,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,ZQ; 1.T2,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 2.end,4; ZQ,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; ZQ,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,ZQ; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,ZQ; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   },
+   "after": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 45,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5ZQ.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,3.T2; 5ZQ.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   },
+   "after": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 51,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,3.T2; 5.end, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 22,
+    "row0": "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.eZQnd, 4.end; 5.end,6.end; 1.T2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,ZQ; 1.T2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   },
+   "after": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 51,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 49,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.TZQ2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 29,
+    "row0": "[SETUP — rhyme groups — 1.T2,ZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,ZQ2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 29,
+    "row0": "[SETUP — rhyme groups — 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 1.T2,2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,2ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T2,|2]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — returns — 1.T2,ZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,ZQ2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T2,«2»]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — returns — 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T2,2|]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 25,
+    "row0": "[SETUP — returns — 1.T2,2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,2ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T2, 2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T2, 2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 1.T2, 2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 1.T2, 2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "prog",
+   "feed": "paste",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   },
+   "after": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]",
+    "row": "[SETUP — rhyme groups — 3, 1.T2, 2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T2, 2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 3, 1.T2, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "3, 1.T2, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   },
+   "after": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 32,
+    "row0": "[SETUP — rhyme groups — 1.T2, 2.ZQend]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2, 2.ZQend"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   },
+   "after": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 1.T2, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   },
+   "after": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 27,
+    "row0": "[SETUP — rhyme groups — 1.TZQ2, 2.end]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.TZQ2, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+   },
+   "after": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 2.end]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 26,
+    "row0": "[SETUP — rhyme groups — 2.ZQend,4; 1.T2,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.ZQend,4; 1.T2,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 2.end,ZQ; 1.T2,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,ZQ; 1.T2,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 2.end,4; ZQ,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; ZQ,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,ZQ; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,ZQ; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   },
+   "after": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 45,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5ZQ.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,3.T2; 5ZQ.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   },
+   "after": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 51,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,3.T2; 5.end, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 22,
+    "row0": "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.eZQnd, 4.end; 5.end,6.end; 1.T2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,ZQ; 1.T2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   },
+   "after": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 51,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 49,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.TZQ2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 29,
+    "row0": "[SETUP — rhyme groups — 1.T2,ZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,ZQ2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 29,
+    "row0": "[SETUP — rhyme groups — 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 1.T2,2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,2ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T2,|2]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — returns — 1.T2,ZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,ZQ2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T2,«2»]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — returns — 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — returns — 1.T2,2|]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 25,
+    "row0": "[SETUP — returns — 1.T2,2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,2ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T2, 2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T2, 2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 1.T2, 2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 1.T2, 2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "chat",
+   "feed": "paste",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   },
+   "after": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "focused": true,
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]",
+    "row": "[SETUP — rhyme groups — 3, 1.T2, 2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T2, 2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 3, 1.T2, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "3, 1.T2, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   },
+   "after": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 32,
+    "row0": "[SETUP — rhyme groups — 1.T2, 2.ZQend]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2, 2.ZQend"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   },
+   "after": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 1.T2, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   },
+   "after": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 27,
+    "row0": "[SETUP — rhyme groups — 1.TZQ2, 2.end]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.TZQ2, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+   },
+   "after": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 2.end]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 26,
+    "row0": "[SETUP — rhyme groups — 2.ZQend,4; 1.T2,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.ZQend,4; 1.T2,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 2.end,ZQ; 1.T2,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,ZQ; 1.T2,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 2.end,4; ZQ,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; ZQ,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,ZQ; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,ZQ; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   },
+   "after": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 45,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5ZQ.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,3.T2; 5ZQ.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   },
+   "after": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 51,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,3.T2; 5.end, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 22,
+    "row0": "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.eZQnd, 4.end; 5.end,6.end; 1.T2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,ZQ; 1.T2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   },
+   "after": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 51,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 49,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.TZQ2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 29,
+    "row0": "[SETUP — rhyme groups — 1.T2,ZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,ZQ2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 29,
+    "row0": "[SETUP — rhyme groups — 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 1.T2,2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,2ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T2,|2]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — returns — 1.T2,ZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,ZQ2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T2,«2»]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — returns — 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T2,2|]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 25,
+    "row0": "[SETUP — returns — 1.T2,2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,2ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T2, 2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T2, 2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 1.T2, 2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 1.T2, 2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "kbd",
+   "feed": "paste",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   },
+   "after": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]",
+    "row": "[SETUP — rhyme groups — 3, 1.T2, 2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T2, 2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 3, 1.T2, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "3, 1.T2, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   },
+   "after": {
+    "sel": [
+     32,
+     32,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 32,
+    "row0": "[SETUP — rhyme groups — 1.T2, 2.ZQend]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2, 2.ZQend"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "sel 2.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   },
+   "after": {
+    "sel": [
+     30,
+     35,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 1.T2, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   },
+   "after": {
+    "sel": [
+     27,
+     27,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 27,
+    "row0": "[SETUP — rhyme groups — 1.TZQ2, 2.end]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.TZQ2, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "RHY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+   },
+   "after": {
+    "sel": [
+     24,
+     28,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — «1.T2», 2.end]",
+    "row": "[SETUP — rhyme groups — 1.T2, 2.end]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2, 2.end"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 2.end]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 2.end"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "caret 2.|end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     26,
+     26,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 26,
+    "row0": "[SETUP — rhyme groups — 2.ZQend,4; 1.T2,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.ZQend,4; 1.T2,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 4",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     30,
+     31,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 2.end,ZQ; 1.T2,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,ZQ; 1.T2,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 1.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     33,
+     37,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 2.end,4; ZQ,3.T2; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; ZQ,3.T2; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 3.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   },
+   "after": {
+    "sel": [
+     38,
+     42,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 38,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,ZQ; 5.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,ZQ; 5.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "caret 5|.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   },
+   "after": {
+    "sel": [
+     45,
+     45,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 45,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5ZQ.end, 6]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,3.T2; 5ZQ.end, 6"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY",
+   "label": "sel 6",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   },
+   "after": {
+    "sel": [
+     51,
+     52,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]",
+    "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "2.end,4; 1.T2,3.T2; 5.end, 6"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 51,
+    "row0": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "2.end,4; 1.T2,3.T2; 5.end, ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "caret 2.e|nd",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     22,
+     22,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 22,
+    "row0": "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.eZQnd, 4.end; 5.end,6.end; 1.T2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "sel 6.end",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     39,
+     44,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 39,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,ZQ; 1.T2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "sel 4.T2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   },
+   "after": {
+    "sel": [
+     51,
+     55,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 51,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "MANY_LAST",
+   "label": "caret 1.T|2",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   },
+   "after": {
+    "sel": [
+     49,
+     49,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]",
+    "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "2.end, 4.end; 5.end,6.end; 1.T2,4.T2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 49,
+    "row0": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ2,4.T2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "2.end, 4.end; 5.end,6.end; 1.TZQ2,4.T2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     29,
+     29,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2,|2]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 29,
+    "row0": "[SETUP — rhyme groups — 1.T2,ZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,ZQ2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     29,
+     30,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2,«2»]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 29,
+    "row0": "[SETUP — rhyme groups — 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     30,
+     30,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 1.T2,2|]",
+    "row": "[SETUP — rhyme groups — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 30,
+    "row0": "[SETUP — rhyme groups — 1.T2,2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "1.T2,2ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "caret |2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,|2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     24,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T2,|2]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — returns — 1.T2,ZQ2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,ZQ2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "sel 2 (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,«2»]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T2,«2»]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — returns — 1.T2,ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "RET_BARE",
+   "label": "caret 2|] (bare)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — returns — 1.T2,2|]"
+   },
+   "after": {
+    "sel": [
+     25,
+     25,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — returns — 1.T2,2|]",
+    "row": "[SETUP — returns — 1.T2,2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "returns": "1.T2,2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 25,
+    "row0": "[SETUP — returns — 1.T2,2ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "returns": "1.T2,2ZQ"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "BARE_MID",
+   "label": "sel 3 (bare, first)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   },
+   "after": {
+    "sel": [
+     24,
+     25,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — «3», 1.T2, 2]",
+    "row": "[SETUP — rhyme groups — 3, 1.T2, 2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T2, 2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 24,
+    "row0": "[SETUP — rhyme groups — ZQ, 1.T2, 2]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "ZQ, 1.T2, 2"
+   },
+   "errors": []
+  },
+  {
+   "tree": "main",
+   "trig": "click",
+   "feed": "paste",
+   "row": "BARE_MID",
+   "label": "sel 2 (bare, last)",
+   "migratedBeforeBoundary": false,
+   "before": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   },
+   "after": {
+    "sel": [
+     33,
+     34,
+     "forward"
+    ],
+    "focused": false,
+    "shown": "[SETUP — rhyme groups — 3, 1.T2, «2»]",
+    "row": "[SETUP — rhyme groups — 3, 1.T2, 2]"
+   },
+   "migratedAtBoundary": false,
+   "requests": 1,
+   "sentDecl": [
+    {
+     "groups": "3, 1.T2, 2"
+    }
+   ],
+   "pagePrediction": null,
+   "predictionMatches": null,
+   "sameChars": true,
+   "typed": {
+    "at": 33,
+    "row0": "[SETUP — rhyme groups — 3, 1.T2, ZQ]",
+    "lineOfZQ": 1
+   },
+   "parseTyped": {
+    "groups": "3, 1.T2, ZQ"
+   },
+   "errors": []
+  }
+ ]
+}

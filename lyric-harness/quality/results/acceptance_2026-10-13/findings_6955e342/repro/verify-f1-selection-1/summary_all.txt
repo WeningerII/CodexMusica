@@ -1,0 +1,325 @@
+===== cand
+  replica: posts=1 rewroteAtSend=true errors=0
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight again" marked=3 rows=3
+  markedControl: posts=1 errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  noRowsControl: posts=1 errors=0
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=0
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=0
+  pasteTypeSend: posts=1 errors=0
+     pasted: "I walk the line tonight" marked=0 rows=3
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ4: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ5: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ6: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ7: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ8: "I walk the line tonight again" marked=3 rows=3
+  dockSend: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  dockSendMarked: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  runReviewClick: buttons=2 posts=1 rewroteAtSend=true errors=0
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight again" marked=3 rows=3
+  afterRewrite: posts=1 errors=0
+     appUndo1: "I walk the line tonight" marked=0 rows=3
+     appUndo2: null marked=0 rows=0
+     ctrlZ1: "I walk the line tonight again mor" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight again mo" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight again m" marked=3 rows=3
+     ctrlZ4: "I walk the line tonight again " marked=3 rows=3
+     ctrlZ5: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ6: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ7: "I walk the line tonight again" marked=3 rows=3
+  appUndoThenCtrlZ:  errors=0
+     afterAppUndo: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ1: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ2: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+  importTxtThenCtrlZ:  errors=0
+     afterImport: "I walk the line tonight" marked=0 rows=0
+     ctrlZ1: "I walk the line tonight" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight" marked=0 rows=0
+===== main
+  replica: posts=1 rewroteAtSend=false errors=0
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=0 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=3
+  markedControl: posts=1 errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  noRowsControl: posts=1 errors=0
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=0
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=0
+  pasteTypeSend: posts=1 errors=0
+     pasted: "I walk the line tonight" marked=0 rows=3
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=0 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=3
+     ctrlZ4: "I walk the line tonight a" marked=0 rows=3
+     ctrlZ5: "I walk the line tonight " marked=0 rows=3
+     ctrlZ6: "I walk the line tonight" marked=0 rows=3
+     ctrlZ7: null marked=0 rows=0
+     ctrlZ8: null marked=0 rows=0
+  dockSend: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  dockSendMarked: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  runReviewClick: buttons=2 posts=1 rewroteAtSend=false errors=0
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=0 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=3
+  afterRewrite: posts=1 errors=0
+     appUndo1: "I walk the line tonight" marked=0 rows=3
+     appUndo2: null marked=0 rows=0
+     ctrlZ1: "I walk the line tonight again mor" marked=0 rows=3
+     ctrlZ2: "I walk the line tonight again mo" marked=0 rows=3
+     ctrlZ3: "I walk the line tonight again m" marked=0 rows=3
+     ctrlZ4: "I walk the line tonight again " marked=0 rows=3
+     ctrlZ5: "I walk the line tonight again" marked=0 rows=3
+     ctrlZ6: "I walk the line tonight agai" marked=0 rows=3
+     ctrlZ7: "I walk the line tonight aga" marked=0 rows=3
+  appUndoThenCtrlZ:  errors=0
+     afterAppUndo: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ1: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ2: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+  importTxtThenCtrlZ:  errors=0
+     afterImport: "I walk the line tonight" marked=0 rows=0
+     ctrlZ1: "I walk the line tonight" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight" marked=0 rows=0
+===== base
+  replica: posts=1 rewroteAtSend=false errors=0
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=0 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=3
+  markedControl: posts=1 errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  noRowsControl: posts=1 errors=0
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=0
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=0
+  pasteTypeSend: posts=1 errors=0
+     pasted: "I walk the line tonight" marked=0 rows=3
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=0 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=3
+     ctrlZ4: "I walk the line tonight a" marked=0 rows=3
+     ctrlZ5: "I walk the line tonight " marked=0 rows=3
+     ctrlZ6: "I walk the line tonight" marked=0 rows=3
+     ctrlZ7: null marked=0 rows=0
+     ctrlZ8: null marked=0 rows=0
+  dockSend: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  dockSendMarked: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  runReviewClick: buttons=2 posts=1 rewroteAtSend=false errors=0
+     typed: "I walk the line tonight again" marked=0 rows=3
+     sent: "I walk the line tonight again" marked=0 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=3
+  afterRewrite: posts=1 errors=0
+     appUndo1: "I walk the line tonight" marked=0 rows=3
+     appUndo2: null marked=0 rows=0
+     ctrlZ1: "I walk the line tonight again mor" marked=0 rows=3
+     ctrlZ2: "I walk the line tonight again mo" marked=0 rows=3
+     ctrlZ3: "I walk the line tonight again m" marked=0 rows=3
+     ctrlZ4: "I walk the line tonight again " marked=0 rows=3
+     ctrlZ5: "I walk the line tonight again" marked=0 rows=3
+     ctrlZ6: "I walk the line tonight agai" marked=0 rows=3
+     ctrlZ7: "I walk the line tonight aga" marked=0 rows=3
+  appUndoThenCtrlZ:  errors=0
+     afterAppUndo: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ1: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ2: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+  importTxtThenCtrlZ:  errors=0
+     afterImport: "I walk the line tonight" marked=0 rows=0
+     ctrlZ1: "I walk the line tonight" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight" marked=0 rows=0
+===== c61b
+  replica: posts=1 rewroteAtSend=false errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  markedControl: posts=1 errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  noRowsControl: posts=1 errors=0
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=0
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=0
+  pasteTypeSend: posts=1 errors=0
+     pasted: "I walk the line tonight" marked=3 rows=3
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+     ctrlZ4: "I walk the line tonight a" marked=3 rows=3
+     ctrlZ5: "I walk the line tonight " marked=3 rows=3
+     ctrlZ6: "I walk the line tonight" marked=3 rows=3
+     ctrlZ7: "I walk the line tonight" marked=3 rows=3
+     ctrlZ8: "I walk the line tonight" marked=3 rows=3
+  dockSend: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  dockSendMarked: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  runReviewClick: buttons=2 posts=1 rewroteAtSend=false errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  afterRewrite: posts=1 errors=0
+     appUndo1: "I walk the line tonight" marked=3 rows=3
+     appUndo2: null marked=0 rows=0
+     ctrlZ1: "I walk the line tonight again mor" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight again mo" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight again m" marked=3 rows=3
+     ctrlZ4: "I walk the line tonight again " marked=3 rows=3
+     ctrlZ5: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ6: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ7: "I walk the line tonight aga" marked=3 rows=3
+  appUndoThenCtrlZ:  errors=0
+     afterAppUndo: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ1: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ2: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+  importTxtThenCtrlZ:  errors=0
+     afterImport: "I walk the line tonight" marked=0 rows=0
+     ctrlZ1: "I walk the line tonight" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight" marked=0 rows=0
+===== c678
+  replica: posts=1 rewroteAtSend=false errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  markedControl: posts=1 errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  noRowsControl: posts=1 errors=0
+     ctrlZ1: "I walk the line tonight agai" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight aga" marked=0 rows=0
+     ctrlZ3: "I walk the line tonight ag" marked=0 rows=0
+  pasteTypeSend: posts=1 errors=0
+     pasted: "I walk the line tonight" marked=3 rows=3
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+     ctrlZ4: "I walk the line tonight a" marked=3 rows=3
+     ctrlZ5: "I walk the line tonight " marked=3 rows=3
+     ctrlZ6: "I walk the line tonight" marked=3 rows=3
+     ctrlZ7: "I walk the line tonight" marked=3 rows=3
+     ctrlZ8: "I walk the line tonight" marked=3 rows=3
+  dockSend: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  dockSendMarked: THREW page.selectOption: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('#chat-domain')[22m
+[2m    - locator resolved to <select id="chat-domain" aria-label="Task" class="btn btn-secondary">…</select>[22m
+[2m  - attempting select option action[22m
+[2m    2 × waiting for element to b
+  runReviewClick: buttons=2 posts=1 rewroteAtSend=false errors=0
+     typed: "I walk the line tonight again" marked=3 rows=3
+     sent: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ1: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight aga" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight ag" marked=3 rows=3
+  afterRewrite: posts=1 errors=0
+     appUndo1: "I walk the line tonight" marked=3 rows=3
+     appUndo2: null marked=0 rows=0
+     ctrlZ1: "I walk the line tonight again mor" marked=3 rows=3
+     ctrlZ2: "I walk the line tonight again mo" marked=3 rows=3
+     ctrlZ3: "I walk the line tonight again m" marked=3 rows=3
+     ctrlZ4: "I walk the line tonight again " marked=3 rows=3
+     ctrlZ5: "I walk the line tonight again" marked=3 rows=3
+     ctrlZ6: "I walk the line tonight agai" marked=3 rows=3
+     ctrlZ7: "I walk the line tonight aga" marked=3 rows=3
+  appUndoThenCtrlZ:  errors=0
+     afterAppUndo: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ1: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+     ctrlZ2: ["I walk the line tonight again","Well-worn shoes upon the floor"]
+  importTxtThenCtrlZ:  errors=0
+     afterImport: "I walk the line tonight" marked=0 rows=0
+     ctrlZ1: "I walk the line tonight" marked=0 rows=0
+     ctrlZ2: "I walk the line tonight" marked=0 rows=0

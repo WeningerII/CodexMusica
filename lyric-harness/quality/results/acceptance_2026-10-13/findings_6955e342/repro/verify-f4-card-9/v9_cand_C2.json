@@ -1,0 +1,56 @@
+{
+ "tree": "cand",
+ "scen": {
+  "C2": {
+   "afterReview": {
+    "lyTab": "review",
+    "boxVisible": true,
+    "localOpen": false,
+    "summaryText": "Local checks 2",
+    "summaryVisible": true,
+    "summaryRect": {
+     "top": 898,
+     "h": 22
+    },
+    "cardInDom": true,
+    "cardVisible": false,
+    "cardRect": {
+     "top": 1154,
+     "h": 238
+    },
+    "paneInnerTextHasCard": false,
+    "paneTextContentHasCard": true,
+    "cardInItems": true,
+    "metaEntries": 2,
+    "runItems": [
+     "standing:0",
+     "stopped"
+    ],
+    "localItems": [
+     "count:0",
+     "renumbered"
+    ],
+    "hasRun": true,
+    "viewport": 900,
+    "reviewTab": "Review"
+   },
+   "afterClick": {
+    "open": true,
+    "sum": "Local checks 2"
+   },
+   "afterTyping": {
+    "open": false,
+    "sum": "Local checks 2"
+   },
+   "reopened": {
+    "open": true,
+    "sum": "Local checks 2"
+   },
+   "afterTabSwitch": {
+    "open": false,
+    "sum": "Local checks 2"
+   }
+  }
+ },
+ "pageErrors": []
+}

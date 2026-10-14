@@ -1,0 +1,396 @@
+{
+  "label": "main",
+  "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main",
+  "page": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-2/built/built-wt-main.html",
+  "browser": "141.0.7390.37",
+  "cases": [
+    {
+      "id": "main.chatClick.top.body_caret_w|alk",
+      "doc_row_at": 0,
+      "set": [
+        63,
+        63,
+        1
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        63,
+        63
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 12,
+        "reached": true,
+        "sel": [
+          63,
+          63,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 63,
+        "rowNow": "I wZQalk the line tonight"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.chatClick.bottom.body_caret_w|alk",
+      "doc_row_at": 139,
+      "set": [
+        30,
+        30,
+        1
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "menuButton": 1,
+      "editItem": 1,
+      "openedByClick": true,
+      "activeAfterOpen": "chat-input",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "chat-input"
+      },
+      "sameCharsWant": [
+        30,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 12,
+        "reached": true,
+        "sel": [
+          30,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 30,
+        "rowNow": "I wZQalk the line tonight"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewKbd.top.body_caret_w|alk",
+      "doc_row_at": 0,
+      "set": [
+        63,
+        63,
+        1
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        63,
+        63
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 23,
+        "reached": true,
+        "sel": [
+          63,
+          63,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 63,
+        "rowNow": "I wZQalk the line tonight"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewKbd.bottom.body_caret_w|alk",
+      "doc_row_at": 139,
+      "set": [
+        30,
+        30,
+        1
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "activeOnButton": "ly-run-review",
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        30,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 23,
+        "reached": true,
+        "sel": [
+          30,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 30,
+        "rowNow": "I wZQalk the line tonight"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewClick.top.body_caret_w|alk",
+      "doc_row_at": 0,
+      "set": [
+        63,
+        63,
+        1
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        63,
+        63
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 24,
+        "reached": true,
+        "sel": [
+          63,
+          63,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 63,
+        "rowNow": "I wZQalk the line tonight"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        },
+        "refusal": null
+      },
+      "errors": []
+    },
+    {
+      "id": "main.reviewClick.bottom.body_caret_w|alk",
+      "doc_row_at": 139,
+      "set": [
+        30,
+        30,
+        1
+      ],
+      "pasteKeptBytes": true,
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "lyrics-draft",
+        "sameText": true
+      },
+      "keysPlacedAsIntended": true,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "rowAfter": "[SETUP — returns — 1.T2, 2.end]",
+      "after": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "active": "BODY"
+      },
+      "sameCharsWant": [
+        30,
+        30
+      ],
+      "sameChars": true,
+      "pageMapPredicted": null,
+      "returnByShiftTab": {
+        "hops": 24,
+        "reached": true,
+        "sel": [
+          30,
+          30,
+          "forward"
+        ]
+      },
+      "typedZQ": {
+        "at": 30,
+        "rowNow": "I wZQalk the line tonight"
+      },
+      "parsedAfterTyping": {
+        "declarations": {
+          "returns": "1.T2, 2.end"
+        },
+        "refusal": null
+      },
+      "errors": []
+    }
+  ]
+}

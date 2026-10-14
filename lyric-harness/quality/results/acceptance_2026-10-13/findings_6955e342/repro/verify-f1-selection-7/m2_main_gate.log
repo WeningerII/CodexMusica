@@ -1,0 +1,56 @@
+[main] gate/prog/sung_walk: pending=1 sends=1 rewritten=true sameChars=false restoredEqualsRaw=true
+   rows0-2  ["[SETUP — require — love]","","[VERSE]"]
+   before   {"sel":[30,30],"shown":"I w|alk the line tonight"} songCaret=[30,30,0]
+   action   {"mobile":"review","sel":[163,163],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[30,30],"shown":"[VER|SE]","focused":false}
+   expected {"sel":[56,56],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "[VERZQSE]"
+[main] gate/prog/sung_sel_wellworn: pending=1 sends=1 rewritten=true sameChars=false restoredEqualsRaw=true
+   rows0-2  ["[SETUP — require — love]","","[VERSE]"]
+   before   {"sel":[51,60],"shown":"«Well-worn» shoes upon the floor"} songCaret=[51,60,0]
+   action   {"mobile":"review","sel":[163,163],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[51,60],"shown":"Oh--oh, oh my lov«e\nI walk »the line tonight","focused":false}
+   expected {"sel":[77,86],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "Oh--oh, oh my lovZQthe line tonight"
+[main] gate/click/sung_walk: pending=1 sends=1 rewritten=true sameChars=false restoredEqualsRaw=false
+   rows0-2  ["[SETUP — require — love]","","[VERSE]"]
+   before   {"sel":[30,30],"shown":"I w|alk the line tonight"} songCaret=[30,30,0]
+   action   {"mobile":"review","sel":[163,163],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[SETUP — require — love]","focused":false}
+   expected {"sel":[56,56],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "ZQ[SETUP — require — love]"
+[main] gate/click/sung_sel_wellworn: pending=1 sends=1 rewritten=true sameChars=false restoredEqualsRaw=false
+   rows0-2  ["[SETUP — require — love]","","[VERSE]"]
+   before   {"sel":[51,60],"shown":"«Well-worn» shoes upon the floor"} songCaret=[51,60,0]
+   action   {"mobile":"review","sel":[163,163],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[SETUP — require — love]","focused":false}
+   expected {"sel":[77,86],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ[SETUP — require — love]"
+[main] gate/touch/sung_walk: pending=1 sends=1 rewritten=true sameChars=false restoredEqualsRaw=false
+   rows0-2  ["[SETUP — require — love]","","[VERSE]"]
+   before   {"sel":[30,30],"shown":"I w|alk the line tonight"} songCaret=[30,30,0]
+   action   {"mobile":"review","sel":[163,163],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[SETUP — require — love]","focused":false}
+   expected {"sel":[56,56],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "ZQ[SETUP — require — love]"
+[main] gate/touch/sung_sel_wellworn: pending=1 sends=1 rewritten=true sameChars=false restoredEqualsRaw=false
+   rows0-2  ["[SETUP — require — love]","","[VERSE]"]
+   before   {"sel":[51,60],"shown":"«Well-worn» shoes upon the floor"} songCaret=[51,60,0]
+   action   {"mobile":"review","sel":[163,163],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[0,0],"shown":"|[SETUP — require — love]","focused":false}
+   expected {"sel":[77,86],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "ZQ[SETUP — require — love]"
+[main] gate/kbd/sung_walk: pending=1 sends=1 rewritten=true sameChars=false restoredEqualsRaw=true
+   rows0-2  ["[SETUP — require — love]","","[VERSE]"]
+   before   {"sel":[30,30],"shown":"I w|alk the line tonight"} songCaret=[30,30,0]
+   action   {"mobile":"review","sel":[163,163],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[30,30],"shown":"[VER|SE]","focused":false}
+   expected {"sel":[56,56],"shown":"I w|alk the line tonight"}
+   typed ZQ row: "[VERZQSE]"
+[main] gate/kbd/sung_sel_wellworn: pending=1 sends=1 rewritten=true sameChars=false restoredEqualsRaw=true
+   rows0-2  ["[SETUP — require — love]","","[VERSE]"]
+   before   {"sel":[51,60],"shown":"«Well-worn» shoes upon the floor"} songCaret=[51,60,0]
+   action   {"mobile":"review","sel":[163,163],"shown":"Love above|"}
+   restored {"mobile":"song","sel":[51,60],"shown":"Oh--oh, oh my lov«e\nI walk »the line tonight","focused":false}
+   expected {"sel":[77,86],"shown":"«Well-worn» shoes upon the floor"}
+   typed ZQ row: "Oh--oh, oh my lovZQthe line tonight"

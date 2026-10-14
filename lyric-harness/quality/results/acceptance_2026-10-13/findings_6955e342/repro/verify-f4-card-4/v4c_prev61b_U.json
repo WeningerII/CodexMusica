@@ -1,0 +1,538 @@
+{
+ "tree": "prev61b",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b",
+ "runs": [
+  {
+   "scenario": "U",
+   "tree": "prev61b",
+   "steps": [
+    {
+     "tag": "1 A (controls planted)",
+     "head": "[SETUP — title — \"Song A\"]",
+     "groupsRow": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": null,
+      "brief": "A-brief",
+      "drafts": [
+       "rhymes|song"
+      ],
+      "probe": "A-probe",
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "brief": "A-brief",
+      "drafts": [
+       "rhymes|song"
+      ],
+      "probe": "A-probe",
+      "card": null,
+      "more": null
+     },
+     "idb": [],
+     "hist": [
+      "(empty)",
+      "\"Song A\"",
+      "*\"Song A\"[brief=A-brief]"
+     ]
+    },
+    {
+     "tag": "2 after Library import of B",
+     "head": "[SETUP — title — \"Song B\"]",
+     "groupsRow": "[SETUP — returns — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+      "brief": "",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+      "brief": "",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973470800,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [
+        "rhymes|song"
+       ],
+       "probe": "A-probe",
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973471141,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "(empty)",
+      "\"Song A\"",
+      "\"Song A\"[brief=A-brief]",
+      "\"Song A\"@01a181cd[brief=A-brief]",
+      "*\"Song B\"@31f075a5"
+     ]
+    },
+    {
+     "tag": "3 Undo (mouse #btn-undo) +30ms",
+     "head": "[SETUP — title — \"Song A\"]",
+     "groupsRow": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973470800,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [
+        "rhymes|song"
+       ],
+       "probe": "A-probe",
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973471141,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "(empty)",
+      "\"Song A\"",
+      "\"Song A\"[brief=A-brief]",
+      "*\"Song A\"@01a181cd[brief=A-brief]",
+      "\"Song B\"@31f075a5"
+     ]
+    },
+    {
+     "tag": "3 Undo (mouse #btn-undo) +351ms",
+     "head": "[SETUP — title — \"Song A\"]",
+     "groupsRow": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973470800,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [
+        "rhymes|song"
+       ],
+       "probe": "A-probe",
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973471141,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "(empty)",
+      "\"Song A\"",
+      "\"Song A\"[brief=A-brief]",
+      "*\"Song A\"@01a181cd[brief=A-brief]",
+      "\"Song B\"@31f075a5"
+     ]
+    },
+    {
+     "tag": "3 Undo (mouse #btn-undo) +804ms",
+     "head": "[SETUP — title — \"Song A\"]",
+     "groupsRow": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973472811,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973471141,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "(empty)",
+      "\"Song A\"",
+      "\"Song A\"[brief=A-brief]",
+      "*\"Song A\"@01a181cd[brief=A-brief]",
+      "\"Song B\"@31f075a5"
+     ]
+    },
+    {
+     "tag": "3 Undo (mouse #btn-undo) +2001ms",
+     "head": "[SETUP — title — \"Song A\"]",
+     "groupsRow": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973472811,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973471141,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "(empty)",
+      "\"Song A\"",
+      "\"Song A\"[brief=A-brief]",
+      "*\"Song A\"@01a181cd[brief=A-brief]",
+      "\"Song B\"@31f075a5"
+     ]
+    },
+    {
+     "tag": "4 Review tab clicked",
+     "head": "[SETUP — title — \"Song A\"]",
+     "groupsRow": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973474744,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973471141,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "(empty)",
+      "\"Song A\"",
+      "\"Song A\"[brief=A-brief]",
+      "*\"Song A\"@01a181cd[brief=A-brief]",
+      "\"Song B\"@31f075a5"
+     ],
+     "card": null
+    },
+    {
+     "tag": "5 after reload",
+     "head": "[SETUP — title — \"Song A\"]",
+     "groupsRow": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973477093,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973471141,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "*\"Song A\"@01a181cd[brief=A-brief]"
+     ],
+     "card": null
+    },
+    {
+     "tag": "6 History: Open draft B",
+     "head": "[SETUP — title — \"Song B\"]",
+     "groupsRow": "[SETUP — returns — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+      "brief": "",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+      "brief": "",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973477902,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973479762,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "\"Song A\"@01a181cd[brief=A-brief]",
+      "*\"Song B\"@31f075a5"
+     ],
+     "opened": true,
+     "card": null
+    },
+    {
+     "tag": "7 History: Open draft A",
+     "head": "[SETUP — title — \"Song A\"]",
+     "groupsRow": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "live": {
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "ls": {
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+      "brief": "A-brief",
+      "drafts": [],
+      "probe": null,
+      "card": null,
+      "more": null
+     },
+     "idb": [
+      {
+       "head": "[SETUP — title — \"Song A\"]",
+       "savedAt": 1791973482426,
+       "writer": true,
+       "draftId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+       "brief": "A-brief",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      },
+      {
+       "head": "[SETUP — title — \"Song B\"]",
+       "savedAt": 1791973480585,
+       "writer": true,
+       "draftId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+       "brief": "",
+       "drafts": [],
+       "probe": null,
+       "card": null,
+       "more": null
+      }
+     ],
+     "hist": [
+      "\"Song A\"@01a181cd[brief=A-brief]",
+      "\"Song B\"@31f075a5",
+      "*\"Song A\"@01a181cd[brief=A-brief]"
+     ],
+     "opened": true,
+     "card": null
+    }
+   ],
+   "controls": {
+    "drafts": [
+     "rhymes|song"
+    ],
+    "brief": "A-brief",
+    "probe": "A-probe"
+   },
+   "aId": "draft:01a181cd-0c3d-4ab8-8e6b-634402440202",
+   "bId": "draft:31f075a5-c4b3-434d-8324-979120f6259e",
+   "traces": {
+    "A": {},
+    "B": {}
+   },
+   "pageErrors": []
+  }
+ ]
+}

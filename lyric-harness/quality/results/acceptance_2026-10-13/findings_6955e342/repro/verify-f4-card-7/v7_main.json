@@ -1,0 +1,88 @@
+{
+ "tree": "main",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7/build-wt-main/built-wt-main.html",
+ "steps": [
+  {
+   "name": "A1.import",
+   "histBefore": [
+    0,
+    1
+   ],
+   "histAfter": [
+    1,
+    2
+   ],
+   "draftChanged": true,
+   "migrated": false,
+   "rowsAfter": [
+    "[SETUP — title — \"Old Song\"]",
+    "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+    "[SETUP — rhyme groups — 1.T4,2]",
+    "[SETUP — returns — 1.T3,3.T3]"
+   ],
+   "toasts": [
+    {
+     "t": 786,
+     "text": "Imported old-song.txt. Undo restores the previous draft.\nUndo",
+     "show": true,
+     "buttons": [
+      "Undo"
+     ]
+    }
+   ],
+   "card": {
+    "shown": false,
+    "text": null,
+    "buttons": [],
+    "meta": null,
+    "dismissButtons": 0
+   }
+  },
+  {
+   "name": "A2.dismiss",
+   "skipped": "no Dismiss button on this tree",
+   "toastsAll": [
+    {
+     "t": 311,
+     "text": "",
+     "show": false,
+     "buttons": []
+    },
+    {
+     "t": 786,
+     "text": "Imported old-song.txt. Undo restores the previous draft.\nUndo",
+     "show": true,
+     "buttons": [
+      "Undo"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "A2b.afterToastGone",
+   "toastLater": {
+    "text": "Imported old-song.txt. Undo restores the previous draft.",
+    "show": false
+   },
+   "bodyHasArrowRecord": false,
+   "metaUi": {
+    "tab": "review",
+    "tool": "",
+    "outline": true
+   }
+  },
+  {
+   "name": "B.skip",
+   "reason": "no Dismiss button on this tree",
+   "card": {
+    "shown": false,
+    "text": null,
+    "buttons": [],
+    "meta": null,
+    "dismissButtons": 0
+   }
+  }
+ ],
+ "pageErrors": []
+}

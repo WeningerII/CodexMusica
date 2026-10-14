@@ -1,0 +1,240 @@
+base.chatClick.top.caret_2.|end: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   after  [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=chat-input
+   want   [27,27]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":9,"reached":true,"sel":[27,27,"forward"]}
+   ZQ ->  {"at":27,"rowNow":"[SETUP — returns — 1.T2, 2.ZQend]"}
+   parsed {"returns":"1.T2, 2.ZQend"}
+   refusal null
+   sent   [{}]
+base.chatClick.top.sel_2end_fwd: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=chat-input
+   want   [25,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":9,"reached":true,"sel":[25,30,"forward"]}
+   ZQ ->  {"at":25,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{}]
+base.chatClick.top.sel_2end_back: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=chat-input
+   want   [25,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":9,"reached":true,"sel":[25,30,"backward"]}
+   ZQ ->  {"at":25,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{}]
+base.chatClick.bottom.caret_2.|end: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   after  [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=chat-input
+   want   [166,166]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":9,"reached":true,"sel":[166,166,"forward"]}
+   ZQ ->  {"at":166,"rowNow":"[SETUP — returns — 1.T2, 2.ZQend]"}
+   parsed {"returns":"1.T2, 2.ZQend"}
+   refusal null
+   sent   [{}]
+base.chatClick.bottom.sel_2end_fwd: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=chat-input
+   want   [164,169]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":9,"reached":true,"sel":[164,169,"forward"]}
+   ZQ ->  {"at":164,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{}]
+base.chatClick.bottom.sel_2end_back: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=chat-input
+   want   [164,169]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":9,"reached":true,"sel":[164,169,"backward"]}
+   ZQ ->  {"at":164,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{}]
+base.reviewKbd.top.caret_2.|end: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   after  [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=BODY
+   want   [27,27]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":20,"reached":true,"sel":[27,27,"forward"]}
+   ZQ ->  {"at":27,"rowNow":"[SETUP — returns — 1.T2, 2.ZQend]"}
+   parsed {"returns":"1.T2, 2.ZQend"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewKbd.top.sel_2end_fwd: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=BODY
+   want   [25,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":20,"reached":true,"sel":[25,30,"forward"]}
+   ZQ ->  {"at":25,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewKbd.top.sel_2end_back: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=BODY
+   want   [25,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":20,"reached":true,"sel":[25,30,"backward"]}
+   ZQ ->  {"at":25,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewKbd.bottom.caret_2.|end: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   after  [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=BODY
+   want   [166,166]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":20,"reached":true,"sel":[166,166,"forward"]}
+   ZQ ->  {"at":166,"rowNow":"[SETUP — returns — 1.T2, 2.ZQend]"}
+   parsed {"returns":"1.T2, 2.ZQend"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewKbd.bottom.sel_2end_fwd: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=BODY
+   want   [164,169]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":20,"reached":true,"sel":[164,169,"forward"]}
+   ZQ ->  {"at":164,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewKbd.bottom.sel_2end_back: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=BODY
+   want   [164,169]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":20,"reached":true,"sel":[164,169,"backward"]}
+   ZQ ->  {"at":164,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewClick.top.caret_2.|end: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   after  [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=BODY
+   want   [27,27]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":21,"reached":true,"sel":[27,27,"forward"]}
+   ZQ ->  {"at":27,"rowNow":"[SETUP — returns — 1.T2, 2.ZQend]"}
+   parsed {"returns":"1.T2, 2.ZQend"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewClick.top.sel_2end_fwd: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=BODY
+   want   [25,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":21,"reached":true,"sel":[25,30,"forward"]}
+   ZQ ->  {"at":25,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewClick.top.sel_2end_back: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=BODY
+   want   [25,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":21,"reached":true,"sel":[25,30,"backward"]}
+   ZQ ->  {"at":25,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewClick.bottom.caret_2.|end: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   after  [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=BODY
+   want   [166,166]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":21,"reached":true,"sel":[166,166,"forward"]}
+   ZQ ->  {"at":166,"rowNow":"[SETUP — returns — 1.T2, 2.ZQend]"}
+   parsed {"returns":"1.T2, 2.ZQend"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewClick.bottom.sel_2end_fwd: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=BODY
+   want   [164,169]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":21,"reached":true,"sel":[164,169,"forward"]}
+   ZQ ->  {"at":164,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewClick.bottom.sel_2end_back: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=BODY
+   want   [164,169]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":21,"reached":true,"sel":[164,169,"backward"]}
+   ZQ ->  {"at":164,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewProg.top.caret_2.|end: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   after  [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   want   [27,27]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":1,"reached":true,"sel":[27,27,"forward"]}
+   ZQ ->  {"at":27,"rowNow":"[SETUP — returns — 1.T2, 2.ZQend]"}
+   parsed {"returns":"1.T2, 2.ZQend"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewProg.top.sel_2end_fwd: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   want   [25,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":1,"reached":true,"sel":[25,30,"forward"]}
+   ZQ ->  {"at":25,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewProg.top.sel_2end_back: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   want   [25,30]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":1,"reached":true,"sel":[25,30,"backward"]}
+   ZQ ->  {"at":25,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewProg.bottom.caret_2.|end: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   after  [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]" active=lyrics-draft
+   want   [166,166]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":1,"reached":true,"sel":[166,166,"forward"]}
+   ZQ ->  {"at":166,"rowNow":"[SETUP — returns — 1.T2, 2.ZQend]"}
+   parsed {"returns":"1.T2, 2.ZQend"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewProg.bottom.sel_2end_fwd: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   want   [164,169]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":1,"reached":true,"sel":[164,169,"forward"]}
+   ZQ ->  {"at":164,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]
+base.reviewProg.bottom.sel_2end_back: keysOK=true pasteKept=true migrated=false sameChars=true
+   before [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   after  [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]" active=lyrics-draft
+   want   [164,169]  lyMapOffset=null
+   row    "[SETUP — returns — 1.T2, 2.end]"
+   back   {"hops":1,"reached":true,"sel":[164,169,"backward"]}
+   ZQ ->  {"at":164,"rowNow":"[SETUP — returns — 1.T2, ZQ]"}
+   parsed {"returns":"1.T2, ZQ"}
+   refusal null
+   sent   [{"returns":"1.T2, 2.end"}]

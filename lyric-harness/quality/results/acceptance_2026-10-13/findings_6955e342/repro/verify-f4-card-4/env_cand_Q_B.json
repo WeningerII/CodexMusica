@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:43af42d4-78fc-4b52-b6df-984f3d3e114a",
+  "draftId": "draft:348d65ff-46ec-4765-b72c-355b42a8ae4e",
+  "createdAt": "2026-10-14T10:25:20.551Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song Quiet\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nthe road is long and grey\nthe load is wrong today",
+    "title": "Song Quiet",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:v4",
+      "unitId": "unit:v4",
+      "workId": "work:v4",
+      "editionId": "ed:v4",
+      "revisionId": "rev:v4",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:e3c30af4-a466-4462-ab3a-0693c03893dc",
+        "sourceDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "71e24563ab8e111296a2f1fe6416da82d1f7b8a41934cc9076c60353e0c63dea"
+}

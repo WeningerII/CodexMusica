@@ -1,0 +1,48 @@
+cand.sync.CARRIED.caret_in_2end: preUnchanged=true migrated=true
+   before   {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   rows     ["[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]"]
+   now      {"sel":[77,77,"forward"],"shown":"[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]"}
+   settled  {"sel":[77,77,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]","textSameAsImmediate":true}
+   sent     [{"returns":"1.end,2.end"}]
+cand.sync.CARRIED.sel_2end: preUnchanged=true migrated=true
+   before   {"sel":[26,31,"forward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   rows     ["[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]"]
+   now      {"sel":[77,77,"forward"],"shown":"[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]"}
+   settled  {"sel":[77,77,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]","textSameAsImmediate":true}
+   sent     [{"returns":"1.end,2.end"}]
+cand.sync.CARRIED.sel_2end_back: preUnchanged=true migrated=true
+   before   {"sel":[26,31,"backward"],"shown":"[SETUP — returns — 1.end, «2.end»]"}
+   rows     ["[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]"]
+   now      {"sel":[77,77,"forward"],"shown":"[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]"}
+   settled  {"sel":[77,77,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]","textSameAsImmediate":true}
+   sent     [{"returns":"1.end,2.end"}]
+cand.sync.CARRIED.caret_in_1end: preUnchanged=true migrated=true
+   before   {"sel":[21,21,"forward"],"shown":"[SETUP — returns — 1.|end, 2.end]"}
+   rows     ["[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]"]
+   now      {"sel":[21,21,"forward"],"shown":"[SETUP — returns — 1.|end (carried across the word-cut change), 2.end — cut v2]"}
+   settled  {"sel":[21,21,"forward"],"focused":true,"shown":"[SETUP — returns — 1.|end (carried across the word-cut change), 2.end — cut v2]","textSameAsImmediate":true}
+   sent     [{"returns":"1.end,2.end"}]
+cand.sync.TWO_ROWS.other_caret_5end: preUnchanged=true migrated=true
+   before   {"sel":[57,57,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   rows     ["[SETUP — returns — 1.T3, 2.end — cut v2]","[SETUP — rhyme groups — 5.end, 6]"]
+   now      {"sel":[66,66,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   settled  {"sel":[66,66,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5|.end, 6]","textSameAsImmediate":true}
+   sent     [{"groups":"5.end, 6","returns":"1.T3, 2.end"}]
+cand.sync.TWO_ROWS.other_sel_6: preUnchanged=true migrated=true
+   before   {"sel":[63,64,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   rows     ["[SETUP — returns — 1.T3, 2.end — cut v2]","[SETUP — rhyme groups — 5.end, 6]"]
+   now      {"sel":[72,73,"forward"],"shown":"[SETUP — rhyme groups — 5.end, «6»]"}
+   settled  {"sel":[72,73,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5.end, «6»]","textSameAsImmediate":true}
+   sent     [{"groups":"5.end, 6","returns":"1.T3, 2.end"}]
+cand.sync.CARRIED_TWO.other_caret_5end: preUnchanged=true migrated=true
+   before   {"sel":[58,58,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   rows     ["[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]","[SETUP — rhyme groups — 5.end, 6]"]
+   now      {"sel":[104,104,"forward"],"shown":"[SETUP — rhyme groups — 5|.end, 6]"}
+   settled  {"sel":[104,104,"forward"],"focused":true,"shown":"[SETUP — rhyme groups — 5|.end, 6]","textSameAsImmediate":true}
+   sent     [{"groups":"5.end, 6","returns":"1.end,2.end"}]
+cand.sync.CARRIED_TWO.first_caret_in_2end: preUnchanged=true migrated=true
+   before   {"sel":[28,28,"forward"],"shown":"[SETUP — returns — 1.end, 2.|end]"}
+   rows     ["[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]","[SETUP — rhyme groups — 5.end, 6]"]
+   now      {"sel":[77,77,"forward"],"shown":"[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]"}
+   settled  {"sel":[77,77,"forward"],"focused":true,"shown":"[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]","textSameAsImmediate":true}
+   sent     [{"groups":"5.end, 6","returns":"1.end,2.end"}]

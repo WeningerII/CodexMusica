@@ -1,0 +1,8 @@
+main every_button {"tab":"review","i":0,"where":"ly-head","cls":"cm-btn cm-btn-primary ly-run"}: before=[63,63,"forward"] after=[63,63,"forward"] expected=63 KEPT
+   trace [["500ms",2337,63]]
+main every_button {"tab":"review","i":1,"where":"ly-panel-review","cls":"cm-btn cm-btn-primary ly-block"}: before=[63,63,"forward"] after=[63,63,"forward"] expected=63 KEPT
+   trace [["500ms",2037,63]]
+main every_button {"tab":"writer","i":0,"where":"ly-head","cls":"cm-btn cm-btn-primary ly-run"}: before=[63,63,"forward"] after=[63,63,"forward"] expected=63 KEPT
+   trace [["500ms",2506,63]]
+main tab_out_click: before=[63,63,"forward"] after=[63,63,"forward"] expected=63 KEPT afterTab=BODY
+   trace [["500ms",2388,63]]

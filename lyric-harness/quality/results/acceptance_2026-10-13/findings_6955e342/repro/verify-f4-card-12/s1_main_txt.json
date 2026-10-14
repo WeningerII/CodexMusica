@@ -1,0 +1,38 @@
+{
+ "tree": "main",
+ "route": "txt",
+ "runs": [
+  {
+   "N": 60,
+   "truth": 60,
+   "rowRewritten": false,
+   "listed": 0,
+   "more": null,
+   "title": null,
+   "lostCount": 60,
+   "lostFirst": [
+    "wa",
+    "wb",
+    "wc"
+   ],
+   "lostLast": [
+    "wcg",
+    "wch"
+   ],
+   "lostVisibleAnywhere": [],
+   "lostNotVisible": 60,
+   "toasts": [
+    "Imported cap-60.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "uiLen": 41,
+   "storedLen": 2,
+   "paneSaysMore": null,
+   "afterReload": {
+    "listed": 0,
+    "more": null,
+    "same": true
+   }
+  }
+ ],
+ "errs": []
+}

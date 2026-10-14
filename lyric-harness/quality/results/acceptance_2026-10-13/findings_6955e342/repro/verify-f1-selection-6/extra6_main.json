@@ -1,0 +1,134 @@
+[
+  {
+    "tree": "main",
+    "case": "every_button",
+    "target": {
+      "tab": "review",
+      "i": 0,
+      "where": "ly-head",
+      "cls": "cm-btn cm-btn-primary ly-run"
+    },
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T2, 2.end]",
+    "after": [
+      63,
+      63,
+      "forward"
+    ],
+    "expected": 63,
+    "kept": true,
+    "trace": [
+      {
+        "w": "500ms",
+        "t": 2337,
+        "sel": [
+          63,
+          63
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "case": "every_button",
+    "target": {
+      "tab": "review",
+      "i": 1,
+      "where": "ly-panel-review",
+      "cls": "cm-btn cm-btn-primary ly-block"
+    },
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T2, 2.end]",
+    "after": [
+      63,
+      63,
+      "forward"
+    ],
+    "expected": 63,
+    "kept": true,
+    "trace": [
+      {
+        "w": "500ms",
+        "t": 2037,
+        "sel": [
+          63,
+          63
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "case": "every_button",
+    "target": {
+      "tab": "writer",
+      "i": 0,
+      "where": "ly-head",
+      "cls": "cm-btn cm-btn-primary ly-run"
+    },
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "text0": "[SETUP — returns — 1.T2, 2.end]",
+    "after": [
+      63,
+      63,
+      "forward"
+    ],
+    "expected": 63,
+    "kept": true,
+    "trace": [
+      {
+        "w": "500ms",
+        "t": 2506,
+        "sel": [
+          63,
+          63
+        ]
+      }
+    ],
+    "errors": []
+  },
+  {
+    "tree": "main",
+    "case": "tab_out_click",
+    "target": null,
+    "before": [
+      63,
+      63,
+      "forward"
+    ],
+    "afterTab": "BODY",
+    "text0": "[SETUP — returns — 1.T2, 2.end]",
+    "after": [
+      63,
+      63,
+      "forward"
+    ],
+    "expected": 63,
+    "kept": true,
+    "trace": [
+      {
+        "w": "500ms",
+        "t": 2388,
+        "sel": [
+          63,
+          63
+        ]
+      }
+    ],
+    "errors": []
+  }
+]

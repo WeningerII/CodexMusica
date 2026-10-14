@@ -1,0 +1,440 @@
+cand.prog.value.RHY caret 2.|end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [32,32,"forward"] "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   after  [44,44,"forward"] "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]" focused=true
+   ref    [[32,32],[32,32]] "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.prog.value.RHY sel 2.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [30,35,"forward"] "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   after  [44,44,"forward"] "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]" focused=true
+   ref    [[30,30],[35,44]] "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.prog.value.RHY caret 1.T|2: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [27,27,"forward"] "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   after  [27,27,"forward"] "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]" focused=true
+   ref    [[27,28],[27,28]] "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.TZQ3, 2.end — cut v2]" decl={"groups":"1.TZQ3, 2.end"}
+cand.prog.value.RHY sel 1.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,28,"forward"] "[SETUP — rhyme groups — «1.T2», 2.end]"
+   after  [24,44,"forward"] "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]" focused=true
+   ref    [[24,24],[27,28]] "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+   typed  "[SETUP — rhyme groups — ZQ]" decl={"groups":"ZQ"}
+cand.prog.value.MANY caret 2.|end: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [26,26,"forward"] "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   after  [26,26,"forward"] "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=true
+   ref    [[26,26],[26,26]] "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.ZQend,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={"groups":"2.ZQend,4; 1.T3,3.T2; 5.end, 6"}
+cand.prog.value.MANY sel 4: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [30,31,"forward"] "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   after  [30,31,"forward"] "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=true
+   ref    [[30,30],[31,31]] "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,ZQ; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={"groups":"2.end,ZQ; 1.T3,3.T2; 5.end, 6"}
+cand.prog.value.MANY sel 1.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [33,37,"forward"] "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   after  [33,61,"forward"] "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]" focused=true
+   ref    [[33,33],[36,37]] "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; ZQ]" decl={"groups":"2.end,4; ZQ"}
+cand.prog.value.MANY sel 3.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [38,42,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=true
+   ref    [[38,38],[42,42]] "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.prog.value.MANY caret 5|.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [45,45,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=true
+   ref    [[45,45],[45,45]] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.prog.value.MANY sel 6: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [51,52,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=true
+   ref    [[51,51],[52,61]] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.prog.value.MANY_LAST caret 2.e|nd: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [22,22,"forward"] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   after  [22,22,"forward"] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=true
+   ref    [[22,22],[22,22]] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" decl={"returns":"2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2"}
+cand.prog.value.MANY_LAST sel 6.end: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [39,44,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   after  [39,44,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]" focused=true
+   ref    [[39,39],[44,44]] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T3,4.T2 — cut v2]" decl={"returns":"2.end, 4.end; 5.end,ZQ; 1.T3,4.T2"}
+cand.prog.value.MANY_LAST sel 4.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [51,55,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   after  [63,64,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]" focused=true
+   ref    [[51,51],[55,64]] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut vZQ]" decl={"returns_need_decision":["2 (marked cut vzq: not read here),4 (marked cut vzq: not read here)","5 (marked cut vzq: not read here),6 (marked cut vzq: not read here)","1.T3 (marked cut vzq: not read here),4.T2 (marked cut vzq: not read here)"]}
+cand.prog.value.MANY_LAST caret 1.T|2: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [49,49,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   after  [49,49,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]" focused=true
+   ref    [[49,50],[49,50]] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2 — cut v2]" decl={"returns":"2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2"}
+cand.prog.value.BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [29,29,"forward"] "[SETUP — rhyme groups — 1.T2,|2]"
+   after  [38,38,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v|2]" focused=true
+   ref    [[29,29],[29,29]] "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut vZQ2]" decl={"groups_need_decision":["1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"]}
+cand.prog.value.BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [29,30,"forward"] "[SETUP — rhyme groups — 1.T2,«2»]"
+   after  [38,39,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]" focused=true
+   ref    [[29,29],[30,39]] "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut vZQ]" decl={"groups_need_decision":["1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.prog.value.BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [30,30,"forward"] "[SETUP — rhyme groups — 1.T2,2|]"
+   after  [39,39,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v2|]" focused=true
+   ref    [[30,39],[30,39]] "[SETUP — rhyme groups — 1.T3,2« — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.prog.value.RET_BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,24,"forward"] "[SETUP — returns — 1.T2,|2]"
+   after  [33,33,"forward"] "[SETUP — returns — 1.T3,2 — cut v|2]" focused=true
+   ref    [[24,24],[24,24]] "[SETUP — returns — 1.T3,|2 — cut v2]"
+   typed  "[SETUP — returns — 1.T3,2 — cut vZQ2]" decl={"returns_need_decision":["1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"]}
+cand.prog.value.RET_BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,25,"forward"] "[SETUP — returns — 1.T2,«2»]"
+   after  [33,34,"forward"] "[SETUP — returns — 1.T3,2 — cut v«2»]" focused=true
+   ref    [[24,24],[25,34]] "[SETUP — returns — 1.T3,«2 — cut v2»]"
+   typed  "[SETUP — returns — 1.T3,2 — cut vZQ]" decl={"returns_need_decision":["1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.prog.value.RET_BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [25,25,"forward"] "[SETUP — returns — 1.T2,2|]"
+   after  [34,34,"forward"] "[SETUP — returns — 1.T3,2 — cut v2|]" focused=true
+   ref    [[25,34],[25,34]] "[SETUP — returns — 1.T3,2« — cut v2»]"
+   typed  "[SETUP — returns — 1.T3,2 — cut v2ZQ]" decl={"returns_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.prog.value.BARE_MID sel 3 (bare, first): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [24,25,"forward"] "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   after  [24,25,"forward"] "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]" focused=true
+   ref    [[24,24],[25,25]] "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]"
+   typed  "[SETUP — rhyme groups — ZQ, 1.T3, 2 — cut v2]" decl={"groups":"ZQ, 1.T3, 2"}
+cand.prog.value.BARE_MID sel 2 (bare, last): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [33,34,"forward"] "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   after  [42,43,"forward"] "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v«2»]" focused=true
+   ref    [[33,33],[34,43]] "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 3, 1.T3, 2 — cut vZQ]" decl={"groups_need_decision":["3 (marked cut vzq: not read here),1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.chat.value.RHY caret 2.|end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [32,32,"forward"] "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   after  [44,44,"forward"] "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]" focused=true
+   ref    [[32,32],[32,32]] "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.chat.value.RHY sel 2.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [30,35,"forward"] "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   after  [44,44,"forward"] "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]" focused=true
+   ref    [[30,30],[35,44]] "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.chat.value.RHY caret 1.T|2: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [27,27,"forward"] "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   after  [27,27,"forward"] "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]" focused=true
+   ref    [[27,28],[27,28]] "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.TZQ3, 2.end — cut v2]" decl={"groups":"1.TZQ3, 2.end"}
+cand.chat.value.RHY sel 1.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,28,"forward"] "[SETUP — rhyme groups — «1.T2», 2.end]"
+   after  [24,44,"forward"] "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]" focused=true
+   ref    [[24,24],[27,28]] "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+   typed  "[SETUP — rhyme groups — ZQ]" decl={"groups":"ZQ"}
+cand.chat.value.MANY caret 2.|end: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [26,26,"forward"] "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   after  [26,26,"forward"] "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=true
+   ref    [[26,26],[26,26]] "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.ZQend,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={"groups":"2.ZQend,4; 1.T3,3.T2; 5.end, 6"}
+cand.chat.value.MANY sel 4: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [30,31,"forward"] "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   after  [30,31,"forward"] "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=true
+   ref    [[30,30],[31,31]] "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,ZQ; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={"groups":"2.end,ZQ; 1.T3,3.T2; 5.end, 6"}
+cand.chat.value.MANY sel 1.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [33,37,"forward"] "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   after  [33,61,"forward"] "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]" focused=true
+   ref    [[33,33],[36,37]] "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; ZQ]" decl={"groups":"2.end,4; ZQ"}
+cand.chat.value.MANY sel 3.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [38,42,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=true
+   ref    [[38,38],[42,42]] "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.chat.value.MANY caret 5|.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [45,45,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=true
+   ref    [[45,45],[45,45]] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.chat.value.MANY sel 6: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [51,52,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=true
+   ref    [[51,51],[52,61]] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.chat.value.MANY_LAST caret 2.e|nd: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [22,22,"forward"] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   after  [22,22,"forward"] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=true
+   ref    [[22,22],[22,22]] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" decl={"returns":"2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2"}
+cand.chat.value.MANY_LAST sel 6.end: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [39,44,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   after  [39,44,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]" focused=true
+   ref    [[39,39],[44,44]] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T3,4.T2 — cut v2]" decl={"returns":"2.end, 4.end; 5.end,ZQ; 1.T3,4.T2"}
+cand.chat.value.MANY_LAST sel 4.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [51,55,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   after  [63,64,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]" focused=true
+   ref    [[51,51],[55,64]] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut vZQ]" decl={"returns_need_decision":["2 (marked cut vzq: not read here),4 (marked cut vzq: not read here)","5 (marked cut vzq: not read here),6 (marked cut vzq: not read here)","1.T3 (marked cut vzq: not read here),4.T2 (marked cut vzq: not read here)"]}
+cand.chat.value.MANY_LAST caret 1.T|2: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [49,49,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   after  [49,49,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]" focused=true
+   ref    [[49,50],[49,50]] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2 — cut v2]" decl={"returns":"2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2"}
+cand.chat.value.BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [29,29,"forward"] "[SETUP — rhyme groups — 1.T2,|2]"
+   after  [38,38,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v|2]" focused=true
+   ref    [[29,29],[29,29]] "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut vZQ2]" decl={"groups_need_decision":["1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"]}
+cand.chat.value.BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [29,30,"forward"] "[SETUP — rhyme groups — 1.T2,«2»]"
+   after  [38,39,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]" focused=true
+   ref    [[29,29],[30,39]] "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut vZQ]" decl={"groups_need_decision":["1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.chat.value.BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [30,30,"forward"] "[SETUP — rhyme groups — 1.T2,2|]"
+   after  [39,39,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v2|]" focused=true
+   ref    [[30,39],[30,39]] "[SETUP — rhyme groups — 1.T3,2« — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.chat.value.RET_BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,24,"forward"] "[SETUP — returns — 1.T2,|2]"
+   after  [33,33,"forward"] "[SETUP — returns — 1.T3,2 — cut v|2]" focused=true
+   ref    [[24,24],[24,24]] "[SETUP — returns — 1.T3,|2 — cut v2]"
+   typed  "[SETUP — returns — 1.T3,2 — cut vZQ2]" decl={"returns_need_decision":["1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"]}
+cand.chat.value.RET_BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,25,"forward"] "[SETUP — returns — 1.T2,«2»]"
+   after  [33,34,"forward"] "[SETUP — returns — 1.T3,2 — cut v«2»]" focused=true
+   ref    [[24,24],[25,34]] "[SETUP — returns — 1.T3,«2 — cut v2»]"
+   typed  "[SETUP — returns — 1.T3,2 — cut vZQ]" decl={"returns_need_decision":["1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.chat.value.RET_BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [25,25,"forward"] "[SETUP — returns — 1.T2,2|]"
+   after  [34,34,"forward"] "[SETUP — returns — 1.T3,2 — cut v2|]" focused=true
+   ref    [[25,34],[25,34]] "[SETUP — returns — 1.T3,2« — cut v2»]"
+   typed  "[SETUP — returns — 1.T3,2 — cut v2ZQ]" decl={"returns_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.chat.value.BARE_MID sel 3 (bare, first): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [24,25,"forward"] "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   after  [24,25,"forward"] "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]" focused=true
+   ref    [[24,24],[25,25]] "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]"
+   typed  "[SETUP — rhyme groups — ZQ, 1.T3, 2 — cut v2]" decl={"groups":"ZQ, 1.T3, 2"}
+cand.chat.value.BARE_MID sel 2 (bare, last): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [33,34,"forward"] "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   after  [42,43,"forward"] "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v«2»]" focused=true
+   ref    [[33,33],[34,43]] "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 3, 1.T3, 2 — cut vZQ]" decl={"groups_need_decision":["3 (marked cut vzq: not read here),1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.kbd.value.RHY caret 2.|end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [32,32,"forward"] "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   after  [44,44,"forward"] "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]" focused=false
+   ref    [[32,32],[32,32]] "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.kbd.value.RHY sel 2.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [30,35,"forward"] "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   after  [44,44,"forward"] "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]" focused=false
+   ref    [[30,30],[35,44]] "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.kbd.value.RHY caret 1.T|2: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [27,27,"forward"] "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   after  [27,27,"forward"] "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]" focused=false
+   ref    [[27,28],[27,28]] "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.TZQ3, 2.end — cut v2]" decl={"groups":"1.TZQ3, 2.end"}
+cand.kbd.value.RHY sel 1.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,28,"forward"] "[SETUP — rhyme groups — «1.T2», 2.end]"
+   after  [24,44,"forward"] "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]" focused=false
+   ref    [[24,24],[27,28]] "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+   typed  "[SETUP — rhyme groups — ZQ]" decl={"groups":"ZQ"}
+cand.kbd.value.MANY caret 2.|end: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [26,26,"forward"] "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   after  [26,26,"forward"] "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+   ref    [[26,26],[26,26]] "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.ZQend,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={"groups":"2.ZQend,4; 1.T3,3.T2; 5.end, 6"}
+cand.kbd.value.MANY sel 4: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [30,31,"forward"] "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   after  [30,31,"forward"] "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+   ref    [[30,30],[31,31]] "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,ZQ; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={"groups":"2.end,ZQ; 1.T3,3.T2; 5.end, 6"}
+cand.kbd.value.MANY sel 1.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [33,37,"forward"] "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   after  [33,61,"forward"] "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]" focused=false
+   ref    [[33,33],[36,37]] "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; ZQ]" decl={"groups":"2.end,4; ZQ"}
+cand.kbd.value.MANY sel 3.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [38,42,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=false
+   ref    [[38,38],[42,42]] "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.kbd.value.MANY caret 5|.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [45,45,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=false
+   ref    [[45,45],[45,45]] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.kbd.value.MANY sel 6: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [51,52,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   after  [61,61,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]" focused=false
+   ref    [[51,51],[52,61]] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]" decl={"groups_need_decision":["2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)","1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)","5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)"]}
+cand.kbd.value.MANY_LAST caret 2.e|nd: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [22,22,"forward"] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   after  [22,22,"forward"] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+   ref    [[22,22],[22,22]] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" decl={"returns":"2.eZQnd, 4.end; 5.end,6.end; 1.T3,4.T2"}
+cand.kbd.value.MANY_LAST sel 6.end: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [39,44,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   after  [39,44,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]" focused=false
+   ref    [[39,39],[44,44]] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,ZQ; 1.T3,4.T2 — cut v2]" decl={"returns":"2.end, 4.end; 5.end,ZQ; 1.T3,4.T2"}
+cand.kbd.value.MANY_LAST sel 4.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [51,55,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   after  [63,64,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]" focused=false
+   ref    [[51,51],[55,64]] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut vZQ]" decl={"returns_need_decision":["2 (marked cut vzq: not read here),4 (marked cut vzq: not read here)","5 (marked cut vzq: not read here),6 (marked cut vzq: not read here)","1.T3 (marked cut vzq: not read here),4.T2 (marked cut vzq: not read here)"]}
+cand.kbd.value.MANY_LAST caret 1.T|2: migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [49,49,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   after  [49,49,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|3,4.T2 — cut v2]" focused=false
+   ref    [[49,50],[49,50]] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]"
+   typed  "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2 — cut v2]" decl={"returns":"2.end, 4.end; 5.end,6.end; 1.TZQ3,4.T2"}
+cand.kbd.value.BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [29,29,"forward"] "[SETUP — rhyme groups — 1.T2,|2]"
+   after  [38,38,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v|2]" focused=false
+   ref    [[29,29],[29,29]] "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut vZQ2]" decl={"groups_need_decision":["1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"]}
+cand.kbd.value.BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [29,30,"forward"] "[SETUP — rhyme groups — 1.T2,«2»]"
+   after  [38,39,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]" focused=false
+   ref    [[29,29],[30,39]] "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut vZQ]" decl={"groups_need_decision":["1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.kbd.value.BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [30,30,"forward"] "[SETUP — rhyme groups — 1.T2,2|]"
+   after  [39,39,"forward"] "[SETUP — rhyme groups — 1.T3,2 — cut v2|]" focused=false
+   ref    [[30,39],[30,39]] "[SETUP — rhyme groups — 1.T3,2« — cut v2»]"
+   typed  "[SETUP — rhyme groups — 1.T3,2 — cut v2ZQ]" decl={"groups_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.kbd.value.RET_BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,24,"forward"] "[SETUP — returns — 1.T2,|2]"
+   after  [33,33,"forward"] "[SETUP — returns — 1.T3,2 — cut v|2]" focused=false
+   ref    [[24,24],[24,24]] "[SETUP — returns — 1.T3,|2 — cut v2]"
+   typed  "[SETUP — returns — 1.T3,2 — cut vZQ2]" decl={"returns_need_decision":["1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)"]}
+cand.kbd.value.RET_BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [24,25,"forward"] "[SETUP — returns — 1.T2,«2»]"
+   after  [33,34,"forward"] "[SETUP — returns — 1.T3,2 — cut v«2»]" focused=false
+   ref    [[24,24],[25,34]] "[SETUP — returns — 1.T3,«2 — cut v2»]"
+   typed  "[SETUP — returns — 1.T3,2 — cut vZQ]" decl={"returns_need_decision":["1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.kbd.value.RET_BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [25,25,"forward"] "[SETUP — returns — 1.T2,2|]"
+   after  [34,34,"forward"] "[SETUP — returns — 1.T3,2 — cut v2|]" focused=false
+   ref    [[25,34],[25,34]] "[SETUP — returns — 1.T3,2« — cut v2»]"
+   typed  "[SETUP — returns — 1.T3,2 — cut v2ZQ]" decl={"returns_need_decision":["1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"]}
+cand.kbd.value.BARE_MID sel 3 (bare, first): migratedBefore=false migratedAtBoundary=true sameChars=true predMatch=true req=1
+   before [24,25,"forward"] "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   after  [24,25,"forward"] "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]" focused=false
+   ref    [[24,24],[25,25]] "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]"
+   typed  "[SETUP — rhyme groups — ZQ, 1.T3, 2 — cut v2]" decl={"groups":"ZQ, 1.T3, 2"}
+cand.kbd.value.BARE_MID sel 2 (bare, last): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=true req=1
+   before [33,34,"forward"] "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   after  [42,43,"forward"] "[SETUP — rhyme groups — 3, 1.T3, 2 — cut v«2»]" focused=false
+   ref    [[33,33],[34,43]] "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]"
+   typed  "[SETUP — rhyme groups — 3, 1.T3, 2 — cut vZQ]" decl={"groups_need_decision":["3 (marked cut vzq: not read here),1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)"]}
+cand.click.value.RHY caret 2.|end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [32,32,"forward"] "[SETUP — rhyme groups — 1.T2, 2.|end]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+   ref    [[32,32],[32,32]] "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" decl={}
+cand.click.value.RHY sel 2.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [30,35,"forward"] "[SETUP — rhyme groups — 1.T2, «2.end»]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+   ref    [[30,30],[35,44]] "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+   typed  "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" decl={}
+cand.click.value.RHY caret 1.T|2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [27,27,"forward"] "[SETUP — rhyme groups — 1.T|2, 2.end]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+   ref    [[27,28],[27,28]] "[SETUP — rhyme groups — 1.T«3», 2.end — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" decl={}
+cand.click.value.RHY sel 1.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [24,28,"forward"] "[SETUP — rhyme groups — «1.T2», 2.end]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+   ref    [[24,24],[27,28]] "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" decl={}
+cand.click.value.MANY caret 2.|end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [26,26,"forward"] "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+   ref    [[26,26],[26,26]] "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={}
+cand.click.value.MANY sel 4: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [30,31,"forward"] "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+   ref    [[30,30],[31,31]] "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={}
+cand.click.value.MANY sel 1.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [33,37,"forward"] "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+   ref    [[33,33],[36,37]] "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={}
+cand.click.value.MANY sel 3.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [38,42,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+   ref    [[38,38],[42,42]] "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={}
+cand.click.value.MANY caret 5|.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [45,45,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+   ref    [[45,45],[45,45]] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={}
+cand.click.value.MANY sel 6: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [51,52,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+   ref    [[51,51],[52,61]] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+   typed  "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" decl={}
+cand.click.value.MANY_LAST caret 2.e|nd: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [22,22,"forward"] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+   after  [0,0,"forward"] "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+   ref    [[22,22],[22,22]] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+   typed  "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" decl={}
+cand.click.value.MANY_LAST sel 6.end: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [39,44,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+   after  [0,0,"forward"] "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+   ref    [[39,39],[44,44]] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]"
+   typed  "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" decl={}
+cand.click.value.MANY_LAST sel 4.T2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [51,55,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+   after  [0,0,"forward"] "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+   ref    [[51,51],[55,64]] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+   typed  "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" decl={}
+cand.click.value.MANY_LAST caret 1.T|2: migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [49,49,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T|2,4.T2]"
+   after  [0,0,"forward"] "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+   ref    [[49,50],[49,50]] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T«3»,4.T2 — cut v2]"
+   typed  "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" decl={}
+cand.click.value.BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [29,29,"forward"] "[SETUP — rhyme groups — 1.T2,|2]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3,2 — cut v2]" focused=false
+   ref    [[29,29],[29,29]] "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={}
+cand.click.value.BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [29,30,"forward"] "[SETUP — rhyme groups — 1.T2,«2»]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3,2 — cut v2]" focused=false
+   ref    [[29,29],[30,39]] "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+   typed  "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={}
+cand.click.value.BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [30,30,"forward"] "[SETUP — rhyme groups — 1.T2,2|]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3,2 — cut v2]" focused=false
+   ref    [[30,39],[30,39]] "[SETUP — rhyme groups — 1.T3,2« — cut v2»]"
+   typed  "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]" decl={}
+cand.click.value.RET_BARE caret |2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [24,24,"forward"] "[SETUP — returns — 1.T2,|2]"
+   after  [0,0,"forward"] "|[SETUP — returns — 1.T3,2 — cut v2]" focused=false
+   ref    [[24,24],[24,24]] "[SETUP — returns — 1.T3,|2 — cut v2]"
+   typed  "ZQ[SETUP — returns — 1.T3,2 — cut v2]" decl={}
+cand.click.value.RET_BARE sel 2 (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [24,25,"forward"] "[SETUP — returns — 1.T2,«2»]"
+   after  [0,0,"forward"] "|[SETUP — returns — 1.T3,2 — cut v2]" focused=false
+   ref    [[24,24],[25,34]] "[SETUP — returns — 1.T3,«2 — cut v2»]"
+   typed  "ZQ[SETUP — returns — 1.T3,2 — cut v2]" decl={}
+cand.click.value.RET_BARE caret 2|] (bare): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [25,25,"forward"] "[SETUP — returns — 1.T2,2|]"
+   after  [0,0,"forward"] "|[SETUP — returns — 1.T3,2 — cut v2]" focused=false
+   ref    [[25,34],[25,34]] "[SETUP — returns — 1.T3,2« — cut v2»]"
+   typed  "ZQ[SETUP — returns — 1.T3,2 — cut v2]" decl={}
+cand.click.value.BARE_MID sel 3 (bare, first): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [24,25,"forward"] "[SETUP — rhyme groups — «3», 1.T2, 2]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]" focused=false
+   ref    [[24,24],[25,25]] "[SETUP — rhyme groups — «3», 1.T3, 2 — cut v2]"
+   typed  "ZQ[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]" decl={}
+cand.click.value.BARE_MID sel 2 (bare, last): migratedBefore=false migratedAtBoundary=true sameChars=false predMatch=false req=1
+   before [33,34,"forward"] "[SETUP — rhyme groups — 3, 1.T2, «2»]"
+   after  [0,0,"forward"] "|[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]" focused=false
+   ref    [[33,33],[34,43]] "[SETUP — rhyme groups — 3, 1.T3, «2 — cut v2»]"
+   typed  "ZQ[SETUP — rhyme groups — 3, 1.T3, 2 — cut v2]" decl={}

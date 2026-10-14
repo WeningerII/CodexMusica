@@ -1,0 +1,60 @@
+[cand] prog/I_gate
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   at gate     : shown=1 ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T4,8;2,3;5,7"}] via run-review + gate apply -> [{"member":"1.T4","current_cut_word":"my","earlier_cut_word":"love"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"]
+   toasts      : input [] action [] send ["Rhyme link saved.\nUndo"]
+   card        : action null send null
+[cand] prog/J_sibling_remove
+   after input : ["[SETUP — rhyme groups — 2,3 — cut v2]","[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 2 · tonight ~ Line 3 · floor","B B · declared Any Line 1 · my ~ Line 8 · above"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8 — cut v2]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above"]
+   sent        : [{"groups":"1.T4,8"}] via click -> [{"member":"1.T4","current_cut_word":"my","earlier_cut_word":"love"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8 — cut v2]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above"]
+   toasts      : input [] action ["Rhyme link removed. Undo restores it.\nUndo"] send ["Rhyme link removed. Undo restores it.\nUndo"]
+   card        : action null send null
+[cand] prog/K_B_undo
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after B     : ["[SETUP — rhyme groups — 1.T4,8 — cut v2]"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T5,8; 2,3"}] via click -> [{"member":"1.T5","current_cut_word":"love","earlier_cut_word":null}]
+   after send  : ["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action ["Rhyme link removed. Undo restores it.\nUndo"] send ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+   card        : action null send {"items":[{"kind":"rhyme groups","word":"love","n":[1],"from":4,"to":5}],"more":0}
+[cand] prog/A_send
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T5,8; 2,3"}] via click -> [{"member":"1.T5","current_cut_word":"love","earlier_cut_word":null}]
+   after send  : ["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+   card        : action null send {"items":[{"kind":"rhyme groups","word":"love","n":[1],"from":4,"to":5}],"more":0}
+[cand] paste/I_gate
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   at gate     : shown=1 ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T4,8;2,3;5,7"}] via run-review + gate apply -> [{"member":"1.T4","current_cut_word":"my","earlier_cut_word":"love"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"]
+   toasts      : input [] action [] send ["Rhyme link saved.\nUndo"]
+   card        : action null send null
+[cand] paste/J_sibling_remove
+   after input : ["[SETUP — rhyme groups — 2,3 — cut v2]","[SETUP — rhyme groups — 1.T4,8]"]  list ["A A · declared Any Line 2 · tonight ~ Line 3 · floor","B B · declared Any Line 1 · my ~ Line 8 · above"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8 — cut v2]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above"]
+   sent        : [{"groups":"1.T4,8"}] via click -> [{"member":"1.T4","current_cut_word":"my","earlier_cut_word":"love"}]
+   after send  : ["[SETUP — rhyme groups — 1.T4,8 — cut v2]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above"]
+   toasts      : input [] action ["Rhyme link removed. Undo restores it.\nUndo"] send ["Rhyme link removed. Undo restores it.\nUndo"]
+   card        : action null send null
+[cand] paste/K_B_undo
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after B     : ["[SETUP — rhyme groups — 1.T4,8 — cut v2]"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T5,8; 2,3"}] via click -> [{"member":"1.T5","current_cut_word":"love","earlier_cut_word":null}]
+   after send  : ["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action ["Rhyme link removed. Undo restores it.\nUndo"] send ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+   card        : action null send {"items":[{"kind":"rhyme groups","word":"love","n":[1],"from":4,"to":5}],"more":0}
+[cand] paste/A_send
+   after input : ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   after action: ["[SETUP — rhyme groups — 1.T4,8; 2,3]"]  list ["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   sent        : [{"groups":"1.T5,8; 2,3"}] via click -> [{"member":"1.T5","current_cut_word":"love","earlier_cut_word":null}]
+   after send  : ["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"]  list ["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"]
+   toasts      : input [] action [] send ["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+   card        : action null send {"items":[{"kind":"rhyme groups","word":"love","n":[1],"from":4,"to":5}],"more":0}

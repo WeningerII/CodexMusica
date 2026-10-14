@@ -1,0 +1,39 @@
+# verify-f4-card-7: adversarial skeptic of f4-card d1 ("Dismiss has a way back": no toast / Undo / history step; NEW)
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad  V=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7
+gh api repos/WeningerII/CodexMusica/issues/comments/6161601064 --jq .body   # read-only: original F4 finding (item 4)
+gh api repos/WeningerII/CodexMusica/issues/comments/{6161637870,6161683534,6161695192} --jq '.user.login+" "+.created_at+"\n"+.body' | grep -i -E 'F4|dismiss|card|undo'   # read-only: 3PO triage/limits, R2 policy
+git -C $S/wt-695 log -1 --format=%B 643e292e6
+grep -n -i dismiss $S/wt-695/mcp/LYRICS_RUNTIME.md $S/wt-695/lyric-harness/quality/results/reader_batch_commit1_ci_parity_2026-10-14.md
+wt-695 6955e342963a90bdf470741266cea0dd84f0a797 status: ?? node_modules 
+wt-61b 61b6618ae9373e00b60d3df3ab2d19cc11cc93cc status: ?? node_modules 
+wt-678 67889851144dd2a7eefedd9960a868978fb7bfae status: ?? mcp/node_modules ?? node_modules 
+wt-main 8b1d2ad2cea5d9848cc6568dcce62b00747ab2f3 status: ?? node_modules 
+wt-base fce4bf0f1b4b274d1c44c67831a6e40b22a8802c status: 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7/build-wt-695/built-wt-695.html --quiet
+cmp built-wt-695.html vs wt-695/codex.html: IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7/build-wt-61b/built-wt-61b.html --quiet
+cmp built-wt-61b.html vs wt-61b/codex.html: IDENTICAL
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7/build-wt-main/built-wt-main.html --quiet
+cmp built-wt-main.html vs wt-main/codex.html: IDENTICAL
+wt-695 library chunks: OK (6 files)
+wt-61b library chunks: OK (6 files)
+wt-main library chunks: OK (6 files)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7 && node v7.js cand > v7_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7 && node v7.js prev61b > v7_prev61b.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7 && node v7.js main > v7_main.log 2>&1
+for t in wt-main wt-base wt-61b wt-678 wt-695; do awk "/^const LYRIC_META_LIMITS/{p=1} p{print} /^function updateHistoryButtons/{exit}" $S/$t/src/app.js | md5sum; done   # lyricMetaOf/lyricMetaHistory/sessionSnapshot/pushHistory/_restoreSnapshot/undo/redo
+  4ad3af0471c8257edd0d405f870bf065 wt-main
+  4ad3af0471c8257edd0d405f870bf065 wt-base
+  4ad3af0471c8257edd0d405f870bf065 wt-61b
+  4ad3af0471c8257edd0d405f870bf065 wt-678
+  4ad3af0471c8257edd0d405f870bf065 wt-695
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7 && node v7_control.js main > v7_control_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7 && node v7_control.js cand > v7_control_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-7 && node v7_control.js prev61b > v7_control_prev61b.log 2>&1
+rm -rf build-wt-*   # built pages deleted after the runs (each cmp-IDENTICAL to its tree's codex.html; library/code chunks identical)
+# NOTES
+# - Browser: Chromium /opt/pw-browsers/chromium headless, 1440x900; page = my CODEX_LIBRARY=1 build, other files from the tree root;
+#   mcp.codexmusica.com routed to an in-process stub (no provider, no network). No CHAT_SECRET used. No tracked file modified.
+# - Dismiss, Undo, Redo, tab and tool switches were real pointer clicks (Dismiss button[data-ui=ly-renumbered-dismiss], #btn-undo, #btn-redo).
+# - The single toast event seen after Dismiss in A2 (show:false at t=3034) is the import's migration toast timing out
+#   (shown t=832 + TOAST_LIFETIME 2200 ms), not a toast from Dismiss.

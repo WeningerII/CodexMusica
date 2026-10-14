@@ -1,0 +1,116 @@
+[
+  {
+    "id": "cand.refresh.caret_2.|end",
+    "before": {
+      "sel": [
+        27,
+        27
+      ],
+      "shown": "[SETUP — returns — 1.T2, 2.|end]"
+    },
+    "after": {
+      "sel": [
+        27,
+        27
+      ],
+      "len": 170,
+      "row1": "[SETUP — returns — 1.T2, 2.end]",
+      "shown": "[SETUP — returns — 1.T2, 2.|end]"
+    }
+  },
+  {
+    "id": "cand.refresh.sel_2end",
+    "before": {
+      "sel": [
+        25,
+        30
+      ],
+      "shown": "[SETUP — returns — 1.T2, «2.end»]"
+    },
+    "after": {
+      "sel": [
+        25,
+        30
+      ],
+      "len": 170,
+      "row1": "[SETUP — returns — 1.T2, 2.end]",
+      "shown": "[SETUP — returns — 1.T2, «2.end»]"
+    }
+  },
+  {
+    "id": "cand.reviewProg.caret_2.|end",
+    "before": {
+      "sel": [
+        27,
+        27
+      ],
+      "shown": "[SETUP — returns — 1.T2, 2.|end]"
+    },
+    "after": {
+      "sel": [
+        39,
+        39
+      ],
+      "len": 179,
+      "row1": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]"
+    }
+  },
+  {
+    "id": "cand.reviewProg.sel_2end",
+    "before": {
+      "sel": [
+        25,
+        30
+      ],
+      "shown": "[SETUP — returns — 1.T2, «2.end»]"
+    },
+    "after": {
+      "sel": [
+        39,
+        39
+      ],
+      "len": 179,
+      "row1": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]"
+    }
+  },
+  {
+    "id": "cand.reviewKbd.caret_2.|end",
+    "before": {
+      "sel": [
+        27,
+        27
+      ],
+      "shown": "[SETUP — returns — 1.T2, 2.|end]"
+    },
+    "after": {
+      "sel": [
+        39,
+        39
+      ],
+      "len": 179,
+      "row1": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]"
+    }
+  },
+  {
+    "id": "cand.reviewKbd.sel_2end",
+    "before": {
+      "sel": [
+        25,
+        30
+      ],
+      "shown": "[SETUP — returns — 1.T2, «2.end»]"
+    },
+    "after": {
+      "sel": [
+        39,
+        39
+      ],
+      "len": 179,
+      "row1": "[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]"
+    }
+  }
+]

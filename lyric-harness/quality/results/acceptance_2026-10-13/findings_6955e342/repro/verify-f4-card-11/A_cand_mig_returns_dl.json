@@ -1,0 +1,78 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:67a82e21-faa1-4018-ba5e-993ea41331df",
+  "draftId": "draft:d4276176-4ecd-4f6a-8e02-931e6201c3cf",
+  "createdAt": "2026-10-14T10:58:53.227Z",
+  "payload": {
+    "text": "[SETUP — title — \"Wc\"]\n[SETUP — returns — 1.T4,2.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nOh--oh, oh my love",
+    "title": "V11 mig_returns",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": true,
+        "importedFromHandoffId": "handoff:6a94fcd1-70c8-4487-a81c-8530df0ca772",
+        "sourceDigest": "61a39c5f4a2cdd9d88f693049a0d1aa647d7b9b93c6d59a03bb0a00d035c6c42",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "token_cut": "probe",
+            "pronunciations": [
+              {
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ]
+              }
+            ],
+            "note": "v11 probe"
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "renumbered": {
+              "items": [
+                {
+                  "kind": "returns",
+                  "word": "my",
+                  "n": [
+                    1
+                  ],
+                  "from": 3,
+                  "to": 4
+                },
+                {
+                  "kind": "returns",
+                  "word": "my",
+                  "n": [
+                    2
+                  ],
+                  "from": 3,
+                  "to": 4
+                }
+              ],
+              "more": 0
+            },
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          }
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "ed3836eaef24c003690f5eb53566d965634793e1e57ec9a0b0aecad92bab4996"
+}

@@ -1,0 +1,1652 @@
+{
+ "label": "cand",
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "head": null,
+ "scenarios": {
+  "S1": [
+   {
+    "tag": "0 fresh",
+    "head": "",
+    "text": "",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      0,
+      1
+     ],
+     "stored": {
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "",
+      "head": ""
+     }
+    },
+    "toasts": []
+   },
+   {
+    "tag": "1 after .txt A",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n3 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “river”, line 1: word 4 → 5; a rhyme link on “river”, line 1: word 4 → 5; a rhyme link on “shiver”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked the",
+     "words": [
+      "river",
+      "river",
+      "shiver"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "shiver",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      1,
+      2
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "reading",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "shiver",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “river” word 4 → 5, “river” word 4 → 5, “shiver” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "2 after session import Q",
+    "head": "[SETUP — title — \"Quiet Field\"]",
+    "text": "[SETUP — title — \"Quiet Field\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe walk the field at night\nwe talk until the light",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "quiet brief",
+     "draftId": null,
+     "hist": [
+      2,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "quiet brief",
+      "head": "[SETUP — title — \"Quiet Field\"]"
+     }
+    },
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "3 after Undo (lyrics-page button)",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      1,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "storage after Undo",
+    "evidence": [],
+    "history": [
+     {
+      "head": "",
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasUi": false
+     },
+     {
+      "head": "[SETUP — title — \"Alpha River\"]",
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasUi": false
+     },
+     {
+      "head": "[SETUP — title — \"Quiet Field\"]",
+      "lyricMetaKeys": [
+       "version",
+       "brief",
+       "notes"
+      ],
+      "hasUi": false
+     }
+    ],
+    "idb": []
+   },
+   {
+    "tag": "4 after Redo",
+    "head": "[SETUP — title — \"Quiet Field\"]",
+    "text": "[SETUP — title — \"Quiet Field\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe walk the field at night\nwe talk until the light",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "quiet brief",
+     "draftId": null,
+     "hist": [
+      2,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "quiet brief",
+      "head": "[SETUP — title — \"Quiet Field\"]"
+     }
+    },
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "5 after Undo again",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      1,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "6 after reload",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      0,
+      1
+     ],
+     "stored": {
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": []
+   }
+  ],
+  "S2": [
+   {
+    "tag": "1 after .txt A",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n3 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “river”, line 1: word 4 → 5; a rhyme link on “river”, line 1: word 4 → 5; a rhyme link on “shiver”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked the",
+     "words": [
+      "river",
+      "river",
+      "shiver"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "shiver",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      1,
+      2
+     ],
+     "stored": {
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "reading",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "shiver",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “river” word 4 → 5, “river” word 4 → 5, “shiver” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "2 after .txt Q",
+    "head": "[SETUP — title — \"Quiet Field\"]",
+    "text": "[SETUP — title — \"Quiet Field\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe walk the field at night\nwe talk until the light",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n3 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “river”, line 1: word 4 → 5; a rhyme link on “river”, line 1: word 4 → 5; a rhyme link on “shiver”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked the",
+     "words": [
+      "river",
+      "river",
+      "shiver"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "shiver",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      2,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "reading",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "shiver",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Quiet Field\"]"
+     }
+    },
+    "toasts": [
+     "Imported quiet.txt. Undo restores the previous draft.\nUndo"
+    ]
+   },
+   {
+    "tag": "3 after Undo",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n3 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “river”, line 1: word 4 → 5; a rhyme link on “river”, line 1: word 4 → 5; a rhyme link on “shiver”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked the",
+     "words": [
+      "river",
+      "river",
+      "shiver"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "shiver",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      1,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "reading",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "shiver",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "Imported quiet.txt. Undo restores the previous draft.\nUndo"
+    ]
+   }
+  ],
+  "S3": [
+   {
+    "tag": "0 exporter page after .txt C",
+    "head": "[SETUP — title — \"Cello Cobra\"]",
+    "text": "[SETUP — title — \"Cello Cobra\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nYo--yo, yo my cello\nYo--yo, yo my yellow",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n2 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “cello”, line 1: word 4 → 5; a rhyme link on “yellow”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm ",
+     "words": [
+      "cello",
+      "yellow"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "cello",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "yellow",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      1,
+      2
+     ],
+     "stored": {
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "rhyme groups",
+          "word": "cello",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "yellow",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Cello Cobra\"]"
+     }
+    },
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “cello” word 4 → 5, “yellow” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "1 after .txt A",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n3 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “river”, line 1: word 4 → 5; a rhyme link on “river”, line 1: word 4 → 5; a rhyme link on “shiver”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked the",
+     "words": [
+      "river",
+      "river",
+      "shiver"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "shiver",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      1,
+      2
+     ],
+     "stored": {
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "reading",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "shiver",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “river” word 4 → 5, “river” word 4 → 5, “shiver” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "2 after session import C (with its card)",
+    "head": "[SETUP — title — \"Cello Cobra\"]",
+    "text": "[SETUP — title — \"Cello Cobra\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nYo--yo, yo my cello\nYo--yo, yo my yellow",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n2 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “cello”, line 1: word 4 → 5; a rhyme link on “yellow”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm ",
+     "words": [
+      "cello",
+      "yellow"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "cello",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "yellow",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      2,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "rhyme groups",
+          "word": "cello",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "yellow",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Cello Cobra\"]"
+     }
+    },
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "3 after Undo",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n2 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “cello”, line 1: word 4 → 5; a rhyme link on “yellow”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm ",
+     "words": [
+      "cello",
+      "yellow"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "cello",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "yellow",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      1,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "rhyme groups",
+          "word": "cello",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "yellow",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "Session imported"
+    ]
+   }
+  ],
+  "S4": [
+   {
+    "tag": "1 after Library A",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n3 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “river”, line 1: word 4 → 5; a rhyme link on “river”, line 1: word 4 → 5; a rhyme link on “shiver”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked the",
+     "words": [
+      "river",
+      "river",
+      "shiver"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "shiver",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "renumbered",
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "",
+     "draftId": "draft:a30ffcb3-055d-47a0-9399-4e030c0dc701",
+     "hist": [
+      2,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "renumbered": {
+        "items": [
+         {
+          "kind": "reading",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "shiver",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       },
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “river” word 4 → 5, “river” word 4 → 5, “shiver” word 4 → 5. Review lists each one until you dismiss it.",
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "idb after Library A",
+    "idb": [
+     {
+      "draftId": "draft:a30ffcb3-055d-47a0-9399-4e030c0dc701",
+      "head": "[SETUP — title — \"Alpha River\"]",
+      "renumbered": {
+       "items": [
+        {
+         "kind": "reading",
+         "word": "river",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "river",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "shiver",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      }
+     },
+     {
+      "draftId": "draft:e5a85a30-f1e0-46af-bdb7-fd8aa8226bb0",
+      "head": null,
+      "renumbered": null
+     }
+    ]
+   },
+   {
+    "tag": "2 after session import Q",
+    "head": "[SETUP — title — \"Quiet Field\"]",
+    "text": "[SETUP — title — \"Quiet Field\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe walk the field at night\nwe talk until the light",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "quiet brief",
+     "draftId": null,
+     "hist": [
+      3,
+      4
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "quiet brief",
+      "head": "[SETUP — title — \"Quiet Field\"]"
+     }
+    },
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "idb after session import",
+    "idb": [
+     {
+      "draftId": "draft:5d78e2a2-a7c6-4432-b4ac-ff59cb5aa211",
+      "head": "[SETUP — title — \"Quiet Field\"]",
+      "renumbered": null
+     },
+     {
+      "draftId": "draft:a30ffcb3-055d-47a0-9399-4e030c0dc701",
+      "head": "[SETUP — title — \"Alpha River\"]",
+      "renumbered": {
+       "items": [
+        {
+         "kind": "reading",
+         "word": "river",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "river",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "shiver",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      }
+     },
+     {
+      "draftId": "draft:e5a85a30-f1e0-46af-bdb7-fd8aa8226bb0",
+      "head": null,
+      "renumbered": null
+     }
+    ]
+   },
+   {
+    "tag": "3 after Undo",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "",
+     "draftId": "draft:a30ffcb3-055d-47a0-9399-4e030c0dc701",
+     "hist": [
+      2,
+      4
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "idb after Undo",
+    "idb": [
+     {
+      "draftId": "draft:5d78e2a2-a7c6-4432-b4ac-ff59cb5aa211",
+      "head": "[SETUP — title — \"Quiet Field\"]",
+      "renumbered": null
+     },
+     {
+      "draftId": "draft:a30ffcb3-055d-47a0-9399-4e030c0dc701",
+      "head": "[SETUP — title — \"Alpha River\"]",
+      "renumbered": null
+     },
+     {
+      "draftId": "draft:e5a85a30-f1e0-46af-bdb7-fd8aa8226bb0",
+      "head": null,
+      "renumbered": null
+     }
+    ]
+   }
+  ],
+  "S5": [
+   {
+    "tag": "1 after .txt A",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 1,
+     "domCardText": " a review result.\n\n3 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “river”, line 1: word 4 → 5; a rhyme link on “river”, line 1: word 4 → 5; a rhyme link on “shiver”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked the",
+     "words": [
+      "river",
+      "river",
+      "shiver"
+     ],
+     "meta": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "river",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "shiver",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline",
+      "renumbered"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      2,
+      3
+     ],
+     "stored": {
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "reading",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "river",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "shiver",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "3 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “river” word 4 → 5, “river” word 4 → 5, “shiver” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   {
+    "tag": "2 after loading the saved session",
+    "head": "[SETUP — title — \"Quiet Field\"]",
+    "text": "[SETUP — title — \"Quiet Field\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe walk the field at night\nwe talk until the light",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      3,
+      4
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Quiet Field\"]"
+     }
+    },
+    "toasts": [
+     "Loaded \"Quiet saved\""
+    ]
+   },
+   {
+    "tag": "3 after Undo",
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "text": "[SETUP — title — \"Alpha River\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]\n\n[VERSE]\nHey--hey, hey my river\nHey--hey, hey my shiver",
+    "card": {
+     "domDismissButtons": 0,
+     "domCardText": null,
+     "words": [],
+     "meta": null,
+     "uiKeys": [
+      "tab",
+      "tool",
+      "outline"
+     ],
+     "brief": "",
+     "draftId": null,
+     "hist": [
+      2,
+      4
+     ],
+     "stored": {
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "brief": "",
+      "head": "[SETUP — title — \"Alpha River\"]"
+     }
+    },
+    "toasts": [
+     "Loaded \"Quiet saved\""
+    ]
+   }
+  ]
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "cand.S1.textBack",
+   "claim": "Undo after the session import returns A's text exactly as it stood after the .txt import",
+   "expected": "draft === draft after step 1",
+   "observed": {
+    "equal": true,
+    "head": "[SETUP — title — \"Alpha River\"]"
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "cand.S1.cardAfterA",
+   "claim": "the .txt import of A shows a renumbered card",
+   "expected": "card lists river/shiver (cand only)",
+   "observed": {
+    "words": [
+     "river",
+     "river",
+     "shiver"
+    ],
+    "dom": 1
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S1.cardAtImport",
+   "claim": "card right after the session import",
+   "expected": "informational",
+   "observed": {
+    "words": [],
+    "dom": 0,
+    "ui": [
+     "tab",
+     "tool",
+     "outline"
+    ]
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S1.cardAfterUndo",
+   "claim": "after Undo, A's text is back with A's card (claim c4)",
+   "expected": "card lists river, shiver (and the Review pane shows it)",
+   "observed": {
+    "words": [],
+    "dom": 0,
+    "ui": [
+     "tab",
+     "tool",
+     "outline"
+    ],
+    "brief": ""
+   },
+   "status": "FAIL"
+  },
+  {
+   "id": "cand.S1.migratedRowsKept",
+   "claim": "the text Undo restores is A's migrated text (rows marked — cut v2 or renumbered), so no later boundary re-creates the card",
+   "expected": "informational",
+   "observed": {
+    "rows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+     "[SETUP — reading — token 5 \"river\" in \"Hey--hey, hey my river\" — R IH1 V ER0 — declared — source: me — cut v2]"
+    ]
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S1.evidenceAnywhere",
+   "claim": "after the Undo, A's renumbering evidence is held anywhere on the device (localStorage, sessionStorage, IndexedDB drafts)",
+   "expected": "informational",
+   "observed": [],
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S1.afterReload",
+   "claim": "after a reload (an open boundary) the card is still absent: A's rows are already migrated so nothing re-creates it",
+   "expected": "informational",
+   "observed": {
+    "words": [],
+    "dom": 0,
+    "head": "[SETUP — title — \"Alpha River\"]"
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S2.txtThenUndo",
+   "claim": ".txt A -> .txt Q -> Undo: A text and the card (control: the loss needs the session import)",
+   "expected": "card lists river, shiver",
+   "observed": {
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "words": [
+     "river",
+     "river",
+     "shiver"
+    ],
+    "atQ": [
+     "river",
+     "river",
+     "shiver"
+    ]
+   },
+   "status": "PASS"
+  },
+  {
+   "id": "cand.S3.sessionCarriesCard",
+   "claim": "a session file exported after C's import carries C's card into the importing page",
+   "expected": "card lists cello, yellow",
+   "observed": [
+    "cello",
+    "yellow"
+   ],
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S3.undoMismatch",
+   "claim": "after Undo the text is A's but the card is C's (lists words that are not in the draft)",
+   "expected": "informational",
+   "observed": {
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "words": [
+     "cello",
+     "yellow"
+    ],
+    "cInDraft": [
+     false,
+     false
+    ]
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S4.undo",
+   "claim": "Library A -> session import -> Undo: card after Undo",
+   "expected": "informational",
+   "observed": {
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "words": [],
+    "draftId": "draft:a30ffcb3-055d-47a0-9399-4e030c0dc701",
+    "envDraft": "draft:a30ffcb3-055d-47a0-9399-4e030c0dc701",
+    "idb": [
+     {
+      "draftId": "draft:5d78e2a2-a7c6-4432-b4ac-ff59cb5aa211",
+      "head": "[SETUP — title — \"Quiet Field\"]",
+      "renumbered": null
+     },
+     {
+      "draftId": "draft:a30ffcb3-055d-47a0-9399-4e030c0dc701",
+      "head": "[SETUP — title — \"Alpha River\"]",
+      "renumbered": null
+     },
+     {
+      "draftId": "draft:e5a85a30-f1e0-46af-bdb7-fd8aa8226bb0",
+      "head": null,
+      "renumbered": null
+     }
+    ]
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S4.reopen",
+   "claim": "reopening A's Library draft from History brings A's card back",
+   "expected": "informational",
+   "observed": {
+    "restoreButton": 0,
+    "words": null,
+    "head": null
+   },
+   "status": "INFO"
+  },
+  {
+   "id": "cand.S5.savedLoadUndo",
+   "claim": "saved-session load then Undo: A text back; card?",
+   "expected": "informational",
+   "observed": {
+    "head": "[SETUP — title — \"Alpha River\"]",
+    "words": []
+   },
+   "status": "INFO"
+  }
+ ]
+}

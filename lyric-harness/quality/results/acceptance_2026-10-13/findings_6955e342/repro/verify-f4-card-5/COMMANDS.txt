@@ -1,0 +1,37 @@
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5/build-wt-695/built-wt-695.html --quiet
+cmp built-wt-695.html vs wt-695/codex.html: IDENTICAL; library chunks: OK (6 files)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5/build-wt-61b/built-wt-61b.html --quiet
+cmp built-wt-61b.html vs wt-61b/codex.html: IDENTICAL; library chunks: OK (6 files)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5/build-wt-678/built-wt-678.html --quiet
+cmp built-wt-678.html vs wt-678/codex.html: IDENTICAL; library chunks: OK (6 files)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5/build-wt-main/built-wt-main.html --quiet
+cmp built-wt-main.html vs wt-main/codex.html: IDENTICAL; library chunks: OK (6 files)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5/build-wt-base/built-wt-base.html --quiet
+cmp built-wt-base.html vs wt-base/codex.html: DIFFERENT; library chunks: OK ( files)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && NODE_PATH=/home/user/CodexMusica/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5/build-wt-base/built-wt-base.html --quiet   # wt-base has no node_modules; resolve from the main checkout instead of adding a symlink
+cmp built-wt-base.html vs wt-base/codex.html: IDENTICAL; library chunks: OK (6 files)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js cand > v5_cand.log 2>&1
+# run1 kept as v5_cand_run1.*; S4 then given IndexedDB snapshots after each step; rerun:
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js cand > v5_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js prev61b > v5_prev61b.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js prev678 > v5_prev678.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js main > v5_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js base > v5_base.log 2>&1
+# v5.js given S6/S7 (Library path: which step erases A's stored card); output file suffixed with the scenario list
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js cand S6 S7 > v5_cand_S6_S7.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js prev61b S6 S7 > v5_prev61b_S6_S7.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5 && node v5.js cand S7 > v5_cand_S7.log 2>&1   # S7 refined: find Q's draft in IndexedDB, open it, then reopen A; evidence search after the Undo
+== wt-695: ?? node_modules 
+== wt-61b: ?? node_modules 
+== wt-678: ?? mcp/node_modules ?? node_modules 
+== wt-main: ?? node_modules 
+== wt-base: 
+# NOTES
+# - Every browser run: Chromium /opt/pw-browsers/chromium, local http server; /codex.html and library/code/* served from my own
+#   CODEX_LIBRARY=1 build of each tree (byte-identical to the tree's codex.html and chunks, see cmp lines above), all else from the tree root.
+#   mcp.codexmusica.com answered by a local stub (no provider, no network). No CHAT_SECRET. No tracked file modified (git status above).
+# - Grep controls (code identical on all five trees): uiImport `app.lyricMeta = lyricMetaOf(s.lyricMeta)` (src/workbench.js:646),
+#   `const lyricMetaHistory` without ui (src/app.js), lyLibraryCapture `meta = lyricMetaOf(app.lyricMeta)` -> saveDraft.
+# - FAIL lines for prev61b/prev678/main/base S1.cardAfterUndo are vacuous: those pages have no card at all.
+# - prev678 page bytes == prev61b page bytes (same sha256); its log equals prev61b's with draft ids masked.
+rm -rf /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f4-card-5/build-wt-*   # built pages deleted after the runs (disk)

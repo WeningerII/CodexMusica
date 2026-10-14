@@ -1,0 +1,60 @@
+cand start tab=default (default tools) -> after=[0,0,"forward"] expected=72 LOST tabAfter=review
+    1693 before click sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1842 mousedown (capture) sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1847 draft blur event sel=63 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1849 mouseup (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1849 click (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1850 ensure:before sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1856 ensure returned true sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1857 focus() on chat-input sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1886 microtask after ensure sel=72 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1897 first rAF sel=0 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    2457 500ms sel=0 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+cand start tab=tools (default tools) -> after=[0,0,"forward"] expected=72 LOST tabAfter=review
+    1697 before click sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1785 mousedown (capture) sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1791 draft blur event sel=63 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1792 mouseup (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1793 click (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1794 ensure:before sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1800 ensure returned true sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1801 focus() on chat-input sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1827 microtask after ensure sel=72 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1838 first rAF sel=0 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    2356 500ms sel=0 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+cand start tab=writer (default tools) -> after=[72,72,"forward"] expected=72 KEPT tabAfter=review
+    1380 before click sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1456 mousedown (capture) sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1460 draft blur event sel=63 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1461 mouseup (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1462 click (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1463 ensure:before sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1468 ensure returned true sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1468 focus() on chat-input sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1491 microtask after ensure sel=72 active=BODY docSel={"type":"None","anchor":null,"inDraft":false}
+    1500 first rAF sel=72 active=BODY docSel={"type":"None","anchor":null,"inDraft":false}
+    2024 500ms sel=72 active=BODY docSel={"type":"None","anchor":null,"inDraft":false}
+cand start tab=review (default tools) -> after=[0,0,"forward"] expected=72 LOST tabAfter=review
+    1567 before click sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1648 mousedown (capture) sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1652 draft blur event sel=63 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1654 mouseup (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1654 click (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1655 ensure:before sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1659 ensure returned true sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1660 focus() on chat-input sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1677 microtask after ensure sel=72 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1687 first rAF sel=0 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    2207 500ms sel=0 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+cand start tab=history (default tools) -> after=[0,0,"forward"] expected=72 LOST tabAfter=review
+    1524 before click sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1583 mousedown (capture) sel=63 active=draft docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1586 draft blur event sel=63 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1588 mouseup (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1588 click (capture) sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1589 ensure:before sel=63 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1593 ensure returned true sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1595 focus() on chat-input sel=72 active=ly-run-review docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1619 microtask after ensure sel=72 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    1633 first rAF sel=0 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}
+    2153 500ms sel=0 active=BODY docSel={"type":"Caret","anchor":"ly-editor","inDraft":false}

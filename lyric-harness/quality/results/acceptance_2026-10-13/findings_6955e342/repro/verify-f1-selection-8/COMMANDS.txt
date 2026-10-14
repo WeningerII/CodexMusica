@@ -1,0 +1,52 @@
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-695.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-695.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/codex.html
+wt-695 IDENTICAL
+Built /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-695.html (1,270,053 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-61b.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-61b.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b/codex.html
+wt-61b IDENTICAL
+Built /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-61b.html (1,264,954 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-678.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-678.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/codex.html
+wt-678 IDENTICAL
+Built /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-678.html (1,264,954 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-main.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-main.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/codex.html
+wt-main IDENTICAL
+Built /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-main.html (1,242,337 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-base.html --quiet ; cmp /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-base.html /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/codex.html
+wt-base DIFFERS/FAILED
+}
+
+Node.js v22.22.0
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base && NODE_PATH=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-wt-base.html --quiet ; cmp built vs codex.html
+wt-base IDENTICAL (NODE_PATH=wt-main/node_modules)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && node v8.js cand prog > v8_cand_prog.log 2>&1
+# v8.js edit: openTool always calls LY_ACTIONS['ly-tool'](id) (list after Run review was empty because the tool panel was not re-opened); reran cand prog
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && node v8.js cand prog > v8_cand_prog.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && node v8.js cand insert,paste,type > v8_cand_real.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && node v8.js c61b prog,paste > v8_c61b.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && node v8.js c678 prog,paste > v8_c678.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && node v8.js main prog,paste > v8_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && node v8.js base prog,paste > v8_base.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/grader_bind.py > /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/grader_bind_cand.json
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/lyric-harness && PYTHONPATH=. LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/grader_bind.py > /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/grader_bind_wt-695.json
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main/lyric-harness && PYTHONPATH=. LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/grader_bind.py > /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/grader_bind_wt-main.json
+# v8.js extended: paths I_gate (pending Rhymes members + Run review gate Apply all), J_sibling_remove (a marked and an unmarked rhyme groups row; Remove link on the marked one), K_B_undo (B then Undo then send)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && for t in cand c61b c678 main base; do TAG=x node v8.js $t prog,paste I_gate,J_sibling_remove,K_B_undo,A_send > v8x_$t.log 2>&1; done   (TAG=x -> v8x_<tree>_prog-paste.json)
+# v8.js: env ROW overrides the [SETUP] row(s) of the fixture
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8 && ROW='[SETUP — rhyme groups — 1.end,8; 2,3]' TAG=named node v8.js cand prog A_send,B_remove > v8named_cand.log 2>&1 ; same for c61b
+rm -f /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/built-*.html   (cleanup: each built page was byte-identical to its tree's committed codex.html, which v8.js serves)
+wt-695: 0 tracked/untracked changes besides node_modules
+wt-61b: 0 tracked/untracked changes besides node_modules
+wt-678: 0 tracked/untracked changes besides node_modules
+wt-main: 0 tracked/untracked changes besides node_modules
+wt-base: 0 tracked/untracked changes besides node_modules
+# grader_bind_wt-main: main's harness needs its own staged cmudict (LEXICAL_ASSET_MISSING with this LYRIC_STAGED_DATA); main's lyric_harness.py has no READER_SCHEME (single cut), so not needed for the control
+rm -rf /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/verify-f1-selection-8/build/library   (build side output, not needed)

@@ -1,0 +1,47 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:cc6924fd-f89b-42d5-a9f4-f21aa38d554b",
+  "draftId": "draft:3777b0a6-3c87-41b7-8067-0a6733962329",
+  "createdAt": "2026-10-14T11:05:03.494Z",
+  "payload": {
+    "text": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: the singer]\n\n[VERSE]\nOh--oh, oh my love\nWe sing it plain tonight",
+    "title": "V11d",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:9b551b7e-aa1c-45ea-bed9-38a18ee4f141",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "token_cut": "probe",
+            "note": "v11d probe"
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": [
+      {
+        "token_cut": "probe",
+        "note": "v11d probe"
+      }
+    ]
+  },
+  "digest": "4e619167f16f1039d0ed065211bc64a1d29295d00e59f3ad03a61f221396dfe3"
+}

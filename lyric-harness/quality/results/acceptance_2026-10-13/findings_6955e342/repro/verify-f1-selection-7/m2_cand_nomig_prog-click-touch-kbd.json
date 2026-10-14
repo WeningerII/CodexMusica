@@ -1,0 +1,415 @@
+{
+  "tree": "cand",
+  "scen": "nomig",
+  "doc": "[SETUP — returns — 1.T3, 2.end — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+  "runs": {
+    "nomig/prog/sung_walk": {
+      "textChangedAtSetDraft": false,
+      "pending": 0,
+      "before": {
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaret": [
+        72,
+        72,
+        0
+      ],
+      "sends": 1,
+      "rewritten": false,
+      "firstRowsAfter": [
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "expected": {
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "I wZQalk the line tonight",
+      "errors": []
+    },
+    "nomig/prog/sung_sel_wellworn": {
+      "textChangedAtSetDraft": false,
+      "pending": 0,
+      "before": {
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaret": [
+        93,
+        102,
+        0
+      ],
+      "sends": 1,
+      "rewritten": false,
+      "firstRowsAfter": [
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "expected": {
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "ZQ shoes upon the floor",
+      "errors": []
+    },
+    "nomig/click/sung_walk": {
+      "textChangedAtSetDraft": false,
+      "pending": 0,
+      "before": {
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaret": [
+        72,
+        72,
+        0
+      ],
+      "sends": 1,
+      "rewritten": false,
+      "firstRowsAfter": [
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "expected": {
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "I wZQalk the line tonight",
+      "errors": []
+    },
+    "nomig/click/sung_sel_wellworn": {
+      "textChangedAtSetDraft": false,
+      "pending": 0,
+      "before": {
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaret": [
+        93,
+        102,
+        0
+      ],
+      "sends": 1,
+      "rewritten": false,
+      "firstRowsAfter": [
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "expected": {
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "ZQ shoes upon the floor",
+      "errors": []
+    },
+    "nomig/touch/sung_walk": {
+      "textChangedAtSetDraft": false,
+      "pending": 0,
+      "before": {
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaret": [
+        72,
+        72,
+        0
+      ],
+      "sends": 1,
+      "rewritten": false,
+      "firstRowsAfter": [
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "expected": {
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "I wZQalk the line tonight",
+      "errors": []
+    },
+    "nomig/touch/sung_sel_wellworn": {
+      "textChangedAtSetDraft": false,
+      "pending": 0,
+      "before": {
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaret": [
+        93,
+        102,
+        0
+      ],
+      "sends": 1,
+      "rewritten": false,
+      "firstRowsAfter": [
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "expected": {
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "ZQ shoes upon the floor",
+      "errors": []
+    },
+    "nomig/kbd/sung_walk": {
+      "textChangedAtSetDraft": false,
+      "pending": 0,
+      "before": {
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaret": [
+        72,
+        72,
+        0
+      ],
+      "sends": 1,
+      "rewritten": false,
+      "firstRowsAfter": [
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "expected": {
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          72,
+          72
+        ],
+        "shown": "I w|alk the line tonight",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "I wZQalk the line tonight",
+      "errors": []
+    },
+    "nomig/kbd/sung_sel_wellworn": {
+      "textChangedAtSetDraft": false,
+      "pending": 0,
+      "before": {
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaret": [
+        93,
+        102,
+        0
+      ],
+      "sends": 1,
+      "rewritten": false,
+      "firstRowsAfter": [
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "",
+        "[VERSE]"
+      ],
+      "afterAction": {
+        "mobile": "review",
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "expected": {
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "mobile": "song",
+        "sel": [
+          93,
+          102
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "focused": false
+      },
+      "restoredEqualsRawSaved": true,
+      "sameChars": true,
+      "typedRow": "ZQ shoes upon the floor",
+      "errors": []
+    }
+  }
+}
