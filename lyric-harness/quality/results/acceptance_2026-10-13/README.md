@@ -294,6 +294,21 @@ It is fit for bounded diagnostic use on this candidate, and the candidate gate i
 - A splice path missing on a tree is skipped without a verdict in revisions 3.1 and 3.2. The expected three are present at `61b6618a` (`declared_paths` in the receipt); the replacement head's qualification will assert all three.
 - The oracle and production share `slots.resolve` and the raw-token machinery. That, and the fact that the skeptic reports reviewed revision 3.0, are the documented limits on independence.
 
+### R2's tests and claims, qualified (the R2-tests skeptic, `slot_occurrence_61b6618a/skeptics.json`)
+
+- **What reproduces.** R2's named tests pass, and so do both full suites at `61b6618a`: `test_reader.py` 83 OK with 3 skipped, and `test_revise.py` 4/4 shards, 427 PASS, 0 FAIL.
+  - Under R2's **behavioural** revert (the `67889851` bodies of `swap_end_word` and `swap_at_slot`, with `lex` accepted and ignored), 13 of the 14 SlotBinding tests fail, and the v1 guard passes, as R2 says.
+  - A **literal** file revert of `loop.py` and `revise.py` breaks the API instead, so every test errors.
+- **Two repair guards are pinned by no test.** In single-guard ablations, removing either one leaves all 21 SlotBinding and LoopSwaps tests passing:
+  - the `_only_word_material` refusal in the v2 `swap_at_slot`;
+  - the pieces check in `_end_occurrence_bound`.
+
+  **The first is reachable.** With a declared reading on a token holding a printed symbol, the ablated swap deletes material: `love×you more` head gives `zqx more`. `61b6618a` refuses there. Five other guards are caught only by rigs that replace `_RESOLVE`.
+- **The default-end residual is 196 per v2 mode by direct call.** That is 191 inside this tool plus 5 spaced-enclitic lines the tool excludes as `excluded_transformed`, all of the same kind.
+  - On the same unread token, the default end edits while `T<n>` refuses (`the night was zzqx`).
+  - R2's own posted contract (#519 6160940820, item 2) says the reviser refuses wherever the grader refuses the slot. The 3PO review R2 cites concerns the one-token rule for multi-word anchors, not empty anchors.
+  - Refusing these is one code line. It also changes two test assertions.
+
 ### Other lexicons production can pass, under the 3.1 gate (revisions 3.2 and 3.3)
 
     cd <tree>/lyric-harness

@@ -321,10 +321,169 @@
     ],
     "summary": "Every number BB8 cites for 61b6618a reproduces. That includes the 989-case cohort reading occ_agree, the 2,342 refusals (T<n> 2292, headrime 26, head 12, endword 12), 191 edit_unbound per cur mode on end only, 0 cur failures, v1 identical to 67889851 (701 occ_wrong + 4 resolver_mismatch), and an unchanged default end (0 of 15,870 records differ).\n\nAn independent post-edit check confirms every occ_agree (33,591 stripped, 39,143 sung) and all 191 unbound end edits per mode; it splices a readable word and asks the grader about the edited line, and needs neither the tool nor raw-piece mapping. A 2,470-line synthetic fuzz found 0 false occ_agree, and code reading shows no path that yields one.\n\nQ1, lexicon: the tool's single build_lexicon('v2','none') object is only one of the lexicons production can pass. I added fallback=high, supplement none, a freshly built voices lexicon, and 1,508 / 1,817 declared occurrence readings. These moved bindings in up to 1,929 cases, with 0 failures. The v2 supplement changes no token's readability in this population, and fallback=low was not run.\n\nQ3, negative controls: they are meaningful. The rig reaches only the oracle (loop._RESOLVE is the real resolve, and production output is unchanged under the rig), and a production that followed the rig would refuse, which reads CANNOT TELL. My own wrong-occurrence swap was caught 1,821/1,821 and 2,213/2,213.\n\nQ2/Q4, the gate (blocking): v3.0 counts every edit where the grader binds nothing as a policy residual and never checks where it landed. That includes phantom-slot edits, which v2 failed. The pinned v3.0 tool, run end to end with a deliberately broken swap, returns the same failures dict as the real receipt, with all controls and negative controls passing. Only the residual moves (191 to 7,855 and 7,627), while its own literal column records 7,831 and 7,604 wrong_word. At 61b6618a no wrong edit is actually hidden: all 191 are literal agree_unbound and confirmed post-edit. But the v3.0 gate did not establish that.\n\nTool 3.1 appeared mid-review (sha 88237781; I reviewed v3.0, byte-exact, sha c9e282c3). It now fails edit_unbound, which closes this hole. Under 3.1, though, 61b6618a's cur scheme reads FAIL at 191 per mode, so BB8's 'FAIL on v1 only' reading no longer stands.\n\nFurther qualifications: the oracle shares slots.resolve and reader_line with production, so cur 0 occ_wrong on non-default slots holds largely by construction. The new end-occurrence check is never exercised by this population. v3.0 drops v2's tree-clean and lexicon pins."
    }
+  },
+  {
+   "agent": "r2-tests",
+   "result": {
+    "lens": "QUALIFY R2'S TESTS AND CLAIMS (skeptic-r2-tests): SlotBinding and touched tests at 61b6618a, literal and behavioural reverts, the default-end residual policy, full test_reader and test_revise totals",
+    "verdict": "claims_hold_with_qualifications",
+    "findings": [
+     {
+      "severity": "qualification",
+      "claim": "R2 says the 191-per-mode default-end residual is a policy choice that 3PO's review sanctioned. The review it cites is about a different rule. R2's own posted contract says the reviser refuses wherever the grader refuses the slot.",
+      "evidence": "What the default end does when the grader binds no syllable: swap_end_word (loop.py:454) calls _end_occurrence_bound. Its empty-anchor branch (loop.py:507-510) returns True when line_anchors' label equals the last token and raw_final_token(text, lex.strip_parens) equals it too, so the endpoint is EDITED. Non-default slots go through _bound_index, which returns None on empty anchors (loop.py:546), so the swap REFUSES.\n\nThe difference shows on the same token. 'the night was zzqx': end gives 'the night was zqx'; T4, the same unread token with nothing bound, gives None. 'I sing of 45': end edits 45; T4 refuses (demo_end_61b.txt). The grader treats these two cases alike: slots.py:651-656 says an unreadable T<n> gets 'the same answer an unreadable end word already gets'.\n\nThe cited comments:\n- R2's contract (#519 6160940820), item 2: 'If the grader refuses the slot ... the reviser refuses.' Item 3: the default end 'gets the same matched check'.\n- 3PO's review (6160977437): 'Default end already refuses an unreadable final token (line_anchors actual_last guard) ... do not apply the non-default one-token-anchor rule blindly to default end'.\n\nThe one-token rule is about multi-word anchors such as 'hold it'. It is not about empty anchors. Neither comment exempts the default end from refusing when the grader binds nothing.\n\n'One-line change' is true for the code (ablation a2 changes one line). It also breaks two test assertions: test_reader.py:1105 (test_a_trailing_margin_numeral expects '_zqx') and :1279 (test_the_default_end... expects 'the night was zqx'). It changes 196 default-end edits per v2 mode on the population (probe_a2.txt: 392 over both modes), and it removes the reviser's way of repairing an unread end word by replacing it.",
+      "repro": "S=<scratch>; O=$S/so3/skeptic-r2-tests; sed -n 488,515p $S/wt-61b/lyric-harness/quality/loop.py; sed -n 646,657p $S/wt-61b/lyric-harness/quality/slots.py; LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python -I $O/demo_end.py $S/wt-61b/lyric-harness; cat $O/comment_6160940820.txt $O/comment_6160977437.txt (from: gh api repos/WeningerII/CodexMusica/issues/comments/<id>); LYRIC_STAGED_DATA=... $S/venv311/bin/python -I $O/probe_a7.py $S/wt-61b/lyric-harness $O/variants/ablations/a2_unbound_end_refuses.py <population.txt>; grep -E 'FAIL|Error' $O/abl_a2_unbound_end_refuses.log"
+     },
+     {
+      "severity": "qualification",
+      "claim": "Asked for: a literal revert of loop.py and revise.py to 67889851. That revert breaks the API rather than the behaviour, so it fails every test, the v1 guard included. R2's '13 of 14' holds only for R2's behavioural revert, which I reproduced.",
+      "evidence": "Literal revert, using my own worktree at 61b6618a with `git checkout 67889851 -- lyric-harness/quality/loop.py lyric-harness/quality/revise.py`:\n- SlotBinding: 14 of 14 fail. 12 ERROR (11 'swap_at_slot() got an unexpected keyword argument lex', 1 swap_end_word TypeError) and 2 FAIL (direct_helper at line 1317, revisers_own_lexicon). The v1 guard ERRORs on the lex kwarg.\n- LoopSwaps: 3 ERROR (counts_asides and never_fuses on TypeError; stock_stubs on KeyError 'lex'); 4 pass.\n- test_revise: both touched functions ERROR on TypeError.\n- test_production_revision: all 3 touched tests ERROR on TypeError (1274 s).\n\nBehavioural revert (61b loop.py with the 67889851 bodies of swap_end_word and swap_at_slot, lex accepted and ignored):\n- SlotBinding: 13 FAIL, and the v1 guard passes. This matches R2.\n- LoopSwaps: 2 FAIL, matching R2: counts_asides at line 790 and stock_stubs at line 872. Both fail on the T<n>-unreadable refusal ('(oh) zzzqx world' T2), not on lex being carried. In this revert revise_loop still passes lex, so the `k['lex'] is lex` check passes.\n- The 5 updated call sites (2 in test_revise, 3 in test_production_revision) all PASS under the behavioural revert (B_revise_fns.log; B_prodrev3.log, 762 s). They are plumbing and do not detect the repair. R2's text does not claim they do.",
+      "repro": "S=<scratch>; O=$S/so3/skeptic-r2-tests; grep -E '\\.\\.\\. |^Ran|^FAILED' $O/A_slot_loopswaps.log $O/B_slot_loopswaps.log; grep RESULT $O/A_revise_fns.log $O/B_revise_fns.log; grep -E '^Ran|^OK|^FAILED' $O/A_prodrev3.log $O/B_prodrev3.log. The behavioural-revert file was built by: $S/venv311/bin/python $O/make_behav_revert.py $O/variants/loop_678.py $O/variants/loop_61b.py $O/variants/loop_behav.py, then placed in a sparse worktree (since removed). Test command: cd <tree>/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python quality/test_reader.py -v SlotBinding LoopSwaps"
+     },
+     {
+      "severity": "qualification",
+      "claim": "I removed one repair guard at a time (10 ablations). Two guards the commit names are pinned by no test in SlotBinding or LoopSwaps, and one of them is reachable. Five other guards are pinned only through a rigged _RESOLVE.",
+      "evidence": "Ablations of 61b loop.py, each run against SlotBinding + LoopSwaps (21 tests):\n- Caught: a1 endpoint check (3 fails), a2 unbound end refuses (2), a4 strip_parens conflict (1), a5 T<n> index check (1), a6 respelled check (1), a8 scheme conflict (1), a9 multi-token (1), a10 unbound label check (1).\n- NOT caught: a3, the _only_word_material check in the v2 swap_at_slot (21/21 OK), and a7, the pieces/text check in _end_occurrence_bound (21/21 OK).\n\na3 is reachable. With a declared reading on a token that holds a printed symbol, the ablated swap deletes material. 'love×you more' with token 1 declared: head/headrime/T1 give 'zqx more' (deleting '×you'), where 61b refuses. 'I × you' with token 2 declared: T2 gives 'I zqx you'. That is 8 differing synthetic cases and 0 on the 3,990-line population (probe_a3.txt).\n\na7 made no difference on the population or on 10 synthetic aside-ending lines (probe_a7.txt).\n\na1, a5, a6, a9 and a10 fail only inside rigs that patch LP._RESOLVE. a1 (the endpoint check) changes 0 of 3,990 population lines (probe_a1.txt). So no real line in the tests or the population exercises it.\n\nOnly these ablations were run against the full suites; the result is an upper bound on test coverage of those guards, not a full-suite mutation run.",
+      "repro": "S=<scratch>; O=$S/so3/skeptic-r2-tests; $S/venv311/bin/python $O/ablate.py $O/variants/loop_61b.py $O/variants/ablations; cat $O/ablations_done.txt; grep -E '^Ran|^OK|^FAILED' $O/abl_*.log; LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python -I $O/probe_a3.py $S/wt-61b/lyric-harness $O/variants/ablations/a3_word_material_off.py /home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt"
+     },
+     {
+      "severity": "note",
+      "claim": "The residual is 191 per mode only inside BB8's tool. A direct call finds 196 unbound default-end edits per v2 mode on the population.",
+      "evidence": "I listed every line where swap_at_slot(text, 1, 'zqzq', lex=...) edits while slots.resolve(lex, text, 1) has no anchors. That gives 196 per mode in both cur:stripped and cur:sung. BB8's so_61b6618a.jsonl.gz has 191 per mode, and every one of the 191 is in my set. The 5 extra lines are all spaced-enclitic lines ('An\\' Charlie he \\'s our ain.', 'There \\'s some hae land, ...', and 3 others). The tool records them as excluded_transformed (excluded_line_modes.transformed = 90). This is the same policy class, not a new failure kind.",
+      "repro": "S=<scratch>; O=$S/so3/skeptic-r2-tests; LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python -I $O/end_unbound.py $S/wt-61b/lyric-harness /home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt $S/so3/so_61b6618a.jsonl.gz zqzq; zcat $S/so3/so_61b6618a.jsonl.gz | grep -F \"Charlie he 's our ain\""
+     },
+     {
+      "severity": "note",
+      "claim": "Under v2, refusing an unreadable T<n> (2,292 of the 2,342 refused_unbound cases) removes a repair path. It does not fix a wrong-occurrence edit, and the test comment that calls the old behaviour a 'guess' overstates it.",
+      "evidence": "At 67889851, T<n> on an unreadable word edited the n-th token. That is the very token the grader's T<n> names by index. LoopSwaps previously asserted _anchors_at('(oh) zzzqx world', T2, 'goodbye') is True, meaning the splice made the grade anchor there. 58de1816 flips the assertion to False ('refuses ... rather than guess', test_reader.py ~783-789). 3PO explicitly asked for this ('T<n> ... refuses an unreadable selected index'), so it is consistent with the contract. Still, it is a loss of capability: declared_offer now filters out every candidate for a T<n> slot sitting on an unread word. It is also the mirror image of the default end, which keeps exactly this repair.",
+      "repro": "cd <scratch>/wt-61b && git show 58de1816 -- lyric-harness/quality/test_reader.py | sed -n 60,95p; grep -n '_anchors_at' lyric-harness/quality/revise.py"
+     },
+     {
+      "severity": "note",
+      "claim": "The SlotBinding oracle is not independent of the code it checks: bound_span and _bound_index both read the widx tags of slots.resolve.",
+      "evidence": "test_reader.py bound_span calls SL.resolve and takes the widx. loop._bound_index calls _RESOLVE (the same slots.resolve, bound at import) and takes the widx. So the property test (1,200 lines, edits>3000, refusals>100, moved>10) checks the splice mechanics and raw offsets against the grader's binding. It cannot detect an error in slots.resolve's widx tagging. The negative control in test_repeated_words is static: it only shows the oracle separates two same-spelled spans and runs no wrong swap. Under the contract ('edit what the grader binds') this design is acceptable. It means the tests establish agreement with slots.resolve, not that the binding is correct.",
+      "repro": "sed -n 1036,1070p <scratch>/wt-61b/lyric-harness/quality/test_reader.py; sed -n 1176,1190p same file"
+     },
+     {
+      "severity": "note",
+      "claim": "Every test R2 names, and both full suites, pass at 61b6618a under venv311. The totals match R2's.",
+      "evidence": "Targeted tests:\n- SlotBinding (14) + LoopSwaps (7): Ran 21, OK (130 s).\n- test_revise: test_the_offer_falls_back_per_call_when_the_conjunction_is_empty and test_the_per_call_menu_is_screened_by_the_grader both PASS, with non-vacuous checks (accepted and survived lists non-empty).\n- test_production_revision: test_expanded_offer..., test_partial_menu..., test_requested_first_offer... Ran 3, OK (852 s).\n\nFull suites, in my clean 61b worktree:\n- test_reader.py: Ran 83 tests in 950.6 s, OK (skipped=3; the 3 are the warm-child skipUnless tests). R2 also claims 83 OK with 3 skips.\n- test_revise.py: TEST_REVISE_SHARD=k/4 for k=1..4, all rc=0, 'all revision-loop regressions pass'. 62 sections (16/16/15/15), 427 PASS check lines, 0 FAIL, 0 Tracebacks. Shard wall times were 20.4/20.6/7.2/7.4 min, two at a time on a loaded 4-CPU host.\n\nThe tests wrote no tracked files (git status was clean before removal).",
+      "repro": "S=<scratch>; O=$S/so3/skeptic-r2-tests; grep -E '^Ran|^OK' $O/61b_slot_loopswaps.log $O/61b_prodrev3.log $O/full_test_reader_61b.log; grep RESULT $O/61b_revise_fns.log; grep -E '^SHARD|all revision-loop|rc=' $O/full_test_revise_61b_shard*.log; grep -c '^  PASS' $O/full_test_revise_61b_shard*.log"
+     },
+     {
+      "severity": "note",
+      "claim": "Housekeeping side effect, not about R2. My `git sparse-checkout init` (for a sparse ablation worktree) appended `[extensions] worktreeConfig = true` to /home/user/CodexMusica/.git/config. The permission classifier denied my attempt to remove it, so it is still there.",
+      "evidence": ".git/config was modified at 07:36:47 UTC, when I created the sparse worktree. The section is the last lines of the file. Both my worktrees (wt-rev and wt-B) are removed, and no .git/worktrees/*/config.worktree remains, so the setting is now inert. `git config --unset extensions.worktreeConfig` was refused as a shared-resource modification. I made no other change outside my folder.",
+      "repro": "cd /home/user/CodexMusica && tail -3 .git/config && ls .git/worktrees/*/config.worktree 2>/dev/null; to undo (needs the user's approval): git -C /home/user/CodexMusica config --unset extensions.worktreeConfig"
+     }
+    ],
+    "numbers_checked": [
+     {
+      "what": "SlotBinding tests added",
+      "bb8": "14 (R2 evidence and commit message)",
+      "yours": "14 (git show 58de1816 test_reader.py: 14 new def test_ in class SlotBinding)",
+      "match": true
+     },
+     {
+      "what": "SlotBinding tests failing under behavioural revert (old v2 bodies, lex ignored)",
+      "bb8": "13 of 14; the v1 guard passes",
+      "yours": "13 FAIL; test_v1_is_unchanged_whatever_lexicon_is_passed passes",
+      "match": true
+     },
+     {
+      "what": "SlotBinding tests failing under literal file revert to 67889851 (asked for in this lens; R2 made no claim)",
+      "bb8": "n/a",
+      "yours": "14 of 14 (12 ERROR TypeError/KeyError, 2 FAIL); the v1 guard ERRORs on the lex kwarg",
+      "match": false
+     },
+     {
+      "what": "Updated LoopSwaps tests failing on revert",
+      "bb8": "2",
+      "yours": "2 under the behavioural revert (counts_asides, stock_stubs); 3 ERROR under the literal revert",
+      "match": true
+     },
+     {
+      "what": "Test call sites updated in test_revise.py and test_production_revision.py",
+      "bb8": "5",
+      "yours": "5 (2 + 3); all PASS under the behavioural revert, all ERROR under the literal revert",
+      "match": true
+     },
+     {
+      "what": "test_reader.py full run at the head",
+      "bb8": "83 tests OK, 3 skips",
+      "yours": "Ran 83 tests in 950.578s OK (skipped=3), rc=0",
+      "match": true
+     },
+     {
+      "what": "test_revise.py full run at the head",
+      "bb8": "shards 1-4 rc=0",
+      "yours": "4/4 rc=0, 62 sections, 427 PASS / 0 FAIL check lines",
+      "match": true
+     },
+     {
+      "what": "Touched test_production_revision tests at the head",
+      "bb8": "suite 44 OK",
+      "yours": "3 touched tests OK (852 s); full suite not rerun",
+      "match": true
+     },
+     {
+      "what": "Unbound default-end edits per v2 mode",
+      "bb8": "191 per mode (tool count)",
+      "yours": "196 per mode by direct call; 191 inside the tool's measured subset, the other 5 excluded_transformed",
+      "match": false
+     },
+     {
+      "what": "'Refusing these too is a one-line change'",
+      "bb8": "one line",
+      "yours": "one code line (ablation a2); it also flips 2 test assertions and changes 196 edits per v2 mode",
+      "match": true
+     },
+     {
+      "what": "Repair guards pinned by SlotBinding+LoopSwaps (single-guard ablations)",
+      "bb8": "each repair behaviour tested (implied)",
+      "yours": "8 of 10 caught; _only_word_material (reachable, 8 synthetic cases) and the endpoint pieces check are not caught",
+      "match": false
+     }
+    ],
+    "files": [
+     "<scratch>/so3/skeptic-r2-tests/61b_slot_loopswaps.log",
+     "<scratch>/so3/skeptic-r2-tests/61b_revise_fns.log",
+     "<scratch>/so3/skeptic-r2-tests/61b_prodrev3.log",
+     "<scratch>/so3/skeptic-r2-tests/A_slot_loopswaps.log",
+     "<scratch>/so3/skeptic-r2-tests/A_revise_fns.log",
+     "<scratch>/so3/skeptic-r2-tests/A_prodrev3.log",
+     "<scratch>/so3/skeptic-r2-tests/B_slot_loopswaps.log",
+     "<scratch>/so3/skeptic-r2-tests/B_revise_fns.log",
+     "<scratch>/so3/skeptic-r2-tests/B_prodrev3.log",
+     "<scratch>/so3/skeptic-r2-tests/full_test_reader_61b.log",
+     "<scratch>/so3/skeptic-r2-tests/full_test_revise_61b_shard1.log",
+     "<scratch>/so3/skeptic-r2-tests/full_test_revise_61b_shard2.log",
+     "<scratch>/so3/skeptic-r2-tests/full_test_revise_61b_shard3.log",
+     "<scratch>/so3/skeptic-r2-tests/full_test_revise_61b_shard4.log",
+     "<scratch>/so3/skeptic-r2-tests/ablations_done.txt",
+     "<scratch>/so3/skeptic-r2-tests/ablate.py",
+     "<scratch>/so3/skeptic-r2-tests/make_behav_revert.py",
+     "<scratch>/so3/skeptic-r2-tests/variants/loop_behav.py",
+     "<scratch>/so3/skeptic-r2-tests/variants/ablations",
+     "<scratch>/so3/skeptic-r2-tests/demo_end.py",
+     "<scratch>/so3/skeptic-r2-tests/demo_end_61b.txt",
+     "<scratch>/so3/skeptic-r2-tests/probe_a3.py",
+     "<scratch>/so3/skeptic-r2-tests/probe_a3.txt",
+     "<scratch>/so3/skeptic-r2-tests/probe_a7.py",
+     "<scratch>/so3/skeptic-r2-tests/probe_a1.txt",
+     "<scratch>/so3/skeptic-r2-tests/probe_a2.txt",
+     "<scratch>/so3/skeptic-r2-tests/probe_a7.txt",
+     "<scratch>/so3/skeptic-r2-tests/end_unbound.py",
+     "<scratch>/so3/skeptic-r2-tests/end_unbound.txt",
+     "<scratch>/so3/skeptic-r2-tests/comment_6160940820.txt",
+     "<scratch>/so3/skeptic-r2-tests/comment_6160977437.txt",
+     "<scratch>/so3/skeptic-r2-tests/run_revise_fns.py"
+    ],
+    "summary": "R2's test claims hold as stated, with qualifications. The weak point is how R2 justifies the default-end residual.\n\n**What reproduces at 61b6618a (venv311):**\n- SlotBinding (14) and LoopSwaps (7) pass. So do the 2 touched test_revise functions and the 3 touched test_production_revision tests.\n- Full test_reader: 83 OK, 3 skipped. Full test_revise: 4 of 4 shards rc=0, 62 sections, 427 PASS, 0 FAIL.\n- With R2's behavioural revert (the 67889851 bodies of swap_end_word and swap_at_slot, lex ignored), 13 of 14 SlotBinding tests fail and the v1 guard passes, as R2 claims. 2 LoopSwaps tests fail; both fail on the T<n>-unreadable refusal.\n- The 5 updated call sites in test_revise.py and test_production_revision.py pass under the behavioural revert. They are plumbing, not repair-detecting tests.\n\n**Literal revert (what this lens asked for):** I reverted loop.py and revise.py to their 67889851 versions in my own worktree. That breaks the API, so every test ERRORs or FAILs on the missing lex keyword: 14 of 14 SlotBinding (the v1 guard included), 3 LoopSwaps, the 2 test_revise functions and the 3 production tests. This run says nothing about behaviour; the behavioural revert above is the meaningful one.\n\n**Untested guards:** I removed each repair guard on its own (10 runs).\n- 8 are caught. 5 of those (a1, a5, a6, a9, a10) are caught only by rigs that patch _RESOLVE. The endpoint check (a1) changes none of the 3,990 population lines.\n- 2 are caught by no test: the _only_word_material refusal in the v2 swap_at_slot, and the endpoint pieces check. The first is reachable: with a declared reading, 'love×you more' head becomes 'zqx more', deleting '×you'.\n\n**Default end when the grader binds no syllable:** _end_occurrence_bound still edits the endpoint when line_anchors' label and raw_final_token both name it. Every non-default slot refuses on empty anchors. Concretely, 'the night was zzqx' end becomes 'the night was zqx', while T4 on the same unread token refuses. The grader treats those two cases the same way (slots.py:651-656).\n\nR2 attributes this to 3PO's review. That review only kept the one-token rule for multi-word anchors off the default end. R2's own contract (#519 6160940820, item 2) says the reviser refuses wherever the grader refuses the slot. So the residual departs from the posted contract, or at least is an open policy question; the cited review does not rule on it.\n\nThe fix is one code line, but it also breaks 2 test assertions and changes 196 edits per v2 mode on the population. That is a direct count; the tool reports 191 because 5 spaced-enclitic lines per mode are excluded_transformed.\n\n**Cleanup:** both of my worktrees are removed. My sparse-checkout init appended `extensions.worktreeConfig = true` to /home/user/CodexMusica/.git/config. Removing it was denied by the permission classifier. The setting is inert now; it can be removed with `git -C /home/user/CodexMusica config --unset extensions.worktreeConfig`."
+   }
   }
  ],
  "still_running_when_saved": [
-  "counterexamples",
-  "r2-tests"
+  "counterexamples"
  ]
 }
