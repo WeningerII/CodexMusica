@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import os from 'node:os';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
@@ -42,6 +43,77 @@ function verdictIn(response) {
       }
     })
     .find((value) => typeof value?.exit_code === 'number');
+}
+
+// Diagnostic only: preserve the SDK deadline and every assertion. Linux's
+// scheduler counters separate CPU execution from time runnable but not scheduled.
+async function measureReviseRequest(call) {
+  if (process.platform !== 'linux') return call();
+  const started = performance.now();
+  const workerPidAtStart = _workerInternals.pid();
+  const nodeCpuAtStart = process.cpuUsage();
+  const kernelValue = (file) => {
+    try {
+      return readFileSync(file, 'utf8').trim();
+    } catch {
+      return null;
+    }
+  };
+  const schedulerStatsEnabled = kernelValue('/proc/sys/kernel/sched_schedstats');
+  const cgroupCpuBefore = kernelValue('/sys/fs/cgroup/cpu.stat');
+  const samples = new Map();
+  let samplingError;
+  const sample = () => {
+    const pid = _workerInternals.pid();
+    if (!pid) return;
+    try {
+      const [cpuNs, queueNs, slices] = readFileSync(`/proc/${pid}/schedstat`, 'utf8')
+        .trim()
+        .split(/\s+/)
+        .map(Number);
+      const point = { elapsedMs: performance.now() - started, cpuNs, queueNs, slices };
+      const row = samples.get(pid);
+      if (row) row.last = point;
+      else samples.set(pid, { first: point, last: point });
+    } catch (error) {
+      samplingError = error.code || error.name;
+    }
+  };
+  sample();
+  const timer = setInterval(sample, 100);
+  try {
+    return await call();
+  } finally {
+    clearInterval(timer);
+    sample();
+    const nodeCpu = process.cpuUsage(nodeCpuAtStart);
+    console.error(
+      'REVISE_REQUEST_TIMING ' +
+        JSON.stringify({
+          wallMs: performance.now() - started,
+          workerPidAtStart,
+          nodeCpuMs: (nodeCpu.user + nodeCpu.system) / 1000,
+          schedulerStatsEnabled,
+          cgroupCpuMax: kernelValue('/sys/fs/cgroup/cpu.max'),
+          cgroupCpuBefore,
+          cgroupCpuAfter: kernelValue('/sys/fs/cgroup/cpu.stat'),
+          pythonHashSeed: process.env.PYTHONHASHSEED ?? null,
+          cpuModel: os.cpus()[0]?.model,
+          logicalCpus: os.cpus().length,
+          loadAverage: os.loadavg(),
+          samplingError,
+          workers: [...samples].map(([pid, row]) => ({
+            pid,
+            firstSampleMs: row.first.elapsedMs,
+            lastSampleMs: row.last.elapsedMs,
+            cpuBeforeFirstSampleMs: row.first.cpuNs / 1e6,
+            cpuMs: (row.last.cpuNs - row.first.cpuNs) / 1e6,
+            runnableWaitMs: (row.last.queueNs - row.first.queueNs) / 1e6,
+            slices: row.last.slices - row.first.slices,
+          })),
+        })
+    );
+  }
 }
 
 function caller(client) {
@@ -416,12 +488,14 @@ test('lyric_revise: a pasted run refuses plan declarations, a long answer, and f
     assert.match(seededGrid.content[0].text, /subdivision/);
 
     const before = RUNS.size();
-    const first = await raw({
-      draft_text,
-      scheme: 'AAAA',
-      relation: 'class:RHYME',
-      backtrack: 0,
-    });
+    const first = await measureReviseRequest(() =>
+      raw({
+        draft_text,
+        scheme: 'AAAA',
+        relation: 'class:RHYME',
+        backtrack: 0,
+      })
+    );
     const v1 = verdictIn(first);
     assert.equal(v1.exit_code, 4, 'the interview suspends on its first question');
     // The note names every field a continuation needs, run_revision included.
