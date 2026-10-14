@@ -1,6 +1,26 @@
 # RESULTS — the corpus audit (adversary 5)
 
-Current result, 2026-10-09 (third ten Project Gutenberg collections for the Library):
+Current result, 2026-10-14 (approved reader audit record refresh):
+**2,328 files, 0 FAIL, 38 WARN, 1,861 NOTE**; supersedes NOTE ~~1,856~~.
+Check L adds exactly five NOTE findings covering 47 numeric bracketed footnote
+markers in unchanged corpus files. Reader v1 yielded no token for these spans;
+reader v2 yields tokens, so the existing audit now detects them. The findings
+remain visible; this record update neither strips the markers nor changes
+reader behavior, corpus text, or comparator/sonnet calibration pins.
+
+| Corpus file (under `corpus/song/`) | Spans | Numeric markers | First witness |
+|---|---:|---|---|
+| `eng_british_elizabeth_barrett_browning.txt` | 2 | 8, 14 | `Their singer was to be, in darksome death?[8]` |
+| `eng_british_matthew_arnold.txt` | 9 | 1, 8, 9, 12, 13, 14, 20, 21, 22 | `Saw The Wide Prospect, and the Asian Fen,[1]` |
+| `eng_british_william_wordsworth.txt` | 3 | 3, 6, 7 | `Who, pouring here a[3] _later_ ditty,` |
+| `fin_julius_krohn.txt` | 2 | 5, 6 | `Omat lapset laulattele!'[5]` |
+| `fin_kanteletar.txt` | 31 | 14–29, 31–45 | `"Onpa meillä vanha akka [14],` |
+
+Reproduced with `python3 quality/audit_corpus.py --json`; the full shape is
+checked by `python3 quality/audit_corpus.py --verify-shape`. This is five
+file-level notes, not 47 new notes. File, FAIL, and WARN totals remain unchanged.
+
+Previous result, 2026-10-09 (third ten Project Gutenberg collections for the Library):
 **2,328 files, 0 FAIL, 38 WARN, 1,856 NOTE**. The 51 new author files add
 51 source declarations (2,866 -> 2,917). Check G adds 44 elision notes;
 check H adds eight residue-only notes for one-line stanzas (46 -> 54).

@@ -3274,7 +3274,10 @@ def main(argv=None):
 # 2026-10-09 third ten Library collections: files 2277 -> 2328; NOTE
 # 1804 -> 1856 (44 elision notes, eight one-line stanza residue notes).
 # FAIL remains zero; WARN remains 38. Calibration populations unchanged.
-PINNED_SHAPE = {"files": 2328, "FAIL": 0, "WARN": 38, "NOTE": 1856}
+# 2026-10-14 approved reader audit refresh: NOTE ~~1856~~ -> 1861.
+# Check L now detects numeric footnote markers in five unchanged corpus files
+# (47 spans); every finding is retained. See RESULTS_CORPUS_AUDIT.md.
+PINNED_SHAPE = {"files": 2328, "FAIL": 0, "WARN": 38, "NOTE": 1861}
 
 
 def _verify_shape(files, findings):
