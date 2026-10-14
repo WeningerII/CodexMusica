@@ -1,0 +1,54 @@
+#!/workspace/musica-ci-venv/bin/python
+import os, sys, time, json, importlib.util, cProfile
+start_wall, start_cpu = time.monotonic(), time.process_time()
+target = sys.argv[1]
+prefix = os.environ.get('MUSICA_PROFILE_PREFIX', '/tmp/musica-profile')
+def emit(event, **kw):
+    with open(prefix + '.events.jsonl', 'a') as f:
+        f.write(json.dumps(dict(event=event, pid=os.getpid(), wall=time.monotonic(), cpu=time.process_time(), **kw))+'\n')
+if not target.endswith('/worker.py'):
+    os.execv('/workspace/musica-ci-venv/bin/python', ['python']+sys.argv[1:])
+emit('start', target=target)
+spec = importlib.util.spec_from_file_location('instrumented_worker', target)
+worker = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(worker)
+emit('ready', elapsed_wall=time.monotonic()-start_wall, elapsed_cpu=time.process_time()-start_cpu)
+from quality import revise as diagnostic_revise
+import lyric_harness as diagnostic_lh
+counts={}
+def counted(owner, name, query=False):
+    original_fn=getattr(owner,name)
+    def wrapped(*args,**kwargs):
+        counts[name]=counts.get(name,0)+1
+        if query:
+            emit('query', method=name, query=repr(args[1] if len(args)>1 else None), n=kwargs.get('n',args[2] if len(args)>2 else None), indexlen=len(getattr(args[0],'index',[])), counts=dict(counts),field_memo=diagnostic_revise.field_memo_tally(),rank_memo=diagnostic_revise.rank_memo_tally())
+        elif counts[name]%25000==0:
+            emit('counts', counts=dict(counts))
+        result=original_fn(*args,**kwargs)
+        if query:
+            rows=result.get('candidates',[]) if isinstance(result,dict) else result
+            emit('query_end',method=name,result_sizes=[len(x) if hasattr(x,'__len__') else None for x in rows] if isinstance(rows,tuple) else len(rows),counts=dict(counts),field_memo=diagnostic_revise.field_memo_tally(),rank_memo=diagnostic_revise.rank_memo_tally())
+        return result
+    setattr(owner,name,wrapped)
+    if getattr(diagnostic_revise,name,None) is original_fn:
+        setattr(diagnostic_revise,name,wrapped)
+counted(diagnostic_lh,'score')
+counted(diagnostic_lh,'syllabify')
+counted(diagnostic_lh.CandidateEngine,'candidates',True)
+counted(diagnostic_revise.Reviser,'_rank_field_compute',True)
+counted(diagnostic_revise.Reviser,'_field_split',True)
+original = worker.run_one
+def measured(argv, request_id=None, request_env=None):
+    emit('request_start', request_id=request_id, argv=argv)
+    wall, cpu = time.monotonic(), time.process_time()
+    profiler = cProfile.Profile(timer=time.process_time) if os.environ.get('MUSICA_CPROFILE') == '1' else None
+    if profiler: profiler.enable()
+    try:
+        return original(argv, request_id, request_env)
+    finally:
+        if profiler:
+            profiler.disable()
+            profiler.dump_stats(prefix + '.' + str(os.getpid()) + '.' + str(request_id) + '.prof')
+        emit('request_end', counts=dict(counts), request_id=request_id, elapsed_wall=time.monotonic()-wall, elapsed_cpu=time.process_time()-cpu)
+worker.run_one = measured
+worker.main()

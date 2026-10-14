@@ -1,0 +1,36 @@
+import subprocess, os, time, resource, json, signal, sys, threading
+root='/workspace/musica-ci'
+tag=sys.argv[1]
+env=os.environ.copy()
+env.update(PYTHONHASHSEED='0',PATH='/workspace/musica-ci-venv/bin:'+env['PATH'],LYRIC_PYTHON='/tmp/musica-count-python',MUSICA_CPROFILE='0',MUSICA_PROFILE_PREFIX='/tmp/musica-ci-evidence/'+tag+'-worker',LYRIC_STAGED_DATA=root+'/lyric-harness/data',PYTHON_TIMING_LOG='/tmp/musica-ci-evidence/'+tag+'-python.jsonl')
+background=[]
+try:
+ for i,args in enumerate([['node','mcp/test.mjs'],['node','mcp/test_run_continuation.mjs'],['node','--test','mcp/test_continuation_audit.mjs']]):
+  f=open('/tmp/musica-ci-evidence/'+tag+'-load'+str(i)+'.log','w')
+  benv=env.copy(); benv['LYRIC_PYTHON']='/workspace/musica-ci-venv/bin/python'
+  background.append(subprocess.Popen(args,cwd=root,env=benv,stdout=f,stderr=subprocess.STDOUT,start_new_session=True))
+ time.sleep(8)
+ stop=threading.Event()
+ def sample():
+  events='/tmp/musica-ci-evidence/'+tag+'-worker.events.jsonl'
+  with open('/tmp/musica-ci-evidence/'+tag+'-schedstat.jsonl','w') as out:
+   while not stop.wait(.1):
+    try:
+     pid=json.loads(open(events).readline())['pid']
+     counters=open('/proc/'+str(pid)+'/schedstat').read().split()
+     out.write(json.dumps(dict(wall=time.monotonic(),pid=pid,counters=counters))+'\n')
+     out.flush()
+    except (OSError,ValueError,KeyError): pass
+ sampler=threading.Thread(target=sample,daemon=True)
+ sampler.start()
+ start=time.monotonic()
+ with open('/tmp/musica-ci-evidence/'+tag+'.tap','w') as out:
+  p=subprocess.run(['node','--import','/tmp/musica-ci-evidence/time-mcp-calls.mjs','/tmp/musica-ci-evidence/first-request.mjs'],cwd=root,env=env,stdout=out,stderr=subprocess.STDOUT)
+ stop.set()
+ sampler.join()
+ usage=resource.getrusage(resource.RUSAGE_CHILDREN)
+ print(json.dumps(dict(tag=tag,exit=p.returncode,wall=time.monotonic()-start,user=usage.ru_utime,system=usage.ru_stime,sibling_status=[p.poll() for p in background])),flush=True)
+finally:
+ for p in background:
+  if p.poll() is None: os.killpg(p.pid,signal.SIGTERM)
+ for p in background: p.wait()

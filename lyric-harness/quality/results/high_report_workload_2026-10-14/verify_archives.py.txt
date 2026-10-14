@@ -1,0 +1,23 @@
+"""Verify archived hashes and normalized ordered-work equality; standard library only."""
+import gzip
+import hashlib
+import json
+from pathlib import Path
+
+root = Path(__file__).resolve().parent
+manifest = json.loads((root / 'comparison.json').read_text())
+streams = []
+for row in manifest['traces']:
+    packed = (root / row['file']).read_bytes()
+    assert hashlib.sha256(packed).hexdigest() == row['gzip_sha256']
+    raw = gzip.decompress(packed)
+    assert hashlib.sha256(raw).hexdigest() == row['uncompressed_sha256']
+    events = [json.loads(line) for line in raw.splitlines()]
+    normalized = [
+        {key: value for key, value in event.items() if key not in ('pid', 'wall', 'cpu')}
+        for event in events if event['event'] in ('query', 'query_end', 'counts')
+    ]
+    assert len(normalized) == row['normalized_events'] == 12491
+    streams.append(normalized)
+assert all(stream == streams[0] for stream in streams)
+print('PASS: three archive hashes and 12,491-event ordered sequences match')

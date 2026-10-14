@@ -1,0 +1,19 @@
+import assert from 'node:assert/strict';
+import { Client } from '/workspace/musica-ci/mcp/node_modules/@modelcontextprotocol/sdk/dist/esm/client/index.js';
+import { InMemoryTransport } from '/workspace/musica-ci/mcp/node_modules/@modelcontextprotocol/sdk/dist/esm/inMemory.js';
+import { buildServer } from '/workspace/musica-ci/mcp/tools.js';
+import { _workerInternals } from '/workspace/musica-ci/mcp/lyric_tools.js';
+const server=buildServer({task:{domain:'lyrics'}});
+const client=new Client({name:'first-request-diagnostic',version:'1'},{capabilities:{}});
+const [a,b]=InMemoryTransport.createLinkedPair();
+await Promise.all([client.connect(a),server.connect(b)]);
+const raw=args=>client.callTool({name:'lyric_revise',arguments:args});
+const draft_text='I walked along the road tonight\nThe stars were cold above the sea\nI held your hand and felt the rain\nAnd nothing else was left for us';
+try {
+ for(const extra of [{title:'Road Tonight'},{lines:12},{melody:'not json'}]) {const r=await raw({draft_text,scheme:'ABAB',...extra});assert.ok(r.isError);}
+ assert.ok((await raw({draft_text,seed:5,subdivision:2})).isError);
+ const r=await raw({draft_text,scheme:'AAAA',relation:'class:RHYME',backtrack:0});
+ const verdict=r.content.map(x=>{try{return JSON.parse(x.text)}catch{return null}}).find(x=>typeof x?.exit_code==='number');
+ assert.equal(verdict.exit_code,4);
+ console.log('FIRST_REQUEST_PASS');
+}finally{_workerInternals.kill();await client.close();await server.close();}

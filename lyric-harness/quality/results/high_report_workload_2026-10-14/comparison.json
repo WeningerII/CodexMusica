@@ -1,0 +1,78 @@
+{
+  "exact_ordered_equality": true,
+  "normalization": "Select query/query_end/counts events; remove only pid, wall, cpu. Preserve all other fields and event order.",
+  "traces": [
+    {
+      "file": "8ea-isolated-count.events.jsonl.gz",
+      "uncompressed_sha256": "8d58eb35d82221adbf953c814d3f14236e688faabc7fa80650209d37333f8d01",
+      "gzip_sha256": "ff980d158ab0ab4d4d2c8048106982628637faaa1b606e7dbf9a6a76e8be1dea",
+      "normalized_events": 12491,
+      "request_end": [
+        {
+          "event": "request_end",
+          "pid": 23308,
+          "wall": 6980.738797592,
+          "cpu": 38.256291465,
+          "counts": {
+            "syllabify": 253996,
+            "score": 295052,
+            "_rank_field_compute": 4,
+            "_field_split": 6225,
+            "candidates": 6
+          },
+          "request_id": 1,
+          "elapsed_wall": 38.09595931599961,
+          "elapsed_cpu": 38.086207629
+        }
+      ]
+    },
+    {
+      "file": "68e-isolated-count.events.jsonl.gz",
+      "uncompressed_sha256": "37a74fff22e0d1779870e1dc9ae15681386ef587c2a4c724d96be2c7fd212d04",
+      "gzip_sha256": "f3972078eed19efb86e83cb1d949ef008b515b8576d7e2c78541b79d41ecb933",
+      "normalized_events": 12491,
+      "request_end": [
+        {
+          "event": "request_end",
+          "pid": 23398,
+          "wall": 7018.588245312,
+          "cpu": 27.111586125,
+          "counts": {
+            "syllabify": 253996,
+            "score": 295052,
+            "_rank_field_compute": 4,
+            "_field_split": 6225,
+            "candidates": 6
+          },
+          "request_id": 1,
+          "elapsed_wall": 26.980999825000254,
+          "elapsed_cpu": 26.981650628999997
+        }
+      ]
+    },
+    {
+      "file": "68e-loaded-count-worker.events.jsonl.gz",
+      "uncompressed_sha256": "77687c3b28da8c212390c1ac3a4141902c1f4bb2065b06f02058be8e9c509841",
+      "gzip_sha256": "44b68050934871c666a15881fe5b02b25023751ea99079b0a3a4a5fc65998628",
+      "normalized_events": 12491,
+      "request_end": [
+        {
+          "event": "request_end",
+          "pid": 23538,
+          "wall": 7091.219948803,
+          "cpu": 28.084616379,
+          "counts": {
+            "syllabify": 253996,
+            "score": 295052,
+            "_rank_field_compute": 4,
+            "_field_split": 6225,
+            "candidates": 6
+          },
+          "request_id": 1,
+          "elapsed_wall": 28.921716224000193,
+          "elapsed_cpu": 27.978632814
+        }
+      ]
+    }
+  ]
+}
