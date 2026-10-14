@@ -2158,7 +2158,7 @@ function reviseDescription({ kitchen = false } = {}) {
     `(${READING_DECLARATIONS}) lyric_grade used; or, for a pasted song, against the same mandate lyric_check ` +
     'graded (no seed; scheme or groups, optional returns/relation/structures, blueprint with subdivision) — the ' +
     'plan declarations belong to a seeded run and are refused without a seed. The loop grades, holds every ' +
-    'flagged and banned line open, and keeps going until a stop condition. THERE IS NO SONG IN ANY RESPONSE ' +
+    'flagged line open, and keeps going until a stop condition. THERE IS NO SONG IN ANY RESPONSE ' +
     "UNTIL THE LOOP REACHES A STOP CONDITION. At a stop condition the tool result's first text block is the " +
     'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
     'STOP_REASON — ...] stamp. The stamp marks a stop, not a finished song: ONLY exit 0 with certified ' +

@@ -32,3 +32,20 @@ regenerated after the production edit. The comparator fingerprint remains
 No calibration rerun, threshold change, provider call or live-service acceptance
 claim is part of this local regression evidence. Raw local diagnostic logs are
 retained outside the repository; this receipt does not depend on published logs.
+
+## Separate advisory-ban wording correction
+
+The shared revise description said it held flagged and banned lines open, while
+its later paragraph correctly said bans are advisory notes and hold no line open.
+The separate wording commit removes `and banned` from that first sentence and adds
+regression assertions to the existing published-text test. Before the correction,
+the new assertion failed on the stale sentence. Afterward the focused test passed
+(1 test, 0 failures; Node 24.19.0):
+
+```sh
+node --test --test-name-pattern='published lyric text' mcp/test_high_report.mjs
+```
+
+Run that command from the repository root. No runtime condition, ban policy or
+completion policy changes. This does not prove the reported zero-round FINISHED
+case is a runtime bug.

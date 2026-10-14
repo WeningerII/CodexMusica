@@ -256,6 +256,7 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
     /replace those end words/, // bans sit at placed bindings
     /cannot report banned pairs\./, // verify reports introduced ones
     /For "is the song finished", use lyric_grade/, // only revise finishes
+    /holds every flagged and banned line open/, // bans are advisory notes
   ])
     assert.doesNotMatch(text, stale, String(stale));
   // The declarations that change a plan, and the readings a grade is taken
@@ -264,6 +265,9 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
   try {
     const { tools } = await client.listTools();
     const grade = tools.find((t) => t.name === 'lyric_grade').description;
+    const revise = tools.find((t) => t.name === 'lyric_revise').description;
+    assert.match(revise, /holds every flagged line open/);
+    assert.match(revise, /Banned pairs .* are reported as notes and hold no line open/);
     for (const field of [...PLAN_FIELDS.filter((f) => f !== 'seed'), ...READING_FIELDS])
       assert.ok(grade.includes(field), `lyric_grade names ${field}`);
     const lines = tools.find((t) => t.name === 'lyric_plan').inputSchema.properties.lines;
