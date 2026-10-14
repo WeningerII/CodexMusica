@@ -1,0 +1,69 @@
+[
+  {
+    "name": "curve-check",
+    "command": [
+      "/workspace/musica-ci-venv/bin/python",
+      "quality/length_curve_calibration.py",
+      "check",
+      "--rows",
+      "/tmp/musica-full-calibration-55e89f28/rows-1-of-4.tsv",
+      "/tmp/musica-full-calibration-55e89f28/rows-2-of-4.tsv",
+      "/tmp/musica-full-calibration-55e89f28/rows-3-of-4.tsv",
+      "/tmp/musica-full-calibration-55e89f28/rows-4-of-4.tsv"
+    ],
+    "returncode": 0,
+    "seconds": 28.780109882354736
+  },
+  {
+    "name": "merge-cache",
+    "command": [
+      "/workspace/musica-ci-venv/bin/python",
+      "quality/length_curve_calibration.py",
+      "merge-cache",
+      "/tmp/musica-full-calibration-55e89f28/memo-1-of-4.tsv",
+      "/tmp/musica-full-calibration-55e89f28/memo-2-of-4.tsv",
+      "/tmp/musica-full-calibration-55e89f28/memo-3-of-4.tsv",
+      "/tmp/musica-full-calibration-55e89f28/memo-4-of-4.tsv",
+      "--into",
+      "/tmp/musica-full-calibration-55e89f28/merged-memo.tsv"
+    ],
+    "returncode": 0,
+    "seconds": 0.30159878730773926
+  },
+  {
+    "name": "song-profile-check",
+    "command": [
+      "/workspace/musica-ci-venv/bin/python",
+      "quality/song_profile_calibration.py",
+      "--check",
+      "--cache-path",
+      "/tmp/musica-full-calibration-55e89f28/merged-memo.tsv"
+    ],
+    "returncode": 0,
+    "seconds": 91.35555768013
+  },
+  {
+    "name": "short-profile-check",
+    "command": [
+      "/workspace/musica-ci-venv/bin/python",
+      "quality/song_profile_calibration.py",
+      "--check",
+      "--profile",
+      "short",
+      "--cache-path",
+      "/tmp/musica-full-calibration-55e89f28/merged-memo.tsv"
+    ],
+    "returncode": 0,
+    "seconds": 82.54207110404968
+  },
+  {
+    "name": "fast-profile-check",
+    "command": [
+      "/workspace/musica-ci-venv/bin/python",
+      "quality/expected_drift.py",
+      "song_profile_calibration-fast"
+    ],
+    "returncode": 1,
+    "seconds": 0.3158900737762451
+  }
+]

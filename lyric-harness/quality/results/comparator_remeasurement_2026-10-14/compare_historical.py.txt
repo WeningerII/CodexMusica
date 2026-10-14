@@ -1,0 +1,16 @@
+from pathlib import Path
+import csv,collections,json,hashlib
+ROOT=Path('/workspace/musica-repair/lyric-harness');OUT=Path('/tmp/musica-full-calibration-55e89f28')
+def read(paths):
+ rows=[]
+ for path in paths:
+  with path.open() as f: rows.extend(dict(r) for r in csv.DictReader(f,delimiter='\t'))
+ return rows
+def records(rows):return collections.Counter(json.dumps(r,sort_keys=True,separators=(',',':')) for r in rows)
+old_paths=sorted((ROOT/'quality/results/comparator_repin_2026-10-11/shards').glob('rows-*.tsv'))
+new_paths=sorted(OUT.glob('rows-*-of-4.tsv'))
+old,new=read(old_paths),read(new_paths)
+a,b=records(old),records(new)
+result={'comparison':'Multiset of normalized serialized feature records; not raw TSV bytes or order. Multiplicity retained.','old_rows':len(old),'new_rows':len(new),'equal':a==b,'old_only':list((a-b).elements()),'new_only':list((b-a).elements()),'input_hashes':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in old_paths+new_paths}}
+(OUT/'historical-row-comparison.json').write_text(json.dumps(result,indent=2)+'\n')
+print(json.dumps({k:v for k,v in result.items() if k not in ('input_hashes','old_only','new_only')}));print('different records',sum((a-b).values()),sum((b-a).values()))

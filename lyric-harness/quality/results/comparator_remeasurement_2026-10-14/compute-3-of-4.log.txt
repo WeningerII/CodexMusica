@@ -1,0 +1,6 @@
+COMMAND ["/workspace/musica-ci-venv/bin/python", "quality/length_curve_calibration.py", "compute", "--shard", "3/4", "--cache-path", "/tmp/musica-full-calibration-55e89f28/memo-3-of-4.tsv", "--out", "/tmp/musica-full-calibration-55e89f28/rows-3-of-4.tsv"]
+HEAD 55e89f28eb98a2e133a427ab0d53f7823da584d0
+CACHE  /tmp/musica-full-calibration-55e89f28/memo-3-of-4.tsv
+       fingerprint 51316f79c509 | new (no file yet) | hits 0, misses 0
+POPULATION  336 files, 336 distinct authors, 2202 items, 65323 sung lines
+COMPUTE  shard 3/4: 336 files, 2202 rows -> /tmp/musica-full-calibration-55e89f28/rows-3-of-4.tsv; cache hits 0 misses 2202; 5347 CPU-s, 5443 wall-s

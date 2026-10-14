@@ -1,0 +1,26 @@
+import json,os,pathlib,subprocess,time
+OUT=pathlib.Path('/tmp/musica-full-calibration-55e89f28'); ROOT=pathlib.Path('/workspace/musica-repair/lyric-harness'); PYTHON='/workspace/musica-ci-venv/bin/python'
+env=dict(os.environ,LYRIC_STAGED_DATA='/workspace/musica-ci/lyric-harness/data',PYTHONUNBUFFERED='1')
+while not (OUT/'compute-status.json').exists():time.sleep(15)
+computed=json.loads((OUT/'compute-status.json').read_text())
+if any(r['returncode'] for r in computed['results']):raise SystemExit('Compute incomplete; no qualification')
+results=[]
+def run(name,args):
+ cmd=[PYTHON]+args;t=time.time()
+ with (OUT/(name+'.log')).open('w') as log:
+  log.write('COMMAND '+json.dumps(cmd)+'\n');log.flush()
+  rc=subprocess.call(cmd,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT)
+ result={'name':name,'command':cmd,'returncode':rc,'seconds':time.time()-t};results.append(result)
+ (OUT/'checks-status.json').write_text(json.dumps(results,indent=2)+'\n')
+ return rc
+rows=[str(OUT/f'rows-{i}-of-4.tsv') for i in range(1,5)]
+memos=[str(OUT/f'memo-{i}-of-4.tsv') for i in range(1,5)];memo=str(OUT/'merged-memo.tsv')
+rc=run('curve-check',['quality/length_curve_calibration.py','check','--rows']+rows)
+if rc not in (0,1):raise SystemExit('Curve check refused; inspect before further measurement')
+if run('merge-cache',['quality/length_curve_calibration.py','merge-cache']+memos+['--into',memo]):raise SystemExit('Memo merge failed')
+run('song-profile-check',['quality/song_profile_calibration.py','--check','--cache-path',memo])
+run('short-profile-check',['quality/song_profile_calibration.py','--check','--profile','short','--cache-path',memo])
+run('fast-profile-check',['quality/expected_drift.py','song_profile_calibration-fast'])
+if rc==1:
+ run('full-fit',['quality/length_curve_calibration.py','fit']+rows+['--seeds','200','--workers','4','--picks','predictability=CK','--report',str(OUT/'full-fit-report.json')])
+print(json.dumps(results),flush=True)

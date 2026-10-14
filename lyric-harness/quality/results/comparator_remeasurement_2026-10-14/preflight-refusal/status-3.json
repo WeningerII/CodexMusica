@@ -1,0 +1,17 @@
+{
+  "shard": 3,
+  "returncode": 2,
+  "seconds": 3.352055549621582,
+  "command": [
+    "/workspace/musica-ci-venv/bin/python",
+    "quality/length_curve_calibration.py",
+    "compute",
+    "--shard",
+    "3/4",
+    "--cache-path",
+    "/tmp/musica-full-calibration-55e89f28/memo-3-of-4.tsv",
+    "--out",
+    "/tmp/musica-full-calibration-55e89f28/rows-3-of-4.tsv"
+  ],
+  "head": "55e89f28eb98a2e133a427ab0d53f7823da584d0"
+}

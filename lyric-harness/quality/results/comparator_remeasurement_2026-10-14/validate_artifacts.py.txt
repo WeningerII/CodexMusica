@@ -1,0 +1,14 @@
+import csv,gzip,hashlib,json,pathlib,sys
+root=pathlib.Path(sys.argv[1]); manifest=json.loads((root/'artifact_hashes.json').read_text())
+for name,record in manifest.items():
+ data=(root/name).read_bytes()
+ assert hashlib.sha256(data).hexdigest()==record['sha256'],name
+ if name.endswith('.gz'):assert hashlib.sha256(gzip.decompress(data)).hexdigest()==record['uncompressed_sha256'],name
+count=0
+for i in range(1,5):
+ p=root/f'rows-{i}-of-4.tsv';meta=json.loads(p.with_suffix('.meta.json').read_text())
+ assert hashlib.sha256(p.read_bytes()).hexdigest()==meta['row_sha256']
+ with p.open() as f: rows=list(csv.DictReader(f,delimiter='\t'))
+ assert len(rows)==meta['items'];count+=len(rows)
+assert count==8597
+print(f'PASS: {len(manifest)} artifacts; {count} feature rows; all hashes and gzip payloads valid')

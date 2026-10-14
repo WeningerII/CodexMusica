@@ -1,0 +1,12 @@
+COMMAND ["/workspace/musica-ci-venv/bin/python", "quality/length_curve_calibration.py", "compute", "--shard", "4/4", "--cache-path", "/tmp/musica-full-calibration-55e89f28/memo-4-of-4.tsv", "--out", "/tmp/musica-full-calibration-55e89f28/rows-4-of-4.tsv"]
+HEAD 55e89f28eb98a2e133a427ab0d53f7823da584d0
+CACHE  /tmp/musica-full-calibration-55e89f28/memo-4-of-4.tsv
+       fingerprint 51316f79c509 | new (no file yet) | hits 0, misses 0
+  REFUSED — the requested quality features need 3 staged resources and 1 of them is missing
+    MISSING     data/concreteness.txt (the Brysbaert norms) -- nothing at /workspace/musica-ci/lyric-harness/data/concreteness.txt
+    PRESENT     the `nltk` package, version 3.10.3
+    PRESENT     the tagger model (nltk taggers/averaged_perceptron_tagger_eng) under NLTK_DATA=/workspace/musica-ci/lyric-harness/data/nltk
+    stage them: python3 -m pip install nltk && python3 quality/fetch_data.py --research
+    read from /workspace/musica-ci/lyric-harness/data (LYRIC_STAGED_DATA overrides that directory; NLTK_DATA overrides the model's)
+    doctrine 20: a refusal, not a grade -- this verb did not answer; the verbs that never reach the floor still do
+  lyric result: {"status":"refused","exit":2,"refusal":"the requested quality features need 3 staged resources and 1 of them is missing","version":1,"transport_token":null}

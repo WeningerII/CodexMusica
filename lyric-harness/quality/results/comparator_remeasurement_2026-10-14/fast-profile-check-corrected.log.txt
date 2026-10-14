@@ -1,0 +1,4 @@
+=== declared drift: song_profile_calibration-fast ===
+  ran: python3 quality/song_profile_calibration.py --check --without-predictability
+  observed 0 drifted value(s), declared 0
+PASS — the drift is exactly what is ruled, and every reason is dated with the sitting that ends it.

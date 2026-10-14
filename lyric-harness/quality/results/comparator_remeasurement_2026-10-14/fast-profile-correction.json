@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/workspace/musica-ci-venv/bin/python",
+    "quality/expected_drift.py",
+    "song_profile_calibration-fast"
+  ],
+  "cwd": "/workspace/musica-repair/lyric-harness",
+  "environment": {
+    "PATH_prefix": "/workspace/musica-ci-venv/bin",
+    "LYRIC_STAGED_DATA": "/workspace/musica-ci/lyric-harness/data"
+  },
+  "returncode": 0,
+  "original_returncode": 1,
+  "reason": "Wrapper child python3 previously selected system interpreter without nltk",
+  "elapsed_seconds": null
+}

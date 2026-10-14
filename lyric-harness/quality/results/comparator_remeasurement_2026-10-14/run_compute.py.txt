@@ -1,0 +1,21 @@
+import concurrent.futures, hashlib, json, os, pathlib, subprocess, time
+OUT=pathlib.Path('/tmp/musica-full-calibration-55e89f28')
+ROOT=pathlib.Path('/workspace/musica-repair/lyric-harness')
+PYTHON='/workspace/musica-ci-venv/bin/python'
+env=dict(os.environ, LYRIC_STAGED_DATA='/workspace/musica-ci/lyric-harness/data',PYTHONUNBUFFERED='1')
+head=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+assert head=='55e89f28eb98a2e133a427ab0d53f7823da584d0'
+started=time.time()
+def run(i):
+ cmd=[PYTHON,'quality/length_curve_calibration.py','compute','--shard',f'{i}/4','--cache-path',str(OUT/f'memo-{i}-of-4.tsv'),'--out',str(OUT/f'rows-{i}-of-4.tsv')]
+ t=time.time()
+ with (OUT/f'compute-{i}-of-4.log').open('w') as log:
+  log.write('COMMAND '+json.dumps(cmd)+'\nHEAD '+head+'\n');log.flush()
+  rc=subprocess.call(cmd,cwd=ROOT,env=env,stdout=log,stderr=subprocess.STDOUT)
+ result={'shard':i,'returncode':rc,'seconds':time.time()-t,'command':cmd,'head':head}
+ (OUT/f'status-{i}.json').write_text(json.dumps(result,indent=2)+'\n')
+ return result
+with concurrent.futures.ThreadPoolExecutor(max_workers=4) as ex:
+ results=list(ex.map(run,range(1,5)))
+(OUT/'compute-status.json').write_text(json.dumps({'head':head,'seconds':time.time()-started,'results':results},indent=2)+'\n')
+print(json.dumps(results),flush=True)

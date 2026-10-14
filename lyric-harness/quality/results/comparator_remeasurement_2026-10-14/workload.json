@@ -1,0 +1,26 @@
+[
+  {
+    "shard": 1,
+    "files": 336,
+    "nonempty_items_before_feature_filter": 2073,
+    "sung_lines": 70510
+  },
+  {
+    "shard": 2,
+    "files": 336,
+    "nonempty_items_before_feature_filter": 2135,
+    "sung_lines": 68510
+  },
+  {
+    "shard": 3,
+    "files": 336,
+    "nonempty_items_before_feature_filter": 2202,
+    "sung_lines": 65323
+  },
+  {
+    "shard": 4,
+    "files": 336,
+    "nonempty_items_before_feature_filter": 2188,
+    "sung_lines": 73816
+  }
+]

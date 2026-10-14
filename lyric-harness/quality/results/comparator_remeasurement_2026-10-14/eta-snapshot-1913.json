@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-14T19:13:23.721948+00:00",
+  "shards": [
+    {
+      "shard": 1,
+      "total_feature_rows": 2072,
+      "saved_distinct_entries": 1400,
+      "confirmed_completed_prefix_rows": 1400,
+      "status_file_exists": false
+    },
+    {
+      "shard": 2,
+      "total_feature_rows": 2135,
+      "saved_distinct_entries": 800,
+      "confirmed_completed_prefix_rows": 800,
+      "status_file_exists": false
+    },
+    {
+      "shard": 3,
+      "total_feature_rows": 2202,
+      "saved_distinct_entries": 600,
+      "confirmed_completed_prefix_rows": 600,
+      "status_file_exists": false
+    },
+    {
+      "shard": 4,
+      "total_feature_rows": 2188,
+      "saved_distinct_entries": 1400,
+      "confirmed_completed_prefix_rows": 1400,
+      "status_file_exists": false
+    }
+  ]
+}

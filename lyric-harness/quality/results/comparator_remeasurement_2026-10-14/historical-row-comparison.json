@@ -1,0 +1,26 @@
+{
+  "comparison": "Multiset of normalized serialized feature records; not raw TSV bytes or order. Multiplicity retained.",
+  "old_rows": 8597,
+  "new_rows": 8597,
+  "equal": true,
+  "old_only": [],
+  "new_only": [],
+  "input_hashes": {
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-1-of-12.tsv": "d6574675b199f0ce99c33c8d5ff7f7170ba8f1b55123c64f0bdbb3783f8154e0",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-10-of-12.tsv": "ab308b51941008e1bb861e5f5c03dc8fa254e979640edcbc6343b17af613659f",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-11-of-12.tsv": "70a3d3bb62da4e37e0852d46a80a554f705b5ee1b7850da7bcfa605c55dfbb06",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-12-of-12.tsv": "1465edd9747f4d6baaf856247e48c6bdc062ae84fe5268c48b058fd1bc4aabb9",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-2-of-12.tsv": "4f972229ac69be2446e65219cc6e71426270d2c4d0514988f53abfe111800190",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-3-of-12.tsv": "7b59b2b5bbb44ec68d1dec7c2b5d6d380f5778127a8d9827633321720ef944f1",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-4-of-12.tsv": "0662ac2f60a478bfdf2ec7017cf55ed8135e5db64cc6cc47de485c940a729846",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-5-of-12.tsv": "5eb7ccaf7f48238fd2866f56860a434417de63267d54e3ddd5b3635b95bbbde4",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-6-of-12.tsv": "f1b52a8b491fca90c7d626fb512923d580505e07964055e265d88b278c86a20c",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-7-of-12.tsv": "eec17fda38bda576d3f05c7c11749b1b7f79dadc0da38f9ac0ae3ace9c351915",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-8-of-12.tsv": "63878bf75d7cc870bff46cc6dd1e70011e107326f620b48497c44f42cf9efd14",
+    "/workspace/musica-repair/lyric-harness/quality/results/comparator_repin_2026-10-11/shards/rows-9-of-12.tsv": "00cc460fe5a6c455cbccf2958052d6e0ea60656fb6a5e14eb31800159369c965",
+    "/tmp/musica-full-calibration-55e89f28/rows-1-of-4.tsv": "15d9d637a9c7cbfe0c8c335466cc39f7264ff573d29c9d436c0661dc44e9c8f0",
+    "/tmp/musica-full-calibration-55e89f28/rows-2-of-4.tsv": "e322a661b7fbef2d730b61922b5185c2597832d77cc5e93680554e3fead99141",
+    "/tmp/musica-full-calibration-55e89f28/rows-3-of-4.tsv": "8a885dc0c123cfa4fa8d30772175b1a02aa4ed8aaf39f7faab4a511660e6ba4b",
+    "/tmp/musica-full-calibration-55e89f28/rows-4-of-4.tsv": "4aceffcf805fd246ce938a98f9bc059f6fab91ea19f11b734e4d94b68f9730f1"
+  }
+}
