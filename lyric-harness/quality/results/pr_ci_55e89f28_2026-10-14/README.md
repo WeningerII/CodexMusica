@@ -24,3 +24,11 @@ Complete census: 48 jobs (page 1 requested per_page=100 returned48; page2 return
 One rerun of the cancelled suite3 job was requested successfully at approximately19:04UTC, without changing the timeout or code. Its outcome is separate from this immutable first-attempt census.
 
 The three available logs are losslessly gzip-compressed. Evidence-only publication skips CI and is not additional test qualification. No merge, deployment, provider calls or calibration-pin adoption occurred.
+
+## Retry completed
+
+Attempt2 suite3 job116046310722 PASSED, 2026-10-14T19:03:40Z–19:31:24Z (27m44s). E-5 passed at19:31:21Z with an empty failures list in the actual log. The main suite step took17m36s and E-5 took6m45s. No code, expected value, or timeout changed for the retry.
+
+Final attempt2 census:48jobs,42success,3failure,3skipped; page1(per_page100)=48, page2=0. The held comparator/sonnet failures and suites-result remain red. GitHub assigns new job IDs to carried first-attempt results; their original timestamps remain, so those are not fresh reruns. Only the requested suite3 qualification was rerun. See `attempt2-census.json` and `suite3-attempt2.log.txt.gz`.
+
+The successful retry resolves the missing E-5 qualification for this head, but does not conclusively explain the first cancellation or establish an all-green run while pins remain held.
