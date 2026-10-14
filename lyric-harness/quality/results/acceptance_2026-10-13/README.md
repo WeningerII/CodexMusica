@@ -294,6 +294,31 @@ It is fit for bounded diagnostic use on this candidate, and the candidate gate i
 - A splice path missing on a tree is skipped without a verdict in revisions 3.1 and 3.2. The expected three are present at `61b6618a` (`declared_paths` in the receipt); the replacement head's qualification will assert all three.
 - The oracle and production share `slots.resolve` and the raw-token machinery. That, and the fact that the skeptic reports reviewed revision 3.0, are the documented limits on independence.
 
+### Other lexicons production can pass, under the 3.1 gate (revision 3.2)
+
+    cd <tree>/lyric-harness
+    python3 quality/results/acceptance_2026-10-13/slot_occurrence.py <OUT_PREFIX> quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt <HARNESS_ROOT> --lexicons=<VARIANT>
+
+**Why this was rerun.** The tool-review skeptic ran these lexicons with revision 3.0's gate, where an unbound edit was not a failure. 3PO (#527 6163217917) asked for them under 3.1.
+
+**How.** Revision 3.2 adds `--lexicons=VARIANT`, which runs the process scheme's modes under that lexicon. The variants are the skeptic's.
+- **Without the option, a 3.2 run is 3.1's.** At `61b6618a` its records are byte-identical to `../so_61b6618a.jsonl.gz` (190,530 records), and the receipt differs only in the tool sha256 and version pins (`lexicon_variants/so_61b6618a_default_3.2.json`).
+- Receipts are in `slot_occurrence_61b6618a/lexicon_variants/`.
+
+| lexicon | `occ_wrong` | `edit_unbound` per mode, all on `end` | readable controls failed | declared-path failures |
+|---|---:|---:|---:|---:|
+| default (`build_lexicon("v2","none")`) | 0 | 191 | 0 | 0 |
+| `fb_low` | 0 | 56 | 0 | 0 |
+| `fb_high` | 0 | 148 | 0 | 0 |
+| `supp_none` | 0 | 191 | 0 | 0 |
+| `voices_fresh` (sung only) | 0 | 191 | 0 | 0 |
+| `decl` (1,508 / 1,817 declared readings, 0 refused) | 0 | 3 | 0 | 0 |
+
+- **Every variant's v2 verdict is FAIL, on default-end unbound edits only.** A fallback reads more unknown words, so fewer remain unbound.
+- **The 3 that remain under `decl`** are the hyphenated end words `a-heavèn`, `a-soundèn` and `a-feärd`. The grader binds no syllable on them even when a reading is declared on the token, and the default end still edits them.
+- **No variant puts an edit on a word the grader does not bind,** apart from the default end.
+- In every run, all 14 negative controls are caught (they run on the default lexicon), and all three declared paths are present.
+
 ## The default end's endpoint guard, witnessed (`61b6618a`)
 
     cd <tree>/lyric-harness

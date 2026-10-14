@@ -1,0 +1,11899 @@
+{
+ "gate": "FAIL",
+ "failures": {
+  "cur:stripped:edit_unbound": 56,
+  "cur:sung:edit_unbound": 56
+ },
+ "unresolved": {},
+ "gate_by_scheme": {
+  "cur": {
+   "gate": "FAIL",
+   "failures": {
+    "cur:stripped:edit_unbound": 56,
+    "cur:sung:edit_unbound": 56
+   },
+   "unresolved": {}
+  }
+ },
+ "outcomes": {
+  "cur:stripped": {
+   "occ_agree": 34422,
+   "no_word_refused": 12513,
+   "refused_bound": 261,
+   "refused_unbound": 364,
+   "edit_unbound": 56
+  },
+  "cur:sung": {
+   "occ_agree": 40102,
+   "no_word_refused": 6235,
+   "refused_bound": 743,
+   "refused_unbound": 468,
+   "edit_unbound": 56
+  }
+ },
+ "excluded_line_modes": {
+  "transformed": 45,
+  "not_reproduced": 0
+ },
+ "controls_failed": [],
+ "controls_unresolved": [],
+ "controls": [
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "same_spelling": [],
+   "result": "love, love me zqzq"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "same_spelling": [],
+   "result": "love, love me zqzq"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "zqzq, love me do"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "zqzq, love me do"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "love, zqzq me do"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "love, zqzq me do"
+  },
+  {
+   "line": "hold me closer now",
+   "mode": "cur:stripped",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     8,
+     14
+    ],
+    "text": "closer"
+   },
+   "bound": {
+    "span": [
+     8,
+     14
+    ],
+    "text": "closer"
+   },
+   "edited": {
+    "span": [
+     8,
+     14
+    ],
+    "text": "closer"
+   },
+   "same_spelling": [],
+   "result": "hold me zqzq now"
+  },
+  {
+   "line": "hold me closer now",
+   "mode": "cur:sung",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     8,
+     14
+    ],
+    "text": "closer"
+   },
+   "bound": {
+    "span": [
+     8,
+     14
+    ],
+    "text": "closer"
+   },
+   "edited": {
+    "span": [
+     8,
+     14
+    ],
+    "text": "closer"
+   },
+   "same_spelling": [],
+   "result": "hold me zqzq now"
+  },
+  {
+   "line": "the night and the day goes",
+   "mode": "cur:stripped",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     14,
+     17
+    ],
+    "text": "the"
+   },
+   "bound": {
+    "span": [
+     14,
+     17
+    ],
+    "text": "the"
+   },
+   "edited": {
+    "span": [
+     14,
+     17
+    ],
+    "text": "the"
+   },
+   "same_spelling": [
+    [
+     0,
+     3
+    ]
+   ],
+   "result": "the night and zqzq day goes"
+  },
+  {
+   "line": "the night and the day goes",
+   "mode": "cur:sung",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     14,
+     17
+    ],
+    "text": "the"
+   },
+   "bound": {
+    "span": [
+     14,
+     17
+    ],
+    "text": "the"
+   },
+   "edited": {
+    "span": [
+     14,
+     17
+    ],
+    "text": "the"
+   },
+   "same_spelling": [
+    [
+     0,
+     3
+    ]
+   ],
+   "result": "the night and zqzq day goes"
+  },
+  {
+   "line": "zoom, zoom away",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "zoom"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "zoom"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "zoom"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zoom, zqzq away"
+  },
+  {
+   "line": "zoom, zoom away",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "zoom"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "zoom"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "zoom"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zoom, zqzq away"
+  },
+  {
+   "line": "I love you",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     7,
+     10
+    ],
+    "text": "you"
+   },
+   "bound": {
+    "span": [
+     7,
+     10
+    ],
+    "text": "you"
+   },
+   "edited": {
+    "span": [
+     7,
+     10
+    ],
+    "text": "you"
+   },
+   "same_spelling": [],
+   "result": "I love zqzq"
+  },
+  {
+   "line": "I love you",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     7,
+     10
+    ],
+    "text": "you"
+   },
+   "bound": {
+    "span": [
+     7,
+     10
+    ],
+    "text": "you"
+   },
+   "edited": {
+    "span": [
+     7,
+     10
+    ],
+    "text": "you"
+   },
+   "same_spelling": [],
+   "result": "I love zqzq"
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:stripped",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     18,
+     21
+    ],
+    "text": "day"
+   },
+   "bound": {
+    "span": [
+     18,
+     21
+    ],
+    "text": "day"
+   },
+   "edited": {
+    "span": [
+     18,
+     21
+    ],
+    "text": "day"
+   },
+   "same_spelling": [],
+   "result": "the night and the zqzq goes on"
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:sung",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     18,
+     21
+    ],
+    "text": "day"
+   },
+   "bound": {
+    "span": [
+     18,
+     21
+    ],
+    "text": "day"
+   },
+   "edited": {
+    "span": [
+     18,
+     21
+    ],
+    "text": "day"
+   },
+   "same_spelling": [],
+   "result": "the night and the zqzq goes on"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Hold"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Hold"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Hold"
+   },
+   "same_spelling": [],
+   "result": "Zqzq me now and hold me tight"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Hold"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Hold"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Hold"
+   },
+   "same_spelling": [],
+   "result": "Zqzq me now and hold me tight"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     5,
+     7
+    ],
+    "text": "ME"
+   },
+   "bound": {
+    "span": [
+     5,
+     7
+    ],
+    "text": "ME"
+   },
+   "edited": {
+    "span": [
+     5,
+     7
+    ],
+    "text": "ME"
+   },
+   "same_spelling": [],
+   "result": "HOLD ZQZQ NOW"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     5,
+     7
+    ],
+    "text": "ME"
+   },
+   "bound": {
+    "span": [
+     5,
+     7
+    ],
+    "text": "ME"
+   },
+   "edited": {
+    "span": [
+     5,
+     7
+    ],
+    "text": "ME"
+   },
+   "same_spelling": [],
+   "result": "HOLD ZQZQ NOW"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "same_spelling": [],
+   "result": "love, love me zqzq"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     14,
+     16
+    ],
+    "text": "do"
+   },
+   "same_spelling": [],
+   "result": "love, love me zqzq"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "zqzq, love me do"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "love"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "zqzq, love me do"
+  }
+ ],
+ "readable_controls": [
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "'Till the Canon atoned the deed,              _110",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     47,
+     50
+    ],
+    "text": "110"
+   },
+   "bound": {
+    "span": [
+     27,
+     31
+    ],
+    "text": "deed"
+   },
+   "edited": {
+    "span": [
+     27,
+     31
+    ],
+    "text": "deed"
+   },
+   "same_spelling": [],
+   "result": "'Till the Canon atoned the zqzq,              _110"
+  },
+  {
+   "line": "'Till the Canon atoned the deed,              _110",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     47,
+     50
+    ],
+    "text": "110"
+   },
+   "bound": {
+    "span": [
+     27,
+     31
+    ],
+    "text": "deed"
+   },
+   "edited": {
+    "span": [
+     27,
+     31
+    ],
+    "text": "deed"
+   },
+   "same_spelling": [],
+   "result": "'Till the Canon atoned the zqzq,              _110"
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "1 love you so",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "same_spelling": [],
+   "result": "1 zqzq you so"
+  },
+  {
+   "line": "1 love you so",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "same_spelling": [],
+   "result": "1 zqzq you so"
+  },
+  {
+   "line": "1 love you so",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "same_spelling": [],
+   "result": "1 zqzq you so"
+  },
+  {
+   "line": "1 love you so",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "love"
+   },
+   "same_spelling": [],
+   "result": "1 zqzq you so"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     0,
+     2
+    ]
+   ],
+   "result": "do me a favour, zqzq"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     0,
+     2
+    ]
+   ],
+   "result": "do me a favour, zqzq"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     0,
+     2
+    ]
+   ],
+   "result": "do me a favour, zqzq"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     0,
+     2
+    ]
+   ],
+   "result": "do me a favour, zqzq"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     0,
+     2
+    ]
+   ],
+   "result": "do me a favour, zqzq"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     16,
+     18
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     0,
+     2
+    ]
+   ],
+   "result": "do me a favour, zqzq"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     16,
+     18
+    ]
+   ],
+   "result": "zqzq me a favour, do"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     16,
+     18
+    ]
+   ],
+   "result": "zqzq me a favour, do"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     16,
+     18
+    ]
+   ],
+   "result": "zqzq me a favour, do"
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "bound": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "edited": {
+    "span": [
+     0,
+     2
+    ],
+    "text": "do"
+   },
+   "same_spelling": [
+    [
+     16,
+     18
+    ]
+   ],
+   "result": "zqzq me a favour, do"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "love, zqzq me do"
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "love"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "love, zqzq me do"
+  },
+  {
+   "line": "\"Abraham, forbear, (the angel cry'd)",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     10,
+     17
+    ],
+    "text": "forbear"
+   },
+   "bound": {
+    "span": [
+     10,
+     17
+    ],
+    "text": "forbear"
+   },
+   "edited": {
+    "span": [
+     10,
+     17
+    ],
+    "text": "forbear"
+   },
+   "same_spelling": [],
+   "result": "\"Abraham, zqzq, (the angel cry'd)"
+  },
+  {
+   "line": "\"Abraham, forbear, (the angel cry'd)",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     30,
+     35
+    ],
+    "text": "cry'd"
+   },
+   "bound": {
+    "span": [
+     30,
+     35
+    ],
+    "text": "cry'd"
+   },
+   "edited": {
+    "span": [
+     30,
+     35
+    ],
+    "text": "cry'd"
+   },
+   "same_spelling": [],
+   "result": "\"Abraham, forbear, (the angel zqzq)"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "edited": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "same_spelling": [],
+   "result": "You hold my zqzq.    10"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "edited": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "same_spelling": [],
+   "result": "You hold my zqzq.    10"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     11,
+     15
+    ]
+   ],
+   "result": "I zqzq the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     11,
+     15
+    ]
+   ],
+   "result": "I zqzq the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  }
+ ],
+ "readable_controls_failed": [],
+ "readable_controls_v1_legacy": [],
+ "declared": [
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "bound": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "edited": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "same_spelling": [],
+   "result": "You hold my zqzq.    10"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "bound": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "edited": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "same_spelling": [],
+   "result": "You hold my zqzq.    10"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:stripped",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "bound": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "edited": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "same_spelling": [],
+   "result": "You hold my zqzq.    10"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "T5",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "bound": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "edited": {
+    "span": [
+     22,
+     24
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "You hold my heart.    zqzq"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "bound": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "edited": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "same_spelling": [],
+   "result": "You hold my zqzq.    10"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "bound": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "edited": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "same_spelling": [],
+   "result": "You hold my zqzq.    10"
+  },
+  {
+   "line": "You hold my heart.    10",
+   "mode": "cur:sung",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     5,
+     "10"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "bound": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "edited": {
+    "span": [
+     12,
+     17
+    ],
+    "text": "heart"
+   },
+   "same_spelling": [],
+   "result": "You hold my zqzq.    10"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:stripped",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     9,
+     13
+    ]
+   ],
+   "result": "zqzq the zorp"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "zorp the zorp",
+   "mode": "cur:sung",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     3,
+     "zorp"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "bound": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "edited": {
+    "span": [
+     9,
+     13
+    ],
+    "text": "zorp"
+   },
+   "same_spelling": [
+    [
+     0,
+     4
+    ]
+   ],
+   "result": "zorp the zqzq"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "refused_unbound",
+   "path": "Reviser._splice",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     8,
+     13
+    ],
+    "text": "teäke"
+   },
+   "bound": null,
+   "edited": null,
+   "same_spelling": [],
+   "result": null
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "refused_unbound",
+   "path": "default_propose",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     8,
+     13
+    ],
+    "text": "teäke"
+   },
+   "bound": null,
+   "edited": null,
+   "same_spelling": [],
+   "result": null
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "refused_unbound",
+   "path": "default_propose_group",
+   "declared": [],
+   "declared_not_in_cut": [
+    [
+     1,
+     2
+    ]
+   ],
+   "named": {
+    "span": [
+     8,
+     13
+    ],
+    "text": "teäke"
+   },
+   "bound": null,
+   "edited": null,
+   "same_spelling": [],
+   "result": null
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "headrime",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "bound": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "edited": {
+    "span": [
+     1,
+     2
+    ],
+    "text": "1"
+   },
+   "same_spelling": [],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "1"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "bound": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "edited": {
+    "span": [
+     4,
+     7
+    ],
+    "text": "An'"
+   },
+   "same_spelling": [],
+   "result": "(1) Zqzq teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "bound": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "edited": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "same_spelling": [],
+   "result": "O'er the zqzq (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "bound": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "edited": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "same_spelling": [],
+   "result": "O'er the zqzq (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "bound": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "edited": {
+    "span": [
+     9,
+     18
+    ],
+    "text": "parchment"
+   },
+   "same_spelling": [],
+   "result": "O'er the zqzq (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "O'er"
+   },
+   "same_spelling": [],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "bound": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "edited": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "same_spelling": [],
+   "result": "O'er the parchment (not a zqzq),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "bound": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "edited": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "same_spelling": [],
+   "result": "O'er the parchment (not a zqzq),"
+  },
+  {
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "O'er"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "bound": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "edited": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "rhyme"
+   },
+   "same_spelling": [],
+   "result": "O'er the parchment (not a zqzq),"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     11,
+     15
+    ]
+   ],
+   "result": "I zqzq the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     11,
+     15
+    ]
+   ],
+   "result": "I zqzq the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     11,
+     15
+    ]
+   ],
+   "result": "I zqzq the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "bound": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "edited": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "same_spelling": [],
+   "result": "ZQZQ wind the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "bound": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "edited": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "same_spelling": [],
+   "result": "ZQZQ wind the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "bound": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "edited": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "same_spelling": [],
+   "result": "ZQZQ wind the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     11,
+     15
+    ]
+   ],
+   "result": "I zqzq the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     11,
+     15
+    ]
+   ],
+   "result": "I zqzq the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     2,
+     6
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     11,
+     15
+    ]
+   ],
+   "result": "I zqzq the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "T4",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     11,
+     15
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     2,
+     6
+    ]
+   ],
+   "result": "I wind the zqzq"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "bound": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "edited": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "same_spelling": [],
+   "result": "ZQZQ wind the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "bound": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "edited": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "same_spelling": [],
+   "result": "ZQZQ wind the wind"
+  },
+  {
+   "line": "I wind the wind",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     4,
+     "wind"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "bound": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "edited": {
+    "span": [
+     0,
+     1
+    ],
+    "text": "I"
+   },
+   "same_spelling": [],
+   "result": "ZQZQ wind the wind"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--wind, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--wind, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--wind, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     12,
+     16
+    ]
+   ],
+   "result": "Wind--zqzq, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     12,
+     16
+    ]
+   ],
+   "result": "Wind--zqzq, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     12,
+     16
+    ]
+   ],
+   "result": "Wind--zqzq, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "Wind--wind, zqzq my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "Wind--wind, zqzq my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:stripped",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "Wind--wind, zqzq my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "endword",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "bound": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "edited": {
+    "span": [
+     20,
+     25
+    ],
+    "text": "vrexl"
+   },
+   "same_spelling": [],
+   "result": "Wind--wind, wind my zqzq"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--wind, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--wind, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "bound": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "edited": {
+    "span": [
+     0,
+     4
+    ],
+    "text": "Wind"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--wind, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     12,
+     16
+    ]
+   ],
+   "result": "Wind--zqzq, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     12,
+     16
+    ]
+   ],
+   "result": "Wind--zqzq, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "T2",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     6,
+     10
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     12,
+     16
+    ]
+   ],
+   "result": "Wind--zqzq, wind my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "Wind--wind, zqzq my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "Wind--wind, zqzq my vrexl"
+  },
+  {
+   "line": "Wind--wind, wind my vrexl",
+   "mode": "cur:sung",
+   "slot": "T3",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     2,
+     "wind"
+    ],
+    [
+     5,
+     "vrexl"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "bound": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "edited": {
+    "span": [
+     12,
+     16
+    ],
+    "text": "wind"
+   },
+   "same_spelling": [
+    [
+     6,
+     10
+    ]
+   ],
+   "result": "Wind--wind, zqzq my vrexl"
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "bound": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "edited": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "same_spelling": [],
+   "result": "Meinself--und Zqzq."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "bound": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "edited": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "same_spelling": [],
+   "result": "Meinself--und Zqzq."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "bound": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "edited": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "same_spelling": [],
+   "result": "Meinself--und Zqzq."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "head",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "T1",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "bound": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "edited": {
+    "span": [
+     0,
+     8
+    ],
+    "text": "Meinself"
+   },
+   "same_spelling": [],
+   "result": "Zqzq--und Gott."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "Reviser._splice",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "bound": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "edited": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "same_spelling": [],
+   "result": "Meinself--und Zqzq."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "bound": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "edited": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "same_spelling": [],
+   "result": "Meinself--und Zqzq."
+  },
+  {
+   "line": "Meinself--und Gott.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "occ_agree",
+   "path": "default_propose_group",
+   "declared": [
+    [
+     1,
+     "Meinself"
+    ]
+   ],
+   "declared_not_in_cut": [],
+   "named": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "bound": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "edited": {
+    "span": [
+     14,
+     18
+    ],
+    "text": "Gott"
+   },
+   "same_spelling": [],
+   "result": "Meinself--und Zqzq."
+  }
+ ],
+ "declared_failed": [],
+ "declared_unresolved": [],
+ "declared_paths": [
+  "Reviser._splice",
+  "default_propose",
+  "default_propose_group"
+ ],
+ "negative_controls": [
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "first_occurrence",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "first_occurrence",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    6,
+    10
+   ],
+   "rigged_edit": [
+    0,
+    4
+   ]
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T1",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    0,
+    4
+   ],
+   "rigged_edit": [
+    6,
+    10
+   ]
+  },
+  {
+   "line": "hold me now and hold me tight",
+   "slot": "T5",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    16,
+    20
+   ],
+   "rigged_edit": [
+    0,
+    4
+   ]
+  },
+  {
+   "line": "hold me now and hold me tight",
+   "slot": "T1",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    0,
+    4
+   ],
+   "rigged_edit": [
+    16,
+    20
+   ]
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T4",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    14,
+    17
+   ],
+   "rigged_edit": [
+    0,
+    3
+   ]
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "head",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    0,
+    2
+   ],
+   "rigged_edit": [
+    16,
+    18
+   ]
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    16,
+    18
+   ],
+   "rigged_edit": [
+    0,
+    2
+   ]
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    0,
+    4
+   ],
+   "rigged_edit": [
+    16,
+    20
+   ]
+  },
+  {
+   "line": "I wind the wind",
+   "slot": "end",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    11,
+    15
+   ],
+   "rigged_edit": [
+    2,
+    6
+   ]
+  },
+  {
+   "line": "I wind the wind",
+   "slot": "T2",
+   "rig": "wrong_occurrence_swap",
+   "expected": "occ_wrong",
+   "kind": "occ_wrong",
+   "real_edit": [
+    2,
+    6
+   ],
+   "rigged_edit": [
+    11,
+    15
+   ]
+  }
+ ],
+ "negative_controls_failed": [],
+ "production_calls": [
+  {
+   "file": "quality/revise.py",
+   "line": 4506,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "lex",
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 843,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "lex",
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 879,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "lex",
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  }
+ ],
+ "production_uses_not_replicated": {
+  "calls": [],
+  "other_references": []
+ },
+ "pins": {
+  "commit": "61b6618ae9373e00b60d3df3ab2d19cc11cc93cc",
+  "tracked_changes": false,
+  "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b/lyric-harness",
+  "tool_version": "3.2",
+  "tool_git_state": "committed, unchanged",
+  "tool_sha256": "7d3352f0a966c47a6f452b642bbfd589835ec430436d1d83cbe432e117c2d05b",
+  "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026",
+  "loop_sha256": "a307ec7457babd11ef5859ab7c3cd77a7bae7b4c776a01ea0594d24f59ddc3b1",
+  "revise_sha256": "3b40a7ed97289247c2f3840021a09dabbc4179d08ff90f8cd29c8a883e17924f",
+  "swap_keywords_replicated": [
+   "lex",
+   "scheme",
+   "strip_parens"
+  ],
+  "modes": [
+   "cur:stripped",
+   "cur:sung"
+  ],
+  "loop_word_re": true,
+  "lexicon": {
+   "class": "SupplementedLexicon",
+   "fallback": "none",
+   "supplement": {
+    "version": "v2",
+    "path": "data/lexicon_supplement_v2.tsv",
+    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+   },
+   "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+   "reader_scheme": {
+    "cur:stripped": "v2",
+    "cur:sung": "v2"
+   }
+  },
+  "lexicon_variant": {
+   "variant": "fb_low",
+   "declarations": {},
+   "modes": {
+    "cur:stripped": {
+     "class": "SupplementedLexicon",
+     "fallback": "None",
+     "supplement_path": "data/lexicon_supplement_v2.tsv",
+     "strip_parens": true
+    },
+    "cur:sung": {
+     "class": "SupplementedLexicon",
+     "fallback": "None",
+     "supplement_path": "data/lexicon_supplement_v2.tsv",
+     "strip_parens": false
+    }
+   }
+  },
+  "population_accounted": {
+   "intended_line_modes": 7980,
+   "admitted": 7935,
+   "excluded": {
+    "transformed": 45,
+    "not_reproduced": 0
+   },
+   "accounted": true
+  },
+  "population": {
+   "path": "population.txt",
+   "lines": 3990,
+   "sha256": "641a3c27f618fd1324ce5dafe80bd5a6bf266dfba59fe53b1733e260a928633a",
+   "sha256_note": "of the non-empty lines joined by newlines",
+   "file_sha256": "8794627609750f15a218231cc6a497686f7cc07eccee3fed1f6ba0e1b04776c0"
+  }
+ },
+ "failing_cases": [
+  {
+   "line": "(It was the Miller's Nancy told it to me),                       10",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     65,
+     67
+    ],
+    "text": "10"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     65,
+     67
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "(It was the Miller's Nancy told it to me),                       zqzq"
+  },
+  {
+   "line": "(It was the Miller's Nancy told it to me),                       10",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     65,
+     67
+    ],
+    "text": "10"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     65,
+     67
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "(It was the Miller's Nancy told it to me),                       zqzq"
+  },
+  {
+   "line": "_Mrs. T. (aside)._ I've known him play that Exmoor",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     44,
+     50
+    ],
+    "text": "Exmoor"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     44,
+     50
+    ],
+    "text": "Exmoor"
+   },
+   "same_spelling": [],
+   "result": "_Mrs. T. (aside)._ I've known him play that Zqzq"
+  },
+  {
+   "line": "_Mrs. T. (aside)._ I've known him play that Exmoor",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     44,
+     50
+    ],
+    "text": "Exmoor"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     44,
+     50
+    ],
+    "text": "Exmoor"
+   },
+   "same_spelling": [],
+   "result": "_Mrs. T. (aside)._ I've known him play that Zqzq"
+  },
+  {
+   "line": "Had the King (quoth he) put me upon't,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     37
+    ],
+    "text": "upon't"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     37
+    ],
+    "text": "upon't"
+   },
+   "same_spelling": [],
+   "result": "Had the King (quoth he) put me zqzq,"
+  },
+  {
+   "line": "Had the King (quoth he) put me upon't,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     37
+    ],
+    "text": "upon't"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     37
+    ],
+    "text": "upon't"
+   },
+   "same_spelling": [],
+   "result": "Had the King (quoth he) put me zqzq,"
+  },
+  {
+   "line": "The wheels.  (2) There's na'r a speäde to dig wi'.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     46,
+     49
+    ],
+    "text": "wi'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     46,
+     49
+    ],
+    "text": "wi'"
+   },
+   "same_spelling": [],
+   "result": "The wheels.  (2) There's na'r a speäde to dig zqzq."
+  },
+  {
+   "line": "The wheels.  (2) There's na'r a speäde to dig wi'.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     46,
+     49
+    ],
+    "text": "wi'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     46,
+     49
+    ],
+    "text": "wi'"
+   },
+   "same_spelling": [],
+   "result": "The wheels.  (2) There's na'r a speäde to dig zqzq."
+  },
+  {
+   "line": "Upon the clay.  (2) Nor hook to cut a twig wi'.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     43,
+     46
+    ],
+    "text": "wi'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     43,
+     46
+    ],
+    "text": "wi'"
+   },
+   "same_spelling": [],
+   "result": "Upon the clay.  (2) Nor hook to cut a twig zqzq."
+  },
+  {
+   "line": "Upon the clay.  (2) Nor hook to cut a twig wi'.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     43,
+     46
+    ],
+    "text": "wi'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     43,
+     46
+    ],
+    "text": "wi'"
+   },
+   "same_spelling": [],
+   "result": "Upon the clay.  (2) Nor hook to cut a twig zqzq."
+  },
+  {
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     35,
+     42
+    ],
+    "text": "consaït"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     35,
+     42
+    ],
+    "text": "consaït"
+   },
+   "same_spelling": [],
+   "result": "(2) If I can clim' en; but 'tis my zqzq,"
+  },
+  {
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     35,
+     42
+    ],
+    "text": "consaït"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     35,
+     42
+    ],
+    "text": "consaït"
+   },
+   "same_spelling": [],
+   "result": "(2) If I can clim' en; but 'tis my zqzq,"
+  },
+  {
+   "line": "(1) There be the greyhounds! lo'k! an' there's the heäre!",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     51,
+     56
+    ],
+    "text": "heäre"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     51,
+     56
+    ],
+    "text": "heäre"
+   },
+   "same_spelling": [],
+   "result": "(1) There be the greyhounds! lo'k! an' there's the zqzq!"
+  },
+  {
+   "line": "(1) There be the greyhounds! lo'k! an' there's the heäre!",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     51,
+     56
+    ],
+    "text": "heäre"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     51,
+     56
+    ],
+    "text": "heäre"
+   },
+   "same_spelling": [],
+   "result": "(1) There be the greyhounds! lo'k! an' there's the zqzq!"
+  },
+  {
+   "line": "(3) No! no! I wish the squier would let me feäre",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     43,
+     48
+    ],
+    "text": "feäre"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     43,
+     48
+    ],
+    "text": "feäre"
+   },
+   "same_spelling": [],
+   "result": "(3) No! no! I wish the squier would let me zqzq"
+  },
+  {
+   "line": "(3) No! no! I wish the squier would let me feäre",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     43,
+     48
+    ],
+    "text": "feäre"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     43,
+     48
+    ],
+    "text": "feäre"
+   },
+   "same_spelling": [],
+   "result": "(3) No! no! I wish the squier would let me zqzq"
+  },
+  {
+   "line": "To zee my Fanny's smilèn feäce;",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     25,
+     30
+    ],
+    "text": "feäce"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     25,
+     30
+    ],
+    "text": "feäce"
+   },
+   "same_spelling": [],
+   "result": "To zee my Fanny's smilèn zqzq;"
+  },
+  {
+   "line": "To zee my Fanny's smilèn feäce;",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     25,
+     30
+    ],
+    "text": "feäce"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     25,
+     30
+    ],
+    "text": "feäce"
+   },
+   "same_spelling": [],
+   "result": "To zee my Fanny's smilèn zqzq;"
+  },
+  {
+   "line": "The draught, M'sieu'?",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     13,
+     20
+    ],
+    "text": "M'sieu'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     13,
+     20
+    ],
+    "text": "M'sieu'"
+   },
+   "same_spelling": [],
+   "result": "The draught, Zqzq?"
+  },
+  {
+   "line": "The draught, M'sieu'?",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     13,
+     20
+    ],
+    "text": "M'sieu'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     13,
+     20
+    ],
+    "text": "M'sieu'"
+   },
+   "same_spelling": [],
+   "result": "The draught, Zqzq?"
+  },
+  {
+   "line": "An' get the brutes the power themsel's",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     29,
+     38
+    ],
+    "text": "themsel's"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     29,
+     38
+    ],
+    "text": "themsel's"
+   },
+   "same_spelling": [],
+   "result": "An' get the brutes the power zqzq"
+  },
+  {
+   "line": "An' get the brutes the power themsel's",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     29,
+     38
+    ],
+    "text": "themsel's"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     29,
+     38
+    ],
+    "text": "themsel's"
+   },
+   "same_spelling": [],
+   "result": "An' get the brutes the power zqzq"
+  },
+  {
+   "line": "To vind the nest the blackbird meäde",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     36
+    ],
+    "text": "meäde"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     36
+    ],
+    "text": "meäde"
+   },
+   "same_spelling": [],
+   "result": "To vind the nest the blackbird zqzq"
+  },
+  {
+   "line": "To vind the nest the blackbird meäde",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     36
+    ],
+    "text": "meäde"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     36
+    ],
+    "text": "meäde"
+   },
+   "same_spelling": [],
+   "result": "To vind the nest the blackbird zqzq"
+  },
+  {
+   "line": "Thy father, Adolphus! was false, false as hell,                      _45",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     70,
+     72
+    ],
+    "text": "45"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     70,
+     72
+    ],
+    "text": "45"
+   },
+   "same_spelling": [],
+   "result": "Thy father, Adolphus! was false, false as hell,                      _zqzq"
+  },
+  {
+   "line": "Thy father, Adolphus! was false, false as hell,                      _45",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     70,
+     72
+    ],
+    "text": "45"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     70,
+     72
+    ],
+    "text": "45"
+   },
+   "same_spelling": [],
+   "result": "Thy father, Adolphus! was false, false as hell,                      _zqzq"
+  },
+  {
+   "line": "And thick around Elisha stands;[2",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     32,
+     33
+    ],
+    "text": "2"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     32,
+     33
+    ],
+    "text": "2"
+   },
+   "same_spelling": [],
+   "result": "And thick around Elisha stands;[zqzq"
+  },
+  {
+   "line": "And thick around Elisha stands;[2",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     32,
+     33
+    ],
+    "text": "2"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     32,
+     33
+    ],
+    "text": "2"
+   },
+   "same_spelling": [],
+   "result": "And thick around Elisha stands;[zqzq"
+  },
+  {
+   "line": "Noo vrost can whiten in the sheäde,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     34
+    ],
+    "text": "sheäde"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     34
+    ],
+    "text": "sheäde"
+   },
+   "same_spelling": [],
+   "result": "Noo vrost can whiten in the zqzq,"
+  },
+  {
+   "line": "Noo vrost can whiten in the sheäde,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     34
+    ],
+    "text": "sheäde"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     34
+    ],
+    "text": "sheäde"
+   },
+   "same_spelling": [],
+   "result": "Noo vrost can whiten in the zqzq,"
+  },
+  {
+   "line": "Where sedgy pool, nor bubbling fount,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     36
+    ],
+    "text": "fount"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     36
+    ],
+    "text": "fount"
+   },
+   "same_spelling": [],
+   "result": "Where sedgy pool, nor bubbling zqzq,"
+  },
+  {
+   "line": "Where sedgy pool, nor bubbling fount,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     36
+    ],
+    "text": "fount"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     36
+    ],
+    "text": "fount"
+   },
+   "same_spelling": [],
+   "result": "Where sedgy pool, nor bubbling zqzq,"
+  },
+  {
+   "line": "The moth did eat her Zunday ceäpe;",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "ceäpe"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "ceäpe"
+   },
+   "same_spelling": [],
+   "result": "The moth did eat her Zunday zqzq;"
+  },
+  {
+   "line": "The moth did eat her Zunday ceäpe;",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "ceäpe"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "ceäpe"
+   },
+   "same_spelling": [],
+   "result": "The moth did eat her Zunday zqzq;"
+  },
+  {
+   "line": "As thankless as the sea vor raïn,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     32
+    ],
+    "text": "raïn"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     32
+    ],
+    "text": "raïn"
+   },
+   "same_spelling": [],
+   "result": "As thankless as the sea vor zqzq,"
+  },
+  {
+   "line": "As thankless as the sea vor raïn,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     32
+    ],
+    "text": "raïn"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     32
+    ],
+    "text": "raïn"
+   },
+   "same_spelling": [],
+   "result": "As thankless as the sea vor zqzq,"
+  },
+  {
+   "line": "Now, Fanny, 'tis too bad, you teazèn maïd!",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     37,
+     41
+    ],
+    "text": "maïd"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     37,
+     41
+    ],
+    "text": "maïd"
+   },
+   "same_spelling": [],
+   "result": "Now, Fanny, 'tis too bad, you teazèn zqzq!"
+  },
+  {
+   "line": "Now, Fanny, 'tis too bad, you teazèn maïd!",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     37,
+     41
+    ],
+    "text": "maïd"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     37,
+     41
+    ],
+    "text": "maïd"
+   },
+   "same_spelling": [],
+   "result": "Now, Fanny, 'tis too bad, you teazèn zqzq!"
+  },
+  {
+   "line": "An awful, a tremendous night is this, meseems!",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     38,
+     45
+    ],
+    "text": "meseems"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     38,
+     45
+    ],
+    "text": "meseems"
+   },
+   "same_spelling": [],
+   "result": "An awful, a tremendous night is this, zqzq!"
+  },
+  {
+   "line": "An awful, a tremendous night is this, meseems!",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     38,
+     45
+    ],
+    "text": "meseems"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     38,
+     45
+    ],
+    "text": "meseems"
+   },
+   "same_spelling": [],
+   "result": "An awful, a tremendous night is this, zqzq!"
+  },
+  {
+   "line": "As dew that steams upward from the grass,                          20",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     67,
+     69
+    ],
+    "text": "20"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     67,
+     69
+    ],
+    "text": "20"
+   },
+   "same_spelling": [],
+   "result": "As dew that steams upward from the grass,                          zqzq"
+  },
+  {
+   "line": "As dew that steams upward from the grass,                          20",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     67,
+     69
+    ],
+    "text": "20"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     67,
+     69
+    ],
+    "text": "20"
+   },
+   "same_spelling": [],
+   "result": "As dew that steams upward from the grass,                          zqzq"
+  },
+  {
+   "line": "Tation of his Number 10.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     21,
+     23
+    ],
+    "text": "10"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     21,
+     23
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "Tation of his Number zqzq."
+  },
+  {
+   "line": "Tation of his Number 10.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     21,
+     23
+    ],
+    "text": "10"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     21,
+     23
+    ],
+    "text": "10"
+   },
+   "same_spelling": [],
+   "result": "Tation of his Number zqzq."
+  },
+  {
+   "line": "And beat'st thy gen'rous breast, that o're",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     38,
+     42
+    ],
+    "text": "o're"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     38,
+     42
+    ],
+    "text": "o're"
+   },
+   "same_spelling": [],
+   "result": "And beat'st thy gen'rous breast, that zqzq"
+  },
+  {
+   "line": "And beat'st thy gen'rous breast, that o're",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     38,
+     42
+    ],
+    "text": "o're"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     38,
+     42
+    ],
+    "text": "o're"
+   },
+   "same_spelling": [],
+   "result": "And beat'st thy gen'rous breast, that zqzq"
+  },
+  {
+   "line": "There she zot, wi' breast a-heavèn,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     26,
+     34
+    ],
+    "text": "a-heavèn"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     26,
+     34
+    ],
+    "text": "a-heavèn"
+   },
+   "same_spelling": [],
+   "result": "There she zot, wi' breast zqzq,"
+  },
+  {
+   "line": "There she zot, wi' breast a-heavèn,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     26,
+     34
+    ],
+    "text": "a-heavèn"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     26,
+     34
+    ],
+    "text": "a-heavèn"
+   },
+   "same_spelling": [],
+   "result": "There she zot, wi' breast zqzq,"
+  },
+  {
+   "line": "An’ tak it while I’m preychin’.”",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     21,
+     30
+    ],
+    "text": "preychin’"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     21,
+     30
+    ],
+    "text": "preychin’"
+   },
+   "same_spelling": [],
+   "result": "An’ tak it while I’m zqzq.”"
+  },
+  {
+   "line": "An’ tak it while I’m preychin’.”",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     21,
+     30
+    ],
+    "text": "preychin’"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     21,
+     30
+    ],
+    "text": "preychin’"
+   },
+   "same_spelling": [],
+   "result": "An’ tak it while I’m zqzq.”"
+  },
+  {
+   "line": "While I whistle and sing at the plowin' o't.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     40,
+     43
+    ],
+    "text": "o't"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     40,
+     43
+    ],
+    "text": "o't"
+   },
+   "same_spelling": [],
+   "result": "While I whistle and sing at the plowin' zqzq."
+  },
+  {
+   "line": "While I whistle and sing at the plowin' o't.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     40,
+     43
+    ],
+    "text": "o't"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     40,
+     43
+    ],
+    "text": "o't"
+   },
+   "same_spelling": [],
+   "result": "While I whistle and sing at the plowin' zqzq."
+  },
+  {
+   "line": "While music wer a-soundèn.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     16,
+     25
+    ],
+    "text": "a-soundèn"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     16,
+     25
+    ],
+    "text": "a-soundèn"
+   },
+   "same_spelling": [],
+   "result": "While music wer zqzq."
+  },
+  {
+   "line": "While music wer a-soundèn.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     16,
+     25
+    ],
+    "text": "a-soundèn"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     16,
+     25
+    ],
+    "text": "a-soundèn"
+   },
+   "same_spelling": [],
+   "result": "While music wer zqzq."
+  },
+  {
+   "line": "Seem to their staves the ensigns furl’d.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     33,
+     39
+    ],
+    "text": "furl’d"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     33,
+     39
+    ],
+    "text": "furl’d"
+   },
+   "same_spelling": [],
+   "result": "Seem to their staves the ensigns zqzq."
+  },
+  {
+   "line": "Seem to their staves the ensigns furl’d.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     33,
+     39
+    ],
+    "text": "furl’d"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     33,
+     39
+    ],
+    "text": "furl’d"
+   },
+   "same_spelling": [],
+   "result": "Seem to their staves the ensigns zqzq."
+  },
+  {
+   "line": "This is a darkish evenèn; b'ye a-feärd",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     38
+    ],
+    "text": "a-feärd"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     38
+    ],
+    "text": "a-feärd"
+   },
+   "same_spelling": [],
+   "result": "This is a darkish evenèn; b'ye zqzq"
+  },
+  {
+   "line": "This is a darkish evenèn; b'ye a-feärd",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     38
+    ],
+    "text": "a-feärd"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     38
+    ],
+    "text": "a-feärd"
+   },
+   "same_spelling": [],
+   "result": "This is a darkish evenèn; b'ye zqzq"
+  },
+  {
+   "line": "Then, straught or crooked, yird or nane,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     35,
+     39
+    ],
+    "text": "nane"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     35,
+     39
+    ],
+    "text": "nane"
+   },
+   "same_spelling": [],
+   "result": "Then, straught or crooked, yird or zqzq,"
+  },
+  {
+   "line": "Then, straught or crooked, yird or nane,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     35,
+     39
+    ],
+    "text": "nane"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     35,
+     39
+    ],
+    "text": "nane"
+   },
+   "same_spelling": [],
+   "result": "Then, straught or crooked, yird or zqzq,"
+  },
+  {
+   "line": "Wi' pride avore my own blue geäte,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "geäte"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "geäte"
+   },
+   "same_spelling": [],
+   "result": "Wi' pride avore my own blue zqzq,"
+  },
+  {
+   "line": "Wi' pride avore my own blue geäte,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "geäte"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "geäte"
+   },
+   "same_spelling": [],
+   "result": "Wi' pride avore my own blue zqzq,"
+  },
+  {
+   "line": "And lang ere blaws the winter wun',",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     30,
+     34
+    ],
+    "text": "wun'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     30,
+     34
+    ],
+    "text": "wun'"
+   },
+   "same_spelling": [],
+   "result": "And lang ere blaws the winter zqzq,"
+  },
+  {
+   "line": "And lang ere blaws the winter wun',",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     30,
+     34
+    ],
+    "text": "wun'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     30,
+     34
+    ],
+    "text": "wun'"
+   },
+   "same_spelling": [],
+   "result": "And lang ere blaws the winter zqzq,"
+  },
+  {
+   "line": "Well, now, an' how do vo'k treat Jeäne?",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     33,
+     38
+    ],
+    "text": "Jeäne"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     33,
+     38
+    ],
+    "text": "Jeäne"
+   },
+   "same_spelling": [],
+   "result": "Well, now, an' how do vo'k treat Zqzq?"
+  },
+  {
+   "line": "Well, now, an' how do vo'k treat Jeäne?",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     33,
+     38
+    ],
+    "text": "Jeäne"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     33,
+     38
+    ],
+    "text": "Jeäne"
+   },
+   "same_spelling": [],
+   "result": "Well, now, an' how do vo'k treat Zqzq?"
+  },
+  {
+   "line": "To you a simple poet's pray'rs",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     23,
+     30
+    ],
+    "text": "pray'rs"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     23,
+     30
+    ],
+    "text": "pray'rs"
+   },
+   "same_spelling": [],
+   "result": "To you a simple poet's zqzq"
+  },
+  {
+   "line": "To you a simple poet's pray'rs",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     23,
+     30
+    ],
+    "text": "pray'rs"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     23,
+     30
+    ],
+    "text": "pray'rs"
+   },
+   "same_spelling": [],
+   "result": "To you a simple poet's zqzq"
+  },
+  {
+   "line": "An' the brown leaf had fa'n:",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     23,
+     27
+    ],
+    "text": "fa'n"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     23,
+     27
+    ],
+    "text": "fa'n"
+   },
+   "same_spelling": [],
+   "result": "An' the brown leaf had zqzq:"
+  },
+  {
+   "line": "An' the brown leaf had fa'n:",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     23,
+     27
+    ],
+    "text": "fa'n"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     23,
+     27
+    ],
+    "text": "fa'n"
+   },
+   "same_spelling": [],
+   "result": "An' the brown leaf had zqzq:"
+  },
+  {
+   "line": "Sing on, thou sweet mavis, thy hymn to the e'ening!",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     43,
+     50
+    ],
+    "text": "e'ening"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     43,
+     50
+    ],
+    "text": "e'ening"
+   },
+   "same_spelling": [],
+   "result": "Sing on, thou sweet mavis, thy hymn to the zqzq!"
+  },
+  {
+   "line": "Sing on, thou sweet mavis, thy hymn to the e'ening!",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     43,
+     50
+    ],
+    "text": "e'ening"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     43,
+     50
+    ],
+    "text": "e'ening"
+   },
+   "same_spelling": [],
+   "result": "Sing on, thou sweet mavis, thy hymn to the zqzq!"
+  },
+  {
+   "line": "But while she vell, my Meäker's greäce",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     32,
+     38
+    ],
+    "text": "greäce"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     32,
+     38
+    ],
+    "text": "greäce"
+   },
+   "same_spelling": [],
+   "result": "But while she vell, my Meäker's zqzq"
+  },
+  {
+   "line": "But while she vell, my Meäker's greäce",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     32,
+     38
+    ],
+    "text": "greäce"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     32,
+     38
+    ],
+    "text": "greäce"
+   },
+   "same_spelling": [],
+   "result": "But while she vell, my Meäker's zqzq"
+  },
+  {
+   "line": "And what can these avail                                        40",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     64,
+     66
+    ],
+    "text": "40"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     64,
+     66
+    ],
+    "text": "40"
+   },
+   "same_spelling": [],
+   "result": "And what can these avail                                        zqzq"
+  },
+  {
+   "line": "And what can these avail                                        40",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     64,
+     66
+    ],
+    "text": "40"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     64,
+     66
+    ],
+    "text": "40"
+   },
+   "same_spelling": [],
+   "result": "And what can these avail                                        zqzq"
+  },
+  {
+   "line": "“Weel, weel!” says I, “a bargain be't;",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     33,
+     37
+    ],
+    "text": "be't"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     33,
+     37
+    ],
+    "text": "be't"
+   },
+   "same_spelling": [],
+   "result": "“Weel, weel!” says I, “a bargain zqzq;"
+  },
+  {
+   "line": "“Weel, weel!” says I, “a bargain be't;",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     33,
+     37
+    ],
+    "text": "be't"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     33,
+     37
+    ],
+    "text": "be't"
+   },
+   "same_spelling": [],
+   "result": "“Weel, weel!” says I, “a bargain zqzq;"
+  },
+  {
+   "line": "With a white light on our faces, spirit over spirit furled?",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     52,
+     58
+    ],
+    "text": "furled"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     52,
+     58
+    ],
+    "text": "furled"
+   },
+   "same_spelling": [],
+   "result": "With a white light on our faces, spirit over spirit zqzq?"
+  },
+  {
+   "line": "With a white light on our faces, spirit over spirit furled?",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     52,
+     58
+    ],
+    "text": "furled"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     52,
+     58
+    ],
+    "text": "furled"
+   },
+   "same_spelling": [],
+   "result": "With a white light on our faces, spirit over spirit zqzq?"
+  },
+  {
+   "line": "O' Zunday evenèns, eärm in eärm,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     27,
+     31
+    ],
+    "text": "eärm"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     27,
+     31
+    ],
+    "text": "eärm"
+   },
+   "same_spelling": [
+    [
+     19,
+     23
+    ]
+   ],
+   "result": "O' Zunday evenèns, eärm in zqzq,"
+  },
+  {
+   "line": "O' Zunday evenèns, eärm in eärm,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     27,
+     31
+    ],
+    "text": "eärm"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     27,
+     31
+    ],
+    "text": "eärm"
+   },
+   "same_spelling": [
+    [
+     19,
+     23
+    ]
+   ],
+   "result": "O' Zunday evenèns, eärm in zqzq,"
+  },
+  {
+   "line": "Wi' smeechy doust from heel to tooe.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     35
+    ],
+    "text": "tooe"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     35
+    ],
+    "text": "tooe"
+   },
+   "same_spelling": [],
+   "result": "Wi' smeechy doust from heel to zqzq."
+  },
+  {
+   "line": "Wi' smeechy doust from heel to tooe.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     31,
+     35
+    ],
+    "text": "tooe"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     31,
+     35
+    ],
+    "text": "tooe"
+   },
+   "same_spelling": [],
+   "result": "Wi' smeechy doust from heel to zqzq."
+  },
+  {
+   "line": "To let out land lik' this in ouer pleäce;",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     34,
+     40
+    ],
+    "text": "pleäce"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     34,
+     40
+    ],
+    "text": "pleäce"
+   },
+   "same_spelling": [],
+   "result": "To let out land lik' this in ouer zqzq;"
+  },
+  {
+   "line": "To let out land lik' this in ouer pleäce;",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     34,
+     40
+    ],
+    "text": "pleäce"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     34,
+     40
+    ],
+    "text": "pleäce"
+   },
+   "same_spelling": [],
+   "result": "To let out land lik' this in ouer zqzq;"
+  },
+  {
+   "line": "Where the cow did loudly bleäre",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     25,
+     31
+    ],
+    "text": "bleäre"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     25,
+     31
+    ],
+    "text": "bleäre"
+   },
+   "same_spelling": [],
+   "result": "Where the cow did loudly zqzq"
+  },
+  {
+   "line": "Where the cow did loudly bleäre",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     25,
+     31
+    ],
+    "text": "bleäre"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     25,
+     31
+    ],
+    "text": "bleäre"
+   },
+   "same_spelling": [],
+   "result": "Where the cow did loudly zqzq"
+  },
+  {
+   "line": "And open fields, and we not see’t?",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "see’t"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "see’t"
+   },
+   "same_spelling": [],
+   "result": "And open fields, and we not zqzq?"
+  },
+  {
+   "line": "And open fields, and we not see’t?",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "see’t"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     28,
+     33
+    ],
+    "text": "see’t"
+   },
+   "same_spelling": [],
+   "result": "And open fields, and we not zqzq?"
+  },
+  {
+   "line": "'Till the Canon atoned the deed,                                     _110",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     70,
+     73
+    ],
+    "text": "110"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     70,
+     73
+    ],
+    "text": "110"
+   },
+   "same_spelling": [],
+   "result": "'Till the Canon atoned the deed,                                     _zqzq"
+  },
+  {
+   "line": "'Till the Canon atoned the deed,                                     _110",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     70,
+     73
+    ],
+    "text": "110"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     70,
+     73
+    ],
+    "text": "110"
+   },
+   "same_spelling": [],
+   "result": "'Till the Canon atoned the deed,                                     _zqzq"
+  },
+  {
+   "line": "An' when vrom a meetèn o' me'th",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "me'th"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "me'th"
+   },
+   "same_spelling": [],
+   "result": "An' when vrom a meetèn o' zqzq"
+  },
+  {
+   "line": "An' when vrom a meetèn o' me'th",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "me'th"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     26,
+     31
+    ],
+    "text": "me'th"
+   },
+   "same_spelling": [],
+   "result": "An' when vrom a meetèn o' zqzq"
+  },
+  {
+   "line": "When on yon mossy stane,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     18,
+     23
+    ],
+    "text": "stane"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     18,
+     23
+    ],
+    "text": "stane"
+   },
+   "same_spelling": [],
+   "result": "When on yon mossy zqzq,"
+  },
+  {
+   "line": "When on yon mossy stane,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     18,
+     23
+    ],
+    "text": "stane"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     18,
+     23
+    ],
+    "text": "stane"
+   },
+   "same_spelling": [],
+   "result": "When on yon mossy zqzq,"
+  },
+  {
+   "line": "There's noo good o' goold, but to buy what 'ull meäke",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     48,
+     53
+    ],
+    "text": "meäke"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     48,
+     53
+    ],
+    "text": "meäke"
+   },
+   "same_spelling": [],
+   "result": "There's noo good o' goold, but to buy what 'ull zqzq"
+  },
+  {
+   "line": "There's noo good o' goold, but to buy what 'ull meäke",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     48,
+     53
+    ],
+    "text": "meäke"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     48,
+     53
+    ],
+    "text": "meäke"
+   },
+   "same_spelling": [],
+   "result": "There's noo good o' goold, but to buy what 'ull zqzq"
+  },
+  {
+   "line": "An' she has twa sparkling roguish een.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     34,
+     37
+    ],
+    "text": "een"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     34,
+     37
+    ],
+    "text": "een"
+   },
+   "same_spelling": [],
+   "result": "An' she has twa sparkling roguish zqzq."
+  },
+  {
+   "line": "An' she has twa sparkling roguish een.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     34,
+     37
+    ],
+    "text": "een"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     34,
+     37
+    ],
+    "text": "een"
+   },
+   "same_spelling": [],
+   "result": "An' she has twa sparkling roguish zqzq."
+  },
+  {
+   "line": "An' the cheäk-burnèn seasons o' mowèn,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     32,
+     37
+    ],
+    "text": "mowèn"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     32,
+     37
+    ],
+    "text": "mowèn"
+   },
+   "same_spelling": [],
+   "result": "An' the cheäk-burnèn seasons o' zqzq,"
+  },
+  {
+   "line": "An' the cheäk-burnèn seasons o' mowèn,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     32,
+     37
+    ],
+    "text": "mowèn"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     32,
+     37
+    ],
+    "text": "mowèn"
+   },
+   "same_spelling": [],
+   "result": "An' the cheäk-burnèn seasons o' zqzq,"
+  },
+  {
+   "line": "Sed quod tu facies, hoc mihi, Paete, dolet.",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     37,
+     42
+    ],
+    "text": "dolet"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     37,
+     42
+    ],
+    "text": "dolet"
+   },
+   "same_spelling": [],
+   "result": "Sed quod tu facies, hoc mihi, Paete, zqzq."
+  },
+  {
+   "line": "Sed quod tu facies, hoc mihi, Paete, dolet.",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     37,
+     42
+    ],
+    "text": "dolet"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     37,
+     42
+    ],
+    "text": "dolet"
+   },
+   "same_spelling": [],
+   "result": "Sed quod tu facies, hoc mihi, Paete, zqzq."
+  },
+  {
+   "line": "Aye, John, I have, John; an' I ben't afeärd",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     37,
+     43
+    ],
+    "text": "afeärd"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     37,
+     43
+    ],
+    "text": "afeärd"
+   },
+   "same_spelling": [],
+   "result": "Aye, John, I have, John; an' I ben't zqzq"
+  },
+  {
+   "line": "Aye, John, I have, John; an' I ben't afeärd",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     37,
+     43
+    ],
+    "text": "afeärd"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     37,
+     43
+    ],
+    "text": "afeärd"
+   },
+   "same_spelling": [],
+   "result": "Aye, John, I have, John; an' I ben't zqzq"
+  },
+  {
+   "line": "Bedim to-day thy flow'ry sh'oud,",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     25,
+     31
+    ],
+    "text": "sh'oud"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     25,
+     31
+    ],
+    "text": "sh'oud"
+   },
+   "same_spelling": [],
+   "result": "Bedim to-day thy flow'ry zqzq,"
+  },
+  {
+   "line": "Bedim to-day thy flow'ry sh'oud,",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     25,
+     31
+    ],
+    "text": "sh'oud"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     25,
+     31
+    ],
+    "text": "sh'oud"
+   },
+   "same_spelling": [],
+   "result": "Bedim to-day thy flow'ry zqzq,"
+  },
+  {
+   "line": "As thou wast hymnèd on the shores of Baiæ?",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     37,
+     41
+    ],
+    "text": "Baiæ"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     37,
+     41
+    ],
+    "text": "Baiæ"
+   },
+   "same_spelling": [],
+   "result": "As thou wast hymnèd on the shores of Zqzq?"
+  },
+  {
+   "line": "As thou wast hymnèd on the shores of Baiæ?",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     37,
+     41
+    ],
+    "text": "Baiæ"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     37,
+     41
+    ],
+    "text": "Baiæ"
+   },
+   "same_spelling": [],
+   "result": "As thou wast hymnèd on the shores of Zqzq?"
+  },
+  {
+   "line": "And a \"Ben Dieu garde M'sieu'!\"",
+   "mode": "cur:stripped",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     22,
+     29
+    ],
+    "text": "M'sieu'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     22,
+     29
+    ],
+    "text": "M'sieu'"
+   },
+   "same_spelling": [],
+   "result": "And a \"Ben Dieu garde Zqzq!\""
+  },
+  {
+   "line": "And a \"Ben Dieu garde M'sieu'!\"",
+   "mode": "cur:sung",
+   "slot": "end",
+   "occurrence": "edit_unbound",
+   "literal": "agree_unbound",
+   "named": {
+    "span": [
+     22,
+     29
+    ],
+    "text": "M'sieu'"
+   },
+   "bound": null,
+   "edited": {
+    "span": [
+     22,
+     29
+    ],
+    "text": "M'sieu'"
+   },
+   "same_spelling": [],
+   "result": "And a \"Ben Dieu garde Zqzq!\""
+  }
+ ]
+}
