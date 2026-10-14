@@ -1,0 +1,183 @@
+{
+  "label": "main",
+  "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main",
+  "scenarios": {
+    "S1_top_30ms": {
+      "before": {
+        "setupRows": [],
+        "caret": 0,
+        "selEnd": 0,
+        "len": 196,
+        "lineOfCaret": 1,
+        "lines": 12,
+        "focused": true,
+        "toast": ""
+      },
+      "mid": {
+        "setupRows": [
+          "[SETUP — rhyme groups — 1.T4,8]"
+        ],
+        "caret": 31,
+        "selEnd": 31,
+        "len": 227,
+        "lineOfCaret": 1,
+        "lines": 12,
+        "focused": true,
+        "toast": ""
+      },
+      "after": {
+        "line1": "[SETUP — rhyme groups — 1.T4,8]Z",
+        "zAt": 31,
+        "lineOfZ": 1,
+        "lastLine": "Love above"
+      },
+      "errors": []
+    },
+    "S2_top_slow": {
+      "firstJump": null,
+      "last3": [
+        {
+          "typed": ",",
+          "row1": "[SETUP — rhyme groups — 1.T4,",
+          "caret": 29,
+          "len": 225,
+          "lineOfCaret": 1
+        },
+        {
+          "typed": "8",
+          "row1": "[SETUP — rhyme groups — 1.T4,8",
+          "caret": 30,
+          "len": 226,
+          "lineOfCaret": 1
+        },
+        {
+          "typed": "]",
+          "row1": "[SETUP — rhyme groups — 1.T4,8]",
+          "caret": 31,
+          "len": 227,
+          "lineOfCaret": 1
+        }
+      ],
+      "errors": []
+    },
+    "S3_two_rows_fast": {
+      "mid": {
+        "setupRows": [
+          "[SETUP — rhyme groups — 1.T4,8]",
+          "[SETUP — returns — 5,8]"
+        ],
+        "caret": 55,
+        "selEnd": 55,
+        "len": 251,
+        "lineOfCaret": 2,
+        "lines": 13,
+        "focused": true,
+        "toast": ""
+      },
+      "after": {
+        "lines123": [
+          "[SETUP — rhyme groups — 1.T4,8]",
+          "[SETUP — returns — 5,8]Q",
+          "[VERSE]"
+        ],
+        "lineOfQ": 2,
+        "lines": 13
+      },
+      "errors": []
+    },
+    "S4_numbered_unchanged_line": {
+      "mid": {
+        "setupRows": [
+          "[SETUP — rhyme groups — 5.T3,6]"
+        ],
+        "caret": 31,
+        "selEnd": 31,
+        "len": 227,
+        "lineOfCaret": 1,
+        "lines": 12,
+        "focused": true,
+        "toast": ""
+      },
+      "errors": []
+    },
+    "S5_named_changed_line": {
+      "mid": {
+        "setupRows": [
+          "[SETUP — rhyme groups — 1,8]"
+        ],
+        "caret": 28,
+        "selEnd": 28,
+        "len": 224,
+        "lineOfCaret": 1,
+        "lines": 12,
+        "focused": true,
+        "toast": ""
+      },
+      "errors": []
+    },
+    "S6_named_unchanged_line": {
+      "mid": {
+        "setupRows": [
+          "[SETUP — rhyme groups — 5,6]"
+        ],
+        "caret": 28,
+        "selEnd": 28,
+        "len": 224,
+        "lineOfCaret": 1,
+        "lines": 12,
+        "focused": true,
+        "toast": ""
+      },
+      "errors": []
+    },
+    "S7_marked_row": {
+      "mid": {
+        "setupRows": [
+          "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+        ],
+        "caret": 40,
+        "selEnd": 40,
+        "len": 236,
+        "lineOfCaret": 1,
+        "lines": 12,
+        "focused": true,
+        "toast": ""
+      },
+      "errors": []
+    },
+    "S8_edit_inside_row": {
+      "pre": [
+        "[SETUP — rhyme groups — 5,6]"
+      ],
+      "steps": [
+        {
+          "typed": ".",
+          "row1": "[SETUP — rhyme groups — 5.,6]",
+          "caret": 26,
+          "lineOfCaret": 1,
+          "len": 225
+        },
+        {
+          "typed": "T",
+          "row1": "[SETUP — rhyme groups — 5.T,6]",
+          "caret": 27,
+          "lineOfCaret": 1,
+          "len": 226
+        },
+        {
+          "typed": "3",
+          "row1": "[SETUP — rhyme groups — 5.T3,6]",
+          "caret": 28,
+          "lineOfCaret": 1,
+          "len": 227
+        }
+      ],
+      "after": {
+        "line1": "[SETUP — rhyme groups — 5.T3Y,6]",
+        "lineOfY": 6,
+        "lastLine": "Love above"
+      },
+      "errors": []
+    }
+  }
+}

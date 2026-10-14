@@ -1,0 +1,53 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+ "harness": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base",
+ "validate": "accepted",
+ "validate_with_marker": "refused BAD_REQUEST: The analysis request contains an unknown field.",
+ "identity_keys": [
+  "contract_version",
+  "declaration_hash",
+  "edition_id",
+  "engine_commit",
+  "native_profile",
+  "normalized_sha256",
+  "normalizer_version",
+  "parser_version",
+  "reading_revision",
+  "reading_unit_id",
+  "requested_layers",
+  "requested_methods",
+  "resource_fingerprint",
+  "snapshot_id",
+  "source_sha256",
+  "work_id"
+ ],
+ "job_state": "paused",
+ "job_reason": {
+  "code": "READER_ERROR",
+  "message": "reader: pronunciation token/word must match the exact sung token in its declared line"
+ },
+ "worker_declarations": {
+  "pronunciations": [
+   {
+    "line": "Oh--oh, oh my love",
+    "token": 3,
+    "word": "oh",
+    "phones": [
+     "AA1"
+    ],
+    "basis": "declared",
+    "source": "the singer"
+   }
+  ]
+ },
+ "line0_tokens": [],
+ "records": 0,
+ "sample_token": null,
+ "scheme_contexts": [],
+ "refused_kinds": [],
+ "mentions": {
+  "word cut": false,
+  "scheme": false,
+  "v1": false
+ }
+}

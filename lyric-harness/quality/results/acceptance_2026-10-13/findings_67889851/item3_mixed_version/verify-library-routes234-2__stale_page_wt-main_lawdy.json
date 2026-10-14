@@ -1,0 +1,72 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-routes234-2/build-wt-main",
+ "analyze_button": true,
+ "status_before": [],
+ "status_after": [],
+ "stored_after": {
+  "codex-musica-library-v1/state": {
+   "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": {
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "U--h, u--h, Lawdy,",
+       "token": 3,
+       "word": "Lawdy",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   }
+  },
+  "codex-musica-library-analysis-v1/kv": {
+   "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d": {
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "U--h, u--h, Lawdy,",
+       "token": 3,
+       "word": "Lawdy",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   }
+  }
+ },
+ "post_bodies": [
+  {
+   "keys": [
+    "contract_version",
+    "declaration_set",
+    "idempotency_key",
+    "reading_revision",
+    "reading_unit_id",
+    "requested_layers"
+   ],
+   "declaration_set": {
+    "pronunciations": [
+     {
+      "line": "U--h, u--h, Lawdy,",
+      "token": 3,
+      "word": "Lawdy",
+      "phones": [
+       "AA1"
+      ],
+      "basis": "declared",
+      "source": "the singer"
+     }
+    ]
+   }
+  }
+ ],
+ "errors": []
+}

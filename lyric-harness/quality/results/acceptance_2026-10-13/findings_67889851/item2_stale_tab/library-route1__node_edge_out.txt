@@ -1,0 +1,61 @@
+chunk file: analysis.9ebd86e5f8.js
+E1 v1: belove@[[0,6]]  v2: belovèd@[[0,8]]
+
+## E1 NFD-decomposed word, same span (v2 text is NFC)
+  kept: []
+  undecided: [["belovèd",1,"its old number no longer names “belovèd” in that line"],["love",2,"its old number no longer names “love” in that line"]]
+  renumbered: []  notice: 
+  request: REFUSED: Nothing was sent. 2 saved pronunciation choices (“belovèd”, “love”) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.
+
+E2 v1 cut: [["Oh--oh",[[0,6]]],["oh",[[8,10]]],["oh",[[12,14]]],["my",[[15,17]]],["love",[[18,22]]]]
+E2 v2 cut: [["Oh",[[0,2]]],["oh",[[4,6]]],["oh",[[8,10]]],["oh",[[12,14]]],["my",[[15,17]]],["love",[[18,22]]]]
+
+## E2 double-oh: legacy v1 tokens 2 and 3
+  kept: [["oh",3,"oh@[[8,10]]"],["oh",4,"oh@[[12,14]]"]]
+  undecided: []
+  renumbered: [{"word":"oh","line":"Oh--oh, oh, oh my love","from":2,"to":3},{"word":"oh","line":"Oh--oh, oh, oh my love","from":3,"to":4}]  notice: 2 saved pronunciation choices carried no word-cut mark, so their numbers were read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3, “oh” token 3 → 4.
+  request: sent [3,4]
+
+E3 migrated record (new page): [[3,"oh@[[8,10]]"]] token_cut v2
+
+## E3 same record after an old-generation-chunk save drops token_cut, reopened on the new page
+  kept: [["oh",4,"oh@[[12,14]]"]]
+  undecided: []
+  renumbered: [{"word":"oh","line":"Oh--oh, oh, oh my love","from":3,"to":4}]  notice: 1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 3 → 4.
+  request: sent [4]
+
+## E5 token as a string
+  kept: []
+  undecided: [["oh","2","it does not name a line, a word number and its word"]]
+  renumbered: []  notice: 
+  request: REFUSED: Nothing was sent. 1 saved pronunciation choice (“oh”) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.
+
+## E6 unmarked, no pronunciations
+  kept: []
+  undecided: []
+  renumbered: []  notice: 
+  request: sent undefined
+
+## E7 token_cut null
+  kept: []
+  undecided: [["oh",2,"its record names the word cut “null”; this page accepts only “v2”"]]
+  renumbered: []  notice: 
+  request: REFUSED: Nothing was sent. 1 saved pronunciation choice (“oh”) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.
+
+## E8 word case mismatch
+  kept: []
+  undecided: [["oh",1,"its old number no longer names “oh” in that line"]]
+  renumbered: []  notice: 
+  request: REFUSED: Nothing was sent. 1 saved pronunciation choice (“oh”) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.
+
+## E9 stored not an object
+  kept: []
+  undecided: []
+  renumbered: []  notice: 
+  request: sent undefined
+
+## E10 token 0 / beyond end
+  kept: []
+  undecided: [["oh",0,"its old number no longer names “oh” in that line"],["oh",9,"its old number no longer names “oh” in that line"]]
+  renumbered: []  notice: 
+  request: REFUSED: Nothing was sent. 2 saved pronunciation choices (“oh”, “oh”) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.

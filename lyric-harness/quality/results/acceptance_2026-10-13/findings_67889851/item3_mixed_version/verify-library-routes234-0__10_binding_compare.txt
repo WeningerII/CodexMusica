@@ -1,0 +1,2 @@
+run/A_real/records_wt-678.json [(1, 'Oh', [0, 2], 'OW'), (2, 'oh', [4, 6], 'AA'), (3, 'oh', [8, 10], 'OW'), (4, 'my', [11, 13], 'AY'), (5, 'love', [14, 18], 'AH')]
+run/A_real_base/records_wt-base.json [(1, 'Oh--oh', [0, 6], None), (2, 'oh', [8, 10], 'AA'), (3, 'my', [11, 13], 'AY'), (4, 'love', [14, 18], 'AH')]

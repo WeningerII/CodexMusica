@@ -1,0 +1,376 @@
+{
+  "steps": [
+    {
+      "label": "new-page-load (migrates)",
+      "status": [
+        "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\n\n2 saved pronunciation choices carried no word-cut mark, so their numbers were read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3, “oh” token 2 → 3.\n\nReading interpretations"
+      ],
+      "cut": [
+        "2 saved pronunciation choices carried no word-cut mark, so their numbers were read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3, “oh” token 2 → 3."
+      ],
+      "cutAttrs": [
+        [
+          "renumbered",
+          "status"
+        ]
+      ],
+      "alerts": [],
+      "toast": "2 saved pronunciation choices carried no word-cut mark, so their numbers were read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3, “oh” token 2 → 3.",
+      "toastClass": "toast show",
+      "idb": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        },
+        "token_cut": "v2",
+        "renumbered": [
+          {
+            "word": "oh",
+            "line": "Oh--oh, oh, oh my love",
+            "from": 2,
+            "to": 3
+          },
+          {
+            "word": "oh",
+            "line": "Oh--oh, oh my love",
+            "from": 2,
+            "to": 3
+          }
+        ],
+        "legacy_declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        }
+      },
+      "posts": 0
+    },
+    {
+      "label": "new-page-analyze",
+      "sent_declaration_set": {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "bb8 legacy fixture"
+          },
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "bb8 legacy fixture"
+          }
+        ]
+      },
+      "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+      "status_after": [
+        "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\n\n2 saved pronunciation choices carried no word-cut mark, so their numbers were read under the earlier word cut and moved to the current one, on the same characters: “oh” token 2 → 3, “oh” token 2 → 3.\n\nReading interpretations"
+      ],
+      "alerts_after": []
+    },
+    {
+      "label": "old-page-load",
+      "status": [
+        "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\nReading interpretations"
+      ],
+      "cut": [],
+      "cutAttrs": [],
+      "alerts": [],
+      "toast": "",
+      "toastClass": "toast",
+      "idb": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        },
+        "token_cut": "v2",
+        "renumbered": [
+          {
+            "word": "oh",
+            "line": "Oh--oh, oh, oh my love",
+            "from": 2,
+            "to": 3
+          },
+          {
+            "word": "oh",
+            "line": "Oh--oh, oh my love",
+            "from": 2,
+            "to": 3
+          }
+        ],
+        "legacy_declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 2,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        }
+      },
+      "posts": 1,
+      "analysis_chunk_loaded": [
+        "http://127.0.0.1:39753/library/code/analysis.71b110b249.js"
+      ]
+    },
+    {
+      "label": "old-page-analyze",
+      "sent_declaration_set": {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "bb8 legacy fixture"
+          },
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 3,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "bb8 legacy fixture"
+          }
+        ]
+      },
+      "sent_declaration_set_raw": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"},{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}]}",
+      "status_after": [
+        "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\nReading interpretations"
+      ],
+      "alerts_after": []
+    },
+    {
+      "label": "old-page-after-apply",
+      "status": [
+        "running\nWaiting for evidence\n\nComplete reading unit · selection only filters evidence\n\nCompleted\n1\nTotal\n4\nNew whole-work analysis\nCancel\nDelete analysis\n\nInterpretation saved on this device. Run a new whole-work analysis to apply it.\n\nReading interpretations"
+      ],
+      "cut": [],
+      "cutAttrs": [],
+      "alerts": [],
+      "toast": "Whole-work analysis started.",
+      "toastClass": "toast show",
+      "idb": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        }
+      },
+      "posts": 2
+    },
+    {
+      "label": "new-page-reload-after-old-save",
+      "status": [
+        "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\n\n1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 3 → 4.\n\n1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.\n\n“oh” · token 3 · Oh--oh, oh my love: its old number no longer names “oh” in that line Remove\nReading interpretations"
+      ],
+      "cut": [
+        "1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 3 → 4.",
+        "1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.\n\n“oh” · token 3 · Oh--oh, oh my love: its old number no longer names “oh” in that line Remove"
+      ],
+      "cutAttrs": [
+        [
+          "renumbered",
+          "status"
+        ],
+        [
+          "undecided",
+          "alert"
+        ]
+      ],
+      "alerts": [
+        "1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.\n\n“oh” · token 3 · Oh--oh, oh my love: its old number no longer names “oh” in that line Remove"
+      ],
+      "toast": "1 saved pronunciation choice needs your decision before a new analysis.",
+      "toastClass": "toast toast-error show",
+      "idb": {
+        "declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh, oh my love",
+              "token": 4,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        },
+        "token_cut": "v2",
+        "undecided": [
+          {
+            "row": {
+              "line": "Oh--oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            "reason": "its old number no longer names “oh” in that line"
+          }
+        ],
+        "renumbered": [
+          {
+            "word": "oh",
+            "line": "Oh--oh, oh, oh my love",
+            "from": 3,
+            "to": 4
+          }
+        ],
+        "legacy_declarations": {
+          "pronunciations": [
+            {
+              "line": "Oh--oh, oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            },
+            {
+              "line": "Oh--oh, oh my love",
+              "token": 3,
+              "word": "oh",
+              "phones": [
+                "OW1"
+              ],
+              "basis": "declared",
+              "source": "bb8 legacy fixture"
+            }
+          ]
+        }
+      },
+      "posts": 2,
+      "analysis_chunk_loaded": [
+        "http://127.0.0.1:39753/library/code/analysis.9ebd86e5f8.js"
+      ]
+    },
+    {
+      "label": "new-page-analyze-after-old-save",
+      "sent_declaration_set": null,
+      "sent_declaration_set_raw": null,
+      "status_after": [
+        "Interpret the entire work\n\nNative sound, form, rhythm and language · deterministic analysis\n\nAnalyze entire work\n\n1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word cut and moved to the current one, on the same characters: “oh” token 3 → 4.\n\n1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.\n\n“oh” · token 3 · Oh--oh, oh my love: its old number no longer names “oh” in that line Remove\n\nNothing was sent. 1 saved pronunciation choice (“oh”) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.\n\nReading interpretations"
+      ],
+      "alerts_after": [
+        "1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts until each is removed.\n\n“oh” · token 3 · Oh--oh, oh my love: its old number no longer names “oh” in that line Remove",
+        "Nothing was sent. 1 saved pronunciation choice (“oh”) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant."
+      ]
+    }
+  ],
+  "errors": []
+}

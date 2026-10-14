@@ -1,0 +1,176 @@
+[
+  {
+    "tree": "main",
+    "id": "typed_unmarked_T",
+    "how": "type",
+    "typedRow": "[SETUP — rhyme groups — 1.T4,2]",
+    "seededOk": true,
+    "caretBeforePause": {
+      "caret": 75,
+      "end": 75,
+      "len": 116
+    },
+    "intendedCaret": 75,
+    "afterPause": {
+      "caret": 75,
+      "end": 75,
+      "len": 116,
+      "focused": true,
+      "rowNow": "[SETUP — rhyme groups — 1.T4,2]"
+    },
+    "caretMoved": false,
+    "caretAtDocEnd": false,
+    "zAt": 75,
+    "lineOfZ": 5,
+    "intendedLine": 5,
+    "zLandedWhereIntended": true,
+    "finalText": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 1.T4,2]\nZQ\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "toasts": [],
+    "pageErrors": []
+  },
+  {
+    "tree": "main",
+    "id": "typed_marked_T",
+    "how": "type",
+    "typedRow": "[SETUP — rhyme groups — 1.T5,2 — cut v2]",
+    "seededOk": true,
+    "caretBeforePause": {
+      "caret": 84,
+      "end": 84,
+      "len": 125
+    },
+    "intendedCaret": 84,
+    "afterPause": {
+      "caret": 84,
+      "end": 84,
+      "len": 125,
+      "focused": true,
+      "rowNow": "[SETUP — rhyme groups — 1.T5,2 — cut v2]"
+    },
+    "caretMoved": false,
+    "caretAtDocEnd": false,
+    "zAt": 84,
+    "lineOfZ": 5,
+    "intendedLine": 5,
+    "zLandedWhereIntended": true,
+    "finalText": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 1.T5,2 — cut v2]\nZQ\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "toasts": [],
+    "pageErrors": []
+  },
+  {
+    "tree": "main",
+    "id": "typed_bare_changed_line",
+    "how": "type",
+    "typedRow": "[SETUP — rhyme groups — 1,2]",
+    "seededOk": true,
+    "caretBeforePause": {
+      "caret": 72,
+      "end": 72,
+      "len": 113
+    },
+    "intendedCaret": 72,
+    "afterPause": {
+      "caret": 72,
+      "end": 72,
+      "len": 113,
+      "focused": true,
+      "rowNow": "[SETUP — rhyme groups — 1,2]"
+    },
+    "caretMoved": false,
+    "caretAtDocEnd": false,
+    "zAt": 72,
+    "lineOfZ": 5,
+    "intendedLine": 5,
+    "zLandedWhereIntended": true,
+    "finalText": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 1,2]\nZQ\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "toasts": [],
+    "pageErrors": []
+  },
+  {
+    "tree": "main",
+    "id": "typed_bare_unchanged_lines",
+    "how": "type",
+    "typedRow": "[SETUP — rhyme groups — 2,4]",
+    "seededOk": true,
+    "caretBeforePause": {
+      "caret": 72,
+      "end": 72,
+      "len": 113
+    },
+    "intendedCaret": 72,
+    "afterPause": {
+      "caret": 72,
+      "end": 72,
+      "len": 113,
+      "focused": true,
+      "rowNow": "[SETUP — rhyme groups — 2,4]"
+    },
+    "caretMoved": false,
+    "caretAtDocEnd": false,
+    "zAt": 72,
+    "lineOfZ": 5,
+    "intendedLine": 5,
+    "zLandedWhereIntended": true,
+    "finalText": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 2,4]\nZQ\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "toasts": [],
+    "pageErrors": []
+  },
+  {
+    "tree": "main",
+    "id": "typed_unmarked_reading",
+    "how": "type",
+    "typedRow": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\"]",
+    "seededOk": true,
+    "caretBeforePause": {
+      "caret": 100,
+      "end": 100,
+      "len": 141
+    },
+    "intendedCaret": 100,
+    "afterPause": {
+      "caret": 100,
+      "end": 100,
+      "len": 141,
+      "focused": true,
+      "rowNow": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\"]"
+    },
+    "caretMoved": false,
+    "caretAtDocEnd": false,
+    "zAt": 100,
+    "lineOfZ": 5,
+    "intendedLine": 5,
+    "zLandedWhereIntended": true,
+    "finalText": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\"]\nZQ\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "toasts": [],
+    "pageErrors": []
+  },
+  {
+    "tree": "main",
+    "id": "inserted_unmarked_T",
+    "how": "insert",
+    "typedRow": "[SETUP — rhyme groups — 1.T4,2]",
+    "seededOk": true,
+    "caretBeforePause": {
+      "caret": 75,
+      "end": 75,
+      "len": 116
+    },
+    "intendedCaret": 75,
+    "afterPause": {
+      "caret": 75,
+      "end": 75,
+      "len": 116,
+      "focused": true,
+      "rowNow": "[SETUP — rhyme groups — 1.T4,2]"
+    },
+    "caretMoved": false,
+    "caretAtDocEnd": false,
+    "zAt": 75,
+    "lineOfZ": 5,
+    "intendedLine": 5,
+    "zLandedWhereIntended": true,
+    "finalText": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 1.T4,2]\nZQ\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "toasts": [],
+    "pageErrors": []
+  }
+]

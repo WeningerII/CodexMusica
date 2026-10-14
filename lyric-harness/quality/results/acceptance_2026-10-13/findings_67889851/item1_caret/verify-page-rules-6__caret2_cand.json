@@ -1,0 +1,122 @@
+{
+  "A_observe": {
+    "wrapped": true,
+    "lineOfZ": 8,
+    "text": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 1.T5,2 — cut v2]\n\n[CHORUS]\nRun to the sea\nAnd stay with meZQ",
+    "calls": [
+      {
+        "changed": true,
+        "before": [
+          75,
+          75,
+          116
+        ],
+        "after": [
+          125,
+          125,
+          125
+        ],
+        "final": [
+          125,
+          125
+        ]
+      }
+    ],
+    "errs": []
+  },
+  "A_restore": {
+    "wrapped": true,
+    "lineOfZ": 4,
+    "text": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 1.T5 (numbered under the earlier cut),2 —ZQ cut v2 — cut v2]\n\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "calls": [
+      {
+        "changed": true,
+        "before": [
+          75,
+          75,
+          116
+        ],
+        "after": [
+          125,
+          125,
+          125
+        ],
+        "final": [
+          75,
+          75
+        ]
+      },
+      {
+        "changed": true,
+        "before": [
+          77,
+          77,
+          127
+        ],
+        "after": [
+          169,
+          169,
+          169
+        ],
+        "final": [
+          77,
+          77
+        ]
+      }
+    ],
+    "errs": []
+  },
+  "B": {
+    "seededOk": true,
+    "steps": [
+      {
+        "caret": 43,
+        "len": 115,
+        "line2": "I hold the dove-",
+        "row": "[SETUP — rhyme groups — 2,4]"
+      },
+      {
+        "caret": 162,
+        "len": 162,
+        "line2": "I hold the dove--",
+        "row": "[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]"
+      },
+      {
+        "caret": 163,
+        "len": 163,
+        "line2": "I hold the dove--",
+        "row": "[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]o"
+      },
+      {
+        "caret": 164,
+        "len": 164,
+        "line2": "I hold the dove--",
+        "row": "[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh"
+      },
+      {
+        "caret": 165,
+        "len": 165,
+        "line2": "I hold the dove--",
+        "row": "[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh "
+      },
+      {
+        "caret": 166,
+        "len": 166,
+        "line2": "I hold the dove--",
+        "row": "[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh m"
+      },
+      {
+        "caret": 167,
+        "len": 167,
+        "line2": "I hold the dove--",
+        "row": "[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh my"
+      }
+    ],
+    "text": "[VERSE]\nOh--oh, oh my love\nI hold the dove--\n\n[CHORUS]\nRun to the sea\nAnd stay with me\n\n[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh my",
+    "cutChanged": [
+      false,
+      true
+    ],
+    "errs": []
+  }
+}

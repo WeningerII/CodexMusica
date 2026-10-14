@@ -1,0 +1,12 @@
+Oh--oh, oh, oh my love
+ v1 [[1,"Oh--oh","[[0,6]]"],[2,"oh","[[8,10]]"],[3,"oh","[[12,14]]"],[4,"my","[[15,17]]"],[5,"love","[[18,22]]"]]
+ v2 [[1,"Oh","[[0,2]]"],[2,"oh","[[4,6]]"],[3,"oh","[[8,10]]"],[4,"oh","[[12,14]]"],[5,"my","[[15,17]]"],[6,"love","[[18,22]]"]]
+  rebind v1 tok 2 {"token":3,"word":"oh"}
+  rebind v1 tok 3 {"token":4,"word":"oh"}
+  rebind v1 tok 4 {"blocked":"its old number no longer names “oh” in that line"}
+Oh--oh, oh my love
+ v1 [[1,"Oh--oh","[[0,6]]"],[2,"oh","[[8,10]]"],[3,"my","[[11,13]]"],[4,"love","[[14,18]]"]]
+ v2 [[1,"Oh","[[0,2]]"],[2,"oh","[[4,6]]"],[3,"oh","[[8,10]]"],[4,"my","[[11,13]]"],[5,"love","[[14,18]]"]]
+  rebind v1 tok 2 {"token":3,"word":"oh"}
+  rebind v1 tok 3 {"blocked":"its old number no longer names “oh” in that line"}
+  rebind v1 tok 4 {"blocked":"its old number no longer names “oh” in that line"}

@@ -1,0 +1,2003 @@
+{
+ "candidate": "67889851144dd2a7eefedd9960a868978fb7bfae",
+ "population_scanned": 281069,
+ "rows": [
+  {
+   "file": "eng_american_f_j_child.txt",
+   "line_index": 32,
+   "text": "“Also, some few I. O. U.’s and bets,”",
+   "in_recorder_six": true,
+   "token_spans_v1_eq_v2": [
+    [
+     "Also",
+     [
+      [
+       1,
+       5
+      ]
+     ]
+    ],
+    [
+     "some",
+     [
+      [
+       7,
+       11
+      ]
+     ]
+    ],
+    [
+     "few",
+     [
+      [
+       12,
+       15
+      ]
+     ]
+    ],
+    [
+     "I",
+     [
+      [
+       16,
+       17
+      ]
+     ]
+    ],
+    [
+     "O",
+     [
+      [
+       19,
+       20
+      ]
+     ]
+    ],
+    [
+     "U",
+     [
+      [
+       22,
+       23
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       24,
+       26
+      ]
+     ]
+    ],
+    [
+     "and",
+     [
+      [
+       27,
+       30
+      ]
+     ]
+    ],
+    [
+     "bets",
+     [
+      [
+       31,
+       35
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "bets",
+    "readings": [
+     [
+      [
+       [
+        "B"
+       ],
+       "EH",
+       1,
+       [
+        "T",
+        "S"
+       ],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "Y"
+       ],
+       "UW",
+       1,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "Z"
+       ],
+       "AH",
+       0,
+       [
+        "N",
+        "D"
+       ],
+       null,
+       null
+      ],
+      [
+       [
+        "B"
+       ],
+       "EH",
+       1,
+       [
+        "T",
+        "S"
+       ],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "bets",
+    "readings": [
+     [
+      [
+       [
+        "B"
+       ],
+       "EH",
+       1,
+       [
+        "T",
+        "S"
+       ],
+       8,
+       "bets"
+      ]
+     ],
+     [
+      [
+       [],
+       "EH",
+       1,
+       [],
+       6,
+       "'s"
+      ],
+      [
+       [
+        "S"
+       ],
+       "AH",
+       0,
+       [
+        "N",
+        "D"
+       ],
+       7,
+       "and"
+      ],
+      [
+       [
+        "B"
+       ],
+       "EH",
+       1,
+       [
+        "T",
+        "S"
+       ],
+       8,
+       "bets"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['Y'], 'nucleus': 'UW', 'stress': 1, 'coda': []} {'onset': ['Z'], 'nucleus': 'AH', 'stress': 0, 'coda': ['N', 'D']} {'onset': ['B'], 'nucleus': 'EH', 'stress': 1, 'coda': ['T', 'S']}",
+    "{'onset': ['B'], 'nucleus': 'EH', 'stress': 1, 'coda': ['T', 'S']}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': [], 'nucleus': 'EH', 'stress': 1, 'coda': [], 'widx': 6, 'word': \"'s\", 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['S'], 'nucleus': 'AH', 'stress': 0, 'coda': ['N', 'D'], 'widx': 7, 'word': 'and', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['B'], 'nucleus': 'EH', 'stress': 1, 'coda': ['T', 'S'], 'widx': 8, 'word': 'bets', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('B',)}",
+    "{'onset': ['B'], 'nucleus': 'EH', 'stress': 1, 'coda': ['T', 'S'], 'widx': 8, 'word': 'bets', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('B',)}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": true
+  },
+  {
+   "file": "eng_british_frances_anne_kemble.txt",
+   "line_index": 408,
+   "text": "My fount of song, dear friend, 's a bitter well;",
+   "in_recorder_six": false,
+   "token_spans_v1_eq_v2": [
+    [
+     "My",
+     [
+      [
+       0,
+       2
+      ]
+     ]
+    ],
+    [
+     "fount",
+     [
+      [
+       3,
+       8
+      ]
+     ]
+    ],
+    [
+     "of",
+     [
+      [
+       9,
+       11
+      ]
+     ]
+    ],
+    [
+     "song",
+     [
+      [
+       12,
+       16
+      ]
+     ]
+    ],
+    [
+     "dear",
+     [
+      [
+       18,
+       22
+      ]
+     ]
+    ],
+    [
+     "friend",
+     [
+      [
+       23,
+       29
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       31,
+       33
+      ]
+     ]
+    ],
+    [
+     "a",
+     [
+      [
+       34,
+       35
+      ]
+     ]
+    ],
+    [
+     "bitter",
+     [
+      [
+       36,
+       42
+      ]
+     ]
+    ],
+    [
+     "well",
+     [
+      [
+       43,
+       47
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "well",
+    "readings": [
+     [
+      [
+       [
+        "B"
+       ],
+       "IH",
+       1,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "T"
+       ],
+       "ER",
+       0,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "W"
+       ],
+       "EH",
+       1,
+       [
+        "L"
+       ],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "W"
+       ],
+       "EH",
+       1,
+       [
+        "L"
+       ],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "well",
+    "readings": [
+     [
+      [
+       [
+        "B"
+       ],
+       "IH",
+       1,
+       [],
+       8,
+       "bitter"
+      ],
+      [
+       [
+        "T"
+       ],
+       "ER",
+       0,
+       [],
+       8,
+       "bitter"
+      ],
+      [
+       [
+        "W"
+       ],
+       "EH",
+       1,
+       [
+        "L"
+       ],
+       9,
+       "well"
+      ]
+     ],
+     [
+      [
+       [
+        "W"
+       ],
+       "EH",
+       1,
+       [
+        "L"
+       ],
+       9,
+       "well"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['B'], 'nucleus': 'IH', 'stress': 1, 'coda': []} {'onset': ['T'], 'nucleus': 'ER', 'stress': 0, 'coda': []} {'onset': ['W'], 'nucleus': 'EH', 'stress': 1, 'coda': ['L']}",
+    "{'onset': ['W'], 'nucleus': 'EH', 'stress': 1, 'coda': ['L']}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': ['B'], 'nucleus': 'IH', 'stress': 1, 'coda': [], 'widx': 8, 'word': 'bitter', 'syl_in_word': 1, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('B',)} {'onset': ['T'], 'nucleus': 'ER', 'stress': 0, 'coda': [], 'widx': 8, 'word': 'bitter', 'syl_in_word': 2, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('T',)} {'onset': ['W'], 'nucleus': 'EH', 'stress': 1, 'coda': ['L'], 'widx': 9, 'word': 'well', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('W',)}",
+    "{'onset': ['W'], 'nucleus': 'EH', 'stress': 1, 'coda': ['L'], 'widx': 9, 'word': 'well', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('W',)}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": false
+  },
+  {
+   "file": "eng_british_william_makepeace_thackeray.txt",
+   "line_index": 280,
+   "text": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "in_recorder_six": false,
+   "token_spans_v1_eq_v2": [
+    [
+     "Oh",
+     [
+      [
+       1,
+       3
+      ]
+     ]
+    ],
+    [
+     "oui",
+     [
+      [
+       5,
+       8
+      ]
+     ]
+    ],
+    [
+     "Monsieur",
+     [
+      [
+       10,
+       18
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       21,
+       23
+      ]
+     ]
+    ],
+    [
+     "the",
+     [
+      [
+       24,
+       27
+      ]
+     ]
+    ],
+    [
+     "waiter's",
+     [
+      [
+       28,
+       36
+      ]
+     ]
+    ],
+    [
+     "answer",
+     [
+      [
+       37,
+       43
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "answer",
+    "readings": [
+     [
+      [
+       [
+        "W"
+       ],
+       "EY",
+       1,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "T"
+       ],
+       "ER",
+       0,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "Z"
+       ],
+       "AE",
+       1,
+       [
+        "N"
+       ],
+       null,
+       null
+      ],
+      [
+       [
+        "S"
+       ],
+       "ER",
+       0,
+       [],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "Z"
+       ],
+       "AE",
+       1,
+       [
+        "N"
+       ],
+       null,
+       null
+      ],
+      [
+       [
+        "S"
+       ],
+       "ER",
+       0,
+       [],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "answer",
+    "readings": [
+     [
+      [
+       [
+        "W"
+       ],
+       "EY",
+       1,
+       [],
+       5,
+       "waiter's"
+      ],
+      [
+       [
+        "T"
+       ],
+       "ER",
+       0,
+       [],
+       5,
+       "waiter's"
+      ],
+      [
+       [
+        "Z"
+       ],
+       "AE",
+       1,
+       [
+        "N"
+       ],
+       6,
+       "answer"
+      ],
+      [
+       [
+        "S"
+       ],
+       "ER",
+       0,
+       [],
+       6,
+       "answer"
+      ]
+     ],
+     [
+      [
+       [
+        "Z"
+       ],
+       "AE",
+       1,
+       [
+        "N"
+       ],
+       6,
+       "answer"
+      ],
+      [
+       [
+        "S"
+       ],
+       "ER",
+       0,
+       [],
+       6,
+       "answer"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['W'], 'nucleus': 'EY', 'stress': 1, 'coda': []} {'onset': ['T'], 'nucleus': 'ER', 'stress': 0, 'coda': []} {'onset': ['Z'], 'nucleus': 'AE', 'stress': 1, 'coda': ['N']} {'onset': ['S'], 'nucleus': 'ER', 'stress': 0, 'coda': []}",
+    "{'onset': ['Z'], 'nucleus': 'AE', 'stress': 1, 'coda': ['N']} {'onset': ['S'], 'nucleus': 'ER', 'stress': 0, 'coda': []}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': ['W'], 'nucleus': 'EY', 'stress': 1, 'coda': [], 'widx': 5, 'word': \"waiter's\", 'syl_in_word': 1, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('W',)} {'onset': ['T'], 'nucleus': 'ER', 'stress': 0, 'coda': [], 'widx': 5, 'word': \"waiter's\", 'syl_in_word': 2, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('T',)} {'onset': ['Z'], 'nucleus': 'AE', 'stress': 1, 'coda': ['N'], 'widx': 6, 'word': 'answer', 'syl_in_word': 1, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['S'], 'nucleus': 'ER', 'stress': 0, 'coda': [], 'widx': 6, 'word': 'answer', 'syl_in_word': 2, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('S',)}",
+    "{'onset': ['Z'], 'nucleus': 'AE', 'stress': 1, 'coda': ['N'], 'widx': 6, 'word': 'answer', 'syl_in_word': 1, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['S'], 'nucleus': 'ER', 'stress': 0, 'coda': [], 'widx': 6, 'word': 'answer', 'syl_in_word': 2, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('S',)}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": false
+  },
+  {
+   "file": "eng_celtic_robert_burns.txt",
+   "line_index": 6239,
+   "text": "“God save the King” 's a cuckoo sang",
+   "in_recorder_six": false,
+   "token_spans_v1_eq_v2": [
+    [
+     "God",
+     [
+      [
+       1,
+       4
+      ]
+     ]
+    ],
+    [
+     "save",
+     [
+      [
+       5,
+       9
+      ]
+     ]
+    ],
+    [
+     "the",
+     [
+      [
+       10,
+       13
+      ]
+     ]
+    ],
+    [
+     "King",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       20,
+       22
+      ]
+     ]
+    ],
+    [
+     "a",
+     [
+      [
+       23,
+       24
+      ]
+     ]
+    ],
+    [
+     "cuckoo",
+     [
+      [
+       25,
+       31
+      ]
+     ]
+    ],
+    [
+     "sang",
+     [
+      [
+       32,
+       36
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "sang",
+    "readings": [
+     [
+      [
+       [
+        "K"
+       ],
+       "UW",
+       2,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "S"
+       ],
+       "AE",
+       1,
+       [
+        "NG"
+       ],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "S"
+       ],
+       "AE",
+       1,
+       [
+        "NG"
+       ],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "sang",
+    "readings": [
+     [
+      [
+       [
+        "K"
+       ],
+       "UW",
+       2,
+       [],
+       6,
+       "cuckoo"
+      ],
+      [
+       [
+        "S"
+       ],
+       "AE",
+       1,
+       [
+        "NG"
+       ],
+       7,
+       "sang"
+      ]
+     ],
+     [
+      [
+       [
+        "S"
+       ],
+       "AE",
+       1,
+       [
+        "NG"
+       ],
+       7,
+       "sang"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['K'], 'nucleus': 'UW', 'stress': 2, 'coda': []} {'onset': ['S'], 'nucleus': 'AE', 'stress': 1, 'coda': ['NG']}",
+    "{'onset': ['S'], 'nucleus': 'AE', 'stress': 1, 'coda': ['NG']}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': ['K'], 'nucleus': 'UW', 'stress': 2, 'coda': [], 'widx': 6, 'word': 'cuckoo', 'syl_in_word': 2, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('K',)} {'onset': ['S'], 'nucleus': 'AE', 'stress': 1, 'coda': ['NG'], 'widx': 7, 'word': 'sang', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('S',)}",
+    "{'onset': ['S'], 'nucleus': 'AE', 'stress': 1, 'coda': ['NG'], 'widx': 7, 'word': 'sang', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('S',)}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": false
+  },
+  {
+   "file": "eng_hall_thomas_durfey.txt",
+   "line_index": 1478,
+   "text": "As most is in _Lynn_'s fair Town;",
+   "in_recorder_six": false,
+   "token_spans_v1_eq_v2": [
+    [
+     "As",
+     [
+      [
+       0,
+       2
+      ]
+     ]
+    ],
+    [
+     "most",
+     [
+      [
+       3,
+       7
+      ]
+     ]
+    ],
+    [
+     "is",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ],
+    [
+     "in",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ],
+    [
+     "Lynn",
+     [
+      [
+       15,
+       19
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       20,
+       22
+      ]
+     ]
+    ],
+    [
+     "fair",
+     [
+      [
+       23,
+       27
+      ]
+     ]
+    ],
+    [
+     "Town",
+     [
+      [
+       28,
+       32
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "Town",
+    "readings": [
+     [
+      [
+       [
+        "F"
+       ],
+       "EH",
+       1,
+       [
+        "R"
+       ],
+       null,
+       null
+      ],
+      [
+       [
+        "T"
+       ],
+       "AW",
+       1,
+       [
+        "N"
+       ],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "T"
+       ],
+       "AW",
+       1,
+       [
+        "N"
+       ],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "Town",
+    "readings": [
+     [
+      [
+       [
+        "S",
+        "F"
+       ],
+       "EH",
+       1,
+       [
+        "R"
+       ],
+       6,
+       "fair"
+      ],
+      [
+       [
+        "T"
+       ],
+       "AW",
+       1,
+       [
+        "N"
+       ],
+       7,
+       "Town"
+      ]
+     ],
+     [
+      [
+       [
+        "T"
+       ],
+       "AW",
+       1,
+       [
+        "N"
+       ],
+       7,
+       "Town"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['F'], 'nucleus': 'EH', 'stress': 1, 'coda': ['R']} {'onset': ['T'], 'nucleus': 'AW', 'stress': 1, 'coda': ['N']}",
+    "{'onset': ['T'], 'nucleus': 'AW', 'stress': 1, 'coda': ['N']}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': ['S', 'F'], 'nucleus': 'EH', 'stress': 1, 'coda': ['R'], 'widx': 6, 'word': 'fair', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('F',)} {'onset': ['T'], 'nucleus': 'AW', 'stress': 1, 'coda': ['N'], 'widx': 7, 'word': 'Town', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('T',)}",
+    "{'onset': ['T'], 'nucleus': 'AW', 'stress': 1, 'coda': ['N'], 'widx': 7, 'word': 'Town', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('T',)}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": true
+  },
+  {
+   "file": "eng_hall_william_barnes.txt",
+   "line_index": 1353,
+   "text": "Below the knap, 's a runnèn still;",
+   "in_recorder_six": true,
+   "token_spans_v1_eq_v2": [
+    [
+     "Below",
+     [
+      [
+       0,
+       5
+      ]
+     ]
+    ],
+    [
+     "the",
+     [
+      [
+       6,
+       9
+      ]
+     ]
+    ],
+    [
+     "knap",
+     [
+      [
+       10,
+       14
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       16,
+       18
+      ]
+     ]
+    ],
+    [
+     "a",
+     [
+      [
+       19,
+       20
+      ]
+     ]
+    ],
+    [
+     "runnèn",
+     [
+      [
+       21,
+       27
+      ]
+     ]
+    ],
+    [
+     "still",
+     [
+      [
+       28,
+       33
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "still",
+    "readings": [
+     [
+      [
+       [
+        "L"
+       ],
+       "OW",
+       1,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "DH"
+       ],
+       "AH",
+       0,
+       [],
+       null,
+       null
+      ],
+      [
+       [],
+       "AH",
+       0,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "S",
+        "T"
+       ],
+       "IH",
+       1,
+       [
+        "L"
+       ],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "S",
+        "T"
+       ],
+       "IH",
+       1,
+       [
+        "L"
+       ],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "still",
+    "readings": [
+     [
+      [
+       [
+        "S",
+        "T"
+       ],
+       "IH",
+       1,
+       [
+        "L"
+       ],
+       6,
+       "still"
+      ]
+     ],
+     [
+      [
+       [],
+       "EH",
+       1,
+       [],
+       3,
+       "'s"
+      ],
+      [
+       [
+        "S"
+       ],
+       "AH",
+       0,
+       [],
+       4,
+       "a"
+      ],
+      [
+       [
+        "S",
+        "T"
+       ],
+       "IH",
+       1,
+       [
+        "L"
+       ],
+       6,
+       "still"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['L'], 'nucleus': 'OW', 'stress': 1, 'coda': []} {'onset': ['DH'], 'nucleus': 'AH', 'stress': 0, 'coda': []} {'onset': [], 'nucleus': 'AH', 'stress': 0, 'coda': []} {'onset': ['S', 'T'], 'nucleus': 'IH', 'stress': 1, 'coda': ['L']}",
+    "{'onset': ['S', 'T'], 'nucleus': 'IH', 'stress': 1, 'coda': ['L']}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': [], 'nucleus': 'EH', 'stress': 1, 'coda': [], 'widx': 3, 'word': \"'s\", 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['S'], 'nucleus': 'AH', 'stress': 0, 'coda': [], 'widx': 4, 'word': 'a', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['S', 'T'], 'nucleus': 'IH', 'stress': 1, 'coda': ['L'], 'widx': 6, 'word': 'still', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('S', 'T')}",
+    "{'onset': ['S', 'T'], 'nucleus': 'IH', 'stress': 1, 'coda': ['L'], 'widx': 6, 'word': 'still', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('S', 'T')}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": true
+  },
+  {
+   "file": "eng_hall_william_barnes.txt",
+   "line_index": 3241,
+   "text": "Her head, 's a-walkèn to an' fro",
+   "in_recorder_six": false,
+   "token_spans_v1_eq_v2": [
+    [
+     "Her",
+     [
+      [
+       0,
+       3
+      ]
+     ]
+    ],
+    [
+     "head",
+     [
+      [
+       4,
+       8
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       10,
+       12
+      ]
+     ]
+    ],
+    [
+     "a-walkèn",
+     [
+      [
+       13,
+       21
+      ]
+     ]
+    ],
+    [
+     "to",
+     [
+      [
+       22,
+       24
+      ]
+     ]
+    ],
+    [
+     "an'",
+     [
+      [
+       25,
+       28
+      ]
+     ]
+    ],
+    [
+     "fro",
+     [
+      [
+       29,
+       32
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "fro",
+    "readings": [
+     [
+      [
+       [
+        "F",
+        "R"
+       ],
+       "OW",
+       1,
+       [],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [],
+       "AE",
+       1,
+       [
+        "N"
+       ],
+       null,
+       null
+      ],
+      [
+       [
+        "F",
+        "R"
+       ],
+       "OW",
+       1,
+       [],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "fro",
+    "readings": [
+     [
+      [
+       [
+        "F",
+        "R"
+       ],
+       "OW",
+       1,
+       [],
+       6,
+       "fro"
+      ]
+     ],
+     [
+      [
+       [],
+       "AE",
+       1,
+       [
+        "N"
+       ],
+       5,
+       "an'"
+      ],
+      [
+       [
+        "F",
+        "R"
+       ],
+       "OW",
+       1,
+       [],
+       6,
+       "fro"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': [], 'nucleus': 'AE', 'stress': 1, 'coda': ['N']} {'onset': ['F', 'R'], 'nucleus': 'OW', 'stress': 1, 'coda': []}",
+    "{'onset': ['F', 'R'], 'nucleus': 'OW', 'stress': 1, 'coda': []}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': [], 'nucleus': 'AE', 'stress': 1, 'coda': ['N'], 'widx': 5, 'word': \"an'\", 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['F', 'R'], 'nucleus': 'OW', 'stress': 1, 'coda': [], 'widx': 6, 'word': 'fro', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('F', 'R')}",
+    "{'onset': ['F', 'R'], 'nucleus': 'OW', 'stress': 1, 'coda': [], 'widx': 6, 'word': 'fro', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('F', 'R')}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": false
+  },
+  {
+   "file": "eng_hall_william_barnes.txt",
+   "line_index": 10866,
+   "text": "By hoof or shoe, 's a sheenèn bright,",
+   "in_recorder_six": true,
+   "token_spans_v1_eq_v2": [
+    [
+     "By",
+     [
+      [
+       0,
+       2
+      ]
+     ]
+    ],
+    [
+     "hoof",
+     [
+      [
+       3,
+       7
+      ]
+     ]
+    ],
+    [
+     "or",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ],
+    [
+     "shoe",
+     [
+      [
+       11,
+       15
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       17,
+       19
+      ]
+     ]
+    ],
+    [
+     "a",
+     [
+      [
+       20,
+       21
+      ]
+     ]
+    ],
+    [
+     "sheenèn",
+     [
+      [
+       22,
+       29
+      ]
+     ]
+    ],
+    [
+     "bright",
+     [
+      [
+       30,
+       36
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "bright",
+    "readings": [
+     [
+      [
+       [
+        "B",
+        "R"
+       ],
+       "AY",
+       1,
+       [
+        "T"
+       ],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "SH"
+       ],
+       "UW",
+       1,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "Z"
+       ],
+       "AH",
+       0,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "B",
+        "R"
+       ],
+       "AY",
+       1,
+       [
+        "T"
+       ],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "bright",
+    "readings": [
+     [
+      [
+       [
+        "B",
+        "R"
+       ],
+       "AY",
+       1,
+       [
+        "T"
+       ],
+       7,
+       "bright"
+      ]
+     ],
+     [
+      [
+       [],
+       "EH",
+       1,
+       [],
+       4,
+       "'s"
+      ],
+      [
+       [
+        "S"
+       ],
+       "AH",
+       0,
+       [],
+       5,
+       "a"
+      ],
+      [
+       [
+        "B",
+        "R"
+       ],
+       "AY",
+       1,
+       [
+        "T"
+       ],
+       7,
+       "bright"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['SH'], 'nucleus': 'UW', 'stress': 1, 'coda': []} {'onset': ['Z'], 'nucleus': 'AH', 'stress': 0, 'coda': []} {'onset': ['B', 'R'], 'nucleus': 'AY', 'stress': 1, 'coda': ['T']}",
+    "{'onset': ['B', 'R'], 'nucleus': 'AY', 'stress': 1, 'coda': ['T']}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': [], 'nucleus': 'EH', 'stress': 1, 'coda': [], 'widx': 4, 'word': \"'s\", 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['S'], 'nucleus': 'AH', 'stress': 0, 'coda': [], 'widx': 5, 'word': 'a', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['B', 'R'], 'nucleus': 'AY', 'stress': 1, 'coda': ['T'], 'widx': 7, 'word': 'bright', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('B', 'R')}",
+    "{'onset': ['B', 'R'], 'nucleus': 'AY', 'stress': 1, 'coda': ['T'], 'widx': 7, 'word': 'bright', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('B', 'R')}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": true
+  },
+  {
+   "file": "eng_hall_ws_gilbert.txt",
+   "line_index": 977,
+   "text": "When in that house M.P.'s divide,",
+   "in_recorder_six": false,
+   "token_spans_v1_eq_v2": [
+    [
+     "When",
+     [
+      [
+       0,
+       4
+      ]
+     ]
+    ],
+    [
+     "in",
+     [
+      [
+       5,
+       7
+      ]
+     ]
+    ],
+    [
+     "that",
+     [
+      [
+       8,
+       12
+      ]
+     ]
+    ],
+    [
+     "house",
+     [
+      [
+       13,
+       18
+      ]
+     ]
+    ],
+    [
+     "M",
+     [
+      [
+       19,
+       20
+      ]
+     ]
+    ],
+    [
+     "P",
+     [
+      [
+       21,
+       22
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       23,
+       25
+      ]
+     ]
+    ],
+    [
+     "divide",
+     [
+      [
+       26,
+       32
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "divide",
+    "readings": [
+     [
+      [
+       [
+        "P"
+       ],
+       "IY",
+       1,
+       [
+        "Z"
+       ],
+       null,
+       null
+      ],
+      [
+       [
+        "D"
+       ],
+       "IH",
+       0,
+       [],
+       null,
+       null
+      ],
+      [
+       [
+        "V"
+       ],
+       "AY",
+       1,
+       [
+        "D"
+       ],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "V"
+       ],
+       "AY",
+       1,
+       [
+        "D"
+       ],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "divide",
+    "readings": [
+     [
+      [
+       [
+        "V"
+       ],
+       "AY",
+       1,
+       [
+        "D"
+       ],
+       7,
+       "divide"
+      ]
+     ],
+     [
+      [
+       [],
+       "EH",
+       1,
+       [
+        "S"
+       ],
+       6,
+       "'s"
+      ],
+      [
+       [
+        "D"
+       ],
+       "IH",
+       0,
+       [],
+       7,
+       "divide"
+      ],
+      [
+       [
+        "V"
+       ],
+       "AY",
+       1,
+       [
+        "D"
+       ],
+       7,
+       "divide"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['P'], 'nucleus': 'IY', 'stress': 1, 'coda': ['Z']} {'onset': ['D'], 'nucleus': 'IH', 'stress': 0, 'coda': []} {'onset': ['V'], 'nucleus': 'AY', 'stress': 1, 'coda': ['D']}",
+    "{'onset': ['V'], 'nucleus': 'AY', 'stress': 1, 'coda': ['D']}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': [], 'nucleus': 'EH', 'stress': 1, 'coda': ['S'], 'widx': 6, 'word': \"'s\", 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ()} {'onset': ['D'], 'nucleus': 'IH', 'stress': 0, 'coda': [], 'widx': 7, 'word': 'divide', 'syl_in_word': 1, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('D',)} {'onset': ['V'], 'nucleus': 'AY', 'stress': 1, 'coda': ['D'], 'widx': 7, 'word': 'divide', 'syl_in_word': 2, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('V',)}",
+    "{'onset': ['V'], 'nucleus': 'AY', 'stress': 1, 'coda': ['D'], 'widx': 7, 'word': 'divide', 'syl_in_word': 2, 'word_syllables': 2, 'word_read': (), 'word_unread': (), 'onset_own': ('V',)}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": true
+  },
+  {
+   "file": "eng_pah_wallace_de_groot_cecil_rice.txt",
+   "line_index": 306,
+   "text": "Where her \"meteor flag\" 's nailed fast",
+   "in_recorder_six": true,
+   "token_spans_v1_eq_v2": [
+    [
+     "Where",
+     [
+      [
+       0,
+       5
+      ]
+     ]
+    ],
+    [
+     "her",
+     [
+      [
+       6,
+       9
+      ]
+     ]
+    ],
+    [
+     "meteor",
+     [
+      [
+       11,
+       17
+      ]
+     ]
+    ],
+    [
+     "flag",
+     [
+      [
+       18,
+       22
+      ]
+     ]
+    ],
+    [
+     "'s",
+     [
+      [
+       24,
+       26
+      ]
+     ]
+    ],
+    [
+     "nailed",
+     [
+      [
+       27,
+       33
+      ]
+     ]
+    ],
+    [
+     "fast",
+     [
+      [
+       34,
+       38
+      ]
+     ]
+    ]
+   ],
+   "end_slot_changed": true,
+   "end_v1": {
+    "label": "fast",
+    "readings": [
+     [
+      [
+       [
+        "F"
+       ],
+       "AE",
+       1,
+       [
+        "S",
+        "T"
+       ],
+       null,
+       null
+      ]
+     ],
+     [
+      [
+       [
+        "N"
+       ],
+       "EY",
+       1,
+       [
+        "L",
+        "D"
+       ],
+       null,
+       null
+      ],
+      [
+       [
+        "F"
+       ],
+       "AE",
+       1,
+       [
+        "S",
+        "T"
+       ],
+       null,
+       null
+      ]
+     ]
+    ]
+   },
+   "end_v2": {
+    "label": "fast",
+    "readings": [
+     [
+      [
+       [
+        "F"
+       ],
+       "AE",
+       1,
+       [
+        "S",
+        "T"
+       ],
+       6,
+       "fast"
+      ]
+     ],
+     [
+      [
+       [
+        "S",
+        "N"
+       ],
+       "EY",
+       1,
+       [
+        "L",
+        "D"
+       ],
+       5,
+       "nailed"
+      ],
+      [
+       [
+        "F"
+       ],
+       "AE",
+       1,
+       [
+        "S",
+        "T"
+       ],
+       6,
+       "fast"
+      ]
+     ]
+    ]
+   },
+   "line_anchors_changed": true,
+   "line_anchors_v1": [
+    "{'onset': ['N'], 'nucleus': 'EY', 'stress': 1, 'coda': ['L', 'D']} {'onset': ['F'], 'nucleus': 'AE', 'stress': 1, 'coda': ['S', 'T']}",
+    "{'onset': ['F'], 'nucleus': 'AE', 'stress': 1, 'coda': ['S', 'T']}"
+   ],
+   "line_anchors_v2": [
+    "{'onset': ['S', 'N'], 'nucleus': 'EY', 'stress': 1, 'coda': ['L', 'D'], 'widx': 5, 'word': 'nailed', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('N',)} {'onset': ['F'], 'nucleus': 'AE', 'stress': 1, 'coda': ['S', 'T'], 'widx': 6, 'word': 'fast', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('F',)}",
+    "{'onset': ['F'], 'nucleus': 'AE', 'stress': 1, 'coda': ['S', 'T'], 'widx': 6, 'word': 'fast', 'syl_in_word': 1, 'word_syllables': 1, 'word_read': (), 'word_unread': (), 'onset_own': ('F',)}"
+   ],
+   "A2_trigger_fires": false,
+   "end_phonology_changed": true
+  },
+  {
+   "file": "corpus/song/eng_hall_william_barnes.txt#33:22",
+   "text": "An' at each zide [=o]'m, sprack an' strong,",
+   "in_recorder_six": true,
+   "token_spans_identical_raw": true,
+   "note": "recorder line; raw-text spans checked here",
+   "end_phonology_changed": true,
+   "line_anchors_v1_recorder": [
+    "CH/AE1/N S.T.R/AO1/NG",
+    "S.T.R/AO1/NG"
+   ],
+   "line_anchors_v2_recorder": [
+    "M/AE1/N S.T.R/AO1/NG",
+    "S.T.R/AO1/NG"
+   ]
+  },
+  {
+   "file": "corpus/song/eng_hall_william_barnes.txt#70:4",
+   "text": "What plaÿsome anticks zome [=o]'s done!",
+   "in_recorder_six": true,
+   "token_spans_identical_raw": true,
+   "note": "recorder line; raw-text spans checked here",
+   "end_phonology_changed": true,
+   "line_anchors_v1_recorder": [
+    "T/OW1/Z D/AH1/N",
+    "D/AH1/N"
+   ],
+   "line_anchors_v2_recorder": [
+    "/EH1/S D/AH1/N",
+    "D/AH1/N"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+node caret.js ../../wt-678 cand > caret_cand.log 2>&1
+node caret.js ../../wt-678 cand > caret_cand.log 2>&1   # rerun after fixing Y lookup (lastIndexOf)
+node caret.js ../../wt-main main > caret_main.log 2>&1
+node caret_reading.js ../../wt-678 cand > caret_reading_cand.log 2>&1; node caret_reading.js ../../wt-main main > caret_reading_main.log 2>&1
+# All runs from this directory; scripts caret.js, caret_reading.js written from scratch (no cand_lib/lib reuse).
+# Pages served: <tree>/codex.html via a local http server (tree clean; grep confirms candidate codex.html carries "draft.value=done.text;" migration, wt-main has none).
+# KEY OUTPUTS
+# cand S1 (row typed at line 1, 30ms/key): row -> "[SETUP — rhyme groups — 1.T5,8 — cut v2]", caret 236/236 (end), lineOfCaret 12, focused; Z -> "Love aboveZ" (line 12). toast: renumbered "love" word 4 -> 5.
+# main S1: row stays "1.T4,8]", caret 31 (line 1); Z -> "[SETUP — rhyme groups — 1.T4,8]Z".
+# cand S2 (180ms/key): caret stays on line 1 through "1.T4,8"; jumps to end (236) exactly on the key "]". main: never jumps.
+# cand S3 (row1 + Enter + returns row typed fast): rewrite after the burst; Q lands line 13 (end). main: Q on line 2.
+# cand S4 "5.T3,6" (lines whose cut did not change): rewritten only to add " — cut v2", NO toast, caret to end. main: unchanged, caret line 1.
+# cand S5 "1,8" (named place on a changed-cut line): rewritten to "1 (carried across the word-cut change),8 — cut v2", toast, caret to end. main: unchanged.
+# cand S6 "5,6" and S7 already-marked "1.T5,8 — cut v2": not rewritten, caret stays on line 1 (both trees).
+# cand S8 edit inside existing "[... 5,6]" typing ".T3": jump on "3" (row becomes "5.T3,6 — cut v2"); Y -> "Love aboveY". main: "5.T3Y,6]".
+# cand S9 unmarked reading row typed: rewritten token 2 -> 3 "— cut v2", caret to end, Z at end. main: Z stays on line 1.
+# Source read: src/pages/lyrics.js:309-318 lyEnsureTokenScheme sets draft.value = done.text with no selection save/restore; called from lyRefresh (4400), which the textarea input listener (5670-5678) debounces at 120 ms.
+# Source read: earlier head e58b23248e70 had the same draft.value assignment but migrated reading rows only; be5a1b3e2 added rhyme groups/returns rows. wt-main has no lyEnsureTokenScheme.

@@ -1,0 +1,22 @@
+# BB8 verify-library-routes234-2  (S=scratchpad, D=$S/h678/verify-library-routes234-2)
+# 1. Worker core (AnalysisSession), token 2 'oh' AA1 on 'Oh--oh, oh my love'
+cd $S/wt-678/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data python3 $D/e2e_worker.py 2   # -> e2e_cand_tok2.log: AA on token 2 = cp [4,6]
+cd $S/wt-base/lyric-harness && LYRIC_STAGED_DATA=... python3 $D/e2e_worker.py 2                                        # -> e2e_base_tok2.log: AA on token 2 = cp [8,10]
+#   (wt-main has no cmudict.dict -> e2e_main_tok2.log LEXICAL_ASSET_MISSING; lyric-harness/ mcp/ src/library identical fce4bf0f..8b1d2ad2: git diff --stat empty)
+# 2. Pages built from each tree (CODEX_LIBRARY=1 node scripts/build_html.js --out=$D/build-<tree>/codex.html)
+# 3. Playwright: seed an unmarked record {declarations:{pronunciations:[token 2 'oh']}} in the page's storage, click Analyze, capture POST /analyses body
+TREE=$S/wt-main BUILT=$D/build-wt-main node $D/stale_page_probe.cjs  # -> stale_page_wt-main.json: sends token 2 verbatim, no notice; record left unmarked
+TREE=$S/wt-678 BUILT=$D/build-wt-678 node $D/stale_page_probe.cjs  # -> stale_page_wt-678.json: notice 'token 2 -> 3', sends token 3, record marked token_cut v2
+#   live store is IndexedDB codex-musica-library-v1/state (lib.device); codex-musica-library-analysis-v1/kv is the chunk's fallback, untouched
+#   both bodies have identical keys: contract_version,declaration_set,idempotency_key,reading_revision,reading_unit_id,requested_layers
+# 4. Real server path minus HTTP: validateRequest + createCatalogResolver + ReaderJobStore + ReaderScheduler + createPythonBridge + mcp/worker.py
+#    (mcp/*.js, mcp/*.py byte-identical fce4bf0f..HEAD, so TREE=wt-678 JS for both; HARNESS picks the Python harness)
+TREE=$S/wt-678 HARNESS=$S/wt-678 BODY_FILE=$D/stale_page_wt-main.json node $D/server_e2e.mjs  # old page -> new server: accepted, completed, AA at cp [4,6]
+TREE=$S/wt-678 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-main.json node $D/server_e2e.mjs # old page -> old server: AA at cp [8,10]
+TREE=... HARNESS=$S/wt-678 BODY_FILE=$D/stale_page_wt-678.json   # new page -> new server: AA at cp [8,10]
+TREE=... HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-678.json   # new page -> old server: paused READER_ERROR token/word mismatch
+#   validateRequest with an extra token_cut field: BAD_REQUEST unknown field (a marker cannot be sent without a server change)
+# 5. Generality
+LINE='oh--oh oh oh' TOK=2 (candidate page) -> sends token 3 (cp 7-9 under v2); old server binds token 3 = cp [10,12] SILENTLY (completed)  -> server_e2e_newbody_ohohohoh_wt-base.json
+LINE='U--h, u--h, Lawdy,' TOK=3 WORD=Lawdy (old page) -> new server: paused READER_ERROR "('Lawdy' declared; token 3 there is 'u')"  -> server_e2e_oldbody_lawdy_wt-678.json
+# 6. Author tests: scripts/test_library_declarations.js pass; mcp/test_reader_client.mjs 11/11 pass (neither exercises an old page against a new server)

@@ -1,0 +1,20 @@
+verify-library-route1-0 (adversarial re-test of library-route1 "stale-tab double migration")
+S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad  V=$S/h678/verify-library-route1-0
+
+1. cmp $S/wt-678/library/code/analysis.71b110b249.js $S/wt-main/library/code/analysis.71b110b249.js -> identical (retained old chunk = main's)
+2. node $V/spans.js $S/wt-678 -> spans_out.txt (JS mirror v1/v2 spans; rebind v1 tok2->3, v1 tok3->4 on 'Oh--oh, oh, oh my love'; v1 tok3 blocked on 'Oh--oh, oh my love')
+3. mixed root $V/mix: symlinks to every wt-678 entry, codex.html = wt-678 copy (sha 47b9b914...), codex-old.html = wt-main codex.html (sha acf45264...)
+4. Browser, own script (two concurrent tabs, one context/origin/IndexedDB, own API stub, unit reading_3a0f9ca3-... "XXX The Lamplighter"):
+   node $V/stale2tab.js $V/mix $S/wt-678 S1 $V/S1.json  -> S1_out.txt  (old tab mounts AFTER new tab migrated: token 2->3, old Apply -> keys [declarations], new reload: 3->4, SENT 4)
+   node $V/stale2tab.js $V/mix $S/wt-678 S2 $V/S2.json  -> S2_out.txt  (control: old tab mounted BEFORE migration: old Apply rewrites token 2, new page re-migrates to 3, SENT 3; old tab itself SENT 2)
+   node $V/stale2tab.js $V/mix $S/wt-678 S3 $V/S3.json  -> S3_out.txt  ('Oh--oh, oh my love': second pass blocked, role=alert, nothing sent, legacy copy now token 3)
+   node $V/stale2tab.js $S/wt-main $S/wt-main B1 $V/B1.json -> B1_out.txt (baseline: both tabs main code: token 2 throughout, no notice)
+5. Grader token order (cwd <tree>/lyric-harness, LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data):
+   python3 $V/grader_tokens.py wt-base ; python3 $V/grader_tokens.py wt-678 -> grader_tokens_out.txt
+   base: tok2=oh[8,10] tok3=oh[12,14]; cand: tok3=oh[8,10] tok4=oh[12,14]
+   (binding by index: quality/pronunciation.py for_line selected = {r['token']-1: r} -- source read)
+6. Bounded sample estimate: node $V/scan.js $S/wt-678 00 3a 57 81 a4 c1 e7 ff -> scan_out.txt
+   427 eng units, 13955 lines, 389 lines whose cut differs, 503 first-pass moves; second unmarked pass: 500 blocked, 3 other word, 0 same
+7. Source reads: wt-main src/library/analysis.js:1637 onSave -> device.set(deviceKey,{declarations:v}); :1041 evidence choice uses c.token;
+   wt-678 scripts/library_chunk_generations.js header (old chunks kept 30 days for tabs opened before a publish);
+   wt-678 lyric-harness/library/analysis.py server rebind only for V1_BOUND_ASSET fingerprints (user rows untouched).

@@ -1,0 +1,33 @@
+BB8 library-route1 — exact commands run (W=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad, S=$W/h678/library-route1)
+All Python runs: LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data, cwd <tree>/lyric-harness.
+
+1. Source diff:  git -C $W/wt-678 diff 8b1d2ad2 -- src/library src/lyric-tokens.js
+2. Build freshness (writes only under $S):
+   cd $W/wt-678 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$S/build678/codex.html --quiet
+     -> cmp library/code/analysis.9ebd86e5f8.js: CHUNK_IDENTICAL; cmp codex.html: HTML_IDENTICAL
+   cd $W/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=$S/buildmain/codex.html --quiet
+     -> analysis.71b110b249.js CHUNK_IDENTICAL; HTML_IDENTICAL
+3. Grader cut oracles:
+   (wt-base) python3 $S/oracle_cuts.py $W/wt-base/lyric-harness base $S/lines.json > oracle_base.json
+   (wt-678)  python3 $S/oracle_cuts.py $W/wt-678/lyric-harness cand $S/lines.json > oracle_cand.json
+     -> 'Oh--oh, oh my love': v1 token2 = oh [8,10]; v2 token2 = oh [4,6], v2 token3 = oh [8,10]
+4. Real built page, seeded IndexedDB (codex-musica-library-v1/state, key interpretation:<unit>:<rev>):
+   node $S/repro_page.js $W/wt-678 candidate $S/page_candidate.json
+   node $S/repro_page.js $W/wt-main baseline $S/page_baseline.json
+5. Grader binding of what each page SENT:
+   python3 $S/bind_spans.py <tree>/lyric-harness <base|cand> <page_*.json> <scenario> <step>  -> bind_spans_out.txt
+     baseline page -> base (v1) grader:      oh token 2 binds [8,10]
+     baseline page -> candidate (v2) grader: oh token 2 binds [4,6]  (accepted, no refusal: the known bug)
+     candidate page -> candidate grader:     oh token 3 binds [8,10] (also after 2 reloads + save)
+6. node $S/check_bytes.js -> check_bytes_out.txt (control (a) byte identity; record rewrite on load)
+7. node $S/decl_hash.mjs $W/wt-678 $S ; node $S/decl_hash.mjs $W/wt-main $S -> decl_hash_out.txt
+8. v1 mirror vs BASE harness line_tokens on 1221 lines: python3 $S/v1_xcheck.py (wt-base) + node check -> v1_xcheck_out.txt (0 disagreements)
+9. Edge cases on the built chunk: node $S/node_edge.js $W/wt-678 -> node_edge_out.txt ; node $S/node_edge_nfd.js $W/wt-678
+10. Stale old-generation tab (mixroot = symlinks to wt-678 + codex-old.html copied from wt-main):
+    BB8_TREE=$W/wt-678 node $S/repro_stale_tab.js $S/mixroot $S/stale_tab.json
+    BB8_TREE=$W/wt-678 node $S/repro_stale_tab_oo_only.js $S/mixroot $S/stale_tab_oo_only.json
+      -> old chunk Apply drops token_cut; new page re-reads v2 token 3 as v1 and sends token 4 = [12,14]
+11. Author tests (independent=false):
+    node --test scripts/test_library_declarations.js  -> 8/8 pass
+    node --test scripts/test_lyric_tokens.js          -> 5/5 pass
+    node scripts/check_library_page.js --only=declarations --built=$S/build678 -> PASS 48/48

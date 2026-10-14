@@ -1,0 +1,66 @@
+{
+  "A_observe": {
+    "wrapped": false,
+    "lineOfZ": 5,
+    "text": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 1.T4,2]\nZQ\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "calls": [],
+    "errs": []
+  },
+  "A_restore": {
+    "wrapped": false,
+    "lineOfZ": 5,
+    "text": "[VERSE]\nOh--oh, oh my love\nI hold the dove\n[SETUP — rhyme groups — 1.T4,2]\nZQ\n[CHORUS]\nRun to the sea\nAnd stay with me",
+    "calls": [],
+    "errs": []
+  },
+  "B": {
+    "seededOk": true,
+    "steps": [
+      {
+        "caret": 43,
+        "len": 115,
+        "line2": "I hold the dove-",
+        "row": "[SETUP — rhyme groups — 2,4]"
+      },
+      {
+        "caret": 44,
+        "len": 116,
+        "line2": "I hold the dove--",
+        "row": "[SETUP — rhyme groups — 2,4]"
+      },
+      {
+        "caret": 45,
+        "len": 117,
+        "line2": "I hold the dove--o",
+        "row": "[SETUP — rhyme groups — 2,4]"
+      },
+      {
+        "caret": 46,
+        "len": 118,
+        "line2": "I hold the dove--oh",
+        "row": "[SETUP — rhyme groups — 2,4]"
+      },
+      {
+        "caret": 47,
+        "len": 119,
+        "line2": "I hold the dove--oh ",
+        "row": "[SETUP — rhyme groups — 2,4]"
+      },
+      {
+        "caret": 48,
+        "len": 120,
+        "line2": "I hold the dove--oh m",
+        "row": "[SETUP — rhyme groups — 2,4]"
+      },
+      {
+        "caret": 49,
+        "len": 121,
+        "line2": "I hold the dove--oh my",
+        "row": "[SETUP — rhyme groups — 2,4]"
+      }
+    ],
+    "text": "[VERSE]\nOh--oh, oh my love\nI hold the dove--oh my\n\n[CHORUS]\nRun to the sea\nAnd stay with me\n\n[SETUP — rhyme groups — 2,4]",
+    "cutChanged": null,
+    "errs": []
+  }
+}

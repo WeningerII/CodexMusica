@@ -1,0 +1,5 @@
+required+missing -> Baked image build identity is missing or unreadable.
+not required + missing -> null
+releaseIdentity(no env) -> {"commit":null,"release_id":null,"reported_commit":null}
+releaseIdentity(BUILD_GIT_COMMIT=abc) -> {"commit":"abc","release_id":null,"reported_commit":null}
+releaseIdentity(REQUIRED=1, no baked file) -> Baked image build identity is missing or unreadable.

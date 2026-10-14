@@ -1,0 +1,17 @@
+# verify-page-rules-6 (BB8 skeptic): caret jump from lyEnsureTokenScheme. All scratch; no tracked file modified.
+# Pages served: wt-678/codex.html (== HEAD 67889851, git status clean apart from node_modules) and wt-main/codex.html (8b1d2ad2).
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-6 && node caret.js /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 cand   -> caret_cand.log / caret_cand.json
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-6 && node caret.js /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main main  -> caret_main.log / caret_main.json
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-6 && node caret2.js /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 cand  -> caret2_cand.log / caret2_cand.json  (A: wrapper attribution; B: sung-line edit at 160 ms/key)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-6 && node caret2.js /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main main -> caret2_main.log / caret2_main.json
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-6 && node parse_final.js            -> parse_final.log (candidate lyParse of scenario-B result: setup [] / groups null / 5 sung lines)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-6 && node paste.js /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678 cand ; node paste.js /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main main -> paste_cand.log / paste_main.log (real Ctrl+V)
+# Source reads: wt-678 src/pages/lyrics.js:309-342 (lyEnsureTokenScheme), :4391-4400 (lyRefresh calls it), :5655-5678 (input -> lyRefresh debounced 120 ms);
+#   wt-main src/pages/lyrics.js has no lyEnsureTokenScheme; git log -S: introduced d4af2fc1e (reader batch commit 1); same body at e58b23248e70:src/pages/lyrics.js:176.
+KEY RESULTS
+cand: typed_unmarked_T caret 75->125(=len) ZQ line 8 (intended 5); typed_bare_changed_line 72->159(=len) line 8; typed_unmarked_reading 100->150(=len) line 8; insertText 75->125 line 8; Ctrl+V 75->125 line 8
+cand controls: typed_marked_T (— cut v2) 84->84 OK; typed_bare_unchanged_lines 72->72 OK
+main: all six cases + Ctrl+V caret unchanged, ZQ on intended line 5
+cand A.observe wrapper: the single text-changing lyEnsureTokenScheme call moved selection [75,75] -> [125,125] (len 116 -> 125)
+cand B: existing '[SETUP — rhyme groups — 2,4]', typing '--oh my' after 'dove': after '--' row -> '2 (carried across the word-cut change),4 — cut v2', caret 44 -> 162(=len); 'oh my' appended to the SETUP row -> page then reads it as sung line 5, declarations gone
+main B: caret follows typing, text intact

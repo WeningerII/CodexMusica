@@ -1,0 +1,139 @@
+[
+ {
+  "id": "corpus/song/eng_american_f_j_child.txt#0:32",
+  "text": "“Also, some few I. O. U.’s and bets,”",
+  "tokens": [
+   "Also",
+   "some",
+   "few",
+   "I",
+   "O",
+   "U",
+   "'s",
+   "and",
+   "bets"
+  ],
+  "anchors_before": [
+   "Y/UW1/ Z/AH0/N.D B/EH1/T.S",
+   "B/EH1/T.S"
+  ],
+  "anchors_after": [
+   "/EH1/ S/AH0/N.D B/EH1/T.S",
+   "B/EH1/T.S"
+  ],
+  "final": "bets"
+ },
+ {
+  "id": "corpus/song/eng_hall_william_barnes.txt#235:11",
+  "text": "By hoof or shoe, 's a sheenèn bright,",
+  "tokens": [
+   "By",
+   "hoof",
+   "or",
+   "shoe",
+   "'s",
+   "a",
+   "sheenèn",
+   "bright"
+  ],
+  "anchors_before": [
+   "SH/UW1/ Z/AH0/ B.R/AY1/T",
+   "B.R/AY1/T"
+  ],
+  "anchors_after": [
+   "/EH1/ S/AH0/ B.R/AY1/T",
+   "B.R/AY1/T"
+  ],
+  "final": "bright"
+ },
+ {
+  "id": "corpus/song/eng_hall_william_barnes.txt#30:3",
+  "text": "Below the knap, 's a runnèn still;",
+  "tokens": [
+   "Below",
+   "the",
+   "knap",
+   "'s",
+   "a",
+   "runnèn",
+   "still"
+  ],
+  "anchors_before": [
+   "L/OW1/ DH/AH0/ /AH0/ S.T/IH1/L",
+   "S.T/IH1/L"
+  ],
+  "anchors_after": [
+   "/EH1/ S/AH0/ S.T/IH1/L",
+   "S.T/IH1/L"
+  ],
+  "final": "still"
+ },
+ {
+  "id": "corpus/song/eng_hall_william_barnes.txt#33:22",
+  "text": "An' at each zide [=o]'m, sprack an' strong,",
+  "tokens": [
+   "An'",
+   "at",
+   "each",
+   "zide",
+   "o",
+   "'m",
+   "sprack",
+   "an'",
+   "strong"
+  ],
+  "anchors_before": [
+   "CH/AE1/N S.T.R/AO1/NG",
+   "S.T.R/AO1/NG"
+  ],
+  "anchors_after": [
+   "M/AE1/N S.T.R/AO1/NG",
+   "S.T.R/AO1/NG"
+  ],
+  "final": "strong"
+ },
+ {
+  "id": "corpus/song/eng_hall_william_barnes.txt#70:4",
+  "text": "What plaÿsome anticks zome [=o]'s done!",
+  "tokens": [
+   "What",
+   "plaÿsome",
+   "anticks",
+   "zome",
+   "o",
+   "'s",
+   "done"
+  ],
+  "anchors_before": [
+   "T/OW1/Z D/AH1/N",
+   "D/AH1/N"
+  ],
+  "anchors_after": [
+   "/EH1/S D/AH1/N",
+   "D/AH1/N"
+  ],
+  "final": "done"
+ },
+ {
+  "id": "corpus/song/eng_pah_wallace_de_groot_cecil_rice.txt#3:52",
+  "text": "Where her \"meteor flag\" 's nailed fast",
+  "tokens": [
+   "Where",
+   "her",
+   "meteor",
+   "flag",
+   "'s",
+   "nailed",
+   "fast"
+  ],
+  "anchors_before": [
+   "N/EY1/L.D F/AE1/S.T",
+   "F/AE1/S.T"
+  ],
+  "anchors_after": [
+   "S.N/EY1/L.D F/AE1/S.T",
+   "F/AE1/S.T"
+  ],
+  "final": "fast"
+ }
+]

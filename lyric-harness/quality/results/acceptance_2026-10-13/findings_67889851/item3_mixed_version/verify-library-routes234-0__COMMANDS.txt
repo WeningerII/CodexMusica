@@ -1,0 +1,19 @@
+# verify-library-routes234-0 (BB8 skeptic re-check of R2-4). S=scratchpad, D=this dir.
+# All scripts are mine (D/*.mjs, D/*.py); no tracked file in any tree was modified.
+export LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data   # no *_GIT_COMMIT / LYRIC_RELEASE_ASSETS_REQUIRED in env
+# 1 source read + cmp: identity literal identical in wt-main and wt-678; scheduler/store/build_identity/server_http/runtime_assets/worker byte-identical -> 01_source_identity.txt
+# 2 server's reader resource fingerprint per tree:  node D/fp.mjs S/wt-main ; node D/fp.mjs S/wt-678 -> 02_fp_*.json
+#     main 8f3b80c8... (ok:false, cmudict missing)   cand 9bffbd58... (ok:true); commit null in both
+# 3 (cd S/<tree>/lyric-harness && python3 quality/release_assets.py --integrity) > 03_inventory_<tree>.json ; node D/inv_diff.mjs ... -> 03_inventory_diff.txt
+#     runtime_assets.json identical; only asset 'cmudict' differs (sha null in main); main inventory with cand cmudict entry substituted hashes to 9bffbd58... == cand
+# 4 node D/make_catalog.mjs S/wt-main D/run/catalog -> 04_catalog.json (eng reading 'Oh--oh, oh my love\nI give it all above')
+# 5 A: create on wt-main (commit ENV=null, fp 9bffbd58) ; pump on wt-678 (commit ENV=null, same fp), stub bridge -> 05_A_*.json : leases 1, handed token:2 'oh'
+# 6 B: create on wt-main commit 8b1d2ad2cea5...; pump on wt-678 commit 67889851144d... -> 06_B_*.json : leases 0, paused STALE_READING, request+identity unchanged
+# 7 C: create on wt-main commit null fp 8f3b80c8 (main's actual); pump on wt-678 commit null fp 9bffbd58 -> 07_C_*.json : leases 0, STALE_READING
+# 8 A real: same as A but real python worker of wt-678 -> 08_A_real_pump.json (completed_with_refusals, 140 records), run/A_real/records_wt-678.json
+# 9 same stored-job shape through the real wt-base (fce4bf0f, v1) worker -> 09_base_pump.json, run/A_real_base/records_wt-base.json
+# 10 python3 D/inspect_records.py ... ; binding compare -> 10_binding_compare.txt
+#     cand: AA (declared) on token 2 'oh' chars [4,6]; chars [8,10] read OW (dictionary)
+#     base: AA (declared) on token 2 'oh' chars [8,10]
+# 11 node -e releaseIdentity/readBakedBuildIdentity probes -> 11_release_identity.txt (REQUIRED=1 without baked file throws; no env -> commit null)
+# 12 (cd S/wt-678 && node --test --test-concurrency=1 --test-name-pattern="queued across the word-cut release" mcp/test_reader_client.mjs) -> 12_author_test.log : 1/1 pass

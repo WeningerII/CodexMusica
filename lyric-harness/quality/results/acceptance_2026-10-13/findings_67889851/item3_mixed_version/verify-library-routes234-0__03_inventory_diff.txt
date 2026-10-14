@@ -1,0 +1,9 @@
+assets_sha256 main 8f3b80c8cfa39eae14e93ae1380d98dac27b245b389d31d7d4937ef27c6dc24e cand 9bffbd586992ca658ce10b067d79b92c005be86149ffc063d3fd92979f079b03
+asset ids total 9 differing ["cmudict"]
+cmudict main= {"decision":"approved","files":[{"path":"cmudict.dict","sha256":null},{"path":"data/LICENSE.cmudict","sha256":"bd4ce8e44170a5f9f481310ca85c51de3c4f851a65e679b40e603b143bd3542a"}],"id":"cmudict","runtime":true} 
+   cand= {"decision":"approved","files":[{"path":"cmudict.dict","sha256":"81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22"},{"path":"data/LICENSE.cmudict","sha256":"bd4ce8e44170a5f9f481310ca85c51de3c4f851a65e679b40e603b143bd3542a"}],"id":"cmudict","runtime":true}
+main assets with candidate cmudict entry substituted -> 9bffbd586992ca658ce10b067d79b92c005be86149ffc063d3fd92979f079b03 EQUAL to candidate
+ordering same true
+manifest cmudict root [{'path': 'cmudict.dict', 'bytes': 3618488, 'sha256': '81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22'}, {'path': 'data/LICENSE.cmudict', 'bytes': 1754, 'sha256': 'bd4ce8e44170a5f9f481310ca85c51de3c4f851a65e679b40e603b143bd3542a'}]
+wt-678 cmudict sha 81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22
+wt-base cmudict sha 81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22

@@ -1,0 +1,45 @@
+# 1. source identity: identity object literal in resolveIdentity, both trees
+## wt-main
+364-      contract_version: 1,
+365-      snapshot_id: request.snapshot_id,
+366-      reading_unit_id: request.reading_unit_id,
+367-      reading_revision: request.reading_revision,
+368-      work_id: entry.work_id,
+369-      edition_id: entry.edition_id,
+370-      source_sha256: entry.source_sha256,
+371-      normalized_sha256: entry.normalized_sha256,
+372-      native_profile: entry.language,
+373-      engine_commit: engineCommit,
+374-      parser_version: manifest.parser_version,
+375-      normalizer_version: manifest.normalizer_version,
+376-      resource_fingerprint: resourceFingerprint,
+377-      declaration_hash: sha256(canonicalJSON(semanticDeclarations(request.declaration_set || {}))),
+378-      requested_layers: request.requested_layers,
+379-      requested_methods: request.requested_methods ?? null,
+## wt-678
+364-      contract_version: 1,
+365-      snapshot_id: request.snapshot_id,
+366-      reading_unit_id: request.reading_unit_id,
+367-      reading_revision: request.reading_revision,
+368-      work_id: entry.work_id,
+369-      edition_id: entry.edition_id,
+370-      source_sha256: entry.source_sha256,
+371-      normalized_sha256: entry.normalized_sha256,
+372-      native_profile: entry.language,
+373-      engine_commit: engineCommit,
+374-      parser_version: manifest.parser_version,
+375-      normalizer_version: manifest.normalizer_version,
+376-      resource_fingerprint: resourceFingerprint,
+377-      declaration_hash: sha256(canonicalJSON(semanticDeclarations(request.declaration_set || {}))),
+378-      requested_layers: request.requested_layers,
+379-      requested_methods: request.requested_methods ?? null,
+# cmp scheduler/store/build_identity/server_http between trees
+same reader_scheduler.js
+same reader_job_store.js
+same build_identity.js
+same server_http.js
+same runtime_assets.js
+same job_store.js
+same library_viewer_routes.js
+same reader_routes.js
+same worker.py

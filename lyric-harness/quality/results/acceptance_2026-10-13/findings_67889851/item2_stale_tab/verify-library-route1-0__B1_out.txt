@@ -1,0 +1,13 @@
+== seeded {"keys":["declarations"],"rows":[["Oh--oh, oh, oh my love",2,"oh"]]}
+== OLD on shelf {"chunks":[]}
+== NEW mount 1 {"view":{"cut":[],"alerts":[],"status":[],"toast":"","chunks":["analysis.71b110b249.js"]},"idb":{"keys":["declarations"],"rows":[["Oh--oh, oh, oh my love",2,"oh"]]}}
+== NEW analyze 1 {"sent":[["Oh--oh, oh, oh my love",2,"oh"]]}
+== OLD mounted after NEW migrated {"view":{"cut":[],"alerts":[],"status":[],"toast":"","chunks":["analysis.71b110b249.js"]},"idb":{"keys":["declarations"],"rows":[["Oh--oh, oh, oh my love",2,"oh"]]}}
+== OLD analyze {"sent":[["Oh--oh, oh, oh my love",2,"oh"]]}
+== OLD raw shown in Reading interpretations {"raw":{"pronunciations":[{"line":"Oh--oh, oh, oh my love","token":2,"word":"oh","phones":["OW1"],"basis":"declared","source":"verify legacy fixture"}]}}
+== OLD after Apply interpretation {"idb":{"keys":["declarations"],"rows":[["Oh--oh, oh, oh my love",2,"oh"]]},"view":{"cut":[],"alerts":[],"status":[["status","","Interpretation saved on this device. Run a new whole-work analysis to apply it."]],"toast":"Whole-work analysis started.","chunks":["analysis.71b110b249.js"]}}
+== NEW before reload, still in memory {"sent":[["Oh--oh, oh, oh my love",2,"oh"]]}
+== NEW mount 2 (after reload) {"view":{"cut":[],"alerts":[],"status":[],"toast":"","chunks":["analysis.71b110b249.js"]},"idb":{"keys":["declarations"],"rows":[["Oh--oh, oh, oh my love",2,"oh"]]}}
+== NEW analyze 2 {"sent":[["Oh--oh, oh, oh my love",2,"oh"]]}
+== dbs {"dbs":["codex-musica-library-drafts","codex-musica-library-v1"]}
+== errors {"errs":[],"api":["GET /chat/status","POST /library/v1/analyses","GET /library/v1/jobs/job_00000000000000000000000000000001","GET /library/v1/jobs/job_00000000000000000000000000000002"]}
