@@ -4,7 +4,15 @@
    2,
    4
   ],
-  "corpus_files": 1344,
+  "corpus": {
+   "files": 1344,
+   "file_list_sha256": "779bbea7f3f46c70b43351705d5227298b5fe189085d0e84127e3c91631bc6cd",
+   "files_content_sha256": "abb8713a364fac16dc2587246b4330e43c8903004b66fb452855b3797fa8d30c",
+   "unique_line_texts": 272317,
+   "unique_line_texts_sha256": "c80edf412afec05998e4a6c250e7aa9d9af47f75c80b2a2b4fe7bd5851e804b8",
+   "shard_lines": 68079,
+   "shard_lines_sha256": "61f32412cb4466db47989dffd75bc75dd2dc433762d5fdd86b290c2910439800"
+  },
   "counts": {
    "cur:stripped": {
     "lines": 68079,
@@ -26,8 +34,35 @@
  "part2_ok": null,
  "pins": {
   "commit": "61b6618ae9373e00b60d3df3ab2d19cc11cc93cc",
+  "tracked_changes": false,
+  "tool_git_state": "committed, unchanged",
+  "lexicons": {
+   "cur:stripped": {
+    "class": "SupplementedLexicon",
+    "g2p_fallback": null,
+    "supplement": {
+     "id": "v2",
+     "path": "data/lexicon_supplement_v2.tsv",
+     "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+    },
+    "strip_parens": true,
+    "reader_scheme": "v2"
+   },
+   "cur:sung": {
+    "class": "SupplementedLexicon",
+    "g2p_fallback": null,
+    "supplement": {
+     "id": "v2",
+     "path": "data/lexicon_supplement_v2.tsv",
+     "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+    },
+    "strip_parens": false,
+    "reader_scheme": "v2"
+   }
+  },
+  "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
   "loop_sha256": "a307ec7457babd11ef5859ab7c3cd77a7bae7b4c776a01ea0594d24f59ddc3b1",
-  "tool_sha256": "389fb9ca30785edc276cdfd0947d9a138d2f02171156ec0a725c55871594f326",
+  "tool_sha256": "df95541f98b7170055a72f6b89d7efdcc92613cdba10cef3ef695cf8e238c177",
   "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026"
  }
 }

@@ -8772,6 +8772,7 @@
   "default_propose",
   "default_propose_group"
  ],
+ "declared_paths_missing": [],
  "negative_controls": [
   {
    "line": "love, love me do",
@@ -8999,9 +9000,9 @@
   "commit": "61b6618ae9373e00b60d3df3ab2d19cc11cc93cc",
   "tracked_changes": false,
   "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b/lyric-harness",
-  "tool_version": "3.2",
+  "tool_version": "3.3",
   "tool_git_state": "committed, unchanged",
-  "tool_sha256": "7d3352f0a966c47a6f452b642bbfd589835ec430436d1d83cbe432e117c2d05b",
+  "tool_sha256": "e543b4f457f7a8d6d92b336b0a1e49838e92d1b58d618642f31729612bfedc88",
   "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026",
   "loop_sha256": "a307ec7457babd11ef5859ab7c3cd77a7bae7b4c776a01ea0594d24f59ddc3b1",
   "revise_sha256": "3b40a7ed97289247c2f3840021a09dabbc4179d08ff90f8cd29c8a883e17924f",
@@ -9015,20 +9016,49 @@
    "cur:sung"
   ],
   "loop_word_re": true,
-  "lexicon": {
-   "class": "SupplementedLexicon",
-   "fallback": "none",
-   "supplement": {
-    "version": "v2",
-    "path": "data/lexicon_supplement_v2.tsv",
-    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+  "lexicons_measured": {
+   "cur:stripped": {
+    "class": "SupplementedLexicon",
+    "g2p_fallback": null,
+    "supplement": {
+     "id": "v2",
+     "path": "data/lexicon_supplement_v2.tsv",
+     "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+     "rows": 205
+    },
+    "strip_parens": true,
+    "reader_scheme": "v2",
+    "declared_readings": 1508
    },
-   "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
-   "reader_scheme": {
-    "cur:stripped": "v2",
-    "cur:sung": "v2"
+   "cur:sung": {
+    "class": "SupplementedLexicon",
+    "g2p_fallback": null,
+    "supplement": {
+     "id": "v2",
+     "path": "data/lexicon_supplement_v2.tsv",
+     "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+     "rows": 205
+    },
+    "strip_parens": false,
+    "reader_scheme": "v2",
+    "declared_readings": 1817
    }
   },
+  "negative_control_lexicon": {
+   "class": "SupplementedLexicon",
+   "g2p_fallback": null,
+   "supplement": {
+    "id": "v2",
+    "path": "data/lexicon_supplement_v2.tsv",
+    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+    "rows": 205
+   },
+   "strip_parens": true,
+   "reader_scheme": "v2",
+   "declared_readings": 0,
+   "note": "the default lexicon, build_lexicon('v2', 'none'), asides stripped: the negative controls run on it in every run, a --lexicons= run included"
+  },
+  "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
   "lexicon_variant": {
    "variant": "decl",
    "declarations": {
@@ -9039,20 +9069,6 @@
     "cur:sung": {
      "declarations": 1817,
      "refused": 0
-    }
-   },
-   "modes": {
-    "cur:stripped": {
-     "class": "SupplementedLexicon",
-     "fallback": "None",
-     "supplement_path": "data/lexicon_supplement_v2.tsv",
-     "strip_parens": true
-    },
-    "cur:sung": {
-     "class": "SupplementedLexicon",
-     "fallback": "None",
-     "supplement_path": "data/lexicon_supplement_v2.tsv",
-     "strip_parens": false
     }
    }
   },

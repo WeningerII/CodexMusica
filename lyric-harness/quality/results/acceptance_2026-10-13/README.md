@@ -294,7 +294,7 @@ It is fit for bounded diagnostic use on this candidate, and the candidate gate i
 - A splice path missing on a tree is skipped without a verdict in revisions 3.1 and 3.2. The expected three are present at `61b6618a` (`declared_paths` in the receipt); the replacement head's qualification will assert all three.
 - The oracle and production share `slots.resolve` and the raw-token machinery. That, and the fact that the skeptic reports reviewed revision 3.0, are the documented limits on independence.
 
-### Other lexicons production can pass, under the 3.1 gate (revision 3.2)
+### Other lexicons production can pass, under the 3.1 gate (revisions 3.2 and 3.3)
 
     cd <tree>/lyric-harness
     python3 quality/results/acceptance_2026-10-13/slot_occurrence.py <OUT_PREFIX> quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt <HARNESS_ROOT> --lexicons=<VARIANT>
@@ -302,31 +302,37 @@ It is fit for bounded diagnostic use on this candidate, and the candidate gate i
 **Why this was rerun.** The tool-review skeptic ran these lexicons with revision 3.0's gate, where an unbound edit was not a failure. 3PO (#527 6163217917) asked for them under 3.1.
 
 **How.** Revision 3.2 adds `--lexicons=VARIANT`, which runs the process scheme's modes under that lexicon. The variants are the skeptic's.
-- **Without the option, a 3.2 run is 3.1's.** At `61b6618a` its records are byte-identical to `../so_61b6618a.jsonl.gz` (190,530 records), and the receipt differs only in the tool sha256 and version pins (`lexicon_variants/so_61b6618a_default_3.2.json`).
-- Receipts are in `slot_occurrence_61b6618a/lexicon_variants/`.
+- **The receipts are 3.3's.** 3.2's receipts pinned the wrong configuration: they read a `fallback` attribute that does not exist, so both fallback variants recorded none, and they described the default lexicon for every variant (3PO, #527 6163840480). The constructors were right and the counts are unchanged.
+- **3.3 pins each mode's measured lexicon** (`lexicons_measured`): class, resolved `g2p_fallback` with its `min_confidence`, supplement id, path, sha256 and rows, aside rule, reader scheme and the number of declared readings. It labels the default lexicon the negative controls run on apart (`negative_control_lexicon`). It also requires all three declared splice paths, so a missing one is unresolved.
+- **Without the option, a 3.3 run is 3.1's.** At `61b6618a` its records are byte-identical to `../so_61b6618a.jsonl.gz` (190,530 records). Outside the pins, its receipt differs only by the new, empty `declared_paths_missing` (`lexicon_variants/so_61b6618a_default_3.3.json`).
+- Receipts are in `slot_occurrence_61b6618a/lexicon_variants/`. Every run pins the tool as committed and unchanged, and the measured tree clean.
 
 | lexicon | `occ_wrong` | `edit_unbound` per mode, all on `end` | readable controls failed | declared-path failures |
 |---|---:|---:|---:|---:|
 | default (`build_lexicon("v2","none")`) | 0 | 191 | 0 | 0 |
-| `fb_low` | 0 | 56 | 0 | 0 |
-| `fb_high` | 0 | 148 | 0 | 0 |
-| `supp_none` | 0 | 191 | 0 | 0 |
+| `fb_low` (G2P fallback, `min_confidence` low) | 0 | 56 | 0 | 0 |
+| `fb_high` (G2P fallback, `min_confidence` high) | 0 | 148 | 0 | 0 |
+| `supp_none` (plain `Lexicon`, no supplement) | 0 | 191 | 0 | 0 |
 | `voices_fresh` (sung only) | 0 | 191 | 0 | 0 |
 | `decl` (1,508 / 1,817 declared readings, 0 refused) | 0 | 3 | 0 | 0 |
 
 - **Every variant's v2 verdict is FAIL, on default-end unbound edits only.** A fallback reads more unknown words, so fewer remain unbound.
 - **The 3 that remain under `decl`** are the hyphenated end words `a-heavèn`, `a-soundèn` and `a-feärd`. The grader binds no syllable on them even when a reading is declared on the token, and the default end still edits them.
 - **No variant puts an edit on a word the grader does not bind,** apart from the default end.
-- In every run, all 14 negative controls are caught (they run on the default lexicon), and all three declared paths are present.
+- In every run, all 14 negative controls are caught, and all three declared paths are present. The negative controls are **default-lexicon controls**: they run on `build_lexicon("v2", "none")` with asides stripped, whatever the variant, so they are not variant-specific.
 
 ## The default end's endpoint guard, witnessed (`61b6618a`)
 
     cd <tree>/lyric-harness
     python3 quality/results/acceptance_2026-10-13/endpoint_guard_witness.py <OUT.json> <HARNESS_ROOT> <SHARD/SHARDS>
 
-3PO asked for this (#527, 6163217917). On the slot population, `_end_occurrence_bound` (`quality/loop.py` at `61b6618a`) changes 0 of 15,870 `end` records, so the population never exercises it. Receipts are in `endpoint_guard_61b6618a/`: four shards, pinned to the commit and to the sha256 of `loop.py` and this tool.
+3PO asked for this (#527, 6163217917). On the slot population, `_end_occurrence_bound` (`quality/loop.py` at `61b6618a`) changes 0 of 15,870 `end` records, so the population never exercises it. Receipts are in `endpoint_guard_61b6618a/`: four shards, each pinning:
+- the commit, the dirty state and the tool's git state;
+- the sha256 of `loop.py` and of this tool;
+- both lexicons and CMUdict;
+- the corpus: its file list and contents, the deduplicated line texts, and the shard's own lines.
 
-- **Real inputs: the guard changes no outcome in the corpus.** The sweep covers all 272,317 reader lines of `corpus/song/eng_*`, in both aside modes under the v2 lexicon. It compares the production call (`swap_end_word(line, mark, lex=lex)`) with the same function given no lexicon, where the guard does not run. The two return the same line on every line in both modes, with 0 errors. The guard is therefore never the reason a real end edit is refused or allowed, under these two lexicons.
+- **Real inputs: the guard changes no outcome in the corpus.** The sweep covers the 272,317 **unique line texts** of `corpus/song/eng_*` (1,344 files; duplicates counted once), per mode, in both aside modes under the v2 lexicon. It compares the production call (`swap_end_word(line, mark, lex=lex)`) with the same function given no lexicon, where the guard does not run. The two return the same line on every line text in both modes, with 0 errors. The guard is therefore never the reason a real end edit is refused or allowed, under these two lexicons.
 - **Focused cases: the guard is what refuses a wrong endpoint.** The simulated grader ends on another token, replacing `quality.loop._RESOLVE` and `slots.resolve` together so the reviser and the oracle see the same grader. On all 4 lines in both modes, the guarded swap **refuses**. With `_end_occurrence_bound` forced True, the same swap edits the last token, which the oracle reads as **`occ_wrong`**:
   - `I want to hold it`: edits `it`, while the grader ends on `hold`;
   - `do me a favour, do`: edits the last `do`, while the grader ends on the first `do`, the same spelling;
