@@ -1,0 +1,13 @@
+{
+ "recording_commit": "67889851144dd2a7eefedd9960a868978fb7bfae",
+ "source": "src/pages/lyrics.js",
+ "source_sha256": "2a88a0ad60c1e92932ee02571602d12aaa3c31c080f35a1180f428cd4ae48553",
+ "mirror": {
+  "source": "src/lyric-tokens.js",
+  "sha256": "c09aaa0bfeb910e5e06abf31689d210d01271a0bc6f7fd4af2c3f071942f97a5"
+ },
+ "lines": 227540,
+ "mismatches": 0,
+ "ids": [],
+ "examples": []
+}

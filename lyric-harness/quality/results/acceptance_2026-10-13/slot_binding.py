@@ -89,6 +89,27 @@ TELL is the verdict only when nothing has failed.
   might not pass is ever injected;
 - ERROR (3) means no verdict: an import or run failure. It never reads as FAIL.
 
+VERSION 2 (2026-10-14), after the unchanged version 1 met candidate 67889851,
+where production passes `swap_at_slot(text, slot, word, scheme=...,
+strip_parens=...)` at all three call sites and the cut is scheme-dependent.
+Version 1 called `(text, slot, word)` (so under asides-sung it edited as if
+asides were stripped: 912 `wrong_word`) and rebuilt spans with the pre-batch
+cut (114 line-modes `spans_not_reproduced`); it correctly reported both as
+unresolved. Version 2 changes exactly three things, and on a tree without
+reader schemes it behaves as version 1:
+- when every production call passes the same keywords, all within `scheme`
+  and `strip_parens`, the tool passes the grading lexicon's own values, the
+  ones `revise.py`'s `_splice` computes (`_scheme_of(lex)`,
+  `lex.strip_parens`). Any other shape stays `production_use_not_replicated`;
+- spans come from the harness's own `reader_token_spans` under the lexicon's
+  scheme, checked against `line_tokens` under that scheme, and those spans
+  join the edit-reconstruction candidates. A multi-piece token (a joined
+  spaced enclitic) is excluded and counted, as version 1 excluded
+  `join_spaced_enclitics` lines;
+- where the lexicon has `with_reader_scheme`, both aside modes also run under
+  scheme v1 (`v1:asides_stripped`, `v1:asides_sung`), because a resumed
+  pre-batch run edits and grades under its recorded v1.
+
 Lines that `join_spaced_enclitics` changes are excluded and counted, because
 their token offsets would be in transformed text. Those inputs stay untested
 here.
@@ -145,6 +166,11 @@ SLOTS = ["end", "endword", "head", "headrime"] + [f"T{n}" for n in range(1, 9)]
 MARKS = ("zqzq", "qxqx", "vzvz", "xjxj")
 PRODUCTION_FILES = ("quality/revise.py", "quality/loop.py", "lyric_harness.py")
 FAILING = ("wrong_word", "grader_elsewhere", "no_op_edit", "resolver_mismatch")
+#: Version 2: the only keywords the tool will replicate, with the grading
+#: lexicon's values (see `_production_uses`).
+REPLICATED_KEYWORDS = {"scheme", "strip_parens"}
+TOOL_VERSION = 2
+SWAP_KEYWORDS = ()
 
 
 def _sha(path):
@@ -170,9 +196,29 @@ def _cased(old, mark):
     return mark.lower()
 
 
-def _spans(line, strip):
+def _spans(line, strip, lex=None):
     """Reader-text spans of the line's tokens in this mode; None if the line
-    is transformed by the enclitic join; False if not reproduced exactly."""
+    is transformed by the enclitic join; False if not reproduced exactly.
+
+    TOOL VERSION 2 (2026-10-14). Where the measured harness has
+    `reader_token_spans`, the spans are ITS raw-line pieces under the
+    lexicon's own reader scheme, checked against `line_tokens` under the same
+    scheme. Version 1 re-derived spans with the pre-batch cut, which on a v2
+    tree mis-placed every line the new cut splits differently (114 line-modes
+    excluded as `spans_not_reproduced` at 67889851). A token in more than one
+    piece (a spaced enclitic the cut joins) is excluded like version 1's
+    transformed lines. On a tree without `reader_token_spans` this is
+    version 1, unchanged."""
+    if hasattr(LH, "reader_token_spans"):
+        scheme = LH._scheme_of(lex) if lex is not None else None
+        sp = LH.reader_token_spans(line, strip, scheme)
+        if sp is None:
+            return False
+        if any(len(p) != 1 for _, p in sp):
+            return None
+        if [t for t, _ in sp] != LH.line_tokens(line, strip_parens=strip, scheme=scheme):
+            return False
+        return [(t, tuple(p[0])) for t, p in sp]
     if LH.join_spaced_enclitics(line) != line:
         return None
     on = [(m.group(), m.span()) for m in LH._TOKEN_RUN.finditer(line) if LH.LATIN_SCRIPT.search(m.group())]
@@ -237,9 +283,11 @@ def _bound(lex, line, slot, spans):
     return spans[i][1]
 
 
-def _edited(line, new, mark):
-    """-> the single span whose replacement reproduces `new` exactly, or None."""
-    cands = {m.span() for m in LH._TOKEN_RUN.finditer(line)}
+def _edited(line, new, mark, spans=()):
+    """-> the single span whose replacement reproduces `new` exactly, or None.
+    Version 2 adds the mode's own reader spans to the candidates, so an edit
+    of a token the new cut makes (`Oh` out of `Oh--oh`) can be placed."""
+    cands = {m.span() for m in LH._TOKEN_RUN.finditer(line)} | {tuple(s) for _, s in spans or ()}
     if LOOP_WORD_RE is not None:
         cands |= {m.span() for m in LOOP_WORD_RE.finditer(line)}
     hits = [(a, b) for a, b in sorted(cands) if line[:a] + _cased(line[a:b], mark) + line[b:] == new]
@@ -273,14 +321,32 @@ def _production_uses():
                 name = node.id if isinstance(node, ast.Name) else node.attr
                 if name == "swap_at_slot" or name in aliases:
                     other.append({"file": rel, "line": node.lineno, "name": name})
-    odd = [c for c in calls if c["positional"] != 3 or c["keywords"] or c["starred"] or c["name"] != "swap_at_slot"]
-    return calls, odd, other
+    # VERSION 2: production may pass `scheme` and `strip_parens`, and only
+    # those, the same way at EVERY call site; the tool then passes the
+    # grading lexicon's own values (the values `revise.py`'s `_splice`
+    # computes: `_scheme_of(lex)` and `lex.strip_parens`). Any other shape,
+    # or call sites that disagree, stays not replicated.
+    kw_sets = {tuple(c["keywords"]) for c in calls}
+    shared = kw_sets.pop() if len(kw_sets) == 1 else None
+    ok = shared is not None and set(shared) <= REPLICATED_KEYWORDS
+    odd = [c for c in calls if c["positional"] != 3 or c["starred"] or c["name"] != "swap_at_slot"
+           or not ok]
+    return calls, odd, other, (tuple(shared) if ok else ())
+
+
+def _swap_kw(lex):
+    out = {}
+    if "scheme" in SWAP_KEYWORDS:
+        out["scheme"] = LH._scheme_of(lex)
+    if "strip_parens" in SWAP_KEYWORDS:
+        out["strip_parens"] = getattr(lex, "strip_parens", True)
+    return out
 
 
 def _classify(line, slot, lex, spans):
     mark = _mark(line)
     named = _named(slot, spans)
-    new = swap_at_slot(line, SL.parse_slot(f"1.{slot}"), mark)
+    new = swap_at_slot(line, SL.parse_slot(f"1.{slot}"), mark, **_swap_kw(lex))
     if new is not None and new == line:
         return "no_op_edit", named, None, None, new
     if named is None:
@@ -291,7 +357,7 @@ def _classify(line, slot, lex, spans):
     if new is None:
         kind = "refused" if bound == named else "refused_unbound" if bound is None else "refused_grader_elsewhere"
         return kind, named, bound, None, new
-    edited = _edited(line, new, mark)
+    edited = _edited(line, new, mark, spans)
     if edited != tuple(named):
         return "wrong_word", named, bound, edited, new
     if bound is None:
@@ -308,6 +374,16 @@ def main():
     sung = copy.copy(base)
     sung.strip_parens = False
     lexes = {"asides_stripped": base, "asides_sung": sung}
+    # VERSION 2: on a tree with reader schemes, the same two aside modes are
+    # also run under scheme v1 (a resumed pre-batch run edits and grades
+    # under its recorded v1), so the default modes are the process's scheme.
+    if hasattr(base, "with_reader_scheme"):
+        v1 = base.with_reader_scheme("v1")
+        v1_sung = copy.copy(v1)
+        v1_sung.strip_parens = False
+        lexes.update({"v1:asides_stripped": v1, "v1:asides_sung": v1_sung})
+    global SWAP_KEYWORDS
+    calls, odd, other, SWAP_KEYWORDS = _production_uses()
     files = sorted(glob.glob(os.path.join(ROOT, "corpus", "song", "eng_*")))
     corpus = [t for f in files for t in LH.load_lyric_lines(f)
               if "(" in t and LH.line_tokens(t, strip_parens=False) != LH.line_tokens(t, strip_parens=True)]
@@ -319,7 +395,7 @@ def main():
     cases = []
     for source, line in lines:
         for mode, lex in lexes.items():
-            spans = _spans(line, lex.strip_parens)
+            spans = _spans(line, lex.strip_parens, lex)
             if spans is None or spans is False:
                 excluded["spaced_enclitic_or_folded" if spans is None else "spans_not_reproduced"] += 1
                 continue
@@ -336,7 +412,7 @@ def main():
     controls = []
     for line, slot in CONTROLS:
         for mode, lex in lexes.items():
-            spans = _spans(line, lex.strip_parens)
+            spans = _spans(line, lex.strip_parens, lex)
             kind = _classify(line, slot, lex, spans)[0] if spans else "unmapped"
             controls.append({"line": line, "slot": slot, "mode": mode, "kind": kind})
     # NEGATIVE CONTROLS: rigged resolvers that bind ANOTHER OCCURRENCE OF THE
@@ -360,7 +436,7 @@ def main():
     try:
         for line, slot, rig, want in NEGATIVE_CONTROLS:
             SL.resolve = rigged(rig)
-            kind = _classify(line, slot, base, _spans(line, True))[0]
+            kind = _classify(line, slot, base, _spans(line, True, base))[0]
             negatives.append({"line": line, "slot": slot, "rig": rig, "expected": want, "kind": kind})
     finally:
         SL.resolve = real
@@ -371,7 +447,6 @@ def main():
                   "transformed_excluded": excluded["spaced_enclitic_or_folded"],
                   "unexpected_excluded": excluded["spans_not_reproduced"],
                   "accounted": admitted == evaluated_line_modes}
-    calls, odd, other = _production_uses()
     failing = {m: {k: tally[m].get(k, 0) for k in FAILING} for m in lexes}
     # EACH CONTROL IS PARTITIONED ON ITS OWN (3PO, 6152296864): a control the
     # oracle could not place (unmapped, resolver_mismatch) is UNRESOLVED; any
@@ -402,7 +477,8 @@ def main():
         "gate": gate, "failures": failures, "unresolved": unresolved,
         "pins": {
             "commit": commit, "tracked_changes": dirty, "harness_root": ROOT,
-            "tool_sha256": _sha(os.path.abspath(__file__)),
+            "tool_sha256": _sha(os.path.abspath(__file__)), "tool_version": TOOL_VERSION,
+            "swap_keywords_replicated": list(SWAP_KEYWORDS), "modes": list(lexes),
             "loop_sha256": _sha(os.path.join(ROOT, "quality", "loop.py")),
             "loop_word_re": LOOP_WORD_RE is not None,
             "lexicon": {"class": type(base).__name__,

@@ -1,0 +1,4512 @@
+{
+ "gate": "FAIL",
+ "failures": {
+  "asides_stripped:grader_elsewhere": 66,
+  "asides_sung:grader_elsewhere": 231,
+  "v1:asides_stripped:wrong_word": 5,
+  "v1:asides_stripped:grader_elsewhere": 35,
+  "v1:asides_sung:grader_elsewhere": 35
+ },
+ "unresolved": {
+  "v1:asides_stripped:resolver_mismatch": 1,
+  "v1:asides_sung:resolver_mismatch": 1
+ },
+ "pins": {
+  "commit": "67889851144dd2a7eefedd9960a868978fb7bfae",
+  "tracked_changes": false,
+  "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness",
+  "tool_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026",
+  "tool_version": 2,
+  "swap_keywords_replicated": [
+   "scheme",
+   "strip_parens"
+  ],
+  "modes": [
+   "asides_stripped",
+   "asides_sung",
+   "v1:asides_stripped",
+   "v1:asides_sung"
+  ],
+  "loop_sha256": "d8bdab07c0438c43e468fee6aab0e0d086e3d0ff9f11e8341d5299fff64c0209",
+  "loop_word_re": true,
+  "lexicon": {
+   "class": "SupplementedLexicon",
+   "supplement": {
+    "version": "v2",
+    "path": "data/lexicon_supplement_v2.tsv",
+    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+   },
+   "reader_scheme": {
+    "reader_scheme": "'v2'",
+    "READER_SCHEME": "'v2'",
+    "READER_SCHEMES": "('v1', 'v2')",
+    "_ACTIVE_READER_SCHEME": "None",
+    "_READER_SCHEME_DECLARED": "False"
+   },
+   "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+   "fallback": "none"
+  },
+  "population": {
+   "corpus_lines": 1045,
+   "synthetic_lines": 11,
+   "selected_lines": 1056,
+   "corpus_sha256": "3f7ee5d1d356b23f7505e4154e766888cf64077cfaa48a6cd26ddec4ad8068a9",
+   "synthetic_sha256": "d633071066177a58c717e2812a0099dc576fddbb43a43d163138d6040c7a3931",
+   "controls": 12
+  },
+  "slots": [
+   "end",
+   "endword",
+   "head",
+   "headrime",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8"
+  ],
+  "marks": [
+   "zqzq",
+   "qxqx",
+   "vzvz",
+   "xjxj"
+  ]
+ },
+ "production_calls": [
+  {
+   "file": "quality/revise.py",
+   "line": 4503,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 696,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 732,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  }
+ ],
+ "production_uses_not_replicated": {
+  "calls": [],
+  "other_references": []
+ },
+ "excluded_line_modes": {
+  "spaced_enclitic_or_folded": 6,
+  "spans_not_reproduced": 0
+ },
+ "evaluated_slots": {
+  "asides_stripped": 12660,
+  "asides_sung": 12648,
+  "v1:asides_stripped": 12660,
+  "v1:asides_sung": 12648
+ },
+ "outcomes": {
+  "asides_stripped": {
+   "agree": 3992,
+   "no_word_refused": 8124,
+   "refused": 252,
+   "grader_elsewhere": 66,
+   "agree_unbound": 212,
+   "refused_unbound": 14
+  },
+  "asides_sung": {
+   "agree": 9805,
+   "no_word_refused": 1357,
+   "refused": 747,
+   "refused_unbound": 52,
+   "agree_unbound": 456,
+   "grader_elsewhere": 231
+  },
+  "v1:asides_stripped": {
+   "agree": 854,
+   "refused": 3383,
+   "no_word_refused": 8130,
+   "wrong_word": 5,
+   "refused_grader_elsewhere": 31,
+   "refused_unbound": 79,
+   "resolver_mismatch": 1,
+   "agree_unbound": 142,
+   "grader_elsewhere": 35
+  },
+  "v1:asides_sung": {
+   "agree": 859,
+   "refused": 9863,
+   "no_word_refused": 1371,
+   "refused_unbound": 297,
+   "refused_grader_elsewhere": 80,
+   "resolver_mismatch": 1,
+   "agree_unbound": 142,
+   "grader_elsewhere": 35
+  }
+ },
+ "failing": {
+  "asides_stripped": {
+   "wrong_word": 0,
+   "grader_elsewhere": 66,
+   "no_op_edit": 0,
+   "resolver_mismatch": 0
+  },
+  "asides_sung": {
+   "wrong_word": 0,
+   "grader_elsewhere": 231,
+   "no_op_edit": 0,
+   "resolver_mismatch": 0
+  },
+  "v1:asides_stripped": {
+   "wrong_word": 5,
+   "grader_elsewhere": 35,
+   "no_op_edit": 0,
+   "resolver_mismatch": 1
+  },
+  "v1:asides_sung": {
+   "wrong_word": 0,
+   "grader_elsewhere": 35,
+   "no_op_edit": 0,
+   "resolver_mismatch": 1
+  }
+ },
+ "population": {
+  "intended_line_modes": 4224,
+  "admitted_line_modes": 4218,
+  "transformed_excluded": 6,
+  "unexpected_excluded": 0,
+  "accounted": true
+ },
+ "controls": [
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "v1:asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "v1:asides_sung",
+   "kind": "agree"
+  }
+ ],
+ "controls_failed": [],
+ "controls_unresolved": [],
+ "negative_controls": [
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
+   "kind": "grader_elsewhere"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
+   "kind": "grader_elsewhere"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  }
+ ],
+ "negative_controls_failed": [],
+ "cases": [
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "I love you (love you)",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    7,
+    10
+   ],
+   "bound": [
+    7,
+    10
+   ],
+   "edited": [
+    17,
+    20
+   ],
+   "result": "I love you (love zqzq)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "hold on (hold on)",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    5,
+    7
+   ],
+   "bound": [
+    5,
+    7
+   ],
+   "edited": [
+    14,
+    16
+   ],
+   "result": "hold on (hold zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Lest the smoke his sight o’erwhelm,)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    26,
+    35
+   ],
+   "bound": [
+    20,
+    25
+   ],
+   "edited": [
+    26,
+    35
+   ],
+   "result": "(Lest the smoke his sight zqzq,)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Rasping right alongside!)",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    8
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    1,
+    8
+   ],
+   "result": "(Zqzq right alongside!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Rasping right alongside!)",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    8
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    1,
+    8
+   ],
+   "result": "(Zqzq right alongside!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Put down that stick! (You may well look skeered.)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    40,
+    47
+   ],
+   "bound": [
+    35,
+    39
+   ],
+   "edited": [
+    40,
+    47
+   ],
+   "result": "Put down that stick! (You may well look zqzq.)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(I’m good at thet),” sez he,",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    21,
+    24
+   ],
+   "bound": [
+    25,
+    27
+   ],
+   "edited": [
+    21,
+    24
+   ],
+   "result": "(I’m good at thet),” zqzq he,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(I’m good at thet),” sez he,",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    21,
+    24
+   ],
+   "bound": [
+    25,
+    27
+   ],
+   "edited": [
+    21,
+    24
+   ],
+   "result": "(I’m good at thet),” zqzq he,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Helped by Yankee renegaders),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    18,
+    28
+   ],
+   "bound": [
+    11,
+    17
+   ],
+   "edited": [
+    18,
+    28
+   ],
+   "result": "(Helped by Yankee zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Like a peach thet's got the yellers),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    29,
+    36
+   ],
+   "bound": [
+    25,
+    28
+   ],
+   "edited": [
+    29,
+    36
+   ],
+   "result": "(Like a peach thet's got the zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    0,
+    2
+   ],
+   "bound": [
+    3,
+    9
+   ],
+   "edited": [
+    0,
+    2
+   ],
+   "result": "Zqzq brains wuz to settle it (horrid reflection!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    0,
+    2
+   ],
+   "bound": [
+    3,
+    9
+   ],
+   "edited": [
+    0,
+    2
+   ],
+   "result": "Zqzq brains wuz to settle it (horrid reflection!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    0,
+    2
+   ],
+   "bound": [
+    3,
+    9
+   ],
+   "edited": [
+    0,
+    2
+   ],
+   "result": "Zqzq brains wuz to settle it (horrid reflection!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    0,
+    2
+   ],
+   "bound": [
+    3,
+    9
+   ],
+   "edited": [
+    0,
+    2
+   ],
+   "result": "Zqzq brains wuz to settle it (horrid reflection!)"
+  },
+  {
+   "kind": "resolver_mismatch",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    50,
+    54
+   ],
+   "bound": null,
+   "edited": null,
+   "result": "An' your fact'ry gals (soon ez we split) 'll make zqzq,"
+  },
+  {
+   "kind": "resolver_mismatch",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "v1:asides_sung",
+   "slot": "end",
+   "named": [
+    50,
+    54
+   ],
+   "bound": null,
+   "edited": null,
+   "result": "An' your fact'ry gals (soon ez we split) 'll make zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Will come again' (he saith),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    21,
+    26
+   ],
+   "bound": [
+    18,
+    20
+   ],
+   "edited": [
+    21,
+    26
+   ],
+   "result": "Will come again' (he zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "When the horn is on the hill? (Bugle: Tarantara!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    38,
+    47
+   ],
+   "bound": [
+    31,
+    36
+   ],
+   "edited": [
+    38,
+    47
+   ],
+   "result": "When the horn is on the hill? (Bugle: Zqzq!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "We shall slay the buck of ten; (Bugle: Tarantara!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    48
+   ],
+   "bound": [
+    32,
+    37
+   ],
+   "edited": [
+    39,
+    48
+   ],
+   "result": "We shall slay the buck of ten; (Bugle: Zqzq!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Keep close and house him fair; (Bugle: Tarantara!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    48
+   ],
+   "bound": [
+    32,
+    37
+   ],
+   "edited": [
+    39,
+    48
+   ],
+   "result": "Keep close and house him fair; (Bugle: Zqzq!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Let him come out to-day! (Bugle: Tarantara!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    33,
+    42
+   ],
+   "bound": [
+    26,
+    31
+   ],
+   "edited": [
+    33,
+    42
+   ],
+   "result": "Let him come out to-day! (Bugle: Zqzq!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Home, Rose, and home, Provence and La Palie),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    44
+   ],
+   "bound": [
+    36,
+    38
+   ],
+   "edited": [
+    39,
+    44
+   ],
+   "result": "(Home, Rose, and home, Provence and La Zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Home, Rose, and home, Provence and La Palie),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    44
+   ],
+   "bound": [
+    36,
+    38
+   ],
+   "edited": [
+    39,
+    44
+   ],
+   "result": "(Home, Rose, and home, Provence and La Zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Home, Rose, and home, Provence and La Palie).",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    44
+   ],
+   "bound": [
+    36,
+    38
+   ],
+   "edited": [
+    39,
+    44
+   ],
+   "result": "(Home, Rose, and home, Provence and La Zqzq)."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Home, Rose, and home, Provence and La Palie),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    44
+   ],
+   "bound": [
+    36,
+    38
+   ],
+   "edited": [
+    39,
+    44
+   ],
+   "result": "(Home, Rose, and home, Provence and La Zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Home, Rose, and home, Provence and La Palie.)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    44
+   ],
+   "bound": [
+    36,
+    38
+   ],
+   "edited": [
+    39,
+    44
+   ],
+   "result": "(Home, Rose, and home, Provence and La Zqzq.)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Home, Rose, and home, Provence and La Palie),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    44
+   ],
+   "bound": [
+    36,
+    38
+   ],
+   "edited": [
+    39,
+    44
+   ],
+   "result": "(Home, Rose, and home, Provence and La Zqzq),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Content some day (a far-off day)",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    13,
+    16
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    28,
+    31
+   ],
+   "result": "Content some day (a far-off zqzq)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "You said (Oh not in vain you said),",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    4,
+    8
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    29,
+    33
+   ],
+   "result": "You said (Oh not in vain you zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (turning querulously)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    3,
+    12
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (turning querulously)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (turning querulously)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    22,
+    33
+   ],
+   "bound": [
+    14,
+    21
+   ],
+   "edited": [
+    22,
+    33
+   ],
+   "result": "M. Vieuxbois (turning zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (drowsily)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    3,
+    12
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (drowsily)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (drowsily)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    14,
+    22
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    14,
+    22
+   ],
+   "result": "M. Vieuxbois (zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (murmuring)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    3,
+    12
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (murmuring)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (almost inaudibly)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    3,
+    12
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (almost inaudibly)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(It was the Miller's Nancy told it to me),                       10",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    65,
+    67
+   ],
+   "bound": [
+    38,
+    40
+   ],
+   "edited": [
+    65,
+    67
+   ],
+   "result": "(It was the Miller's Nancy told it to me),                       zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Whether you or he be the wronger),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    26,
+    33
+   ],
+   "bound": [
+    22,
+    25
+   ],
+   "edited": [
+    26,
+    33
+   ],
+   "result": "(Whether you or he be the zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "_Mrs. T. (aside)._ I've known him play that Exmoor",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    44,
+    50
+   ],
+   "bound": [
+    39,
+    43
+   ],
+   "edited": [
+    44,
+    50
+   ],
+   "result": "_Mrs. T. (aside)._ I've known him play that Zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "_Mrs. T. (aside)._ I've known him play that Exmoor",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    44,
+    50
+   ],
+   "bound": [
+    39,
+    43
+   ],
+   "edited": [
+    44,
+    50
+   ],
+   "result": "_Mrs. T. (aside)._ I've known him play that Zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Loveliest of birds) possession of the place;",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    10
+   ],
+   "bound": [
+    11,
+    13
+   ],
+   "edited": [
+    1,
+    10
+   ],
+   "result": "(Zqzq of birds) possession of the place;"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Loveliest of birds) possession of the place;",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    10
+   ],
+   "bound": [
+    11,
+    13
+   ],
+   "edited": [
+    1,
+    10
+   ],
+   "result": "(Zqzq of birds) possession of the place;"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(This man, that they used to call “Dunce.”)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    40
+   ],
+   "bound": [
+    29,
+    33
+   ],
+   "edited": [
+    35,
+    40
+   ],
+   "result": "(This man, that they used to call “Zqzq.”)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(It answers best with suet),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    22,
+    26
+   ],
+   "bound": [
+    17,
+    21
+   ],
+   "edited": [
+    22,
+    26
+   ],
+   "result": "(It answers best with zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The gold alloyd (almost halfe brasse),",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    9,
+    15
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    9,
+    15
+   ],
+   "result": "The gold zqzq (almost halfe brasse),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The gold alloyd (almost halfe brasse),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    30,
+    36
+   ],
+   "bound": [
+    17,
+    23
+   ],
+   "edited": [
+    30,
+    36
+   ],
+   "result": "The gold alloyd (almost halfe zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Griefe adding fuell) doth distill;",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    7
+   ],
+   "bound": [
+    8,
+    14
+   ],
+   "edited": [
+    1,
+    7
+   ],
+   "result": "(Zqzq adding fuell) doth distill;"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Griefe adding fuell) doth distill;",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    7
+   ],
+   "bound": [
+    8,
+    14
+   ],
+   "edited": [
+    1,
+    7
+   ],
+   "result": "(Zqzq adding fuell) doth distill;"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "LUCASTA (fair, but hapless maid!)",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    0,
+    7
+   ],
+   "bound": [
+    9,
+    13
+   ],
+   "edited": [
+    0,
+    7
+   ],
+   "result": "ZQZQ (fair, but hapless maid!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "LUCASTA (fair, but hapless maid!)",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    0,
+    7
+   ],
+   "bound": [
+    9,
+    13
+   ],
+   "edited": [
+    0,
+    7
+   ],
+   "result": "ZQZQ (fair, but hapless maid!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "POEMS (Works, vi. 440).",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    18,
+    21
+   ],
+   "bound": [
+    14,
+    16
+   ],
+   "edited": [
+    18,
+    21
+   ],
+   "result": "POEMS (Works, vi. zqzq)."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "When (he at th' empty board a wonderer)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    30,
+    38
+   ],
+   "bound": [
+    28,
+    29
+   ],
+   "edited": [
+    30,
+    38
+   ],
+   "result": "When (he at th' empty board a zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(His force set by) y'are conquer'd by this bribe.",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    19,
+    24
+   ],
+   "bound": [
+    25,
+    34
+   ],
+   "edited": [
+    19,
+    24
+   ],
+   "result": "(His force set by) zqzq conquer'd by this bribe."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(His force set by) y'are conquer'd by this bribe.",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    19,
+    24
+   ],
+   "bound": [
+    25,
+    34
+   ],
+   "edited": [
+    19,
+    24
+   ],
+   "result": "(His force set by) zqzq conquer'd by this bribe."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "That came vaunting (has he lied?)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    10,
+    18
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    10,
+    18
+   ],
+   "result": "That came zqzq (has he lied?)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "All her magic ('tis the old sweet mythos),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    34,
+    40
+   ],
+   "bound": [
+    28,
+    33
+   ],
+   "edited": [
+    34,
+    40
+   ],
+   "result": "All her magic ('tis the old sweet zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "But choose aright (good Love! I thee require)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    11,
+    17
+   ],
+   "bound": [
+    4,
+    10
+   ],
+   "edited": [
+    11,
+    17
+   ],
+   "result": "But choose zqzq (good Love! I thee require)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Wha can speak it without _greeting_?)",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    1,
+    4
+   ],
+   "result": "(Zqzq can speak it without _greeting_?)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Wha can speak it without _greeting_?)",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    1,
+    4
+   ],
+   "result": "(Zqzq can speak it without _greeting_?)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Black be your fa'!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    15,
+    18
+   ],
+   "bound": [
+    10,
+    14
+   ],
+   "edited": [
+    15,
+    18
+   ],
+   "result": "(Black be your zqzq!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "“Geld you! (quo' he) an' what for no?",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    1,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    1,
+    5
+   ],
+   "result": "“Zqzq you! (quo' he) an' what for no?"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "“Geld you! (quo' he) an' what for no?",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    1,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    1,
+    5
+   ],
+   "result": "“Zqzq you! (quo' he) an' what for no?"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "“Geld you! (quo' he) an' what for no?",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    1,
+    5
+   ],
+   "result": "“Zqzq you! (quo' he) an' what for no?"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "“Geld you! (quo' he) an' what for no?",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    1,
+    5
+   ],
+   "result": "“Zqzq you! (quo' he) an' what for no?"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "E'en then, a wish, (I mind its pow'r),",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq then, a wish, (I mind its pow'r),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "E'en then, a wish, (I mind its pow'r),",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq then, a wish, (I mind its pow'r),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "E'en then, a wish, (I mind its pow'r),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    31,
+    36
+   ],
+   "bound": [
+    27,
+    30
+   ],
+   "edited": [
+    31,
+    36
+   ],
+   "result": "E'en then, a wish, (I mind its zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "E'en then, a wish, (I mind its pow'r),",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq then, a wish, (I mind its pow'r),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "E'en then, a wish, (I mind its pow'r),",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq then, a wish, (I mind its pow'r),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Lingering lips must now disjoin),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    25,
+    32
+   ],
+   "bound": [
+    21,
+    24
+   ],
+   "edited": [
+    25,
+    32
+   ],
+   "result": "(Lingering lips must now zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Veneering oft outshines the solid wood),",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    10
+   ],
+   "bound": [
+    11,
+    14
+   ],
+   "edited": [
+    1,
+    10
+   ],
+   "result": "(Zqzq oft outshines the solid wood),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Veneering oft outshines the solid wood),",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    10
+   ],
+   "bound": [
+    11,
+    14
+   ],
+   "edited": [
+    1,
+    10
+   ],
+   "result": "(Zqzq oft outshines the solid wood),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Reproof on her lip, but a smile in her eye),",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    8
+   ],
+   "bound": [
+    9,
+    11
+   ],
+   "edited": [
+    1,
+    8
+   ],
+   "result": "(Zqzq on her lip, but a smile in her eye),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(Reproof on her lip, but a smile in her eye),",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    8
+   ],
+   "bound": [
+    9,
+    11
+   ],
+   "edited": [
+    1,
+    8
+   ],
+   "result": "(Zqzq on her lip, but a smile in her eye),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ah! (then said he) thou cruel Quean,",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    30,
+    35
+   ],
+   "bound": [
+    24,
+    29
+   ],
+   "edited": [
+    30,
+    35
+   ],
+   "result": "Ah! (then said he) thou cruel Zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ah! (then said he) thou cruel Quean,",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    30,
+    35
+   ],
+   "bound": [
+    24,
+    29
+   ],
+   "edited": [
+    30,
+    35
+   ],
+   "result": "Ah! (then said he) thou cruel Zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "the Ship called_ (the Cuckolds Venture) _now riding at_ Cuckolds",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    56,
+    64
+   ],
+   "bound": [
+    52,
+    54
+   ],
+   "edited": [
+    56,
+    64
+   ],
+   "result": "the Ship called_ (the Cuckolds Venture) _now riding at_ Zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "the Ship called_ (the Cuckolds Venture) _now riding at_ Cuckolds",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    56,
+    64
+   ],
+   "bound": [
+    52,
+    54
+   ],
+   "edited": [
+    56,
+    64
+   ],
+   "result": "the Ship called_ (the Cuckolds Venture) _now riding at_ Zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Take a little Dram of Passion, (a little dram of Passion)",
+   "mode": "v1:asides_stripped",
+   "slot": "end",
+   "named": [
+    22,
+    29
+   ],
+   "bound": [
+    22,
+    29
+   ],
+   "edited": [
+    49,
+    56
+   ],
+   "result": "Take a little Dram of Passion, (a little dram of Zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "For Girls like Nuts (Excuse my Rhimes)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    31,
+    37
+   ],
+   "bound": [
+    28,
+    30
+   ],
+   "edited": [
+    31,
+    37
+   ],
+   "result": "For Girls like Nuts (Excuse my Zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Had the King (quoth he) put me upon't,",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    31,
+    37
+   ],
+   "bound": [
+    28,
+    30
+   ],
+   "edited": [
+    31,
+    37
+   ],
+   "result": "Had the King (quoth he) put me zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Had the King (quoth he) put me upon't,",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    31,
+    37
+   ],
+   "bound": [
+    28,
+    30
+   ],
+   "edited": [
+    31,
+    37
+   ],
+   "result": "Had the King (quoth he) put me zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(non ut gnathones)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    8,
+    17
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    8,
+    17
+   ],
+   "result": "(non ut zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "A-meäkèn o' me waït (wast zoo behind)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    15,
+    19
+   ],
+   "bound": [
+    12,
+    14
+   ],
+   "edited": [
+    15,
+    19
+   ],
+   "result": "A-meäkèn o' me zqzq (wast zoo behind)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "A-stuck in row (zome short an' longer zome)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    38,
+    42
+   ],
+   "bound": [
+    31,
+    37
+   ],
+   "edited": [
+    38,
+    42
+   ],
+   "result": "A-stuck in row (zome short an' longer zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The'd cut us out a figure aïght (8), d'ye know.",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    0,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    0,
+    5
+   ],
+   "result": "Zqzq cut us out a figure aïght (8), d'ye know."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The'd cut us out a figure aïght (8), d'ye know.",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    0,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    0,
+    5
+   ],
+   "result": "Zqzq cut us out a figure aïght (8), d'ye know."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The'd cut us out a figure aïght (8), d'ye know.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    0,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    0,
+    5
+   ],
+   "result": "Zqzq cut us out a figure aïght (8), d'ye know."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The'd cut us out a figure aïght (8), d'ye know.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    0,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    0,
+    5
+   ],
+   "result": "Zqzq cut us out a figure aïght (8), d'ye know."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The'd cut us out a figure aïght (8), d'ye know.",
+   "mode": "v1:asides_stripped",
+   "slot": "head",
+   "named": [
+    0,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    0,
+    5
+   ],
+   "result": "Zqzq cut us out a figure aïght (8), d'ye know."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The'd cut us out a figure aïght (8), d'ye know.",
+   "mode": "v1:asides_stripped",
+   "slot": "headrime",
+   "named": [
+    0,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    0,
+    5
+   ],
+   "result": "Zqzq cut us out a figure aïght (8), d'ye know."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The'd cut us out a figure aïght (8), d'ye know.",
+   "mode": "v1:asides_sung",
+   "slot": "head",
+   "named": [
+    0,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    0,
+    5
+   ],
+   "result": "Zqzq cut us out a figure aïght (8), d'ye know."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The'd cut us out a figure aïght (8), d'ye know.",
+   "mode": "v1:asides_sung",
+   "slot": "headrime",
+   "named": [
+    0,
+    5
+   ],
+   "bound": [
+    6,
+    9
+   ],
+   "edited": [
+    0,
+    5
+   ],
+   "result": "Zqzq cut us out a figure aïght (8), d'ye know."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(He liv'd at Grenley-farm, an milk'd a deäiry),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    45
+   ],
+   "bound": [
+    37,
+    38
+   ],
+   "edited": [
+    39,
+    45
+   ],
+   "result": "(He liv'd at Grenley-farm, an milk'd a zqzq),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "An' then he zeed en ('twer enough to frighten èn)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    46,
+    48
+   ],
+   "bound": [
+    37,
+    45
+   ],
+   "edited": [
+    46,
+    48
+   ],
+   "result": "An' then he zeed en ('twer enough to frighten zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "('Tis best to meäke a friend o't)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    29,
+    32
+   ],
+   "bound": [
+    22,
+    28
+   ],
+   "edited": [
+    29,
+    32
+   ],
+   "result": "('Tis best to meäke a friend zqzq)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    47,
+    52
+   ],
+   "bound": [
+    42,
+    46
+   ],
+   "edited": [
+    47,
+    52
+   ],
+   "result": "(1) Well, here we be, then, wi' the vu'st poor zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    47,
+    52
+   ],
+   "bound": [
+    42,
+    46
+   ],
+   "edited": [
+    47,
+    52
+   ],
+   "result": "(1) Well, here we be, then, wi' the vu'st poor zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well, here we be, then, wi' the vu'st poor lwoad"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well, here we be, then, wi' the vu'st poor lwoad"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+   "mode": "v1:asides_stripped",
+   "slot": "endword",
+   "named": [
+    47,
+    52
+   ],
+   "bound": [
+    42,
+    46
+   ],
+   "edited": [
+    47,
+    52
+   ],
+   "result": "(1) Well, here we be, then, wi' the vu'st poor zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+   "mode": "v1:asides_sung",
+   "slot": "endword",
+   "named": [
+    47,
+    52
+   ],
+   "bound": [
+    42,
+    46
+   ],
+   "edited": [
+    47,
+    52
+   ],
+   "result": "(1) Well, here we be, then, wi' the vu'st poor zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) The road, George, no.  There's na'r a road.  That's wrong.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) The road, George, no.  There's na'r a road.  That's wrong."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) The road, George, no.  There's na'r a road.  That's wrong.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) The road, George, no.  There's na'r a road.  That's wrong."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    4,
+    7
+   ],
+   "bound": [
+    8,
+    12
+   ],
+   "edited": [
+    4,
+    7
+   ],
+   "result": "(1) Zqzq road!  Ees 'tis, the road that we do goo."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    4,
+    7
+   ],
+   "bound": [
+    8,
+    12
+   ],
+   "edited": [
+    4,
+    7
+   ],
+   "result": "(1) Zqzq road!  Ees 'tis, the road that we do goo."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    8,
+    12
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Noo road!  Ees 'tis, the road that we do goo."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    8,
+    12
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Noo road!  Ees 'tis, the road that we do goo."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+   "mode": "v1:asides_stripped",
+   "slot": "head",
+   "named": [
+    4,
+    7
+   ],
+   "bound": [
+    8,
+    12
+   ],
+   "edited": [
+    4,
+    7
+   ],
+   "result": "(1) Zqzq road!  Ees 'tis, the road that we do goo."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+   "mode": "v1:asides_stripped",
+   "slot": "headrime",
+   "named": [
+    4,
+    7
+   ],
+   "bound": [
+    8,
+    12
+   ],
+   "edited": [
+    4,
+    7
+   ],
+   "result": "(1) Zqzq road!  Ees 'tis, the road that we do goo."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+   "mode": "v1:asides_sung",
+   "slot": "head",
+   "named": [
+    4,
+    7
+   ],
+   "bound": [
+    8,
+    12
+   ],
+   "edited": [
+    4,
+    7
+   ],
+   "result": "(1) Zqzq road!  Ees 'tis, the road that we do goo."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+   "mode": "v1:asides_sung",
+   "slot": "headrime",
+   "named": [
+    4,
+    7
+   ],
+   "bound": [
+    8,
+    12
+   ],
+   "edited": [
+    4,
+    7
+   ],
+   "result": "(1) Zqzq road!  Ees 'tis, the road that we do goo."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    49,
+    55
+   ],
+   "bound": [
+    45,
+    48
+   ],
+   "edited": [
+    49,
+    55
+   ],
+   "result": "(2) Do goo, George, no.  The pleäce we can't get zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    49,
+    55
+   ],
+   "bound": [
+    45,
+    48
+   ],
+   "edited": [
+    49,
+    55
+   ],
+   "result": "(2) Do goo, George, no.  The pleäce we can't get zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    6
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Do goo, George, no.  The pleäce we can't get drough."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    6
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Do goo, George, no.  The pleäce we can't get drough."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+   "mode": "v1:asides_stripped",
+   "slot": "endword",
+   "named": [
+    49,
+    55
+   ],
+   "bound": [
+    45,
+    48
+   ],
+   "edited": [
+    49,
+    55
+   ],
+   "result": "(2) Do goo, George, no.  The pleäce we can't get zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+   "mode": "v1:asides_sung",
+   "slot": "endword",
+   "named": [
+    49,
+    55
+   ],
+   "bound": [
+    45,
+    48
+   ],
+   "edited": [
+    49,
+    55
+   ],
+   "result": "(2) Do goo, George, no.  The pleäce we can't get zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, there, the vu'st lwoad we've a-haul'd to day",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well, there, the vu'st lwoad we've a-haul'd to day"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, there, the vu'st lwoad we've a-haul'd to day",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well, there, the vu'st lwoad we've a-haul'd to day"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) An' yeet this rotten groun' don't reach a lug.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) An' yeet this rotten groun' don't reach a lug."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) An' yeet this rotten groun' don't reach a lug.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) An' yeet this rotten groun' don't reach a lug."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, come, then, gi'e the plow another tug.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well, come, then, gi'e the plow another tug."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, come, then, gi'e the plow another tug.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well, come, then, gi'e the plow another tug."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) They meäres wull never pull the waggon out,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) They meäres wull never pull the waggon out,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) They meäres wull never pull the waggon out,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) They meäres wull never pull the waggon out,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) We'll try.  Come, _Smiler_, come!  C'up, _Whitevoot_, gee!",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    9
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) We'll try.  Come, _Smiler_, come!  C'up, _Whitevoot_, gee!"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) We'll try.  Come, _Smiler_, come!  C'up, _Whitevoot_, gee!",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    9
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) We'll try.  Come, _Smiler_, come!  C'up, _Whitevoot_, gee!"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) White-voot wi' lags all over mud!  Hee! Hee!",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    14
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) White-voot wi' lags all over mud!  Hee! Hee!"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) White-voot wi' lags all over mud!  Hee! Hee!",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    14
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) White-voot wi' lags all over mud!  Hee! Hee!"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    4,
+    12
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    4,
+    12
+   ],
+   "result": "(3) zqzq wag. We shall but snap our gear,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    4,
+    12
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    4,
+    12
+   ],
+   "result": "(3) zqzq wag. We shall but snap our gear,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) 'Twoon't wag. We shall but snap our gear,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) 'Twoon't wag. We shall but snap our gear,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+   "mode": "v1:asides_stripped",
+   "slot": "head",
+   "named": [
+    4,
+    12
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    4,
+    12
+   ],
+   "result": "(3) zqzq wag. We shall but snap our gear,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+   "mode": "v1:asides_stripped",
+   "slot": "headrime",
+   "named": [
+    4,
+    12
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    4,
+    12
+   ],
+   "result": "(3) zqzq wag. We shall but snap our gear,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+   "mode": "v1:asides_sung",
+   "slot": "head",
+   "named": [
+    4,
+    12
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    4,
+    12
+   ],
+   "result": "(3) zqzq wag. We shall but snap our gear,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) 'Twoon't wag. We shall but snap our gear,",
+   "mode": "v1:asides_sung",
+   "slot": "headrime",
+   "named": [
+    4,
+    12
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    4,
+    12
+   ],
+   "result": "(3) zqzq wag. We shall but snap our gear,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) That's your work, William.  No, in coo'se, 'twoon't wag.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    10
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) That's your work, William.  No, in coo'se, 'twoon't wag."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) That's your work, William.  No, in coo'se, 'twoon't wag.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    10
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) That's your work, William.  No, in coo'se, 'twoon't wag."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) What then?  I coulden leäve the beäten track,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) What then?  I coulden leäve the beäten track,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) What then?  I coulden leäve the beäten track,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) What then?  I coulden leäve the beäten track,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) I drēve the plow, indeed!  Oh! ees, what, now",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    5
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) I drēve the plow, indeed!  Oh! ees, what, now"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) I drēve the plow, indeed!  Oh! ees, what, now",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    5
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) I drēve the plow, indeed!  Oh! ees, what, now"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The wheels.  (2) There's na'r a speäde to dig wi'.",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    46,
+    49
+   ],
+   "bound": [
+    42,
+    45
+   ],
+   "edited": [
+    46,
+    49
+   ],
+   "result": "The wheels.  (2) There's na'r a speäde to dig zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The wheels.  (2) There's na'r a speäde to dig wi'.",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    46,
+    49
+   ],
+   "bound": [
+    42,
+    45
+   ],
+   "edited": [
+    46,
+    49
+   ],
+   "result": "The wheels.  (2) There's na'r a speäde to dig zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The wheels.  (2) There's na'r a speäde to dig wi'.",
+   "mode": "v1:asides_stripped",
+   "slot": "endword",
+   "named": [
+    46,
+    49
+   ],
+   "bound": [
+    42,
+    45
+   ],
+   "edited": [
+    46,
+    49
+   ],
+   "result": "The wheels.  (2) There's na'r a speäde to dig zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "The wheels.  (2) There's na'r a speäde to dig wi'.",
+   "mode": "v1:asides_sung",
+   "slot": "endword",
+   "named": [
+    46,
+    49
+   ],
+   "bound": [
+    42,
+    45
+   ],
+   "edited": [
+    46,
+    49
+   ],
+   "result": "The wheels.  (2) There's na'r a speäde to dig zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    43,
+    47
+   ],
+   "bound": [
+    39,
+    42
+   ],
+   "edited": [
+    43,
+    47
+   ],
+   "result": "(1) An' teäke an' cut a lock o' frith, an' zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    43,
+    47
+   ],
+   "bound": [
+    39,
+    42
+   ],
+   "edited": [
+    43,
+    47
+   ],
+   "result": "(1) An' teäke an' cut a lock o' frith, an' zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) An' teäke an' cut a lock o' frith, an' drow"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "v1:asides_stripped",
+   "slot": "endword",
+   "named": [
+    43,
+    47
+   ],
+   "bound": [
+    39,
+    42
+   ],
+   "edited": [
+    43,
+    47
+   ],
+   "result": "(1) An' teäke an' cut a lock o' frith, an' zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "mode": "v1:asides_sung",
+   "slot": "endword",
+   "named": [
+    43,
+    47
+   ],
+   "bound": [
+    39,
+    42
+   ],
+   "edited": [
+    43,
+    47
+   ],
+   "result": "(1) An' teäke an' cut a lock o' frith, an' zqzq"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Upon the clay.  (2) Nor hook to cut a twig wi'.",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    43,
+    46
+   ],
+   "bound": [
+    38,
+    42
+   ],
+   "edited": [
+    43,
+    46
+   ],
+   "result": "Upon the clay.  (2) Nor hook to cut a twig zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Upon the clay.  (2) Nor hook to cut a twig wi'.",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    43,
+    46
+   ],
+   "bound": [
+    38,
+    42
+   ],
+   "edited": [
+    43,
+    46
+   ],
+   "result": "Upon the clay.  (2) Nor hook to cut a twig zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Upon the clay.  (2) Nor hook to cut a twig wi'.",
+   "mode": "v1:asides_stripped",
+   "slot": "endword",
+   "named": [
+    43,
+    46
+   ],
+   "bound": [
+    38,
+    42
+   ],
+   "edited": [
+    43,
+    46
+   ],
+   "result": "Upon the clay.  (2) Nor hook to cut a twig zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Upon the clay.  (2) Nor hook to cut a twig wi'.",
+   "mode": "v1:asides_sung",
+   "slot": "endword",
+   "named": [
+    43,
+    46
+   ],
+   "bound": [
+    38,
+    42
+   ],
+   "edited": [
+    43,
+    46
+   ],
+   "result": "Upon the clay.  (2) Nor hook to cut a twig zqzq."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Oh! here's a bwoy a-comèn.  Here, my lad,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    6
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Oh! here's a bwoy a-comèn.  Here, my lad,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Oh! here's a bwoy a-comèn.  Here, my lad,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    6
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Oh! here's a bwoy a-comèn.  Here, my lad,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well run, an' ax vor woone.  Fling up your heels,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well run, an' ax vor woone.  Fling up your heels,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well run, an' ax vor woone.  Fling up your heels,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well run, an' ax vor woone.  Fling up your heels,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) Why, we shall want zix ho'ses, or a dozen,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Why, we shall want zix ho'ses, or a dozen,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) Why, we shall want zix ho'ses, or a dozen,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Why, we shall want zix ho'ses, or a dozen,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, we mus' lighten en; come, Jeämes, then, hop",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well, we mus' lighten en; come, Jeämes, then, hop"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Well, we mus' lighten en; come, Jeämes, then, hop",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well, we mus' lighten en; come, Jeämes, then, hop"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    35,
+    42
+   ],
+   "bound": [
+    32,
+    34
+   ],
+   "edited": [
+    35,
+    42
+   ],
+   "result": "(2) If I can clim' en; but 'tis my zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    42
+   ],
+   "bound": [
+    32,
+    34
+   ],
+   "edited": [
+    35,
+    42
+   ],
+   "result": "(2) If I can clim' en; but 'tis my zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    6
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) If I can clim' en; but 'tis my consaït,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    6
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) If I can clim' en; but 'tis my consaït,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "mode": "v1:asides_stripped",
+   "slot": "endword",
+   "named": [
+    35,
+    42
+   ],
+   "bound": [
+    32,
+    34
+   ],
+   "edited": [
+    35,
+    42
+   ],
+   "result": "(2) If I can clim' en; but 'tis my zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "mode": "v1:asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    42
+   ],
+   "bound": [
+    32,
+    34
+   ],
+   "edited": [
+    35,
+    42
+   ],
+   "result": "(2) If I can clim' en; but 'tis my zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    42,
+    46
+   ],
+   "bound": [
+    36,
+    41
+   ],
+   "edited": [
+    42,
+    46
+   ],
+   "result": "(1) You overzet en!  No, Jeämes, he won't zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    42,
+    46
+   ],
+   "bound": [
+    36,
+    41
+   ],
+   "edited": [
+    42,
+    46
+   ],
+   "result": "(1) You overzet en!  No, Jeämes, he won't zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) You overzet en!  No, Jeämes, he won't vall,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) You overzet en!  No, Jeämes, he won't vall,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+   "mode": "v1:asides_stripped",
+   "slot": "endword",
+   "named": [
+    42,
+    46
+   ],
+   "bound": [
+    36,
+    41
+   ],
+   "edited": [
+    42,
+    46
+   ],
+   "result": "(1) You overzet en!  No, Jeämes, he won't zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+   "mode": "v1:asides_sung",
+   "slot": "endword",
+   "named": [
+    42,
+    46
+   ],
+   "bound": [
+    36,
+    41
+   ],
+   "edited": [
+    42,
+    46
+   ],
+   "result": "(1) You overzet en!  No, Jeämes, he won't zqzq,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Here! lend a hand or shoulder vor my knee",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Here! lend a hand or shoulder vor my knee"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Here! lend a hand or shoulder vor my knee",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Here! lend a hand or shoulder vor my knee"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    4,
+    8
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "(1) Zqzq there, thik fellor is a-vell lik' lead,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    4,
+    8
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "(1) Zqzq there, thik fellor is a-vell lik' lead,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Lo'k there, thik fellor is a-vell lik' lead,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Lo'k there, thik fellor is a-vell lik' lead,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+   "mode": "v1:asides_stripped",
+   "slot": "head",
+   "named": [
+    4,
+    8
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "(1) Zqzq there, thik fellor is a-vell lik' lead,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+   "mode": "v1:asides_stripped",
+   "slot": "headrime",
+   "named": [
+    4,
+    8
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "(1) Zqzq there, thik fellor is a-vell lik' lead,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+   "mode": "v1:asides_sung",
+   "slot": "head",
+   "named": [
+    4,
+    8
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "(1) Zqzq there, thik fellor is a-vell lik' lead,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+   "mode": "v1:asides_sung",
+   "slot": "headrime",
+   "named": [
+    4,
+    8
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "(1) Zqzq there, thik fellor is a-vell lik' lead,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) An' zoo you soon got down zome vuzzen, Jimmy.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) An' zoo you soon got down zome vuzzen, Jimmy."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) An' zoo you soon got down zome vuzzen, Jimmy.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) An' zoo you soon got down zome vuzzen, Jimmy."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Ees, I do know 'tis down. I brought it wi' me.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Ees, I do know 'tis down. I brought it wi' me."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Ees, I do know 'tis down. I brought it wi' me.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    7
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Ees, I do know 'tis down. I brought it wi' me."
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) Your lwoad, George, wer a rather slick-built thing,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Your lwoad, George, wer a rather slick-built thing,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(3) Your lwoad, George, wer a rather slick-built thing,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Your lwoad, George, wer a rather slick-built thing,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Oh! ees, d'ye teäke me vor a nincompoop,",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    6
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Oh! ees, d'ye teäke me vor a nincompoop,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(1) Oh! ees, d'ye teäke me vor a nincompoop,",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    6
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Oh! ees, d'ye teäke me vor a nincompoop,"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "(2) Well done, my lad, sha't have a ho'se to ride",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    4,
+    8
+   ],
+   "edited": [
+    1,
+    2
+   ],
+   "result": "(zqzq) Well done, my lad, sha't have a ho'se to ride"
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+base Counter({'NOTE': 1856, 'WARN': 38}) head Counter({'NOTE': 1861, 'WARN': 38})
+ADDED: 5
+   L NOTE corpus/song/eng_british_elizabeth_barrett_browning.txt | 2 token-yielding bracketed span(s) in sung lines are covered by NO declared class | first: 'Their singer was to be, in darksome death?[8]'
+   L NOTE corpus/song/eng_british_matthew_arnold.txt | 9 token-yielding bracketed span(s) in sung lines are covered by NO declared class | first: 'Saw The Wide Prospect, and the Asian Fen,[1]'
+   L NOTE corpus/song/eng_british_william_wordsworth.txt | 3 token-yielding bracketed span(s) in sung lines are covered by NO declared class | first: 'Who, pouring here a[3] _later_ ditty,'
+   L NOTE corpus/song/fin_julius_krohn.txt | 2 token-yielding bracketed span(s) in sung lines are covered by NO declared class | first: "Omat lapset laulattele!'[5]"
+   L NOTE corpus/song/fin_kanteletar.txt | 31 token-yielding bracketed span(s) in sung lines are covered by NO declared class | first: '"Onpa meillä vanha akka [14],'
+REMOVED: 0
+CHANGED (same check/severity/path/what, measured differs): 0
+by check (head - base): {('L', 'NOTE'): 5} | (base - head): {}

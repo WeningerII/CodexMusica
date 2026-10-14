@@ -1,0 +1,12 @@
+total real pairs 1108
+bucket None: real pairs 1108, null pairs per rep [1102, 1104, 1104]..., crossover 0.717, buys@0.75 +1.26 pp, real>null in 10 of 10
+    buys by theta: {0.6: -2.32, 0.65: -1.45, 0.7: -0.65, 0.75: 1.26, 0.8: 1.89, 0.85: 2.25, 0.9: 2.34}
+bucket (3, 4): real pairs 813, null pairs per rep [801, 800, 811]..., crossover 0.7594, buys@0.75 -0.17 pp, real>null in 4 of 10
+    buys by theta: {0.6: -2.41, 0.65: -2.37, 0.7: -1.67, 0.75: -0.17, 0.8: 0.73, 0.85: 0.92, 0.9: 1.23}
+bucket (5, 8): real pairs 208, null pairs per rep [229, 235, 224]..., crossover 0.6428, buys@0.75 +5.35 pp, real>null in 10 of 10
+    buys by theta: {0.6: -3.12, 0.65: 0.53, 0.7: 3.17, 0.75: 5.35, 0.8: 6.32, 0.85: 6.19, 0.9: 6.3}
+bucket (9, 16): real pairs 62, null pairs per rep [48, 48, 43]..., crossover 0.7101, buys@0.75 +4.27 pp, real>null in 8 of 10
+    buys by theta: {0.6: 1.95, 0.65: 1.37, 0.7: -1.08, 0.75: 4.27, 0.8: 6.29, 0.85: 7.62, 0.9: 4.84}
+bucket (17, None): real pairs 12, null pairs per rep [12, 10, 14]..., crossover 0.85, buys@0.75 +8.10 pp, real>null in 7 of 10
+    buys by theta: {0.6: 4.05, 0.65: 15.0, 0.7: 9.52, 0.75: 8.1, 0.8: 0.0, 0.85: 0.0, 0.9: 8.33}
+exit 0 secs 7

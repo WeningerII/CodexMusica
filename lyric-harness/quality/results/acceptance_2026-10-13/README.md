@@ -85,6 +85,8 @@ Each mechanism gets projected and observed counts, with projected-not-observed a
 
 This runs the Lyrics page's own `lyTokens`, taken from `src/pages/lyrics.js` at the measured tree, over every recorded line, and lists the lines where it cuts differently from `line_tokens`. At `fce4bf0f`, **1,604 of 227,540** dev lines differ, for example spaced enclitics and backtick apostrophes. The batch's JS mirror commit should bring that to 0 or explain what remains.
 
+**Version 2 (2026-10-14).** From the reader batch on, `lyTokens` delegates to the shared mirror `CMLyricTokens` in `src/lyric-tokens.js`. When the page names it, the tool runs that file in the same context first, as the bundle does, and records its sha256 as `mirror`. Nothing else changed: re-run on `fce4bf0f` it still reports 1,604. At candidate `67889851` it reports **0 of 227,540** (`js_parity_67889851.json`).
+
 ## Validation of the tools
 
 **Null test (`diff_null.json`).** This compares main at `fce4bf0f` with `3777ac3e` on this branch, which has the same harness code, both recorded by the same recorder. Every class is 0, every reader-agreement count is 0, and nothing is unattributed.
@@ -214,6 +216,13 @@ Apart from that line, every outcome count is identical to the label-based versio
     - unexpected exclusions didn't stop the gate.
 
   Two "a broken loop passes" findings were refuted as defects, because those loops are correct on everything the gate covers. They led to the extra controls.
+
+**Version 2 (2026-10-14), after the unchanged version met candidate `67889851`.** There, production calls `swap_at_slot(text, slot, word, scheme=..., strip_parens=...)` at all three call sites, and the cut depends on the scheme. Version 1 reported that correctly as unresolved (`production_use_not_replicated` 3, `coverage_lost` 114; `slot_binding_v1tool_67889851.json`), and its 912 `asides_sung` `wrong_word` were its own 3-argument call, not the candidate. Version 2 changes three things, listed in the module docstring:
+- it replicates exactly those two keywords with the grading lexicon's values;
+- it takes spans from the harness's `reader_token_spans` under the lexicon's scheme;
+- it also runs both aside modes under scheme v1.
+
+On a tree without reader schemes it is version 1: re-run on `fce4bf0f` it reproduces the version-1 receipt exactly (FAIL, `asides_stripped:wrong_word` 5, 2 unresolved, the same population and outcome counts; `slot_binding_v2_fce4bf0f.json`).
 
 ## The disputed dictionary rows
 

@@ -1,0 +1,4362 @@
+{
+ "gate": "FAIL",
+ "failures": {
+  "asides_stripped:grader_elsewhere": 64,
+  "asides_sung:wrong_word": 912,
+  "asides_sung:grader_elsewhere": 18
+ },
+ "unresolved": {
+  "coverage_lost": 114,
+  "production_use_not_replicated": 3
+ },
+ "pins": {
+  "commit": "67889851144dd2a7eefedd9960a868978fb7bfae",
+  "tracked_changes": false,
+  "harness_root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness",
+  "tool_sha256": "e23a08393cd345ac7f3234d9b5942bfbe273261e7e4fa9aef92168f2e4f8bf61",
+  "loop_sha256": "d8bdab07c0438c43e468fee6aab0e0d086e3d0ff9f11e8341d5299fff64c0209",
+  "loop_word_re": true,
+  "lexicon": {
+   "class": "SupplementedLexicon",
+   "supplement": {
+    "version": "v2",
+    "path": "data/lexicon_supplement_v2.tsv",
+    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+   },
+   "reader_scheme": {
+    "reader_scheme": "'v2'",
+    "READER_SCHEME": "'v2'",
+    "READER_SCHEMES": "('v1', 'v2')",
+    "_ACTIVE_READER_SCHEME": "None",
+    "_READER_SCHEME_DECLARED": "False"
+   },
+   "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+   "fallback": "none"
+  },
+  "population": {
+   "corpus_lines": 1045,
+   "synthetic_lines": 11,
+   "selected_lines": 1056,
+   "corpus_sha256": "3f7ee5d1d356b23f7505e4154e766888cf64077cfaa48a6cd26ddec4ad8068a9",
+   "synthetic_sha256": "d633071066177a58c717e2812a0099dc576fddbb43a43d163138d6040c7a3931",
+   "controls": 12
+  },
+  "slots": [
+   "end",
+   "endword",
+   "head",
+   "headrime",
+   "T1",
+   "T2",
+   "T3",
+   "T4",
+   "T5",
+   "T6",
+   "T7",
+   "T8"
+  ],
+  "marks": [
+   "zqzq",
+   "qxqx",
+   "vzvz",
+   "xjxj"
+  ]
+ },
+ "production_calls": [
+  {
+   "file": "quality/revise.py",
+   "line": 4503,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 696,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  },
+  {
+   "file": "quality/loop.py",
+   "line": 732,
+   "name": "swap_at_slot",
+   "positional": 3,
+   "keywords": [
+    "scheme",
+    "strip_parens"
+   ],
+   "starred": false
+  }
+ ],
+ "production_uses_not_replicated": {
+  "calls": [
+   {
+    "file": "quality/revise.py",
+    "line": 4503,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   },
+   {
+    "file": "quality/loop.py",
+    "line": 696,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   },
+   {
+    "file": "quality/loop.py",
+    "line": 732,
+    "name": "swap_at_slot",
+    "positional": 3,
+    "keywords": [
+     "scheme",
+     "strip_parens"
+    ],
+    "starred": false
+   }
+  ],
+  "other_references": []
+ },
+ "excluded_line_modes": {
+  "spaced_enclitic_or_folded": 80,
+  "spans_not_reproduced": 114
+ },
+ "evaluated_slots": {
+  "asides_stripped": 12036,
+  "asides_sung": 10980
+ },
+ "outcomes": {
+  "asides_stripped": {
+   "agree": 3756,
+   "no_word_refused": 7758,
+   "refused": 241,
+   "grader_elsewhere": 64,
+   "agree_unbound": 203,
+   "refused_unbound": 14
+  },
+  "asides_sung": {
+   "agree": 2174,
+   "wrong_word": 912,
+   "refused": 6308,
+   "no_word_refused": 1264,
+   "refused_unbound": 219,
+   "grader_elsewhere": 18,
+   "agree_unbound": 47,
+   "refused_grader_elsewhere": 38
+  }
+ },
+ "failing": {
+  "asides_stripped": {
+   "wrong_word": 0,
+   "grader_elsewhere": 64,
+   "no_op_edit": 0,
+   "resolver_mismatch": 0
+  },
+  "asides_sung": {
+   "wrong_word": 912,
+   "grader_elsewhere": 18,
+   "no_op_edit": 0,
+   "resolver_mismatch": 0
+  }
+ },
+ "population": {
+  "intended_line_modes": 2112,
+  "admitted_line_modes": 1918,
+  "transformed_excluded": 80,
+  "unexpected_excluded": 114,
+  "accounted": true
+ },
+ "controls": [
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "hold me closer now",
+   "slot": "T3",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes",
+   "slot": "T4",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "zoom, zoom away",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "I love you",
+   "slot": "end",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "the night and the day goes on",
+   "slot": "T5",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "Hold me now and hold me tight",
+   "slot": "head",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "HOLD ME NOW",
+   "slot": "T2",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "endword",
+   "mode": "asides_sung",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_stripped",
+   "kind": "agree"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "headrime",
+   "mode": "asides_sung",
+   "kind": "agree"
+  }
+ ],
+ "controls_failed": [],
+ "controls_unresolved": [],
+ "negative_controls": [
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
+   "kind": "grader_elsewhere"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "first_occurrence",
+   "expected": "grader_elsewhere",
+   "kind": "grader_elsewhere"
+  },
+  {
+   "line": "do me a favour, do",
+   "slot": "end",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  },
+  {
+   "line": "love, love me do",
+   "slot": "T2",
+   "rig": "mixed_tags",
+   "expected": "resolver_mismatch",
+   "kind": "resolver_mismatch"
+  }
+ ],
+ "negative_controls_failed": [],
+ "cases": [
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) love, love me do",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    5,
+    9
+   ],
+   "result": "(oh) zqzq, love me do"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) love, love me do",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    5,
+    9
+   ],
+   "result": "(oh) zqzq, love me do"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) love, love me do",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    5,
+    9
+   ],
+   "result": "(oh) zqzq, love me do"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) love, love me do",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    5,
+    9
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    11,
+    15
+   ],
+   "result": "(oh) love, zqzq me do"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) love, love me do",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    11,
+    15
+   ],
+   "bound": [
+    11,
+    15
+   ],
+   "edited": [
+    16,
+    18
+   ],
+   "result": "(oh) love, love zqzq do"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) love, love me do",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    16,
+    18
+   ],
+   "bound": [
+    16,
+    18
+   ],
+   "edited": [
+    19,
+    21
+   ],
+   "result": "(oh) love, love me zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "love, (oh) love me do",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    7,
+    9
+   ],
+   "bound": [
+    7,
+    9
+   ],
+   "edited": [
+    11,
+    15
+   ],
+   "result": "love, (oh) zqzq me do"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "love, (oh) love me do",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    11,
+    15
+   ],
+   "bound": [
+    11,
+    15
+   ],
+   "edited": [
+    16,
+    18
+   ],
+   "result": "love, (oh) love zqzq do"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "love, (oh) love me do",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    16,
+    18
+   ],
+   "bound": [
+    16,
+    18
+   ],
+   "edited": [
+    19,
+    21
+   ],
+   "result": "love, (oh) love me zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "I (said) love you so",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    3,
+    7
+   ],
+   "bound": [
+    3,
+    7
+   ],
+   "edited": [
+    9,
+    13
+   ],
+   "result": "I (said) zqzq you so"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "I (said) love you so",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    9,
+    13
+   ],
+   "bound": [
+    9,
+    13
+   ],
+   "edited": [
+    14,
+    17
+   ],
+   "result": "I (said) love zqzq so"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "I (said) love you so",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    14,
+    17
+   ],
+   "bound": [
+    14,
+    17
+   ],
+   "edited": [
+    18,
+    20
+   ],
+   "result": "I (said) love you zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(and the) night and the day",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    10,
+    15
+   ],
+   "result": "(and the) zqzq and the day"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(and the) night and the day",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    10,
+    15
+   ],
+   "result": "(and the) zqzq and the day"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(and the) night and the day",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    10,
+    15
+   ],
+   "result": "(and the) zqzq and the day"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(and the) night and the day",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    5,
+    8
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    16,
+    19
+   ],
+   "result": "(and the) night zqzq the day"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(and the) night and the day",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    10,
+    15
+   ],
+   "bound": [
+    10,
+    15
+   ],
+   "edited": [
+    20,
+    23
+   ],
+   "result": "(and the) night and zqzq day"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(and the) night and the day",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    16,
+    19
+   ],
+   "bound": [
+    16,
+    19
+   ],
+   "edited": [
+    24,
+    27
+   ],
+   "result": "(and the) night and the zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "For (I said) I will bear me by thee",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    5,
+    6
+   ],
+   "bound": [
+    5,
+    6
+   ],
+   "edited": [
+    13,
+    14
+   ],
+   "result": "For (I said) ZQZQ will bear me by thee"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "For (I said) I will bear me by thee",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    7,
+    11
+   ],
+   "bound": [
+    7,
+    11
+   ],
+   "edited": [
+    15,
+    19
+   ],
+   "result": "For (I said) I zqzq bear me by thee"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "For (I said) I will bear me by thee",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    13,
+    14
+   ],
+   "bound": [
+    13,
+    14
+   ],
+   "edited": [
+    20,
+    24
+   ],
+   "result": "For (I said) I will zqzq me by thee"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "For (I said) I will bear me by thee",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    15,
+    19
+   ],
+   "bound": [
+    15,
+    19
+   ],
+   "edited": [
+    25,
+    27
+   ],
+   "result": "For (I said) I will bear zqzq by thee"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "For (I said) I will bear me by thee",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    20,
+    24
+   ],
+   "bound": [
+    20,
+    24
+   ],
+   "edited": [
+    28,
+    30
+   ],
+   "result": "For (I said) I will bear me zqzq thee"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "For (I said) I will bear me by thee",
+   "mode": "asides_sung",
+   "slot": "T7",
+   "named": [
+    25,
+    27
+   ],
+   "bound": [
+    25,
+    27
+   ],
+   "edited": [
+    31,
+    35
+   ],
+   "result": "For (I said) I will bear me by zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "the night (the night) and the day goes",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    11,
+    14
+   ],
+   "bound": [
+    11,
+    14
+   ],
+   "edited": [
+    22,
+    25
+   ],
+   "result": "the night (the night) zqzq the day goes"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "the night (the night) and the day goes",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    15,
+    20
+   ],
+   "bound": [
+    15,
+    20
+   ],
+   "edited": [
+    26,
+    29
+   ],
+   "result": "the night (the night) and zqzq day goes"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "the night (the night) and the day goes",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    22,
+    25
+   ],
+   "bound": [
+    22,
+    25
+   ],
+   "edited": [
+    30,
+    33
+   ],
+   "result": "the night (the night) and the zqzq goes"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "the night (the night) and the day goes",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    26,
+    29
+   ],
+   "bound": [
+    26,
+    29
+   ],
+   "edited": [
+    34,
+    38
+   ],
+   "result": "the night (the night) and the day zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(ooh) baby, baby (ooh) baby",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    6,
+    10
+   ],
+   "result": "(ooh) zqzq, baby (ooh) baby"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(ooh) baby, baby (ooh) baby",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    6,
+    10
+   ],
+   "result": "(ooh) zqzq, baby (ooh) baby"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(ooh) baby, baby (ooh) baby",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    6,
+    10
+   ],
+   "result": "(ooh) zqzq, baby (ooh) baby"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(ooh) baby, baby (ooh) baby",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    6,
+    10
+   ],
+   "bound": [
+    6,
+    10
+   ],
+   "edited": [
+    12,
+    16
+   ],
+   "result": "(ooh) baby, zqzq (ooh) baby"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(ooh) baby, baby (ooh) baby",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    12,
+    16
+   ],
+   "bound": [
+    12,
+    16
+   ],
+   "edited": [
+    23,
+    27
+   ],
+   "result": "(ooh) baby, baby (ooh) zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "hold me (hold me) closer now",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    9,
+    13
+   ],
+   "bound": [
+    9,
+    13
+   ],
+   "edited": [
+    18,
+    24
+   ],
+   "result": "hold me (hold me) zqzq now"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "hold me (hold me) closer now",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    14,
+    16
+   ],
+   "bound": [
+    14,
+    16
+   ],
+   "edited": [
+    25,
+    28
+   ],
+   "result": "hold me (hold me) closer zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "I love you (love you)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    17,
+    20
+   ],
+   "bound": [
+    17,
+    20
+   ],
+   "edited": [
+    7,
+    10
+   ],
+   "result": "I love zqzq (love you)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "hold on (hold on)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    14,
+    16
+   ],
+   "bound": [
+    14,
+    16
+   ],
+   "edited": [
+    5,
+    7
+   ],
+   "result": "hold zqzq (hold on)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) zoom, zoom away",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    5,
+    9
+   ],
+   "result": "(oh) zqzq, zoom away"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) zoom, zoom away",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    5,
+    9
+   ],
+   "result": "(oh) zqzq, zoom away"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) zoom, zoom away",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    5,
+    9
+   ],
+   "result": "(oh) zqzq, zoom away"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) zoom, zoom away",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    5,
+    9
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    11,
+    15
+   ],
+   "result": "(oh) zoom, zqzq away"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "synthetic",
+   "line": "(oh) zoom, zoom away",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    11,
+    15
+   ],
+   "bound": [
+    11,
+    15
+   ],
+   "edited": [
+    16,
+    20
+   ],
+   "result": "(oh) zoom, zoom zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "At the foot of a crag (a wild, thrilling scene),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    41,
+    46
+   ],
+   "bound": [
+    41,
+    46
+   ],
+   "edited": [
+    17,
+    21
+   ],
+   "result": "At the foot of a zqzq (a wild, thrilling scene),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Than lay my heart (I'd scorn to sleep) beside a subjugated slave.\"",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    19,
+    22
+   ],
+   "bound": [
+    19,
+    22
+   ],
+   "edited": [
+    39,
+    45
+   ],
+   "result": "Than lay my heart (I'd scorn to sleep) zqzq a subjugated slave.\""
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Than lay my heart (I'd scorn to sleep) beside a subjugated slave.\"",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    23,
+    28
+   ],
+   "bound": [
+    23,
+    28
+   ],
+   "edited": [
+    46,
+    47
+   ],
+   "result": "Than lay my heart (I'd scorn to sleep) beside zqzq subjugated slave.\""
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Than lay my heart (I'd scorn to sleep) beside a subjugated slave.\"",
+   "mode": "asides_sung",
+   "slot": "T7",
+   "named": [
+    29,
+    31
+   ],
+   "bound": [
+    29,
+    31
+   ],
+   "edited": [
+    48,
+    58
+   ],
+   "result": "Than lay my heart (I'd scorn to sleep) beside a zqzq slave.\""
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Than lay my heart (I'd scorn to sleep) beside a subjugated slave.\"",
+   "mode": "asides_sung",
+   "slot": "T8",
+   "named": [
+    32,
+    37
+   ],
+   "bound": [
+    32,
+    37
+   ],
+   "edited": [
+    59,
+    64
+   ],
+   "result": "Than lay my heart (I'd scorn to sleep) beside a subjugated zqzq.\""
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Nor did she think (a careless chit)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    30,
+    34
+   ],
+   "bound": [
+    30,
+    34
+   ],
+   "edited": [
+    12,
+    17
+   ],
+   "result": "Nor did she zqzq (a careless chit)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    26,
+    31
+   ],
+   "bound": [
+    26,
+    31
+   ],
+   "edited": [
+    9,
+    18
+   ],
+   "result": "O'er the zqzq (not a rhyme),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "O'er the parchment (not a rhyme),",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    0,
+    4
+   ],
+   "bound": [
+    5,
+    8
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq the parchment (not a rhyme),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Was it not Fate (whose name is also Sorrow),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    36,
+    42
+   ],
+   "bound": [
+    36,
+    42
+   ],
+   "edited": [
+    11,
+    15
+   ],
+   "result": "Was it not Zqzq (whose name is also Sorrow),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "They have not left me (as my hopes have) since.",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    23,
+    25
+   ],
+   "bound": [
+    23,
+    25
+   ],
+   "edited": [
+    41,
+    46
+   ],
+   "result": "They have not left me (as my hopes have) zqzq."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "They fill my soul with Beauty (which is Hope),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    40,
+    44
+   ],
+   "bound": [
+    40,
+    44
+   ],
+   "edited": [
+    23,
+    29
+   ],
+   "result": "They fill my soul with Zqzq (which is Hope),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And the giddy Stars (so legends tell),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    32,
+    36
+   ],
+   "bound": [
+    32,
+    36
+   ],
+   "edited": [
+    14,
+    19
+   ],
+   "result": "And the giddy Zqzq (so legends tell),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Dim gulf!) my spirit hovering lies",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    12,
+    14
+   ],
+   "result": "(Dim gulf!) zqzq spirit hovering lies"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Dim gulf!) my spirit hovering lies",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    12,
+    14
+   ],
+   "result": "(Dim gulf!) zqzq spirit hovering lies"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Dim gulf!) my spirit hovering lies",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    12,
+    14
+   ],
+   "result": "(Dim gulf!) zqzq spirit hovering lies"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Dim gulf!) my spirit hovering lies",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    5,
+    9
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    15,
+    21
+   ],
+   "result": "(Dim gulf!) my zqzq hovering lies"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Dim gulf!) my spirit hovering lies",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    12,
+    14
+   ],
+   "bound": [
+    12,
+    14
+   ],
+   "edited": [
+    22,
+    30
+   ],
+   "result": "(Dim gulf!) my spirit zqzq lies"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Dim gulf!) my spirit hovering lies",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    15,
+    21
+   ],
+   "bound": [
+    15,
+    21
+   ],
+   "edited": [
+    31,
+    35
+   ],
+   "result": "(Dim gulf!) my spirit hovering zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Suppose (to avoid the appearance of evil)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    36,
+    40
+   ],
+   "bound": [
+    36,
+    40
+   ],
+   "edited": [
+    0,
+    7
+   ],
+   "result": "Zqzq (to avoid the appearance of evil)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "'Twas half past twelve, and (what do you think!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    41,
+    46
+   ],
+   "bound": [
+    41,
+    46
+   ],
+   "edited": [
+    24,
+    27
+   ],
+   "result": "'Twas half past twelve, zqzq (what do you think!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "'Tis strange you cannot sing (quoth he),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    36,
+    38
+   ],
+   "bound": [
+    36,
+    38
+   ],
+   "edited": [
+    24,
+    28
+   ],
+   "result": "'Tis strange you cannot zqzq (quoth he),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "What, know you not, old man (quoth he)--",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    37
+   ],
+   "bound": [
+    35,
+    37
+   ],
+   "edited": [
+    24,
+    27
+   ],
+   "result": "What, know you not, old zqzq (quoth he)--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Ah, then I fear we part (quoth he),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    31,
+    33
+   ],
+   "bound": [
+    31,
+    33
+   ],
+   "edited": [
+    19,
+    23
+   ],
+   "result": "Ah, then I fear we zqzq (quoth he),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "My maid is dead long years (quoth he),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    34,
+    36
+   ],
+   "bound": [
+    34,
+    36
+   ],
+   "edited": [
+    21,
+    26
+   ],
+   "result": "My maid is dead long zqzq (quoth he),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(He can't look back), and inquire",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    22,
+    25
+   ],
+   "result": "(He can't look back), zqzq inquire"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(He can't look back), and inquire",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    22,
+    25
+   ],
+   "result": "(He can't look back), zqzq inquire"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(He can't look back), and inquire",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    3
+   ],
+   "bound": [
+    1,
+    3
+   ],
+   "edited": [
+    22,
+    25
+   ],
+   "result": "(He can't look back), zqzq inquire"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(He can't look back), and inquire",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    4,
+    9
+   ],
+   "bound": [
+    4,
+    9
+   ],
+   "edited": [
+    26,
+    33
+   ],
+   "result": "(He can't look back), and zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And (woe to the rogues that doubt it!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    34,
+    36
+   ],
+   "bound": [
+    34,
+    36
+   ],
+   "edited": [
+    0,
+    3
+   ],
+   "result": "Zqzq (woe to the rogues that doubt it!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Put down that stick! (You may well look skeered.)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    40,
+    47
+   ],
+   "bound": [
+    35,
+    39
+   ],
+   "edited": [
+    14,
+    19
+   ],
+   "result": "Put down that zqzq! (You may well look skeered.)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "The Black Witch (curse on her)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    26,
+    29
+   ],
+   "bound": [
+    26,
+    29
+   ],
+   "edited": [
+    10,
+    15
+   ],
+   "result": "The Black Zqzq (curse on her)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "We followed (it never fell!)--",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    22,
+    26
+   ],
+   "bound": [
+    22,
+    26
+   ],
+   "edited": [
+    3,
+    11
+   ],
+   "result": "We zqzq (it never fell!)--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "A Frigate's name (by present glory spanned)--",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    42
+   ],
+   "bound": [
+    35,
+    42
+   ],
+   "edited": [
+    12,
+    16
+   ],
+   "result": "A Frigate's zqzq (by present glory spanned)--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "The camp (at dawning lost)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    21,
+    25
+   ],
+   "bound": [
+    21,
+    25
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "The zqzq (at dawning lost)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "There warn't no stoves (tell comfort died)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    37,
+    41
+   ],
+   "bound": [
+    37,
+    41
+   ],
+   "edited": [
+    16,
+    22
+   ],
+   "result": "There warn't no zqzq (tell comfort died)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Guess we shell hev to come round, (don't you?)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    41,
+    44
+   ],
+   "bound": [
+    41,
+    44
+   ],
+   "edited": [
+    27,
+    32
+   ],
+   "result": "Guess we shell hev to come zqzq, (don't you?)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Fer I ollers hev strove (at least thet's my impression)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    44,
+    54
+   ],
+   "bound": [
+    44,
+    54
+   ],
+   "edited": [
+    17,
+    23
+   ],
+   "result": "Fer I ollers hev zqzq (at least thet's my impression)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_stripped",
+   "slot": "head",
+   "named": [
+    0,
+    2
+   ],
+   "bound": [
+    3,
+    9
+   ],
+   "edited": [
+    0,
+    2
+   ],
+   "result": "Zqzq brains wuz to settle it (horrid reflection!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_stripped",
+   "slot": "headrime",
+   "named": [
+    0,
+    2
+   ],
+   "bound": [
+    3,
+    9
+   ],
+   "edited": [
+    0,
+    2
+   ],
+   "result": "Zqzq brains wuz to settle it (horrid reflection!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    45
+   ],
+   "bound": [
+    35,
+    45
+   ],
+   "edited": [
+    24,
+    26
+   ],
+   "result": "Ef brains wuz to settle zqzq (horrid reflection!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    0,
+    2
+   ],
+   "bound": [
+    3,
+    9
+   ],
+   "edited": [
+    0,
+    2
+   ],
+   "result": "Zqzq brains wuz to settle it (horrid reflection!)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "Ef brains wuz to settle it (horrid reflection!)",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    0,
+    2
+   ],
+   "bound": [
+    3,
+    9
+   ],
+   "edited": [
+    0,
+    2
+   ],
+   "result": "Zqzq brains wuz to settle it (horrid reflection!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    23,
+    27
+   ],
+   "bound": [
+    23,
+    27
+   ],
+   "edited": [
+    41,
+    44
+   ],
+   "result": "An' your fact'ry gals (soon ez we split) zqzq make head,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    28,
+    30
+   ],
+   "bound": null,
+   "edited": [
+    45,
+    49
+   ],
+   "result": "An' your fact'ry gals (soon ez we split) 'll zqzq head,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "mode": "asides_sung",
+   "slot": "T7",
+   "named": [
+    31,
+    33
+   ],
+   "bound": [
+    31,
+    33
+   ],
+   "edited": [
+    50,
+    54
+   ],
+   "result": "An' your fact'ry gals (soon ez we split) 'll make zqzq,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "By further experiments (no matter how)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    34,
+    37
+   ],
+   "bound": [
+    34,
+    37
+   ],
+   "edited": [
+    11,
+    22
+   ],
+   "result": "By further zqzq (no matter how)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Reserves that were standing (and dying) at ease,",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    29,
+    32
+   ],
+   "bound": [
+    29,
+    32
+   ],
+   "edited": [
+    40,
+    42
+   ],
+   "result": "Reserves that were standing (and dying) zqzq ease,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Reserves that were standing (and dying) at ease,",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    33,
+    38
+   ],
+   "bound": [
+    33,
+    38
+   ],
+   "edited": [
+    43,
+    47
+   ],
+   "result": "Reserves that were standing (and dying) at zqzq,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "\"To Richmond or h-ll!\" (I omit here the vowel)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    40,
+    45
+   ],
+   "bound": [
+    40,
+    45
+   ],
+   "edited": [
+    16,
+    20
+   ],
+   "result": "\"To Richmond or zqzq!\" (I omit here the vowel)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And Hickman (the rowdy, not Hickman the beau),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    40,
+    44
+   ],
+   "bound": [
+    40,
+    44
+   ],
+   "edited": [
+    4,
+    11
+   ],
+   "result": "And Zqzq (the rowdy, not Hickman the beau),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "When they made her speak treason (does Hell know of worse?),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    52,
+    57
+   ],
+   "bound": [
+    52,
+    57
+   ],
+   "edited": [
+    25,
+    32
+   ],
+   "result": "When they made her speak zqzq (does Hell know of worse?),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Will come again' (he saith),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    21,
+    26
+   ],
+   "bound": [
+    18,
+    20
+   ],
+   "edited": [
+    10,
+    16
+   ],
+   "result": "Will come zqzq (he saith),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "They left his body on the field (your side the day had won),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    55,
+    58
+   ],
+   "bound": [
+    55,
+    58
+   ],
+   "edited": [
+    26,
+    31
+   ],
+   "result": "They left his body on the zqzq (your side the day had won),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Who dreams, and is certain (when taking a nap),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    42,
+    45
+   ],
+   "bound": [
+    42,
+    45
+   ],
+   "edited": [
+    19,
+    26
+   ],
+   "result": "Who dreams, and is zqzq (when taking a nap),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "\"Now we soon (said Captain Rogers)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    27,
+    33
+   ],
+   "bound": [
+    27,
+    33
+   ],
+   "edited": [
+    8,
+    12
+   ],
+   "result": "\"Now we zqzq (said Captain Rogers)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Common his mind (it seemed so then),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    30,
+    34
+   ],
+   "bound": [
+    30,
+    34
+   ],
+   "edited": [
+    11,
+    15
+   ],
+   "result": "Common his zqzq (it seemed so then),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "When the horn is on the hill? (Bugle: Tarantara!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    38,
+    47
+   ],
+   "bound": [
+    31,
+    36
+   ],
+   "edited": [
+    24,
+    28
+   ],
+   "result": "When the horn is on the zqzq? (Bugle: Tarantara!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "We shall slay the buck of ten; (Bugle: Tarantara!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    48
+   ],
+   "bound": [
+    32,
+    37
+   ],
+   "edited": [
+    26,
+    29
+   ],
+   "result": "We shall slay the buck of zqzq; (Bugle: Tarantara!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Keep close and house him fair; (Bugle: Tarantara!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    48
+   ],
+   "bound": [
+    32,
+    37
+   ],
+   "edited": [
+    25,
+    29
+   ],
+   "result": "Keep close and house him zqzq; (Bugle: Tarantara!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Let him come out to-day! (Bugle: Tarantara!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    33,
+    42
+   ],
+   "bound": [
+    26,
+    31
+   ],
+   "edited": [
+    17,
+    23
+   ],
+   "result": "Let him come out zqzq! (Bugle: Tarantara!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "By false hope lulled (his courage gave us hope!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    42,
+    46
+   ],
+   "bound": [
+    42,
+    46
+   ],
+   "edited": [
+    14,
+    20
+   ],
+   "result": "By false hope zqzq (his courage gave us hope!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_See_ (so they wept) _God's Warning! Admiral, turn!_--",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    7,
+    9
+   ],
+   "bound": [
+    7,
+    9
+   ],
+   "edited": [
+    22,
+    27
+   ],
+   "result": "_See_ (so they wept) _Zqzq Warning! Admiral, turn!_--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_See_ (so they wept) _God's Warning! Admiral, turn!_--",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    10,
+    14
+   ],
+   "bound": [
+    10,
+    14
+   ],
+   "edited": [
+    28,
+    35
+   ],
+   "result": "_See_ (so they wept) _God's Zqzq! Admiral, turn!_--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_See_ (so they wept) _God's Warning! Admiral, turn!_--",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    15,
+    19
+   ],
+   "bound": [
+    15,
+    19
+   ],
+   "edited": [
+    37,
+    44
+   ],
+   "result": "_See_ (so they wept) _God's Warning! Zqzq, turn!_--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_See_ (so they wept) _God's Warning! Admiral, turn!_--",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    22,
+    27
+   ],
+   "bound": [
+    22,
+    27
+   ],
+   "edited": [
+    46,
+    50
+   ],
+   "result": "_See_ (so they wept) _God's Warning! Admiral, zqzq!_--"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "_Lo! here beneath_ (another coward cries)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    40
+   ],
+   "bound": [
+    35,
+    40
+   ],
+   "edited": [
+    10,
+    17
+   ],
+   "result": "_Lo! here zqzq_ (another coward cries)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "One by one (bright gifts from Heaven)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    30,
+    36
+   ],
+   "bound": [
+    30,
+    36
+   ],
+   "edited": [
+    7,
+    10
+   ],
+   "result": "One by zqzq (bright gifts from Heaven)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "That soon (for spring is nigh)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    25,
+    29
+   ],
+   "bound": [
+    25,
+    29
+   ],
+   "edited": [
+    5,
+    9
+   ],
+   "result": "That zqzq (for spring is nigh)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And shook off (not to break the charm)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    32,
+    37
+   ],
+   "bound": [
+    32,
+    37
+   ],
+   "edited": [
+    10,
+    13
+   ],
+   "result": "And shook zqzq (not to break the charm)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Of honour (God grant it may!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    24,
+    27
+   ],
+   "bound": [
+    24,
+    27
+   ],
+   "edited": [
+    3,
+    9
+   ],
+   "result": "Of zqzq (God grant it may!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And rejoice (while the wind is blowing)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    31,
+    38
+   ],
+   "bound": [
+    31,
+    38
+   ],
+   "edited": [
+    4,
+    11
+   ],
+   "result": "And zqzq (while the wind is blowing)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "\"When I hear (to-night it may be)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    30,
+    32
+   ],
+   "bound": [
+    30,
+    32
+   ],
+   "edited": [
+    8,
+    12
+   ],
+   "result": "\"When I zqzq (to-night it may be)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And angel glances (veiled now by Life's sorrow)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    40,
+    46
+   ],
+   "bound": [
+    40,
+    46
+   ],
+   "edited": [
+    10,
+    17
+   ],
+   "result": "And angel zqzq (veiled now by Life's sorrow)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "I sought, (to take my Sorrow's place,)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    31,
+    36
+   ],
+   "bound": [
+    31,
+    36
+   ],
+   "edited": [
+    2,
+    8
+   ],
+   "result": "I zqzq, (to take my Sorrow's place,)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Not this our shadowy Life,) will be thine own;",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    29,
+    33
+   ],
+   "result": "(Not this our shadowy Life,) zqzq be thine own;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Not this our shadowy Life,) will be thine own;",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    29,
+    33
+   ],
+   "result": "(Not this our shadowy Life,) zqzq be thine own;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Not this our shadowy Life,) will be thine own;",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    29,
+    33
+   ],
+   "result": "(Not this our shadowy Life,) zqzq be thine own;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Not this our shadowy Life,) will be thine own;",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    5,
+    9
+   ],
+   "bound": [
+    5,
+    9
+   ],
+   "edited": [
+    34,
+    36
+   ],
+   "result": "(Not this our shadowy Life,) will zqzq thine own;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Not this our shadowy Life,) will be thine own;",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    10,
+    13
+   ],
+   "bound": [
+    10,
+    13
+   ],
+   "edited": [
+    37,
+    42
+   ],
+   "result": "(Not this our shadowy Life,) will be zqzq own;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Not this our shadowy Life,) will be thine own;",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    14,
+    21
+   ],
+   "bound": [
+    14,
+    21
+   ],
+   "edited": [
+    43,
+    46
+   ],
+   "result": "(Not this our shadowy Life,) will be thine zqzq;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Shielded by care, and yet, (oh Fate unkind!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    36,
+    42
+   ],
+   "bound": [
+    36,
+    42
+   ],
+   "edited": [
+    22,
+    25
+   ],
+   "result": "Shielded by care, and zqzq, (oh Fate unkind!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Last (with care) for long;",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    6,
+    10
+   ],
+   "bound": [
+    6,
+    10
+   ],
+   "edited": [
+    17,
+    20
+   ],
+   "result": "Last (with care) zqzq long;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Last (with care) for long;",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    11,
+    15
+   ],
+   "bound": [
+    11,
+    15
+   ],
+   "edited": [
+    21,
+    25
+   ],
+   "result": "Last (with care) for zqzq;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "These few say (or did I dream it?)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    30,
+    32
+   ],
+   "bound": [
+    30,
+    32
+   ],
+   "edited": [
+    10,
+    13
+   ],
+   "result": "These few zqzq (or did I dream it?)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "True Love only grows (they tell me)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    32,
+    34
+   ],
+   "bound": [
+    32,
+    34
+   ],
+   "edited": [
+    15,
+    20
+   ],
+   "result": "True Love only zqzq (they tell me)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And slowly crawl (summer has made me stronger)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    37,
+    45
+   ],
+   "bound": [
+    37,
+    45
+   ],
+   "edited": [
+    11,
+    16
+   ],
+   "result": "And slowly zqzq (summer has made me stronger)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Take it and come) to the Isle of Wight;",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    5
+   ],
+   "bound": [
+    1,
+    5
+   ],
+   "edited": [
+    19,
+    21
+   ],
+   "result": "(Take it and come) zqzq the Isle of Wight;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Take it and come) to the Isle of Wight;",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    5
+   ],
+   "bound": [
+    1,
+    5
+   ],
+   "edited": [
+    19,
+    21
+   ],
+   "result": "(Take it and come) zqzq the Isle of Wight;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Take it and come) to the Isle of Wight;",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    5
+   ],
+   "bound": [
+    1,
+    5
+   ],
+   "edited": [
+    19,
+    21
+   ],
+   "result": "(Take it and come) zqzq the Isle of Wight;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Take it and come) to the Isle of Wight;",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    6,
+    8
+   ],
+   "bound": [
+    6,
+    8
+   ],
+   "edited": [
+    22,
+    25
+   ],
+   "result": "(Take it and come) to zqzq Isle of Wight;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Take it and come) to the Isle of Wight;",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    9,
+    12
+   ],
+   "bound": [
+    9,
+    12
+   ],
+   "edited": [
+    26,
+    30
+   ],
+   "result": "(Take it and come) to the Zqzq of Wight;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Take it and come) to the Isle of Wight;",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    13,
+    17
+   ],
+   "bound": [
+    13,
+    17
+   ],
+   "edited": [
+    31,
+    33
+   ],
+   "result": "(Take it and come) to the Isle zqzq Wight;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(Take it and come) to the Isle of Wight;",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    19,
+    21
+   ],
+   "bound": [
+    19,
+    21
+   ],
+   "edited": [
+    34,
+    39
+   ],
+   "result": "(Take it and come) to the Isle of Zqzq;"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "How sweet (while warm airs lull us, blowing lowly)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    44,
+    49
+   ],
+   "bound": [
+    44,
+    49
+   ],
+   "edited": [
+    4,
+    9
+   ],
+   "result": "How zqzq (while warm airs lull us, blowing lowly)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "What pleasure lives in height (the shepherd sang).",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    44,
+    48
+   ],
+   "bound": [
+    44,
+    48
+   ],
+   "edited": [
+    23,
+    29
+   ],
+   "result": "What pleasure lives in zqzq (the shepherd sang)."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Gives out at times (he knows not whence)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    33,
+    39
+   ],
+   "bound": [
+    33,
+    39
+   ],
+   "edited": [
+    13,
+    18
+   ],
+   "result": "Gives out at zqzq (he knows not whence)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And I (misdeemed) that was, that seemed,",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    7,
+    16
+   ],
+   "bound": null,
+   "edited": [
+    18,
+    22
+   ],
+   "result": "And I (misdeemed) zqzq was, that seemed,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And I (misdeemed) that was, that seemed,",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    18,
+    22
+   ],
+   "bound": [
+    18,
+    22
+   ],
+   "edited": [
+    23,
+    26
+   ],
+   "result": "And I (misdeemed) that zqzq, that seemed,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And I (misdeemed) that was, that seemed,",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    23,
+    26
+   ],
+   "bound": [
+    23,
+    26
+   ],
+   "edited": [
+    28,
+    32
+   ],
+   "result": "And I (misdeemed) that was, zqzq seemed,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And I (misdeemed) that was, that seemed,",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    28,
+    32
+   ],
+   "bound": [
+    28,
+    32
+   ],
+   "edited": [
+    33,
+    39
+   ],
+   "result": "And I (misdeemed) that was, that zqzq,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "I shall behold thee again (is it so?) at a new visitation,",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    27,
+    29
+   ],
+   "bound": [
+    27,
+    29
+   ],
+   "edited": [
+    38,
+    40
+   ],
+   "result": "I shall behold thee again (is it so?) zqzq a new visitation,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "I shall behold thee again (is it so?) at a new visitation,",
+   "mode": "asides_sung",
+   "slot": "T7",
+   "named": [
+    30,
+    32
+   ],
+   "bound": [
+    30,
+    32
+   ],
+   "edited": [
+    41,
+    42
+   ],
+   "result": "I shall behold thee again (is it so?) at zqzq new visitation,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "I shall behold thee again (is it so?) at a new visitation,",
+   "mode": "asides_sung",
+   "slot": "T8",
+   "named": [
+    33,
+    35
+   ],
+   "bound": [
+    33,
+    35
+   ],
+   "edited": [
+    43,
+    46
+   ],
+   "result": "I shall behold thee again (is it so?) at a zqzq visitation,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Content some day (a far-off day)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    28,
+    31
+   ],
+   "bound": [
+    28,
+    31
+   ],
+   "edited": [
+    13,
+    16
+   ],
+   "result": "Content some zqzq (a far-off day)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "You said (there shall be answer fit),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    32,
+    35
+   ],
+   "bound": [
+    32,
+    35
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "You zqzq (there shall be answer fit),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "You said (Oh not in vain you said),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    29,
+    33
+   ],
+   "bound": [
+    29,
+    33
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "You zqzq (Oh not in vain you said),"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (turning querulously)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    3,
+    12
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (turning querulously)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "M. Vieuxbois (turning querulously)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    22,
+    33
+   ],
+   "bound": [
+    14,
+    21
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (turning querulously)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Babette (entering hurriedly)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    18,
+    27
+   ],
+   "bound": [
+    18,
+    27
+   ],
+   "edited": [
+    0,
+    7
+   ],
+   "result": "Zqzq (entering hurriedly)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (drowsily)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    3,
+    12
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (drowsily)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "M. Vieuxbois (drowsily)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    14,
+    22
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (drowsily)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Babette (showing the empty cup)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    27,
+    30
+   ],
+   "bound": [
+    27,
+    30
+   ],
+   "edited": [
+    0,
+    7
+   ],
+   "result": "Zqzq (showing the empty cup)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (murmuring)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    3,
+    12
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (murmuring)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "M. Vieuxbois (murmuring)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    14,
+    23
+   ],
+   "bound": [
+    14,
+    23
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (murmuring)"
+  },
+  {
+   "kind": "grader_elsewhere",
+   "source": "corpus",
+   "line": "M. Vieuxbois (almost inaudibly)",
+   "mode": "asides_stripped",
+   "slot": "endword",
+   "named": [
+    3,
+    12
+   ],
+   "bound": [
+    0,
+    1
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (almost inaudibly)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "M. Vieuxbois (almost inaudibly)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    21,
+    30
+   ],
+   "bound": [
+    21,
+    30
+   ],
+   "edited": [
+    3,
+    12
+   ],
+   "result": "M. Zqzq (almost inaudibly)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "\"Dear John (the letter ran), it can't, can't be,",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    12,
+    15
+   ],
+   "bound": [
+    12,
+    15
+   ],
+   "edited": [
+    29,
+    31
+   ],
+   "result": "\"Dear John (the letter ran), zqzq can't, can't be,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "\"Dear John (the letter ran), it can't, can't be,",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    16,
+    22
+   ],
+   "bound": [
+    16,
+    22
+   ],
+   "edited": [
+    32,
+    37
+   ],
+   "result": "\"Dear John (the letter ran), it zqzq, can't be,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "\"Dear John (the letter ran), it can't, can't be,",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    23,
+    26
+   ],
+   "bound": [
+    23,
+    26
+   ],
+   "edited": [
+    39,
+    44
+   ],
+   "result": "\"Dear John (the letter ran), it can't, zqzq be,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "\"Dear John (the letter ran), it can't, can't be,",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    29,
+    31
+   ],
+   "bound": [
+    29,
+    31
+   ],
+   "edited": [
+    45,
+    47
+   ],
+   "result": "\"Dear John (the letter ran), it can't, can't zqzq,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "That (however the writer the truth may deplore),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    39,
+    46
+   ],
+   "bound": [
+    39,
+    46
+   ],
+   "edited": [
+    0,
+    4
+   ],
+   "result": "Zqzq (however the writer the truth may deplore),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "I love (oh! _how_ I love) to ride",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    8,
+    10
+   ],
+   "bound": [
+    8,
+    10
+   ],
+   "edited": [
+    26,
+    28
+   ],
+   "result": "I love (oh! _how_ I love) zqzq ride"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "I love (oh! _how_ I love) to ride",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    13,
+    16
+   ],
+   "bound": [
+    13,
+    16
+   ],
+   "edited": [
+    29,
+    33
+   ],
+   "result": "I love (oh! _how_ I love) to zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And did act (what now we moan)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    25,
+    29
+   ],
+   "bound": [
+    25,
+    29
+   ],
+   "edited": [
+    8,
+    11
+   ],
+   "result": "And did zqzq (what now we moan)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Where my heart is (wherever that may be)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    37,
+    39
+   ],
+   "bound": [
+    37,
+    39
+   ],
+   "edited": [
+    15,
+    17
+   ],
+   "result": "Where my heart zqzq (wherever that may be)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Will it ever be thus (who knows?)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    26,
+    31
+   ],
+   "bound": [
+    26,
+    31
+   ],
+   "edited": [
+    16,
+    20
+   ],
+   "result": "Will it ever be zqzq (who knows?)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "At midnight (saith the Parable)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    23,
+    30
+   ],
+   "bound": [
+    23,
+    30
+   ],
+   "edited": [
+    3,
+    11
+   ],
+   "result": "At zqzq (saith the Parable)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(I saw her smile.) But soon their flight",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    1,
+    2
+   ],
+   "edited": [
+    19,
+    22
+   ],
+   "result": "(I saw her smile.) Zqzq soon their flight"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(I saw her smile.) But soon their flight",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    1,
+    2
+   ],
+   "edited": [
+    19,
+    22
+   ],
+   "result": "(I saw her smile.) Zqzq soon their flight"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(I saw her smile.) But soon their flight",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    2
+   ],
+   "bound": [
+    1,
+    2
+   ],
+   "edited": [
+    19,
+    22
+   ],
+   "result": "(I saw her smile.) Zqzq soon their flight"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(I saw her smile.) But soon their flight",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    3,
+    6
+   ],
+   "bound": [
+    3,
+    6
+   ],
+   "edited": [
+    23,
+    27
+   ],
+   "result": "(I saw her smile.) But zqzq their flight"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(I saw her smile.) But soon their flight",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    7,
+    10
+   ],
+   "bound": [
+    7,
+    10
+   ],
+   "edited": [
+    28,
+    33
+   ],
+   "result": "(I saw her smile.) But soon zqzq flight"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(I saw her smile.) But soon their flight",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    11,
+    16
+   ],
+   "bound": [
+    11,
+    16
+   ],
+   "edited": [
+    34,
+    40
+   ],
+   "result": "(I saw her smile.) But soon their zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And wept. (I heard her tears.)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    23,
+    28
+   ],
+   "bound": [
+    23,
+    28
+   ],
+   "edited": [
+    4,
+    8
+   ],
+   "result": "And zqzq. (I heard her tears.)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Kindled with love-breath, (the sun's kiss is colder!)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    45,
+    51
+   ],
+   "bound": [
+    45,
+    51
+   ],
+   "edited": [
+    13,
+    24
+   ],
+   "result": "Kindled with zqzq, (the sun's kiss is colder!)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Or when in the dusk hours, (we two alone,)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    40
+   ],
+   "bound": [
+    35,
+    40
+   ],
+   "edited": [
+    20,
+    25
+   ],
+   "result": "Or when in the dusk zqzq, (we two alone,)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Miss Shovel was dressed all in black (with a brooch);",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    45,
+    51
+   ],
+   "bound": [
+    45,
+    51
+   ],
+   "edited": [
+    31,
+    36
+   ],
+   "result": "Miss Shovel was dressed all in zqzq (with a brooch);"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Mrs. Broom was in blue (with a sash).",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    31,
+    35
+   ],
+   "bound": [
+    31,
+    35
+   ],
+   "edited": [
+    18,
+    22
+   ],
+   "result": "Mrs. Broom was in zqzq (with a sash)."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "And so (before assistance came)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    26,
+    30
+   ],
+   "bound": [
+    26,
+    30
+   ],
+   "edited": [
+    4,
+    6
+   ],
+   "result": "And zqzq (before assistance came)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "But, for all (think the maidens) that brown rosary,",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    14,
+    19
+   ],
+   "bound": [
+    14,
+    19
+   ],
+   "edited": [
+    33,
+    37
+   ],
+   "result": "But, for all (think the maidens) zqzq brown rosary,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "But, for all (think the maidens) that brown rosary,",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    20,
+    23
+   ],
+   "bound": [
+    20,
+    23
+   ],
+   "edited": [
+    38,
+    43
+   ],
+   "result": "But, for all (think the maidens) that zqzq rosary,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "But, for all (think the maidens) that brown rosary,",
+   "mode": "asides_sung",
+   "slot": "T6",
+   "named": [
+    24,
+    31
+   ],
+   "bound": [
+    24,
+    31
+   ],
+   "edited": [
+    44,
+    50
+   ],
+   "result": "But, for all (think the maidens) that brown zqzq,"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "But sit (among the rocks?) and listen for",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    9,
+    14
+   ],
+   "bound": [
+    9,
+    14
+   ],
+   "edited": [
+    27,
+    30
+   ],
+   "result": "But sit (among the rocks?) zqzq listen for"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "But sit (among the rocks?) and listen for",
+   "mode": "asides_sung",
+   "slot": "T4",
+   "named": [
+    15,
+    18
+   ],
+   "bound": [
+    15,
+    18
+   ],
+   "edited": [
+    31,
+    37
+   ],
+   "result": "But sit (among the rocks?) and zqzq for"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "But sit (among the rocks?) and listen for",
+   "mode": "asides_sung",
+   "slot": "T5",
+   "named": [
+    19,
+    24
+   ],
+   "bound": [
+    19,
+    24
+   ],
+   "edited": [
+    38,
+    41
+   ],
+   "result": "But sit (among the rocks?) and listen zqzq"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "This was different: scarce as loud, perhaps (who knows?),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    49,
+    54
+   ],
+   "bound": [
+    49,
+    54
+   ],
+   "edited": [
+    36,
+    43
+   ],
+   "result": "This was different: scarce as loud, zqzq (who knows?),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "A great man (who was crowned one day)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    33,
+    36
+   ],
+   "bound": [
+    33,
+    36
+   ],
+   "edited": [
+    8,
+    11
+   ],
+   "result": "A great zqzq (who was crowned one day)"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Was heinous (to begin).",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    16,
+    21
+   ],
+   "bound": [
+    16,
+    21
+   ],
+   "edited": [
+    4,
+    11
+   ],
+   "result": "Was zqzq (to begin)."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "Will gain by it (even in the lower classes),",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    35,
+    42
+   ],
+   "bound": [
+    35,
+    42
+   ],
+   "edited": [
+    13,
+    15
+   ],
+   "result": "Will gain by zqzq (even in the lower classes),"
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(And no one marvels), night and day.",
+   "mode": "asides_sung",
+   "slot": "head",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    22,
+    27
+   ],
+   "result": "(And no one marvels), zqzq and day."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(And no one marvels), night and day.",
+   "mode": "asides_sung",
+   "slot": "headrime",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    22,
+    27
+   ],
+   "result": "(And no one marvels), zqzq and day."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(And no one marvels), night and day.",
+   "mode": "asides_sung",
+   "slot": "T1",
+   "named": [
+    1,
+    4
+   ],
+   "bound": [
+    1,
+    4
+   ],
+   "edited": [
+    22,
+    27
+   ],
+   "result": "(And no one marvels), zqzq and day."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(And no one marvels), night and day.",
+   "mode": "asides_sung",
+   "slot": "T2",
+   "named": [
+    5,
+    7
+   ],
+   "bound": [
+    5,
+    7
+   ],
+   "edited": [
+    28,
+    31
+   ],
+   "result": "(And no one marvels), night zqzq day."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "(And no one marvels), night and day.",
+   "mode": "asides_sung",
+   "slot": "T3",
+   "named": [
+    8,
+    11
+   ],
+   "bound": [
+    8,
+    11
+   ],
+   "edited": [
+    32,
+    35
+   ],
+   "result": "(And no one marvels), night and zqzq."
+  },
+  {
+   "kind": "wrong_word",
+   "source": "corpus",
+   "line": "If the one who remains (only one)",
+   "mode": "asides_sung",
+   "slot": "endword",
+   "named": [
+    29,
+    32
+   ],
+   "bound": [
+    29,
+    32
+   ],
+   "edited": [
+    15,
+    22
+   ],
+   "result": "If the one who zqzq (only one)"
+  }
+ ]
+}

@@ -44,6 +44,17 @@ const consts = [...new Set(fn.match(/\bLY_[A-Z_]+\b/g) || [])].map((n) => {
   return m[0];
 });
 const ctx = createContext({});
+// VERSION 2 (2026-10-14): from the reader batch on, `lyTokens` delegates to
+// the shared mirror `CMLyricTokens` (src/lyric-tokens.js, bundled before the
+// pages). When the page names it, that file is run in the same context first,
+// as the bundle does, and its sha256 is recorded; nothing else is loaded.
+let mirror = null;
+if (/\bCMLyricTokens\b/.test(fn)) {
+  const mirrorPath = join(repoRoot, 'src', 'lyric-tokens.js');
+  const mirrorSrc = readFileSync(mirrorPath, 'utf8');
+  runInContext(mirrorSrc, ctx);
+  mirror = { source: 'src/lyric-tokens.js', sha256: createHash('sha256').update(mirrorSrc).digest('hex') };
+}
 runInContext(`${consts.join('\n')}\n${fn}\nthis.lyTokens = lyTokens;`, ctx);
 
 const rows = gunzipSync(readFileSync(recording))
@@ -68,6 +79,7 @@ const rec = {
   recording_commit: header.commit,
   source: 'src/pages/lyrics.js',
   source_sha256: createHash('sha256').update(src).digest('hex'),
+  mirror,
   lines,
   mismatches: ids.length,
   ids,
