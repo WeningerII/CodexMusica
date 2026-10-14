@@ -1,0 +1,58 @@
+{"shard": 0, "of": 2, "rows": 281069, "cut_differs": 5101, "cut_same": 135434}
+('cut_differs', 'end', 'one_only', 'no_anchor_v2') 277
+('cut_differs', 'end', 'punct_only', 'anchor_changed') 235
+('cut_differs', 'end', 'punct_only', 'anchor_same') 2079
+('cut_differs', 'end', 'recut', 'anchor_changed') 25
+('cut_differs', 'end', 'recut', 'anchor_same') 70
+('cut_differs', 'end', 'same', 'anchor_changed') 1
+('cut_differs', 'end', 'same', 'anchor_same') 2160
+('cut_differs', 'end', 'same', 'none_both') 254
+('cut_differs', 'endword', 'different', 'anchor_changed') 1
+('cut_differs', 'endword', 'punct_only', 'anchor_changed') 10
+('cut_differs', 'endword', 'punct_only', 'anchor_same') 2323
+('cut_differs', 'endword', 'recut', 'anchor_changed') 108
+('cut_differs', 'endword', 'recut', 'anchor_same') 9
+('cut_differs', 'endword', 'same', 'anchor_changed') 10
+('cut_differs', 'endword', 'same', 'anchor_same') 2632
+('cut_differs', 'endword', 'same', 'none_both') 8
+('cut_differs', 'head', 'punct_only', 'anchor_changed') 28
+('cut_differs', 'head', 'punct_only', 'anchor_same') 142
+('cut_differs', 'head', 'recut', 'anchor_changed') 39
+('cut_differs', 'head', 'recut', 'anchor_same') 112
+('cut_differs', 'head', 'same', 'anchor_same') 4772
+('cut_differs', 'head', 'same', 'none_both') 8
+('cut_differs', 'headrime', 'one_only', 'no_anchor_v1') 26
+('cut_differs', 'headrime', 'punct_only', 'anchor_same') 145
+('cut_differs', 'headrime', 'recut', 'anchor_changed') 126
+('cut_differs', 'headrime', 'recut', 'anchor_same') 23
+('cut_differs', 'headrime', 'same', 'anchor_same') 4771
+('cut_differs', 'headrime', 'same', 'none_both') 10
+('cut_differs', 'line', 'same', 'anchor_changed') 1136
+('cut_differs', 'line', 'same', 'anchor_same') 3957
+('cut_differs', 'line', 'same', 'none_both') 8
+('cut_differs', 'lines') 5101
+('cut_same_all', 'end', 'mismatch', 'anchor_changed') 4
+('cut_same_all', 'end', 'mismatch', 'anchor_same') 4
+('cut_same_all', 'end', 'same', 'anchor_same') 126822
+('cut_same_all', 'end', 'same', 'none_both') 8604
+('cut_same_all', 'endword', 'same', 'anchor_same') 135060
+('cut_same_all', 'endword', 'same', 'none_both') 374
+('cut_same_all', 'head', 'same', 'anchor_same') 135060
+('cut_same_all', 'head', 'same', 'none_both') 374
+('cut_same_all', 'headrime', 'same', 'anchor_same') 134874
+('cut_same_all', 'headrime', 'same', 'none_both') 560
+('cut_same_all', 'line', 'same', 'anchor_same') 135060
+('cut_same_all', 'line', 'same', 'none_both') 374
+('cut_same_all', 'lines') 135434
+('cut_differs', 'end', 'punct_only') ['Your heritage your foes menace--secure it from their foul embrace--', 'Thundered the battery’s double bass--', 'Up to the pits the rebels kept--']
+('cut_differs', 'end', 'recut') ['Up--i--de--i--de--i--di,', 'U--pi--de--i--de--i--di,', 'U--pi--de--i--de--i--di,']
+('cut_differs', 'end', 'same') ['As the 113th Psalm.']
+('cut_differs', 'endword', 'different') ['Spoken by Miss Fontenelle on her Benefit Night, December 4th, 1793,']
+('cut_differs', 'endword', 'punct_only') ['These bits of things at the passers-by--', "Come volunteer, my Texas boys, altho' you are forty-six--", 'And Love--Oh God, avenge it--']
+('cut_differs', 'endword', 'recut') ['Up--i--de--i--de--i--di,', 'U--pi--de--i--de--i--di,', 'U--pi--de--i--de--i--di,']
+('cut_differs', 'endword', 'same') ['Chose you, and cast me by.                                       20', 'A low voice is calling me,                                       20', 'Look up, not downwards when I speak to you.                          _190']
+('cut_differs', 'head', 'punct_only') ['--Of a water that flows,', '--With his sweet smile innocent', 'Was--_not_ like Justice, blind,']
+('cut_differs', 'head', 'recut') ['Up--i--de--i--de--i--di,', 'All--all expired save thee--save less than thou:', 'But--hidden thus--there was no doubting']
+('cut_differs', 'headrime', 'recut') ['Up--i--de--i--de--i--di,', 'U--pi--de--i--de--i--di,', 'U--pi--de--i--de--i--di,']
+('cut_differs', 'line', 'same') ['Your homes and towns in ruins piled--your matrons, maids--your very child', "What tho' they count as harvest-seed--as fathers bled, their sons must", 'Up--i--de--i--de--i--di,']
+('cut_same_all', 'end', 'mismatch') ['“Also, some few I. O. U.’s and bets,”', "As most is in _Lynn_'s fair Town;", "Below the knap, 's a runnèn still;"]

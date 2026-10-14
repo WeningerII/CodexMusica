@@ -1,0 +1,993 @@
+{
+ "candidate": "67889851144dd2a7eefedd9960a868978fb7bfae",
+ "checks": [
+  {
+   "task": "BB8 library-route1: the Library tab's saved pronunciation choices that are re-sent as declaration_set on each new analysis (src/library/analysis.js). Checked on candidate 67889851 against baseline page 8b1d2ad2 and the v1 harness at fce4bf0f.",
+   "verdict": "MIXED",
+   "checks": [
+    {
+     "id": "1-mechanism",
+     "claim": "How the candidate detects a legacy stored choice, rebinds it by span or refuses it, and how it marks new saves (source read).",
+     "expected": "A precise description with file:line references.",
+     "observed": "Detection, src/library/analysis.js:698-756 (savedInterpretation). If rec.token_cut === 'v2' (DECL_CUT = CMLyricTokens.SCHEME, :692; SCHEME 'v2' at src/lyric-tokens.js:31), the record is trusted as is (:704). If token_cut is undefined, the record is legacy/unmarked. Any other token_cut value, null included, is 'unknown' (:713), and every row goes to `undecided` with the reason 'its record names the word cut \"X\"; this page accepts only \"v2\"'. Rebinding, for each unmarked row that has a string line, an integer token and a string word: rebindBySpan(line, token, word, v1GraderSpans(line,false), false) (:733-739). v1GraderSpans (lyric-tokens.js:276-311) locates the old server cut in the raw line and returns null when the located texts differ from v1GraderTokens. rebindBySpan (lyric-tokens.js:319-339) refuses when the old token is missing or its text !== the saved word (:321). It also refuses unless exactly one v2 token has identical UTF-16 pieces and the same text (:334). It never picks a nearby or overlapping word. Outcomes: blocked goes to undecided (:741); same number keeps the row object as is (:742); a new number gives {...row, token} plus a `renumbered` entry (:744-745). legacy_declarations keeps the original declarations whenever anything moved or was blocked (:752). Write-back: loadInterpretation (:768-781) writes interpretationRecord once, on first load of an unmarked record (:771, :775). An unknown-cut record is not written until the user acts. Marker: every page write goes through interpretationRecord (:758-764), which sets token_cut:'v2' plus undecided, renumbered and legacy_declarations when present. Those writes are onSave (:1810, which also clears renumbered at :1805), dropUndecided (:1619) and migration (:775). Send gate: analysisRequest (:800-812) returns {refused} while undecided is non-empty, and analyze() calls it before any POST (:1412). The Lyrics handoff declarations() returns savedInterpretation(...).declarations without writing (:1258). UI: cutHTML (:1602) shows renumbered as role=status and undecided as role=alert with a Remove button, plus a toast on first migration (:1915-1928).",
+     "status": "pass",
+     "independent": true,
+     "evidence": "git -C wt-678 diff 8b1d2ad2 -- src/library src/lyric-tokens.js. Baseline sent st.declarations unchanged (wt-main src/library/analysis.js:1275) and saved {declarations: v} (:1637)."
+    },
+    {
+     "id": "2-oh-repro",
+     "claim": "'Oh--oh, oh my love' with a legacy choice on token 2 'oh': which characters the grader binds, on baseline and on candidate.",
+     "expected": "Baseline 8-10. Candidate 8-10 or a visible refusal, never 4-6.",
+     "observed": "Built codex.html served from each tree, with the legacy record seeded in IndexedDB 'codex-musica-library-v1'/'state' under the key interpretation:<unit>:<rev>. Baseline page sends token 2, and the base v1 grader binds 'oh' at [8,10]. The same baseline-sent row given to the candidate v2 grader is ACCEPTED with no refusal and binds [4,6]: the known bug, reproduced (this is the state at e58b23248e70, which had READER_SCHEME 'v2' and no migration; source read). The candidate page sends token 3. The candidate v2 grader binds 'oh' at [8,10]. A visible notice appears: '“oh” token 2 → 3 … on the same characters'. Sent declaration_set: {\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"bb8 legacy fixture\"}, …]}. Only `token` changed, and key order is kept. A numeral line moved the same way: '1 more time…' token 1→2 binds [2,6]. Unmigrated, the v2 grader refuses that row loudly ('token 1 there is \"1\"').",
+     "status": "pass",
+     "independent": true,
+     "evidence": "repro_page.js -> page_candidate.json / page_baseline.json; bind_spans.py (tree's own validate_choices + for_line + spans) -> bind_spans_out.txt; oracle_cuts.py -> oracle_base.json (base harness line_tokens located by _TOKEN_RUN) and oracle_cand.json (reader_token_spans v2)."
+    },
+    {
+     "id": "3a-unchanged-byte-identical",
+     "claim": "A legacy choice whose v1 and v2 spans are identical is sent and stored byte-identical.",
+     "expected": "Sent and stored declarations bytes equal the seeded bytes, with no notice.",
+     "observed": "Scenario 'same' (lampe t6, ring t10, light-giving t5 on Epithalamion lines): the sent declaration_set bytes equal JSON.stringify(seed.declarations) on first analyze, after reload, and after Apply plus reload. Stored declarations bytes equal the seed at every step, and no notice is shown. The record gains only token_cut:'v2'. In the mixed 'oh' record, the unmoved 'lampe' row and the hooks are byte-identical. declaration_hash is unchanged for this case.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "check_bytes.js -> check_bytes_out.txt (all PASS for same/*)."
+    },
+    {
+     "id": "3b-unknown-marker",
+     "claim": "An unknown marker refuses visibly.",
+     "expected": "Blocked, not sent, with a message naming the accepted value.",
+     "observed": "token_cut 'v9': a role=alert block reads '1 saved pronunciation choice needs your decision… its record names the word cut “v9”; this page accepts only “v2”', with a Remove button. Analyze makes no POST and shows 'Nothing was sent. …'. The IDB record stays byte-identical through reload. After 'Apply interpretation' the record is rewritten as token_cut v2, with the row kept in `undecided` and the original in legacy_declarations. After reload it is still blocked and still not sent. token_cut null is refused the same way (node, built chunk). Baseline page sent the v9 row unchanged.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "page_candidate.json scenario v9; node_edge_out.txt E7."
+    },
+    {
+     "id": "3c-persistence",
+     "claim": "(a), (b) and the oh case hold after save and full page reload, with IndexedDB persisted.",
+     "expected": "No double migration, the refusal persists, and the marker persists.",
+     "observed": "oh: after reload1 the record has token_cut v2, token 3 and the notice, and the send is token 3. After Apply plus reload2 the send is still token 3 (binds [8,10]), with no re-migration; the renumbered notice is cleared by Apply, as coded at :1805. same: byte-identical throughout. v9: blocked throughout. split ('yes--no--maybe so' token 1 has no exact v2 span): blocked with role=alert and nothing sent. After Remove only oh token 3 is sent, and that persists across reloads.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "page_candidate.json steps load1/analyze1/reload1/analyze-after-reload1/after-save/reload2/analyze-after-reload2; bind_spans_out.txt (after-reload2)."
+    },
+    {
+     "id": "4-stored-records",
+     "claim": "Stored pre-batch records are not silently rewritten.",
+     "expected": "Original data kept and any change visible.",
+     "observed": "The record IS rewritten on first load, with no user action, when unmarked with declarations. When something moved or was blocked, a toast and a status or alert notice are shown, and the original declarations are kept byte-identical in legacy_declarations. When nothing moved, only token_cut:'v2' is added, declarations bytes are unchanged, and there is no notice. An unknown-marker record is never rewritten until the user acts. Baseline never rewrites on load.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "check_bytes_out.txt: 'FAIL candidate oh/load1: stored record bytes unchanged' (keys declarations, token_cut, renumbered, legacy_declarations), 'PASS legacy_declarations bytes == seeded', 'PASS v9/reload1 left byte-identical'."
+    },
+    {
+     "id": "4-declaration-hash",
+     "claim": "declaration_hash (mcp/reader_scheduler.js:377) differs only for a migrated NEW job.",
+     "expected": "Different when a token moved; same when nothing moved; existing jobs unaffected.",
+     "observed": "Computed with the tree's own canonicalJSON and semanticDeclarations over the bodies actually sent. oh: baseline a7f57c01… vs candidate be918a51…, DIFFERENT. same: 06a3cb1d… for both, SAME. split after Remove: DIFFERENT. v9 and split before Remove: not sent. main and candidate give identical results (the scheduler hash code is unchanged). Existing jobs re-resolve identity from their own stored request (reader_scheduler.js:465-467, source read), so only new jobs change hash. This is expected.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "decl_hash.mjs -> decl_hash_out.txt."
+    },
+    {
+     "id": "mirror-v1-vs-base",
+     "claim": "The page's v1 migration cut equals the real pre-batch grader's cut.",
+     "expected": "0 disagreements.",
+     "observed": "CMLyricTokens.v1GraderTokens/v1GraderSpans texts matched the BASE tree's (fce4bf0f) LH.line_tokens(t, False) on 1221 lines: the reader_v2_mirror fixture plus 23 of my own (enclitics, curly and modifier apostrophes, NFD marks, soft hyphen, numerals, dash runs, U+2010/2011). 0 disagreements and 0 nulls. Spans were checked independently only on the ASCII oracle lines.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "v1_xcheck.py + node -> v1_xcheck_out.txt."
+    },
+    {
+     "id": "built-artifact-fresh",
+     "claim": "The committed codex.html and library chunk are what the source builds.",
+     "expected": "Byte-identical rebuild.",
+     "observed": "CODEX_LIBRARY=1 build_html.js --out=<scratch> on wt-678 and wt-main: codex.html and the analysis chunks are byte-identical to the committed files (candidate analysis.9ebd86e5f8.js, baseline analysis.71b110b249.js).",
+     "status": "pass",
+     "independent": true,
+     "evidence": "cmp output recorded in COMMANDS.txt step 2."
+    },
+    {
+     "id": "author-tests",
+     "claim": "Author's relevant tests pass on the candidate.",
+     "expected": "Pass.",
+     "observed": "node --test scripts/test_library_declarations.js: 8/8 pass. node --test scripts/test_lyric_tokens.js: 5/5 pass. node scripts/check_library_page.js --only=declarations --built=<scratch build>: PASS 48/48 (both themes, widths 1280 and 390).",
+     "status": "pass",
+     "independent": false,
+     "evidence": "author_test_library_declarations.txt, author_test_lyric_tokens.txt, author_check_library_page_declarations.txt."
+    }
+   ],
+   "unexpected_findings": [
+    {
+     "summary": "Stale-tab double migration lands a choice on a DIFFERENT word, and the notice says 'on the same characters'. The old Library code (analysis.71b110b249.js) is deliberately kept for 30 days (library/code/generations.json: retain_days 30, retired 2026-10-14). That old code's 'Apply interpretation' saves {declarations: v} (main analysis.js:1637), which drops token_cut, renumbered, undecided and legacy_declarations. The new page then reads those v2 numbers as v1 and moves them again. On 'Oh--oh, oh, oh my love' the user's choice (v1 token 2 = chars 8-10, migrated to v2 token 3) came back as token 4 = chars 12-14 and was SENT that way. Only a role=status notice appeared, and it claims 'moved … on the same characters'. A choice the old code picks from v2 evidence and saves unmarked takes the same path. Where the old number names a different word it blocks visibly (e.g. on 'Oh--oh, oh my love'), and the original v1 legacy copy is lost. Policy item 6 accepts unmarked = legacy, but this breaks 'never silently land on a different word', and the notice text is false here. Possible mitigation (not implemented): keep the mark or a fingerprint of the last v2-written declarations in a key the old code does not overwrite.",
+     "severity": "minor",
+     "evidence": "Executed: repro_stale_tab_oo_only.js on mixroot (candidate codex.html plus main's codex.html as codex-old.html, one origin and one IndexedDB). Output in stale_tab_oo_only_out.txt: old page loaded analysis.71b110b249.js; after Apply the IDB keys are ['declarations'] only; the new page notice reads '“oh” token 3 → 4'; SENT [[\"Oh--oh, oh, oh my love\",4]]. v2 spans: token 3 = (8,10), token 4 = (12,14). stale_tab_out.txt: the OH row blocks visibly. Node-level equivalent in node_edge_out.txt E3."
+    },
+    {
+     "summary": "Rollback is not forward-safe. A migrated record keeps v2 numbers in `declarations`. If the page and grader were rolled back to v1, the baseline code would send those numbers unmarked to a v1 grader. On recurring-word lines that binds another occurrence (e.g. token 3 on 'Oh--oh, oh, oh my love' is v1 [12,14], not the intended [8,10]). legacy_declarations holds the original, but the old code ignores it.",
+     "severity": "note",
+     "evidence": "Not executed end to end. Inferred from node_edge_out.txt E2 (v1 vs v2 cuts) and the baseline reading only stored.declarations (main analysis.js)."
+    },
+    {
+     "summary": "The task text names IndexedDB 'codex-musica-library-analysis-v1'. On the real page the analysis inspector stores choices through core's lib.device: IndexedDB 'codex-musica-library-v1', object store 'state' (src/library/core.js:22,112-113; analysis.js deviceStore uses the analysis-v1 DB only when lib.device is absent). I seeded and read the core DB, which is what the shipped page uses. The fallback DB was not exercised in the browser, but savedInterpretation and loadInterpretation are shared by both stores.",
+     "severity": "note",
+     "evidence": "src/library/analysis.js:640-667, src/library/core.js:22."
+    },
+    {
+     "summary": "Untracked symlink wt-678/mcp/node_modules -> /home/user/CodexMusica/mcp/node_modules appeared at 03:28:48 UTC while I was working. None of my commands create symlinks there; my builds wrote only under the scratch dir, and check_library_page.js symlinks only inside its --built dir. Most likely a sibling task made it. It is untracked, and I left it untouched.",
+     "severity": "note",
+     "evidence": "ls -la --time-style=full-iso wt-678/mcp/node_modules; git status shows '?? mcp/node_modules'."
+    },
+    {
+     "summary": "Lines with decomposed (NFD) characters fail closed correctly. Rows whose v1 span equals a v2 span are renumbered ('love' 3→2, 'mine' 5→4 on 'belovèd love, bé mine'). A row that v2 splits differently ('belove', where v1 stops at the combining mark) is set aside visibly. Rows whose word does not equal the v1 token text, including a case mismatch, token 0, beyond-end tokens or a non-integer token, are refused visibly and never moved.",
+     "severity": "note",
+     "evidence": "node_edge_nfd_out.txt; node_edge_out.txt E5, E8, E10 (built chunk analysis.9ebd86e5f8.js loaded in vm)."
+    }
+   ],
+   "not_covered": [
+    "The Lyrics handoff route (declarations() at analysis.js:1258) beyond a source read: covered by sibling task library-routes234.",
+    "The fallback IndexedDB 'codex-musica-library-analysis-v1' store, not exercised in a browser (see note).",
+    "A real Library server job (lyric-harness/library/analysis.py) run end to end with these declaration_sets. Grader binding was checked at the Lexicon level (validate_choices + for_line + token spans) in each tree, not through a full analysis job.",
+    "Server-side v1_bound_declarations migration (quality/pronunciation.py:126) interacting with page-sent rows: source read only. It triggers only on an exact fingerprint match with the pinned Gutenberg asset, so page rows should not be migrated twice in normal use. Not executed.",
+    "Text/Library export-import of interpretation records: grep found no reader or writer of interpretation:* keys outside analysis.js (source read), so there is no such path to test.",
+    "Lines that are actually in the reading: my seeded rows use lines not in Epithalamion. The stubbed API accepts anything; a real server would refuse with STALE_READING."
+   ],
+   "artifacts_dir": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/library-route1"
+  },
+  {
+   "task": "BB8 library-routes234 on candidate 67889851 (wt-678). Route 2: a reader job queued before the release. Route 3: the Library's in-page whole-reading handoff to Lyrics. Route 4: a pre-release codex-musica-library-import.json made with 8b1d2ad2 and imported on the candidate. Gate: classify the library.test_unit_manifest exit 1.",
+   "verdict": "MIXED",
+   "checks": [
+    {
+     "id": "G1",
+     "claim": "library.test_unit_manifest fails (exit 1) on the candidate",
+     "expected": "Reproduce R2's exit 1 with the specified invocation",
+     "observed": "Run from the tree root with PYTHONPATH=lyric-harness: exit 0, 8/8 OK on the candidate, base and main. The CI form (working-directory lyric-harness, ci.yml:571-573) also exits 0 on all three trees under python3.11, 3.12 and 3.13. discover -s lyric-harness/library -p test_unit_manifest.py exits 0 on all three.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "gate_wt-*.log, gate_ci_wt-*.log, gate_python3.1x_wt-*.log, gate_disc_wt-*.log, COMMANDS_gate.txt"
+    },
+    {
+     "id": "G2",
+     "claim": "Classify the exit 1",
+     "expected": "pre-existing, expected drift, or unexpected",
+     "observed": "PRE-EXISTING invocation artifact. Exit 1 happens only from the tree root WITHOUT PYTHONPATH=lyric-harness, and it happens the same way on candidate, base and main. The error is 'ModuleNotFoundError: No module named library.test_unit_manifest'. Cause: the tracked static-site directory library/{code,data,probe} at the repo root is imported as the namespace package 'library', and lyric-harness is not on sys.path. No assertion fails. Separately, the whole library discover passes on the candidate (100 tests, 129 s). On wt-main it has 16 errors, all LEXICAL_ASSET_MISSING because cmudict.dict is not staged there (environment). Base was not run.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "gate_rootnopp_wt-678.log / wt-base / wt-main (identical error); gate_discover_all_wt-678.log (OK), gate_discover_all_wt-main.log (cmudict)"
+    },
+    {
+     "id": "R2-1",
+     "claim": "The scheduler recomputes job identity, including engine_commit, before every lease and refuses a mismatch with STALE_READING",
+     "expected": "pump(): resolveIdentity, compare, then throw STALE_READING before runReaderLease",
+     "observed": "Source read, mcp/reader_scheduler.js:465-467. On mismatch it throws STALE_READING ('Source or engine identity changed; create a new reader job.'). The catch calls store.pause(..., requeue:false). The batch changed none of reader_scheduler.js, reader_job_store.js, library_viewer_routes.js, server_http.js or build_identity.js (empty git diff --stat), so this protection was already there before the batch; the batch only adds a test.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read; git diff 8b1d2ad2..HEAD --stat on those files is empty"
+    },
+    {
+     "id": "R2-2",
+     "claim": "Author's test: a job queued across the word-cut release is refused and never run",
+     "expected": "pass",
+     "observed": "node --test mcp/test_reader_client.mjs: 11/11 pass, including the new test. That test mocks resolveIdentity. It first needed an untracked symlink wt-678/mcp/node_modules pointing at the main checkout's mcp/node_modules (lock identical), because express was missing.",
+     "status": "pass",
+     "independent": false,
+     "evidence": "route2_test_reader_client.log"
+    },
+    {
+     "id": "R2-3",
+     "claim": "With the REAL createCatalogResolver, a job created under a pre-batch commit and leased by a candidate-commit server is refused, not run, not rewritten",
+     "expected": "leases 0, paused, STALE_READING, request/identity byte-equal",
+     "observed": "leases 0, state paused, reason {code:STALE_READING, message:'Source or engine identity changed; create a new reader job.'}. Stored request and identity are deepEqual to before. Control: with the same commit the lease runs and the bridge receives the legacy token:2 declarations.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "route2_scratch.test.mjs, route2_scratch_wt-678.log (DIFF_COMMIT, SAME_COMMIT)"
+    },
+    {
+     "id": "R2-4",
+     "claim": "Reader scheme is part of job identity, so a v1 job is refused even if the commit does not change",
+     "expected": "Refused even when engine_commit is unchanged",
+     "observed": "Identity keys are contract_version, declaration_hash, edition_id, engine_commit, native_profile, normalized_sha256, normalizer_version, parser_version, reading_revision, reading_unit_id, requested_layers, requested_methods, resource_fingerprint, snapshot_id, source_sha256 and work_id. None is a reader scheme. With engineCommit null on both sides and the same resource_fingerprint, the lease RAN with the legacy declarations. With a null commit and a changed fingerprint it was refused. In production, mcp/Dockerfile:86 bakes a 40-hex commit and :135 sets LYRIC_RELEASE_ASSETS_REQUIRED=1, so engine_commit changes every release. The gap therefore only exists in deployments without a commit identity (local or unbuilt). The batch did not change runtime assets: the assets_sha256 difference between wt-main and wt-678 comes only from cmudict.dict missing in wt-main.",
+     "status": "fail",
+     "independent": true,
+     "evidence": "route2_scratch_wt-678.log (IDENTITY_KEYS, NULL_COMMIT, NULL_COMMIT_FP_CHANGED); route2_inventory_*.json; source read mcp/build_identity.js:28-35, server_http.js:283-330"
+    },
+    {
+     "id": "R2-5",
+     "claim": "The refusal is visible to the user",
+     "expected": "The Library page shows the refused job and why",
+     "observed": "Executed on the candidate build, with the job responses stubbed to match what pump() records. The page shows 'paused', 'Code STALE_READING', 'Message Source or engine identity changed; create a new reader job.', plus Resume and Delete buttons. Resume is offered even though it can never succeed. After clicking Resume (stub 409 STALE_READING, mirroring reader_job_store.resume) the page says 'This reading was updated. The analysis server updates within a day; retry later.' That is wrong for this case: the reading did not change, and retrying will never work. The job only shows on a page whose in-memory job survived; after a reload the old job is not listed (source read).",
+     "status": "pass",
+     "independent": true,
+     "evidence": "r2_stale_page_cand.log, r4/obs_stale.json; source read src/library/analysis.js:155-160 failMessage"
+    },
+    {
+     "id": "R3-1",
+     "claim": "Author tests for the import and handoff routes pass",
+     "expected": "pass",
+     "observed": "test_library_import.js 15/15 (main also 15/15). test_library_import_browser.js 1/1 headless (CHROMIUM_EXECUTABLE_PATH=/opt/pw-browsers/chromium). test_library_declarations.js 8/8.",
+     "status": "pass",
+     "independent": false,
+     "evidence": "route3_test_library_import_cand.log, route3_test_library_import_browser_cand.log, author_test_library_declarations.log"
+    },
+    {
+     "id": "R3-2",
+     "claim": "Imported Library declarations never reach a grade; they are only source history",
+     "expected": "Not sent to lyric tools",
+     "observed": "Source read. importedDraft sets draft text = payload.text and stores declarations only in meta.libraryOrigin.declarations (library-import.js:150-185). They come back out only through makeWorkingCopyEnvelope (:209, :221) and 'Export source details'. lyContext sends lyDeclarationsOf(lyParse(draft)), i.e. [SETUP] rows of the text (lyrics.js:4593-4606). No other reader of libraryOrigin.declarations exists in src/ or mcp/. Executed: after import, the sent declarations are '{}' and uiLyricContext('lyrics-edit') contains no AA1 or 'the singer'.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read; r4/obs_import.json, r4/obs_handoff.json"
+    },
+    {
+     "id": "R3-3",
+     "claim": "In-page whole-reading handoff with a legacy unmarked saved choice (Oh--oh, oh my love, token 2)",
+     "expected": "Rebound to the same characters (8-10) or refused visibly; never token 2 under v2",
+     "observed": "Executed on the candidate build. On load the record is rebound to token 3 and written back with token_cut 'v2', renumbered [{from 2, to 3}] and legacy_declarations kept. The status area shows '...“oh” token 2 → 3'. The handoff envelope and Lyrics libraryOrigin.declarations carry token 3 and never token 2. Harness check: v2 token 3 is (8,10); v1 token 2 is (8,10); base line_tokens are ['Oh--oh','oh','my','love'].",
+     "status": "pass",
+     "independent": true,
+     "evidence": "r3_handoff_cand.log, r4/obs_handoff.json, route34_spans_cand.txt, route34_spans_base.txt"
+    },
+    {
+     "id": "R3-4",
+     "claim": "A legacy choice that cannot be rebound blocks or is mentioned in the handoff",
+     "expected": "Visible",
+     "observed": "Test choice: 'ways:--and the road', token 2, '--and'. The Library status shows '1 saved pronunciation choice needs your decision...' and keeps it in undecided. The handoff still proceeds and the envelope silently leaves it out. Lyrics source history lacks it, with no mention at handoff time. Nothing binds it, so no word is misbound.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "r3_handoff_cand_extra.log, r4/obs_handoff_extra.json"
+    },
+    {
+     "id": "R4-1",
+     "claim": "A pre-release bundle built with 8b1d2ad2 code carries the legacy choice",
+     "expected": "codex-musica-library-import.json with token 2 verbatim",
+     "observed": "Main's own reader produced it: the in-page handoff was forced to fail, so it fell back to uiDownload. The bundle carries [{pronunciations:[{line:'Oh--oh, oh my love', token:2, word:'oh', ...}]}], digest 1b88d618..., file sha256 92097263...",
+     "status": "pass",
+     "independent": true,
+     "evidence": "r4_make_main.log, r4/obs_make.json, r4/main-bundle/codex-musica-library-import.json"
+    },
+    {
+     "id": "R4-2",
+     "claim": "The pre-release bundle's digest still verifies on the candidate; the file never needs rewriting",
+     "expected": "Import succeeds; file bytes unchanged",
+     "observed": "Lyrics > Import on the candidate build: libraryOrigin.digest equals the bundle digest, with the toast 'Library working copy imported...'. sha256sum -c after import: OK. Node: candidate validateEnvelope accepts it and the recomputed digest matches. Changing token 2 to 3 in the file is refused ('Library import digest does not match its content.').",
+     "status": "pass",
+     "independent": true,
+     "evidence": "r4_import_cand_run2.log, r4/bundle_sha256_before_import.txt, route4_node_check.log"
+    },
+    {
+     "id": "R4-3",
+     "claim": "When used, the legacy bundle choice binds the same characters or refuses visibly",
+     "expected": "Never binds 4-6",
+     "observed": "It is never used. It is kept verbatim (token 2) as source history, no tool call carries it (sent '{}'), and no notice says it is v1-numbered. A re-export of the unadapted draft writes the same unmarked token-2 row into a new, post-release envelope.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "r4/obs_import.json; route4_node_check.log (re-exported working copy declarations)"
+    },
+    {
+     "id": "R4-4",
+     "claim": "Pre-release Lyrics working copy (same protocol) with a v1 [SETUP — reading — token 2] row, imported on the candidate",
+     "expected": "Rebound to the same characters with a visible notice, or blocked",
+     "observed": "Binding is correct: the row becomes 'token 3 \"oh\" ... — cut v2' and sends token 3, which is chars 8-10 under v2. The digest verifies. The notice is effectively invisible: the toast '1 saved word number ... “oh” word 2 → 3.' appeared at 2691 ms and was replaced at 2793 ms by 'Library working copy imported...' (single #toast element). Nothing persistent in the page records the renumbering (source read: lyMigrateSavedReadings reports moves only through that toast). The page's own rewrite also turns origin.adapted true (draft text now differs from originalText), so the draft shows '· Adapted'.",
+     "status": "fail",
+     "independent": true,
+     "evidence": "r4/obs_import.json toastSequence + draftHead + sent; src/pages/lyrics.js:309-337 (source read)"
+    }
+   ],
+   "unexpected_findings": [
+    {
+     "summary": "Deploy window, old client to new server: a pre-batch Library page still open or cached sends unmarked v1 rows (token 2 'oh'), and the post-release server accepts them silently, binding chars 4-6. Job requests carry no scheme marker and the identity has no scheme field. The other direction (new page to old server) is refused visibly.",
+     "severity": "minor",
+     "evidence": "route2_stale_client_validate.log: candidate validate_choices under v2 accepts token 2 'oh' (v2 token 2 is (4,6)); base refuses token 3. route2_scratch SAME_COMMIT: the scheduler passes stored declarations straight to the worker. analysis.js comment: 'the rows sent to the analysis are unchanged in shape'. End-to-end not reproduced; the Python worker was not run."
+    },
+    {
+     "summary": "A separate route outside this task: sites/library (the standalone Library Site) keeps declarations on the device (writeDevice) and posts declaration_set unchanged. The batch does not touch sites/. If that Site reaches a post-batch backend, its v1-numbered choices are bound under v2 without migration.",
+     "severity": "note",
+     "evidence": "Source read only: sites/library/components/library/reader.tsx:200-205, 317-371; git diff 8b1d2ad2..HEAD --stat -- sites/ is empty. Whether the live Site reaches a v2 backend was not determined."
+    },
+    {
+     "summary": "The renumbering notice is overwritten on import, so the renumbering is effectively silent. On the working-copy import route the 'word 2 → 3' toast lasts about 100 ms before the import-success toast replaces it. lyCommit(text, 'Imported …') for .txt imports has the same ordering (source read).",
+     "severity": "minor",
+     "evidence": "r4/obs_import.json toastSequence (2691 ms then 2793 ms); src/app.js:14728 showToast uses one #toast element; lyrics.js lyCommit/lyRefresh order"
+    },
+    {
+     "summary": "A paused STALE_READING job still offers Resume, which can never succeed. After Resume the page says 'This reading was updated... retry later', which is wrong when the cause is an engine change. This wording existed before the batch.",
+     "severity": "minor",
+     "evidence": "r4/obs_stale.json afterResume; src/library/analysis.js:157-158; server files unchanged by the batch"
+    },
+    {
+     "summary": "Library import envelopes have no word-cut marker, and the payload validator rejects extra fields. Main-made bundles (token 2 = v1) and candidate-made bundles (token 3 = v2) look the same. Harmless today, because nothing binds envelope declarations.",
+     "severity": "note",
+     "evidence": "r4/obs_make.json vs r4/obs_handoff.json; src/library-import.js:88-100"
+    },
+    {
+     "summary": "Main checkout /home/user/CodexMusica shows a modified tracked file I did not touch: lyric-harness/quality/results/acceptance_2026-10-13/slot_binding.py. I created one untracked symlink, wt-678/mcp/node_modules, pointing at /home/user/CodexMusica/mcp/node_modules (mcp package-lock identical) so the mcp node tests could resolve express.",
+     "severity": "note",
+     "evidence": "git status in each tree at end of run"
+    }
+   ],
+   "not_covered": [
+    "Route 1 (a new Library analysis request) and the Lyrics-page policy-A rows (rhyme groups/returns), which belong to other tasks; only the reading-row migration was seen, via the working-copy import",
+    "Route 2 was not run through the real Python reader worker or the real HTTP server; the bridge was stubbed, and page visibility used stubbed job responses matching the server source",
+    "mcp/test_reader_job_store.mjs and mcp/test_reader_integration.mjs were not run",
+    "The base tree's full library discover was not run (the candidate's passes)",
+    "Main's bundle was made by forcing uiOpenInLyrics to throw, so the page used its download fallback; the natural triggers (size over TRANSFER_BYTES, or a failed import) were not used",
+    "A handoff clicked before loadInterpretation resolves would send declarations {} (source read only, not executed)",
+    "The sites/library route and the deploy-window stale-client route were not reproduced end to end"
+   ],
+   "artifacts_dir": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/library-routes234"
+  },
+  {
+   "task": "BB8 page-rules: how the candidate Lyrics page (wt-678 @ 67889851) handles saved rows under agreed policy A (points 1-7), tested in the real page with Playwright (Chromium /opt/pw-browsers/chromium). The rows were written by the baseline page's own forms (wt-main @ 8b1d2ad2), or hand-written in the same format, then opened on the candidate under the same origin.",
+   "verdict": "MIXED",
+   "checks": [
+    {
+     "id": "build-fresh",
+     "claim": "The candidate codex.html under test is fresh",
+     "expected": "A build with --check passes and matches the committed codex.html",
+     "observed": "exit 0, 'check: PASS'; cmp shows built.html identical to wt-678/codex.html. The wt-main build is identical to its own committed file too.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "h678/page-rules/build.log, COMMANDS.txt"
+    },
+    {
+     "id": "P1-rhyme-T4-rebind",
+     "claim": "'Oh--oh, oh my love' with rhyme member 1.T4 (v1 = love, v2 = my) rebinds to 'love' by span. It never points silently at 'my'.",
+     "expected": "1.T5 covering characters 14-18 ('love'), announced to the user",
+     "observed": "The baseline row '[SETUP — rhyme groups — 1.T4,8;3,5;2,6;4,7]' becomes '1.T5,8;3 (carried across the word-cut change),5;2 (carried…),6;4 (carried…),7 — cut v2'. v2 token 5 is love [[14,18]]. A toast says '“love” word 4 → 5'. Run review sends groups '1.T5,8;3,5;2,6;4,7'. The candidate harness binds 1.T5 to 'love'. Contrast: an unmigrated 1.T4 under v2 binds 'my' (\"L1 ('my') — VIOLATED\").",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_A.log A.load.rows/A.load.span/A.load.toast/A.send.groups; harness_numeral.log binding; harness_T4.log"
+    },
+    {
+     "id": "P1-returns-T4-rebind",
+     "claim": "The same holds for a returns row",
+     "expected": "returns 1.T4,8.T1 becomes 1.T5,8.T1, marked",
+     "observed": "'[SETUP — returns — 1.T5,8.T1;3.head (carried across the word-cut change),5.head — cut v2]' is sent as '1.T5,8.T1;3.head,5.head'",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_A.log A.load.rows, A.send.groups"
+    },
+    {
+     "id": "P1-block",
+     "claim": "A T<k> that no v2 word covers exactly is kept, binds nothing and blocks sends",
+     "expected": "'N.Tk (numbered under the earlier cut)'; Run review and a typed edit both refused",
+     "observed": "1.T1 ('Oh--oh', characters 0-6) and 2.T5 ('bass--') are both kept as '(numbered under the earlier cut)'. 0 /chat calls. Toast: 'Nothing was sent… (1.T1, 1.T1) could not be matched…'. _chatSend returns reason 'declarations'. The declarations carry groups_need_decision and returns_need_decision.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_B.log B.load.*, B.*.sendBlocked; scen_E.log E.paste.rows"
+    },
+    {
+     "id": "P2-notice-changed-line",
+     "claim": "A named place on a changed-cut line gets a Review notice. The notice names the line, the place and the words under each cut, says the page display is not the grader's binding, and offers Keep the link / Remove it. It does not block sends.",
+     "expected": "One 'note' per member, with both actions; the send goes out",
+     "observed": "4 notices: line 3 last rhyme 'sea'/'sea' (only an earlier word's cut changed: Run--run), line 2 'bass--'/'bass' (the double bass-- line), line 4 'heart'/'10', returns line 3 first word 'Run--run'/'Run'. Each reads 'That is the page's display, not the grader's evidence…' and offers Keep the link / Remove it, tone note. Run review reaches /chat once. The endword, headrime, line, leading-dash head and mid-line numeral ('I have 2 hearts') places are handled the same way.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_A.log A.notice.*, A.send.reaches; scen_F.log F.load.*; A_review.png"
+    },
+    {
+     "id": "P2-visible-state",
+     "claim": "Until the writer chooses, the row shows a visible carried state ('— cut v2' alone is not enough)",
+     "expected": "'(carried across the word-cut change)' in the row; Keep clears it, Undo restores it",
+     "observed": "The row text and the editor overlay show '(carried across the word-cut change)'. Keep on line 4 gives '4,7' and 3 notices. Undo restores the carried state, Redo keeps it again. Remove on line 2 drops that 2-member link whole.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_A.log A.keep.*, A.remove.*; A_review.png"
+    },
+    {
+     "id": "P2-unchanged-line",
+     "claim": "A line whose cut did not change gets NO notice",
+     "expected": "No notice, and a row of named places is byte-identical",
+     "observed": "'[SETUP — rhyme groups — 5,6;7.head,8]' is left byte-identical with 0 notices and no toast. In scenario A the members on lines 5-8 get no notice.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_B.log C.load.namedRow, C.load.toast"
+    },
+    {
+     "id": "P3-numeral-end",
+     "claim": "A line ending in a numeral ('heart.    10') keeps its end member unjudgeable / blocking, not dropped",
+     "expected": "The page sends the member, and the grader refuses it",
+     "observed": "The page sends '4,7' inside groups and its notice shows 'heart' then '10'. The candidate harness, given exactly what the page sent ('brief song8.txt --groups=1.T5,8;3,5;2,6;4,7'), returns refused_obligations ['rhyme:4:7:3'], certified false, \"L4 ('10') — UNJUDGED\" and SCHEME_UNREADABLE.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_A.log A.send.groups; harness_numeral.log"
+    },
+    {
+     "id": "P4-unknown-marker",
+     "claim": "An unknown marker ('— cut v9') is blocked and not sent, with a message naming the accepted value",
+     "expected": "Rows not rewritten, 0 sends, message names “cut v2”",
+     "observed": "The v9 rhyme, returns and reading rows are left verbatim. 3 input notices say 'this page reads only “cut v2”'. The send toast names “cut v2”. After a Rhymes-form edit the v9 members are written '5 (marked cut v9: not read here)' and still block. Reorder keeps 'cut v9'.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_B.log D.*"
+    },
+    {
+     "id": "reading-repeated-word",
+     "claim": "Saved reading rows on a repeated word rebind by span or block",
+     "expected": "'token 2 \"oh\"' in Oh--oh line goes to token 3 (characters 8-10). Unmatchable rows block.",
+     "observed": "token 2 'oh' (declared, needs a choice, uncertain) goes to token 3 [[8,10]], marked cut v2. 'Oh, oh, I said oh' token 5 stays token 5. Token 1 'Oh--oh' and 'token 3 \"love\"' (whose v1 word 3 is 'my') get '— needs a decision: numbered under the earlier word cut' and block. Choosing 'love' again replaces the blocked reading. Sent pronunciations tokens are [3,5].",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_A.log; scen_E.log E.paste.*, E.chooseAgain; scen_B.log B.load.rows"
+    },
+    {
+     "id": "P7-persistence-carried",
+     "claim": "The marker and carried state survive reorder and assembly, the rhymes and repeats forms, Undo/Redo, reload, text export/import, Library working copy and session export/import",
+     "expected": "Same rows and 4 notices after every path",
+     "observed": "All pass: section move (lines renumbered 5.T5,4;7 (carried…)…), Undo/Redo of the move, Rhymes form add, Repeats form add, Undo×2/Redo×2, reload (identical text, no second migration), Download text then Import in a fresh browser, Library working-copy envelope Download (.json) then Import, Export session then Import session (including a session exported by the baseline page), and section duplicate/remove.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_A.log, scen_F.log, scen_G.log"
+    },
+    {
+     "id": "P7-persistence-blocked-v9",
+     "claim": "The blocked and v9 states survive the same paths, and sends stay blocked",
+     "expected": "Same rows; 0 sends after every step",
+     "observed": "Scenario B (reorder, forms, Undo/Redo, reload, export/import) and D (reorder, form, reload, export/import) all keep their state, with 0 /chat calls at every check",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_B.log B.*, D.*; scen_G.log"
+    },
+    {
+     "id": "undo-never-returns-v1",
+     "claim": "Undo never returns to unmarked earlier-cut rows",
+     "expected": "No history entry holds the legacy row; after an import, Undo goes to the previous draft and Redo gives the migrated rows",
+     "observed": "As expected: no history entry holds the legacy row, and Undo/Redo across an import behave as stated",
+     "status": "pass",
+     "independent": true,
+     "evidence": "scen_E.log E.paste.history, E.import.*"
+    },
+    {
+     "id": "P6-wording",
+     "claim": "The page never claims unmarked rows were provably created before the release",
+     "expected": "No date claim in any message",
+     "observed": "'Remove the link' (ly-drop-undecided) toasts 'Rhyme link saved before this release removed.' / 'Declared return saved before this release removed.' It does so even for a row marked '— cut v9', which cannot be from before this release. Other messages say 'saved without the current cut mark'.",
+     "status": "fail",
+     "independent": true,
+     "evidence": "scen_B.log B.drop.wording, D.drop.wording; src/pages/lyrics.js:5411; codex.html contains the string once"
+    },
+    {
+     "id": "unchanged-byte-identical",
+     "claim": "Choices whose binding did not change stay byte-identical",
+     "expected": "Rows unchanged",
+     "observed": "Named-place rows on unchanged lines are byte-identical. But a T<k>-only row whose numbers did not change ('5.T2,6.T2') and reading rows whose token did not change both gain ' — cut v2'. The binding is identical; the row text is not.",
+     "status": "fail",
+     "independent": true,
+     "evidence": "scen_B.log C.load.numberedRow, C.reading.unchanged"
+    },
+    {
+     "id": "typed-row-caret",
+     "claim": "The migration rewrite does not disrupt a person typing",
+     "expected": "The caret stays at the row being typed",
+     "observed": "A row typed key by key today, '[SETUP — rhyme groups — 1.T4,8]', is rewritten mid-typing to '1.T5,8 — cut v2' (toast: renumbered), and the caret jumps to the end of the document. The next key 'Z' landed at line 12 (the end), not line 1.",
+     "status": "fail",
+     "independent": true,
+     "evidence": "scen_H.log"
+    },
+    {
+     "id": "tool-lists-carried",
+     "claim": "The Rhymes and Repeats tool lists show a carried member's state (informational, not required by policy)",
+     "expected": "An indicator in the tool lists",
+     "observed": "The lists show plain words, e.g. 'Line 4 · 10', 'Line 2 · bass', 'Line 3 · first word'. Blocked members are shown raw ('(numbered under the earlier cut)').",
+     "status": "fail",
+     "independent": true,
+     "evidence": "scen_E.log E.tool.carriedShown, E.tool.rhymesList"
+    },
+    {
+     "id": "cert-across-upgrade",
+     "claim": "A certified draft whose rows only gain a marker keeps its certification across the upgrade",
+     "expected": "Certified for this version",
+     "observed": "Cannot tell: the baseline page itself shows 'Not reviewed' after a reload (certification does not persist), so there is nothing to lose",
+     "status": "cannot_tell",
+     "independent": true,
+     "evidence": "scen_cert.log"
+    },
+    {
+     "id": "author-check-candidate",
+     "claim": "Author's scripts/check_lyrics_page.js on the candidate",
+     "expected": "PASS",
+     "observed": "PASS, 471 assertions, exit 0 (36.8 s)",
+     "status": "pass",
+     "independent": false,
+     "evidence": "author_check_candidate.log"
+    },
+    {
+     "id": "author-check-main",
+     "claim": "Author's scripts/check_lyrics_page.js on main (wt-main)",
+     "expected": "PASS",
+     "observed": "PASS, 265 assertions, exit 0 (28.5 s)",
+     "status": "pass",
+     "independent": false,
+     "evidence": "author_check_main.log"
+    },
+    {
+     "id": "P5-resumed-v1",
+     "claim": "Resumed v1 runs resolve every place under v1",
+     "expected": "Server/harness behaviour",
+     "observed": "Not executed. Source read only: lySubmitLyricsAction skips the undecided refusal for kind 'answer' and 'resume'.",
+     "status": "not_run",
+     "independent": true,
+     "evidence": "source read src/pages/lyrics.js (lySubmitLyricsAction)"
+    }
+   ],
+   "unexpected_findings": [
+    {
+     "summary": "Policy 6 wording breach: 'Remove the link' on a blocked link toasts '<Rhyme link|Declared return> saved before this release removed.', which states the creation date as fact. It is shown even for rows marked '— cut v9'. The wording comes from 63de69854 and policy-A commit be5a1b3e2 did not change it.",
+     "severity": "minor",
+     "evidence": "src/pages/lyrics.js:5411; observed toast in scen_B.log B.drop.wording and D.drop.wording"
+    },
+    {
+     "summary": "lyEnsureTokenScheme (called on every lyRefresh) sets draft.value without restoring the selection. When an unmarked row is completed while typing (or pasted), the textarea is rewritten and the caret jumps to the end of the document, so the next keystrokes land at the end of the song.",
+     "severity": "minor",
+     "evidence": "scen_H.log: Z landed at line 12 (end) after typing row 1; src/pages/lyrics.js lyEnsureTokenScheme"
+    },
+    {
+     "summary": "Rows whose binding did not change are not byte-identical. T<k> rows on unchanged lines and every unmarked reading row gain ' — cut v2' because touched=true for any numbered member. The code comment says rows are 'rewritten and marked only where something moved, was flagged or was kept across the cut'. Only rows of named places on unchanged lines stay byte-identical.",
+     "severity": "note",
+     "evidence": "scen_B.log C.load.numberedRow ('[SETUP — returns — 5.T2,6.T2]' -> '… — cut v2]'), C.reading.unchanged; src/pages/lyrics.js lyMigrateSavedReadings"
+    },
+    {
+     "summary": "By the agreed 'unmarked = legacy' policy, a T<k> row typed by hand today using the page's own current numbering (the Rhymes picker shows 'Word 4 · my') is reread as v1 and moved to word 5 'love'. Only a toast announces it.",
+     "severity": "note",
+     "evidence": "scen_H.log H.typed.today"
+    },
+    {
+     "summary": "The carried state is visible only in the row text, the editor overlay and Review. The Rhymes and Repeats tool lists show carried members as plain words (e.g. 'Line 4 · 10'). The editor overlay truncates long reading rows, so '— needs a decision…' can appear as '— ne…'.",
+     "severity": "note",
+     "evidence": "scen_E.log E.tool.carriedShown; B_review.png"
+    },
+    {
+     "summary": "The blocked-member notice says '1.T1 was numbered under the earlier word cut', stated as fact. The reading notice hedges it as 'It was read as numbered under the earlier word cut', so the wording is inconsistent with policy 6's hedge.",
+     "severity": "note",
+     "evidence": "scen_B.json snaps.B_load.items"
+    }
+   ],
+   "not_covered": [
+    "Library tab IndexedDB 'codex-musica-library-analysis-v1' choice migration ('Oh--oh, oh my love' token 2 repro on the page's own storage). Only the Library working-copy export/import through the Lyrics page was tested.",
+    "Policy 5 (resumed v1 runs resolve under v1): server/harness side, not executed; source read only.",
+    "Real grader replies rendered on the page: /chat was a local stub. Grader behaviour was checked once, outside the page, with 'lyric_harness.py brief' on the declarations the page sent.",
+    "Phone layout and dark theme of the new notices",
+    "Voices (parentheses sung) interplay with migration; drafts with several rhyme-groups rows (only the first is sent, which is pre-existing behaviour)",
+    "Not run, per instructions: lyric-harness/quality/test_reader.py, record.py, slot_binding.py"
+   ],
+   "artifacts_dir": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/page-rules"
+  },
+  {
+   "task": "BB8 callpath: a production call-path read of the reviser's word edits under the new cut (quality/loop.py swap_end_word / swap_at_slot / _WORD_RE and their callers; quality/revise.py _splice callers; how each one gets its reader scheme), with small targeted runs in scratch on candidate 67889851 against base fce4bf0f and the partial head e58b2324.",
+   "verdict": "MIXED",
+   "checks": [
+    {
+     "id": "Q1a-scheme-from-lexicon",
+     "claim": "Every production word-edit path takes the reader scheme from the reviser's own lexicon, not from the process default",
+     "expected": "swap_* is called with the lexicon's scheme even when the process default is the opposite one",
+     "observed": "Lexicon v1 with process default v2: all 25 swap calls got scheme='v1' (24 from Reviser._splice, 1 from default_propose), and the T2 edit was 'Oh--oh, vein my love' (v1 chars 8-10). Lexicon v2 with process default v1: all 25 calls got 'v2', and the edit was 'Oh--vein, oh my love' (chars 4-6). _lex_cut returned (True,'v1') and (True,'v2').",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: h678/callpath/probe_scheme2.py -> probe_scheme2.out (a call-site spy using inspect.stack). Source: loop.py:1455-1470 (_lex_cut reads lex.reader_scheme; under v1 it forces strip_parens=True), loop.py:2382-2388 (revise_loop binds functools.partial(default_propose / default_propose_group, scheme=_sch, strip_parens=_sp)), loop.py:696-698 and 732-733 (both pass scheme and strip_parens through), revise.py:4497-4504 (_splice -> swap_at_slot(scheme=_LH._scheme_of(self.lex), strip_parens=lex.strip_parens)), callers revise.py:4510 (_anchors_at) and 4552 (declared_offer), lyric_harness.py:1037 (Lexicon pins reader_scheme at construction). Base had no scheme on any call site: base loop.py:573 and 608, base revise.py:4479 and 4522. No other production splice site exists: a grep for swap_*, _WORD_RE and .pieces[0][0] found only these."
+    },
+    {
+     "id": "Q1b-cli-resume-v1-fresh-v2",
+     "claim": "Through the real CLI main(), a resumed pre-batch deferred run edits under v1 and a new run edits under v2",
+     "expected": "pre-batch state -> v1 lexicon and v1 splices; no state -> v2",
+     "observed": "I ran revise draft --groups=1,2.T2 --max-rounds=1 --attempts=2 --backtrack=0 --propose=defer:STATE. With a pre-batch-shaped state, all 24 _splice calls got v1, the state was stamped reader_scheme v1, and the splice was 'Oh--oh, <W> my love'. With no state file, all 24 got v2, the state was stamped v2, and the splice was 'Oh--<W>, oh my love'. --propose=stub and --propose=stub --reader-scheme=v1 passed v2 and v1 respectively.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: probe_scheme.py -> probe_scheme2cli.{prebatch-state,fresh-defer}.json, run2_*/, and probe_scheme.{stub,stub-v1}.json. The 'pre-batch-shaped' state is synthetic: the fixture's pre-batch 'started' state (quality/fixtures/reader_v1_defer_states.json, which has no reader_scheme) with its draft fields replaced. Source: lyric_harness.py:9906-9924 (declared flag, else _recorded_reader_scheme, else READER_SCHEME), 9941 (Lexicon(..., reader_scheme=reader_scheme)), 8347-8391, 8394-8411, 8414-8439, 8505-8513 (state keeps the run's scheme), 9785-9802 (the warm worker restores the scheme per request)."
+    },
+    {
+     "id": "Q1c-mcp-and-kitchen-paths",
+     "claim": "MCP interview and kitchen runs reach the same scheme resolution",
+     "expected": "The caller's state is written verbatim and resolved by _recorded_reader_scheme",
+     "observed": "Source read only. lyric_tools.js:2628/2693 writes the caller's state (minus stalls) to state.json, and 2763 runs --propose=defer:statePath, so main inherits the recorded scheme (v1 when the field is absent). Kitchen runs use call: with LYRIC_CHECKPOINT_PATH and resolve through the checkpoint's reader_scheme (default v1) at lyric_harness.py:8370-8391 and 9240-9264. A replay: file resolves at 8085-8097.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Source read (not executed). The Python side of the same argv shape was executed in Q1b. mcp/*.js never names reader_scheme, so the JS side carries the scheme only inside the state bytes."
+    },
+    {
+     "id": "Q2a-Tk-same-span",
+     "claim": "For T<k> slots the reviser splices exactly the raw characters the grader binds (slots.resolve widx -> reader_token_spans)",
+     "expected": "same_span on every T<k> case, under both schemes and both aside rules",
+     "observed": "All T<k> cases matched. 'Oh--oh, oh my love': under v2 T1-T5 bind/splice [0,2],[4,6],[8,10],[11,13],[14,18]; under v1 T1-T4 bind/splice [0,6],[8,10],[11,13],[14,18]. \"I know it 's\" v2 T3: grader it's at pieces [[7,9],[10,12]], splice [7,12]; v1 refuses the line. '(oh) hello my world' v2 T1: hello [5,10] with strip_parens, oh [1,3] with --voices, on both sides. 'I love you (love you)' v2 T3: you [7,10] on both sides. 'I love you 2' T4 / 'We met in 1999' T4: the grader reads no syllables and the splice replaces the numeral token (same token).",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: probe_binding.py -> probe_binding.678.jsonl (summarised in my transcript). Its reviser_chars field is a minimal diff, so e.g. 'young'->'zing' shows [2,5]. Exact replaced ranges come from probe_known.py's two-word method. Source: word_syllable_map tags widx from line_tokens(text, lex.strip_parens, _scheme_of(lex)) at lyric_harness.py:5431/5474, and swap_at_slot v2 indexes reader_line(text, strip_parens, 'v2').tokens at loop.py:479-495."
+    },
+    {
+     "id": "Q2b-default-end",
+     "claim": "The default end slot splices the grader's end word or refuses",
+     "expected": "Same token as line_anchors/raw_final_token, or a refusal",
+     "observed": "'Oh--oh, oh my love' end: love [14,18] in both schemes. 'I love you 2' v2: the grade refuses the pair (refused [[1,2,0]]) and the splice replaces '2' (the same token). 'I love you (love you)' v2: the grader binds you [7,10] and swap_end_word refuses (runs[-1].aside). No wrong-word splice under v2.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: probe_binding.678.jsonl, probe_grade_numeral.out, probe_known.cand.jsonl. Source: loop.py:400-427."
+    },
+    {
+     "id": "Q2c-edge-token-without-syllables",
+     "claim": "For endword/head/headrime, the reviser edits the word the grader binds",
+     "expected": "The same token",
+     "observed": "Not when the first or last token reads no syllables. slots.resolve takes order[0]/order[-1] of the syllable-bearing widx, while swap_at_slot takes positional tokens[0]/tokens[-1]. New under v2 (numerals are tokens): ['2 young lovers','young and free'] with 1.head,2.head is graded on 'young' (violation reported), the brief's incumbent is 'young', and the splice gives 'zebra young lovers', replacing '2'. Base and v1 splice '2 zebra lovers', consistent with their grader. 'I love you 2' 1.endword under v2: the grade refuses the pair, but the incumbent is 'you' while the splice replaces '2'. Pre-existing for OOV words (base identical): 'I sing zqxwv' 1.endword is judged on 'sing' (pairs_judged 1, satisfied against 'bring') while the splice replaces 'zqxwv'.",
+     "status": "fail",
+     "independent": true,
+     "evidence": "Executed: probe_grade_numeral.py -> probe_grade_numeral.out (cand v1/v2) and probe_grade_numeral.base.out (base). Source: slots.py:565-579 (_token_runs) and 643-648; loop.py:483-487; revise.py:1531-1543 (_incumbent via SL.resolve label)."
+    },
+    {
+     "id": "Q3a-times-divide-fusion",
+     "claim": "v2 swap_end_word no longer fuses the candidate onto the previous token at a times or divide junction",
+     "expected": "Refuse or keep the token count",
+     "observed": "FIXED. At e58: 'we sing÷δnight' -> 'we sing÷zebra' (tokens [we, sing÷zebra]), 'K1×δQ' -> 'K1×zebra', 'go ×δdawn' -> 'go ×zebra'. At the candidate all three refuse, through both swap_end_word and swap_at_slot(1.end). The 1.endword slot splices the token correctly ('we sing÷δzebra').",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: probe_known.py on cand/base/e58 -> probe_known.summary.txt. Fix: 789eb2a3b, re-read check at loop.py:414-427."
+    },
+    {
+     "id": "Q3b-symbol-nfc-mark",
+     "claim": "A splice next to a symbol whose NFC form carries a mark keeps the symbol",
+     "expected": "The symbol is kept, or the swap refuses",
+     "observed": "FIXED. At e58: 'we sing𝅗𝅥tonight' -> 'we singzebra' (U+1D15E deleted, fused), 'we sing 𝅗𝅥night' -> 'we sing zebra' (U+1D15E deleted), 'we sing⫝̸tonight' -> 'we singzebra'. At the candidate: 'we sing𝅗𝅥zebra', 'we sing 𝅗𝅥zebra', 'we sing⫝̸zebra'. Mid-line symbol slots (T2/T3) were already correct at e58.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: probe_known.summary.txt. Fixes: 8d43e5be9 (the reader stream) and 789eb2a3b (_only_word_material at loop.py:343-359, applied at 412-413 in swap_end_word only; swap_at_slot relies on the reader fix plus its re-read, loop.py:496-511)."
+    },
+    {
+     "id": "Q3c-trailing-marks-swap_at_slot",
+     "claim": "v2 swap_at_slot does not delete trailing combining marks or fuse onto the next token",
+     "expected": "Refuse, or replace exactly the token",
+     "observed": "FIXED, by refusal. At e58: 'Olọ́run love' (o U+0323 U+0301) 1.head/1.T1 -> 'Zebrarun love' (U+0301 deleted, fused into one token), and 'my dọ́run night' 1.T2 -> 'my zebrarun night'. At the candidate both refuse under both aside rules. NFD 'my café night' T2 -> 'my zebra night' (the mark belongs to the token). The v1 path, unchanged from base, still leaves the marks riding on the candidate: 'Zebrạ́run love'.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: probe_known.summary.txt. Fix: 63de69854 (re-read at loop.py:496-511)."
+    },
+    {
+     "id": "Q3-property",
+     "claim": "No v2 splice changes the token count, touches another token, drops a non-word codepoint outside the target token, or leaves combining marks after the replaced range",
+     "expected": "0 violations",
+     "observed": "Candidate: 0 violations in 40,482 splices (19,518 refusals) over 4,000 seeded synthetic lines x 15 slot/aside combinations. e58 on the same lines: 963 token-count changes and 860 marks-after-splice hits at T1/head; end slot: 593 token-count changes and 654 lost non-word codepoints.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: probe_fuzz.py (seed 20261014) -> probe_fuzz.cand.out and probe_fuzz.e58.out. Synthetic lines only, not real lyrics."
+    },
+    {
+     "id": "Q3d-aside-copy-v2",
+     "claim": "v2 no longer edits the copy inside a trailing echo aside",
+     "expected": "Refuse, or edit the bound word",
+     "observed": "FIXED under v2. The default slot refuses 'I love you (love you)' and 'hold my heart (my heart)' under both aside rules. 1.endword edits the bound 'you' [7,10] with strip_parens, and the aside 'you' [17,20] under --voices, matching the grader in each case.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "Executed: probe_known.summary.txt and probe_v1_aside.cand.out. Source: loop.py:403-405."
+    },
+    {
+     "id": "Q3d-aside-copy-v1",
+     "claim": "The base text-not-position match is gone at the candidate",
+     "expected": "No edit inside the aside on any path",
+     "observed": "STILL PRESENT under v1 (resumed pre-batch runs), byte-identical to base: 'I love you (love you)' -> 'I love you (love zebra)', and 'hold my heart (my heart)' -> 'hold my heart (my zebra)'. The grader's end word is still 'you'/'heart' after the splice, so under v1 Reviser._anchors_at returns True even for 'qqqzzz'; the brief's offer check validates against the unchanged word. Under v2 it returns False. I found no disclosure: no candidate doc or commit message names it, and swap_end_word's docstring (loop.py:376-384) still says a trailing parenthetical is refused.",
+     "status": "fail",
+     "independent": true,
+     "evidence": "Executed: probe_v1_aside.py -> probe_v1_aside.{cand,base}.out, and probe_known.summary.txt (aside_echo rows). Source: frozen v1 branch at loop.py:428-442 (last _WORD_RE match vs raw_final_token(v1), compared by text). Disclosure search: grep over *.md/*.py and git log fce4bf0f..HEAD for aside/echo/copy wording, 0 relevant hits."
+    },
+    {
+     "id": "author-tests",
+     "claim": "The author's own LoopSwaps tests cover these items",
+     "expected": "Reported separately",
+     "observed": "Source read only (not run, per instructions). quality/test_reader.py class LoopSwaps (line 763) covers: aside counting; stubs splicing under the reviser's cut; the printed-end refusals ('I said ×', 'love ×night', 'x ×2'); the ×/÷ fusion and symbol cases; a mocked U+1D15E guard; mark/space NFC; and the Olọ́run slot fusion. Nothing covers the v1 echo-aside edit or the numeral/OOV edge-token mismatch.",
+     "status": "not_run",
+     "independent": false,
+     "evidence": "Source read of quality/test_reader.py:763-990. Not executed: BB8 runs test_reader.py separately."
+    }
+   ],
+   "unexpected_findings": [
+    {
+     "summary": "Under v2, a line-initial numeral with a head/headrime slot is graded silently on the next word ('young'), not refused, and the brief names 'young' while the stock stub and the offer filter splice the numeral. The reviser edits a different token from the one the grader bound. A trailing numeral with endword is refused by the grade, but the brief's incumbent ('you') still disagrees with the splice ('2'). The same mismatch exists for OOV edge words in base.",
+     "severity": "minor",
+     "evidence": "probe_grade_numeral.out vs probe_grade_numeral.base.out; slots.py:643-648 vs loop.py:483-487; revise.py:1541-1543"
+    },
+    {
+     "summary": "The v1 echo-aside defect is kept as part of frozen v1 replay, undisclosed, and contradicted by swap_end_word's docstring. In a resumed v1 run, _anchors_at/declared_offer accept any word for such a line because the trial splice never touches the bound end word.",
+     "severity": "minor",
+     "evidence": "probe_v1_aside.cand.out: v1 _anchors_at('I love you (love you)', end, 'qqqzzz') = True; loop.py:376-384 and 428-442"
+    },
+    {
+     "summary": "The brief's default-slot incumbent reads features.QualityFeatures._endword (letters-only tokens, unchanged by the batch, no scheme), not the reader's cut. Under v2, 'I love you 2' gives incumbent 'you' while the grader's end word is '2' (refused) and the splice replaces '2'.",
+     "severity": "note",
+     "evidence": "revise.py:1541-1542 -> features.py:470-494; probe_grade_numeral.out (groups [['1','2']], incumbent_L1 'you')"
+    },
+    {
+     "summary": "Both cuts split 'Olọ́run' (o U+0323 U+0301 -> NFC ọ + U+0301) into two tokens: v2 gives 'Olọ' and 'run', v1 gives 'Olo' and 'run'. The grader binds 'Olọ' as the head. The v2 reviser now refuses there, and v1 still splices 'Olo' with the marks riding onto the candidate. This is a reader-cut matter outside this task.",
+     "severity": "note",
+     "evidence": "probe_known.summary.txt olorun_head / dorun_T2 rows"
+    },
+    {
+     "summary": "The _only_word_material guard is applied in swap_end_word only. swap_at_slot relies on the reader fix (8d43e5be9) plus a token re-read, which would not catch a deleted symbol outside the token set. The fuzz found no such case at the candidate.",
+     "severity": "note",
+     "evidence": "loop.py:412-413 vs 496-511; probe_fuzz.cand.out 0 lost_nonword"
+    }
+   ],
+   "not_covered": [
+    "quality/test_reader.py, record.py and slot_binding.py were not run, per instructions; the author's tests were only read",
+    "The MCP JS layer (lyric_tools.js, python_bridge.js) was read, not run, and no connector call was made",
+    "Scheme inheritance for kitchen call:/LYRIC_CHECKPOINT_PATH and for replay: files was read, not run",
+    "The tier-2 group stub (default_propose_group) was read, not run; the executed runs exercised only _splice and default_propose",
+    "A malformed deferred state whose 'answered' is not a dict was not tested",
+    "No real-corpus sweep: the property check used 4,000 seeded synthetic lines",
+    "Website, page and Library parts of policy A are outside this task",
+    "The relation-stream reader (_relation_phonology, which cuts under the process scheme when the lexicon matches) was not examined beyond the swap paths"
+   ],
+   "artifacts_dir": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/callpath"
+  },
+  {
+   "task": "warmworker: read-only design review of the WarmWorker memory tests in lyric-harness/quality/test_reader.py, candidate 67889851 against e58b23248e70, plus how the production warm worker scopes its caches per scheme",
+   "verdict": "PASS",
+   "checks": [
+    {
+     "id": "Q1a-one-child-per-scenario",
+     "claim": "Each WarmWorker scenario runs in its own child process, and each child runs exactly one complete WarmWorkerBody method",
+     "expected": "One subprocess per scenario, with no scenario split across processes",
+     "observed": "WarmWorker._child (test_reader.py:1888-1892) runs `sys.executable -m unittest -v quality.test_reader.WarmWorkerBody.<name>` with READER_TEST_WARM_WORKER_CHILD=1. There are three parent tests (1908-1916), one per scenario name. WarmWorkerBody is skipUnless that env var (1918-1919), so it never runs in the parent. setUpClass (1922-1954) loads mcp/worker.py inside the child.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read: wt-678 lyric-harness/quality/test_reader.py:1888-1919, 1922-1954"
+    },
+    {
+     "id": "Q1b-complete-mixed-sequences",
+     "claim": "Each child runs a complete mixed-scheme sequence in order",
+     "expected": "new (v2) lyrics then legacy (v1) lyrics; legacy lyrics then Library analysis",
+     "observed": "test_a_new_lyrics_request_then_a_legacy_one (2077-2086): _lyrics(None) asserts v2/v2, then _lyrics(fx states[1]) asserts v1/v1, then _analysed() asserts rebind moved >0 and guard consulted, then _report(). test_a_legacy_lyrics_request_then_a_library_analysis (2067-2075): _lyrics(states[0]) asserts v1/v1, then _analysed(), then _report(). A third scenario, new lyrics then Library (2088-2094), was added. The lyrics requests go through worker.run_one (1997) and the analysis through worker.run_reader (2001-2003), in-process in the same child. Both fixture states lack reader_scheme (checked: states[0] 'stopped', states[1] 'started').",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read test_reader.py:1974-2094; fixture inspected with python3 -I (reader_v1_defer_states.json: 4 states, none has reader_scheme)"
+    },
+    {
+     "id": "Q1c-history",
+     "claim": "No intermediate head split a scenario into halves across processes",
+     "expected": "Only whole-scenario children",
+     "observed": "At e58b232 WarmWorker ran inside the suite process (test_reader_e58.py:1473-1595, no subprocess). git log -L over the WarmWorker region e58..HEAD shows only 63de69854, which introduced _child with the two whole scenarios but no guard assertions or RSS report, and 941ca69e9, which added the guard assertions, the counting wrapper, the peak report and the third scenario.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "git log -L '/^_WARM_CHILD\\|^class WarmWorker/,/^class MirrorFixture/:lyric-harness/quality/test_reader.py' e58b23248e70..HEAD; saved test_reader.diff, test_reader_e58.py"
+    },
+    {
+     "id": "Q2a-guard-unchanged",
+     "claim": "The 1 GiB Library guard (1,073,741,824 bytes) is unchanged",
+     "expected": "Same guard code and default in base, main and candidate",
+     "observed": "library/analysis.py:39-54: ceiling = int(os.environ.get('LIBRARY_READER_MAX_RSS_MIB','1024'))*1024*1024 = 1,073,741,824. The block from _reader_rss_bytes through _GuardedPhonology is byte-identical in wt-base (fce4bf0f), wt-main (8b1d2ad2) and wt-678. Each tree has 11 `_resource_guard(` call sites. The child asserts that the env var gives 1<<30 (1930-1931) and never sets it.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "diff of awk-extracted guard block across the three trees: identical; grep -c '_resource_guard(' = 11 in each"
+    },
+    {
+     "id": "Q2b-guard-inside-child-own-rss",
+     "claim": "The guard is enforced inside the child, on the child's own RSS",
+     "expected": "The real guard runs in the child process, reading that process's resident memory",
+     "observed": "_reader_rss_bytes reads VmRSS from /proc/self/status (analysis.py:29-36), and the child asserts it is readable (1932). run_reader runs in-process in the child, so 'self' is the child. The counting wrapper (1934-1940) calls the real guard. _analysed asserts guard_calls increased during each analysis (2059-2065). form.py:43-44 imports _resource_guard at call time, and analysis.py calls it through module globals, so the patch covers every call site. A trip raises ValueError('RESOURCE_LIMIT…') (analysis.py:52). Session.step catches only StopIteration, so the error propagates out of run_reader and the child test errors. Limit: the guard checks current VmRSS, not the peak, and only at Library guard points. The lyrics requests (run_one) are not guarded at all.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read analysis.py:29-54, 57-73, 1158, 1210-1260; form.py:40-44; test_reader.py:1930-1940, 2059-2065"
+    },
+    {
+     "id": "Q2c-parent-asserts-child",
+     "claim": "The parent fails if the child fails, skips or is killed, and checks the child's report",
+     "expected": "Non-zero or signal exit, skip, missing report or no guard use all fail the parent",
+     "observed": "assertEqual(returncode, 0) at 1893: a killed child has a negative returncode and fails. subprocess.run(timeout=1800) at 1892 raises TimeoutExpired, which is an error. A skip is rejected: 'Ran 1 test' must appear and stderr must end with '\\nOK' (1895-1896). Exactly one WARM_WORKER_PEAK_RSS record is required (1897-1898). The record's scenario name must match and guard_envelope_bytes must equal 1<<30 (1900). guard_calls must be >0 (1901). peak_rss_bytes is printed (1902-1906) but not asserted against the envelope.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read test_reader.py:1888-1906"
+    },
+    {
+     "id": "Q3-no-production-change",
+     "claim": "No production code change (worker recycling, cache eviction, memory bound) comes with the test isolation; it is test-process isolation only",
+     "expected": "Test isolation only",
+     "observed": "941ca69e9 touches only quality/test_reader.py and quality/results/warm_worker_rss_2026-10-13/*. 63de69854, which introduced the child split, carries reader changes but no capacity change. mcp/worker.py has no diff against e58, 8b1d2ad2 or fce4bf0f. mcp/python_bridge.js and mcp/lyric_tools.js have no diff against main. The guard is identical (Q2a). Production diffs in e58..HEAD are lyric_harness.py (NFC stream, glued-mark cut, _defer_scheme_check, answered-block scheme), loop.py (splice re-read) and eng.py:388-406 (fallback cached per base lexicon, a correctness scoping fix). None of them is recycling, eviction or a memory bound. Plainly: the WarmWorker child isolation is NOT a production capacity bound, and no production code changed to bound capacity. The docstring (1872-1886) and the results README (lines 3-7) say the same.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "git show --stat 941ca69e9; git diff --stat {e58b23248e70,8b1d2ad2c,fce4bf0f} HEAD -- mcp/worker.py …; prod_py.diff"
+    },
+    {
+     "id": "Q3b-production-worker-unbounded",
+     "claim": "The production warm worker has no recycling or eviction of its lexicon caches",
+     "expected": "Source shows whether any production capacity bound exists",
+     "observed": "worker.py:204-243 serves stdin requests for the life of the process. Its docstring (lines 4-5) says 'Lexical and grading memos survive between requests'. python_bridge.js `served` (210-215, 238, 293, 351, 890-891) is only observational and never triggers a restart. The only production memory check is the Library guard. It refuses with RESOURCE_LIMIT and frees nothing, and it runs only on the Library path.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read mcp/worker.py:1-247, mcp/python_bridge.js grep for served/recycle/rss"
+    },
+    {
+     "id": "Q4a-process-scheme-scope",
+     "claim": "The process reader scheme is scoped per request",
+     "expected": "A request's scheme does not outlive it",
+     "observed": "lyric_harness.py:2349-2379: READER_SCHEMES, _ACTIVE_READER_SCHEME, resolve_reader_scheme and the reader_scheme_scope context manager. main() is wrapped by _request_scoped_reader_scheme (9788-9803), which restores (_ACTIVE_READER_SCHEME, _READER_SCHEME_DECLARED) in a finally. main resets both on entry (9810-9813) and sets them from --reader-scheme or the recorded scheme (9905-9924). worker.run_one calls cli() (worker.py:185), which calls main() (lyric_harness.py:14940). The Library reads the restored default (analysis.py:280: resolve_reader_scheme(None)=='v2' → rebind_occurrences v1→v2).",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read"
+    },
+    {
+     "id": "Q4b-lexicon-and-reader-caches",
+     "claim": "The module-level lexicon and reader caches are keyed by scheme",
+     "expected": "file:line for each cache",
+     "observed": "eng.py:117-135 _LEX[scheme] holds a full Lexicon per scheme (main had a single `_LEX = None`). eng.py:118-119 and 273-293 _CUT_LEX is keyed (scheme, strip_parens). eng.py:388-406 English._fallback is cached as (base lexicon, Fallback) and rebuilt when the base lexicon changes. fit.py:870-906 _LEX is keyed (strip_parens, fallback) for the first-built scheme, with an other-scheme view at (…, scheme) via Lexicon.with_reader_scheme (lyric_harness.py:1112-1124, a shallow copy that shares entries). lexicon_supplement.py:612-627 _SUPPLEMENTED key ends with reader_scheme. meter_bands.py:127-146 _READERS is keyed (mode, scheme) (main keyed by mode only). All are plain dicts with no eviction, bounded only by key cardinality. Each per-scheme Lexicon loads its own entries (lyric_harness.py:1033-1034).",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read; wt-main eng.py:117 `_LEX = None`, wt-main meter_bands.py:127-140 keyed by mode"
+    },
+    {
+     "id": "Q4c-memo-keys",
+     "claim": "Grader process memos tell the schemes apart",
+     "expected": "file:line for the memo keys",
+     "observed": "revise.py:4874-4903 _decl_lex_key adds _LH._scheme_of(lex) and _LH.resolve_reader_scheme(None) to the lexicon key. revise.py:4905-4908 _score_memo_key builds on it. The memos are LRU-capped (pre-existing): _FIELD_MEMO 512, _SCORE_MEMO 8192, _RANK_MEMO 2048, _RIME_MEMO 200000, _END_PAIR_MEMO 400000 (revise.py:1062-1095). _BOUND_TOKEN_MEMO (cap 50000, revise.py:1150-1151, 2989-2997) is keyed by relations._local_stream_digest, a content digest of the pair's tokens, units and unreadable entries. _reader_line_v2 has lru_cache(maxsize=65536) (lyric_harness.py:2524) and is v2-only.",
+     "status": "pass",
+     "independent": true,
+     "evidence": "source read revise.py, relations.py _local_stream_digest"
+    },
+    {
+     "id": "probe-caches_agree-mutates",
+     "claim": "WarmWorkerBody._caches_agree only checks the caches",
+     "expected": "Read-only probe",
+     "observed": "It builds caches for BOTH schemes. In a fresh process, after building only the v2 shared lexicon, running the probing calls of test_reader.py:2016-2030 changed eng._LEX from ['v2'] to ['v1','v2'] and MB._READERS from [] to both schemes, and RSS rose from 114,188,288 to 242,409,472 bytes.",
+     "status": "fail",
+     "independent": true,
+     "evidence": "executed: h678/warmworker/probe_caches_agree_mutates.py → probe_out.txt (1.6 s)"
+    }
+   ],
+   "unexpected_findings": [
+    {
+     "summary": "The test pre-warms the other scheme between steps: _caches_agree (test_reader.py:2020-2051, called after every step) builds the v1 and v2 shared lexicons, both meter_bands fallback-low readers and the fit lexicons. So in the child, the legacy v1 request after a v2 request, and the v2 Library analysis after a v1 request, find the other scheme's caches already built by the test, not by the request. The cold first use of scheme B in a scheme-A process is not what the child runs, although the docstring says 'as one worker would serve it'. The probe also inflates the reported peak (the README at lines 88-90 admits extra lexicons). This was the same at e58.",
+     "severity": "minor",
+     "evidence": "probe_out.txt: eng._LEX ['v2'] -> ['v1','v2'], MB._READERS [] -> [('fallback-low','v1'),('fallback-low','v2')], RSS +128 MB"
+    },
+    {
+     "summary": "The parent never asserts the child's peak RSS (VmHWM) against 1 GiB; it only prints it (1902-1906). The guard checks current VmRSS plus reserved bytes only at Library guard points and never during the lyrics requests. The docstring sentence 'A pass here says these scenarios fit the envelope in a fresh process' (1883-1885) claims more than is asserted. A pass shows only that VmRSS was under the envelope at each Library guard check, not that the peak was.",
+     "severity": "minor",
+     "evidence": "source read test_reader.py:1897-1906, analysis.py:29-54"
+    },
+    {
+     "summary": "The reported guard_envelope_bytes is recomputed by the test from the env var with its own '1024' default (test_reader.py:1930, 1971-1972); it is not read from the guard. A change to the production default at analysis.py:47 would not be caught by the parent's 1<<30 check. I verified the production default is 1024 in all three trees.",
+     "severity": "note",
+     "evidence": "source read"
+    },
+    {
+     "summary": "setUpClass uses bare assert statements for the envelope and /proc checks (1931-1932). Under PYTHONOPTIMIZE (inherited through env) they are stripped. The parent's 1<<30 check still catches a moved env var, but the RSS-readability check would vanish.",
+     "severity": "note",
+     "evidence": "source read test_reader.py:1931-1932, 1889"
+    },
+    {
+     "summary": "The docstring's 'either order' (1867) is only partly covered. No child runs a legacy (v1) lyrics request followed by a new (v2) one, or a Library analysis followed by any lyrics request. The child lyrics checks are scheme labels plus exit code 4, not verdict equality with a cold run; that equality is checked only in-suite, by test_a_legacy_resume_reads_alike_cold_and_after_v2_work (1744-1808).",
+     "severity": "note",
+     "evidence": "source read test_reader.py:2067-2094"
+    },
+    {
+     "summary": "Production memory grows compared with main and nothing bounds it. On the candidate, a worker that has served both schemes keeps a separate full Lexicon per scheme (eng._LEX, and also _CUT_LEX and _SUPPLEMENTED when used) plus per-scheme meter readers, each loading its own CMUdict entries, for the life of the process. The author's measurement (507,371,520 / 539,365,376 bytes peak in one fresh process) is author-reported; I did not re-run it. The isolation's own stated motive (docstring 1878-1881) is that the in-suite process already exceeds 1 GiB, and the response was to move the test, not to change production.",
+     "severity": "note",
+     "evidence": "source read eng.py:117-135, meter_bands.py:127-146, lyric_harness.py:1033-1034; README warm_worker_rss_2026-10-13 lines 55-74"
+    }
+   ],
+   "not_covered": [
+    "Did not run quality/test_reader.py, the WarmWorker parent or child tests, measure.py, record.py or slot_binding.py (BB8 runs test_reader.py separately)",
+    "Did not reproduce the README/receipt RSS figures (author-reported)",
+    "Did not measure a long-lived production worker under many requests",
+    "Did not execute the Node python_bridge; recycle behaviour is from source read only",
+    "The relations.py memos (_PAIR_MEMO, _RESOLVE_MEMO, _WVP_MEMO) were not audited key by key beyond _local_stream_digest and the _PAIR_MEMO key prefix"
+   ],
+   "artifacts_dir": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/warmworker"
+  }
+ ],
+ "skeptic_verdicts": [
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The finding is real and caused by the candidate. I reproduced it from scratch with my own two-tab Playwright script, my own API stub and a different reading unit. Corrected statement: a tab opened before the publish still runs the retained main chunk analysis.71b110b249.js. The project deliberately keeps these chunks 30 days for such tabs (scripts/library_chunk_generations.js), so this is a supported case, not a misread. If that stale tab's inspector mounts AFTER the candidate page has migrated a record, it shows the v2-numbered row as raw JSON. Pressing 'Apply interpretation', even with no edit, rewrites the record as {declarations} only, dropping token_cut, renumbered and legacy_declarations. On its next mount the candidate page treats the unmarked record as v1 and rebinds it a second time. On 'Oh--oh, oh, oh my love' the choice the user made on characters 8-10 (v1 token 2, correctly migrated to v2 token 3) becomes v2 token 4 = characters 12-14. The new page sends it that way, and the v2 grader binds it to 12-14. The user is told only through a non-blocking role=status line plus a transient toast with the same text. There is no role=alert and the analysis is allowed. Baseline main (both tabs main code) keeps token 2 throughout, so this is not pre-existing. Corrections and limits to the report: (a) a toast also appears, not only the role=status line; it is still non-blocking. (b) The notice is not literally false. It says the unmarked number 'was read under the earlier word cut and moved … on the same characters', which is true for that reading (v1 token 3 = v2 token 4 = 12-14). It is misleading because the number was in fact v2-numbered, so those are not the characters the user chose. (c) The order matters. If the stale tab had already mounted before the migration, its Apply writes back the v1 token 2 unmarked, and the new page migrates it again correctly to 3 (control S2). (d) Where the re-read number names a different word ('Oh--oh, oh my love'), the row is blocked visibly with role=alert and nothing is sent. But legacy_declarations is then the stale tab's v2-numbered copy (token 3), and the original v1 copy (token 2) is lost. (e) Frequency estimate (8 of 256 Library shards, 427 English units): of 503 v1 choices that the first migration moves, a stale-tab re-save would block 500 visibly and land 3 silently on another word. All 3 are repeated words after a dash run ('dead, dead, dead', 'old, old man'). (f) The 'old code saves a choice taken from v2 evidence' path is source read plus a node-level check, not browser-executed: old onAdd stores c.token from the server's evidence, and v1-rebinding token 3 gives 4. Related residual, outside this finding: in the same stale tab, a record still holding v1 numbers is sent as is (S2: the old tab sent token 2), which the v2 grader binds to characters 4-6. That is the known bug, still reachable through the retained old chunk.",
+   "evidence": "All under /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-route1-0/ (COMMANDS.txt lists the exact commands). EXECUTED: (1) The retained chunk wt-678/library/code/analysis.71b110b249.js is byte-identical (cmp) to main's. (2) stale2tab.js is my own script: two concurrent tabs in one browser context on one origin and one IndexedDB ('codex-musica-library-v1'/'state', the store lib.device uses). It serves the mixed root mix/ (codex.html = candidate, sha 47b9b914; codex-old.html = wt-main codex.html, sha acf45264), with my own stub for mcp.codexmusica.com, on unit reading_3a0f9ca3 'XXX The Lamplighter'. S1_out.txt: seeded v1 {token 2}. The NEW tab loads analysis.9ebd86e5f8.js, migrates 2→3 (token_cut v2, legacy token 2) and sends 3. The OLD tab, on the shelf until then, changes the hash in-app and loads analysis.71b110b249.js; its raw JSON shows token 3; after Apply the IDB keys are ['declarations'], token 3. NEW still sends 3 from memory before reload. After reload: role=status data-cut=renumbered '…on the same characters: “oh” token 3 → 4.', a toast with the same text, alerts [], record token 4 with legacy token 3, and it SENT [['Oh--oh, oh, oh my love',4,'oh']]. S2_out.txt (old tab mounted first): the old tab's Apply rewrites token 2, the new page migrates to 3 and sends 3; the old tab itself sent token 2. S3_out.txt ('Oh--oh, oh my love'): after the old tab's Apply, the new page shows role=alert data-cut=undecided 'its old number no longer names “oh”', the record is legacy token 3 with an empty pronunciations list, and analyze posts nothing. B1_out.txt (wt-main served, both tabs main code): token 2 at every step, no notices, sent token 2. (3) grader_tokens.py (LYRIC_STAGED_DATA set, cwd <tree>/lyric-harness) on 'Oh--oh, oh, oh my love': base line_tokens tok2=oh[8,10], tok3=oh[12,14]; candidate tok2=oh[4,6], tok3=oh[8,10], tok4=oh[12,14]. (4) spans.js on the candidate src/lyric-tokens.js: rebindBySpan v1 tok2→3, v1 tok3→4 on the three-oh line; v1 tok3 blocked on the two-oh line. (5) scan.js (bounded sample, ESTIMATE): 427 eng units, 13955 lines, 389 with a differing cut, 503 first-pass moves; on a second unmarked pass 500 blocked, 3 other_word, 0 same. SOURCE READ (not executed): wt-main src/library/analysis.js:1637 onSave writes device.set(deviceKey,{declarations:v}), and that is the only writer of interpretation records. Main's evidence choice row uses c.token (line ~1041). In the candidate, savedInterpretation treats any record without token_cut as v1, and renumberedNotice gives the 'on the same characters' text. scripts/library_chunk_generations.js keeps old chunks 30 days for 'a tab opened before a publish'. The grader binds by index (quality/pronunciation.py for_line: {r['token']-1: r}). Server-side rebinding in lyric-harness/library/analysis.py applies only to V1_BOUND_ASSET fingerprints, so user rows are sent through unchanged. Author's own tests were not used as evidence here."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The observation is real. The claim's framing needs one fix. R2 never said the reader scheme is part of job identity. What R2 wrote (LYRICS_RUNTIME.md:243 and the fb8f17ef commit message) is that \"a server job queued across the release is refused STALE_READING by the scheduler's identity recheck.\" R2's own test pins that only by changing engine_commit ('before-the-cut' to 'after-the-cut'), and its comment says \"engine commit included\".\n\nCorrected statement: the Node job identity has 16 keys and none of them is a reader scheme or a harness-source digest. Across this release, only engine_commit can change; resource_fingerprint does too only when runtime asset bytes differ, and the batch changes none. So \"refused across the release\" holds only when the commit identity differs.\n- Production meets that condition. render.yaml builds mcp/Dockerfile, which writes a required 40-hex commit (line 86) and sets LYRIC_RELEASE_ASSETS_REQUIRED=1 (line 135). With that flag and no baked identity file, startup throws.\n- A deployment with no commit identity does not. That means no build_identity.json and no BUILD_GIT_COMMIT or RENDER_GIT_COMMIT, with a durable reader dir and a catalog configured. If it is upgraded in place from 8b1d2ad2 to 67889851, a Library job queued before the upgrade is leased and run after it with its earlier-cut pronunciation set.\n- In that run, the declared reading for 'Oh--oh, oh my love' token 2 'oh' lands on characters 4-6, with no notice. The pre-batch worker puts it on characters 8-10.\n\nThe scheduler and identity code are byte-identical on main. The silent move is caused by the batch's cut change, which this identity does not see.",
+   "evidence": "All of this is my own work, done from scratch in scratchpad/h678/verify-library-routes234-0/; COMMANDS.txt lists every command. No tracked file in any tree changed (git status is clean apart from the pre-existing node_modules symlinks).\n\n1. Source read and cmp (01_source_identity.txt):\n   - resolveIdentity (reader_scheduler.js:364-379) has the same 16 keys in wt-main and wt-678: contract_version, snapshot_id, reading_unit_id, reading_revision, work_id, edition_id, source_sha256, normalized_sha256, native_profile, engine_commit, parser_version, normalizer_version, resource_fingerprint, declaration_hash, requested_layers, requested_methods.\n   - reader_scheduler.js, reader_job_store.js, build_identity.js, server_http.js, runtime_assets.js and worker.py are byte-identical between main and the candidate. The batch touches only LYRICS_RUNTIME.md and a test under mcp/.\n\n2. Resource fingerprint, computed the way server_http.js:287-291 does it (fp.mjs, 02_fp_*.json): engine commit is null in both trees. wt-main gives 8f3b80c8 (ok:false, cmudict missing); wt-678 gives 9bffbd58.\n\n3. Inventory diff (03_inventory_diff.txt): runtime_assets.json is identical in both trees, and only the 'cmudict' asset entry differs (sha null in wt-main). Putting the candidate's cmudict entry into main's inventory hashes to 9bffbd58, equal to the candidate. So a like-for-like in-place upgrade keeps the same fingerprint.\n\n4. Cross-tree run on a real createCatalogResolver over my own English catalog fixture. Jobs were created by wt-main code and pumped by wt-678 code from the same durable store directory.\n   - A: null commit on both sides, same fingerprint, stub bridge. 1 lease, handed {line:'Oh--oh, oh my love', token:2, word:'oh', phones:['AA1']} (05_A_pump_stub.json).\n   - B: commit 8b1d2ad2cea5 to 67889851144d. 0 leases, paused STALE_READING, request and identity unchanged (06_B_pump_stub.json).\n   - C: null commits with fingerprint 8f3b80c8 to 9bffbd58. 0 leases, STALE_READING (07_C_pump_stub.json).\n\n5. Scenario A with the real Python worker (about 2 s of CPU per run; 08_A_real_pump.json, 10_binding_compare.txt):\n   - Candidate: completed_with_refusals, 140 records. The declared AA landed on token 2 at characters [4,6]; the 'oh' at [8,10] read as dictionary OW. No record mentions a cut change or a rebinding.\n   - wt-base (fce4bf0f, v1 worker) on the same stored job shape: AA at characters [8,10] (09_base_pump.json).\n\n6. Release identity probes (11_release_identity.txt): releaseIdentity({}) gives commit null; with LYRIC_RELEASE_ASSETS_REQUIRED=1 and no baked file it throws \"Baked image build identity is missing or unreadable.\"\n\n7. The Dockerfile line numbers in the claim (86 and 135) are correct (source read).\n\n8. Python-side runtime_identity (analysis.py:91-101) does hash the harness source. By source read only, that affects only checkpointed resumes, not a queued job; I did not test a paused-with-checkpoint job.\n\n9. Author's test, run separately: 'a job queued across the word-cut release is refused, never run, never rewritten' passes 1/1 (12_author_test.log). It covers only the case where the commit changes."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "R4-4 is real and the candidate causes it. The status \"fail\" holds against the author's own documented promise, not against the agreed binding rule.\n\n(a) Binding passes. The row is rebound by span to the same characters. The base v1 cut makes token 2 \"oh\" chars 8-10, and the candidate's v2 cut makes token 3 \"oh\" chars 8-10. The row becomes 'token 3 \"oh\" ... — cut v2'. The page sends token 3 and nothing is blocked. The envelope digest verifies and the file is not rewritten.\n\n(b) The renumbering notice does not reach the writer on import:\n- In lyLibraryActivate, lyRefresh(true) runs the migration toast, and then the \"Library working copy imported...\" toast overwrites it on the single #toast element. In my runs that took 10-25 ms (the tester saw about 100 ms; the gap depends on IndexedDB latency). The text sat on the toast for 2 animation frames, and computed opacity was 0 in both frames, in 3 of 3 runs. So it was never painted at nonzero opacity, which is stronger than \"effectively invisible\".\n- Beyond the claim: the plain .txt import path (lyCommit) overwrites it in the same task. The migration text appears in 0 frames.\n- Only an edit typed or pasted into the draft shows it, for about 2.2 s at opacity 1.\n- On every path, nothing persistent records \"word 2 → 3\" afterwards (searched Tools, Review, History and Writer with #toast excluded). Undo history holds only the migrated text.\n- This breaks the candidate's own promise in mcp/LYRICS_RUNTIME.md (\"a number it changes is reported to the writer, not changed in silence\") and its src/pages/lyrics.js comment (\"reported, never moved in silence\"). The agreed policy only requires a same-character rebind or a visible block, so on the policy's literal wording the binding meets it. The tester's expected \"with a visible notice\" comes from the author's promise.\n- By contrast, the Library tab keeps a persistent role=status renumbered note (src/library/analysis.js:1603, source read).\n\n(c) The page's own rewrite sets libraryOrigin.adapted to true, and the source card reads \"· Complete reading · Adapted\". On main the same file stays adapted=false with no label, and keeps token 2, which the base grader also binds to chars 8-10. So nothing on main is mis-bound either. One consequence, from source read only and not exercised: makeWorkingCopyEnvelope drops payload.declarations when adapted is true. In this test file those declarations were already empty.",
+   "evidence": "Everything is in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-routes234-1/ (repro.js, COMMANDS.txt, make/, run/obs_*.json, run/*_after.png).\n\n**What I did:**\n- Built my own pages from wt-678 and wt-main into that folder.\n- Made the pre-release working copy with main's own UI. I built a source envelope with main's CMLibraryImport, imported it through #ly-file, added the unmarked v1 row 'token 2 \"oh\" in \"Oh--oh, oh my love\"', and used Export > Download text and sources. Output: make/main-working-copy.json, digest 26f35b3b…; its payload.text starts with the v1 row, workingCopy.adapted is true and declarations are empty.\n- Imported that file through Lyrics > Import (#ly-file) in fresh contexts: 3 times on the candidate and once on main.\n- Recorded every showToast call, each animation frame's #toast text and computed opacity, the draft, the sent pronunciations, lyUndecidedRefusal, libraryOrigin, and every inspector tab's text with #toast excluded.\n\n**Candidate, working-copy import (run cand_import_v2):**\n- showToast at 61 ms: '1 saved word number ... “oh” word 2 → 3.' (neutral).\n- showToast at 86 ms: 'Library working copy imported...' (success).\n- Frames: the migration text sat on #toast at 76-85 ms, maxOpacity 0. The import text sat there at 91-2272 ms, opacity 1.\n- Runs cand_import1 and cand_import2 match: 74-82 ms and 84-95 ms, both opacity 0.\n- Draft: '[SETUP — reading — token 3 \"oh\" ... — cut v2]'. Sent: [{\"token\":3,\"word\":\"oh\",...}]. Refusal: ''.\n- libraryOrigin.adapted is true, the card reads 'BB8 test reading · Complete reading · Adapted', and persistentNotice is empty in all four tabs.\n- The candidate's readerLine gives token 3 pieces [[8,10]].\n\n**Candidate, other paths:**\n- cand_txt_v2 (plain .txt import): the migration toast is called at 51 ms and replaced at 61 ms by 'Imported pre-release.txt...'. It appears in no frame.\n- cand_type_v2 (person's edit): the migration toast shows at 205-2388 ms, opacity 1. After it fades, no persistent record remains.\n\n**Main baseline (main_import):**\n- Only the import toast appears.\n- The row stays token 2 and the page sends token 2; adapted is false and there is no Adapted label.\n\n**Spans oracle:**\n- wt-base harness line_tokens gives ['Oh--oh','oh','my','love'], so token 2 is chars 8-10 (base_tokens.log).\n- wt-678 harness line_tokens gives ['Oh','oh','oh','my','love'] (cand_tokens.log).\n\n**Integrity:** sha256sum -c on both input files is OK, and git status shows no tracked changes in wt-678, wt-main or wt-base.\n\n**Source read, not executed:**\n- src/pages/lyrics.js:309-337: lyEnsureTokenScheme reports moves only through showToast.\n- src/pages/lyrics.js:2432-2497: lyLibraryActivate calls lyRefresh(true), awaits listDrafts, then shows the import toast.\n- src/pages/lyrics.js:2117-2125: lyCommit calls lyRefresh(true), then the Imported toast.\n- src/app.js:14728: one #toast element whose text is replaced on each call.\n- src/pages/lyrics.js:2566: adapted is computed as draft !== originalText.\n- mcp/LYRICS_RUNTIME.md (commit 678898511): the \"reported to the writer, not changed in silence\" promise.\n\nI did not run the author's tests for this check."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The main claim is real, and I reproduced it end to end. Two parts need correcting, and one consequence was missing.\n\nWhat happens: a Library tab still running the pre-release page (main 8b1d2ad2) after the post-release server (candidate 67889851) is live reads an unmarked saved record and sends its rows unchanged. The candidate server accepts that request and runs the job to completion with no word-cut message. In `Oh--oh, oh my love`, token 2 `oh` now lands on characters 4-6 instead of 8-10.\n\nIt is not caused by any change to the server code. mcp/*.js and mcp/*.py are byte-identical from fce4bf0f to HEAD. It is caused by the candidate's change to the worker's word cut (READER_SCHEME = \"v2\" in lyric_harness.py, with no marker on the wire). On the baseline, the same page and the same server bind 8-10, so the problem only exists in a mixed-version window.\n\nCorrection 1, scope: it is silent only when the word at that position under v2 has the same text, as in `Oh--oh, oh my love` or `oh--oh oh oh`. When the word differs, the new server pauses the job with a visible READER_ERROR naming the mismatch. Example: `U--h, u--h, Lawdy,` token 3 gives \"('Lawdy' declared; token 3 there is 'u')\".\n\nCorrection 2, the other direction: \"new page to old server is refused visibly\" is only true for the reported line. In general it fails silently too. On `oh--oh oh oh`, the new page moves an unmarked v1 token 2 (characters 7-9) to v2 token 3. The old server reads token 3 as characters 10-12 and completes with no notice.\n\nHow long the window lasts: the page runs on GitHub Pages and the server on Render, which deploy separately. Both orders can happen, and the window lasts until every open old tab is reloaded. A cached old page could only add the HTTP cache lifetime (source read and estimate, not executed).\n\nMissing consequence (inference; the old page taking token numbers from the server's evidence is source read only): an old tab that saves a new choice after the release saves it unmarked, numbered from the v2 server's evidence. The candidate page later treats that record as v1 and moves 2 to 3, onto characters 8-10. Its notice says \"on the same characters\", which is false for that choice.\n\nThe candidate's own mcp/LYRICS_RUNTIME.md already admits this gap for callers holding pre-release declarations (\"Nothing in today's schema can detect it\", \"open until commit 2\"). But it also says \"The website's own saved choices are migrated, not left to that residual\", and a stale Library tab contradicts that. Severity \"minor\" is reasonable.",
+   "evidence": "All of this was run by me. Files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-routes234-2/ and the commands are in COMMANDS.txt there.\n\n(1) Page side, Playwright with real builds of each tree (stale_page_probe.cjs). I seeded an unmarked record `{declarations:{pronunciations:[{line:'Oh--oh, oh my love', token:2, word:'oh', phones:['AA1'], ...}]}}` and clicked Analyze.\n- Main build (stale_page_wt-main.json): the POST /analyses body carried token 2 unchanged, with no notice, and the record stayed unmarked.\n- Candidate build (stale_page_wt-678.json): the page showed the notice \"token 2 → 3\", sent token 3, and saved the record marked `token_cut: \"v2\"`.\n- Both bodies have identical keys: contract_version, declaration_set, idempotency_key, reading_revision, reading_unit_id, requested_layers.\n- The live store is IndexedDB codex-musica-library-v1, object store \"state\" (the page's own device store). codex-musica-library-analysis-v1/kv is only the analysis chunk's fallback, and it was left untouched. The task brief names the fallback.\n\n(2) Server side, the real path minus HTTP and auth (server_e2e.mjs): validateRequest, createCatalogResolver, ReaderJobStore, ReaderScheduler, createPythonBridge and mcp/worker.py, fed the exact bodies captured above.\n- Old body on the candidate harness: accepted, completed_with_refusals (the same state as baseline; no cut message), and the records hold no word-cut or v1 text. Line 0 came back as Oh[0,2] OW, oh[4,6] **AA**, oh[8,10] OW.\n- Old body on the base harness: Oh--oh[0,6], oh[8,10] **AA**.\n- New body (token 3) on the candidate harness: AA at [8,10].\n- New body on the base harness: paused, READER_ERROR \"pronunciation token/word must match the exact sung token\".\n- validateRequest with an added token_cut field returns BAD_REQUEST \"unknown field\". The identity keys contain no scheme field.\n- AnalysisSession run directly (e2e_worker.py) gives the same result: candidate [4,6], base [8,10].\n\n(3) Generality:\n- `oh--oh oh oh`, candidate page then base server: token 3 binds AA at [10,12] instead of [7,9], and the job completes silently.\n- `U--h, u--h, Lawdy,` token 3, old page then candidate server: paused, READER_ERROR \"('Lawdy' declared; token 3 there is 'u')\".\n\n(4) Baseline: the harness, mcp/ and src/library are identical between fce4bf0f and 8b1d2ad2 (empty git diff --stat), so wt-base stands in for the deployed server. wt-main has no cmudict.dict, so it cannot grade.\n\n(5) Source read: GitHub Pages and Render deploy separately (docs/library-native-design.md). The page has no reload check against the server version. The candidate's LYRICS_RUNTIME.md documents the residual but says the website's own choices are not left to it.\n\n(6) The author's tests pass, and neither covers an old page against a new server: scripts/test_library_declarations.js 8/8, mcp/test_reader_client.mjs 11/11."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "Real, minor, and introduced by the candidate (main has no such migration or notice). One correction to the claim: the binding is not silently wrong. Only the notice that explains it is lost.\n\nOn candidate 67889851, an unmarked saved reading such as `[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" …]` is rebound by span to token 3, the same characters 8-10, and marked `— cut v2`. That is correct under the agreed policy.\n\nThe only report of the renumbering is the toast from lyEnsureTokenScheme (\"…renumbered to the current word cut, on the same characters: “oh” word 2 → 3.\"). Both file-import routes overwrite that toast in the single #toast element:\n- **.txt import** (lyCommit, src/pages/lyrics.js:2117-2124): lyRefresh(true) shows the notice, and the same synchronous task then calls showToast('Imported X. Undo restores…', 'success', Undo). The notice is never painted (0 frames). This is worse than the reported \"same ordering (source read)\", and it is now executed.\n- **Library working-copy .json import** (lyLibraryActivate, ~lyrics.js:2489-2495): lyRefresh(true), then `await listDrafts()`, then showToast('Library working copy imported…'). The notice is on screen for about 95 ms while it is still fading in (1 painted frame with opacity above 0), then it is replaced.\n\nAfter that, nothing on the page or in the Review tab mentions the renumbering. Source read: lyEnsureTokenScheme replaces the current Undo step instead of adding one, so Undo cannot show the old number. The only trace left is the rewritten row text (token 3 … — cut v2).\n\nTyping or pasting the same text on the candidate shows the notice for its full ~2.2 s, so the fault is in how the import routes order their toasts, not in the migration.\n\nThis breaks the author's own promise in lyrics.js:105 and :319 (\"A renumbering is said, never done in silence\"). It does not break the rule that a choice must never land on a different word.\n\nSource read, not executed: the blocked and carried summaries in the same toast would be overwritten the same way. Those states stay visible elsewhere (row marker, Review notice, send refusal); the renumber notice has nothing else to carry it.",
+   "evidence": "All of this was executed by me with my own harness at /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-routes234-3/repro.js. It wraps window.showToast and records caller stacks, puts a MutationObserver on #toast, and samples every requestAnimationFrame for #toast show, opacity and text.\n\n**Builds:** I built both pages myself with `CODEX_LIBRARY=1 node scripts/build_html.js` into build-cand (wt-678 @ 67889851) and build-main (wt-main @ 8b1d2ad2). Each was served with scripts/_pages_server.js and run in Chromium at /opt/pw-browsers/chromium, with external requests aborted.\n\n**Inputs:**\n- in/legacy-reading.txt, which I wrote by hand.\n- in/lyrics.library-working-copy.json, a file made by main's own export, reused as input only (sha256 803206a5…, unchanged).\n\n**Results** (run/*.json, *.log, screenshots at 300, 1500 and 4000 ms):\n- **Candidate, .txt route:** the renumber showToast fires at 23.8 ms (stack: lyEnsureTokenScheme <- lyRefresh <- lyCommit). The success toast with Undo fires at 33.1 ms. The renumber text is painted in 0 frames; the success toast in 394 frames (~6.6 s).\n- **Candidate, .json route:**\n  - The renumber call happens at 89 ms. Its first painted frame is at 248.8 ms (opacity 0), the next at 317.6 ms (opacity 0.73).\n  - At 344.2 ms 'Library working copy imported. Your previous draft is under History.' (from lyLibraryActivate) replaces it.\n  - This matches the prior tester's ~100 ms (2691 to 2793 ms).\n- **Candidate, typing control:** the same text typed into #lyrics-draft paints the notice in 131 frames (~2.2 s).\n- **Main, both routes:** no renumber call at all. The row stays 'token 2 … source: the singer', unmarked (pre-batch reader). So the behaviour is not pre-existing.\n- **After the toast, every candidate route:** the draft row reads 'token 3 \"oh\" … — cut v2'. Searching the page text and the Review tab finds no 'renumbered' or '2 → 3'.\n\n**Spans** (run/spans.log, lyric-tokens.js): v2 tokens are [Oh, oh, oh, my, love]; v1 spans are Oh--oh 0-6, oh 8-10, my, love. So v1 token 2 = v2 token 3 = characters 8-10. The rebind is correct; only the explanation is lost.\n\n**Code** (source read): a single #toast in src/app.js:14728-14759; lyEnsureTokenScheme at lyrics.js:309-338; lyCommit at 2117-2124; lyLibraryActivate showToast at ~2489-2495.\n\nCommands and key outputs are in COMMANDS.txt in the same directory."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "Confirmed: this is a real failure and the candidate introduced it. On candidate 67889851, the Review action \"Remove the link\" (LY_ACTIONS['ly-drop-undecided'], src/pages/lyrics.js:5403-5413) always shows the toast \"Rhyme link saved before this release removed. Undo restores it.\" for rhyme groups, or \"Declared return saved before this release removed. Undo restores it.\" for returns. The text is fixed. It does not depend on where the row came from. That breaks policy item 6, which says an unmarked row is legacy only by compatibility policy and is no proof of when it was created. Every card on which the button appears gets the same toast, including cards whose own text avoids any date claim:\n(a) an unmarked row whose T<k> member could not be rebound. Its card title says \"saved without the current cut mark\".\n(b) a row marked \"— cut v9\". Its card says \"marked with a word cut this page does not read\". This row cannot sensibly be \"from before this release\".\n(c) a hand-typed row that already carries \"— cut v2\" and has a \"(numbered under the earlier cut)\" member.\nThis is the only date claim that reaches the user. The other \"this release\" text is the carried-across notice (line 1197): \"Line N's word cut changed in this release\". It is about the cut changing, not about when the row was saved, so it is acceptable. Line 991 is only a code comment. The Library's message says \"carried no word-cut mark\", which is acceptable. Small correction to the tester's evidence: \"src/pages/lyrics.js:5411\" is right, and codex.html contains the string once. The source file contains the phrase twice, but one of the two is the comment at line 991. The baseline (main 8b1d2ad2) has neither the action nor the toast, so this is not pre-existing. History: the toast came in with 63de69854. Commit be5a1b3e2 (policy A) reworded the four user-facing reading messages from \"saved before this release\" / \"from before this release\" to \"saved without the current cut mark\", but left this toast unchanged. That points to an oversight. Fix: make the toast match the card that was acted on, e.g. \"Rhyme link saved without the current cut mark removed\" for an unmarked or earlier-cut member, and \"...marked cut v9 removed\" for an unknown cut.",
+   "evidence": "My own Playwright run (Chromium /opt/pw-browsers/chromium, serving each tree's built codex.html#lyrics, MCP routes stubbed). The script puts the draft into #lyrics-draft, fires input, calls lyRefresh(true) and opens the Review tab. It then clicks the real DOM button #ly-panel-review [data-ui=\"ly-drop-undecided\"] and reads #toast.innerText. Script, logs and command notes are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-0/ (drop_wording.js, cand.log, main.log, commands.txt).\n\nCandidate results (0 page errors):\nU1 '[SETUP — rhyme groups — 1.T1,2]' over 'Oh--oh, oh my love': migrated to '1.T1 (numbered under the earlier cut),2 — cut v2'. Card: 'A rhyme link saved without the current cut mark needs your decision'. Toast: 'Rhyme link saved before this release removed. Undo restores it.'\nU2 returns '1.T1,2.T1': toast 'Declared return saved before this release removed. Undo restores it.'\nA1 '[SETUP — rhyme groups — 1,2 — cut v9]': card 'A rhyme link is marked with a word cut this page does not read' (it names 'cut v2' as the accepted value). Toast: 'Rhyme link saved before this release removed. Undo restores it.'\nA2 returns '— cut v9': toast 'Declared return saved before this release removed.'\nM1 a row already marked '— cut v2' with '1.T4 (numbered under the earlier cut)': same toast.\nIn every case the row was removed (the first line became '[VERSE]').\n\nBaseline wt-main 8b1d2ad2, same script: no ly-drop-undecided button is ever rendered and no such toast appears. The v9 rows show only 'points at 2 — cut v9, which the draft does not have'.\n\ngrep: the candidate's src/pages/lyrics.js has 'before this release' twice (line 991 is a comment, line 5411 is the toast); its codex.html has it once; wt-main and wt-base have 0.\ngit log -S: the toast was added in 63de69854. be5a1b3e2 cut the other user-facing 'before this release' reading messages from 4 to 0 (all now 'saved without the current cut mark') but kept the toast. The Library (src/library/analysis.js:784) says 'carried no word-cut mark', which makes no date claim."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "Real, pre-existing and minor. The batch did not cause it. I reproduced it on the candidate build and on the pre-batch main build (8b1d2ad2) against the real server code, with no stubbed resume. The server JS involved is byte-identical in fce4bf0f, 8b1d2ad2 and the candidate.\n\nWhat happens:\n1. A job the real ReaderScheduler paused because its identity changed (here an engine_commit change between create and lease) shows the reason \"Source or engine identity changed; create a new reader job.\" It also shows an enabled Resume button. The client offers Resume for every paused, cancelled or failed job whatever the reason (src/library/analysis.js, the data-act=\"resume\" line).\n2. Clicking Resume gets 409 STALE_READING from the real server, with the message \"Source, declarations or engine/resource identity changed; start a separate analysis.\" The job stays paused and Resume stays enabled. failMessage() (src/library/analysis.js:157-158) throws away the server's message and remedy and shows a fixed alert: \"This reading was updated. The analysis server updates within a day; retry later.\"\n3. That wording was written for the create-time Pages/Render revision skew (docs/library-native-design.md:331). For an engine or resource identity change it is wrong twice: the reading was not updated, and retrying later does not help, because resume keeps being refused while the server identity differs from the one pinned on the job. In my run the refusal repeated at +0h, +24h and +48h. The server's own REMEDY string for STALE_READING (\"Reload the reading: it was updated…\", mcp/library_viewer_routes.js:65) blames the reading in the same way, but the client never shows it.\n\nTwo corrections to the reported wording:\n- \"Can never succeed\" is slightly too strong. Resume does succeed (202 queued) if the server identity goes back to the job's pinned identity, for example after a rollback.\n- The page is not left without the correct cue. The paused panel already shows the server's accurate reason, and \"New whole-work analysis\" works: it queued a new job on the new engine. The defect is a contradictory alert that tells the user to retry, plus a Resume button that cannot work in the forward-deploy case.\n\nThe finding also differs from the design doc. The doc says Resume applies \"with unchanged identity\" and that a resume for an older-snapshot job \"offers 'Run again on the current catalog'\" (docs/library-native-design.md:567,571). That label does not exist anywhere in src/library (source read).",
+   "evidence": "All under /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-routes234-4/ (COMMANDS.txt lists every command).\n\n(1) Server, real code: server_stale_resume.mjs runs the real ReaderJobStore, libraryViewerRouter, ReaderScheduler and createAdmission from wt-678/mcp. Result in server_stale_resume_wt-678.json:\n- POST /analyses gives 202 queued.\n- After engine-1 -> engine-2, a real scheduler.pump() pauses the job with reason {code:STALE_READING, message:'Source or engine identity changed; create a new reader job.'}. The bridge was never called.\n- POST /jobs/:id/resume at +0h, +24h and +48h each returned 409 {code:STALE_READING, message:'Source, declarations or engine/resource identity changed; start a separate analysis.', remedy:'Reload the reading: it was updated, and analysis runs on the current revision.'}. The job stayed paused.\n- After the engine was reverted to engine-1, resume returned 202 queued.\n- git diff --stat for these server files is empty both 8b1d2ad2..6788985 and fce4bf0f..6788985. The main run's error file (server_stale_resume_wt-main.err) only says express is missing, since wt-main has no mcp/node_modules. The source is identical, so this does not matter.\n\n(2) Page, real server: I built candidate (analysis.9ebd86e5f8.js) and main (analysis.71b110b249.js) pages into scratch with CODEX_LIBRARY=1 build_html.js. git status of both trees was unchanged. page_real_server.mjs forwards the page's /library/v1/analyses and /jobs/** calls to the in-process real router; only /health is stubbed. Chromium at 1280px, light theme. obs_page_real_cand.json and obs_page_real_main.json show identical behaviour:\n- The paused panel shows 'Resume' (enabled) and 'Code STALE_READING Message Source or engine identity changed; create a new reader job.'\n- After clicking Resume, the exchange log shows POST /jobs/:id/resume 409, and the alert reads 'This reading was updated. The analysis server updates within a day; retry later.' The server-side job is still paused.\n- 'New whole-work analysis' sends POST /analyses 202 and creates a new queued job with engine-2.\n- The only console error is the browser's own 'Failed to load resource ... 409'.\n\n(3) Origin: git log -S on the alert text gives 0930f0e28 (2026-10-11, 'Library analysis chunk: …'). The same failMessage STALE_READING branch and Resume condition sit at line 157 / line 1435 in wt-base (fce4bf0f) and wt-main (8b1d2ad2). In the candidate they are at line 158 / line 1580, and git diff 8b1d2ad2..6788985 of src/library/analysis.js does not touch either.\n\n(4) Source read only: docs/library-native-design.md:331 ties the 'updates within a day' text to the create-time revision skew. Lines 567/571 say Resume applies 'with unchanged identity' and that an older-snapshot job's resume offers 'Run again on the current catalog'. grep finds no such label in src/library. mcp/READER_RUNTIME.md:278-279 says: 'Resume after incompatible source/resource changes requires a separate analysis.'\n\nThe original tester's run used a stubbed 409. My run shows the real server returns the same code, so the tester read the behaviour correctly."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "Confirmed. The page change in this batch causes it, and the author meant it to happen. Bindings stay the same; row text does not.\n\nWhen the candidate page (67889851) first loads an unmarked row, it rewrites two kinds of row to end in \" — cut v2\" even when no number changes and every line's v1 and v2 cuts are identical:\n- any [SETUP — rhyme groups] or [SETUP — returns] row that holds at least one N.T<k> member;\n- every [SETUP — reading] row.\n\nOnly a row made entirely of named places (bare N, .end, .head and so on) on unchanged lines stays byte-identical.\n\nIn each rewritten row, the token number, word and characters bound are unchanged, and so is the declaration value sent to the tools. The rewrite shows no toast and no Review notice. It replaces the current Undo step, so Undo cannot bring back the unmarked bytes. A second reload changes nothing further.\n\nCurrent main (8b1d2ad2) leaves the same saved rows byte-identical, so this is not pre-existing. The reading-row stamp was already on the earlier head e58b23248. The rhyme-group and returns stamp first appears in be5a1b3e2 (policy A).\n\nIt is deliberate:\n- the code comment for readings says \"the row gains the mark\";\n- the author's own unit test asserts '[SETUP — returns — N.T2,M.T3 — cut v2]' with the comment \"a counted place there only gains the mark, on the same number\" (source read).\n\nIt still conflicts with the stated invariant read literally (\"leave choices whose binding did not change byte-identical\"). It also contradicts the author's comment at the rewrite (\"Rewritten and marked only where something moved, was flagged or was kept across the cut\"): the code marks every T<k> member as changed before checking whether it moved.\n\nSo the tester's observation is accurate. Calling it \"fail\" is right only if the \" — cut v2\" mark counts as a change to the choice. Under a binding-or-value reading of the invariant, it holds.\n\nOne addition: in a hand-typed row that holds a T<k> member, the whole row is rewritten in the page's own spelling, not just marked. '2.end, 4.T5' became '2,4.T5 — cut v2', and the value sent changed from \"2.end, 4.T5\" to \"2,4.T5\", which means the same thing. Rows that main's own writer produced only gain the mark.",
+   "evidence": "All of this was run by me from scratch. Files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-1/ (COMMANDS.txt, verify.js, verify.log, verify.json, baseline_session.json, apostrophe_cuts.out).\n\n(0) Both pages rebuilt from source into my folder: cmp says built-678.html is identical to wt-678/codex.html and built-main.html is identical to wt-main/codex.html.\n\n(1) The wt-main page wrote the rows with its own serializers (lySetSetup, lyGroupsText, lyParseGroups, lyReadingValue) into localStorage 'codex-workbench-v1'. After a reload on wt-main all rows were byte-identical (main.reload.textIdentical true).\n\n(2) Same origin switched to wt-678, then reload (a real upgrade):\n- '[SETUP — rhyme groups — 2,4]' unchanged;\n- '[SETUP — rhyme groups — 2.T3,4.T5;5.T1,4.T1]' now ends ' — cut v2]';\n- '[SETUP — returns — 2.T2,4.T2]' now ends ' — cut v2]';\n- '[SETUP — reading — token 5 \"oh\" in \"Oh, oh, I said oh\" — OW1 — declared — source: the singer]' now ends ' — cut v2]';\n- the 'walk' dictionary reading now ends ' — cut v2]'.\n\nEvery changed row equals the old row plus ' — cut v2' (afterMinusMark true for all). lyLineCutChanged is false for lines 2, 4 and 5. Each T<k> covers the same span under both cuts (e.g. 4.T2 'oh' 4-6 → pieces [[4,6]]). The declarations sent (groups '2,4', returns '2.T2,4.T2', pronunciations) are identical to wt-main's. Toasts [], Review items [], history [1,0]. A second reload left the text identical.\n\n(3) The same saved session on e58b23248's codex.html: readings gain ' — cut v2'; rhyme-group and returns rows are untouched.\n\n(4) Typed on wt-678:\n- '2.end, 4.T5' became '2,4.T5 — cut v2';\n- '2.T2, 4.T2' became '2.T2,4.T2 — cut v2';\n- '2, 4' stayed '2, 4'.\n\nThe value sent changed from 'groups \"2.end, 4.T5\"' on wt-main to '\"2,4.T5\"' on wt-678.\n\n(5) The v2 cut normalises ’ to ', so a reading's word is not respelled; only the mark is added.\n\nNot executed, source read only:\n- In lyMigrateSavedReadings (src/pages/lyrics.js), `touched = true` is set for every numbered member before checking whether it moved, which contradicts the comment above it.\n- Author test scripts/check_lyrics_page.js around line 975 asserts the stamped quietT row (\"a counted place there only gains the mark, on the same number\"). I did not run the author's suite.\n- lyGroupRow is absent at fb8f17ef3 and present at be5a1b3e2."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The report is correct, and the problem is wider than reported. It is caused by the candidate. It does not happen on baseline wt-main 8b1d2ad2, because wt-main never rewrites a typed row.\n\nOn the candidate, the draft textarea's input handler calls lyRefresh, which waits 120 ms and then runs lyEnsureTokenScheme. That function replaces the whole text with `draft.value = done.text` (src/pages/lyrics.js ~line 314, source read) and never saves or restores the selection. Setting a textarea's value puts the caret at the end of the text, so after the rewrite the caret is at the end of the whole document. Focus stays in the textarea, so the person's next keys go there, not into the row they were typing.\n\nWhen it fires: 120 ms after the first keystroke that turns a line into a complete row with no cut mark (closing ']' typed) that the migration rewrites. When typing a row left to right, that keystroke is the closing ']'. When editing a row that is already closed, it fires on the key in the middle of the row that creates such a member, for example typing '3' to make '5.T3'.\n\nIt fires for:\n- a rhyme-groups or returns row with any numbered member N.T<k>, even when nothing is renumbered. '5.T3,6' on lines whose cut did not change is rewritten only to add ' — cut v2', with no toast, and the caret still jumps to the end.\n- a named place on a line whose cut changed: '1,8' becomes '1 (carried across the word-cut change),8 — cut v2'.\n- a pronunciation reading row with no cut mark.\n\nIt does not fire for named places on lines whose cut did not change ('5,6'), or for rows already marked ' — cut v2'.\n\nThis does not break policy A's binding rules: the rewritten data lands on the same characters. It is a defect in how the page edits, against a reasonable expectation that the policy does not state. The tester did not misread anything.\n\nThe earlier head e58b23248e70 already had the same `draft.value` assignment, but there it migrated only reading rows. Commit be5a1b3e2 extended it to rhyme-groups and returns rows, which is what makes the reported row jump.",
+   "evidence": "I executed all of this myself with Playwright and Chromium at /opt/pw-browsers/chromium, using scripts I wrote from scratch: caret.js and caret_reading.js. They do not reuse the tester's cand_lib.js or lib.js. Each script serves <tree>/codex.html from a local server; both trees are clean, and grep shows the candidate's codex.html contains 'draft.value=done.text;' while wt-main has no migration. Keys are real keyboard input. Commands and key outputs are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-2/COMMANDS.txt, with full results in caret_cand.log/json, caret_main.log/json and caret_reading_{cand,main}.log/json.\n\nCandidate S1, the reported repro: the draft starts as a blank line followed by the 11 lyric lines, and '[SETUP — rhyme groups — 1.T4,8]' is typed at line 1 at 30 ms per key.\n- The row becomes '[SETUP — rhyme groups — 1.T5,8 — cut v2]'.\n- Toast: \"…renumbered to the current word cut, on the same characters: “love” word 4 → 5.\"\n- selectionStart = selectionEnd = 236 = len (the end of the text), line 12 of 12, focus still in the textarea.\n- The next 'Z' produced 'Love aboveZ'.\n\nBaseline wt-main S1: the row stays '1.T4,8]', the caret is at 31 (line 1), and 'Z' produced '[SETUP — rhyme groups — 1.T4,8]Z'.\n\nCandidate S2, at 180 ms per key: the caret stays on line 1 through '1.T4,8' and jumps to 236 exactly on ']'. On wt-main it never jumps.\n\nCandidate S3: two rows typed quickly with Enter between them. The rewrite happens after the burst and 'Q' lands on line 13, the end. On wt-main 'Q' lands on line 2.\n\nCandidate S4, '5.T3,6': the only change is ' — cut v2', with no toast, and the caret moves to the end.\n\nCandidate S5, '1,8': the row becomes '1 (carried across the word-cut change),8 — cut v2', with the carried toast, and the caret moves to the end.\n\nCandidate S6 ('5,6') and S7 (already marked '1.T5,8 — cut v2'): no rewrite and the caret stays on line 1, the same as on wt-main.\n\nCandidate S8: inside an existing '[… 5,6]' row, typing '.T3'. The jump happens on '3', and 'Y' produced 'Love aboveY'. On wt-main the row reads '5.T3Y,6]'.\n\nCandidate S9: an unmarked reading row, token 2 \"oh\" in \"Oh--oh, oh my love\". It is rewritten to token 3 with '— cut v2' and 'Z' lands at the end of the document. On wt-main 'Z' lands on line 1.\n\nNo page errors in any run.\n\nSource read:\n- src/pages/lyrics.js lines 309-318: lyEnsureTokenScheme contains no setSelectionRange call.\n- Line 4400: lyRefresh calls it.\n- Lines 5670-5678: the input listener calls lyRefresh, which waits 120 ms.\n- e58b23248e70 has the same assignment but migrates only reading rows (git show).\n- wt-main has no lyEnsureTokenScheme at all (grep).\n\nAuthor's tests: grep finds no caret, selectionStart or keyboard.type checks in scripts/check_lyrics_page.js, so this case is not covered."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The observation is real; only the 'fail' label overstates it. On the candidate (wt-678 @ 67889851), the Rhymes tool's 'Declared links' list and the Repeats tool's 'Declared returns' list never show that a member was carried across the word-cut change. A carried member looks exactly like an ordinary member: 'Line N · <current-cut word>' in Rhymes, and 'Line N · <place label>' or 'Line N' in Repeats. The tool view's HTML has no 'carried' text anywhere, including title and aria attributes. After 'Keep the link' the list text is byte-identical, so the lists cannot tell a carried member from a kept one. Blocked members (N.Tk numbered under the earlier cut) are shown raw as '2.T5 (numbered under the earlier cut)' in both lists. That raw text is itself a visible blocked state, not a missing one. The agreed policy A does not require this indicator. It asks for the carried state on the SETUP row and an explicit Review notice with Keep the link / Remove it, and both are present: the row reads 'N.place (carried across the word-cut change)' and Review has one notice per member. Policy item 7 asks only that the state SURVIVE the rhymes and repeats forms, not that the lists show it, and the author's commit message makes no claim about the lists. This is a UI gap where the new state is not surfaced, not a policy violation. It is also not a regression: main (8b1d2ad2) uses the same plain list format and has no carried state at all. Main also leaves legacy rows unmigrated and binds them under the current page's cut (e.g. 'Line 2 · mill--'). One side effect of the gap: the list shows the current-cut word (e.g. 'mill' where the earlier cut showed 'mill--', or '10' for a line ending in a numeral in the tester's scenario). It can therefore read as settled while Review still asks for a decision.",
+   "evidence": "I ran this from scratch with my own lyrics and rows, not the tester's song. Files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-3/ (COMMANDS.txt, lists.js, lists2.js, lists_cand.json/log, lists_main.json/log, lists_cand_ret.json/log, plus *_rhymes.png and *_repeats.png). Method: I seeded a pre-batch, unmarked session in localStorage with the rows '[SETUP — rhyme groups — 1,5;2.endword,6;1.T2,3;2.T5,3.T4]' and '[SETUP — returns — 4.head,1.head;3.head,5.head]'. The lyrics have changed-cut lines 1 'Hey--hey, the river runs', 2 'Down by the old mill--' and 4 'Stay--stay with me'. I then loaded codex.html#lyrics in Chromium, with the chat endpoint stubbed.\n\nCANDIDATE (executed):\n- Migrated rows: '1 (carried across the word-cut change),5;2.endword (carried …),6;1.T3,3;2.T5 (numbered under the earlier cut),3.T4 — cut v2' and '4.head (carried …),1.head (carried …);3.head,5.head — cut v2'.\n- Review: 4 carried notices with Keep the link / Remove it, and 1 blocking undecided notice.\n- Rhymes list: 'Line 1 · runs ~ Line 5 · runs | Line 2 · mill ~ Line 6 · hums | Line 1 · the ~ Line 3 · tonight | 2.T5 (numbered under the earlier cut) ~ Line 3 · tonight'.\n- Repeats list: 'Line 4 · first word = Line 1 · first word | Line 3 · first word = Line 5 · first word'.\n- A /carried/i search of the tool view's HTML was false for Rhymes (with each group radio selected in turn) and for Repeats.\n- After ly-carried-keep on line 1, the row dropped that marker but the Rhymes list text was unchanged.\n- Returns-row variant: Repeats shows '2.T5 (numbered under the earlier cut) = Line 6 · word 4 | Line 1 = Line 5'.\n- No page errors.\n\nMAIN BASELINE (executed): rows are left unmarked and unmigrated, with no Review notices. The Rhymes list shows 'Line 2 · mill--' for both 2.endword and 2.T5, and the Repeats list is identical to the candidate's.\n\nSOURCE READ:\n- wt-678 src/pages/lyrics.js:3959-3966 and :4102 render members as `m.bad || m.undecided ? esc(m.raw) : 'Line N · …'`, with no m.carried branch. The built wt-678/codex.html has the same minified code.\n- wt-main src/pages/lyrics.js:3434-3440 and :3576 are the same renderer without the undecided branch.\n- The only consumers of m.carried in the candidate are row serialization (:787), the declaration send (:966-977), the Review notice (:1185-1201) and lyCarriedDecide (:2217).\n\nPOLICY CHECK: policy A items 2 and 7 require the visible state on the row, a Review notice, and survival through the forms. None of them requires an indicator in the tool lists, and the tester themself marked the check 'informational, not required by policy'."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "Confirmed, minor, and new in the candidate: main has no such toast. On the candidate (67889851), clicking \"Remove the link\" in Review on any rhyme link or declared return whose member is held back shows a toast that states a creation date as fact. The handler is LY_ACTIONS['ly-drop-undecided'] at src/pages/lyrics.js:5403-5413, and the string is at line 5411: \"<Rhyme link|Declared return> saved before this release removed. Undo restores it.\" It appears in three cases. (a) An unmarked row that really was saved by the pre-batch page. (b) An unmarked row typed today on the candidate. The page treats it as legacy by compatibility policy, so the \"saved before this release\" claim is plainly false there. (c) A row marked \"— cut v9\", which by policy 4 is a foreign/unknown cut and not an earlier one, so the claim does not apply to it at all. This breaks policy 6, which says an unmarked row is legacy by compatibility policy and is not proof of when it was created. It is the only user-visible string in src/ that says \"before this release\"; the matching text at line 991 is only a code comment. The Review notices that lead to the button are worded correctly (\"saved without the current cut mark\", \"marked with a word cut this page does not read; it accepts only 'cut v2'\"). The removal itself works as intended: only the affected row goes, other rows stay, and an Undo button is offered. History: the string was added in 63de69854. be5a1b3e2 kept the wording but did change this handler (lyParseGroups -> lyRowGroups). That same commit added the \"cut v9\" (unknown-cut) notice, whose \"Remove the link\" button calls this handler. So the policy-A commit itself spread the wording to v9 rows; it did not just leave old wording untouched. The page's own text is not a failsafe here, but nothing is bound or sent wrongly; the fault is only in the confirmation wording.",
+   "evidence": "Everything is under /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-5/ (COMMANDS.txt, toast.js, toast.log, built.html).\n\nWhat I ran:\n1. Built the candidate page with `node scripts/build_html.js --out=.../built.html --quiet`. It exited 0 and `cmp` shows it is identical to wt-678/codex.html.\n2. Ran my own Playwright script, toast.js (Chromium at /opt/pw-browsers/chromium). It serves wt-main under /main/ and wt-678 under /cand/ on one origin, uses the song line \"Oh--oh, oh my love\", and clicks the real `button[data-ui=\"ly-drop-undecided\"]` in Review.\n\nResults (toast.log, no page errors):\n- **Scenario P** (draft autosaved by the main page, then reopened by the candidate):\n  - The rows `[SETUP — rhyme groups — 1.T1,2]` and `[SETUP — returns — 1.T1,3]` are migrated to `1.T1 (numbered under the earlier cut),2 — cut v2` and blocked.\n  - Toasts: \"Rhyme link saved before this release removed. Undo restores it.\" and \"Declared return saved before this release removed. Undo restores it.\"\n- **Scenario T** (the same unmarked row typed on the candidate today): blocked the same way. Toast: \"Rhyme link saved before this release removed. Undo restores it.\"\n- **Scenario V** (`[SETUP — rhyme groups — 1.T3,2 — cut v9]` and `[SETUP — returns — 1,3 — cut v9]`):\n  - The notices read \"...marked 'cut v9'; this page reads only 'cut v2'...\".\n  - \"Remove the link\" toasts \"Rhyme link saved before this release removed...\" and \"Declared return saved before this release removed...\". Each click removed only its own row.\n- **Scenario M** (main page, same rows): 0 Remove buttons, and `LY_ACTIONS['ly-drop-undecided']` is undefined. `grep -c` for the string finds 0 hits in wt-main's src/pages/lyrics.js and codex.html, and 0 in wt-base's src/pages/lyrics.js. So nothing like this happens on main.\n\nSource and history (source read):\n- `git log -L5403,5413` shows the handler was added in 63de69854. be5a1b3e2 changed `.flatMap((d) => lyParseGroups(d.value))` to `lyRowGroups(d)` and left the string alone.\n- `grep -c 'unknown-cut'` gives 0 at 63de69854, 0 at fb8f17ef3 and 1 at be5a1b3e2. So the v9 notice, and the path from it to this toast, came in with be5a1b3e2."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "I reproduced the tester's observation and confirmed the \"cannot_tell\" verdict. It is a design property that existed before this change, not something the candidate caused.\n\nOn the baseline (wt-main 8b1d2ad2), a certification never survives a page reload. The same is true on the candidate (678898511). After any reload the badge reads \"Not reviewed\", even for a draft with no [SETUP] rows at all.\n\nThe reason (source read, matching the executed runs): the page does not save the run record (LY.run) or the record of the request it sent (UI.lyricRequest); both live only in memory. On load, a recovered reply is recorded with no base and no result version, so the page's analysis state is 'none'. The page's own comment says a recovered reply is \"never [shown] as a current review\". The run status reads \"Earlier result · declarations unknown\".\n\nA site upgrade only takes effect on a page load, so \"a certified draft keeps its certification across the upgrade\" cannot hold on either tree. The candidate does not change any of this logic.\n\nOne correction to the tester's method. Their stub answered GET /chat/jobs/:id with {\"ok\":true}. That made the reload's recovery fail with an error in the chat and left no run record. With a realistic job receipt the run record does come back, but the badge is still \"Not reviewed\", so the outcome stands.\n\nThe hypothetical (identities executed, the conclusion drawn from source): the raw [SETUP] row text is part of a document's identity. A row that gains \"— cut v2\" therefore changes the identity (704e7b4f81 to 7cab75b735 for \"[SETUP — returns — 1.T2,3.T2]\"). Even if a run record survived the reload, it would read \"Edited since review\", not certified. Rows the upgrade leaves byte-identical keep their identity: bare-number places on lines whose cut did not change, or no rows at all.\n\nWithin one session with no reload, a certification does stand when the same pre-release text is put back into the editor. On the candidate the text is migrated again to the same marked text, which is the version the run certified.",
+   "evidence": "All files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-4/ (COMMANDS.txt, run_realistic.log, run_okstub.log, run_insession.log and the JSON outputs).\n\n**Setup (executed):**\n- My own server on one origin, able to switch its root between wt-main and wt-678.\n- My own /chat stub. It also answers GET /chat/jobs/:id the way mcp/job_store.js does: state completed, plus response.body.\n- The draft was typed with page.fill, and the review was started by clicking the real \"Run review\" button in the header.\n\n**Main run (`node cert_verify.js realistic`):**\n- Flows: baseline then candidate (the upgrade), candidate then candidate, baseline then baseline.\n- Variants: no [SETUP] rows, \"[SETUP — rhyme groups — 2,4]\", \"[SETUP — returns — 1.T2,3.T2]\".\n- All 9 runs: after review the badge read \"Reviewed for this version Certified for this version\", with the base and result versions equal to the current document's identity.\n- After reload or upgrade, all 9 read \"Not reviewed\" (state none). The run record came back with no base and no result version, and its status read \"Earlier result · declarations unknown\". There were 0 page errors.\n- The baseline-to-baseline reload already loses the certification, including the variant with no rows, so this is pre-existing.\n- On the upgrade the numbered row became \"[SETUP — returns — 1.T2,3.T2 — cut v2]\", and identity went from 704e7b4f81 to 7cab75b735. The named row and the no-row draft kept their identity (45d1a58e7d and ab1b8c2404).\n\n**Tester-style stub (`node cert_verify.js okstub`):** the badge was the same. There was no run record, and the chat showed \"The interrupted request has newer work outside the last chat checkpoint...\"\n\n**Same session, no reload (`node cert_insession.js`):** I certified the legacy-row text, cleared the editor, then typed the same text back. Both trees showed the certification again. The candidate re-migrated the row to \"— cut v2\", with identity 7cab75b735 equal to the run's result.\n\n**Source read (wt-main/src/pages/lyrics.js):**\n- render() at about line 5346 has the comment \"Replies recovered on load ... never as a current review\".\n- lyReceive, lines 3997-3999: the request is treated as known only when UI.lyricRequest matches. UI.lyricRequest starts as null (workbench.js:15) and is set only in memory (app.js:19355).\n- lyResultText (about line 1131) returns null when no request is on record.\n- lyAnalysis (line 2654) returns 'none' when there is no base or result version.\n- lyCanonical includes the raw [SETUP] row text in the identity.\n- The candidate diff 8b1d2ad2..678898511 changes none of these. Its src/app.js change only adds the ctx.blocked refusal in _chatSend."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The finding is real, and the candidate introduced it; the baseline does not have it. It is somewhat broader than reported.\n\nOn wt-678 (67889851), lyRefresh(true) is the 120 ms debounced refresh that runs after every input. It first calls lyEnsureTokenScheme (src/pages/lyrics.js:4400). When lyMigrateSavedReadings changes the text, that function assigns draft.value = done.text (lines 309-318) and never saves or restores the selection. Chromium then moves the caret to the end of the whole draft, while focus stays on the textarea. Whatever the person types next goes onto the last line. A toast about the migration appears, but nothing mentions the caret.\n\nWhat triggers it: any unmarked row the migration rewrites. These are:\n- a rhyme-groups or returns row with T<k> members;\n- an unmarked reading row;\n- a row with bare-N or named places on a line whose v1 and v2 cuts differ.\n\nIt happens whether the row is typed key by key, put in with insertText, or pasted with a real Ctrl+V. It does not happen for rows already marked \"— cut v2\", or for named-place rows on lines whose cut did not change. It happens once per row, because the rewritten row carries the mark.\n\nBroader than reported: it also fires when the person edits a sung line so that its cut changes while an existing unmarked named-place row points at that line. Example: \"[SETUP — rhyme groups — 2,4]\" is in the draft, and the person types \"--oh my\" after \"dove\" at 160 ms per key. Right after \"--\", the row becomes \"2 (carried across the word-cut change),4 — cut v2\" and the caret jumps to the end. The rest, \"oh my\", is appended to that SETUP row. The candidate page then reads the row as a fifth sung line, and the rhyme-group declaration disappears from the parse (setup [] and groups null).\n\nAbsent on main 8b1d2ad2, which has no lyEnsureTokenScheme. The function was introduced by reader-batch commit d4af2fc1e and is also in e58b23248e70 (source read only).\n\nFix note (from my own runtime-wrapper experiment, not candidate code): restoring the old raw selection offsets is not enough. The rewrite lengthens rows that sit before the caret, so the old offset lands inside the rewritten row. A fix has to map the caret through the change, or hold the rewrite while the draft is being edited.",
+   "evidence": "Everything below was executed by me. Scripts and logs are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-page-rules-6/ (COMMANDS.txt, caret.js/caret_*.log, caret2.js/caret2_*.log, paste.js/paste_*.log, parse_final.log).\n\nSetup: I served the built codex.html of each tree (wt-678 is clean at 67889851; wt-main is at 8b1d2ad2) using Playwright Chromium. I used my own draft, not the tester's: \"[VERSE]/Oh--oh, oh my love/I hold the dove//[CHORUS]/Run to the sea/And stay with me\". The caret goes on the blank line between the sections. I type a row plus Enter, pause 1 s, then type \"ZQ\".\n\nCandidate, cases where the row is rewritten:\n- unmarked \"1.T4,2\" typed: caret 75 -> 125 (= value length), \"ZQ\" lands on line 8 (\"And stay with meZQ\"), intended line 5. Toast: \"…“love” word 4 → 5.\"\n- bare \"1,2\" (line 1's cut changed): caret 72 -> 159 (= length), line 8. The row now carries \"(carried across the word-cut change)… — cut v2\".\n- unmarked reading row: caret 100 -> 150 (= length), line 8.\n- the same row put in with insertText: caret 75 -> 125, line 8.\n- real Ctrl+V paste (with clipboard permission): caret [75, len 116] -> [125, len 125], line 8.\n\nCandidate controls, rows that are not rewritten:\n- marked \"1.T5,2 — cut v2\": caret 84 -> 84, ZQ on line 5.\n- bare \"2,4\" on lines whose cut is unchanged: caret 72 -> 72, ZQ on line 5.\n\nMain baseline: the same six cases plus Ctrl+V. The caret never moves and ZQ always lands on line 5; nothing is rewritten.\n\nAttribution: at runtime I wrapped window.lyEnsureTokenScheme. The one call that changed the text moved the selection from [75,75] (length 116) to [125,125] (length 125). No other call moved it.\n\nBroader trigger (scenario B, candidate): with \"[SETUP — rhyme groups — 2,4]\" in the draft, I typed \"--oh my\" after \"dove\" at 160 ms per key. The caret went 43, then 162/162 just after \"--\"; the remaining keys went to the end. The final last line is \"[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh my\". The candidate's lyParse reads that as sung line 5, with setup [] and groups null. On main the same typing stays on line 2 (\"I hold the dove--oh my\") and the row is intact.\n\nSource read: src/pages/lyrics.js lines 309-342, 4391-4400 and 5655-5678. git log -S shows the function first appears in d4af2fc1e, and the same body is in e58b23248e70 at line 176. wt-main/src has no such function.\n\nThe tester's own scen_H.log matches all of this (caret 236 = doc length, Z on line 12). They read the expected behaviour correctly. The severity of \"minor\" is arguably low, given that edits to sung lines can trigger it and it can turn a declaration row into a sung line."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "Confirmed. I reproduced it from scratch with my own probes, and the tester read the expected behaviour correctly. swap_at_slot's own docstring says the splice must count tokens the way the grader does. slots.placement_word says head, headrime and T1 all name the first word.\n\nWhat happens: for the line_initial_token and line_final_token loci (head, headrime, endword), slots.resolve skips any edge token that has no syllables and binds the first or last syllable-bearing word (order[0] / order[-1] over widx). The candidate's new v2 branch of loop.swap_at_slot splices by position instead, at tokens[0] or tokens[-1] of reader_line. So when the edge token reads no syllables, the reviser edits a different token from the one the grader binds and from the incumbent the brief names.\n\nThe numeral part is new in the candidate. It needs v2, the default scheme, where numerals are tokens. It does not happen on base fce4bf0f or on candidate v1. Main 8b1d2ad2 has no v2 scheme. slots.py is unchanged since base. The v2 branch of swap_at_slot is new.\n\nCase 1, candidate v2: ['2 young lovers','young and free'] with group 1.head,2.head (also 1.headrime,2.headrime):\n- The grade judges 'young' (1 pair judged, 1 violation, REPEAT).\n- The incumbent is 'young', and the brief tells line 1 to rhyme with 'young' (candidate 'lung').\n- The splice gives 'zebra young lovers', replacing '2'.\n- Base and candidate v1 splice '2 zebra lovers', which matches their grader. Their brief covers only line 2.\n\nCase 2, candidate v2: 'I love you 2' with 1.endword:\n- The grade refuses the pair (0 judged, 1 refused). The refusal still lists the end words as 'you' and 'blue'.\n- The incumbent is 'you', but the splice gives 'I love you zebra', replacing '2'.\n- On base and v1 the grade judges 'you' and the splice replaces 'you', which is consistent.\n\nCase 3, pre-existing, same on base: OOV edge words. 'I sing zqxwv' with 1.endword is judged on 'sing' (1 pair judged, satisfied against 'bring'), while the splice replaces 'zqxwv'. 'zqxwv young lovers' with 1.head behaves the same way on base, v1 and v2.\n\nThings the report does not mention:\n1. The grader also disagrees with itself under v2. On '2 young lovers', 1.head resolves to 'young' but 1.T1 binds nothing. On 'I love you 2', the default 1.end resolves to '2' but 1.endword resolves to 'you'. For OOV words the same split already exists on base.\n2. The end-to-end effect is a silent edit at the wrong word, not a false failure. The stub proposer, given the v2 line-1 brief ('change young'), returns 'lung young lovers': it deletes '2' and keeps 'young'. On regrade the head moves onto the new readable first word 'lung', so the pair passes with 0 violations. In the plain 2-line default loop this never shows: the loop fixes line 2 first ('lung and free').\n3. In the numeral endword case the grade refuses the pair anyway. So the splice landing on '2' arguably targets the word that blocks judgement, and the inconsistency is mainly that the incumbent says 'you'. In the brief, forbidden_incumbent is ''.",
+   "evidence": "Everything below was executed by me; all files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-callpath-0/, with commands in commands.txt.\n\nprobe_edge.py output:\n- Candidate v2 (cand_v2.summary.txt), '2 young lovers': line_tokens ['2','young','lovers']; word_syllable_map widx 1 and 2 only. resolveL1 = incumbentL1 = 'young'. swap_at_slot and R._splice both give 'zebra young lovers'. Grade: 1 mandated, 1 judged, 0 refused, violation words ['young','young']. The brief covers lines 1 and 2, with must_rhyme_with 'young'. headrime gives the same result.\n- Candidate v2, 'I love you 2' endword: incumbent 'you', splice 'I love you zebra', grade 1 mandated, 0 judged, 1 refused.\n- Candidate v2, 'I sing zqxwv' endword: resolves to 'sing', splice 'I sing zebra', 1 pair judged, 0 violations.\n- Candidate v1 (cand_v1.summary.txt) and base (base.summary.txt): '2 young lovers' has tokens ['young','lovers'] and splices to '2 zebra lovers'. 'I love you 2' splices to 'I love zebra 2' and is judged (1 judged). The OOV cases match candidate v2.\n\nrefusal_cand_v2.out: the 'I love you 2' refusal lists end words ['you','blue'] with reason 'the default relation remains unresolved in schema(s)...'. Readability gives the final token '2' with cause 'numeral'.\n\nprobe_loop.py resolve labels:\n- Candidate v2: '2 young lovers' gives 1.head 'young', 1.T1 ''. 'I love you 2' gives 1.endword 'you', 1.end '2'.\n- Candidate v1 and base: '2 young lovers' gives 1.T1 'young'. 'I love you 2' gives 1.end 'you'.\n- All three: 'zqxwv young lovers' gives 1.head 'young', 1.T1 ''.\n\nprobe_stub_l1.py (stub_l1_cand.out): under v2, default_propose on the line-1 brief (slot 1.head, incumbent 'young', candidate 'lung') returns 'lung young lovers'. The regrade has 1 judged and 0 violations, and the head now resolves to 'lung'. Under v1 and on base there is no line-1 brief for the numeral line.\n\nProvenance: git diff --stat fce4bf0f HEAD on slots.py is empty. grep finds no READER_SCHEMES in wt-main's lyric_harness.py.\n\nSource read only (not executed): slots.py:565-579 and 643-648; loop.py:479-511 (the v2 positional branch, new relative to 8b1d2ad2); revise.py:1531-1543 (_incumbent); slots.py placement_word docstring ('head, headrime and T1 are all the first')."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The observation holds, and I reproduced it with my own probes. Two corrections apply. (1) The candidate did not cause it. It is base fce4bf0f behaviour, kept byte-identical on the v1 compatibility path and fixed only on v2. (2) The end-to-end effect is worse than \"the splice changes nothing graded\".\n\nOn the candidate's v1 path, swap_end_word still finds the end word by text, not by position. It takes the last _WORD_RE match and compares its text with the v1 raw_final_token (loop.py:428-442), so on an aside that echoes the end word it splices inside the aside:\n- 'I love you (love you)' -> 'I love you (love zebra)'. The splice lands at character 17, while the v1 end word is the outside 'you' at characters 7-10.\n- The same happens for 'hold my heart (my heart)', 'say goodbye (goodbye)' and 'night after night (night)'.\n- 'Say Goodbye (GOODBYE)' is refused, only because the case differs.\n\nThe same is true of swap_at_slot with the default slot, which is what Reviser._splice and _anchors_at call. Under v1 the grader's end-word label stays 'you', so _anchors_at returns True even for 'qqqzzz'. Under v2 every echo-aside line is refused (None, and _anchors_at is False).\n\nWho it reaches: every run on v1, which is any resumed deferred state that predates the reader_scheme field, a replay file, a kitchen checkpoint, or an explicit --reader-scheme=v1. New work defaults to v2 and is unaffected.\n\nConsequence beyond the original report: under v1 the relation stream reads asides, but the end-word label does not. With the real stub loop, the CLI accepts the aside edit as the fix: `revise --groups=1,2 --reader-scheme=v1` on 'walking under the sun' / 'I love you (love you)' finishes with exit 0, \"no line flag stands\" and the final line 'I love you (love someone)'. Its grade still names endwords ['sun','you'] at score 0.5, yet it marks the pair satisfied by 'perfect rhyme' and other schema relations. Base gives exactly the same output. On v2 the proposer declines, the run stops with NO_PROGRESS (exit 3) and L2 stays unresolved.\n\nDisclosure: no candidate doc or commit message names this. The swap_end_word docstring sentence about a trailing parenthetical (loop.py:379-383) is unchanged from base, not new candidate text. Two candidate-authored statements are inaccurate for the default end slot, though:\n- the swap_at_slot docstring at loop.py:472 (\"the pre-batch cut refuses every line with an aside\", added in 40d222daa);\n- the test_reader.py:789 comment (\"v1 still refuses every line with an aside\").\nBoth are true only for non-default slots.\n\nCorrect status: fixed on v2 only. On v1 this is a pre-existing base defect that the candidate keeps and does not disclose, not a regression the candidate introduced. Agreed policy item 5 (\"resolve every place under v1\") does not require keeping it, because the v1 end word is the outside token, not the one the splice edits.",
+   "evidence": "I ran everything below (nice, LYRIC_STAGED_DATA set, cwd <tree>/lyric-harness). All files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-callpath-1/, and commands.txt lists the exact commands. I wrote these probes myself and did not reuse callpath/probe_v1_aside.py.\n\n(1) vprobe.py on wt-678 (v1, v2) and on wt-base -> vprobe.{cand,base}.out.\n- Candidate v1 and base: 'I love you (love you)' -> 'I love you (love zebra)', splice at character 17; the grader's label after the splice is 'you'.\n- _anchors_at(slot 1, 'qqqzzz') is True on candidate v1 and on base, and False on v2.\n- 'hold my heart (my heart)' -> 'hold my heart (my zebra)'.\n- Every v2 echo-aside swap returns None.\n- cmp_cand_v1_vs_base.txt: candidate v1 rows equal base rows on every field (True).\n\n(2) vloop.py drives the real revise_loop with the stock stub and a spy on swap_end_word.\n- Candidate v1 and base: one splice, 'I love you (love you)' -> 'I love you (love someone)', which is the final draft.\n- Candidate v2: the swap is refused and the line is unchanged.\n- vloop_detail.cand.v1.out: '[OK] L2 tier1 (1 tried): fixed 2, introduced 0'.\n\n(3) vgrade.py and vgrade2.py grade the draft before and after the splice.\n- After the v1 splice: violations [], endwords ['sun','you'] at score 0.5, pairs_schema_satisfied by 'perfect rhyme' and others.\n- verify reports accepted:true and fixed SCHEME_VIOLATION.\n- vgrade2.cand.v1.out and vgrade2.base.out are identical (empty diff).\n- On v2 the pair stays a violation with no schema satisfied.\n\n(4) Real CLI: lyric_harness.py revise echo_song.txt --groups=1,2 --max-rounds=1 --attempts=3 --backtrack=0.\n- Candidate with --reader-scheme=v1, and base with no flag: final_draft 'I love you (love someone)', exit 0, \"no line flag stands\".\n- Candidate with --reader-scheme=v2: proposer declined, NO_PROGRESS, exit 3, L2 unresolved with SCHEME_VIOLATION.\n\n(5) Source read, not executed:\n- Candidate loop.py:428-442: the v1 branch compares the last _WORD_RE match with raw_final_token(v1) by text. It is the same logic as base loop.py:353-365.\n- lyric_harness.py:9910-9923 and _recorded_reader_scheme (8347): resumed defer, replay and call records that predate the field run as v1.\n- quality/loop.py `_lex_cut` docstring: v1 is the pre-batch call verbatim.\n\n(6) Disclosure search (executed):\n- git grep over candidate *.md, *.py and *.js (excluding results/) for echo/copy/aside wording, and the *.md diff fce4bf0f..HEAD: no relevant hit.\n- loop.py:472 and test_reader.py:789 are new on the candidate (the swap_at_slot docstring sentence came in 40d222daa).\n- The 'parenthetical after the rhyme word' sentence is at base loop.py:349 and candidate loop.py:381, unchanged.\n\ngit status of wt-678 and wt-base is clean apart from the untracked node_modules symlinks."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The core of the finding is real, but parts of it are worded wrong. On v2 the brief and the reviser disagree on which word to change when a line starts with a numeral. On a line like '2 young lovers', the grader resolves head and headrime (slots.resolve, line_initial_token = runs[order[0]], slots.py:647-648) to the first word that has syllables, 'young'. Under v2's own token cut, though, '2' is token 0. The brief says \"ALREADY THERE ... the first word that is already on this line: young\". Every splice path goes through swap_at_slot's v2 branch (idx = 0, loop.py:486-487) and replaces '2' instead: default_propose (the stock stub), Reviser._splice, declared_offer and _anchors_at. Run end to end, the stock revise_loop turns ['young and free', '2 young lovers'] with group [1.head, 2.head] into 'lung young lovers'. The numeral is deleted and the word the brief named, 'young', stays. Base (fce4bf0f) and the candidate under v1 give '2 lung lovers', which matches the grader. For numerals, this mismatch is new in the candidate. In the same v2 configuration, 1.T1 on that line resolves to '2' and is refused with NO ANCHOR, while 1.head binds 'young'. Yet slots.py:446-447 documents head, headrime and T1 as the same place (\"all the first\"). Corrections to the reported wording: (a) \"not refused\" is only partly true. The pair is judged on 'young' when it passes (young/sung: a pass, with no refusal) or when it fails as an identical-word REPEAT (young/young: a violation). A non-identical failing pair is refused (glee/young: SCHEME_UNREADABLE, both for head and headrime). (b) \"Silently\" is too strong. The line does carry an UNREADABLE_INTERIOR_WORD note, which does not name the token or say the head moved. There is no head equivalent of SUBSTITUTED_END_WORD. (c) The trailing-numeral part is overstated. With endword or a bare N on 'I love you 2', the grade refuses, and the brief for that line has no offer and an empty forbidden_incumbent. The brief never shows 'you' and no stub runs. 'you' comes only from calling the private helper Reviser._incumbent / qf._endword directly. That disagreement with the splice ('2') is latent and was not observed through brief(), the stub or verify(). (d) The OOV variant is pre-existing and identical on base and candidate. At the head, 'zqxwv young lovers' → brief 'young', loop output 'lung young lovers'. At the end, ['and then I sing', 'I bring zqxwv'] with endword is judged HOLDS on the substitute 'bring'; the brief says 'bring' and the stub gives 'I bring thinking'. So the defect class (the grader skips tokens with no syllables, the splice indexes raw tokens) predates this batch. v2 extends it to numeral-led lines, where before the batch the two agreed. Severity 'minor' seems reasonable.",
+   "evidence": "Everything below was executed (my own probes, each about 12-20 s CPU). Files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-callpath-2/. commands.txt lists the commands and key outputs.\n\n1. Stock loop end to end (probe4.py → p4_cand_v2.out vs p4_base.out). Input ['young and free', '2 young lovers'] with [1.head, 2.head].\n   - Candidate v2: the brief renders \"ALREADY THERE (... the first word that is already on this line ...): young\" and \"offered: lung, ...\". revise_loop returns [\"young and free\", \"lung young lovers\"], reason 'fixed 2'.\n   - Base: same brief, output [\"young and free\", \"2 lung lovers\"].\n   - OOV analogue 'zqxwv young lovers': output \"lung young lovers\" on both base and candidate (pre-existing).\n2. Offer filter (probe3.py part 2). The trial L1 texts declared_offer grades:\n   - Candidate v2: \"lung young lovers\", \"tongue young lovers\", \"zebra young lovers\".\n   - Base: \"2 lung lovers\", ...\n3. head vs T1 (probe3.py part 1).\n   - Candidate v2: 1.head → label 'young', judged. 1.T1 → refused with \"the declared slot resolves to NO ANCHOR on L1\".\n   - Base: both 'young', judged.\n4. Refused or judged (probe5.py, probe2.py). Candidate v2:\n   - head, young/young: violation judged, why 'REPEAT not rhyme (identical word)'.\n   - headrime, young/young: violation judged; stub \"lung young lovers\" (base \"2 lung lovers\").\n   - headrime, young/sung: judged PASS on 'young', no refusal.\n   - head glee/young and headrime young/glee: refused, SCHEME_UNREADABLE, reason \"default relation remains unresolved in schema(s)\". Base judges these as violations.\n   - The L1 note is UNREADABLE_INTERIOR_WORD (\"readable at the end but have an unreadable word before it\"). It does not name '2'.\n5. Trailing numeral, candidate v2 ('I love you 2', endword or bare): refused_obligations [(1, 2, 0)]. The brief for that line has forbidden_incumbent '' and no candidates, so no stub runs; the codes are SCHEME_UNREADABLE and SUBSTITUTED_END_WORD \"'2'->'you'\". 'you' only appears from rv._incumbent(), which is what the original probe called. verify() RULE 3 skips the line when forbidden_incumbent and forbidden_modal are empty (revise.py:6761, source read).\n6. Trailing OOV (['and then I sing', 'I bring zqxwv'], endword): base and candidate print the same summary (identical judgments, brief and stub; outputs not diffed byte-for-byte). Judged HOLDS on ('sing', 'bring'); brief \"ALREADY THERE ... end word ...: bring\"; stub \"I bring thinking\". Pre-existing.\n7. The candidate under v1 matches base on every probe.py and probe2.py case (summary.txt).\n\nSource read, not executed:\n- slots.py is byte-identical between base and candidate (empty diff).\n- The v2 branch of loop.swap_at_slot (loop.py:479-487) is new in this batch (commit 40d222daa, \"the reviser splices and keys where the grader binds\").\n- The author's property test LoopSwaps.test_a_slot_swap_counts_asides_as_the_lexicon_does (test_reader.py:763-818) checks the splice against line_tokens indices, not against slots.resolve's binding, so it cannot catch a token with no syllables at the head. I did not run test_reader.py."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The core claim reproduces but is older than the candidate, and its description of the user-visible effect is wrong. (1) Under v1 on the candidate, swap_end_word / swap_at_slot at the default end slot splice the copy inside a trailing echo aside: 'I love you (love you)' becomes 'I love you (love zebra)', and line_anchors still binds the first 'you'. Calling Reviser._anchors_at directly with that slot returns True for any word, 'qqqzzz' included. The baseline fce4bf0f gives byte-identical results, so this is pre-batch behaviour kept on purpose by the frozen v1 replay (policy 5), not a regression; v2 refuses the splice. (2) It is not disclosed specifically: LYRICS_RUNTIME.md:288-292 only says v1 keeps the whole pre-batch reading. The old swap_end_word docstring (loop.py:376-383, unchanged from base) claims the function finds \"that SAME token's character span\", and the echo case breaks that because it compares strings, not spans. The one false statement the candidate adds is loop.py:471-472 (new in 40d222daa): \"the pre-batch cut refuses every line with an aside\". That holds only for slots other than the end; at the end slot v1 splices '(oh) I love you' correctly and splices into the aside copy on echo lines. (3) \"In a resumed v1 run _anchors_at/declared_offer accept any word\" is mostly wrong as stated. The reviser's only live call to _anchors_at (revise.py:6088-6090) is guarded by `not _SL.is_default(_sl)`, and at those slots (endword, T<k>, head) v1 refuses the splice, so _anchors_at returns False; the any-word True is never reached on the live path. declared_offer accepts any word only for a route bound through line_anchors (e.g. class:RHYME) and only when the pair already holds. When the pair fails, which is the case a menu is built for, it refuses every word, including the ones that would fix it. The live brief() for v1 class:RHYME gives 0 candidates for the echo line, all moved to schema_refused, the same as v2 and base. With a schema relation (schema:perfect rhyme), the v1 grader binds the aside's last word itself, so the splice is judged. brief() then offers 17 words that pass only when placed inside the parenthetical, while the line's reported end word stays 'you'. That is a separate pre-existing v1 split between the two grading routes, which v2 removes. Fair severity: minor or documentation-level for the candidate (the false v1 claim at loop.py:472 and no disclosure); the behaviour itself is pre-existing.",
+   "evidence": "All of this was run by me, with scripts and outputs in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-callpath-3/ (commands.txt, key_outputs.txt).\n\nprobe_echo.py on wt-678 and wt-base: the candidate's v1 rows diff empty against the base rows (\"CAND v1 == BASE\").\n- v1/base, 'I love you (love you)', slot 1 or 1.end: splice 'I love you (love zebra)'; bound end 'you' before and after; _anchors_at(zebra)=True, _anchors_at(qqqzzz)=True.\n- Same line at slots 1.endword / 1.T3 / 1.head: splice None, _anchors_at False.\n- v2, default slot: splice None, _anchors_at False.\n\ndeclared_offer, v1 and base, with candidates [blue, true, see, free, dog, qqqzzz]:\n- class:RHYME, pair holds (line 1 ends 'true'): keeps all six. The no-aside control 'I love you' keeps only [blue].\n- class:RHYME, pair fails (line 1 ends 'free'): keeps []. The control keeps [see].\n- schema:perfect rhyme: same results as the control.\n\nprobe_routes.py, v1 and base identical, schema:perfect rhyme against 'true': 'I love you (love dog)' is a violation and 'I love dog (love you)' passes, so the schema route binds the aside word. class:RHYME binds the word before the aside. Under v2 both routes bind the word before the aside.\n\nprobe_brief.py (live Reviser.brief, lines ['I know that you are free', line 2]):\n- v1 class:RHYME, echo line: line 2 gets n_candidates=0; schema_refused=[galilee, really, pretty, ...]. v2 and base are identical. Control 'I love you': 9 candidates.\n- v1 and base schema:perfect rhyme, echo line: line 2 gets 17 candidates.\n\nSource read: revise.py:6088 `if _off and not _SL.is_default(_sl):` guards the only live _anchors_at call. loop.py:472 says \"the pre-batch cut refuses every line with an aside\"; git log -S shows it was introduced by 40d222daa, which is not in fce4bf0f. The swap_end_word docstring at loop.py:376-383 is the same text as in base. LYRICS_RUNTIME.md:288-292 discloses only \"keeps the whole pre-batch reading\", and git grep for echo-aside wording finds no specific disclosure."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The core fact holds: WarmWorkerBody._caches_agree is not read-only. Its building calls are at test_reader.py:2042-2051 (the method runs 2020-2051). The tester cited 2016-2030, which is the end of _library plus the read-only loops. Those calls build whatever entries are missing for both schemes: eng._LEX, MB._READERS (including each reader's G2P fallback) and FT._LEX entries (True,None) and (True,None,'v2').\n\nThree parts of the report need correcting:\n\n(1) \"Expected read-only\" is not what the author meant. The author's own results/warm_worker_rss_2026-10-13/README.md:88-90 (commit 941ca69e9) says the test child \"builds extra lexicons to check every cache (`_caches_agree`)\". What the author left out is in test_reader.py itself: the WarmWorker docstring calls the printed VmHWM the scenario's peak and says nothing about the probe.\n\n(2) The 114 to 242 MB jump comes from a setup that never happens in the test. At the real call sites the probe adds the same entries but moves VmHWM by 0.25 MB or less. The cost appears later, as a higher peak during the next step. Final VmHWM with the probe vs without (2 runs each):\n- new then Library: about 542-545 MB vs 439 MB (+103 to +106 MB)\n- legacy then Library: 545 MB vs 439 MB (+106.5 MB)\n- new, then legacy, then Library: 603 MB vs 515 MB (+87.5 MB)\n\nSo nearly all of the gap that README puts down to \"unittest process + extra lexicons\" is the probe. Comparing with the author's own child figures (547.8 / 608.8 / 548.2 MB) suggests the unittest runner adds only about 3-6 MB; that figure is an estimate across sessions. The inflation makes the 1 GiB guard check stricter, not looser, so it cannot produce a false pass.\n\n(3) An effect the tester did not report: the Library analysis adds no entry to these caches by itself. So in the probed scenarios the other-scheme entries are built by the probe, not by a request: eng._LEX and MB._READERS v1 in new-then-legacy, and v2 in legacy-then-Library. The probe's checks then partly inspect entries it built itself. The legacy request still builds FT._LEX (True,'low','v1') on its own.\n\nThis is not pre-existing, and no production code is affected. The baseline trees wt-base and wt-main have no test_reader.py and keep a single eng._LEX = None. The probe came in with batch commit 4b711cd1c and the peak report with 941ca69e9. Severity: a test-validity and documentation issue in the test, not a defect in what the candidate does.",
+   "evidence": "Executed, under h678/verify-warmworker-0/. Saved files: probe.py, show.py, out_*.txt, seq_1..14.txt, seq_summary.txt and COMMANDS_AND_RESULTS.txt.\n\nSetup: probe.py runs the exact source of WarmWorkerBody._caches_agree, extracted with ast from wt-678 test_reader.py lines 2020-2051 (sha256 fe37fc99cba8cea2). It never imports or runs test_reader.py. It calls mcp/worker.py run_one and run_reader the same way the test's _lyrics and _library do. Runs were from wt-678/lyric-harness with LYRIC_STAGED_DATA set, under nice, Python 3.13.16, about 7-11 s each.\n\n(a) The tester's setup (only the v2 shared lexicon built) reproduces their result:\n- eng._LEX went from ['v2'] to ['v1','v2']\n- MB._READERS went from [] to both schemes, with fallbacks built\n- FT._LEX gained (True,None) and (True,None,'v2')\n- VmRSS went from 121,921,536 to 250,089,472 (+128.2 MB; the tester saw +128.2 MB)\n\n(b) At the real call sites:\n- After a new (v2) lyrics request, the probe adds eng._LEX v1, MB._READERS v1 and the two FT._LEX keys. VmHWM goes from 438,853,632 to 438,960,128.\n- After a legacy request it adds the v2 entries. VmHWM stays at 438,964,224.\n\n(c) Final VmHWM for each scenario, with probe vs without (2 runs each, seq_summary.txt):\n\n| Scenario | With probe | Without probe |\n|---|---|---|\n| new then Library | 542,474,240 / 545,185,792 | 439,164,928 / 439,181,312 |\n| legacy then Library | 545,239,040 / 545,247,232 | 438,718,464 / 438,607,872 |\n| new, legacy, Library | 602,578,944 / 602,746,880 | 515,121,152 / 515,084,288 |\n\n(d) Cache state:\n- Without the probe, the Library analysis leaves eng._LEX, MB._READERS and FT._LEX unchanged (seq_3, seq_7).\n- In new-then-legacy without the probe (seq_13), the legacy request builds eng._LEX v1, MB._READERS v1 and FT (True,'low','v1') itself.\n- With the probe (seq_9), the first two already exist before that request.\n\n(e) Source read:\n- The README lines (88-90) disclosing that the probe builds lexicons.\n- The cache code: eng.py:117-135, fit.py:870-906, meter_bands.py:131-146, eng.py:388-406.\n- git log -S puts the probe at 4b711cd1c and the child peak report at 941ca69e9.\n- wt-base and wt-main have no quality/test_reader.py, and eng._LEX = None there."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "The core claim holds, and parts of it are overstated. It is a minor test-fidelity issue on the candidate. It is not a product defect, and nothing in the product behaves differently because of it.\n\nOn 67889851, `WarmWorkerBody._caches_agree` (test_reader.py:2020-2051) runs after every step, and it builds caches as well as checking them. For the reader scheme that has not been used yet it builds three things:\n- `eng._LEX[scheme]`\n- `meter_bands._READERS[('fallback-low', scheme)]`, together with its G2P fallback\n- `fit._LEX[(True, None)]` and a `(True, None, 'v2')` view\n\nIn `test_a_new_lyrics_request_then_a_legacy_one`, the legacy v1 request therefore runs on `eng._LEX['v1']` and the `('fallback-low', 'v1')` reader that the test built (the object ids are the same). So the child never exercises a request building the shared v1 lexicon or meter reader cold inside a process that already served v2. No scenario runs v1 lyrics then v2 lyrics either. The docstring's \"as one worker would serve it\" is inaccurate to that extent.\n\nThree parts of the finding need correcting:\n1. **Fit lexicons.** The test pre-builds a different key, `(True, None)`, from the one the requests use, `(True, 'low')`. The v1 request still builds its own `(True, 'low', 'v1')` view cold.\n2. **Library leg.** The Library analysis builds its own `LH.Lexicon` for each session (library/analysis.py:295-304). It neither reads nor creates any of these caches: without the check, the Library step adds no entries. So \"the v2 Library analysis finds the other scheme's caches already built\" is true but irrelevant; it only raises the memory the guard sees.\n3. **The reported evidence.** After a v2 lyrics request, `MB._READERS` is not `[]`: the request itself builds `('fallback-low', 'v2')`, and `_caches_agree` adds only `('fallback-low', 'v1')`. The +128 MB figure was not reproduced. Measured on CPython 3.13.16, the peak (VmHWM) rises by:\n   - +88 MB in new→legacy→library (510.3 → 598.3 MB)\n   - +106 MB in legacy→library (433.7 → 539.4 MB)\n   - +105 MB in new→library (434.3 → 539.6 MB)\n\n   The inflation runs in the conservative direction for the 1 GiB guard, and README lines 88-90 disclose it.\n\nThe pre-warm hides nothing on this fixture. Without `_caches_agree`, the v1 request's lyric result, written state and stdout are byte-identical to the run with it, and every cache entry the requests built themselves carries its key's scheme.\n\n**Not pre-existing on the baselines:** `quality/test_reader.py` does not exist at fce4bf0f or 8b1d2ad2.\n\n**\"The same at e58\" is only partly right.** At e58 the same `_caches_agree` was called after every step, so the pre-warm was already there (and the test ran inside the whole suite's process). But the child process, the \"as one worker would serve it\" docstring and the reported peak were all added later, in 941ca69e9. The docstring and peak-inflation parts are therefore new since e58.",
+   "evidence": "All files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-warmworker-1/ (COMMANDS.txt, probe.py, log_*.json, dumps_*.json, out*.txt).\n\n**Probe (executed).** probe.py is my own script. It copies WarmWorkerBody's `_lyrics` and `_library` and `_caches_agree` word for word. calls_test.txt and calls_probe.txt list the cache-building calls of the test's version and of my copy, and they are identical. The probe does not import or run test_reader.py. Every run used wt-678/lyric-harness, LYRIC_STAGED_DATA set, CPython 3.13.16, and about 10 s of CPU each. Each scenario ran in two modes: \"check\" calls `_caches_agree` after every step as the test does; \"nocheck\" leaves it out and instead runs a passive check that builds nothing.\n\n**Cache state, check mode, new→legacy→library:**\n- After the v2 request: `eng._LEX` [v2], `MB._READERS` [(fallback-low, v2)] with its fallback built, `FT._LEX` [(True, 'low')].\n- After `_caches_agree`: added `eng._LEX` v1 (id 140419199807136), `MB` (fallback-low, v1) (id 140419199856592) with its fallback, and `FT` (True, None) and (True, None, 'v2').\n- After the legacy v1 request: the same two ids as above. The only new entry is `FT` (True, 'low', 'v1').\n- In nocheck mode the v1 request builds `eng._LEX` v1, `MB` (fallback-low, v1) and `FT` (True, 'low', 'v1') itself.\n\n**Library leg, nocheck, legacy→library:** after the Library analysis the caches are still `eng._LEX` [v1], `MB` [(fallback-low, v1)], `FT` [(True, 'low')]. No v2 entry is created.\n\n**Outputs (executed):** the v1 request's result, state and stdout are equal between check and nocheck (dumps_new_legacy_lib_*.json). Every passive check returned `PASSIVE_AGREE []`.\n\n**Peaks (VmHWM, executed):**\n\n| scenario | nocheck | check | difference |\n|---|---:|---:|---:|\n| new→legacy→library | 510.3 MB | 598.3 MB | +88 MB |\n| legacy→library | 433.7 MB | 539.4 MB | +106 MB |\n| new→library | 434.3 MB | 539.6 MB | +105 MB |\n\nRight after `_caches_agree`, VmRSS fell (433.8 → 406.9 MB) in the scenarios that start with v2, and rose by 30.5 MB in legacy→library. The nocheck peak of 510.3 MB matches the README's measure.py figure of 507.4 MB.\n\n**History (git, executed):**\n- `git ls-tree` shows test_reader.py absent at fce4bf0f and at 8b1d2ad2.\n- `git show e58b23248e70:lyric-harness/quality/test_reader.py`: the same `_caches_agree`, called after every step, inside the suite process, with no child and no peak report.\n- `git log -S` shows that 941ca69e9 introduced both \"as one worker would serve it\" and the README.\n\n**Source read only, not executed:** `test_a_legacy_resume_reads_alike_cold_and_after_v2_work` (test_reader.py:1744) runs inside the shared suite process, so it is not a clean test of the cold path either. I did not run test_reader.py, as instructed."
+  },
+  {
+   "refuted": false,
+   "reproduced": true,
+   "corrected_statement": "Confirmed, minor (test coverage and docstring wording), and introduced on the candidate branch. In lyric-harness/quality/test_reader.py, WarmWorker._child (lines 1888-1906) asserts these things about each child: return code 0, \"Ran 1 test\" ending in OK, exactly one WARM_WORKER_PEAK_RSS record, the scenario name, guard_envelope_bytes == 1<<30, and guard_calls > 0. It only prints peak_rss_bytes (VmHWM). The child's _report (1959-1975) has no assertion at all. Nothing in either process compares the peak to 1 GiB.\n\nThe guard in library/analysis.py:39-54 compares the current VmRSS plus extra_bytes with the ceiling. It runs only at Library check points (here, the largest extra_bytes was 3,584) and is never called while run_one serves a lyrics request.\n\nSo a pass shows only this: at each Library guard check, resident memory plus the reserved bytes was at most 1 GiB, and the analysis completed. It does not show that the process peak fit. The docstring sentence \"A pass here says these scenarios fit the envelope in a fresh process\" (1883-1885) claims more than is asserted. The rest of the docstring is accurate: it says the peak is \"reports... which this test prints\" and that this is \"not a capacity bound\".\n\nPrecision:\n- On the scenarios that exist, the peak is well under the envelope: 508.7 MB in my replica, about 47% of 1 GiB. So nothing is actually breached today. The gap is that the assertion would not catch a breach.\n- Not pre-existing: test_reader.py does not exist at fce4bf0f or 8b1d2ad2. The VmHWM reporting and the docstring were added by 941ca69e9, on the batch branch after e58b23248e70.",
+   "evidence": "Everything below was executed by me on wt-678 (67889851). Files are in /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-warmworker-2/ (NOTES.txt, cmd_*.txt, *.out). test_reader.py was NOT run.\n\n(1) parent_probe.py takes WarmWorker._child from the candidate's test_reader.py via AST, verbatim, and runs it with subprocess.run mocked to return fake child output.\n- Child records with peak_rss_bytes of 1,268,264,960, 3 GiB and 64 GiB all PASS; the parent just prints, e.g., \"child peak RSS (VmHWM) 3,221,225,472 bytes (3072 MiB) against the unchanged 1024 MiB guard\".\n- Controls show the mock reaches the asserts: guard_envelope_bytes=2 GiB fails (\"Tuples differ\"), and guard_calls=0 fails (\"0 not greater than 0\").\n\n(2) guard_observe.py is my own replica of the child scenario. It does not import test_reader. It loads mcp/worker.py, wraps LA._resource_guard with a logger, and runs from lyric-harness with LYRIC_STAGED_DATA set and LIBRARY_READER_MAX_RSS_MIB unset.\n- Plain run (v2 lyrics request, then v1 lyrics request, then the 2-line Gutenberg 69378 Library analysis), 11 s wall:\n  - 1,692 guard calls in total, 0 of them during the lyrics requests (this matches the author's 1,692 per child).\n  - The highest VmRSS any guard call saw was 464,093,184.\n  - VmHWM was 508,686,336, set during the v1 lyrics step (after that step VmRSS was 459,300,864). The peak is 44.6 MB above anything the guard observed.\n- Spike run: the same scenario, plus an 800 MiB allocation held inside the lyrics step and freed before it returns.\n  - VmHWM reached 1,268,264,960, above the 1,073,741,824 envelope.\n  - The Library analysis still finished with status \"complete\", and all 1,692 guard calls passed (highest VmRSS at a guard call: 389,554,176).\n  - So every condition the child and parent assert would hold, with the peak over 1 GiB.\n\n(3) Source read:\n- The guard (analysis.py:39-54) is `resident + extra_bytes > ceiling`, where resident is the current VmRSS (analysis.py:29-36), not VmHWM.\n- mcp/worker.py run_one has no RSS check. The only _resource_guard call sites are in library/.\n- In build_stream, the guarded syllabify calls are not wrapped in a broad except, so a guard refusal would propagate rather than be swallowed.\n- Not the tester's misreading: the docstring says the peak is printed, not asserted. Only the \"fit the envelope\" sentence overclaims.\n\n(4) Baselines: test_reader.py is missing in wt-base (fce4bf0f) and wt-main (8b1d2ad2). The WarmWorker at e58b23248e70 has no VmHWM reporting and no guard text. Both came in with 941ca69e9 on the candidate branch.\n\nCaveat: my replica is not the exact unittest child. It does not run _caches_agree and does not import the test module. The author's README reports child peaks of 548-652 MB; that is source read, not executed by me."
+  }
+ ]
+}

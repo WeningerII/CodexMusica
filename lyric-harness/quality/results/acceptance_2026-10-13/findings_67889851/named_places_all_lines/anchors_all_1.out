@@ -1,0 +1,58 @@
+{"shard": 1, "of": 2, "rows": 281069, "cut_differs": 5101, "cut_same": 135433}
+('cut_differs', 'end', 'mismatch', 'anchor_changed') 1
+('cut_differs', 'end', 'one_only', 'no_anchor_v2') 262
+('cut_differs', 'end', 'punct_only', 'anchor_changed') 250
+('cut_differs', 'end', 'punct_only', 'anchor_same') 2137
+('cut_differs', 'end', 'recut', 'anchor_changed') 20
+('cut_differs', 'end', 'recut', 'anchor_same') 63
+('cut_differs', 'end', 'same', 'anchor_changed') 5
+('cut_differs', 'end', 'same', 'anchor_same') 2139
+('cut_differs', 'end', 'same', 'none_both') 224
+('cut_differs', 'endword', 'punct_only', 'anchor_changed') 13
+('cut_differs', 'endword', 'punct_only', 'anchor_same') 2386
+('cut_differs', 'endword', 'recut', 'anchor_changed') 96
+('cut_differs', 'endword', 'recut', 'anchor_same') 16
+('cut_differs', 'endword', 'same', 'anchor_changed') 6
+('cut_differs', 'endword', 'same', 'anchor_same') 2576
+('cut_differs', 'endword', 'same', 'none_both') 8
+('cut_differs', 'head', 'punct_only', 'anchor_changed') 28
+('cut_differs', 'head', 'punct_only', 'anchor_same') 130
+('cut_differs', 'head', 'recut', 'anchor_changed') 30
+('cut_differs', 'head', 'recut', 'anchor_same') 107
+('cut_differs', 'head', 'same', 'anchor_same') 4798
+('cut_differs', 'head', 'same', 'none_both') 8
+('cut_differs', 'headrime', 'one_only', 'no_anchor_v1') 27
+('cut_differs', 'headrime', 'punct_only', 'anchor_same') 133
+('cut_differs', 'headrime', 'recut', 'anchor_changed') 118
+('cut_differs', 'headrime', 'recut', 'anchor_same') 17
+('cut_differs', 'headrime', 'same', 'anchor_same') 4797
+('cut_differs', 'headrime', 'same', 'none_both') 9
+('cut_differs', 'line', 'same', 'anchor_changed') 1167
+('cut_differs', 'line', 'same', 'anchor_same') 3926
+('cut_differs', 'line', 'same', 'none_both') 8
+('cut_differs', 'lines') 5101
+('cut_same_all', 'end', 'mismatch', 'anchor_changed') 2
+('cut_same_all', 'end', 'mismatch', 'anchor_same') 3
+('cut_same_all', 'end', 'same', 'anchor_same') 126781
+('cut_same_all', 'end', 'same', 'none_both') 8647
+('cut_same_all', 'endword', 'same', 'anchor_same') 135028
+('cut_same_all', 'endword', 'same', 'none_both') 405
+('cut_same_all', 'head', 'same', 'anchor_same') 135028
+('cut_same_all', 'head', 'same', 'none_both') 405
+('cut_same_all', 'headrime', 'same', 'anchor_same') 134829
+('cut_same_all', 'headrime', 'same', 'none_both') 604
+('cut_same_all', 'line', 'same', 'anchor_same') 135028
+('cut_same_all', 'line', 'same', 'none_both') 405
+('cut_same_all', 'lines') 135433
+('cut_differs', 'end', 'mismatch') ['And think--nay, know--thy _Morison_’s not dead.']
+('cut_differs', 'end', 'punct_only') ['Your heritage your foes menace--secure it from their foul embrace--', 'Shout--for the fiery fort, and the field, and the day are ours--', 'The day is ours--the day is ours--']
+('cut_differs', 'end', 'recut') ['U--pi--de, u--pi--de,', 'Up--i--de--i--di,', 'U--pi--de--u--pi--di,']
+('cut_differs', 'end', 'same') ['From San Antone he did look on, where was good old "4th proof."', 'Hymn 3:28. 1st. S. M.', 'As the 113th Psalm.']
+('cut_differs', 'endword', 'punct_only') ["Of hearts that broke in 'fifty-two--", 'Greediest demand--for we gave it--', 'years hence, if the gods so will it--']
+('cut_differs', 'endword', 'recut') ['U--pi--de, u--pi--de,', 'Up--i--de--i--di,', 'U--pi--de--u--pi--di,']
+('cut_differs', 'endword', 'same') ["Nor thine nor others' praise shall unremembered be.                  _20", 'Ah me!                                                               _205', 'Say, victim of grief, wilt thou slumber with me?                     _30']
+('cut_differs', 'head', 'punct_only') ['--‘Of the brave.’', '--Down the long trail from the Fort to the ford,', '--But Braddock raged fierce in that storm by the ford,']
+('cut_differs', 'head', 'recut') ['Up--i--de--i--di,', 'Of--the something you said at the gate.', '(This--all this--was in the olden']
+('cut_differs', 'headrime', 'recut') ['U--pi--de, u--pi--de,', 'Up--i--de--i--di,', 'U--pi--de--u--pi--di,']
+('cut_differs', 'line', 'same') ["What tho' they count as harvest-seed--as fathers bled, their sons must", 'Up--i--de--i--di,', 'Hush! pleading one--I cannot stay! the spoiler comes with fiendish']
+('cut_same_all', 'end', 'mismatch') ["When in that house M.P.'s divide,", 'Where her "meteor flag" \'s nailed fast']
