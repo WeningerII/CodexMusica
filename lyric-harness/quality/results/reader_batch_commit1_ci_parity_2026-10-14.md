@@ -10,6 +10,12 @@ CI run is the one cited below. The repair commit and this file are local. They
 have not been pushed, and no GitHub CI run exists for them. Every result below
 that names the new head is local, under the interpreter it states.
 
+**Update, broad fix round.** Code commit
+`643e292e6586d5aa5aea57e9ede231e360d5590d` (on top of `61b6618a`) closes BB8's
+F1, F4-F10 and A.2-six findings. It is also local and unpushed, with no CI
+run; see "Broad fix round" below. Every section before it describes
+`58de1816`, unchanged.
+
 ## Baselines
 
 - Harness baseline: `fce4bf0f`. Main's seven later commits touch no harness
@@ -311,3 +317,60 @@ Tree: `58de1816` (the code commit; this file adds nothing a suite reads).
 Not re-run locally: `search_null --check` and `audit_corpus --verify-shape`
 (their held failures are cited from CI at 678898511), and the JS and page
 suites (this round touches no JS or page file).
+
+## Broad fix round (BB8 #519 6161601064, 3PO triage 6161637870 and limits 6161683534)
+
+Code commit `643e292e6586d5aa5aea57e9ede231e360d5590d`, on top of `61b6618a`. Like everything after `678898511`,
+it is local, unpushed, and has no CI run. Interpreter for every Python result
+here: `/dev/shm/py311/bin/python`, CPython 3.11.17 (CI pins 3.11.16). The page
+baseline stays `8b1d2ad2`. `codex.html` was rebuilt with
+`node scripts/build_html.js --out=codex.html`, and `library/code/` was then
+restored (generations.json included). `npm run check:fresh` passes on the
+result.
+
+| item | what changed | test that fails when it is reverted |
+|---|---|---|
+| F1 | The migration of unmarked saved word numbers runs only at a boundary: open (session restored at start, saved session loaded or copied, session file imported, page mounted), import (.txt, Library working copy) and send. It never runs from the 120 ms typing refresh. No Undo step of its own: the open or import step holds the migrated text, and at an in-page boundary the writer's text is recorded first and the migrated text replaces that same step. Undo and Redo never run it. The selection (start, end, direction) is mapped onto the same characters. | Browser 9d. Putting the migration back into `lyRefresh` fails 6 assertions, including the exact typed text, the caret position, and the BB8 worst case (`--oh my` typed after "dove" with an unmarked row last). Unit B §1-3 cover history and selection: reverting the record-first step fails 2; dropping the selection mapping fails 1. |
+| F4 | A Review card lists every renumbered number ("the reading for “oh”, line 1: word 2 → 3") until dismissed. It is kept in `app.lyricMeta.ui.renumbered`, bounded under the 4,000-character display-state limit with the overflow counted. It survives a later import and a reload. | Unit B §4 (4 assertions fail with the card removed); browser 9d (a .txt import, the toast overwritten, a reload, Dismiss, then a Library working-copy import). |
+| F5 | "Remove the link" no longer says "saved before this release". It names the reason: a number read under the earlier cut by compatibility policy, or a mark for a cut the page does not read (`cut v9`). | Unit B §5 (2 fail with the old wording). |
+| F6 | Default kept to the existing Lyrics text contract (`lyCanonical`; the trade-off and the minimal marker-only exception are in the owner-decision note F6_MARKER_TRADEOFF.md, kept with the round's specs outside the repository): a row whose binding the migration does not change keeps every byte and gains no mark. A rewritten row respells only the members that changed and keeps the writer's spelling (`2.end` stays `2.end`). | Unit B §6 (2 fail when unchanged readings are marked); unit P plus B §6 (5 fail when unchanged group rows are rewritten). |
+| F7 | `quality/slots.py` `placement_word` docstring: `head` and `T1` are filed under word 1 but bind different words when the first token is unreadable (`4ever we go home`: `head` binds `we`, `T1` binds nothing; verified by `slots.resolve`). Doc only. | none (doc) |
+| F8 | `quality/loop.py` `swap_at_slot` and `swap_end_word` docstrings: the v1 default end slot splices into an echo aside (`my love (my love)` becomes `my love (my dove)`). Only non-default v1 slots refuse every line whose aside holds a word. Doc only, verified by running both. | none (doc) |
+| F9 | WarmWorker children only READ the caches between requests (`_caches_hold_their_schemes`, which builds nothing). The priming `_caches_agree` runs only after a scenario's last request. Three cold scenarios were added: a v1 lyrics request then a v2 one (asserting no v2 lexicon is cached before it), Library then v2 lyrics, and Library then v1 lyrics. | Putting `_caches_agree()` back after the first request makes the cold v1-to-v2 child fail ("v2 was primed before its first request"). |
+| F10 | The parent asserts each child's VmHWM is below the unchanged 1 GiB guard (`assert_within_guard`). Wording: the per-scheme caches are bounded by the two schemes, not growing per request. | `test_the_peak_assertion_refuses_a_peak_at_the_guard` (a peak at the guard fails). |
+| A.2-six | Diagnosed: v1 `line_anchors` re-cut the words before the last from their space-joined text, which joined an enclitic set apart by punctuation (`knap, 's` became `knap's`; `M.P.'s` became `P's`, P IY1 Z). v2 reads `'s` alone. The cut is identical; the lookup words differ. `lyLineCutChanged` now also fires when v1's lookup words (`CMLyricTokens.v1GraderLookup`) differ from an identical cut. This is a general condition, not a list. | Unit B §7: removing the lookup clause fails 15. The page scan of 271,092 identical-cut corpus lines fires on exactly the receipt's 24 lines. `quality/test_reader.py` `NamedPlaceLookup` checks the cause with the harness's own functions. |
+
+Receipt for A.2-six: `quality/results/named_place_lookup_2026-10-14/`.
+- On the English song corpus (281,399 sung lines; 271,092 with an identical cut), 8 Latin-script lines change their END binding, and the condition names all 8. BB8 counted six on a slightly different population (about 270,861 lines). The three lines BB8 quoted are among the 8.
+- The condition fires on 24 lines: the 8, plus 16 where the lookup differs but the end anchor does not reach the joined word. Those 16 keep their END binding, which `NamedPlaceLookup` asserts.
+- It fires on none of the other 271,068 identical-cut lines.
+- 7 polytonic Greek lines differ only in the end label's NFC form, with nothing bound under either scheme. They are listed apart, not counted as binding changes.
+
+Pre-existing items, labelled in `mcp/LYRICS_RUNTIME.md` and not fixed:
+- the impossible Resume on a `STALE_READING` Library job;
+- the v1 echo-aside wrong edit kept byte-identical in v1 replay;
+- `sites/library` posting device declarations unmigrated.
+
+F2 and F3 await the owner's scope decision and were not touched.
+
+### Local results at `643e292e6586d5aa5aea57e9ede231e360d5590d`
+
+| suite | result |
+|---|---|
+| `node scripts/check_lyrics_page.js` (unit + browser) | PASS, 529 assertions (333 unit, the rest browser, including the new step 9d) |
+| `quality/test_reader.py`, one process | 93 tests OK, 6 skips (the six child bodies, each run by its parent). Child peaks (VmHWM) under the unchanged 1024 MiB guard: 455 / 538 / 457 MiB for the three existing scenarios, 536 / 470 / 470 MiB for the cold ones. These are lower than at 58de1816 (570/628/568) because the children no longer prime both schemes after every step. |
+| `scripts/check_library_page.js` | PASS, 270/270. A first run concurrent with `test_reader` gave 269/270 ("collection page renders — 0 rows"); it was re-run alone twice and passed both times. Recorded as a load flake, not a pass of the first run. |
+| `scripts/test_library_import.js`, `test_library_declarations.js`, `test_lyric_tokens.js`, `test_library_chunk_generations.js` | 15, 8, 5 and 6 tests pass, 0 fail |
+| `test_library_import_browser.js`, `test_library_import_shipped.js`, `check_layout_usability.js` | All pass (1 test; SHIPPED LIBRARY IMPORT PASS; layout usability PASS at every width). Run with a scratch preload that points Playwright at the preinstalled Chromium 1194. The pinned headless shell 1223 is not installed here, and without the preload these fail to launch. This is an environment limit; the repo was not changed for it. |
+| `check_workbench.js`, `check_ui_foundation.js`, `check_lazy_app.js`, `check_library_shell.js` | All PASS (workbench integration, UI foundation 252 assertions, LAZY-APP parity, LIBRARY SHELL) |
+| `npm run check:fresh`, `test:minified`, `check:budget` | All PASS (check:fresh: api/, codex.html and the other published files are byte-identical to a fresh build; minified equivalence across 7755 traditions; 13 budgets hold) |
+| `npm run lint`, `npm run format:check`, `scripts/check_doc_paths.js` | All PASS |
+| `map/build.py`, then `--check` | regenerated, then current |
+| `quality/test_mutation.py --static`, `quality/mutate.py --dry-run` | rc=0; 59/59 apply |
+| `quality/check_comparator_pin.py` | MOVED, held: pin `9d5d8146…`, measured `515cac8d…`, unchanged from 678898511. slots.py and loop.py are outside the pinned closure. |
+| `quality/counters.py --check` | FAIL on the public-symbol row only, held: measured **1739**, the same as at 67889851, so the row did not move this round. The receipt script's helpers are private; while they were public they moved it to 1743 (self-only 655 -> 659). |
+
+Not re-run at `643e292e`, with the reason for each:
+
+- `search_null --check` and `audit_corpus --verify-shape`: their held failures are cited from CI 38503980117.
+- The revision-loop job, `test_verbs` and `test_production_revision`: the only harness code changed is two docstrings (`quality/slots.py`, `quality/loop.py`). The comparator closure fingerprint is unchanged, and `quality/test_mutation.py --static` still applies every anchor.
