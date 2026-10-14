@@ -248,7 +248,97 @@
   const lineTokens = (text, stripParens = true) =>
     readerLine(text, { stripParens }).tokens.map((t) => t.text);
 
-  const api = { SCHEME, readerLine, lineTokens };
+  // ── MIGRATION ONLY: the grader's pre-release cut (reader scheme v1) ──────
+  // Nothing reads a line with this but the rebinding of a word number saved
+  // before this release. It is the harness's `_line_tokens_v1` located in the
+  // raw line (`_v1_token_spans`): every typographic apostrophe folded one
+  // character for one, a spaced enclitic joined by dropping the whitespace
+  // between, a stripped (...) blanked to its own length, then runs of Latin
+  // letters, apostrophes and hyphens that hold a Latin letter. No NFC, no
+  // numerals: v1 dropped them, which is why its numbers move. This is the cut
+  // the Library's saved pronunciation choices were numbered under (the
+  // server's reading_choices); the Lyrics page's own pre-release cut, which
+  // neither folded the six rarer apostrophes nor joined enclitics, is
+  // lyV1MigrationSpans in src/pages/lyrics.js. -> [{ text, pieces }] with
+  // UTF-16 pieces into the line, or null when the located cut is not exactly
+  // the v1 token texts (the harness refuses the same way).
+  const V1_TOKEN_RUN = /(?:[A-Za-zÀ-ɏḀ-ỿ]|['-])+/g;
+  const V1_LATIN = /[A-Za-zÀ-ɏḀ-ỿ]/;
+  const V1_PARENS = /\([^)]*\)/g;
+  function v1GraderTokens(text, stripParens = true) {
+    let t = Array.from(String(text))
+      .map((c) => (APOSTROPHES.includes(c) ? "'" : c))
+      .join('')
+      .replace(ENCLITIC, '$1$3');
+    if (stripParens) t = t.replace(V1_PARENS, ' ');
+    return (t.match(V1_TOKEN_RUN) || []).filter((w) => V1_LATIN.test(w));
+  }
+  function v1GraderSpans(text, stripParens = true) {
+    text = String(text);
+    const cps = Array.from(text);
+    const folded = cps.map((c) => (APOSTROPHES.includes(c) ? "'" : c));
+    const fmap = utf16Index(folded);
+    const removed = new Set();
+    for (const m of folded.join('').matchAll(ENCLITIC)) {
+      const s16 = m.index + m[1].length;
+      for (let j = fmap[s16]; j < fmap[s16 + m[2].length]; j++) removed.add(j);
+    }
+    const mapping = [];
+    for (let i = 0; i < cps.length; i++) if (!removed.has(i)) mapping.push(i);
+    const norm = mapping.map((i) => folded[i]);
+    const nmap = utf16Index(norm);
+    if (stripParens)
+      for (const m of norm.join('').matchAll(V1_PARENS))
+        for (let k = nmap[m.index]; k < nmap[m.index + m[0].length]; k++) norm[k] = ' ';
+    const off16 = [0];
+    for (const c of cps) off16.push(off16[off16.length - 1] + c.length);
+    const joined = norm.join('');
+    const jmap = utf16Index(norm);
+    const spans = [];
+    for (const m of joined.matchAll(V1_TOKEN_RUN)) {
+      if (!V1_LATIN.test(m[0])) continue;
+      const pieces = [];
+      for (let k = jmap[m.index]; k < jmap[m.index + m[0].length]; k++) {
+        const i = mapping[k];
+        const last = pieces[pieces.length - 1];
+        if (last && last[1] === i) last[1] = i + 1;
+        else pieces.push([i, i + 1]);
+      }
+      spans.push({ text: m[0], pieces: pieces.map(([a, b]) => [off16[a], off16[b]]) });
+    }
+    const want = v1GraderTokens(text, stripParens);
+    return spans.length === want.length && spans.every((s, k) => s.text === want[k]) ? spans : null;
+  }
+
+  // MIGRATION ONLY: word `token` of `line` under an earlier cut -> the
+  // current cut's { token, word } covering exactly the same characters, or
+  // { blocked: reason }. `old` is that earlier cut located in the line
+  // ([{ text, pieces }], UTF-16), or null; `word`, when given, is the word
+  // the saved number named, and the rebinding refuses where the old number no
+  // longer names it. Never re-attaches to a nearby or overlapping word.
+  function rebindBySpan(line, token, word, old, stripParens = true) {
+    const src = old && Number.isInteger(token) && token >= 1 ? old[token - 1] : null;
+    if (!src || (word !== null && word !== undefined && src.text !== word))
+      return {
+        blocked:
+          word === null || word === undefined
+            ? `the earlier cut had no word ${token} in that line`
+            : `its old number no longer names “${word}” in that line`,
+      };
+    const same = (p) =>
+      p.length === src.pieces.length &&
+      p.every(([a, b], k) => a === src.pieces[k][0] && b === src.pieces[k][1]);
+    const hits = readerLine(String(line), { stripParens })
+      .tokens.map((t, k) => ({ t, k }))
+      .filter(({ t }) => same(t.pieces));
+    if (hits.length !== 1 || hits[0].t.text !== src.text)
+      return {
+        blocked: `no word of the current cut covers exactly the characters “${src.text}” covered`,
+      };
+    return { token: hits[0].k + 1, word: hits[0].t.text };
+  }
+
+  const api = { SCHEME, readerLine, lineTokens, v1GraderSpans, v1GraderTokens, rebindBySpan };
   root.CMLyricTokens = api;
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

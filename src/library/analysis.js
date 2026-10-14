@@ -10,11 +10,12 @@
 // - credentialed responses (jobs, manifests, pages) live only in this tab's
 //   memory (MEMORY below); nothing credentialed is written to any storage;
 // - job ids never appear in a page URL, in storage or in a log; the device
-//   keeps only the declarations, under interpretation:<id>:<revision>;
+//   keeps only the declarations, under interpretation:<id>:<revision>
+//   (with the word cut their pronunciation token numbers were counted under);
 // - evidence renders only after a fresh 200 from GET /jobs/:id on every
 //   activation (mount, evidence-lens switch, return to a tab hidden > 60 s);
 //   a 404 or 410 drops that job's pages at once.
-/* global esc, icon, showToast, uiDownload, uiEmptyState, uiTabIndex */
+/* global CMLyricTokens, esc, icon, showToast, uiDownload, uiEmptyState, uiTabIndex */
 'use strict';
 
 // lyric-harness quality/narrative.py grammar (sites/library/lib/declaration-options.json).
@@ -666,6 +667,149 @@ function deviceStore(lib) {
   };
 }
 
+// ── Saved pronunciation choices across the reader's word cut ───────────────
+// A pronunciation choice names a word of an exact line by its token number,
+// and the reader's word cut changed in this release (reader scheme v2: dash
+// runs split words, numerals are words). A number counted under the earlier
+// cut can name ANOTHER occurrence of the same word under the current one
+// (`Oh--oh, oh my love`: token 2 was the standalone "oh", and is now the "oh"
+// inside "Oh--oh"), and the grader would bind it there without a word of
+// warning. So every record this page writes names the cut its numbers were
+// counted under, in one field of the saved record (`token_cut`, this page's
+// own storage; the rows sent to the analysis are unchanged in shape). A
+// record WITHOUT it is legacy by compatibility policy, which says nothing
+// certain about when it was written: its numbers are read as the server's
+// earlier cut (CMLyricTokens.v1GraderSpans, the cut its reading_choices were
+// numbered under) and each row is rebound ONCE, by exact raw-span identity,
+// to the current word covering exactly the same characters. A number that
+// changes is said, in the status area, until the reader saves again. A row
+// with no such word -- or whose old number no longer names its own word -- is
+// never dropped and never re-attached to a nearby word: it is set aside as
+// needing the reader's decision, is not sent, and no new analysis starts
+// until it is removed (and chosen again). A record naming a cut this page
+// does not know refuses the same way, naming the accepted value. The
+// original rows of a rebound record are kept beside it (legacy_declarations).
+const DECL_CUT = CMLyricTokens.SCHEME;
+const listOf = (x) => (Array.isArray(x) ? x : []);
+// A stored record -> { declarations, undecided:[{row, reason}],
+// renumbered:[{word, line, from, to}], legacy, cut, changed }. Pure.
+// `cut` is the record's own mark when it is not the current one (null for an
+// unmarked record); `changed` says the record is not the current cut's as is.
+function savedInterpretation(stored) {
+  const rec = stored && typeof stored === 'object' && !Array.isArray(stored) ? stored : {};
+  const decl =
+    rec.declarations && typeof rec.declarations === 'object' && !Array.isArray(rec.declarations)
+      ? rec.declarations
+      : {};
+  if (rec.token_cut === DECL_CUT)
+    return {
+      declarations: decl,
+      undecided: listOf(rec.undecided),
+      renumbered: listOf(rec.renumbered),
+      legacy: rec.legacy_declarations,
+      cut: DECL_CUT,
+      changed: false,
+    };
+  const unknown = rec.token_cut !== undefined;
+  const rows = listOf(decl.pronunciations);
+  const kept = [];
+  const undecided = unknown ? [...listOf(rec.undecided)] : [];
+  const renumbered = [];
+  for (const row of rows) {
+    if (unknown) {
+      undecided.push({
+        row,
+        reason: `its record names the word cut “${String(rec.token_cut)}”; this page accepts only “${DECL_CUT}”`,
+      });
+      continue;
+    }
+    const shaped =
+      row &&
+      typeof row === 'object' &&
+      typeof row.line === 'string' &&
+      typeof row.word === 'string' &&
+      Number.isInteger(row.token);
+    const got = shaped
+      ? CMLyricTokens.rebindBySpan(
+          row.line,
+          row.token,
+          row.word,
+          CMLyricTokens.v1GraderSpans(row.line, false),
+          false
+        )
+      : { blocked: 'it does not name a line, a word number and its word' };
+    if (got.blocked) undecided.push({ row, reason: got.blocked });
+    else if (got.token === row.token) kept.push(row);
+    else {
+      kept.push({ ...row, token: got.token });
+      renumbered.push({ word: row.word, line: row.line, from: row.token, to: got.token });
+    }
+  }
+  return {
+    declarations: Array.isArray(decl.pronunciations) ? { ...decl, pronunciations: kept } : decl,
+    undecided,
+    renumbered,
+    legacy: undecided.length || renumbered.length ? decl : undefined,
+    cut: unknown ? String(rec.token_cut) : null,
+    changed: true,
+  };
+}
+// The record this page writes for an interpretation state.
+const interpretationRecord = (s) => ({
+  declarations: s.declarations,
+  token_cut: DECL_CUT,
+  ...(s.undecided.length ? { undecided: s.undecided } : {}),
+  ...(s.renumbered.length ? { renumbered: s.renumbered } : {}),
+  ...(s.legacy !== undefined ? { legacy_declarations: s.legacy } : {}),
+});
+// Reads the saved interpretation; an unmarked record is rebound and written
+// back once, marked. A record naming an unknown cut is left exactly as
+// stored until the reader acts. -> state + { migrated, persisted }.
+async function loadInterpretation(device, key) {
+  const stored = await device.get(key, null);
+  const s = savedInterpretation(stored);
+  const migrated = s.changed && s.cut === null && !!stored?.declarations;
+  let persisted = true;
+  if (migrated)
+    try {
+      await device.set(key, interpretationRecord(s));
+    } catch {
+      persisted = false;
+    }
+  return { ...s, migrated, persisted };
+}
+const choiceCount = (n) => `${n} saved pronunciation choice${n === 1 ? '' : 's'}`;
+function renumberedNotice(list) {
+  if (!list.length) return '';
+  return `${choiceCount(list.length)} carried no word-cut mark, so ${list.length === 1 ? 'its number was' : 'their numbers were'} read under the earlier word cut and moved to the current one, on the same characters: ${list
+    .slice(0, 3)
+    .map((m) => `“${m.word}” token ${m.from} → ${m.to}`)
+    .join(', ')}${list.length > 3 ? ', …' : ''}.`;
+}
+function undecidedRefusal(list) {
+  if (!list.length) return '';
+  return `Nothing was sent. ${choiceCount(list.length)} (${list
+    .map((u) => `“${String(u.row?.word ?? '?')}”`)
+    .join(
+      ', '
+    )}) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.`;
+}
+// The new analysis request for an interpretation state, or { refused } while
+// a saved choice awaits the reader's decision. Only rebound or current-cut
+// rows are sent; a set-aside row never is.
+function analysisRequest(reading, s, method, key = randomHex(16)) {
+  if (s.undecided.length) return { refused: undecidedRefusal(s.undecided) };
+  return {
+    contract_version: 1,
+    reading_unit_id: reading.reading_unit_id,
+    reading_revision: reading.reading_revision,
+    declaration_set: s.declarations,
+    requested_layers: ['sound', 'form', 'rhythm', 'language'],
+    ...(method ? { requested_methods: [method] } : {}),
+    idempotency_key: key,
+  };
+}
+
 // ── Per-tab memory (never persisted) ───────────────────────────────────────
 // key `${unit}:${revision}` → { job, previous:[{id, declarations}], report,
 // pages:[instances…], next, offset, seen: last fresh-authorization time }.
@@ -697,6 +841,7 @@ function ensureStyles() {
 #surface-library .la-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 #surface-library .la-note{margin:0;color:var(--cm-text-muted);font-size:var(--cm-text-xs)}
 #surface-library .la-error{margin:0;color:var(--cm-danger-text)}
+#surface-library .la-cut ul{margin:4px 0 0;padding-left:18px;overflow-wrap:anywhere}
 #surface-library .la-muted,#surface-library .la-unknown{color:var(--cm-text-muted)}
 #surface-library .la-unknown{font-style:italic}
 #surface-library .la-pos{color:var(--cm-success-text)}
@@ -1108,9 +1253,9 @@ async function declarations(readingInput, lib = LIVE?.lib) {
       `interpretation:${reading.reading_unit_id}:${reading.reading_revision}`,
       null
     );
-    return stored?.declarations && typeof stored.declarations === 'object'
-      ? stored.declarations
-      : {};
+    // The current cut's rows only: an unmarked record is rebound here exactly
+    // as the inspector rebinds it, and a set-aside choice is left out.
+    return savedInterpretation(stored).declarations;
   } catch {
     return {};
   }
@@ -1130,6 +1275,9 @@ function mount(container, input) {
     selected: ctx.selected,
     lines: null,
     declarations: {},
+    undecided: [], // saved choices no current word covers: never sent
+    renumbered: [], // saved choices whose number the rebinding moved
+    legacy: undefined, // a rebound record's original declarations
     declOpen: input.open === 'declarations',
     unsaved: false,
     busy: false,
@@ -1261,6 +1409,11 @@ function mount(container, input) {
   document.addEventListener('visibilitychange', onVisibility);
 
   async function analyze(method) {
+    const body = analysisRequest(reading, st, method);
+    if (body.refused) {
+      st.error = body.refused;
+      return draw();
+    }
     st.busy = true;
     st.error = '';
     draw();
@@ -1268,15 +1421,7 @@ function mount(container, input) {
       const previous = mem.job
         ? [...mem.previous, { id: mem.job.id, declarations: st.declarations }]
         : mem.previous;
-      const data = await api.create({
-        contract_version: 1,
-        reading_unit_id: reading.reading_unit_id,
-        reading_revision: reading.reading_revision,
-        declaration_set: st.declarations,
-        requested_layers: ['sound', 'form', 'rhythm', 'language'],
-        ...(method ? { requested_methods: [method] } : {}),
-        idempotency_key: randomHex(16),
-      });
+      const data = await api.create(body);
       mem.previous = previous;
       mem.job = data.job;
       dropEvidence(mem);
@@ -1447,9 +1592,36 @@ function mount(container, input) {
           : ''
       }
       ${st.notice ? `<p class="la-note" role="status">${esc(st.notice)}</p>` : ''}
+      ${cutHTML()}
       ${st.error ? `<p class="la-error" role="alert">${esc(st.error)}</p>` : ''}
       <button type="button" class="la-link" data-act="decl" aria-expanded="${st.declOpen}">${icon('sliders-horizontal', 15)}<span>Reading interpretations</span></button>
     </section>`;
+  }
+  // Saved pronunciation choices the word-cut rebinding moved, and those it
+  // could not place (savedInterpretation).
+  function cutHTML() {
+    const moved = st.renumbered.length
+      ? `<p class="la-note" role="status" data-cut="renumbered">${esc(renumberedNotice(st.renumbered))}</p>`
+      : '';
+    if (!st.undecided.length) return moved;
+    return `${moved}<div class="la-cut" role="alert" data-cut="undecided"><p class="la-error">${esc(choiceCount(st.undecided.length))} ${st.undecided.length === 1 ? 'needs' : 'need'} your decision. ${st.undecided.length === 1 ? 'It binds' : 'They bind'} no word and ${st.undecided.length === 1 ? 'is' : 'are'} not sent; no new analysis starts until each is removed.</p><ul>${st.undecided
+      .map(
+        (u, k) =>
+          `<li><span>“${esc(String(u.row?.word ?? '?'))}” · token ${esc(String(u.row?.token ?? '?'))} · ${esc(String(u.row?.line ?? ''))}: ${esc(u.reason)}</span> <button type="button" class="la-link" data-act="drop-undecided" data-i="${k}">Remove</button></li>`
+      )
+      .join('')}</ul></div>`;
+  }
+  async function dropUndecided(k) {
+    if (!st.undecided[k]) return;
+    st.undecided = st.undecided.filter((_, i) => i !== k);
+    if (!st.undecided.length && st.error.startsWith('Nothing was sent.')) st.error = '';
+    try {
+      await device.set(deviceKey, interpretationRecord(st));
+      st.unsaved = false;
+    } catch {
+      st.unsaved = true;
+    }
+    draw(['status']);
   }
   function summaryHTML() {
     const report = evidenceVisible() ? mem.report : null;
@@ -1630,11 +1802,12 @@ function mount(container, input) {
       annotate: ctx.annotate,
       onSave: async (v) => {
         st.declarations = v;
+        st.renumbered = [];
         st.declOpen = false;
         st.notice =
           'Interpretation saved on this device. Run a new whole-work analysis to apply it.';
         try {
-          await device.set(deviceKey, { declarations: v });
+          await device.set(deviceKey, interpretationRecord(st));
           st.unsaved = false;
         } catch {
           st.unsaved = true;
@@ -1681,6 +1854,7 @@ function mount(container, input) {
       else if (['cancel', 'resume', 'delete'].includes(act)) control(act);
       else if (act === 'export') exportAnalysis();
       else if (act === 'previous') openPrevious(Number(b.dataset.i));
+      else if (act === 'drop-undecided') dropUndecided(Number(b.dataset.i));
       else if (act === 'locate') inspect(st.visible[Number(b.dataset.rec)]);
       else if (act === 'decl') ((st.declOpen = !st.declOpen), draw(['status', 'decl']));
       else if (act === 'methods') ((st.methodsOpen = !st.methodsOpen), draw(['ref']));
@@ -1738,9 +1912,21 @@ function mount(container, input) {
       st.error = 'The method reference could not be loaded.';
     }
     try {
-      const stored = await device.get(deviceKey, { declarations: {} });
-      st.declarations =
-        stored?.declarations && typeof stored.declarations === 'object' ? stored.declarations : {};
+      const saved = await loadInterpretation(device, deviceKey);
+      Object.assign(st, {
+        declarations: saved.declarations,
+        undecided: saved.undecided,
+        renumbered: saved.renumbered,
+        legacy: saved.legacy,
+      });
+      if (!saved.persisted) st.unsaved = true;
+      if (saved.migrated && (saved.renumbered.length || saved.undecided.length))
+        showToast(
+          saved.undecided.length
+            ? `${choiceCount(saved.undecided.length)} need${saved.undecided.length === 1 ? 's' : ''} your decision before a new analysis.`
+            : renumberedNotice(saved.renumbered),
+          saved.undecided.length ? 'error' : undefined
+        );
     } catch {
       st.unsaved = true;
     }
@@ -1791,4 +1977,11 @@ return {
   loadEvidencePage,
   viewerApi,
   _memory: MEMORY,
+  // the saved-choice word-cut rebinding (tests)
+  savedInterpretation,
+  interpretationRecord,
+  loadInterpretation,
+  analysisRequest,
+  renumberedNotice,
+  undecidedRefusal,
 };

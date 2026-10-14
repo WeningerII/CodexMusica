@@ -142,24 +142,13 @@ function lyV1MigrationSpans(text, voices = false) {
 // number named; the rebinding refuses where the old number no longer names it.
 function lyRebindSpan(line, token, voices, word = null) {
   const old = lyV1MigrationSpans(line, voices);
-  const src = old && old[token - 1];
-  if (!src || (word !== null && src.text !== word))
-    return {
-      blocked:
-        word === null
-          ? `the earlier cut had no word ${token} in that line`
-          : `its old number no longer names “${word}” in that line`,
-    };
-  const hits = CMLyricTokens.readerLine(String(line), { stripParens: !voices })
-    .tokens.map((t, k) => ({ t, k }))
-    .filter(
-      ({ t }) => t.pieces.length === 1 && t.pieces[0][0] === src.from && t.pieces[0][1] === src.to
-    );
-  if (hits.length !== 1 || hits[0].t.text !== src.text)
-    return {
-      blocked: `no word of the current cut covers exactly the characters “${src.text}” covered`,
-    };
-  return { token: hits[0].k + 1, word: hits[0].t.text };
+  return CMLyricTokens.rebindBySpan(
+    line,
+    token,
+    word,
+    old && old.map((s) => ({ text: s.text, pieces: [[s.from, s.to]] })),
+    !voices
+  );
 }
 // One saved reading -> { token, word } under the current cut, or { blocked }.
 const lyRebindReading = (r, voices) => lyRebindSpan(r.line, r.token, voices, r.word);

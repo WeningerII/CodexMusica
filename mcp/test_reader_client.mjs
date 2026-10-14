@@ -12,6 +12,7 @@ import {
   packReaderPages,
   canonicalJSON,
   createCatalogResolver,
+  semanticDeclarations,
 } from './reader_scheduler.js';
 import { createPythonBridge } from './python_bridge.js';
 import { canonicalReaderQuery, canonicalReaderSigningInput } from './reader_protocol.js';
@@ -590,5 +591,76 @@ test('successful bounded leases requeue automatically until the whole traversal 
   } finally {
     scheduler.stop();
     await f.close();
+  }
+});
+
+// A Library job created before the reader's word-cut release and still queued
+// (or paused) after it carries pronunciation numbers counted under the
+// earlier cut. The scheduler recomputes the identity, engine commit included,
+// before every lease: the job is refused STALE_READING and never runs those
+// numbers under the current reader, and its stored request and identity
+// (declaration_hash included) are not rewritten. A NEW job made from the
+// rebound choices has a different declaration_hash, as any changed
+// declaration set does (src/library/analysis.js savedInterpretation).
+test('a job queued across the word-cut release is refused, never run, never rewritten', async () => {
+  const directory = await mkdtemp(path.join(tmpdir(), 'reader-cut-'));
+  const line = 'Oh--oh, oh my love';
+  const choice = (token) => ({
+    line,
+    token,
+    word: 'oh',
+    phones: ['AA1'],
+    basis: 'declared',
+    source: 'the singer',
+  });
+  const hash = (set) => sha(canonicalJSON(semanticDeclarations(set)));
+  const legacySet = { pronunciations: [choice(2)] };
+  const reboundSet = { pronunciations: [choice(3)] };
+  const legacyRequest = { ...request, declaration_set: legacySet };
+  const legacyIdentity = {
+    ...identity,
+    engine_commit: 'before-the-cut',
+    declaration_hash: hash(legacySet),
+  };
+  const store = new ReaderJobStore({ directory });
+  const created = store.create({
+    viewer: 'viewer',
+    idempotency_key: 'queued-before',
+    identity: legacyIdentity,
+    request: legacyRequest,
+  });
+  const before = structuredClone(store.inspect(created.record.id));
+  let leases = 0;
+  const scheduler = new ReaderScheduler({
+    store,
+    bridge: {
+      capacity: () => ({ active: 0, admitted: 0, queued: 0 }),
+      runReaderLease: async () => {
+        leases++;
+        throw new Error('must not run');
+      },
+    },
+    resolveIdentity: async (input) => ({
+      ...identity,
+      engine_commit: 'after-the-cut',
+      declaration_hash: hash(input.declaration_set),
+    }),
+    resolveSource: async () => ({ source: { text: line } }),
+  });
+  try {
+    await scheduler.pump();
+    const after = store.inspect(created.record.id);
+    assert.equal(leases, 0);
+    assert.equal(after.state, 'paused');
+    assert.equal(after.reason.code, 'STALE_READING');
+    assert.deepEqual(after.request, before.request);
+    assert.deepEqual(after.identity, before.identity);
+    assert.equal(after.identity.declaration_hash, hash(legacySet));
+    // The rebound set is a different declaration set, so a new job has a
+    // new identity; the stored one above keeps the old hash.
+    assert.notEqual(hash(reboundSet), hash(legacySet));
+  } finally {
+    scheduler.stop();
+    await rm(directory, { recursive: true, force: true });
   }
 });

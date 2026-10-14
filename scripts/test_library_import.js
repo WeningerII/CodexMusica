@@ -554,8 +554,35 @@ test('Lyrics activation preserves the old private continuation without aborting 
   assert.equal(preserved.writer.pending.request_id, 'private-request');
   assert.equal(preserved.writerInput, 'My unsent writer message');
   assert.equal(preserved.meta.notes.Verse, 'Existing note');
-  const imported = api.importedDraft(await envelope(), Date.now());
+  // A Library choice saved before the word-cut release, carried in the
+  // bundle: it is source history (routes 3 and 4 of the saved-choice
+  // migration). The imported copy keeps it verbatim (the digest covers it,
+  // so it is never rewritten), and nothing the page sends the grader reads
+  // it: it binds no word in Lyrics.
+  const legacyChoice = {
+    line: 'Oh--oh, oh my love',
+    token: 2,
+    word: 'oh',
+    phones: ['AA1'],
+    basis: 'declared',
+    source: 'the singer',
+  };
+  const base = await envelope();
+  const carried = await envelope({
+    payload: {
+      ...base.payload,
+      text: 'Oh--oh, oh my love\nThe evening wind returns',
+      declarations: [{ pronunciations: [legacyChoice] }],
+    },
+  });
+  const imported = api.importedDraft(carried, Date.now());
   await ctx.activate(imported, { imported: true, preservedDraftId: preserved.draftId });
+  assert.deepEqual(copy(ctx.app.lyricMeta.libraryOrigin.declarations), [
+    { pronunciations: [legacyChoice] },
+  ]);
+  assert.equal(ctx.app.lyricMeta.libraryOrigin.digest, carried.digest);
+  const sent = vm.runInContext('JSON.stringify(lyDeclarationsOf(lyParse(lyDraft().value)))', ctx);
+  assert.ok(!/AA1|the singer|readings|pronunciation/.test(sent), sent);
   ctx.release();
   assert.equal(aborts, 0);
   assert.equal(resets, 0);

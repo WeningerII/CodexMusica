@@ -17,7 +17,7 @@
 //   node scripts/check_library_page.js --built=DIR     # check an existing build
 //   node scripts/check_library_page.js --only=reader,compare --headed
 //   node scripts/check_library_page.js --shots=DIR     # screenshot each section
-/* global document, location, getComputedStyle, libraryChunk */ // inside page.evaluate
+/* global document, location, getComputedStyle, libraryChunk, indexedDB */ // inside page.evaluate
 'use strict';
 
 const fs = require('fs');
@@ -172,6 +172,7 @@ function makeStub(log) {
     }
     if (p === '/analyses' && method === 'POST') {
       const body = JSON.parse(req.postData() || '{}');
+      log.push(`BODY ${JSON.stringify(body.declaration_set ?? null)}`);
       const job = {
         id: JOB,
         state: 'running',
@@ -708,6 +709,129 @@ const SECTIONS = {
     }
   },
 };
+// Saved pronunciation choices across the reader's word cut
+// (src/library/analysis.js savedInterpretation): a record the page writes
+// carries token_cut; an unmarked one is rebound once on the same characters
+// with a visible notice, and a choice no current word covers is shown as
+// needing a decision, is not sent, and stops a new analysis until removed.
+SECTIONS.declarations = async function ({ page, base, tag, log }) {
+  const open = async () => {
+    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+    if (await page.isVisible('#surface-library [data-rd="sheet"]').catch(() => false))
+      await page.click('#surface-library [data-rd="sheet"]');
+    return page
+      .waitForSelector('#surface-library [data-act="analyze"]', { timeout: 15000 })
+      .catch(() => null);
+  };
+  const idb = (op, key, value) =>
+    page.evaluate(
+      ([op, key, value]) =>
+        new Promise((resolve, reject) => {
+          const r = indexedDB.open('codex-musica-library-v1', 1);
+          r.onupgradeneeded = () => r.result.createObjectStore('state');
+          r.onerror = () => reject(r.error);
+          r.onsuccess = () => {
+            const t = r.result.transaction('state', op === 'put' ? 'readwrite' : 'readonly');
+            const s = t.objectStore('state');
+            const out = {};
+            if (op === 'put') s.put(value, key);
+            else {
+              const c = s.openCursor();
+              c.onsuccess = () => {
+                const cur = c.result;
+                if (!cur) return;
+                if (String(cur.key).startsWith(key)) out[cur.key] = cur.value;
+                cur.continue();
+              };
+            }
+            t.oncomplete = () => (r.result.close(), resolve(out));
+            t.onerror = () => reject(t.error);
+          };
+        }),
+      [op, key, value]
+    );
+  await go(page, base, `/read/${EPI_A}?lens=sound`);
+  if (!check(`${tag} declarations: inspector mounted`, !!(await open()))) return;
+  // An interpretation applied now is written with the current cut's mark.
+  await page.click('#surface-library [data-act="decl"]');
+  await page.waitForSelector('#surface-library .la-decl [data-act="save"]', { timeout: 10000 });
+  await page.click('#surface-library .la-decl [data-act="save"]');
+  await page.waitForTimeout(300);
+  const written = await idb('list', `interpretation:${EPI_A}:`);
+  const key = Object.keys(written)[0];
+  if (!check(`${tag} declarations: an applied interpretation is saved`, !!key)) return;
+  check(
+    `${tag} declarations: a record written now carries token_cut v2`,
+    written[key].token_cut === 'v2',
+    JSON.stringify(written[key])
+  );
+  const choice = (line, token, word) => ({
+    line,
+    token,
+    word,
+    phones: ['AA1'],
+    basis: 'declared',
+    source: 'the singer',
+  });
+  await idb('put', key, {
+    declarations: {
+      pronunciations: [
+        choice('Oh--oh, oh my love', 2, 'oh'),
+        choice('ways:--and the road', 2, '--and'),
+      ],
+    },
+  });
+  await page.reload();
+  await page.waitForSelector('#surface-library', { state: 'attached', timeout: 20000 });
+  if (!check(`${tag} declarations: inspector remounted`, !!(await open()))) return;
+  await page
+    .waitForSelector('#surface-library [data-cut="renumbered"]', { timeout: 10000 })
+    .catch(() => {});
+  const text = (sel) =>
+    page.evaluate((s) => document.querySelector(s)?.innerText || '', `#surface-library ${sel}`);
+  check(
+    `${tag} declarations: the renumbering is said`,
+    /“oh” token 2 → 3/.test(await text('[data-cut="renumbered"]')),
+    await text('[data-cut="renumbered"]')
+  );
+  check(
+    `${tag} declarations: the uncovered choice needs a decision`,
+    /--and/.test(await text('[data-cut="undecided"]')),
+    await text('[data-cut="undecided"]')
+  );
+  await page.click('#surface-library [data-act="analyze"]');
+  await page.waitForTimeout(300);
+  check(
+    `${tag} declarations: no analysis starts while a choice is undecided`,
+    !log.some((l) => l.startsWith('POST /analyses')) &&
+      /Nothing was sent/.test(await text('.la-section[aria-live]')),
+    log.slice(-4).join(' | ')
+  );
+  await page.click('#surface-library [data-act="drop-undecided"]');
+  await page.waitForTimeout(300);
+  await page.click('#surface-library [data-act="analyze"]');
+  await page
+    .waitForFunction(
+      () => /running/i.test(document.querySelector('#surface-library')?.innerText || ''),
+      null,
+      {
+        timeout: 10000,
+      }
+    )
+    .catch(() => {});
+  const body = log.find((l) => l.startsWith('BODY ')) || '';
+  check(
+    `${tag} declarations: the rebound choice is sent on its new number, the removed one never`,
+    /"token":3/.test(body) && !/--and/.test(body) && !/"token":2/.test(body),
+    body
+  );
+  const after = (await idb('list', key))[key] || {};
+  check(
+    `${tag} declarations: the saved record is marked, keeps the original, has no undecided`,
+    after.token_cut === 'v2' && !!after.legacy_declarations && !after.undecided,
+    JSON.stringify(after).slice(0, 300)
+  );
+};
 const NEEDS = {
   explore: 'core',
   works: 'works',
@@ -715,6 +839,7 @@ const NEEDS = {
   reader: 'reader',
   compare: 'compare',
   analysis: 'analysis',
+  declarations: 'analysis',
 };
 
 (async () => {
@@ -734,7 +859,10 @@ const NEEDS = {
   try {
     for (const [name, fn] of Object.entries(SECTIONS)) {
       if (ONLY && !ONLY.has(name)) continue;
-      const need = [NEEDS[name], ...(name === 'compare' || name === 'analysis' ? ['reader'] : [])];
+      const need = [
+        NEEDS[name],
+        ...(['compare', 'analysis', 'declarations'].includes(name) ? ['reader'] : []),
+      ];
       const missing = need.filter((c) => !chunks.has(c));
       if (missing.length) {
         results.push(`SKIP ${name} — chunk not in this build: ${missing.join(', ')}`);
