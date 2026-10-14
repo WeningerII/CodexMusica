@@ -210,34 +210,86 @@ does and does not protect one built before the release.
   validated against the line under v2; where its position no longer holds its
   word (`token 3 "Lawdy"` in `U--h, u--h, Lawdy,`, now `u`), the call refuses
   with the token the position names. It is never dropped silently.
-- **The residual.** Where the old position still holds the SAME word text under
-  v2 but another occurrence of it, the held declaration validates and binds
-  that other occurrence: in `Oh--oh, oh my love`, a pre-release `token 2 "oh"`
-  meant the third `oh` and now binds the second. Nothing in the schema can
-  detect it. A caller holding declarations from before this release (its own
-  record, or a session it keeps across the deployment) re-reads
-  `pronunciation_options` and re-declares before grading lines whose cut moved
-  (a dash run, a numeral, a Unicode hyphen, a soft hyphen, combining marks).
-  The website does this for its own saved readings: every reading row the page
-  writes carries the cut it was numbered under (`— cut v2`, in the row itself,
-  so the mark survives a downloaded `.txt`, a paste, an import and a Library
-  working copy), and a row without it is rebound by span identity, or blocked
-  for the writer's decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`); a
-  number it changes is reported to the writer, not changed in silence.
-- **Word places in `groups` and `returns` are numbers too.** A member `N.Tk`
-  (`--groups=1.T4,2`, `--returns=1.T2,3.T2`) names word k of line N, carries
-  no word to validate against, and is read under v2 by a new call: in
+- **The residual (open until commit 2).** Where the old position still holds
+  the SAME word text under v2 but another occurrence of it, the held declaration
+  validates and binds that other occurrence: in `Oh--oh, oh my love`, a
+  pre-release `token 2 "oh"` meant the third `oh` (characters 8-10) and now
+  binds the second (4-6). Nothing in today's schema can detect it. Commit 2 of
+  this batch closes it: an optional numbering marker on each declaration,
+  approved by the owner, with unmarked declarations that name different
+  characters under the two cuts refused. Until it lands, a caller holding
+  declarations from before this release (its own record, or a session it keeps
+  across the deployment) re-reads `pronunciation_options` and re-declares before
+  grading lines whose cut moved (a dash run, a numeral, a Unicode hyphen, a soft
+  hyphen, combining marks).
+- **The website's own saved choices are migrated, not left to that residual.**
+  - The Lyrics page: every reading row it writes carries the cut it was
+    numbered under (`— cut v2`, in the row itself, so the mark survives a
+    downloaded `.txt`, a paste, an import, Undo/Redo and a Library working
+    copy). A row without it is legacy by compatibility policy (hand-typed or
+    imported text can be unmarked too, so this is a reading rule, not a claim
+    about when the row was written): it is rebound by span identity, or blocked
+    for the writer's decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`);
+    a number it changes is reported to the writer, not changed in silence.
+  - The Library tab: every pronunciation choice it saves on a device carries
+    `token_cut: "v2"` on the saved record (the page's own storage; the rows
+    sent keep their six fields). A record without it is legacy by
+    compatibility policy and is rebound once, by exact raw-span identity from
+    the server's earlier cut (the cut its `reading_choices` were numbered
+    under) to the current one, with the moved numbers shown; a choice no
+    current word covers exactly is set aside as needing the reader's decision,
+    is not sent, and no new analysis starts until it is removed
+    (`src/library/analysis.js`, `savedInterpretation`). A server job queued
+    across the release is refused `STALE_READING` by the scheduler's identity
+    recheck, and its stored request and `declaration_hash` are not rewritten; a
+    new job from rebound choices has a new `declaration_hash`, as any changed
+    declaration set does. Choices carried into Lyrics by a handoff or a
+    downloaded import bundle are source history only: kept verbatim (the
+    bundle's digest covers them) and never sent to the grader.
+  - Either surface refuses a saved mark naming a cut it does not read
+    (`— cut v3`, `token_cut: "v3"`), naming the accepted value.
+- **Word places in `groups` and `returns`: counts and definitions.** A member
+  `N.Tk` (`--groups=1.T4,2`, `--returns=1.T2,3.T2`) is a COUNT: word k of line
+  N, with no word to validate against, read under v2 by a new call. In
   `Oh--oh, oh my love` a pre-release `1.T4` meant `love` and now binds `my`,
-  and `1.T2` moves to the `oh` inside `Oh--oh`, with no refusal. Place words
-  (`end`, `endword`, `head`, `headrime`, `line`) are not numbers and do not
-  move. A caller holding such members from before this release re-reads the
-  line's words and re-declares them. The website's rhyme links and declared
-  returns follow the same rule as its readings: a row holding a word place
-  carries `— cut v2` after its members (never sent to a tool), an unmarked
-  row's word places are rebound by span identity, and one with no word of the
-  current cut over its characters keeps its old number as
-  `N.Tk (numbered under the earlier cut)`, binds nothing, and stops every send
-  until the writer removes the link and declares it again.
+  and `1.T2` moves to the `oh` inside `Oh--oh`, with no refusal; the two cuts
+  disagree on 10,553 such positions on 3,099 lines of the English corpus. A
+  bare `N` and the named places (`end`, `endword`, `head`, `headrime`, `line`)
+  are DEFINITIONS the grader applies to the line as the running reader cuts it
+  (`lyric-harness/quality/slots.py`: `head` and `endword` take the word start, `end`,
+  `headrime` and `T<k>` the last stressed syllable from there), so what they
+  bind moves with the cut too: on the English corpus `end` is re-cut on 178
+  lines and on 539 more the earlier cut skipped a numeral end the current one
+  reads (a visible hole in `blocking` unless a reading is declared); `endword`
+  is re-cut on 229 lines and names a different word on 1; `head` is re-cut on
+  288; `headrime` on 284, plus 53 lines whose leading dashes only the current
+  cut keeps out of the word. A named place is never converted to a number.
+  - **Connector callers' held `N.Tn` members are an OPEN residual.** The
+    owner approved extending commit 2's numbering marker to `groups` and
+    `returns`; until it lands, a caller holding such members from before this
+    release re-reads the line's words and re-declares them. Commit 1 does not
+    close this.
+  - **The website's rhyme links and declared returns** (team policy A): every
+    row it writes carries `— cut v2` after its members (never sent to a tool).
+    In an unmarked row (legacy by compatibility policy) a `N.Tk` is rebound by
+    span identity, or kept under its old number as
+    `N.Tk (numbered under the earlier cut)`, binding nothing and stopping every
+    send until the writer removes the link and declares it again. A bare `N`
+    or named place on a line whose earlier and current cuts differ ANYWHERE
+    (the whole line: on 22 corpus lines the bound word's characters are the
+    same under both cuts but the rhyme starts in an earlier word, the "double
+    bass" shape) is kept named and marked
+    `N.place (carried across the word-cut change)`: it is still sent and
+    judged, and Review shows one notice per member naming the line, the place
+    and the words the page shows there under each cut, with Keep the link /
+    Remove it. Those words are the page's display, not the grader's evidence:
+    the grader decides what the place binds. On a line whose cut did not
+    change the member is carried silently and the row is not rewritten.
+- **A run resumed under v1 resolves every place under v1.** A state recorded
+  under reader scheme v1 (a pre-batch harness state replayed with the harness,
+  or an explicit `--reader-scheme=v1`) keeps the whole pre-batch reading (D1):
+  counts and named places alike resolve under the earlier cut, exactly as they
+  did when the state was written.
 
 ## What the money limits establish
 
