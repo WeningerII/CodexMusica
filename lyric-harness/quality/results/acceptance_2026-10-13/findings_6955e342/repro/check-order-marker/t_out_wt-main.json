@@ -1,0 +1,231 @@
+[
+ {
+  "id": "t1",
+  "reader_scheme": null,
+  "groups_wire": "1.T4,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh--oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "t2",
+  "reader_scheme": null,
+  "groups_wire": null,
+  "returns_wire": "1.T4,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh--oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ }
+]

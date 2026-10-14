@@ -1,0 +1,1034 @@
+{
+ "tree": "cand",
+ "dir": "wt-695",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/library-undo-card/build-wt-695/built-wt-695.html",
+ "payload": {
+  "P1_A_before_B": {
+   "pre": {
+    "tag": "P1_A_before_B: before send",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "heart",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "part",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "cardShownInReviewPane": true,
+    "reviewPaneCardText": "2 saved word numbers renumbered to the current word cut | Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      }
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   "sent": {
+    "focused": "chat-input",
+    "reached": 1,
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "declarations": {
+      "title": "Song A",
+      "groups": "1.T5,2.T5"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "4052b41dce3e0964ac02e6753be751c5e6ac3ca2db6fd57ac2322bea0318e292",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    },
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "pageSung": [
+     "Ah--ah, ah my heart is burning",
+     "Ah--ah, ah my part is turning"
+    ]
+   },
+   "post": {
+    "tag": "P1_A_before_B: after send",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true,
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "heart",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "part",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "cardShownInReviewPane": true,
+    "reviewPaneCardText": "2 saved word numbers renumbered to the current word cut | Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "writer",
+      "tool": "",
+      "outline": true,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      }
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."
+    ]
+   },
+   "errors": []
+  },
+  "P2_after_B": {
+   "pre": {
+    "tag": "P2_after_B: before send",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+    "libraryOrigin": true,
+    "ui": {
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "love",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "dove",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "cardShownInReviewPane": true,
+    "reviewPaneCardText": "2 saved word numbers renumbered to the current word cut | Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:46:04 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:46:04 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:a8c786aa-fbf4-4021-adc2-d1a0a14aebc3",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 3,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+     "ui": {
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "love",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "dove",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791971164969,
+      "metaDraftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+      "ui": {
+       "renumbered": {
+        "items": [
+         {
+          "kind": "returns",
+          "word": "love",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "returns",
+          "word": "dove",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       },
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     },
+     {
+      "draftId": "draft:a8c786aa-fbf4-4021-adc2-d1a0a14aebc3",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791971164624,
+      "metaDraftId": "draft:a8c786aa-fbf4-4021-adc2-d1a0a14aebc3",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "rhyme groups",
+          "word": "heart",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "part",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.",
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   "sent": {
+    "focused": "chat-input",
+    "reached": 1,
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "declarations": {
+      "title": "Song B",
+      "returns": "1.T5,2.T5"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "6999e57f33cd7b6e2ff2c969606370e6663bc3c101b223e9c33f66562bee921e",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    },
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "pageSung": [
+     "Oh--oh, oh sweet love",
+     "Oh--oh, oh sweet dove"
+    ]
+   },
+   "post": {
+    "tag": "P2_after_B: after send",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+    "libraryOrigin": true,
+    "ui": {
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "love",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "dove",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "cardShownInReviewPane": true,
+    "reviewPaneCardText": "2 saved word numbers renumbered to the current word cut | Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:46:07 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:46:04 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:a8c786aa-fbf4-4021-adc2-d1a0a14aebc3",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 3,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+     "ui": {
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "love",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "dove",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "tab": "writer",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791971167233,
+      "metaDraftId": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+      "ui": {
+       "renumbered": {
+        "items": [
+         {
+          "kind": "returns",
+          "word": "love",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "returns",
+          "word": "dove",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       },
+       "tab": "writer",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     },
+     {
+      "draftId": "draft:a8c786aa-fbf4-4021-adc2-d1a0a14aebc3",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791971164624,
+      "metaDraftId": "draft:a8c786aa-fbf4-4021-adc2-d1a0a14aebc3",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true,
+       "renumbered": {
+        "items": [
+         {
+          "kind": "rhyme groups",
+          "word": "heart",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "rhyme groups",
+          "word": "part",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       }
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   "errors": []
+  },
+  "P3_after_app_undo": {
+   "pre": {
+    "tag": "P3_after_app_undo: before send",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+    "libraryOrigin": false,
+    "ui": {
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "love",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "dove",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "cardShownInReviewPane": true,
+    "reviewPaneCardText": "2 saved word numbers renumbered to the current word cut | Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+    "historyPane": "History\nSaved Lyrics drafts on this device\nSong A\n10/14/2026, 9:46:12 AM · Current draft · Writer continuation preserved\nSong B\n10/14/2026, 9:46:10 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+      "hasUi": false,
+      "current": true
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:f1feb553-1356-4766-9470-58e2c64eda30",
+      "hasUi": false,
+      "current": false
+     }
+    ],
+    "historyIndex": 2,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "draftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+     "ui": {
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "love",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "dove",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791971172111,
+      "metaDraftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+      "ui": {
+       "renumbered": {
+        "items": [
+         {
+          "kind": "returns",
+          "word": "love",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "returns",
+          "word": "dove",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       },
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     },
+     {
+      "draftId": "draft:f1feb553-1356-4766-9470-58e2c64eda30",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791971170416,
+      "metaDraftId": "draft:f1feb553-1356-4766-9470-58e2c64eda30",
+      "ui": {
+       "renumbered": {
+        "items": [
+         {
+          "kind": "returns",
+          "word": "love",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "returns",
+          "word": "dove",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       },
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.",
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   "sent": {
+    "focused": "chat-input",
+    "reached": 1,
+    "lyric_context": {
+     "version": 1,
+     "document": "[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "declarations": {
+      "title": "Song A",
+      "groups": "1.T5,2.T5"
+     },
+     "brief": "",
+     "notes": [],
+     "binding": {
+      "document_sha256": "4052b41dce3e0964ac02e6753be751c5e6ac3ca2db6fd57ac2322bea0318e292",
+      "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+     }
+    },
+    "task": {
+     "domain": "lyrics",
+     "phase": "edit"
+    },
+    "pageSung": [
+     "Ah--ah, ah my heart is burning",
+     "Ah--ah, ah my part is turning"
+    ]
+   },
+   "post": {
+    "tag": "P3_after_app_undo: after send",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+    "libraryOrigin": false,
+    "ui": {
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "love",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "dove",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     },
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "cardShownInReviewPane": true,
+    "reviewPaneCardText": "2 saved word numbers renumbered to the current word cut | Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+    "historyPane": "History\nSaved Lyrics drafts on this device\nSong A\n10/14/2026, 9:46:14 AM · Current draft · Writer continuation preserved\nSong B\n10/14/2026, 9:46:10 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+      "hasUi": false,
+      "current": true
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:f1feb553-1356-4766-9470-58e2c64eda30",
+      "hasUi": false,
+      "current": false
+     }
+    ],
+    "historyIndex": 2,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "draftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+     "ui": {
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "love",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "dove",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "tab": "writer",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791971174578,
+      "metaDraftId": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+      "ui": {
+       "renumbered": {
+        "items": [
+         {
+          "kind": "returns",
+          "word": "love",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "returns",
+          "word": "dove",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       },
+       "tab": "writer",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     },
+     {
+      "draftId": "draft:f1feb553-1356-4766-9470-58e2c64eda30",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791971170416,
+      "metaDraftId": "draft:f1feb553-1356-4766-9470-58e2c64eda30",
+      "ui": {
+       "renumbered": {
+        "items": [
+         {
+          "kind": "returns",
+          "word": "love",
+          "n": [
+           1
+          ],
+          "from": 4,
+          "to": 5
+         },
+         {
+          "kind": "returns",
+          "word": "dove",
+          "n": [
+           2
+          ],
+          "from": 4,
+          "to": 5
+         }
+        ],
+        "more": 0
+       },
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   "errors": []
+  }
+ }
+}

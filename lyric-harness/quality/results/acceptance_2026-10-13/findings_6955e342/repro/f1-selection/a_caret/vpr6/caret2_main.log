@@ -1,0 +1,21 @@
+[main] A.observe: wrapped=false ZQ on line 5 (intended 5); rewriting calls=[] errs=[]
+[main] A.restore: wrapped=false ZQ on line 5 (intended 5); rewriting calls=[] errs=[]
+[main] B: seededOk=true cutChanged(before,after)=null
+   caret 43/115  line2="I hold the dove-"  row="[SETUP — rhyme groups — 2,4]"
+   caret 44/116  line2="I hold the dove--"  row="[SETUP — rhyme groups — 2,4]"
+   caret 45/117  line2="I hold the dove--o"  row="[SETUP — rhyme groups — 2,4]"
+   caret 46/118  line2="I hold the dove--oh"  row="[SETUP — rhyme groups — 2,4]"
+   caret 47/119  line2="I hold the dove--oh "  row="[SETUP — rhyme groups — 2,4]"
+   caret 48/120  line2="I hold the dove--oh m"  row="[SETUP — rhyme groups — 2,4]"
+   caret 49/121  line2="I hold the dove--oh my"  row="[SETUP — rhyme groups — 2,4]"
+   final text:
+     | [VERSE]
+     | Oh--oh, oh my love
+     | I hold the dove--oh my
+     | 
+     | [CHORUS]
+     | Run to the sea
+     | And stay with me
+     | 
+     | [SETUP — rhyme groups — 2,4]
+exit 0

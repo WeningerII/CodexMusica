@@ -1,0 +1,27 @@
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card/built-wt-695.html --quiet
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card/build-main/built-wt-main.html --quiet  # cmp vs codex.html
+cmp built-wt-695.html vs wt-695/codex.html: IDENTICAL; library/code/* identical
+# main build: cmp IDENTICAL to wt-main/codex.html; library chunks identical; built outputs deleted (serve tree roots directly)
+node /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card/cuts.js /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 <lines>  -> cuts.out
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node a_paths.js cand > a_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node a_paths.js main > a_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node a_paths.js prev > a_prev.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node b_stress.js cand txt 10 50 200 500 > b_cand_txt.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node b_stress.js cand lib 10 500 > b_cand_lib.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node c_cross.js cand > c_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node c7_control.js main > c7_control_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node c7_control.js cand > c7_control_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node d_card.js cand > d_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node e_extra.js cand > e_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node e_extra.js main > e_main.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node e_extra.js cand > e_cand.log 2>&1   # rerun after fixing the cross-evict check (ambiguous word matching)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node e_extra.js prev > e_prev.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695 && PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers node scripts/check_lyrics_page.js > /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card/author_check_lyrics_page_cand.log 2>&1
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card && node f_collapsed.js cand > f_cand.log 2>&1
+# NOTES
+# - a_paths.js cand was run twice: the first run had two test-data mistakes (AH reading token 5, group 5.T7: both blocked, not renumbered) and a truth
+#   function without the word; lib.js (v1Words oracle) and a_paths.js were fixed and the run repeated; a_cand.log/json are the second run.
+# - main/prev a_* "PASS" lines for reload/sessionImport/lib.reload are vacuous (no card on either side: null === null).
+# - e_extra.js cand was rerun after replacing an ambiguous A/B word match in the cross-evict check (words ah/my/heart/... repeat across A and B).
+# - All browser runs: Chromium /opt/pw-browsers/chromium, local http server over the tree root (codex.html verified identical to the CODEX_LIBRARY=1 build),
+#   mcp.codexmusica.com routed to an in-process stub (no provider, no network). No CHAT_SECRET used. No tracked file modified (git status: only node_modules symlink).

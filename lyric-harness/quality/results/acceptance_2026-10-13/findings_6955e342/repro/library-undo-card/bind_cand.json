@@ -1,0 +1,187 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "scheme": "v2",
+ "lexicon": "build_lexicon('v2','none')",
+ "points": {
+  "P1_A_before_B": {
+   "document": "[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+   "declarations": {
+    "title": "Song A",
+    "groups": "1.T5,2.T5"
+   },
+   "sung": [
+    "Ah--ah, ah my heart is burning",
+    "Ah--ah, ah my part is turning"
+   ],
+   "page_sung": [
+    "Ah--ah, ah my heart is burning",
+    "Ah--ah, ah my part is turning"
+   ],
+   "card_words_at_send": [
+    "heart",
+    "part"
+   ],
+   "draftId_at_send": null,
+   "bound": [
+    {
+     "field": "groups",
+     "group": 0,
+     "member": "1.T5",
+     "line_no": 1,
+     "line": "Ah--ah, ah my heart is burning",
+     "token_index0": 4,
+     "raw_token": "heart",
+     "raw_chars": [
+      [
+       14,
+       19
+      ]
+     ],
+     "raw_text_at_chars": "heart",
+     "resolve_label": "heart",
+     "anchor_syllables": 1,
+     "oov": []
+    },
+    {
+     "field": "groups",
+     "group": 0,
+     "member": "2.T5",
+     "line_no": 2,
+     "line": "Ah--ah, ah my part is turning",
+     "token_index0": 4,
+     "raw_token": "part",
+     "raw_chars": [
+      [
+       14,
+       18
+      ]
+     ],
+     "raw_text_at_chars": "part",
+     "resolve_label": "part",
+     "anchor_syllables": 1,
+     "oov": []
+    }
+   ]
+  },
+  "P2_after_B": {
+   "document": "[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+   "declarations": {
+    "title": "Song B",
+    "returns": "1.T5,2.T5"
+   },
+   "sung": [
+    "Oh--oh, oh sweet love",
+    "Oh--oh, oh sweet dove"
+   ],
+   "page_sung": [
+    "Oh--oh, oh sweet love",
+    "Oh--oh, oh sweet dove"
+   ],
+   "card_words_at_send": [
+    "love",
+    "dove"
+   ],
+   "draftId_at_send": "draft:6dd3a18d-c4fc-4f64-af4f-693901db4512",
+   "bound": [
+    {
+     "field": "returns",
+     "group": 0,
+     "member": "1.T5",
+     "line_no": 1,
+     "line": "Oh--oh, oh sweet love",
+     "token_index0": 4,
+     "raw_token": "love",
+     "raw_chars": [
+      [
+       17,
+       21
+      ]
+     ],
+     "raw_text_at_chars": "love",
+     "resolve_label": "love",
+     "anchor_syllables": 1,
+     "oov": []
+    },
+    {
+     "field": "returns",
+     "group": 0,
+     "member": "2.T5",
+     "line_no": 2,
+     "line": "Oh--oh, oh sweet dove",
+     "token_index0": 4,
+     "raw_token": "dove",
+     "raw_chars": [
+      [
+       17,
+       21
+      ]
+     ],
+     "raw_text_at_chars": "dove",
+     "resolve_label": "dove",
+     "anchor_syllables": 1,
+     "oov": []
+    }
+   ]
+  },
+  "P3_after_app_undo": {
+   "document": "[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+   "declarations": {
+    "title": "Song A",
+    "groups": "1.T5,2.T5"
+   },
+   "sung": [
+    "Ah--ah, ah my heart is burning",
+    "Ah--ah, ah my part is turning"
+   ],
+   "page_sung": [
+    "Ah--ah, ah my heart is burning",
+    "Ah--ah, ah my part is turning"
+   ],
+   "card_words_at_send": [
+    "love",
+    "dove"
+   ],
+   "draftId_at_send": "draft:7486f291-23c0-4a86-ac66-146b86d76333",
+   "bound": [
+    {
+     "field": "groups",
+     "group": 0,
+     "member": "1.T5",
+     "line_no": 1,
+     "line": "Ah--ah, ah my heart is burning",
+     "token_index0": 4,
+     "raw_token": "heart",
+     "raw_chars": [
+      [
+       14,
+       19
+      ]
+     ],
+     "raw_text_at_chars": "heart",
+     "resolve_label": "heart",
+     "anchor_syllables": 1,
+     "oov": []
+    },
+    {
+     "field": "groups",
+     "group": 0,
+     "member": "2.T5",
+     "line_no": 2,
+     "line": "Ah--ah, ah my part is turning",
+     "token_index0": 4,
+     "raw_token": "part",
+     "raw_chars": [
+      [
+       14,
+       18
+      ]
+     ],
+     "raw_text_at_chars": "part",
+     "resolve_label": "part",
+     "anchor_syllables": 1,
+     "oov": []
+    }
+   ]
+  }
+ }
+}

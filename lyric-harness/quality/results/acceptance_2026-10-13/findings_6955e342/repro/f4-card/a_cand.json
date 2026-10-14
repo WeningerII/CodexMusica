@@ -1,0 +1,1523 @@
+{
+ "tree": "cand",
+ "url": "http://127.0.0.1:35733/codex.html#lyrics",
+ "steps": {
+  "txt": {
+   "after": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — reading — token 2 \"sing\" in \"we sing it plain tonight\" — S IH1 NG — declared — source: me]\n[SETUP — reading — token 5 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2;4.T3,5.T7 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — needs a decision: numbered under the earlier word cut]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight\nAh--ah, ah my heart and soul",
+   "truth": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "line": 1,
+     "n": [
+      1
+     ],
+     "from": 4,
+     "to": 5,
+     "lineText": "Oh--oh, oh my love"
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "line": 5,
+     "n": [
+      5
+     ],
+     "from": 6,
+     "to": 7,
+     "lineText": "Ah--ah, ah my heart and soul"
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "line": 1,
+     "n": [
+      1
+     ],
+     "from": 3,
+     "to": 4,
+     "lineText": "Oh--oh, oh my love"
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "line": 3,
+     "n": [
+      3
+     ],
+     "from": 3,
+     "to": 4,
+     "lineText": "Oh--oh, oh my love"
+    }
+   ],
+   "toasts": [
+    "1 saved word number without the current cut mark needs your decision before the writer can be asked. 7 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “heart” word 4 → 5, “lost” word 4 → 5, …. Review lists each one until you dismiss it."
+   ],
+   "card": {
+    "item": {
+     "title": "7 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "tone": "note",
+     "category": "Pronunciation",
+     "where": "Setup",
+     "actions": [
+      [
+       "ly-renumbered-dismiss",
+       "Dismiss",
+       "x",
+       ""
+      ]
+     ]
+    },
+    "pane": "Current version · 997fbfc\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nlines 1 and 3\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\n7 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm require a new review.",
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "reading",
+       "word": "heart",
+       "n": [
+        5
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "lost",
+       "n": [],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        5
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "uiLen": 480,
+    "draftId": null
+   },
+   "cmp": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "from": 2,
+     "to": 3,
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "from": 4,
+     "to": 5,
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "from": 4,
+     "to": 5,
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "from": 4,
+     "to": 5,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "from": 6,
+     "to": 7,
+     "n": [
+      5
+     ],
+     "line": 5,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      3
+     ],
+     "line": 3,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    }
+   ]
+  },
+  "txtReload": {
+   "stored": {
+    "items": [
+     {
+      "kind": "reading",
+      "word": "oh",
+      "n": [
+       1,
+       3
+      ],
+      "from": 2,
+      "to": 3
+     },
+     {
+      "kind": "reading",
+      "word": "heart",
+      "n": [
+       5
+      ],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "reading",
+      "word": "lost",
+      "n": [],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "rhyme groups",
+      "word": "love",
+      "n": [
+       1
+      ],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "rhyme groups",
+      "word": "soul",
+      "n": [
+       5
+      ],
+      "from": 6,
+      "to": 7
+     },
+     {
+      "kind": "returns",
+      "word": "my",
+      "n": [
+       1
+      ],
+      "from": 3,
+      "to": 4
+     },
+     {
+      "kind": "returns",
+      "word": "my",
+      "n": [
+       3
+      ],
+      "from": 3,
+      "to": 4
+     }
+    ],
+    "more": 0
+   },
+   "card": {
+    "item": {
+     "title": "7 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "tone": "note",
+     "category": "Pronunciation",
+     "where": "Setup",
+     "actions": [
+      [
+       "ly-renumbered-dismiss",
+       "Dismiss",
+       "x",
+       ""
+      ]
+     ]
+    },
+    "pane": "Current version · 997fbfc\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nlines 1 and 3\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\n7 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm require a new review.",
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "reading",
+       "word": "heart",
+       "n": [
+        5
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "lost",
+       "n": [],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        5
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "uiLen": 480,
+    "draftId": null
+   },
+   "cmp": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "from": 2,
+     "to": 3,
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "from": 4,
+     "to": 5,
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "from": 4,
+     "to": 5,
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "from": 4,
+     "to": 5,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "from": 6,
+     "to": 7,
+     "n": [
+      5
+     ],
+     "line": 5,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      3
+     ],
+     "line": 3,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    }
+   ]
+  },
+  "export": {
+   "renumbered": {
+    "items": [
+     {
+      "kind": "reading",
+      "word": "oh",
+      "n": [
+       1,
+       3
+      ],
+      "from": 2,
+      "to": 3
+     },
+     {
+      "kind": "reading",
+      "word": "heart",
+      "n": [
+       5
+      ],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "reading",
+      "word": "lost",
+      "n": [],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "rhyme groups",
+      "word": "love",
+      "n": [
+       1
+      ],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "rhyme groups",
+      "word": "soul",
+      "n": [
+       5
+      ],
+      "from": 6,
+      "to": 7
+     },
+     {
+      "kind": "returns",
+      "word": "my",
+      "n": [
+       1
+      ],
+      "from": 3,
+      "to": 4
+     },
+     {
+      "kind": "returns",
+      "word": "my",
+      "n": [
+       3
+      ],
+      "from": 3,
+      "to": 4
+     }
+    ],
+    "more": 0
+   }
+  },
+  "sessionImport": {
+   "card": {
+    "item": {
+     "title": "7 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "tone": "note",
+     "category": "Pronunciation",
+     "where": "Setup",
+     "actions": [
+      [
+       "ly-renumbered-dismiss",
+       "Dismiss",
+       "x",
+       ""
+      ]
+     ]
+    },
+    "pane": "Current version · 997fbfc\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nlines 1 and 3\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\n7 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm require a new review.",
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "reading",
+       "word": "heart",
+       "n": [
+        5
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "lost",
+       "n": [],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        5
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "uiLen": 480,
+    "draftId": null
+   },
+   "draft": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — reading — token 2 \"sing\" in \"we sing it plain tonight\" — S IH1 NG — declared — source: me]\n[SETUP — reading — token 5 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2;4.T3,5.T7 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — needs a decision: numbered under the earlier word cut]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight\nAh--ah, ah my heart and soul"
+  },
+  "lib": {
+   "after": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — reading — token 2 \"sing\" in \"we sing it plain tonight\" — S IH1 NG — declared — source: me]\n[SETUP — reading — token 5 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2;4.T3,5.T7 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — needs a decision: numbered under the earlier word cut]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight\nAh--ah, ah my heart and soul",
+   "truth": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "line": 1,
+     "n": [
+      1
+     ],
+     "from": 4,
+     "to": 5,
+     "lineText": "Oh--oh, oh my love"
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "line": 5,
+     "n": [
+      5
+     ],
+     "from": 6,
+     "to": 7,
+     "lineText": "Ah--ah, ah my heart and soul"
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "line": 1,
+     "n": [
+      1
+     ],
+     "from": 3,
+     "to": 4,
+     "lineText": "Oh--oh, oh my love"
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "line": 3,
+     "n": [
+      3
+     ],
+     "from": 3,
+     "to": 4,
+     "lineText": "Oh--oh, oh my love"
+    }
+   ],
+   "toasts": [
+    "1 saved word number without the current cut mark needs your decision before the writer can be asked. 7 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “heart” word 4 → 5, “lost” word 4 → 5, …. Review lists each one until you dismiss it.",
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "card": {
+    "item": {
+     "title": "7 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "tone": "note",
+     "category": "Pronunciation",
+     "where": "Setup",
+     "actions": [
+      [
+       "ly-renumbered-dismiss",
+       "Dismiss",
+       "x",
+       ""
+      ]
+     ]
+    },
+    "pane": "Current version · 997fbfc\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nlines 1 and 3\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\n7 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm require a new review.",
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "reading",
+       "word": "heart",
+       "n": [
+        5
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "lost",
+       "n": [],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        5
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "uiLen": 480,
+    "draftId": "draft:a747f663-1c5d-4881-833f-e53406cddce4"
+   },
+   "cmp": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "from": 2,
+     "to": 3,
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "from": 4,
+     "to": 5,
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "from": 4,
+     "to": 5,
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "from": 4,
+     "to": 5,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "from": 6,
+     "to": 7,
+     "n": [
+      5
+     ],
+     "line": 5,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      3
+     ],
+     "line": 3,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    }
+   ]
+  },
+  "libReload": {
+   "card": {
+    "item": {
+     "title": "7 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+     "tone": "note",
+     "category": "Pronunciation",
+     "where": "Setup",
+     "actions": [
+      [
+       "ly-renumbered-dismiss",
+       "Dismiss",
+       "x",
+       ""
+      ]
+     ]
+    },
+    "pane": "Current version · 997fbfc\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nlines 1 and 3\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\n7 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm require a new review.",
+    "meta": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        3
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "reading",
+       "word": "heart",
+       "n": [
+        5
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "lost",
+       "n": [],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "love",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        5
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        1
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "returns",
+       "word": "my",
+       "n": [
+        3
+       ],
+       "from": 3,
+       "to": 4
+      }
+     ],
+     "more": 0
+    },
+    "uiLen": 480,
+    "draftId": "draft:a747f663-1c5d-4881-833f-e53406cddce4"
+   },
+   "idbBefore": [
+    {
+     "draftId": "draft:a4cc975e-1a28-4a6b-ab25-308bc19cb59e",
+     "title": "Untitled song",
+     "textHead": null,
+     "renumbered": null
+    },
+    {
+     "draftId": "draft:a747f663-1c5d-4881-833f-e53406cddce4",
+     "title": "Old Song",
+     "textHead": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my l",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "oh",
+        "n": [
+         1,
+         3
+        ],
+        "from": 2,
+        "to": 3
+       },
+       {
+        "kind": "reading",
+        "word": "heart",
+        "n": [
+         5
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "reading",
+        "word": "lost",
+        "n": [],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "love",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "soul",
+        "n": [
+         5
+        ],
+        "from": 6,
+        "to": 7
+       },
+       {
+        "kind": "returns",
+        "word": "my",
+        "n": [
+         1
+        ],
+        "from": 3,
+        "to": 4
+       },
+       {
+        "kind": "returns",
+        "word": "my",
+        "n": [
+         3
+        ],
+        "from": 3,
+        "to": 4
+       }
+      ],
+      "more": 0
+     }
+    }
+   ],
+   "idbAfter": [
+    {
+     "draftId": "draft:a4cc975e-1a28-4a6b-ab25-308bc19cb59e",
+     "title": "Untitled song",
+     "textHead": null,
+     "renumbered": null
+    },
+    {
+     "draftId": "draft:a747f663-1c5d-4881-833f-e53406cddce4",
+     "title": "Old Song",
+     "textHead": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my l",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "reading",
+        "word": "oh",
+        "n": [
+         1,
+         3
+        ],
+        "from": 2,
+        "to": 3
+       },
+       {
+        "kind": "reading",
+        "word": "heart",
+        "n": [
+         5
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "reading",
+        "word": "lost",
+        "n": [],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "love",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "soul",
+        "n": [
+         5
+        ],
+        "from": 6,
+        "to": 7
+       },
+       {
+        "kind": "returns",
+        "word": "my",
+        "n": [
+         1
+        ],
+        "from": 3,
+        "to": 4
+       },
+       {
+        "kind": "returns",
+        "word": "my",
+        "n": [
+         3
+        ],
+        "from": 3,
+        "to": 4
+       }
+      ],
+      "more": 0
+     }
+    }
+   ]
+  }
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "cand.a.txt.every",
+   "claim": ".txt import: the card lists every renumbered entry with old -> new, word, line",
+   "expected": "7 entries, each in meta, item text and pane",
+   "observed": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "from": 2,
+     "to": 3,
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "from": 4,
+     "to": 5,
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "from": 4,
+     "to": 5,
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "from": 4,
+     "to": 5,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "from": 6,
+     "to": 7,
+     "n": [
+      5
+     ],
+     "line": 5,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      3
+     ],
+     "line": 3,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    }
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "cand.a.txt.orphanLine",
+   "claim": "a renumbered reading whose line text is not a sung line of the draft names its line on the card",
+   "expected": "some line reference or the line text",
+   "observed": {
+    "n": [],
+    "cardText": "the reading for “lost”: word 4 → 5"
+   },
+   "status": "fail"
+  },
+  {
+   "id": "cand.a.txt.reload",
+   "claim": "the card survives a reload with the same entries",
+   "expected": "identical meta.items and every entry rendered",
+   "observed": {
+    "sameMeta": true,
+    "rendered": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.a.export",
+   "claim": "the exported session file carries the card",
+   "expected": "lyricMeta.ui.renumbered equal to the page context",
+   "observed": {
+    "items": [
+     {
+      "kind": "reading",
+      "word": "oh",
+      "n": [
+       1,
+       3
+      ],
+      "from": 2,
+      "to": 3
+     },
+     {
+      "kind": "reading",
+      "word": "heart",
+      "n": [
+       5
+      ],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "reading",
+      "word": "lost",
+      "n": [],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "rhyme groups",
+      "word": "love",
+      "n": [
+       1
+      ],
+      "from": 4,
+      "to": 5
+     },
+     {
+      "kind": "rhyme groups",
+      "word": "soul",
+      "n": [
+       5
+      ],
+      "from": 6,
+      "to": 7
+     },
+     {
+      "kind": "returns",
+      "word": "my",
+      "n": [
+       1
+      ],
+      "from": 3,
+      "to": 4
+     },
+     {
+      "kind": "returns",
+      "word": "my",
+      "n": [
+       3
+      ],
+      "from": 3,
+      "to": 4
+     }
+    ],
+    "more": 0
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.a.sessionImport",
+   "claim": "a session import in a fresh profile restores the card",
+   "expected": "identical meta.items, card rendered",
+   "observed": {
+    "sameMeta": true,
+    "title": "7 saved word numbers renumbered to the current word cut"
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.a.lib.every",
+   "claim": "Library working-copy import: the card lists every renumbered entry",
+   "expected": "7 entries, each in meta, item text and pane",
+   "observed": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "from": 2,
+     "to": 3,
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "from": 4,
+     "to": 5,
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "from": 4,
+     "to": 5,
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "from": 4,
+     "to": 5,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "from": 6,
+     "to": 7,
+     "n": [
+      5
+     ],
+     "line": 5,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      3
+     ],
+     "line": 3,
+     "inMeta": true,
+     "inItemText": true,
+     "inPane": true
+    }
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "cand.a.lib.sameAsTxt",
+   "claim": "the Library path migrates to the same text and the same card entries as the .txt path",
+   "expected": "same draft text and same meta.items",
+   "observed": {
+    "sameText": true,
+    "sameItems": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.a.lib.reload",
+   "claim": "after a Library import the card survives a reload",
+   "expected": "identical meta.items",
+   "observed": {
+    "sameMeta": true,
+    "idb": [
+     [
+      "draft:a4cc975e-1a28-4a6b-ab25-308bc19cb59e",
+      false
+     ],
+     [
+      "draft:a747f663-1c5d-4881-833f-e53406cddce4",
+      true
+     ]
+    ]
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.a.lib.sessionImport",
+   "claim": "Library draft: session export/import into a fresh profile restores the card",
+   "expected": "identical meta.items",
+   "observed": {
+    "sameMeta": true
+   },
+   "status": "pass"
+  }
+ ]
+}

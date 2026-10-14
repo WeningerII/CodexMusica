@@ -1,0 +1,309 @@
+{
+  "tree": "main",
+  "cases": [
+    {
+      "id": "main.enter.U_in_2end",
+      "chatFocused": "chat-input",
+      "reached": 0,
+      "sent": [],
+      "migrated": false,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "ref": [
+        {
+          "lo": 27,
+          "hi": 27
+        },
+        {
+          "lo": 27,
+          "hi": 27
+        }
+      ],
+      "expectedShown": "[SETUP — returns — 1.T2, 2.|end]",
+      "sameChars": true,
+      "errors": []
+    },
+    {
+      "id": "main.enter.U_sel_2end",
+      "chatFocused": "chat-input",
+      "reached": 0,
+      "sent": [],
+      "migrated": false,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "ref": [
+        {
+          "lo": 25,
+          "hi": 25
+        },
+        {
+          "lo": 30,
+          "hi": 30
+        }
+      ],
+      "expectedShown": "[SETUP — returns — 1.T2, «2.end»]",
+      "sameChars": true,
+      "errors": []
+    },
+    {
+      "id": "main.enter.C_sel_T2",
+      "chatFocused": "chat-input",
+      "reached": 0,
+      "sent": [],
+      "migrated": false,
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "ref": [
+        {
+          "lo": 19,
+          "hi": 19
+        },
+        {
+          "lo": 23,
+          "hi": 23
+        }
+      ],
+      "expectedShown": "[SETUP — returns — «1.T2», 2.end]",
+      "sameChars": true,
+      "errors": []
+    },
+    {
+      "id": "main.enter.S_body_walk",
+      "chatFocused": "chat-input",
+      "reached": 0,
+      "sent": [],
+      "migrated": false,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "ref": [
+        {
+          "lo": 63,
+          "hi": 63
+        },
+        {
+          "lo": 63,
+          "hi": 63
+        }
+      ],
+      "expectedShown": "I w|alk the line tonight",
+      "sameChars": true,
+      "errors": []
+    },
+    {
+      "id": "main.sendButton.U_in_2end",
+      "chatFocused": "chat-input",
+      "reached": 1,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "ref": [
+        {
+          "lo": 27,
+          "hi": 27
+        },
+        {
+          "lo": 27,
+          "hi": 27
+        }
+      ],
+      "expectedShown": "[SETUP — returns — 1.T2, 2.|end]",
+      "sameChars": true,
+      "errors": []
+    },
+    {
+      "id": "main.sendButton.U_sel_2end",
+      "chatFocused": "chat-input",
+      "reached": 1,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "ref": [
+        {
+          "lo": 25,
+          "hi": 25
+        },
+        {
+          "lo": 30,
+          "hi": 30
+        }
+      ],
+      "expectedShown": "[SETUP — returns — 1.T2, «2.end»]",
+      "sameChars": true,
+      "errors": []
+    },
+    {
+      "id": "main.sendButton.C_sel_T2",
+      "chatFocused": "chat-input",
+      "reached": 1,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "ref": [
+        {
+          "lo": 19,
+          "hi": 19
+        },
+        {
+          "lo": 23,
+          "hi": 23
+        }
+      ],
+      "expectedShown": "[SETUP — returns — «1.T2», 2.end]",
+      "sameChars": true,
+      "errors": []
+    },
+    {
+      "id": "main.sendButton.S_body_walk",
+      "chatFocused": "chat-input",
+      "reached": 1,
+      "sent": [
+        {
+          "returns": "1.T2, 2.end"
+        }
+      ],
+      "migrated": false,
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "after": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "ref": [
+        {
+          "lo": 63,
+          "hi": 63
+        },
+        {
+          "lo": 63,
+          "hi": 63
+        }
+      ],
+      "expectedShown": "I w|alk the line tonight",
+      "sameChars": true,
+      "errors": []
+    }
+  ]
+}

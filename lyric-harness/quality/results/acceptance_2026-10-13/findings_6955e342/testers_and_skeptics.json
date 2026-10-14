@@ -1,0 +1,909 @@
+{
+ "workflow": "wf_c18c5072-536",
+ "candidate": "6955e342963a90bdf470741266cea0dd84f0a797",
+ "agents": [
+  {
+   "agent": "f4-card",
+   "result": {
+    "task": "F4 (the renumbering Review card) on candidate 6955e342 (code 643e292e), wt-695. Controls: main 8b1d2ad2 (wt-main) and previous candidate 67889851 (wt-678). Label f4-card.",
+    "verdict": "MIXED",
+    "checks": [
+     {
+      "id": "a1",
+      "claim": "After a .txt import whose unmarked rows renumber, a persistent Review card lists every renumbered entry with its old -> new number, word and line",
+      "expected": "7 of 7 entries (computed from my own diff of the rows before and after) in ui.renumbered, in the card text and in the rendered Review pane",
+      "observed": "7 of 7 listed, for example: the reading for \"oh\", lines 1 and 3: word 2 -> 3; a rhyme link on \"soul\", line 5: word 6 -> 7; a declared return on \"my\", line 3: word 3 -> 4. The unchanged reading and the blocked reading are not listed. The title reads '7 saved word numbers renumbered to the current word cut'.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW. On main there is no migration and no card. At 67889851 there is a migration with a toast only, and no card.",
+      "evidence": "a_paths.js -> a_cand.log, a_cand.json (steps.txt); controls a_main.log, a_prev.log"
+     },
+     {
+      "id": "a2",
+      "claim": "The same holds after a Library working-copy import (a .json envelope through the Lyrics file input, i.e. lyLibraryImport)",
+      "expected": "Every entry listed; same migrated text as the .txt path",
+      "observed": "7 of 7 listed. The migrated text and ui.renumbered.items are identical to the .txt path.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "a_cand.json steps.lib; record cand.a.lib.every, cand.a.lib.sameAsTxt"
+     },
+     {
+      "id": "a3",
+      "claim": "The card survives a reload, and a session export followed by an import into a fresh browser profile, on both paths",
+      "expected": "Identical ui.renumbered and the card rendered",
+      "observed": "Identical after reload (.txt and Library), in the exported session JSON, and after import into a fresh context, on both paths",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "a_cand.log records cand.a.txt.reload, cand.a.export, cand.a.sessionImport, cand.a.lib.reload, cand.a.lib.sessionImport; a_cand_session*.json"
+     },
+     {
+      "id": "a4",
+      "claim": "Every listed entry names its line",
+      "expected": "A line reference, or the line text",
+      "observed": "A renumbered reading whose line text is not a sung line of the draft is listed as 'the reading for \"lost\": word 4 -> 5', with no line and no line text. The card never shows line text; only numbers, which are frozen at migration time.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW (the card is new)",
+      "evidence": "a_cand.log record cand.a.txt.orphanLine; lyrics.js:483-486 n = sung lines whose text === m.line, :527 at() omits the reference when n is empty"
+     },
+     {
+      "id": "b1",
+      "claim": "One import that renumbers 50 / 200 / 500 entries: the card lists every one",
+      "expected": "N listed, none lost",
+      "observed": ".txt: 48/50, 49/200 and 48/500 listed; 2, 151 and 452 not listed. Library: 49/500, 451 not listed (10/10 at N=10 on both paths). The truth was computed from the row diffs and equals the generator's count in every run. Entries are evicted from the front of the card order (readings, then rhyme groups, then returns), so at N=200 and N=500 every reading is gone, including the 6-line chorus reading and both long-word readings. The hidden entries cannot be recovered in the app: the toast shows the first 3, and a rewritten group row does not show which of its members moved.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "b_stress.js -> b_cand_txt.log/json, b_cand_lib.log/json, b_stress_*.txt; lyrics.js:468 LY_RENUMBERED_ROOM=3200, :493-498 items.shift()"
+     },
+     {
+      "id": "b2",
+      "claim": "The card counts every renumbered entry and says how many are hidden",
+      "expected": "Title = N; the hidden count = N - listed",
+      "observed": "The title gives 50, 200 and 500 exactly, and the text says 'and 2 / 151 / 452 earlier ones no longer listed' (451 on the Library path). That equals the entries lost. ui stays at 3,131-3,230 characters (under 4,000) and is unchanged after a reload. Every listed entry renders in the pane.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "b_cand_txt.json runs[].cardTitleCount/metaMore/cardSaysHidden/uiLen/afterReloadSame"
+     },
+     {
+      "id": "b3",
+      "claim": "No word on the card is cut",
+      "expected": "Full words, or a visible truncation mark",
+      "observed": "Words of 57 characters are stored and shown as their first 40 characters ('supercalifragilisticexpialidociousantidi'), in quotes and with no ellipsis. That is 4 entries at N=10 and 2-3 at the larger sizes. The toast shows the full word.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW in the card. Main already truncates at 40 in two live member lists (lyrics.js 4185 and 4321), but those are recomputed from the text; the card is a stored record.",
+      "evidence": "b_cand_txt.json runs[].wordTruncated; lyrics.js:478"
+     },
+     {
+      "id": "b4",
+      "claim": "A reading names every line it applies to",
+      "expected": "Lines 1-6 for a reading on a line sung 6 times",
+      "observed": "The card reads 'lines 1, 2, 3 and 4' ([1..6] -> [1,2,3,4]), which looks like a complete list and gives no 'more' marker (N=10, both paths). At N>=50 that reading is evicted outright.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "b_cand_txt.json runs[0].linesCut; lyrics.js:485 .slice(0, 4)"
+     },
+     {
+      "id": "c1",
+      "claim": "Cross-import, .txt then .txt (and Library then .txt): A's entries survive B",
+      "expected": "The card keeps A and adds B",
+      "observed": "Pass for .txt A -> .txt B (both renumbering), .txt A -> a .txt that renumbers nothing, and Library A -> .txt B. All on the same card, which does not say which import each entry came from.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "c_cross.js -> c_cand.log (C1, C2, C5)"
+     },
+     {
+      "id": "c2",
+      "claim": "Cross-import with Library activation: A's card evidence survives (intentional per-draft isolation, distinguished from loss)",
+      "expected": "Either A+B on the card, or A kept with A's own draft",
+      "observed": "PER-DRAFT ISOLATION, not loss. After .txt A -> Library B (and Library A -> Library B), the card shows only B. A's entries are kept in A's preserved draft record in IndexedDB, and History -> 'Open draft' brings A's card back; reopening B brings B's back. A Library copy that renumbers nothing shows no card, and A stays stored. A dismissal in B leaves A's card intact and persists with B. Nothing on screen says A's card stays with A's draft (the import toast says only 'Your previous draft is under History').",
+      "status": "pass",
+      "new_vs_preexisting": "NEW card. Replacing lyricMeta on activation is pre-existing (lyrics.js:2654 and main).",
+      "evidence": "c_cand.log C3, C4, C6, D4 (idb dumps in c_cand.json)"
+     },
+     {
+      "id": "c3",
+      "claim": "Undo across a Library import keeps A's card evidence",
+      "expected": "After Undo (A's text and draftId back), the card and A's IndexedDB record hold A's entries",
+      "observed": "LOSS. .txt A -> Library B -> Undo: the draft is A's text with A's draftId, but the card lists B's entries (bravo, banjo). The persist then overwrites A's stored draft record with B's entries, so A's evidence is gone from the page and the store, and it stays that way after a reload.",
+      "status": "fail",
+      "new_vs_preexisting": "Mechanism PRE-EXISTING: Undo restores lyricMetaHistory without ui (app.js _restoreSnapshot). The main control shows A's preserved draft losing a display-state key (ui.probe) the same way, and so does the candidate. Losing card evidence is the NEW consequence.",
+      "evidence": "c_cand.log C7; c7_control.js -> c7_control_main.log, c7_control_cand.log"
+     },
+     {
+      "id": "c4",
+      "claim": "A session import followed by Undo keeps A's card",
+      "expected": "A's text and A's card",
+      "observed": "LOSS. .txt A -> session import of another session -> Undo: A's migrated text returns with no card.",
+      "status": "fail",
+      "new_vs_preexisting": "Mechanism PRE-EXISTING (session import replaces lyricMeta; ui is not in Undo history). Card loss is NEW.",
+      "evidence": "c_cand.log C8"
+     },
+     {
+      "id": "c5",
+      "claim": "The card matches the draft after Undo of a .txt import",
+      "expected": "After Undo of import B, B's entries (text no longer in the draft) are no longer listed",
+      "observed": "After the Undo the card still lists apple, anchor, bravo and banjo over A's text; Redo is consistent. These entries are stale, not lost.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "c_cand.log C1"
+     },
+     {
+      "id": "c6",
+      "claim": "With dismissal, a dismissed card does not come back",
+      "expected": "Dismissing A, then importing B (.txt or Library), lists only B; reopening A's draft shows no card",
+      "observed": "As expected (D1, D3), and the dismissal persists across a reload",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "c_cand.log D1, D3"
+     },
+     {
+      "id": "d1",
+      "claim": "Dismiss has a way back",
+      "expected": "Undo or a confirmation (tester's expectation)",
+      "observed": "The real Dismiss button removes ui.renumbered at once: no toast, no Undo action, no history step (history [2,3] -> [2,3]). Undo afterwards does not restore the card; it reverts the writer's previous text step instead (the import itself in D2; an inserted line in d_card). The card says 'Dismiss this when you have checked them' and does not say this is permanent.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "d_card.js -> d_cand.log, d_cand.json (dismiss, undoAfterDismiss); c_cand.log D2; lyrics.js:5651-5656"
+     },
+     {
+      "id": "d2",
+      "claim": "Line references stay correct after an edit",
+      "expected": "Line refs follow the text, or the card shows the line text",
+      "observed": "After a line is inserted above the verse, the card still reads 'the reading for \"oh\", lines 1 and 3' while those lines are now 2 and 4. There is no line text to disambiguate.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "d_cand.log record cand.d.frozenLines"
+     },
+     {
+      "id": "d3",
+      "claim": "The card stays visible ('persistent') after a review has run",
+      "expected": "Card text visible in Review",
+      "observed": "Once a stubbed review returns run items, 'Local checks' renders closed (open only when there are no run items), so the card is hidden until the person expands it. Before the review it was open and visible.",
+      "status": "fail",
+      "new_vs_preexisting": "Local-checks rule PRE-EXISTING (same line on main); placing the card there is NEW",
+      "evidence": "f_collapsed.js -> f_cand.log, f_cand_after_review.png; lyrics.js:4433"
+     },
+     {
+      "id": "d4",
+      "claim": "Wording and tone are accurate",
+      "expected": "No misleading statements",
+      "observed": "Tone is 'note' (info icon), category 'Pronunciation' (also used for rhyme-link and return entries), where 'Setup'. Text: 'Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: ... Nothing else about them changed. Dismiss this when you have checked them.' Issues: (1) In a single large import, 'and N earlier ones no longer listed' describes entries of the same import (the first in card order, mostly readings), not earlier ones. (2) Truncated words and cut line lists look complete (b3, b4). (3) A single card mixes entries from several imports with no source. The entry format ('word 2 -> 3', word, line numbers) is clear on desktop and at 390 px.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "a_cand.json steps.txt.card; b_cand_txt.json cardTextTail; d_cand_card_desktop.png, d_cand_card_phone.png"
+     },
+     {
+      "id": "r2",
+      "claim": "R2's own page gate (unit B section 4, browser 9d) passes on the candidate",
+      "expected": "PASS",
+      "observed": "LYRICS PAGE: PASS, 529 assertions. Note: 9d dismisses the card before the Library import, so it does not exercise cross-import persistence, and nothing in it stresses more than about 60 entries via a direct lyRecordRenumbered loop.",
+      "status": "pass",
+      "new_vs_preexisting": "n/a",
+      "evidence": "author_check_lyrics_page_cand.log; wt-695 scripts/check_lyrics_page.js 1122-1173, 3028-3205"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "A Library working copy whose unmarked rows migrate is marked 'Adapted' as soon as it is imported, with no edit by the person (adapted:true, label 'Complete reading · Adapted'). A copy that does not migrate stays unadapted. By code, a later working-copy download then empties payload.declarations (library-import.js makeWorkingCopyEnvelope: origin.adapted ? [] : declarations); that consequence was not runtime-tested. Present on the candidate and at 67889851, absent on main.",
+      "severity": "minor",
+      "evidence": "e_extra.js -> e_cand.log, e_prev.log, e_main.log (records *.e.adapted.migrating); a_cand_review.png shows 'Adapted'"
+     },
+     {
+      "severity": "note",
+      "summary": "At a Library import the migration toast is replaced at once by 'Library working copy imported…', so the card is the only lasting notice of the renumbering.",
+      "evidence": "a_cand.json steps.lib.toasts"
+     },
+     {
+      "summary": "3PO's (1) is confirmed at runtime. The 40-character cut (lyrics.js:478), the 4-line cut (:485) and front eviction with only a count (:493-498) all lose evidence in a single large import. Capacity measured with my generator: 48-49 short-word entries per draft (estimate; fewer with long words). 3PO's (3) is confirmed only in part: Library activation isolates the card per draft, and the draft keeps it recoverably. Real loss happens only through Undo across a Library import (C7) or a session import followed by Undo (C8), both on pre-existing mechanisms.",
+      "severity": "blocker",
+      "evidence": "b_cand_txt.json, b_cand_lib.json, c_cand.log C3/C6/C7/C8, c7_control_main.log"
+     },
+     {
+      "summary": "wt-main shows an untracked mcp/node_modules that this run did not create; it is left untouched. No tracked file was modified in any tree.",
+      "severity": "note",
+      "evidence": "git -C wt-main status --short"
+     }
+    ],
+    "not_covered": [
+     "F1 selection mapping (3PO point 2) and the N.end / bare-N returns semantics: other labels' scope",
+     "The Saved sessions Save/Load path (restoreSavedWorkspace) for the card: not runtime-tested",
+     "Migrations at the send and mount boundaries (card recording): not separately tested; only the two import paths, reload and session export/import",
+     "Two tabs / storage-event sync of the card",
+     "A crafted envelope or session whose ui is near 4,000 characters (lyricMetaOf would drop the whole ui, card included, uncounted): theoretical, not tested",
+     "The declarations-drop consequence of 'Adapted' on re-export: code-read only",
+     "Capacity figures are for this generator's words (about 60 characters per entry); real songs may differ (label: estimate)",
+     "The phone layout: card screenshot only, no interaction"
+    ],
+    "artifacts_dir": "<scratch>/h695/f4-card"
+   }
+  },
+  {
+   "agent": "f1-selection",
+   "result": {
+    "task": "F1 (f1-selection): migration only at boundaries, with caret and selection checked. Candidate page 6955e342 (code 643e292e) is wt-695. Controls: main 8b1d2ad2 (wt-main) for the page, and the previous candidate 67889851 (wt-678). The pages are served from each tree's committed codex.html. Each one is byte-identical (cmp) to a fresh `CODEX_LIBRARY=1 node scripts/build_html.js` build. Runs used headless Chromium 141.0.7390.37 at /opt/pw-browsers/chromium. /chat was stubbed locally, so no provider was reached.",
+    "verdict": "FAIL",
+    "checks": [
+     {
+      "id": "a1",
+      "claim": "item1_caret repro (caret2.js scenario B): typing '--oh my' at 160 ms per key after 'dove', with an unmarked '[SETUP — rhyme groups — 2,4]' in the draft, neither rewrites the row nor moves the caret, and no declaration is lost.",
+      "expected": "The caret follows the typing (43→49). The row stays '[SETUP — rhyme groups — 2,4]'. The page's own parse (lyParse + lyDeclarationsOf) keeps setup=[row] and groups '2,4'. Behaviour equals main.",
+      "observed": "Candidate: caret 43→44→…→49 (length 115→121). The row is unchanged, and the final text equals main's byte for byte. parse_final on the candidate gives setup ['[SETUP — rhyme groups — 2,4]'], groups '2,4', 4 sung lines, identical to main. Previous candidate wt-678, same script: caret 43→162 (end of document), the row was rewritten to '2 (carried across the word-cut change),4 — cut v2' and 'oh my' was appended after ']'.",
+      "status": "pass",
+      "new_vs_preexisting": "FIXED in the candidate. The failure was candidate-only at 67889851. main and the candidate now behave the same.",
+      "evidence": "h695/f1-selection/a_caret/vpr6/caret2_cand695.log, caret2_main.log, caret2_cand678.log, parse_final_cand695.out.json, parse_final_main.out.json"
+     },
+     {
+      "id": "a2",
+      "claim": "caret.js, all 6 cases (typed or inserted unmarked T<k>, marked T<k>, bare members on changed and unchanged lines, unmarked reading row), plus caret2 A.observe/A.restore: the typing refresh never runs the migration.",
+      "expected": "No call to lyEnsureTokenScheme changes the text. The caret stays put, ZQ lands on the intended line 5, and the declarations parse as on main.",
+      "observed": "Candidate, all cases: caret 75→75, 84→84, 72→72, 72→72, 100→100, 75→75, with ZQ on line 5. The wrapped lyEnsureTokenScheme recorded no rewriting call during typing (A.observe calls=[]). The final documents parse to the same setup rows and declarations as main (a_parse_caret.log). The only difference is that main keeps ' — cut v2' inside the value of the one pre-marked row, which is main's own pre-existing behaviour.",
+      "status": "pass",
+      "new_vs_preexisting": "The candidate now matches main. At 67889851, 4 of 6 cases jumped to the end of the document.",
+      "evidence": "a_caret/vpr6/caret_cand695.log, caret_main.log, caret2_cand695.log; a_parse_caret.log/.json"
+     },
+     {
+      "id": "a3",
+      "claim": "page-rules scen_H: a row typed key by key at the top of the draft does not move the caret.",
+      "expected": "Z lands right after the typed row, on line 1.",
+      "observed": "Candidate: Z at offset 31 on line 1. The row stays '[SETUP — rhyme groups — 1.T4,8]' while typing, with no toast. The old assertion H.typed.today (expected a renumbering while typing) now reports FAIL on the candidate exactly as on main. That is the intended F1 change, not a defect.",
+      "status": "pass",
+      "new_vs_preexisting": "Candidate equals main. Fixed relative to 67889851, where the caret went to 236 (line 12).",
+      "evidence": "a_caret/page-rules/scen_H_cand695.log, scen_H_main.log"
+     },
+     {
+      "id": "b1",
+      "claim": "These are not boundaries: typing (160 ms per key), paste (insertText), blur (pushHistory), Review/Tools tab switching, opening the Rhymes and Repeats tools.",
+      "expected": "The unmarked rows are left byte for byte and lyEnsureTokenScheme makes no rewriting call.",
+      "observed": "typedRowIntact, pastedIntact, blurIntact and switchIntact are all true. The wrapper recorded no calls. No toast. The caret after paste is 64 as expected.",
+      "status": "pass",
+      "new_vs_preexisting": "Same as main. 67889851 rewrote here.",
+      "evidence": "b_boundaries_cand_rerun.log / b_boundaries_cand_typing-nativeUndo.json (rerun after fixing my own fixture expectation; the first run's typing entry is superseded)"
+     },
+     {
+      "id": "b2",
+      "claim": "OPEN boundary, session restored at start: the migration runs before the first history step and adds no step.",
+      "expected": "The draft, app.lyrics and saved localStorage all hold the migrated text, which equals the hand expectation (1.T4→1.T5, 1.T2→1.T3 with 2.end kept, reading token 2→3, each rewritten row marked). History is [migrated] at index 0 and Undo is disabled.",
+      "observed": "Exactly that: steps ['MIGRATED'], idx 0, undoDisabled true, saved 'MIGRATED'. The toast lists the 3 renumberings. The page's own lyMigrateSavedReadings output equals the hand expectation (true). Main control: ['UNMARKED'], no toast.",
+      "status": "pass",
+      "new_vs_preexisting": "New behaviour by design. main has no migration.",
+      "evidence": "b_boundaries_cand.json scen.restore; b_boundaries_main.json"
+     },
+     {
+      "id": "b3",
+      "claim": "OPEN boundary, saved session loaded (loadWS) and copied (forkWS): the migration runs at open and adds no step. Undo returns to the draft from before the open and Redo returns to the migrated text.",
+      "expected": "Steps go from [EMPTY, OTHER] to [EMPTY, OTHER, MIGRATED]. Undo gives OTHER, Redo gives MIGRATED. No step holds the unmarked rows. Undo and Redo make no migration call.",
+      "observed": "load and copy both: at=[EMPTY, OTHER, MIGRATED] idx 2; Undo gives idx 1 OTHER; Redo gives idx 2 MIGRATED. ensure calls: one 'open' call from uiLyricsOpened in restoreSavedWorkspace, and none during Undo/Redo. Step counts equal main's (main holds UNMARKED).",
+      "status": "pass",
+      "new_vs_preexisting": "New behaviour by design. Step count is unchanged from main.",
+      "evidence": "b_boundaries_cand.json scen.load / scen.copy; b_boundaries_main.json"
+     },
+     {
+      "id": "b4",
+      "claim": "OPEN boundary, session file imported (#ui-file, uiImport).",
+      "expected": "Migrated, one step, Undo gives OTHER, Redo gives MIGRATED.",
+      "observed": "at=[EMPTY, OTHER, MIGRATED]; Undo gives OTHER, Redo gives MIGRATED. ensure: open via uiImport. No call during Undo/Redo.",
+      "status": "pass",
+      "new_vs_preexisting": "New behaviour by design. Step count is the same as main.",
+      "evidence": "b_boundaries_cand.json scen.importSession"
+     },
+     {
+      "id": "b5",
+      "claim": "IMPORT boundary, .txt (#ly-file → lyImportText).",
+      "expected": "One step holding the migrated text. Undo gives the previous draft, Redo gives the migrated text.",
+      "observed": "at=[EMPTY, OTHER, MIGRATED]; Undo gives OTHER, Redo gives MIGRATED. The renumbering toast is shown. No call during Undo/Redo.",
+      "status": "pass",
+      "new_vs_preexisting": "New behaviour by design. Step count is the same as main.",
+      "evidence": "b_boundaries_cand.json scen.importTxt"
+     },
+     {
+      "id": "b6",
+      "claim": "IMPORT boundary, Library working copy: a saved draft holding unmarked rows, restored through LY_ACTIONS['ly-library-restore'] → lyLibraryActivate.",
+      "expected": "The draft is migrated at activation and Undo/Redo do not migrate.",
+      "observed": "at=[EMPTY, OTHER, OTHER, MIGRATED]; Undo gives OTHER, Redo gives MIGRATED. ensure: open via lyLibraryActivate. The extra OTHER step comes from lyLibraryActivate's own pushHistory after the draftId change, and main shows the same 4 steps (with UNMARKED).",
+      "status": "pass",
+      "new_vs_preexisting": "The migration is new by design. The extra step is pre-existing (also on main).",
+      "evidence": "b_boundaries_cand.json scen.library; b_boundaries_main.json scen.library"
+     },
+     {
+      "id": "b7",
+      "claim": "SEND boundary, before anything is sent: Run review (focused, or after blur), a typed lyrics-edit request (uiLyricContext), Rhyme options, and resume.",
+      "expected": "Migrated before the request. The wire carries current-cut numbers in the writer's spelling. The writer's text is recorded first and then replaced by the migrated text. Undo gives the draft before the typing, Redo gives the migrated text. No step holds the typed unmarked rows.",
+      "observed": "All 5 sends: at=[EMPTY, BODY, MIGRATED]. The /chat body declarations were {groups:'1.T5,8', returns:'1.T3, 2.end', pronunciations:[token 3 'oh']}. Undo gives BODY, Redo gives MIGRATED, with no call during Undo/Redo. main sends {groups:'1.T4,8', returns:'1.T2, 2.end', token 2}. Note: when the editor was never blurred, the candidate records one step (the writer's own text, migrated) where main records none. With a blur first, both trees have 3 steps.",
+      "status": "pass",
+      "new_vs_preexisting": "New behaviour by design.",
+      "evidence": "b_boundaries_cand.json scen.sendReview, sendReviewAfterBlur, sendChat, sendRhymeOptions, sendResume; b_boundaries_main.json"
+     },
+     {
+      "id": "b8",
+      "claim": "Undo and Redo never run the migration, across steps that hold hand-typed unmarked rows. The next boundary migrates only the current step.",
+      "expected": "Undo/Redo restore each step exactly, with no toast and no rewriting call. Run review then replaces the current step. Undo after that returns the earlier unmarked step exactly.",
+      "observed": "walk undo, undo, redo, redo: idx 2, 1, 2, 3. Texts match exactly, no toasts, ensureDuringWalk=[]. After Run review, step 3 is the migrated text (1.T5,8 — cut v2 / 1.T3, 2.end — cut v2). Undo gives step 2 '[SETUP — returns — 1.T2, 2.end]' unchanged. Redo gives the migrated text.",
+      "status": "pass",
+      "new_vs_preexisting": "New behaviour by design.",
+      "evidence": "b_boundaries_cand.json scen.undoRedoTyped"
+     },
+     {
+      "id": "b9",
+      "claim": "OPEN boundary at page mount (lyrics.js:6148).",
+      "expected": "It migrates any unmarked text the draft holds at mount.",
+      "observed": "Checked by reading the code only, not run as a separate boundary. workbench.js:834 mounts every page, and the mount creates #lyrics-draft. uiRestoreSession is scheduled after that (workbench.js:1109) and migrates there. So on a normal boot the mount call sees an empty draft, and b2 shows the end state.",
+      "status": "cannot_tell",
+      "new_vs_preexisting": "new code",
+      "evidence": "wt-695 src/workbench.js:834,1109,2085; src/pages/lyrics.js:6148"
+     },
+     {
+      "id": "b10",
+      "claim": "A boundary rewrite leaves the writer's in-text undo (Ctrl+Z inside the textarea) as it is on main.",
+      "expected": "After a send, Ctrl+Z in the editor undoes the last typing, as on main.",
+      "observed": "Candidate: ' again' was typed on line 2, then a typed request was sent, migrating the rows. Two Ctrl+Z presses change nothing ('I walk the line tonight again' stays): setting draft.value programmatically cleared the browser's native undo stack. main: Ctrl+Z gives '…agai', then '…aga'.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW (candidate-only; it happens only when a boundary actually rewrites). The app-level Undo (b3–b8) is fine.",
+      "evidence": "b_boundaries_cand_rerun.log / b_boundaries_main_rerun.log, scenario nativeUndo"
+     },
+     {
+      "id": "c1",
+      "claim": "3PO case: unmarked '[SETUP — returns — 1.T2, 2.end]' (line 1 'Oh--oh, oh my love' re-cut, T2→T3; line 2 unchanged). With the caret or selection on the unchanged member '2.end', a send boundary keeps it on the same characters.",
+      "expected": "The row becomes '[SETUP — returns — 1.T3, 2.end — cut v2]' (confirmed). Caret 2.|end stays at 27, and selection [25,30] '2.end' stays [25,30].",
+      "observed": "The row text is as expected. Run review with the editor focused, and a typed request sent with a real click on #chat-send: caret 27 → 39 '…2.end — cut v2|]'. Selection [25,30] '2.end' (forward and backward) → [39,39], collapsed. Row at the bottom: 166 → 178, and [164,169] → [178,178]. Typing ZQ next gives '— cut v2ZQ]', and the page reads the row as an unknown cut 'v2zq', so returns_need_decision lists every member. The page's offsets equal lyMapOffset's prediction in 48/48 cases.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW. main does not rewrite (its selection stays 27 / [25,30]). 67889851 rewrote with no mapping at all.",
+      "evidence": "c_selection_cand_prog.log, c_selection_cand_chat.log, c_chat_real_cand.log (sendButton), c_summary_cand.json; control c_selection_main_all.log (144/144 same characters)"
+     },
+     {
+      "id": "c2",
+      "claim": "The caret or selection inside the CHANGED member stays on the same characters.",
+      "expected": "'1.T|2' → '1.T|3'; '1.T2|' → '1.T3|' (23); selection '1.T2' [19,23] → '1.T3' [19,23].",
+      "observed": "'1.T|2' 22→22 is correct. '1.T2|' 23 → 39 (before ']'). Selection [19,23] → [19,39], which covers '1.T3, 2.end — cut v2'. Typing ZQ replaces it, leaving '[SETUP — returns — ZQ]', and the page parses returns 'ZQ': the 2.end member and the mark are gone. The same happens with a real Send-button click. Reading row: selecting the number '2' [25,26] → [25,94] (the whole tail); typing gives '[SETUP — reading — token ZQ]' and the declarations parse to {}.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "c_selection_cand_prog.log (RET/RHY C_*, READ.C_sel_num), c_chat_real_cand.log C_sel_T2"
+     },
+     {
+      "id": "c3",
+      "claim": "Caret after the row, or before its ']', stays on the same characters.",
+      "expected": "After ']' maps to after the new ']'. Before ']' may land anywhere between 'end' and ']'.",
+      "observed": "After the row: 31→40, 36→45, 53→62, 86→95, 170→179 (bottom), all correct. Before ']': 30→39, which is inside the acceptable range.",
+      "status": "pass",
+      "new_vs_preexisting": "n/a",
+      "evidence": "c_selection_cand_prog.log E_* cases"
+     },
+     {
+      "id": "c4",
+      "claim": "Rhyme-groups rows, including several unchanged members around the changed one, and a bare final member.",
+      "expected": "Every unchanged member keeps the selection on its own characters.",
+      "observed": "'[SETUP — rhyme groups — 1.T2, 2.end]' behaves exactly like c1/c2 (32→44; [30,35]→[44,44]). Several members, '2.end,4; 1.T2,3.T2; 5.end, 6': members BEFORE the changed one map correctly (2.|end 26→26, '4' [30,31]→[30,31]). Members AFTER it collapse to before ']': '3.T2' [38,42]→[61,61], 5|.end 45→61, '6' [51,52]→[61,61]. '2.end, 4.end; 5.end,6.end; 1.T2,4.T2': '4.T2' [51,55]→[63,64], which is the '2' of 'cut v2'. Bare final member '1.T2,2': caret before member '2' 29→38 (inside 'cut v|2'), and selection '2' [29,30]→[38,39] (the mark's '2'). Typing then gives 'cut vZQ]' and the row reads as unknown cut 'vzq'. Overall, 5 of 24 unchanged-member positions and 5 of 12 changed-member positions map correctly: only positions before the first changed character of the row.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "c_selection_cand_prog.log / c_selection_cand_chat.log (identical offsets in 48/48), c_summary_cand.json"
+     },
+     {
+      "id": "c5",
+      "claim": "A carried named place, and a second row that does not change.",
+      "expected": "'[SETUP — returns — 1.end, 2.end]' becomes '1.end (carried across the word-cut change), 2.end — cut v2', and the caret in 2.end goes to 65. The unchanged row keeps every byte and the caret inside it.",
+      "observed": "Carried row: caret 28 → 77 (expected 65), and [26,31] → [77,77]. Two rows: '[SETUP — rhyme groups — 5.end, 6]' keeps every byte with no mark, the wire keeps '5.end, 6', and the caret/selection inside it maps correctly (57→66, [63,64]→[72,73]).",
+      "status": "fail",
+      "new_vs_preexisting": "NEW (the carried case). The unchanged-row part passes and follows the agreed policy.",
+      "evidence": "c_selection_cand_prog.log CARRIED; c_selection_cand_tworows.log"
+     },
+     {
+      "id": "c6",
+      "claim": "A real mouse click on Run review keeps the writer's selection mapped. This was the most common boundary trigger in my runs.",
+      "expected": "The same characters as the prog trigger. On sung text, 63 → 72.",
+      "observed": "In all 48 click cases plus 3 two-row cases, the selection ends at [0,0], even on sung text (S_body_walk 63→0). The page maps correctly (trace: 63→72 inside lyEnsureTokenScheme), but about 40 ms later, with no script call (setters and setSelectionRange are hooked), Chromium resets it to 0. This happens when a click handler changes an unfocused textarea's value. A bare-page probe reproduces it (click: [22,22]→[0,0]; mousedown or keyboard Enter: kept). Keyboard activation of Run review keeps 72. The chat Send button (form submit) is not affected. Refocusing and typing then puts ZQ before the first [SETUP] row, and the page parses setup [] and declarations {}. main keeps the selection (63) after the same click.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW: main never changes the value at a send. Root cause is browser behaviour (Chromium 141) that the page does not handle.",
+      "evidence": "c_selection_cand_click.log, c_click_diag_cand.log/_main.log, c_click_diag2_cand.log, c_click_diag3_cand_{click,kbd,blurprog,mouseblur_prog,click_ensure_only}.log, c_chrome_probe2.log"
+     },
+     {
+      "id": "d1",
+      "claim": "Phone layout (390x844): the Song tab's remembered caret (LY.songCaret, raw offsets) comes back on the same characters after a Run review on the Review tab.",
+      "expected": "'I w|alk' 63 → 72, and selection 'Well-worn' [84,93] → [93,102].",
+      "observed": "With programmatic or keyboard activation, the raw pre-boundary offsets are restored: 63 lands at 'Oh--oh, oh my| love'; [84,93] selects ' tonight\\n', and typing ZQ merges two sung lines into 'I walk the lineZQWell-worn shoes upon the floor'. With real taps, the restore lands at [0,0]. main restores 63 and [84,93] correctly in both modes. A caret inside the row's unchanged prefix (27) is correct by coincidence.",
+      "status": "fail",
+      "new_vs_preexisting": "NEW",
+      "evidence": "d_mobile_cand_prog.log, d_mobile_cand_tap.log, d_mobile_main_prog.log, d_mobile_main_tap.log"
+     },
+     {
+      "id": "e1",
+      "claim": "Members are not respelled, and N.end vs bare N survive migration and reach the wire (for the rows I used).",
+      "expected": "'2.end' stays '2.end', bare '4'/'6' stay bare, separators and spacing are kept, and only rewritten rows gain the mark.",
+      "observed": "Sent: '1.T3, 2.end'; '2.end,4; 1.T3,3.T2; 5.end, 6'; '2.end, 4.end; 5.end,6.end; 1.T3,4.T2'; carried row '1.end,2.end'; unchanged row '5.end, 6' with no mark.",
+      "status": "pass",
+      "new_vs_preexisting": "n/a",
+      "evidence": "sent fields in c_selection_cand_*.json, c_selection_cand_tworows.log"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "New in 6955e342: because migration now happens only at boundaries, an unmarked row typed or pasted by hand stays in the draft until the next one. A Rhymes form commit made in between (Remove link or Add link, through lySetSetup) marks that row '— cut v2' without migrating it. The same row then binds a different word depending on which action came first, and the form path gives no notice. Before any boundary, the Declared links list also shows the current-cut word for the unmarked number.",
+      "severity": "blocker",
+      "evidence": "e_form_mark_{cand,main,c678}.log. Draft: '[SETUP — rhyme groups — 1.T4,8; 2,3]' over 'Oh--oh, oh my love'. Candidate path A (Run review first): the list shows 'Line 1 · my', the send migrates and sends '1.T5,8; 2,3' ('love'), with a toast. Path B (remove link 2,3 first): the row becomes '[SETUP — rhyme groups — 1.T4,8 — cut v2]' and the send is '1.T4,8' ('my'), with no renumbering notice. Path C (add link 5,7): '1.T4,8;2,3;5,7 — cut v2' is sent ('my'). main: every path shows and sends 'love' under its v1 cut. 67889851: every path is migrated first and sends '1.T5' ('love'). Frequency not estimated: it needs an unmarked T<k> row typed or pasted by hand on a re-cut line, plus a form commit before a boundary."
+     },
+     {
+      "summary": "Root cause of c1–c5, matching 3PO's static review: lyMapOffset takes one common prefix and suffix for the whole rewritten row. Every position after the first changed character and before the final ']' collapses to before ']'. When the original row ends in '2]', it falls on the '2' of ' — cut v2', which is a different character. My node copy of lyMapOffset predicts the page's offsets exactly (96/96 migrated prog+chat cases).",
+      "severity": "minor",
+      "evidence": "refmap.js (lyMapOffset copy plus an independent member-aware reference); c_selection_cand_*.json field pagePredicted == after.sel"
+     },
+     {
+      "summary": "R2's tests do not cover these paths. The unit test uses a mock draft object. The browser test 9d calls lyEnsureTokenScheme() and reads the caret in the same evaluate, with the editor focused and the caret on sung text only. Neither puts a selection inside a rewritten row, neither uses a real click, and neither covers LY.songCaret.",
+      "severity": "note",
+      "evidence": "wt-695 scripts/check_lyrics_page.js unitBoundaries and step '9d. migration boundaries'"
+     },
+     {
+      "summary": "Enter in the chat input inserts a newline and sends nothing; the request goes out only through the Send button. This is the same on main, so it is not a candidate defect. My first chat-real run typed into the song by mistake (the dock was not open) and was redone through LY_ACTIONS['edit-lyrics'].",
+      "severity": "note",
+      "evidence": "c_chat_real_cand.log / c_chat_real_main.log (enter: reached=0 on both trees)"
+     }
+    ],
+    "not_covered": [
+     "Writer reply as a non-boundary (a reply that applies text with unmarked rows) was not run.",
+     "The Library envelope import ('Open in Lyrics' → lyLibraryImport) was not run; only the restore of a saved working copy was.",
+     "The page-mount boundary was checked by reading the code only (b9).",
+     "F4 renumbered-card persistence across a Library activation (3PO point 3) belongs to F4 and was not checked here.",
+     "Engines other than Chromium 141 headless. The click reset (c6) is Chromium behaviour and may differ elsewhere.",
+     "Frequencies of the selection cases and of the form-commit case (e1 finding) were not estimated.",
+     "Whether the page blocks a send for the bad member left after typing over an expanded selection ('returns':'ZQ') was not checked."
+    ],
+    "artifacts_dir": "<scratch>/h695/f1-selection"
+   }
+  },
+  {
+   "agent": "f6-bytes-returns",
+   "result": {
+    "task": "F6 and RETURNS N.end semantics on candidate 6955e342 (code 643e292e), main 8b1d2ad2 as page control, 61b6618a as previous candidate, fce4bf0f as harness control: (a) unchanged rows keep every byte; (b) rewritten rows respell only changed members; (c) actual /chat payload parsed by each harness tree's mandate parser.",
+    "verdict": "MIXED",
+    "checks": [
+     {
+      "id": "a1-unchanged-rows-identity-paths",
+      "claim": "A row whose binding the migration does not change keeps every byte and gains no mark (F6).",
+      "expected": "All 14 unchanged-binding scenarios (U1-U13: bare N, N.end, N.endword, N.head, N.headrime, N.line, N.T<k>, zero-padded T, odd spacing such as '5.end, 6.T5' and '5.end , 6.end ; 4.T4 ,  8.T2', T members on changed-cut lines whose number is unchanged, voices off and on; plus M1, already marked), both keys, byte-identical after load, reload, Keep, reload after Keep, session and .txt export, re-import of the exported files, and import of the ORIGINAL legacy text as .txt and as a session file. The saved copy equals the draft.",
+      "observed": "Candidate: 308/308 rows byte-identical; 0 saved-copy differences; no Review notice on any of them. Main (control, which has no migration): 308/308. Previous candidate 61b6618a: 165/308. It marks every unchanged T row ('5.T5,6.T5 — cut v2') and turns N.end into a bare N ('5.end, 6.T5' becomes '5,6.T5 — cut v2').",
+      "status": "pass",
+      "new_vs_preexisting": "NEW in 643e292e: a fix relative to 61b6618a and 67889851. Main keeps the bytes trivially, because it has no migration.",
+      "evidence": "h695/f6-bytes-returns/report.txt section (a); rows_matrix.tsv; page_cand.json, page_main.json, page_prev61b.json (drive.js, /chat stubbed in-page); scenarios.json"
+     },
+     {
+      "id": "a2-unchanged-rows-reorder",
+      "claim": "Section reorder keeps unchanged rows unmarked, with their spelling kept.",
+      "expected": "After a reorder the line numbers follow their lines. No mark is added, and each member's place spelling is kept.",
+      "observed": "Candidate, both directions and after a reload, n=14 per key per step: 0 marks added and 0 spelling changes. Moving the section back restores the original bytes for 12/14 rows. The other 2 (U8, U9, the odd-spaced rows) lose their whitespace, because lyAssemble rewrites through lyGroupsText. Main, the same step: 6/14 returns rows and 5/14 rhyme rows turn N.end into a bare N ('5.end,6.end' becomes '1,2', then '5,6'), and the spacing is normalized too. 61b: like main, and it also marks.",
+      "status": "pass",
+      "new_vs_preexisting": "Spelling kept and no mark: NEW fix (main and 61b lose N.end). Whitespace normalization on reorder: PRE-EXISTING (main does the same).",
+      "evidence": "report.txt '(a, continued)' R/reorder1, reorder2, reorder2_reload"
+     },
+     {
+      "id": "a3-unchanged-rows-forms",
+      "claim": "The Repeats form (placed return), the Rhymes form (link) and 'Declare exact repeat' keep the existing members' spelling. The other key's row is untouched.",
+      "expected": "Each form rewrites its own key's row in the page's format, with the members' spellings kept. The other key's row keeps its bytes.",
+      "observed": "Candidate, n=14 per form: the target row gains '— cut v2' in 13/14 (M1 was already marked); 0 spelling changes; whitespace normalized in 2/14. The other key's row is byte-identical 14/14. Main: the Repeats form and Declare exact repeat turn N.end into a bare N in 6/14 returns rows, and the Rhymes form in 5/14 rhyme rows. 61b: the same, plus the mark.",
+      "status": "pass",
+      "new_vs_preexisting": "Spelling kept: NEW fix. Forms always add the mark by page design (lySetSetup). See c4: that mark is applied to rows that were never migrated.",
+      "evidence": "report.txt '(a, continued)' FP/FR/FD; page_cand.json flows FP, FR, FD"
+     },
+     {
+      "id": "b1-rewritten-rows-only-changed-members",
+      "claim": "A rewritten row respells only the members that changed, in the writer's own spelling. Unchanged members keep their bytes. Only rewritten rows gain the mark.",
+      "expected": "For each of the 12 rewrite scenarios W1-W12 x 2 keys, the hand-derived expectation from the two cuts (cuts2.out), not from the page code. Examples: '4.end,6.end' becomes '4.end (carried across the word-cut change),6.end — cut v2'; '5.end, 1.T4 ; 6.endword ,8.T4' becomes '5.end, 1.T5 ; 6.endword ,8.T5 — cut v2'; '1.T1,5.T1' becomes '1.T1 (numbered under the earlier cut),5.T1 — cut v2'; voices-on '7.T5,5.T5' becomes '7.T6,5.T5 — cut v2'.",
+      "observed": "Candidate: 364/364 rows at the load, reload and all four import boundaries (26 scenarios x 2 keys x 7 steps) equal the expectation byte for byte, odd spacing included (W4, W12). The mark appears only on rows that were rewritten. 61b, for contrast: 'W4' becomes '5,1.T5;6.endword,8.T5 — cut v2' (N.end lost, spacing lost). Minor: a changed zero-padded member is respelled in the page's spelling ('1.T04' becomes '1.T5'), while the unchanged '5.T03' is kept.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW in 643e292e: fixes the 61b and 67889851 behaviour.",
+      "evidence": "expected_check.txt; report.txt section (b); rerun_vpm2/page_end_returns.log (the prior repro re-run unchanged except for paths)"
+     },
+     {
+      "id": "b2-keep-rewrites-whole-row",
+      "claim": "Keep on a carried member keeps the unchanged members' bytes.",
+      "expected": "Only the carried annotation is removed.",
+      "observed": "Keep rewrites the whole row through lyGroupRow. W12 returns '4.end (C) , 6.end ;  5.T2, 6.T2 — cut v2' becomes '4.end,6.end;5.T2,6.T2 — cut v2', and rhymes '4.end (C) ,6 ; 5.head,  6.head' becomes '4.end,6;5.head,6.head'. The spellings and the meaning are kept; the whitespace of the unchanged members is lost.",
+      "status": "fail",
+      "new_vs_preexisting": "Branch behaviour, also at 61b (61b additionally drops .end). Main has no Keep. Not introduced by 643e292e. Minor: whitespace only.",
+      "evidence": "report.txt section (b) W12; page_cand.json W12 flow A step keep"
+     },
+     {
+      "id": "b3-whole-line-returns-rewritten",
+      "claim": "Rows whose binding cannot change keep every byte.",
+      "expected": "A returns member that is a bare N or N.line (whole line, verbatim) binds the same text under either cut, so the row is left as written.",
+      "observed": "Returns '4,6' on L4, whose cut changed, becomes '4 (carried across the word-cut change),6 — cut v2'. Its Review notice says 'line 4 · last rhyme', but the grader reads a whole line. Returns '4.line,6.line' becomes '4.line (C),6.line — cut v2' with the notice 'whole line'. Each needs a Keep, and the row's bytes, and so its review identity, change. The wire stays semantically right ('4,6' whole line; '4.line,6.line').",
+      "status": "fail",
+      "new_vs_preexisting": "Present at 61b and 67889851; the 'last rhyme' label was already reported on 67889851. Not on main, which has no migration. Rows that main's 'Declare exact repeat' writes (bare N) are affected on lines whose cut changed.",
+      "evidence": "report.txt (b) W5 R, W7 R; rerun_vpm2/page_end_returns.log [cand] R2; carried-notice dump in the A-flow 'load' items of page_cand.json"
+     },
+     {
+      "id": "c1-nend-placed-through-every-path",
+      "claim": "N.end in RETURNS stays a placed return (not whole-line) on the wire through migration, Keep, reload, reorder, forms, export and import, and in sibling groups.",
+      "expected": "Parsing the actual /chat declarations.returns with each harness tree's own mandate parser (_groups, then quality.schemes.mandate) gives a placed class with locus 'end' for every N.end member.",
+      "observed": "The original payload_and_mandate.py was run unchanged on the song8 rows: W1 '4.end,6.end', W2 '5.end,6.end;1.T4,8.T4' and W3 '1.end,6.head', at 13 stages each (load, reload, Keep, reload after Keep, reorder x2, Repeats form, Rhymes form, Declare exact repeat, and four imports). Candidate: 39/39 sends keep N.end placed. On load the candidate sends '4.end,6.end' (placed: L4:end, L6:end), '5.end,6.end;1.T5,8.T5' (placed, with L5:end, L6:end and L1:T5, L8:T5) and '1.end,6.head' (placed). Main: 12/39 lose it. Reorder and the Repeats and Declare forms send '4,6', '5,6;...' (whole line), or '1,6.head', which the harness refuses as a mixed class. 61b: 39/39 lose it, so the prior finding reproduces there. fce4bf0f, 61b6618a and 6955e342 parse every payload identically. Over all 26 scenarios, returns semantics are kept 25/25 at each of the 13 stages; W9 is blocked by design.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW in 643e292e: the candidate no longer converts N.end to a whole-line return on any measured path. Main's reorder and form conversion is PRE-EXISTING and fixed by the candidate.",
+      "evidence": "song8_stages_mandate.json/.log; rerun_vpm2/payload_and_mandate.json/.log; report.txt section (c) and '(c, detail)'; wire_matrix.tsv; wire_parsed.json"
+     },
+     {
+      "id": "c2-wire-exact",
+      "claim": "The candidate's wire strings are exactly the policy-expected declarations, T numbers included.",
+      "expected": "In flows A (load, reload, Keep) and X (export and import), the groups and returns sent equal the expected row value with the page's annotations and the mark removed.",
+      "observed": "384/384 exact. Unchanged rows are sent as written, odd spacing included ('5.end, 6.T5').",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "wire_exact_check.txt"
+     },
+     {
+      "id": "c3-cli-semantics",
+      "claim": "The placed and whole-line difference is real in the grader (CLI path, lyric_harness.py brief over song8).",
+      "expected": "Placed and whole-line returns produce different obligations.",
+      "observed": "Candidate harness: '4.end,6.end' is refused (RETURN_PLACEMENT_ABSENT, L4 has no end), not certified. '4,6' is whole-line, flagged RETURN_NOT_VERBATIM, and certified. '5.end,6.end;1.T5,8.T5' is placed and reads L5.end='tonight', L6.end='floor', L1.T5='love', L8.T5='tonight'. '5,6;...' compares the whole lines. The migrated '1.T5,8.T5' binds 'love'/'tonight', the same words base binds for the written '1.T4,8.T4'.",
+      "status": "pass",
+      "new_vs_preexisting": "n/a (measurement)",
+      "evidence": "cli/cand_brief_*.log, cli/base_brief_*.log, cli/run.log"
+     },
+     {
+      "id": "c4-form-launders-unmigrated-row",
+      "claim": "An unmarked row typed or pasted since the last boundary is migrated at the next boundary (LYRICS_RUNTIME, F1).",
+      "expected": "The pasted '[SETUP — rhyme groups — 1.T4,8.T4]', or the returns '5.end,6.end;1.T4,8.T4', is read under the earlier cut and sent as 1.T5,8.T5 ('love'/'tonight'), whatever the writer does before sending.",
+      "observed": "Paste, then send: migrated, sent '1.T5,8.T5'. Paste, then the Rhymes form, the Repeats form or 'Declare exact repeat' before any boundary: the form merges the unmigrated row and marks it '— cut v2' ('1.T4,8.T4;5,6 — cut v2'). The send boundary then skips it and sends '1.T4,8.T4'. The candidate harness binds that to L1.T4='my' and L8.T4='close', silently, with no notice. Main + fce4bf0f binds the same text to 'love'/'tonight'. 61b's typing refresh migrated the paste at once (T5). Reorder keeps the row unmarked, and it then migrates correctly ('5.T5,4.T5').",
+      "status": "fail",
+      "new_vs_preexisting": "NEW in 643e292e, a consequence of moving the migration off the typing refresh (F1) while forms still mark the rows they write. Not on main, not on 61b.",
+      "evidence": "report.txt EXTRAS P_groups_form, P_returns_form, P_returns_declare, P_groups_send, P_returns_send, P_returns_reorder (all three trees); cli/cand_brief_1aT4`8aT4.log ('my','close'), cli/cand_brief_1aT5`8aT5.log and cli/base_brief_1~T4-8~T4.log ('love','tonight')"
+     },
+     {
+      "id": "c5-voices-toggle",
+      "claim": "Toggling voices does not silently rebind an unmarked unchanged row.",
+      "expected": "U11 (voices off: returns '7.end,5.end', rhymes '7.T4,5.T5'). After the Repeats & voices form sets parentheses to sung, the next send either keeps the declared words or refuses visibly.",
+      "observed": "Candidate: at the send boundary returns becomes '7.end (C),5.end — cut v2' and rhymes '7.T4 (U),5.T5 — cut v2'. Nothing is sent, and the toast names 7.T4. Main sends '7.T4' unchanged, so the v1 reader with voices on binds 'oh--oh' silently. 61b sends returns '7,5' (whole line) and binds v2 T4='oh' silently.",
+      "status": "pass",
+      "new_vs_preexisting": "Candidate behaviour is visible. Main's silent positional rebinding is PRE-EXISTING. This matches the documented, owner-open cost that an unmarked row is re-read under the earlier cut.",
+      "evidence": "report.txt EXTRAS V_U11"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "NEW, candidate-only: the Rhymes form, the Repeats placed-return form and 'Declare exact repeat' mark a hand-pasted or typed unmarked rhyme-groups or returns row '— cut v2' without migrating it. The next send therefore treats its v1 word numbers as v2 and binds different words silently ('1.T4,8.T4': 'my'/'close' instead of 'love'/'tonight'). Sending first instead migrates it correctly. The same text gets two obligations depending on whether a form ran before the next boundary. The path is narrow (an unmarked row pasted or typed after open, then a form before any send, open or import), but the failure is a silent wrong-word binding, the class of item2. Likely also reached by other whole-key merges such as ly-link-remove and ly-drop-undecided (not measured).",
+      "severity": "blocker",
+      "evidence": "report.txt EXTRAS P_* (cand vs main vs prev61b); src/pages/lyrics.js lySetSetup marks every group row it writes; lyDraftApply and LY_ACTIONS['ly-declare-repeat'] do not call lyEnsureTokenScheme; cli/cand_brief_1aT4`8aT4.log vs cli/base_brief_1~T4-8~T4.log"
+     },
+     {
+      "summary": "Whole-line returns members (bare N and N.line in a RETURNS row) on a line whose cut changed are still rewritten: carried annotation, mark and a Review notice that needs a Keep. A whole-line binding cannot change with the cut, so this departs from 'rows whose binding does not change keep every byte'. The notice for a bare N still says 'last rhyme' (already reported on 67889851). It also hits every bare-N row main's 'Declare exact repeat' wrote on such lines.",
+      "severity": "minor",
+      "evidence": "report.txt (b) W5 R, W7 R; rerun_vpm2/page_end_returns.log [cand] R2"
+     },
+     {
+      "summary": "Keep on a carried member (and reorder or forms on any row) rewrites the whole row in the page's format, collapsing the writer's whitespace in unchanged members. Spellings and meaning are kept. Reorder and form normalization is pre-existing on main; Keep's is branch behaviour (61b too).",
+      "severity": "minor",
+      "evidence": "report.txt (b) W12; (a, continued) spacing_changed counts"
+     },
+     {
+      "summary": "PRE-EXISTING on main 8b1d2ad2, fixed by the candidate: section reorder, the Repeats placed-return form and 'Declare exact repeat' respell RETURNS 'N.end' as a bare 'N'. That silently turns a placed return into a whole-line return, or makes the harness refuse the whole mandate when the class mixes in a placed member ('1,6.head', '5,6.T5', with a MIXES refusal). 12/39 song8 sends on main.",
+      "severity": "note",
+      "evidence": "song8_stages_mandate.log; report.txt (c) [main] FD/FP/R rows 15/26"
+     },
+     {
+      "summary": "PRE-EXISTING harness display (also on base fce4bf0f): lyric_harness.py brief prints 'L1~L8: SATISFIED — required verbatim return' for a placed return class that the same run flags RETURN_NOT_VERBATIM.",
+      "severity": "note",
+      "evidence": "cli/base_brief_5aend-6aend_1aT4-8aT4.log, cli/cand_brief_5aend`6aend_1aT5`8aT5.log"
+     },
+     {
+      "summary": "Mixed-version, pre-existing on main: a candidate-marked row opened on main is sent with the mark inside the last member ('4.end,6.end — cut v2'; the parser keeps the locus 'end — cut v2'; groups '1.T5,8.T5 — cut v2' raise SlotUnsupported). Main's reorder and forms then write 'undefined' members ('4,undefined').",
+      "severity": "note",
+      "evidence": "report.txt '(a, continued)' [main] M1 rows; wire_parsed.json"
+     }
+    ],
+    "not_covered": [
+     "Undo/Redo across the migration and the history-step contract (F1 scope)",
+     "Selection and caret mapping (3PO point 2) and the Review renumbering card persistence and Library activation (3PO points 1 and 3): assigned to other labels",
+     "Library working-copy import (lyLibraryActivate) and the Library-to-Lyrics handoff as routes for group rows",
+     "A.2-six lines (identical cut, different v1 lookup words) carrying named places",
+     "The documented owner-open cost: editing a line after load so its cuts part, which re-reads an unmarked unchanged row under the earlier cut (only the voices-toggle variant was measured)",
+     "Other whole-key merges (ly-link-remove, ly-drop-undecided, ly-carried-remove) as laundering routes",
+     "A document with two rows of the same key (the page sends only the first; pre-existing, not measured)",
+     "Case variants such as '4.END' and malformed members",
+     "An end-to-end /chat server or connector run: the wire was captured from an in-page stub and parsed with the harness mandate parser and the CLI brief, not graded through the deployed service"
+    ],
+    "artifacts_dir": "<scratch>/h695/f6-bytes-returns/"
+   }
+  },
+  {
+   "agent": "a2-and-old-blockers",
+   "result": {
+    "task": "a2-and-old-blockers. (a) A.2-six: run the candidate page's own lyLineCutChanged (wt-695 at 6955e342, code 643e292e) on BB8's 8 union lines and R2's 24 receipt lines, and re-run R2's measure.py. (b) Status at the candidate of the earlier blockers: item2 (stale Library tab), item3 (old page against new server) and the zero-anchor default-end residual. Each is reported as fixed, unchanged or changed, with control runs.",
+    "verdict": "MIXED",
+    "checks": [
+     {
+      "id": "A1",
+      "claim": "Every one of BB8's 8 union lines (six_lines/union.json, both measures) fires the candidate page's lyLineCutChanged",
+      "expected": "8/8 fire, including the two Barnes [=o] lines that only the recorder measure saw",
+      "observed": "8/8 fire with voices off and with voices on. The cut is identical on all 8, so the lookup clause fires. Examples: knap's for `knap, 's`; P's for `M.P.'s`; o'm and o's for both Barnes [=o] lines; U's for `U.’s`. Controls: the same function at wt-61b and at wt-678 fires on 0/8.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW: fires only at the candidate (61b6618a and 67889851 fire on 0/8; main has no migration at all)",
+      "evidence": "a_vm_fire.js loads src/lyric-tokens.js and then src/pages/lyrics.js in a bare node VM, as check_lyrics_page does. Outputs: a_vm_fire_wt-695.json/.log (union_all_fire true), a_vm_fire_wt-61b.log and a_vm_fire_wt-678.log (all false)."
+     },
+     {
+      "id": "A2",
+      "claim": "All 24 lines in R2's receipt (named_place_lookup_2026-10-14/result.json lookup_differs) fire; the 7 NFC-only Greek lines do not",
+      "expected": "24/24 fire; 0/7 controls",
+      "observed": "24/24 fire with voices off and on; 0/7 NFC-only lines fire. A plain line and `Below the knap, a runnèn still;` stay quiet.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW (0/24 at wt-61b and wt-678)",
+      "evidence": "a_vm_fire_wt-695.json summary: receipt_lookup_differs_fire 24/24, nfc_controls_fire 0/7"
+     },
+     {
+      "id": "A3",
+      "claim": "R2's measure.py counts: 271,092 identical-cut lines, 24 fire, 8 END changes",
+      "expected": "sung 281,399; identical 271,092 (262,604 unique); lookup_differs 24; end_changed 8; label_nfc_only 7",
+      "observed": "Exactly these counts. Run on wt-695 with venv311 CPython 3.11.17, without --write, so nothing in the tree was written; 4m29s.",
+      "status": "pass",
+      "new_vs_preexisting": "n/a (receipt reproduction)",
+      "evidence": "a_measure_stdout.json, a_measure_stderr.txt"
+     },
+     {
+      "id": "A4",
+      "claim": "No other identical-cut line fires: the page and the harness agree line by line over the whole population",
+      "expected": "The page's identical-cut flag and fire set equal the harness's (_v1_token_spans vs reader_line v2; _line_tokens_v1 lookup) on every line",
+      "observed": "281,399 rows. 0 mismatches in identical_off, fire-on-identical_off, identical_on and fire-on-identical_on. The page fires on 24 identical-cut lines in each voice mode, and the list equals the receipt's lookup_differs in order. Total page fires: 10,331 voices off (= 10,307 changed cuts + 24) and 10,423 voices on. Voices on: 271,000 identical-cut lines. On the 1,163 paren lines whose cut is identical with voices on, there are 0 END changes with a Lexicon(strip_parens=False).",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "a_page_scan.js -> a_page_scan_wt-695.tsv.gz; a_harness_flags.py -> a_harness_flags.tsv.gz/.json; a_parity.json"
+     },
+     {
+      "id": "A5",
+      "claim": "The 8 END changes are the only END changes on identical-cut lines (no silent miss), line by line, including under other production lexicons",
+      "expected": "The END-changed set equals the receipt's 8 (+7 NFC-only), all with lookup_differs true",
+      "observed": "With the default lexicon, --lexicon-supplement=v2 and fallback=high: the same 8 non-NFC END changes and the same 7 NFC-only lines each time. 0 END changes where the condition is silent. Under the default lexicon the v1 anchors match the receipt's exactly.",
+      "status": "pass",
+      "new_vs_preexisting": "n/a (extension beyond R2's default-lexicon receipt)",
+      "evidence": "a_end_other_lexicons.py -> a_end_default.json, a_end_sup_v2.json, a_end_fb_high.json; a_end_compare.json"
+     },
+     {
+      "id": "A6",
+      "claim": "BB8's union (measured at 67889851) and R2's receipt are the same 8 lines with the same END readings",
+      "expected": "Equal text sets; equal v1 and v2 anchors",
+      "observed": "Equal sets (0 only-union, 0 only-receipt). v1 and v2 anchor phonology agree on all 8 once compared as sorted multisets; union.py had sorted its anchors. Labels are equal.",
+      "status": "pass",
+      "new_vs_preexisting": "n/a",
+      "evidence": "a_union_vs_receipt_sorted.json (a_union_vs_receipt.json is the unsorted first pass, which differs only in order)"
+     },
+     {
+      "id": "A7",
+      "claim": "In the shipped/built page, opening a draft with a named-place row on each A.2 line flags it, keeps the placement on the wire, and leaves controls byte-identical",
+      "expected": "The row is rewritten `1.end (carried across the word-cut change),2.end — cut v2`; a Review notice; /chat receives `1.end,2.end`; control rows unchanged",
+      "observed": "I drove the built page in Playwright: CODEX_LIBRARY=1 build, byte-identical to wt-695 codex.html (sha 92d2d418). All 24 lines × {rhyme groups, returns}: the row is rewritten as expected, 2 notice lines appear, and the stubbed /chat receives groups/returns `1.end,2.end`, so the placed member survives. The 3 controls keep their bytes with no notice. The same drive on wt-61b's page: 0 fire, rows untouched, no notice.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW",
+      "evidence": "a_page_drive.js -> a_page_drive_wt-695.json/.log, a_page_drive_wt-61b.json/.log; build_sha.txt"
+     },
+     {
+      "id": "A8",
+      "claim": "Which bindings actually move on the 24 lines (slots.resolve, v1 vs v2, default lexicon)",
+      "expected": "Only the default end, and only on the 8",
+      "observed": "`1` and `1.end` move on exactly the 8 END lines. endword, head, headrime, line and every T<k> are identical under v1 and v2 on all 24 lines. On the other 16, nothing moves.",
+      "status": "pass",
+      "new_vs_preexisting": "n/a",
+      "evidence": "a_places_v1v2.py -> a_places_v1v2.json/.log"
+     },
+     {
+      "id": "B1",
+      "claim": "item2 (F2): a stale Library tab moves a choice to a different word",
+      "expected": "Fixed, or changed with evidence",
+      "observed": "UNCHANGED. The S1/S2/S3/B1 outputs are identical to 67889851's, with job ids masked. In S1 the new page migrates token 2→3, the old tab's Apply saves {declarations} only, and the new page reloads and moves 3→4 ('token 3 → 4 … on the same characters'). It then sends token 4 (chars 12-14), with a status notice but no alert. S2 sends 3 (control); S3 blocks visibly; B1 (main in both tabs) keeps token 2. The 8-shard scan is identical: 427 units, 13,955 lines, 389 cut-differs, 503 first-pass moves; second pass 500 blocked, 3 on another word. The Library code is untouched: the analysis.71b110b249.js and analysis.9ebd86e5f8.js chunks are byte-identical to main's and 678's. R2 discloses this as F2, awaiting the owner's scope decision (LYRICS_RUNTIME.md).",
+      "status": "fail",
+      "new_vs_preexisting": "PRE-EXISTING relative to the previous candidate (same at 67889851). Not on main: B1 keeps token 2 throughout.",
+      "evidence": "b_item2/S1_out.txt, S2_out.txt, S3_out.txt, B1_out.txt (+ .json), b_item2/scan_out.txt; mixed root = wt-695 entries + codex.html (built candidate) + codex-old.html (built main, sha acf45264)"
+     },
+     {
+      "id": "B2",
+      "claim": "item3 (F3): an old page against a new server binds silently to another word (local server components + real Python worker)",
+      "expected": "Fixed, or changed with evidence",
+      "observed": "UNCHANGED. All 8 server runs and all 4 page bodies match 67889851's run field for field. Old (main) body → candidate server: token 2 binds AA at cp (4,6), the wrong 'oh'; state completed_with_refusals, no word-cut mention. Old body → base server: (8,10). New (candidate) body → base: paused READER_ERROR, visible. New body `oh--oh oh oh` → base: binds (10,12) instead of (7,9) and completes silently. Old Lawdy body → candidate: paused READER_ERROR naming 'u'. validate still refuses a token_cut marker with BAD_REQUEST. The worker core (e2e_worker.py) output is identical. R2 discloses this as F3, awaiting the owner's decision.",
+      "status": "fail",
+      "new_vs_preexisting": "PRE-EXISTING relative to the previous candidate; the silent cases need the batch on one side (old→base and new→candidate both bind correctly)",
+      "evidence": "b_item3/server_e2e_*.json, stale_page_*.json, e2e_wt-695_tok2.log, e2e_wt-base_tok2.log, compare_prior.txt (all SAME). The JS ran from a byte-identical copy of wt-695/mcp (diff -rq clean), with node_modules linked, because wt-695 has no mcp/node_modules."
+     },
+     {
+      "id": "B3",
+      "claim": "Zero-anchor default-end residual: swap_at_slot(text, 1, 'zqx', lex=lex) with the default v2 lexicon",
+      "expected": "Refuse where the grader binds no syllable (3PO's ruling), or a disclosed decision",
+      "observed": "UNCHANGED from 61b6618a. On 'the night was zzqx' and 'I sing of 45', slots.resolve returns 0 anchors (label zzqx / 45, unread [zzqx] / [45]). Even so, swap_at_slot with lex returns 'the night was zqx' and 'I sing of zqx', and _end_occurrence_bound is True. This holds with both eng._lexicon() under v2 and Lexicon(reader_scheme='v2'), and with or without scheme='v2'. Readable control 'the night was long': 2 anchors, edited. Controls: wt-678 makes the same edits (no lex parameter there). At base, 'zzqx' is also edited (pre-existing), and for 'I sing of 45' v1 binds 'of' and edits 'of', which is consistent. In loop.py, 643e292e changed docstrings only. The reader_batch_commit1 doc keeps the 191-per-mode residual: 'Refusing these too is a one-line change, if BB8 or 3PO rule so.'",
+      "status": "fail",
+      "new_vs_preexisting": "PRE-EXISTING relative to 61b6618a and 67889851. The alphabetic-OOV case is also at base; the numeral-end case is v2-era (base binds and edits 'of').",
+      "evidence": "b_zero_anchor.py -> b_zero_anchor_wt-695.json, _wt-61b.json, _wt-678.json, _wt-base.json"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "The lookup clause is whole-line, but the lookup words feed only the default end anchor. On the 24 lookup-only lines, the page also rewrites and marks rows whose binding provably does not move: N.head, N.headrime and N.endword members, and bare-N returns members (whole-line verbatim). Each gets '(carried across the word-cut change)', '— cut v2' and a Review notice. Under the agreed policy, only rows that a required migration actually rewrites take the mark. These rewrites are not required by any binding change, and a rewritten row changes the document identity. Non-blocking: the wire keeps every member form.",
+      "severity": "minor",
+      "evidence": "a_forms_vm_wt-695.log: 24/24 lines rewritten for 1,2 / 1.head / 1.headrime / 1.endword in both row kinds; T<k> rows untouched; control untouched. a_page_forms_wt-695.json shows the same in the built page, with notices. a_places_v1v2.json: endword, head, headrime, line and T<k> are identical under v1 and v2 on all 24 lines, and on 16 of 24 even end does not move. NEW: 61b and 678 leave these rows byte-identical."
+     },
+     {
+      "suggestion_note": "",
+      "summary": "The notice text is inaccurate for the 24 identical-cut lines. It says \"Line N's word cut changed in this release\", but the cut is identical: what changed is the words the earlier grader looked up. It also shows the same word under both cuts (e.g. “divide” / “divide”). There is one text branch (src/pages/lyrics.js:1413), although the commit title says 'the lookup-text notice'.",
+      "severity": "note",
+      "evidence": "a_page_drive_wt-695.json, entry 'When in that house M.P.'s divide,' returns: notice = \"Line 1's word cut changed in this release, so what its last rhyme reads may have changed … shows “divide” under the earlier cut and “divide” under the current one.\""
+     },
+     {
+      "summary": "A known minor finding now also reaches the 24 lookup-only lines: the notice calls a bare-N returns member 'last rhyme', while the grader reads bare N in returns as a whole-line verbatim return. A whole-line return cannot be affected by the end-anchor lookup at all.",
+      "severity": "note",
+      "evidence": "a_page_forms_wt-695.json: returns '1,2' on 'Below the knap…' and 'My fount of song…' gives the title 'A declared return member, line 1 · last rhyme, was carried…'; the wire still sends returns '1,2' (whole line preserved)."
+     },
+     {
+      "summary": "Environment only: wt-695 has no mcp/node_modules, so the item3 server_e2e cannot import express from the tree. The first 8 runs failed with ERR_MODULE_NOT_FOUND and were re-run from a byte-identical copy of the candidate's mcp/ with node_modules linked. This is not a product issue.",
+      "severity": "note",
+      "evidence": "b_item3/server_e2e_*.err from the first attempt were overwritten by the reruns. COMMANDS.txt records both, and the diff -rq of the copy was clean."
+     }
+    ],
+    "not_covered": [
+     "item1 caret, returns_nend, F1 selection interval, F4 Review card eviction, and Library activation and lyricMeta persistence: other testers' labels. I did not re-run them.",
+     "Pronunciation-reading rows (token-numbered declarations) on the 24 lines. Under v1, the re-cut also shifted for_token indices in the end-anchor prefix. Whether a declared reading there changed its effect on the END anchor was not probed. The page leaves such rows unmarked with no notice, because they rebind to the same characters.",
+     "The A.2 condition was measured only on corpus/song/eng_*. Library units, sonnets and non-English corpora were not scanned. Voices-on END changes were checked only on lines containing '(' (the only lines where the voice mode changes the cut).",
+     "The browser drive of A.2 used voices off only. Voices on was covered in the VM and the harness, not in the browser.",
+     "Reviser._splice was not called directly. The zero-anchor check calls swap_at_slot with lex, which is exactly what _splice passes per the 61b→643 diff. The 191-per-mode population count was not re-measured.",
+     "item3 is a local test (server components plus the real Python worker on a synthetic catalog, without HTTP). It is not the deployed service, and job-identity / STALE_READING paths were not re-run.",
+     "The item2 frequency is the same bounded 8-shard sample, not a population rate.",
+     "Certification loss ('Edited since review') caused by the extra row rewrites was inferred from the documented lyCanonical contract, not exercised."
+    ],
+    "artifacts_dir": "<scratch>/h695/a2-and-old-blockers/"
+   }
+  },
+  {
+   "agent": "verify:f4-card:0",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "CONFIRMED in substance. NEW: the card exists only at 643e292e. Two corrections to how the claim is framed, plus three stronger forms of the same gap.\n\n(1) The claim is not a breach of the agreed F4 contract. R2's plan (#519 6161672245) and the claim doc only promise \"a persistent, dismissible Review card listing every renumbered item\". The card does that: it listed 5 of 5 entries in my song and 7 of 7 in the tester's. \"Every entry names its line\" is the tester's own expectation. R2's examples and code comment (lyrics.js:479, \"the card names the sung lines\") imply it, but nothing promises it, and R2's unit test (check_lyrics_page.js:1122-1150) never tries a reading whose line is not sung.\n\nAccurate statement: a renumbered reading whose quoted line text matches no sung line exactly (lyrics.js:482-486, `x.text === m.line`, the same exact-text binding the page uses everywhere) is stored with n=[]. at() at :527 then prints no reference, and what() never prints line text for any entry. Such an entry reads only \"the reading for “lost”: word 4 → 5\". Two orphan readings with the same word and the same numbers on different lines give two identical entries (\"the reading for “lost”: word 4 → 5; the reading for “lost”: word 4 → 5\"), so the writer cannot tell from the card which row moved. This holds on the .txt path and on the Library working-copy path alike.\n\n(2) \"Only numbers, frozen at migration time\" is true, and has consequences the claim does not spell out:\n- After an in-editor edit that adds a line above, the card still says \"the reading for “oh”, lines 1 and 3\", though that line is now sung at lines 2 and 4.\n- After a later, unrelated .txt import that moves nothing (the card is built to survive it), the card still names \"lines 1 and 3\" and \"line 4\" in a 3-line draft whose lines 1 and 3 are different text.\n- A reading on a line sung 6 times is listed as \"lines 1, 2, 3 and 4\". It is cut to 4 by `.slice(0,4)` with no \"and more\", so it reads as a complete list.\n\nPre-existing part: no tree shows an orphan reading's line text anywhere in Review. main 8b1d2ad2, 61b6618a and the candidate all list it as \"The reading for “lost” no longer matches the draft\", with \"No matching line\" and no line text. The text is visible only in the draft's own [SETUP] row.\n\nPrior trees have no card. lyrics.js is identical at 67889851 and 61b6618a. 61b6618a migrates the same rows, but its only notice is a toast, which in my capture was replaced by \"Imported s1.txt\" and never seen. That toast names no line for any entry. main does not migrate at all.\n\nSeverity is low (my estimate). An orphan reading binds no sung word, and a separate input item already asks the writer to choose again or remove it.",
+    "evidence": "Folder: <scratch>/h695/verify-f4-card-0/. Every command is in COMMANDS.txt.\n\nSetup:\n- All three pages were built with CODEX_LIBRARY=1 and compared with cmp: each is IDENTICAL to its tree's codex.html. The builds were then deleted.\n- Each tree root was served locally, with Chromium at /opt/pw-browsers/chromium and mcp.codexmusica.com answered by a local stub.\n\nv.js cand (v_cand.log). The test song is the tester's shape plus a second orphan reading with the same word and numbers.\n- Card text: \"the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 4: word 4 → 5; the reading for “lost”: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5\".\n- meta.items has n:[] for both \"lost\" entries.\n- The Review pane contains neither orphan line text (false/false).\n- The separate items reading:3 and reading:4 say \"The reading for “lost” no longer matches the draft\", with where \"No matching line\" and no line text.\n- S1b, after an in-editor edit that inserts a line above: \"Oh--oh, oh my love\" is now sung at [2,4], and the card still says \"lines 1 and 3\".\n- S3, after importing an unrelated 3-line .txt: the card is unchanged, still naming line 4 and lines 1 and 3.\n- S2, a line sung at 1-6: the card says \"lines 1, 2, 3 and 4\".\n\nv_lib.js cand (v_lib_cand.log), the Library working-copy import of the same song: the card text and meta are identical to the .txt path. Both \"lost\" entries have n:[], and the pane has no orphan line text.\n\nControls:\n- v_prev.log (61b6618a; lyrics.js is identical to 67889851 by git diff --stat): the rows are migrated (token 3/5, cut v2). There is no card. The only toast captured is \"Imported s1.txt…\". The \"No matching line\" items are the same as on the candidate.\n- v_main.log (8b1d2ad2): the rows are not migrated. There is no card. The \"No matching line\" items are the same.\n\nSource:\n- wt-695 src/pages/lyrics.js:479 comment \"the card names the sung lines\"; :482-486 filter(x.text===m.line).map(n).slice(0,4); :527 at() returns '' for empty n; :529 what() has no line text.\n- The card is absent on main, 61b and 678 (grep finds 0 hits).\n- R2's F4 tests (scripts/check_lyrics_page.js:1122-1150, 3132-3206) assert only entries on matched lines.\n\nContract wording: #519 6161601064 (F4: \"Nothing persistent records 'word 2 → 3'\") and 6161672245 (R2: \"a persistent, dismissible Review card listing every renumbered item\"). Neither requires a line on every entry."
+   }
+  },
+  {
+   "agent": "verify:f4-card:1",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "On 6955e342, one import (.txt or Library working copy) that renumbers more than about 30 to 55 saved word numbers does not list all of them on the Review card. The card's display state has a 3,200-character budget (lyrics.js:468, items.shift() at :497). In my runs the first entry dropped at N=52–56 with short words (2–5 letters) and at N=32–34 when every word was 40 letters long; the exact point depends on the kind of row. These sizes come from synthetic stress files. I have no measure of how often a real import gets that large.\n\nThe claim leaves out three things, and its NEW label needs correcting:\n\n(1) Nothing is lost without a trace. In every run the card's title gives the full N, and its text says \"and K earlier ones no longer listed\", where K is exactly N minus the listed entries. This survives a reload. The commit message (\"(bounded)\"), the code comment (:463-467, \"counted, never silently lost\") and the CI-parity note all disclose the bound and the counted overflow. So \"N listed\" holds the code to the commit's headline (\"lists every renumbered number\"), to LYRICS_RUNTIME.md:255-258 (\"a Review card listing each one\", with no bound) and to the header of check_lyrics_page.js. Those three overclaim; the code itself is bounded as disclosed.\n\n(2) There is a real wording defect. Within one import, the dropped entries are not \"earlier\" or \"oldest\", as the card text and the :467 comment say. They are the first entries in the page's scan order: every reading first, then rhyme-group members, then returns, whatever their order in the text. The toast's three examples are exactly the first ones dropped. The dropped entries' word, line and old→new number cannot be recovered in the app: Undo returns to the draft from before the import, no history step holds the unmarked rows, and the Library path keeps the unmigrated text only in IndexedDB (originalText), which nothing displays.\n\n(3) The tester's 48/50 depends on their generator. It uses words longer than 40 characters and a reading on a line sung 6 times. With short words, 50 of 50 were listed.\n\nNEW vs PRE-EXISTING: the card and its bound exist only in the candidate. At 61b6618a, whose page is identical to 67889851, the same imports renumber all N, and nothing persistent lists or counts any of them (0/N). Main 8b1d2ad2 and base fce4bf0f renumber nothing, so there is nothing to list. This is a residual, a partial fix of F4, not a regression, and it matches 3PO's static point (1). Whether the bound is acceptable is an owner decision.",
+    "evidence": "All files are under <scratch>/h695/verify-f4-card-1/, and every command is in COMMANDS.txt.\n\nBuilds: the CODEX_LIBRARY=1 builds of wt-695, wt-main and wt-61b are byte-identical to each tree's codex.html and library chunks. The builds were deleted and the tree roots served directly.\n\nTester's exact numbers: I copied the tester's b_stress.js and lib.js into orig_rerun/ with only OUT redirected. Results:\n- .txt: 10/10, 48/50, 49/200, 48/500.\n- Library: 10/10, 49/500.\n- The truth from row diffs equals the generator count in every run.\n- The tester's own \"counted\" checks pass: the title gives N, and K = N - listed.\n\nMy own generator (v1.js, fresh page per N): the text order is returns rows, then rhyme groups, then readings, which reverses the page's scan order. Lines are \"Oh--oh, we ride the long road z…\", where v1 word t becomes v2 word t+1.\n- cand .txt: 10/10, 50/50, 51/200 (card: \"and 149 earlier ones no longer listed\"), 53/500 (447).\n- cand Library: 10/10, 50/50, 52/200 (148), 53/500 (447).\n- In every run: title = N, K = N - listed, the pane shows the card and the count, it is the same after a reload, no card item is unmatched, and no row changed outside the expected ones.\n- The dropped entries are always a prefix of the page's scan order (readings, then rhyme groups, then returns) and never of the text order (lostArePrefixOfTextOrder=false at 200 and 500). At 200, all 40 readings are dropped.\n\nThreshold (v2_threshold_cand.json, card dismissed before each import), largest N fully listed / first N with a drop:\n- reading: 54/55 with short words, 33/34 with 40-letter words;\n- rhyme groups: 50/52 and 30/32;\n- returns: 54/56 and 32/34;\n- allAccounted is true everywhere.\n\nUndo (v3_undo_cand.json): Undo gives the draft from before the import, Redo gives the migrated text, and none of the history steps holds the unmarked rows. The History pane does not show them either. The Library path keeps originalText (library-import.js:184), which is used only for the adapted flag (lyrics.js:2784).\n\nControls:\n- prev 61b6618a: .txt and Library both renumber all N with no card and no stored list, so 0/N listed. On .txt only the \"Imported …\" toast was captured; on Library the renumber toast is followed by the import toast.\n- main and base: 0 rows renumbered at every N, and no card.\n\nSide check, not part of b1 (v4_cross_cand.json): a Library import after an undismissed 10-entry .txt card replaces it with a card for the new import only (4, or none), with no count of the earlier 10, because lyLibraryActivate replaces lyricMeta. The earlier draft is under History; I did not check whether its card comes back if it is reopened.\n\nDocs:\n- LYRICS_RUNTIME.md:255-258 and check_lyrics_page.js:996 and :1122 say every number is listed, with no bound.\n- The commit message, the comment at lyrics.js:463-467 and the CI-parity note at line 334 disclose the bound.\n- The author's test at check_lyrics_page.js:1159-1170 overflows the card only with 60 separate single-entry calls, which never exercises one large import."
+   }
+  },
+  {
+   "agent": "tests-warmworker",
+   "result": {
+    "task": "tests-warmworker: at candidate wt-695 (6955e342, code 643e292e) run the author page test, check_library_page and check_library_regression (compare page-check counts with wt-61b); run test_reader NamedPlaceLookup, WarmWorker, SlotBinding and LoopSwaps under venv311; check child peak RSS against the 1 GiB guard and whether the parent asserts it; check R2's F9 claims (children only read caches between requests; three cold-first-use scenarios) and 3PO's note that the docstring's \"at most two retained per cache\" is an overclaim, with a probe; run the four test_revise shards if time permits.",
+    "verdict": "MIXED",
+    "checks": [
+     {
+      "id": "a1-lyrics-page",
+      "claim": "R2: node scripts/check_lyrics_page.js PASS, 529 assertions (333 unit, the rest browser incl. 9d)",
+      "expected": "PASS with 529 assertions, 333 of them unit",
+      "observed": "PASS, 529 assertions, exit 0, 83 s. --unit-only gives 333. The tracked codex.html is byte-identical to my CODEX_LIBRARY=1 build (sha256 92d2d418...). Control wt-61b (tracked codex.html also identical to its own build): PASS, 471 assertions, 292 unit. The difference is +58 assertions: +41 unit and +17 browser (179 to 196).",
+      "status": "pass",
+      "new_vs_preexisting": "The 58 extra assertions are candidate-only (new unit sections B and step 9d). The suite passes on both trees.",
+      "evidence": "h695/tests-warmworker/a_lyrics_page_wt-695.log, a_lyrics_unit_wt-695.log, a_lyrics_page_wt-61b.log, a_lyrics_unit_wt-61b.log, build_wt-695.log (cmp SAME)"
+     },
+     {
+      "id": "a2-library-page",
+      "claim": "check_library_page.js passes at the candidate",
+      "expected": "PASS 270/270",
+      "observed": "PASS 270/270, chunks analysis,compare,core,reader,rights,works, 59 s, run with --built pointing at my own build (the same command the script's build() runs) and the default TMPDIR. Control wt-61b: PASS 270/270, and the sorted list of 'ok' lines is identical to the candidate's. No flake seen on either run.",
+      "status": "pass",
+      "new_vs_preexisting": "Same on wt-61b (no change).",
+      "evidence": "h695/tests-warmworker/a_lib_page_wt-695.log, a_lib_page_wt-61b.log"
+     },
+     {
+      "id": "a3-library-regression",
+      "claim": "check_library_regression.js passes at the candidate",
+      "expected": "PASS: every baseline unit accounted for",
+      "observed": "PASS, exit 0 on wt-695, wt-61b and wt-main. The candidate's output is identical to main's: 5226b4fb has unchanged 20865, non-readable 11355 and added 4660; 317c5afa has unchanged 25525 and non-readable 11355; 0 missing, demoted or revised in both.",
+      "status": "pass",
+      "new_vs_preexisting": "Identical to main; pre-existing pass",
+      "evidence": "h695/tests-warmworker/a_lib_regression_wt-695.log, _wt-61b.log, _wt-main.log"
+     },
+     {
+      "id": "b1-reader-classes",
+      "claim": "quality/test_reader.py NamedPlaceLookup, WarmWorker, SlotBinding and LoopSwaps pass at the candidate",
+      "expected": "All OK under CPython 3.11.17",
+      "observed": "Ran 31 tests in 190.5 s, OK, exit 0: NamedPlaceLookup 3, WarmWorker 7 (six child scenarios plus the peak-assertion unit), SlotBinding 13, LoopSwaps 7. The WarmWorker class is WarmWorker; its child bodies are WarmWorkerBody, which skips unless READER_TEST_WARM_WORKER_CHILD=1.",
+      "status": "pass",
+      "new_vs_preexisting": "NamedPlaceLookup, the three cold scenarios and the peak-assertion unit are new at 643e292e. The rest also exist at wt-61b.",
+      "evidence": "h695/tests-warmworker/b_reader4_wt-695.log"
+     },
+     {
+      "id": "b2-child-peaks",
+      "claim": "R2: child peaks are under the unchanged 1024 MiB guard: 455/538/457 MiB (existing scenarios) and 536/470/470 MiB (cold ones), lower than at 58de1816 (570/628/568)",
+      "expected": "Peaks well under 1024 MiB and lower than at wt-61b",
+      "observed": "Candidate VmHWM: legacy then Library 458 MiB; new then legacy 538; new then Library 462; cold v1 then v2 543; cold Library then v1 473; cold Library then v2 473. The smallest margin to the guard is 481 MiB. Control wt-61b (old 3 scenarios, which ran _caches_agree between requests): 574 / 632 / 573 MiB, OK. My instrumented re-run of the six scenarios gave 458 / 541 / 461 / 539 / 474 / 473. All are within about 7 MiB of R2's figures.",
+      "status": "pass",
+      "new_vs_preexisting": "The lower peaks are candidate-only: priming between requests was removed.",
+      "evidence": "b_reader4_wt-695.log; b_warmworker_wt-61b.log; scen/*.json (rss_mib per step)"
+     },
+     {
+      "id": "b3-parent-asserts-peak",
+      "claim": "F10: the parent asserts each child's VmHWM is below the unchanged 1 GiB guard",
+      "expected": "WarmWorker._child fails when a child reports a peak at or over 1<<30",
+      "observed": "From reading the code: _child requires exactly one WARM_WORKER_PEAK_RSS line, the scenario name, an envelope of 1<<30, 'Ran 1 test' and OK (so a skip is not a pass), guard_calls>0 only when library_analyses>0, then assert_within_guard, which is assertLess(peak, 1<<30). All six child tests call _child. Probe: I fed _child fake child results by patching subprocess.run in memory. At wt-695: a peak of guard-1 passes; a peak at the guard fails; a peak over the guard fails; a Library scenario with 0 guard calls fails. At wt-61b, the same at-guard and over-guard peaks PASS the parent, which only printed the peak.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW in the candidate. The parent did not assert the peak at wt-61b.",
+      "evidence": "parent_guard_wt-695.log (WIRED), parent_guard_wt-61b.log (at/over 'parent PASSED'); test_reader.py WarmWorker._child / assert_within_guard"
+     },
+     {
+      "id": "b4-read-only-between-requests",
+      "claim": "F9: WarmWorker children only READ the caches between requests (_caches_hold_their_schemes builds nothing); _caches_agree runs only after the last request",
+      "expected": "Between requests, no entry is added to or replaced in eng._LEX, eng._CUT_LEX, fit._LEX, LS._SUPPLEMENTED or MB._READERS (or their fallbacks)",
+      "observed": "Confirmed in all six scenarios. My probe wraps the body's own helpers (no tracked edit) and records cache keys, lexicon object ids, MB fallback base schemes and RSS before and after every step. Across every _caches_hold_their_schemes call and every _rebound (the test's own between-request rebind), entries and ids are unchanged, and RSS is unchanged to within 1 MiB. _caches_agree runs only once, after the last request, where it adds entries (e.g. fit (True,None) and its view, and the other scheme's MB reader). Two side effects, neither of which builds a lexicon: in the Library-first scenarios the helper is the first to import quality.fit, lexicon_supplement and meter_bands, which creates empty caches; and fb[0].cmu_lexicon() makes a transient, uncached shallow copy.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW (61b called _caches_agree between requests)",
+      "evidence": "scen/*.json, scen/summary_mb_and_between.txt, probe_scenarios.py"
+     },
+     {
+      "id": "b5-three-cold-scenarios",
+      "claim": "F9: three cold-first-use scenarios; putting _caches_agree back after the first request makes the cold v1-to-v2 child fail",
+      "expected": "Each of the three scenarios meets a scheme that has not been built yet and fails if the caches are primed between requests",
+      "observed": "There are three cold scenarios, and R2's revert claim holds. With an in-memory mutant that runs _caches_agree after every between-request check, test_cold_a_legacy_lyrics_request_then_a_new_one FAILS with 'v2 was primed before its first request'. Only that scenario asserts coldness (_cold('v2')). In the two Library-first scenarios the Library analysis builds none of the five caches: eng._LEX is empty afterwards, and fit, LS and MB are not even imported. So the lyrics request that follows is simply the process's first lexicon use, the same as the first request of any scenario, and there is no _cold assertion. Under the mutant, test_cold_a_library_analysis_then_a_legacy_lyrics_request PASSES, so it does not detect priming. The existing test_a_new_lyrics_request_then_a_legacy_one is now a cold v2-to-v1 transition in practice (eng._LEX={'v2'} before the v1 request), but nothing asserts it, and it also passes under the mutant.",
+      "status": "pass",
+      "new_vs_preexisting": "NEW scenarios. The coverage gap is in the new tests.",
+      "evidence": "mut/agree_between__*.log, mut/none__*.log, probe_mutants.py; scen/test_cold_*.json"
+     },
+     {
+      "id": "b6-at-most-two-per-cache",
+      "claim": "WarmWorker docstring (new at 643e292e): 'keeps one cache entry per reader scheme in each lexicon cache, so its caches are bounded by the two schemes (at most two retained per cache) ... that is what _caches_hold_their_schemes checks'. The evidence file says the same at line 340: 'the per-scheme caches are bounded by the two schemes'",
+      "expected": "No cache retains more than two entries, and the helper would catch one that did",
+      "observed": "FALSE. (1) Real requests: 12 new-run run_one requests through one warm worker, varying only the global flags --reader-scheme, --fallback, --voices and --lexicon-supplement. Afterwards fit._LEX holds 4 entries ((True,'low'), (True,'low','v1'), (False,'low'), (False,'low','v1')) and LS._SUPPLEMENTED holds 3. RSS went from 446 to 794 MiB (VmHWM 827). (2) Calling the cache entry points directly in a fresh process, along strip_parens, fallback and aside rule under the two declared schemes only: fit._LEX 12, LS._SUPPLEMENTED 8, eng._CUT_LEX 3 ((v2,False), (v1,True), (v2,True)); 25 distinct lexicon objects; RSS 1386 MiB, over the 1 GiB envelope. The test's own _caches_hold_their_schemes PASSED on that state. It checks per-entry scheme ownership, and its only cardinality-like check is set(eng._LEX) <= schemes. (3) Even the WarmWorker children end with fit._LEX = 4 entries after _caches_agree in two scenarios. The caches are bounded by the finite product of their key dimensions (scheme x strip_parens x fallback, plus the supplement path and digest for LS), not by two.",
+      "status": "fail",
+      "new_vs_preexisting": "The docstring and evidence wording are NEW at 643e292e. The cache behaviour is PRE-EXISTING: the real-request probe gives identical counts at wt-61b, and fit.py, eng.py, lexicon_supplement.py, meter_bands.py, lyric_harness.py and mcp/worker.py have an empty diff from 61b6618a to 643e292e6. The scheme dimension itself came with the reader batch, after fce4bf0f.",
+      "evidence": "requests_wt-695.json/.log, requests_wt-61b.json/.log, cardinality_wt-695.json/.log (helper_on_multi_entry_state PASSED, max_entries_in_one_cache 12), probe_requests.py, probe_cardinality.py"
+     },
+     {
+      "id": "c-test-revise-shards",
+      "claim": "test_revise passes at the candidate (R2 did not re-run it: harness change is docstrings only)",
+      "expected": "All four shards exit 0, all 62 sections pass",
+      "observed": "All four shards exit 0 with 'all revision-loop regressions pass': shard 1/4 16 sections in 730 s, 2/4 16 in 752 s, 3/4 15 in 325 s, 4/4 15 in 339 s, 62 of 62 in total. Run as in CI (TEST_REVISE_SHARD=k/4, one math thread), four in parallel at nice 19, CPython 3.11.17. An AST comparison with docstrings stripped confirms that slots.py and loop.py are code-identical between 61b6618a and 643e292e6, so this re-confirms code unchanged since 61b rather than testing new code.",
+      "status": "pass",
+      "new_vs_preexisting": "Unchanged code since 61b",
+      "evidence": "revise/shard1-4.log, ast_compare.txt"
+     }
+    ],
+    "unexpected_findings": [
+     {
+      "summary": "The 'at most two retained per cache' bound (WarmWorker docstring, and the evidence file's F10 row) is false. Real warm-worker requests leave 4 entries in fit._LEX and 3 in LS._SUPPLEMENTED. Calling the cache entry points directly gives 12 / 8 / 3 entries, 25 lexicon objects and 1386 MiB RSS. The test's read-only helper passes on that state: it checks which scheme each entry belongs to, not how many entries there are.",
+      "severity": "minor",
+      "evidence": "cardinality_wt-695.json; requests_wt-695.json, and requests_wt-61b.json with identical counts (behaviour pre-existing, wording new at 643e292e)"
+     },
+     {
+      "summary": "Of the three 'cold-first-use' scenarios, only cold v1-to-v2 asserts coldness and catches priming between requests. The two Library-first scenarios are cold only trivially: the Library analysis builds no lexicon cache entry. They have no _cold assertion, and the Library-then-v1 scenario passes even when _caches_agree is put back between requests. The cold v2-to-v1 path is exercised by test_a_new_lyrics_request_then_a_legacy_one but never asserted.",
+      "severity": "minor",
+      "evidence": "mut/agree_between__test_cold_a_library_analysis_then_a_legacy_lyrics_request.log (PASS), mut/agree_between__test_cold_a_legacy_lyrics_request_then_a_new_one.log (FAIL 'v2 was primed'), scen/test_cold_library*.json (eng._LEX empty after the Library analysis)"
+     },
+     {
+      "summary": "_caches_hold_their_schemes is weaker on meter-band readers than its docstring ('every entry present holds lexicons of the scheme it is keyed by'). It compares the fallback's lexicon with the fallback's own base; base.cmu_lexicon() is compared with base, which always holds. Neither is compared with the key's scheme. A v2-keyed MB reader holding a fallback built on the v1 lexicon (the SharedFallback/measure_line path) passes the helper. This state was not reached in the six scenarios.",
+      "severity": "minor",
+      "evidence": "cardinality_wt-695.json: mb_reader_keyed_v2_fallback_base_scheme 'v1', helper_on_mb_v2_key_with_v1_fallback 'PASSED'"
+     },
+     {
+      "summary": "Estimate, pre-existing. The Library guard reads the whole process's RSS, and lyric requests that warm extra cache keys (--voices, --lexicon-supplement, either scheme) add roughly 35-70 MiB per full lexicon kept. In a shared warm worker this counts against later Library analyses (446 to 794 MiB over 12 requests; the guard still admitted). This was not run to a refusal through real requests; R2's docstring already disclaims a long-lived memory bound.",
+      "severity": "note",
+      "evidence": "requests_wt-695.log (guard 'admits' at each step), cardinality_wt-695.log (per-step RSS)"
+     },
+     {
+      "summary": "Read only, not executed: the author's browser step 9d dismisses the renumbered Review card before the Library working-copy import, and that import's meta carries ui: {}. The card seen after the import is a new one from the import's own migration. So survival of an existing card across a Library activation is not shown by the author test, which agrees with 3PO's point 3.",
+      "severity": "note",
+      "evidence": "wt-695 scripts/check_lyrics_page.js lines ~3160-3207 (LY_ACTIONS['ly-renumbered-dismiss'] then lyLibraryImport with meta.ui = {})"
+     }
+    ],
+    "not_covered": [
+     "Full quality/test_reader.py in one process (R2: 93 OK, 6 skips): I ran only the four requested classes",
+     "test_loop / test_loop_redesign shards (CI runs them beside test_revise); test_verbs; test_production_revision",
+     "Other page/Library author suites R2 lists (test_library_import*, test_library_declarations, check_workbench, check_ui_foundation, check:fresh, etc.)",
+     "3PO's F1 single-interval selection mapping, F4 truncation/eviction, and Library-activation card persistence beyond reading the author test: these belong to other labels (f1-selection, f4-card, library-undo-card)",
+     "The memory effect of cache growth was not driven to a guard refusal through real requests (estimate only)",
+     "Harness-level cache probes at wt-base: --reader-scheme does not exist there; the control used was wt-61b"
+    ],
+    "artifacts_dir": "<scratch>/h695/tests-warmworker"
+   }
+  },
+  {
+   "agent": "verify:f4-card:2",
+   "result": {
+    "refuted": false,
+    "reproduced": true,
+    "corrected_statement": "FAIL stands, and it is NEW in the candidate. I reproduced it from scratch with my own harness and inputs.\n\nWhat happens on the candidate (6955e342, code 643e292e):\n- lyRecordRenumbered stores each moved entry's word as `String(m.word).slice(0, 40)` (src/pages/lyrics.js:478). It is cut at 40 UTF-16 code units.\n- lyRenumberedCheck renders that stored word in curly quotes. There is no ellipsis or other mark.\n- A 40-character word is shown in full. A word of 41 characters or more is cut silently. Examples:\n  - the tester's 57-character words become “supercalifragilisticexpialidociousantidi”;\n  - “Donaudampfschifffahrtsgesellschaftskapitän” (42) becomes “Donaudampfschifffahrtsgesellschaftskapit”;\n  - a 63-character German compound becomes “Rindfleischetikettierungsüberwachungsauf”;\n  - a 53-character hyphenated compound becomes “forget-me-not-and-never-ever-come-back-a”.\n- The cut word is what is stored, both in app.lyricMeta.ui.renumbered.items[].word and in localStorage 'codex-workbench-v1'. It comes back identical after a reload.\n- It happens on both import paths: a .txt import and a Library working-copy import.\n\nThe tester's counts are exact. Using the tester's own stress files through my harness:\n- N=10: 4 of 10 card entries are cut.\n- N=50: 3 of 48 listed are cut (2 evicted).\n- N=200: 2 of 49 listed are cut.\n- N=500: 2 of 48 listed are cut.\n\nPrecision the tester's statement lacks:\n- The draft rows keep the full words. Usually a card entry still gives its line and its word number (from → to), so the place can be found.\n- Two different words that share a 40-character prefix show the same word on the card.\n- When a reading's line is not sung in the draft, the entry carries no line reference. Two such readings then render as textually identical entries: \"the reading for “supercalifragilisticexpialidociousantidi”: word 4 → 5\", twice.\n- \"The toast shows the full word\" is true only for the first three moved entries. In the stress runs the returns entries on long words never appear in any toast.\n- On the Library path, the migration toast is immediately replaced by \"Library working copy imported. Your previous draft is under History.\" So the cut card is the only lasting record.\n\nNEW vs pre-existing:\n- The card and its stored record do not exist on main 8b1d2ad2 or base fce4bf0f. Neither has any migration; the imported rows are unchanged.\n- 61b6618a and 67889851 have the migration and its toast code (which prints full words for the first three entries), but no card and no stored record. In my .txt runs on those trees, only the \"Imported …\" toast was observed.\n\nCorrection to the cited line numbers:\n- \"lyrics.js 4185 and 4321\" are the candidate's line numbers. The same silent 40-character cut sits at:\n  - main 3442/3577;\n  - base 3420/3555;\n  - 61b/678 3967/4103.\n- I confirmed it live on main, base and the candidate: the rhyme-link member list renders “supercalifragilisticexpialidociousantidi”.\n- That cut also hits whole-line members: any sung line longer than 40 characters is shown cut (\"And here is a sung line that is longer t\"). This is pre-existing.\n\nContract:\n- R2's F4 claim promises only that the card \"lists every renumbered number\", bounded, with the overflow counted. It neither promises full words nor discloses the cut.\n- The expectation \"full words or a visible truncation mark\" comes from 3PO's static review (#527 item 1, which cites :478 as lost review evidence) and from the code comment's own words, \"never silently lost\". It is not a misreading.\n- How often this happens on real songs is unmeasured. Estimate: rare in English. It needs a word over 40 characters on a line whose word cut changed before that word.",
+    "evidence": "All files are in <scratch>/h695/verify-f4-card-2/. Every command is in COMMANDS.txt.\n\nSetup:\n- The codex.html of wt-695, wt-main, wt-61b and wt-base each equal a fresh CODEX_LIBRARY=1 build. Base borrowed terser via NODE_PATH. The built copies were deleted.\n- Browser runs used Chromium at /opt/pw-browsers/chromium against a local static server, with mcp.codexmusica.com stubbed.\n- No tracked file was modified (git status afterwards shows only the node_modules symlinks).\n\n1) Candidate, my harness and inputs (v.js; logs v_cand_txt.log and v_cand_txt.json; pane_check.out):\n- same40: two readings plus a returns row on two 57-character words that share their first 54 characters. The card stores 4 items with word length 40; the item text and the Review pane show “supercalifragilisticexpialidociousantidi” 4 times with no …. The toast shows the full words (first 3 entries only). The draft rows keep the full words. The stored record is identical after a reload.\n- boundary: the 40-character word is shown in full. The 41-character word is stored and shown as its first 40 characters, so it looks identical to the 40-character word.\n- natural: the card shows “Rindfleischetikettierungsüberwachungsauf”, “Donaudampfschifffahrtsgesellschaftskapit” and “forget-me-not-and-never-ever-come-back-a”.\n- Screenshot shot_cand_txt_same40.png shows the card text cut with no mark. In the same view, the editor's setup-row display does use a \"…\".\n\n2) Library working-copy path (v_cand_lib.log): the same 4 cut entries. The toast log ends with \"Library working copy imported. Your previous draft is under History.\", which replaces the migration toast.\n\n3) The tester's stress inputs (../f4-card/b_stress_{10,50,200,500}.txt) through my harness (count_cut.py and count_cut.out):\n- cut entries per size: 4, 3, 2, 2;\n- items/more per size: 10/0, 48/2, 49/151, 48/452;\n- the localStorage copy equals the in-memory record; the record is the same after a reload.\n\n4) Unsung-line edge (v_cand_unsung.log): the card text holds two identical entries, \"the reading for “supercalifragilisticexpialidociousantidi”: word 4 → 5\", with no line reference.\n\n5) Controls with the same imports (v_{prev61b,prev678,main,base}_txt.log):\n- No tree before the candidate has lyRenumberedCheck, a renumbered item or a stored record.\n- main and base change 0 rows.\n- 61b and 678 rewrite the rows; only the \"Imported X\" toast was observed.\n- The candidate-only code was confirmed by grep across all five trees (lyRecordRenumbered and LY_RENUMBERED_ROOM appear only in wt-695).\n\n6) Pre-existing member-list cut (v_members.js; v_members_{main,base,cand}.log):\n- lyToolRhymes renders “supercalifragilisticexpialidociousantidi” for a T3 member and “And here is a sung line that is longer t” for a whole-line member.\n- This is the same on main, base and the candidate.\n- Code lines: main 3442/3577, base 3420/3555, 61b/678 3967/4103, candidate 4185/4321.\n\n7) Contract sources:\n- R2's F4 row in reader_batch_commit1_ci_parity_2026-10-14.md:334 says nothing about word length.\n- mcp/LYRICS_RUNTIME.md has no mention of renumbered or truncation.\n- Code comment at lyrics.js:464-466: \"the oldest entries give way first and are counted, never silently lost\"."
+   }
+  }
+ ],
+ "still_running_when_saved": [
+  "verify:f4-card:3",
+  "verify:f4-card:4"
+ ]
+}

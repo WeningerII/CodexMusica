@@ -1,0 +1,82 @@
+{
+  "tree": "main",
+  "sha": "8b1d2ad2",
+  "cases": [
+    {
+      "id": "X9_sectionMove",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 Form & story: VERSE Move down",
+          "rows": [
+            "[SETUP — rhyme groups — 5.T4,4;6,7]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Moved section down.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 5.T4,4;6,7]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Moved section down.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "3 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "5.T4,4;6,7"
+              },
+              "document": "[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh",
+              "sung": [
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above",
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

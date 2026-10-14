@@ -1,0 +1,19 @@
+test_cold_a_legacy_lyrics_request_then_a_new_one (quality.test_reader.WarmWorkerBody.test_cold_a_legacy_lyrics_request_then_a_new_one) ... FAIL
+
+======================================================================
+FAIL: test_cold_a_legacy_lyrics_request_then_a_new_one (quality.test_reader.WarmWorkerBody.test_cold_a_legacy_lyrics_request_then_a_new_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/lyric-harness/quality/test_reader.py", line 2597, in test_cold_a_legacy_lyrics_request_then_a_new_one
+    self._cold("v2")
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/lyric-harness/quality/test_reader.py", line 2591, in _cold
+    self.assertNotIn(scheme, eng._LEX, f"{scheme} was primed before its first request")
+AssertionError: 'v2' unexpectedly found in {'v1': <lyric_harness.Lexicon object at 0x7f8eb8b4fb90>, 'v2': <lyric_harness.Lexicon object at 0x7f8eba134410>} : v2 was primed before its first request
+
+----------------------------------------------------------------------
+Ran 1 test in 8.769s
+
+FAILED (failures=1)
+FAILURE: AssertionError: 'v2' unexpectedly found in {'v1': <lyric_harness.Lexicon object at 0x7f8eb8b4fb90>, 'v2': <lyric_harness.Lexicon object at 0x7f8eba134410>} : v2 was primed before its first request
+MUTANT agree_between test_cold_a_legacy_lyrics_request_then_a_new_one FAIL
+exit=1

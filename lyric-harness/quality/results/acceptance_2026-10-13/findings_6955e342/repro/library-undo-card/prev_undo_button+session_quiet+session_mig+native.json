@@ -1,0 +1,1562 @@
+{
+ "tree": "prev",
+ "dir": "wt-61b",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/library-undo-card/build-wt-61b/built-wt-61b.html",
+ "undo_button": {
+  "steps": [
+   {
+    "tag": "0 fresh page",
+    "text": "",
+    "title": "",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 0,
+    "localStorage": {
+     "lyrics": "",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": []
+   },
+   {
+    "tag": "1 after .txt import A (= before import B)",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ]
+   },
+   {
+    "tag": "2 after Library working-copy import B",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+    "libraryOrigin": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:42:12 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:42:11 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 3,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970931736,
+      "metaDraftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     },
+     {
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970932073,
+      "metaDraftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5.",
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "3a APP Undo via #btn-undo (header, mouse click): +60ms",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:42:12 AM · Writer continuation preserved\nOpen draft\nSong A\n10/14/2026, 9:42:11 AM · Current draft · Writer continuation preserved\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "hasUi": false,
+      "current": true
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "hasUi": false,
+      "current": false
+     }
+    ],
+    "historyIndex": 2,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970931736,
+      "metaDraftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     },
+     {
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970932073,
+      "metaDraftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "3b APP Undo: +1.9s (persist timers elapsed)",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\nSaved Lyrics drafts on this device\nSong A\n10/14/2026, 9:42:13 AM · Current draft · Writer continuation preserved\nSong B\n10/14/2026, 9:42:12 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "hasUi": false,
+      "current": true
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "hasUi": false,
+      "current": false
+     }
+    ],
+    "historyIndex": 2,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970933844,
+      "metaDraftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     },
+     {
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970932073,
+      "metaDraftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "4 after reload",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\nSaved Lyrics drafts on this device\nSong A\n10/14/2026, 9:42:16 AM · Current draft · Writer continuation preserved\nSong B\n10/14/2026, 9:42:12 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 0,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970936084,
+      "metaDraftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     },
+     {
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970932073,
+      "metaDraftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": []
+   },
+   {
+    "tag": "5 History: Open draft B (true)",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+    "libraryOrigin": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:42:19 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:42:18 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970938946,
+      "metaDraftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "ui": {
+       "tab": "history",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     },
+     {
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970939270,
+      "metaDraftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "Saved draft restored. No writing request was sent."
+    ]
+   },
+   {
+    "tag": "6 History: Open draft A again (true)",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\nSaved Lyrics drafts on this device\nSong A\n10/14/2026, 9:42:21 AM · Current draft · Writer continuation preserved\nSong B\n10/14/2026, 9:42:21 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 2,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970941477,
+      "metaDraftId": "draft:7ce3f2ec-277a-405a-81f8-206600bb15e8",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     },
+     {
+      "draftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970941153,
+      "metaDraftId": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+      "ui": {
+       "tab": "history",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "Saved draft restored. No writing request was sent."
+    ]
+   }
+  ],
+  "errors": [],
+  "envB": "draft:961c5022-61ba-4583-b6fb-f248c1ed8e26",
+  "search4": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "love": [],
+    "dove": []
+   }
+  },
+  "search6": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "love": [],
+    "dove": []
+   }
+  }
+ },
+ "session_quiet": {
+  "steps": [
+   {
+    "tag": "1 after .txt import A (= before session import)",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ]
+   },
+   {
+    "tag": "2 after session import (quiet session S0)",
+    "text": "[SETUP — title — \"Song Quiet\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe sing it plain tonight\nwe bring it home tonight",
+    "title": "[SETUP — title — \"Song Quiet\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song Quiet\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 2,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song Quiet\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe sing it plain tonight\nwe bring it home tonight",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Session Quiet"
+    },
+    "idb": [],
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "3 APP Undo via #btn-undo (header, mouse click): +1.9s",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song Quiet\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": [
+     "Session imported"
+    ]
+   },
+   {
+    "tag": "4 after reload",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 0,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": []
+   }
+  ],
+  "errors": [],
+  "search": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "love": [],
+    "dove": [],
+    "gold": [],
+    "road": []
+   }
+  }
+ },
+ "session_mig": {
+  "steps": [
+   {
+    "tag": "1 after .txt import A (= before session import)",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ]
+   },
+   {
+    "tag": "2 after session import (session S1, renumbers gold/road)",
+    "text": "[SETUP — title — \"Song S\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nEh--eh, eh my gold is shining\nEh--eh, eh my road is winding",
+    "title": "[SETUP — title — \"Song S\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song S\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 2,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song S\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nEh--eh, eh my gold is shining\nEh--eh, eh my road is winding",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Session S"
+    },
+    "idb": [],
+    "toasts": [
+     "Session imported",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “gold” word 4 → 5, “road” word 4 → 5."
+    ]
+   },
+   {
+    "tag": "3 APP Undo via #btn-undo (header, mouse click): +1.9s",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song S\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “gold” word 4 → 5, “road” word 4 → 5."
+    ]
+   },
+   {
+    "tag": "4 after reload",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 0,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": []
+   }
+  ],
+  "errors": [],
+  "search": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "love": [],
+    "dove": [],
+    "gold": [],
+    "road": []
+   }
+  }
+ },
+ "native": {
+  "steps": [
+   {
+    "tag": "1 after .txt import A (= before import B)",
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "title": "[SETUP — title — \"Song A\"]",
+    "draftId": null,
+    "libraryOrigin": false,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 1,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": false,
+     "name": "Untitled session"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ]
+   },
+   {
+    "tag": "2 after Library working-copy import B",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+    "libraryOrigin": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:42:43 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:42:42 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 3,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970963047,
+      "metaDraftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     },
+     {
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970962722,
+      "metaDraftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5.",
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "3 BROWSER-NATIVE Ctrl+Z in textarea after import B: {\"focusedTextarea\":true,\"changedText\":false,\"inputEvents\":0}",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+    "libraryOrigin": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:42:44 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:42:42 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 4,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 4,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970964569,
+      "metaDraftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     },
+     {
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970962722,
+      "metaDraftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "4 APP Undo via #btn-undo (header, mouse click): +1.9s",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+    "libraryOrigin": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:42:46 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:42:42 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "hasUi": false,
+      "current": true
+     },
+     {
+      "i": 4,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "hasUi": false,
+      "current": false
+     }
+    ],
+    "historyIndex": 3,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970966700,
+      "metaDraftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     },
+     {
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970962722,
+      "metaDraftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "5 BROWSER-NATIVE Ctrl+Z in textarea after APP Undo: {\"focusedTextarea\":true,\"changedText\":false,\"inputEvents\":0}",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+    "libraryOrigin": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:42:48 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:42:42 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 1,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 2,
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 3,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "hasUi": false,
+      "current": false
+     },
+     {
+      "i": 4,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 4,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+     "ui": {
+      "tab": "review",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970968512,
+      "metaDraftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     },
+     {
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970962722,
+      "metaDraftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "6 after reload",
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "[SETUP — title — \"Song B\"]",
+    "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+    "libraryOrigin": true,
+    "ui": {
+     "tab": "review",
+     "tool": "",
+     "outline": true
+    },
+    "card": null,
+    "cardShownInReviewPane": false,
+    "reviewPaneCardText": null,
+    "historyPane": "History\n\n Song B · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details\nSaved Lyrics drafts on this device\nSong B\n10/14/2026, 9:42:50 AM · Current draft · Writer continuation preserved\nSong A\n10/14/2026, 9:42:42 AM · Writer continuation preserved\nOpen draft\n\nNo writer results in this tab yet.\n\nSaved runs\n\nNo saved lyric runs in this browser. Starting new work keeps the previous run here.\n\nDraft history\n\nUndo and Redo step through every change, including changes applied from this page.",
+    "appHistory": [
+     {
+      "i": 0,
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "hasUi": false,
+      "current": true
+     }
+    ],
+    "historyIndex": 0,
+    "localStorage": {
+     "lyrics": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+     "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     },
+     "libraryOrigin": true,
+     "name": "Untitled session"
+    },
+    "idb": [
+     {
+      "draftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "title": "Song B",
+      "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+      "savedAt": 1791970970976,
+      "metaDraftId": "draft:0b3a8ce6-c65f-4306-bb71-a9232d2fa3f3",
+      "ui": {
+       "tab": "tools",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": true,
+      "originalTextHead": "[SETUP — title — \"Song B\"]"
+     },
+     {
+      "draftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "title": "Song A",
+      "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+      "savedAt": 1791970962722,
+      "metaDraftId": "draft:1aea59fc-41e8-4fd4-90a5-b684099ecc15",
+      "ui": {
+       "tab": "review",
+       "tool": "",
+       "outline": true
+      },
+      "libraryOrigin": false,
+      "originalTextHead": null
+     }
+    ],
+    "toasts": []
+   }
+  ],
+  "errors": [],
+  "native": [
+   {
+    "focusedTextarea": true,
+    "changedText": false,
+    "inputEvents": 0
+   },
+   {
+    "focusedTextarea": true,
+    "changedText": false,
+    "inputEvents": 0
+   }
+  ]
+ }
+}

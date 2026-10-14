@@ -1,0 +1,588 @@
+{
+ "scenario": "test_cold_a_library_analysis_then_a_new_lyrics_request",
+ "ok": true,
+ "tests_run": 1,
+ "skipped": 0,
+ "log": [
+  {
+   "tag": "module imported (before setUpClass)",
+   "rss_mib": {
+    "VmHWM": 37,
+    "VmRSS": 34
+   },
+   "counts": {
+    "eng._LEX": null,
+    "eng._CUT_LEX": null,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   },
+   "distinct_lexicon_objects": 0,
+   "inv": {
+    "eng._LEX": null,
+    "eng._CUT_LEX": null,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   }
+  },
+  {
+   "tag": "before _library",
+   "rss_mib": {
+    "VmHWM": 38,
+    "VmRSS": 38
+   },
+   "counts": {
+    "eng._LEX": null,
+    "eng._CUT_LEX": null,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   },
+   "distinct_lexicon_objects": 0,
+   "inv": {
+    "eng._LEX": null,
+    "eng._CUT_LEX": null,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   }
+  },
+  {
+   "tag": "after _library",
+   "rss_mib": {
+    "VmHWM": 210,
+    "VmRSS": 148
+   },
+   "counts": {
+    "eng._LEX": 0,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   },
+   "distinct_lexicon_objects": 0,
+   "inv": {
+    "eng._LEX": {},
+    "eng._CUT_LEX": {},
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   }
+  },
+  {
+   "tag": "before _rebound",
+   "rss_mib": {
+    "VmHWM": 210,
+    "VmRSS": 148
+   },
+   "counts": {
+    "eng._LEX": 0,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   },
+   "distinct_lexicon_objects": 0,
+   "inv": {
+    "eng._LEX": {},
+    "eng._CUT_LEX": {},
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   }
+  },
+  {
+   "tag": "after _rebound",
+   "rss_mib": {
+    "VmHWM": 210,
+    "VmRSS": 148
+   },
+   "counts": {
+    "eng._LEX": 0,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   },
+   "distinct_lexicon_objects": 0,
+   "inv": {
+    "eng._LEX": {},
+    "eng._CUT_LEX": {},
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   }
+  },
+  {
+   "tag": "before _caches_hold_their_schemes",
+   "rss_mib": {
+    "VmHWM": 210,
+    "VmRSS": 148
+   },
+   "counts": {
+    "eng._LEX": 0,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   },
+   "distinct_lexicon_objects": 0,
+   "inv": {
+    "eng._LEX": {},
+    "eng._CUT_LEX": {},
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   }
+  },
+  {
+   "tag": "after _caches_hold_their_schemes",
+   "rss_mib": {
+    "VmHWM": 210,
+    "VmRSS": 149
+   },
+   "counts": {
+    "eng._LEX": 0,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 0,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 0
+   },
+   "distinct_lexicon_objects": 0,
+   "inv": {
+    "eng._LEX": {},
+    "eng._CUT_LEX": {},
+    "fit._LEX": {},
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {}
+   }
+  },
+  {
+   "tag": "before _lyrics",
+   "rss_mib": {
+    "VmHWM": 210,
+    "VmRSS": 149
+   },
+   "counts": {
+    "eng._LEX": 0,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 0,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 0
+   },
+   "distinct_lexicon_objects": 0,
+   "inv": {
+    "eng._LEX": {},
+    "eng._CUT_LEX": {},
+    "fit._LEX": {},
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {}
+   }
+  },
+  {
+   "tag": "after _lyrics",
+   "rss_mib": {
+    "VmHWM": 473,
+    "VmRSS": 473
+   },
+   "counts": {
+    "eng._LEX": 1,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 1,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 1
+   },
+   "distinct_lexicon_objects": 2,
+   "inv": {
+    "eng._LEX": {
+     "'v2'": {
+      "id": 140109899009104,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "eng._CUT_LEX": {},
+    "fit._LEX": {
+     "(True, 'low')": {
+      "id": 140109899009360,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {
+     "('fallback-low', 'v2')": {
+      "fb_base_scheme": "v2"
+     }
+    }
+   }
+  },
+  {
+   "tag": "before _caches_hold_their_schemes",
+   "rss_mib": {
+    "VmHWM": 473,
+    "VmRSS": 473
+   },
+   "counts": {
+    "eng._LEX": 1,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 1,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 1
+   },
+   "distinct_lexicon_objects": 2,
+   "inv": {
+    "eng._LEX": {
+     "'v2'": {
+      "id": 140109899009104,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "eng._CUT_LEX": {},
+    "fit._LEX": {
+     "(True, 'low')": {
+      "id": 140109899009360,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {
+     "('fallback-low', 'v2')": {
+      "fb_base_scheme": "v2"
+     }
+    }
+   }
+  },
+  {
+   "tag": "after _caches_hold_their_schemes",
+   "rss_mib": {
+    "VmHWM": 473,
+    "VmRSS": 473
+   },
+   "counts": {
+    "eng._LEX": 1,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 1,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 1
+   },
+   "distinct_lexicon_objects": 2,
+   "inv": {
+    "eng._LEX": {
+     "'v2'": {
+      "id": 140109899009104,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "eng._CUT_LEX": {},
+    "fit._LEX": {
+     "(True, 'low')": {
+      "id": 140109899009360,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {
+     "('fallback-low', 'v2')": {
+      "fb_base_scheme": "v2"
+     }
+    }
+   }
+  },
+  {
+   "tag": "before _caches_agree",
+   "rss_mib": {
+    "VmHWM": 473,
+    "VmRSS": 473
+   },
+   "counts": {
+    "eng._LEX": 1,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 1,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 1
+   },
+   "distinct_lexicon_objects": 2,
+   "inv": {
+    "eng._LEX": {
+     "'v2'": {
+      "id": 140109899009104,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "eng._CUT_LEX": {},
+    "fit._LEX": {
+     "(True, 'low')": {
+      "id": 140109899009360,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {
+     "('fallback-low', 'v2')": {
+      "fb_base_scheme": "v2"
+     }
+    }
+   }
+  },
+  {
+   "tag": "after _caches_agree",
+   "rss_mib": {
+    "VmHWM": 473,
+    "VmRSS": 440
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 3,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 2
+   },
+   "distinct_lexicon_objects": 5,
+   "inv": {
+    "eng._LEX": {
+     "'v2'": {
+      "id": 140109899009104,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "'v1'": {
+      "id": 140109763396496,
+      "scheme": "v1",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "eng._CUT_LEX": {},
+    "fit._LEX": {
+     "(True, 'low')": {
+      "id": 140109899009360,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "(True, None)": {
+      "id": 140109914958608,
+      "scheme": "v1",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "(True, None, 'v2')": {
+      "id": 140109986031760,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {
+     "('fallback-low', 'v2')": {
+      "fb_base_scheme": "v2"
+     },
+     "('fallback-low', 'v1')": {
+      "fb_base_scheme": "v1"
+     }
+    }
+   }
+  },
+  {
+   "tag": "before _report",
+   "rss_mib": {
+    "VmHWM": 473,
+    "VmRSS": 440
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 3,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 2
+   },
+   "distinct_lexicon_objects": 5,
+   "inv": {
+    "eng._LEX": {
+     "'v2'": {
+      "id": 140109899009104,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "'v1'": {
+      "id": 140109763396496,
+      "scheme": "v1",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "eng._CUT_LEX": {},
+    "fit._LEX": {
+     "(True, 'low')": {
+      "id": 140109899009360,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "(True, None)": {
+      "id": 140109914958608,
+      "scheme": "v1",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "(True, None, 'v2')": {
+      "id": 140109986031760,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {
+     "('fallback-low', 'v2')": {
+      "fb_base_scheme": "v2"
+     },
+     "('fallback-low', 'v1')": {
+      "fb_base_scheme": "v1"
+     }
+    }
+   }
+  },
+  {
+   "tag": "after _report",
+   "rss_mib": {
+    "VmHWM": 473,
+    "VmRSS": 440
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 3,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 2
+   },
+   "distinct_lexicon_objects": 5,
+   "inv": {
+    "eng._LEX": {
+     "'v2'": {
+      "id": 140109899009104,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "'v1'": {
+      "id": 140109763396496,
+      "scheme": "v1",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "eng._CUT_LEX": {},
+    "fit._LEX": {
+     "(True, 'low')": {
+      "id": 140109899009360,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "(True, None)": {
+      "id": 140109914958608,
+      "scheme": "v1",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "(True, None, 'v2')": {
+      "id": 140109986031760,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {
+     "('fallback-low', 'v2')": {
+      "fb_base_scheme": "v2"
+     },
+     "('fallback-low', 'v1')": {
+      "fb_base_scheme": "v1"
+     }
+    }
+   }
+  },
+  {
+   "tag": "end",
+   "rss_mib": {
+    "VmHWM": 473,
+    "VmRSS": 440
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 3,
+    "LS._SUPPLEMENTED": 0,
+    "MB._READERS": 2
+   },
+   "distinct_lexicon_objects": 5,
+   "inv": {
+    "eng._LEX": {
+     "'v2'": {
+      "id": 140109899009104,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "'v1'": {
+      "id": 140109763396496,
+      "scheme": "v1",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "eng._CUT_LEX": {},
+    "fit._LEX": {
+     "(True, 'low')": {
+      "id": 140109899009360,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "(True, None)": {
+      "id": 140109914958608,
+      "scheme": "v1",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     },
+     "(True, None, 'v2')": {
+      "id": 140109986031760,
+      "scheme": "v2",
+      "strip_parens": true,
+      "cls": "Lexicon"
+     }
+    },
+    "LS._SUPPLEMENTED": {},
+    "MB._READERS": {
+     "('fallback-low', 'v2')": {
+      "fb_base_scheme": "v2"
+     },
+     "('fallback-low', 'v1')": {
+      "fb_base_scheme": "v1"
+     }
+    }
+   }
+  }
+ ]
+}

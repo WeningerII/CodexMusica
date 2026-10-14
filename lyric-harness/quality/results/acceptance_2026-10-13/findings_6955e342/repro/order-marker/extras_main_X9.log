@@ -1,0 +1,6 @@
+
+### main X9_sectionMove
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Form & story: VERSE Move down] rows=["[SETUP — rhyme groups — 5.T4,4;6,7]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Moved section down.\nUndo"]
+  SEND 3 Run review: [{"groups":"5.T4,4;6,7"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 5.T4,4;6,7]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Moved section down.\nUndo"]

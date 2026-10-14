@@ -1,0 +1,85 @@
+{
+ "tree": "cand",
+ "steps": [
+  {
+   "tag": "after Library B",
+   "ui": {
+    "tab": "tools",
+    "tool": "",
+    "outline": true
+   },
+   "idb": [
+    {
+     "draftId": "draft:e70c0ff1-d543-4b18-b14b-519dbde5fc0a",
+     "head": "[SETUP — title — \"Song B\"]",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     }
+    },
+    {
+     "draftId": "draft:e7bf20f0-8740-45f7-83b9-6c59d7ae1eb4",
+     "head": "[SETUP — title — \"Song A\"]",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true,
+      "probe": "A-evidence"
+     }
+    }
+   ]
+  },
+  {
+   "tag": "after Undo",
+   "head": "[SETUP — title — \"Song A\"]",
+   "draftId": "draft:e7bf20f0-8740-45f7-83b9-6c59d7ae1eb4",
+   "ui": {
+    "tab": "tools",
+    "tool": "",
+    "outline": true
+   },
+   "idb": [
+    {
+     "draftId": "draft:e70c0ff1-d543-4b18-b14b-519dbde5fc0a",
+     "head": "[SETUP — title — \"Song B\"]",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     }
+    },
+    {
+     "draftId": "draft:e7bf20f0-8740-45f7-83b9-6c59d7ae1eb4",
+     "head": "[SETUP — title — \"Song A\"]",
+     "ui": {
+      "tab": "tools",
+      "tool": "",
+      "outline": true
+     }
+    }
+   ]
+  }
+ ],
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "cand.c7ctl.probe",
+   "claim": "Undo across a Library import: A's preserved draft keeps its own display state",
+   "expected": "IDB record A keeps ui.probe = 'A-evidence'",
+   "observed": {
+    "current": {
+     "tab": "tools",
+     "tool": "",
+     "outline": true
+    },
+    "recordA": {
+     "tab": "tools",
+     "tool": "",
+     "outline": true
+    }
+   },
+   "status": "fail"
+  }
+ ]
+}

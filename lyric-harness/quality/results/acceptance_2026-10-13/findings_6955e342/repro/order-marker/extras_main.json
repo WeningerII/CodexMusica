@@ -1,0 +1,1053 @@
+{
+  "tree": "main",
+  "sha": "8b1d2ad2",
+  "cases": [
+    {
+      "id": "X1_appUndo",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 Remove link (form)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3 APP Undo (#btn-undo)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 2,
+            "n": 4
+          }
+        },
+        {
+          "step": "4 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 2,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "4 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8; 2,3"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X2_appUndoRedo",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 Remove link (form)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3 APP Undo",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 2,
+            "n": 4
+          }
+        },
+        {
+          "step": "4 APP Redo (#btn-redo)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "5 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "5 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X3_nativeUndo",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 Remove link (form)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3 BROWSER-NATIVE Ctrl+Z #1 in textarea",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3b BROWSER-NATIVE Ctrl+Z #2 in textarea",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "4 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "4 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X4_wordRules",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 Word rules apply (require)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+            "[SETUP — require — love]"
+          ],
+          "cut": [
+            "UNMARKED",
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Word rules applied.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+            "[SETUP — require — love]"
+          ],
+          "cut": [
+            "UNMARKED",
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Word rules applied.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "3 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8; 2,3",
+                "must_include": [
+                  "love"
+                ]
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X5_relationOnly",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 Rhymes relation only apply",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+            "[SETUP — relation — class:RHYME]"
+          ],
+          "cut": [
+            "UNMARKED",
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Relation declared: class:RHYME.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+            "[SETUP — relation — class:RHYME]"
+          ],
+          "cut": [
+            "UNMARKED",
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Relation declared: class:RHYME.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "3 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "relation": "class:RHYME",
+                "groups": "1.T4,8; 2,3"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X6_markedTyped_O1",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 typed into a MARKED row",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"
+          ],
+          "cut": [
+            "cut v2"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 Remove link (form)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "3 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X6_markedTyped_O2",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 typed into a MARKED row",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"
+          ],
+          "cut": [
+            "cut v2"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"
+          ],
+          "cut": [
+            "cut v2"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 2,
+            "n": 3
+          }
+        },
+        {
+          "step": "3 Remove link (form)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "4 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "2 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8; 2,3 — cut v2"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        },
+        {
+          "at": "4 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X7_verdict_O1",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — returns — 1.T4,8.T2]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 placed return form apply",
+          "rows": [
+            "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Placed return declared.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "3 after review",
+          "rows": [
+            "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Placed return declared.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "3 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "returns": "1.T4,8.T2;2.head,6.head"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nAnd love above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "And love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X7_verdict_O2",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — returns — 1.T4,8.T2]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          }
+        },
+        {
+          "step": "2 after review",
+          "rows": [
+            "[SETUP — returns — 1.T4,8.T2]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 2,
+            "n": 3
+          }
+        },
+        {
+          "step": "3 placed return form apply",
+          "rows": [
+            "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Placed return declared.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        },
+        {
+          "step": "4 after review",
+          "rows": [
+            "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Placed return declared.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          }
+        }
+      ],
+      "sends": [
+        {
+          "at": "2 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "returns": "1.T4,8.T2"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nAnd love above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "And love above"
+              ]
+            }
+          ]
+        },
+        {
+          "at": "4 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "returns": "1.T4,8.T2;2.head,6.head"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nAnd love above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "And love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X8_reviewCard_O1",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          },
+          "reviewMentionsCut": false,
+          "reviewExcerpt": ""
+        },
+        {
+          "step": "2 Remove link (form)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          },
+          "reviewMentionsCut": false,
+          "reviewExcerpt": ""
+        },
+        {
+          "step": "3 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          },
+          "reviewMentionsCut": false,
+          "reviewExcerpt": ""
+        }
+      ],
+      "sends": [
+        {
+          "at": "3 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    },
+    {
+      "id": "X8_reviewCard_O2",
+      "tree": "main",
+      "steps": [
+        {
+          "step": "1 pasted",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 1,
+            "n": 2
+          },
+          "reviewMentionsCut": false,
+          "reviewExcerpt": ""
+        },
+        {
+          "step": "2 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [],
+          "hist": {
+            "idx": 2,
+            "n": 3
+          },
+          "reviewMentionsCut": false,
+          "reviewExcerpt": ""
+        },
+        {
+          "step": "3 Remove link (form)",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          },
+          "reviewMentionsCut": false,
+          "reviewExcerpt": ""
+        },
+        {
+          "step": "4 after review",
+          "rows": [
+            "[SETUP — rhyme groups — 1.T4,8]"
+          ],
+          "cut": [
+            "UNMARKED"
+          ],
+          "toasts": [
+            "Rhyme link removed. Undo restores it.\nUndo"
+          ],
+          "hist": {
+            "idx": 3,
+            "n": 4
+          },
+          "reviewMentionsCut": false,
+          "reviewExcerpt": ""
+        }
+      ],
+      "sends": [
+        {
+          "at": "2 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8; 2,3"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        },
+        {
+          "at": "4 Run review",
+          "calls": [
+            {
+              "declarations": {
+                "groups": "1.T4,8"
+              },
+              "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+              "sung": [
+                "Oh--oh, oh my love",
+                "I walk the line tonight",
+                "Well-worn shoes upon the floor",
+                "Oh, oh, I said oh",
+                "We're sailing on",
+                "I hold the dove",
+                "Run to the sea",
+                "Love above"
+              ]
+            }
+          ]
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+[cand] sung_walk: size={"size":"narrow","mobile":"song"} migrated=true sameChars=false
+   before {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight"}
+   songCaret [63,63,0]
+   after boundary {"sel":[72,72,"forward"],"shown":"I w|alk the line tonight"}
+   restored {"sel":[0,0,"forward"],"shown":"|[SETUP — returns — 1.T3, 2.end — cut v2]","focused":false,"activeId":"ly-mtab-song"}
+   expected "I w|alk the line tonight"
+   typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+[cand] sung_sel_line: size={"size":"narrow","mobile":"song"} migrated=true sameChars=false
+   before {"sel":[84,93,"forward"],"shown":"«Well-worn» shoes upon the floor"}
+   songCaret [84,93,0]
+   after boundary {"sel":[93,102,"forward"],"shown":"«Well-worn» shoes upon the floor"}
+   restored {"sel":[0,0,"forward"],"shown":"|[SETUP — returns — 1.T3, 2.end — cut v2]","focused":false,"activeId":"ly-mtab-song"}
+   expected "«Well-worn» shoes upon the floor"
+   typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+[cand] row_in_2end: size={"size":"narrow","mobile":"song"} migrated=true sameChars=false
+   before {"sel":[27,27,"forward"],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   songCaret [27,27,0]
+   after boundary {"sel":[39,39,"forward"],"shown":"[SETUP — returns — 1.T3, 2.end — cut v2|]"}
+   restored {"sel":[0,0,"forward"],"shown":"|[SETUP — returns — 1.T3, 2.end — cut v2]","focused":false,"activeId":"ly-mtab-song"}
+   expected "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+   typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"

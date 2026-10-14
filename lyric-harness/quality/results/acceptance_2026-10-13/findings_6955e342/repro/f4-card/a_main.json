@@ -1,0 +1,183 @@
+{
+ "tree": "main",
+ "url": "http://127.0.0.1:46083/codex.html#lyrics",
+ "steps": {
+  "txt": {
+   "after": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — reading — token 2 \"sing\" in \"we sing it plain tonight\" — S IH1 NG — declared — source: me]\n[SETUP — reading — token 4 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me]\n[SETUP — reading — token 4 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me]\n[SETUP — rhyme groups — 1.T4,2;4.T3,5.T6]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — returns — 1.T3,3.T3]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight\nAh--ah, ah my heart and soul",
+   "truth": [],
+   "toasts": [
+    "Imported old-song.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "card": {
+    "item": null,
+    "pane": "Current version · cf31061\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\n\n Changes to text, form or rhythm require a new review.",
+    "meta": null,
+    "uiLen": 41,
+    "draftId": null
+   },
+   "cmp": []
+  },
+  "txtReload": {
+   "stored": null,
+   "card": {
+    "item": null,
+    "pane": "Current version · cf31061\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\n\n Changes to text, form or rhythm require a new review.",
+    "meta": null,
+    "uiLen": 41,
+    "draftId": null
+   },
+   "cmp": []
+  },
+  "export": {},
+  "sessionImport": {
+   "card": {
+    "item": null,
+    "pane": "Current version · cf31061\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\n\n Changes to text, form or rhythm require a new review.",
+    "meta": null,
+    "uiLen": 41,
+    "draftId": null
+   },
+   "draft": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — reading — token 2 \"sing\" in \"we sing it plain tonight\" — S IH1 NG — declared — source: me]\n[SETUP — reading — token 4 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me]\n[SETUP — reading — token 4 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me]\n[SETUP — rhyme groups — 1.T4,2;4.T3,5.T6]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — returns — 1.T3,3.T3]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight\nAh--ah, ah my heart and soul"
+  },
+  "lib": {
+   "after": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — reading — token 2 \"sing\" in \"we sing it plain tonight\" — S IH1 NG — declared — source: me]\n[SETUP — reading — token 4 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me]\n[SETUP — reading — token 4 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me]\n[SETUP — rhyme groups — 1.T4,2;4.T3,5.T6]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — returns — 1.T3,3.T3]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight\nAh--ah, ah my heart and soul",
+   "truth": [],
+   "toasts": [
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "card": {
+    "item": null,
+    "pane": "Current version · cf31061\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\n\n Changes to text, form or rhythm require a new review.",
+    "meta": null,
+    "uiLen": 41,
+    "draftId": "draft:da723bff-e5f1-45a9-b45d-d986d024975b"
+   },
+   "cmp": []
+  },
+  "libReload": {
+   "card": {
+    "item": null,
+    "pane": "Current version · cf31061\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\n\n Changes to text, form or rhythm require a new review.",
+    "meta": null,
+    "uiLen": 41,
+    "draftId": "draft:da723bff-e5f1-45a9-b45d-d986d024975b"
+   },
+   "idbBefore": [
+    {
+     "draftId": "draft:78727477-da29-4621-be76-553b58442da4",
+     "title": "Untitled song",
+     "textHead": null,
+     "renumbered": null
+    },
+    {
+     "draftId": "draft:da723bff-e5f1-45a9-b45d-d986d024975b",
+     "title": "Old Song",
+     "textHead": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my l",
+     "renumbered": null
+    }
+   ],
+   "idbAfter": [
+    {
+     "draftId": "draft:78727477-da29-4621-be76-553b58442da4",
+     "title": "Untitled song",
+     "textHead": null,
+     "renumbered": null
+    },
+    {
+     "draftId": "draft:da723bff-e5f1-45a9-b45d-d986d024975b",
+     "title": "Old Song",
+     "textHead": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my l",
+     "renumbered": null
+    }
+   ]
+  }
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "main.a.txt.every",
+   "claim": ".txt import: the card lists every renumbered entry with old -> new, word, line",
+   "expected": "0 entries, each in meta, item text and pane",
+   "observed": [],
+   "status": "fail"
+  },
+  {
+   "id": "main.a.txt.orphanLine",
+   "claim": "a renumbered reading whose line text is not a sung line of the draft names its line on the card",
+   "expected": "some line reference or the line text",
+   "observed": "no orphan entry in truth",
+   "status": "cannot_tell"
+  },
+  {
+   "id": "main.a.txt.reload",
+   "claim": "the card survives a reload with the same entries",
+   "expected": "identical meta.items and every entry rendered",
+   "observed": {
+    "sameMeta": true,
+    "rendered": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "main.a.export",
+   "claim": "the exported session file carries the card",
+   "expected": "lyricMeta.ui.renumbered equal to the page context",
+   "status": "fail"
+  },
+  {
+   "id": "main.a.sessionImport",
+   "claim": "a session import in a fresh profile restores the card",
+   "expected": "identical meta.items, card rendered",
+   "observed": {
+    "sameMeta": true,
+    "title": null
+   },
+   "status": "fail"
+  },
+  {
+   "id": "main.a.lib.every",
+   "claim": "Library working-copy import: the card lists every renumbered entry",
+   "expected": "0 entries, each in meta, item text and pane",
+   "observed": [],
+   "status": "fail"
+  },
+  {
+   "id": "main.a.lib.sameAsTxt",
+   "claim": "the Library path migrates to the same text and the same card entries as the .txt path",
+   "expected": "same draft text and same meta.items",
+   "observed": {
+    "sameText": true,
+    "sameItems": true
+   },
+   "status": "pass"
+  },
+  {
+   "id": "main.a.lib.reload",
+   "claim": "after a Library import the card survives a reload",
+   "expected": "identical meta.items",
+   "observed": {
+    "sameMeta": true,
+    "idb": [
+     [
+      "draft:78727477-da29-4621-be76-553b58442da4",
+      false
+     ],
+     [
+      "draft:da723bff-e5f1-45a9-b45d-d986d024975b",
+      false
+     ]
+    ]
+   },
+   "status": "pass"
+  },
+  {
+   "id": "main.a.lib.sessionImport",
+   "claim": "Library draft: session export/import into a fresh profile restores the card",
+   "expected": "identical meta.items",
+   "observed": {
+    "sameMeta": true
+   },
+   "status": "pass"
+  }
+ ]
+}

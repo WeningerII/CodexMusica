@@ -1,0 +1,199 @@
+
+# cand AB undo_key
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 after Library import B
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:8654d298 ui.renumbered=love@L1,dove@L2
+    review: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5
+    LS: Song B id=draft:8654d298 card=love@L1,dove@L2 | SS: Song B card=love@L1,dove@L2
+    IDB: draft:7ca645f7=Song A savedAt=1791971867657 card=heart@L1,part@L2 ; draft:8654d298=Song B savedAt=1791971869548 card=love@L1,dove@L2
+    hist: (empty) > Song A > Song A@7ca645f7 > *Song B@8654d298[ad=false]
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 3 APP Undo: Ctrl+Z, activeElement=BODY +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:7ca645f7 ui.renumbered=love@L1,dove@L2
+    review: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5
+    LS: Song A id=draft:7ca645f7 card=love@L1,dove@L2 | SS: Song A card=love@L1,dove@L2
+    IDB: draft:7ca645f7=Song A savedAt=1791971870084 card=love@L1,dove@L2 ; draft:8654d298=Song B savedAt=1791971869548 card=love@L1,dove@L2
+    hist: (empty) > Song A > *Song A@7ca645f7 > Song B@8654d298[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 4 APP Redo: Ctrl+Shift+Z, activeElement=BODY +3s
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:8654d298 ui.renumbered=love@L1,dove@L2
+    review: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5
+    LS: Song B id=draft:8654d298 card=love@L1,dove@L2 | SS: Song B card=love@L1,dove@L2
+    IDB: draft:7ca645f7=Song A savedAt=1791971870084 card=love@L1,dove@L2 ; draft:8654d298=Song B savedAt=1791971873120 card=love@L1,dove@L2
+    hist: (empty) > Song A > Song A@7ca645f7 > *Song B@8654d298[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 5 APP Undo: Ctrl+Z, activeElement=BODY again +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:7ca645f7 ui.renumbered=love@L1,dove@L2
+    review: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5
+    LS: Song A id=draft:7ca645f7 card=love@L1,dove@L2 | SS: Song A card=love@L1,dove@L2
+    IDB: draft:7ca645f7=Song A savedAt=1791971876148 card=love@L1,dove@L2 ; draft:8654d298=Song B savedAt=1791971873120 card=love@L1,dove@L2
+    hist: (empty) > Song A > *Song A@7ca645f7 > Song B@8654d298[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 6 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:7ca645f7 ui.renumbered=love@L1,dove@L2
+    review: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5
+    LS: Song A id=draft:7ca645f7 card=love@L1,dove@L2 | SS: Song A card=love@L1,dove@L2
+    IDB: draft:7ca645f7=Song A savedAt=1791971882005 card=love@L1,dove@L2 ; draft:8654d298=Song B savedAt=1791971873120 card=love@L1,dove@L2
+    hist: *Song A@7ca645f7
+  search s6: {"heart":[],"part":[],"love":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:7ca645f7-89fc-44a7-b5bb-d0a56ca9ec38","idb:codex-musica-library-drafts/drafts/draft:8654d298-d0a2-4212-8161-213b9519446f"],"dove":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:7ca645f7-89fc-44a7-b5bb-d0a56ca9ec38","idb:codex-musica-library-drafts/drafts/draft:8654d298-d0a2-4212-8161-213b9519446f"]}
+
+# cand AB native
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: (review panel hidden)
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 BROWSER-NATIVE Ctrl+Z in textarea after .txt import A {"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"2:1","histAfterKeyStillFocused":"2:1"}, then blur
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: (review panel hidden)
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 3 after Library import B
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:184f27ca ui.renumbered=love@L1,dove@L2
+    review: (review panel hidden)
+    LS: Song B id=draft:184f27ca card=love@L1,dove@L2 | SS: Song B card=love@L1,dove@L2
+    IDB: draft:184f27ca=Song B savedAt=1791971887779 card=love@L1,dove@L2 ; draft:94222e7d=Song A savedAt=1791971887451 card=heart@L1,part@L2
+    hist: (empty) > Song A > Song A@94222e7d > *Song B@184f27ca[ad=false]
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 4 BROWSER-NATIVE Ctrl+Z in textarea after import B {"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"4:3","histAfterKeyStillFocused":"4:3"}, then blur
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:184f27ca ui.renumbered=love@L1,dove@L2
+    review: (review panel hidden)
+    LS: Song B id=draft:184f27ca card=love@L1,dove@L2 | SS: Song B card=love@L1,dove@L2
+    IDB: draft:184f27ca=Song B savedAt=1791971887779 card=love@L1,dove@L2 ; draft:94222e7d=Song A savedAt=1791971887451 card=heart@L1,part@L2
+    hist: (empty) > Song A > Song A@94222e7d > Song B@184f27ca[ad=false] > *Song B@184f27ca[ad=true]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+  native: [{"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"2:1","histAfterKeyStillFocused":"2:1"},{"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"4:3","histAfterKeyStillFocused":"4:3"}]
+
+# cand AB session_quiet
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 after session import S0 (#ui-file)
+    draft=Song Quiet rows=["[SETUP — rhyme groups — 1,2]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song Quiet id= card=- | SS: Song Quiet card=-
+    IDB: -
+    hist: (empty) > Song A > *Song Quiet
+    toasts: ["Session imported"]
+- 3 APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A > Song Quiet
+    toasts: ["Session imported"]
+- 4 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: *Song A
+  search s4: {"heart":[],"part":[],"gold":[],"road":[]}
+
+# cand AB session_mig
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 after session import S1 (#ui-file)
+    draft=Song S rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=gold@L1,road@L2
+    review: a rhyme link on “gold”, line 1: word 4 → 5; a rhyme link on “road”, line 2: word 4 → 5
+    LS: Song S id= card=gold@L1,road@L2 | SS: Song S card=gold@L1,road@L2
+    IDB: -
+    hist: (empty) > Song A > *Song S
+    toasts: ["Session imported"]
+- 3 APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=gold@L1,road@L2
+    review: a rhyme link on “gold”, line 1: word 4 → 5; a rhyme link on “road”, line 2: word 4 → 5
+    LS: Song A id= card=gold@L1,road@L2 | SS: Song A card=gold@L1,road@L2
+    IDB: -
+    hist: (empty) > *Song A > Song S
+    toasts: ["Session imported"]
+- 4 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=gold@L1,road@L2
+    review: a rhyme link on “gold”, line 1: word 4 → 5; a rhyme link on “road”, line 2: word 4 → 5
+    LS: Song A id= card=gold@L1,road@L2 | SS: Song A card=gold@L1,road@L2
+    IDB: -
+    hist: *Song A
+  search s4: {"heart":[],"part":[],"gold":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery"],"road":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery"]}
+
+# cand AB coords
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 typed a sung line above sung line 1 at offset 80, blur
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > Song A > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+    pageSung: ["1:A brand new opening line","2:Ah--ah, ah my heart is burning","3:Ah--ah, ah my part is turning"]
+
+# cand AB payload
+- P1_A before send
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- P1_A after send
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=heart@L1,part@L2
+    review: (review panel hidden)
+    LS: Song A id= card=heart@L1,part@L2 | SS: Song A card=heart@L1,part@L2
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- P2_after_B before send
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:4e87716b ui.renumbered=love@L1,dove@L2
+    review: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5
+    LS: Song B id=draft:4e87716b card=love@L1,dove@L2 | SS: Song B card=love@L1,dove@L2
+    IDB: draft:4e87716b=Song B savedAt=1791971930455 card=love@L1,dove@L2 ; draft:7c932d5a=Song A savedAt=1791971928564 card=heart@L1,part@L2
+    hist: (empty) > Song A > Song A@7c932d5a > *Song B@4e87716b[ad=false]
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- P2_after_B after send
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:4e87716b ui.renumbered=love@L1,dove@L2
+    review: (review panel hidden)
+    LS: Song B id=draft:4e87716b card=love@L1,dove@L2 | SS: Song B card=love@L1,dove@L2
+    IDB: draft:4e87716b=Song B savedAt=1791971931693 card=love@L1,dove@L2 ; draft:7c932d5a=Song A savedAt=1791971928564 card=heart@L1,part@L2
+    hist: (empty) > Song A > Song A@7c932d5a > *Song B@4e87716b[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- P3_after_undo before send
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:8bd40454 ui.renumbered=love@L1,dove@L2
+    review: a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5
+    LS: Song A id=draft:8bd40454 card=love@L1,dove@L2 | SS: Song A card=love@L1,dove@L2
+    IDB: draft:8bd40454=Song A savedAt=1791971940202 card=love@L1,dove@L2 ; draft:ace78acc=Song B savedAt=1791971935657 card=love@L1,dove@L2
+    hist: (empty) > Song A > *Song A@8bd40454 > Song B@ace78acc[ad=false]
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- P3_after_undo after send
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:8bd40454 ui.renumbered=love@L1,dove@L2
+    review: (review panel hidden)
+    LS: Song A id=draft:8bd40454 card=love@L1,dove@L2 | SS: Song A card=love@L1,dove@L2
+    IDB: draft:8bd40454=Song A savedAt=1791971941420 card=love@L1,dove@L2 ; draft:ace78acc=Song B savedAt=1791971935657 card=love@L1,dove@L2
+    hist: (empty) > Song A > *Song A@8bd40454 > Song B@ace78acc[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+  P1_A: reached=1 focus=chat-input decl={"title":"Song A","groups":"1.T5,2.T5"} doc="[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning"
+  P2_after_B: reached=1 focus=chat-input decl={"title":"Song B","returns":"1.T5,2.T5"} doc="[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove"
+  P3_after_undo: reached=1 focus=chat-input decl={"title":"Song A","groups":"1.T5,2.T5"} doc="[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning"

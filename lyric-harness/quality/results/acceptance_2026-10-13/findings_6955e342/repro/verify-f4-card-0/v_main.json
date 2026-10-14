@@ -1,0 +1,160 @@
+{
+ "tree": "main",
+ "head": null,
+ "steps": {
+  "s1": {
+   "toasts": [
+    "Imported s1.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "draft": "[SETUP — title — \"Skeptic One\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — reading — token 4 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me]\n[SETUP — reading — token 4 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me]\n[SETUP — reading — token 4 \"lost\" in \"Ah--ah, ah my lost way\" — L AO1 S T — declared — source: me]\n[SETUP — rhyme groups — 1.T4,2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nAh--ah, ah my heart and soul",
+   "card": null,
+   "items": [
+    {
+     "id": "reading:3",
+     "title": "The reading for “lost” no longer matches the draft",
+     "where": "No matching line",
+     "text": "Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.",
+     "lines": []
+    },
+    {
+     "id": "reading:4",
+     "title": "The reading for “lost” no longer matches the draft",
+     "where": "No matching line",
+     "text": "Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.",
+     "lines": []
+    }
+   ],
+   "pane": "Current version · b063791\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n2\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\n\n Changes to text, form or rhythm require a new review.",
+   "meta": null,
+   "sung": [
+    [
+     1,
+     "Oh--oh, oh my love"
+    ],
+    [
+     2,
+     "You are the one I dream of my dove"
+    ],
+    [
+     3,
+     "Oh--oh, oh my love"
+    ],
+    [
+     4,
+     "Ah--ah, ah my heart and soul"
+    ]
+   ]
+  },
+  "s1b": {
+   "card": null,
+   "items": [
+    {
+     "id": "reading:3",
+     "title": "The reading for “lost” no longer matches the draft",
+     "where": "No matching line",
+     "text": "Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.",
+     "lines": []
+    },
+    {
+     "id": "reading:4",
+     "title": "The reading for “lost” no longer matches the draft",
+     "where": "No matching line",
+     "text": "Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.",
+     "lines": []
+    }
+   ],
+   "pane": "Current version · 3bd0c94\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n2\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\n\n Changes to text, form or rhythm require a new review.",
+   "meta": null,
+   "sung": [
+    [
+     1,
+     "A new first line here"
+    ],
+    [
+     2,
+     "Oh--oh, oh my love"
+    ],
+    [
+     3,
+     "You are the one I dream of my dove"
+    ],
+    [
+     4,
+     "Oh--oh, oh my love"
+    ],
+    [
+     5,
+     "Ah--ah, ah my heart and soul"
+    ]
+   ],
+   "ohLinesNow": [
+    2,
+    4
+   ]
+  },
+  "s3": {
+   "toasts": [
+    "Imported s1.txt. Undo restores the previous draft.\nUndo",
+    "Imported s3.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "card": null,
+   "items": [],
+   "pane": "Current version · 7b8e460\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nNothing found.\n\n Changes to text, form or rhythm require a new review.",
+   "meta": null,
+   "sung": [
+    [
+     1,
+     "Rain on the window"
+    ],
+    [
+     2,
+     "Oh--oh, oh my love"
+    ],
+    [
+     3,
+     "Wind in the door"
+    ]
+   ]
+  },
+  "s2": {
+   "toasts": [
+    "Imported s2.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "card": null,
+   "items": [],
+   "pane": "Current version · e9c6f03\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nNothing found.\n\n Changes to text, form or rhythm require a new review.",
+   "meta": null,
+   "sung": [
+    [
+     1,
+     "Oh--oh, oh my love"
+    ],
+    [
+     2,
+     "Oh--oh, oh my love"
+    ],
+    [
+     3,
+     "Oh--oh, oh my love"
+    ],
+    [
+     4,
+     "Oh--oh, oh my love"
+    ],
+    [
+     5,
+     "Oh--oh, oh my love"
+    ],
+    [
+     6,
+     "Oh--oh, oh my love"
+    ],
+    [
+     7,
+     "You are the one I dream of my dove"
+    ]
+   ]
+  }
+ },
+ "pageErrors": []
+}

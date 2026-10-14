@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:e7976404-9d75-434a-ac32-c8be94f12092",
+  "draftId": "draft:9599828e-2e52-493b-aecf-9624b7ae1687",
+  "createdAt": "2026-10-14T09:44:09.115Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song BQ\"]\n[SETUP — returns — 1,2]\n\n[VERSE]\nwe sing it plain tonight\nwe bring it home tonight",
+    "title": "BQ_quiet",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:f4f9c9f0-9cdb-4d06-9fe4-d5ae13ef6c08",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "409fa19106acf6c8216ad576bbf61e83074f2073db07857404f47dfb3ef17cfa"
+}

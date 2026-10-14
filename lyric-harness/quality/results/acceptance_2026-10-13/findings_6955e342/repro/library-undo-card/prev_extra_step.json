@@ -1,0 +1,126 @@
+{
+ "tree": "prev",
+ "dir": "wt-61b",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/library-undo-card/build-wt-61b/built-wt-61b.html",
+ "extra_step": {
+  "B_migrating": {
+   "afterImport": {
+    "idx": 3,
+    "steps": [
+     {
+      "title": "",
+      "draftId": null,
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:30849da5-4b05-4e7f-a908-e6fdfd3f3a25",
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:6c1f915a-7c51-4058-984b-26182227d9e4",
+      "adapted": false
+     }
+    ],
+    "liveAdapted": true
+   },
+   "afterClickBlur": {
+    "idx": 4,
+    "steps": [
+     {
+      "title": "",
+      "draftId": null,
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:30849da5-4b05-4e7f-a908-e6fdfd3f3a25",
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:6c1f915a-7c51-4058-984b-26182227d9e4",
+      "adapted": false
+     },
+     {
+      "title": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:6c1f915a-7c51-4058-984b-26182227d9e4",
+      "adapted": true
+     }
+    ],
+    "liveAdapted": true
+   },
+   "afterUndo1": "[SETUP — title — \"Song B\"]",
+   "afterUndo2": "[SETUP — title — \"Song A\"]",
+   "errors": []
+  },
+  "BQ_quiet": {
+   "afterImport": {
+    "idx": 3,
+    "steps": [
+     {
+      "title": "",
+      "draftId": null,
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:a5388384-d86d-424c-b29e-52682b451086",
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song BQ\"]",
+      "draftId": "draft:9599828e-2e52-493b-aecf-9624b7ae1687",
+      "adapted": false
+     }
+    ],
+    "liveAdapted": false
+   },
+   "afterClickBlur": {
+    "idx": 3,
+    "steps": [
+     {
+      "title": "",
+      "draftId": null,
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:a5388384-d86d-424c-b29e-52682b451086",
+      "adapted": null
+     },
+     {
+      "title": "[SETUP — title — \"Song BQ\"]",
+      "draftId": "draft:9599828e-2e52-493b-aecf-9624b7ae1687",
+      "adapted": false
+     }
+    ],
+    "liveAdapted": false
+   },
+   "afterUndo1": "[SETUP — title — \"Song A\"]",
+   "afterUndo2": "[SETUP — title — \"Song A\"]",
+   "errors": []
+  }
+ }
+}

@@ -1,0 +1,74 @@
+[
+ {
+  "id": "cand.X5_relationOnly",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Rhymes relation-only Apply (class:RHYME)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — relation — class:RHYME]"
+    ],
+    "toasts": [
+     "Relation declared: class:RHYME.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3] | [SETUP — relation — class:RHYME]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]",
+     "[SETUP — relation — class:RHYME]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2] | [SETUP — relation — class:RHYME]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "relation": "class:RHYME",
+    "groups": "1.T5,8; 2,3"
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ }
+]

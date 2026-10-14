@@ -1,0 +1,5 @@
+{"what":"setSelectionRange(63,63)","t":1215,"sel":[63,63],"focused":true,"len":170,"stack":"at eval (eval at evaluate (:302:30), <anonymous>:18:7) | at UtilityScript.evaluate (<anonymous>:304:16) | at UtilityScript.<anonymous> (<anonymous>:1:44)"}
+{"what":"poll","t":1219,"sel":[63,63],"focused":true,"len":170}
+{"what":"value=179","t":1412,"sel":[179,179],"focused":false,"len":179,"stack":"at lyEnsureTokenScheme (codex.html:270:7045) | at lySubmitLyricsAction (codex.html:270:171158) | at ly-run-review (codex.html:270:180421) | at HTMLDocument.<anonymous> (codex.html:250:29249)"}
+{"what":"setSelectionRange(72,72,forward)","t":1412,"sel":[72,72],"focused":false,"len":179,"stack":"at lyEnsureTokenScheme (codex.html:270:7141) | at lySubmitLyricsAction (codex.html:270:171158) | at ly-run-review (codex.html:270:180421) | at HTMLDocument.<anonymous> (codex.html:250:29249)"}
+{"what":"poll","t":1437,"sel":[0,0],"focused":false,"len":179}

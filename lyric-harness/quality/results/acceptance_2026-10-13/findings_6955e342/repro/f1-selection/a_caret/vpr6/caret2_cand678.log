@@ -1,0 +1,21 @@
+[cand678] A.observe: wrapped=true ZQ on line 8 (intended 5); rewriting calls=[{"changed":true,"before":[75,75,116],"after":[125,125,125],"final":[125,125]}] errs=[]
+[cand678] A.restore: wrapped=true ZQ on line 4 (intended 5); rewriting calls=[{"changed":true,"before":[75,75,116],"after":[125,125,125],"final":[75,75]},{"changed":true,"before":[77,77,127],"after":[169,169,169],"final":[77,77]}] errs=[]
+[cand678] B: seededOk=true cutChanged(before,after)=[false,true]
+   caret 43/115  line2="I hold the dove-"  row="[SETUP — rhyme groups — 2,4]"
+   caret 162/162  line2="I hold the dove--"  row="[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]"
+   caret 163/163  line2="I hold the dove--"  row="[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]o"
+   caret 164/164  line2="I hold the dove--"  row="[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh"
+   caret 165/165  line2="I hold the dove--"  row="[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh "
+   caret 166/166  line2="I hold the dove--"  row="[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh m"
+   caret 167/167  line2="I hold the dove--"  row="[SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh my"
+   final text:
+     | [VERSE]
+     | Oh--oh, oh my love
+     | I hold the dove--
+     | 
+     | [CHORUS]
+     | Run to the sea
+     | And stay with me
+     | 
+     | [SETUP — rhyme groups — 2 (carried across the word-cut change),4 — cut v2]oh my
+exit 0

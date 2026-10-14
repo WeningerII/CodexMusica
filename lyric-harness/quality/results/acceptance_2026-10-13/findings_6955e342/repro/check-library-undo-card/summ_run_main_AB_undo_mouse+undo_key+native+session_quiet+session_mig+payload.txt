@@ -1,0 +1,247 @@
+
+# main AB undo_mouse
+- 1 after .txt import A (Review tab open)
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo"]
+- 2a after Library import B (passive)
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:2a60db40 ui.renumbered=-
+    review: (review panel hidden)
+    LS: Song B id=draft:2a60db40 card=- | SS: Song B card=-
+    IDB: draft:2a60db40=Song B savedAt=1791971867725 card=- ; draft:44a8ce92=Song A savedAt=1791971867369 card=-
+    hist: (empty) > Song A > Song A@44a8ce92 > *Song B@2a60db40[ad=false]
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo","Library working copy imported. Your previous draft is under History."]
+- 2b after Library import B, Review tab clicked
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:2a60db40 ui.renumbered=-
+    review: NO CARD
+    LS: Song B id=draft:2a60db40 card=- | SS: Song B card=-
+    IDB: draft:2a60db40=Song B savedAt=1791971869285 card=- ; draft:44a8ce92=Song A savedAt=1791971867369 card=-
+    hist: (empty) > Song A > Song A@44a8ce92 > *Song B@2a60db40[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3a APP Undo: #btn-undo, mouse click +60ms
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:44a8ce92 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:44a8ce92 card=- | SS: Song A card=-
+    IDB: draft:2a60db40=Song B savedAt=1791971869285 card=- ; draft:44a8ce92=Song A savedAt=1791971867369 card=-
+    hist: (empty) > Song A > *Song A@44a8ce92 > Song B@2a60db40[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3b APP Undo: #btn-undo, mouse click +700ms
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:44a8ce92 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:44a8ce92 card=- | SS: Song A card=-
+    IDB: draft:2a60db40=Song B savedAt=1791971869285 card=- ; draft:44a8ce92=Song A savedAt=1791971870240 card=-
+    hist: (empty) > Song A > *Song A@44a8ce92 > Song B@2a60db40[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3c APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:44a8ce92 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:44a8ce92 card=- | SS: Song A card=-
+    IDB: draft:2a60db40=Song B savedAt=1791971869285 card=- ; draft:44a8ce92=Song A savedAt=1791971870240 card=-
+    hist: (empty) > Song A > *Song A@44a8ce92 > Song B@2a60db40[ad=false]
+- 4 after reload, Review tab clicked
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:44a8ce92 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:44a8ce92 card=- | SS: Song A card=-
+    IDB: draft:2a60db40=Song B savedAt=1791971869285 card=- ; draft:44a8ce92=Song A savedAt=1791971876229 card=-
+    hist: *Song A@44a8ce92
+- 5 History tab: Open draft B (true), Review tab clicked
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:2a60db40 ui.renumbered=-
+    review: NO CARD
+    LS: Song B id=draft:2a60db40 card=- | SS: Song B card=-
+    IDB: draft:2a60db40=Song B savedAt=1791971878910 card=- ; draft:44a8ce92=Song A savedAt=1791971876765 card=-
+    hist: Song A@44a8ce92 > *Song B@2a60db40[ad=false]
+    toasts: ["Saved draft restored. No writing request was sent."]
+- 6 History tab: Open draft A (true), Review tab clicked
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:44a8ce92 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:44a8ce92 card=- | SS: Song A card=-
+    IDB: draft:2a60db40=Song B savedAt=1791971879399 card=- ; draft:44a8ce92=Song A savedAt=1791971881555 card=-
+    hist: Song A@44a8ce92 > Song B@2a60db40[ad=false] > *Song A@44a8ce92
+    toasts: ["Saved draft restored. No writing request was sent."]
+  search s4: {"heart":[],"part":[],"love":[],"dove":[]}
+  search s6: {"heart":[],"part":[],"love":[],"dove":[]}
+
+# main AB undo_key
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo"]
+- 2 after Library import B
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:9dc5bfa5 ui.renumbered=-
+    review: NO CARD
+    LS: Song B id=draft:9dc5bfa5 card=- | SS: Song B card=-
+    IDB: draft:80f1d340=Song A savedAt=1791971886058 card=- ; draft:9dc5bfa5=Song B savedAt=1791971887954 card=-
+    hist: (empty) > Song A > Song A@80f1d340 > *Song B@9dc5bfa5[ad=false]
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo","Library working copy imported. Your previous draft is under History."]
+- 3 APP Undo: Ctrl+Z, activeElement=BODY +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:80f1d340 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:80f1d340 card=- | SS: Song A card=-
+    IDB: draft:80f1d340=Song A savedAt=1791971888492 card=- ; draft:9dc5bfa5=Song B savedAt=1791971887954 card=-
+    hist: (empty) > Song A > *Song A@80f1d340 > Song B@9dc5bfa5[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 4 APP Redo: Ctrl+Shift+Z, activeElement=BODY +3s
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:9dc5bfa5 ui.renumbered=-
+    review: NO CARD
+    LS: Song B id=draft:9dc5bfa5 card=- | SS: Song B card=-
+    IDB: draft:80f1d340=Song A savedAt=1791971888492 card=- ; draft:9dc5bfa5=Song B savedAt=1791971891510 card=-
+    hist: (empty) > Song A > Song A@80f1d340 > *Song B@9dc5bfa5[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 5 APP Undo: Ctrl+Z, activeElement=BODY again +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:80f1d340 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:80f1d340 card=- | SS: Song A card=-
+    IDB: draft:80f1d340=Song A savedAt=1791971894544 card=- ; draft:9dc5bfa5=Song B savedAt=1791971891510 card=-
+    hist: (empty) > Song A > *Song A@80f1d340 > Song B@9dc5bfa5[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 6 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:80f1d340 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:80f1d340 card=- | SS: Song A card=-
+    IDB: draft:80f1d340=Song A savedAt=1791971900430 card=- ; draft:9dc5bfa5=Song B savedAt=1791971891510 card=-
+    hist: *Song A@80f1d340
+  search s6: {"heart":[],"part":[],"love":[],"dove":[]}
+
+# main AB native
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: (review panel hidden)
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo"]
+- 2 BROWSER-NATIVE Ctrl+Z in textarea after .txt import A {"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"2:1","histAfterKeyStillFocused":"2:1"}, then blur
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: (review panel hidden)
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo"]
+- 3 after Library import B
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:d49a13df ui.renumbered=-
+    review: (review panel hidden)
+    LS: Song B id=draft:d49a13df card=- | SS: Song B card=-
+    IDB: draft:d49a13df=Song B savedAt=1791971905679 card=- ; draft:dd2edd53=Song A savedAt=1791971905356 card=-
+    hist: (empty) > Song A > Song A@dd2edd53 > *Song B@d49a13df[ad=false]
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo","Library working copy imported. Your previous draft is under History."]
+- 4 BROWSER-NATIVE Ctrl+Z in textarea after import B {"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"4:3","histAfterKeyStillFocused":"4:3"}, then blur
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:d49a13df ui.renumbered=-
+    review: (review panel hidden)
+    LS: Song B id=draft:d49a13df card=- | SS: Song B card=-
+    IDB: draft:d49a13df=Song B savedAt=1791971905679 card=- ; draft:dd2edd53=Song A savedAt=1791971905356 card=-
+    hist: (empty) > Song A > Song A@dd2edd53 > *Song B@d49a13df[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+  native: [{"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"2:1","histAfterKeyStillFocused":"2:1"},{"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"4:3","histAfterKeyStillFocused":"4:3"}]
+
+# main AB session_quiet
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo"]
+- 2 after session import S0 (#ui-file)
+    draft=Song Quiet rows=["[SETUP — rhyme groups — 1,2]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song Quiet id= card=- | SS: Song Quiet card=-
+    IDB: -
+    hist: (empty) > Song A > *Song Quiet
+    toasts: ["Session imported"]
+- 3 APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A > Song Quiet
+    toasts: ["Session imported"]
+- 4 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: *Song A
+  search s4: {"heart":[],"part":[],"gold":[],"road":[]}
+
+# main AB session_mig
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo"]
+- 2 after session import S1 (#ui-file)
+    draft=Song S rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song S id= card=- | SS: Song S card=-
+    IDB: -
+    hist: (empty) > Song A > *Song S
+    toasts: ["Session imported"]
+- 3 APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A > Song S
+    toasts: ["Session imported"]
+- 4 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: *Song A
+  search s4: {"heart":[],"part":[],"gold":[],"road":[]}
+
+# main AB payload
+- P1_A before send
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: NO CARD
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo"]
+- P1_A after send
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null ui.renumbered=-
+    review: (review panel hidden)
+    LS: Song A id= card=- | SS: Song A card=-
+    IDB: -
+    hist: (empty) > *Song A
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo"]
+- P2_after_B before send
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:2e07a9d3 ui.renumbered=-
+    review: NO CARD
+    LS: Song B id=draft:2e07a9d3 card=- | SS: Song B card=-
+    IDB: draft:2e07a9d3=Song B savedAt=1791971942969 card=- ; draft:613cd21b=Song A savedAt=1791971941107 card=-
+    hist: (empty) > Song A > Song A@613cd21b > *Song B@2e07a9d3[ad=false]
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo","Library working copy imported. Your previous draft is under History."]
+- P2_after_B after send
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:2e07a9d3 ui.renumbered=-
+    review: (review panel hidden)
+    LS: Song B id=draft:2e07a9d3 card=- | SS: Song B card=-
+    IDB: draft:2e07a9d3=Song B savedAt=1791971944207 card=- ; draft:613cd21b=Song A savedAt=1791971941107 card=-
+    hist: (empty) > Song A > Song A@613cd21b > *Song B@2e07a9d3[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- P3_after_undo before send
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:28d3a904 ui.renumbered=-
+    review: NO CARD
+    LS: Song A id=draft:28d3a904 card=- | SS: Song A card=-
+    IDB: draft:28d3a904=Song A savedAt=1791971952653 card=- ; draft:e80004c8=Song B savedAt=1791971948083 card=-
+    hist: (empty) > Song A > *Song A@28d3a904 > Song B@e80004c8[ad=false]
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo","Library working copy imported. Your previous draft is under History."]
+- P3_after_undo after send
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=draft:28d3a904 ui.renumbered=-
+    review: (review panel hidden)
+    LS: Song A id=draft:28d3a904 card=- | SS: Song A card=-
+    IDB: draft:28d3a904=Song A savedAt=1791971953852 card=- ; draft:e80004c8=Song B savedAt=1791971948083 card=-
+    hist: (empty) > Song A > *Song A@28d3a904 > Song B@e80004c8[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+  P1_A: reached=1 focus=chat-input decl={"title":"Song A","groups":"1.T4,2.T4"} doc="[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning"
+  P2_after_B: reached=1 focus=chat-input decl={"title":"Song B","returns":"1.T4,2.T4"} doc="[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove"
+  P3_after_undo: reached=1 focus=chat-input decl={"title":"Song A","groups":"1.T4,2.T4"} doc="[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning"

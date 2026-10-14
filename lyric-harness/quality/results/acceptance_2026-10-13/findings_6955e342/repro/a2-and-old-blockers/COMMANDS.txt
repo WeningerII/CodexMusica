@@ -1,0 +1,77 @@
+# a2-and-old-blockers — every command run, in order (S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad, O=$S/h695/a2-and-old-blockers)
+# trees: wt-695=6955e342 (code 643e292e), wt-61b=61b6618a, wt-678=67889851, wt-main=8b1d2ad2, wt-base=fce4bf0f
+wt-695 6955e342963a90bdf470741266cea0dd84f0a797 0 dirty
+wt-61b 61b6618ae9373e00b60d3df3ab2d19cc11cc93cc 0 dirty
+wt-678 67889851144dd2a7eefedd9960a868978fb7bfae 0 dirty
+wt-main 8b1d2ad2cea5d9848cc6568dcce62b00747ab2f3 0 dirty
+wt-base fce4bf0f1b4b274d1c44c67831a6e40b22a8802c 0 dirty
+node /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/a2-and-old-blockers/a_vm_fire.js $S/wt-695 /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/a2-and-old-blockers/a_vm_fire_wt-695.json
+node /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/a2-and-old-blockers/a_vm_fire.js $S/wt-61b /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/a2-and-old-blockers/a_vm_fire_wt-61b.json
+node /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/a2-and-old-blockers/a_vm_fire.js $S/wt-678 /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/a2-and-old-blockers/a_vm_fire_wt-678.json
+cd $S/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python quality/results/named_place_lookup_2026-10-14/measure.py > $O/a_measure_stdout.json  (no --write: prints only)
+cd $S/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/a_harness_flags.py $O/a_harness_flags  (background)
+node $O/a_page_scan.js $S/wt-695 $O/a_page_scan_wt-695.tsv
+cd $S/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/b_zero_anchor.py > $O/b_zero_anchor_wt-695.json
+cd $S/wt-61b/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/b_zero_anchor.py > $O/b_zero_anchor_wt-61b.json
+cd $S/wt-678/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/b_zero_anchor.py > $O/b_zero_anchor_wt-678.json
+cd $S/wt-base/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/b_zero_anchor.py > $O/b_zero_anchor_wt-base.json
+python3 (inline) compare a_harness_flags.tsv vs a_page_scan_wt-695.tsv -> a_parity.json
+cd $S/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/built-wt-695.html --quiet; cmp $O/built-wt-695.html codex.html; sha256sum
+node $O/a_page_drive.js $S/wt-695 codex.html $O/a_page_drive_wt-695.json   (codex.html byte-identical to built-wt-695.html, sha 92d2d418)
+cd $S/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/built-wt-61b.html --quiet; cmp -> IDENTICAL; node $O/a_page_drive.js $S/wt-61b codex.html $O/a_page_drive_wt-61b.json
+# a_page_drive.js patched: open boundary falls back to lyEnsureTokenScheme / lyRefresh on trees without uiLyricsOpened (61b migrates in lyRefresh)
+# (b) item2 stale tab
+cp findings_67889851/repro/item2_stale_tab/verify-library-route1-0/{stale2tab.js,spans.js,scan.js} $O/b_item2/
+cmp $S/wt-695/library/code/analysis.71b110b249.js $S/wt-main/library/code/analysis.71b110b249.js   -> identical
+cmp $S/wt-695/library/code/analysis.9ebd86e5f8.js $S/wt-678/library/code/analysis.9ebd86e5f8.js   -> identical
+cd $S/wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/built-wt-main.html --quiet; cmp with wt-main/codex.html -> IDENTICAL
+mixed root $O/b_item2/mix: symlinks to every wt-695 entry except codex.html and .git; codex.html = built-wt-695.html; codex-old.html = built-wt-main.html
+node $O/b_item2/stale2tab.js $O/b_item2/mix $S/wt-695 S1 $O/b_item2/S1.json > .txt
+node $O/b_item2/stale2tab.js $O/b_item2/mix $S/wt-695 S2 $O/b_item2/S2.json > .txt
+node $O/b_item2/stale2tab.js $O/b_item2/mix $S/wt-695 S3 $O/b_item2/S3.json > .txt
+node $O/b_item2/stale2tab.js $S/wt-main $S/wt-main B1 $O/b_item2/B1.json > B1_out.txt
+node $O/b_item2/scan.js $S/wt-695 00 3a 57 81 a4 c1 e7 ff > $O/b_item2/scan_out.txt
+# (b) item3 mixed version (D=$O/b_item3)
+cp findings_67889851/repro/item3_mixed_version/verify-library-routes234-2/{e2e_worker.py,server_e2e.mjs,stale_page_probe.cjs} $D/
+for t in wt-695 wt-main: cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$D/build-$t/codex.html --quiet ; cmp with $S/$t/codex.html
+cd $S/wt-695/lyric-harness && PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data python3 $D/e2e_worker.py 2 > $D/e2e_wt-695_tok2.log
+cd $S/wt-base/lyric-harness && PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data python3 $D/e2e_worker.py 2 > $D/e2e_wt-base_tok2.log
+TREE=$S/wt-main BUILT=$D/build-wt-main node $D/stale_page_probe.cjs > $D/stale_page_wt-main.json
+TREE=$S/wt-695 BUILT=$D/build-wt-695 node $D/stale_page_probe.cjs > $D/stale_page_wt-695.json
+LINE='oh--oh oh oh' TREE=$S/wt-695 BUILT=$D/build-wt-695 node $D/stale_page_probe.cjs > $D/stale_page_wt-695_ohohohoh.json
+LINE='U--h, u--h, Lawdy,' TOK=3 WORD=Lawdy TREE=$S/wt-main BUILT=$D/build-wt-main node $D/stale_page_probe.cjs > $D/stale_page_wt-main_lawdy.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... TREE=$S/wt-695 HARNESS=$S/wt-695 BODY_FILE=$D/stale_page_wt-main.json node $D/server_e2e.mjs > $D/server_e2e_oldbody_wt-695.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... TREE=$S/wt-695 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-main.json node $D/server_e2e.mjs > $D/server_e2e_oldbody_wt-base.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... TREE=$S/wt-695 HARNESS=$S/wt-695 BODY_FILE=$D/stale_page_wt-695.json node $D/server_e2e.mjs > $D/server_e2e_newbody_wt-695.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... TREE=$S/wt-695 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-695.json node $D/server_e2e.mjs > $D/server_e2e_newbody_wt-base.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... LINE='oh--oh oh oh' TREE=$S/wt-695 HARNESS=$S/wt-695 BODY_FILE=$D/stale_page_wt-695_ohohohoh.json node $D/server_e2e.mjs > $D/server_e2e_newbody_ohohohoh_wt-695.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... LINE='oh--oh oh oh' TREE=$S/wt-695 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-695_ohohohoh.json node $D/server_e2e.mjs > $D/server_e2e_newbody_ohohohoh_wt-base.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... LINE='U--h, u--h, Lawdy,' TREE=$S/wt-695 HARNESS=$S/wt-695 BODY_FILE=$D/stale_page_wt-main_lawdy.json node $D/server_e2e.mjs > $D/server_e2e_oldbody_lawdy_wt-695.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... LINE='U--h, u--h, Lawdy,' TREE=$S/wt-695 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-main_lawdy.json node $D/server_e2e.mjs > $D/server_e2e_oldbody_lawdy_wt-base.json
+# server_e2e needs mcp/node_modules (express); wt-695 has none. Copy of the candidate's mcp/ (bytes identical, node_modules excluded) at $D/js695/mcp, with mcp/node_modules -> /home/user/CodexMusica/mcp/node_modules; TREE=$D/js695 for the JS, HARNESS=<tree> for worker.py + lyric-harness
+(cd $S/wt-695 && tar cf - --exclude=node_modules --exclude=__pycache__ mcp) | (cd $D/js695 && tar xf -) ; ln -s /home/user/CodexMusica/mcp/node_modules $D/js695/mcp/node_modules ; diff -rq -> identical
+# ^ the 8 server_e2e runs above with TREE=$S/wt-695 FAILED (ERR_MODULE_NOT_FOUND express; no mcp/node_modules in wt-695). Re-run below with TREE=$D/js695 (candidate mcp bytes):
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... TREE=$D/js695 HARNESS=$S/wt-695 BODY_FILE=$D/stale_page_wt-main.json node $D/server_e2e.mjs > $D/server_e2e_oldbody_wt-695.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... TREE=$D/js695 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-main.json node $D/server_e2e.mjs > $D/server_e2e_oldbody_wt-base.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... TREE=$D/js695 HARNESS=$S/wt-695 BODY_FILE=$D/stale_page_wt-695.json node $D/server_e2e.mjs > $D/server_e2e_newbody_wt-695.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... TREE=$D/js695 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-695.json node $D/server_e2e.mjs > $D/server_e2e_newbody_wt-base.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... LINE='oh--oh oh oh' TREE=$D/js695 HARNESS=$S/wt-695 BODY_FILE=$D/stale_page_wt-695_ohohohoh.json node $D/server_e2e.mjs > $D/server_e2e_newbody_ohohohoh_wt-695.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... LINE='oh--oh oh oh' TREE=$D/js695 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-695_ohohohoh.json node $D/server_e2e.mjs > $D/server_e2e_newbody_ohohohoh_wt-base.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... LINE='U--h, u--h, Lawdy,' TREE=$D/js695 HARNESS=$S/wt-695 BODY_FILE=$D/stale_page_wt-main_lawdy.json node $D/server_e2e.mjs > $D/server_e2e_oldbody_lawdy_wt-695.json
+PATH=$S/venv311/bin:$PATH LYRIC_STAGED_DATA=... LINE='U--h, u--h, Lawdy,' TREE=$D/js695 HARNESS=$S/wt-base BODY_FILE=$D/stale_page_wt-main_lawdy.json node $D/server_e2e.mjs > $D/server_e2e_oldbody_lawdy_wt-base.json
+python3 (inline) compare server_e2e_* to findings_67889851 (wt-678 -> wt-695 names), fields job_state/job_reason/line0_tokens/validate*/worker_declarations/refused_kinds/mentions -> $D/compare_prior.txt
+python3 (inline) compare stale_page_* to prior -> appended to compare_prior.txt
+cd $S/wt-695/lyric-harness && LYRIC_STAGED_DATA=... $S/venv311/bin/python $O/a_end_other_lexicons.py $O/a_end_sup_v2.json v2 none ; ... $O/a_end_fb_high.json none high   (extension; background, parallel)
+python3 (inline) union.json vs result.json end_changed: text-set equality and end-phonology agreement -> $O/a_union_vs_receipt.json
+python3 (inline) same check, anchors compared as sorted multisets (union.py sorted its anchors) -> $O/a_union_vs_receipt_sorted.json
+cd $S/wt-695/lyric-harness && ... $S/venv311/bin/python $O/a_end_other_lexicons.py $O/a_end_default.json none none   (default lexicon via build_lexicon; line-level check of R2's end_changed)
+node $O/a_forms_vm.js $S/wt-695 $O/a_forms_vm_wt-695.json
+cd $S/wt-695/lyric-harness && LYRIC_STAGED_DATA=... $S/venv311/bin/python $O/a_places_v1v2.py $O/a_places_v1v2.json
+sed-derived $O/a_page_forms.js (a_page_drive.js with 2 A.2 lines + control, forms bare N / head / endword / headrime / end); node $O/a_page_forms.js $S/wt-695 codex.html $O/a_page_forms_wt-695.json
+gzip -9 a_harness_flags.tsv a_page_scan_wt-695.tsv (disk)
+python3 (inline) line-level compare of a_end_{default,sup_v2,fb_high}.json to receipt end_changed and label_nfc_only -> $O/a_end_compare.json
+# cleanup: rm built-wt-695.html built-wt-main.html b_item2/mix b_item3/build-wt-695 b_item3/build-wt-main b_item3/js695 (regenerable by the commands above; sha of built candidate page 92d2d418…, main acf45264…)
+# cleanup: rm $O/library (library chunk output written beside --out=$O/built-*.html by the builds)
+# note: the three "stale2tab.js ... S1/S2/S3 ... > .txt" lines above are a logging typo; the actual redirection was > $O/b_item2/<S>_out.txt
+# also run (housekeeping): a foreground wait loop `while pgrep -f a_end_other_lexicons; do sleep 15; done` (it matched itself; killed with pkill after the three runs had finished at 09:33-09:35)
+# python3 (inline) diff of b_item2/<S>_out.txt against findings_67889851/repro/item2_stale_tab/verify-library-route1-0/<S>_out.txt with job ids masked -> all four identical; scan_out.txt identical

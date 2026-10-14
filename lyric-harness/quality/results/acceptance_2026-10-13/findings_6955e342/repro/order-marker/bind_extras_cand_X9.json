@@ -1,0 +1,249 @@
+{
+ "tree": "cand",
+ "reader_scheme": "v2",
+ "cases": [
+  {
+   "id": "X9_sectionMove",
+   "sends": [
+    {
+     "at": "3 Run review",
+     "declarations": {
+      "groups": "5.T5,4;6,7"
+     },
+     "groups_raw": "5.T5,4;6,7",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        4,
+        5
+       ],
+       [
+        6,
+        7
+       ]
+      ],
+      "loci": "((None, Slot(line=5, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:4',)))), '')",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 4,
+        "line_text": "Love above",
+        "member": "4",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 5,
+        "line_text": "Oh--oh, oh my love",
+        "member": "5.T5",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 4,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "line": 6,
+        "line_text": "I walk the line tonight",
+        "member": "6",
+        "label": "tonight",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "line",
+          "pieces": [
+           [
+            11,
+            15
+           ]
+          ],
+          "raw": "line",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "tonight",
+          "pieces": [
+           [
+            16,
+            23
+           ]
+          ],
+          "raw": "tonight",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "line",
+          "nucleus": "AY",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AY",
+          "coda": [
+           "T"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 7,
+        "line_text": "Well-worn shoes upon the floor",
+        "member": "7",
+        "label": "floor",
+        "bound": [
+         {
+          "widx": 2,
+          "token": "upon",
+          "pieces": [
+           [
+            16,
+            20
+           ]
+          ],
+          "raw": "upon",
+          "number_T": 3
+         },
+         {
+          "widx": 3,
+          "token": "the",
+          "pieces": [
+           [
+            21,
+            24
+           ]
+          ],
+          "raw": "the",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "floor",
+          "pieces": [
+           [
+            25,
+            30
+           ]
+          ],
+          "raw": "floor",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "upon",
+          "nucleus": "AA",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "the",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "floor",
+          "nucleus": "AO",
+          "coda": [
+           "R"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+
+### cand X1_appUndo
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 APP Undo (#btn-undo)] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":2,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 4 Run review: [{"groups":"1.T5,8; 2,3"}]
+  [4 after review] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"] hist={"idx":2,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo","1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+
+### cand X2_appUndoRedo
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 APP Undo] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":2,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [4 APP Redo (#btn-redo)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 5 Run review: [{"groups":"1.T4,8"}]
+  [5 after review] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### cand X3_nativeUndo
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 BROWSER-NATIVE Ctrl+Z #1 in textarea] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3b BROWSER-NATIVE Ctrl+Z #2 in textarea] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 4 Run review: [{"groups":"1.T4,8"}]
+  [4 after review] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### cand X4_wordRules
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Word rules apply (require)] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — require — love]"] cut=["UNMARKED","UNMARKED"] hist={"idx":3,"n":4} toasts=["Word rules applied.\nUndo"]
+  SEND 3 Run review: [{"groups":"1.T5,8; 2,3","must_include":["love"]}]
+  [3 after review] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]","[SETUP — require — love]"] cut=["cut v2","UNMARKED"] hist={"idx":3,"n":4} toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+
+### cand X5_relationOnly
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Rhymes relation only apply] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — relation — class:RHYME]"] cut=["UNMARKED","UNMARKED"] hist={"idx":3,"n":4} toasts=["Relation declared: class:RHYME.\nUndo"]
+  SEND 3 Run review: [{"relation":"class:RHYME","groups":"1.T5,8; 2,3"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]","[SETUP — relation — class:RHYME]"] cut=["cut v2","UNMARKED"] hist={"idx":3,"n":4} toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+
+### cand X6_markedTyped_O1
+  [1 typed into a MARKED row] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"] cut=["cut v2"] hist={"idx":1,"n":2}
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 3 Run review: [{"groups":"1.T4,8"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### cand X6_markedTyped_O2
+  [1 typed into a MARKED row] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"] cut=["cut v2"] hist={"idx":1,"n":2}
+  SEND 2 Run review: [{"groups":"1.T4,8; 2,3"}]
+  [2 after review] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"] cut=["cut v2"] hist={"idx":2,"n":3}
+  [3 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 4 Run review: [{"groups":"1.T4,8"}]
+  [4 after review] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### cand X7_verdict_O1
+  [1 pasted] rows=["[SETUP — returns — 1.T4,8.T2]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 placed return form apply] rows=["[SETUP — returns — 1.T4,8.T2;2.head,6.head — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Placed return declared.\nUndo"]
+  SEND 3 Run review: [{"returns":"1.T4,8.T2;2.head,6.head"}]
+  [3 after review] rows=["[SETUP — returns — 1.T4,8.T2;2.head,6.head — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Placed return declared.\nUndo"]
+
+### cand X7_verdict_O2
+  [1 pasted] rows=["[SETUP — returns — 1.T4,8.T2]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  SEND 2 Run review: [{"returns":"1.T5,8.T2"}]
+  [2 after review] rows=["[SETUP — returns — 1.T5,8.T2 — cut v2]"] cut=["cut v2"] hist={"idx":2,"n":3} toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 placed return form apply] rows=["[SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Placed return declared.\nUndo"]
+  SEND 4 Run review: [{"returns":"1.T5,8.T2;2.head,6.head"}]
+  [4 after review] rows=["[SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Placed return declared.\nUndo"]
+
+### cand X8_reviewCard_O1
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2} reviewMentionsCut=false ""
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"] reviewMentionsCut=false ""
+  SEND 3 Run review: [{"groups":"1.T4,8"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"] reviewMentionsCut=false ""
+
+### cand X8_reviewCard_O2
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2} reviewMentionsCut=false ""
+  SEND 2 Run review: [{"groups":"1.T5,8; 2,3"}]
+  [2 after review] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"] hist={"idx":2,"n":3} toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."] reviewMentionsCut=true " 1 saved word number renumbered to the current word cut Setup Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “love”, line 1: word 4 → 5."
+  [3 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link removed. Undo restores it.\nUndo"] reviewMentionsCut=true " 1 saved word number renumbered to the current word cut Setup Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “love”, line 1: word 4 → 5."
+  SEND 4 Run review: [{"groups":"1.T5,8"}]
+  [4 after review] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"] reviewMentionsCut=true " 1 saved word number renumbered to the current word cut Setup Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “love”, line 1: word 4 → 5."

@@ -1,0 +1,31 @@
+
+# cand AB native_after_undo
+- 1 after .txt A then Library B
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:98a62477 ui.renumbered=love@L1,dove@L2
+    review: (review panel hidden)
+    LS: Song B id=draft:98a62477 card=love@L1,dove@L2 | SS: Song B card=love@L1,dove@L2
+    IDB: draft:98a62477=Song B savedAt=1791972109456 card=love@L1,dove@L2 ; draft:bf97f570=Song A savedAt=1791972109116 card=heart@L1,part@L2
+    hist: (empty) > Song A > Song A@bf97f570 > *Song B@98a62477[ad=false]
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 2 APP Undo: #btn-undo, mouse click +2.5s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:bf97f570 ui.renumbered=love@L1,dove@L2
+    review: (review panel hidden)
+    LS: Song A id=draft:bf97f570 card=love@L1,dove@L2 | SS: Song A card=love@L1,dove@L2
+    IDB: draft:98a62477=Song B savedAt=1791972109456 card=love@L1,dove@L2 ; draft:bf97f570=Song A savedAt=1791972111150 card=love@L1,dove@L2
+    hist: (empty) > Song A > *Song A@bf97f570 > Song B@98a62477[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3 BROWSER-NATIVE Ctrl+Z in textarea, still focused {"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"4:2","histAfterKeyStillFocused":"4:2"}
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:bf97f570 ui.renumbered=love@L1,dove@L2
+    review: (review panel hidden)
+    LS: Song A id=draft:bf97f570 card=love@L1,dove@L2 | SS: Song A card=love@L1,dove@L2
+    IDB: draft:98a62477=Song B savedAt=1791972109456 card=love@L1,dove@L2 ; draft:bf97f570=Song A savedAt=1791972111150 card=love@L1,dove@L2
+    hist: (empty) > Song A > *Song A@bf97f570 > Song B@98a62477[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 4 after blur
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:bf97f570 ui.renumbered=love@L1,dove@L2
+    review: (review panel hidden)
+    LS: Song A id=draft:bf97f570 card=love@L1,dove@L2 | SS: Song A card=love@L1,dove@L2
+    IDB: draft:98a62477=Song B savedAt=1791972109456 card=love@L1,dove@L2 ; draft:bf97f570=Song A savedAt=1791972111150 card=love@L1,dove@L2
+    hist: (empty) > Song A > *Song A@bf97f570 > Song B@98a62477[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+  native: [{"focused":"lyrics-draft","changed":false,"inputEvents":0,"histBefore":"4:2","histAfterKeyStillFocused":"4:2"}]

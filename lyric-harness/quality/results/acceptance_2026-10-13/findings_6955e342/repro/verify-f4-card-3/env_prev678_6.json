@@ -1,0 +1,37 @@
+{
+ "protocol": "codex-musica.library-import",
+ "version": 1,
+ "handoffId": "handoff:8e930a66-42cb-4d04-9d20-bc60af783cb4",
+ "draftId": "draft:f90738cb-8856-4b00-9981-773a6d49d385",
+ "createdAt": "2026-10-14T10:16:36.859Z",
+ "payload": {
+  "text": "[SETUP — title — \"Chorus 6\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me]\n\n[VERSE]\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line",
+  "title": "Chorus 6",
+  "language": "eng",
+  "scope": "whole",
+  "provenance": {
+   "snapshotId": "snap:1",
+   "unitId": "unit:1",
+   "workId": "work:1",
+   "editionId": "ed:1",
+   "revisionId": "rev:1",
+   "workingCopy": {
+    "version": 1,
+    "adapted": false,
+    "importedFromHandoffId": "handoff:d3721324-6b37-46b1-9eb9-8acf80516fc2",
+    "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+    "lineageBasis": "Imported reading before edits",
+    "declarations": [],
+    "metadata": {
+     "brief": "",
+     "notes": {},
+     "drafts": {},
+     "ui": {}
+    }
+   }
+  },
+  "lineage": [],
+  "declarations": []
+ },
+ "digest": "68d09bcf5dd427d57e11b1ba1e361ab48fc2b952dd4401009e9afba2e3d74ee8"
+}

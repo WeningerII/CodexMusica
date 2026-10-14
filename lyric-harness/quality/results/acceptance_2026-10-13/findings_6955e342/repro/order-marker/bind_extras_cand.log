@@ -1,0 +1,14 @@
+X1_appUndo                               4 Run review       1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+X2_appUndoRedo                           5 Run review       1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+X3_nativeUndo                            4 Run review       1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+X4_wordRules                             3 Run review       1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+X5_relationOnly                          3 Run review       1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+X6_markedTyped_O1                        3 Run review       1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+X6_markedTyped_O2                        2 Run review       1.T4,8; 2,3|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+X6_markedTyped_O2                        4 Run review       1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+X7_verdict_O1                            3 Run review       |1.T4,8.T2;2.head,6.head  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+X7_verdict_O2                            2 Run review       |1.T5,8.T2  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=clean
+X7_verdict_O2                            4 Run review       |1.T5,8.T2;2.head,6.head  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=clean
+X8_reviewCard_O1                         3 Run review       1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+X8_reviewCard_O2                         2 Run review       1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+X8_reviewCard_O2                         4 Run review       1.T5,8|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)

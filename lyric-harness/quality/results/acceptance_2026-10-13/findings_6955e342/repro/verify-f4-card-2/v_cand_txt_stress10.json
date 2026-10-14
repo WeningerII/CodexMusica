@@ -1,0 +1,327 @@
+{
+ "tree": "cand",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "lib": false,
+ "cases": [
+  {
+   "name": "Stress_10",
+   "text": "[SETUP — title — \"Stress 10\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me]\n[SETUP — rhyme groups — 9.T2,10.T2;9.T3,10.T3;9.T4,10]\n[SETUP — returns — 7.T4,8.T4]\n\n[VERSE]\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\nAh--ah, ah my heart and soul wa\nAh--ah, ah my heart and soul wb",
+   "toasts": [
+    "10 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbab” word 4 → 5, …. Review lists each one until you dismiss it. 1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "after": {
+    "hasCardFn": true,
+    "hasMigrate": true,
+    "item": {
+     "title": "10 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3; the reading for “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; the reading for “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; a rhyme link on “ah”, line 9: word 2 → 3; a rhyme link on “ah”, line 10: word 2 → 3; a rhyme link on “my”, line 9: word 3 → 4; a rhyme link on “my”, line 10: word 3 → 4; a rhyme link on “heart”, line 9: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "pane": "Current version · f67adfc\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n2\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\n10 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3; the reading for “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; the reading for “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; a rhyme link on “ah”, line 9: word 2 → 3; a rhyme link on “ah”, line 10: word 2 → 3; a rhyme link on “my”, line 9: word 3 → 4; a rhyme link on “my”, line 10: word 3 → 4; a rhyme link on “heart”, line 9: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\nA rhyme link member, line 10 · last rhyme, was carried across the word-cut change\nLine 10\nLine 10's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “wb” under the earlier cut and “wb” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+    "stored": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        2,
+        3,
+        4
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        9
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        10
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        9
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        10
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        9
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "localStorage": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        2,
+        3,
+        4
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        9
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        10
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        9
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        10
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        9
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "draft": "[SETUP — title — \"Stress 10\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me — cut v2]\n[SETUP — rhyme groups — 9.T3,10.T3;9.T4,10.T4;9.T5,10 (carried across the word-cut change) — cut v2]\n[SETUP — returns — 7.T5,8.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\nAh--ah, ah my heart and soul wa\nAh--ah, ah my heart and soul wb"
+   },
+   "afterReload": {
+    "item": {
+     "title": "10 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3; the reading for “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; the reading for “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; a rhyme link on “ah”, line 9: word 2 → 3; a rhyme link on “ah”, line 10: word 2 → 3; a rhyme link on “my”, line 9: word 3 → 4; a rhyme link on “my”, line 10: word 3 → 4; a rhyme link on “heart”, line 9: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "stored": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "oh",
+       "n": [
+        1,
+        2,
+        3,
+        4
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        9
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        10
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        9
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        10
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        9
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "sameStored": true
+   },
+   "perWord": [],
+   "errors": []
+  }
+ ]
+}

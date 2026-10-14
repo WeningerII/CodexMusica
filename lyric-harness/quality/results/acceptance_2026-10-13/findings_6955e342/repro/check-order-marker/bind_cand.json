@@ -1,0 +1,12403 @@
+[
+ {
+  "id": "cand.RG4.remove.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T4,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.remove.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.remove.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.remove.dock.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T4,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.remove.dock.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.remove.dock.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.remove.review.type.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T4,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.remove.review.type.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.remove.review.type.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T4,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.dock.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T4,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.dock.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.dock.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.review.type.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T4,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.review.type.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG4.add.review.type.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T2,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T2",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.dock.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T2,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T2",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.dock.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.dock.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.review.type.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T2,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T2",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.review.type.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.remove.review.type.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T2,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T2",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.dock.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T2,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T2",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.dock.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.dock.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.review.type.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T2,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T2",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.review.type.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RG2.add.review.type.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T3,8;2,3;5,7",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 5,
+    "slot": "5",
+    "line_text": "The rain comes down",
+    "label": "down",
+    "widx": [
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "rain",
+     "comes",
+     "down"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "comes",
+      "pieces": [
+       [
+        9,
+        14
+       ]
+      ],
+      "raw_text": "comes"
+     },
+     {
+      "widx": 3,
+      "text": "down",
+      "pieces": [
+       [
+        15,
+        19
+       ]
+      ],
+      "raw_text": "down"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 2,
+    "line": 7,
+    "slot": "7",
+    "line_text": "The night is cold",
+    "label": "cold",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "The",
+     "night",
+     "is",
+     "cold"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "night",
+      "pieces": [
+       [
+        4,
+        9
+       ]
+      ],
+      "raw_text": "night"
+     },
+     {
+      "widx": 2,
+      "text": "is",
+      "pieces": [
+       [
+        10,
+        12
+       ]
+      ],
+      "raw_text": "is"
+     },
+     {
+      "widx": 3,
+      "text": "cold",
+      "pieces": [
+       [
+        13,
+        17
+       ]
+      ],
+      "raw_text": "cold"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    5,
+    7
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T3",
+    null
+   ],
+   [],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.RT4.placed.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T4,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='my', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.placed.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.placed.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.placed.dock.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T4,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='my', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.placed.dock.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.placed.dock.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.placed.review.type.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T4,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='my', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.placed.review.type.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.placed.review.type.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T4,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='my', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.dock.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T4,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='my', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.dock.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.dock.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.review.type.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T4,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='my', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.review.type.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT4.declare.review.type.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T5='love', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T2,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T2='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.dock.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T2,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T2='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.dock.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.dock.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.review.type.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T2,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T2='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.review.type.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.placed.review.type.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T2,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T2='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.dock.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T2,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T2='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.dock.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.dock.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.review.type.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T2,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T2",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "oh",
+      "pieces": [
+       [
+        4,
+        6
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T2='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.review.type.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.RT2.declare.review.type.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T3,8.T1;9,11;10,12",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T3",
+    "line_text": "Oh--oh, oh my love",
+    "label": "oh",
+    "widx": [
+     2
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 2,
+      "text": "oh",
+      "pieces": [
+       [
+        8,
+        10
+       ]
+      ],
+      "raw_text": "oh"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T1",
+    "line_text": "Love above",
+    "label": "Love",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 9,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 11,
+    "locus": "",
+    "line_text": "Go slow",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 10,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   },
+   {
+    "kind": "returns",
+    "class": 2,
+    "line": 12,
+    "locus": "",
+    "line_text": "Hold on",
+    "label": "(whole line)"
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T3='oh', L8.T1='Love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.X7.RT4v.placed.review.paste.O1.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T4,8.T2;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T2",
+    "line_text": "And love above",
+    "label": "love",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "And",
+     "love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "love",
+      "pieces": [
+       [
+        4,
+        8
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": [
+   [
+    "",
+    "None",
+    "None",
+    "NOT_RETURNED_AT",
+    "placed return (unlabelled) requires ONE word at every declared placement and reads 2: L1.T4='my', L8.T2='love'. The rest of these lines is not constrained by this class"
+   ]
+  ]
+ },
+ {
+  "id": "cand.X7.RT4v.placed.review.paste.O2.send1",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T2",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T2",
+    "line_text": "And love above",
+    "label": "love",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "And",
+     "love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "love",
+      "pieces": [
+       [
+        4,
+        8
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.X7.RT4v.placed.review.paste.O2.send2.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": "1.T5,8.T2;2.head,6.head",
+  "members": [
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 1,
+    "locus": "T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 0,
+    "line": 8,
+    "locus": "T2",
+    "line_text": "And love above",
+    "label": "love",
+    "widx": [
+     1
+    ],
+    "tokens": [
+     "And",
+     "love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "love",
+      "pieces": [
+       [
+        4,
+        8
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 2,
+    "locus": "head",
+    "line_text": "I walk the line tonight",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   },
+   {
+    "kind": "returns",
+    "class": 1,
+    "line": 6,
+    "locus": "head",
+    "line_text": "I hear the sound",
+    "label": "I",
+    "widx": [
+     0
+    ],
+    "tokens": [
+     "I",
+     "hear",
+     "the",
+     "sound"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "I",
+      "pieces": [
+       [
+        0,
+        1
+       ]
+      ],
+      "raw_text": "I"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [],
+  "mandate_loci": [],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.X1_appUndo_toastButton.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.X1k_appUndo_globalCtrlZ.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.X2_appRedo.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T4,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.X3_nativeUndo_afterForm.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T4,8",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T4",
+    "line_text": "Oh--oh, oh my love",
+    "label": "my",
+    "widx": [
+     3
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "my",
+      "pieces": [
+       [
+        11,
+        13
+       ]
+      ],
+      "raw_text": "my"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T4",
+    null
+   ]
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.X3s_nativeUndo_sanity_noForm.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": null,
+  "returns_wire": null,
+  "members": [],
+  "mandate_error": "NoMandate: the mandate declares no group of two or more lines, so it mandates NO pair and cannot flag anything. An all-free scheme ('XXXX') is a statement that nothing is required, and grading a draft against it would pass vacuously -- which is the defect this object exists to close. Declare at least one group, or say plainly that the song has no rhyme requirement and do not run the loop."
+ },
+ {
+  "id": "cand.X4_wordRules.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.X9_sectionMove.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "3.T5,10;4,5",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 3,
+    "slot": "3.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 10,
+    "slot": "10",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 4,
+    "slot": "4",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 5,
+    "slot": "5",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    3,
+    10
+   ],
+   [
+    4,
+    5
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "3.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ },
+ {
+  "id": "cand.X5_relationOnly.send1.FINAL",
+  "reader_scheme": "v2",
+  "groups_wire": "1.T5,8; 2,3",
+  "returns_wire": null,
+  "members": [
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 1,
+    "slot": "1.T5",
+    "line_text": "Oh--oh, oh my love",
+    "label": "love",
+    "widx": [
+     4
+    ],
+    "tokens": [
+     "Oh",
+     "oh",
+     "oh",
+     "my",
+     "love"
+    ],
+    "raw": [
+     {
+      "widx": 4,
+      "text": "love",
+      "pieces": [
+       [
+        14,
+        18
+       ]
+      ],
+      "raw_text": "love"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 0,
+    "line": 8,
+    "slot": "8",
+    "line_text": "Love above",
+    "label": "above",
+    "widx": [
+     0,
+     1
+    ],
+    "tokens": [
+     "Love",
+     "above"
+    ],
+    "raw": [
+     {
+      "widx": 0,
+      "text": "Love",
+      "pieces": [
+       [
+        0,
+        4
+       ]
+      ],
+      "raw_text": "Love"
+     },
+     {
+      "widx": 1,
+      "text": "above",
+      "pieces": [
+       [
+        5,
+        10
+       ]
+      ],
+      "raw_text": "above"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 2,
+    "slot": "2",
+    "line_text": "I walk the line tonight",
+    "label": "tonight",
+    "widx": [
+     3,
+     4
+    ],
+    "tokens": [
+     "I",
+     "walk",
+     "the",
+     "line",
+     "tonight"
+    ],
+    "raw": [
+     {
+      "widx": 3,
+      "text": "line",
+      "pieces": [
+       [
+        11,
+        15
+       ]
+      ],
+      "raw_text": "line"
+     },
+     {
+      "widx": 4,
+      "text": "tonight",
+      "pieces": [
+       [
+        16,
+        23
+       ]
+      ],
+      "raw_text": "tonight"
+     }
+    ]
+   },
+   {
+    "kind": "groups",
+    "group": 1,
+    "line": 3,
+    "slot": "3",
+    "line_text": "I hold you tight",
+    "label": "tight",
+    "widx": [
+     1,
+     2,
+     3
+    ],
+    "tokens": [
+     "I",
+     "hold",
+     "you",
+     "tight"
+    ],
+    "raw": [
+     {
+      "widx": 1,
+      "text": "hold",
+      "pieces": [
+       [
+        2,
+        6
+       ]
+      ],
+      "raw_text": "hold"
+     },
+     {
+      "widx": 2,
+      "text": "you",
+      "pieces": [
+       [
+        7,
+        10
+       ]
+      ],
+      "raw_text": "you"
+     },
+     {
+      "widx": 3,
+      "text": "tight",
+      "pieces": [
+       [
+        11,
+        16
+       ]
+      ],
+      "raw_text": "tight"
+     }
+    ]
+   }
+  ],
+  "mandate_groups": [
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    3
+   ]
+  ],
+  "mandate_loci": [
+   [
+    "1.T5",
+    null
+   ],
+   []
+  ],
+  "placed_returns_check": []
+ }
+]

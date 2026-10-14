@@ -1,0 +1,22 @@
+== main txt same40: card fn=false migrate fn=false item=false reloadSame=true
+  title: null
+  text : null
+   {"label":"w57a","len":57,"storedAs":[],"cardHasFull":false,"paneHasFull":false,"cardHasCut40":false,"ellipsis":false,"toastHasFull":false,"draftHasFull":true}
+   {"label":"w57b","len":57,"storedAs":[],"cardHasFull":false,"paneHasFull":false,"cardHasCut40":false,"ellipsis":false,"toastHasFull":false,"draftHasFull":true}
+  toasts: ["Imported same40.txt. Undo restores the previous draft.\nUndo"]
+  draft rows changed: 0 pageErrors: 0
+== main txt boundary: card fn=false migrate fn=false item=false reloadSame=true
+  title: null
+  text : null
+   {"label":"w40","len":40,"storedAs":[],"cardHasFull":false,"paneHasFull":false,"cardHasCut40":false,"ellipsis":false,"toastHasFull":false,"draftHasFull":true}
+   {"label":"w41","len":41,"storedAs":[],"cardHasFull":false,"paneHasFull":false,"cardHasCut40":false,"ellipsis":false,"toastHasFull":false,"draftHasFull":true}
+  toasts: ["Imported boundary.txt. Undo restores the previous draft.\nUndo"]
+  draft rows changed: 0 pageErrors: 0
+== main txt natural: card fn=false migrate fn=false item=false reloadSame=true
+  title: null
+  text : null
+   {"label":"de63","len":63,"storedAs":[],"cardHasFull":false,"paneHasFull":false,"cardHasCut40":false,"ellipsis":false,"toastHasFull":false,"draftHasFull":true}
+   {"label":"de42","len":42,"storedAs":[],"cardHasFull":false,"paneHasFull":false,"cardHasCut40":false,"ellipsis":false,"toastHasFull":false,"draftHasFull":true}
+   {"label":"hy","len":53,"storedAs":[],"cardHasFull":false,"paneHasFull":false,"cardHasCut40":false,"ellipsis":false,"toastHasFull":false,"draftHasFull":true}
+  toasts: ["Imported natural.txt. Undo restores the previous draft.\nUndo"]
+  draft rows changed: 0 pageErrors: 0

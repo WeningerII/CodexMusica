@@ -1,0 +1,15 @@
+[cand] unmarked: final sel [0,0,"forward"] focused=false migrated=true
+    {"what":"poll","t":831,"sel":[170,170],"focused":false,"visible":true,"len":170}
+    {"what":"set","t":1140,"sel":[63,63],"focused":true,"visible":true,"len":170}
+    {"what":"poll","t":1144,"sel":[63,63],"focused":true,"visible":true,"len":170}
+    {"what":"blur","t":1346,"sel":[63,63],"focused":false,"visible":true,"len":170}
+    {"what":"ensure:before()","t":1348,"sel":[63,63],"focused":false,"visible":true,"len":170}
+    {"what":"ensure:after=true","t":1353,"sel":[72,72],"focused":false,"visible":true,"len":179}
+    {"what":"poll","t":1387,"sel":[0,0],"focused":false,"visible":true,"len":179}
+[cand] marked: final sel [72,72,"forward"] focused=false migrated=false
+    {"what":"poll","t":822,"sel":[179,179],"focused":false,"visible":true,"len":179}
+    {"what":"set","t":1130,"sel":[72,72],"focused":true,"visible":true,"len":179}
+    {"what":"poll","t":1134,"sel":[72,72],"focused":true,"visible":true,"len":179}
+    {"what":"blur","t":1337,"sel":[72,72],"focused":false,"visible":true,"len":179}
+    {"what":"ensure:before()","t":1340,"sel":[72,72],"focused":false,"visible":true,"len":179}
+    {"what":"ensure:after=false","t":1340,"sel":[72,72],"focused":false,"visible":true,"len":179}

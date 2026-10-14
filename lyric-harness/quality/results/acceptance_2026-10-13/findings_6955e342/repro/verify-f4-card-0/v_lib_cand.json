@@ -1,0 +1,106 @@
+{
+ "tree": "cand",
+ "review": {
+  "card": {
+   "id": "renumbered",
+   "title": "5 saved word numbers renumbered to the current word cut",
+   "where": "Setup",
+   "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 4: word 4 → 5; the reading for “lost”: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+   "lines": []
+  },
+  "items": [
+   {
+    "id": "reading:3",
+    "title": "The reading for “lost” no longer matches the draft",
+    "where": "No matching line",
+    "text": "Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.",
+    "lines": []
+   },
+   {
+    "id": "reading:4",
+    "title": "The reading for “lost” no longer matches the draft",
+    "where": "No matching line",
+    "text": "Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.",
+    "lines": []
+   },
+   {
+    "id": "renumbered",
+    "title": "5 saved word numbers renumbered to the current word cut",
+    "where": "Setup",
+    "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 4: word 4 → 5; the reading for “lost”: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+    "lines": []
+   }
+  ],
+  "pane": "Current version · 653377b\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n3\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\n5 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 4: word 4 → 5; the reading for “lost”: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm require a new review.",
+  "meta": {
+   "items": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      3
+     ],
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "n": [
+      4
+     ],
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "n": [],
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "n": [],
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "n": [
+      1
+     ],
+     "from": 4,
+     "to": 5
+    }
+   ],
+   "more": 0
+  },
+  "sung": [
+   [
+    1,
+    "Oh--oh, oh my love"
+   ],
+   [
+    2,
+    "You are the one I dream of my dove"
+   ],
+   [
+    3,
+    "Oh--oh, oh my love"
+   ],
+   [
+    4,
+    "Ah--ah, ah my heart and soul"
+   ]
+  ]
+ },
+ "toasts": [
+  "5 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “heart” word 4 → 5, “lost” word 4 → 5, …. Review lists each one until you dismiss it.",
+  "Library working copy imported. Your previous draft is under History."
+ ],
+ "pageErrors": []
+}

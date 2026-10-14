@@ -1,0 +1,170 @@
+{
+ "tree": "prev61b",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b",
+ "lib": false,
+ "cases": [
+  {
+   "name": "same40",
+   "text": "[SETUP — title — \"same40\"]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me]\n[SETUP — returns — 1.T4,2.T4]\n\n[VERSE]\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab",
+   "toasts": [
+    "Imported same40.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "after": {
+    "hasCardFn": false,
+    "hasMigrate": true,
+    "item": null,
+    "pane": "Current version · b8d28b3\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+    "stored": null,
+    "localStorage": null,
+    "draft": "[SETUP — title — \"same40\"]\n[SETUP — reading — token 5 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me — cut v2]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab"
+   },
+   "afterReload": {
+    "item": null,
+    "stored": null,
+    "sameStored": true
+   },
+   "perWord": [
+    {
+     "label": "w57a",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "len": 57,
+     "storedAs": [],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": false,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": false,
+     "draftHasFull": true
+    },
+    {
+     "label": "w57b",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "len": 57,
+     "storedAs": [],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": false,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": false,
+     "draftHasFull": true
+    }
+   ],
+   "errors": []
+  },
+  {
+   "name": "boundary",
+   "text": "[SETUP — title — \"boundary\"]\n[SETUP — reading — token 4 \"abcdefghijklmnopqrstuvwxyzabcdefghijklmn\" in \"Oh--oh, oh my abcdefghijklmnopqrstuvwxyzabcdefghijklmn\" — S UW1 — declared — source: me]\n[SETUP — reading — token 4 \"abcdefghijklmnopqrstuvwxyzabcdefghijklmno\" in \"Oh--oh, oh my abcdefghijklmnopqrstuvwxyzabcdefghijklmno\" — S UW1 — declared — source: me]\n\n[VERSE]\nOh--oh, oh my abcdefghijklmnopqrstuvwxyzabcdefghijklmn\nOh--oh, oh my abcdefghijklmnopqrstuvwxyzabcdefghijklmno",
+   "toasts": [
+    "Imported boundary.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "after": {
+    "hasCardFn": false,
+    "hasMigrate": true,
+    "item": null,
+    "pane": "Current version · 7a11fba\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+    "stored": null,
+    "localStorage": null,
+    "draft": "[SETUP — title — \"boundary\"]\n[SETUP — reading — token 5 \"abcdefghijklmnopqrstuvwxyzabcdefghijklmn\" in \"Oh--oh, oh my abcdefghijklmnopqrstuvwxyzabcdefghijklmn\" — S UW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"abcdefghijklmnopqrstuvwxyzabcdefghijklmno\" in \"Oh--oh, oh my abcdefghijklmnopqrstuvwxyzabcdefghijklmno\" — S UW1 — declared — source: me — cut v2]\n\n[VERSE]\nOh--oh, oh my abcdefghijklmnopqrstuvwxyzabcdefghijklmn\nOh--oh, oh my abcdefghijklmnopqrstuvwxyzabcdefghijklmno"
+   },
+   "afterReload": {
+    "item": null,
+    "stored": null,
+    "sameStored": true
+   },
+   "perWord": [
+    {
+     "label": "w40",
+     "word": "abcdefghijklmnopqrstuvwxyzabcdefghijklmn",
+     "len": 40,
+     "storedAs": [],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": false,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": false,
+     "draftHasFull": true
+    },
+    {
+     "label": "w41",
+     "word": "abcdefghijklmnopqrstuvwxyzabcdefghijklmno",
+     "len": 41,
+     "storedAs": [],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": false,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": false,
+     "draftHasFull": true
+    }
+   ],
+   "errors": []
+  },
+  {
+   "name": "natural",
+   "text": "[SETUP — title — \"natural\"]\n[SETUP — reading — token 4 \"Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz\" in \"Oh--oh, oh my Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz\" — S UW1 — declared — source: me]\n[SETUP — reading — token 4 \"Donaudampfschifffahrtsgesellschaftskapitän\" in \"Oh--oh, oh my Donaudampfschifffahrtsgesellschaftskapitän\" — S UW1 — declared — source: me]\n[SETUP — reading — token 4 \"forget-me-not-and-never-ever-come-back-again-tomorrow\" in \"Oh--oh, oh my forget-me-not-and-never-ever-come-back-again-tomorrow\" — S UW1 — declared — source: me]\n\n[VERSE]\nOh--oh, oh my Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz\nOh--oh, oh my Donaudampfschifffahrtsgesellschaftskapitän\nOh--oh, oh my forget-me-not-and-never-ever-come-back-again-tomorrow",
+   "toasts": [
+    "Imported natural.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "after": {
+    "hasCardFn": false,
+    "hasMigrate": true,
+    "item": null,
+    "pane": "Current version · 6b65554\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n0\n\n Changes to text, form or rhythm require a new review.",
+    "stored": null,
+    "localStorage": null,
+    "draft": "[SETUP — title — \"natural\"]\n[SETUP — reading — token 5 \"Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz\" in \"Oh--oh, oh my Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz\" — S UW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"Donaudampfschifffahrtsgesellschaftskapitän\" in \"Oh--oh, oh my Donaudampfschifffahrtsgesellschaftskapitän\" — S UW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"forget-me-not-and-never-ever-come-back-again-tomorrow\" in \"Oh--oh, oh my forget-me-not-and-never-ever-come-back-again-tomorrow\" — S UW1 — declared — source: me — cut v2]\n\n[VERSE]\nOh--oh, oh my Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz\nOh--oh, oh my Donaudampfschifffahrtsgesellschaftskapitän\nOh--oh, oh my forget-me-not-and-never-ever-come-back-again-tomorrow"
+   },
+   "afterReload": {
+    "item": null,
+    "stored": null,
+    "sameStored": true
+   },
+   "perWord": [
+    {
+     "label": "de63",
+     "word": "Rindfleischetikettierungsüberwachungsaufgabenübertragungsgesetz",
+     "len": 63,
+     "storedAs": [],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": false,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": false,
+     "draftHasFull": true
+    },
+    {
+     "label": "de42",
+     "word": "Donaudampfschifffahrtsgesellschaftskapitän",
+     "len": 42,
+     "storedAs": [],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": false,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": false,
+     "draftHasFull": true
+    },
+    {
+     "label": "hy",
+     "word": "forget-me-not-and-never-ever-come-back-again-tomorrow",
+     "len": 53,
+     "storedAs": [],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": false,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": false,
+     "draftHasFull": true
+    }
+   ],
+   "errors": []
+  }
+ ]
+}

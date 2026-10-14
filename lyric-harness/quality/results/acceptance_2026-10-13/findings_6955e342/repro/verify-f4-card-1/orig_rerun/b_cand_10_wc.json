@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:706f19e7-d3db-40c1-84d8-fb1bcabd0a59",
+  "draftId": "draft:6bd09727-e423-4400-8177-e0f983db89f4",
+  "createdAt": "2026-10-14T09:59:35.981Z",
+  "payload": {
+    "text": "[SETUP — title — \"Stress 10\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me]\n[SETUP — rhyme groups — 9.T2,10.T2;9.T3,10.T3;9.T4,10]\n[SETUP — returns — 7.T4,8.T4]\n\n[VERSE]\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\nAh--ah, ah my heart and soul wa\nAh--ah, ah my heart and soul wb",
+    "title": "Stress 10",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:2d1ae977-d62c-4e28-ad5c-569ca056809d",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "cea213f0e84c91eb723f58ab7b5de71752447c6925ff87103c61e2e7bd8dece1"
+}

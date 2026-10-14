@@ -1,0 +1,5 @@
+{"variant":"focused","immediately":[22,22],"after300ms":[22,22],"focused":true}
+{"variant":"unfocused","immediately":[22,22],"after300ms":[22,22],"focused":false}
+{"variant":"layout","immediately":[22,22],"after300ms":[22,22],"focused":false}
+{"variant":"raf","immediately":[22,22],"after300ms":[22,22],"focused":false}
+chromium 141.0.7390.37

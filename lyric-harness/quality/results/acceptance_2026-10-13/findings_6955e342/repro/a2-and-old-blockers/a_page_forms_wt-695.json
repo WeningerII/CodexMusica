@@ -1,0 +1,323 @@
+{
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "html": "codex.html",
+ "hasFn": true,
+ "errs": [],
+ "results": [
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1,2",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “still” under the earlier cut and “still” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1,2\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "notice": [
+    "A declared return member, line 1 · first word, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its first word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Below” under the earlier cut and “Below” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.head,2.head\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "notice": [
+    "A rhyme link member, line 1 · last word, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “still” under the earlier cut and “still” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.endword,2.endword\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "notice": [
+    "A rhyme link member, line 1 · first rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its first rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “Below” under the earlier cut and “Below” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.headrime,2.headrime\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “still” under the earlier cut and “still” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1,2",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “well” under the earlier cut and “well” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1,2\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "notice": [
+    "A declared return member, line 1 · first word, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its first word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “My” under the earlier cut and “My” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.head,2.head\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "notice": [
+    "A rhyme link member, line 1 · last word, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last word reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “well” under the earlier cut and “well” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.endword,2.endword\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "fires": true,
+   "row_after_open": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "notice": [
+    "A rhyme link member, line 1 · first rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its first rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “My” under the earlier cut and “My” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"groups\":\"1.headrime,2.headrime\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "fires": true,
+   "row_after_open": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "notice": [
+    "A declared return member, line 1 · last rhyme, was carried across the word-cut change",
+    "Line 1's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “well” under the earlier cut and “well” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it."
+   ],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1,2",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1,2]",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1,2\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.head,2.head]",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.head,2.head\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.endword,2.endword]",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.endword,2.endword\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "fires": false,
+   "row_after_open": "[SETUP — rhyme groups — 1.headrime,2.headrime]",
+   "notice": [],
+   "wire": [
+    "\"groups\":\"1.headrime,2.headrime\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "fires": false,
+   "row_after_open": "[SETUP — returns — 1.end,2.end]",
+   "notice": [],
+   "wire": [
+    "\"returns\":\"1.end,2.end\""
+   ],
+   "sent": true,
+   "body_keys": [
+    "message",
+    "request_id",
+    "task",
+    "lyric_context"
+   ],
+   "decl": null
+  }
+ ]
+}

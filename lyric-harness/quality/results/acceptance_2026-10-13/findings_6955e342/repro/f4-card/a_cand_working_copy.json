@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:f659779d-03aa-4bf6-962f-bdb91f12bbf1",
+  "draftId": "draft:a747f663-1c5d-4881-833f-e53406cddce4",
+  "createdAt": "2026-10-14T08:40:49.915Z",
+  "payload": {
+    "text": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — reading — token 2 \"sing\" in \"we sing it plain tonight\" — S IH1 NG — declared — source: me]\n[SETUP — reading — token 4 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me]\n[SETUP — reading — token 4 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me]\n[SETUP — rhyme groups — 1.T4,2;4.T3,5.T6]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — returns — 1.T3,3.T3]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight\nAh--ah, ah my heart and soul",
+    "title": "Old Song (Library)",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:6919a7de-4049-4d2c-8d0b-12a24f0c3518",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "f5adb720ba4a016080a4e5868b71ab16dfe83cd443071f63fcc08ffa49840c27"
+}

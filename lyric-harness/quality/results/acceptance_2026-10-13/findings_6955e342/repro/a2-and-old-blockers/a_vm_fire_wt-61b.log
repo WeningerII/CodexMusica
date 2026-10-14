@@ -1,0 +1,42 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-61b",
+ "has_v1GraderLookup": false,
+ "union_fire_voices_off": [
+  [
+   "An' at each zide [=o]'m, sprack an' strong,",
+   false
+  ],
+  [
+   "As most is in _Lynn_'s fair Town;",
+   false
+  ],
+  [
+   "Below the knap, 's a runnèn still;",
+   false
+  ],
+  [
+   "By hoof or shoe, 's a sheenèn bright,",
+   false
+  ],
+  [
+   "What plaÿsome anticks zome [=o]'s done!",
+   false
+  ],
+  [
+   "When in that house M.P.'s divide,",
+   false
+  ],
+  [
+   "Where her \"meteor flag\" 's nailed fast",
+   false
+  ],
+  [
+   "“Also, some few I. O. U.’s and bets,”",
+   false
+  ]
+ ],
+ "union_all_fire": false,
+ "receipt_lookup_differs_fire": "0/24",
+ "nfc_controls_fire": "0/7",
+ "distinct_lines": 31
+}

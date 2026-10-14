@@ -1,0 +1,863 @@
+{
+ "supplement": "v2",
+ "fallback": "none",
+ "identical_cut": 271092,
+ "unique": 262604,
+ "end_changed": 15,
+ "end_changed_not_nfc": 8,
+ "end_changed_not_nfc_and_condition_silent": 0,
+ "changed": [
+  {
+   "file": "eng_american_f_j_child.txt",
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "lookup_differs": true,
+   "nfc_only": false,
+   "v1": [
+    [
+     [
+      [
+       "UW",
+       [],
+       [
+        "Y"
+       ],
+       1
+      ],
+      [
+       "AH",
+       [
+        "N",
+        "D"
+       ],
+       [
+        "Z"
+       ],
+       0
+      ],
+      [
+       "EH",
+       [
+        "T",
+        "S"
+       ],
+       [
+        "B"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "EH",
+       [
+        "T",
+        "S"
+       ],
+       [
+        "B"
+       ],
+       1
+      ]
+     ]
+    ],
+    "bets"
+   ],
+   "v2": [
+    [
+     [
+      [
+       "EH",
+       [],
+       [],
+       1
+      ],
+      [
+       "AH",
+       [
+        "N",
+        "D"
+       ],
+       [
+        "S"
+       ],
+       0
+      ],
+      [
+       "EH",
+       [
+        "T",
+        "S"
+       ],
+       [
+        "B"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "EH",
+       [
+        "T",
+        "S"
+       ],
+       [
+        "B"
+       ],
+       1
+      ]
+     ]
+    ],
+    "bets"
+   ]
+  },
+  {
+   "file": "eng_british_lord_byron.txt",
+   "line": "\"Μπένω μεσ' τὸ περιβόλι,",
+   "lookup_differs": false,
+   "nfc_only": true,
+   "v1": [
+    [],
+    "περιβόλι"
+   ],
+   "v2": [
+    [],
+    "περιβόλι"
+   ]
+  },
+  {
+   "file": "eng_british_robert_herrick.txt",
+   "line": "καὶ τῶν πτερῶν κατασχών",
+   "lookup_differs": false,
+   "nfc_only": true,
+   "v1": [
+    [],
+    "κατασχών"
+   ],
+   "v2": [
+    [],
+    "κατασχών"
+   ]
+  },
+  {
+   "file": "eng_british_robert_herrick.txt",
+   "line": "λαβὼν δ' ἔπινον αὐτόν,",
+   "lookup_differs": false,
+   "nfc_only": true,
+   "v1": [
+    [],
+    "αὐτόν"
+   ],
+   "v2": [
+    [],
+    "αὐτόν"
+   ]
+  },
+  {
+   "file": "eng_british_robert_herrick.txt",
+   "line": "πτεροῖσι γαργαλίζει.",
+   "lookup_differs": false,
+   "nfc_only": true,
+   "v1": [
+    [],
+    "γαργαλίζει"
+   ],
+   "v2": [
+    [],
+    "γαργαλίζει"
+   ]
+  },
+  {
+   "file": "eng_british_robert_herrick.txt",
+   "line": "οὔ με μὴ λάθῃ φλέγων Ὀφθαλμὸς, ἥτις ἀνδρὸς ᾖ γεγευμένη.",
+   "lookup_differs": false,
+   "nfc_only": true,
+   "v1": [
+    [],
+    "γεγευμένη"
+   ],
+   "v2": [
+    [],
+    "γεγευμένη"
+   ]
+  },
+  {
+   "file": "eng_british_robert_herrick.txt",
+   "line": "καὶ Νύμφαι κυανώπιδες",
+   "lookup_differs": false,
+   "nfc_only": true,
+   "v1": [
+    [],
+    "κυανώπιδες"
+   ],
+   "v2": [
+    [],
+    "κυανώπιδες"
+   ]
+  },
+  {
+   "file": "eng_british_robert_herrick.txt",
+   "line": "πορφυρέη τ' Ἀφροδίτη",
+   "lookup_differs": false,
+   "nfc_only": true,
+   "v1": [
+    [],
+    "Ἀφροδίτη"
+   ],
+   "v2": [
+    [],
+    "Ἀφροδίτη"
+   ]
+  },
+  {
+   "file": "eng_hall_thomas_durfey.txt",
+   "line": "As most is in _Lynn_'s fair Town;",
+   "lookup_differs": true,
+   "nfc_only": false,
+   "v1": [
+    [
+     [
+      [
+       "EH",
+       [
+        "R"
+       ],
+       [
+        "F"
+       ],
+       1
+      ],
+      [
+       "AW",
+       [
+        "N"
+       ],
+       [
+        "T"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AW",
+       [
+        "N"
+       ],
+       [
+        "T"
+       ],
+       1
+      ]
+     ]
+    ],
+    "Town"
+   ],
+   "v2": [
+    [
+     [
+      [
+       "EH",
+       [
+        "R"
+       ],
+       [
+        "S",
+        "F"
+       ],
+       1
+      ],
+      [
+       "AW",
+       [
+        "N"
+       ],
+       [
+        "T"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AW",
+       [
+        "N"
+       ],
+       [
+        "T"
+       ],
+       1
+      ]
+     ]
+    ],
+    "Town"
+   ]
+  },
+  {
+   "file": "eng_hall_william_barnes.txt",
+   "line": "Below the knap, 's a runnèn still;",
+   "lookup_differs": true,
+   "nfc_only": false,
+   "v1": [
+    [
+     [
+      [
+       "OW",
+       [],
+       [
+        "L"
+       ],
+       1
+      ],
+      [
+       "AH",
+       [],
+       [
+        "DH"
+       ],
+       0
+      ],
+      [
+       "AH",
+       [],
+       [],
+       0
+      ],
+      [
+       "IH",
+       [
+        "L"
+       ],
+       [
+        "S",
+        "T"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "IH",
+       [
+        "L"
+       ],
+       [
+        "S",
+        "T"
+       ],
+       1
+      ]
+     ]
+    ],
+    "still"
+   ],
+   "v2": [
+    [
+     [
+      [
+       "EH",
+       [],
+       [],
+       1
+      ],
+      [
+       "AH",
+       [],
+       [
+        "S"
+       ],
+       0
+      ],
+      [
+       "IH",
+       [
+        "L"
+       ],
+       [
+        "S",
+        "T"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "IH",
+       [
+        "L"
+       ],
+       [
+        "S",
+        "T"
+       ],
+       1
+      ]
+     ]
+    ],
+    "still"
+   ]
+  },
+  {
+   "file": "eng_hall_william_barnes.txt",
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "lookup_differs": true,
+   "nfc_only": false,
+   "v1": [
+    [
+     [
+      [
+       "AE",
+       [
+        "N"
+       ],
+       [
+        "CH"
+       ],
+       1
+      ],
+      [
+       "AO",
+       [
+        "NG"
+       ],
+       [
+        "S",
+        "T",
+        "R"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AO",
+       [
+        "NG"
+       ],
+       [
+        "S",
+        "T",
+        "R"
+       ],
+       1
+      ]
+     ]
+    ],
+    "strong"
+   ],
+   "v2": [
+    [
+     [
+      [
+       "AE",
+       [
+        "N"
+       ],
+       [
+        "M"
+       ],
+       1
+      ],
+      [
+       "AO",
+       [
+        "NG"
+       ],
+       [
+        "S",
+        "T",
+        "R"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AO",
+       [
+        "NG"
+       ],
+       [
+        "S",
+        "T",
+        "R"
+       ],
+       1
+      ]
+     ]
+    ],
+    "strong"
+   ]
+  },
+  {
+   "file": "eng_hall_william_barnes.txt",
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "lookup_differs": true,
+   "nfc_only": false,
+   "v1": [
+    [
+     [
+      [
+       "OW",
+       [
+        "Z"
+       ],
+       [
+        "T"
+       ],
+       1
+      ],
+      [
+       "AH",
+       [
+        "N"
+       ],
+       [
+        "D"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AH",
+       [
+        "N"
+       ],
+       [
+        "D"
+       ],
+       1
+      ]
+     ]
+    ],
+    "done"
+   ],
+   "v2": [
+    [
+     [
+      [
+       "EH",
+       [
+        "S"
+       ],
+       [],
+       1
+      ],
+      [
+       "AH",
+       [
+        "N"
+       ],
+       [
+        "D"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AH",
+       [
+        "N"
+       ],
+       [
+        "D"
+       ],
+       1
+      ]
+     ]
+    ],
+    "done"
+   ]
+  },
+  {
+   "file": "eng_hall_william_barnes.txt",
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "lookup_differs": true,
+   "nfc_only": false,
+   "v1": [
+    [
+     [
+      [
+       "UW",
+       [],
+       [
+        "SH"
+       ],
+       1
+      ],
+      [
+       "AH",
+       [],
+       [
+        "Z"
+       ],
+       0
+      ],
+      [
+       "AY",
+       [
+        "T"
+       ],
+       [
+        "B",
+        "R"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AY",
+       [
+        "T"
+       ],
+       [
+        "B",
+        "R"
+       ],
+       1
+      ]
+     ]
+    ],
+    "bright"
+   ],
+   "v2": [
+    [
+     [
+      [
+       "EH",
+       [],
+       [],
+       1
+      ],
+      [
+       "AH",
+       [],
+       [
+        "S"
+       ],
+       0
+      ],
+      [
+       "AY",
+       [
+        "T"
+       ],
+       [
+        "B",
+        "R"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AY",
+       [
+        "T"
+       ],
+       [
+        "B",
+        "R"
+       ],
+       1
+      ]
+     ]
+    ],
+    "bright"
+   ]
+  },
+  {
+   "file": "eng_hall_ws_gilbert.txt",
+   "line": "When in that house M.P.'s divide,",
+   "lookup_differs": true,
+   "nfc_only": false,
+   "v1": [
+    [
+     [
+      [
+       "IY",
+       [
+        "Z"
+       ],
+       [
+        "P"
+       ],
+       1
+      ],
+      [
+       "IH",
+       [],
+       [
+        "D"
+       ],
+       0
+      ],
+      [
+       "AY",
+       [
+        "D"
+       ],
+       [
+        "V"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AY",
+       [
+        "D"
+       ],
+       [
+        "V"
+       ],
+       1
+      ]
+     ]
+    ],
+    "divide"
+   ],
+   "v2": [
+    [
+     [
+      [
+       "EH",
+       [
+        "S"
+       ],
+       [],
+       1
+      ],
+      [
+       "IH",
+       [],
+       [
+        "D"
+       ],
+       0
+      ],
+      [
+       "AY",
+       [
+        "D"
+       ],
+       [
+        "V"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AY",
+       [
+        "D"
+       ],
+       [
+        "V"
+       ],
+       1
+      ]
+     ]
+    ],
+    "divide"
+   ]
+  },
+  {
+   "file": "eng_pah_wallace_de_groot_cecil_rice.txt",
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "lookup_differs": true,
+   "nfc_only": false,
+   "v1": [
+    [
+     [
+      [
+       "EY",
+       [
+        "L",
+        "D"
+       ],
+       [
+        "N"
+       ],
+       1
+      ],
+      [
+       "AE",
+       [
+        "S",
+        "T"
+       ],
+       [
+        "F"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AE",
+       [
+        "S",
+        "T"
+       ],
+       [
+        "F"
+       ],
+       1
+      ]
+     ]
+    ],
+    "fast"
+   ],
+   "v2": [
+    [
+     [
+      [
+       "EY",
+       [
+        "L",
+        "D"
+       ],
+       [
+        "S",
+        "N"
+       ],
+       1
+      ],
+      [
+       "AE",
+       [
+        "S",
+        "T"
+       ],
+       [
+        "F"
+       ],
+       1
+      ]
+     ],
+     [
+      [
+       "AE",
+       [
+        "S",
+        "T"
+       ],
+       [
+        "F"
+       ],
+       1
+      ]
+     ]
+    ],
+    "fast"
+   ]
+  }
+ ]
+}

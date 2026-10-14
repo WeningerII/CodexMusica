@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:fd205cf2-972a-49a0-a444-e7c988d8bfff",
+  "draftId": "draft:bed1d133-9ac0-40a3-8dde-af5501504738",
+  "createdAt": "2026-10-14T08:44:52.532Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — rhyme groups — 1.T4,2.T4]\n\n[VERSE]\nAh--ah, ah my bravo\nAh--ah, ah my banjo",
+    "title": "Song B",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:152b8a4c-c6b8-4d77-8e94-d897dd374952",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "8d17d1973f98875c353b431c55e9f40a3f7dc125c6e13cb6b7eabdfdfaae6e99"
+}

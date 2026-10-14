@@ -1,0 +1,98 @@
+== test_a_legacy_lyrics_request_then_a_library_analysis
+   after _lyrics {"('fallback-low', 'v1')": 'v1'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1'}
+   before _library {"('fallback-low', 'v1')": 'v1'}
+   after _library {"('fallback-low', 'v1')": 'v1'}
+   before _rebound {"('fallback-low', 'v1')": 'v1'}
+   after _rebound {"('fallback-low', 'v1')": 'v1'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1'}
+   before _caches_agree {"('fallback-low', 'v1')": 'v1'}
+   after _caches_agree {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   before _report {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   after _report {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   end {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   after _caches_hold_their_schemes: entries unchanged=True rss 398->398
+   after _rebound: entries unchanged=True rss 412->412
+   after _caches_hold_their_schemes: entries unchanged=True rss 412->412
+== test_a_new_lyrics_request_then_a_legacy_one
+   after _lyrics {"('fallback-low', 'v2')": 'v2'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2'}
+   before _lyrics {"('fallback-low', 'v2')": 'v2'}
+   after _lyrics {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   before _library {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _library {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   before _rebound {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _rebound {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   before _caches_agree {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _caches_agree {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   before _report {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _report {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   end {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _caches_hold_their_schemes: entries unchanged=True rss 458->458
+   after _caches_hold_their_schemes: entries unchanged=True rss 487->487
+   after _rebound: entries unchanged=True rss 493->493
+   after _caches_hold_their_schemes: entries unchanged=True rss 493->493
+== test_a_new_lyrics_request_then_a_library_analysis
+   after _lyrics {"('fallback-low', 'v2')": 'v2'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2'}
+   before _library {"('fallback-low', 'v2')": 'v2'}
+   after _library {"('fallback-low', 'v2')": 'v2'}
+   before _rebound {"('fallback-low', 'v2')": 'v2'}
+   after _rebound {"('fallback-low', 'v2')": 'v2'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2'}
+   before _caches_agree {"('fallback-low', 'v2')": 'v2'}
+   after _caches_agree {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   before _report {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _report {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   end {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _caches_hold_their_schemes: entries unchanged=True rss 458->458
+   after _rebound: entries unchanged=True rss 409->409
+   after _caches_hold_their_schemes: entries unchanged=True rss 409->409
+== test_cold_a_legacy_lyrics_request_then_a_new_one
+   after _lyrics {"('fallback-low', 'v1')": 'v1'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1'}
+   before _lyrics {"('fallback-low', 'v1')": 'v1'}
+   after _lyrics {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   before _caches_agree {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   after _caches_agree {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   before _report {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   after _report {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   end {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   after _caches_hold_their_schemes: entries unchanged=True rss 397->397
+   after _caches_hold_their_schemes: entries unchanged=True rss 539->539
+== test_cold_a_library_analysis_then_a_legacy_lyrics_request
+   after _lyrics {"('fallback-low', 'v1')": 'v1'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v1')": 'v1'}
+   before _caches_agree {"('fallback-low', 'v1')": 'v1'}
+   after _caches_agree {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   before _report {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   after _report {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   end {"('fallback-low', 'v1')": 'v1', "('fallback-low', 'v2')": 'v2'}
+   after _rebound: entries unchanged=True rss 150->150
+   after _caches_hold_their_schemes: entries unchanged=True rss 150->150
+   after _caches_hold_their_schemes: entries unchanged=True rss 400->400
+== test_cold_a_library_analysis_then_a_new_lyrics_request
+   after _lyrics {"('fallback-low', 'v2')": 'v2'}
+   before _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2'}
+   after _caches_hold_their_schemes {"('fallback-low', 'v2')": 'v2'}
+   before _caches_agree {"('fallback-low', 'v2')": 'v2'}
+   after _caches_agree {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   before _report {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _report {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   end {"('fallback-low', 'v2')": 'v2', "('fallback-low', 'v1')": 'v1'}
+   after _rebound: entries unchanged=True rss 148->148
+   after _caches_hold_their_schemes: entries unchanged=True rss 148->149
+   after _caches_hold_their_schemes: entries unchanged=True rss 473->473

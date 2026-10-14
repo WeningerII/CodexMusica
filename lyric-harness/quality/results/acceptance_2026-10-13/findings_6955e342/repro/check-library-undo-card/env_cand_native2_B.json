@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:582bb4f1-a5c3-4d71-907a-81f7ade77b60",
+  "draftId": "draft:98a62477-ada0-4c2d-a118-8abc64ad0138",
+  "createdAt": "2026-10-14T10:01:49.065Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T4,2.T4]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "Song B",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:r1",
+      "unitId": "unit:r1",
+      "workId": "work:r1",
+      "editionId": "ed:r1",
+      "revisionId": "rev:r1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:85bfd4dd-3dcf-4b55-b492-088ce505140f",
+        "sourceDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "1e8f19cabe2acc3be484272e5a98e022d21fb5af8f2a48a8ea71912383f857be"
+}

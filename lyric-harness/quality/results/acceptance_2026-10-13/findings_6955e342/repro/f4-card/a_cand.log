@@ -1,0 +1,118 @@
+TRUTH [
+ {
+  "kind": "reading",
+  "word": "oh",
+  "n": [
+   1,
+   3
+  ],
+  "line": "Oh--oh, oh my love",
+  "from": 2,
+  "to": 3
+ },
+ {
+  "kind": "reading",
+  "word": "heart",
+  "n": [
+   5
+  ],
+  "line": "Ah--ah, ah my heart and soul",
+  "from": 4,
+  "to": 5
+ },
+ {
+  "kind": "reading",
+  "word": "lost",
+  "n": [],
+  "line": "Oh--oh, oh my lost line",
+  "from": 4,
+  "to": 5
+ },
+ {
+  "kind": "rhyme groups",
+  "word": "love",
+  "line": 1,
+  "n": [
+   1
+  ],
+  "from": 4,
+  "to": 5,
+  "lineText": "Oh--oh, oh my love"
+ },
+ {
+  "kind": "rhyme groups",
+  "word": "soul",
+  "line": 5,
+  "n": [
+   5
+  ],
+  "from": 6,
+  "to": 7,
+  "lineText": "Ah--ah, ah my heart and soul"
+ },
+ {
+  "kind": "returns",
+  "word": "my",
+  "line": 1,
+  "n": [
+   1
+  ],
+  "from": 3,
+  "to": 4,
+  "lineText": "Oh--oh, oh my love"
+ },
+ {
+  "kind": "returns",
+  "word": "my",
+  "line": 3,
+  "n": [
+   3
+  ],
+  "from": 3,
+  "to": 4,
+  "lineText": "Oh--oh, oh my love"
+ }
+]
+CARD {
+ "title": "7 saved word numbers renumbered to the current word cut",
+ "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; the reading for “heart”, line 5: word 4 → 5; the reading for “lost”: word 4 → 5; a rhyme link on “love”, line 1: word 4 → 5; a rhyme link on “soul”, line 5: word 6 → 7; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+ "tone": "note",
+ "category": "Pronunciation",
+ "where": "Setup",
+ "actions": [
+  [
+   "ly-renumbered-dismiss",
+   "Dismiss",
+   "x",
+   ""
+  ]
+ ]
+}
+META {"items":[{"kind":"reading","word":"oh","n":[1,3],"from":2,"to":3},{"kind":"reading","word":"heart","n":[5],"from":4,"to":5},{"kind":"reading","word":"lost","n":[],"from":4,"to":5},{"kind":"rhyme groups","word":"love","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"soul","n":[5],"from":6,"to":7},{"kind":"returns","word":"my","n":[1],"from":3,"to":4},{"kind":"returns","word":"my","n":[3],"from":3,"to":4}],"more":0}
+[PASS] cand.a.txt.every: .txt import: the card lists every renumbered entry with old -> new, word, line
+    expected: 7 entries, each in meta, item text and pane
+    observed: [{"kind":"reading","word":"oh","from":2,"to":3,"n":[1,3],"line":"Oh--oh, oh my love","inMeta":true,"inItemText":true,"inPane":true},{"kind":"reading","word":"heart","from":4,"to":5,"n":[5],"line":"Ah--ah, ah my heart and soul","inMeta":true,"inItemText":true,"inPane":true},{"kind":"reading","word":"lost","from":4,"to":5,"n":[],"line":"Oh--oh, oh my lost line","inMeta":true,"inItemText":true,"inPane":true},{"kind":"rhyme groups","word":"love","from":4,"to":5,"n":[1],"line":1,"inMeta":true,"inItemText":true,"inPane":true},{"kind":"rhyme groups","word":"soul","from":6,"to":7,"n":[5],"line":5,"inMeta":true,"inItemText":true,"inPane":true},{"kind":"returns","word":"my","from":3,"to":4,"n":[1],"line":1,"inMeta":true,"inItemText":true,"inPane":true},{"kind":"returns","word":"my","from":3,"to":4,"n":[3],"line":3,"inMeta":true,"inItemText":true,"inPane":true}]
+[FAIL] cand.a.txt.orphanLine: a renumbered reading whose line text is not a sung line of the draft names its line on the card
+    expected: some line reference or the line text
+    observed: {"n":[],"cardText":"the reading for “lost”: word 4 → 5"}
+[PASS] cand.a.txt.reload: the card survives a reload with the same entries
+    expected: identical meta.items and every entry rendered
+    observed: {"sameMeta":true,"rendered":true}
+[PASS] cand.a.export: the exported session file carries the card
+    expected: lyricMeta.ui.renumbered equal to the page context
+    observed: {"items":[{"kind":"reading","word":"oh","n":[1,3],"from":2,"to":3},{"kind":"reading","word":"heart","n":[5],"from":4,"to":5},{"kind":"reading","word":"lost","n":[],"from":4,"to":5},{"kind":"rhyme groups","word":"love","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"soul","n":[5],"from":6,"to":7},{"kind":"returns","word":"my","n":[1],"from":3,"to":4},{"kind":"returns","word":"my","n":[3],"from":3,"to":4}],"more":0}
+[PASS] cand.a.sessionImport: a session import in a fresh profile restores the card
+    expected: identical meta.items, card rendered
+    observed: {"sameMeta":true,"title":"7 saved word numbers renumbered to the current word cut"}
+[PASS] cand.a.lib.every: Library working-copy import: the card lists every renumbered entry
+    expected: 7 entries, each in meta, item text and pane
+    observed: [{"kind":"reading","word":"oh","from":2,"to":3,"n":[1,3],"line":"Oh--oh, oh my love","inMeta":true,"inItemText":true,"inPane":true},{"kind":"reading","word":"heart","from":4,"to":5,"n":[5],"line":"Ah--ah, ah my heart and soul","inMeta":true,"inItemText":true,"inPane":true},{"kind":"reading","word":"lost","from":4,"to":5,"n":[],"line":"Oh--oh, oh my lost line","inMeta":true,"inItemText":true,"inPane":true},{"kind":"rhyme groups","word":"love","from":4,"to":5,"n":[1],"line":1,"inMeta":true,"inItemText":true,"inPane":true},{"kind":"rhyme groups","word":"soul","from":6,"to":7,"n":[5],"line":5,"inMeta":true,"inItemText":true,"inPane":true},{"kind":"returns","word":"my","from":3,"to":4,"n":[1],"line":1,"inMeta":true,"inItemText":true,"inPane":true},{"kind":"returns","word":"my","from":3,"to":4,"n":[3],"line":3,"inMeta":true,"inItemText":true,"inPane":true}]
+[PASS] cand.a.lib.sameAsTxt: the Library path migrates to the same text and the same card entries as the .txt path
+    expected: same draft text and same meta.items
+    observed: {"sameText":true,"sameItems":true}
+[PASS] cand.a.lib.reload: after a Library import the card survives a reload
+    expected: identical meta.items
+    observed: {"sameMeta":true,"idb":[["draft:a4cc975e-1a28-4a6b-ab25-308bc19cb59e",false],["draft:a747f663-1c5d-4881-833f-e53406cddce4",true]]}
+[PASS] cand.a.lib.sessionImport: Library draft: session export/import into a fresh profile restores the card
+    expected: identical meta.items
+    observed: {"sameMeta":true}

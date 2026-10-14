@@ -1,0 +1,937 @@
+{
+  "tree": "cand",
+  "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+  "cases": [
+    {
+      "id": "cand.prog.TWO_ROWS.top.U_other_in_5end",
+      "trig": "prog",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_other_in_5end",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5|.end, 6]",
+        "selected": "",
+        "unchangedByRefresh": true
+      },
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          66,
+          66,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — rhyme groups — 5|.end, 6]",
+        "selected": ""
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 66,
+          "hi": 66
+        },
+        {
+          "lo": 66,
+          "hi": 66
+        }
+      ],
+      "pagePredicted": [
+        66,
+        66
+      ],
+      "sameChars": true,
+      "expectedShown": "[SETUP — rhyme groups — 5|.end, 6]",
+      "collapsed": false,
+      "afterRefocusSel": [
+        66,
+        66,
+        "forward"
+      ],
+      "typed": {
+        "at": 66,
+        "line": 2,
+        "rowNow": "[SETUP — rhyme groups — 5ZQ.end, 6]"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5ZQ.end, 6]"
+        ],
+        "decl": {
+          "groups": "5ZQ.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.prog.TWO_ROWS.top.U_other_sel_6",
+      "trig": "prog",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_other_sel_6",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5.end, «6»]",
+        "selected": "6",
+        "unchangedByRefresh": true
+      },
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          72,
+          73,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — rhyme groups — 5.end, «6»]",
+        "selected": "6"
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 72,
+          "hi": 72
+        },
+        {
+          "lo": 73,
+          "hi": 73
+        }
+      ],
+      "pagePredicted": [
+        72,
+        73
+      ],
+      "sameChars": true,
+      "expectedShown": "[SETUP — rhyme groups — 5.end, «6»]",
+      "collapsed": false,
+      "afterRefocusSel": [
+        72,
+        73,
+        "forward"
+      ],
+      "typed": {
+        "at": 72,
+        "line": 2,
+        "rowNow": "[SETUP — rhyme groups — 5.end, ZQ]"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, ZQ]"
+        ],
+        "decl": {
+          "groups": "5.end, ZQ",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.prog.TWO_ROWS.top.U_first_in_2end",
+      "trig": "prog",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_first_in_2end",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "selected": "",
+        "unchangedByRefresh": true
+      },
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "selected": ""
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 27,
+          "hi": 27
+        },
+        {
+          "lo": 27,
+          "hi": 27
+        }
+      ],
+      "pagePredicted": [
+        39,
+        39
+      ],
+      "sameChars": false,
+      "expectedShown": "[SETUP — returns — 1.T3, 2.|end — cut v2]",
+      "collapsed": false,
+      "afterRefocusSel": [
+        39,
+        39,
+        "forward"
+      ],
+      "typed": {
+        "at": 39,
+        "line": 1,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.chat.TWO_ROWS.top.U_other_in_5end",
+      "trig": "chat",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_other_in_5end",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5|.end, 6]",
+        "selected": "",
+        "unchangedByRefresh": true
+      },
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          66,
+          66,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — rhyme groups — 5|.end, 6]",
+        "selected": ""
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 66,
+          "hi": 66
+        },
+        {
+          "lo": 66,
+          "hi": 66
+        }
+      ],
+      "pagePredicted": [
+        66,
+        66
+      ],
+      "sameChars": true,
+      "expectedShown": "[SETUP — rhyme groups — 5|.end, 6]",
+      "collapsed": false,
+      "afterRefocusSel": [
+        66,
+        66,
+        "forward"
+      ],
+      "typed": {
+        "at": 66,
+        "line": 2,
+        "rowNow": "[SETUP — rhyme groups — 5ZQ.end, 6]"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5ZQ.end, 6]"
+        ],
+        "decl": {
+          "groups": "5ZQ.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.chat.TWO_ROWS.top.U_other_sel_6",
+      "trig": "chat",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_other_sel_6",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5.end, «6»]",
+        "selected": "6",
+        "unchangedByRefresh": true
+      },
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          72,
+          73,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — rhyme groups — 5.end, «6»]",
+        "selected": "6"
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 72,
+          "hi": 72
+        },
+        {
+          "lo": 73,
+          "hi": 73
+        }
+      ],
+      "pagePredicted": [
+        72,
+        73
+      ],
+      "sameChars": true,
+      "expectedShown": "[SETUP — rhyme groups — 5.end, «6»]",
+      "collapsed": false,
+      "afterRefocusSel": [
+        72,
+        73,
+        "forward"
+      ],
+      "typed": {
+        "at": 72,
+        "line": 2,
+        "rowNow": "[SETUP — rhyme groups — 5.end, ZQ]"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, ZQ]"
+        ],
+        "decl": {
+          "groups": "5.end, ZQ",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.chat.TWO_ROWS.top.U_first_in_2end",
+      "trig": "chat",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_first_in_2end",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "selected": "",
+        "unchangedByRefresh": true
+      },
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "focused": true,
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "selected": ""
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 27,
+          "hi": 27
+        },
+        {
+          "lo": 27,
+          "hi": 27
+        }
+      ],
+      "pagePredicted": [
+        39,
+        39
+      ],
+      "sameChars": false,
+      "expectedShown": "[SETUP — returns — 1.T3, 2.|end — cut v2]",
+      "collapsed": false,
+      "afterRefocusSel": [
+        39,
+        39,
+        "forward"
+      ],
+      "typed": {
+        "at": 39,
+        "line": 1,
+        "rowNow": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns_need_decision": [
+            "1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)"
+          ]
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.click.TWO_ROWS.top.U_other_in_5end",
+      "trig": "click",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_other_in_5end",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          57,
+          57,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5|.end, 6]",
+        "selected": "",
+        "unchangedByRefresh": true
+      },
+      "button": "<button type=\"button\" class=\"cm-btn cm-btn-primary ly-run\" data-ui=\"ly-run-review\" title=\"\"><svg class=\"icon-svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fil",
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "selected": ""
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 66,
+          "hi": 66
+        },
+        {
+          "lo": 66,
+          "hi": 66
+        }
+      ],
+      "pagePredicted": [
+        66,
+        66
+      ],
+      "sameChars": false,
+      "expectedShown": "[SETUP — rhyme groups — 5|.end, 6]",
+      "collapsed": false,
+      "afterRefocusSel": [
+        0,
+        0,
+        "forward"
+      ],
+      "typed": {
+        "at": 0,
+        "line": 1,
+        "rowNow": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+      },
+      "parsed": {
+        "sung": [
+          "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6"
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.click.TWO_ROWS.top.U_other_sel_6",
+      "trig": "click",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_other_sel_6",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "shown": "[SETUP — rhyme groups — 5.end, «6»]",
+        "selected": "6",
+        "unchangedByRefresh": true
+      },
+      "button": "<button type=\"button\" class=\"cm-btn cm-btn-primary ly-run\" data-ui=\"ly-run-review\" title=\"\"><svg class=\"icon-svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fil",
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "selected": ""
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 72,
+          "hi": 72
+        },
+        {
+          "lo": 73,
+          "hi": 73
+        }
+      ],
+      "pagePredicted": [
+        72,
+        73
+      ],
+      "sameChars": false,
+      "expectedShown": "[SETUP — rhyme groups — 5.end, «6»]",
+      "collapsed": true,
+      "afterRefocusSel": [
+        0,
+        0,
+        "forward"
+      ],
+      "typed": {
+        "at": 0,
+        "line": 1,
+        "rowNow": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+      },
+      "parsed": {
+        "sung": [
+          "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6"
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    },
+    {
+      "id": "cand.click.TWO_ROWS.top.U_first_in_2end",
+      "trig": "click",
+      "row": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]",
+      "where": "top",
+      "sel": "U_first_in_2end",
+      "before": {
+        "text": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "selected": "",
+        "unchangedByRefresh": true
+      },
+      "button": "<button type=\"button\" class=\"cm-btn cm-btn-primary ly-run\" data-ui=\"ly-run-review\" title=\"\"><svg class=\"icon-svg\" width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fil",
+      "after": {
+        "text": "[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — rhyme groups — 5.end, 6]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nLove above",
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "focused": false,
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "selected": ""
+      },
+      "toasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+      ],
+      "sent": [
+        {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      ],
+      "migrated": true,
+      "ref": [
+        {
+          "lo": 27,
+          "hi": 27
+        },
+        {
+          "lo": 27,
+          "hi": 27
+        }
+      ],
+      "pagePredicted": [
+        39,
+        39
+      ],
+      "sameChars": false,
+      "expectedShown": "[SETUP — returns — 1.T3, 2.|end — cut v2]",
+      "collapsed": false,
+      "afterRefocusSel": [
+        0,
+        0,
+        "forward"
+      ],
+      "typed": {
+        "at": 0,
+        "line": 1,
+        "rowNow": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"
+      },
+      "parsed": {
+        "sung": [
+          "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6"
+        }
+      },
+      "parsedBefore": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — rhyme groups — 5.end, 6]"
+        ],
+        "decl": {
+          "groups": "5.end, 6",
+          "returns": "1.T3, 2.end"
+        }
+      },
+      "errors": []
+    }
+  ]
+}

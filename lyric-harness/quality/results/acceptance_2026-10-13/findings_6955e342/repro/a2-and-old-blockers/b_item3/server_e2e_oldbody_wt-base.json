@@ -1,0 +1,165 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/a2-and-old-blockers/b_item3/js695",
+ "harness": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base",
+ "validate": "accepted",
+ "validate_with_marker": "refused BAD_REQUEST: The analysis request contains an unknown field.",
+ "identity_keys": [
+  "contract_version",
+  "declaration_hash",
+  "edition_id",
+  "engine_commit",
+  "native_profile",
+  "normalized_sha256",
+  "normalizer_version",
+  "parser_version",
+  "reading_revision",
+  "reading_unit_id",
+  "requested_layers",
+  "requested_methods",
+  "resource_fingerprint",
+  "snapshot_id",
+  "source_sha256",
+  "work_id"
+ ],
+ "job_state": "completed_with_refusals",
+ "job_reason": null,
+ "worker_declarations": {
+  "pronunciations": [
+   {
+    "line": "Oh--oh, oh my love",
+    "token": 2,
+    "word": "oh",
+    "phones": [
+     "AA1"
+    ],
+    "basis": "declared",
+    "source": "the singer"
+   }
+  ]
+ },
+ "line0_tokens": [
+  {
+   "token": 1,
+   "text": "Oh--oh",
+   "codepoints": [
+    [
+     0,
+     6
+    ]
+   ],
+   "nuclei": []
+  },
+  {
+   "token": 2,
+   "text": "oh",
+   "codepoints": [
+    [
+     8,
+     10
+    ]
+   ],
+   "nuclei": [
+    "AA"
+   ]
+  },
+  {
+   "token": 3,
+   "text": "my",
+   "codepoints": [
+    [
+     11,
+     13
+    ]
+   ],
+   "nuclei": [
+    "AY"
+   ]
+  },
+  {
+   "token": 4,
+   "text": "love",
+   "codepoints": [
+    [
+     14,
+     18
+    ]
+   ],
+   "nuclei": [
+    "AH"
+   ]
+  }
+ ],
+ "records": 102,
+ "sample_token": {
+  "id": "token:71b7cd6ebe5a898c05b72c5fc5d4fd28",
+  "kind": "token",
+  "method_id": "coordinates",
+  "basis": "measured",
+  "token_id": "line:0:token:1",
+  "line_id": "line:0",
+  "token": 1,
+  "text": "oh",
+  "source_ranges": [
+   {
+    "codepoint_range": [
+     8,
+     10
+    ],
+    "utf16_range": [
+     8,
+     10
+    ],
+    "physical_line": null,
+    "precision": "exact"
+   }
+  ],
+  "normalized_range": {
+   "codepoint_range": [
+    8,
+    10
+   ],
+   "utf16_range": [
+    8,
+    10
+   ]
+  },
+  "unit_ids": [
+   "syllable:0"
+  ],
+  "readable": true,
+  "reading_status": "certain",
+  "reading_note": "1 readings and they agree everywhere",
+  "reading_choices": {
+   "line": "Oh--oh, oh my love",
+   "token": 2,
+   "word": "oh",
+   "dictionary_readings": [
+    {
+     "phones": [
+      "OW1"
+     ],
+     "syllables": 1,
+     "stress": [
+      1
+     ]
+    }
+   ],
+   "requires_source": true,
+   "supplied_reading_requires_source": false,
+   "matching_line_ids": [
+    "line:0"
+   ]
+  }
+ },
+ "scheme_contexts": [
+  "amespace\":\"schema\",\"schema_name\":\"chain rhyme (interlocking scheme)\",\"refusal\":{\"schema\":\"chain rhyme (interlocking scheme)\",\""
+ ],
+ "refused_kinds": [
+  "method_result:"
+ ],
+ "mentions": {
+  "word cut": false,
+  "scheme": true,
+  "v1": false
+ }
+}

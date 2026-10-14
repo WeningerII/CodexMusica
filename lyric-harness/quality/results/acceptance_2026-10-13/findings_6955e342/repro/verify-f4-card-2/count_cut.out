@@ -1,0 +1,4 @@
+10 items 10 more 0 cut40 4 [('reading', [7]), ('reading', [8]), ('returns', [7]), ('returns', [8])] longWordsInText [57, 57] ellipsisAfterCutWord False reloadSame True lsSame True
+50 items 48 more 2 cut40 3 [('reading', [8]), ('returns', [7]), ('returns', [8])] longWordsInText [57, 57] ellipsisAfterCutWord False reloadSame True lsSame True
+200 items 49 more 151 cut40 2 [('returns', [7]), ('returns', [8])] longWordsInText [57, 57] ellipsisAfterCutWord False reloadSame True lsSame True
+500 items 48 more 452 cut40 2 [('returns', [7]), ('returns', [8])] longWordsInText [57, 57] ellipsisAfterCutWord False reloadSame True lsSame True

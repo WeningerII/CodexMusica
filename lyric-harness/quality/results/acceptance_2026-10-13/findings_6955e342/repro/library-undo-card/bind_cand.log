@@ -1,0 +1,7 @@
+P1_A_before_B groups 1.T5 -> 'heart' [[14, 19]] label 'heart' | card lists ['heart', 'part']
+P1_A_before_B groups 2.T5 -> 'part' [[14, 18]] label 'part' | card lists ['heart', 'part']
+P2_after_B returns 1.T5 -> 'love' [[17, 21]] label 'love' | card lists ['love', 'dove']
+P2_after_B returns 2.T5 -> 'dove' [[17, 21]] label 'dove' | card lists ['love', 'dove']
+P3_after_app_undo groups 1.T5 -> 'heart' [[14, 19]] label 'heart' | card lists ['love', 'dove']
+P3_after_app_undo groups 2.T5 -> 'part' [[14, 18]] label 'part' | card lists ['love', 'dove']
+scheme v2

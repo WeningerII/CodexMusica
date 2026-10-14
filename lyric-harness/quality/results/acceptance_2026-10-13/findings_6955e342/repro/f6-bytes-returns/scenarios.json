@@ -1,0 +1,230 @@
+{
+ "song": [
+  "[VERSE]",
+  "Oh--oh, oh my love",
+  "Thundered the battery’s double bass--",
+  "My love--love is true",
+  "You hold my heart.    10",
+  "",
+  "[CHORUS]",
+  "I walk the line tonight",
+  "Well-worn shoes upon the floor",
+  "Stay with me (oh--oh) tonight",
+  "Hold me (hold me) close--close tonight"
+ ],
+ "notes": "C = ' (carried across the word-cut change)', U = ' (numbered under the earlier cut)', M = ' — cut v2'. exp_* is the candidate outcome the agreed policy predicts (unchanged binding -> every byte; rewritten -> only changed members respelled in the writer's spelling, plus M). Derived by hand from cuts2.out, not from the page code.",
+ "scenarios": [
+  {
+   "id": "U1",
+   "voices": false,
+   "R": "5,6",
+   "G": "5,6",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U2",
+   "voices": false,
+   "R": "5.end,6.end",
+   "G": "5.end,6.end",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U3",
+   "voices": false,
+   "R": "5.endword,6.endword",
+   "G": "5.endword,6.endword",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U4",
+   "voices": false,
+   "R": "5.head,6.head",
+   "G": "5.head,6.head",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U5",
+   "voices": false,
+   "R": "5.headrime,6.headrime",
+   "G": "5.headrime,6.headrime",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U6",
+   "voices": false,
+   "R": "5.line,6.line",
+   "G": "5.line,6.line",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U7",
+   "voices": false,
+   "R": "5.T5,6.T5",
+   "G": "5.T2,6.T3",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U8",
+   "voices": false,
+   "R": "5.end, 6.T5",
+   "G": "5.endword ,6.T5",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U9",
+   "voices": false,
+   "R": "5.end , 6.end ; 4.T4 ,  8.T2",
+   "G": "4.T1, 5.T1;  6.end,5.end",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U10",
+   "voices": true,
+   "R": "7.T2,5.T2",
+   "G": "7.T3,6.end",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U11",
+   "voices": false,
+   "R": "7.end,5.end",
+   "G": "7.T4,5.T5",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U12",
+   "voices": false,
+   "R": "5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5",
+   "G": "5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "U13",
+   "voices": false,
+   "R": "5.T05,6.T05",
+   "G": "6.T01,5.T01",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "W1",
+   "voices": false,
+   "R": "4.end,6.end",
+   "G": "4.end,6",
+   "expR": "4.end C,6.end M",
+   "expG": "4.end C,6 M"
+  },
+  {
+   "id": "W2",
+   "voices": false,
+   "R": "5.end,6.end;1.T4,8.T4",
+   "G": "5.end,6.endword;1.T4,8.T4",
+   "expR": "5.end,6.end;1.T5,8.T5 M",
+   "expG": "5.end,6.endword;1.T5,8.T5 M"
+  },
+  {
+   "id": "W3",
+   "voices": false,
+   "R": "1.end,6.head",
+   "G": "1.end,6.head",
+   "expR": "1.end C,6.head M",
+   "expG": "1.end C,6.head M"
+  },
+  {
+   "id": "W4",
+   "voices": false,
+   "R": "5.end, 1.T4 ; 6.endword ,8.T4",
+   "G": "5.end , 3.T3; 6.T5,  3.T4",
+   "expR": "5.end, 1.T5 ; 6.endword ,8.T5 M",
+   "expG": "5.end , 3.T4; 6.T5,  3.T5 M"
+  },
+  {
+   "id": "W5",
+   "voices": false,
+   "R": "4,6",
+   "G": "4,6",
+   "expR": "4 C,6 M",
+   "expG": "4 C,6 M",
+   "note": "returns bare N = whole line: its binding cannot change with the cut"
+  },
+  {
+   "id": "W6",
+   "voices": false,
+   "R": "4.endword,6.endword",
+   "G": "4.headrime,6.headrime",
+   "expR": "4.endword C,6.endword M",
+   "expG": "4.headrime C,6.headrime M"
+  },
+  {
+   "id": "W7",
+   "voices": false,
+   "R": "4.line,6.line",
+   "G": "4.head,6.head",
+   "expR": "4.line C,6.line M",
+   "expG": "4.head C,6.head M",
+   "note": "N.line binds the whole line: its binding cannot change with the cut"
+  },
+  {
+   "id": "W8",
+   "voices": true,
+   "R": "7.end,5.end",
+   "G": "7.T5,5.T5",
+   "expR": "7.end C,5.end M",
+   "expG": "7.T6,5.T5 M"
+  },
+  {
+   "id": "W9",
+   "voices": false,
+   "R": "1.T1,5.T1",
+   "G": "2.T5,6.T5",
+   "expR": "1.T1 U,5.T1 M",
+   "expG": "2.T5 U,6.T5 M"
+  },
+  {
+   "id": "W10",
+   "voices": false,
+   "R": "4.T4,6.T5;1.T2,8.T4",
+   "G": "3.T1,4.T3;3.T3,5.T1",
+   "expR": "4.T4,6.T5;1.T3,8.T5 M",
+   "expG": "3.T1,4.T3;3.T4,5.T1 M"
+  },
+  {
+   "id": "W11",
+   "voices": false,
+   "R": "1.T04,8.T04",
+   "G": "3.T03 , 5.T03",
+   "expR": "1.T5,8.T5 M",
+   "expG": "3.T4 , 5.T03 M",
+   "note": "zero-padded spelling: the writer's padding is not a policy point; recorded only"
+  },
+  {
+   "id": "M1",
+   "voices": false,
+   "R": "4.end,6.end — cut v2",
+   "G": "1.T5,8.T5 — cut v2",
+   "expR": "=",
+   "expG": "="
+  },
+  {
+   "id": "W12",
+   "voices": false,
+   "R": "4.end , 6.end ;  5.T2, 6.T2",
+   "G": "4.end ,6 ; 5.head,  6.head",
+   "expR": "4.end C , 6.end ;  5.T2, 6.T2 M",
+   "expG": "4.end C ,6 ; 5.head,  6.head M",
+   "note": "odd spacing plus a carried member: what Keep does to the unchanged members' bytes"
+  }
+ ]
+}

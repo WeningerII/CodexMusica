@@ -1,0 +1,227 @@
+{
+  "tree": "main",
+  "cases": {
+    "sung_walk": {
+      "size": {
+        "size": "narrow",
+        "mobile": "song"
+      },
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "songCaretSaved": [
+        63,
+        63,
+        0
+      ],
+      "buttonVisible": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "restored": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "shown": "I w|alk the line tonight",
+        "focused": false,
+        "activeId": "ly-mtab-song"
+      },
+      "ref": [
+        {
+          "lo": 63,
+          "hi": 63
+        },
+        {
+          "lo": 63,
+          "hi": 63
+        }
+      ],
+      "expectedShown": "I w|alk the line tonight",
+      "sameChars": true,
+      "selectedBefore": "",
+      "selectedAfter": "",
+      "typed": {
+        "line": 5,
+        "row": "I wZQalk the line tonight"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I wZQalk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T2, 2.end]"
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "errors": []
+    },
+    "sung_sel_line": {
+      "size": {
+        "size": "narrow",
+        "mobile": "song"
+      },
+      "before": {
+        "sel": [
+          84,
+          93,
+          "forward"
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "songCaretSaved": [
+        84,
+        93,
+        0
+      ],
+      "buttonVisible": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "sel": [
+          84,
+          93,
+          "forward"
+        ],
+        "shown": "«Well-worn» shoes upon the floor"
+      },
+      "restored": {
+        "sel": [
+          84,
+          93,
+          "forward"
+        ],
+        "shown": "«Well-worn» shoes upon the floor",
+        "focused": false,
+        "activeId": "ly-mtab-song"
+      },
+      "ref": [
+        {
+          "lo": 84,
+          "hi": 84
+        },
+        {
+          "lo": 93,
+          "hi": 93
+        }
+      ],
+      "expectedShown": "«Well-worn» shoes upon the floor",
+      "sameChars": true,
+      "selectedBefore": "Well-worn",
+      "selectedAfter": "Well-worn",
+      "typed": {
+        "line": 6,
+        "row": "ZQ shoes upon the floor"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "ZQ shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T2, 2.end]"
+        ],
+        "decl": {
+          "returns": "1.T2, 2.end"
+        }
+      },
+      "errors": []
+    },
+    "row_in_2end": {
+      "size": {
+        "size": "narrow",
+        "mobile": "song"
+      },
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "songCaretSaved": [
+        27,
+        27,
+        0
+      ],
+      "buttonVisible": 1,
+      "migrated": false,
+      "afterBoundary": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "restored": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "shown": "[SETUP — returns — 1.T2, 2.|end]",
+        "focused": false,
+        "activeId": "ly-mtab-song"
+      },
+      "ref": [
+        {
+          "lo": 27,
+          "hi": 27
+        },
+        {
+          "lo": 27,
+          "hi": 27
+        }
+      ],
+      "expectedShown": "[SETUP — returns — 1.T2, 2.|end]",
+      "sameChars": true,
+      "selectedBefore": "",
+      "selectedAfter": "",
+      "typed": {
+        "line": 1,
+        "row": "[SETUP — returns — 1.T2, 2.ZQend]"
+      },
+      "parsed": {
+        "sung": [
+          "Oh--oh, oh my love",
+          "I walk the line tonight",
+          "Well-worn shoes upon the floor",
+          "Oh, oh, I said oh",
+          "We're sailing on",
+          "Love above"
+        ],
+        "setup": [
+          "[SETUP — returns — 1.T2, 2.ZQend]"
+        ],
+        "decl": {
+          "returns": "1.T2, 2.ZQend"
+        }
+      },
+      "errors": []
+    }
+  }
+}

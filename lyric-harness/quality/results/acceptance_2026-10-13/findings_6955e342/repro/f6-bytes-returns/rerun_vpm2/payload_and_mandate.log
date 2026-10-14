@@ -1,0 +1,126 @@
+[main] R1 returns 4.end,6.end (L4 numeral end, cut changed)
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] R2 returns 4,6 (bare, whole line)
+  written [SETUP — returns — 4,6]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[main] R3 returns 4.end,6.end already marked cut v2
+  written [SETUP — returns — 4.end,6.end — cut v2]
+  sent    ['4.end,6.end — cut v2']
+    fce4bf0f: '4.end,6.end — cut v2' -> [{"lines": [4, 6], "loci": ["end", "end — cut v2"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end — cut v2' -> [{"lines": [4, 6], "loci": ["end", "end — cut v2"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end — cut v2' -> [{"lines": [4, 6], "loci": ["end", "end — cut v2"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] R4 returns 5.end,6.end (unchanged lines)
+  written [SETUP — returns — 5.end,6.end]
+  sent    ['5.end,6.end']
+    fce4bf0f: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] R5 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + T row-mate)
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] R6 returns 4.head,6.head (named non-end place, cut changed)
+  written [SETUP — returns — 4.head,6.head]
+  sent    ['4.head,6.head']
+    fce4bf0f: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] G1 rhyme groups 4.end,6 (rhyme row for contrast)
+  written [SETUP — rhyme groups — 4.end,6]
+  sent    [None]
+    fce4bf0f: None -> null
+    6955e342: None -> null
+    61b6618a: None -> null
+[cand] R1 returns 4.end,6.end (L4 numeral end, cut changed)
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] R2 returns 4,6 (bare, whole line)
+  written [SETUP — returns — 4,6]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[cand] R3 returns 4.end,6.end already marked cut v2
+  written [SETUP — returns — 4.end,6.end — cut v2]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] R4 returns 5.end,6.end (unchanged lines)
+  written [SETUP — returns — 5.end,6.end]
+  sent    ['5.end,6.end']
+    fce4bf0f: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] R5 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + T row-mate)
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] R6 returns 4.head,6.head (named non-end place, cut changed)
+  written [SETUP — returns — 4.head,6.head]
+  sent    ['4.head,6.head']
+    fce4bf0f: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] G1 rhyme groups 4.end,6 (rhyme row for contrast)
+  written [SETUP — rhyme groups — 4.end,6]
+  sent    [None]
+    fce4bf0f: None -> null
+    6955e342: None -> null
+    61b6618a: None -> null
+[prev61b] R1 returns 4.end,6.end (L4 numeral end, cut changed)
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] R2 returns 4,6 (bare, whole line)
+  written [SETUP — returns — 4,6]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] R3 returns 4.end,6.end already marked cut v2
+  written [SETUP — returns — 4.end,6.end — cut v2]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[prev61b] R4 returns 5.end,6.end (unchanged lines)
+  written [SETUP — returns — 5.end,6.end]
+  sent    ['5.end,6.end']
+    fce4bf0f: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end' -> [{"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[prev61b] R5 returns 5.end,6.end;1.T4,8.T4 (unchanged N.end + T row-mate)
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] R6 returns 4.head,6.head (named non-end place, cut changed)
+  written [SETUP — returns — 4.head,6.head]
+  sent    ['4.head,6.head']
+    fce4bf0f: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.head,6.head' -> [{"lines": [4, 6], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[prev61b] G1 rhyme groups 4.end,6 (rhyme row for contrast)
+  written [SETUP — rhyme groups — 4.end,6]
+  sent    [None]
+    fce4bf0f: None -> null
+    6955e342: None -> null
+    61b6618a: None -> null

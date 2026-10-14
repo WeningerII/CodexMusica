@@ -1,0 +1,45 @@
+main.prog.TWO_ROWS.top.U_other_in_5end: migrated=false sameChars=true
+    before [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+    after  [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]" focused=true
+    ref    [{"lo":57,"hi":57},{"lo":57,"hi":57}] "[SETUP — rhyme groups — 5|.end, 6]"
+    typed ZQ -> line 2: "[SETUP — rhyme groups — 5ZQ.end, 6]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.prog.TWO_ROWS.top.U_other_sel_6: migrated=false sameChars=true
+    before [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+    after  [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]" focused=true
+    ref    [{"lo":63,"hi":63},{"lo":64,"hi":64}] "[SETUP — rhyme groups — 5.end, «6»]"
+    typed ZQ -> line 2: "[SETUP — rhyme groups — 5.end, ZQ]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.prog.TWO_ROWS.top.U_first_in_2end: migrated=false sameChars=true
+    before [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]"
+    after  [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" focused=true
+    ref    [{"lo":27,"hi":27},{"lo":27,"hi":27}] "[SETUP — returns — 1.T2, 2.|end]"
+    typed ZQ -> line 1: "[SETUP — returns — 1.T2, 2.ZQend]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.chat.TWO_ROWS.top.U_other_in_5end: migrated=false sameChars=true
+    before [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+    after  [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]" focused=true
+    ref    [{"lo":57,"hi":57},{"lo":57,"hi":57}] "[SETUP — rhyme groups — 5|.end, 6]"
+    typed ZQ -> line 2: "[SETUP — rhyme groups — 5ZQ.end, 6]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.chat.TWO_ROWS.top.U_other_sel_6: migrated=false sameChars=true
+    before [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+    after  [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]" focused=true
+    ref    [{"lo":63,"hi":63},{"lo":64,"hi":64}] "[SETUP — rhyme groups — 5.end, «6»]"
+    typed ZQ -> line 2: "[SETUP — rhyme groups — 5.end, ZQ]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.chat.TWO_ROWS.top.U_first_in_2end: migrated=false sameChars=true
+    before [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]"
+    after  [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" focused=true
+    ref    [{"lo":27,"hi":27},{"lo":27,"hi":27}] "[SETUP — returns — 1.T2, 2.|end]"
+    typed ZQ -> line 1: "[SETUP — returns — 1.T2, 2.ZQend]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.click.TWO_ROWS.top.U_other_in_5end: migrated=false sameChars=true
+    before [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]"
+    after  [57,57,"forward"] "[SETUP — rhyme groups — 5|.end, 6]" focused=false
+    ref    [{"lo":57,"hi":57},{"lo":57,"hi":57}] "[SETUP — rhyme groups — 5|.end, 6]"
+    typed ZQ -> line 2: "[SETUP — rhyme groups — 5ZQ.end, 6]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.click.TWO_ROWS.top.U_other_sel_6: migrated=false sameChars=true
+    before [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]"
+    after  [63,64,"forward"] "[SETUP — rhyme groups — 5.end, «6»]" focused=false
+    ref    [{"lo":63,"hi":63},{"lo":64,"hi":64}] "[SETUP — rhyme groups — 5.end, «6»]"
+    typed ZQ -> line 2: "[SETUP — rhyme groups — 5.end, ZQ]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]
+main.click.TWO_ROWS.top.U_first_in_2end: migrated=false sameChars=true
+    before [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]"
+    after  [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]" focused=false
+    ref    [{"lo":27,"hi":27},{"lo":27,"hi":27}] "[SETUP — returns — 1.T2, 2.|end]"
+    typed ZQ -> line 1: "[SETUP — returns — 1.T2, 2.ZQend]"; sent=[{"groups":"5.end, 6","returns":"1.T2, 2.end"}]

@@ -1,0 +1,18 @@
+== voices OFF
+L1 cut CHANGED  T1"Oh--oh"->NONE T2"oh"->T3 T3"my"->T4 T4"love"->T5  v2pieces=[["Oh",[[0,2]]],["oh",[[4,6]]],["oh",[[8,10]]],["my",[[11,13]]],["love",[[14,18]]]]
+L2 cut CHANGED  T1"Thundered"->T1 T2"the"->T2 T3"battery's"->T3 T4"double"->T4 T5"bass--"->NONE  v2pieces=[["Thundered",[[0,9]]],["the",[[10,13]]],["battery's",[[14,23]]],["double",[[24,30]]],["bass",[[31,35]]]]
+L3 cut CHANGED  T1"My"->T1 T2"love--love"->NONE T3"is"->T4 T4"true"->T5  v2pieces=[["My",[[0,2]]],["love",[[3,7]]],["love",[[9,13]]],["is",[[14,16]]],["true",[[17,21]]]]
+L4 cut CHANGED  T1"You"->T1 T2"hold"->T2 T3"my"->T3 T4"heart"->T4  v2pieces=[["You",[[0,3]]],["hold",[[4,8]]],["my",[[9,11]]],["heart",[[12,17]]],["10",[[22,24]]]]
+L5 cut SAME  T1"I"->T1 T2"walk"->T2 T3"the"->T3 T4"line"->T4 T5"tonight"->T5  v2pieces=[["I",[[0,1]]],["walk",[[2,6]]],["the",[[7,10]]],["line",[[11,15]]],["tonight",[[16,23]]]]
+L6 cut SAME  T1"Well-worn"->T1 T2"shoes"->T2 T3"upon"->T3 T4"the"->T4 T5"floor"->T5  v2pieces=[["Well-worn",[[0,9]]],["shoes",[[10,15]]],["upon",[[16,20]]],["the",[[21,24]]],["floor",[[25,30]]]]
+L7 cut SAME  T1"Stay"->T1 T2"with"->T2 T3"me"->T3 T4"tonight"->T4  v2pieces=[["Stay",[[0,4]]],["with",[[5,9]]],["me",[[10,12]]],["tonight",[[22,29]]]]
+L8 cut CHANGED  T1"Hold"->T1 T2"me"->T2 T3"close--close"->NONE T4"tonight"->T5  v2pieces=[["Hold",[[0,4]]],["me",[[5,7]]],["close",[[18,23]]],["close",[[25,30]]],["tonight",[[31,38]]]]
+== voices ON
+L1 cut CHANGED  T1"Oh--oh"->NONE T2"oh"->T3 T3"my"->T4 T4"love"->T5  v2pieces=[["Oh",[[0,2]]],["oh",[[4,6]]],["oh",[[8,10]]],["my",[[11,13]]],["love",[[14,18]]]]
+L2 cut CHANGED  T1"Thundered"->T1 T2"the"->T2 T3"battery's"->T3 T4"double"->T4 T5"bass--"->NONE  v2pieces=[["Thundered",[[0,9]]],["the",[[10,13]]],["battery's",[[14,23]]],["double",[[24,30]]],["bass",[[31,35]]]]
+L3 cut CHANGED  T1"My"->T1 T2"love--love"->NONE T3"is"->T4 T4"true"->T5  v2pieces=[["My",[[0,2]]],["love",[[3,7]]],["love",[[9,13]]],["is",[[14,16]]],["true",[[17,21]]]]
+L4 cut CHANGED  T1"You"->T1 T2"hold"->T2 T3"my"->T3 T4"heart"->T4  v2pieces=[["You",[[0,3]]],["hold",[[4,8]]],["my",[[9,11]]],["heart",[[12,17]]],["10",[[22,24]]]]
+L5 cut SAME  T1"I"->T1 T2"walk"->T2 T3"the"->T3 T4"line"->T4 T5"tonight"->T5  v2pieces=[["I",[[0,1]]],["walk",[[2,6]]],["the",[[7,10]]],["line",[[11,15]]],["tonight",[[16,23]]]]
+L6 cut SAME  T1"Well-worn"->T1 T2"shoes"->T2 T3"upon"->T3 T4"the"->T4 T5"floor"->T5  v2pieces=[["Well-worn",[[0,9]]],["shoes",[[10,15]]],["upon",[[16,20]]],["the",[[21,24]]],["floor",[[25,30]]]]
+L7 cut CHANGED  T1"Stay"->T1 T2"with"->T2 T3"me"->T3 T4"oh--oh"->NONE T5"tonight"->T6  v2pieces=[["Stay",[[0,4]]],["with",[[5,9]]],["me",[[10,12]]],["oh",[[14,16]]],["oh",[[18,20]]],["tonight",[[22,29]]]]
+L8 cut CHANGED  T1"Hold"->T1 T2"me"->T2 T3"hold"->T3 T4"me"->T4 T5"close--close"->NONE T6"tonight"->T7  v2pieces=[["Hold",[[0,4]]],["me",[[5,7]]],["hold",[[9,13]]],["me",[[14,16]]],["close",[[18,23]]],["close",[[25,30]]],["tonight",[[31,38]]]]

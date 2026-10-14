@@ -1,0 +1,111 @@
+## C1 txt A -> txt B (renumbers) -> Undo -> Redo
+   {"tag":"after A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after B","words":["apple","anchor","bravo","banjo"],"more":0,"title":"4 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song B\"]"}
+[PASS] cand.c1.accumulate: .txt A then .txt B: the card keeps A and adds B
+    expected: apple, anchor, bravo, banjo
+    observed: ["apple","anchor","bravo","banjo"]
+   {"tag":"after Undo (draft back to A)","words":["apple","anchor","bravo","banjo"],"more":0,"title":"4 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+[FAIL] cand.c1.undo: after Undo of import B the card no longer lists B (whose text is gone)
+    expected: apple, anchor only
+    observed: ["apple","anchor","bravo","banjo"]
+   {"tag":"after Redo","words":["apple","anchor","bravo","banjo"],"more":0,"title":"4 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song B\"]"}
+## C2 txt A -> txt B0 (renumbers nothing)
+   {"tag":"after A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after B0","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song Quiet\"]"}
+[PASS] cand.c2.keep: .txt A then a .txt that renumbers nothing: A survives
+    expected: apple, anchor
+    observed: ["apple","anchor"]
+## C3 txt A -> Library B (renumbers) -> open A from History -> open B
+   {"tag":"after A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after Library B","words":["bravo","banjo"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:e2bcc357-a6c8-4c49-8306-fc87bb3e4566","draftHead":"[SETUP — title — \"Song B\"]"}
+[CANNOT_TELL] cand.c3.current: txt A then Library B: what the current card shows
+    expected: B only (per-draft) or A+B
+    observed: ["bravo","banjo"]
+   idb [["draft:afefa14f-94b9-46e8-91ae-880b4107c117","[SETUP — title — \"Song A\"]\n[SE",["apple","anchor"]],["draft:e2bcc357-a6c8-4c49-8306-fc87bb3e4566","[SETUP — title — \"Song B\"]\n[SE",["bravo","banjo"]]]
+[PASS] cand.c3.preserved: A's card evidence is kept with A's preserved draft
+    expected: IDB record of A has apple, anchor
+    observed: {"items":[{"kind":"rhyme groups","word":"apple","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"anchor","n":[2],"from":4,"to":5}],"more":0}
+   {"tag":"after Open draft A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:afefa14f-94b9-46e8-91ae-880b4107c117","draftHead":"[SETUP — title — \"Song A\"]"}
+[PASS] cand.c3.restoreA: opening A's draft from History brings A's card back
+    expected: apple, anchor; not bravo, banjo
+    observed: {"opened":true,"words":["apple","anchor"]}
+   {"tag":"after Open draft B","words":["bravo","banjo"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:e2bcc357-a6c8-4c49-8306-fc87bb3e4566","draftHead":"[SETUP — title — \"Song B\"]"}
+[PASS] cand.c3.restoreB: opening B's draft again shows B's card
+    expected: bravo, banjo
+    observed: {"opened":true,"words":["bravo","banjo"]}
+## C4 txt A -> Library B0 (renumbers nothing)
+   {"tag":"after A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after Library B0","words":[],"more":null,"title":null,"draftId":"draft:c3486efc-cd10-4d33-94c8-433b501edfdd","draftHead":"[SETUP — title — \"Song Quiet\"]"}
+[PASS] cand.c4.current: txt A then a Library copy that renumbers nothing: the current card
+    expected: none (A kept with its draft) -- per-draft isolation
+    observed: {"words":[],"aStored":["apple","anchor"]}
+## C5 Library A -> txt B (renumbers)
+   {"tag":"after Library A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:4887947b-6332-425e-bd2b-fc90e69c3e5b","draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after txt B","words":["apple","anchor","bravo","banjo"],"more":0,"title":"4 saved word numbers renumbered to the current word cut","draftId":"draft:4887947b-6332-425e-bd2b-fc90e69c3e5b","draftHead":"[SETUP — title — \"Song B\"]"}
+[PASS] cand.c5.accumulate: Library A then .txt B: A survives and B is added
+    expected: apple, anchor, bravo, banjo
+    observed: ["apple","anchor","bravo","banjo"]
+## C6 Library A -> Library B -> open A
+   {"tag":"after Library A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:8c3012fb-46d0-4bc1-b1f7-c8cb0decc666","draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after Library B","words":["bravo","banjo"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:bed1d133-9ac0-40a3-8dde-af5501504738","draftHead":"[SETUP — title — \"Song B\"]"}
+   {"tag":"after Open draft A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:8c3012fb-46d0-4bc1-b1f7-c8cb0decc666","draftHead":"[SETUP — title — \"Song A\"]"}
+[PASS] cand.c6.restoreA: Library A then Library B, then open A: A's card is back
+    expected: apple, anchor
+    observed: {"opened":true,"words":["apple","anchor"]}
+## C7 txt A -> Library B -> Undo (back to A text) -> reload -> open drafts
+   {"tag":"after A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after Library B","words":["bravo","banjo"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:589d3699-4ed4-453a-b44e-1131e13d9625","draftHead":"[SETUP — title — \"Song B\"]"}
+   {"tag":"after Undo","words":["bravo","banjo"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:c8e5f8ae-f39c-4ad1-93f9-5ad07690fc74","draftHead":"[SETUP — title — \"Song A\"]"}
+   idb after Undo [["draft:589d3699-4ed4-453a-b44e-1131e13d9625","[SETUP — title — \"Song B\"]\n[SE",["bravo","banjo"]],["draft:c8e5f8ae-f39c-4ad1-93f9-5ad07690fc74","[SETUP — title — \"Song A\"]\n[SE",["bravo","banjo"]]]
+[FAIL] cand.c7.undoCard: after Undo of a Library import the card matches the restored draft A
+    expected: apple, anchor (A); not bravo, banjo
+    observed: {"words":["bravo","banjo"],"draftId":"draft:c8e5f8ae-f39c-4ad1-93f9-5ad07690fc74","prevId":"draft:c8e5f8ae-f39c-4ad1-93f9-5ad07690fc74"}
+[FAIL] cand.c7.storeA: A's stored draft keeps A's card evidence after the Undo
+    expected: IDB record A: apple, anchor
+    observed: {"items":[{"kind":"rhyme groups","word":"bravo","n":[1],"from":4,"to":5},{"kind":"rhyme groups","word":"banjo","n":[2],"from":4,"to":5}],"more":0}
+   {"tag":"after reload","words":["bravo","banjo"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:c8e5f8ae-f39c-4ad1-93f9-5ad07690fc74","draftHead":"[SETUP — title — \"Song A\"]"}
+## C8 txt A -> session import of another session -> Undo
+   {"tag":"after A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after session import","words":[],"more":null,"title":null,"draftId":null,"draftHead":"[SETUP — title — \"Song Quiet\"]"}
+   {"tag":"after Undo (A text back?)","words":[],"more":null,"title":null,"draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+[CANNOT_TELL] cand.c8.undo: session import then Undo: A text returns; does its card?
+    expected: informational
+    observed: {"words":[],"head":"[SETUP — title — \"Song A\"]"}
+## D1 txt A -> Dismiss -> txt B
+   {"tag":"after A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after Dismiss","words":[],"more":null,"title":null,"draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+[PASS] cand.d.dismiss: Dismiss removes the card, adds no Undo step, and says nothing
+    expected: card gone; history unchanged
+    observed: {"words":[],"toasts":["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “apple” word 4 → 5, “anchor” word 4 → 5. Review lists each one until you dismiss it."],"hist0":[1,2],"hist1":[1,2]}
+   {"tag":"after reload","words":[],"more":null,"title":null,"draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+[PASS] cand.d.dismissPersist: a dismissal persists across reload
+    expected: no card
+    observed: []
+   {"tag":"after B","words":["bravo","banjo"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song B\"]"}
+[PASS] cand.d1.onlyB: after dismissing A, import B lists only B
+    expected: bravo, banjo
+    observed: ["bravo","banjo"]
+## D2 txt A -> Dismiss -> Undo (what does Undo do?)
+   {"tag":"after A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after Dismiss","words":[],"more":null,"title":null,"draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after Undo","words":[],"more":null,"title":null,"draftId":null,"draftHead":""}
+[CANNOT_TELL] cand.d2.undo: Undo right after Dismiss: brings the card back?
+    expected: informational: card back or not, and what Undo changed
+    observed: {"words":[],"draftHead":""}
+## D3 txt A -> Dismiss -> Library B -> open A
+   {"tag":"after A + Dismiss","words":[],"more":null,"title":null,"draftId":null,"draftHead":"[SETUP — title — \"Song A\"]"}
+   {"tag":"after Library B","words":["bravo","banjo"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:cecc3fb5-5734-445f-bc3d-6bd11d9684fe","draftHead":"[SETUP — title — \"Song B\"]"}
+   {"tag":"after Open draft A","words":[],"more":null,"title":null,"draftId":"draft:b3316731-afbb-464c-859f-10ea9633359e","draftHead":"[SETUP — title — \"Song A\"]"}
+[PASS] cand.d3.noResurrect: a card dismissed in A does not come back when A is reopened
+    expected: no card
+    observed: {"opened":true,"words":[]}
+## D4 Library A -> Library B -> Dismiss in B -> open A -> open B
+   {"tag":"B after Dismiss","words":[],"more":null,"title":null,"draftId":"draft:66511d75-ac9b-4729-b1b9-0fc79c6829f2","draftHead":"[SETUP — title — \"Song B\"]"}
+   {"tag":"after Open draft A","words":["apple","anchor"],"more":0,"title":"2 saved word numbers renumbered to the current word cut","draftId":"draft:ab1ae824-82d8-41eb-99ff-8ea90b58bfa9","draftHead":"[SETUP — title — \"Song A\"]"}
+[PASS] cand.d4.isolated: dismissing B's card leaves A's card with A
+    expected: apple, anchor
+    observed: ["apple","anchor"]
+   {"tag":"after Open draft B","words":[],"more":null,"title":null,"draftId":"draft:66511d75-ac9b-4729-b1b9-0fc79c6829f2","draftHead":"[SETUP — title — \"Song B\"]"}
+[PASS] cand.d4.Bdismissed: B's dismissal persisted with B's draft
+    expected: no card
+    observed: []

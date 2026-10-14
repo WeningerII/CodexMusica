@@ -1,0 +1,4 @@
+{"variant":"click","before":[13,13],"inHandler":[22,22],"after200ms":[0,0],"focused":false}
+{"variant":"click-same","before":[13,13],"inHandler":[13,13],"after200ms":[13,13],"focused":false}
+{"variant":"down","before":[13,13],"inHandler":[22,22],"after200ms":[22,22],"focused":false}
+{"variant":"kbd","before":[13,13],"inHandler":[22,22],"after200ms":[22,22],"focused":false}

@@ -1,0 +1,119 @@
+{
+  "tree": "c678",
+  "DOC": "[SETUP — rhyme groups — 1.T4,8; 2,3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+  "paths": {
+    "A_review": {
+      "shownBefore": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "rowsBefore": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "rowsAfterForm": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "shownAfterForm": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "formToasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+      ],
+      "review": {
+        "sent": [
+          {
+            "groups": "1.T5,8;2,3"
+          }
+        ],
+        "rows": [
+          "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+        ],
+        "toasts": [
+          "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+        ]
+      },
+      "shownAfterReview": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "errors": []
+    },
+    "B_remove_other_link": {
+      "shownBefore": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "rowsBefore": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "rowsAfterForm": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+      ],
+      "shownAfterForm": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "formToasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.",
+        "Rhyme link removed. Undo restores it.\nUndo"
+      ],
+      "review": {
+        "sent": [
+          {
+            "groups": "1.T5,8"
+          }
+        ],
+        "rows": [
+          "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+        ],
+        "toasts": [
+          "Rhyme link removed. Undo restores it.\nUndo"
+        ]
+      },
+      "shownAfterReview": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above"
+      ],
+      "errors": []
+    },
+    "C_add_link": {
+      "shownBefore": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor"
+      ],
+      "rowsBefore": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]"
+      ],
+      "rowsAfterForm": [
+        "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+      ],
+      "shownAfterForm": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor",
+        "C C · declared Any Line 5 · on ~ Line 7 · sea"
+      ],
+      "formToasts": [
+        "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.",
+        "Rhyme link saved.\nUndo"
+      ],
+      "review": {
+        "sent": [
+          {
+            "groups": "1.T5,8;2,3;5,7"
+          }
+        ],
+        "rows": [
+          "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+        ],
+        "toasts": [
+          "Rhyme link saved.\nUndo"
+        ]
+      },
+      "shownAfterReview": [
+        "A A · declared Any Line 1 · love ~ Line 8 · above",
+        "B B · declared Any Line 2 · tonight ~ Line 3 · floor",
+        "C C · declared Any Line 5 · on ~ Line 7 · sea"
+      ],
+      "errors": []
+    }
+  }
+}

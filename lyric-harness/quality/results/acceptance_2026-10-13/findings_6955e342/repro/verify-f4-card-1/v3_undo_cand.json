@@ -1,0 +1,21 @@
+{
+ "tree": "cand",
+ "importChangedRows": 54,
+ "historyHoldsUnmarked": [
+  false,
+  false
+ ],
+ "historyLen": 2,
+ "undo": {
+  "equalsPreImport": true,
+  "equalsImportedText": false,
+  "hasUnmarkedRow": false
+ },
+ "redo": {
+  "equalsMigrated": true,
+  "hasUnmarkedRow": false
+ },
+ "historyPaneMentionsUnmarked": false,
+ "cardAfterUndoRedo": "200 saved word numbers renumbered to the current word cut",
+ "pageErrors": []
+}

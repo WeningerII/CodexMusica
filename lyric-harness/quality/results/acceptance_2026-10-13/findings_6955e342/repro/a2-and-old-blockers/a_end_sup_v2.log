@@ -1,0 +1,9 @@
+{
+ "supplement": "v2",
+ "fallback": "none",
+ "identical_cut": 271092,
+ "unique": 262604,
+ "end_changed": 15,
+ "end_changed_not_nfc": 8,
+ "end_changed_not_nfc_and_condition_silent": 0
+}

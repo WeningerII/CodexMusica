@@ -1,0 +1,27 @@
+== wt-695 6955e3429
+439:  lyRecordRenumbered(done);
+455:  lyRecordRenumbered(done);
+462:// kept in the page context's display state (app.lyricMeta.ui.renumbered,
+468:const LY_RENUMBERED_ROOM = 3200;
+469:function lyRecordRenumbered(done) {
+475:    ...(Array.isArray(ui.renumbered?.items) ? ui.renumbered.items : []),
+485:              .slice(0, 4)
+491:  let more = Number(ui.renumbered?.more) || 0;
+492:  const { renumbered: _old, ...rest } = ui;
+495:    JSON.stringify({ ...rest, renumbered: { items, more } }).length > LY_RENUMBERED_ROOM
+500:  ui.renumbered = { items, more };
+504:    ? ` ${uiCount(done.moved.length, 'saved word number')} without the current cut mark ${done.moved.length === 1 ? 'was' : 'were'} renumbered to the current word cut, on the same characters: ${done.moved
+522:// The Review card listing every renumbered word number, or null.
+524:  const r = lyMeta().ui?.renumbered;
+532:    id: 'renumbered',
+535:    title: `${uiCount(items.length + more, 'saved word number')} renumbered to the current word cut`,
+539:    actions: [['ly-renumbered-dismiss', 'Dismiss', 'x', '']],
+1255:  // Word numbers a migration renumbered, until the writer dismisses the card.
+1256:  const renumbered = lyRenumberedCheck();
+1257:  if (renumbered) add(renumbered);
+== wt-61b 61b6618ae
+322:    ? ` ${uiCount(done.moved.length, 'saved word number')} without the current cut mark ${done.moved.length === 1 ? 'was' : 'were'} renumbered to the current word cut, on the same characters: ${done.moved
+== wt-678 678898511
+322:    ? ` ${uiCount(done.moved.length, 'saved word number')} without the current cut mark ${done.moved.length === 1 ? 'was' : 'were'} renumbered to the current word cut, on the same characters: ${done.moved
+== wt-main 8b1d2ad2c
+== wt-base fce4bf0f1

@@ -1,0 +1,1344 @@
+{
+ "tree": "cand",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "lib": false,
+ "cases": [
+  {
+   "name": "Stress_50",
+   "text": "[SETUP — title — \"Stress 50\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me]\n[SETUP — reading — token 7 \"wa\" in \"Ah--ah, ah my heart and soul wa\" — W AH1 — declared — source: me]\n[SETUP — reading — token 7 \"wb\" in \"Ah--ah, ah my heart and soul wb\" — W AH1 — declared — source: me]\n[SETUP — rhyme groups — 11.T2,12.T2;11.T3,12.T3;11.T4,12.T4;11.T5,12.T5;11.T6,12.T6;11.T7,12.T7]\n[SETUP — rhyme groups — 13.T2,14.T2;13.T3,14.T3;13.T4,14.T4;13.T5,14.T5;13.T6,14.T6;13.T7,14.T7]\n[SETUP — rhyme groups — 15.T2,16.T2;15.T3,16.T3;15.T4,16.T4;15.T5,16.T5;15.T6,16.T6;15.T7,16.T7]\n[SETUP — rhyme groups — 17.T2,18.T2;17.T3,18.T3;17.T4,18.T4;17.T5,18]\n[SETUP — returns — 7.T4,8.T4]\n\n[VERSE]\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\nAh--ah, ah my heart and soul wa\nAh--ah, ah my heart and soul wb\nAh--ah, ah my heart and soul wc\nAh--ah, ah my heart and soul wd\nAh--ah, ah my heart and soul we\nAh--ah, ah my heart and soul wf\nAh--ah, ah my heart and soul wg\nAh--ah, ah my heart and soul wh\nAh--ah, ah my heart and soul wi\nAh--ah, ah my heart and soul wj",
+   "toasts": [
+    "50 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbab” word 4 → 5, …. Review lists each one until you dismiss it. 1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "after": {
+    "hasCardFn": true,
+    "hasMigrate": true,
+    "item": {
+     "title": "50 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; the reading for “wa”, line 9: word 7 → 8; the reading for “wb”, line 10: word 7 → 8; a rhyme link on “ah”, line 11: word 2 → 3; a rhyme link on “ah”, line 12: word 2 → 3; a rhyme link on “my”, line 11: word 3 → 4; a rhyme link on “my”, line 12: word 3 → 4; a rhyme link on “heart”, line 11: word 4 → 5; a rhyme link on “heart”, line 12: word 4 → 5; a rhyme link on “and”, line 11: word 5 → 6; a rhyme link on “and”, line 12: word 5 → 6; a rhyme link on “soul”, line 11: word 6 → 7; a rhyme link on “soul”, line 12: word 6 → 7; a rhyme link on “wc”, line 11: word 7 → 8; a rhyme link on “wd”, line 12: word 7 → 8; a rhyme link on “ah”, line 13: word 2 → 3; a rhyme link on “ah”, line 14: word 2 → 3; a rhyme link on “my”, line 13: word 3 → 4; a rhyme link on “my”, line 14: word 3 → 4; a rhyme link on “heart”, line 13: word 4 → 5; a rhyme link on “heart”, line 14: word 4 → 5; a rhyme link on “and”, line 13: word 5 → 6; a rhyme link on “and”, line 14: word 5 → 6; a rhyme link on “soul”, line 13: word 6 → 7; a rhyme link on “soul”, line 14: word 6 → 7; a rhyme link on “we”, line 13: word 7 → 8; a rhyme link on “wf”, line 14: word 7 → 8; a rhyme link on “ah”, line 15: word 2 → 3; a rhyme link on “ah”, line 16: word 2 → 3; a rhyme link on “my”, line 15: word 3 → 4; a rhyme link on “my”, line 16: word 3 → 4; a rhyme link on “heart”, line 15: word 4 → 5; a rhyme link on “heart”, line 16: word 4 → 5; a rhyme link on “and”, line 15: word 5 → 6; a rhyme link on “and”, line 16: word 5 → 6; a rhyme link on “soul”, line 15: word 6 → 7; a rhyme link on “soul”, line 16: word 6 → 7; a rhyme link on “wg”, line 15: word 7 → 8; a rhyme link on “wh”, line 16: word 7 → 8; a rhyme link on “ah”, line 17: word 2 → 3; a rhyme link on “ah”, line 18: word 2 → 3; a rhyme link on “my”, line 17: word 3 → 4; a rhyme link on “my”, line 18: word 3 → 4; a rhyme link on “heart”, line 17: word 4 → 5; a rhyme link on “heart”, line 18: word 4 → 5; a rhyme link on “and”, line 17: word 5 → 6; a declared return on “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 2 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "pane": "Current version · b73b49f\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n2\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\n50 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; the reading for “wa”, line 9: word 7 → 8; the reading for “wb”, line 10: word 7 → 8; a rhyme link on “ah”, line 11: word 2 → 3; a rhyme link on “ah”, line 12: word 2 → 3; a rhyme link on “my”, line 11: word 3 → 4; a rhyme link on “my”, line 12: word 3 → 4; a rhyme link on “heart”, line 11: word 4 → 5; a rhyme link on “heart”, line 12: word 4 → 5; a rhyme link on “and”, line 11: word 5 → 6; a rhyme link on “and”, line 12: word 5 → 6; a rhyme link on “soul”, line 11: word 6 → 7; a rhyme link on “soul”, line 12: word 6 → 7; a rhyme link on “wc”, line 11: word 7 → 8; a rhyme link on “wd”, line 12: word 7 → 8; a rhyme link on “ah”, line 13: word 2 → 3; a rhyme link on “ah”, line 14: word 2 → 3; a rhyme link on “my”, line 13: word 3 → 4; a rhyme link on “my”, line 14: word 3 → 4; a rhyme link on “heart”, line 13: word 4 → 5; a rhyme link on “heart”, line 14: word 4 → 5; a rhyme link on “and”, line 13: word 5 → 6; a rhyme link on “and”, line 14: word 5 → 6; a rhyme link on “soul”, line 13: word 6 → 7; a rhyme link on “soul”, line 14: word 6 → 7; a rhyme link on “we”, line 13: word 7 → 8; a rhyme link on “wf”, line 14: word 7 → 8; a rhyme link on “ah”, line 15: word 2 → 3; a rhyme link on “ah”, line 16: word 2 → 3; a rhyme link on “my”, line 15: word 3 → 4; a rhyme link on “my”, line 16: word 3 → 4; a rhyme link on “heart”, line 15: word 4 → 5; a rhyme link on “heart”, line 16: word 4 → 5; a rhyme link on “and”, line 15: word 5 → 6; a rhyme link on “and”, line 16: word 5 → 6; a rhyme link on “soul”, line 15: word 6 → 7; a rhyme link on “soul”, line 16: word 6 → 7; a rhyme link on “wg”, line 15: word 7 → 8; a rhyme link on “wh”, line 16: word 7 → 8; a rhyme link on “ah”, line 17: word 2 → 3; a rhyme link on “ah”, line 18: word 2 → 3; a rhyme link on “my”, line 17: word 3 → 4; a rhyme link on “my”, line 18: word 3 → 4; a rhyme link on “heart”, line 17: word 4 → 5; a rhyme link on “heart”, line 18: word 4 → 5; a rhyme link on “and”, line 17: word 5 → 6; a declared return on “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 2 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\nA rhyme link member, line 18 · last rhyme, was carried across the word-cut change\nLine 18\nLine 18's word cut changed in this release, so what its last rhyme reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “wj” under the earlier cut and “wj” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.\nKeep the link\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+    "stored": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "wa",
+       "n": [
+        9
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "reading",
+       "word": "wb",
+       "n": [
+        10
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        11
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        12
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        11
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        12
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        11
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        12
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        11
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        12
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        11
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        12
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wc",
+       "n": [
+        11
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wd",
+       "n": [
+        12
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        13
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        14
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        13
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        14
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        13
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        14
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        13
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        14
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        13
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        14
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "we",
+       "n": [
+        13
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wf",
+       "n": [
+        14
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        15
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        16
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        15
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        16
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        15
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        16
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        15
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        16
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        15
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        16
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wg",
+       "n": [
+        15
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wh",
+       "n": [
+        16
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        17
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        18
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        17
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        18
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        17
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        18
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        17
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 2
+    },
+    "localStorage": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "wa",
+       "n": [
+        9
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "reading",
+       "word": "wb",
+       "n": [
+        10
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        11
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        12
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        11
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        12
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        11
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        12
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        11
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        12
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        11
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        12
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wc",
+       "n": [
+        11
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wd",
+       "n": [
+        12
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        13
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        14
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        13
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        14
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        13
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        14
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        13
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        14
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        13
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        14
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "we",
+       "n": [
+        13
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wf",
+       "n": [
+        14
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        15
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        16
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        15
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        16
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        15
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        16
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        15
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        16
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        15
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        16
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wg",
+       "n": [
+        15
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wh",
+       "n": [
+        16
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        17
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        18
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        17
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        18
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        17
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        18
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        17
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 2
+    },
+    "draft": "[SETUP — title — \"Stress 50\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me — cut v2]\n[SETUP — reading — token 8 \"wa\" in \"Ah--ah, ah my heart and soul wa\" — W AH1 — declared — source: me — cut v2]\n[SETUP — reading — token 8 \"wb\" in \"Ah--ah, ah my heart and soul wb\" — W AH1 — declared — source: me — cut v2]\n[SETUP — rhyme groups — 11.T3,12.T3;11.T4,12.T4;11.T5,12.T5;11.T6,12.T6;11.T7,12.T7;11.T8,12.T8 — cut v2]\n[SETUP — rhyme groups — 13.T3,14.T3;13.T4,14.T4;13.T5,14.T5;13.T6,14.T6;13.T7,14.T7;13.T8,14.T8 — cut v2]\n[SETUP — rhyme groups — 15.T3,16.T3;15.T4,16.T4;15.T5,16.T5;15.T6,16.T6;15.T7,16.T7;15.T8,16.T8 — cut v2]\n[SETUP — rhyme groups — 17.T3,18.T3;17.T4,18.T4;17.T5,18.T5;17.T6,18 (carried across the word-cut change) — cut v2]\n[SETUP — returns — 7.T5,8.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my chorus line\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\nAh--ah, ah my heart and soul wa\nAh--ah, ah my heart and soul wb\nAh--ah, ah my heart and soul wc\nAh--ah, ah my heart and soul wd\nAh--ah, ah my heart and soul we\nAh--ah, ah my heart and soul wf\nAh--ah, ah my heart and soul wg\nAh--ah, ah my heart and soul wh\nAh--ah, ah my heart and soul wi\nAh--ah, ah my heart and soul wj"
+   },
+   "afterReload": {
+    "item": {
+     "title": "50 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; the reading for “wa”, line 9: word 7 → 8; the reading for “wb”, line 10: word 7 → 8; a rhyme link on “ah”, line 11: word 2 → 3; a rhyme link on “ah”, line 12: word 2 → 3; a rhyme link on “my”, line 11: word 3 → 4; a rhyme link on “my”, line 12: word 3 → 4; a rhyme link on “heart”, line 11: word 4 → 5; a rhyme link on “heart”, line 12: word 4 → 5; a rhyme link on “and”, line 11: word 5 → 6; a rhyme link on “and”, line 12: word 5 → 6; a rhyme link on “soul”, line 11: word 6 → 7; a rhyme link on “soul”, line 12: word 6 → 7; a rhyme link on “wc”, line 11: word 7 → 8; a rhyme link on “wd”, line 12: word 7 → 8; a rhyme link on “ah”, line 13: word 2 → 3; a rhyme link on “ah”, line 14: word 2 → 3; a rhyme link on “my”, line 13: word 3 → 4; a rhyme link on “my”, line 14: word 3 → 4; a rhyme link on “heart”, line 13: word 4 → 5; a rhyme link on “heart”, line 14: word 4 → 5; a rhyme link on “and”, line 13: word 5 → 6; a rhyme link on “and”, line 14: word 5 → 6; a rhyme link on “soul”, line 13: word 6 → 7; a rhyme link on “soul”, line 14: word 6 → 7; a rhyme link on “we”, line 13: word 7 → 8; a rhyme link on “wf”, line 14: word 7 → 8; a rhyme link on “ah”, line 15: word 2 → 3; a rhyme link on “ah”, line 16: word 2 → 3; a rhyme link on “my”, line 15: word 3 → 4; a rhyme link on “my”, line 16: word 3 → 4; a rhyme link on “heart”, line 15: word 4 → 5; a rhyme link on “heart”, line 16: word 4 → 5; a rhyme link on “and”, line 15: word 5 → 6; a rhyme link on “and”, line 16: word 5 → 6; a rhyme link on “soul”, line 15: word 6 → 7; a rhyme link on “soul”, line 16: word 6 → 7; a rhyme link on “wg”, line 15: word 7 → 8; a rhyme link on “wh”, line 16: word 7 → 8; a rhyme link on “ah”, line 17: word 2 → 3; a rhyme link on “ah”, line 18: word 2 → 3; a rhyme link on “my”, line 17: word 3 → 4; a rhyme link on “my”, line 18: word 3 → 4; a rhyme link on “heart”, line 17: word 4 → 5; a rhyme link on “heart”, line 18: word 4 → 5; a rhyme link on “and”, line 17: word 5 → 6; a declared return on “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 2 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "stored": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "wa",
+       "n": [
+        9
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "reading",
+       "word": "wb",
+       "n": [
+        10
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        11
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        12
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        11
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        12
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        11
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        12
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        11
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        12
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        11
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        12
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wc",
+       "n": [
+        11
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wd",
+       "n": [
+        12
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        13
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        14
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        13
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        14
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        13
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        14
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        13
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        14
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        13
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        14
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "we",
+       "n": [
+        13
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wf",
+       "n": [
+        14
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        15
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        16
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        15
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        16
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        15
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        16
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        15
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        16
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        15
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "soul",
+       "n": [
+        16
+       ],
+       "from": 6,
+       "to": 7
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wg",
+       "n": [
+        15
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wh",
+       "n": [
+        16
+       ],
+       "from": 7,
+       "to": 8
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        17
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "ah",
+       "n": [
+        18
+       ],
+       "from": 2,
+       "to": 3
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        17
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "my",
+       "n": [
+        18
+       ],
+       "from": 3,
+       "to": 4
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        17
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        18
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "and",
+       "n": [
+        17
+       ],
+       "from": 5,
+       "to": 6
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        7
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        8
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 2
+    },
+    "sameStored": true
+   },
+   "perWord": [],
+   "errors": []
+  }
+ ]
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "what": "attr data-size on ly-editor",
+    "t": 1106,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "poll",
+    "t": 1110,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-size on ly-editor",
+    "t": 1216,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "after mouse blur",
+    "t": 1324,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "ensure:before",
+    "t": 1325,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "ensure:after=true",
+    "t": 1330,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-outline on ly-page",
+    "t": 1348,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-size on ly-editor",
+    "t": 1348,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-mobile on ly-page",
+    "t": 1348,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-tab on ly-page",
+    "t": 1348,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "poll",
+    "t": 1352,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-outline on ly-page",
+    "t": 1444,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-size on ly-editor",
+    "t": 1444,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-mobile on ly-page",
+    "t": 1444,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-tab on ly-page",
+    "t": 1444,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  }
+]

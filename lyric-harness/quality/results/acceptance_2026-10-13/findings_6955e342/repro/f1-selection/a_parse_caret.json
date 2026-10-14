@@ -1,0 +1,182 @@
+{
+  "cand": {
+    "caret.typed_unmarked_T": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T4,2]"
+      ],
+      "decl": {
+        "groups": "1.T4,2"
+      },
+      "sungCount": 5
+    },
+    "caret.typed_marked_T": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T5,2 — cut v2]"
+      ],
+      "decl": {
+        "groups": "1.T5,2"
+      },
+      "sungCount": 5
+    },
+    "caret.typed_bare_changed_line": {
+      "setup": [
+        "[SETUP — rhyme groups — 1,2]"
+      ],
+      "decl": {
+        "groups": "1,2"
+      },
+      "sungCount": 5
+    },
+    "caret.typed_bare_unchanged_lines": {
+      "setup": [
+        "[SETUP — rhyme groups — 2,4]"
+      ],
+      "decl": {
+        "groups": "2,4"
+      },
+      "sungCount": 5
+    },
+    "caret.typed_unmarked_reading": {
+      "setup": [
+        "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\"]"
+      ],
+      "decl": {
+        "readings_not_chosen": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 2,
+            "word": "oh",
+            "state": "needs a choice"
+          }
+        ]
+      },
+      "sungCount": 5
+    },
+    "caret.inserted_unmarked_T": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T4,2]"
+      ],
+      "decl": {
+        "groups": "1.T4,2"
+      },
+      "sungCount": 5
+    },
+    "caret2.A_observe": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T4,2]"
+      ],
+      "decl": {
+        "groups": "1.T4,2"
+      },
+      "sungCount": 5
+    },
+    "caret2.A_restore": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T4,2]"
+      ],
+      "decl": {
+        "groups": "1.T4,2"
+      },
+      "sungCount": 5
+    },
+    "caret2.B": {
+      "setup": [
+        "[SETUP — rhyme groups — 2,4]"
+      ],
+      "decl": {
+        "groups": "2,4"
+      },
+      "sungCount": 4
+    }
+  },
+  "main": {
+    "caret.typed_unmarked_T": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T4,2]"
+      ],
+      "decl": {
+        "groups": "1.T4,2"
+      },
+      "sungCount": 5
+    },
+    "caret.typed_marked_T": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T5,2 — cut v2]"
+      ],
+      "decl": {
+        "groups": "1.T5,2 — cut v2"
+      },
+      "sungCount": 5
+    },
+    "caret.typed_bare_changed_line": {
+      "setup": [
+        "[SETUP — rhyme groups — 1,2]"
+      ],
+      "decl": {
+        "groups": "1,2"
+      },
+      "sungCount": 5
+    },
+    "caret.typed_bare_unchanged_lines": {
+      "setup": [
+        "[SETUP — rhyme groups — 2,4]"
+      ],
+      "decl": {
+        "groups": "2,4"
+      },
+      "sungCount": 5
+    },
+    "caret.typed_unmarked_reading": {
+      "setup": [
+        "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\"]"
+      ],
+      "decl": {
+        "readings_not_chosen": [
+          {
+            "line": "Oh--oh, oh my love",
+            "token": 2,
+            "word": "oh",
+            "state": "needs a choice"
+          }
+        ]
+      },
+      "sungCount": 5
+    },
+    "caret.inserted_unmarked_T": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T4,2]"
+      ],
+      "decl": {
+        "groups": "1.T4,2"
+      },
+      "sungCount": 5
+    },
+    "caret2.A_observe": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T4,2]"
+      ],
+      "decl": {
+        "groups": "1.T4,2"
+      },
+      "sungCount": 5
+    },
+    "caret2.A_restore": {
+      "setup": [
+        "[SETUP — rhyme groups — 1.T4,2]"
+      ],
+      "decl": {
+        "groups": "1.T4,2"
+      },
+      "sungCount": 5
+    },
+    "caret2.B": {
+      "setup": [
+        "[SETUP — rhyme groups — 2,4]"
+      ],
+      "decl": {
+        "groups": "2,4"
+      },
+      "sungCount": 4
+    }
+  }
+}

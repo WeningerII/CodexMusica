@@ -1,0 +1,2026 @@
+{
+ "tree": "prev",
+ "dir": "wt-61b",
+ "fixture": "AB",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/check-library-undo-card/build-wt-61b/built-wt-61b.html",
+ "undo_mouse": {
+  "st": [
+   {
+    "tag": "1 after .txt import A (Review tab open)",
+    "t": 1791971867472,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2a after Library import B (passive)",
+    "t": 1791971869088,
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "head": "[SETUP — title — \"Song B\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": null,
+    "lyTab": "tools",
+    "reviewPanelVisible": false,
+    "reviewCardLines": null,
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971867858,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971867518,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5.",
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2b after Library import B, Review tab clicked",
+    "t": 1791971869995,
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "head": "[SETUP — title — \"Song B\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971869448,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971867518,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3a APP Undo: #btn-undo, mouse click +60ms",
+    "t": 1791971870095,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971869448,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971867518,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3b APP Undo: #btn-undo, mouse click +700ms",
+    "t": 1791971870747,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971869448,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971870455,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3c APP Undo: #btn-undo, mouse click +3s",
+    "t": 1791971873056,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971869448,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971870455,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "4 after reload, Review tab clicked",
+    "t": 1791971876252,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971869448,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971876161,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "5 History tab: Open draft B (true), Review tab clicked",
+    "t": 1791971878955,
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "head": "[SETUP — title — \"Song B\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "adapted": true,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971878889,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971876733,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "Saved draft restored. No writing request was sent."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "6 History tab: Open draft A (true), Review tab clicked",
+    "t": 1791971881622,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "adapted": true,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:b02e3453-d431-449a-9900-551f6e4a5e36"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971879399,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971881557,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "Saved draft restored. No writing request was sent."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   }
+  ],
+  "s4": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "lsKeys": [
+    "codex-workbench-v1",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:lyrics",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:recipe",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com"
+   ],
+   "ssKeys": [
+    "codex-workbench-recovery"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "love": [],
+    "dove": []
+   }
+  },
+  "s6": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "lsKeys": [
+    "codex-workbench-v1",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:lyrics",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:recipe",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com"
+   ],
+   "ssKeys": [
+    "codex-workbench-recovery"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "love": [],
+    "dove": []
+   }
+  },
+  "errors": [],
+  "idA": "draft:b02e3453-d431-449a-9900-551f6e4a5e36",
+  "idB": "draft:8cfa0205-2c5f-4f57-90ab-2b7af1e6aa86",
+  "calls": 0
+ },
+ "undo_key": {
+  "st": [
+   {
+    "tag": "1 after .txt import A",
+    "t": 1791971885637,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2 after Library import B",
+    "t": 1791971887611,
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "head": "[SETUP — title — \"Song B\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971885661,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971887528,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5.",
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3 APP Undo: Ctrl+Z, activeElement=BODY +3s",
+    "t": 1791971890631,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971888052,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971887528,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "4 APP Redo: Ctrl+Shift+Z, activeElement=BODY +3s",
+    "t": 1791971893660,
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "head": "[SETUP — title — \"Song B\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971888052,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971891078,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "5 APP Undo: Ctrl+Z, activeElement=BODY again +3s",
+    "t": 1791971896686,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971894099,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971891078,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "6 after reload",
+    "t": 1791971899946,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:3010abe1-62d1-497e-98e8-c7e2bae2289c",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971899858,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:eec88dca-ae9f-47f2-bd85-0cdbb70dd7e5",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971891078,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   }
+  ],
+  "s6": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "lsKeys": [
+    "codex-workbench-v1",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:lyrics",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:recipe",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com"
+   ],
+   "ssKeys": [
+    "codex-workbench-recovery"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "love": [],
+    "dove": []
+   }
+  },
+  "errors": []
+ },
+ "native": {
+  "st": [
+   {
+    "tag": "1 after .txt import A",
+    "t": 1791971903159,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "tools",
+    "reviewPanelVisible": false,
+    "reviewCardLines": null,
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2 BROWSER-NATIVE Ctrl+Z in textarea after .txt import A {\"focused\":\"lyrics-draft\",\"changed\":false,\"inputEvents\":0,\"histBefore\":\"2:1\",\"histAfterKeyStillFocused\":\"2:1\"}, then blur",
+    "t": 1791971904868,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "tools",
+    "reviewPanelVisible": false,
+    "reviewCardLines": null,
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3 after Library import B",
+    "t": 1791971906531,
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "head": "[SETUP — title — \"Song B\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": null,
+    "lyTab": "tools",
+    "reviewPanelVisible": false,
+    "reviewCardLines": null,
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:2835274f-a2ae-4257-aeda-ed3828a290b3",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:2835274f-a2ae-4257-aeda-ed3828a290b3",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971904966,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971905305,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5.",
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "4 BROWSER-NATIVE Ctrl+Z in textarea after import B {\"focused\":\"lyrics-draft\",\"changed\":false,\"inputEvents\":0,\"histBefore\":\"4:3\",\"histAfterKeyStillFocused\":\"4:3\"}, then blur",
+    "t": 1791971908230,
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "head": "[SETUP — title — \"Song B\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": null,
+    "lyTab": "tools",
+    "reviewPanelVisible": false,
+    "reviewCardLines": null,
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:2835274f-a2ae-4257-aeda-ed3828a290b3",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 4,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800",
+      "adapted": true,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song B\"]",
+     "draftId": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800"
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:2835274f-a2ae-4257-aeda-ed3828a290b3",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "savedAt": 1791971904966,
+      "renumbered": null,
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:9d4835aa-c3af-43e7-960d-0fa2d6a96800",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "savedAt": 1791971905305,
+      "renumbered": null,
+      "origTextHead": "[SETUP — title — \"Song B\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   }
+  ],
+  "errors": [],
+  "native": [
+   {
+    "focused": "lyrics-draft",
+    "changed": false,
+    "inputEvents": 0,
+    "histBefore": "2:1",
+    "histAfterKeyStillFocused": "2:1"
+   },
+   {
+    "focused": "lyrics-draft",
+    "changed": false,
+    "inputEvents": 0,
+    "histBefore": "4:3",
+    "histAfterKeyStillFocused": "4:3"
+   }
+  ]
+ },
+ "session_quiet": {
+  "st": [
+   {
+    "tag": "1 after .txt import A",
+    "t": 1791971911930,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2 after session import S0 (#ui-file)",
+    "t": 1791971913459,
+    "text": "[SETUP — title — \"Song Quiet\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe sing it plain tonight\nwe bring it home tonight",
+    "head": "[SETUP — title — \"Song Quiet\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1,2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song Quiet\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song Quiet\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song Quiet\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Session imported"
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3 APP Undo: #btn-undo, mouse click +3s",
+    "t": 1791971916516,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song Quiet\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Session imported"
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "4 after reload",
+    "t": 1791971919892,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   }
+  ],
+  "s4": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "lsKeys": [
+    "codex-workbench-v1",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:recipe",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com"
+   ],
+   "ssKeys": [
+    "codex-workbench-recovery"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "gold": [],
+    "road": []
+   }
+  },
+  "errors": []
+ },
+ "session_mig": {
+  "st": [
+   {
+    "tag": "1 after .txt import A",
+    "t": 1791971924019,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Imported a.txt. Undo restores the previous draft.\nUndo"
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2 after session import S1 (#ui-file)",
+    "t": 1791971925561,
+    "text": "[SETUP — title — \"Song S\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nEh--eh, eh my gold is shining\nEh--eh, eh my road is winding",
+    "head": "[SETUP — title — \"Song S\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song S\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song S\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song S\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "Session imported",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “gold” word 4 → 5, “road” word 4 → 5."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3 APP Undo: #btn-undo, mouse click +3s",
+    "t": 1791971928627,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song S\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “gold” word 4 → 5, “road” word 4 → 5."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "4 after reload",
+    "t": 1791971932135,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": null,
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [],
+    "lyItemCard": null,
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]"
+    },
+    "idb": [],
+    "toasts": [],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   }
+  ],
+  "s4": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "lsKeys": [
+    "codex-workbench-v1",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:recipe",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com"
+   ],
+   "ssKeys": [
+    "codex-workbench-recovery"
+   ],
+   "hits": {
+    "heart": [],
+    "part": [],
+    "gold": [],
+    "road": []
+   }
+  },
+  "errors": []
+ }
+}

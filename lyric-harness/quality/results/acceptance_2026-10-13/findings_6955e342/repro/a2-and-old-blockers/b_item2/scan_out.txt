@@ -1,0 +1,45 @@
+{
+ "shards": [
+  "00",
+  "3a",
+  "57",
+  "81",
+  "a4",
+  "c1",
+  "e7",
+  "ff"
+ ],
+ "units": 427,
+ "lines": 13955,
+ "lines_cut_differs": 389,
+ "first_pass_moves": 503,
+ "second_pass": {
+  "same_chars": 0,
+  "other_word": 3,
+  "blocked": 500,
+  "unchanged": 0
+ },
+ "examples": [
+  [
+   "Months, years, an echoing, garnish’d house--but dead, dead, dead.",
+   "dead",
+   7,
+   8,
+   9
+  ],
+  [
+   "Months, years, an echoing, garnish’d house--but dead, dead, dead.",
+   "dead",
+   8,
+   9,
+   10
+  ],
+  [
+   "My good man--he's an old, old man--",
+   "old",
+   5,
+   6,
+   7
+  ]
+ ]
+}

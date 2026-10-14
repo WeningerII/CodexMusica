@@ -1,0 +1,15 @@
+test_a_legacy_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorker.test_a_legacy_lyrics_request_then_a_library_analysis) ... 
+    [test-process isolation] test_a_legacy_lyrics_request_then_a_library_analysis: child peak RSS (VmHWM) 601,485,312 bytes (574 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+ok
+test_a_new_lyrics_request_then_a_legacy_one (quality.test_reader.WarmWorker.test_a_new_lyrics_request_then_a_legacy_one) ... 
+    [test-process isolation] test_a_new_lyrics_request_then_a_legacy_one: child peak RSS (VmHWM) 662,388,736 bytes (632 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+ok
+test_a_new_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorker.test_a_new_lyrics_request_then_a_library_analysis) ... 
+    [test-process isolation] test_a_new_lyrics_request_then_a_library_analysis: child peak RSS (VmHWM) 601,096,192 bytes (573 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 50.334s
+
+OK
+exit=0 secs=51

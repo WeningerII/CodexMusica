@@ -1,0 +1,29 @@
+S1 toasts: ["Imported s1.txt. Undo restores the previous draft.\nUndo"]
+S1 card text: null
+S1 card meta: null
+S1 items mentioning "lost": [
+ {
+  "id": "reading:3",
+  "title": "The reading for “lost” no longer matches the draft",
+  "where": "No matching line",
+  "text": "Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.",
+  "lines": []
+ },
+ {
+  "id": "reading:4",
+  "title": "The reading for “lost” no longer matches the draft",
+  "where": "No matching line",
+  "text": "Its exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.",
+  "lines": []
+ }
+]
+S1 pane contains ORPHAN line text: false | ORPHAN2: false
+S1 draft reading rows: ["[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]","[SETUP — reading — token 4 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me]","[SETUP — reading — token 4 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me]","[SETUP — reading — token 4 \"lost\" in \"Ah--ah, ah my lost way\" — L AO1 S T — declared — source: me]"]
+S1b after inserting a line above: OH is now sung at lines [2,4] ; card says: null
+S1b card rhyme-link entry: null ; group row now: "[SETUP — rhyme groups — 1.T4,2]"
+S3 toasts: ["Imported s1.txt. Undo restores the previous draft.\nUndo","Imported s3.txt. Undo restores the previous draft.\nUndo"]
+S3 card after unrelated import: null
+S3 sung lines now: [[1,"Rain on the window"],[2,"Oh--oh, oh my love"],[3,"Wind in the door"]]
+S2 toasts: ["Imported s2.txt. Undo restores the previous draft.\nUndo"]
+S2 card text: null
+S2 OH sung at: [1,2,3,4,5,6]

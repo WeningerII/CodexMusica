@@ -1,0 +1,152 @@
+{
+ "tree": "main",
+ "path": "txt",
+ "mix": "mixed",
+ "runs": [
+  {
+   "N": 10,
+   "generatorExpected": 10,
+   "truth": 0,
+   "truthError": null,
+   "oddRowChanges": 0,
+   "toastError": false,
+   "toast": [
+    "Imported verify-10.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "cardTitle": null,
+   "cardTitleCount": null,
+   "cardSaysHidden": null,
+   "storedItems": 0,
+   "storedMore": null,
+   "listed": 0,
+   "lost": 0,
+   "unmatchedCardItems": 0,
+   "lostByKind": {},
+   "listedByKind": {},
+   "lostArePrefixOfPageOrder": true,
+   "lostArePrefixOfTextOrder": true,
+   "paneShowsCard": false,
+   "paneShowsHiddenCount": null,
+   "uiJsonLen": 41,
+   "afterReload": {
+    "same": true,
+    "title": null
+   },
+   "undo": {
+    "changed": false,
+    "headAfter": "[SETUP — title — \"Verify 10\"]\n[SETUP — returns — 3.T2,4.T2]\n[SETUP — rhyme groups — 5.T2,6.T2; 5.T3,6.T3; 5.T4,6.T4]\n[SE",
+    "hasUnmarkedImport": true
+   },
+   "cardTextTail": null
+  },
+  {
+   "N": 50,
+   "generatorExpected": 50,
+   "truth": 0,
+   "truthError": null,
+   "oddRowChanges": 0,
+   "toastError": false,
+   "toast": [
+    "Imported verify-50.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "cardTitle": null,
+   "cardTitleCount": null,
+   "cardSaysHidden": null,
+   "storedItems": 0,
+   "storedMore": null,
+   "listed": 0,
+   "lost": 0,
+   "unmatchedCardItems": 0,
+   "lostByKind": {},
+   "listedByKind": {},
+   "lostArePrefixOfPageOrder": true,
+   "lostArePrefixOfTextOrder": true,
+   "paneShowsCard": false,
+   "paneShowsHiddenCount": null,
+   "uiJsonLen": 41,
+   "afterReload": {
+    "same": true,
+    "title": null
+   },
+   "undo": {
+    "changed": false,
+    "headAfter": "[SETUP — title — \"Verify 50\"]\n[SETUP — returns — 11.T2,12.T2; 11.T3,12.T3; 11.T4,12.T4]\n[SETUP — rhyme groups — 13.T2,14",
+    "hasUnmarkedImport": true
+   },
+   "cardTextTail": null
+  },
+  {
+   "N": 200,
+   "generatorExpected": 200,
+   "truth": 0,
+   "truthError": null,
+   "oddRowChanges": 0,
+   "toastError": false,
+   "toast": [
+    "Imported verify-200.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "cardTitle": null,
+   "cardTitleCount": null,
+   "cardSaysHidden": null,
+   "storedItems": 0,
+   "storedMore": null,
+   "listed": 0,
+   "lost": 0,
+   "unmatchedCardItems": 0,
+   "lostByKind": {},
+   "listedByKind": {},
+   "lostArePrefixOfPageOrder": true,
+   "lostArePrefixOfTextOrder": true,
+   "paneShowsCard": false,
+   "paneShowsHiddenCount": null,
+   "uiJsonLen": 41,
+   "afterReload": {
+    "same": true,
+    "title": null
+   },
+   "undo": {
+    "changed": false,
+    "headAfter": "[SETUP — title — \"Verify 200\"]\n[SETUP — returns — 41.T2,42.T2; 41.T3,42.T3; 41.T4,42.T4; 41.T5,42.T5; 41.T6,42.T6; 41.T7",
+    "hasUnmarkedImport": true
+   },
+   "cardTextTail": null
+  },
+  {
+   "N": 500,
+   "generatorExpected": 500,
+   "truth": 0,
+   "truthError": null,
+   "oddRowChanges": 0,
+   "toastError": false,
+   "toast": [
+    "Imported verify-500.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "cardTitle": null,
+   "cardTitleCount": null,
+   "cardSaysHidden": null,
+   "storedItems": 0,
+   "storedMore": null,
+   "listed": 0,
+   "lost": 0,
+   "unmatchedCardItems": 0,
+   "lostByKind": {},
+   "listedByKind": {},
+   "lostArePrefixOfPageOrder": true,
+   "lostArePrefixOfTextOrder": true,
+   "paneShowsCard": false,
+   "paneShowsHiddenCount": null,
+   "uiJsonLen": 41,
+   "afterReload": {
+    "same": true,
+    "title": null
+   },
+   "undo": {
+    "changed": false,
+    "headAfter": "[SETUP — title — \"Verify 500\"]\n[SETUP — returns — 101.T2,102.T2; 101.T3,102.T3; 101.T4,102.T4; 101.T5,102.T5; 101.T6,102",
+    "hasUnmarkedImport": true
+   },
+   "cardTextTail": null
+  }
+ ],
+ "pageErrors": []
+}

@@ -1,0 +1,45 @@
+"Oh--oh, oh my love"
+  v1: Oh--oh[0,6] oh[8,10] my[11,13] love[14,18]
+  v2: Oh[[0,2]] oh[[4,6]] oh[[8,10]] my[[11,13]] love[[14,18]]
+  T1 -> {"blocked":"no word of the current cut covers exactly the characters “Oh--oh” covered"}
+  T2 -> {"token":3,"word":"oh"}
+  T3 -> {"token":4,"word":"my"}
+  T4 -> {"token":5,"word":"love"}
+"Oh--oh, oh my pneumonoultramicroscopicsilicovolcanoconiosisxyzabc"
+  v1: Oh--oh[0,6] oh[8,10] my[11,13] pneumonoultramicroscopicsilicovolcanoconiosisxyzabc[14,65]
+  v2: Oh[[0,2]] oh[[4,6]] oh[[8,10]] my[[11,13]] pneumonoultramicroscopicsilicovolcanoconiosisxyzabc[[14,65]]
+  T1 -> {"blocked":"no word of the current cut covers exactly the characters “Oh--oh” covered"}
+  T2 -> {"token":3,"word":"oh"}
+  T3 -> {"token":4,"word":"my"}
+  T4 -> {"token":5,"word":"pneumonoultramicroscopicsilicovolcanoconiosisxyzabc"}
+"U--h, u--h, Lawdy,"
+  v1: U--h[0,4] u--h[6,10] Lawdy[12,17]
+  v2: U[[0,1]] h[[3,4]] u[[6,7]] h[[9,10]] Lawdy[[12,17]]
+  T1 -> {"blocked":"no word of the current cut covers exactly the characters “U--h” covered"}
+  T2 -> {"blocked":"no word of the current cut covers exactly the characters “u--h” covered"}
+  T3 -> {"token":5,"word":"Lawdy"}
+"we sing it plain tonight"
+  v1: we[0,2] sing[3,7] it[8,10] plain[11,16] tonight[17,24]
+  v2: we[[0,2]] sing[[3,7]] it[[8,10]] plain[[11,16]] tonight[[17,24]]
+  T1 -> {"token":1,"word":"we"}
+  T2 -> {"token":2,"word":"sing"}
+  T3 -> {"token":3,"word":"it"}
+  T4 -> {"token":4,"word":"plain"}
+  T5 -> {"token":5,"word":"tonight"}
+"Oh--oh, oh, oh my love"
+  v1: Oh--oh[0,6] oh[8,10] oh[12,14] my[15,17] love[18,22]
+  v2: Oh[[0,2]] oh[[4,6]] oh[[8,10]] oh[[12,14]] my[[15,17]] love[[18,22]]
+  T1 -> {"blocked":"no word of the current cut covers exactly the characters “Oh--oh” covered"}
+  T2 -> {"token":3,"word":"oh"}
+  T3 -> {"token":4,"word":"oh"}
+  T4 -> {"token":5,"word":"my"}
+  T5 -> {"token":6,"word":"love"}
+"Ah--ah, ah my heart and soul"
+  v1: Ah--ah[0,6] ah[8,10] my[11,13] heart[14,19] and[20,23] soul[24,28]
+  v2: Ah[[0,2]] ah[[4,6]] ah[[8,10]] my[[11,13]] heart[[14,19]] and[[20,23]] soul[[24,28]]
+  T1 -> {"blocked":"no word of the current cut covers exactly the characters “Ah--ah” covered"}
+  T2 -> {"token":3,"word":"ah"}
+  T3 -> {"token":4,"word":"my"}
+  T4 -> {"token":5,"word":"heart"}
+  T5 -> {"token":6,"word":"and"}
+  T6 -> {"token":7,"word":"soul"}

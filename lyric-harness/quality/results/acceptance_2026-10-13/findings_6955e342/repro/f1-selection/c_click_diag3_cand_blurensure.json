@@ -1,0 +1,134 @@
+[
+  {
+    "what": "attr data-size on ly-editor",
+    "t": 1098,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "poll",
+    "t": 1104,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "blurred",
+    "t": 1216,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "ensure:before",
+    "t": 1216,
+    "sel": [
+      63,
+      63
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "ensure:after=true",
+    "t": 1223,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-size on ly-editor",
+    "t": 1225,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "poll",
+    "t": 1231,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-outline on ly-page",
+    "t": 1353,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-size on ly-editor",
+    "t": 1353,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-mobile on ly-page",
+    "t": 1353,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  },
+  {
+    "what": "attr data-tab on ly-page",
+    "t": 1353,
+    "sel": [
+      72,
+      72
+    ],
+    "same": true,
+    "connected": true,
+    "display": "block",
+    "vis": "visible"
+  }
+]

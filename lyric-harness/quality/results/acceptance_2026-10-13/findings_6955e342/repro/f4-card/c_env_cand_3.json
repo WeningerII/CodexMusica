@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:b29ea928-fea1-4e2c-b9f6-c38b3a4f6b9a",
+  "draftId": "draft:4887947b-6332-425e-bd2b-fc90e69c3e5b",
+  "createdAt": "2026-10-14T08:44:47.512Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T4,2.T4]\n\n[VERSE]\nOh--oh, oh my apple\nOh--oh, oh my anchor",
+    "title": "Song A",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:aae14004-0846-46f4-872a-3ef3070b9b42",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "34cc62e70e1567b07c829dc1af22b05f56724ed76fb7e38a26542e8afc525018"
+}

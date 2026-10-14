@@ -1,0 +1,20 @@
+{
+ "a_end_default.json": {
+  "non_nfc_end_changes_equal_receipt_8": true,
+  "nfc_only_equal_receipt_7": true,
+  "silent_misses": [],
+  "v1_anchor_keys_equal_receipt": true
+ },
+ "a_end_sup_v2.json": {
+  "non_nfc_end_changes_equal_receipt_8": true,
+  "nfc_only_equal_receipt_7": true,
+  "silent_misses": [],
+  "v1_anchor_keys_equal_receipt": null
+ },
+ "a_end_fb_high.json": {
+  "non_nfc_end_changes_equal_receipt_8": true,
+  "nfc_only_equal_receipt_7": true,
+  "silent_misses": [],
+  "v1_anchor_keys_equal_receipt": null
+ }
+}

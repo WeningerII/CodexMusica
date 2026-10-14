@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "name": "bb8",
+  "cards": [],
+  "lyrics": "[SETUP — returns — 4.endword,6.endword]\n[SETUP — rhyme groups — 4.headrime,6.headrime]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+  "lyricMeta": {
+    "version": 1,
+    "brief": "",
+    "notes": {},
+    "drafts": {},
+    "ui": {
+      "tab": "tools",
+      "tool": "repeats-voices",
+      "outline": true
+    }
+  }
+}

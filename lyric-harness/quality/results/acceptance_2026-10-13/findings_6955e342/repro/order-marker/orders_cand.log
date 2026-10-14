@@ -1,0 +1,600 @@
+
+### cand RG4.remove.review.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 3 send (review): [{"decl":{"groups":"1.T4,8"},"continuation":false}]
+
+### cand RG4.remove.review.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link removed. Undo restores it.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 2 send (review): [{"decl":{"groups":"1.T5,8; 2,3"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"groups":"1.T5,8"},"continuation":false}]
+
+### cand RG4.remove.review.type.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 3 send (review): [{"decl":{"groups":"1.T4,8"},"continuation":false}]
+
+### cand RG4.remove.review.type.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link removed. Undo restores it.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 2 send (review): [{"decl":{"groups":"1.T5,8; 2,3"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"groups":"1.T5,8"},"continuation":false}]
+
+### cand RG4.remove.dock.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"groups":"1.T4,8"},"continuation":false}]
+
+### cand RG4.remove.dock.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link removed. Undo restores it.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"groups":"1.T5,8; 2,3"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"groups":"1.T5,8"},"continuation":false}]
+
+### cand RG4.remove.dock.type.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — rhyme groups — 1.T4,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"groups":"1.T4,8"},"continuation":false}]
+
+### cand RG4.remove.dock.type.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link removed. Undo restores it.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — rhyme groups — 1.T5,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"groups":"1.T5,8; 2,3"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"groups":"1.T5,8"},"continuation":false}]
+
+### cand RG4.add.review.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (add)] rows=["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 3 send (review): [{"decl":{"groups":"1.T4,8;2,3;5,7"},"continuation":false}]
+
+### cand RG4.add.review.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (add)] rows=["[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link saved.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 2 send (review): [{"decl":{"groups":"1.T5,8; 2,3"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"groups":"1.T5,8;2,3;5,7"},"continuation":false}]
+
+### cand RG4.add.review.type.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (add)] rows=["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 3 send (review): [{"decl":{"groups":"1.T4,8;2,3;5,7"},"continuation":false}]
+
+### cand RG4.add.review.type.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (add)] rows=["[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link saved.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 2 send (review): [{"decl":{"groups":"1.T5,8; 2,3"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"groups":"1.T5,8;2,3;5,7"},"continuation":false}]
+
+### cand RG4.add.dock.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (add)] rows=["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"groups":"1.T4,8;2,3;5,7"},"continuation":false}]
+
+### cand RG4.add.dock.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (add)] rows=["[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link saved.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"groups":"1.T5,8; 2,3"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"groups":"1.T5,8;2,3;5,7"},"continuation":false}]
+
+### cand RG4.add.dock.type.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (add)] rows=["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"groups":"1.T4,8;2,3;5,7"},"continuation":false}]
+
+### cand RG4.add.dock.type.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · my ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (add)] rows=["[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Rhyme link saved.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · love ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"groups":"1.T5,8; 2,3"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"groups":"1.T5,8;2,3;5,7"},"continuation":false}]
+
+### cand RG2.remove.review.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T2,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T2,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — rhyme groups — 1.T2,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 3 send (review): [{"decl":{"groups":"1.T2,8"},"continuation":false}]
+
+### cand RG2.remove.review.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T2,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."]
+  [3 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T3,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.","Rhyme link removed. Undo restores it.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — rhyme groups — 1.T3,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 2 send (review): [{"decl":{"groups":"1.T3,8; 2,3"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"groups":"1.T3,8"},"continuation":false}]
+
+### cand RG2.remove.dock.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T2,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T2,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — rhyme groups — 1.T2,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"groups":"1.T2,8"},"continuation":false}]
+
+### cand RG2.remove.dock.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T2,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."]
+  [3 form commit (remove)] rows=["[SETUP — rhyme groups — 1.T3,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.","Rhyme link removed. Undo restores it.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — rhyme groups — 1.T3,8 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"groups":"1.T3,8; 2,3"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"groups":"1.T3,8"},"continuation":false}]
+
+### cand RG2.add.review.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T2,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (add)] rows=["[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 3 send (review): [{"decl":{"groups":"1.T2,8;2,3;5,7"},"continuation":false}]
+
+### cand RG2.add.review.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T2,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."]
+  [3 form commit (add)] rows=["[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.","Rhyme link saved.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 2 send (review): [{"decl":{"groups":"1.T3,8; 2,3"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"groups":"1.T3,8;2,3;5,7"},"continuation":false}]
+
+### cand RG2.add.dock.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T2,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 form commit (add)] rows=["[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"groups":"1.T2,8;2,3;5,7"},"continuation":false}]
+
+### cand RG2.add.dock.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — rhyme groups — 1.T2,8; 2,3]"] cut=["UNMARKED"]
+      pageWords=["1.T2=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."]
+  [3 form commit (add)] rows=["[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.","Rhyme link saved.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T3=\"oh\" ~ 8.end=\"above\"","2.end=\"tonight\" ~ 3.end=\"floor\"","5.end=\"on\" ~ 7.end=\"sea\""] shown=["A A · declared Any Line 1 · oh ~ Line 8 · above","B B · declared Any Line 2 · tonight ~ Line 3 · floor","C C · declared Any Line 5 · on ~ Line 7 · sea"] hist={"idx":3,"n":4}
+      toasts=["Rhyme link saved.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"groups":"1.T3,8; 2,3"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"groups":"1.T3,8;2,3;5,7"},"continuation":false}]
+
+### cand RT4.placed.review.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 form commit (placed)] rows=["[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  SEND 3 send (review): [{"decl":{"returns":"1.T4,8.T1;2.head,6.head"},"continuation":false}]
+
+### cand RT4.placed.review.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — returns — 1.T5,8.T1 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 5 = Line 8 · word 1"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (placed)] rows=["[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Placed return declared.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  SEND 2 send (review): [{"decl":{"returns":"1.T5,8.T1"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"returns":"1.T5,8.T1;2.head,6.head"},"continuation":false}]
+
+### cand RT4.placed.review.type.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 form commit (placed)] rows=["[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  SEND 3 send (review): [{"decl":{"returns":"1.T4,8.T1;2.head,6.head"},"continuation":false}]
+
+### cand RT4.placed.review.type.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — returns — 1.T5,8.T1 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 5 = Line 8 · word 1"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (placed)] rows=["[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Placed return declared.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  SEND 2 send (review): [{"decl":{"returns":"1.T5,8.T1"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"returns":"1.T5,8.T1;2.head,6.head"},"continuation":false}]
+
+### cand RT4.placed.dock.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 form commit (placed)] rows=["[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"returns":"1.T4,8.T1;2.head,6.head"},"continuation":false}]
+
+### cand RT4.placed.dock.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — returns — 1.T5,8.T1 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 5 = Line 8 · word 1"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (placed)] rows=["[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Placed return declared.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"returns":"1.T5,8.T1"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"returns":"1.T5,8.T1;2.head,6.head"},"continuation":false}]
+
+### cand RT4.placed.dock.type.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 form commit (placed)] rows=["[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"returns":"1.T4,8.T1;2.head,6.head"},"continuation":false}]
+
+### cand RT4.placed.dock.type.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — returns — 1.T5,8.T1 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 5 = Line 8 · word 1"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (placed)] rows=["[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.","Placed return declared.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","2.head=\"I\" ~ 6.head=\"I\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 2 · first word = Line 6 · first word"] hist={"idx":3,"n":4}
+      toasts=["Placed return declared.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"returns":"1.T5,8.T1"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"returns":"1.T5,8.T1;2.head,6.head"},"continuation":false}]
+
+### cand RT4.declare.review.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 form commit (declare)] rows=["[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  SEND 3 send (review): [{"decl":{"returns":"1.T4,8.T1;9,11;10,12"},"continuation":false}]
+
+### cand RT4.declare.review.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — returns — 1.T5,8.T1 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 5 = Line 8 · word 1"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (declare)] rows=["[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  SEND 2 send (review): [{"decl":{"returns":"1.T5,8.T1"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"returns":"1.T5,8.T1;9,11;10,12"},"continuation":false}]
+
+### cand RT4.declare.review.type.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 form commit (declare)] rows=["[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  [3 after send (review)] rows=["[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  SEND 3 send (review): [{"decl":{"returns":"1.T4,8.T1;9,11;10,12"},"continuation":false}]
+
+### cand RT4.declare.review.type.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 after send (review)] rows=["[SETUP — returns — 1.T5,8.T1 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 5 = Line 8 · word 1"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (declare)] rows=["[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  [4 after send (review)] rows=["[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  SEND 2 send (review): [{"decl":{"returns":"1.T5,8.T1"},"continuation":false}]
+  SEND 4 send (review): [{"decl":{"returns":"1.T5,8.T1;9,11;10,12"},"continuation":false}]
+
+### cand RT4.declare.dock.paste.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 form commit (declare)] rows=["[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"returns":"1.T4,8.T1;9,11;10,12"},"continuation":false}]
+
+### cand RT4.declare.dock.paste.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row pasted by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — returns — 1.T5,8.T1 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 5 = Line 8 · word 1"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (declare)] rows=["[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"returns":"1.T5,8.T1"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"returns":"1.T5,8.T1;9,11;10,12"},"continuation":false}]
+
+### cand RT4.declare.dock.type.O1
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 form commit (declare)] rows=["[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  [3 after send (dock)] rows=["[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 4 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  SEND 3 send (dock): [{"decl":{"returns":"1.T4,8.T1;9,11;10,12"},"continuation":false}]
+
+### cand RT4.declare.dock.type.O2
+  [0 start (body only)] rows=[] cut=[]
+      pageWords=null shown=[] hist={"idx":1,"n":2}
+  [1 row typed by hand] rows=["[SETUP — returns — 1.T4,8.T1]"] cut=["UNMARKED"]
+      pageWords=["1.T4=\"my\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 4 = Line 8 · word 1"] hist={"idx":1,"n":2}
+  [2 after send (dock)] rows=["[SETUP — returns — 1.T5,8.T1 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\""] shown=["Line 1 · word 5 = Line 8 · word 1"] hist={"idx":2,"n":3}
+      toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]
+  [3 form commit (declare)] rows=["[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  [4 after send (dock)] rows=["[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"] cut=["cut v2"]
+      pageWords=["1.T5=\"love\" ~ 8.T1=\"Love\"","9.end=\"shore\" ~ 11.end=\"shore\"","10.end=\"hill\" ~ 12.end=\"hill\""] shown=["Line 1 · word 5 = Line 8 · word 1","Line 9 = Line 11","Line 10 = Line 12"] hist={"idx":3,"n":4}
+      toasts=["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]
+  SEND 2 send (dock): [{"decl":{"returns":"1.T5,8.T1"},"continuation":false}]
+  SEND 4 send (dock): [{"decl":{"returns":"1.T5,8.T1;9,11;10,12"},"continuation":false}]

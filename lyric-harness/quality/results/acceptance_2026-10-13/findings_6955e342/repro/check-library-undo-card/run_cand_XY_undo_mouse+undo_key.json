@@ -1,0 +1,2980 @@
+{
+ "tree": "cand",
+ "dir": "wt-695",
+ "fixture": "XY",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/check-library-undo-card/build-wt-695/built-wt-695.html",
+ "undo_mouse": {
+  "st": [
+   {
+    "tag": "1 after .txt import A (Review tab open)",
+    "t": 1791971867946,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "fire",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wire",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “fire”, line 1: word 4 → 5; a rhyme link on “wire”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “fire”, line 1: word 4 → 5; a rhyme link on “wire”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "fire",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "wire",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "fire",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "wire",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “fire” word 4 → 5, “wire” word 4 → 5. Review lists each one until you dismiss it."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2a after Library import B (passive)",
+    "t": 1791971869634,
+    "text": "[SETUP — title — \"Song Y\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOo--oo, oo the rain\nOo--oo, oo the pain",
+    "head": "[SETUP — title — \"Song Y\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "tools",
+    "reviewPanelVisible": false,
+    "reviewCardLines": null,
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971868058,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "fire",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "wire",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971868399,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “rain” word 4 → 5, “pain” word 4 → 5. Review lists each one until you dismiss it.",
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2b after Library import B, Review tab clicked",
+    "t": 1791971870461,
+    "text": "[SETUP — title — \"Song Y\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOo--oo, oo the rain\nOo--oo, oo the pain",
+    "head": "[SETUP — title — \"Song Y\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971868058,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "fire",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "wire",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971869989,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3a APP Undo: #btn-undo, mouse click +60ms",
+    "t": 1791971870595,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971868058,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "fire",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "wire",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971869989,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3b APP Undo: #btn-undo, mouse click +700ms",
+    "t": 1791971871245,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971870959,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971869989,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3c APP Undo: #btn-undo, mouse click +3s",
+    "t": 1791971873568,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971870959,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971869989,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "4 after reload, Review tab clicked",
+    "t": 1791971876883,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971876810,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971869989,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "5 History tab: Open draft B (true), Review tab clicked",
+    "t": 1791971879620,
+    "text": "[SETUP — title — \"Song Y\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOo--oo, oo the rain\nOo--oo, oo the pain",
+    "head": "[SETUP — title — \"Song Y\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "adapted": true,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971877349,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971879543,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Saved draft restored. No writing request was sent."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "6 History tab: Open draft A (true), Review tab clicked",
+    "t": 1791971882466,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "adapted": true,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971882320,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971880065,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     }
+    ],
+    "toasts": [
+     "Saved draft restored. No writing request was sent."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   }
+  ],
+  "s4": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "lsKeys": [
+    "codex-workbench-v1",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:lyrics",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:recipe",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com"
+   ],
+   "ssKeys": [
+    "codex-workbench-recovery"
+   ],
+   "hits": {
+    "fire": [],
+    "wire": [],
+    "rain": [
+     "localStorage:codex-workbench-v1",
+     "sessionStorage:codex-workbench-recovery",
+     "idb:codex-musica-library-drafts/drafts/draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "idb:codex-musica-library-drafts/drafts/draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7"
+    ],
+    "pain": [
+     "localStorage:codex-workbench-v1",
+     "sessionStorage:codex-workbench-recovery",
+     "idb:codex-musica-library-drafts/drafts/draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "idb:codex-musica-library-drafts/drafts/draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7"
+    ]
+   }
+  },
+  "s6": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "lsKeys": [
+    "codex-workbench-v1",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:lyrics",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:recipe",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com"
+   ],
+   "ssKeys": [
+    "codex-workbench-recovery"
+   ],
+   "hits": {
+    "fire": [],
+    "wire": [],
+    "rain": [
+     "localStorage:codex-workbench-v1",
+     "sessionStorage:codex-workbench-recovery",
+     "idb:codex-musica-library-drafts/drafts/draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "idb:codex-musica-library-drafts/drafts/draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7"
+    ],
+    "pain": [
+     "localStorage:codex-workbench-v1",
+     "sessionStorage:codex-workbench-recovery",
+     "idb:codex-musica-library-drafts/drafts/draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+     "idb:codex-musica-library-drafts/drafts/draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7"
+    ]
+   }
+  },
+  "errors": [],
+  "idA": "draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7",
+  "idB": "draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7",
+  "calls": 0
+ },
+ "undo_key": {
+  "st": [
+   {
+    "tag": "1 after .txt import A",
+    "t": 1791971886475,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": null,
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "fire",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "wire",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “fire”, line 1: word 4 → 5; a rhyme link on “wire”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “fire”, line 1: word 4 → 5; a rhyme link on “wire”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "fire",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "wire",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "fire",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "wire",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “fire” word 4 → 5, “wire” word 4 → 5. Review lists each one until you dismiss it."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "2 after Library import B",
+    "t": 1791971888447,
+    "text": "[SETUP — title — \"Song Y\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOo--oo, oo the rain\nOo--oo, oo the pain",
+    "head": "[SETUP — title — \"Song Y\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971888370,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971886496,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "fire",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "wire",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “rain” word 4 → 5, “pain” word 4 → 5. Review lists each one until you dismiss it.",
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "3 APP Undo: Ctrl+Z, activeElement=BODY +3s",
+    "t": 1791971891488,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971888370,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971888889,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "4 APP Redo: Ctrl+Shift+Z, activeElement=BODY +3s",
+    "t": 1791971894526,
+    "text": "[SETUP — title — \"Song Y\"]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOo--oo, oo the rain\nOo--oo, oo the pain",
+    "head": "[SETUP — title — \"Song Y\"]",
+    "setupRows": [
+     "[SETUP — returns — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+    "libraryOrigin": {
+     "title": "Song B",
+     "adapted": true
+    },
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "adapted": false,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song Y\"]",
+     "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971891974,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971888889,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "5 APP Undo: Ctrl+Z, activeElement=BODY again +3s",
+    "t": 1791971897554,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": null,
+      "adapted": null,
+      "hasUi": false,
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song Y\"]",
+      "draftId": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "adapted": false,
+      "hasUi": false,
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971891974,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971894973,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   },
+   {
+    "tag": "6 after reload",
+    "t": 1791971901194,
+    "text": "[SETUP — title — \"Song X\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAy--ay, ay my fire is rising\nAy--ay, ay my wire is singing",
+    "head": "[SETUP — title — \"Song X\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+    "libraryOrigin": null,
+    "renumbered": {
+     "items": [
+      {
+       "kind": "returns",
+       "word": "rain",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "pain",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song X\"]",
+      "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "adapted": null,
+      "hasUi": false,
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song X\"]",
+     "draftId": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+     "renumbered": {
+      "items": [
+       {
+        "kind": "returns",
+        "word": "rain",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "returns",
+        "word": "pain",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "more": 0
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+      "title": "Song Y",
+      "head": "[SETUP — title — \"Song Y\"]",
+      "savedAt": 1791971891974,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": "[SETUP — title — \"Song Y\"]",
+      "hasOrigin": true
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:c5457515-3fc5-4c14-afd0-6298c9771257",
+      "title": "Song X",
+      "head": "[SETUP — title — \"Song X\"]",
+      "savedAt": 1791971901105,
+      "renumbered": {
+       "items": [
+        {
+         "kind": "returns",
+         "word": "rain",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "pain",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "more": 0
+      },
+      "origTextHead": null,
+      "hasOrigin": false
+     }
+    ],
+    "toasts": [],
+    "undoControls": {
+     "uiUndoVisible": false,
+     "btnUndoVisible": true
+    }
+   }
+  ],
+  "s6": {
+   "dbs": [
+    "codex-musica-library-drafts"
+   ],
+   "lsKeys": [
+    "codex-workbench-v1",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:lyrics",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com:recipe",
+    "codex-musica-chat-v2:https://mcp.codexmusica.com"
+   ],
+   "ssKeys": [
+    "codex-workbench-recovery"
+   ],
+   "hits": {
+    "fire": [],
+    "wire": [],
+    "rain": [
+     "localStorage:codex-workbench-v1",
+     "sessionStorage:codex-workbench-recovery",
+     "idb:codex-musica-library-drafts/drafts/draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+     "idb:codex-musica-library-drafts/drafts/draft:c5457515-3fc5-4c14-afd0-6298c9771257"
+    ],
+    "pain": [
+     "localStorage:codex-workbench-v1",
+     "sessionStorage:codex-workbench-recovery",
+     "idb:codex-musica-library-drafts/drafts/draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8",
+     "idb:codex-musica-library-drafts/drafts/draft:c5457515-3fc5-4c14-afd0-6298c9771257"
+    ]
+   }
+  },
+  "errors": []
+ }
+}

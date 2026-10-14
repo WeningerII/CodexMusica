@@ -1,0 +1,18 @@
+# verify-f4-card-1 COMMANDS (all run from shell; S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad)
+cd $S/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$V/built-wt-695.html --quiet ; cmp $V/built-wt-695.html $S/wt-695/codex.html
+# candidate build IDENTICAL to wt-695/codex.html and library/code/* identical; built outputs deleted, tree roots served directly
+for t in wt-main wt-61b: cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$V/b-$t/built.html --quiet; cmp with codex.html and library chunks; then deleted
+cd $V && node v1.js cand txt mixed 10 50 200 500 > v1_cand_txt_mixed.log 2>&1
+mkdir $V/orig_rerun; cp f4-card/{lib.js,b_stress.js}; sed OUT -> verify-f4-card-1/orig_rerun; cd $V/orig_rerun && node b_stress.js cand txt 10 50 200 500 > b_cand_txt.log 2>&1; node b_stress.js cand lib 10 500 > b_cand_lib.log 2>&1
+cd $V && node v2_threshold.js cand 20 80 > v2_threshold_cand.log 2>&1
+cd $V && node v1.js prev txt mixed 10 50 200 500 > v1_prev_txt_mixed.log 2>&1
+cd $V && node v1.js main txt mixed 10 50 200 500 > v1_main_txt_mixed.log 2>&1
+cd $V && node v1.js base txt mixed 10 50 200 500 > v1_base_txt_mixed.log 2>&1
+cd $V && node v1.js cand lib mixed 10 50 200 500 > v1_cand_lib_mixed.log 2>&1
+cd $V && node v1.js prev lib mixed 10 50 200 500 > v1_prev_lib_mixed.log 2>&1
+cd $V && node v3_undo.js cand > v3_undo_cand.log 2>&1
+cd $V && node v4_cross.js cand > v4_cross_cand.log 2>&1   # side check, not b1
+# V=$S/h695/verify-f4-card-1. Read-only context lookups: gh api repos/WeningerII/CodexMusica/issues/comments/{6161601064,6161637870,6161683534,6161695192} --jq .body
+# wt-base page served as its committed codex.html (not rebuilt: wt-base has no node_modules); it is the harness control and renumbers nothing, like main.
+# All browser runs: Chromium /opt/pw-browsers/chromium (playwright from wt-695/node_modules), local http server over the tree root, mcp.codexmusica.com routed to a stub. No CHAT_SECRET. No tracked file modified (git status: only the node_modules symlinks).
+# v2_threshold imports by calling lyImportText(text, msg), the exact call the #ly-file handler makes for a .txt after reading the file; card dismissed before each import.

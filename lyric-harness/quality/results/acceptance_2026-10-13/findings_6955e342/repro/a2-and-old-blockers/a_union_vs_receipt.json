@@ -1,0 +1,125 @@
+{
+ "union_texts": 8,
+ "receipt_end_changed_texts": 8,
+ "equal_sets": true,
+ "only_union": [],
+ "only_receipt": [],
+ "per_line": [
+  {
+   "text": "An' at each zide [=o]'m, sprack an' strong,",
+   "found_by": [
+    "recorder_line_anchors"
+   ],
+   "v1_agree": true,
+   "v2_agree": true,
+   "labels": [
+    "strong",
+    "strong",
+    "strong",
+    "strong"
+   ]
+  },
+  {
+   "text": "As most is in _Lynn_'s fair Town;",
+   "found_by": [
+    "grader_census"
+   ],
+   "v1_agree": true,
+   "v2_agree": true,
+   "labels": [
+    "Town",
+    "Town",
+    "Town",
+    "Town"
+   ]
+  },
+  {
+   "text": "Below the knap, 's a runnèn still;",
+   "found_by": [
+    "grader_census",
+    "recorder_line_anchors"
+   ],
+   "v1_agree": true,
+   "v2_agree": false,
+   "labels": [
+    "still",
+    "still",
+    "still",
+    "still"
+   ]
+  },
+  {
+   "text": "By hoof or shoe, 's a sheenèn bright,",
+   "found_by": [
+    "grader_census",
+    "recorder_line_anchors"
+   ],
+   "v1_agree": false,
+   "v2_agree": false,
+   "labels": [
+    "bright",
+    "bright",
+    "bright",
+    "bright"
+   ]
+  },
+  {
+   "text": "What plaÿsome anticks zome [=o]'s done!",
+   "found_by": [
+    "recorder_line_anchors"
+   ],
+   "v1_agree": false,
+   "v2_agree": false,
+   "labels": [
+    "done",
+    "done",
+    "done",
+    "done"
+   ]
+  },
+  {
+   "text": "When in that house M.P.'s divide,",
+   "found_by": [
+    "grader_census"
+   ],
+   "v1_agree": true,
+   "v2_agree": false,
+   "labels": [
+    "divide",
+    "divide",
+    "divide",
+    "divide"
+   ]
+  },
+  {
+   "text": "Where her \"meteor flag\" 's nailed fast",
+   "found_by": [
+    "grader_census",
+    "recorder_line_anchors"
+   ],
+   "v1_agree": false,
+   "v2_agree": false,
+   "labels": [
+    "fast",
+    "fast",
+    "fast",
+    "fast"
+   ]
+  },
+  {
+   "text": "“Also, some few I. O. U.’s and bets,”",
+   "found_by": [
+    "grader_census",
+    "recorder_line_anchors"
+   ],
+   "v1_agree": false,
+   "v2_agree": false,
+   "labels": [
+    "bets",
+    "bets",
+    "bets",
+    "bets"
+   ]
+  }
+ ]
+}

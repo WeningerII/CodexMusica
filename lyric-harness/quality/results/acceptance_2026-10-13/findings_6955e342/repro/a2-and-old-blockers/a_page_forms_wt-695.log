@@ -1,0 +1,16 @@
+hasFn=true errs=0
+true	returns	[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]	2	["\"returns\":\"1,2\""]	Below the knap, 's a runnèn still;
+true	returns	[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]	2	["\"returns\":\"1.head,2.head\""]	Below the knap, 's a runnèn still;
+true	rhyme groups	[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]	2	["\"groups\":\"1.endword,2.endword\""]	Below the knap, 's a runnèn still;
+true	rhyme groups	[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]	2	["\"groups\":\"1.headrime,2.headrime\""]	Below the knap, 's a runnèn still;
+true	returns	[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]	2	["\"returns\":\"1.end,2.end\""]	Below the knap, 's a runnèn still;
+true	returns	[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]	2	["\"returns\":\"1,2\""]	My fount of song, dear friend, 's a bitter well;
+true	returns	[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]	2	["\"returns\":\"1.head,2.head\""]	My fount of song, dear friend, 's a bitter well;
+true	rhyme groups	[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]	2	["\"groups\":\"1.endword,2.endword\""]	My fount of song, dear friend, 's a bitter well;
+true	rhyme groups	[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]	2	["\"groups\":\"1.headrime,2.headrime\""]	My fount of song, dear friend, 's a bitter well;
+true	returns	[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]	2	["\"returns\":\"1.end,2.end\""]	My fount of song, dear friend, 's a bitter well;
+false	returns	[SETUP — returns — 1,2]	0	["\"returns\":\"1,2\""]	We sing it plain tonight
+false	returns	[SETUP — returns — 1.head,2.head]	0	["\"returns\":\"1.head,2.head\""]	We sing it plain tonight
+false	rhyme groups	[SETUP — rhyme groups — 1.endword,2.endword]	0	["\"groups\":\"1.endword,2.endword\""]	We sing it plain tonight
+false	rhyme groups	[SETUP — rhyme groups — 1.headrime,2.headrime]	0	["\"groups\":\"1.headrime,2.headrime\""]	We sing it plain tonight
+false	returns	[SETUP — returns — 1.end,2.end]	0	["\"returns\":\"1.end,2.end\""]	We sing it plain tonight

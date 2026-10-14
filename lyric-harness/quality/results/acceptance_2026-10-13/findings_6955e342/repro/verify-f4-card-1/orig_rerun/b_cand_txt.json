@@ -1,0 +1,517 @@
+{
+ "tree": "cand",
+ "path": "txt",
+ "runs": [
+  {
+   "N": 10,
+   "generatedExpected": 10,
+   "importMs": 690,
+   "truthCount": 10,
+   "otherRowChanges": 0,
+   "cardTitleCount": 10,
+   "metaItems": 10,
+   "metaMore": 0,
+   "cardSaysHidden": null,
+   "listed": 10,
+   "lost": 0,
+   "lostKinds": {},
+   "lostExamples": [],
+   "wordTruncated": [
+    {
+     "kind": "reading",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    },
+    {
+     "kind": "reading",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    },
+    {
+     "kind": "returns",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    },
+    {
+     "kind": "returns",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    }
+   ],
+   "linesCut": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "cardN": [
+      1,
+      2,
+      3,
+      4
+     ]
+    }
+   ],
+   "lostWithLongWord": 0,
+   "lostChorus": 0,
+   "unmatchedCardItems": 0,
+   "notRendered": 0,
+   "uiLen": 813,
+   "afterReloadSame": true,
+   "afterReloadUiLen": 813,
+   "toast": [
+    "10 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbab” word 4 → 5, …. Review lists each one until you dismiss it. 1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "cardTitle": "10 saved word numbers renumbered to the current word cut",
+   "cardTextLen": 845,
+   "cardTextTail": "e 9: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.",
+   "cardTextHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3; the reading for “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; the reading for “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; a rhyme link "
+  },
+  {
+   "N": 50,
+   "generatedExpected": 50,
+   "importMs": 643,
+   "truthCount": 50,
+   "otherRowChanges": 0,
+   "cardTitleCount": 50,
+   "metaItems": 48,
+   "metaMore": 2,
+   "cardSaysHidden": 2,
+   "listed": 48,
+   "lost": 2,
+   "lostKinds": {
+    "reading": 2
+   },
+   "lostExamples": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "reading",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "n": [
+      7
+     ],
+     "from": 4,
+     "to": 5
+    }
+   ],
+   "wordTruncated": [
+    {
+     "kind": "reading",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    },
+    {
+     "kind": "returns",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    },
+    {
+     "kind": "returns",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    }
+   ],
+   "linesCut": [],
+   "lostWithLongWord": 1,
+   "lostChorus": 1,
+   "unmatchedCardItems": 0,
+   "notRendered": 0,
+   "uiLen": 3131,
+   "afterReloadSame": true,
+   "afterReloadUiLen": 3131,
+   "toast": [
+    "50 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbab” word 4 → 5, …. Review lists each one until you dismiss it. 1 rhyme or return place sits on a line whose word cut changed and was kept as declared: check it in Review."
+   ],
+   "cardTitle": "50 saved word numbers renumbered to the current word cut",
+   "cardTextLen": 2509,
+   "cardTextTail": " “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 2 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them.",
+   "cardTextHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; the reading for “wa”, line 9: word 7 → 8; the reading for “wb”, line 10: word 7 → 8; a rhyme link on “ah”, line 11: word 2 → 3; a rhyme link on “ah”"
+  },
+  {
+   "N": 200,
+   "generatedExpected": 200,
+   "importMs": 669,
+   "truthCount": 200,
+   "otherRowChanges": 0,
+   "cardTitleCount": 200,
+   "metaItems": 49,
+   "metaMore": 151,
+   "cardSaysHidden": 151,
+   "listed": 49,
+   "lost": 151,
+   "lostKinds": {
+    "reading": 20,
+    "rhyme groups": 131
+   },
+   "lostExamples": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "reading",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "n": [
+      7
+     ],
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "n": [
+      8
+     ],
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "wa",
+     "n": [
+      9
+     ],
+     "from": 7,
+     "to": 8
+    },
+    {
+     "kind": "reading",
+     "word": "wb",
+     "n": [
+      10
+     ],
+     "from": 7,
+     "to": 8
+    }
+   ],
+   "wordTruncated": [
+    {
+     "kind": "returns",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    },
+    {
+     "kind": "returns",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    }
+   ],
+   "linesCut": [],
+   "lostWithLongWord": 2,
+   "lostChorus": 1,
+   "unmatchedCardItems": 0,
+   "notRendered": 0,
+   "uiLen": 3185,
+   "afterReloadSame": true,
+   "afterReloadUiLen": 3185,
+   "toast": [
+    "200 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbab” word 4 → 5, …. Review lists each one until you dismiss it."
+   ],
+   "cardTitle": "200 saved word numbers renumbered to the current word cut",
+   "cardTextLen": 2530,
+   "cardTextTail": "supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 151 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them.",
+   "cardTextHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “wbm”, line 47: word 7 → 8; a rhyme link on “ah”, line 48: word 2 → 3; a rhyme link on “ah”, line 49: word 2 → 3; a rhyme link on “my”, line 48: word 3 → 4; a rhyme link on “my”, line 49: word 3 → 4; a rhyme link"
+  },
+  {
+   "N": 500,
+   "generatedExpected": 500,
+   "importMs": 938,
+   "truthCount": 500,
+   "otherRowChanges": 0,
+   "cardTitleCount": 500,
+   "metaItems": 48,
+   "metaMore": 452,
+   "cardSaysHidden": 452,
+   "listed": 48,
+   "lost": 452,
+   "lostKinds": {
+    "reading": 50,
+    "rhyme groups": 402
+   },
+   "lostExamples": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "reading",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "n": [
+      7
+     ],
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "n": [
+      8
+     ],
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "wa",
+     "n": [
+      9
+     ],
+     "from": 7,
+     "to": 8
+    },
+    {
+     "kind": "reading",
+     "word": "wb",
+     "n": [
+      10
+     ],
+     "from": 7,
+     "to": 8
+    }
+   ],
+   "wordTruncated": [
+    {
+     "kind": "returns",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    },
+    {
+     "kind": "returns",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "len": 57,
+     "cardWord": "supercalifragilisticexpialidociousantidi"
+    }
+   ],
+   "linesCut": [],
+   "lostWithLongWord": 2,
+   "lostChorus": 1,
+   "unmatchedCardItems": 0,
+   "notRendered": 0,
+   "uiLen": 3165,
+   "afterReloadSame": true,
+   "afterReloadUiLen": 3165,
+   "toast": [
+    "500 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbab” word 4 → 5, …. Review lists each one until you dismiss it."
+   ],
+   "cardTitle": "500 saved word numbers renumbered to the current word cut",
+   "cardTextLen": 2528,
+   "cardTextTail": "supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 452 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them.",
+   "cardTextHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “and”, line 122: word 5 → 6; a rhyme link on “and”, line 123: word 5 → 6; a rhyme link on “soul”, line 122: word 6 → 7; a rhyme link on “soul”, line 123: word 6 → 7; a rhyme link on “wej”, line 122: word 7 → 8; a"
+  }
+ ],
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "cand.b.txt.10.everyListed",
+   "claim": "one txt import renumbering 10: the card lists every renumbered entry",
+   "expected": "10 listed, none lost",
+   "observed": {
+    "listed": 10,
+    "lost": 0,
+    "more": 0,
+    "title": 10
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.b.txt.10.counted",
+   "claim": "the card title counts every renumbered entry and says how many are not listed",
+   "expected": "title 10; hidden 0",
+   "observed": {
+    "title": 10,
+    "hidden": null
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.b.txt.10.words",
+   "claim": "no listed word is cut at 40 characters without saying so",
+   "expected": "no truncated words",
+   "observed": [
+    "57->40",
+    "57->40",
+    "57->40",
+    "57->40"
+   ],
+   "status": "fail"
+  },
+  {
+   "id": "cand.b.txt.10.lines",
+   "claim": "a listed reading names every line it applies to (no silent cut at 4)",
+   "expected": "no line list cut",
+   "observed": [
+    "[1,2,3,4,5,6] -> [1,2,3,4]"
+   ],
+   "status": "fail"
+  },
+  {
+   "id": "cand.b.txt.50.everyListed",
+   "claim": "one txt import renumbering 50: the card lists every renumbered entry",
+   "expected": "50 listed, none lost",
+   "observed": {
+    "listed": 48,
+    "lost": 2,
+    "more": 2,
+    "title": 50
+   },
+   "status": "fail"
+  },
+  {
+   "id": "cand.b.txt.50.counted",
+   "claim": "the card title counts every renumbered entry and says how many are not listed",
+   "expected": "title 50; hidden 2",
+   "observed": {
+    "title": 50,
+    "hidden": "2"
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.b.txt.50.words",
+   "claim": "no listed word is cut at 40 characters without saying so",
+   "expected": "no truncated words",
+   "observed": [
+    "57->40",
+    "57->40",
+    "57->40"
+   ],
+   "status": "fail"
+  },
+  {
+   "id": "cand.b.txt.50.lines",
+   "claim": "a listed reading names every line it applies to (no silent cut at 4)",
+   "expected": "no line list cut",
+   "observed": [],
+   "status": "pass"
+  },
+  {
+   "id": "cand.b.txt.200.everyListed",
+   "claim": "one txt import renumbering 200: the card lists every renumbered entry",
+   "expected": "200 listed, none lost",
+   "observed": {
+    "listed": 49,
+    "lost": 151,
+    "more": 151,
+    "title": 200
+   },
+   "status": "fail"
+  },
+  {
+   "id": "cand.b.txt.200.counted",
+   "claim": "the card title counts every renumbered entry and says how many are not listed",
+   "expected": "title 200; hidden 151",
+   "observed": {
+    "title": 200,
+    "hidden": "151"
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.b.txt.200.words",
+   "claim": "no listed word is cut at 40 characters without saying so",
+   "expected": "no truncated words",
+   "observed": [
+    "57->40",
+    "57->40"
+   ],
+   "status": "fail"
+  },
+  {
+   "id": "cand.b.txt.200.lines",
+   "claim": "a listed reading names every line it applies to (no silent cut at 4)",
+   "expected": "no line list cut",
+   "observed": [],
+   "status": "pass"
+  },
+  {
+   "id": "cand.b.txt.500.everyListed",
+   "claim": "one txt import renumbering 500: the card lists every renumbered entry",
+   "expected": "500 listed, none lost",
+   "observed": {
+    "listed": 48,
+    "lost": 452,
+    "more": 452,
+    "title": 500
+   },
+   "status": "fail"
+  },
+  {
+   "id": "cand.b.txt.500.counted",
+   "claim": "the card title counts every renumbered entry and says how many are not listed",
+   "expected": "title 500; hidden 452",
+   "observed": {
+    "title": 500,
+    "hidden": "452"
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.b.txt.500.words",
+   "claim": "no listed word is cut at 40 characters without saying so",
+   "expected": "no truncated words",
+   "observed": [
+    "57->40",
+    "57->40"
+   ],
+   "status": "fail"
+  },
+  {
+   "id": "cand.b.txt.500.lines",
+   "claim": "a listed reading names every line it applies to (no silent cut at 4)",
+   "expected": "no line list cut",
+   "observed": [],
+   "status": "pass"
+  }
+ ]
+}

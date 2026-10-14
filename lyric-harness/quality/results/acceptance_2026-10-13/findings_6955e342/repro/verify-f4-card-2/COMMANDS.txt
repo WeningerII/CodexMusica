@@ -1,0 +1,27 @@
+# verify-f4-card-2 (adversarial verification of f4-card b3 "No word on the card is cut")
+git -C wt-695 log -1 --format=%B 643e292e6
+sed -n 420,560p wt-695/src/pages/lyrics.js
+for t in wt-695 wt-main wt-61b: cd <tree> && CODEX_LIBRARY=1 node scripts/build_html.js --out=<L>/built-<tree>.html --quiet ; cmp vs <tree>/codex.html
+cd wt-base && CODEX_LIBRARY=1 node scripts/build_html.js --out=<L>/built-wt-base.html --quiet ; cmp
+cd wt-base && NODE_PATH=wt-695/node_modules CODEX_LIBRARY=1 node scripts/build_html.js --out=<L>/build/built-wt-base.html --quiet ; cmp  (base has no node_modules; terser borrowed via NODE_PATH)
+cd <L> && node v.js cand all > v_cand_txt.log 2>&1
+cd <L> && node v.js prev61b all > v_prev61b_txt.log 2>&1
+cd <L> && node v.js prev678 all > v_prev678_txt.log 2>&1
+cd <L> && node v.js main all > v_main_txt.log 2>&1
+cd <L> && node v.js base all > v_base_txt.log 2>&1
+cd <L> && node v_members.js main > v_members_main.log 2>&1
+cd <L> && node v_members.js base > v_members_base.log 2>&1
+cd <L> && node v_members.js cand > v_members_cand.log 2>&1
+cd <L> && SUFFIX=_stress10 node v.js cand file:<S>/h695/f4-card/b_stress_10.txt:Stress_10 > v_cand_stress10.log 2>&1   (tester's generated input, my harness)
+cd <L> && SUFFIX=_stress50 node v.js cand file:<S>/h695/f4-card/b_stress_50.txt:Stress_50 > v_cand_stress50.log 2>&1   (tester's generated input, my harness)
+cd <L> && SUFFIX=_stress200 node v.js cand file:<S>/h695/f4-card/b_stress_200.txt:Stress_200 > v_cand_stress200.log 2>&1   (tester's generated input, my harness)
+cd <L> && SUFFIX=_stress500 node v.js cand file:<S>/h695/f4-card/b_stress_500.txt:Stress_500 > v_cand_stress500.log 2>&1   (tester's generated input, my harness)
+cd <L> && python3 count_cut.py > count_cut.out
+cd <L> && node v.js cand same40 lib > v_cand_lib.log 2>&1
+cd <L> && SUFFIX=_unsung node v.js cand unsung > v_cand_unsung.log 2>&1
+cd <L> && python3 (inline) pane check of v_cand_txt.json > pane_check.out
+# NOTES
+# - All browser runs: Chromium /opt/pw-browsers/chromium, local http server over each tree root (codex.html of wt-695, wt-main, wt-61b, wt-base verified
+#   identical to a fresh CODEX_LIBRARY=1 build; built copies deleted), mcp.codexmusica.com routed to an in-process stub. No CHAT_SECRET used.
+# - wt-678 served as-is (not rebuilt); its toast code is byte-identical to wt-61b's in the migration region.
+# - git status of all trees after the runs: only the untracked node_modules symlink.

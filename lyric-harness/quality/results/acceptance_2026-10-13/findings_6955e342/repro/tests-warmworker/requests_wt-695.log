@@ -1,0 +1,13 @@
+[] exit 4 v2 {'eng._LEX': 1, 'eng._CUT_LEX': 0, 'fit._LEX': 1, 'LS._SUPPLEMENTED': None, 'MB._READERS': 1} {'VmHWM': 446, 'VmRSS': 446} admits
+['--reader-scheme=v1'] exit 4 v1 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 2, 'LS._SUPPLEMENTED': None, 'MB._READERS': 2} {'VmHWM': 529, 'VmRSS': 475} admits
+['--fallback=high'] exit 4 v2 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 2, 'LS._SUPPLEMENTED': None, 'MB._READERS': 2} {'VmHWM': 554, 'VmRSS': 551} admits
+['--fallback=low'] exit 4 v2 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 2, 'LS._SUPPLEMENTED': None, 'MB._READERS': 2} {'VmHWM': 554, 'VmRSS': 512} admits
+['--voices'] exit 4 v2 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 3, 'LS._SUPPLEMENTED': None, 'MB._READERS': 2} {'VmHWM': 601, 'VmRSS': 601} admits
+['--voices', '--fallback=high'] exit 4 v2 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 3, 'LS._SUPPLEMENTED': None, 'MB._READERS': 2} {'VmHWM': 625, 'VmRSS': 622} admits
+['--voices', '--fallback=low'] exit 4 v2 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 3, 'LS._SUPPLEMENTED': None, 'MB._READERS': 2} {'VmHWM': 628, 'VmRSS': 574} admits
+['--reader-scheme=v1', '--voices'] exit 4 v1 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 4, 'LS._SUPPLEMENTED': None, 'MB._READERS': 2} {'VmHWM': 628, 'VmRSS': 596} admits
+['--reader-scheme=v1', '--fallback=high'] exit 4 v1 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 4, 'LS._SUPPLEMENTED': None, 'MB._READERS': 2} {'VmHWM': 628, 'VmRSS': 588} admits
+['--lexicon-supplement'] exit 4 v2 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 4, 'LS._SUPPLEMENTED': 1, 'MB._READERS': 2} {'VmHWM': 677, 'VmRSS': 677} admits
+['--lexicon-supplement', '--voices'] exit 4 v2 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 4, 'LS._SUPPLEMENTED': 2, 'MB._READERS': 2} {'VmHWM': 772, 'VmRSS': 760} admits
+['--reader-scheme=v1', '--lexicon-supplement'] exit 4 v1 {'eng._LEX': 2, 'eng._CUT_LEX': 0, 'fit._LEX': 4, 'LS._SUPPLEMENTED': 3, 'MB._READERS': 2} {'VmHWM': 827, 'VmRSS': 794} admits
+exit=0

@@ -1,0 +1,10 @@
+
+    [test-process isolation] test_a_legacy_lyrics_request_then_a_library_analysis: child peak RSS (VmHWM) 1,073,741,823 bytes (1024 MiB) against the unchanged 1024 MiB guard; guard checks passed 5; fake
+{
+ "below": "parent PASSED",
+ "at": "parent FAILED: 1073741824 not less than 1073741824 : test_a_legacy_lyrics_request_then_a_library_analysis: child peak RSS 1,073,741,824 bytes is not below the unchanged 1,073,",
+ "over": "parent FAILED: 1073745920 not less than 1073741824 : test_a_legacy_lyrics_request_then_a_library_analysis: child peak RSS 1,073,745,920 bytes is not below the unchanged 1,073,",
+ "library_but_no_guard_calls": "parent FAILED: 0 not greater than 0"
+}
+WIRED
+exit=0

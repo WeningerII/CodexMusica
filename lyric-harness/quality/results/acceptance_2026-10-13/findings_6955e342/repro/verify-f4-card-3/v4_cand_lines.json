@@ -1,0 +1,454 @@
+{
+ "tree": "cand",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "mode": "lines",
+ "runs": [
+  {
+   "path": "txt",
+   "K": 1,
+   "interleaved": false,
+   "expectedLines": [
+    1
+   ],
+   "hasCard": true,
+   "title": "1 saved word number renumbered to the current word cut",
+   "cardReadingPhrase": "the reading for “oh”, line 1: word 2 → 3",
+   "cardReadingLines": "line 1",
+   "moreText": null,
+   "metaChorusItem": {
+    "kind": "reading",
+    "word": "oh",
+    "n": [
+     1
+    ],
+    "from": 2,
+    "to": 3
+   },
+   "metaItems": 1,
+   "metaMore": 0,
+   "sungAt": [
+    1
+   ],
+   "declaredReadings": [
+    "“oh”line 1 · OW1 · me"
+   ],
+   "paneCardHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, line 1: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Ch",
+   "uiLen": 130,
+   "readingRow": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]",
+   "toasts": [
+    "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+   ],
+   "draftChangedRows": 1
+  },
+  {
+   "path": "txt",
+   "K": 4,
+   "interleaved": false,
+   "expectedLines": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "hasCard": true,
+   "title": "1 saved word number renumbered to the current word cut",
+   "cardReadingPhrase": "the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3",
+   "cardReadingLines": "lines 1, 2, 3 and 4",
+   "moreText": null,
+   "metaChorusItem": {
+    "kind": "reading",
+    "word": "oh",
+    "n": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "from": 2,
+    "to": 3
+   },
+   "metaItems": 1,
+   "metaMore": 0,
+   "sungAt": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "declaredReadings": [
+    "“oh”lines 1, 2, 3 and 4 · OW1 · me"
+   ],
+   "paneCardHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+   "uiLen": 136,
+   "readingRow": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]",
+   "toasts": [
+    "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+   ],
+   "draftChangedRows": 1
+  },
+  {
+   "path": "txt",
+   "K": 5,
+   "interleaved": false,
+   "expectedLines": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "hasCard": true,
+   "title": "1 saved word number renumbered to the current word cut",
+   "cardReadingPhrase": "the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3",
+   "cardReadingLines": "lines 1, 2, 3 and 4",
+   "moreText": null,
+   "metaChorusItem": {
+    "kind": "reading",
+    "word": "oh",
+    "n": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "from": 2,
+    "to": 3
+   },
+   "metaItems": 1,
+   "metaMore": 0,
+   "sungAt": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "declaredReadings": [
+    "“oh”lines 1, 2, 3, 4 and 5 · OW1 · me"
+   ],
+   "paneCardHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+   "uiLen": 136,
+   "readingRow": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]",
+   "toasts": [
+    "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+   ],
+   "draftChangedRows": 1
+  },
+  {
+   "path": "txt",
+   "K": 6,
+   "interleaved": false,
+   "expectedLines": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "hasCard": true,
+   "title": "1 saved word number renumbered to the current word cut",
+   "cardReadingPhrase": "the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3",
+   "cardReadingLines": "lines 1, 2, 3 and 4",
+   "moreText": null,
+   "metaChorusItem": {
+    "kind": "reading",
+    "word": "oh",
+    "n": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "from": 2,
+    "to": 3
+   },
+   "metaItems": 1,
+   "metaMore": 0,
+   "sungAt": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "declaredReadings": [
+    "“oh”lines 1, 2, 3, 4, 5 and 6 · OW1 · me"
+   ],
+   "paneCardHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+   "uiLen": 136,
+   "readingRow": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]",
+   "toasts": [
+    "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+   ],
+   "draftChangedRows": 1,
+   "afterReload": {
+    "hasCard": true,
+    "cardReadingLines": "lines 1, 2, 3 and 4",
+    "metaChorusItem": {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "from": 2,
+     "to": 3
+    },
+    "declaredReadings": [
+     "“oh”lines 1, 2, 3, 4, 5 and 6 · OW1 · me"
+    ]
+   }
+  },
+  {
+   "path": "txt",
+   "K": 9,
+   "interleaved": false,
+   "expectedLines": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "hasCard": true,
+   "title": "1 saved word number renumbered to the current word cut",
+   "cardReadingPhrase": "the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3",
+   "cardReadingLines": "lines 1, 2, 3 and 4",
+   "moreText": null,
+   "metaChorusItem": {
+    "kind": "reading",
+    "word": "oh",
+    "n": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "from": 2,
+    "to": 3
+   },
+   "metaItems": 1,
+   "metaMore": 0,
+   "sungAt": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+   ],
+   "declaredReadings": [
+    "“oh”lines 1, 2, 3, 4, 5, 6, 7, 8 and 9 · OW1 · me"
+   ],
+   "paneCardHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+   "uiLen": 136,
+   "readingRow": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]",
+   "toasts": [
+    "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+   ],
+   "draftChangedRows": 1
+  },
+  {
+   "path": "txt",
+   "K": 6,
+   "interleaved": true,
+   "expectedLines": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    12
+   ],
+   "hasCard": true,
+   "title": "1 saved word number renumbered to the current word cut",
+   "cardReadingPhrase": "the reading for “oh”, lines 2, 4, 6 and 8: word 2 → 3",
+   "cardReadingLines": "lines 2, 4, 6 and 8",
+   "moreText": null,
+   "metaChorusItem": {
+    "kind": "reading",
+    "word": "oh",
+    "n": [
+     2,
+     4,
+     6,
+     8
+    ],
+    "from": 2,
+    "to": 3
+   },
+   "metaItems": 1,
+   "metaMore": 0,
+   "sungAt": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    12
+   ],
+   "declaredReadings": [
+    "“oh”lines 2, 4, 6, 8, 10 and 12 · OW1 · me"
+   ],
+   "paneCardHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 2, 4, 6 and 8: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+   "uiLen": 136,
+   "readingRow": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]",
+   "toasts": [
+    "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it."
+   ],
+   "draftChangedRows": 1,
+   "afterReload": {
+    "hasCard": true,
+    "cardReadingLines": "lines 2, 4, 6 and 8",
+    "metaChorusItem": {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      2,
+      4,
+      6,
+      8
+     ],
+     "from": 2,
+     "to": 3
+    },
+    "declaredReadings": [
+     "“oh”lines 2, 4, 6, 8, 10 and 12 · OW1 · me"
+    ]
+   }
+  },
+  {
+   "path": "lib",
+   "K": 6,
+   "interleaved": false,
+   "expectedLines": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "hasCard": true,
+   "title": "1 saved word number renumbered to the current word cut",
+   "cardReadingPhrase": "the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3",
+   "cardReadingLines": "lines 1, 2, 3 and 4",
+   "moreText": null,
+   "metaChorusItem": {
+    "kind": "reading",
+    "word": "oh",
+    "n": [
+     1,
+     2,
+     3,
+     4
+    ],
+    "from": 2,
+    "to": 3
+   },
+   "metaItems": 1,
+   "metaMore": 0,
+   "sungAt": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "declaredReadings": [
+    "“oh”lines 1, 2, 3, 4, 5 and 6 · OW1 · me"
+   ],
+   "paneCardHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1, 2, 3 and 4: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+   "uiLen": 136,
+   "readingRow": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]",
+   "toasts": [
+    "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.",
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "draftChangedRows": 1,
+   "afterReload": {
+    "hasCard": true,
+    "cardReadingLines": "lines 1, 2, 3 and 4",
+    "metaChorusItem": {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "from": 2,
+     "to": 3
+    },
+    "declaredReadings": [
+     "“oh”lines 1, 2, 3, 4, 5 and 6 · OW1 · me"
+    ]
+   }
+  },
+  {
+   "path": "lib",
+   "K": 6,
+   "interleaved": true,
+   "expectedLines": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    12
+   ],
+   "hasCard": true,
+   "title": "1 saved word number renumbered to the current word cut",
+   "cardReadingPhrase": "the reading for “oh”, lines 2, 4, 6 and 8: word 2 → 3",
+   "cardReadingLines": "lines 2, 4, 6 and 8",
+   "moreText": null,
+   "metaChorusItem": {
+    "kind": "reading",
+    "word": "oh",
+    "n": [
+     2,
+     4,
+     6,
+     8
+    ],
+    "from": 2,
+    "to": 3
+   },
+   "metaItems": 1,
+   "metaMore": 0,
+   "sungAt": [
+    2,
+    4,
+    6,
+    8,
+    10,
+    12
+   ],
+   "declaredReadings": [
+    "“oh”lines 2, 4, 6, 8, 10 and 12 · OW1 · me"
+   ],
+   "paneCardHead": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 2, 4, 6 and 8: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.",
+   "uiLen": 136,
+   "readingRow": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my chorus line\" — OW1 — declared — source: me — cut v2]",
+   "toasts": [
+    "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “oh” word 2 → 3. Review lists it until you dismiss it.",
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "draftChangedRows": 1
+  }
+ ],
+ "errors": []
+}

@@ -1,0 +1,703 @@
+{
+ "tree": "cand",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "scenarios": [
+  {
+   "id": "W12",
+   "written": {
+    "R": "4.end , 6.end ;  5.T2, 6.T2",
+    "G": "4.end ,6 ; 5.head,  6.head",
+    "voices": false
+   },
+   "doc": "[SETUP — returns — 4.end , 6.end ;  5.T2, 6.T2]\n[SETUP — rhyme groups — 4.end ,6 ; 5.head,  6.head]\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+   "flows": {
+    "A": [
+     {
+      "step": "load",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "load:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "2 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "reload",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "reload:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "Not reviewed",
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "keep_actions",
+      "kept": [
+       "rhyme groups|1|0|0",
+       "returns|0|0|0"
+      ]
+     },
+     {
+      "step": "keep",
+      "rows": [
+       "[SETUP — returns — 4.end,6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end,6;5.head,6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end,6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end,6;5.head,6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [],
+      "history": 3
+     },
+     {
+      "step": "keep:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "The declared return on line 4 is kept as declared. Undo restores the notice.Undo"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end,6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end,6;5.head,6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "keep_reload",
+      "rows": [
+       "[SETUP — returns — 4.end,6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end,6;5.head,6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end,6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end,6;5.head,6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [],
+      "history": 1
+     },
+     {
+      "step": "keep_reload:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "Not reviewed",
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end,6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end,6;5.head,6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "errors",
+      "errors": []
+     }
+    ],
+    "R": [
+     {
+      "step": "load",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "reorder1",
+      "rows": [
+       "[SETUP — returns — 8.end (carried across the word-cut change),2.end;1.T2,2.T2 — cut v2]",
+       "[SETUP — rhyme groups — 8.end (carried across the word-cut change),2;1.head,2.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 8.end (carried across the word-cut change),2.end;1.T2,2.T2 — cut v2]",
+       "[SETUP — rhyme groups — 8.end (carried across the word-cut change),2;1.head,2.head — cut v2]"
+      ],
+      "song": "\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight\n\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 8 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 8 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 2
+     },
+     {
+      "step": "reorder1:send",
+      "sent": [
+       {
+        "groups": "8.end,2;1.head,2.head",
+        "returns": "8.end,2.end;1.T2,2.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "Moved section down.Undo"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 8.end (carried across the word-cut change),2.end;1.T2,2.T2 — cut v2]",
+       "[SETUP — rhyme groups — 8.end (carried across the word-cut change),2;1.head,2.head — cut v2]"
+      ]
+     },
+     {
+      "step": "reorder2",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 3
+     },
+     {
+      "step": "reorder2:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "Moved section down.Undo"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "reorder2_reload",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "errors",
+      "errors": []
+     }
+    ],
+    "FP": [
+     {
+      "step": "load",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "form",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;2.head,3.head — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;2.head,3.head — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 2
+     },
+     {
+      "step": "form:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2;2.head,3.head"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "Placed return declared.Undo"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;2.head,3.head — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "form_reload",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;2.head,3.head — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;2.head,3.head — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "errors",
+      "errors": []
+     }
+    ],
+    "FR": [
+     {
+      "step": "load",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "form",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head;2,3 — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head;2,3 — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 2
+     },
+     {
+      "step": "form:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head;2,3",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "Rhyme link saved.Undo"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head;2,3 — cut v2]"
+      ]
+     },
+     {
+      "step": "form_reload",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head;2,3 — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;5.head,6.head;2,3 — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "errors",
+      "errors": []
+     }
+    ],
+    "FD": [
+     {
+      "step": "load",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "form",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;1,5;2,6;3,7;4,8 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;1,5;2,6;3,7;4,8 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 2
+     },
+     {
+      "step": "form:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2;1,5;2,6;3,7;4,8"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "Chorus is declared an exact repeat of Verse.Undo"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;1,5;2,6;3,7;4,8 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "form_reload",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;1,5;2,6;3,7;4,8 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change),6.end;5.T2,6.T2;1,5;2,6;3,7;4,8 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "errors",
+      "errors": []
+     }
+    ],
+    "X": [
+     {
+      "step": "load",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 1
+     },
+     {
+      "step": "exported",
+      "session_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "txt_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "errors",
+      "errors": []
+     },
+     {
+      "step": "import_exported_session",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 2
+     },
+     {
+      "step": "import_exported_session:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "Session imported"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "import_exported_session:errors",
+      "errors": []
+     },
+     {
+      "step": "import_exported_txt",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 2
+     },
+     {
+      "step": "import_exported_txt:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "Imported W12_load.txt. Undo restores the previous draft.Undo"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "import_exported_txt:errors",
+      "errors": []
+     },
+     {
+      "step": "import_original_txt",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 2
+     },
+     {
+      "step": "import_original_txt:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "2 rhyme or return places sit on a line whose word cut changed and were kept as declared: check each in Review."
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "import_original_txt:errors",
+      "errors": []
+     },
+     {
+      "step": "import_original_session",
+      "rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "stored_rows": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ],
+      "song": "\n[VERSE]\nOh--oh, oh my love\nThundered the battery’s double bass--\nMy love--love is true\nYou hold my heart.    10\n\n[CHORUS]\nI walk the line tonight\nWell-worn shoes upon the floor\nStay with me (oh--oh) tonight\nHold me (hold me) close--close tonight",
+      "items": [
+       "note | rhyme groups:1:carried:0:0 | A rhyme link member, line 4 · last rhyme, was carried across the word-cut change",
+       "note | returns:0:carried:0:0 | A declared return member, line 4 · last rhyme, was carried across the word-cut change"
+      ],
+      "history": 2
+     },
+     {
+      "step": "import_original_session:send",
+      "sent": [
+       {
+        "groups": "4.end,6;5.head,6.head",
+        "returns": "4.end,6.end;5.T2,6.T2"
+       }
+      ],
+      "sent_count": 1,
+      "err": null,
+      "toast": [
+       "No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file",
+       "Session imported"
+      ],
+      "rows_after_send": [
+       "[SETUP — returns — 4.end (carried across the word-cut change) , 6.end ;  5.T2, 6.T2 — cut v2]",
+       "[SETUP — rhyme groups — 4.end (carried across the word-cut change) ,6 ; 5.head,  6.head — cut v2]"
+      ]
+     },
+     {
+      "step": "import_original_session:errors",
+      "errors": []
+     }
+    ]
+   }
+  }
+ ],
+ "extras": null
+}

@@ -1,0 +1,44 @@
+// verify-page-rules-6, part 4: a real clipboard paste (Ctrl+V) of an unmarked row.
+'use strict';
+const fs = require('fs'), http = require('http'), path = require('path');
+const S = '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad';
+const ROOT = process.argv[2], LABEL = process.argv[3];
+const { chromium } = require(path.join(S, 'wt-695/node_modules/playwright'));
+const DOC = `[VERSE]\nOh--oh, oh my love\nI hold the dove\n\n[CHORUS]\nRun to the sea\nAnd stay with me`;
+const AT = DOC.indexOf('dove\n') + 5;
+const ROW = '[SETUP — rhyme groups — 1.T4,2]\n';
+(async () => {
+  const server = http.createServer((req, res) => {
+    let p = decodeURIComponent(req.url.split('?')[0]); if (p === '/') p = '/codex.html';
+    const f = path.join(ROOT, p);
+    if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) return res.writeHead(404), res.end();
+    res.writeHead(200, { 'Content-Type': path.extname(f) === '.html' ? 'text/html; charset=utf-8' : 'application/octet-stream' });
+    fs.createReadStream(f).pipe(res);
+  });
+  await new Promise((r) => server.listen(0, '127.0.0.1', r));
+  const origin = `http://127.0.0.1:${server.address().port}`;
+  const browser = await chromium.launch({ headless: true, executablePath: '/opt/pw-browsers/chromium', args: ['--no-sandbox'] });
+  const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  await ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin });
+  await ctx.route(/mcp\.codexmusica\.com/, (r) => r.fulfill({ contentType: 'application/json', body: '{"ok":true}' }));
+  const page = await ctx.newPage();
+  await page.goto(`${origin}/codex.html#lyrics`);
+  await page.waitForFunction(() => typeof LY !== 'undefined' && !!LY.model && UI.ready, null, { timeout: 90000 });
+  await page.waitForTimeout(400);
+  await page.evaluate((t) => { $ui('lyrics-draft').value = t; uiSaveLyrics(); pushHistory(); lyRefresh(true); }, DOC);
+  await page.waitForTimeout(300);
+  await page.evaluate((t) => navigator.clipboard.writeText(t), ROW);
+  await page.click('#lyrics-draft');
+  await page.evaluate((at) => { const d = $ui('lyrics-draft'); d.focus(); d.setSelectionRange(at, at); }, AT);
+  await page.keyboard.press('Control+V');
+  const just = await page.evaluate(() => { const d = $ui('lyrics-draft'); return [d.selectionStart, d.value.length]; });
+  await page.waitForTimeout(1000);
+  const after = await page.evaluate(() => { const d = $ui('lyrics-draft'); return [d.selectionStart, d.value.length]; });
+  await page.keyboard.type('ZQ', { delay: 25 });
+  await page.waitForTimeout(300);
+  const t = await page.evaluate(() => $ui('lyrics-draft').value);
+  const pasted = t.includes('[SETUP');
+  console.log(`[${LABEL}] Ctrl+V pasted=${pasted} caret just after paste ${JSON.stringify(just)} -> after 1s ${JSON.stringify(after)}; ZQ on line ${t.slice(0, t.indexOf('ZQ')).split('\n').length} (intended 5)`);
+  console.log(t.split('\n').map((l) => '   | ' + l).join('\n'));
+  await browser.close(); server.close();
+})().catch((e) => (console.error(e), process.exit(1)));

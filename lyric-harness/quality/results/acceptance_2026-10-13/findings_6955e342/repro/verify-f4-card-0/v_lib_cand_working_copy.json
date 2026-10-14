@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:d0c5c2fb-44f2-4183-a852-8ca568cb82f6",
+  "draftId": "draft:b5484a94-0c68-4c02-8b7f-8b31c1982ae0",
+  "createdAt": "2026-10-14T09:51:58.780Z",
+  "payload": {
+    "text": "[SETUP — title — \"Skeptic One\"]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n[SETUP — reading — token 4 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me]\n[SETUP — reading — token 4 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me]\n[SETUP — reading — token 4 \"lost\" in \"Ah--ah, ah my lost way\" — L AO1 S T — declared — source: me]\n[SETUP — rhyme groups — 1.T4,2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nAh--ah, ah my heart and soul",
+    "title": "Skeptic Lib",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:d3922bb5-aa41-4dde-a1c7-9ea71d45922f",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "10be2ab08508bc5f61d728acd5fc8c5063e7c235c8c653611d01be7974c8e74c"
+}

@@ -1,0 +1,5 @@
+cand 4.end,6.end rc=0
+cand 4,6 rc=0
+cand 5.end,6.end;1.T5,8.T5 rc=0
+cand 5,6;1.T5,8.T5 rc=0
+cand 1.end,6.head rc=0

@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:3b151288-5584-4232-9d5e-72e9b93abb89",
+  "draftId": "draft:c3486efc-cd10-4d33-94c8-433b501edfdd",
+  "createdAt": "2026-10-14T08:44:45.747Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song Quiet\"]\n[SETUP — rhyme groups — 1,2]\n\n[VERSE]\nwe sing it plain tonight\nwe bring it home tonight",
+    "title": "Song Quiet",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:ef1eea1e-7e61-40f6-9b10-c1fdf4420d5d",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "b8e3a8d8949cdbca96421523673f07661ed1f9698cb48537683b1cf67fa673e8"
+}

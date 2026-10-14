@@ -1,0 +1,29 @@
+{
+ "tree": "cand",
+ "before": {
+  "open": true,
+  "paneHasCard": true
+ },
+ "after": {
+  "open": false,
+  "runItems": 3,
+  "cardInItems": true,
+  "paneHasCard": false
+ },
+ "calls": 1,
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "cand.f.visibleAfterReview",
+   "claim": "after a review has run, the renumbered card is still visible in Review without opening anything",
+   "expected": "card text visible in the Review pane",
+   "observed": {
+    "open": false,
+    "runItems": 3,
+    "cardInItems": true,
+    "paneHasCard": false
+   },
+   "status": "fail"
+  }
+ ]
+}

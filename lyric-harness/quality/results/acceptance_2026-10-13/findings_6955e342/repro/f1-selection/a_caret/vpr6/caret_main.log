@@ -1,0 +1,7 @@
+[main] typed_unmarked_T (type): row now="[SETUP — rhyme groups — 1.T4,2]" caret 75->75 (len 116, focused true); ZQ on line 5 (intended 5) -> OK; toasts=[] errors=[]
+[main] typed_marked_T (type): row now="[SETUP — rhyme groups — 1.T5,2 — cut v2]" caret 84->84 (len 125, focused true); ZQ on line 5 (intended 5) -> OK; toasts=[] errors=[]
+[main] typed_bare_changed_line (type): row now="[SETUP — rhyme groups — 1,2]" caret 72->72 (len 113, focused true); ZQ on line 5 (intended 5) -> OK; toasts=[] errors=[]
+[main] typed_bare_unchanged_lines (type): row now="[SETUP — rhyme groups — 2,4]" caret 72->72 (len 113, focused true); ZQ on line 5 (intended 5) -> OK; toasts=[] errors=[]
+[main] typed_unmarked_reading (type): row now="[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\"]" caret 100->100 (len 141, focused true); ZQ on line 5 (intended 5) -> OK; toasts=[] errors=[]
+[main] inserted_unmarked_T (insert): row now="[SETUP — rhyme groups — 1.T4,2]" caret 75->75 (len 116, focused true); ZQ on line 5 (intended 5) -> OK; toasts=[] errors=[]
+exit 0

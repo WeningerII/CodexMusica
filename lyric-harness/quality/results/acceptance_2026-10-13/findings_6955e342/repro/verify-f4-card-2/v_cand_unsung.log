@@ -1,0 +1,7 @@
+== cand txt unsung: card fn=true migrate fn=true item=true reloadSame=true
+  title: 2 saved word numbers renumbered to the current word cut
+  text : Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “supercalifragilisticexpialidociousantidi”: word 4 → 5; the reading for “supercalifragilisticexpialidociousantidi”: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.
+   {"label":"w57a","len":57,"storedAs":["reading:40:supercalifragilisticexpialidociousantidi","reading:40:supercalifragilisticexpialidociousantidi"],"cardHasFull":false,"paneHasFull":true,"cardHasCut40":true,"ellipsis":false,"toastHasFull":true,"draftHasFull":true}
+   {"label":"w57b","len":57,"storedAs":["reading:40:supercalifragilisticexpialidociousantidi","reading:40:supercalifragilisticexpialidociousantidi"],"cardHasFull":false,"paneHasFull":true,"cardHasCut40":true,"ellipsis":false,"toastHasFull":true,"draftHasFull":true}
+  toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbab” word 4 → 5. Review lists each one until you dismiss it."]
+  draft rows changed: 2 pageErrors: 0

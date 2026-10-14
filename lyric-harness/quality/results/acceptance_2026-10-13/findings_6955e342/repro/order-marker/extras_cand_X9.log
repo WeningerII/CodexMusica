@@ -1,0 +1,6 @@
+
+### cand X9_sectionMove
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Form & story: VERSE Move down] rows=["[SETUP — rhyme groups — 5.T4,4;6,7]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Moved section down.\nUndo"]
+  SEND 3 Run review: [{"groups":"5.T5,4;6,7"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 5.T5,4;6,7 — cut v2]"] cut=["cut v2"] hist={"idx":3,"n":4} toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."]

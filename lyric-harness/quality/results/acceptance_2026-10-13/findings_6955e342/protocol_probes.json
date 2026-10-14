@@ -1,0 +1,775 @@
+{
+ "workflow": "wf_53fb009d-2be",
+ "candidate": "6955e342963a90bdf470741266cea0dd84f0a797",
+ "asked_by": "3PO #527 6165283798",
+ "agents": [
+  {
+   "agent": "library-undo-card",
+   "result": {
+    "task": "library-undo-card: independent paired acceptance probe of the tester claim at 6955e342 (code 643e292e). Sequence: .txt import of draft A (renumbers; card left up) -> Library working-copy import of B (renumbers) -> app Undo. Claim: the card then lists B's entries over A's text and draftId, and the persist overwrites A's stored draft record, so A's evidence is lost even after reload. Also: session import followed by Undo returns A's migrated text with no card. Controls: main 8b1d2ad2 and previous candidate 61b6618a.",
+    "verdict": "confirmed",
+    "statement": "Confirmed on 6955e342. The claim reproduced in 4 independent runs: header Undo button twice, keyboard Ctrl+Z with focus on BODY once, and once more inside the payload run.\n\n**Library-import path.** After .txt A and Library B, app Undo puts back A's migrated text and A's draftId (draft:b9750cd0…). The card does not follow:\n- It still lists B's entries, worded as A's: \"a declared return on “love”, line 1: word 4 → 5; … “dove”, line 2\". A has no returns row and no word \"love\" or \"dove\".\n- At +60 ms A's IndexedDB record still held heart/part. By +1.9 s, with no user action, lyLibraryPersist had re-saved A's record (savedAt 1791970788046 → 1791970790075) with ui.renumbered = love/dove.\n- localStorage holds the same love/dove entries.\n- After reload, a whole-origin search (every localStorage key, every IndexedDB store) finds no card entry for \"heart\" or \"part\". love/dove appear in localStorage and in both draft records.\n- Opening B and then A again from the History list shows love/dove on A, now coming from A's own stored record.\n\nSo A's evidence is overwritten and relabelled, not merely hidden. This is a stale card over another draft.\n\n**What is sent is unaffected.** The /chat payload after Undo still carries A's own groups \"1.T5,2.T5\". The wt-695 harness (scheme v2, build_lexicon('v2','none')) binds them to 'heart' at chars [14,19] and 'part' at [14,18]. Only the card and its stored evidence are wrong.\n\n**Session-import path.**\n- Quiet session S0, then Undo: A's migrated text comes back (row \"1.T5,2.T5 — cut v2\", draftId null) with no card. heart/part are found nowhere in storage after reload. A's evidence is lost, though no stale card is shown.\n- Session S1 that renumbers its own rows, then Undo: A's text comes back under S1's card (gold/road), and that survives reload. This is again a stale card over another draft.\n\n**Browser-native undo.** Ctrl+Z inside the textarea does nothing in all three trees: no text change and 0 input events, both after import B and after app Undo.\n\n**Card numbers are historical import coordinates.** After typing a new sung line above line 1, the page's own parse puts heart on line 2 and part on line 3. The card still says \"heart, line 1\" and \"part, line 2\". It is not remapped.\n\n**Controls.**\n- main: no card and no migration. Rows stay \"1.T4,2.T4\". The main harness (v1) binds them to the same characters: heart [14,19], part [14,18].\n- 61b6618a: migrates with a toast only. There is no card and no ui.renumbered, so there is nothing to overwrite.\n\n**Side finding (not part of the claim).** After a migrating Library import, clicking into the song and leaving it, with no edit, adds an extra app-Undo step: B with libraryOrigin.adapted false, then B with adapted true. The first Undo then lands on B again. This shows on 6955e342 and on 61b6618a. It does not show on main, or on any tree with a non-migrating Library copy.",
+    "steps": [
+     {
+      "sequence": "cand.undo_button (and cand.undo_kbd, cand.payload P1; repeated in cand_undo_button.log)",
+      "step": "1 after .txt import A, card not dismissed (= paired snapshot BEFORE import B)",
+      "raw_text_or_row": "imported row: [SETUP — rhyme groups — 1.T4,2.T4]; draft row after import: [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]; sung: 'Ah--ah, ah my heart is burning' / 'Ah--ah, ah my part is turning'",
+      "cut_marker": "' — cut v2' appended by the import migration (lyImportText)",
+      "payload": "P1 (fresh context, same sequence, sent by clicking #chat-send): lyric_context.declarations = {title:'Song A', groups:'1.T5,2.T5'}; document = '[VERSE]\\nAh--ah, ah my heart is burning\\nAh--ah, ah my part is turning'",
+      "bound_occurrence": "wt-695 harness (scheme v2, build_lexicon('v2','none'), slots.parse_slot + slots.resolve, reader_token_spans(line,True,'v2')): 1.T5 -> token 'heart', raw chars [14,19], label 'heart'; 2.T5 -> 'part', raw chars [14,18], label 'part'",
+      "metadata": "draftId null; app.lyricMeta.ui.renumbered = {items:[{kind:'rhyme groups',word:'heart',n:[1],from:4,to:5},{kind:'rhyme groups',word:'part',n:[2],from:4,to:5}],more:0}; card shown in Review: 'a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5'; localStorage codex-workbench-v1 has the same ui.renumbered; IndexedDB drafts: none; app.history: (empty) > *A; History tab: no saved drafts"
+     },
+     {
+      "sequence": "cand.undo_button",
+      "step": "2 after Library working-copy import B (.json envelope made by the page's own CMLibraryImport.makeWorkingCopyEnvelope, imported through #ly-file) (= paired snapshot AFTER import B)",
+      "raw_text_or_row": "imported row: [SETUP — returns — 1.T4,2.T4]; draft row: [SETUP — returns — 1.T5,2.T5 — cut v2]; sung: 'Oh--oh, oh sweet love' / 'Oh--oh, oh sweet dove'",
+      "cut_marker": "' — cut v2' appended at the import boundary (lyLibraryActivate -> lyEnsureTokenScheme('open'))",
+      "payload": "P2: declarations = {title:'Song B', returns:'1.T5,2.T5'}",
+      "bound_occurrence": "wt-695 harness: 1.T5 -> 'love' chars [17,21]; 2.T5 -> 'dove' chars [17,21]",
+      "metadata": "draftId B = draft:7b39d06d-5269-4b36-92d4-820fe9c935e6; card lists love/dove (kind returns); IndexedDB: A = draft:b9750cd0-f941-4237-9c0f-8096a2d2a4dd, text = A migrated, meta.ui.renumbered = heart/part, savedAt 1791970788046; B = draft:7b39d06d…, ui.renumbered = love/dove, libraryOrigin present; localStorage: B text, draftId B, love/dove; app.history: (empty) > A > A@b9750cd0 > *B@7b39d06d; History tab: 'Song B · Current draft', 'Song A · Open draft'"
+     },
+     {
+      "sequence": "cand.undo_button",
+      "step": "3a APP Undo (header #btn-undo, real mouse click), snapshot at +60 ms",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2] (A's text, exactly as in step 1)",
+      "cut_marker": "cut v2 (unchanged; Undo does not run the migration)",
+      "payload": "none sent at this instant",
+      "bound_occurrence": "n/a",
+      "metadata": "draftId = A (draft:b9750cd0…); app.lyricMeta.ui.renumbered = B's love/dove; card text: 'a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5' over A's text (A has no returns row and no word love or dove); localStorage: A text, draftId A, ui love/dove; IndexedDB A record still heart/part (not yet overwritten); app.history index on A@b9750cd0"
+     },
+     {
+      "sequence": "cand.undo_button (repeat: cand.undo_kbd = Ctrl+Z with activeElement BODY; cand.payload P3)",
+      "step": "3b APP Undo, snapshot at +1.9 s (persist timers elapsed, no user action)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "P3 (fresh context replaying A -> B -> app Undo, then send): declarations = {title:'Song A', groups:'1.T5,2.T5'}; document = A's sung lines",
+      "bound_occurrence": "wt-695 harness: 1.T5 -> 'heart' [14,19]; 2.T5 -> 'part' [14,18]. These are A's own words. The card at send time listed love/dove, so the payload is correct and the card is wrong.",
+      "metadata": "IndexedDB A record (draft:b9750cd0…) OVERWRITTEN: meta.ui.renumbered = love/dove (kind returns), savedAt 1791970790075 (was 1791970788046), text still A's; B record unchanged (love/dove); localStorage ui love/dove; the same result with keyboard Undo (cand.undo_kbd: A draft:c7ba8310… overwritten with love/dove) and in P3 (A draft:7486f291… love/dove)"
+     },
+     {
+      "sequence": "cand.undo_button",
+      "step": "4 after reload",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "none",
+      "bound_occurrence": "n/a",
+      "metadata": "A text, draftId A, card love/dove shown in Review; whole-origin search (all localStorage keys plus every store of IndexedDB 'codex-musica-library-drafts') for '\"word\":\"heart\"' and '\"word\":\"part\"': NO hits; love and dove found in localStorage:codex-workbench-v1 and in BOTH draft records (A and B); app.history reset to *A@b9750cd0"
+     },
+     {
+      "sequence": "cand.undo_button",
+      "step": "5-6 History tab: Open draft B, then Open draft A again",
+      "raw_text_or_row": "A: [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "none",
+      "bound_occurrence": "n/a",
+      "metadata": "Opening B shows love/dove (correct for B). Reopening A from its own stored record shows love/dove on A ('Saved draft restored'). A's original evidence (heart/part) cannot be recovered through the page; the search after step 6 still finds no heart or part."
+     },
+     {
+      "sequence": "cand.native (BROWSER-NATIVE, separate from app history)",
+      "step": "Ctrl+Z with #lyrics-draft focused, after import B and again after app Undo",
+      "raw_text_or_row": "B row unchanged: [SETUP — returns — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "none",
+      "bound_occurrence": "n/a",
+      "metadata": "focusedTextarea true; text changed: false; input events: 0, both times; main and 61b behave the same. Focusing then leaving the song added an app-history step (B adapted:false -> B adapted:true), so the following app Undo stayed on B. That is the side finding below, not a native-undo effect."
+     },
+     {
+      "sequence": "cand.session_quiet",
+      "step": "A (.txt) -> session import of S0 (#ui-file, renumbers nothing) -> APP Undo (#btn-undo) -> reload",
+      "raw_text_or_row": "after Undo: [SETUP — rhyme groups — 1.T5,2.T5 — cut v2] (A migrated); S0 row: [SETUP — rhyme groups — 1,2]",
+      "cut_marker": "cut v2 on A; none on S0",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "before: card heart/part, draftId null, localStorage ui heart/part; after the session import: no card, ui = S0's; after Undo: A text, draftId null, NO card (ui stays S0's: _restoreSnapshot restores only brief/notes/draftId/libraryOrigin); after reload: no card; whole-origin search: heart and part found nowhere. A's evidence is lost, not stale; no IndexedDB record exists for a .txt draft."
+     },
+     {
+      "sequence": "cand.session_mig",
+      "step": "A (.txt) -> session import of S1 (renumbers gold/road) -> APP Undo -> reload",
+      "raw_text_or_row": "after Undo: [SETUP — rhyme groups — 1.T5,2.T5 — cut v2] (A); S1 sung: 'Eh--eh, eh my gold is shining' / 'Eh--eh, eh my road is winding'",
+      "cut_marker": "cut v2",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "after Undo and after reload: A's text under S1's card 'a rhyme link on “gold”, line 1: word 4 → 5; … “road”, line 2' (STALE card over another draft); localStorage ui = gold/road; heart and part found nowhere"
+     },
+     {
+      "sequence": "cand.coords",
+      "step": "A (.txt) -> typed 'A brand new opening line'+Enter above sung line 1 (real keyboard), blur",
+      "raw_text_or_row": "row unchanged: [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]; page sung now: 1 'A brand new opening line', 2 '…heart…', 3 '…part…'",
+      "cut_marker": "cut v2",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "The card still reads 'heart, line 1 … part, line 2', so its numbers are HISTORICAL IMPORT COORDINATES and are not remapped after edits. The setup row was not remapped by typing either."
+     },
+     {
+      "sequence": "main 8b1d2ad2 (control)",
+      "step": "undo_button / session_quiet / session_mig / native / payload",
+      "raw_text_or_row": "A row stays [SETUP — rhyme groups — 1.T4,2.T4] (no migration, no cut mark); B row [SETUP — returns — 1.T4,2.T4]",
+      "cut_marker": "none",
+      "payload": "P1/P3: groups '1.T4,2.T4'; P2: returns '1.T4,2.T4'",
+      "bound_occurrence": "main harness (v1, no reader scheme; shadow dir with copied cmudict): 1.T4 -> 'heart' [14,19], 2.T4 -> 'part' [14,18], i.e. the same characters the candidate binds with T5; B: love [17,21], dove [17,21]",
+      "metadata": "No card at any step, no ui.renumbered anywhere. After Undo, A's IndexedDB record is also re-saved (savedAt 1791970887320 -> 1791970889330) with the current page's ui (layout only). The re-save mechanism already exists on main; on main it carries nothing that can be lost."
+     },
+     {
+      "sequence": "61b6618a (control, previous candidate)",
+      "step": "undo_button / session_quiet / session_mig / native",
+      "raw_text_or_row": "A row migrated to [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "Migration with a toast only ('love word 4 → 5…'); no card and no ui.renumbered at any step, so there is nothing to overwrite; Undo returns A as on main"
+     },
+     {
+      "sequence": "extra_step side check (cand, prev, main)",
+      "step": "A (.txt) -> Library import (migrating B or quiet BQ) -> click into the song and blur (no edit) -> APP Undo twice",
+      "raw_text_or_row": "B: [SETUP — returns — 1.T5,2.T5 — cut v2]; BQ: [SETUP — returns — 1,2]",
+      "cut_marker": "cut v2 on B only",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "cand and 61b with migrating B: history gains B(adapted:false) > *B(adapted:true), and the first Undo lands on B again (afterUndo1 = Song B). Quiet BQ on all trees, and main with B: no extra step, and the first Undo reaches A."
+     }
+    ],
+    "new_vs_preexisting": "The defect is new at 643e292e / 6955e342 because the Review card (app.lyricMeta.ui.renumbered) exists only there. main has neither the card nor the migration. 61b6618a migrates but has no card and no ui.renumbered, so neither control can show a stale card or lose card evidence.\n\nThe two mechanisms it rides on already exist on main:\n- _restoreSnapshot (src/app.js) restores only brief, notes, draftId and libraryOrigin, and keeps the current lyricMeta.ui.\n- lyLibraryPersist re-saves lyLibraryCapture(), which holds the current meta including ui, under whichever draftId Undo restored. On main, A's record is re-saved after Undo too (savedAt changes), but only with layout state.\n\nStoring durable per-draft evidence in a field that history does not restore and that persist writes under the restored draftId is what turns this into an overwrite.\n\nThe extra Undo step after a migrating Library import (adapted false -> true) was already present at 61b6618a, so it is not new at 643e292e. It is related to the earlier tester's 'Adapted on import' FAIL (h695/f4-card e_cand.log).",
+    "files": [
+     "<scratch>/h695/library-undo-card/COMMANDS.txt",
+     "<scratch>/h695/library-undo-card/probe.js",
+     "<scratch>/h695/library-undo-card/bind.py",
+     "<scratch>/h695/library-undo-card/cand_all.log",
+     "<scratch>/h695/library-undo-card/cand_undo_button+undo_kbd+native+session_quiet+session_mig+coords.json",
+     "<scratch>/h695/library-undo-card/cand_undo_button.log",
+     "<scratch>/h695/library-undo-card/cand_payload.json",
+     "<scratch>/h695/library-undo-card/bind_cand.json",
+     "<scratch>/h695/library-undo-card/bind_main.json",
+     "<scratch>/h695/library-undo-card/main_all.log",
+     "<scratch>/h695/library-undo-card/prev_all.log",
+     "<scratch>/h695/library-undo-card/main_payload.json",
+     "<scratch>/h695/library-undo-card/cand_extra_step.log",
+     "<scratch>/h695/library-undo-card/prev_extra_step.log",
+     "<scratch>/h695/library-undo-card/main_extra_step.log",
+     "<scratch>/wt-695/src/app.js",
+     "<scratch>/wt-695/src/pages/lyrics.js"
+    ],
+    "caveats": [
+     "Library working copy B was built by the page's own CMLibraryImport.makeWorkingCopyEnvelope with synthetic provenance (snap:1/unit:1/…, digest of zeros in the source meta), then imported through #ly-file. It is not a file exported from a real Library reading.",
+     "Each payload was captured in a fresh browser context that replayed the same sequence (A, then B, then app Undo) and sent once by clicking #chat-send. The state snapshots come from separate contexts that did not send. The /chat endpoint is a local stub. Enter in the dock textarea does not submit, so the first payload run reached nothing and was rerun.",
+     "A's IndexedDB record exists only because import B captured it. A .txt draft has no draftId and no stored record until then, so in the session-import paths the only copy of A's evidence was localStorage, which the session import replaced.",
+     "The overwrite of A's record happened between +60 ms and +1.9 s after Undo, with no user input. The exact trigger (lyRefresh -> lyLibraryPersist load, then a save timer) is inferred from the code and was not instrumented.",
+     "Main's binding ran in a scratch shadow of wt-main/lyric-harness (symlinks plus a real copy of wt-61b's cmudict.dict) because wt-main has no staged cmudict. Main has no reader scheme, so its raw spans come from v1 _TOKEN_RUN on the raw line.",
+     "Only typed insertion was tested for the card's coordinates. A structural edit made with the page's own tools might remap the setup rows, but nothing in lyRenumberedCheck remaps the card's stored line numbers.",
+     "Chromium headless only, desktop viewport 1440x900. No mobile layout was tested for this scenario.",
+     "Nothing was left unreproduced, so nothing here is marked provisional. The extra-Undo-step side finding comes from one run per tree (cand, 61b, main), each paired with a non-migrating control."
+    ]
+   }
+  },
+  {
+   "agent": "order-marker",
+   "result": {
+    "task": "order-marker: at candidate 6955e342, does an unmarked hand-typed or pasted rhyme groups / returns row bind a different word depending on whether a Rhymes or Repeats form commit (lySetSetup) or a send boundary comes first? Each pair starts from the same text. Controls are 61b6618a and main 8b1d2ad2.",
+    "verdict": "confirmed",
+    "statement": "The claim holds at 6955e342, and the two controls do not show it. The Lyrics page was driven in Chromium with real Ctrl+V paste or real typing, real form clicks, and the Run review button or the chat dock's Send button. Each final /chat payload was then resolved by the receiving tree's own harness (schemes.mandate as the CLI builds it from --groups=/--returns=, plus slots.resolve).\n\nAt the candidate, all 20 of 20 O1/O2 pairs bind a different word occurrence. The unmarked row '1.T4,8; 2,3' starts on the line 'Oh--oh, oh my love'.\n- ORDER 1 (paste, then a form commit on another group, then send): the form rewrites the row as '1.T4,8 — cut v2' with T4 unchanged. The payload sends groups '1.T4,8', and the harness binds 'my' at raw span [11,13].\n- ORDER 2 (paste, then send, then the same form commit, then send): the send migrates the row to '1.T5,8; 2,3 — cut v2'. The final payload sends '1.T5,8', and the harness binds 'love' at [14,18].\n\nThe same split appears in every other variant:\n- T2 rows: 'oh' at [4,6] versus 'oh' at [8,10].\n- Returns rows, through the placed-return form and Declare exact repeat.\n- Both send paths (Run review and the dock Send button), and both input methods (paste and typing).\n\nWith a line 8 of 'And love above', the harness's placed-return verdict itself flips. ORDER 1 gives NOT_RETURNED_AT ('my' at 1.T4 against 'love' at 8.T2); ORDER 2 is clean.\n\nThere is no notice on the form path. The only toast is 'Rhyme link removed. Undo restores it.' (or 'Placed return declared.'), and the Review tab never mentions the word cut or a renumbering. ORDER 2 gets the renumbering toast and a Review card.\n\nControls:\n- 61b6618a migrates during the typing refresh, right after the paste. The form never sees an unmarked row, so both orders bind 'love' at [14,18], and 'oh' at [8,10] for T2.\n- main 8b1d2ad2 has no cut mark, and the page and harness use one cut. Both orders bind T4 = 'love' at [14,18], and T2 = 'oh' at [8,10].\n\nORDER 2 therefore keeps main's and 61b's meaning, and ORDER 1 changes it with no notice.\n\nCause, from reading the code: the four group-row writers (Remove link, Link endings, placed-return Apply, Declare exact repeat) read the unmarked row with lyRowGroups, which flags nothing on an unmarked row. They then write it back through lySetSetup or lySetupCommit, whose mark() appends '— cut v2' (src/pages/lyrics.js:2465-2491, 2476). lyMigrateSavedReadings is never called on that row, which contradicts the file's own policy that an unmarked row is read under the earlier cut.\n\nCommits that do not rewrite the group row leave it unmarked, and the next send then migrates it to 'love' (X4/X5/X9). Those are Word rules, a relation-only change, and a Form & story section move.",
+    "steps": [
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 1 (also .type, .dock: identical)",
+      "step": "0 start: body typed in whole (no [SETUP] row)",
+      "raw_text_or_row": "(no [SETUP] row); line 1 = 'Oh--oh, oh my love'",
+      "cut_marker": "-",
+      "payload": "-",
+      "bound_occurrence": "-",
+      "metadata": "orders_cand.json / orders_cand.log; app history idx 1 of 2"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 1",
+      "step": "1 row pasted by hand (real Ctrl+V at offset 0)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+      "cut_marker": "UNMARKED",
+      "payload": "-",
+      "bound_occurrence": "page display only: Rhymes list shows 'Line 1 · my ~ Line 8 · above' (page reads the unmarked row under the CURRENT cut)",
+      "metadata": "no toast; no migration on paste (boundary-only)"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 1",
+      "step": "2 Rhymes form: select group B (2,3) + Remove link (lySetupCommit -> lySetSetup)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8 — cut v2]",
+      "cut_marker": "cut v2 (added; T4 NOT renumbered)",
+      "payload": "-",
+      "bound_occurrence": "page display: 'Line 1 · my'",
+      "metadata": "toast only 'Rhyme link removed. Undo restores it.'; Review tab has no cut/renumber text (X8_reviewCard_O1 reviewMentionsCut=false)"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 1",
+      "step": "3 send: Run review button (.ly-run)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8 — cut v2] (unchanged: marked rows are not migrated)",
+      "cut_marker": "cut v2",
+      "payload": "lyric_context.declarations = {\"groups\":\"1.T4,8\"}",
+      "bound_occurrence": "harness wt-695 (READER_SCHEME v2): mandate groups ((1,8),) loci (Slot(1,T4),None); 1.T4 -> 'my' raw span [11,13] (widx 3); 8 -> 'above'",
+      "metadata": "bind_cand.json; no renumber toast, no Review card"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 2",
+      "step": "1 same paste",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+      "cut_marker": "UNMARKED",
+      "payload": "-",
+      "bound_occurrence": "page display 'Line 1 · my'",
+      "metadata": "identical start state to ORDER 1"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 2",
+      "step": "2 send first: Run review (boundary migration)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]",
+      "cut_marker": "cut v2 (migrated: T4 -> T5)",
+      "payload": "{\"groups\":\"1.T5,8; 2,3\"}",
+      "bound_occurrence": "harness wt-695: 1.T5 -> 'love' raw [14,18]",
+      "metadata": "toast '1 saved word number without the current cut mark was renumbered ... “love” word 4 → 5.'; Review card 'saved word number renumbered to the current word cut'"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 2",
+      "step": "3 same Rhymes form commit: Remove link on group B",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,8 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "-",
+      "bound_occurrence": "page display 'Line 1 · love'",
+      "metadata": "toast 'Rhyme link removed. Undo restores it.'"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 2",
+      "step": "4 send: Run review (final payload)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,8 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "{\"groups\":\"1.T5,8\"}",
+      "bound_occurrence": "harness wt-695: 1.T5 -> 'love' raw [14,18]  => ORDER 1 final 'my'[11,13] != ORDER 2 final 'love'[14,18]",
+      "metadata": "summary.txt row 'cand RG4.remove.review.paste ... False'"
+     },
+     {
+      "sequence": "cand RG4.add.dock.paste O1 vs O2",
+      "step": "Add link 5.end,7.end + Link endings; send = Write with AI > Edit this draft, typed 'Tighten line 2', #chat-send click",
+      "raw_text_or_row": "O1: [SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]; O2: [SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]",
+      "cut_marker": "cut v2 both (O1 added by form without renumbering)",
+      "payload": "O1 {\"groups\":\"1.T4,8;2,3;5,7\"}; O2 first {\"groups\":\"1.T5,8; 2,3\"}, final {\"groups\":\"1.T5,8;2,3;5,7\"}",
+      "bound_occurrence": "O1 1.T4 -> 'my' [11,13]; O2 1.T5 -> 'love' [14,18]",
+      "metadata": "toast O1 'Rhyme link saved.' only"
+     },
+     {
+      "sequence": "cand RG2.remove.review.paste O1 vs O2 (and add/dock variants)",
+      "step": "row '[SETUP — rhyme groups — 1.T2,8; 2,3]' -> form/send in each order",
+      "raw_text_or_row": "O1 final: [SETUP — rhyme groups — 1.T2,8 — cut v2]; O2 final: [SETUP — rhyme groups — 1.T3,8 — cut v2]",
+      "cut_marker": "cut v2 both",
+      "payload": "O1 {\"groups\":\"1.T2,8\"}; O2 {\"groups\":\"1.T3,8\"}",
+      "bound_occurrence": "O1 1.T2 -> 'oh' raw [4,6] (second half of 'Oh--oh'); O2 1.T3 -> 'oh' raw [8,10]. Same word text, different occurrence",
+      "metadata": "main binds 1.T2 -> 'oh' [8,10]; 61b 1.T3 -> 'oh' [8,10]"
+     },
+     {
+      "sequence": "cand RT4.placed.review.paste O1 vs O2 (returns; also .type/.dock)",
+      "step": "row '[SETUP — returns — 1.T4,8.T1]' ; Repeats form placed return 2.head,6.head (caret on line 2 / 6, Add, Apply = lySetSetup('returns'))",
+      "raw_text_or_row": "O1: [SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]; O2: [SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]",
+      "cut_marker": "cut v2 both",
+      "payload": "O1 {\"returns\":\"1.T4,8.T1;2.head,6.head\"}; O2 final {\"returns\":\"1.T5,8.T1;2.head,6.head\"}",
+      "bound_occurrence": "Return(lines=(1,8), loci=('T4'|'T5','T1'), placed); O1 1.T4 -> 'my' [11,13]; O2 1.T5 -> 'love' [14,18]",
+      "metadata": "toast O1 'Placed return declared.' only. NOT_RETURNED_AT appears on every tree here (case-sensitive 'love' vs 'Love'); not order-related"
+     },
+     {
+      "sequence": "cand RT4.declare.review.paste O1 vs O2",
+      "step": "Repeats form 'Declare exact repeat' (BRIDGE 9-10 = 11-12; lySetupCommit('returns'))",
+      "raw_text_or_row": "O1: [SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]; O2: [SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]",
+      "cut_marker": "cut v2 both",
+      "payload": "O1 {\"returns\":\"1.T4,8.T1;9,11;10,12\"}; O2 {\"returns\":\"1.T5,8.T1;9,11;10,12\"}",
+      "bound_occurrence": "O1 'my' [11,13]; O2 'love' [14,18]",
+      "metadata": "same pattern"
+     },
+     {
+      "sequence": "cand X7_verdict O1 vs O2 (line 8 = 'And love above')",
+      "step": "row '[SETUP — returns — 1.T4,8.T2]' ; placed-return form 2.head,6.head ; Run review",
+      "raw_text_or_row": "O1: [SETUP — returns — 1.T4,8.T2;2.head,6.head — cut v2]; O2: [SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]",
+      "cut_marker": "cut v2 both",
+      "payload": "O1 {\"returns\":\"1.T4,8.T2;2.head,6.head\"}; O2 {\"returns\":\"1.T5,8.T2;2.head,6.head\"}",
+      "bound_occurrence": "O1 1.T4 'my'[11,13] vs 8.T2 'love' -> Mandate.placed_returns_check = NOT_RETURNED_AT; O2 1.T5 'love'[14,18] vs 'love' -> clean",
+      "metadata": "bind_extras_cand.json. 61b and main: clean in both orders"
+     },
+     {
+      "sequence": "CONTROL c61b (61b6618a) all 20 pairs",
+      "step": "same protocol",
+      "raw_text_or_row": "right after paste: [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2] (migrated in the typing refresh); returns: [SETUP — returns — 1.T5,8.T1 — cut v2]",
+      "cut_marker": "cut v2 from the paste on",
+      "payload": "O1 and O2 final both {\"groups\":\"1.T5,8\"} / {\"returns\":\"1.T5,8.T1;...\"}",
+      "bound_occurrence": "both orders 'love' [14,18]; T2 rows: both 'oh' [8,10]",
+      "metadata": "renumber toast on paste. summary.txt c61b rows: same=True (20/20)"
+     },
+     {
+      "sequence": "CONTROL main (8b1d2ad2) all 20 pairs",
+      "step": "same protocol",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8] etc. (never marked)",
+      "cut_marker": "UNMARKED (no cut concept)",
+      "payload": "O1 and O2 final both {\"groups\":\"1.T4,8\"} / {\"returns\":\"1.T4,8.T1;...\"}",
+      "bound_occurrence": "main harness (single cut, 'Oh--oh' one token): 1.T4 -> 'love' [14,18]; 1.T2 -> 'oh' [8,10]; both orders",
+      "metadata": "summary.txt main rows: same=True (20/20); page shows 'Line 1 · love'"
+     },
+     {
+      "sequence": "cand X1/X2 APP history (page Undo/Redo stack, #btn-undo/#btn-redo)",
+      "step": "paste -> Remove link -> APP Undo [-> APP Redo] -> Run review",
+      "raw_text_or_row": "after APP Undo: [SETUP — rhyme groups — 1.T4,8; 2,3] (unmarked restored); after APP Redo: [SETUP — rhyme groups — 1.T4,8 — cut v2]",
+      "cut_marker": "Undo: UNMARKED; Redo: cut v2",
+      "payload": "Undo path {\"groups\":\"1.T5,8; 2,3\"}; Redo path {\"groups\":\"1.T4,8\"}",
+      "bound_occurrence": "Undo path 'love' [14,18]; Redo path 'my' [11,13]",
+      "metadata": "APP Undo restores the pre-form unmarked step, and the send then migrates it. Redo brings back the step the form marked."
+     },
+     {
+      "sequence": "cand X3 BROWSER-NATIVE undo (Ctrl+Z inside the textarea; the app ignores Ctrl+Z in a textarea)",
+      "step": "paste -> Remove link -> focus textarea -> Ctrl+Z x2 -> Run review",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8 — cut v2] (unchanged by both Ctrl+Z)",
+      "cut_marker": "cut v2",
+      "payload": "{\"groups\":\"1.T4,8\"}",
+      "bound_occurrence": "'my' [11,13]",
+      "metadata": "native undo has no entry after the form's programmatic value set; same no-op on 61b and main"
+     },
+     {
+      "sequence": "cand X4/X5/X9 non-group commits",
+      "step": "paste -> Word rules apply (require) | Rhymes relation-only apply | Form & story VERSE Move down -> Run review",
+      "raw_text_or_row": "after commit: [SETUP — rhyme groups — 1.T4,8; 2,3] (X9: 5.T4,4;6,7) stays UNMARKED; after send: 1.T5,8; 2,3 — cut v2 (X9: 5.T5,4;6,7 — cut v2)",
+      "cut_marker": "UNMARKED until the send",
+      "payload": "{\"groups\":\"1.T5,8; 2,3\",...} (X9 {\"groups\":\"5.T5,4;6,7\"})",
+      "bound_occurrence": "'love' [14,18] (X9 on sung line 5 = 'Oh--oh, oh my love')",
+      "metadata": "Only the group-row writers mark the row without migrating it"
+     },
+     {
+      "sequence": "cand X6 typed into a page-written MARKED row",
+      "step": "start '[SETUP — rhyme groups — 2,3 — cut v2]', type '1.T4,8; ' into it -> O1/O2 with Remove link",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2] -> [SETUP — rhyme groups — 1.T4,8 — cut v2]",
+      "cut_marker": "cut v2 throughout",
+      "payload": "O1 {\"groups\":\"1.T4,8\"}; O2 {\"groups\":\"1.T4,8; 2,3\"} then {\"groups\":\"1.T4,8\"}",
+      "bound_occurrence": "both orders 'my' [11,13]",
+      "metadata": "order-independent: the asymmetry is specific to UNMARKED rows"
+     }
+    ],
+    "new_vs_preexisting": "This is new at 6955e342. It comes from moving migration to boundaries (code 643e292e). The code that marks the row, mark() in lySetSetup, already existed at 61b6618a (src/pages/lyrics.js:2259-2261 there). It was harmless there because lyEnsureTokenScheme ran inside lyRefresh, within about 120 ms of a keystroke or paste, so no form could ever read an unmarked row; both orders bind 'love' at 61b. main has no cut mark and uses a single cut, so it is order-independent ('love' at [14,18]). What is new at 6955e342 is the gap between a hand edit and the next boundary, during which an unmarked row can reach a group-row form writer and be marked '— cut v2' without being rebound.\n\nA second observation, also new and closely related, from the run data and code reading: before any boundary, the candidate's own Rhymes and Repeats lists show the unmarked row's T<n> under the current cut ('Line 1 · my'). In ORDER 2 the send then rebinds it to 'love', with a toast and a Review card. In ORDER 1 the payload binds what the form showed. Which order is 'right' depends on policy. Under the file's own stated policy (an unmarked row is read under the earlier cut), ORDER 1 is the deviation, and it is the one with no notice.",
+    "files": [
+     "<scratch>/h695/order-marker/COMMANDS.txt",
+     "<scratch>/h695/order-marker/summary.txt",
+     "<scratch>/h695/order-marker/summary.json",
+     "<scratch>/h695/order-marker/orders.js",
+     "<scratch>/h695/order-marker/extras.js",
+     "<scratch>/h695/order-marker/lib.js",
+     "<scratch>/h695/order-marker/bind.py",
+     "<scratch>/h695/order-marker/orders_cand.json",
+     "<scratch>/h695/order-marker/orders_cand.log",
+     "<scratch>/h695/order-marker/orders_c61b.json",
+     "<scratch>/h695/order-marker/orders_main.json",
+     "<scratch>/h695/order-marker/bind_cand.json",
+     "<scratch>/h695/order-marker/bind_cand.log",
+     "<scratch>/h695/order-marker/bind_c61b.log",
+     "<scratch>/h695/order-marker/bind_main.log",
+     "<scratch>/h695/order-marker/extras_cand.log",
+     "<scratch>/h695/order-marker/bind_extras_cand.log",
+     "<scratch>/h695/order-marker/extras_c61b.log",
+     "<scratch>/h695/order-marker/extras_main.log",
+     "<scratch>/wt-695/src/pages/lyrics.js"
+    ],
+    "caveats": [
+     "Harness binding was computed offline by the receiving tree's own harness code: the CLI's _groups split, quality.schemes.mandate, quality.slots.resolve and Mandate.placed_returns_check, with build_lexicon('v2','none'). It was not run through the live /chat -> model -> lyric tool path. That path hands the declarations to the model as exact values, so the binding shown assumes the model forwards them verbatim as --groups=/--returns=.",
+     "At main, cmudict.dict is not staged in wt-main (it is gitignored). bind.py used /home/user/CodexMusica/lyric-harness/cmudict.dict only after asserting its bytes and sha256 equal main's own release-manifest entry (81917843c7f4...). Nothing was written into any tree, and git status of all three trees shows no tracked change.",
+     "The NOT_RETURNED_AT on the RT4 rows appears on every tree in both orders. It comes from a case-sensitive label comparison ('love' at 1.T5 vs 'Love' at 8.T1), is pre-existing, and is unrelated to the claim. X7 (line 8 = 'And love above') is the case that shows the verdict flipping with order at the candidate only.",
+     "The toast log is a MutationObserver that only drops consecutive duplicates, so an earlier toast still on screen can reappear in a later step's list. The no-notice finding for ORDER 1 rests on the absence of any renumber or cut text, both in the toasts and in the Review tab (X8: reviewMentionsCut=false at every ORDER 1 step, true from the first ORDER 2 send onward).",
+     "The /chat reply was a local stub ({reply:'Noted.', sig:'x'}). Run review calls _chatReset before each send, and the dock path opens a fresh conversation through LY_ACTIONS['edit-lyrics'], so every send in both orders carried a fresh lyric_context: continuation=false on all captured calls. The dock 'Edit this draft' entry was invoked through LY_ACTIONS, not by clicking the menu; the message was typed and #chat-send was clicked for real.",
+     "The placed-return form chose its lines by moving the textarea caret (setSelectionRange plus a keyup event), as a writer would; the Add and Apply buttons were real clicks. The paste was a real clipboard Ctrl+V, and 'type' was keyboard.type character by character.",
+     "X6 (typing into a MARKED row) is not meaningful at main, which has no cut mark. Main's first send carried the foreign text '3 — cut v2' and its harness refused the mandate. It is reported only as N/A.",
+     "Not tested in the browser, code reading only: lyCarriedDecide (writes through lyGroupRow) and the voices toggle (lySetSetup('voices'), which does not touch the returns row). lyCarriedDecide is reachable only for '(carried …)' members, which normally exist only on rows a migration has already marked."
+    ]
+   }
+  },
+  {
+   "agent": "check:library-undo-card",
+   "result": {
+    "task": "check-library-undo-card: an independent re-run, written from scratch, of the library-undo-card probe at 6955e342 (code 643e292e). Sequence: .txt import of A (renumbers, card left up), then a Library working-copy import of B (renumbers), then APP Undo. Claim: the card then lists B's entries over A's text and draftId, and the persist overwrites A's stored draft record, so A's evidence is lost even after reload. Also: session import followed by Undo. Controls: main 8b1d2ad2 and previous candidate 61b6618a.",
+    "verdict": "confirmed",
+    "statement": "**Same steps, same verdict: confirmed on 6955e342.** I re-ran it with my own scripts. Every snapshot was passive (DOM, app/LY state, localStorage, sessionStorage and raw IndexedDB, with no page function called).\n\nThe claim reproduced in every run:\n- Header Undo (#btn-undo, mouse click): twice.\n- Ctrl+Z with focus on BODY: once, plus Redo and a second Undo.\n- A second fixture pair (fire/wire under rain/pain): once each by mouse and by keyboard.\n- The payload run: once.\n\n**Library-import path.** After APP Undo the draft is A's migrated text with A's draftId, but the Review card still lists B's entries in B's own wording (\"a declared return on “love”, line 1: word 4 → 5; … “dove”, line 2\"). A has only a rhyme-groups row and neither word.\n- At +60 ms, A's IndexedDB record still holds heart/part.\n- By +700 ms the page has re-saved A's record on its own, with B's love/dove (run 1: savedAt 1791971825370 → 1791971828212; run 2: 1791972222896 → 1791972225880).\n- After reload, heart and part appear nowhere: every localStorage key, every sessionStorage key (my addition), and every IndexedDB store.\n- Reopening B and then A from the History tab shows love/dove on A, now read from A's own stored record.\n\n**What is sent is right.** The payload after Undo carries A's own groups \"1.T5,2.T5\". The wt-695 harness (scheme v2) binds them to heart [14,19] and part [14,18]. Only the card and its stored evidence are wrong.\n\n**Session imports.**\n- Quiet session S0, then Undo: A's text comes back with no card, and heart/part are gone from all storage.\n- Session S1 that renumbers its own rows, then Undo: A's text comes back under S1's gold/road card, and this survives reload.\n\n**Corrections to the original write-up** (none changes the verdict):\n- **(a) \"No user action\" was not shown by the original protocol.** Its snapshot called lyRefresh(true) and LY_ACTIONS['ly-tab'] at +60 ms, so the probe could have caused the save itself. My passive peeks show the page does it unaided: undo → renderAll → uiSync → the lyrics page's render → lyRefresh → lyLibraryPersist. That function reads A's record, then saves a capture of the live meta after a 300 ms timer. The save lands about 420 ms after the click, not \"by +1.9 s\".\n- **(b) The \"whole-origin\" search skipped sessionStorage.** codex-workbench-recovery also holds love/dove. heart/part are absent there too, so the conclusion stands.\n- **(c) \"Worded as A's\" is inaccurate.** The card is B's entries in B's own wording, unchanged, shown over A.\n- **(d) The original's native-undo-\"after app Undo\" check ran on B's text, not A's.** An extra focus/blur step had kept its Undo on B. I tested Ctrl+Z inside the textarea after APP Undo had really returned to A: no change and 0 input events, in all three trees.\n- **(e) Side finding, root cause found.** The migration makes the Library copy's text differ from its originalText, so lyLibraryPersist sets the live libraryOrigin.adapted to true right after import, with no edit. The source line reads \"· Adapted\". The import's history step still holds adapted false, so the next focus/blur records the extra step. This happens on 6955e342 and 61b6618a, not on main, and not with a quiet (non-migrating) copy.\n\n**Card coordinates.** The card's line numbers are import coordinates. After a sung line is typed above line 1 the card still says line 1 / line 2, while heart and part are now on lines 2 and 3. They are not remapped.\n\n**Controls.**\n- main: no migration and no card. A's record is also re-saved after Undo, but with layout-only ui. The main harness (v1) binds T4 to the same characters.\n- 61b6618a: migrates with a toast only. There is no card and no ui.renumbered, so there is nothing to overwrite.",
+    "steps": [
+     {
+      "sequence": "cand.undo_mouse run1 (run_cand_AB_undo_mouse.json; repeated in run2, cand.undo_key, cand.payload)",
+      "step": "1 after .txt import A through #ly-file, Review tab open, card not dismissed (= paired snapshot BEFORE import B)",
+      "raw_text_or_row": "imported row [SETUP — rhyme groups — 1.T4,2.T4]; draft row [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]; sung 'Ah--ah, ah my heart is burning' / 'Ah--ah, ah my part is turning'",
+      "cut_marker": "' — cut v2' appended by lyImportText's migration",
+      "payload": "P1 (fresh context, sent by menu Write with AI > Edit this draft, typed text, click #chat-send): declarations {title:'Song A', groups:'1.T5,2.T5'}; document '[VERSE]\\nAh--ah, ah my heart is burning\\nAh--ah, ah my part is turning'",
+      "bound_occurrence": "wt-695 harness (bindcheck.py: slots.parse_slot + slots.resolve over coverage_census.build_lexicon('v2','none'); reader_token_spans(line,True) under scheme v2): 1.T5 -> 'heart' raw chars [14,19], label 'heart'; 2.T5 -> 'part' raw chars [14,18], label 'part'",
+      "metadata": "draftId null; ui.renumbered = heart@L1 (4->5), part@L2 (4->5); rendered Review card: 'a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5'; localStorage and sessionStorage hold the same; IndexedDB has no drafts; app history (empty) > *A"
+     },
+     {
+      "sequence": "cand.undo_mouse run1",
+      "step": "2 after Library working-copy import B (envelope built in Node by wt-695 src/library-import.js makeWorkingCopyEnvelope, imported through #ly-file); Review tab clicked again because import resets it to Tools (= paired snapshot AFTER import B)",
+      "raw_text_or_row": "imported row [SETUP — returns — 1.T4,2.T4]; draft row [SETUP — returns — 1.T5,2.T5 — cut v2]; sung 'Oh--oh, oh sweet love' / 'Oh--oh, oh sweet dove'",
+      "cut_marker": "' — cut v2' appended at the import boundary (lyLibraryActivate -> lyEnsureTokenScheme('open'))",
+      "payload": "P2: declarations {title:'Song B', returns:'1.T5,2.T5'}",
+      "bound_occurrence": "wt-695 harness: 1.T5 -> 'love' [17,21]; 2.T5 -> 'dove' [17,21]; schemes.parse_returns line classes [[1,2]]",
+      "metadata": "B = draft:43b423eb-8c59-4f4c-99ba-4fed3b362c83, card love/dove (kind returns); IndexedDB: A = draft:e0ea86c4-ef04-4815-a12b-90f4c489ddc4, head 'Song A', ui.renumbered heart/part, savedAt 1791971825370; B love/dove; live libraryOrigin.adapted already true (see side finding); history (empty) > A > A@e0ea86c4 > *B@43b423eb[adapted=false]"
+     },
+     {
+      "sequence": "cand.undo_mouse run1",
+      "step": "3a APP Undo (#btn-undo, real mouse click; the visible header Undo, #ui-undo is hidden), passive peek at +60 ms",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2] (A's text as in step 1)",
+      "cut_marker": "cut v2 (Undo restores the step; no migration runs)",
+      "payload": "none sent",
+      "bound_occurrence": "n/a",
+      "metadata": "draftId = A (draft:e0ea86c4…); ui.renumbered = B's love/dove; rendered Review card: 'a declared return on “love”, line 1: word 4 → 5; a declared return on “dove”, line 2: word 4 → 5' (B's own wording) over A, which has no returns row and neither word; localStorage/sessionStorage: A text, A id, love/dove; IndexedDB A record still heart/part, savedAt 1791971825370"
+     },
+     {
+      "sequence": "cand.undo_mouse run1 (run2 same: A draft:2431110a savedAt 1791972222896 -> 1791972225880)",
+      "step": "3b/3c APP Undo, passive peeks at +700 ms and +3 s, with no user action and no page function called by the probe",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "none sent",
+      "bound_occurrence": "n/a",
+      "metadata": "IndexedDB A record OVERWRITTEN by the page itself: head 'Song A', ui.renumbered = love/dove (returns), savedAt 1791971828212 (~420 ms after the click; peek at +60 ms was 1791971827850); B record unchanged. Code path: undo -> renderAll -> uiSync -> lyrics render() -> lyRefresh(true) -> lyLibraryPersist -> getDraft(A) -> lyRefresh -> 300 ms timer -> saveDraft(lyLibraryCapture()) with live meta.ui"
+     },
+     {
+      "sequence": "cand.undo_mouse run1",
+      "step": "4 after reload + whole-origin search (every localStorage key, every sessionStorage key, every store of every IndexedDB database)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "none",
+      "bound_occurrence": "n/a",
+      "metadata": "A text, A draftId, Review card love/dove; search for '\"word\":\"heart\"' / '\"word\":\"part\"': NO hits anywhere; love and dove found in localStorage:codex-workbench-v1, sessionStorage:codex-workbench-recovery, and both draft records (A and B)"
+     },
+     {
+      "sequence": "cand.undo_mouse run1",
+      "step": "5-6 History tab (real clicks): Open draft B, then Open draft A",
+      "raw_text_or_row": "A: [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "none",
+      "bound_occurrence": "n/a",
+      "metadata": "B shows love/dove (correct for B); B's history step now reads adapted=true. Reopened A shows love/dove read from A's own stored record ('Saved draft restored'). Search after step 6: heart/part still nowhere. A's evidence is unrecoverable through the page"
+     },
+     {
+      "sequence": "cand.undo_key AB and XY (keyboard APP history)",
+      "step": "Ctrl+Z (activeElement BODY) +3 s; Ctrl+Shift+Z +3 s; Ctrl+Z again +3 s; reload",
+      "raw_text_or_row": "Undo: A row [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]; Redo: B row [SETUP — returns — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "none",
+      "bound_occurrence": "n/a",
+      "metadata": "AB: after Undo, A (draft:7ca645f7…) record already love/dove at +3 s; Redo to B keeps love/dove (right for B by coincidence); after the second Undo and reload, heart/part found nowhere. XY fixture (A='Ay--ay, ay my fire is rising'/'… wire …', B returns 'Oo--oo, oo the rain'/'… pain'): same result by mouse and by keyboard; X record re-saved with rain/pain; fire/wire found nowhere after reload"
+     },
+     {
+      "sequence": "cand.payload P3 (fresh context: A -> B -> APP Undo by mouse, +3 s, then send)",
+      "step": "send after APP Undo while the card lists B's entries",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "P3: declarations {title:'Song A', groups:'1.T5,2.T5'}; document '[VERSE]\\nAh--ah, ah my heart is burning\\nAh--ah, ah my part is turning'; reached /chat stub 1 time",
+      "bound_occurrence": "wt-695 harness (scheme v2): 1.T5 -> 'heart' [14,19] label 'heart'; 2.T5 -> 'part' [14,18] label 'part'. These are A's own words; the card at send time listed returns:love@L1, returns:dove@L2. The payload is correct and the card is wrong",
+      "metadata": "draftId at send draft:8bd40454…; IndexedDB A record love/dove before the send"
+     },
+     {
+      "sequence": "cand.native and cand.native_after_undo (BROWSER-NATIVE, separate from APP history); same on prev and main",
+      "step": "Ctrl+Z with #lyrics-draft focused by a mouse click: after .txt A, after import B, and after an APP Undo that really returned to A",
+      "raw_text_or_row": "text unchanged in every case (A row, B row, A row)",
+      "cut_marker": "cut v2 (cand/prev); none (main)",
+      "payload": "none",
+      "bound_occurrence": "n/a",
+      "metadata": "changed:false, inputEvents:0, app history unchanged at keypress, in all three trees. Blur after the native undo on B added an APP history step B[adapted=false] > *B[adapted=true] on cand and prev only (side finding). Correction: the original's native-after-app-Undo check ran on B, because the extra step had kept its Undo on B"
+     },
+     {
+      "sequence": "cand.session_quiet",
+      "step": "A (.txt) -> session import S0 via #ui-file (renumbers nothing) -> APP Undo (#btn-undo) +3 s -> reload",
+      "raw_text_or_row": "after Undo: [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]; S0 row [SETUP — rhyme groups — 1,2]",
+      "cut_marker": "cut v2 on A; none on S0",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "after the session import: no card (S0 ui); after Undo: A text, draftId null, NO card; after reload: no card; search for heart/part/gold/road: no hits. A's evidence is lost, not shown stale (a .txt draft has no IndexedDB record; _restoreSnapshot restores brief/notes/draftId/libraryOrigin only)"
+     },
+     {
+      "sequence": "cand.session_mig",
+      "step": "A (.txt) -> session import S1 (renumbers gold/road) -> APP Undo +3 s -> reload",
+      "raw_text_or_row": "after Undo: [SETUP — rhyme groups — 1.T5,2.T5 — cut v2] (A); S1 sung 'Eh--eh, eh my gold is shining' / 'Eh--eh, eh my road is winding'",
+      "cut_marker": "cut v2",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "after Undo and after reload: A's text under S1's card 'a rhyme link on “gold”, line 1: word 4 → 5; a rhyme link on “road”, line 2: word 4 → 5' (stale card over another draft); gold/road in localStorage and sessionStorage; heart/part found nowhere"
+     },
+     {
+      "sequence": "cand.coords",
+      "step": "A (.txt) -> typed 'A brand new opening line'+Enter at the start of sung line 1 (real keyboard), blur",
+      "raw_text_or_row": "row unchanged [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]; page sung: 1 'A brand new opening line', 2 '…heart…', 3 '…part…'",
+      "cut_marker": "cut v2",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "card still 'heart, line 1 … part, line 2'. These are import coordinates and are not remapped (the typed edit also leaves the row's numbers unremapped)"
+     },
+     {
+      "sequence": "extra (cand, prev, main) - side finding, not part of the claim",
+      "step": "A (.txt) -> Library copy (migrating B or quiet BQ) -> read #ly-library-source -> click into song, blur (no edit) -> APP Undo x2",
+      "raw_text_or_row": "B row [SETUP — returns — 1.T5,2.T5 — cut v2] (cand/prev); BQ row [SETUP — returns — 1,2]",
+      "cut_marker": "cut v2 on migrating B (cand/prev)",
+      "payload": "none",
+      "bound_occurrence": "n/a",
+      "metadata": "cand and prev, migrating B: source line 'B_migrating · Complete reading · Adapted' right after import, with no edit; live libraryOrigin.adapted true while the import's history step holds false; focus/blur adds B[adapted=true]; first Undo stays on B, second Undo reaches A. main (no migration) and the quiet BQ copy in every tree: not Adapted, no extra step, first Undo reaches A"
+     },
+     {
+      "sequence": "main 8b1d2ad2 (control)",
+      "step": "undo_mouse / undo_key / native / native_after_undo / session_quiet / session_mig / payload / extra",
+      "raw_text_or_row": "A row stays [SETUP — rhyme groups — 1.T4,2.T4]; B row [SETUP — returns — 1.T4,2.T4]",
+      "cut_marker": "none",
+      "payload": "P1/P3 groups '1.T4,2.T4'; P2 returns '1.T4,2.T4'",
+      "bound_occurrence": "main harness (mainshadow: symlinks to wt-main/lyric-harness plus a copied cmudict.dict; build_lexicon('v2','none'); no reader scheme, v1 _TOKEN_RUN spans): 1.T4 -> 'heart' [14,19], 2.T4 -> 'part' [14,18]; B: love [17,21], dove [17,21], the same characters the candidate binds with T5",
+      "metadata": "no card and no ui.renumbered at any step; searches find no card words. After Undo, A's IndexedDB record is also re-saved (savedAt 1791971867369 -> 1791971870240) with layout-only ui, so the re-save mechanism is pre-existing and harmless here"
+     },
+     {
+      "sequence": "prev 61b6618a (control)",
+      "step": "undo_mouse / undo_key / native / native_after_undo / session_quiet / session_mig / extra",
+      "raw_text_or_row": "A row [SETUP — rhyme groups — 1.T5,2.T5 — cut v2]; B row [SETUP — returns — 1.T5,2.T5 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "not sent",
+      "bound_occurrence": "n/a",
+      "metadata": "migrates with a toast only ('2 saved word numbers … “love” word 4 → 5, “dove” word 4 → 5.'); no card, no ui.renumbered, so nothing to go stale or overwrite (searches: no hits); A's record re-saved after Undo with no card content; the side finding (Adapted plus extra step) is present"
+     }
+    ],
+    "new_vs_preexisting": "The defect is new at 643e292e (head 6955e342): the stale card over another draft, and the overwrite and relabelling of A's evidence in IndexedDB, localStorage and sessionStorage. lyRecordRenumbered and lyRenumberedCheck (ui.renumbered) appear 0 times at 61b6618a and 3 times at 643e292e, and neither control has a card. The mechanisms underneath are pre-existing:\n- _restoreSnapshot restores only brief, notes, draftId and libraryOrigin, and keeps the live ui.\n- After an Undo, lyLibraryPersist re-saves the restored draft's record from the live meta. Main shows this same re-save, but there it carries layout-only ui and so does no harm.\n\nThe card's link to the history step is what makes these mechanisms destroy evidence. The side finding (a migrating Library copy flagged Adapted with no edit, plus an extra APP Undo step) is pre-existing relative to 643e292e: it is present at 61b6618a and absent on main.",
+    "files": [
+     "<scratch>/h695/check-library-undo-card/COMMANDS.txt",
+     "<scratch>/h695/check-library-undo-card/rerun.js",
+     "<scratch>/h695/check-library-undo-card/bindcheck.py",
+     "<scratch>/h695/check-library-undo-card/summ.js",
+     "<scratch>/h695/check-library-undo-card/run_cand_AB_undo_mouse.json",
+     "<scratch>/h695/check-library-undo-card/run_cand_AB_undo_mouse.run2.json",
+     "<scratch>/h695/check-library-undo-card/run_cand_AB_undo_key+native+session_quiet+session_mig+coords+payload.json",
+     "<scratch>/h695/check-library-undo-card/run_cand_XY_undo_mouse+undo_key.json",
+     "<scratch>/h695/check-library-undo-card/run_cand_AB_native_after_undo+extra.json",
+     "<scratch>/h695/check-library-undo-card/run_main_AB_undo_mouse+undo_key+native+session_quiet+session_mig+payload.json",
+     "<scratch>/h695/check-library-undo-card/run_main_AB_native_after_undo+extra.json",
+     "<scratch>/h695/check-library-undo-card/run_prev_AB_undo_mouse+undo_key+native+session_quiet+session_mig.json",
+     "<scratch>/h695/check-library-undo-card/run_prev_AB_native_after_undo+extra.json",
+     "<scratch>/h695/check-library-undo-card/bind_cand.json",
+     "<scratch>/h695/check-library-undo-card/bind_cand.log",
+     "<scratch>/h695/check-library-undo-card/bind_main.json",
+     "<scratch>/h695/check-library-undo-card/bind_main.log",
+     "<scratch>/h695/check-library-undo-card/summ_run_cand_AB_undo_mouse.txt",
+     "<scratch>/wt-695/src/app.js",
+     "<scratch>/wt-695/src/pages/lyrics.js"
+    ],
+    "caveats": [
+     "All runs used one browser: headless Chromium (/opt/pw-browsers/chromium) at 1440x900. The visible header Undo there is #btn-undo; #ui-undo is hidden. Other layouts were not tested.",
+     "The ~420 ms persist delay comes from two runs. The ordering (A's record still heart/part at +60 ms, overwritten by +700 ms) was the same both times; the exact delay may vary.",
+     "My peek recorded each IndexedDB record's head row, savedAt and ui.renumbered, not its full text. 'A's record still holds A's text' rests on the head row 'Song A' and on the draft text shown after reopening A.",
+     "Library envelopes use synthetic provenance and a placeholder digest. They are built by each tree's own makeWorkingCopyEnvelope and pass the page's receiver.",
+     "Side finding, provisional consequence: I did not test the export effect. By code reading only, makeWorkingCopyEnvelope drops the Library declarations when origin.adapted is true, so a migrated-but-unedited copy would re-export without them. My fixture copies carry no Library declarations.",
+     "Main's harness ran from a scratch shadow (mainshadow/) with a copied cmudict.dict, because wt-main has none staged. The candidate's harness ran in place with python -I. Both used build_lexicon('v2','none').",
+     "The /chat endpoint was an in-page stub, so these runs show the payload only; I did not run the server-side grade."
+    ]
+   }
+  },
+  {
+   "agent": "check:order-marker",
+   "result": {
+    "task": "check-order-marker: independently re-run the order-marker probe at candidate 6955e342 (code 643e292e), with controls 61b6618a and main 8b1d2ad2. Question: does an unmarked, hand-typed or pasted rhyme groups / returns row bind a different word depending on whether a Rhymes or Repeats form commit (lySetSetup / lySetupCommit) or a send boundary comes first? Each pair starts from the same text.",
+    "verdict": "confirmed",
+    "statement": "I got the same steps and the same verdict. I re-ran everything from scratch with my own Playwright scripts, my own song body and my own harness binder. Line 1 'Oh--oh, oh my love' and line 8 'Love above' (X7: 'And love above') are the same as the probe's; lines 2-7 and 9-12 are mine. The runs used Chromium at /opt/pw-browsers/chromium with real Ctrl+V (system clipboard) or real typing at offset 0, real form clicks, and real clicks on Run review (.ly-run) or the dock path (Write with AI > Edit this draft, typed text, #chat-send). /chat was stubbed in-page. Each final payload was then resolved by the receiving tree's own harness, with the mandate built the way lyric_harness.py's CLI builds it from --groups=/--returns=, then Mandate.slot_of / slots.parse_slot, slots.resolve and coverage_census.build_lexicon('v2','none').\n\nCandidate 6955e342: 0 of 25 pairs bind the same word occurrence.\n- ORDER 1 (paste, form commit, send): the form rewrites the unmarked row as '[SETUP — rhyme groups — 1.T4,8 — cut v2]' without renumbering. The payload is {\"groups\":\"1.T4,8\"} and the harness binds 1.T4 to 'my' at raw span [11,13].\n- ORDER 2 (paste, send, the same form commit, send): the first send migrates the row to '1.T5,8; 2,3 — cut v2'. The final payload is {\"groups\":\"1.T5,8\"}, which binds 'love' at [14,18].\n- T2 rows: 'oh' [4,6] in ORDER 1 against 'oh' [8,10] in ORDER 2.\n- The split is the same for all four form writers (Remove link, Link endings, placed-return Apply, Declare exact repeat), for rhyme-groups and returns rows, for Run review and dock Send, and for paste and typing.\n- X7 (returns 1.T4,8.T2 against 'And love above'): ORDER 1 gets Mandate.placed_returns_check NOT_RETURNED_AT (L1.T4='my', L8.T2='love'). ORDER 2 is clean.\n- ORDER 1 never shows a renumber toast, and its Review tab never mentions the cut or a renumbering; the only toast is the form's own ('Rhyme link removed. Undo restores it.', 'Placed return declared.', etc.). ORDER 2 shows the renumber toast and the Review card in all 25 pairs.\n\nControls:\n- 61b6618a: 25 of 25 pairs bind the same occurrence. It migrates in the typing refresh right after the paste, so both orders send T5 / T3 and bind 'love' [14,18] / 'oh' [8,10].\n- main 8b1d2ad2: 25 of 25 pairs bind the same occurrence. It has no cut mark; both orders send T4 / T2, which main's harness binds to 'love' [14,18] / 'oh' [8,10].\n\nThe extras also match the probe:\n- APP history: Undo (the toast's Undo button, or Ctrl+Z with focus off the textarea) restores the unmarked step, and the next send migrates it to 'love'. Redo brings back the step the form marked, and 'my' is sent.\n- BROWSER-NATIVE Ctrl+Z in the textarea after the form commit is a no-op, and 'my' is sent.\n- Word rules, relation-only Rhymes Apply, and a Form & story section move all leave the row unmarked, and the next send migrates it to 'love'.\n\nThe cause, re-read in the code, is as the probe states. The four form writers read the unmarked row through lyRowGroups, which flags nothing on an unmarked row. They then write it through lySetSetup, whose mark() at src/pages/lyrics.js:2476 appends '— cut v2' without calling lyMigrateSavedReadings. lyAssemble, by contrast, deliberately keeps an unmarked row unmarked.\n\nRefinements to the probe:\n1. My matrix has 25 pairs per tree, against the probe's 20. I added returns T2 rows and a typed variant for every operation.\n2. The candidate's own Rhymes and Repeats display reads the unmarked row under the current cut. Before any boundary it shows 'Line 1 · my' (1.T4=my). So ORDER 1 sends the word the page displayed. \"ORDER 1 changes the meaning with no notice\" is true relative to main, 61b and the file's stated policy (an unmarked row is read under the earlier cut), but not relative to what the writer saw. ORDER 2 renumbers away from the displayed word, with a notice. The defect is the order-dependence, plus the mismatch between the display and the policy.\n3. lySetSetup spans lines 2465-2492, not 2465-2491; mark() at 2476 is correct.\n4. 61b's lySetSetup already marked group rows unconditionally (61b src/pages/lyrics.js:2260). That was harmless at 61b only because lyEnsureTokenScheme ran in the typing refresh (61b line 4400). What 643e292e newly exposes is the move of migration to boundaries.",
+    "steps": [
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 1 (identical in .dock.paste and .review.type)",
+      "step": "0 body entered whole with real fill(); no [SETUP] row",
+      "raw_text_or_row": "(no [SETUP] row); sung line 1 = 'Oh--oh, oh my love', line 8 = 'Love above'",
+      "cut_marker": "-",
+      "payload": "-",
+      "bound_occurrence": "-",
+      "metadata": "orders_cand.json / orders_cand.log; APP history 0/1 (a paste alone records no step)"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 1",
+      "step": "1 row pasted with real Ctrl+V at offset 0 (system clipboard)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+      "cut_marker": "UNMARKED",
+      "payload": "-",
+      "bound_occurrence": "page display only: 1.T4=my ~ 8.end=above (the page reads the unmarked row under the CURRENT cut)",
+      "metadata": "no toast; no migration on paste (boundary-only, as designed)"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 1",
+      "step": "2 Rhymes form: check radio group B, click Remove link (lySetupCommit -> lySetSetup)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8 — cut v2]",
+      "cut_marker": "cut v2 added; T4 NOT renumbered",
+      "payload": "-",
+      "bound_occurrence": "page display 1.T4=my",
+      "metadata": "only toast: 'Rhyme link removed. Undo restores it.'"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 1",
+      "step": "3 send: click Run review (.ly-run)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8 — cut v2] (unchanged: a marked row is not migrated)",
+      "cut_marker": "cut v2",
+      "payload": "lyric_context.declarations = {\"groups\":\"1.T4,8\"}",
+      "bound_occurrence": "wt-695 harness (READER_SCHEME v2): group A slot 1.T4 -> 'my', raw span [11,13]; L8 end -> 'above'",
+      "metadata": "bind_cand.json; no renumber toast; Review tab text has no 'cut' and no 'renumber'"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 2",
+      "step": "1 same paste",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+      "cut_marker": "UNMARKED",
+      "payload": "-",
+      "bound_occurrence": "page display 1.T4=my",
+      "metadata": "identical start state to ORDER 1"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 2",
+      "step": "2 send first: Run review (boundary migration)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]",
+      "cut_marker": "cut v2 (migrated T4 -> T5)",
+      "payload": "{\"groups\":\"1.T5,8; 2,3\"}",
+      "bound_occurrence": "1.T5 -> 'love' [14,18]; page display now 1.T5=love",
+      "metadata": "toast: '1 saved word number without the current cut mark was renumbered ... “love” word 4 → 5. Review lists it until you dismiss it.'"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 2",
+      "step": "3 same Rhymes form commit (Remove link on group B)",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,8 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "-",
+      "bound_occurrence": "page display 1.T5=love",
+      "metadata": "toast 'Rhyme link removed. Undo restores it.'"
+     },
+     {
+      "sequence": "cand RG4.remove.review.paste ORDER 2",
+      "step": "4 final send: Run review",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T5,8 — cut v2]",
+      "cut_marker": "cut v2",
+      "payload": "{\"groups\":\"1.T5,8\"}",
+      "bound_occurrence": "1.T5 -> 'love' [14,18]. ORDER 1 final 'my' [11,13] != ORDER 2 final 'love' [14,18]",
+      "metadata": "Review card 'saved word number renumbered to the current word cut' present (summary.txt same=False)"
+     },
+     {
+      "sequence": "cand RG4.add.{review,dock}.paste and .review.type, O1 vs O2",
+      "step": "Rhymes form: Placement 'end', Line 5, Add; Line 7, Add; Link endings. Dock send: Write with AI > Edit this draft (focus #chat-input), typed 'Tighten line 2', click #chat-send",
+      "raw_text_or_row": "O1: [SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]; O2: [SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]",
+      "cut_marker": "cut v2 in both (O1's mark added by the form, without renumbering)",
+      "payload": "O1 {\"groups\":\"1.T4,8;2,3;5,7\"}; O2 first {\"groups\":\"1.T5,8; 2,3\"}, final {\"groups\":\"1.T5,8;2,3;5,7\"}",
+      "bound_occurrence": "O1 1.T4 -> 'my' [11,13]; O2 1.T5 -> 'love' [14,18]",
+      "metadata": "O1 only toast 'Rhyme link saved.'"
+     },
+     {
+      "sequence": "cand RG2.{remove,add}.{review,dock}.paste and .review.type, O1 vs O2",
+      "step": "row '[SETUP — rhyme groups — 1.T2,8; 2,3]', then the same form and send, in each order",
+      "raw_text_or_row": "O1 final: [SETUP — rhyme groups — 1.T2,8 — cut v2] (or 1.T2,8;2,3;5,7); O2 final: [SETUP — rhyme groups — 1.T3,8 — cut v2]",
+      "cut_marker": "cut v2 in both",
+      "payload": "O1 {\"groups\":\"1.T2,8\"}; O2 {\"groups\":\"1.T3,8\"}",
+      "bound_occurrence": "O1 1.T2 -> 'oh' raw [4,6] (the second half of 'Oh--oh'); O2 1.T3 -> 'oh' raw [8,10]. Same word text, different occurrence",
+      "metadata": "6 of 6 RG2 pairs differ"
+     },
+     {
+      "sequence": "cand RT4.placed.{review,dock}.paste and .review.type, O1 vs O2 (returns)",
+      "step": "row '[SETUP — returns — 1.T4,8.T1]'; Repeats form > Placed returns: caret on line 2, 'head', Add; caret on line 6, Add; Apply (pending strip, lySetSetup('returns'))",
+      "raw_text_or_row": "O1: [SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]; O2: [SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]",
+      "cut_marker": "cut v2 in both",
+      "payload": "O1 {\"returns\":\"1.T4,8.T1;2.head,6.head\"}; O2 final {\"returns\":\"1.T5,8.T1;2.head,6.head\"}",
+      "bound_occurrence": "Return members: O1 L1.T4 -> 'my' [11,13]; O2 L1.T5 -> 'love' [14,18]; L8.T1 -> 'Love' [0,4]",
+      "metadata": "O1 only toast 'Placed return declared.'. NOT_RETURNED_AT appears in BOTH orders on every tree here ('my'/'love'/'oh' against capitalised 'Love'); not order-related"
+     },
+     {
+      "sequence": "cand RT4.declare / RT2.declare / RT2.placed, O1 vs O2",
+      "step": "Repeats form 'Declare exact repeat' (Bridge 2 = Bridge 1, lines 9-10 = 11-12; lySetupCommit('returns')), or the placed return on a T2 row",
+      "raw_text_or_row": "RT4.declare O1: [SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]; O2: [SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]",
+      "cut_marker": "cut v2 in both",
+      "payload": "O1 {\"returns\":\"1.T4,8.T1;9,11;10,12\"}; O2 {\"returns\":\"1.T5,8.T1;9,11;10,12\"} (RT2: 1.T2 vs 1.T3)",
+      "bound_occurrence": "RT4: O1 'my' [11,13] vs O2 'love' [14,18]; RT2: O1 'oh' [4,6] vs O2 'oh' [8,10]",
+      "metadata": "12 of 12 returns pairs differ"
+     },
+     {
+      "sequence": "cand X7 verdict, O1 vs O2 (line 8 = 'And love above')",
+      "step": "row '[SETUP — returns — 1.T4,8.T2]'; placed return 2.head,6.head; Run review",
+      "raw_text_or_row": "O1: [SETUP — returns — 1.T4,8.T2;2.head,6.head — cut v2]; O2: [SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]",
+      "cut_marker": "cut v2 in both",
+      "payload": "O1 {\"returns\":\"1.T4,8.T2;2.head,6.head\"}; O2 {\"returns\":\"1.T5,8.T2;2.head,6.head\"}",
+      "bound_occurrence": "O1 L1.T4 'my' [11,13] vs L8.T2 'love' [4,8] -> placed_returns_check NOT_RETURNED_AT; O2 L1.T5 'love' [14,18] vs 'love' -> no finding",
+      "metadata": "bind_cand.json. 61b and main: no finding in either order"
+     },
+     {
+      "sequence": "CONTROL c61b (61b6618a), all 25 pairs",
+      "step": "same protocol and same clicks",
+      "raw_text_or_row": "right after the paste: [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2] (migrated in the typing refresh); returns: [SETUP — returns — 1.T5,8.T1 — cut v2]",
+      "cut_marker": "cut v2 from the paste on",
+      "payload": "O1 and O2 finals identical, e.g. {\"groups\":\"1.T5,8\"}, {\"returns\":\"1.T5,8.T1;2.head,6.head\"}",
+      "bound_occurrence": "both orders 'love' [14,18]; T2 rows both 'oh' [8,10]; X7 clean in both",
+      "metadata": "renumber toast on paste; summary.txt c61b 25/25 same"
+     },
+     {
+      "sequence": "CONTROL main (8b1d2ad2), all 25 pairs",
+      "step": "same protocol and same clicks",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8] etc. (never marked)",
+      "cut_marker": "UNMARKED (no cut concept)",
+      "payload": "O1 and O2 finals identical, e.g. {\"groups\":\"1.T4,8\"}, {\"returns\":\"1.T4,8.T1;9,11;10,12\"}",
+      "bound_occurrence": "main harness (one cut, 'Oh--oh' is one token): 1.T4 -> 'love' [14,18]; 1.T2 -> 'oh' [8,10]; both orders; X7 clean",
+      "metadata": "page display 1.T4=love; summary.txt main 25/25 same; cmudict read from the operator copy after a bytes+sha256 match to main's manifest"
+     },
+     {
+      "sequence": "cand X1 / X1k APP history (the page's Undo stack)",
+      "step": "paste -> Remove link -> APP Undo via the toast's Undo button (X1) or Ctrl+Z with focus off the textarea, global handler (X1k) -> Run review",
+      "raw_text_or_row": "after APP Undo: [SETUP — rhyme groups — 1.T4,8; 2,3] (unmarked step restored); after the send: 1.T5,8; 2,3 — cut v2",
+      "cut_marker": "UNMARKED after Undo; cut v2 after the send",
+      "payload": "{\"groups\":\"1.T5,8; 2,3\"}",
+      "bound_occurrence": "'love' [14,18]",
+      "metadata": "history: paste 0/1 -> after Remove link 2/3 (clicking into the form recorded the writer's text as step 1) -> Undo 1/3"
+     },
+     {
+      "sequence": "cand X2 APP history Redo",
+      "step": "paste -> Remove link -> toast Undo -> Ctrl+Shift+Z with focus off the textarea -> Run review",
+      "raw_text_or_row": "after APP Redo: [SETUP — rhyme groups — 1.T4,8 — cut v2]",
+      "cut_marker": "cut v2 (the form's step)",
+      "payload": "{\"groups\":\"1.T4,8\"}",
+      "bound_occurrence": "'my' [11,13]",
+      "metadata": "61b Redo path sends 1.T5,8 -> 'love'; main sends 1.T4,8 -> 'love'"
+     },
+     {
+      "sequence": "cand X3 BROWSER-NATIVE undo (Ctrl+Z inside the textarea; the app ignores Ctrl+Z when the target is a textarea)",
+      "step": "paste -> Remove link -> click the textarea -> Ctrl+Z twice -> Run review",
+      "raw_text_or_row": "[SETUP — rhyme groups — 1.T4,8 — cut v2] (unchanged by both Ctrl+Z presses)",
+      "cut_marker": "cut v2",
+      "payload": "{\"groups\":\"1.T4,8\"}",
+      "bound_occurrence": "'my' [11,13]",
+      "metadata": "no-op after the form's programmatic value set, on all three trees. Sanity X3s (no form commit): native Ctrl+Z undoes the paste on cand and main, but is a no-op on 61b, whose paste-time migration had already rewritten the textarea"
+     },
+     {
+      "sequence": "cand X4 / X5 / X9: commits that do not rewrite the group row",
+      "step": "paste -> Word rules Apply (require 'rain') | Rhymes relation-only Apply (class:RHYME, pending-strip Apply) | Form & story: Verse Move down -> Run review",
+      "raw_text_or_row": "after the commit the row stays UNMARKED: 1.T4,8; 2,3 (X9: 3.T4,10;4,5); after the send: 1.T5,8; 2,3 — cut v2 (X9: 3.T5,10;4,5 — cut v2)",
+      "cut_marker": "UNMARKED until the send",
+      "payload": "X4 {\"groups\":\"1.T5,8; 2,3\",\"must_include\":[\"rain\"]}; X5 {\"relation\":\"class:RHYME\",\"groups\":\"1.T5,8; 2,3\"}; X9 {\"groups\":\"3.T5,10;4,5\"}",
+      "bound_occurrence": "'love' [14,18] (X9: on sung line 3, the moved 'Oh--oh, oh my love')",
+      "metadata": "lyAssemble deliberately keeps an unmarked row unmarked (comment near line 2415); main sends T4 -> 'love'; 61b T5 -> 'love'"
+     }
+    ],
+    "new_vs_preexisting": "This is new at 6955e342 (code 643e292e) as reachable behaviour. The unconditional mark is older: 61b's lySetSetup already appended '— cut v2' to every group row (61b src/pages/lyrics.js:2260). It did no harm there because 61b ran lyEnsureTokenScheme inside the typing refresh (61b line 4400), so a pasted or typed row was migrated before any form could read it. 643e292e moved migration to boundaries only (open, import, mount, send) and left the four form writers marking without migrating. A form commit can now meet an unmarked row and stamp it as current-cut, so the bound word depends on whether a form commit or a send comes first. main has no cut concept and is not affected.",
+    "files": [
+     "<scratch>/h695/check-order-marker/COMMANDS.txt",
+     "<scratch>/h695/check-order-marker/com.js",
+     "<scratch>/h695/check-order-marker/orders.js",
+     "<scratch>/h695/check-order-marker/extras.js",
+     "<scratch>/h695/check-order-marker/prep.js",
+     "<scratch>/h695/check-order-marker/bind.py",
+     "<scratch>/h695/check-order-marker/summ.py",
+     "<scratch>/h695/check-order-marker/summary.txt",
+     "<scratch>/h695/check-order-marker/summary.json",
+     "<scratch>/h695/check-order-marker/orders_cand.json",
+     "<scratch>/h695/check-order-marker/orders_cand.log",
+     "<scratch>/h695/check-order-marker/orders_c61b.json",
+     "<scratch>/h695/check-order-marker/orders_main.json",
+     "<scratch>/h695/check-order-marker/bind_cand.json",
+     "<scratch>/h695/check-order-marker/bind_cand.log",
+     "<scratch>/h695/check-order-marker/bind_c61b.log",
+     "<scratch>/h695/check-order-marker/bind_main.log",
+     "<scratch>/h695/check-order-marker/extras_cand.log",
+     "<scratch>/h695/check-order-marker/extras_cand_X5.log",
+     "<scratch>/h695/check-order-marker/extras_c61b.log",
+     "<scratch>/h695/check-order-marker/extras_main.log",
+     "<scratch>/wt-695/src/pages/lyrics.js",
+     "<scratch>/wt-61b/src/pages/lyrics.js"
+    ],
+    "caveats": [
+     "This is an independent re-run, not a copy. The scripts, song body and binder are all mine; I did not run the original probe's orders.js or bind.py. Line 1 'Oh--oh, oh my love' and line 8 'Love above' / 'And love above' match the probe; lines 2-7 and 9-12 differ. I ran 25 pairs per tree against the probe's 20 (I added returns T2 rows and a typed variant for every operation). Same result: cand 0/25 same, 61b 25/25, main 25/25.",
+     "The candidate page's own display reads an unmarked row under the CURRENT cut. Before any boundary, the Rhymes list and the Repeats list show 1.T4 = 'my'. So ORDER 1 sends the word the page displayed. The claim that ORDER 1 changes the meaning with no notice is true relative to main, 61b and the file's stated compatibility policy (an unmarked row is read under the earlier cut), but not relative to what the writer was shown. ORDER 2 renumbers away from the displayed word, with a toast and a Review card.",
+     "Line reference correction: lySetSetup spans src/pages/lyrics.js:2465-2492 (the probe said 2465-2491). mark() at 2476 is correct.",
+     "PROVISIONAL, not tested: two more candidate group-row writers also always mark. They are lyCarriedDecide via lyGroupRow (around lines 1013 and 2425-2441) and 'ly-drop-undecided' via lySetupCommit. They act only on member states a migration normally creates ('carried' / 'numbered under the earlier cut'), so an unmarked row could reach them only through hand-typed state annotations.",
+     "Harness binding mirrors the CLI's --groups=/--returns= mandate construction (lyric_harness.py around lines 12768-12940) inside the receiving tree. I did not execute the hosted /chat server or the MCP lyric tools. The claim that the server forwards declarations.groups/returns as --groups=/--returns= comes from reading mcp/lyric_tools.js (lines 2776, 3294, 3449), not from execution.",
+     "main has no staged cmudict.dict beside its module. bind.py read /home/user/CodexMusica/lyric-harness/cmudict.dict only after asserting its bytes and sha256 (81917843c7f4...) equal wt-main's own runtime_assets.json entry. It answered verify_asset('cmudict') with that entry. Nothing was written into any tree, and git status in all three shows only untracked node_modules.",
+     "Driver errors that were fixed and re-run, all recorded in COMMANDS.txt: (1) the first main matrix run threw in my display-only helper (lyRowGroups is absent at main) before any step; its log is kept as orders_main_firstrun_THREW.log, and the helper now falls back to lyParseGroups. (2) X5's first attempt clicked the disabled 'Link endings' button; it was re-run with the pending strip's Apply.",
+     "The toast log is collected by a MutationObserver, so the text of a toast that stays on screen can appear again at later steps. Renumber-toast presence was counted per run from the 'renumbered' text.",
+     "APP undo was driven by the commit toast's Undo button (which clicks #btn-undo) and by Ctrl+Z / Ctrl+Shift+Z with focus moved off the textarea by a programmatic blur. #btn-undo itself is display:none on this page. BROWSER-NATIVE undo was real Ctrl+Z inside the focused textarea.",
+     "The placed-return NOT_RETURNED_AT with 8.T1='Love' appears in both orders on every tree, because the comparison is case-sensitive ('my'/'love'/'oh' against 'Love'). It is not order-related. The only order-related verdict flip is X7."
+    ]
+   }
+  }
+ ],
+ "still_running_when_saved": []
+}

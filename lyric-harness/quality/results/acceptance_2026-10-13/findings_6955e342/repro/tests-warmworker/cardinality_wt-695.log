@@ -1,0 +1,79 @@
+start (modules imported) {'eng._LEX': 0, 'eng._CUT_LEX': 0, 'fit._LEX': 0, 'LS._SUPPLEMENTED': 0, 'MB._READERS': 0} {'VmHWM': 55, 'VmRSS': 55}
+fit._english_lexicon strip_parens=True fallback=None x (v2,v1) {'eng._LEX': 0, 'eng._CUT_LEX': 0, 'fit._LEX': 2, 'LS._SUPPLEMENTED': 0, 'MB._READERS': 0} {'VmHWM': 130, 'VmRSS': 130}
+fit._english_lexicon strip_parens=True fallback=high x (v2,v1) {'eng._LEX': 0, 'eng._CUT_LEX': 0, 'fit._LEX': 4, 'LS._SUPPLEMENTED': 0, 'MB._READERS': 0} {'VmHWM': 199, 'VmRSS': 199}
+fit._english_lexicon strip_parens=True fallback=low x (v2,v1) {'eng._LEX': 0, 'eng._CUT_LEX': 0, 'fit._LEX': 6, 'LS._SUPPLEMENTED': 0, 'MB._READERS': 0} {'VmHWM': 267, 'VmRSS': 267}
+fit._english_lexicon strip_parens=False fallback=None x (v2,v1) {'eng._LEX': 0, 'eng._CUT_LEX': 0, 'fit._LEX': 8, 'LS._SUPPLEMENTED': 0, 'MB._READERS': 0} {'VmHWM': 335, 'VmRSS': 335}
+fit._english_lexicon strip_parens=False fallback=high x (v2,v1) {'eng._LEX': 0, 'eng._CUT_LEX': 0, 'fit._LEX': 10, 'LS._SUPPLEMENTED': 0, 'MB._READERS': 0} {'VmHWM': 403, 'VmRSS': 403}
+fit._english_lexicon strip_parens=False fallback=low x (v2,v1) {'eng._LEX': 0, 'eng._CUT_LEX': 0, 'fit._LEX': 12, 'LS._SUPPLEMENTED': 0, 'MB._READERS': 0} {'VmHWM': 471, 'VmRSS': 471}
+eng English(...).cut_lexicon() x3 {'eng._LEX': 2, 'eng._CUT_LEX': 3, 'fit._LEX': 12, 'LS._SUPPLEMENTED': 0, 'MB._READERS': 0} {'VmHWM': 811, 'VmRSS': 811}
+LS.supplemented_lexicon strip_parens=True fallback=None x (v2,v1) {'eng._LEX': 2, 'eng._CUT_LEX': 3, 'fit._LEX': 12, 'LS._SUPPLEMENTED': 2, 'MB._READERS': 0} {'VmHWM': 955, 'VmRSS': 955}
+LS.supplemented_lexicon strip_parens=True fallback=low x (v2,v1) {'eng._LEX': 2, 'eng._CUT_LEX': 3, 'fit._LEX': 12, 'LS._SUPPLEMENTED': 4, 'MB._READERS': 0} {'VmHWM': 1099, 'VmRSS': 1099}
+LS.supplemented_lexicon strip_parens=False fallback=None x (v2,v1) {'eng._LEX': 2, 'eng._CUT_LEX': 3, 'fit._LEX': 12, 'LS._SUPPLEMENTED': 6, 'MB._READERS': 0} {'VmHWM': 1242, 'VmRSS': 1242}
+LS.supplemented_lexicon strip_parens=False fallback=low x (v2,v1) {'eng._LEX': 2, 'eng._CUT_LEX': 3, 'fit._LEX': 12, 'LS._SUPPLEMENTED': 8, 'MB._READERS': 0} {'VmHWM': 1386, 'VmRSS': 1386}
+eng._lexicon() x (v2,v1) {'eng._LEX': 2, 'eng._CUT_LEX': 3, 'fit._LEX': 12, 'LS._SUPPLEMENTED': 8, 'MB._READERS': 0} {'VmHWM': 1386, 'VmRSS': 1386}
+MB reader fallback-low (v2 key) used under v1 scope {'eng._LEX': 2, 'eng._CUT_LEX': 3, 'fit._LEX': 12, 'LS._SUPPLEMENTED': 8, 'MB._READERS': 1} {'VmHWM': 1386, 'VmRSS': 1386}
+{
+ "tree_head": "6955e342963a90bdf470741266cea0dd84f0a797",
+ "declared_schemes": [
+  "v1",
+  "v2"
+ ],
+ "cache_schemes": {
+  "eng._LEX": [
+   "v1",
+   "v2"
+  ],
+  "eng._CUT_LEX": [
+   "v1",
+   "v2"
+  ],
+  "fit._LEX(3-key views)": [
+   "v1"
+  ],
+  "fit._LEX(all, by lexicon)": [
+   "v1",
+   "v2"
+  ],
+  "LS._SUPPLEMENTED": [
+   "v1",
+   "v2"
+  ]
+ },
+ "cache_keys": {
+  "eng._CUT_LEX": [
+   "('v2', False)",
+   "('v1', True)",
+   "('v2', True)"
+  ],
+  "fit._LEX": [
+   "(True, None)",
+   "(True, None, 'v1')",
+   "(True, 'high')",
+   "(True, 'high', 'v1')",
+   "(True, 'low')",
+   "(True, 'low', 'v1')",
+   "(False, None)",
+   "(False, None, 'v1')",
+   "(False, 'high')",
+   "(False, 'high', 'v1')",
+   "(False, 'low')",
+   "(False, 'low', 'v1')"
+  ],
+  "LS._SUPPLEMENTED": [
+   "(True, None, 'lexicon_supplement.tsv', 'v2')",
+   "(True, None, 'lexicon_supplement.tsv', 'v1')",
+   "(True, 'low', 'lexicon_supplement.tsv', 'v2')",
+   "(True, 'low', 'lexicon_supplement.tsv', 'v1')",
+   "(False, None, 'lexicon_supplement.tsv', 'v2')",
+   "(False, None, 'lexicon_supplement.tsv', 'v1')",
+   "(False, 'low', 'lexicon_supplement.tsv', 'v2')",
+   "(False, 'low', 'lexicon_supplement.tsv', 'v1')"
+  ]
+ },
+ "distinct_lexicon_objects_retained": 25,
+ "helper_on_multi_entry_state": "PASSED",
+ "mb_reader_keyed_v2_fallback_base_scheme": "v1",
+ "helper_on_mb_v2_key_with_v1_fallback": "PASSED",
+ "max_entries_in_one_cache": 12
+}
+exit=0

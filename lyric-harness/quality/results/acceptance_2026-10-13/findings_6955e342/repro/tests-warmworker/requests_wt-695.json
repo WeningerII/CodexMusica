@@ -1,0 +1,475 @@
+{
+ "tree_head": "6955e342963a90bdf470741266cea0dd84f0a797",
+ "steps": [
+  {
+   "flags": null,
+   "rss_mib": {
+    "VmHWM": 22,
+    "VmRSS": 22
+   },
+   "caches": {
+    "eng._LEX": null,
+    "eng._CUT_LEX": null,
+    "fit._LEX": null,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": null
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [],
+   "exit": 4,
+   "reader_scheme": "v2",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 446,
+    "VmRSS": 446
+   },
+   "counts": {
+    "eng._LEX": 1,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 1,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 1
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--reader-scheme=v1"
+   ],
+   "exit": 4,
+   "reader_scheme": "v1",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 529,
+    "VmRSS": 475
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 2,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--fallback=high"
+   ],
+   "exit": 4,
+   "reader_scheme": "v2",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 554,
+    "VmRSS": 551
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 2,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--fallback=low"
+   ],
+   "exit": 4,
+   "reader_scheme": "v2",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 554,
+    "VmRSS": 512
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 2,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--voices"
+   ],
+   "exit": 4,
+   "reader_scheme": "v2",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 601,
+    "VmRSS": 601
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 3,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')",
+     "(False, 'low')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--voices",
+    "--fallback=high"
+   ],
+   "exit": 4,
+   "reader_scheme": "v2",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 625,
+    "VmRSS": 622
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 3,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')",
+     "(False, 'low')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--voices",
+    "--fallback=low"
+   ],
+   "exit": 4,
+   "reader_scheme": "v2",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 628,
+    "VmRSS": 574
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 3,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')",
+     "(False, 'low')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--reader-scheme=v1",
+    "--voices"
+   ],
+   "exit": 4,
+   "reader_scheme": "v1",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 628,
+    "VmRSS": 596
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 4,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')",
+     "(False, 'low')",
+     "(False, 'low', 'v1')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--reader-scheme=v1",
+    "--fallback=high"
+   ],
+   "exit": 4,
+   "reader_scheme": "v1",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 628,
+    "VmRSS": 588
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 4,
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')",
+     "(False, 'low')",
+     "(False, 'low', 'v1')"
+    ],
+    "LS._SUPPLEMENTED": null,
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--lexicon-supplement"
+   ],
+   "exit": 4,
+   "reader_scheme": "v2",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 677,
+    "VmRSS": 677
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 4,
+    "LS._SUPPLEMENTED": 1,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')",
+     "(False, 'low')",
+     "(False, 'low', 'v1')"
+    ],
+    "LS._SUPPLEMENTED": [
+     "(True, 'low', 'lexicon_supplement.tsv', 'v2')"
+    ],
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--lexicon-supplement",
+    "--voices"
+   ],
+   "exit": 4,
+   "reader_scheme": "v2",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 772,
+    "VmRSS": 760
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 4,
+    "LS._SUPPLEMENTED": 2,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')",
+     "(False, 'low')",
+     "(False, 'low', 'v1')"
+    ],
+    "LS._SUPPLEMENTED": [
+     "(True, 'low', 'lexicon_supplement.tsv', 'v2')",
+     "(False, 'low', 'lexicon_supplement.tsv', 'v2')"
+    ],
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  },
+  {
+   "flags": [
+    "--reader-scheme=v1",
+    "--lexicon-supplement"
+   ],
+   "exit": 4,
+   "reader_scheme": "v1",
+   "tail": "",
+   "rss_mib": {
+    "VmHWM": 827,
+    "VmRSS": 794
+   },
+   "counts": {
+    "eng._LEX": 2,
+    "eng._CUT_LEX": 0,
+    "fit._LEX": 4,
+    "LS._SUPPLEMENTED": 3,
+    "MB._READERS": 2
+   },
+   "caches": {
+    "eng._LEX": [
+     "'v2'",
+     "'v1'"
+    ],
+    "eng._CUT_LEX": [],
+    "fit._LEX": [
+     "(True, 'low')",
+     "(True, 'low', 'v1')",
+     "(False, 'low')",
+     "(False, 'low', 'v1')"
+    ],
+    "LS._SUPPLEMENTED": [
+     "(True, 'low', 'lexicon_supplement.tsv', 'v2')",
+     "(False, 'low', 'lexicon_supplement.tsv', 'v2')",
+     "(True, 'low', 'lexicon_supplement.tsv', 'v1')"
+    ],
+    "MB._READERS": [
+     "('fallback-low', 'v2')",
+     "('fallback-low', 'v1')"
+    ]
+   },
+   "guard": "admits"
+  }
+ ]
+}

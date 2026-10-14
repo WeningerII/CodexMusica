@@ -1,0 +1,86 @@
+{
+  "byTrigger": {
+    "main.prog": {
+      "U": {
+        "cases": 24,
+        "sameChars": 24,
+        "migrated": 0
+      },
+      "C": {
+        "cases": 12,
+        "sameChars": 12,
+        "migrated": 0
+      },
+      "E": {
+        "cases": 8,
+        "sameChars": 8,
+        "migrated": 0
+      },
+      "S": {
+        "cases": 2,
+        "sameChars": 2,
+        "migrated": 0
+      },
+      "X": {
+        "cases": 1,
+        "sameChars": 1,
+        "migrated": 0
+      }
+    },
+    "main.click": {
+      "U": {
+        "cases": 24,
+        "sameChars": 24,
+        "migrated": 0
+      },
+      "C": {
+        "cases": 12,
+        "sameChars": 12,
+        "migrated": 0
+      },
+      "E": {
+        "cases": 8,
+        "sameChars": 8,
+        "migrated": 0
+      },
+      "S": {
+        "cases": 2,
+        "sameChars": 2,
+        "migrated": 0
+      },
+      "X": {
+        "cases": 1,
+        "sameChars": 1,
+        "migrated": 0
+      }
+    },
+    "main.chat": {
+      "U": {
+        "cases": 24,
+        "sameChars": 24,
+        "migrated": 0
+      },
+      "C": {
+        "cases": 12,
+        "sameChars": 12,
+        "migrated": 0
+      },
+      "E": {
+        "cases": 8,
+        "sameChars": 8,
+        "migrated": 0
+      },
+      "S": {
+        "cases": 2,
+        "sameChars": 2,
+        "migrated": 0
+      },
+      "X": {
+        "cases": 1,
+        "sameChars": 1,
+        "migrated": 0
+      }
+    }
+  },
+  "failures": []
+}

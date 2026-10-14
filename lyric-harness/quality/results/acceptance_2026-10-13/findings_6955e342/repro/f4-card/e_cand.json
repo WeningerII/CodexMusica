@@ -1,0 +1,68 @@
+{
+ "tree": "cand",
+ "crossEvict": {
+  "truthA": 40,
+  "afterA": {
+   "items": 40,
+   "more": 0
+  },
+  "truthB": 12,
+  "afterB": {
+   "items": 51,
+   "more": 1,
+   "title": "52 saved word numbers renumbered to the current word cut",
+   "listedA": 40,
+   "listedB": 12,
+   "tail": "→ 7; a rhyme link on “qba”, line 1: word 7 → 8; a rhyme link on “qbb”, line 2: word 7 → 8; and 1 earlier one no longer listed. Nothing else about them changed. Dismiss this when you have checked them."
+  }
+ },
+ "adapted": {
+  "migrating": {
+   "adapted": true,
+   "label": " Wc migrating · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details",
+   "changed": true
+  },
+  "quiet": {
+   "adapted": false,
+   "label": " Wc quiet · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details",
+   "changed": false
+  }
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "cand.e.crossEvict",
+   "claim": "A then B beyond the bound: entries of A beyond the room are counted, not silently lost",
+   "expected": "title = A+B; items + hidden = A+B (listedA/listedB are ambiguous for repeated words, informational)",
+   "observed": {
+    "title": "52 saved word numbers renumbered to the current word cut",
+    "more": 1,
+    "listedA": 40,
+    "listedB": 12
+   },
+   "status": "pass"
+  },
+  {
+   "id": "cand.e.adapted.migrating",
+   "claim": "a Library working copy (migrating) is not marked Adapted by the import alone",
+   "expected": "adapted false",
+   "observed": {
+    "adapted": true,
+    "label": " Wc migrating · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details",
+    "changed": true
+   },
+   "status": "fail"
+  },
+  {
+   "id": "cand.e.adapted.quiet",
+   "claim": "a Library working copy (quiet) is not marked Adapted by the import alone",
+   "expected": "adapted false",
+   "observed": {
+    "adapted": false,
+    "label": " Wc quiet · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details",
+    "changed": false
+   },
+   "status": "pass"
+  }
+ ]
+}

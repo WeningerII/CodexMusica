@@ -1,0 +1,122 @@
+{
+ "tree": "6955e342963a90bdf470741266cea0dd84f0a797",
+ "swap_at_slot_sig": "(text, slot, new_word, scheme=None, strip_parens=None, lex=None)",
+ "cases": [
+  {
+   "lexicon": "eng._lexicon() under v2 scope",
+   "text": "the night was zzqx",
+   "lex_scheme": "v2",
+   "resolve_default": {
+    "n_anchors": 0,
+    "label": "zzqx",
+    "unread": [
+     "zzqx"
+    ]
+   },
+   "line_anchors": {
+    "n": 0
+   },
+   "swap_at_slot_lex": "the night was zqx",
+   "swap_at_slot_lex_scheme_v2": "the night was zqx",
+   "swap_at_slot_nolex": "the night was zqx",
+   "swap_end_word_lex": "the night was zqx",
+   "_end_occurrence_bound": true
+  },
+  {
+   "lexicon": "eng._lexicon() under v2 scope",
+   "text": "I sing of 45",
+   "lex_scheme": "v2",
+   "resolve_default": {
+    "n_anchors": 0,
+    "label": "45",
+    "unread": [
+     "45"
+    ]
+   },
+   "line_anchors": {
+    "n": 0
+   },
+   "swap_at_slot_lex": "I sing of zqx",
+   "swap_at_slot_lex_scheme_v2": "I sing of zqx",
+   "swap_at_slot_nolex": "I sing of zqx",
+   "swap_end_word_lex": "I sing of zqx",
+   "_end_occurrence_bound": true
+  },
+  {
+   "lexicon": "eng._lexicon() under v2 scope",
+   "text": "the night was long",
+   "lex_scheme": "v2",
+   "resolve_default": {
+    "n_anchors": 2,
+    "label": "long",
+    "unread": []
+   },
+   "line_anchors": {
+    "n": 2
+   },
+   "swap_at_slot_lex": "the night was zqx",
+   "swap_at_slot_lex_scheme_v2": "the night was zqx",
+   "swap_at_slot_nolex": "the night was zqx",
+   "swap_end_word_lex": "the night was zqx",
+   "_end_occurrence_bound": true
+  },
+  {
+   "lexicon": "Lexicon(reader_scheme='v2')",
+   "text": "the night was zzqx",
+   "lex_scheme": "v2",
+   "resolve_default": {
+    "n_anchors": 0,
+    "label": "zzqx",
+    "unread": [
+     "zzqx"
+    ]
+   },
+   "line_anchors": {
+    "n": 0
+   },
+   "swap_at_slot_lex": "the night was zqx",
+   "swap_at_slot_lex_scheme_v2": "the night was zqx",
+   "swap_at_slot_nolex": "the night was zqx",
+   "swap_end_word_lex": "the night was zqx",
+   "_end_occurrence_bound": true
+  },
+  {
+   "lexicon": "Lexicon(reader_scheme='v2')",
+   "text": "I sing of 45",
+   "lex_scheme": "v2",
+   "resolve_default": {
+    "n_anchors": 0,
+    "label": "45",
+    "unread": [
+     "45"
+    ]
+   },
+   "line_anchors": {
+    "n": 0
+   },
+   "swap_at_slot_lex": "I sing of zqx",
+   "swap_at_slot_lex_scheme_v2": "I sing of zqx",
+   "swap_at_slot_nolex": "I sing of zqx",
+   "swap_end_word_lex": "I sing of zqx",
+   "_end_occurrence_bound": true
+  },
+  {
+   "lexicon": "Lexicon(reader_scheme='v2')",
+   "text": "the night was long",
+   "lex_scheme": "v2",
+   "resolve_default": {
+    "n_anchors": 2,
+    "label": "long",
+    "unread": []
+   },
+   "line_anchors": {
+    "n": 2
+   },
+   "swap_at_slot_lex": "the night was zqx",
+   "swap_at_slot_lex_scheme_v2": "the night was zqx",
+   "swap_at_slot_nolex": "the night was zqx",
+   "swap_end_word_lex": "the night was zqx",
+   "_end_occurrence_bound": true
+  }
+ ]
+}

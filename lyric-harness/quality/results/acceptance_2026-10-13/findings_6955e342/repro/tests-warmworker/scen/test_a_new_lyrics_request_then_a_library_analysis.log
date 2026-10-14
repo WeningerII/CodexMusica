@@ -1,0 +1,9 @@
+test_a_new_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorkerBody.test_a_new_lyrics_request_then_a_library_analysis) ... WARM_WORKER_PEAK_RSS {"scenario": "test_a_new_lyrics_request_then_a_library_analysis", "peak_rss_bytes": 484007936, "guard_envelope_bytes": 1073741824, "guard_calls": 1692, "library_analyses": 1, "python": "CPython 3.11.17"}
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 12.520s
+
+OK
+PROBE test_a_new_lyrics_request_then_a_library_analysis ok 1
+exit=0

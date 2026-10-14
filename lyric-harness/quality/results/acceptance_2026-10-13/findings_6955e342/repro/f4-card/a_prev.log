@@ -1,0 +1,82 @@
+TRUTH [
+ {
+  "kind": "reading",
+  "word": "oh",
+  "n": [
+   1,
+   3
+  ],
+  "line": "Oh--oh, oh my love",
+  "from": 2,
+  "to": 3
+ },
+ {
+  "kind": "reading",
+  "word": "heart",
+  "n": [
+   5
+  ],
+  "line": "Ah--ah, ah my heart and soul",
+  "from": 4,
+  "to": 5
+ },
+ {
+  "kind": "reading",
+  "word": "lost",
+  "n": [],
+  "line": "Oh--oh, oh my lost line",
+  "from": 4,
+  "to": 5
+ },
+ {
+  "kind": "rhyme groups",
+  "word": "love",
+  "line": 1,
+  "n": [
+   1
+  ],
+  "from": 4,
+  "to": 5,
+  "lineText": "Oh--oh, oh my love"
+ },
+ {
+  "kind": "rhyme groups",
+  "word": "soul",
+  "line": 5,
+  "n": [
+   5
+  ],
+  "from": 6,
+  "to": 7,
+  "lineText": "Ah--ah, ah my heart and soul"
+ },
+ {
+  "kind": "returns",
+  "word": "my",
+  "line": 1,
+  "n": [
+   1
+  ],
+  "from": 3,
+  "to": 4,
+  "lineText": "Oh--oh, oh my love"
+ },
+ {
+  "kind": "returns",
+  "word": "my",
+  "line": 3,
+  "n": [
+   3
+  ],
+  "from": 3,
+  "to": 4,
+  "lineText": "Oh--oh, oh my love"
+ }
+]
+CARD null
+META null
+[FAIL] prev.a.txt.every: .txt import: the card lists every renumbered entry with old -> new, word, line
+    expected: 7 entries, each in meta, item text and pane
+    observed: [{"kind":"reading","word":"oh","from":2,"to":3,"n":[1,3],"line":"Oh--oh, oh my love","inMeta":false,"inItemText":false,"inPane":false},{"kind":"reading","word":"heart","from":4,"to":5,"n":[5],"line":"Ah--ah, ah my heart and soul","inMeta":false,"inItemText":false,"inPane":false},{"kind":"reading","word":"lost","from":4,"to":5,"n":[],"line":"Oh--oh, oh my lost line","inMeta":false,"inItemText":false,"inPane":false},{"kind":"rhyme groups","word":"love","from":4,"to":5,"n":[1],"line":1,"inMeta":false,"inItemText":false,"inPane":false},{"kind":"rhyme groups","word":"soul","from":6,"to":7,"n":[5],"line":5,"inMeta":false,"inItemText":false,"inPane":false},{"kind":"returns","word":"my","from":3,"to":4,"n":[1],"line":1,"inMeta":false,"inItemText":false,"inPane":false},{"kind":"returns","word":"my","from":3,"to":4,"n":[3],"line":3,"inMeta":false,"inItemText":false,"inPane":false}]
+ERROR TypeError: Cannot read properties of null (reading 'text')
+    at /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card/a_paths.js:90:43

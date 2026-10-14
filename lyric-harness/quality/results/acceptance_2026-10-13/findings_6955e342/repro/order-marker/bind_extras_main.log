@@ -1,0 +1,14 @@
+X1_appUndo                               4 Run review       1.T4,8; 2,3|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X2_appUndoRedo                           5 Run review       1.T4,8|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X3_nativeUndo                            4 Run review       1.T4,8|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X4_wordRules                             3 Run review       1.T4,8; 2,3|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X5_relationOnly                          3 Run review       1.T4,8; 2,3|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X6_markedTyped_O1                        3 Run review       1.T4,8|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X6_markedTyped_O2                        2 Run review       MANDATE REFUSED: NoMandate: a mandate group must be an iterable of line numbers, each optionally naming a place in its line; got ['2', '3 — cut v2'] (invalid literal for int() w
+X6_markedTyped_O2                        4 Run review       1.T4,8|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X7_verdict_O1                            3 Run review       |1.T4,8.T2;2.head,6.head  returns 1.T4 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=clean
+X7_verdict_O2                            2 Run review       |1.T4,8.T2  returns 1.T4 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=clean
+X7_verdict_O2                            4 Run review       |1.T4,8.T2;2.head,6.head  returns 1.T4 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=clean
+X8_reviewCard_O1                         3 Run review       1.T4,8|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X8_reviewCard_O2                         2 Run review       1.T4,8; 2,3|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)
+X8_reviewCard_O2                         4 Run review       1.T4,8|  groups 1.T4 -> 'love' raw[[[14, 18]]]='love' (T4)

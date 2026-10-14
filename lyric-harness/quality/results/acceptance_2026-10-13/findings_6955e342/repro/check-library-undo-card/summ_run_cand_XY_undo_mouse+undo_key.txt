@@ -1,0 +1,109 @@
+
+# cand XY undo_mouse
+- 1 after .txt import A (Review tab open)
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=fire@L1,wire@L2
+    review: a rhyme link on “fire”, line 1: word 4 → 5; a rhyme link on “wire”, line 2: word 4 → 5
+    LS: Song X id= card=fire@L1,wire@L2 | SS: Song X card=fire@L1,wire@L2
+    IDB: -
+    hist: (empty) > *Song X
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “fire” word 4 → 5, “wire” word 4 → 5. Review lists each one until you dismiss it."]
+- 2a after Library import B (passive)
+    draft=Song Y rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:d6b498f9 ui.renumbered=rain@L1,pain@L2
+    review: (review panel hidden)
+    LS: Song Y id=draft:d6b498f9 card=rain@L1,pain@L2 | SS: Song Y card=rain@L1,pain@L2
+    IDB: draft:b2841620=Song X savedAt=1791971868058 card=fire@L1,wire@L2 ; draft:d6b498f9=Song Y savedAt=1791971868399 card=rain@L1,pain@L2
+    hist: (empty) > Song X > Song X@b2841620 > *Song Y@d6b498f9[ad=false]
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “rain” word 4 → 5, “pain” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 2b after Library import B, Review tab clicked
+    draft=Song Y rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:d6b498f9 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song Y id=draft:d6b498f9 card=rain@L1,pain@L2 | SS: Song Y card=rain@L1,pain@L2
+    IDB: draft:b2841620=Song X savedAt=1791971868058 card=fire@L1,wire@L2 ; draft:d6b498f9=Song Y savedAt=1791971869989 card=rain@L1,pain@L2
+    hist: (empty) > Song X > Song X@b2841620 > *Song Y@d6b498f9[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3a APP Undo: #btn-undo, mouse click +60ms
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:b2841620 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song X id=draft:b2841620 card=rain@L1,pain@L2 | SS: Song X card=rain@L1,pain@L2
+    IDB: draft:b2841620=Song X savedAt=1791971868058 card=fire@L1,wire@L2 ; draft:d6b498f9=Song Y savedAt=1791971869989 card=rain@L1,pain@L2
+    hist: (empty) > Song X > *Song X@b2841620 > Song Y@d6b498f9[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3b APP Undo: #btn-undo, mouse click +700ms
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:b2841620 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song X id=draft:b2841620 card=rain@L1,pain@L2 | SS: Song X card=rain@L1,pain@L2
+    IDB: draft:b2841620=Song X savedAt=1791971870959 card=rain@L1,pain@L2 ; draft:d6b498f9=Song Y savedAt=1791971869989 card=rain@L1,pain@L2
+    hist: (empty) > Song X > *Song X@b2841620 > Song Y@d6b498f9[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3c APP Undo: #btn-undo, mouse click +3s
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:b2841620 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song X id=draft:b2841620 card=rain@L1,pain@L2 | SS: Song X card=rain@L1,pain@L2
+    IDB: draft:b2841620=Song X savedAt=1791971870959 card=rain@L1,pain@L2 ; draft:d6b498f9=Song Y savedAt=1791971869989 card=rain@L1,pain@L2
+    hist: (empty) > Song X > *Song X@b2841620 > Song Y@d6b498f9[ad=false]
+- 4 after reload, Review tab clicked
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:b2841620 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song X id=draft:b2841620 card=rain@L1,pain@L2 | SS: Song X card=rain@L1,pain@L2
+    IDB: draft:b2841620=Song X savedAt=1791971876810 card=rain@L1,pain@L2 ; draft:d6b498f9=Song Y savedAt=1791971869989 card=rain@L1,pain@L2
+    hist: *Song X@b2841620
+- 5 History tab: Open draft B (true), Review tab clicked
+    draft=Song Y rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:d6b498f9 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song Y id=draft:d6b498f9 card=rain@L1,pain@L2 | SS: Song Y card=rain@L1,pain@L2
+    IDB: draft:b2841620=Song X savedAt=1791971877349 card=rain@L1,pain@L2 ; draft:d6b498f9=Song Y savedAt=1791971879543 card=rain@L1,pain@L2
+    hist: Song X@b2841620 > *Song Y@d6b498f9[ad=true]
+    toasts: ["Saved draft restored. No writing request was sent."]
+- 6 History tab: Open draft A (true), Review tab clicked
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:b2841620 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song X id=draft:b2841620 card=rain@L1,pain@L2 | SS: Song X card=rain@L1,pain@L2
+    IDB: draft:b2841620=Song X savedAt=1791971882320 card=rain@L1,pain@L2 ; draft:d6b498f9=Song Y savedAt=1791971880065 card=rain@L1,pain@L2
+    hist: Song X@b2841620 > Song Y@d6b498f9[ad=true] > *Song X@b2841620
+    toasts: ["Saved draft restored. No writing request was sent."]
+  search s4: {"fire":[],"wire":[],"rain":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7","idb:codex-musica-library-drafts/drafts/draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7"],"pain":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7","idb:codex-musica-library-drafts/drafts/draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7"]}
+  search s6: {"fire":[],"wire":[],"rain":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7","idb:codex-musica-library-drafts/drafts/draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7"],"pain":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:b2841620-d6f8-463c-bc69-c0c2a101d2f7","idb:codex-musica-library-drafts/drafts/draft:d6b498f9-3faa-4659-abaa-c8b4df689ef7"]}
+
+# cand XY undo_key
+- 1 after .txt import A
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null ui.renumbered=fire@L1,wire@L2
+    review: a rhyme link on “fire”, line 1: word 4 → 5; a rhyme link on “wire”, line 2: word 4 → 5
+    LS: Song X id= card=fire@L1,wire@L2 | SS: Song X card=fire@L1,wire@L2
+    IDB: -
+    hist: (empty) > *Song X
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “fire” word 4 → 5, “wire” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 after Library import B
+    draft=Song Y rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:759c868e ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song Y id=draft:759c868e card=rain@L1,pain@L2 | SS: Song Y card=rain@L1,pain@L2
+    IDB: draft:759c868e=Song Y savedAt=1791971888370 card=rain@L1,pain@L2 ; draft:c5457515=Song X savedAt=1791971886496 card=fire@L1,wire@L2
+    hist: (empty) > Song X > Song X@c5457515 > *Song Y@759c868e[ad=false]
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “rain” word 4 → 5, “pain” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 3 APP Undo: Ctrl+Z, activeElement=BODY +3s
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:c5457515 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song X id=draft:c5457515 card=rain@L1,pain@L2 | SS: Song X card=rain@L1,pain@L2
+    IDB: draft:759c868e=Song Y savedAt=1791971888370 card=rain@L1,pain@L2 ; draft:c5457515=Song X savedAt=1791971888889 card=rain@L1,pain@L2
+    hist: (empty) > Song X > *Song X@c5457515 > Song Y@759c868e[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 4 APP Redo: Ctrl+Shift+Z, activeElement=BODY +3s
+    draft=Song Y rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:759c868e ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song Y id=draft:759c868e card=rain@L1,pain@L2 | SS: Song Y card=rain@L1,pain@L2
+    IDB: draft:759c868e=Song Y savedAt=1791971891974 card=rain@L1,pain@L2 ; draft:c5457515=Song X savedAt=1791971888889 card=rain@L1,pain@L2
+    hist: (empty) > Song X > Song X@c5457515 > *Song Y@759c868e[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 5 APP Undo: Ctrl+Z, activeElement=BODY again +3s
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:c5457515 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song X id=draft:c5457515 card=rain@L1,pain@L2 | SS: Song X card=rain@L1,pain@L2
+    IDB: draft:759c868e=Song Y savedAt=1791971891974 card=rain@L1,pain@L2 ; draft:c5457515=Song X savedAt=1791971894973 card=rain@L1,pain@L2
+    hist: (empty) > Song X > *Song X@c5457515 > Song Y@759c868e[ad=false]
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 6 after reload
+    draft=Song X rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:c5457515 ui.renumbered=rain@L1,pain@L2
+    review: a declared return on “rain”, line 1: word 4 → 5; a declared return on “pain”, line 2: word 4 → 5
+    LS: Song X id=draft:c5457515 card=rain@L1,pain@L2 | SS: Song X card=rain@L1,pain@L2
+    IDB: draft:759c868e=Song Y savedAt=1791971891974 card=rain@L1,pain@L2 ; draft:c5457515=Song X savedAt=1791971901105 card=rain@L1,pain@L2
+    hist: *Song X@c5457515
+  search s6: {"fire":[],"wire":[],"rain":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8","idb:codex-musica-library-drafts/drafts/draft:c5457515-3fc5-4c14-afd0-6298c9771257"],"pain":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:759c868e-c013-4689-8ba1-e06c1d8ce9d8","idb:codex-musica-library-drafts/drafts/draft:c5457515-3fc5-4c14-afd0-6298c9771257"]}

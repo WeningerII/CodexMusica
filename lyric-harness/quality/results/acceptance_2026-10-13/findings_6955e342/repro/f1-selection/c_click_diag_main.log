@@ -1,0 +1,10 @@
+[main] unmarked: final sel [63,63,"forward"] focused=false migrated=false
+    {"what":"poll","t":758,"sel":[170,170],"focused":false,"visible":true,"len":170}
+    {"what":"set","t":1067,"sel":[63,63],"focused":true,"visible":true,"len":170}
+    {"what":"poll","t":1072,"sel":[63,63],"focused":true,"visible":true,"len":170}
+    {"what":"blur","t":1275,"sel":[63,63],"focused":false,"visible":true,"len":170}
+[main] marked: final sel [72,72,"forward"] focused=false migrated=false
+    {"what":"poll","t":743,"sel":[179,179],"focused":false,"visible":true,"len":179}
+    {"what":"set","t":1051,"sel":[72,72],"focused":true,"visible":true,"len":179}
+    {"what":"poll","t":1055,"sel":[72,72],"focused":true,"visible":true,"len":179}
+    {"what":"blur","t":1246,"sel":[72,72],"focused":false,"visible":true,"len":179}

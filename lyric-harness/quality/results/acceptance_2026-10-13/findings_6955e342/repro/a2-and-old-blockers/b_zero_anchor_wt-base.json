@@ -1,0 +1,50 @@
+{
+ "tree": "fce4bf0f1b4b274d1c44c67831a6e40b22a8802c",
+ "swap_at_slot_sig": "(text, slot, new_word)",
+ "cases": [
+  {
+   "lexicon": "Lexicon()",
+   "text": "the night was zzqx",
+   "lex_scheme": null,
+   "resolve_default": {
+    "n_anchors": 0,
+    "label": "zzqx",
+    "unread": [
+     "zzqx"
+    ]
+   },
+   "line_anchors": {
+    "n": 0
+   },
+   "swap_at_slot_nolex": "the night was zqx"
+  },
+  {
+   "lexicon": "Lexicon()",
+   "text": "I sing of 45",
+   "lex_scheme": null,
+   "resolve_default": {
+    "n_anchors": 3,
+    "label": "of",
+    "unread": []
+   },
+   "line_anchors": {
+    "n": 3
+   },
+   "swap_at_slot_nolex": "I sing zqx 45"
+  },
+  {
+   "lexicon": "Lexicon()",
+   "text": "the night was long",
+   "lex_scheme": null,
+   "resolve_default": {
+    "n_anchors": 2,
+    "label": "long",
+    "unread": []
+   },
+   "line_anchors": {
+    "n": 2
+   },
+   "swap_at_slot_nolex": "the night was zqx"
+  }
+ ]
+}

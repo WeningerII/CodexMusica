@@ -1,0 +1,61 @@
+tree  scenario                   O1 final (member -> word @span)              O2 final                                     same
+cand  RG2.add.dock.paste         1.T2 -> 'oh' @[[4, 6]]                       1.T3 -> 'oh' @[[8, 10]]                      False
+cand  RG2.add.review.paste       1.T2 -> 'oh' @[[4, 6]]                       1.T3 -> 'oh' @[[8, 10]]                      False
+cand  RG2.remove.dock.paste      1.T2 -> 'oh' @[[4, 6]]                       1.T3 -> 'oh' @[[8, 10]]                      False
+cand  RG2.remove.review.paste    1.T2 -> 'oh' @[[4, 6]]                       1.T3 -> 'oh' @[[8, 10]]                      False
+cand  RG4.add.dock.paste         1.T4 -> 'my' @[[11, 13]]                     1.T5 -> 'love' @[[14, 18]]                   False
+cand  RG4.add.dock.type          1.T4 -> 'my' @[[11, 13]]                     1.T5 -> 'love' @[[14, 18]]                   False
+cand  RG4.add.review.paste       1.T4 -> 'my' @[[11, 13]]                     1.T5 -> 'love' @[[14, 18]]                   False
+cand  RG4.add.review.type        1.T4 -> 'my' @[[11, 13]]                     1.T5 -> 'love' @[[14, 18]]                   False
+cand  RG4.remove.dock.paste      1.T4 -> 'my' @[[11, 13]]                     1.T5 -> 'love' @[[14, 18]]                   False
+cand  RG4.remove.dock.type       1.T4 -> 'my' @[[11, 13]]                     1.T5 -> 'love' @[[14, 18]]                   False
+cand  RG4.remove.review.paste    1.T4 -> 'my' @[[11, 13]]                     1.T5 -> 'love' @[[14, 18]]                   False
+cand  RG4.remove.review.type     1.T4 -> 'my' @[[11, 13]]                     1.T5 -> 'love' @[[14, 18]]                   False
+cand  RT4.declare.dock.paste     1.T4 -> 'my' @[[11, 13]] [NOT_RETURNED_AT]   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] False
+cand  RT4.declare.dock.type      1.T4 -> 'my' @[[11, 13]] [NOT_RETURNED_AT]   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] False
+cand  RT4.declare.review.paste   1.T4 -> 'my' @[[11, 13]] [NOT_RETURNED_AT]   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] False
+cand  RT4.declare.review.type    1.T4 -> 'my' @[[11, 13]] [NOT_RETURNED_AT]   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] False
+cand  RT4.placed.dock.paste      1.T4 -> 'my' @[[11, 13]] [NOT_RETURNED_AT]   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] False
+cand  RT4.placed.dock.type       1.T4 -> 'my' @[[11, 13]] [NOT_RETURNED_AT]   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] False
+cand  RT4.placed.review.paste    1.T4 -> 'my' @[[11, 13]] [NOT_RETURNED_AT]   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] False
+cand  RT4.placed.review.type     1.T4 -> 'my' @[[11, 13]] [NOT_RETURNED_AT]   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] False
+c61b  RG2.add.dock.paste         1.T3 -> 'oh' @[[8, 10]]                      1.T3 -> 'oh' @[[8, 10]]                      True
+c61b  RG2.add.review.paste       1.T3 -> 'oh' @[[8, 10]]                      1.T3 -> 'oh' @[[8, 10]]                      True
+c61b  RG2.remove.dock.paste      1.T3 -> 'oh' @[[8, 10]]                      1.T3 -> 'oh' @[[8, 10]]                      True
+c61b  RG2.remove.review.paste    1.T3 -> 'oh' @[[8, 10]]                      1.T3 -> 'oh' @[[8, 10]]                      True
+c61b  RG4.add.dock.paste         1.T5 -> 'love' @[[14, 18]]                   1.T5 -> 'love' @[[14, 18]]                   True
+c61b  RG4.add.dock.type          1.T5 -> 'love' @[[14, 18]]                   1.T5 -> 'love' @[[14, 18]]                   True
+c61b  RG4.add.review.paste       1.T5 -> 'love' @[[14, 18]]                   1.T5 -> 'love' @[[14, 18]]                   True
+c61b  RG4.add.review.type        1.T5 -> 'love' @[[14, 18]]                   1.T5 -> 'love' @[[14, 18]]                   True
+c61b  RG4.remove.dock.paste      1.T5 -> 'love' @[[14, 18]]                   1.T5 -> 'love' @[[14, 18]]                   True
+c61b  RG4.remove.dock.type       1.T5 -> 'love' @[[14, 18]]                   1.T5 -> 'love' @[[14, 18]]                   True
+c61b  RG4.remove.review.paste    1.T5 -> 'love' @[[14, 18]]                   1.T5 -> 'love' @[[14, 18]]                   True
+c61b  RG4.remove.review.type     1.T5 -> 'love' @[[14, 18]]                   1.T5 -> 'love' @[[14, 18]]                   True
+c61b  RT4.declare.dock.paste     1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+c61b  RT4.declare.dock.type      1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+c61b  RT4.declare.review.paste   1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+c61b  RT4.declare.review.type    1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+c61b  RT4.placed.dock.paste      1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+c61b  RT4.placed.dock.type       1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+c61b  RT4.placed.review.paste    1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+c61b  RT4.placed.review.type     1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T5 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+main  RG2.add.dock.paste         1.T2 -> 'oh' @[[8, 10]]                      1.T2 -> 'oh' @[[8, 10]]                      True
+main  RG2.add.review.paste       1.T2 -> 'oh' @[[8, 10]]                      1.T2 -> 'oh' @[[8, 10]]                      True
+main  RG2.remove.dock.paste      1.T2 -> 'oh' @[[8, 10]]                      1.T2 -> 'oh' @[[8, 10]]                      True
+main  RG2.remove.review.paste    1.T2 -> 'oh' @[[8, 10]]                      1.T2 -> 'oh' @[[8, 10]]                      True
+main  RG4.add.dock.paste         1.T4 -> 'love' @[[14, 18]]                   1.T4 -> 'love' @[[14, 18]]                   True
+main  RG4.add.dock.type          1.T4 -> 'love' @[[14, 18]]                   1.T4 -> 'love' @[[14, 18]]                   True
+main  RG4.add.review.paste       1.T4 -> 'love' @[[14, 18]]                   1.T4 -> 'love' @[[14, 18]]                   True
+main  RG4.add.review.type        1.T4 -> 'love' @[[14, 18]]                   1.T4 -> 'love' @[[14, 18]]                   True
+main  RG4.remove.dock.paste      1.T4 -> 'love' @[[14, 18]]                   1.T4 -> 'love' @[[14, 18]]                   True
+main  RG4.remove.dock.type       1.T4 -> 'love' @[[14, 18]]                   1.T4 -> 'love' @[[14, 18]]                   True
+main  RG4.remove.review.paste    1.T4 -> 'love' @[[14, 18]]                   1.T4 -> 'love' @[[14, 18]]                   True
+main  RG4.remove.review.type     1.T4 -> 'love' @[[14, 18]]                   1.T4 -> 'love' @[[14, 18]]                   True
+main  RT4.declare.dock.paste     1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+main  RT4.declare.dock.type      1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+main  RT4.declare.review.paste   1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+main  RT4.declare.review.type    1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+main  RT4.placed.dock.paste      1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+main  RT4.placed.dock.type       1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+main  RT4.placed.review.paste    1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True
+main  RT4.placed.review.type     1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] 1.T4 -> 'love' @[[14, 18]] [NOT_RETURNED_AT] True

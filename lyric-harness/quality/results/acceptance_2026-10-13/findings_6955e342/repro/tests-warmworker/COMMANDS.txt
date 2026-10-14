@@ -1,0 +1,43 @@
+# tests-warmworker (BB8 acceptance of R2 head 6955e342 / code 643e292e)
+# W=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; O=$W/h695/tests-warmworker
+# node: v22.22.0 ; python: $W/venv311/bin/python (CPython 3.11.17) ; PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers (env default)
+## 0. tree identity
+for t in wt-695 wt-61b wt-678 wt-main wt-base; do echo "$t: $(git -C $W/$t rev-parse HEAD) dirty=$(git -C $W/$t status --porcelain | wc -l)"; done
+## (b) four test_reader classes at wt-695, one process, venv311 (time via bash SECONDS)
+cd $W/wt-695/lyric-harness && S0=$SECONDS && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $W/venv311/bin/python -m unittest -v quality.test_reader.NamedPlaceLookup quality.test_reader.WarmWorker quality.test_reader.SlotBinding quality.test_reader.LoopSwaps > $O/b_reader4_wt-695.log 2>&1; echo "exit=$? secs=$((SECONDS-S0))" >> $O/b_reader4_wt-695.log
+## (a0) own build of the candidate page, compare with tracked codex.html (library/code chunks land beside --out)
+mkdir -p $O/build-wt-695 && cd $W/wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build-wt-695/codex.html --quiet > $O/build_wt-695.log 2>&1; echo exit=$? >> $O/build_wt-695.log
+cmp $W/wt-695/codex.html $O/build-wt-695/codex.html && echo SAME ; diff -r $W/wt-695/library/code $O/build-wt-695/library/code
+## (a1) author page test at wt-695 (serves the tree's tracked codex.html, verified SAME as own build)
+cd $W/wt-695 && S0=$SECONDS && node scripts/check_lyrics_page.js > $O/a_lyrics_page_wt-695.log 2>&1; echo "exit=$? secs=$((SECONDS-S0))" >> $O/a_lyrics_page_wt-695.log
+## (a1b) unit-only counts, both trees; full run at wt-61b (its tracked codex.html; own build compared first)
+for t in wt-695 wt-61b; do (cd $W/$t && node scripts/check_lyrics_page.js --unit-only > $O/a_lyrics_unit_$t.log 2>&1; echo exit=$? >> $O/a_lyrics_unit_$t.log); done
+mkdir -p $O/build-wt-61b && cd $W/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build-wt-61b/codex.html --quiet > $O/build_wt-61b.log 2>&1; cmp $W/wt-61b/codex.html $O/build-wt-61b/codex.html && echo SAME
+cd $W/wt-61b && S0=$SECONDS && node scripts/check_lyrics_page.js > $O/a_lyrics_page_wt-61b.log 2>&1; echo "exit=$? secs=$((SECONDS-S0))" >> $O/a_lyrics_page_wt-61b.log
+## (a2) Library regression (committed mode, as CI) at wt-695, wt-61b, wt-main
+for t in wt-695 wt-61b wt-main; do (cd $W/$t && node scripts/check_library_regression.js > $O/a_lib_regression_$t.log 2>&1; echo exit=$? >> $O/a_lib_regression_$t.log); done
+## (a3) Library page check at wt-695 against own build (identical to the script's own build(); default TMPDIR for Chromium profile: a TMPDIR under scratch crashes Chromium, see findings_67889851 library-tests)
+cd $W/wt-695 && S0=$SECONDS && node scripts/check_library_page.js --built=$O/build-wt-695 > $O/a_lib_page_wt-695.log 2>&1; echo "exit=$? secs=$((SECONDS-S0))" >> $O/a_lib_page_wt-695.log
+## (a3b) control: Library page check at wt-61b against own build (deleted after)
+mkdir -p $O/build-wt-61b && cd $W/wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build-wt-61b/codex.html --quiet > $O/build_wt-61b.log 2>&1; cmp $W/wt-61b/codex.html $O/build-wt-61b/codex.html && echo SAME
+cd $W/wt-61b && S0=$SECONDS && node scripts/check_library_page.js --built=$O/build-wt-61b > $O/a_lib_page_wt-61b.log 2>&1; echo "exit=$? secs=$((SECONDS-S0))" >> $O/a_lib_page_wt-61b.log
+diff <(grep '^ok' $O/a_lib_page_wt-61b.log | sort) <(grep '^ok' $O/a_lib_page_wt-695.log | sort)
+## (b2) instrumented WarmWorkerBody scenarios (own probe wraps the body's helpers; reads caches of already-imported modules only)
+mkdir -p $O/scen; for s in test_a_legacy_lyrics_request_then_a_library_analysis test_a_new_lyrics_request_then_a_legacy_one test_a_new_lyrics_request_then_a_library_analysis test_cold_a_legacy_lyrics_request_then_a_new_one test_cold_a_library_analysis_then_a_new_lyrics_request test_cold_a_library_analysis_then_a_legacy_lyrics_request; do (cd $W/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $W/venv311/bin/python $O/probe_scenarios.py $s $O/scen/$s.json > $O/scen/$s.log 2>&1; echo exit=$? >> $O/scen/$s.log); done
+## (b3) cache-cardinality probe (fresh process) at wt-695
+cd $W/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $W/venv311/bin/python $O/probe_cardinality.py $O/cardinality_wt-695.json > $O/cardinality_wt-695.log 2>&1; echo exit=$? >> $O/cardinality_wt-695.log
+## (b4) control: WarmWorker class at wt-61b (old 3 scenarios, _caches_agree between requests), venv311
+cd $W/wt-61b/lyric-harness && S0=$SECONDS && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $W/venv311/bin/python -m unittest -v quality.test_reader.WarmWorker > $O/b_warmworker_wt-61b.log 2>&1; echo "exit=$? secs=$((SECONDS-S0))" >> $O/b_warmworker_wt-61b.log
+## (b5) in-memory mutants of the WarmWorker body at wt-695 (no tracked edit)
+for m in agree_between none; do for s in test_cold_a_legacy_lyrics_request_then_a_new_one test_a_new_lyrics_request_then_a_legacy_one test_cold_a_library_analysis_then_a_legacy_lyrics_request; do (cd $W/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $W/venv311/bin/python $O/probe_mutants.py $m $s > $O/mut/${m}__$s.log 2>&1; echo exit=$? >> $O/mut/${m}__$s.log); done; done
+## (b6) real requests through one warm worker varying global coordinates (wt-695); scratch dirs under $O/tmp
+mkdir -p $O/tmp; cd $W/wt-695/lyric-harness && PROBE_TMP=$O/tmp LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $W/venv311/bin/python $O/probe_requests.py $O/requests_wt-695.json > $O/requests_wt-695.log 2>&1; echo exit=$? >> $O/requests_wt-695.log
+## (b6c) control: same real-request probe at wt-61b (cache code and worker identical to wt-695: git diff 61b6618a 643e292e6 on fit.py eng.py lexicon_supplement.py meter_bands.py lyric_harness.py mcp/worker.py is empty)
+cd $W/wt-61b/lyric-harness && PROBE_TMP=$O/tmp LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $W/venv311/bin/python $O/probe_requests.py $O/requests_wt-61b.json > $O/requests_wt-61b.log 2>&1; echo exit=$? >> $O/requests_wt-61b.log
+## AST compare (docstrings stripped) of slots.py/loop.py 61b6618a vs 643e292e6
+for f in slots loop; do git -C $W/wt-695 show 61b6618a:lyric-harness/quality/$f.py > $O/tmp/$f.61b.py; $W/venv311/bin/python -I $O/ast_nodoc.py $O/tmp/$f.61b.py $W/wt-695/lyric-harness/quality/$f.py $f; done
+## (c) test_revise, four shards as CI's revision-loop job (TEST_REVISE_SHARD=k/4, one math thread), run in parallel at nice 19 at wt-695; TMPDIR in own folder
+for k in 1 2 3 4; do (cd $W/wt-695/lyric-harness && S0=$SECONDS && TMPDIR=$O/tmp/rev OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 TEST_REVISE_SHARD=$k/4 LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data nice -n 19 $W/venv311/bin/python -u quality/test_revise.py > $O/revise/shard$k.log 2>&1; echo "exit=$? secs=$((SECONDS-S0))" >> $O/revise/shard$k.log) & done; wait
+## (b7) parent-side wiring of the 1 GiB peak assertion (fake child results via in-memory subprocess.run patch) at wt-695 and wt-61b
+for t in wt-695 wt-61b; do (cd $W/$t/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $W/venv311/bin/python $O/probe_parent_guard.py > $O/parent_guard_$t.log 2>&1; echo exit=$? >> $O/parent_guard_$t.log); done
+## cleanup: rm -rf $O/build-wt-695 $O/tmp (built page, chunk copies, symlinks, scratch dirs); trees' git status unchanged (only pre-existing untracked node_modules links)

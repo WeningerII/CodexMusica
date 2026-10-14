@@ -1,0 +1,6 @@
+same40 pane has cut quoted words: [('“supercalifragilisticexpialidociousantidi”', 4)] | reload item same text: True
+  stored: [('reading', 40, [1], 4, 5), ('reading', 40, [2], 4, 5), ('returns', 40, [1], 4, 5), ('returns', 40, [2], 4, 5)]
+boundary pane has cut quoted words: [('“abcdefghijklmnopqrstuvwxyzabcdefghijklmn”', 2)] | reload item same text: True
+  stored: [('reading', 40, [1], 4, 5), ('reading', 40, [2], 4, 5)]
+natural pane has cut quoted words: [('“Rindfleischetikettierungsüberwachungsauf”', 1), ('“Donaudampfschifffahrtsgesellschaftskapit”', 1), ('“forget-me-not-and-never-ever-come-back-a”', 1)] | reload item same text: True
+  stored: [('reading', 40, [1], 4, 5), ('reading', 40, [2], 4, 5), ('reading', 40, [3], 4, 5)]

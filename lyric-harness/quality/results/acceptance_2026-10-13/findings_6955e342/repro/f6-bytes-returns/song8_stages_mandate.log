@@ -1,0 +1,702 @@
+[cand] W1 A/load:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 A/reload:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 A/keep:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 A/keep_reload:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 R/reorder1:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['8.end,2.end']
+    fce4bf0f: '8.end,2.end' -> [{"lines": [2, 8], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '8.end,2.end' -> [{"lines": [2, 8], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '8.end,2.end' -> [{"lines": [2, 8], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 R/reorder2:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 FP/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end;2.head,3.head']
+    fce4bf0f: '4.end,6.end;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 FR/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 FD/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end;1,5;2,6;3,7;4,8']
+    fce4bf0f: '4.end,6.end;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 X/import_exported_session:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 X/import_exported_txt:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 X/import_original_txt:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W1 X/import_original_session:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 A/load:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 A/reload:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 A/keep:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 A/keep_reload:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 R/reorder1:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['1.end,2.end;5.T5,4.T5']
+    fce4bf0f: '1.end,2.end;5.T5,4.T5' -> [{"lines": [1, 2], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 5], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,2.end;5.T5,4.T5' -> [{"lines": [1, 2], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 5], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,2.end;5.T5,4.T5' -> [{"lines": [1, 2], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 5], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 R/reorder2:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 FP/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5;2.head,3.head']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 FR/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 FD/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5;1,5;2,6;3,7;4,8']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 X/import_exported_session:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 X/import_exported_txt:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 X/import_original_txt:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W2 X/import_original_session:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T5,8.T5']
+    fce4bf0f: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 A/load:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 A/reload:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 A/keep:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 A/keep_reload:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 R/reorder1:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['5.end,2.head']
+    fce4bf0f: '5.end,2.head' -> [{"lines": [2, 5], "loci": ["head", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,2.head' -> [{"lines": [2, 5], "loci": ["head", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,2.head' -> [{"lines": [2, 5], "loci": ["head", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 R/reorder2:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 FP/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head;2.head,3.head']
+    fce4bf0f: '1.end,6.head;2.head,3.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head;2.head,3.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head;2.head,3.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 FR/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 FD/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head;1,5;2,6;3,7;4,8']
+    fce4bf0f: '1.end,6.head;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '1.end,6.head;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '1.end,6.head;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[cand] W3 X/import_exported_session:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 X/import_exported_txt:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 X/import_original_txt:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[cand] W3 X/import_original_session:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 A/load:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 A/reload:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 A/keep:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 A/keep_reload:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 R/reorder1:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['8,2']
+    fce4bf0f: '8,2' -> [{"lines": [2, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '8,2' -> [{"lines": [2, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '8,2' -> [{"lines": [2, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[main] W1 R/reorder2:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[main] W1 FP/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6;2.head,3.head']
+    fce4bf0f: '4,6;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[main] W1 FR/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 FD/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6;1,5;2,6;3,7;4,8']
+    fce4bf0f: '4,6;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 4, 6, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 4, 6, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 4, 6, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[main] W1 X/import_exported_session:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 X/import_exported_txt:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 X/import_original_txt:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W1 X/import_original_session:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4.end,6.end']
+    fce4bf0f: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '4.end,6.end' -> [{"lines": [4, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 A/load:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 A/reload:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 A/keep:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 A/keep_reload:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 R/reorder1:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['1,2;5.T4,4.T4']
+    fce4bf0f: '1,2;5.T4,4.T4' -> [{"lines": [1, 2], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 5], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1,2;5.T4,4.T4' -> [{"lines": [1, 2], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 5], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1,2;5.T4,4.T4' -> [{"lines": [1, 2], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 5], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 R/reorder2:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T4,8.T4']
+    fce4bf0f: '5,6;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[main] W2 FP/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T4,8.T4;2.head,3.head']
+    fce4bf0f: '5,6;1.T4,8.T4;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T4,8.T4;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T4,8.T4;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[main] W2 FR/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 FD/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T4,8.T4;1,5;2,6;3,7;4,8']
+    fce4bf0f: '5,6;1.T4,8.T4;1,5;2,6;3,7;4,8' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [1, 2, 5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T4,8.T4;1,5;2,6;3,7;4,8' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [1, 2, 5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T4,8.T4;1,5;2,6;3,7;4,8' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [1, 2, 5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[main] W2 X/import_exported_session:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 X/import_exported_txt:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 X/import_original_txt:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W2 X/import_original_session:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5.end,6.end;1.T4,8.T4']
+    fce4bf0f: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '5.end,6.end;1.T4,8.T4' -> [{"lines": [1, 8], "loci": ["T4", "T4"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": ["end", "end"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 A/load:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 A/reload:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 A/keep:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 A/keep_reload:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 R/reorder1:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['5,2.head']
+    fce4bf0f: '5,2.head' -> {"refused": "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '5,2.head' -> {"refused": "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '5,2.head' -> {"refused": "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[main] W3 R/reorder2:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[main] W3 FP/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head;2.head,3.head']
+    fce4bf0f: '1,6.head;2.head,3.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head;2.head,3.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head;2.head,3.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[main] W3 FR/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 FD/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head;1,5;2,6;3,7;4,8']
+    fce4bf0f: '1,6.head;1,5;2,6;3,7;4,8' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head;1,5;2,6;3,7;4,8' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head;1,5;2,6;3,7;4,8' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[main] W3 X/import_exported_session:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 X/import_exported_txt:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 X/import_original_txt:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[main] W3 X/import_original_session:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1.end,6.head']
+    fce4bf0f: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1.end,6.head' -> [{"lines": [1, 6], "loci": ["end", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[prev61b] W1 A/load:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 A/reload:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 A/keep:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 A/keep_reload:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 R/reorder1:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['8,2']
+    fce4bf0f: '8,2' -> [{"lines": [2, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '8,2' -> [{"lines": [2, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '8,2' -> [{"lines": [2, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 R/reorder2:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 FP/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6;2.head,3.head']
+    fce4bf0f: '4,6;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6;2.head,3.head' -> [{"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 FR/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 FD/form:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6;1,5;2,6;3,7;4,8']
+    fce4bf0f: '4,6;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 4, 6, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 4, 6, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6;1,5;2,6;3,7;4,8' -> [{"lines": [1, 5], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [2, 4, 6, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 X/import_exported_session:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 X/import_exported_txt:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 X/import_original_txt:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W1 X/import_original_session:send
+  written [SETUP — returns — 4.end,6.end]
+  sent    ['4,6']
+    fce4bf0f: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '4,6' -> [{"lines": [4, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 A/load:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 A/reload:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 A/keep:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 A/keep_reload:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 R/reorder1:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['1,2;5.T5,4.T5']
+    fce4bf0f: '1,2;5.T5,4.T5' -> [{"lines": [1, 2], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 5], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    6955e342: '1,2;5.T5,4.T5' -> [{"lines": [1, 2], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 5], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+    61b6618a: '1,2;5.T5,4.T5' -> [{"lines": [1, 2], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 5], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}]
+[prev61b] W2 R/reorder2:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 FP/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5;2.head,3.head']
+    fce4bf0f: '5,6;1.T5,8.T5;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5;2.head,3.head' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [2, 3], "loci": ["head", "head"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 FR/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 FD/form:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5;1,5;2,6;3,7;4,8']
+    fce4bf0f: '5,6;1.T5,8.T5;1,5;2,6;3,7;4,8' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [1, 2, 5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5;1,5;2,6;3,7;4,8' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [1, 2, 5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5;1,5;2,6;3,7;4,8' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [1, 2, 5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [3, 7], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}, {"lines": [4, 8], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 X/import_exported_session:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 X/import_exported_txt:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 X/import_original_txt:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W2 X/import_original_session:send
+  written [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+  sent    ['5,6;1.T5,8.T5']
+    fce4bf0f: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    6955e342: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+    61b6618a: '5,6;1.T5,8.T5' -> [{"lines": [1, 8], "loci": ["T5", "T5"], "kind": "placed", "verbatim": "True", "origin": "declared placed return class"}, {"lines": [5, 6], "loci": [], "kind": "whole_line", "verbatim": "True", "origin": "declared return class"}]
+[prev61b] W3 A/load:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 A/reload:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 A/keep:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 A/keep_reload:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 R/reorder1:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['5,2.head']
+    fce4bf0f: '5,2.head' -> {"refused": "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '5,2.head' -> {"refused": "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '5,2.head' -> {"refused": "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 R/reorder2:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 FP/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head;2.head,3.head']
+    fce4bf0f: '1,6.head;2.head,3.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head;2.head,3.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head;2.head,3.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 FR/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 FD/form:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head;1,5;2,6;3,7;4,8']
+    fce4bf0f: '1,6.head;1,5;2,6;3,7;4,8' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head;1,5;2,6;3,7;4,8' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head;1,5;2,6;3,7;4,8' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 X/import_exported_session:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 X/import_exported_txt:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 X/import_original_txt:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+[prev61b] W3 X/import_original_session:send
+  written [SETUP — returns — 1.end,6.head]
+  sent    ['1,6.head']
+    fce4bf0f: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    6955e342: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+    61b6618a: '1,6.head' -> {"refused": "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}

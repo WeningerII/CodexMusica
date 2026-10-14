@@ -1,0 +1,4531 @@
+{
+  "byTrigger": {
+    "cand.prog": {
+      "U": {
+        "cases": 24,
+        "sameChars": 5,
+        "migrated": 24
+      },
+      "C": {
+        "cases": 12,
+        "sameChars": 5,
+        "migrated": 12
+      },
+      "E": {
+        "cases": 8,
+        "sameChars": 8,
+        "migrated": 8
+      },
+      "S": {
+        "cases": 2,
+        "sameChars": 2,
+        "migrated": 2
+      },
+      "X": {
+        "cases": 1,
+        "sameChars": 0,
+        "migrated": 1
+      }
+    },
+    "cand.click": {
+      "U": {
+        "cases": 24,
+        "sameChars": 0,
+        "migrated": 24
+      },
+      "C": {
+        "cases": 12,
+        "sameChars": 0,
+        "migrated": 12
+      },
+      "E": {
+        "cases": 8,
+        "sameChars": 0,
+        "migrated": 8
+      },
+      "S": {
+        "cases": 2,
+        "sameChars": 0,
+        "migrated": 2
+      },
+      "X": {
+        "cases": 1,
+        "sameChars": 0,
+        "migrated": 1
+      }
+    },
+    "cand.chat": {
+      "U": {
+        "cases": 24,
+        "sameChars": 5,
+        "migrated": 24
+      },
+      "C": {
+        "cases": 12,
+        "sameChars": 5,
+        "migrated": 12
+      },
+      "E": {
+        "cases": 8,
+        "sameChars": 8,
+        "migrated": 8
+      },
+      "S": {
+        "cases": 2,
+        "sameChars": 2,
+        "migrated": 2
+      },
+      "X": {
+        "cases": 1,
+        "sameChars": 0,
+        "migrated": 1
+      }
+    }
+  },
+  "failures": [
+    {
+      "id": "cand.prog.RET.top.U_in_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 27,
+            "hi": 27
+          },
+          {
+            "lo": 27,
+            "hi": 27
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.top.U_sel_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.top.U_sel_2end_back",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.top.C_after_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 23,
+            "hi": 23
+          },
+          {
+            "lo": 23,
+            "hi": 23
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3|, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.top.C_sel_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          19,
+          39,
+          "forward"
+        ],
+        "selected": "1.T3, 2.end — cut v2",
+        "shown": "[SETUP — returns — «1.T3, 2.end — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 19,
+            "hi": 19
+          },
+          {
+            "lo": 23,
+            "hi": 23
+          }
+        ],
+        "shown": "[SETUP — returns — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — ZQ]",
+      "declarationsAfterTyping": "{\"returns\":\"ZQ\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.top.X_row_to_body",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          47,
+          "forward"
+        ],
+        "selected": "2.end]\n\n[VERSE]\nOh--oh",
+        "shown": "[SETUP — returns — 1.T2, «2.end]\n\n[VERSE]\nOh--oh», oh my love"
+      },
+      "after": {
+        "sel": [
+          39,
+          56,
+          "forward"
+        ],
+        "selected": "]\n\n[VERSE]\nOh--oh",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2«]\n\n[VERSE]\nOh--oh», oh my love",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 56,
+            "hi": 56
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2]\n\n[VERSE]\nOh--oh», oh my love"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ, oh my love",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.prog.RET.bottom.U_in_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 166,
+            "hi": 166
+          },
+          {
+            "lo": 166,
+            "hi": 166
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.bottom.U_sel_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 164,
+            "hi": 164
+          },
+          {
+            "lo": 169,
+            "hi": 178
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.bottom.U_sel_2end_back",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 164,
+            "hi": 164
+          },
+          {
+            "lo": 169,
+            "hi": 178
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.bottom.C_after_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          162,
+          162,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 162,
+            "hi": 162
+          },
+          {
+            "lo": 162,
+            "hi": 162
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3|, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RET.bottom.C_sel_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          158,
+          162,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          158,
+          178,
+          "forward"
+        ],
+        "selected": "1.T3, 2.end — cut v2",
+        "shown": "[SETUP — returns — «1.T3, 2.end — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 158,
+            "hi": 158
+          },
+          {
+            "lo": 162,
+            "hi": 162
+          }
+        ],
+        "shown": "[SETUP — returns — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — ZQ]",
+      "declarationsAfterTyping": "{\"returns\":\"ZQ\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RHY.top.U_in_2end",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          44,
+          44,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 32,
+            "hi": 32
+          },
+          {
+            "lo": 32,
+            "hi": 32
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RHY.top.U_sel_2end",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          30,
+          35,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          44,
+          44,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 30,
+            "hi": 30
+          },
+          {
+            "lo": 35,
+            "hi": 44
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RHY.top.C_sel_T2",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          24,
+          44,
+          "forward"
+        ],
+        "selected": "1.T3, 2.end — cut v2",
+        "shown": "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 24,
+            "hi": 24
+          },
+          {
+            "lo": 28,
+            "hi": 28
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — ZQ]",
+      "declarationsAfterTyping": "{\"groups\":\"ZQ\"}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RHY_BARE.top.U_before_2",
+      "row": "[SETUP — rhyme groups — 1.T2,2]",
+      "before": {
+        "sel": [
+          29,
+          29,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+      },
+      "after": {
+        "sel": [
+          38,
+          38,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v|2]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 29,
+            "hi": 29
+          },
+          {
+            "lo": 29,
+            "hi": 29
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ2]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3,2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.RHY_BARE.top.U_sel_2",
+      "row": "[SETUP — rhyme groups — 1.T2,2]",
+      "before": {
+        "sel": [
+          29,
+          30,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+      },
+      "after": {
+        "sel": [
+          38,
+          39,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 29,
+            "hi": 29
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3,2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.MANY.top.U_sel_3T2",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          38,
+          42,
+          "forward"
+        ],
+        "selected": "3.T2",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+      },
+      "after": {
+        "sel": [
+          61,
+          61,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 38,
+            "hi": 38
+          },
+          {
+            "lo": 42,
+            "hi": 42
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)\",\"1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)\",\"5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.MANY.top.U_in_5end",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          45,
+          45,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+      },
+      "after": {
+        "sel": [
+          61,
+          61,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 45,
+            "hi": 45
+          },
+          {
+            "lo": 45,
+            "hi": 45
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)\",\"1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)\",\"5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.MANY.top.U_sel_6",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          51,
+          52,
+          "forward"
+        ],
+        "selected": "6",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+      },
+      "after": {
+        "sel": [
+          61,
+          61,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 51,
+            "hi": 51
+          },
+          {
+            "lo": 52,
+            "hi": 61
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)\",\"1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)\",\"5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.MANY.top.C_sel_1T2",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          33,
+          37,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+      },
+      "after": {
+        "sel": [
+          33,
+          61,
+          "forward"
+        ],
+        "selected": "1.T3,3.T2; 5.end, 6 — cut v2",
+        "shown": "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 33,
+            "hi": 33
+          },
+          {
+            "lo": 37,
+            "hi": 37
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 2.end,4; ZQ]",
+      "declarationsAfterTyping": "{\"groups\":\"2.end,4; ZQ\"}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.MANY_LAST.top.U_sel_4T2",
+      "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+      "before": {
+        "sel": [
+          51,
+          55,
+          "forward"
+        ],
+        "selected": "4.T2",
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+      },
+      "after": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 51,
+            "hi": 51
+          },
+          {
+            "lo": 55,
+            "hi": 64
+          }
+        ],
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut vZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"2 (marked cut vzq: not read here),4 (marked cut vzq: not read here)\",\"5 (marked cut vzq: not read here),6 (marked cut vzq: not read here)\",\"1.T3 (marked cut vzq: not read here),4.T2 (marked cut vzq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"2.end, 4.end; 5.end,6.end; 1.T3,4.T2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.CARRIED.top.U_in_2end",
+      "row": "[SETUP — returns — 1.end, 2.end]",
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.end, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          77,
+          77,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 65,
+            "hi": 65
+          },
+          {
+            "lo": 65,
+            "hi": 65
+          }
+        ],
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.end,2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.CARRIED.top.U_sel_2end",
+      "row": "[SETUP — returns — 1.end, 2.end]",
+      "before": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.end, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          77,
+          77,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 63,
+            "hi": 63
+          },
+          {
+            "lo": 68,
+            "hi": 77
+          }
+        ],
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.end,2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.READ.top.U_sel_OW1",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "selected": "OW1",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"
+      },
+      "after": {
+        "sel": [
+          94,
+          94,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 58,
+            "hi": 58
+          },
+          {
+            "lo": 61,
+            "hi": 61
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"readings_need_decision\":[{\"line\":\"Oh--oh, oh my love\",\"saved_token\":3,\"word\":\"oh\"}]}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.READ.top.U_in_source",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          78,
+          78,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — sou|rce: me]"
+      },
+      "after": {
+        "sel": [
+          94,
+          94,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 78,
+            "hi": 78
+          },
+          {
+            "lo": 78,
+            "hi": 78
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — sou|rce: me — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"readings_need_decision\":[{\"line\":\"Oh--oh, oh my love\",\"saved_token\":3,\"word\":\"oh\"}]}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.READ.top.U_sel_me",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          83,
+          85,
+          "forward"
+        ],
+        "selected": "me",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: «me»]"
+      },
+      "after": {
+        "sel": [
+          94,
+          94,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 83,
+            "hi": 83
+          },
+          {
+            "lo": 85,
+            "hi": 94
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: «me — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"readings_need_decision\":[{\"line\":\"Oh--oh, oh my love\",\"saved_token\":3,\"word\":\"oh\"}]}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.prog.READ.top.C_sel_num",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "after": {
+        "sel": [
+          25,
+          94,
+          "forward"
+        ],
+        "selected": "3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2",
+        "shown": "[SETUP — reading — token «3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 26,
+            "hi": 26
+          }
+        ],
+        "shown": "[SETUP — reading — token «3» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — reading — token ZQ]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.U_in_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 27,
+            "hi": 27
+          },
+          {
+            "lo": 27,
+            "hi": 27
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.U_sel_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.U_sel_2end_back",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.C_in_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T|2, 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 22,
+            "hi": 22
+          },
+          {
+            "lo": 22,
+            "hi": 22
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T|3, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.C_after_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 23,
+            "hi": 23
+          },
+          {
+            "lo": 23,
+            "hi": 23
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3|, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.C_sel_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 19,
+            "hi": 19
+          },
+          {
+            "lo": 23,
+            "hi": 23
+          }
+        ],
+        "shown": "[SETUP — returns — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.E_before_close",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.end|]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 30,
+            "hi": 39
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end« — cut v2»]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.E_after_row",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          31,
+          31,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.end]|"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 40,
+            "hi": 40
+          },
+          {
+            "lo": 40,
+            "hi": 40
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2]|"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.S_body_walk",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          63,
+          63,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "I w|alk the line tonight"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 72,
+            "hi": 72
+          },
+          {
+            "lo": 72,
+            "hi": 72
+          }
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.top.X_row_to_body",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          47,
+          "forward"
+        ],
+        "selected": "2.end]\n\n[VERSE]\nOh--oh",
+        "shown": "[SETUP — returns — 1.T2, «2.end]\n\n[VERSE]\nOh--oh», oh my love"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 56,
+            "hi": 56
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2]\n\n[VERSE]\nOh--oh», oh my love"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.U_in_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 166,
+            "hi": 166
+          },
+          {
+            "lo": 166,
+            "hi": 166
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.U_sel_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 164,
+            "hi": 164
+          },
+          {
+            "lo": 169,
+            "hi": 178
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.U_sel_2end_back",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 164,
+            "hi": 164
+          },
+          {
+            "lo": 169,
+            "hi": 178
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.C_in_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          161,
+          161,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T|2, 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 161,
+            "hi": 161
+          },
+          {
+            "lo": 161,
+            "hi": 161
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T|3, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.C_after_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          162,
+          162,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 162,
+            "hi": 162
+          },
+          {
+            "lo": 162,
+            "hi": 162
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3|, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.C_sel_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          158,
+          162,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 158,
+            "hi": 158
+          },
+          {
+            "lo": 162,
+            "hi": 162
+          }
+        ],
+        "shown": "[SETUP — returns — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.E_before_close",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          169,
+          169,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.end|]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 169,
+            "hi": 178
+          },
+          {
+            "lo": 169,
+            "hi": 178
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end« — cut v2»]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.E_after_row",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          170,
+          170,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.end]|"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 179,
+            "hi": 179
+          },
+          {
+            "lo": 179,
+            "hi": 179
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2]|"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RET.bottom.S_body_walk",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "I w|alk the line tonight"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[VERSE]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 30,
+            "hi": 30
+          },
+          {
+            "lo": 30,
+            "hi": 30
+          }
+        ],
+        "shown": "I w|alk the line tonight"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[VERSE]",
+      "declarationsAfterTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.click.RHY.top.U_in_2end",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 32,
+            "hi": 32
+          },
+          {
+            "lo": 32,
+            "hi": 32
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RHY.top.U_sel_2end",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          30,
+          35,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 30,
+            "hi": 30
+          },
+          {
+            "lo": 35,
+            "hi": 44
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RHY.top.C_in_T2",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T|2, 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 27,
+            "hi": 27
+          },
+          {
+            "lo": 27,
+            "hi": 27
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RHY.top.C_sel_T2",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 24,
+            "hi": 24
+          },
+          {
+            "lo": 28,
+            "hi": 28
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RHY.top.E_after_row",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          36,
+          36,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2, 2.end]|"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 45,
+            "hi": 45
+          },
+          {
+            "lo": 45,
+            "hi": 45
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]|"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RHY_BARE.top.U_before_2",
+      "row": "[SETUP — rhyme groups — 1.T2,2]",
+      "before": {
+        "sel": [
+          29,
+          29,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 29,
+            "hi": 29
+          },
+          {
+            "lo": 29,
+            "hi": 29
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3,2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RHY_BARE.top.U_sel_2",
+      "row": "[SETUP — rhyme groups — 1.T2,2]",
+      "before": {
+        "sel": [
+          29,
+          30,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 29,
+            "hi": 29
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3,2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RHY_BARE.top.U_after_2",
+      "row": "[SETUP — rhyme groups — 1.T2,2]",
+      "before": {
+        "sel": [
+          30,
+          30,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2,2|]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 30,
+            "hi": 39
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3,2« — cut v2»]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3,2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.RHY_BARE.top.E_after_row",
+      "row": "[SETUP — rhyme groups — 1.T2,2]",
+      "before": {
+        "sel": [
+          31,
+          31,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2,2]|"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 40,
+            "hi": 40
+          },
+          {
+            "lo": 40,
+            "hi": 40
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v2]|"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3,2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY.top.U_in_2end",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          26,
+          26,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 26,
+            "hi": 26
+          },
+          {
+            "lo": 26,
+            "hi": 26
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY.top.U_sel_4",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          30,
+          31,
+          "forward"
+        ],
+        "selected": "4",
+        "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 30,
+            "hi": 30
+          },
+          {
+            "lo": 31,
+            "hi": 31
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY.top.U_sel_3T2",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          38,
+          42,
+          "forward"
+        ],
+        "selected": "3.T2",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 38,
+            "hi": 38
+          },
+          {
+            "lo": 42,
+            "hi": 42
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY.top.U_in_5end",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          45,
+          45,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 45,
+            "hi": 45
+          },
+          {
+            "lo": 45,
+            "hi": 45
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY.top.U_sel_6",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          51,
+          52,
+          "forward"
+        ],
+        "selected": "6",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 51,
+            "hi": 51
+          },
+          {
+            "lo": 52,
+            "hi": 61
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY.top.C_sel_1T2",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          33,
+          37,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 33,
+            "hi": 33
+          },
+          {
+            "lo": 37,
+            "hi": 37
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY.top.E_after_row",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          53,
+          53,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]|"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 62,
+            "hi": 62
+          },
+          {
+            "lo": 62,
+            "hi": 62
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]|"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY_LAST.top.U_in_2end",
+      "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+      "before": {
+        "sel": [
+          22,
+          22,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 22,
+            "hi": 22
+          },
+          {
+            "lo": 22,
+            "hi": 22
+          }
+        ],
+        "shown": "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"2.end, 4.end; 5.end,6.end; 1.T3,4.T2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY_LAST.top.U_sel_6end",
+      "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+      "before": {
+        "sel": [
+          39,
+          44,
+          "forward"
+        ],
+        "selected": "6.end",
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 39,
+            "hi": 39
+          },
+          {
+            "lo": 44,
+            "hi": 44
+          }
+        ],
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"2.end, 4.end; 5.end,6.end; 1.T3,4.T2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY_LAST.top.U_sel_4T2",
+      "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+      "before": {
+        "sel": [
+          51,
+          55,
+          "forward"
+        ],
+        "selected": "4.T2",
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 51,
+            "hi": 51
+          },
+          {
+            "lo": 55,
+            "hi": 64
+          }
+        ],
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"2.end, 4.end; 5.end,6.end; 1.T3,4.T2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.MANY_LAST.top.C_in_1T2",
+      "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+      "before": {
+        "sel": [
+          48,
+          48,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.|T2,4.T2]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 48,
+            "hi": 48
+          },
+          {
+            "lo": 48,
+            "hi": 48
+          }
+        ],
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.|T3,4.T2 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"2.end, 4.end; 5.end,6.end; 1.T3,4.T2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.CARRIED.top.U_in_2end",
+      "row": "[SETUP — returns — 1.end, 2.end]",
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.end, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 65,
+            "hi": 65
+          },
+          {
+            "lo": 65,
+            "hi": 65
+          }
+        ],
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.end,2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.CARRIED.top.U_sel_2end",
+      "row": "[SETUP — returns — 1.end, 2.end]",
+      "before": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.end, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 63,
+            "hi": 63
+          },
+          {
+            "lo": 68,
+            "hi": 77
+          }
+        ],
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.end,2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.CARRIED.top.C_in_1end",
+      "row": "[SETUP — returns — 1.end, 2.end]",
+      "before": {
+        "sel": [
+          21,
+          21,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.|end, 2.end]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 21,
+            "hi": 21
+          },
+          {
+            "lo": 21,
+            "hi": 21
+          }
+        ],
+        "shown": "[SETUP — returns — 1.|end (carried across the word-cut change), 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.end,2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.READ.top.U_sel_OW1",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "selected": "OW1",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 58,
+            "hi": 58
+          },
+          {
+            "lo": 61,
+            "hi": 61
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.READ.top.U_in_source",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          78,
+          78,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — sou|rce: me]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 78,
+            "hi": 78
+          },
+          {
+            "lo": 78,
+            "hi": 78
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — sou|rce: me — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.READ.top.U_sel_me",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          83,
+          85,
+          "forward"
+        ],
+        "selected": "me",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: «me»]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 83,
+            "hi": 83
+          },
+          {
+            "lo": 85,
+            "hi": 94
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: «me — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.READ.top.C_sel_num",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 26,
+            "hi": 26
+          }
+        ],
+        "shown": "[SETUP — reading — token «3» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.click.READ.top.E_after_row",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          86,
+          86,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]|"
+      },
+      "after": {
+        "sel": [
+          0,
+          0,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+        "focused": false
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 95,
+            "hi": 95
+          },
+          {
+            "lo": 95,
+            "hi": 95
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]|"
+      },
+      "collapsed": false,
+      "typedZQ": "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.chat.RET.top.U_in_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          27,
+          27,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 27,
+            "hi": 27
+          },
+          {
+            "lo": 27,
+            "hi": 27
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.top.U_sel_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.top.U_sel_2end_back",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          30,
+          "backward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.top.C_after_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          23,
+          23,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "after": {
+        "sel": [
+          39,
+          39,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 23,
+            "hi": 23
+          },
+          {
+            "lo": 23,
+            "hi": 23
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3|, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.top.C_sel_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          19,
+          23,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          19,
+          39,
+          "forward"
+        ],
+        "selected": "1.T3, 2.end — cut v2",
+        "shown": "[SETUP — returns — «1.T3, 2.end — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 19,
+            "hi": 19
+          },
+          {
+            "lo": 23,
+            "hi": 23
+          }
+        ],
+        "shown": "[SETUP — returns — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — ZQ]",
+      "declarationsAfterTyping": "{\"returns\":\"ZQ\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.top.X_row_to_body",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          25,
+          47,
+          "forward"
+        ],
+        "selected": "2.end]\n\n[VERSE]\nOh--oh",
+        "shown": "[SETUP — returns — 1.T2, «2.end]\n\n[VERSE]\nOh--oh», oh my love"
+      },
+      "after": {
+        "sel": [
+          39,
+          56,
+          "forward"
+        ],
+        "selected": "]\n\n[VERSE]\nOh--oh",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2«]\n\n[VERSE]\nOh--oh», oh my love",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 56,
+            "hi": 56
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2]\n\n[VERSE]\nOh--oh», oh my love"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ, oh my love",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "cand.chat.RET.bottom.U_in_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          166,
+          166,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 166,
+            "hi": 166
+          },
+          {
+            "lo": 166,
+            "hi": 166
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.bottom.U_sel_2end",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 164,
+            "hi": 164
+          },
+          {
+            "lo": 169,
+            "hi": 178
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.bottom.U_sel_2end_back",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          164,
+          169,
+          "backward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 164,
+            "hi": 164
+          },
+          {
+            "lo": 169,
+            "hi": 178
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.bottom.C_after_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          162,
+          162,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T2|, 2.end]"
+      },
+      "after": {
+        "sel": [
+          178,
+          178,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 162,
+            "hi": 162
+          },
+          {
+            "lo": 162,
+            "hi": 162
+          }
+        ],
+        "shown": "[SETUP — returns — 1.T3|, 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RET.bottom.C_sel_T2",
+      "row": "[SETUP — returns — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          158,
+          162,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — returns — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          158,
+          178,
+          "forward"
+        ],
+        "selected": "1.T3, 2.end — cut v2",
+        "shown": "[SETUP — returns — «1.T3, 2.end — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 158,
+            "hi": 158
+          },
+          {
+            "lo": 162,
+            "hi": 162
+          }
+        ],
+        "shown": "[SETUP — returns — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — ZQ]",
+      "declarationsAfterTyping": "{\"returns\":\"ZQ\"}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RHY.top.U_in_2end",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          32,
+          32,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          44,
+          44,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 32,
+            "hi": 32
+          },
+          {
+            "lo": 32,
+            "hi": 32
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RHY.top.U_sel_2end",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          30,
+          35,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — rhyme groups — 1.T2, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          44,
+          44,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 30,
+            "hi": 30
+          },
+          {
+            "lo": 35,
+            "hi": 44
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — rhyme groups — 1.T3, 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"1.T3 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RHY.top.C_sel_T2",
+      "row": "[SETUP — rhyme groups — 1.T2, 2.end]",
+      "before": {
+        "sel": [
+          24,
+          28,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — rhyme groups — «1.T2», 2.end]"
+      },
+      "after": {
+        "sel": [
+          24,
+          44,
+          "forward"
+        ],
+        "selected": "1.T3, 2.end — cut v2",
+        "shown": "[SETUP — rhyme groups — «1.T3, 2.end — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 24,
+            "hi": 24
+          },
+          {
+            "lo": 28,
+            "hi": 28
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — ZQ]",
+      "declarationsAfterTyping": "{\"groups\":\"ZQ\"}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3, 2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RHY_BARE.top.U_before_2",
+      "row": "[SETUP — rhyme groups — 1.T2,2]",
+      "before": {
+        "sel": [
+          29,
+          29,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T2,|2]"
+      },
+      "after": {
+        "sel": [
+          38,
+          38,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v|2]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 29,
+            "hi": 29
+          },
+          {
+            "lo": 29,
+            "hi": 29
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ2]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"1.T3 (marked cut vzq2: not read here),2 (marked cut vzq2: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3,2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.RHY_BARE.top.U_sel_2",
+      "row": "[SETUP — rhyme groups — 1.T2,2]",
+      "before": {
+        "sel": [
+          29,
+          30,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — rhyme groups — 1.T2,«2»]"
+      },
+      "after": {
+        "sel": [
+          38,
+          39,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — rhyme groups — 1.T3,2 — cut v«2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 29,
+            "hi": 29
+          },
+          {
+            "lo": 30,
+            "hi": 39
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 1.T3,2 — cut vZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"1.T3 (marked cut vzq: not read here),2 (marked cut vzq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"1.T3,2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.MANY.top.U_sel_3T2",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          38,
+          42,
+          "forward"
+        ],
+        "selected": "3.T2",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+      },
+      "after": {
+        "sel": [
+          61,
+          61,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 38,
+            "hi": 38
+          },
+          {
+            "lo": 42,
+            "hi": 42
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)\",\"1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)\",\"5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.MANY.top.U_in_5end",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          45,
+          45,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+      },
+      "after": {
+        "sel": [
+          61,
+          61,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 45,
+            "hi": 45
+          },
+          {
+            "lo": 45,
+            "hi": 45
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)\",\"1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)\",\"5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.MANY.top.U_sel_6",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          51,
+          52,
+          "forward"
+        ],
+        "selected": "6",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+      },
+      "after": {
+        "sel": [
+          61,
+          61,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 51,
+            "hi": 51
+          },
+          {
+            "lo": 52,
+            "hi": 61
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"groups_need_decision\":[\"2 (marked cut v2zq: not read here),4 (marked cut v2zq: not read here)\",\"1.T3 (marked cut v2zq: not read here),3.T2 (marked cut v2zq: not read here)\",\"5 (marked cut v2zq: not read here),6 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.MANY.top.C_sel_1T2",
+      "row": "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]",
+      "before": {
+        "sel": [
+          33,
+          37,
+          "forward"
+        ],
+        "selected": "1.T2",
+        "shown": "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+      },
+      "after": {
+        "sel": [
+          33,
+          61,
+          "forward"
+        ],
+        "selected": "1.T3,3.T2; 5.end, 6 — cut v2",
+        "shown": "[SETUP — rhyme groups — 2.end,4; «1.T3,3.T2; 5.end, 6 — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 33,
+            "hi": 33
+          },
+          {
+            "lo": 37,
+            "hi": 37
+          }
+        ],
+        "shown": "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — rhyme groups — 2.end,4; ZQ]",
+      "declarationsAfterTyping": "{\"groups\":\"2.end,4; ZQ\"}",
+      "declarationsBeforeTyping": "{\"groups\":\"2.end,4; 1.T3,3.T2; 5.end, 6\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.MANY_LAST.top.U_sel_4T2",
+      "row": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,4.T2]",
+      "before": {
+        "sel": [
+          51,
+          55,
+          "forward"
+        ],
+        "selected": "4.T2",
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+      },
+      "after": {
+        "sel": [
+          63,
+          64,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v«2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 51,
+            "hi": 51
+          },
+          {
+            "lo": 55,
+            "hi": 64
+          }
+        ],
+        "shown": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut vZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"2 (marked cut vzq: not read here),4 (marked cut vzq: not read here)\",\"5 (marked cut vzq: not read here),6 (marked cut vzq: not read here)\",\"1.T3 (marked cut vzq: not read here),4.T2 (marked cut vzq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"2.end, 4.end; 5.end,6.end; 1.T3,4.T2\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.CARRIED.top.U_in_2end",
+      "row": "[SETUP — returns — 1.end, 2.end]",
+      "before": {
+        "sel": [
+          28,
+          28,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.end, 2.|end]"
+      },
+      "after": {
+        "sel": [
+          77,
+          77,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 65,
+            "hi": 65
+          },
+          {
+            "lo": 65,
+            "hi": 65
+          }
+        ],
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), 2.|end — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.end,2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.CARRIED.top.U_sel_2end",
+      "row": "[SETUP — returns — 1.end, 2.end]",
+      "before": {
+        "sel": [
+          26,
+          31,
+          "forward"
+        ],
+        "selected": "2.end",
+        "shown": "[SETUP — returns — 1.end, «2.end»]"
+      },
+      "after": {
+        "sel": [
+          77,
+          77,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 63,
+            "hi": 63
+          },
+          {
+            "lo": 68,
+            "hi": 77
+          }
+        ],
+        "shown": "[SETUP — returns — 1.end (carried across the word-cut change), «2.end — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"returns_need_decision\":[\"1 (marked cut v2zq: not read here),2 (marked cut v2zq: not read here)\"]}",
+      "declarationsBeforeTyping": "{\"returns\":\"1.end,2.end\"}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.READ.top.U_sel_OW1",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          58,
+          61,
+          "forward"
+        ],
+        "selected": "OW1",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"
+      },
+      "after": {
+        "sel": [
+          94,
+          94,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 58,
+            "hi": 58
+          },
+          {
+            "lo": 61,
+            "hi": 61
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me — cut v2]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"readings_need_decision\":[{\"line\":\"Oh--oh, oh my love\",\"saved_token\":3,\"word\":\"oh\"}]}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.READ.top.U_in_source",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          78,
+          78,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — sou|rce: me]"
+      },
+      "after": {
+        "sel": [
+          94,
+          94,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 78,
+            "hi": 78
+          },
+          {
+            "lo": 78,
+            "hi": 78
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — sou|rce: me — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"readings_need_decision\":[{\"line\":\"Oh--oh, oh my love\",\"saved_token\":3,\"word\":\"oh\"}]}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.READ.top.U_sel_me",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          83,
+          85,
+          "forward"
+        ],
+        "selected": "me",
+        "shown": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: «me»]"
+      },
+      "after": {
+        "sel": [
+          94,
+          94,
+          "forward"
+        ],
+        "selected": "",
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2|]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 83,
+            "hi": 83
+          },
+          {
+            "lo": 85,
+            "hi": 94
+          }
+        ],
+        "shown": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: «me — cut v2»]"
+      },
+      "collapsed": true,
+      "typedZQ": "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2ZQ]",
+      "declarationsAfterTyping": "{\"readings_need_decision\":[{\"line\":\"Oh--oh, oh my love\",\"saved_token\":3,\"word\":\"oh\"}]}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "cand.chat.READ.top.C_sel_num",
+      "row": "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]",
+      "before": {
+        "sel": [
+          25,
+          26,
+          "forward"
+        ],
+        "selected": "2",
+        "shown": "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+      },
+      "after": {
+        "sel": [
+          25,
+          94,
+          "forward"
+        ],
+        "selected": "3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2",
+        "shown": "[SETUP — reading — token «3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2»]",
+        "focused": true
+      },
+      "expected": {
+        "ref": [
+          {
+            "lo": 25,
+            "hi": 25
+          },
+          {
+            "lo": 26,
+            "hi": 26
+          }
+        ],
+        "shown": "[SETUP — reading — token «3» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"
+      },
+      "collapsed": false,
+      "typedZQ": "[SETUP — reading — token ZQ]",
+      "declarationsAfterTyping": "{}",
+      "declarationsBeforeTyping": "{\"pronunciations\":[{\"line\":\"Oh--oh, oh my love\",\"token\":3,\"word\":\"oh\",\"phones\":[\"OW1\"],\"basis\":\"declared\",\"source\":\"me\"}]}",
+      "setupRowsBeforeAfterTyping": [
+        1,
+        1
+      ]
+    }
+  ]
+}

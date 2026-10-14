@@ -1,0 +1,21 @@
+{
+ "rows": 281399,
+ "row_keys_equal": true,
+ "mismatches": {
+  "identical_off": 0,
+  "lookup_or_fire_on_identical_off": 0,
+  "identical_on": 0,
+  "lookup_or_fire_on_identical_on": 0
+ },
+ "mismatch_examples": {
+  "identical_off": [],
+  "lookup_or_fire_on_identical_off": [],
+  "identical_on": [],
+  "lookup_or_fire_on_identical_on": []
+ },
+ "page_fired_identical_off_equals_receipt_list_in_order": true,
+ "page_fired_identical_off": 24,
+ "page_total_fires_off": 10331,
+ "page_total_fires_on": 10423,
+ "harness_nonidentical_off": 10307
+}

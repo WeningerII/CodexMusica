@@ -1,0 +1,6341 @@
+[
+ {
+  "id": "main.RG4.remove.review.paste.O1",
+  "tree": "main",
+  "case": "RG4.remove.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 07c444d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.remove.review.paste.O2",
+  "tree": "main",
+  "case": "RG4.remove.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 07c444d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.remove.dock.paste.O1",
+  "tree": "main",
+  "case": "RG4.remove.dock.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 07c444d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.remove.dock.paste.O2",
+  "tree": "main",
+  "case": "RG4.remove.dock.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 07c444d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.remove.review.type.O1",
+  "tree": "main",
+  "case": "RG4.remove.review.type",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 07c444d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.remove.review.type.O2",
+  "tree": "main",
+  "case": "RG4.remove.review.type",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 07c444d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.add.review.paste.O1",
+  "tree": "main",
+  "case": "RG4.add.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · b09d91e Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.add.review.paste.O2",
+  "tree": "main",
+  "case": "RG4.add.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · b09d91e Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.add.dock.paste.O1",
+  "tree": "main",
+  "case": "RG4.add.dock.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ],
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · b09d91e Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.add.dock.paste.O2",
+  "tree": "main",
+  "case": "RG4.add.dock.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input",
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · b09d91e Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.add.review.type.O1",
+  "tree": "main",
+  "case": "RG4.add.review.type",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · b09d91e Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG4.add.review.type.O2",
+  "tree": "main",
+  "case": "RG4.add.review.type",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T4=love ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T4,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T4,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · b09d91e Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T4,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.remove.review.paste.O1",
+  "tree": "main",
+  "case": "RG2.remove.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0b47668 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.remove.review.paste.O2",
+  "tree": "main",
+  "case": "RG2.remove.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0b47668 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.remove.dock.paste.O1",
+  "tree": "main",
+  "case": "RG2.remove.dock.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0b47668 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.remove.dock.paste.O2",
+  "tree": "main",
+  "case": "RG2.remove.dock.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0b47668 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.remove.review.type.O1",
+  "tree": "main",
+  "case": "RG2.remove.review.type",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0b47668 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.remove.review.type.O2",
+  "tree": "main",
+  "case": "RG2.remove.review.type",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (remove)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0b47668 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.add.review.paste.O1",
+  "tree": "main",
+  "case": "RG2.add.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 4deeb5d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.add.review.paste.O2",
+  "tree": "main",
+  "case": "RG2.add.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 4deeb5d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.add.dock.paste.O1",
+  "tree": "main",
+  "case": "RG2.add.dock.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ],
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 4deeb5d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.add.dock.paste.O2",
+  "tree": "main",
+  "case": "RG2.add.dock.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (dock)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input",
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 4deeb5d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.add.review.type.O1",
+  "tree": "main",
+  "case": "RG2.add.review.type",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 4deeb5d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RG2.add.review.type.O2",
+  "tree": "main",
+  "case": "RG2.add.review.type",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8; 2,3"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (add)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T2,8;2,3;5,7]"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [
+      "1.T2=oh ~ 8.end=above",
+      "2.end=tonight ~ 3.end=tight",
+      "5.end=down ~ 7.end=cold"
+     ],
+     "returns": []
+    },
+    "payload": [
+     {
+      "declarations": {
+       "groups": "1.T2,8;2,3;5,7"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 5 last rhyme “down”",
+    "Line 7 last rhyme “cold”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8; 2,3"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "groups": "1.T2,8;2,3;5,7"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 4deeb5d Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "groups": "1.T2,8;2,3;5,7"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.placed.review.paste.O1",
+  "tree": "main",
+  "case": "RT4.placed.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0aba723 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.placed.review.paste.O2",
+  "tree": "main",
+  "case": "RT4.placed.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0aba723 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.placed.dock.paste.O1",
+  "tree": "main",
+  "case": "RT4.placed.dock.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ],
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0aba723 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.placed.dock.paste.O2",
+  "tree": "main",
+  "case": "RT4.placed.dock.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input",
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0aba723 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.placed.review.type.O1",
+  "tree": "main",
+  "case": "RT4.placed.review.type",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0aba723 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.placed.review.type.O2",
+  "tree": "main",
+  "case": "RT4.placed.review.type",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 0aba723 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.declare.review.paste.O1",
+  "tree": "main",
+  "case": "RT4.declare.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · ae86006 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.declare.review.paste.O2",
+  "tree": "main",
+  "case": "RT4.declare.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · ae86006 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.declare.dock.paste.O1",
+  "tree": "main",
+  "case": "RT4.declare.dock.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · ae86006 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.declare.dock.paste.O2",
+  "tree": "main",
+  "case": "RT4.declare.dock.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · ae86006 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.declare.review.type.O1",
+  "tree": "main",
+  "case": "RT4.declare.review.type",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · ae86006 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT4.declare.review.type.O2",
+  "tree": "main",
+  "case": "RT4.declare.review.type",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · ae86006 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.placed.review.paste.O1",
+  "tree": "main",
+  "case": "RT2.placed.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · cce67d1 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.placed.review.paste.O2",
+  "tree": "main",
+  "case": "RT2.placed.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · cce67d1 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.placed.dock.paste.O1",
+  "tree": "main",
+  "case": "RT2.placed.dock.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ],
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · cce67d1 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.placed.dock.paste.O2",
+  "tree": "main",
+  "case": "RT2.placed.dock.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input",
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · cce67d1 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.placed.review.type.O1",
+  "tree": "main",
+  "case": "RT2.placed.review.type",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · cce67d1 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.placed.review.type.O2",
+  "tree": "main",
+  "case": "RT2.placed.review.type",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · cce67d1 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.declare.review.paste.O1",
+  "tree": "main",
+  "case": "RT2.declare.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 8b255e6 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.declare.review.paste.O2",
+  "tree": "main",
+  "case": "RT2.declare.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 8b255e6 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.declare.dock.paste.O1",
+  "tree": "main",
+  "case": "RT2.declare.dock.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 8b255e6 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.declare.dock.paste.O2",
+  "tree": "main",
+  "case": "RT2.declare.dock.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (dock)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 8b255e6 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.declare.review.type.O1",
+  "tree": "main",
+  "case": "RT2.declare.review.type",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 8b255e6 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RT2.declare.review.type.O2",
+  "tree": "main",
+  "case": "RT2.declare.review.type",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 type row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (declare)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T2,8.T1;9,11;10,12]"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T2=oh ~ 8.T1=Love",
+      "9.end=slow ~ 11.end=slow",
+      "10.end=on ~ 12.end=on"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T2,8.T1;9,11;10,12"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {},
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T2,8.T1;9,11;10,12"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · 8b255e6 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T2,8.T1;9,11;10,12"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.X7.RT4v.placed.review.paste.O1",
+  "tree": "main",
+  "case": "X7.RT4v.placed.review.paste",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T2=love"
+     ]
+    }
+   },
+   {
+    "step": "2 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T2=love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "3 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T2=love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T2;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "And love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · bc13fc5 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T2;2.head,6.head"
+  },
+  "errors": []
+ },
+ {
+  "id": "main.X7.RT4v.placed.review.paste.O2",
+  "tree": "main",
+  "case": "X7.RT4v.placed.review.paste",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 paste row at offset 0",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T2=love"
+     ]
+    }
+   },
+   {
+    "step": "2 send first (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "toasts": [],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T2=love"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   },
+   {
+    "step": "3 form commit (placed)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T2=love",
+      "2.head=I ~ 6.head=I"
+     ]
+    }
+   },
+   {
+    "step": "4 final send (review)",
+    "setup": [
+     "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=love ~ 8.T2=love",
+      "2.head=I ~ 6.head=I"
+     ]
+    },
+    "payload": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2;2.head,6.head"
+      },
+      "task": {
+       "domain": "lyrics",
+       "phase": "edit"
+      }
+     }
+    ]
+   }
+  ],
+  "how": {
+   "members": [
+    "Line 2 first word “I”",
+    "Line 6 first word “I”"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T2"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ],
+   [
+    {
+     "declarations": {
+      "returns": "1.T4,8.T2;2.head,6.head"
+     },
+     "task": {
+      "domain": "lyrics",
+      "phase": "edit"
+     }
+    }
+   ]
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "And love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsCut": false,
+   "mentionsRenumber": false,
+   "excerpt": "Current version · bc13fc5 Not reviewed Coverage Form Not reviewed Rhymes Not reviewed Rhythm Not reviewed Pronunciation Not reviewed Story Creative guidance Performance Not assessed Run review Local checks 0 Changes to text, form or rhythm require a new review."
+  },
+  "hist": {
+   "idx": 2,
+   "n": 3
+  },
+  "final": {
+   "returns": "1.T4,8.T2;2.head,6.head"
+  },
+  "errors": []
+ }
+]

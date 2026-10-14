@@ -1,0 +1,2054 @@
+{
+ "tree": "main",
+ "reader_scheme": "(none: single cut)",
+ "cases": [
+  {
+   "id": "X1_appUndo",
+   "sends": [
+    {
+     "at": "4 Run review",
+     "declarations": {
+      "groups": "1.T4,8; 2,3"
+     },
+     "groups_raw": "1.T4,8; 2,3",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ],
+       [
+        2,
+        3
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None), '')",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "line": 2,
+        "line_text": "I walk the line tonight",
+        "member": "2",
+        "label": "tonight",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "line",
+          "pieces": [
+           [
+            11,
+            15
+           ]
+          ],
+          "raw": "line",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "tonight",
+          "pieces": [
+           [
+            16,
+            23
+           ]
+          ],
+          "raw": "tonight",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "line",
+          "nucleus": "AY",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AY",
+          "coda": [
+           "T"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 3,
+        "line_text": "Well-worn shoes upon the floor",
+        "member": "3",
+        "label": "floor",
+        "bound": [
+         {
+          "widx": 2,
+          "token": "upon",
+          "pieces": [
+           [
+            16,
+            20
+           ]
+          ],
+          "raw": "upon",
+          "number_T": 3
+         },
+         {
+          "widx": 3,
+          "token": "the",
+          "pieces": [
+           [
+            21,
+            24
+           ]
+          ],
+          "raw": "the",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "floor",
+          "pieces": [
+           [
+            25,
+            30
+           ]
+          ],
+          "raw": "floor",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "upon",
+          "nucleus": "AA",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "the",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "floor",
+          "nucleus": "AO",
+          "coda": [
+           "R"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  },
+  {
+   "id": "X2_appUndoRedo",
+   "sends": [
+    {
+     "at": "5 Run review",
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "groups_raw": "1.T4,8",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None),)",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  },
+  {
+   "id": "X3_nativeUndo",
+   "sends": [
+    {
+     "at": "4 Run review",
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "groups_raw": "1.T4,8",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None),)",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  },
+  {
+   "id": "X4_wordRules",
+   "sends": [
+    {
+     "at": "3 Run review",
+     "declarations": {
+      "groups": "1.T4,8; 2,3",
+      "must_include": [
+       "love"
+      ]
+     },
+     "groups_raw": "1.T4,8; 2,3",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ],
+       [
+        2,
+        3
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None), '')",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "line": 2,
+        "line_text": "I walk the line tonight",
+        "member": "2",
+        "label": "tonight",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "line",
+          "pieces": [
+           [
+            11,
+            15
+           ]
+          ],
+          "raw": "line",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "tonight",
+          "pieces": [
+           [
+            16,
+            23
+           ]
+          ],
+          "raw": "tonight",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "line",
+          "nucleus": "AY",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AY",
+          "coda": [
+           "T"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 3,
+        "line_text": "Well-worn shoes upon the floor",
+        "member": "3",
+        "label": "floor",
+        "bound": [
+         {
+          "widx": 2,
+          "token": "upon",
+          "pieces": [
+           [
+            16,
+            20
+           ]
+          ],
+          "raw": "upon",
+          "number_T": 3
+         },
+         {
+          "widx": 3,
+          "token": "the",
+          "pieces": [
+           [
+            21,
+            24
+           ]
+          ],
+          "raw": "the",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "floor",
+          "pieces": [
+           [
+            25,
+            30
+           ]
+          ],
+          "raw": "floor",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "upon",
+          "nucleus": "AA",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "the",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "floor",
+          "nucleus": "AO",
+          "coda": [
+           "R"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  },
+  {
+   "id": "X5_relationOnly",
+   "sends": [
+    {
+     "at": "3 Run review",
+     "declarations": {
+      "relation": "class:RHYME",
+      "groups": "1.T4,8; 2,3"
+     },
+     "groups_raw": "1.T4,8; 2,3",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ],
+       [
+        2,
+        3
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None), '')",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "line": 2,
+        "line_text": "I walk the line tonight",
+        "member": "2",
+        "label": "tonight",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "line",
+          "pieces": [
+           [
+            11,
+            15
+           ]
+          ],
+          "raw": "line",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "tonight",
+          "pieces": [
+           [
+            16,
+            23
+           ]
+          ],
+          "raw": "tonight",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "line",
+          "nucleus": "AY",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AY",
+          "coda": [
+           "T"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 3,
+        "line_text": "Well-worn shoes upon the floor",
+        "member": "3",
+        "label": "floor",
+        "bound": [
+         {
+          "widx": 2,
+          "token": "upon",
+          "pieces": [
+           [
+            16,
+            20
+           ]
+          ],
+          "raw": "upon",
+          "number_T": 3
+         },
+         {
+          "widx": 3,
+          "token": "the",
+          "pieces": [
+           [
+            21,
+            24
+           ]
+          ],
+          "raw": "the",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "floor",
+          "pieces": [
+           [
+            25,
+            30
+           ]
+          ],
+          "raw": "floor",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "upon",
+          "nucleus": "AA",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "the",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "floor",
+          "nucleus": "AO",
+          "coda": [
+           "R"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  },
+  {
+   "id": "X6_markedTyped_O1",
+   "sends": [
+    {
+     "at": "3 Run review",
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "groups_raw": "1.T4,8",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None),)",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  },
+  {
+   "id": "X6_markedTyped_O2",
+   "sends": [
+    {
+     "at": "2 Run review",
+     "declarations": {
+      "groups": "1.T4,8; 2,3 — cut v2"
+     },
+     "groups_raw": "1.T4,8; 2,3 — cut v2",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate_error": "NoMandate: a mandate group must be an iterable of line numbers, each optionally naming a place in its line; got ['2', '3 — cut v2'] (invalid literal for int() with base 10: '3 — cut v2'). A partition is a list of LINE GROUPS -- [[1, 3], [2, 4]] -- not a list of letters."
+    },
+    {
+     "at": "4 Run review",
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "groups_raw": "1.T4,8",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None),)",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  },
+  {
+   "id": "X7_verdict_O1",
+   "sends": [
+    {
+     "at": "3 Run review",
+     "declarations": {
+      "returns": "1.T4,8.T2;2.head,6.head"
+     },
+     "groups_raw": null,
+     "returns_raw": "1.T4,8.T2;2.head,6.head",
+     "need_decision": {},
+     "mandate": {
+      "groups": [],
+      "loci": "()",
+      "returns": [
+       "Return(lines=(1, 8), label='', verbatim=True, loci=('T4', 'T2'), origin='declared placed return class')",
+       "Return(lines=(2, 6), label='', verbatim=True, loci=('head', 'head'), origin='declared placed return class')"
+      ]
+     },
+     "groups_bound": [],
+     "returns_bound": [
+      {
+       "placed": true,
+       "members": [
+        {
+         "line": 1,
+         "line_text": "Oh--oh, oh my love",
+         "member": "1.T4",
+         "label": "love",
+         "bound": [
+          {
+           "widx": 3,
+           "token": "love",
+           "pieces": [
+            [
+             14,
+             18
+            ]
+           ],
+           "raw": "love",
+           "number_T": 4
+          }
+         ],
+         "syllables": [
+          {
+           "word": "love",
+           "nucleus": "AH",
+           "coda": [
+            "V"
+           ],
+           "stress": 1
+          }
+         ]
+        },
+        {
+         "line": 8,
+         "line_text": "And love above",
+         "member": "8.T2",
+         "label": "love",
+         "bound": [
+          {
+           "widx": 1,
+           "token": "love",
+           "pieces": [
+            [
+             4,
+             8
+            ]
+           ],
+           "raw": "love",
+           "number_T": 2
+          }
+         ],
+         "syllables": [
+          {
+           "word": "love",
+           "nucleus": "AH",
+           "coda": [
+            "V"
+           ],
+           "stress": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "placed": true,
+       "members": [
+        {
+         "line": 2,
+         "line_text": "I walk the line tonight",
+         "member": "2.head",
+         "label": "I",
+         "bound": [
+          {
+           "widx": 0,
+           "token": "I",
+           "pieces": [
+            [
+             0,
+             1
+            ]
+           ],
+           "raw": "I",
+           "number_T": 1
+          }
+         ],
+         "syllables": [
+          {
+           "word": "I",
+           "nucleus": "AY",
+           "coda": [],
+           "stress": 0
+          }
+         ]
+        },
+        {
+         "line": 6,
+         "line_text": "I hold the dove",
+         "member": "6.head",
+         "label": "I",
+         "bound": [
+          {
+           "widx": 0,
+           "token": "I",
+           "pieces": [
+            [
+             0,
+             1
+            ]
+           ],
+           "raw": "I",
+           "number_T": 1
+          }
+         ],
+         "syllables": [
+          {
+           "word": "I",
+           "nucleus": "AY",
+           "coda": [],
+           "stress": 0
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "placed_returns_check": []
+    }
+   ]
+  },
+  {
+   "id": "X7_verdict_O2",
+   "sends": [
+    {
+     "at": "2 Run review",
+     "declarations": {
+      "returns": "1.T4,8.T2"
+     },
+     "groups_raw": null,
+     "returns_raw": "1.T4,8.T2",
+     "need_decision": {},
+     "mandate": {
+      "groups": [],
+      "loci": "()",
+      "returns": [
+       "Return(lines=(1, 8), label='', verbatim=True, loci=('T4', 'T2'), origin='declared placed return class')"
+      ]
+     },
+     "groups_bound": [],
+     "returns_bound": [
+      {
+       "placed": true,
+       "members": [
+        {
+         "line": 1,
+         "line_text": "Oh--oh, oh my love",
+         "member": "1.T4",
+         "label": "love",
+         "bound": [
+          {
+           "widx": 3,
+           "token": "love",
+           "pieces": [
+            [
+             14,
+             18
+            ]
+           ],
+           "raw": "love",
+           "number_T": 4
+          }
+         ],
+         "syllables": [
+          {
+           "word": "love",
+           "nucleus": "AH",
+           "coda": [
+            "V"
+           ],
+           "stress": 1
+          }
+         ]
+        },
+        {
+         "line": 8,
+         "line_text": "And love above",
+         "member": "8.T2",
+         "label": "love",
+         "bound": [
+          {
+           "widx": 1,
+           "token": "love",
+           "pieces": [
+            [
+             4,
+             8
+            ]
+           ],
+           "raw": "love",
+           "number_T": 2
+          }
+         ],
+         "syllables": [
+          {
+           "word": "love",
+           "nucleus": "AH",
+           "coda": [
+            "V"
+           ],
+           "stress": 1
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "placed_returns_check": []
+    },
+    {
+     "at": "4 Run review",
+     "declarations": {
+      "returns": "1.T4,8.T2;2.head,6.head"
+     },
+     "groups_raw": null,
+     "returns_raw": "1.T4,8.T2;2.head,6.head",
+     "need_decision": {},
+     "mandate": {
+      "groups": [],
+      "loci": "()",
+      "returns": [
+       "Return(lines=(1, 8), label='', verbatim=True, loci=('T4', 'T2'), origin='declared placed return class')",
+       "Return(lines=(2, 6), label='', verbatim=True, loci=('head', 'head'), origin='declared placed return class')"
+      ]
+     },
+     "groups_bound": [],
+     "returns_bound": [
+      {
+       "placed": true,
+       "members": [
+        {
+         "line": 1,
+         "line_text": "Oh--oh, oh my love",
+         "member": "1.T4",
+         "label": "love",
+         "bound": [
+          {
+           "widx": 3,
+           "token": "love",
+           "pieces": [
+            [
+             14,
+             18
+            ]
+           ],
+           "raw": "love",
+           "number_T": 4
+          }
+         ],
+         "syllables": [
+          {
+           "word": "love",
+           "nucleus": "AH",
+           "coda": [
+            "V"
+           ],
+           "stress": 1
+          }
+         ]
+        },
+        {
+         "line": 8,
+         "line_text": "And love above",
+         "member": "8.T2",
+         "label": "love",
+         "bound": [
+          {
+           "widx": 1,
+           "token": "love",
+           "pieces": [
+            [
+             4,
+             8
+            ]
+           ],
+           "raw": "love",
+           "number_T": 2
+          }
+         ],
+         "syllables": [
+          {
+           "word": "love",
+           "nucleus": "AH",
+           "coda": [
+            "V"
+           ],
+           "stress": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "placed": true,
+       "members": [
+        {
+         "line": 2,
+         "line_text": "I walk the line tonight",
+         "member": "2.head",
+         "label": "I",
+         "bound": [
+          {
+           "widx": 0,
+           "token": "I",
+           "pieces": [
+            [
+             0,
+             1
+            ]
+           ],
+           "raw": "I",
+           "number_T": 1
+          }
+         ],
+         "syllables": [
+          {
+           "word": "I",
+           "nucleus": "AY",
+           "coda": [],
+           "stress": 0
+          }
+         ]
+        },
+        {
+         "line": 6,
+         "line_text": "I hold the dove",
+         "member": "6.head",
+         "label": "I",
+         "bound": [
+          {
+           "widx": 0,
+           "token": "I",
+           "pieces": [
+            [
+             0,
+             1
+            ]
+           ],
+           "raw": "I",
+           "number_T": 1
+          }
+         ],
+         "syllables": [
+          {
+           "word": "I",
+           "nucleus": "AY",
+           "coda": [],
+           "stress": 0
+          }
+         ]
+        }
+       ]
+      }
+     ],
+     "placed_returns_check": []
+    }
+   ]
+  },
+  {
+   "id": "X8_reviewCard_O1",
+   "sends": [
+    {
+     "at": "3 Run review",
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "groups_raw": "1.T4,8",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None),)",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  },
+  {
+   "id": "X8_reviewCard_O2",
+   "sends": [
+    {
+     "at": "2 Run review",
+     "declarations": {
+      "groups": "1.T4,8; 2,3"
+     },
+     "groups_raw": "1.T4,8; 2,3",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ],
+       [
+        2,
+        3
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None), '')",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "line": 2,
+        "line_text": "I walk the line tonight",
+        "member": "2",
+        "label": "tonight",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "line",
+          "pieces": [
+           [
+            11,
+            15
+           ]
+          ],
+          "raw": "line",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "tonight",
+          "pieces": [
+           [
+            16,
+            23
+           ]
+          ],
+          "raw": "tonight",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "line",
+          "nucleus": "AY",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "tonight",
+          "nucleus": "AY",
+          "coda": [
+           "T"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 3,
+        "line_text": "Well-worn shoes upon the floor",
+        "member": "3",
+        "label": "floor",
+        "bound": [
+         {
+          "widx": 2,
+          "token": "upon",
+          "pieces": [
+           [
+            16,
+            20
+           ]
+          ],
+          "raw": "upon",
+          "number_T": 3
+         },
+         {
+          "widx": 3,
+          "token": "the",
+          "pieces": [
+           [
+            21,
+            24
+           ]
+          ],
+          "raw": "the",
+          "number_T": 4
+         },
+         {
+          "widx": 4,
+          "token": "floor",
+          "pieces": [
+           [
+            25,
+            30
+           ]
+          ],
+          "raw": "floor",
+          "number_T": 5
+         }
+        ],
+        "syllables": [
+         {
+          "word": "upon",
+          "nucleus": "AA",
+          "coda": [
+           "N"
+          ],
+          "stress": 1
+         },
+         {
+          "word": "the",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "floor",
+          "nucleus": "AO",
+          "coda": [
+           "R"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    },
+    {
+     "at": "4 Run review",
+     "declarations": {
+      "groups": "1.T4,8"
+     },
+     "groups_raw": "1.T4,8",
+     "returns_raw": null,
+     "need_decision": {},
+     "mandate": {
+      "groups": [
+       [
+        1,
+        8
+       ]
+      ],
+      "loci": "((Slot(line=1, rule=SpanRule(locus='any_token', anchor='last_stressed', direction=1, magnitude='to_word_end', cross_word=False, requires=('token:3',))), None),)",
+      "returns": []
+     },
+     "groups_bound": [
+      [
+       {
+        "line": 1,
+        "line_text": "Oh--oh, oh my love",
+        "member": "1.T4",
+        "label": "love",
+        "bound": [
+         {
+          "widx": 3,
+          "token": "love",
+          "pieces": [
+           [
+            14,
+            18
+           ]
+          ],
+          "raw": "love",
+          "number_T": 4
+         }
+        ],
+        "syllables": [
+         {
+          "word": "love",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       },
+       {
+        "line": 8,
+        "line_text": "Love above",
+        "member": "8",
+        "label": "above",
+        "bound": [
+         {
+          "widx": 0,
+          "token": "Love",
+          "pieces": [
+           [
+            0,
+            4
+           ]
+          ],
+          "raw": "Love",
+          "number_T": 1
+         },
+         {
+          "widx": 1,
+          "token": "above",
+          "pieces": [
+           [
+            5,
+            10
+           ]
+          ],
+          "raw": "above",
+          "number_T": 2
+         }
+        ],
+        "syllables": [
+         {
+          "word": "Love",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 1
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [],
+          "stress": 0
+         },
+         {
+          "word": "above",
+          "nucleus": "AH",
+          "coda": [
+           "V"
+          ],
+          "stress": 1
+         }
+        ]
+       }
+      ]
+     ],
+     "returns_bound": []
+    }
+   ]
+  }
+ ]
+}

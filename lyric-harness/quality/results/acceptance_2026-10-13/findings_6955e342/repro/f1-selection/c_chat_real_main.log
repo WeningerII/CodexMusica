@@ -1,0 +1,40 @@
+main.enter.U_in_2end: chatFocused=chat-input reached=0 migrated=false sameChars=true
+   before {"sel":[27,27,"forward"],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   after  {"sel":[27,27,"forward"],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   expect "[SETUP — returns — 1.T2, 2.|end]"
+   sent []
+main.enter.U_sel_2end: chatFocused=chat-input reached=0 migrated=false sameChars=true
+   before {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]"}
+   after  {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]"}
+   expect "[SETUP — returns — 1.T2, «2.end»]"
+   sent []
+main.enter.C_sel_T2: chatFocused=chat-input reached=0 migrated=false sameChars=true
+   before {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]"}
+   after  {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]"}
+   expect "[SETUP — returns — «1.T2», 2.end]"
+   sent []
+main.enter.S_body_walk: chatFocused=chat-input reached=0 migrated=false sameChars=true
+   before {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight"}
+   after  {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight"}
+   expect "I w|alk the line tonight"
+   sent []
+main.sendButton.U_in_2end: chatFocused=chat-input reached=1 migrated=false sameChars=true
+   before {"sel":[27,27,"forward"],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   after  {"sel":[27,27,"forward"],"shown":"[SETUP — returns — 1.T2, 2.|end]"}
+   expect "[SETUP — returns — 1.T2, 2.|end]"
+   sent [{"returns":"1.T2, 2.end"}]
+main.sendButton.U_sel_2end: chatFocused=chat-input reached=1 migrated=false sameChars=true
+   before {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]"}
+   after  {"sel":[25,30,"forward"],"shown":"[SETUP — returns — 1.T2, «2.end»]"}
+   expect "[SETUP — returns — 1.T2, «2.end»]"
+   sent [{"returns":"1.T2, 2.end"}]
+main.sendButton.C_sel_T2: chatFocused=chat-input reached=1 migrated=false sameChars=true
+   before {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]"}
+   after  {"sel":[19,23,"forward"],"shown":"[SETUP — returns — «1.T2», 2.end]"}
+   expect "[SETUP — returns — «1.T2», 2.end]"
+   sent [{"returns":"1.T2, 2.end"}]
+main.sendButton.S_body_walk: chatFocused=chat-input reached=1 migrated=false sameChars=true
+   before {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight"}
+   after  {"sel":[63,63,"forward"],"shown":"I w|alk the line tonight"}
+   expect "I w|alk the line tonight"
+   sent [{"returns":"1.T2, 2.end"}]

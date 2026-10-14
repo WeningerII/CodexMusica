@@ -1,0 +1,88 @@
+{
+ "tree": "cand",
+ "desktop": {
+  "shown": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss"
+ },
+ "detailsOpen": true,
+ "afterInsert": {
+  "cardText": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.",
+  "line1Now": "A brand new opening line",
+  "line2Now": "Oh--oh, oh my love"
+ },
+ "dismiss": {
+  "toasts": [
+   "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it."
+  ],
+  "toastEl": {
+   "text": "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it.",
+   "visible": false,
+   "buttons": []
+  },
+  "hist0": [
+   2,
+   3
+  ],
+  "hist1": [
+   2,
+   3
+  ],
+  "cardAfter": null,
+  "metaAfter": null
+ },
+ "undoAfterDismiss": {
+  "card": false,
+  "draftHasInserted": false
+ },
+ "phone": {
+  "shown": "4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, lines 1 and 3: word 2 → 3; a rhyme link on “love”, line 1: word 4 → 5; a declared return on “my”, line 1: word 3 → 4; a declared return on “my”, line 3: word 3 → 4. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss"
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "cand.d.frozenLines",
+   "claim": "after a line is inserted above, the card still points at the right lines",
+   "expected": "line refs follow the text (or the card shows the line text)",
+   "observed": {
+    "card": "the reading for “oh”, lines 1 and 3: word 2 → 3",
+    "line1Now": "A brand new opening line",
+    "line2Now": "Oh--oh, oh my love"
+   },
+   "status": "fail"
+  },
+  {
+   "id": "cand.d.dismissNoUndo",
+   "claim": "Dismiss: is there any confirmation or Undo for the removed record?",
+   "expected": "informational",
+   "observed": {
+    "newToasts": [
+     "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it."
+    ],
+    "toastEl": {
+     "text": "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “oh” word 2 → 3, “love” word 4 → 5, “my” word 3 → 4, …. Review lists each one until you dismiss it.",
+     "visible": false,
+     "buttons": []
+    },
+    "hist0": [
+     2,
+     3
+    ],
+    "hist1": [
+     2,
+     3
+    ],
+    "card": false
+   },
+   "status": "cannot_tell"
+  },
+  {
+   "id": "cand.d.undoAfterDismiss",
+   "claim": "Undo after Dismiss restores the card",
+   "expected": "card back",
+   "observed": {
+    "card": false,
+    "draftHasInserted": false
+   },
+   "status": "fail"
+  }
+ ]
+}

@@ -1,0 +1,5078 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "hasDecl": true,
+ "rows": [
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "“Also, some few I. O. U.’s and bets,”",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "_Wut_'ll make ye act like freemen?",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "_Wut_'ll git your dander riz?",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' your fact'ry gals (soon ez we split) 'll make head,",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' I says \"'M go' to be a Raggedy Man!--",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "My fount of song, dear friend, 's a bitter well;",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Not more than when _you_ ’re what you call",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "That['s] tost up, after fox-i'-th'-hole;",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "\"Oh, oui, Monsieur,\" 's the waiter's answer;",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "“God save the King” 's a cuckoo sang",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "As most is in _Lynn_'s fair Town;",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Below the knap, 's a runnèn still;",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' at each zide [=o]'m, sprack an' strong,",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' zoo, when _he_'d a-been all roun',",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Do shoulder each [=o]'s a reäke an' pick,",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' mother, weary, 's a-zot a thinkèn,",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Ah, s[=o]'s! 'tis now zome years agoo",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "What plaÿsome anticks zome [=o]'s done!",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Her head, 's a-walkèn to an' fro",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "The ceäke upon the vier, too, 's a-burnèn,",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "An' little Jack, you know, 's a-gwaïn to eärn",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "By hoof or shoe, 's a sheenèn bright,",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "When in that house M.P.'s divide,",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2 — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword (carried across the word-cut change),2.endword — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.endword"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head (carried across the word-cut change),2.head — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.head"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime (carried across the word-cut change),2.headrime — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.headrime"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1 (carried across the word-cut change),2.end — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "Where her \"meteor flag\" 's nailed fast",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end (carried across the word-cut change) — cut v2]",
+   "changed": true,
+   "carried": [
+    "1.end"
+   ],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1,2",
+   "row_after": "[SETUP — returns — 1,2]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — returns — 1.end,2.end]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — returns — 1.endword,2.endword]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — returns — 1.head,2.head]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — returns — 1.headrime,2.headrime]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — returns — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "1,2.end",
+   "row_after": "[SETUP — returns — 1,2.end]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "returns",
+   "form": "2,1.end",
+   "row_after": "[SETUP — returns — 2,1.end]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1,2",
+   "row_after": "[SETUP — rhyme groups — 1,2]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1.end,2.end",
+   "row_after": "[SETUP — rhyme groups — 1.end,2.end]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.end,2.end"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1.endword,2.endword",
+   "row_after": "[SETUP — rhyme groups — 1.endword,2.endword]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.endword,2.endword"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1.head,2.head",
+   "row_after": "[SETUP — rhyme groups — 1.head,2.head]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.head,2.head"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1.headrime,2.headrime",
+   "row_after": "[SETUP — rhyme groups — 1.headrime,2.headrime]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.headrime,2.headrime"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1.T3,2.T3",
+   "row_after": "[SETUP — rhyme groups — 1.T3,2.T3]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1.T3,2.T3"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "1,2.end",
+   "row_after": "[SETUP — rhyme groups — 1,2.end]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "1,2.end"
+  },
+  {
+   "line": "We sing it plain tonight",
+   "key": "rhyme groups",
+   "form": "2,1.end",
+   "row_after": "[SETUP — rhyme groups — 2,1.end]",
+   "changed": false,
+   "carried": [],
+   "moved": 0,
+   "blocked": 0,
+   "wire": "2,1.end"
+  }
+ ]
+}

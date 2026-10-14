@@ -1,0 +1,1289 @@
+====================================================================================================
+(a) UNCHANGED-BINDING ROWS (U1-U13, M1): is every byte kept? (bytes_kept = row identical to the row as written)
+    steps where the row's bytes are NOT expected to change by construction: load, reload, keep, keep_reload, exports, imports
+====================================================================================================
+[cand] identity steps: 308/308 rows byte-identical
+[cand] rows whose saved (localStorage) copy differs from the draft: 0
+[main] identity steps: 308/308 rows byte-identical
+[main] rows whose saved (localStorage) copy differs from the draft: 0
+[prev61b] identity steps: 165/308 rows byte-identical
+   U7 R A/load: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G A/load: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R A/reload: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G A/reload: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R A/keep: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G A/keep: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R A/keep_reload: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G A/keep_reload: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R R/load: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G R/load: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R X/import_exported_session: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G X/import_exported_session: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R X/import_exported_txt: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G X/import_exported_txt: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R X/import_original_txt: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G X/import_original_txt: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R X/import_original_session: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G X/import_original_session: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 R X/exported_session_rows: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 R X/exported_txt_rows: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T5,6.T5])
+   U7 G X/exported_session_rows: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U7 G X/exported_txt_rows: [SETUP — rhyme groups — 5.T2,6.T3 — cut v2]  (written [SETUP — rhyme groups — 5.T2,6.T3])
+   U8 R A/load: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G A/load: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R A/reload: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G A/reload: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R A/keep: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G A/keep: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R A/keep_reload: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G A/keep_reload: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R R/load: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G R/load: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R X/import_exported_session: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G X/import_exported_session: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R X/import_exported_txt: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G X/import_exported_txt: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R X/import_original_txt: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G X/import_original_txt: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R X/import_original_session: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G X/import_original_session: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 R X/exported_session_rows: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 R X/exported_txt_rows: [SETUP — returns — 5,6.T5 — cut v2]  (written [SETUP — returns — 5.end, 6.T5])
+   U8 G X/exported_session_rows: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U8 G X/exported_txt_rows: [SETUP — rhyme groups — 5.endword,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5.endword ,6.T5])
+   U9 R A/load: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G A/load: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R A/reload: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G A/reload: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R A/keep: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G A/keep: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R A/keep_reload: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G A/keep_reload: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R R/load: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G R/load: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R X/import_exported_session: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G X/import_exported_session: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R X/import_exported_txt: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G X/import_exported_txt: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R X/import_original_txt: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G X/import_original_txt: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R X/import_original_session: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G X/import_original_session: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 R X/exported_session_rows: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 R X/exported_txt_rows: [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]  (written [SETUP — returns — 5.end , 6.end ; 4.T4 ,  8.T2])
+   U9 G X/exported_session_rows: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U9 G X/exported_txt_rows: [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]  (written [SETUP — rhyme groups — 4.T1, 5.T1;  6.end,5.end])
+   U10 R A/load: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G A/load: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R A/reload: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G A/reload: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R A/keep: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G A/keep: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R A/keep_reload: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G A/keep_reload: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R R/load: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G R/load: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R X/import_exported_session: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G X/import_exported_session: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R X/import_exported_txt: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G X/import_exported_txt: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R X/import_original_txt: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G X/import_original_txt: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R X/import_original_session: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G X/import_original_session: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 R X/exported_session_rows: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 R X/exported_txt_rows: [SETUP — returns — 7.T2,5.T2 — cut v2]  (written [SETUP — returns — 7.T2,5.T2])
+   U10 G X/exported_session_rows: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U10 G X/exported_txt_rows: [SETUP — rhyme groups — 7.T3,6 — cut v2]  (written [SETUP — rhyme groups — 7.T3,6.end])
+   U11 G A/load: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G A/reload: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G A/keep: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G A/keep_reload: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G R/load: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G X/import_exported_session: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G X/import_exported_txt: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G X/import_original_txt: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G X/import_original_session: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G X/exported_session_rows: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U11 G X/exported_txt_rows: [SETUP — rhyme groups — 7.T4,5.T5 — cut v2]  (written [SETUP — rhyme groups — 7.T4,5.T5])
+   U12 R A/load: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G A/load: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R A/reload: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G A/reload: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R A/keep: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G A/keep: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R A/keep_reload: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G A/keep_reload: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R R/load: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G R/load: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R X/import_exported_session: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G X/import_exported_session: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R X/import_exported_txt: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G X/import_exported_txt: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R X/import_original_txt: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G X/import_original_txt: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R X/import_original_session: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G X/import_original_session: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R X/exported_session_rows: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 R X/exported_txt_rows: [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G X/exported_session_rows: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U12 G X/exported_txt_rows: [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]  (written [SETUP — rhyme groups — 5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5])
+   U13 R A/load: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G A/load: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R A/reload: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G A/reload: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R A/keep: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G A/keep: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R A/keep_reload: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G A/keep_reload: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R R/load: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G R/load: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R X/import_exported_session: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G X/import_exported_session: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R X/import_exported_txt: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G X/import_exported_txt: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R X/import_original_txt: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G X/import_original_txt: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R X/import_original_session: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G X/import_original_session: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 R X/exported_session_rows: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 R X/exported_txt_rows: [SETUP — returns — 5.T5,6.T5 — cut v2]  (written [SETUP — returns — 5.T05,6.T05])
+   U13 G X/exported_session_rows: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+   U13 G X/exported_txt_rows: [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]  (written [SETUP — rhyme groups — 6.T01,5.T01])
+[prev61b] rows whose saved (localStorage) copy differs from the draft: 0
+
+----------------------------------------------------------------------------------------------------
+(a, continued) WRITER ACTIONS ON UNCHANGED ROWS: reorder (lines renumber), Repeats form (FP), Rhymes form (FR), Declare exact repeat (FD)
+    reported: mark added? member spelling changed (written -> now, line numbers ignored)? whitespace changed? the OTHER key's row untouched?
+----------------------------------------------------------------------------------------------------
+[cand]
+   FD/form/G                    n=14 bytes_kept=14 mark_added= 0 spelling_changed= 0 spacing_changed= 0
+   FD/form/R                    n=14 bytes_kept= 0 mark_added=13 spelling_changed= 0 spacing_changed= 2
+   FP/form/G                    n=14 bytes_kept=14 mark_added= 0 spelling_changed= 0 spacing_changed= 0
+   FP/form/R                    n=14 bytes_kept= 0 mark_added=13 spelling_changed= 0 spacing_changed= 2
+   FR/form/G                    n=14 bytes_kept= 0 mark_added=13 spelling_changed= 0 spacing_changed= 2
+   FR/form/R                    n=14 bytes_kept=14 mark_added= 0 spelling_changed= 0 spacing_changed= 0
+   R/reorder1/G                 n=14 bytes_kept= 0 mark_added= 0 spelling_changed= 0 spacing_changed= 0
+   R/reorder1/R                 n=14 bytes_kept= 0 mark_added= 0 spelling_changed= 0 spacing_changed= 0
+   R/reorder2/G                 n=14 bytes_kept=12 mark_added= 0 spelling_changed= 0 spacing_changed= 2
+   R/reorder2/R                 n=14 bytes_kept=12 mark_added= 0 spelling_changed= 0 spacing_changed= 2
+   R/reorder2_reload/G          n=14 bytes_kept=12 mark_added= 0 spelling_changed= 0 spacing_changed= 2
+   R/reorder2_reload/R          n=14 bytes_kept=12 mark_added= 0 spelling_changed= 0 spacing_changed= 2
+[main]
+   FD/form/G                    n=14 bytes_kept=14 mark_added= 0 spelling_changed= 0 spacing_changed= 0
+   FD/form/R                    n=14 bytes_kept= 0 mark_added= 0 spelling_changed= 6 spacing_changed= 2
+   FP/form/G                    n=14 bytes_kept=14 mark_added= 0 spelling_changed= 0 spacing_changed= 0
+   FP/form/R                    n=14 bytes_kept= 0 mark_added= 0 spelling_changed= 6 spacing_changed= 2
+   FR/form/G                    n=14 bytes_kept= 0 mark_added= 0 spelling_changed= 5 spacing_changed= 2
+   FR/form/R                    n=14 bytes_kept=14 mark_added= 0 spelling_changed= 0 spacing_changed= 0
+   R/reorder1/G                 n=14 bytes_kept= 0 mark_added= 0 spelling_changed= 5 spacing_changed= 0
+   R/reorder1/R                 n=14 bytes_kept= 0 mark_added= 0 spelling_changed= 6 spacing_changed= 0
+   R/reorder2/G                 n=14 bytes_kept= 8 mark_added= 0 spelling_changed= 5 spacing_changed= 2
+   R/reorder2/R                 n=14 bytes_kept= 8 mark_added= 0 spelling_changed= 6 spacing_changed= 2
+   R/reorder2_reload/G          n=14 bytes_kept= 8 mark_added= 0 spelling_changed= 5 spacing_changed= 2
+   R/reorder2_reload/R          n=14 bytes_kept= 8 mark_added= 0 spelling_changed= 6 spacing_changed= 2
+   U2 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 1,2]
+   U2 R/reorder1/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 1,2]
+   U2 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6]
+   U2 R/reorder2/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6]
+   U2 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6]
+   U2 R/reorder2_reload/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6]
+   U2 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;2.head,3.head]
+   U2 FR/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;2,3]
+   U2 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;1,5;2,6;3,7;4,8]
+   U8 R/reorder1/R: [['.end', '(bare)']]  -> [SETUP — returns — 1,2.T5]
+   U8 R/reorder2/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5]
+   U8 R/reorder2_reload/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5]
+   U8 FP/form/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5;2.head,3.head]
+   U8 FD/form/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5;1,5;2,6;3,7;4,8]
+   U9 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 1,2;8.T4,4.T2]
+   U9 R/reorder1/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 8.T1,1.T1;2,1]
+   U9 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2]
+   U9 R/reorder2/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 4.T1,5.T1;6,5]
+   U9 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2]
+   U9 R/reorder2_reload/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 4.T1,5.T1;6,5]
+   U9 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2;2.head,3.head]
+   U9 FR/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 4.T1,5.T1;6,5;2,3]
+   U9 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2;1,5;2,6;3,7;4,8]
+   U10 R/reorder1/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 3.T3,2]
+   U10 R/reorder2/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 7.T3,6]
+   U10 R/reorder2_reload/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 7.T3,6]
+   U10 FR/form/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 7.T3,6;2,3]
+   U11 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 3,1]
+   U11 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 7,5]
+   U11 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 7,5]
+   U11 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 7,5;2.head,3.head]
+   U11 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 7,5;1,5;2,6;3,7;4,8]
+   U12 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 1,2;1,2;1.endword,2.endword;1.head,2.head;1.headrime,2.headrime;1.line,2.line;1.T5,2.T5]
+   U12 R/reorder1/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 1,2;1,2;1.endword,2.endword;1.head,2.head;1.headrime,2.headrime;1.line,2.line;1.T5,2.T5]
+   U12 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5]
+   U12 R/reorder2/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5]
+   U12 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5]
+   U12 R/reorder2_reload/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5]
+   U12 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;2.head,3.head]
+   U12 FR/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;2,3]
+   U12 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;1,5;2,6;3,7;4,8]
+   M1 R/reorder1/R: [['.end', '(bare)'], ['.end', 'undefined']]  -> [SETUP — returns — 8,undefined]
+   M1 R/reorder1/G: [['.T5', 'undefined']]  -> [SETUP — rhyme groups — 5.T5,undefined]
+   M1 R/reorder2/R: [['.end', '(bare)'], ['.end', 'undefined']]  -> [SETUP — returns — 4,undefined]
+   M1 R/reorder2/G: [['.T5', 'undefined']]  -> [SETUP — rhyme groups — 1.T5,undefined]
+   M1 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', 'undefined']]  -> [SETUP — returns — 4,undefined]
+   M1 R/reorder2_reload/G: [['.T5', 'undefined']]  -> [SETUP — rhyme groups — 1.T5,undefined]
+   M1 FP/form/R: [['.end', '(bare)'], ['.end', 'undefined']]  -> [SETUP — returns — 4,undefined;2.head,3.head]
+   M1 FR/form/G: [['.T5', 'undefined']]  -> [SETUP — rhyme groups — 1.T5,undefined;2,3]
+   M1 FD/form/R: [['.end', '(bare)'], ['.end', 'undefined']]  -> [SETUP — returns — 4,undefined;1,5;2,6;3,7;4,8]
+[prev61b]
+   FD/form/G                    n=14 bytes_kept= 7 mark_added= 7 spelling_changed= 4 spacing_changed= 2
+   FD/form/R                    n=14 bytes_kept= 0 mark_added=13 spelling_changed= 7 spacing_changed= 2
+   FP/form/G                    n=14 bytes_kept= 7 mark_added= 7 spelling_changed= 4 spacing_changed= 2
+   FP/form/R                    n=14 bytes_kept= 0 mark_added=13 spelling_changed= 7 spacing_changed= 2
+   FR/form/G                    n=14 bytes_kept= 0 mark_added=13 spelling_changed= 5 spacing_changed= 2
+   FR/form/R                    n=14 bytes_kept= 8 mark_added= 6 spelling_changed= 4 spacing_changed= 2
+   R/reorder1/G                 n=14 bytes_kept= 0 mark_added= 7 spelling_changed= 5 spacing_changed= 0
+   R/reorder1/R                 n=14 bytes_kept= 0 mark_added= 6 spelling_changed= 7 spacing_changed= 0
+   R/reorder2/G                 n=14 bytes_kept= 6 mark_added= 7 spelling_changed= 5 spacing_changed= 2
+   R/reorder2/R                 n=14 bytes_kept= 5 mark_added= 6 spelling_changed= 7 spacing_changed= 2
+   R/reorder2_reload/G          n=14 bytes_kept= 6 mark_added= 7 spelling_changed= 5 spacing_changed= 2
+   R/reorder2_reload/R          n=14 bytes_kept= 5 mark_added= 6 spelling_changed= 7 spacing_changed= 2
+   U2 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 1,2]
+   U2 R/reorder1/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 1,2]
+   U2 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6]
+   U2 R/reorder2/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6]
+   U2 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6]
+   U2 R/reorder2_reload/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6]
+   U2 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;2.head,3.head — cut v2]
+   U2 FR/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;2,3 — cut v2]
+   U2 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;1,5;2,6;3,7;4,8 — cut v2]
+   U8 R/reorder1/R: [['.end', '(bare)']]  -> [SETUP — returns — 1,2.T5 — cut v2]
+   U8 R/reorder2/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5 — cut v2]
+   U8 R/reorder2_reload/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5 — cut v2]
+   U8 FP/form/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5;2.head,3.head — cut v2]
+   U8 FR/form/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5 — cut v2]
+   U8 FD/form/R: [['.end', '(bare)']]  -> [SETUP — returns — 5,6.T5;1,5;2,6;3,7;4,8 — cut v2]
+   U9 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 1,2;8.T4,4.T2 — cut v2]
+   U9 R/reorder1/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 8.T1,1.T1;2,1 — cut v2]
+   U9 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]
+   U9 R/reorder2/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]
+   U9 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]
+   U9 R/reorder2_reload/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]
+   U9 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2;2.head,3.head — cut v2]
+   U9 FP/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]
+   U9 FR/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2 — cut v2]
+   U9 FR/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 4.T1,5.T1;6,5;2,3 — cut v2]
+   U9 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;4.T4,8.T2;1,5;2,6;3,7;4,8 — cut v2]
+   U9 FD/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 4.T1,5.T1;6,5 — cut v2]
+   U10 R/reorder1/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 3.T3,2 — cut v2]
+   U10 R/reorder2/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 7.T3,6 — cut v2]
+   U10 R/reorder2_reload/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 7.T3,6 — cut v2]
+   U10 FP/form/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 7.T3,6 — cut v2]
+   U10 FR/form/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 7.T3,6;2,3 — cut v2]
+   U10 FD/form/G: [['.end', '(bare)']]  -> [SETUP — rhyme groups — 7.T3,6 — cut v2]
+   U11 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 3,1]
+   U11 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 7,5]
+   U11 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 7,5]
+   U11 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 7,5;2.head,3.head — cut v2]
+   U11 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 7,5;1,5;2,6;3,7;4,8 — cut v2]
+   U12 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 1,2;1,2;1.endword,2.endword;1.head,2.head;1.headrime,2.headrime;1.line,2.line;1.T5,2.T5 — cut v2]
+   U12 R/reorder1/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 1,2;1,2;1.endword,2.endword;1.head,2.head;1.headrime,2.headrime;1.line,2.line;1.T5,2.T5 — cut v2]
+   U12 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]
+   U12 R/reorder2/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]
+   U12 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]
+   U12 R/reorder2_reload/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]
+   U12 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;2.head,3.head — cut v2]
+   U12 FP/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]
+   U12 FR/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]
+   U12 FR/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;2,3 — cut v2]
+   U12 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;1,5;2,6;3,7;4,8 — cut v2]
+   U12 FD/form/G: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — rhyme groups — 5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5 — cut v2]
+   U13 R/reorder1/R: [['.T05', '.T5'], ['.T05', '.T5']]  -> [SETUP — returns — 1.T5,2.T5 — cut v2]
+   U13 R/reorder1/G: [['.T01', '.T1'], ['.T01', '.T1']]  -> [SETUP — rhyme groups — 2.T1,1.T1 — cut v2]
+   U13 R/reorder2/R: [['.T05', '.T5'], ['.T05', '.T5']]  -> [SETUP — returns — 5.T5,6.T5 — cut v2]
+   U13 R/reorder2/G: [['.T01', '.T1'], ['.T01', '.T1']]  -> [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]
+   U13 R/reorder2_reload/R: [['.T05', '.T5'], ['.T05', '.T5']]  -> [SETUP — returns — 5.T5,6.T5 — cut v2]
+   U13 R/reorder2_reload/G: [['.T01', '.T1'], ['.T01', '.T1']]  -> [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]
+   U13 FP/form/R: [['.T05', '.T5'], ['.T05', '.T5']]  -> [SETUP — returns — 5.T5,6.T5;2.head,3.head — cut v2]
+   U13 FP/form/G: [['.T01', '.T1'], ['.T01', '.T1']]  -> [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]
+   U13 FR/form/R: [['.T05', '.T5'], ['.T05', '.T5']]  -> [SETUP — returns — 5.T5,6.T5 — cut v2]
+   U13 FR/form/G: [['.T01', '.T1'], ['.T01', '.T1']]  -> [SETUP — rhyme groups — 6.T1,5.T1;2,3 — cut v2]
+   U13 FD/form/R: [['.T05', '.T5'], ['.T05', '.T5']]  -> [SETUP — returns — 5.T5,6.T5;1,5;2,6;3,7;4,8 — cut v2]
+   U13 FD/form/G: [['.T01', '.T1'], ['.T01', '.T1']]  -> [SETUP — rhyme groups — 6.T1,5.T1 — cut v2]
+   M1 R/reorder1/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 8,2 — cut v2]
+   M1 R/reorder2/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 4,6 — cut v2]
+   M1 R/reorder2_reload/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 4,6 — cut v2]
+   M1 FP/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 4,6;2.head,3.head — cut v2]
+   M1 FD/form/R: [['.end', '(bare)'], ['.end', '(bare)']]  -> [SETUP — returns — 4,6;1,5;2,6;3,7;4,8 — cut v2]
+
+====================================================================================================
+(b) ROWS THE MIGRATION REWRITES (W1-W11): candidate row after load vs the policy expectation; main and 61b for contrast
+====================================================================================================
+W1 R written: [4.end,6.end]
+   [cand   ] load  [SETUP — returns — 4.end (C),6.end — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 4.end,6.end — cut v2]
+   [main   ] load  [SETUP — returns — 4.end,6.end]
+   [main   ] keep  [SETUP — returns — 4.end,6.end]
+   [prev61b] load  [SETUP — returns — 4 (C),6 — cut v2]
+   [prev61b] keep  [SETUP — returns — 4,6 — cut v2]
+W1 G written: [4.end,6]
+   [cand   ] load  [SETUP — rhyme groups — 4.end (C),6 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 4.end,6 — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 4.end,6]
+   [main   ] keep  [SETUP — rhyme groups — 4.end,6]
+   [prev61b] load  [SETUP — rhyme groups — 4 (C),6 — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 4,6 — cut v2]
+W2 R written: [5.end,6.end;1.T4,8.T4]
+   [cand   ] load  [SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]
+   [main   ] load  [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+   [main   ] keep  [SETUP — returns — 5.end,6.end;1.T4,8.T4]
+   [prev61b] load  [SETUP — returns — 5,6;1.T5,8.T5 — cut v2]
+   [prev61b] keep  [SETUP — returns — 5,6;1.T5,8.T5 — cut v2]
+W2 G written: [5.end,6.endword;1.T4,8.T4]
+   [cand   ] load  [SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]
+   [main   ] keep  [SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]
+   [prev61b] load  [SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]
+W3 R written: [1.end,6.head]
+   [cand   ] load  [SETUP — returns — 1.end (C),6.head — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 1.end,6.head — cut v2]
+   [main   ] load  [SETUP — returns — 1.end,6.head]
+   [main   ] keep  [SETUP — returns — 1.end,6.head]
+   [prev61b] load  [SETUP — returns — 1 (C),6.head — cut v2]
+   [prev61b] keep  [SETUP — returns — 1,6.head — cut v2]
+W3 G written: [1.end,6.head]
+   [cand   ] load  [SETUP — rhyme groups — 1.end (C),6.head — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 1.end,6.head — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 1.end,6.head]
+   [main   ] keep  [SETUP — rhyme groups — 1.end,6.head]
+   [prev61b] load  [SETUP — rhyme groups — 1 (C),6.head — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 1,6.head — cut v2]
+W4 R written: [5.end, 1.T4 ; 6.endword ,8.T4]
+   [cand   ] load  [SETUP — returns — 5.end, 1.T5 ; 6.endword ,8.T5 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 5.end, 1.T5 ; 6.endword ,8.T5 — cut v2]
+   [main   ] load  [SETUP — returns — 5.end, 1.T4 ; 6.endword ,8.T4]
+   [main   ] keep  [SETUP — returns — 5.end, 1.T4 ; 6.endword ,8.T4]
+   [prev61b] load  [SETUP — returns — 5,1.T5;6.endword,8.T5 — cut v2]
+   [prev61b] keep  [SETUP — returns — 5,1.T5;6.endword,8.T5 — cut v2]
+W4 G written: [5.end , 3.T3; 6.T5,  3.T4]
+   [cand   ] load  [SETUP — rhyme groups — 5.end , 3.T4; 6.T5,  3.T5 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 5.end , 3.T4; 6.T5,  3.T5 — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 5.end , 3.T3; 6.T5,  3.T4]
+   [main   ] keep  [SETUP — rhyme groups — 5.end , 3.T3; 6.T5,  3.T4]
+   [prev61b] load  [SETUP — rhyme groups — 5,3.T4;6.T5,3.T5 — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 5,3.T4;6.T5,3.T5 — cut v2]
+W5 R written: [4,6]  NOTE returns bare N = whole line: its binding cannot change with the cut
+   [cand   ] load  [SETUP — returns — 4 (C),6 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 4,6 — cut v2]
+   [main   ] load  [SETUP — returns — 4,6]
+   [main   ] keep  [SETUP — returns — 4,6]
+   [prev61b] load  [SETUP — returns — 4 (C),6 — cut v2]
+   [prev61b] keep  [SETUP — returns — 4,6 — cut v2]
+W5 G written: [4,6]  NOTE returns bare N = whole line: its binding cannot change with the cut
+   [cand   ] load  [SETUP — rhyme groups — 4 (C),6 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 4,6 — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 4,6]
+   [main   ] keep  [SETUP — rhyme groups — 4,6]
+   [prev61b] load  [SETUP — rhyme groups — 4 (C),6 — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 4,6 — cut v2]
+W6 R written: [4.endword,6.endword]
+   [cand   ] load  [SETUP — returns — 4.endword (C),6.endword — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 4.endword,6.endword — cut v2]
+   [main   ] load  [SETUP — returns — 4.endword,6.endword]
+   [main   ] keep  [SETUP — returns — 4.endword,6.endword]
+   [prev61b] load  [SETUP — returns — 4.endword (C),6.endword — cut v2]
+   [prev61b] keep  [SETUP — returns — 4.endword,6.endword — cut v2]
+W6 G written: [4.headrime,6.headrime]
+   [cand   ] load  [SETUP — rhyme groups — 4.headrime (C),6.headrime — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 4.headrime,6.headrime — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 4.headrime,6.headrime]
+   [main   ] keep  [SETUP — rhyme groups — 4.headrime,6.headrime]
+   [prev61b] load  [SETUP — rhyme groups — 4.headrime (C),6.headrime — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 4.headrime,6.headrime — cut v2]
+W7 R written: [4.line,6.line]  NOTE N.line binds the whole line: its binding cannot change with the cut
+   [cand   ] load  [SETUP — returns — 4.line (C),6.line — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 4.line,6.line — cut v2]
+   [main   ] load  [SETUP — returns — 4.line,6.line]
+   [main   ] keep  [SETUP — returns — 4.line,6.line]
+   [prev61b] load  [SETUP — returns — 4.line (C),6.line — cut v2]
+   [prev61b] keep  [SETUP — returns — 4.line,6.line — cut v2]
+W7 G written: [4.head,6.head]  NOTE N.line binds the whole line: its binding cannot change with the cut
+   [cand   ] load  [SETUP — rhyme groups — 4.head (C),6.head — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 4.head,6.head — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 4.head,6.head]
+   [main   ] keep  [SETUP — rhyme groups — 4.head,6.head]
+   [prev61b] load  [SETUP — rhyme groups — 4.head (C),6.head — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 4.head,6.head — cut v2]
+W8 R written: [7.end,5.end]  voices ON
+   [cand   ] load  [SETUP — returns — 7.end (C),5.end — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 7.end,5.end — cut v2]
+   [main   ] load  [SETUP — returns — 7.end,5.end]
+   [main   ] keep  [SETUP — returns — 7.end,5.end]
+   [prev61b] load  [SETUP — returns — 7 (C),5 — cut v2]
+   [prev61b] keep  [SETUP — returns — 7,5 — cut v2]
+W8 G written: [7.T5,5.T5]  voices ON
+   [cand   ] load  [SETUP — rhyme groups — 7.T6,5.T5 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 7.T6,5.T5 — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 7.T5,5.T5]
+   [main   ] keep  [SETUP — rhyme groups — 7.T5,5.T5]
+   [prev61b] load  [SETUP — rhyme groups — 7.T6,5.T5 — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 7.T6,5.T5 — cut v2]
+W9 R written: [1.T1,5.T1]
+   [cand   ] load  [SETUP — returns — 1.T1 (U),5.T1 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 1.T1 (U),5.T1 — cut v2]
+   [main   ] load  [SETUP — returns — 1.T1,5.T1]
+   [main   ] keep  [SETUP — returns — 1.T1,5.T1]
+   [prev61b] load  [SETUP — returns — 1.T1 (U),5.T1 — cut v2]
+   [prev61b] keep  [SETUP — returns — 1.T1 (U),5.T1 — cut v2]
+W9 G written: [2.T5,6.T5]
+   [cand   ] load  [SETUP — rhyme groups — 2.T5 (U),6.T5 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 2.T5 (U),6.T5 — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 2.T5,6.T5]
+   [main   ] keep  [SETUP — rhyme groups — 2.T5,6.T5]
+   [prev61b] load  [SETUP — rhyme groups — 2.T5 (U),6.T5 — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 2.T5 (U),6.T5 — cut v2]
+W10 R written: [4.T4,6.T5;1.T2,8.T4]
+   [cand   ] load  [SETUP — returns — 4.T4,6.T5;1.T3,8.T5 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 4.T4,6.T5;1.T3,8.T5 — cut v2]
+   [main   ] load  [SETUP — returns — 4.T4,6.T5;1.T2,8.T4]
+   [main   ] keep  [SETUP — returns — 4.T4,6.T5;1.T2,8.T4]
+   [prev61b] load  [SETUP — returns — 4.T4,6.T5;1.T3,8.T5 — cut v2]
+   [prev61b] keep  [SETUP — returns — 4.T4,6.T5;1.T3,8.T5 — cut v2]
+W10 G written: [3.T1,4.T3;3.T3,5.T1]
+   [cand   ] load  [SETUP — rhyme groups — 3.T1,4.T3;3.T4,5.T1 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 3.T1,4.T3;3.T4,5.T1 — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 3.T1,4.T3;3.T3,5.T1]
+   [main   ] keep  [SETUP — rhyme groups — 3.T1,4.T3;3.T3,5.T1]
+   [prev61b] load  [SETUP — rhyme groups — 3.T1,4.T3;3.T4,5.T1 — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 3.T1,4.T3;3.T4,5.T1 — cut v2]
+W11 R written: [1.T04,8.T04]  NOTE zero-padded spelling: the writer's padding is not a policy point; recorded only
+   [cand   ] load  [SETUP — returns — 1.T5,8.T5 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 1.T5,8.T5 — cut v2]
+   [main   ] load  [SETUP — returns — 1.T04,8.T04]
+   [main   ] keep  [SETUP — returns — 1.T04,8.T04]
+   [prev61b] load  [SETUP — returns — 1.T5,8.T5 — cut v2]
+   [prev61b] keep  [SETUP — returns — 1.T5,8.T5 — cut v2]
+W11 G written: [3.T03 , 5.T03]  NOTE zero-padded spelling: the writer's padding is not a policy point; recorded only
+   [cand   ] load  [SETUP — rhyme groups — 3.T4 , 5.T03 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 3.T4 , 5.T03 — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 3.T03 , 5.T03]
+   [main   ] keep  [SETUP — rhyme groups — 3.T03 , 5.T03]
+   [prev61b] load  [SETUP — rhyme groups — 3.T4,5.T3 — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 3.T4,5.T3 — cut v2]
+W12 R written: [4.end , 6.end ;  5.T2, 6.T2]  NOTE odd spacing plus a carried member: what Keep does to the unchanged members' bytes
+   [cand   ] load  [SETUP — returns — 4.end (C) , 6.end ;  5.T2, 6.T2 — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — returns — 4.end,6.end;5.T2,6.T2 — cut v2]
+   [main   ] load  [SETUP — returns — 4.end , 6.end ;  5.T2, 6.T2]
+   [main   ] keep  [SETUP — returns — 4.end , 6.end ;  5.T2, 6.T2]
+   [prev61b] load  [SETUP — returns — 4 (C),6;5.T2,6.T2 — cut v2]
+   [prev61b] keep  [SETUP — returns — 4,6;5.T2,6.T2 — cut v2]
+W12 G written: [4.end ,6 ; 5.head,  6.head]  NOTE odd spacing plus a carried member: what Keep does to the unchanged members' bytes
+   [cand   ] load  [SETUP — rhyme groups — 4.end (C) ,6 ; 5.head,  6.head — cut v2]  matches_expected=True
+   [cand   ] keep  [SETUP — rhyme groups — 4.end,6;5.head,6.head — cut v2]
+   [main   ] load  [SETUP — rhyme groups — 4.end ,6 ; 5.head,  6.head]
+   [main   ] keep  [SETUP — rhyme groups — 4.end ,6 ; 5.head,  6.head]
+   [prev61b] load  [SETUP — rhyme groups — 4 (C),6;5.head,6.head — cut v2]
+   [prev61b] keep  [SETUP — rhyme groups — 4,6;5.head,6.head — cut v2]
+
+====================================================================================================
+(c) WHAT WENT ON THE WIRE (/chat lyric_context.declarations.returns) and how each harness parses it
+    sig = per return class (kind, loci with T<n> as T*), line numbers ignored; 'kept' = every class of the row as written
+    is still there with the same kind and loci (forms may add classes)
+====================================================================================================
+[cand] returns semantics kept per step (kept/sent; blocked sends):
+   A  /keep:send                        kept 25/25  not sent 1
+   A  /keep_reload:send                 kept 25/25  not sent 1
+   A  /load:send                        kept 25/25  not sent 1
+   A  /reload:send                      kept 25/25  not sent 1
+   FD /form:send                        kept 25/25  not sent 1
+   FP /form:send                        kept 25/25  not sent 1
+   FR /form:send                        kept 25/25  not sent 1
+   R  /reorder1:send                    kept 25/25  not sent 1
+   R  /reorder2:send                    kept 25/25  not sent 1
+   X  /import_exported_session:send     kept 25/25  not sent 1
+   X  /import_exported_txt:send         kept 25/25  not sent 1
+   X  /import_original_session:send     kept 25/25  not sent 1
+   X  /import_original_txt:send         kept 25/25  not sent 1
+[main] returns semantics kept per step (kept/sent; blocked sends):
+   A  /keep:send                        kept 26/26  not sent 0
+   A  /keep_reload:send                 kept 26/26  not sent 0
+   A  /load:send                        kept 26/26  not sent 0
+   A  /reload:send                      kept 26/26  not sent 0
+   FD /form:send                        kept 15/26  not sent 0
+   FP /form:send                        kept 15/26  not sent 0
+   FR /form:send                        kept 26/26  not sent 0
+   R  /reorder1:send                    kept 15/26  not sent 0
+   R  /reorder2:send                    kept 15/26  not sent 0
+   X  /import_exported_session:send     kept 26/26  not sent 0
+   X  /import_exported_txt:send         kept 26/26  not sent 0
+   X  /import_original_session:send     kept 26/26  not sent 0
+   X  /import_original_txt:send         kept 26/26  not sent 0
+   U2 R/reorder1:send: written R [5.end,6.end] -> sent returns '1,2' groups '1,2'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   U2 R/reorder2:send: written R [5.end,6.end] -> sent returns '5,6' groups '5,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   U2 FP/form:send: written R [5.end,6.end] -> sent returns '5,6;2.head,3.head' groups '5.end,6.end'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['placed', ['head', 'head']], ['whole_line', []]]
+   U2 FD/form:send: written R [5.end,6.end] -> sent returns '5,6;1,5;2,6;3,7;4,8' groups '5.end,6.end'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   U8 R/reorder1:send: written R [5.end, 6.T5] -> sent returns '1,2.T5' groups '1.endword,2.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['1', '2.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 R/reorder2:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 FP/form:send: written R [5.end, 6.T5] -> sent returns '5,6.T5;2.head,3.head' groups '5.endword ,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 FD/form:send: written R [5.end, 6.T5] -> sent returns '5,6.T5;1,5;2,6;3,7;4,8' groups '5.endword ,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U9 R/reorder1:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '1,2;8.T4,4.T2' groups '8.T1,1.T1;2,1'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 R/reorder2:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 FP/form:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2;2.head,3.head' groups '4.T1, 5.T1;  6.end,5.end'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['head', 'head']], ['whole_line', []]]
+   U9 FD/form:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2;1,5;2,6;3,7;4,8' groups '4.T1, 5.T1;  6.end,5.end'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   U11 R/reorder1:send: written R [7.end,5.end] -> sent returns '3,1' groups '3.T4,1.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   U11 R/reorder2:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T4,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   U11 FP/form:send: written R [7.end,5.end] -> sent returns '7,5;2.head,3.head' groups '7.T4,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['placed', ['head', 'head']], ['whole_line', []]]
+   U11 FD/form:send: written R [7.end,5.end] -> sent returns '7,5;1,5;2,6;3,7;4,8' groups '7.T4,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   U12 R/reorder1:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '1,2;1,2;1.endword,2.endword;1.head,2.head;1.headrime,2.headrime;1.line,2.line;1.T5,2.T5' groups '1,2;1,2;1.endword,2.endword;1.head,2.head;1.headrime,2.headrime;1.line,2.line;1.T5,2.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 R/reorder2:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 FP/form:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;2.head,3.head' groups '5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 FD/form:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;1,5;2,6;3,7;4,8' groups '5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   W1 R/reorder1:send: written R [4.end,6.end] -> sent returns '8,2' groups '8,2'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 R/reorder2:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 FP/form:send: written R [4.end,6.end] -> sent returns '4,6;2.head,3.head' groups '4.end,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['placed', ['head', 'head']], ['whole_line', []]]
+   W1 FD/form:send: written R [4.end,6.end] -> sent returns '4,6;1,5;2,6;3,7;4,8' groups '4.end,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   W2 R/reorder1:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '1,2;5.T4,4.T4' groups '1,2.endword;5.T4,4.T4'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 R/reorder2:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T4,8.T4' groups '5,6.endword;1.T4,8.T4'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 FP/form:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T4,8.T4;2.head,3.head' groups '5.end,6.endword;1.T4,8.T4'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['head', 'head']], ['whole_line', []]]
+   W2 FD/form:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T4,8.T4;1,5;2,6;3,7;4,8' groups '5.end,6.endword;1.T4,8.T4'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   W3 R/reorder1:send: written R [1.end,6.head] -> sent returns '5,2.head' groups '5,2.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 R/reorder2:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 FP/form:send: written R [1.end,6.head] -> sent returns '1,6.head;2.head,3.head' groups '1.end,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 FD/form:send: written R [1.end,6.head] -> sent returns '1,6.head;1,5;2,6;3,7;4,8' groups '1.end,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 R/reorder1:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '1,5.T4;2.endword,4.T4' groups '1,7.T3;2.T5,7.T4'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['1', '5.T4'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 R/reorder2:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T4;6.endword,8.T4' groups '5,3.T3;6.T5,3.T4'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T4'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 FP/form:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T4;6.endword,8.T4;2.head,3.head' groups '5.end , 3.T3; 6.T5,  3.T4'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T4'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 FD/form:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T4;6.endword,8.T4;1,5;2,6;3,7;4,8' groups '5.end , 3.T3; 6.T5,  3.T4'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T4'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W8 R/reorder1:send: written R [7.end,5.end] -> sent returns '3,1' groups '3.T5,1.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 R/reorder2:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T5,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 FP/form:send: written R [7.end,5.end] -> sent returns '7,5;2.head,3.head' groups '7.T5,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['placed', ['head', 'head']], ['whole_line', []]]
+   W8 FD/form:send: written R [7.end,5.end] -> sent returns '7,5;1,5;2,6;3,7;4,8' groups '7.T5,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   W12 R/reorder1:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '8,2;1.T2,2.T2' groups '8,2;1.head,2.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 R/reorder2:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 FP/form:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2;2.head,3.head' groups '4.end ,6 ; 5.head,  6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['head', 'head']], ['whole_line', []]]
+   W12 FD/form:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2;1,5;2,6;3,7;4,8' groups '4.end ,6 ; 5.head,  6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []], ['whole_line', []], ['whole_line', []]]
+[prev61b] returns semantics kept per step (kept/sent; blocked sends):
+   A  /keep:send                        kept 16/25  not sent 1
+   A  /keep_reload:send                 kept 16/25  not sent 1
+   A  /load:send                        kept 16/25  not sent 1
+   A  /reload:send                      kept 16/25  not sent 1
+   FD /form:send                        kept 14/25  not sent 1
+   FP /form:send                        kept 14/25  not sent 1
+   FR /form:send                        kept 16/25  not sent 1
+   R  /reorder1:send                    kept 14/25  not sent 1
+   R  /reorder2:send                    kept 14/25  not sent 1
+   X  /import_exported_session:send     kept 16/25  not sent 1
+   X  /import_exported_txt:send         kept 16/25  not sent 1
+   X  /import_original_session:send     kept 16/25  not sent 1
+   X  /import_original_txt:send         kept 16/25  not sent 1
+   U2 R/reorder1:send: written R [5.end,6.end] -> sent returns '1,2' groups '1,2'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   U2 R/reorder2:send: written R [5.end,6.end] -> sent returns '5,6' groups '5,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   U2 FP/form:send: written R [5.end,6.end] -> sent returns '5,6;2.head,3.head' groups '5.end,6.end'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['placed', ['head', 'head']], ['whole_line', []]]
+   U2 FD/form:send: written R [5.end,6.end] -> sent returns '5,6;1,5;2,6;3,7;4,8' groups '5.end,6.end'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   U8 A/load:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 A/reload:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 A/keep:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 A/keep_reload:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 R/reorder1:send: written R [5.end, 6.T5] -> sent returns '1,2.T5' groups '1.endword,2.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['1', '2.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 R/reorder2:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 FP/form:send: written R [5.end, 6.T5] -> sent returns '5,6.T5;2.head,3.head' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 FR/form:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5;2,3'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 FD/form:send: written R [5.end, 6.T5] -> sent returns '5,6.T5;1,5;2,6;3,7;4,8' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 X/import_exported_session:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 X/import_exported_txt:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 X/import_original_txt:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U8 X/import_original_session:send: written R [5.end, 6.T5] -> sent returns '5,6.T5' groups '5.endword,6.T5'
+        intended [['placed', ['T*', 'end']]]
+        parsed   {'refused': "return class ['5', '6.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   U9 A/load:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 A/reload:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 A/keep:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 A/keep_reload:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 R/reorder1:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '1,2;8.T4,4.T2' groups '8.T1,1.T1;2,1'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 R/reorder2:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 FP/form:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2;2.head,3.head' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['head', 'head']], ['whole_line', []]]
+   U9 FR/form:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5;2,3'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 FD/form:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2;1,5;2,6;3,7;4,8' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   U9 X/import_exported_session:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 X/import_exported_txt:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 X/import_original_txt:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U9 X/import_original_session:send: written R [5.end , 6.end ; 4.T4 ,  8.T2] -> sent returns '5,6;4.T4,8.T2' groups '4.T1,5.T1;6,5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   U11 R/reorder1:send: written R [7.end,5.end] -> sent returns '3,1' groups '3.T4,1.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   U11 R/reorder2:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T4,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   U11 FP/form:send: written R [7.end,5.end] -> sent returns '7,5;2.head,3.head' groups '7.T4,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['placed', ['head', 'head']], ['whole_line', []]]
+   U11 FD/form:send: written R [7.end,5.end] -> sent returns '7,5;1,5;2,6;3,7;4,8' groups '7.T4,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   U12 A/load:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 A/reload:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 A/keep:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 A/keep_reload:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 R/reorder1:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '1,2;1,2;1.endword,2.endword;1.head,2.head;1.headrime,2.headrime;1.line,2.line;1.T5,2.T5' groups '1,2;1,2;1.endword,2.endword;1.head,2.head;1.headrime,2.headrime;1.line,2.line;1.T5,2.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 R/reorder2:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 FP/form:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;2.head,3.head' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 FR/form:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;2,3'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 FD/form:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5;1,5;2,6;3,7;4,8' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   U12 X/import_exported_session:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 X/import_exported_txt:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 X/import_original_txt:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   U12 X/import_original_session:send: written R [5,6;5.end,6.end;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5] -> sent returns '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5' groups '5,6;5,6;5.endword,6.endword;5.head,6.head;5.headrime,6.headrime;5.line,6.line;5.T5,6.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['endword', 'endword']], ['placed', ['head', 'head']], ['placed', ['headrime', 'headrime']], ['placed', ['line', 'line']], ['whole_line', []]]
+   W1 A/load:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 A/reload:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 A/keep:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 A/keep_reload:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 R/reorder1:send: written R [4.end,6.end] -> sent returns '8,2' groups '8,2'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 R/reorder2:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 FP/form:send: written R [4.end,6.end] -> sent returns '4,6;2.head,3.head' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['placed', ['head', 'head']], ['whole_line', []]]
+   W1 FR/form:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6;2,3'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 FD/form:send: written R [4.end,6.end] -> sent returns '4,6;1,5;2,6;3,7;4,8' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   W1 X/import_exported_session:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 X/import_exported_txt:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 X/import_original_txt:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W1 X/import_original_session:send: written R [4.end,6.end] -> sent returns '4,6' groups '4,6'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W2 A/load:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 A/reload:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 A/keep:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 A/keep_reload:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 R/reorder1:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '1,2;5.T5,4.T5' groups '1,2.endword;5.T5,4.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 R/reorder2:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 FP/form:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5;2.head,3.head' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['head', 'head']], ['whole_line', []]]
+   W2 FR/form:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5;2,3'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 FD/form:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5;1,5;2,6;3,7;4,8' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   W2 X/import_exported_session:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 X/import_exported_txt:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 X/import_original_txt:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W2 X/import_original_session:send: written R [5.end,6.end;1.T4,8.T4] -> sent returns '5,6;1.T5,8.T5' groups '5,6.endword;1.T5,8.T5'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W3 A/load:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 A/reload:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 A/keep:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 A/keep_reload:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 R/reorder1:send: written R [1.end,6.head] -> sent returns '5,2.head' groups '5,2.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 R/reorder2:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 FP/form:send: written R [1.end,6.head] -> sent returns '1,6.head;2.head,3.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 FR/form:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head;2,3'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 FD/form:send: written R [1.end,6.head] -> sent returns '1,6.head;1,5;2,6;3,7;4,8' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 X/import_exported_session:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 X/import_exported_txt:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 X/import_original_txt:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W3 X/import_original_session:send: written R [1.end,6.head] -> sent returns '1,6.head' groups '1,6.head'
+        intended [['placed', ['end', 'head']]]
+        parsed   {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 A/load:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 A/reload:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 A/keep:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 A/keep_reload:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 R/reorder1:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '1,5.T5;2.endword,4.T5' groups '1,7.T4;2.T5,7.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['1', '5.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 R/reorder2:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 FP/form:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5;2.head,3.head' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 FR/form:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5;2,3'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 FD/form:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5;1,5;2,6;3,7;4,8' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 X/import_exported_session:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 X/import_exported_txt:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 X/import_original_txt:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W4 X/import_original_session:send: written R [5.end, 1.T4 ; 6.endword ,8.T4] -> sent returns '5,1.T5;6.endword,8.T5' groups '5,3.T4;6.T5,3.T5'
+        intended [['placed', ['T*', 'end']], ['placed', ['T*', 'endword']]]
+        parsed   {'refused': "return class ['5', '1.T5'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}
+   W8 A/load:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 A/reload:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 A/keep:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 A/keep_reload:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 R/reorder1:send: written R [7.end,5.end] -> sent returns '3,1' groups '3.T6,1.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 R/reorder2:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 FP/form:send: written R [7.end,5.end] -> sent returns '7,5;2.head,3.head' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['placed', ['head', 'head']], ['whole_line', []]]
+   W8 FR/form:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5;2,3'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 FD/form:send: written R [7.end,5.end] -> sent returns '7,5;1,5;2,6;3,7;4,8' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   W8 X/import_exported_session:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 X/import_exported_txt:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 X/import_original_txt:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W8 X/import_original_session:send: written R [7.end,5.end] -> sent returns '7,5' groups '7.T6,5.T5'
+        intended [['placed', ['end', 'end']]]
+        parsed   [['whole_line', []]]
+   W12 A/load:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 A/reload:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 A/keep:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 A/keep_reload:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 R/reorder1:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '8,2;1.T2,2.T2' groups '8,2;1.head,2.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 R/reorder2:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 FP/form:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2;2.head,3.head' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['placed', ['head', 'head']], ['whole_line', []]]
+   W12 FR/form:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head;2,3'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 FD/form:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2;1,5;2,6;3,7;4,8' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []], ['whole_line', []], ['whole_line', []]]
+   W12 X/import_exported_session:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 X/import_exported_txt:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 X/import_original_txt:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+   W12 X/import_original_session:send: written R [4.end , 6.end ;  5.T2, 6.T2] -> sent returns '4,6;5.T2,6.T2' groups '4,6;5.head,6.head'
+        intended [['placed', ['T*', 'T*']], ['placed', ['end', 'end']]]
+        parsed   [['placed', ['T*', 'T*']], ['whole_line', []]]
+
+----------------------------------------------------------------------------------------------------
+(c, detail) the song8 rows named in the task, per member: placed (locus) or WHOLE (line), parsed by the candidate harness 6955e342 (base fce4bf0f identical: see same_in_base)
+----------------------------------------------------------------------------------------------------
+W1 written returns [4.end,6.end]
+   [cand   ] A/load:send                    sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] A/reload:send                  sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] A/keep:send                    sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] A/keep_reload:send             sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] R/reorder1:send                sent '8.end,2.end'                                -> {L2:end, L8:end}  same_in_base=True
+   [cand   ] R/reorder2:send                sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] FP/form:send                    sent '4.end,6.end;2.head,3.head'                  -> {L2:head, L3:head} {L4:end, L6:end}  same_in_base=True
+   [cand   ] FR/form:send                    sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] FD/form:send                    sent '4.end,6.end;1,5;2,6;3,7;4,8'                -> {L1:WHOLE, L5:WHOLE} {L2:WHOLE, L6:WHOLE} {L3:WHOLE, L7:WHOLE} {L4:WHOLE, L8:WHOLE} {L4:end, L6:end}  same_in_base=True
+   [cand   ] X/import_exported_session:send sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] X/import_exported_txt:send     sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] X/import_original_txt:send     sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [cand   ] X/import_original_session:send sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] A/load:send                    sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] A/reload:send                  sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] A/keep:send                    sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] A/keep_reload:send             sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] R/reorder1:send                sent '8,2'                                        -> {L2:WHOLE, L8:WHOLE}  same_in_base=True
+   [main   ] R/reorder2:send                sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [main   ] FP/form:send                    sent '4,6;2.head,3.head'                          -> {L2:head, L3:head} {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [main   ] FR/form:send                    sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] FD/form:send                    sent '4,6;1,5;2,6;3,7;4,8'                        -> {L1:WHOLE, L5:WHOLE} {L2:WHOLE, L4:WHOLE, L6:WHOLE, L8:WHOLE} {L3:WHOLE, L7:WHOLE}  same_in_base=True
+   [main   ] X/import_exported_session:send sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] X/import_exported_txt:send     sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] X/import_original_txt:send     sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [main   ] X/import_original_session:send sent '4.end,6.end'                                -> {L4:end, L6:end}  same_in_base=True
+   [prev61b] A/load:send                    sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] A/reload:send                  sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] A/keep:send                    sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] A/keep_reload:send             sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] R/reorder1:send                sent '8,2'                                        -> {L2:WHOLE, L8:WHOLE}  same_in_base=True
+   [prev61b] R/reorder2:send                sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] FP/form:send                    sent '4,6;2.head,3.head'                          -> {L2:head, L3:head} {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] FR/form:send                    sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] FD/form:send                    sent '4,6;1,5;2,6;3,7;4,8'                        -> {L1:WHOLE, L5:WHOLE} {L2:WHOLE, L4:WHOLE, L6:WHOLE, L8:WHOLE} {L3:WHOLE, L7:WHOLE}  same_in_base=True
+   [prev61b] X/import_exported_session:send sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] X/import_exported_txt:send     sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] X/import_original_txt:send     sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] X/import_original_session:send sent '4,6'                                        -> {L4:WHOLE, L6:WHOLE}  same_in_base=True
+W2 written returns [5.end,6.end;1.T4,8.T4]
+   [cand   ] A/load:send                    sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] A/reload:send                  sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] A/keep:send                    sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] A/keep_reload:send             sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] R/reorder1:send                sent '1.end,2.end;5.T5,4.T5'                      -> {L1:end, L2:end} {L4:T5, L5:T5}  same_in_base=True
+   [cand   ] R/reorder2:send                sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] FP/form:send                    sent '5.end,6.end;1.T5,8.T5;2.head,3.head'        -> {L1:T5, L8:T5} {L2:head, L3:head} {L5:end, L6:end}  same_in_base=True
+   [cand   ] FR/form:send                    sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] FD/form:send                    sent '5.end,6.end;1.T5,8.T5;1,5;2,6;3,7;4,8'      -> {L1:WHOLE, L5:WHOLE} {L1:T5, L8:T5} {L2:WHOLE, L6:WHOLE} {L3:WHOLE, L7:WHOLE} {L4:WHOLE, L8:WHOLE} {L5:end, L6:end}  same_in_base=True
+   [cand   ] X/import_exported_session:send sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] X/import_exported_txt:send     sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] X/import_original_txt:send     sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [cand   ] X/import_original_session:send sent '5.end,6.end;1.T5,8.T5'                      -> {L1:T5, L8:T5} {L5:end, L6:end}  same_in_base=True
+   [main   ] A/load:send                    sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [main   ] A/reload:send                  sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [main   ] A/keep:send                    sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [main   ] A/keep_reload:send             sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [main   ] R/reorder1:send                sent '1,2;5.T4,4.T4'                              -> {L1:WHOLE, L2:WHOLE} {L4:T4, L5:T4}  same_in_base=True
+   [main   ] R/reorder2:send                sent '5,6;1.T4,8.T4'                              -> {L1:T4, L8:T4} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [main   ] FP/form:send                    sent '5,6;1.T4,8.T4;2.head,3.head'                -> {L1:T4, L8:T4} {L2:head, L3:head} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [main   ] FR/form:send                    sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [main   ] FD/form:send                    sent '5,6;1.T4,8.T4;1,5;2,6;3,7;4,8'              -> {L1:T4, L8:T4} {L1:WHOLE, L2:WHOLE, L5:WHOLE, L6:WHOLE} {L3:WHOLE, L7:WHOLE} {L4:WHOLE, L8:WHOLE}  same_in_base=True
+   [main   ] X/import_exported_session:send sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [main   ] X/import_exported_txt:send     sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [main   ] X/import_original_txt:send     sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [main   ] X/import_original_session:send sent '5.end,6.end;1.T4,8.T4'                      -> {L1:T4, L8:T4} {L5:end, L6:end}  same_in_base=True
+   [prev61b] A/load:send                    sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] A/reload:send                  sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] A/keep:send                    sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] A/keep_reload:send             sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] R/reorder1:send                sent '1,2;5.T5,4.T5'                              -> {L1:WHOLE, L2:WHOLE} {L4:T5, L5:T5}  same_in_base=True
+   [prev61b] R/reorder2:send                sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] FP/form:send                    sent '5,6;1.T5,8.T5;2.head,3.head'                -> {L1:T5, L8:T5} {L2:head, L3:head} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] FR/form:send                    sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] FD/form:send                    sent '5,6;1.T5,8.T5;1,5;2,6;3,7;4,8'              -> {L1:T5, L8:T5} {L1:WHOLE, L2:WHOLE, L5:WHOLE, L6:WHOLE} {L3:WHOLE, L7:WHOLE} {L4:WHOLE, L8:WHOLE}  same_in_base=True
+   [prev61b] X/import_exported_session:send sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] X/import_exported_txt:send     sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] X/import_original_txt:send     sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+   [prev61b] X/import_original_session:send sent '5,6;1.T5,8.T5'                              -> {L1:T5, L8:T5} {L5:WHOLE, L6:WHOLE}  same_in_base=True
+W3 written returns [1.end,6.head]
+   [cand   ] A/load:send                    sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] A/reload:send                  sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] A/keep:send                    sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] A/keep_reload:send             sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] R/reorder1:send                sent '5.end,2.head'                               -> {L2:head, L5:end}  same_in_base=True
+   [cand   ] R/reorder2:send                sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] FP/form:send                    sent '1.end,6.head;2.head,3.head'                 -> {L1:end, L6:head} {L2:head, L3:head}  same_in_base=True
+   [cand   ] FR/form:send                    sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] FD/form:send                    sent '1.end,6.head;1,5;2,6;3,7;4,8'               -> {L1:WHOLE, L5:WHOLE} {L1:end, L6:head} {L2:WHOLE, L6:WHOLE} {L3:WHOLE, L7:WHOLE} {L4:WHOLE, L8:WHOLE}  same_in_base=True
+   [cand   ] X/import_exported_session:send sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] X/import_exported_txt:send     sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] X/import_original_txt:send     sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [cand   ] X/import_original_session:send sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] A/load:send                    sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] A/reload:send                  sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] A/keep:send                    sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] A/keep_reload:send             sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] R/reorder1:send                sent '5,2.head'                                   -> {'refused': "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [main   ] R/reorder2:send                sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [main   ] FP/form:send                    sent '1,6.head;2.head,3.head'                     -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [main   ] FR/form:send                    sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] FD/form:send                    sent '1,6.head;1,5;2,6;3,7;4,8'                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [main   ] X/import_exported_session:send sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] X/import_exported_txt:send     sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] X/import_original_txt:send     sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [main   ] X/import_original_session:send sent '1.end,6.head'                               -> {L1:end, L6:head}  same_in_base=True
+   [prev61b] A/load:send                    sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] A/reload:send                  sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] A/keep:send                    sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] A/keep_reload:send             sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] R/reorder1:send                sent '5,2.head'                                   -> {'refused': "return class ['5', '2.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] R/reorder2:send                sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] FP/form:send                    sent '1,6.head;2.head,3.head'                     -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] FR/form:send                    sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] FD/form:send                    sent '1,6.head;1,5;2,6;3,7;4,8'                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] X/import_exported_session:send sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] X/import_exported_txt:send     sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] X/import_original_txt:send     sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+   [prev61b] X/import_original_session:send sent '1,6.head'                                   -> {'refused': "return class ['1', '6.head'] MIXES a placed member with a whole-line one. A placed class declares that the WORD at each placement returns and says nothing about the rest of those lines (REQUIRE_RETURN_AT); a bare line number names no word, so the two are different claims and one class cannot hold both (MISSING M-142). Declare them as two classes."}  same_in_base=True
+
+====================================================================================================
+EXTRAS: voices toggle (V_U11), hand-pasted unmarked row + form / send / reorder / declare (P_*)
+====================================================================================================
+[cand] V_U11
+     load               rows ['[SETUP — returns — 7.end,5.end]', '[SETUP — rhyme groups — 7.T4,5.T5]']
+     voices_on          rows ['[SETUP — returns — 7.end,5.end]', '[SETUP — rhyme groups — 7.T4,5.T5]', '[SETUP — voices — parentheses are sung]']
+     voices_on:send     sent NOT SENT ["No lyrics yetWrite in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.Start writingNew song with the writerImport a text file", "Nothing was sent. 1 word place in a rhyme link or declared return saved without the current cut mark (7.T4) could not be matched to a word of the current text. Remove that link and declare it again, in Review."]
+                        rows after send ['[SETUP — returns — 7.end (C),5.end — cut v2]', '[SETUP — rhyme groups — 7.T4 (U),5.T5 — cut v2]', '[SETUP — voices — parentheses are sung]']
+     voices_on_reload   rows ['[SETUP — returns — 7.end (C),5.end — cut v2]', '[SETUP — rhyme groups — 7.T4 (U),5.T5 — cut v2]', '[SETUP — voices — parentheses are sung]']
+[cand] P_groups_form
+     load               rows []
+     pasted             rows ['[SETUP — rhyme groups — 1.T4,8.T4]']
+     form               rows ['[SETUP — rhyme groups — 1.T4,8.T4;5,6 — cut v2]']
+     form:send          sent {"groups": "1.T4,8.T4;5,6"}
+                        rows after send ['[SETUP — rhyme groups — 1.T4,8.T4;5,6 — cut v2]']
+[cand] P_returns_form
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5.end,6.end;1.T4,8.T4]']
+     form               rows ['[SETUP — returns — 5.end,6.end;1.T4,8.T4;2.head,3.head — cut v2]']
+     form:send          sent {"returns": "5.end,6.end;1.T4,8.T4;2.head,3.head"}
+                        rows after send ['[SETUP — returns — 5.end,6.end;1.T4,8.T4;2.head,3.head — cut v2]']
+[cand] P_groups_send
+     load               rows []
+     pasted             rows ['[SETUP — rhyme groups — 1.T4,8.T4]']
+     pasted:send        sent {"groups": "1.T5,8.T5"}
+                        rows after send ['[SETUP — rhyme groups — 1.T5,8.T5 — cut v2]']
+[cand] P_returns_send
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5.end,6.end;1.T4,8.T4]']
+     pasted:send        sent {"returns": "5.end,6.end;1.T5,8.T5"}
+                        rows after send ['[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]']
+[cand] P_returns_reorder
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5.end,6.end;1.T4,8.T4]']
+     form               rows ['[SETUP — returns — 1.end,2.end;5.T4,4.T4]']
+     form:send          sent {"returns": "1.end,2.end;5.T5,4.T5"}
+                        rows after send ['[SETUP — returns — 1.end,2.end;5.T5,4.T5 — cut v2]']
+[cand] P_returns_declare
+     load               rows []
+     pasted             rows ['[SETUP — returns — 1.T4,8.T4]']
+     form               rows ['[SETUP — returns — 1.T4,8.T4;1,5;2,6;3,7;4,8 — cut v2]']
+     form:send          sent {"returns": "1.T4,8.T4;1,5;2,6;3,7;4,8"}
+                        rows after send ['[SETUP — returns — 1.T4,8.T4;1,5;2,6;3,7;4,8 — cut v2]']
+[main] V_U11
+     load               rows ['[SETUP — returns — 7.end,5.end]', '[SETUP — rhyme groups — 7.T4,5.T5]']
+     voices_on          rows ['[SETUP — returns — 7.end,5.end]', '[SETUP — rhyme groups — 7.T4,5.T5]', '[SETUP — voices — parentheses are sung]']
+     voices_on:send     sent {"groups": "7.T4,5.T5", "returns": "7.end,5.end"}
+                        rows after send ['[SETUP — returns — 7.end,5.end]', '[SETUP — rhyme groups — 7.T4,5.T5]', '[SETUP — voices — parentheses are sung]']
+     voices_on_reload   rows ['[SETUP — returns — 7.end,5.end]', '[SETUP — rhyme groups — 7.T4,5.T5]', '[SETUP — voices — parentheses are sung]']
+[main] P_groups_form
+     load               rows []
+     pasted             rows ['[SETUP — rhyme groups — 1.T4,8.T4]']
+     form               rows ['[SETUP — rhyme groups — 1.T4,8.T4;5,6]']
+     form:send          sent {"groups": "1.T4,8.T4;5,6"}
+                        rows after send ['[SETUP — rhyme groups — 1.T4,8.T4;5,6]']
+[main] P_returns_form
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5.end,6.end;1.T4,8.T4]']
+     form               rows ['[SETUP — returns — 5,6;1.T4,8.T4;2.head,3.head]']
+     form:send          sent {"returns": "5,6;1.T4,8.T4;2.head,3.head"}
+                        rows after send ['[SETUP — returns — 5,6;1.T4,8.T4;2.head,3.head]']
+[main] P_groups_send
+     load               rows []
+     pasted             rows ['[SETUP — rhyme groups — 1.T4,8.T4]']
+     pasted:send        sent {"groups": "1.T4,8.T4"}
+                        rows after send ['[SETUP — rhyme groups — 1.T4,8.T4]']
+[main] P_returns_send
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5.end,6.end;1.T4,8.T4]']
+     pasted:send        sent {"returns": "5.end,6.end;1.T4,8.T4"}
+                        rows after send ['[SETUP — returns — 5.end,6.end;1.T4,8.T4]']
+[main] P_returns_reorder
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5.end,6.end;1.T4,8.T4]']
+     form               rows ['[SETUP — returns — 1,2;5.T4,4.T4]']
+     form:send          sent {"returns": "1,2;5.T4,4.T4"}
+                        rows after send ['[SETUP — returns — 1,2;5.T4,4.T4]']
+[main] P_returns_declare
+     load               rows []
+     pasted             rows ['[SETUP — returns — 1.T4,8.T4]']
+     form               rows ['[SETUP — returns — 1.T4,8.T4;1,5;2,6;3,7;4,8]']
+     form:send          sent {"returns": "1.T4,8.T4;1,5;2,6;3,7;4,8"}
+                        rows after send ['[SETUP — returns — 1.T4,8.T4;1,5;2,6;3,7;4,8]']
+[prev61b] V_U11
+     load               rows ['[SETUP — returns — 7.end,5.end]', '[SETUP — rhyme groups — 7.T4,5.T5 — cut v2]']
+     voices_on          rows ['[SETUP — returns — 7 (C),5 — cut v2]', '[SETUP — rhyme groups — 7.T4,5.T5 — cut v2]', '[SETUP — voices — parentheses are sung]']
+     voices_on:send     sent {"groups": "7.T4,5.T5", "returns": "7,5"}
+                        rows after send ['[SETUP — returns — 7 (C),5 — cut v2]', '[SETUP — rhyme groups — 7.T4,5.T5 — cut v2]', '[SETUP — voices — parentheses are sung]']
+     voices_on_reload   rows ['[SETUP — returns — 7 (C),5 — cut v2]', '[SETUP — rhyme groups — 7.T4,5.T5 — cut v2]', '[SETUP — voices — parentheses are sung]']
+[prev61b] P_groups_form
+     load               rows []
+     pasted             rows ['[SETUP — rhyme groups — 1.T5,8.T5 — cut v2]']
+     form               rows ['[SETUP — rhyme groups — 1.T5,8.T5;5,6 — cut v2]']
+     form:send          sent {"groups": "1.T5,8.T5;5,6"}
+                        rows after send ['[SETUP — rhyme groups — 1.T5,8.T5;5,6 — cut v2]']
+[prev61b] P_returns_form
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]']
+     form               rows ['[SETUP — returns — 5,6;1.T5,8.T5;2.head,3.head — cut v2]']
+     form:send          sent {"returns": "5,6;1.T5,8.T5;2.head,3.head"}
+                        rows after send ['[SETUP — returns — 5,6;1.T5,8.T5;2.head,3.head — cut v2]']
+[prev61b] P_groups_send
+     load               rows []
+     pasted             rows ['[SETUP — rhyme groups — 1.T5,8.T5 — cut v2]']
+     pasted:send        sent {"groups": "1.T5,8.T5"}
+                        rows after send ['[SETUP — rhyme groups — 1.T5,8.T5 — cut v2]']
+[prev61b] P_returns_send
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]']
+     pasted:send        sent {"returns": "5,6;1.T5,8.T5"}
+                        rows after send ['[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]']
+[prev61b] P_returns_reorder
+     load               rows []
+     pasted             rows ['[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]']
+     form               rows ['[SETUP — returns — 1,2;5.T5,4.T5 — cut v2]']
+     form:send          sent {"returns": "1,2;5.T5,4.T5"}
+                        rows after send ['[SETUP — returns — 1,2;5.T5,4.T5 — cut v2]']
+[prev61b] P_returns_declare
+     load               rows []
+     pasted             rows ['[SETUP — returns — 1.T5,8.T5 — cut v2]']
+     form               rows ['[SETUP — returns — 1.T5,8.T5;1,5;2,6;3,7;4,8 — cut v2]']
+     form:send          sent {"returns": "1.T5,8.T5;1,5;2,6;3,7;4,8"}
+                        rows after send ['[SETUP — returns — 1.T5,8.T5;1,5;2,6;3,7;4,8 — cut v2]']

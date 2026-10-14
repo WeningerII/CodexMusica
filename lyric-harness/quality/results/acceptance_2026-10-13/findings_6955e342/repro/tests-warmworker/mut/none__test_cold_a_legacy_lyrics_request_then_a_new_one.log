@@ -1,0 +1,9 @@
+test_cold_a_legacy_lyrics_request_then_a_new_one (quality.test_reader.WarmWorkerBody.test_cold_a_legacy_lyrics_request_then_a_new_one) ... WARM_WORKER_PEAK_RSS {"scenario": "test_cold_a_legacy_lyrics_request_then_a_new_one", "peak_rss_bytes": 568668160, "guard_envelope_bytes": 1073741824, "guard_calls": 0, "library_analyses": 0, "python": "CPython 3.11.17"}
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 13.462s
+
+OK
+MUTANT none test_cold_a_legacy_lyrics_request_then_a_new_one PASS
+exit=0

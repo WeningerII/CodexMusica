@@ -1,0 +1,14 @@
+{"what":"attr data-size on ly-editor","t":1199,"sel":[63,63],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"poll","t":1208,"sel":[63,63],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-size on ly-editor","t":1418,"sel":[63,63],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"ensure:before","t":1421,"sel":[63,63],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"ensure:after=true","t":1426,"sel":[72,72],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-outline on ly-page","t":1457,"sel":[72,72],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-size on ly-editor","t":1457,"sel":[72,72],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-mobile on ly-page","t":1457,"sel":[72,72],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-tab on ly-page","t":1457,"sel":[72,72],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"poll","t":1466,"sel":[0,0],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-outline on ly-page","t":1573,"sel":[0,0],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-size on ly-editor","t":1573,"sel":[0,0],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-mobile on ly-page","t":1573,"sel":[0,0],"same":true,"connected":true,"display":"block","vis":"visible"}
+{"what":"attr data-tab on ly-page","t":1573,"sel":[0,0],"same":true,"connected":true,"display":"block","vis":"visible"}

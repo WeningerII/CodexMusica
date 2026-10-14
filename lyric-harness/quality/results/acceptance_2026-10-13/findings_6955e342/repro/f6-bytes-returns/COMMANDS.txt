@@ -1,0 +1,31 @@
+git -C wt-695 diff 61b6618a 643e292e6 -- src/pages/lyrics.js src/lyric-tokens.js src/app.js src/workbench.js > diff_page_61b_643.txt
+cd wt-695 && CODEX_LIBRARY=1 node scripts/build_html.js --out=$F/built-wt-695.html --quiet; cmp $F/built-wt-695.html wt-695/codex.html
+cd wt-main && CODEX_LIBRARY=1 node scripts/build_html.js --out=$F/built-wt-main.html --quiet; cmp $F/built-wt-main.html wt-main/codex.html
+node cuts.js wt-695 song8.txt
+node cuts2.js wt-695 song8.txt > cuts2.out
+node drive.js cand_try wt-695 try_cand.json '^W1$'  (smoke)
+# full page matrix, 3 trees in parallel (served straight from each tree; codex.html == fresh CODEX_LIBRARY=1 build checked for wt-695 and wt-main)
+node drive.js cand    wt-695  page_cand.json    > drive_cand.log
+node drive.js main    wt-main page_main.json    > drive_main.log
+node drive.js prev61b wt-61b  page_prev61b.json > drive_prev61b.log
+cd wt-61b && CODEX_LIBRARY=1 node scripts/build_html.js --out=$F/built-wt-61b.html --quiet; cmp -> IDENT (deleted after)
+# exact re-run of the prior repro (verify-page-matrix-2/page_end_returns.js), paths only changed (OUT, playwright, TREES += wt-695, wt-61b)
+sed ... page_end_returns.js > rerun_vpm2/page_end_returns.js ; cp payload_and_mandate.py rerun_vpm2/
+cd rerun_vpm2 && node page_end_returns.js > page_end_returns.log
+cd rerun_vpm2 && LYRIC_STAGED_DATA=... venv311/bin/python -I payload_and_mandate.py page_end_returns.json payload_and_mandate.json fce4bf0f=wt-base/lyric-harness 6955e342=wt-695/lyric-harness 61b6618a=wt-61b/lyric-harness > payload_and_mandate.log
+cli/run.sh (lyric_harness.py brief song8.txt --returns=<candidate page wire strings> on wt-695) > cli/run.log
+cd wt-base/lyric-harness && python lyric_harness.py brief cli/song8.txt --returns='5.end,6.end;1.T4,8.T4' > cli/base_brief_5aend-6aend_1aT4-8aT4.log
+python3 analyze.py --pairs      # -> wire_pairs.json (every distinct (groups, returns) sent + the rows as written)
+LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data venv311/bin/python -I mandate_probe.py wire_pairs.json wire_parsed.json 8 fce4bf0f=wt-base/lyric-harness 6955e342=wt-695/lyric-harness
+python3 analyze.py              # -> rows_matrix.tsv, wire_matrix.tsv, summary.json
+python3 report.py               # -> report.txt
+analyze.py: return-class signature uses a sorted loci multiset (reorder flips line order); rerun analyze.py + report.py
+python3 (inline, see wire_exact_check.txt): candidate A/X wire strings vs expected
+cd wt-695/lyric-harness && python lyric_harness.py brief cli/song8.txt --returns='1.T4,8.T4' > cli/cand_brief_1~T4-8~T4.log ; same with '1.T5,8.T5'
+cd wt-base/lyric-harness && python lyric_harness.py brief cli/song8.txt --returns='1.T4,8.T4' > cli/base_brief_1~T4-8~T4.log
+# W12 added to scenarios.json (odd spacing + carried member, Keep); run per tree, then merged into page_<t>.json (merge_w12.py inline)
+node drive.js cand wt-695 page_cand_w12.json '^W12$'; node drive.js main wt-main page_main_w12.json '^W12$'; node drive.js prev61b wt-61b page_prev61b_w12.json '^W12$'
+python3 (inline) -> song8_stages_page.json; venv311/bin/python -I rerun_vpm2/payload_and_mandate.py song8_stages_page.json song8_stages_mandate.json fce4bf0f=... 6955e342=... 61b6618a=... > song8_stages_mandate.log
+# note: cli/*.log names come from `tr ';,.' '_-~'`, where '_-~' is a range, so '.'->'a' and ','->'`' in the names (e.g. cand_brief_1aT4`8aT4.log = --returns='1.T4,8.T4')
+# pre-existing check (base harness): brief prints "Lx~Ly: SATISFIED" for a placed class that the same run flags RETURN_NOT_VERBATIM (cli/base_brief_5aend-6aend_1aT4-8aT4.log)
+# git status of all five worktrees checked clean apart from the untracked node_modules symlinks

@@ -1,0 +1,1991 @@
+[
+ {
+  "tree": "cand",
+  "name": "W1 A/load:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 A/reload:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 A/keep:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end,6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 A/keep_reload:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end,6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 R/reorder1:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 8.end (carried across the word-cut change),2.end — cut v2]",
+    "[SETUP — rhyme groups — 8.end (carried across the word-cut change),2 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "8.end,2",
+    "returns": "8.end,2.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 R/reorder2:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 FP/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end;2.head,3.head — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 FR/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6;2,3 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6;2,3",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 FD/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end;1,5;2,6;3,7;4,8 — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 X/import_exported_session:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 X/import_original_txt:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W1 X/import_original_session:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end (carried across the word-cut change),6.end — cut v2]",
+    "[SETUP — rhyme groups — 4.end (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 A/load:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 A/reload:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 A/keep:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 A/keep_reload:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 R/reorder1:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,2.end;5.T5,4.T5 — cut v2]",
+    "[SETUP — rhyme groups — 1.end,2.endword;5.T5,4.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,2.endword;5.T5,4.T5",
+    "returns": "1.end,2.end;5.T5,4.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 R/reorder2:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 FP/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5;2.head,3.head — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 FR/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5;2,3 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5;2,3",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 FD/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5;1,5;2,6;3,7;4,8 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 X/import_exported_session:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 X/import_original_txt:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W2 X/import_original_session:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T5,8.T5",
+    "returns": "5.end,6.end;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 A/load:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 A/reload:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 A/keep:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end,6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 A/keep_reload:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end,6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 R/reorder1:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end (carried across the word-cut change),2.head — cut v2]",
+    "[SETUP — rhyme groups — 5.end (carried across the word-cut change),2.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,2.head",
+    "returns": "5.end,2.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 R/reorder2:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 FP/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head;2.head,3.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 FR/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head;2,3 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head;2,3",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 FD/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head;1,5;2,6;3,7;4,8 — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 X/import_exported_session:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 X/import_original_txt:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "cand",
+  "name": "W3 X/import_original_session:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1.end (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 A/load:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 A/reload:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 A/keep:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 A/keep_reload:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 R/reorder1:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 8,2]",
+    "[SETUP — rhyme groups — 8,2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "8,2",
+    "returns": "8,2"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 R/reorder2:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4,6]",
+    "[SETUP — rhyme groups — 4,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 FP/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4,6;2.head,3.head]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4,6;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 FR/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4,6;2,3]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6;2,3",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 FD/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4,6;1,5;2,6;3,7;4,8]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4,6;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 X/import_exported_session:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 X/import_original_txt:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W1 X/import_original_session:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4.end,6.end]",
+    "[SETUP — rhyme groups — 4.end,6]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4.end,6",
+    "returns": "4.end,6.end"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 A/load:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 A/reload:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 A/keep:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 A/keep_reload:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 R/reorder1:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1,2;5.T4,4.T4]",
+    "[SETUP — rhyme groups — 1,2.endword;5.T4,4.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,2.endword;5.T4,4.T4",
+    "returns": "1,2;5.T4,4.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 R/reorder2:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T4,8.T4",
+    "returns": "5,6;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 FP/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T4,8.T4;2.head,3.head]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5,6;1.T4,8.T4;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 FR/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T4,8.T4;2,3]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T4,8.T4;2,3",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 FD/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T4,8.T4;1,5;2,6;3,7;4,8]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5,6;1.T4,8.T4;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 X/import_exported_session:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 X/import_original_txt:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W2 X/import_original_session:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+    "[SETUP — rhyme groups — 5.end,6.endword;1.T4,8.T4]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5.end,6.endword;1.T4,8.T4",
+    "returns": "5.end,6.end;1.T4,8.T4"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 A/load:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 A/reload:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 A/keep:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 A/keep_reload:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 R/reorder1:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,2.head]",
+    "[SETUP — rhyme groups — 5,2.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,2.head",
+    "returns": "5,2.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 R/reorder2:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1,6.head]",
+    "[SETUP — rhyme groups — 1,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 FP/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1,6.head;2.head,3.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1,6.head;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 FR/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1,6.head;2,3]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head;2,3",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 FD/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1,6.head;1,5;2,6;3,7;4,8]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1,6.head;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 X/import_exported_session:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 X/import_original_txt:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "main",
+  "name": "W3 X/import_original_session:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1.end,6.head]",
+    "[SETUP — rhyme groups — 1.end,6.head]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1.end,6.head",
+    "returns": "1.end,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 A/load:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 A/reload:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 A/keep:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4,6 — cut v2]",
+    "[SETUP — rhyme groups — 4,6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 A/keep_reload:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4,6 — cut v2]",
+    "[SETUP — rhyme groups — 4,6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 R/reorder1:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 8 (carried across the word-cut change),2 — cut v2]",
+    "[SETUP — rhyme groups — 8 (carried across the word-cut change),2 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "8,2",
+    "returns": "8,2"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 R/reorder2:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 FP/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6;2.head,3.head — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 FR/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6;2,3 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6;2,3",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 FD/form:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6;1,5;2,6;3,7;4,8 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 X/import_exported_session:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 X/import_original_txt:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W1 X/import_original_session:send",
+  "written": "[SETUP — returns — 4.end,6.end]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 4 (carried across the word-cut change),6 — cut v2]",
+    "[SETUP — rhyme groups — 4 (carried across the word-cut change),6 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "4,6",
+    "returns": "4,6"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 A/load:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 A/reload:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 A/keep:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 A/keep_reload:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 R/reorder1:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1,2;5.T5,4.T5 — cut v2]",
+    "[SETUP — rhyme groups — 1,2.endword;5.T5,4.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,2.endword;5.T5,4.T5",
+    "returns": "1,2;5.T5,4.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 R/reorder2:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 FP/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5;2.head,3.head — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 FR/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5;2,3 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5;2,3",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 FD/form:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5;1,5;2,6;3,7;4,8 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 X/import_exported_session:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 X/import_original_txt:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W2 X/import_original_session:send",
+  "written": "[SETUP — returns — 5.end,6.end;1.T4,8.T4]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5,6;1.T5,8.T5 — cut v2]",
+    "[SETUP — rhyme groups — 5,6.endword;1.T5,8.T5 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,6.endword;1.T5,8.T5",
+    "returns": "5,6;1.T5,8.T5"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 A/load:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 A/reload:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 A/keep:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1,6.head — cut v2]",
+    "[SETUP — rhyme groups — 1,6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 A/keep_reload:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1,6.head — cut v2]",
+    "[SETUP — rhyme groups — 1,6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 R/reorder1:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 5 (carried across the word-cut change),2.head — cut v2]",
+    "[SETUP — rhyme groups — 5 (carried across the word-cut change),2.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "5,2.head",
+    "returns": "5,2.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 R/reorder2:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 FP/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head;2.head,3.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head;2.head,3.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 FR/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head;2,3 — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head;2,3",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 FD/form:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head;1,5;2,6;3,7;4,8 — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head;1,5;2,6;3,7;4,8"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 X/import_exported_session:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 X/import_exported_txt:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 X/import_original_txt:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ },
+ {
+  "tree": "prev61b",
+  "name": "W3 X/import_original_session:send",
+  "written": "[SETUP — returns — 1.end,6.head]",
+  "after": {
+   "rows": [
+    "[SETUP — returns — 1 (carried across the word-cut change),6.head — cut v2]",
+    "[SETUP — rhyme groups — 1 (carried across the word-cut change),6.head — cut v2]"
+   ]
+  },
+  "sent": [
+   {
+    "groups": "1,6.head",
+    "returns": "1,6.head"
+   }
+  ]
+ }
+]

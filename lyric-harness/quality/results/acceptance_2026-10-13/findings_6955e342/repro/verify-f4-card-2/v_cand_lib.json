@@ -1,0 +1,266 @@
+{
+ "tree": "cand",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695",
+ "lib": true,
+ "cases": [
+  {
+   "name": "same40",
+   "text": "[SETUP — title — \"same40\"]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me]\n[SETUP — reading — token 4 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me]\n[SETUP — returns — 1.T4,2.T4]\n\n[VERSE]\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab",
+   "toasts": [
+    "4 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbab” word 4 → 5, “supercalifragilisticexpialidociousantidisestablishmentbaa” word 4 → 5, …. Review lists each one until you dismiss it.",
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "after": {
+    "hasCardFn": true,
+    "hasMigrate": true,
+    "item": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “supercalifragilisticexpialidociousantidi”, line 1: word 4 → 5; the reading for “supercalifragilisticexpialidociousantidi”, line 2: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 1: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "pane": "Current version · b8d28b3\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n1\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\n4 saved word numbers renumbered to the current word cut\nSetup\nEach was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “supercalifragilisticexpialidociousantidi”, line 1: word 4 → 5; the reading for “supercalifragilisticexpialidociousantidi”, line 2: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 1: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them.\nDismiss\n\n Changes to text, form or rhythm require a new review.",
+    "stored": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "localStorage": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "draft": "[SETUP — title — \"same40\"]\n[SETUP — reading — token 5 \"supercalifragilisticexpialidociousantidisestablishmentbaa\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\" — S UW1 — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"supercalifragilisticexpialidociousantidisestablishmentbab\" in \"Oh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab\" — S UW1 — declared — source: me — cut v2]\n[SETUP — returns — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbaa\nOh--oh, oh my supercalifragilisticexpialidociousantidisestablishmentbab"
+   },
+   "afterReload": {
+    "item": {
+     "title": "4 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “supercalifragilisticexpialidociousantidi”, line 1: word 4 → 5; the reading for “supercalifragilisticexpialidociousantidi”, line 2: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 1: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "stored": {
+     "items": [
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "more": 0
+    },
+    "sameStored": true
+   },
+   "perWord": [
+    {
+     "label": "w57a",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+     "len": 57,
+     "storedAs": [
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "len": 40,
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "len": 40,
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "len": 40,
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "len": 40,
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": true,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": true,
+     "draftHasFull": true
+    },
+    {
+     "label": "w57b",
+     "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+     "len": 57,
+     "storedAs": [
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "len": 40,
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "reading",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "len": 40,
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "len": 40,
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "returns",
+       "word": "supercalifragilisticexpialidociousantidi",
+       "len": 40,
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "storedFull": 0,
+     "cardHasFull": false,
+     "paneHasFull": false,
+     "cardHasCut40": true,
+     "cardHasEllipsisAfterCut": false,
+     "toastHasFull": true,
+     "draftHasFull": true
+    }
+   ],
+   "errors": []
+  }
+ ]
+}

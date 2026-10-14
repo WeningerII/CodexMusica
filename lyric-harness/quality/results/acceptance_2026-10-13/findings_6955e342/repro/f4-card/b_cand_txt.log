@@ -1,0 +1,379 @@
+{
+ "N": 10,
+ "generatedExpected": 10,
+ "importMs": 695,
+ "truthCount": 10,
+ "otherRowChanges": 0,
+ "cardTitleCount": 10,
+ "metaItems": 10,
+ "metaMore": 0,
+ "cardSaysHidden": null,
+ "listed": 10,
+ "lost": 0,
+ "lostKinds": {},
+ "lostExamples": [],
+ "wordTruncated": [
+  {
+   "kind": "reading",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  },
+  {
+   "kind": "reading",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  },
+  {
+   "kind": "returns",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  },
+  {
+   "kind": "returns",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  }
+ ],
+ "linesCut": [
+  {
+   "kind": "reading",
+   "word": "oh",
+   "n": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "cardN": [
+    1,
+    2,
+    3,
+    4
+   ]
+  }
+ ],
+ "lostWithLongWord": 0,
+ "lostChorus": 0,
+ "unmatchedCardItems": 0,
+ "notRendered": 0,
+ "uiLen": 813,
+ "afterReloadSame": true,
+ "afterReloadUiLen": 813,
+ "cardTitle": "10 saved word numbers renumbered to the current word cut",
+ "cardTextLen": 845,
+ "cardTextTail": "e 9: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+}
+[PASS] cand.b.txt.10.everyListed: one txt import renumbering 10: the card lists every renumbered entry
+    expected: 10 listed, none lost
+    observed: {"listed":10,"lost":0,"more":0,"title":10}
+[PASS] cand.b.txt.10.counted: the card title counts every renumbered entry and says how many are not listed
+    expected: title 10; hidden 0
+    observed: {"title":10,"hidden":null}
+[FAIL] cand.b.txt.10.words: no listed word is cut at 40 characters without saying so
+    expected: no truncated words
+    observed: ["57->40","57->40","57->40","57->40"]
+[FAIL] cand.b.txt.10.lines: a listed reading names every line it applies to (no silent cut at 4)
+    expected: no line list cut
+    observed: ["[1,2,3,4,5,6] -> [1,2,3,4]"]
+{
+ "N": 50,
+ "generatedExpected": 50,
+ "importMs": 724,
+ "truthCount": 50,
+ "otherRowChanges": 0,
+ "cardTitleCount": 50,
+ "metaItems": 48,
+ "metaMore": 2,
+ "cardSaysHidden": 2,
+ "listed": 48,
+ "lost": 2,
+ "lostKinds": {
+  "reading": 2
+ },
+ "lostExamples": [
+  {
+   "kind": "reading",
+   "word": "oh",
+   "n": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "from": 2,
+   "to": 3
+  },
+  {
+   "kind": "reading",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+   "n": [
+    7
+   ],
+   "from": 4,
+   "to": 5
+  }
+ ],
+ "wordTruncated": [
+  {
+   "kind": "reading",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  },
+  {
+   "kind": "returns",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  },
+  {
+   "kind": "returns",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  }
+ ],
+ "linesCut": [],
+ "lostWithLongWord": 1,
+ "lostChorus": 1,
+ "unmatchedCardItems": 0,
+ "notRendered": 0,
+ "uiLen": 3131,
+ "afterReloadSame": true,
+ "afterReloadUiLen": 3131,
+ "cardTitle": "50 saved word numbers renumbered to the current word cut",
+ "cardTextLen": 2509,
+ "cardTextTail": " “supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 2 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them."
+}
+[FAIL] cand.b.txt.50.everyListed: one txt import renumbering 50: the card lists every renumbered entry
+    expected: 50 listed, none lost
+    observed: {"listed":48,"lost":2,"more":2,"title":50}
+[PASS] cand.b.txt.50.counted: the card title counts every renumbered entry and says how many are not listed
+    expected: title 50; hidden 2
+    observed: {"title":50,"hidden":"2"}
+[FAIL] cand.b.txt.50.words: no listed word is cut at 40 characters without saying so
+    expected: no truncated words
+    observed: ["57->40","57->40","57->40"]
+[PASS] cand.b.txt.50.lines: a listed reading names every line it applies to (no silent cut at 4)
+    expected: no line list cut
+    observed: []
+{
+ "N": 200,
+ "generatedExpected": 200,
+ "importMs": 750,
+ "truthCount": 200,
+ "otherRowChanges": 0,
+ "cardTitleCount": 200,
+ "metaItems": 49,
+ "metaMore": 151,
+ "cardSaysHidden": 151,
+ "listed": 49,
+ "lost": 151,
+ "lostKinds": {
+  "reading": 20,
+  "rhyme groups": 131
+ },
+ "lostExamples": [
+  {
+   "kind": "reading",
+   "word": "oh",
+   "n": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "from": 2,
+   "to": 3
+  },
+  {
+   "kind": "reading",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+   "n": [
+    7
+   ],
+   "from": 4,
+   "to": 5
+  },
+  {
+   "kind": "reading",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+   "n": [
+    8
+   ],
+   "from": 4,
+   "to": 5
+  },
+  {
+   "kind": "reading",
+   "word": "wa",
+   "n": [
+    9
+   ],
+   "from": 7,
+   "to": 8
+  },
+  {
+   "kind": "reading",
+   "word": "wb",
+   "n": [
+    10
+   ],
+   "from": 7,
+   "to": 8
+  }
+ ],
+ "wordTruncated": [
+  {
+   "kind": "returns",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  },
+  {
+   "kind": "returns",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  }
+ ],
+ "linesCut": [],
+ "lostWithLongWord": 2,
+ "lostChorus": 1,
+ "unmatchedCardItems": 0,
+ "notRendered": 0,
+ "uiLen": 3185,
+ "afterReloadSame": true,
+ "afterReloadUiLen": 3185,
+ "cardTitle": "200 saved word numbers renumbered to the current word cut",
+ "cardTextLen": 2530,
+ "cardTextTail": "supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 151 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them."
+}
+[FAIL] cand.b.txt.200.everyListed: one txt import renumbering 200: the card lists every renumbered entry
+    expected: 200 listed, none lost
+    observed: {"listed":49,"lost":151,"more":151,"title":200}
+[PASS] cand.b.txt.200.counted: the card title counts every renumbered entry and says how many are not listed
+    expected: title 200; hidden 151
+    observed: {"title":200,"hidden":"151"}
+[FAIL] cand.b.txt.200.words: no listed word is cut at 40 characters without saying so
+    expected: no truncated words
+    observed: ["57->40","57->40"]
+[PASS] cand.b.txt.200.lines: a listed reading names every line it applies to (no silent cut at 4)
+    expected: no line list cut
+    observed: []
+{
+ "N": 500,
+ "generatedExpected": 500,
+ "importMs": 828,
+ "truthCount": 500,
+ "otherRowChanges": 0,
+ "cardTitleCount": 500,
+ "metaItems": 48,
+ "metaMore": 452,
+ "cardSaysHidden": 452,
+ "listed": 48,
+ "lost": 452,
+ "lostKinds": {
+  "reading": 50,
+  "rhyme groups": 402
+ },
+ "lostExamples": [
+  {
+   "kind": "reading",
+   "word": "oh",
+   "n": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "from": 2,
+   "to": 3
+  },
+  {
+   "kind": "reading",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+   "n": [
+    7
+   ],
+   "from": 4,
+   "to": 5
+  },
+  {
+   "kind": "reading",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+   "n": [
+    8
+   ],
+   "from": 4,
+   "to": 5
+  },
+  {
+   "kind": "reading",
+   "word": "wa",
+   "n": [
+    9
+   ],
+   "from": 7,
+   "to": 8
+  },
+  {
+   "kind": "reading",
+   "word": "wb",
+   "n": [
+    10
+   ],
+   "from": 7,
+   "to": 8
+  }
+ ],
+ "wordTruncated": [
+  {
+   "kind": "returns",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbaa",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  },
+  {
+   "kind": "returns",
+   "word": "supercalifragilisticexpialidociousantidisestablishmentbab",
+   "len": 57,
+   "cardWord": "supercalifragilisticexpialidociousantidi"
+  }
+ ],
+ "linesCut": [],
+ "lostWithLongWord": 2,
+ "lostChorus": 1,
+ "unmatchedCardItems": 0,
+ "notRendered": 0,
+ "uiLen": 3165,
+ "afterReloadSame": true,
+ "afterReloadUiLen": 3165,
+ "cardTitle": "500 saved word numbers renumbered to the current word cut",
+ "cardTextLen": 2528,
+ "cardTextTail": "supercalifragilisticexpialidociousantidi”, line 7: word 4 → 5; a declared return on “supercalifragilisticexpialidociousantidi”, line 8: word 4 → 5; and 452 earlier ones no longer listed. Nothing else about them changed. Dismiss this when you have checked them."
+}
+[FAIL] cand.b.txt.500.everyListed: one txt import renumbering 500: the card lists every renumbered entry
+    expected: 500 listed, none lost
+    observed: {"listed":48,"lost":452,"more":452,"title":500}
+[PASS] cand.b.txt.500.counted: the card title counts every renumbered entry and says how many are not listed
+    expected: title 500; hidden 452
+    observed: {"title":500,"hidden":"452"}
+[FAIL] cand.b.txt.500.words: no listed word is cut at 40 characters without saying so
+    expected: no truncated words
+    observed: ["57->40","57->40"]
+[PASS] cand.b.txt.500.lines: a listed reading names every line it applies to (no silent cut at 4)
+    expected: no line list cut
+    observed: []

@@ -1,0 +1,241 @@
+cand.click.RET.top.U_in_2end: migrated=true sameChars=false
+    before [27,27,"forward"] "[SETUP — returns — 1.T2, 2.|end]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":27,"hi":27},{"lo":27,"hi":27}] "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.U_sel_2end: migrated=true sameChars=false COLLAPSED
+    before [25,30,"forward"] "[SETUP — returns — 1.T2, «2.end»]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":25,"hi":25},{"lo":30,"hi":39}] "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.U_sel_2end_back: migrated=true sameChars=false COLLAPSED
+    before [25,30,"backward"] "[SETUP — returns — 1.T2, «2.end»]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":25,"hi":25},{"lo":30,"hi":39}] "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.C_in_T2: migrated=true sameChars=false
+    before [22,22,"forward"] "[SETUP — returns — 1.T|2, 2.end]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":22,"hi":22},{"lo":22,"hi":22}] "[SETUP — returns — 1.T|3, 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.C_after_T2: migrated=true sameChars=false
+    before [23,23,"forward"] "[SETUP — returns — 1.T2|, 2.end]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":23,"hi":23},{"lo":23,"hi":23}] "[SETUP — returns — 1.T3|, 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.C_sel_T2: migrated=true sameChars=false COLLAPSED
+    before [19,23,"forward"] "[SETUP — returns — «1.T2», 2.end]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":19,"hi":19},{"lo":23,"hi":23}] "[SETUP — returns — «1.T3», 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.E_before_close: migrated=true sameChars=false
+    before [30,30,"forward"] "[SETUP — returns — 1.T2, 2.end|]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":30,"hi":39},{"lo":30,"hi":39}] "[SETUP — returns — 1.T3, 2.end« — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.E_after_row: migrated=true sameChars=false
+    before [31,31,"forward"] "[SETUP — returns — 1.T2, 2.end]|"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":40,"hi":40},{"lo":40,"hi":40}] "[SETUP — returns — 1.T3, 2.end — cut v2]|"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.S_body_walk: migrated=true sameChars=false
+    before [63,63,"forward"] "I w|alk the line tonight"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":72,"hi":72},{"lo":72,"hi":72}] "I w|alk the line tonight"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.top.X_row_to_body: migrated=true sameChars=false COLLAPSED
+    before [25,47,"forward"] "[SETUP — returns — 1.T2, «2.end]\n\n[VERSE]\nOh--oh», oh my love"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":25,"hi":25},{"lo":56,"hi":56}] "[SETUP — returns — 1.T3, «2.end — cut v2]\n\n[VERSE]\nOh--oh», oh my love"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.T3, 2.end — cut v2]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.U_in_2end: migrated=true sameChars=false
+    before [166,166,"forward"] "[SETUP — returns — 1.T2, 2.|end]"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":166,"hi":166},{"lo":166,"hi":166}] "[SETUP — returns — 1.T3, 2.|end — cut v2]"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.U_sel_2end: migrated=true sameChars=false COLLAPSED
+    before [164,169,"forward"] "[SETUP — returns — 1.T2, «2.end»]"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":164,"hi":164},{"lo":169,"hi":178}] "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.U_sel_2end_back: migrated=true sameChars=false COLLAPSED
+    before [164,169,"backward"] "[SETUP — returns — 1.T2, «2.end»]"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":164,"hi":164},{"lo":169,"hi":178}] "[SETUP — returns — 1.T3, «2.end — cut v2»]"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.C_in_T2: migrated=true sameChars=false
+    before [161,161,"forward"] "[SETUP — returns — 1.T|2, 2.end]"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":161,"hi":161},{"lo":161,"hi":161}] "[SETUP — returns — 1.T|3, 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.C_after_T2: migrated=true sameChars=false
+    before [162,162,"forward"] "[SETUP — returns — 1.T2|, 2.end]"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":162,"hi":162},{"lo":162,"hi":162}] "[SETUP — returns — 1.T3|, 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.C_sel_T2: migrated=true sameChars=false COLLAPSED
+    before [158,162,"forward"] "[SETUP — returns — «1.T2», 2.end]"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":158,"hi":158},{"lo":162,"hi":162}] "[SETUP — returns — «1.T3», 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.E_before_close: migrated=true sameChars=false
+    before [169,169,"forward"] "[SETUP — returns — 1.T2, 2.end|]"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":169,"hi":178},{"lo":169,"hi":178}] "[SETUP — returns — 1.T3, 2.end« — cut v2»]"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.E_after_row: migrated=true sameChars=false
+    before [170,170,"forward"] "[SETUP — returns — 1.T2, 2.end]|"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":179,"hi":179},{"lo":179,"hi":179}] "[SETUP — returns — 1.T3, 2.end — cut v2]|"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.S_body_walk: migrated=true sameChars=false
+    before [30,30,"forward"] "I w|alk the line tonight"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":30,"hi":30},{"lo":30,"hi":30}] "I w|alk the line tonight"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RET.bottom.X_row_to_body: migrated=true sameChars=false
+    before [14,14,"forward"] "Oh--oh|, oh my love"
+    after  [0,0,"forward"] "|[VERSE]" focused=false
+    ref    [{"lo":14,"hi":14},{"lo":14,"hi":14}] "Oh--oh|, oh my love"
+    typed ZQ -> line 1: "ZQ[VERSE]"; sent=[{"returns":"1.T3, 2.end"}]
+cand.click.RHY.top.U_in_2end: migrated=true sameChars=false
+    before [32,32,"forward"] "[SETUP — rhyme groups — 1.T2, 2.|end]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":32,"hi":32},{"lo":32,"hi":32}] "[SETUP — rhyme groups — 1.T3, 2.|end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"; sent=[{"groups":"1.T3, 2.end"}]
+cand.click.RHY.top.U_sel_2end: migrated=true sameChars=false COLLAPSED
+    before [30,35,"forward"] "[SETUP — rhyme groups — 1.T2, «2.end»]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":30,"hi":30},{"lo":35,"hi":44}] "[SETUP — rhyme groups — 1.T3, «2.end — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"; sent=[{"groups":"1.T3, 2.end"}]
+cand.click.RHY.top.C_in_T2: migrated=true sameChars=false
+    before [27,27,"forward"] "[SETUP — rhyme groups — 1.T|2, 2.end]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":27,"hi":27},{"lo":27,"hi":27}] "[SETUP — rhyme groups — 1.T|3, 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"; sent=[{"groups":"1.T3, 2.end"}]
+cand.click.RHY.top.C_sel_T2: migrated=true sameChars=false COLLAPSED
+    before [24,28,"forward"] "[SETUP — rhyme groups — «1.T2», 2.end]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":24,"hi":24},{"lo":28,"hi":28}] "[SETUP — rhyme groups — «1.T3», 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"; sent=[{"groups":"1.T3, 2.end"}]
+cand.click.RHY.top.E_after_row: migrated=true sameChars=false
+    before [36,36,"forward"] "[SETUP — rhyme groups — 1.T2, 2.end]|"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3, 2.end — cut v2]" focused=false
+    ref    [{"lo":45,"hi":45},{"lo":45,"hi":45}] "[SETUP — rhyme groups — 1.T3, 2.end — cut v2]|"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3, 2.end — cut v2]"; sent=[{"groups":"1.T3, 2.end"}]
+cand.click.RHY_BARE.top.U_before_2: migrated=true sameChars=false
+    before [29,29,"forward"] "[SETUP — rhyme groups — 1.T2,|2]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3,2 — cut v2]" focused=false
+    ref    [{"lo":29,"hi":29},{"lo":29,"hi":29}] "[SETUP — rhyme groups — 1.T3,|2 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]"; sent=[{"groups":"1.T3,2"}]
+cand.click.RHY_BARE.top.U_sel_2: migrated=true sameChars=false COLLAPSED
+    before [29,30,"forward"] "[SETUP — rhyme groups — 1.T2,«2»]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3,2 — cut v2]" focused=false
+    ref    [{"lo":29,"hi":29},{"lo":30,"hi":39}] "[SETUP — rhyme groups — 1.T3,«2 — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]"; sent=[{"groups":"1.T3,2"}]
+cand.click.RHY_BARE.top.U_after_2: migrated=true sameChars=false
+    before [30,30,"forward"] "[SETUP — rhyme groups — 1.T2,2|]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3,2 — cut v2]" focused=false
+    ref    [{"lo":30,"hi":39},{"lo":30,"hi":39}] "[SETUP — rhyme groups — 1.T3,2« — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]"; sent=[{"groups":"1.T3,2"}]
+cand.click.RHY_BARE.top.E_after_row: migrated=true sameChars=false
+    before [31,31,"forward"] "[SETUP — rhyme groups — 1.T2,2]|"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 1.T3,2 — cut v2]" focused=false
+    ref    [{"lo":40,"hi":40},{"lo":40,"hi":40}] "[SETUP — rhyme groups — 1.T3,2 — cut v2]|"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 1.T3,2 — cut v2]"; sent=[{"groups":"1.T3,2"}]
+cand.click.MANY.top.U_in_2end: migrated=true sameChars=false
+    before [26,26,"forward"] "[SETUP — rhyme groups — 2.|end,4; 1.T2,3.T2; 5.end, 6]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+    ref    [{"lo":26,"hi":26},{"lo":26,"hi":26}] "[SETUP — rhyme groups — 2.|end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"; sent=[{"groups":"2.end,4; 1.T3,3.T2; 5.end, 6"}]
+cand.click.MANY.top.U_sel_4: migrated=true sameChars=false COLLAPSED
+    before [30,31,"forward"] "[SETUP — rhyme groups — 2.end,«4»; 1.T2,3.T2; 5.end, 6]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+    ref    [{"lo":30,"hi":30},{"lo":31,"hi":31}] "[SETUP — rhyme groups — 2.end,«4»; 1.T3,3.T2; 5.end, 6 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"; sent=[{"groups":"2.end,4; 1.T3,3.T2; 5.end, 6"}]
+cand.click.MANY.top.U_sel_3T2: migrated=true sameChars=false COLLAPSED
+    before [38,42,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,«3.T2»; 5.end, 6]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+    ref    [{"lo":38,"hi":38},{"lo":42,"hi":42}] "[SETUP — rhyme groups — 2.end,4; 1.T3,«3.T2»; 5.end, 6 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"; sent=[{"groups":"2.end,4; 1.T3,3.T2; 5.end, 6"}]
+cand.click.MANY.top.U_in_5end: migrated=true sameChars=false
+    before [45,45,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5|.end, 6]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+    ref    [{"lo":45,"hi":45},{"lo":45,"hi":45}] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5|.end, 6 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"; sent=[{"groups":"2.end,4; 1.T3,3.T2; 5.end, 6"}]
+cand.click.MANY.top.U_sel_6: migrated=true sameChars=false COLLAPSED
+    before [51,52,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, «6»]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+    ref    [{"lo":51,"hi":51},{"lo":52,"hi":61}] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, «6 — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"; sent=[{"groups":"2.end,4; 1.T3,3.T2; 5.end, 6"}]
+cand.click.MANY.top.C_sel_1T2: migrated=true sameChars=false COLLAPSED
+    before [33,37,"forward"] "[SETUP — rhyme groups — 2.end,4; «1.T2»,3.T2; 5.end, 6]"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+    ref    [{"lo":33,"hi":33},{"lo":37,"hi":37}] "[SETUP — rhyme groups — 2.end,4; «1.T3»,3.T2; 5.end, 6 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"; sent=[{"groups":"2.end,4; 1.T3,3.T2; 5.end, 6"}]
+cand.click.MANY.top.E_after_row: migrated=true sameChars=false
+    before [53,53,"forward"] "[SETUP — rhyme groups — 2.end,4; 1.T2,3.T2; 5.end, 6]|"
+    after  [0,0,"forward"] "|[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]" focused=false
+    ref    [{"lo":62,"hi":62},{"lo":62,"hi":62}] "[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]|"
+    typed ZQ -> line 1: "ZQ[SETUP — rhyme groups — 2.end,4; 1.T3,3.T2; 5.end, 6 — cut v2]"; sent=[{"groups":"2.end,4; 1.T3,3.T2; 5.end, 6"}]
+cand.click.MANY_LAST.top.U_in_2end: migrated=true sameChars=false
+    before [22,22,"forward"] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T2,4.T2]"
+    after  [0,0,"forward"] "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+    ref    [{"lo":22,"hi":22},{"lo":22,"hi":22}] "[SETUP — returns — 2.e|nd, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"; sent=[{"returns":"2.end, 4.end; 5.end,6.end; 1.T3,4.T2"}]
+cand.click.MANY_LAST.top.U_sel_6end: migrated=true sameChars=false COLLAPSED
+    before [39,44,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T2,4.T2]"
+    after  [0,0,"forward"] "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+    ref    [{"lo":39,"hi":39},{"lo":44,"hi":44}] "[SETUP — returns — 2.end, 4.end; 5.end,«6.end»; 1.T3,4.T2 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"; sent=[{"returns":"2.end, 4.end; 5.end,6.end; 1.T3,4.T2"}]
+cand.click.MANY_LAST.top.U_sel_4T2: migrated=true sameChars=false COLLAPSED
+    before [51,55,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T2,«4.T2»]"
+    after  [0,0,"forward"] "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+    ref    [{"lo":51,"hi":51},{"lo":55,"hi":64}] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,«4.T2 — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"; sent=[{"returns":"2.end, 4.end; 5.end,6.end; 1.T3,4.T2"}]
+cand.click.MANY_LAST.top.C_in_1T2: migrated=true sameChars=false
+    before [48,48,"forward"] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.|T2,4.T2]"
+    after  [0,0,"forward"] "|[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]" focused=false
+    ref    [{"lo":48,"hi":48},{"lo":48,"hi":48}] "[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.|T3,4.T2 — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 2.end, 4.end; 5.end,6.end; 1.T3,4.T2 — cut v2]"; sent=[{"returns":"2.end, 4.end; 5.end,6.end; 1.T3,4.T2"}]
+cand.click.CARRIED.top.U_in_2end: migrated=true sameChars=false
+    before [28,28,"forward"] "[SETUP — returns — 1.end, 2.|end]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]" focused=false
+    ref    [{"lo":65,"hi":65},{"lo":65,"hi":65}] "[SETUP — returns — 1.end (carried across the word-cut change), 2.|end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]"; sent=[{"returns":"1.end,2.end"}]
+cand.click.CARRIED.top.U_sel_2end: migrated=true sameChars=false COLLAPSED
+    before [26,31,"forward"] "[SETUP — returns — 1.end, «2.end»]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]" focused=false
+    ref    [{"lo":63,"hi":63},{"lo":68,"hi":77}] "[SETUP — returns — 1.end (carried across the word-cut change), «2.end — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]"; sent=[{"returns":"1.end,2.end"}]
+cand.click.CARRIED.top.C_in_1end: migrated=true sameChars=false
+    before [21,21,"forward"] "[SETUP — returns — 1.|end, 2.end]"
+    after  [0,0,"forward"] "|[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]" focused=false
+    ref    [{"lo":21,"hi":21},{"lo":21,"hi":21}] "[SETUP — returns — 1.|end (carried across the word-cut change), 2.end — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — returns — 1.end (carried across the word-cut change), 2.end — cut v2]"; sent=[{"returns":"1.end,2.end"}]
+cand.click.READ.top.U_sel_OW1: migrated=true sameChars=false COLLAPSED
+    before [58,61,"forward"] "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me]"
+    after  [0,0,"forward"] "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]" focused=false
+    ref    [{"lo":58,"hi":58},{"lo":61,"hi":61}] "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — «OW1» — declared — source: me — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"; sent=[{"pronunciations":[{"line":"Oh--oh, oh my love","token":3,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+cand.click.READ.top.U_in_source: migrated=true sameChars=false
+    before [78,78,"forward"] "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — sou|rce: me]"
+    after  [0,0,"forward"] "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]" focused=false
+    ref    [{"lo":78,"hi":78},{"lo":78,"hi":78}] "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — sou|rce: me — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"; sent=[{"pronunciations":[{"line":"Oh--oh, oh my love","token":3,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+cand.click.READ.top.U_sel_me: migrated=true sameChars=false COLLAPSED
+    before [83,85,"forward"] "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: «me»]"
+    after  [0,0,"forward"] "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]" focused=false
+    ref    [{"lo":83,"hi":83},{"lo":85,"hi":94}] "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: «me — cut v2»]"
+    typed ZQ -> line 1: "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"; sent=[{"pronunciations":[{"line":"Oh--oh, oh my love","token":3,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+cand.click.READ.top.C_sel_num: migrated=true sameChars=false COLLAPSED
+    before [25,26,"forward"] "[SETUP — reading — token «2» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]"
+    after  [0,0,"forward"] "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]" focused=false
+    ref    [{"lo":25,"hi":25},{"lo":26,"hi":26}] "[SETUP — reading — token «3» \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"
+    typed ZQ -> line 1: "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"; sent=[{"pronunciations":[{"line":"Oh--oh, oh my love","token":3,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+cand.click.READ.top.E_after_row: migrated=true sameChars=false
+    before [86,86,"forward"] "[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]|"
+    after  [0,0,"forward"] "|[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]" focused=false
+    ref    [{"lo":95,"hi":95},{"lo":95,"hi":95}] "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]|"
+    typed ZQ -> line 1: "ZQ[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"; sent=[{"pronunciations":[{"line":"Oh--oh, oh my love","token":3,"word":"oh","phones":["OW1"],"basis":"declared","source":"me"}]}]
+exit 0

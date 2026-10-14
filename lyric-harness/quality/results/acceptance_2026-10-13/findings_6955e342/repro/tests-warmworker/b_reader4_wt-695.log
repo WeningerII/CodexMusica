@@ -1,0 +1,51 @@
+test_identical_cut_controls_do_not_fire (quality.test_reader.NamedPlaceLookup.test_identical_cut_controls_do_not_fire) ... ok
+test_the_condition_is_broader_than_the_end_and_says_so (quality.test_reader.NamedPlaceLookup.test_the_condition_is_broader_than_the_end_and_says_so)
+The receipt's lookup lines whose end did not move keep their end: ... ok
+test_the_six_and_their_cause (quality.test_reader.NamedPlaceLookup.test_the_six_and_their_cause) ... ok
+test_a_legacy_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorker.test_a_legacy_lyrics_request_then_a_library_analysis) ... 
+    [test-process isolation] test_a_legacy_lyrics_request_then_a_library_analysis: child peak RSS (VmHWM) 480,604,160 bytes (458 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+ok
+test_a_new_lyrics_request_then_a_legacy_one (quality.test_reader.WarmWorker.test_a_new_lyrics_request_then_a_legacy_one) ... 
+    [test-process isolation] test_a_new_lyrics_request_then_a_legacy_one: child peak RSS (VmHWM) 564,465,664 bytes (538 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+ok
+test_a_new_lyrics_request_then_a_library_analysis (quality.test_reader.WarmWorker.test_a_new_lyrics_request_then_a_library_analysis) ... 
+    [test-process isolation] test_a_new_lyrics_request_then_a_library_analysis: child peak RSS (VmHWM) 484,081,664 bytes (462 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+ok
+test_cold_a_legacy_lyrics_request_then_a_new_one (quality.test_reader.WarmWorker.test_cold_a_legacy_lyrics_request_then_a_new_one) ... 
+    [test-process isolation] test_cold_a_legacy_lyrics_request_then_a_new_one: child peak RSS (VmHWM) 568,938,496 bytes (543 MiB) against the unchanged 1024 MiB guard; guard checks passed 0; CPython 3.11.17
+ok
+test_cold_a_library_analysis_then_a_legacy_lyrics_request (quality.test_reader.WarmWorker.test_cold_a_library_analysis_then_a_legacy_lyrics_request) ... 
+    [test-process isolation] test_cold_a_library_analysis_then_a_legacy_lyrics_request: child peak RSS (VmHWM) 496,422,912 bytes (473 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+ok
+test_cold_a_library_analysis_then_a_new_lyrics_request (quality.test_reader.WarmWorker.test_cold_a_library_analysis_then_a_new_lyrics_request) ... 
+    [test-process isolation] test_cold_a_library_analysis_then_a_new_lyrics_request: child peak RSS (VmHWM) 496,066,560 bytes (473 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+ok
+test_the_peak_assertion_refuses_a_peak_at_the_guard (quality.test_reader.WarmWorker.test_the_peak_assertion_refuses_a_peak_at_the_guard)
+`assert_within_guard` fails a child whose peak reaches the guard. ... ok
+test_a_dash_fragment_head (quality.test_reader.SlotBinding.test_a_dash_fragment_head) ... ok
+test_a_numeral_head_edits_the_word_the_grader_binds (quality.test_reader.SlotBinding.test_a_numeral_head_edits_the_word_the_grader_binds) ... ok
+test_a_token_slot_after_a_numeral (quality.test_reader.SlotBinding.test_a_token_slot_after_a_numeral) ... ok
+test_a_trailing_margin_numeral (quality.test_reader.SlotBinding.test_a_trailing_margin_numeral) ... ok
+test_an_aside_line_the_base_refused (quality.test_reader.SlotBinding.test_an_aside_line_the_base_refused) ... ok
+test_aside_modes_normalisation_and_enclitic_pieces (quality.test_reader.SlotBinding.test_aside_modes_normalisation_and_enclitic_pieces) ... ok
+test_empty_unread_and_unplaceable_bindings_refuse (quality.test_reader.SlotBinding.test_empty_unread_and_unplaceable_bindings_refuse) ... ok
+test_every_v2_edit_lands_on_the_bound_token (quality.test_reader.SlotBinding.test_every_v2_edit_lands_on_the_bound_token) ... ok
+test_repeated_words_bind_by_position_not_spelling (quality.test_reader.SlotBinding.test_repeated_words_bind_by_position_not_spelling) ... ok
+test_the_cases_wrong_before_the_batch (quality.test_reader.SlotBinding.test_the_cases_wrong_before_the_batch) ... ok
+test_the_default_end_checks_its_endpoint_occurrence (quality.test_reader.SlotBinding.test_the_default_end_checks_its_endpoint_occurrence) ... ok
+test_the_direct_helper_line_and_group_paths (quality.test_reader.SlotBinding.test_the_direct_helper_line_and_group_paths) ... ok
+test_the_revisers_own_lexicon_decides_the_occurrence (quality.test_reader.SlotBinding.test_the_revisers_own_lexicon_decides_the_occurrence) ... ok
+test_v1_is_unchanged_whatever_lexicon_is_passed (quality.test_reader.SlotBinding.test_v1_is_unchanged_whatever_lexicon_is_passed) ... ok
+test_a_slot_swap_counts_asides_as_the_lexicon_does (quality.test_reader.LoopSwaps.test_a_slot_swap_counts_asides_as_the_lexicon_does) ... ok
+test_a_slot_swap_never_fuses_onto_the_next_token (quality.test_reader.LoopSwaps.test_a_slot_swap_never_fuses_onto_the_next_token) ... ok
+test_an_end_word_swap_keeps_a_space_or_mark_nfc_replaces (quality.test_reader.LoopSwaps.test_an_end_word_swap_keeps_a_space_or_mark_nfc_replaces) ... ok
+test_an_end_word_swap_never_fuses_or_deletes_a_symbol (quality.test_reader.LoopSwaps.test_an_end_word_swap_never_fuses_or_deletes_a_symbol) ... ok
+test_an_end_word_swap_never_misses_the_printed_end (quality.test_reader.LoopSwaps.test_an_end_word_swap_never_misses_the_printed_end) ... ok
+test_an_end_word_swap_refuses_a_span_holding_a_printed_symbol (quality.test_reader.LoopSwaps.test_an_end_word_swap_refuses_a_span_holding_a_printed_symbol) ... ok
+test_the_loops_stock_stubs_splice_under_the_revisers_cut (quality.test_reader.LoopSwaps.test_the_loops_stock_stubs_splice_under_the_revisers_cut) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 190.499s
+
+OK
+exit=0 secs=195

@@ -1,0 +1,125 @@
+[SETUP — title — "Verify 200"]
+[SETUP — returns — 41.T2,42.T2; 41.T3,42.T3; 41.T4,42.T4; 41.T5,42.T5; 41.T6,42.T6; 41.T7,42.T7]
+[SETUP — returns — 43.T2,44.T2; 43.T3,44.T3; 43.T4,44.T4; 43.T5,44.T5]
+[SETUP — rhyme groups — 45.T2,46.T2; 45.T3,46.T3; 45.T4,46.T4; 45.T5,46.T5; 45.T6,46.T6; 45.T7,46.T7]
+[SETUP — rhyme groups — 47.T2,48.T2; 47.T3,48.T3; 47.T4,48.T4; 47.T5,48.T5; 47.T6,48.T6; 47.T7,48.T7]
+[SETUP — rhyme groups — 49.T2,50.T2; 49.T3,50.T3; 49.T4,50.T4; 49.T5,50.T5; 49.T6,50.T6; 49.T7,50.T7]
+[SETUP — rhyme groups — 51.T2,52.T2; 51.T3,52.T3; 51.T4,52.T4; 51.T5,52.T5; 51.T6,52.T6; 51.T7,52.T7]
+[SETUP — rhyme groups — 53.T2,54.T2; 53.T3,54.T3; 53.T4,54.T4; 53.T5,54.T5; 53.T6,54.T6; 53.T7,54.T7]
+[SETUP — rhyme groups — 55.T2,56.T2; 55.T3,56.T3; 55.T4,56.T4; 55.T5,56.T5; 55.T6,56.T6; 55.T7,56.T7]
+[SETUP — rhyme groups — 57.T2,58.T2; 57.T3,58.T3; 57.T4,58.T4; 57.T5,58.T5; 57.T6,58.T6; 57.T7,58.T7]
+[SETUP — rhyme groups — 59.T2,60.T2; 59.T3,60.T3; 59.T4,60.T4; 59.T5,60.T5; 59.T6,60.T6; 59.T7,60.T7]
+[SETUP — rhyme groups — 61.T2,62.T2; 61.T3,62.T3; 61.T4,62.T4; 61.T5,62.T5; 61.T6,62.T6; 61.T7,62.T7]
+[SETUP — rhyme groups — 63.T2,64.T2; 63.T3,64.T3; 63.T4,64.T4; 63.T5,64.T5; 63.T6,64.T6; 63.T7,64.T7]
+[SETUP — rhyme groups — 65.T2,66.T2; 65.T3,66.T3; 65.T4,66.T4; 65.T5,66.T5; 65.T6,66.T6; 65.T7,66.T7]
+[SETUP — rhyme groups — 67.T2,68.T2; 67.T3,68.T3; 67.T4,68.T4; 67.T5,68.T5]
+[SETUP — reading — token 2 "we" in "Oh--oh, we ride the long road za" — R OW1 D — declared — source: me]
+[SETUP — reading — token 3 "ride" in "Oh--oh, we ride the long road zb" — R OW1 D — declared — source: me]
+[SETUP — reading — token 4 "the" in "Oh--oh, we ride the long road zc" — R OW1 D — declared — source: me]
+[SETUP — reading — token 5 "long" in "Oh--oh, we ride the long road zd" — R OW1 D — declared — source: me]
+[SETUP — reading — token 6 "road" in "Oh--oh, we ride the long road ze" — R OW1 D — declared — source: me]
+[SETUP — reading — token 7 "zf" in "Oh--oh, we ride the long road zf" — R OW1 D — declared — source: me]
+[SETUP — reading — token 2 "we" in "Oh--oh, we ride the long road zg" — R OW1 D — declared — source: me]
+[SETUP — reading — token 3 "ride" in "Oh--oh, we ride the long road zh" — R OW1 D — declared — source: me]
+[SETUP — reading — token 4 "the" in "Oh--oh, we ride the long road zi" — R OW1 D — declared — source: me]
+[SETUP — reading — token 5 "long" in "Oh--oh, we ride the long road zj" — R OW1 D — declared — source: me]
+[SETUP — reading — token 6 "road" in "Oh--oh, we ride the long road zk" — R OW1 D — declared — source: me]
+[SETUP — reading — token 7 "zl" in "Oh--oh, we ride the long road zl" — R OW1 D — declared — source: me]
+[SETUP — reading — token 2 "we" in "Oh--oh, we ride the long road zm" — R OW1 D — declared — source: me]
+[SETUP — reading — token 3 "ride" in "Oh--oh, we ride the long road zn" — R OW1 D — declared — source: me]
+[SETUP — reading — token 4 "the" in "Oh--oh, we ride the long road zo" — R OW1 D — declared — source: me]
+[SETUP — reading — token 5 "long" in "Oh--oh, we ride the long road zp" — R OW1 D — declared — source: me]
+[SETUP — reading — token 6 "road" in "Oh--oh, we ride the long road zq" — R OW1 D — declared — source: me]
+[SETUP — reading — token 7 "zr" in "Oh--oh, we ride the long road zr" — R OW1 D — declared — source: me]
+[SETUP — reading — token 2 "we" in "Oh--oh, we ride the long road zs" — R OW1 D — declared — source: me]
+[SETUP — reading — token 3 "ride" in "Oh--oh, we ride the long road zt" — R OW1 D — declared — source: me]
+[SETUP — reading — token 4 "the" in "Oh--oh, we ride the long road zu" — R OW1 D — declared — source: me]
+[SETUP — reading — token 5 "long" in "Oh--oh, we ride the long road zv" — R OW1 D — declared — source: me]
+[SETUP — reading — token 6 "road" in "Oh--oh, we ride the long road zw" — R OW1 D — declared — source: me]
+[SETUP — reading — token 7 "zx" in "Oh--oh, we ride the long road zx" — R OW1 D — declared — source: me]
+[SETUP — reading — token 2 "we" in "Oh--oh, we ride the long road zy" — R OW1 D — declared — source: me]
+[SETUP — reading — token 3 "ride" in "Oh--oh, we ride the long road zz" — R OW1 D — declared — source: me]
+[SETUP — reading — token 4 "the" in "Oh--oh, we ride the long road zba" — R OW1 D — declared — source: me]
+[SETUP — reading — token 5 "long" in "Oh--oh, we ride the long road zbb" — R OW1 D — declared — source: me]
+[SETUP — reading — token 6 "road" in "Oh--oh, we ride the long road zbc" — R OW1 D — declared — source: me]
+[SETUP — reading — token 7 "zbd" in "Oh--oh, we ride the long road zbd" — R OW1 D — declared — source: me]
+[SETUP — reading — token 2 "we" in "Oh--oh, we ride the long road zbe" — R OW1 D — declared — source: me]
+[SETUP — reading — token 3 "ride" in "Oh--oh, we ride the long road zbf" — R OW1 D — declared — source: me]
+[SETUP — reading — token 4 "the" in "Oh--oh, we ride the long road zbg" — R OW1 D — declared — source: me]
+[SETUP — reading — token 5 "long" in "Oh--oh, we ride the long road zbh" — R OW1 D — declared — source: me]
+[SETUP — reading — token 6 "road" in "Oh--oh, we ride the long road zbi" — R OW1 D — declared — source: me]
+[SETUP — reading — token 7 "zbj" in "Oh--oh, we ride the long road zbj" — R OW1 D — declared — source: me]
+[SETUP — reading — token 2 "we" in "Oh--oh, we ride the long road zbk" — R OW1 D — declared — source: me]
+[SETUP — reading — token 3 "ride" in "Oh--oh, we ride the long road zbl" — R OW1 D — declared — source: me]
+[SETUP — reading — token 4 "the" in "Oh--oh, we ride the long road zbm" — R OW1 D — declared — source: me]
+[SETUP — reading — token 5 "long" in "Oh--oh, we ride the long road zbn" — R OW1 D — declared — source: me]
+
+[VERSE]
+Oh--oh, we ride the long road za
+Oh--oh, we ride the long road zb
+Oh--oh, we ride the long road zc
+Oh--oh, we ride the long road zd
+Oh--oh, we ride the long road ze
+Oh--oh, we ride the long road zf
+Oh--oh, we ride the long road zg
+Oh--oh, we ride the long road zh
+Oh--oh, we ride the long road zi
+Oh--oh, we ride the long road zj
+Oh--oh, we ride the long road zk
+Oh--oh, we ride the long road zl
+Oh--oh, we ride the long road zm
+Oh--oh, we ride the long road zn
+Oh--oh, we ride the long road zo
+Oh--oh, we ride the long road zp
+Oh--oh, we ride the long road zq
+Oh--oh, we ride the long road zr
+Oh--oh, we ride the long road zs
+Oh--oh, we ride the long road zt
+Oh--oh, we ride the long road zu
+Oh--oh, we ride the long road zv
+Oh--oh, we ride the long road zw
+Oh--oh, we ride the long road zx
+Oh--oh, we ride the long road zy
+Oh--oh, we ride the long road zz
+Oh--oh, we ride the long road zba
+Oh--oh, we ride the long road zbb
+Oh--oh, we ride the long road zbc
+Oh--oh, we ride the long road zbd
+Oh--oh, we ride the long road zbe
+Oh--oh, we ride the long road zbf
+Oh--oh, we ride the long road zbg
+Oh--oh, we ride the long road zbh
+Oh--oh, we ride the long road zbi
+Oh--oh, we ride the long road zbj
+Oh--oh, we ride the long road zbk
+Oh--oh, we ride the long road zbl
+Oh--oh, we ride the long road zbm
+Oh--oh, we ride the long road zbn
+Oh--oh, we ride the long road zbo
+Oh--oh, we ride the long road zbp
+Oh--oh, we ride the long road zbq
+Oh--oh, we ride the long road zbr
+Oh--oh, we ride the long road zbs
+Oh--oh, we ride the long road zbt
+Oh--oh, we ride the long road zbu
+Oh--oh, we ride the long road zbv
+Oh--oh, we ride the long road zbw
+Oh--oh, we ride the long road zbx
+Oh--oh, we ride the long road zby
+Oh--oh, we ride the long road zbz
+Oh--oh, we ride the long road zca
+Oh--oh, we ride the long road zcb
+Oh--oh, we ride the long road zcc
+Oh--oh, we ride the long road zcd
+Oh--oh, we ride the long road zce
+Oh--oh, we ride the long road zcf
+Oh--oh, we ride the long road zcg
+Oh--oh, we ride the long road zch
+Oh--oh, we ride the long road zci
+Oh--oh, we ride the long road zcj
+Oh--oh, we ride the long road zck
+Oh--oh, we ride the long road zcl
+Oh--oh, we ride the long road zcm
+Oh--oh, we ride the long road zcn
+Oh--oh, we ride the long road zco
+Oh--oh, we ride the long road zcp

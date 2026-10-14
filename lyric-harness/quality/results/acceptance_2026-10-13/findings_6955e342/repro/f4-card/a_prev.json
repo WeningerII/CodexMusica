@@ -1,0 +1,288 @@
+{
+ "tree": "prev",
+ "url": "http://127.0.0.1:42555/codex.html#lyrics",
+ "steps": {
+  "txt": {
+   "after": "[SETUP — title — \"Old Song\"]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n[SETUP — reading — token 2 \"sing\" in \"we sing it plain tonight\" — S IH1 NG — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"heart\" in \"Ah--ah, ah my heart and soul\" — HH AA1 R T — declared — source: me — cut v2]\n[SETUP — reading — token 5 \"lost\" in \"Oh--oh, oh my lost line\" — L AO1 S T — declared — source: me — cut v2]\n[SETUP — rhyme groups — 1.T5,2;4.T3,5.T7 — cut v2]\n[SETUP — reading — token 1 \"Oh--oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — needs a decision: numbered under the earlier word cut]\n[SETUP — returns — 1.T4,3.T4 — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nYou are the one I dream of my dove\nOh--oh, oh my love\nwe sing it plain tonight\nAh--ah, ah my heart and soul",
+   "truth": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "from": 2,
+     "to": 3
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "from": 4,
+     "to": 5
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "line": 1,
+     "n": [
+      1
+     ],
+     "from": 4,
+     "to": 5,
+     "lineText": "Oh--oh, oh my love"
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "line": 5,
+     "n": [
+      5
+     ],
+     "from": 6,
+     "to": 7,
+     "lineText": "Ah--ah, ah my heart and soul"
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "line": 1,
+     "n": [
+      1
+     ],
+     "from": 3,
+     "to": 4,
+     "lineText": "Oh--oh, oh my love"
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "line": 3,
+     "n": [
+      3
+     ],
+     "from": 3,
+     "to": 4,
+     "lineText": "Oh--oh, oh my love"
+    }
+   ],
+   "toasts": [
+    "Imported old-song.txt. Undo restores the previous draft.\nUndo"
+   ],
+   "card": {
+    "item": null,
+    "pane": "Current version · f76adad\nNot reviewed\nCoverage\nForm\nNot reviewed\nRhymes\nNot reviewed\nRhythm\nNot reviewed\nPronunciation\nNot reviewed\nStory\nCreative guidance\nPerformance\nNot assessed\nRun review\nLocal checks\n2\n\nExact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.\n\nThe reading for “lost” no longer matches the draft\nNo matching line\nIts exact line is no longer in the draft. A changed line never inherits an old reading: choose again for the new text, or remove it.\nChoose again\nRemove it\nThe reading for “Oh--oh” saved without the current cut mark needs your decision\nlines 1 and 3\nIt was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.\nChoose again\nRemove it\nShow in draft\n\n Changes to text, form or rhythm require a new review.",
+    "meta": null,
+    "uiLen": 41,
+    "draftId": null
+   },
+   "cmp": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "from": 2,
+     "to": 3,
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "from": 4,
+     "to": 5,
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "from": 4,
+     "to": 5,
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "from": 4,
+     "to": 5,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "from": 6,
+     "to": 7,
+     "n": [
+      5
+     ],
+     "line": 5,
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      3
+     ],
+     "line": 3,
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    }
+   ]
+  }
+ },
+ "error": "TypeError: Cannot read properties of null (reading 'text')\n    at /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h695/f4-card/a_paths.js:90:43",
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "prev.a.txt.every",
+   "claim": ".txt import: the card lists every renumbered entry with old -> new, word, line",
+   "expected": "7 entries, each in meta, item text and pane",
+   "observed": [
+    {
+     "kind": "reading",
+     "word": "oh",
+     "from": 2,
+     "to": 3,
+     "n": [
+      1,
+      3
+     ],
+     "line": "Oh--oh, oh my love",
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "reading",
+     "word": "heart",
+     "from": 4,
+     "to": 5,
+     "n": [
+      5
+     ],
+     "line": "Ah--ah, ah my heart and soul",
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "reading",
+     "word": "lost",
+     "from": 4,
+     "to": 5,
+     "n": [],
+     "line": "Oh--oh, oh my lost line",
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "love",
+     "from": 4,
+     "to": 5,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "rhyme groups",
+     "word": "soul",
+     "from": 6,
+     "to": 7,
+     "n": [
+      5
+     ],
+     "line": 5,
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      1
+     ],
+     "line": 1,
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    },
+    {
+     "kind": "returns",
+     "word": "my",
+     "from": 3,
+     "to": 4,
+     "n": [
+      3
+     ],
+     "line": 3,
+     "inMeta": false,
+     "inItemText": false,
+     "inPane": false
+    }
+   ],
+   "status": "fail"
+  }
+ ]
+}

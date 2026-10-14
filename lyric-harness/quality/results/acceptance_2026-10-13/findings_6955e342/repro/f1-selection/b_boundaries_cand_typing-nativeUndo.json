@@ -1,0 +1,51 @@
+{
+  "tree": "cand",
+  "UNMARKED": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — returns — 1.T2, 2.end]\n[SETUP — reading — token 2 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+  "MIGRATED_BY_HAND": "[SETUP — rhyme groups — 1.T5,8 — cut v2]\n[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+  "scen": {
+    "typing": {
+      "typedRowIntact": true,
+      "pastedIntact": true,
+      "blurIntact": true,
+      "switchIntact": true,
+      "caretAfterPaste": [
+        64,
+        64,
+        "forward"
+      ],
+      "expectCaret": 64,
+      "ensure": [],
+      "toasts": [],
+      "final": "[SETUP — returns — 1.T2, 2.end]\n[SETUP — rhyme groups — 1.T4,8]\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+      "errors": []
+    },
+    "nativeUndo": {
+      "typedLine2": "I walk the line tonight again",
+      "afterSendRows": [
+        "[SETUP — rhyme groups — 1.T5,8 — cut v2]",
+        "[SETUP — returns — 1.T3, 2.end — cut v2]",
+        "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"
+      ],
+      "afterSendLine2": "I walk the line tonight again",
+      "ctrlZ1": {
+        "rows": [
+          "[SETUP — rhyme groups — 1.T5,8 — cut v2]",
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"
+        ],
+        "line2": "I walk the line tonight again"
+      },
+      "ctrlZ2": {
+        "rows": [
+          "[SETUP — rhyme groups — 1.T5,8 — cut v2]",
+          "[SETUP — returns — 1.T3, 2.end — cut v2]",
+          "[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]"
+        ],
+        "line2": "I walk the line tonight again"
+      },
+      "errors": []
+    }
+  },
+  "pageMigrates": "[SETUP — rhyme groups — 1.T5,8 — cut v2]\n[SETUP — returns — 1.T3, 2.end — cut v2]\n[SETUP — reading — token 3 \"oh\" in \"Oh--oh, oh my love\" — OW1 — declared — source: me — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nWell-worn shoes upon the floor\nOh, oh, I said oh\n\n[CHORUS]\nWe're sailing on\nI hold the dove\nRun to the sea\nLove above",
+  "pageMigratesAsHand": true
+}

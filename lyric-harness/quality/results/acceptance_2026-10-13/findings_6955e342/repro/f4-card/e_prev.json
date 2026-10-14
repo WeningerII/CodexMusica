@@ -1,0 +1,40 @@
+{
+ "tree": "prev",
+ "adapted": {
+  "migrating": {
+   "adapted": true,
+   "label": " Wc migrating · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details",
+   "changed": true
+  },
+  "quiet": {
+   "adapted": false,
+   "label": " Wc quiet · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details",
+   "changed": false
+  }
+ },
+ "pageErrors": [],
+ "results": [
+  {
+   "id": "prev.e.adapted.migrating",
+   "claim": "a Library working copy (migrating) is not marked Adapted by the import alone",
+   "expected": "adapted false",
+   "observed": {
+    "adapted": true,
+    "label": " Wc migrating · Complete reading · Adapted\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details",
+    "changed": true
+   },
+   "status": "fail"
+  },
+  {
+   "id": "prev.e.adapted.quiet",
+   "claim": "a Library working copy (quiet) is not marked Adapted by the import alone",
+   "expected": "adapted false",
+   "observed": {
+    "adapted": false,
+    "label": " Wc quiet · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nExport source details",
+    "changed": false
+   },
+   "status": "pass"
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+# BB8 order-marker -- every command run, in order. S = /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad
+# O = $S/h695/order-marker. Trees (detached, untouched): wt-695 @6955e342 (cand), wt-61b @61b6618a (c61b), wt-main @8b1d2ad2 (main).
+# Writes only under $O. No push/commit. No tracked file edited (checked at the end).
+
+# 1. Build the pages (one per tree) and check them against each tree's committed codex.html
+for t in wt-695 wt-61b wt-main; do (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/built-$t.html --quiet); cmp $O/built-$t.html $S/$t/codex.html; done
+#   -> all three byte-identical (sha256 prefixes: 695 92d2d418d7453bcb, 61b 47b9b9142d578f35, main acf45264f4e6a140)
+#   (the build also wrote $O/library/ -- the CODEX_LIBRARY output, unused)
+
+# 2. Probe: real clipboard paste (Ctrl+V) reaches the draft; controls visible
+cd $O && node probe0.js cand
+
+# 3. ORDER matrix (lib.js serves $O/built-<tree>.html as /codex.html, other paths from the tree; /chat stubbed in-page, bodies captured)
+#    scenarios: RG4 '[SETUP — rhyme groups — 1.T4,8; 2,3]', RG2 '[SETUP — rhyme groups — 1.T2,8; 2,3]', RT4 '[SETUP — returns — 1.T4,8.T1]'
+#    forms: Rhymes Remove link (group B) / Rhymes Add link 5,7 + Link endings / Repeats placed return 2.head,6.head + Apply / Repeats Declare exact repeat
+#    sends: Run review button (.ly-run) / Write with AI > Edit this draft, typed "Tighten line 2", #chat-send click
+#    inputs: real Ctrl+V paste / keyboard.type (type only for RG4 and RT4)
+cd $O && node orders.js cand > orders_cand.log 2>&1      # (a first trial run, filter RG4.remove..., was superseded and deleted)
+cd $O && node orders.js c61b > orders_c61b.log 2>&1
+cd $O && node orders.js main > orders_main.log 2>&1      # first main attempt threw (lyRowGroups absent at main) -> driver fallback to lyParseGroups, rerun
+#    -> orders_<tree>.json / .log
+
+# 4. Harness binding of every captured payload, by the RECEIVING tree's harness (schemes.mandate as the CLI builds it from --groups=/--returns=, slots.resolve, build_lexicon('v2','none'))
+cd $S/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/bind.py cand $O/orders_cand.json $O/bind_cand.json > $O/bind_cand.log
+cd $S/wt-61b/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/bind.py c61b $O/orders_c61b.json $O/bind_c61b.json > $O/bind_c61b.log
+cd $S/wt-main/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/bind.py main $O/orders_main.json $O/bind_main.json > $O/bind_main.log 2> $O/bind_main.err
+#   main note: wt-main has no cmudict.dict staged beside its module (gitignored). bind.py takes /home/user/CodexMusica/lyric-harness/cmudict.dict
+#   after asserting its bytes+sha256 equal MAIN's own release-manifest entry (81917843c7f4...), and answers main's verify_asset('cmudict') with that entry. Nothing written into wt-main.
+
+# 5. Extras (APP Undo/Redo, BROWSER-NATIVE Ctrl+Z, non-group form commits, typed into a MARKED row, verdict flip, Review notice, section move)
+cd $O && node extras.js cand > extras_cand.log 2>&1 ; node extras.js c61b > extras_c61b.log 2>&1 ; node extras.js main > extras_main.log 2>&1
+cd $O && for t in cand c61b main; do node extras.js $t X9 > extras_${t}_X9.log 2>&1; done
+cd $S/wt-695/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/bind.py cand $O/extras_cand.json $O/bind_extras_cand.json > $O/bind_extras_cand.log
+cd $S/wt-61b/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/bind.py c61b $O/extras_c61b.json $O/bind_extras_c61b.json > $O/bind_extras_c61b.log
+cd $S/wt-main/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/bind.py main $O/extras_main.json $O/bind_extras_main.json > $O/bind_extras_main.log
+#   (same three commands with extras_<t>_X9.json -> bind_extras_<t>_X9.json)
+
+# 6. Pairing O1 vs O2
+cd $O && python3 summary.py > summary.txt     # -> summary.json
+
+# 7. Checks
+for t in wt-695 wt-61b wt-main; do git -C $S/$t status --short --untracked-files=no; done   # -> empty for all three

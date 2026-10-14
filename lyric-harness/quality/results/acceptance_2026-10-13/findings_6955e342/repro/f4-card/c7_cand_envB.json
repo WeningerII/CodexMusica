@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:2c9b35b2-ce3a-4f0b-9259-9bc37d253e94",
+  "draftId": "draft:e70c0ff1-d543-4b18-b14b-519dbde5fc0a",
+  "createdAt": "2026-10-14T08:46:13.213Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song B\"]\n\n[VERSE]\nthe river runs so slow\nthe evening lights go low",
+    "title": "Song B",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:1",
+      "unitId": "unit:1",
+      "workId": "work:1",
+      "editionId": "ed:1",
+      "revisionId": "rev:1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:26819223-7374-4723-b249-dda4d43908fd",
+        "sourceDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "b598826ed9e1d0d0be6acef9eb8ee36d8e19c5aa810fb726f486cc027d5dc972"
+}

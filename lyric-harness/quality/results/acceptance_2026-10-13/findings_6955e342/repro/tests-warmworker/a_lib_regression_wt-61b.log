@@ -1,0 +1,25 @@
+=== Library regression (id by id) ===
+current: tests/library/units-317c5afa.tsv.gz (snapshot 317c5afa, 36880 units)
+
+units-5226b4fb.tsv.gz (snapshot 5226b4fb, 32220 units)
+  unchanged                20865
+  unchanged-non-readable   11355
+  missing                  0
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    4660
+
+units-317c5afa.tsv.gz (snapshot 317c5afa, 36880 units)
+  unchanged                25525
+  unchanged-non-readable   11355
+  missing                  0
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    0
+
+PASS — every baseline unit is accounted for.
+exit=0
