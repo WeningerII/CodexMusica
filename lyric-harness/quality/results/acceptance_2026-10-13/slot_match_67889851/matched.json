@@ -1,0 +1,692 @@
+{
+ "cases": 95760,
+ "v1_vs_base": {
+  "identical": 92436,
+  "different": 3324,
+  "transitions": {
+   "excluded_transformed -> refused": 2315,
+   "excluded_transformed -> no_word_refused": 654,
+   "excluded_transformed -> agree": 182,
+   "excluded_transformed -> refused_unbound": 123,
+   "excluded_transformed -> refused_grader_elsewhere": 42,
+   "excluded_transformed -> agree_unbound": 8
+  },
+  "examples": [
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T1",
+    "aside": "stripped",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "no_word_refused",
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T1",
+    "aside": "sung",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "refused",
+     "A",
+     "A",
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T2",
+    "aside": "stripped",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "no_word_refused",
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T2",
+    "aside": "sung",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "refused",
+     "Poet’s",
+     "Poet’s",
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T3",
+    "aside": "stripped",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "no_word_refused",
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T3",
+    "aside": "sung",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "refused",
+     "blest",
+     "blest",
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T4",
+    "aside": "stripped",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "no_word_refused",
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T4",
+    "aside": "sung",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "refused",
+     "immortal",
+     "immortal",
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T5",
+    "aside": "stripped",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "no_word_refused",
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T5",
+    "aside": "sung",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "refused",
+     "theme",
+     "theme",
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T6",
+    "aside": "stripped",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "no_word_refused",
+     null,
+     null,
+     null
+    ]
+   },
+   {
+    "line": "(A Poet’s blest immortal theme)",
+    "slot": "T6",
+    "aside": "sung",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand_v1": [
+     "no_word_refused",
+     null,
+     null,
+     null
+    ]
+   }
+  ]
+ },
+ "failures_v2_by_base": {
+  "base_agreed_now_fails | grader_elsewhere": 138,
+  "base_excluded_now_measured | grader_elsewhere": 42,
+  "base_refused_now_fails | grader_elsewhere": 113,
+  "same_kind_other_words | grader_elsewhere": 10,
+  "unchanged_same_failure | grader_elsewhere": 686
+ },
+ "examples_v2": {
+  "base_refused_now_fails": [
+   {
+    "line": "\"Abraham, forbear, (the angel cry'd)",
+    "slot": "endword",
+    "aside": "stripped",
+    "base": [
+     "refused_grader_elsewhere",
+     "forbear",
+     "Abraham",
+     null
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "forbear",
+     "Abraham",
+     "forbear"
+    ]
+   },
+   {
+    "line": "\"Abraham, forbear, (the angel cry'd)",
+    "slot": "endword",
+    "aside": "sung",
+    "base": [
+     "refused_grader_elsewhere",
+     "cry'd",
+     "angel",
+     null
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "cry'd",
+     "angel",
+     "cry'd"
+    ]
+   },
+   {
+    "line": "\"Repent, and be baptiz'd, (he saith)",
+    "slot": "endword",
+    "aside": "sung",
+    "base": [
+     "refused_grader_elsewhere",
+     "saith",
+     "he",
+     null
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "saith",
+     "he",
+     "saith"
+    ]
+   },
+   {
+    "line": "('Tis best to meäke a friend o't)",
+    "slot": "endword",
+    "aside": "sung",
+    "base": [
+     "refused_grader_elsewhere",
+     "o't",
+     "friend",
+     null
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "o't",
+     "friend",
+     "o't"
+    ]
+   }
+  ],
+  "unchanged_same_failure": [
+   {
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "head",
+    "aside": "stripped",
+    "base": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ]
+   },
+   {
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "head",
+    "aside": "sung",
+    "base": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ]
+   },
+   {
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "headrime",
+    "aside": "stripped",
+    "base": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ]
+   },
+   {
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "headrime",
+    "aside": "sung",
+    "base": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ]
+   }
+  ],
+  "base_agreed_now_fails": [
+   {
+    "line": "'Till the Canon atoned the deed,                                     _110",
+    "slot": "endword",
+    "aside": "stripped",
+    "base": [
+     "agree",
+     "deed",
+     "deed",
+     "deed"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "110",
+     "deed",
+     "110"
+    ]
+   },
+   {
+    "line": "'Till the Canon atoned the deed,                                     _110",
+    "slot": "endword",
+    "aside": "sung",
+    "base": [
+     "agree",
+     "deed",
+     "deed",
+     "deed"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "110",
+     "deed",
+     "110"
+    ]
+   },
+   {
+    "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+    "slot": "head",
+    "aside": "sung",
+    "base": [
+     "agree",
+     "An'",
+     "An'",
+     "An'"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "1",
+     "An'",
+     "1"
+    ]
+   },
+   {
+    "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+    "slot": "headrime",
+    "aside": "sung",
+    "base": [
+     "agree",
+     "An'",
+     "An'",
+     "An'"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "1",
+     "An'",
+     "1"
+    ]
+   }
+  ],
+  "same_kind_other_words": [
+   {
+    "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+    "slot": "head",
+    "aside": "sung",
+    "base": [
+     "grader_elsewhere",
+     "Lo'k",
+     "there",
+     "Lo'k"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "1",
+     "there",
+     "1"
+    ]
+   },
+   {
+    "line": "(1) Lo'k there, thik fellor is a-vell lik' lead,",
+    "slot": "headrime",
+    "aside": "sung",
+    "base": [
+     "grader_elsewhere",
+     "Lo'k",
+     "there",
+     "Lo'k"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "1",
+     "there",
+     "1"
+    ]
+   },
+   {
+    "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+    "slot": "head",
+    "aside": "sung",
+    "base": [
+     "grader_elsewhere",
+     "Noo",
+     "road",
+     "Noo"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "1",
+     "road",
+     "1"
+    ]
+   },
+   {
+    "line": "(1) Noo road!  Ees 'tis, the road that we do goo.",
+    "slot": "headrime",
+    "aside": "sung",
+    "base": [
+     "grader_elsewhere",
+     "Noo",
+     "road",
+     "Noo"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "1",
+     "road",
+     "1"
+    ]
+   }
+  ],
+  "base_excluded_now_measured": [
+   {
+    "line": "(For she’s Samela!),",
+    "slot": "endword",
+    "aside": "sung",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Samela",
+     "she’s",
+     "Samela"
+    ]
+   },
+   {
+    "line": "(I’m good at thet),” sez he,",
+    "slot": "head",
+    "aside": "stripped",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "sez",
+     "he",
+     "sez"
+    ]
+   },
+   {
+    "line": "(I’m good at thet),” sez he,",
+    "slot": "headrime",
+    "aside": "stripped",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "sez",
+     "he",
+     "sez"
+    ]
+   },
+   {
+    "line": "(Lest the smoke his sight o’erwhelm,)",
+    "slot": "endword",
+    "aside": "sung",
+    "base": [
+     "excluded_transformed",
+     null,
+     null,
+     null
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "o’erwhelm",
+     "sight",
+     "o’erwhelm"
+    ]
+   }
+  ]
+ },
+ "failures_v1_by_base": {
+  "unchanged_same_failure | grader_elsewhere": 696,
+  "unchanged_same_failure | resolver_mismatch": 4,
+  "unchanged_same_failure | wrong_word": 5
+ },
+ "examples_v1": {
+  "unchanged_same_failure": [
+   {
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "head",
+    "aside": "stripped",
+    "base": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ]
+   },
+   {
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "head",
+    "aside": "sung",
+    "base": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ]
+   },
+   {
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "headrime",
+    "aside": "stripped",
+    "base": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ]
+   },
+   {
+    "line": "\"Fra Pandolf\" by design, for never read",
+    "slot": "headrime",
+    "aside": "sung",
+    "base": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ],
+    "cand": [
+     "grader_elsewhere",
+     "Fra",
+     "by",
+     "Fra"
+    ]
+   }
+  ]
+ },
+ "base_failures_to_v2_v1": {
+  "grader_elsewhere -> v2 grader_elsewhere / v1 grader_elsewhere": 696,
+  "wrong_word -> v2 refused / v1 wrong_word": 5,
+  "resolver_mismatch -> v2 agree / v1 resolver_mismatch": 4
+ },
+ "base_to_v2_matrix": {
+  "agree -> agree": 56970,
+  "no_word_refused -> no_word_refused": 18100,
+  "refused -> agree": 12151,
+  "excluded_transformed -> agree": 2465,
+  "agree_unbound -> agree_unbound": 2099,
+  "refused -> refused": 906,
+  "grader_elsewhere -> grader_elsewhere": 696,
+  "excluded_transformed -> no_word_refused": 648,
+  "excluded_transformed -> excluded_transformed": 540,
+  "refused_unbound -> agree_unbound": 301,
+  "agree -> agree_unbound": 176,
+  "agree -> grader_elsewhere": 138,
+  "excluded_transformed -> agree_unbound": 129,
+  "refused_grader_elsewhere -> grader_elsewhere": 111,
+  "agree_unbound -> agree": 91,
+  "no_word_refused -> agree": 61,
+  "refused_unbound -> refused_unbound": 57,
+  "excluded_transformed -> grader_elsewhere": 42,
+  "excluded_transformed -> refused": 38,
+  "no_word_refused -> agree_unbound": 14,
+  "refused -> agree_unbound": 5,
+  "wrong_word -> refused": 5,
+  "agree -> refused": 5,
+  "resolver_mismatch -> agree": 4,
+  "refused_unbound -> agree": 3,
+  "excluded_transformed -> refused_unbound": 2,
+  "refused -> grader_elsewhere": 2,
+  "refused -> refused_unbound": 1
+ }
+}
