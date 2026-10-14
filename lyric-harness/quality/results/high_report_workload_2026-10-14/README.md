@@ -58,3 +58,18 @@ CPU work. Execution speed varied even in isolated runs. The cause of the earlier
 intermittent CI timeouts is still unproven. Neither a hash-seed pin, test isolation,
 nor a shared-engine optimization is justified as a demonstrated repair by this
 evidence alone.
+
+## Terminal census
+
+Run 38598151924 completed FAILURE with all 48 jobs retrieved using per_page=100;
+the second page is empty. There are 42 successful jobs, three skipped jobs, and
+three failures. Verify, image qualification, freshness, and suite 3 (including E5)
+all passed. ci-census.json preserves every job ID, name, conclusion, and failed step.
+
+The remaining failures are inherited: record job 115971403205 (symbol total
+1719 versus 1739; comparator pin 9d5d81461aec2c94c8997431b3211727f7db56686712c1678cd1348966dc0df8
+versus measured 51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4;
+stale lyric-map files/CLAUDE.md; corpus NOTE 1856 versus 1861), suite-2 job
+115971404083 (the same comparator and sonnet buckets 813 versus 808, 208 versus
+207), and suites-result job 115988964617 (aggregation of suite-2 failure).
+No held measurements or pins were changed.

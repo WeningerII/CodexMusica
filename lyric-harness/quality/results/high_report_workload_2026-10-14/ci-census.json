@@ -1,0 +1,362 @@
+{
+  "run_id": 38598151924,
+  "head_sha": "3870c8e7d257c040641c03362cdeaf2318938766",
+  "status": "completed",
+  "conclusion": "failure",
+  "total_count": 48,
+  "returned_page_1": 48,
+  "returned_page_2": 0,
+  "counts": {
+    "success": 42,
+    "skipped": 3,
+    "failure": 3
+  },
+  "jobs": [
+    {
+      "id": 115970122065,
+      "name": "dup",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115970124463,
+      "name": "tandem",
+      "status": "completed",
+      "conclusion": "skipped",
+      "failed_steps": []
+    },
+    {
+      "id": 115970124885,
+      "name": "mutation",
+      "status": "completed",
+      "conclusion": "skipped",
+      "failed_steps": []
+    },
+    {
+      "id": 115970163740,
+      "name": "gate",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403020,
+      "name": "freshness",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403125,
+      "name": "lyrics-image",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403154,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403205,
+      "name": "record",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Committed counters against their measurement",
+        "The comparator is where the pin says (a moved comparator owns its re-verification)",
+        "The lyric map matches the code",
+        "Corpus audit against RESULTS_CORPUS_AUDIT.md's committed shape"
+      ]
+    },
+    {
+      "id": 115971403409,
+      "name": "revision-loop (1/4)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403555,
+      "name": "capacity (3/3)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403621,
+      "name": "capacity (1/3)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403626,
+      "name": "catalog (shard 3/8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403638,
+      "name": "catalog (shard 7/8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403656,
+      "name": "catalog (shard 6/8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403670,
+      "name": "revision-loop (3/4)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403716,
+      "name": "catalog (shard 8/8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403724,
+      "name": "plan (4/5)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403738,
+      "name": "catalog (shard 2/8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403759,
+      "name": "catalog (shard 1/8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403768,
+      "name": "suites (shard 1/3)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403774,
+      "name": "revision-loop (4/4)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403775,
+      "name": "revision-loop (2/4)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403795,
+      "name": "plan (5/5)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403814,
+      "name": "catalog (shard 5/8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403835,
+      "name": "plan (1/5)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403879,
+      "name": "verbs (6)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403948,
+      "name": "verbs (4)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403968,
+      "name": "verbs (7)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971403992,
+      "name": "verbs (8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404025,
+      "name": "verbs (3)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404026,
+      "name": "suites (shard 3/3)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404041,
+      "name": "capacity (2/3)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404083,
+      "name": "suites (shard 2/3)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "The 109 cheap suites (their history is the comment above)",
+        "Span-search null, the shipped band against the measured crossover"
+      ]
+    },
+    {
+      "id": 115971404097,
+      "name": "verbs (1)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404172,
+      "name": "catalog (shard 4/8)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404213,
+      "name": "capacity-proof / verify",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404228,
+      "name": "verbs (2)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404291,
+      "name": "plan (3/5)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971404324,
+      "name": "verbs (5)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971407259,
+      "name": "plan (2/5)",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971916774,
+      "name": "capacity-proof-result",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115971971150,
+      "name": "nightly",
+      "status": "completed",
+      "conclusion": "skipped",
+      "failed_steps": []
+    },
+    {
+      "id": 115972162814,
+      "name": "capacity-result",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115974101448,
+      "name": "plan-result",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115974325658,
+      "name": "catalog-result",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115975709843,
+      "name": "verbs-result",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115979794947,
+      "name": "revision-loop-result",
+      "status": "completed",
+      "conclusion": "success",
+      "failed_steps": []
+    },
+    {
+      "id": 115988964617,
+      "name": "suites-result",
+      "status": "completed",
+      "conclusion": "failure",
+      "failed_steps": [
+        "Aggregate the suites shards"
+      ]
+    }
+  ]
+}
