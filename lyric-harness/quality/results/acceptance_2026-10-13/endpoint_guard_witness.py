@@ -8,7 +8,8 @@
 guard changes 0 of 15,870 `end` records against 67889851, so the population
 never exercises it.
 
-PART 1, REAL INPUTS. Every reader line of `corpus/song/eng_*`, under the v2
+PART 1, REAL INPUTS. Every UNIQUE reader line text of `corpus/song/eng_*`
+(deduplicated in first-seen order, then sharded), under the v2
 lexicon with asides stripped and sung (the slot tool's two process-scheme
 modes). Each line's default end is swapped twice:
 - `with_guard`: `swap_end_word(line, mark, lex=lex)`, as production calls it
@@ -96,9 +97,16 @@ def main():
 
     # PART 1
     files = sorted(glob.glob(os.path.join(ROOT, "corpus", "song", "eng_*")))
-    lines = list(dict.fromkeys(t for f in files for t in LH.load_lyric_lines(f)))
+    all_lines = list(dict.fromkeys(t for f in files for t in LH.load_lyric_lines(f)))
+    corpus_pin = {"files": len(files),
+                  "file_list_sha256": hashlib.sha256("\n".join(os.path.relpath(f, ROOT) for f in files).encode()).hexdigest(),
+                  "files_content_sha256": hashlib.sha256(b"".join(open(f, "rb").read() for f in files)).hexdigest(),
+                  "unique_line_texts": len(all_lines),
+                  "unique_line_texts_sha256": hashlib.sha256("\n".join(all_lines).encode()).hexdigest()}
     k, n = SHARD
-    lines = lines[k::n]
+    lines = all_lines[k::n]
+    corpus_pin["shard_lines"] = len(lines)
+    corpus_pin["shard_lines_sha256"] = hashlib.sha256("\n".join(lines).encode()).hexdigest()
     differ, counts = [], {m: {"lines": 0, "same": 0, "differ": 0, "errors": 0} for m in lexes}
     for line in lines:
         for m, lex in lexes.items():
@@ -150,11 +158,29 @@ def main():
                 controls.append({"line": line, "mode": m, "guarded": judge(line, lex, g),
                                  "guard_removed": judge(line, lex, u), "agree": g == u})
     ok = all(r["witnessed"] for r in focused) and all(c["agree"] for c in controls)
-    commit = subprocess.run(["git", "-C", ROOT, "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
-    rec = {"part1_real_inputs": {"shard": list(SHARD), "corpus_files": len(files), "counts": counts,
+    git = lambda d, *a: subprocess.run(["git", "-C", d, *a], capture_output=True, text=True)
+    commit = git(ROOT, "rev-parse", "HEAD").stdout.strip()
+    st = git(ROOT, "status", "--porcelain", "--untracked-files=no")
+    tracked_changes = None if not commit or st.returncode else bool(st.stdout.strip())
+    own = git(HERE, "status", "--porcelain", "--", os.path.basename(__file__), "slot_binding.py")
+    tool_state = None if own.returncode else (own.stdout.strip() or "committed, unchanged")
+
+    def lex_pin(l):
+        fb = getattr(l, "g2p_fallback", None)
+        sp = getattr(l, "supplement_path", None)
+        return {"class": type(l).__name__,
+                "g2p_fallback": None if fb is None else {"min_confidence": getattr(fb, "min_confidence", None)},
+                "supplement": None if sp is None else {"id": getattr(l, "supplement_id", None),
+                                                        "path": os.path.relpath(sp, ROOT),
+                                                        "sha256": getattr(l, "supplement_sha256", None) or _sha(sp)},
+                "strip_parens": l.strip_parens, "reader_scheme": LH._scheme_of(l)}
+    rec = {"part1_real_inputs": {"shard": list(SHARD), "corpus": corpus_pin, "counts": counts,
                                  "lines_where_guard_changes_outcome": differ},
            "part2_focused": focused, "part2_controls": controls, "part2_ok": ok if k == 0 else None,
-           "pins": {"commit": commit, "loop_sha256": _sha(os.path.join(ROOT, "quality", "loop.py")),
+           "pins": {"commit": commit, "tracked_changes": tracked_changes, "tool_git_state": tool_state,
+                    "lexicons": {m: lex_pin(l) for m, l in lexes.items()},
+                    "cmudict_sha256": _sha(LH.CMUDICT_PATH) if os.path.exists(getattr(LH, "CMUDICT_PATH", "")) else None,
+                    "loop_sha256": _sha(os.path.join(ROOT, "quality", "loop.py")),
                     "tool_sha256": _sha(os.path.abspath(__file__)),
                     "slot_binding_sha256": _sha(os.path.join(HERE, "slot_binding.py"))}}
     with open(OUT, "w", encoding="utf-8") as fh:

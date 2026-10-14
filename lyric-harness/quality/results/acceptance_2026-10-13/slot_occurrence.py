@@ -77,6 +77,11 @@ NEGATIVE CONTROLS:
   `occ_wrong`. A rig that cannot be built (the real swap refused, or there is
   no other occurrence) is CANNOT TELL, never a pass.
 
+REVISION 3.3 pins each mode's MEASURED lexicon (`lexicons_measured`, with
+the resolved `g2p_fallback`) and the default lexicon the negative controls
+run on (`negative_control_lexicon`), and requires the three declared splice
+paths: a missing one is unresolved (`declared_paths_missing`).
+
 THE GATE (exit 0 PASS, 1 FAIL, 2 CANNOT TELL, 3 ERROR; FAIL dominates):
 - PASS needs 0 `occ_wrong`, `unplaceable_edit`, `no_op_edit` and
   `edit_unbound` in every mode and every declared path, every control
@@ -101,7 +106,10 @@ ROOT = os.path.abspath(_ARGS[2] if len(_ARGS) > 2 else os.getcwd())
 VARIANT = next((a.split("=", 1)[1] for a in sys.argv[1:] if a.startswith("--lexicons=")), None)
 VARIANTS = ("fb_high", "fb_low", "supp_none", "voices_fresh", "decl")
 HERE = os.path.dirname(os.path.abspath(__file__))
-TOOL_VERSION = "3.2"  # 3.1 + --lexicons=VARIANT; without it the run is 3.1's, record for record
+TOOL_VERSION = "3.3"  # 3.2 + measured per-mode lexicon pins and asserted declared paths (3PO 6163840480)
+#: 3.3: the three production splice paths the declared-reading cases must run
+#: through; a missing one is unresolved, never skipped.
+REQUIRED_PATHS = ("Reviser._splice", "default_propose", "default_propose_group")
 FAILING = ("occ_wrong", "unplaceable_edit", "no_op_edit", "edit_unbound")
 #: (line, slot): the real swap's edit is moved to another occurrence of the
 #: same spelling; the oracle must call it occ_wrong.
@@ -147,6 +155,26 @@ GROUP_PARTNER = ("love, love me do", "T2")
 def _sha(p):
     with open(p, "rb") as fh:
         return hashlib.sha256(fh.read()).hexdigest()
+
+
+def _lex_pin(l, LH):
+    """-> the MEASURED lexicon's identity (3.3): class, the resolved G2P
+    fallback (`g2p_fallback`, with its `min_confidence`), the supplement
+    (id, path, sha256, rows), the aside rule, the reader scheme and the
+    number of declared readings it holds."""
+    fb = getattr(l, "g2p_fallback", None)
+    sp = getattr(l, "supplement_path", None)
+    return {"class": type(l).__name__,
+            "g2p_fallback": None if fb is None else {"class": type(fb).__name__,
+                                                     "min_confidence": getattr(fb, "min_confidence", None),
+                                                     "min_rank": getattr(fb, "min_rank", None)},
+            "supplement": None if sp is None else {"id": getattr(l, "supplement_id", None),
+                                                    "path": os.path.relpath(sp, ROOT),
+                                                    "sha256": getattr(l, "supplement_sha256", None) or _sha(sp),
+                                                    "rows": getattr(l, "supplement_rows", None)},
+            "strip_parens": l.strip_parens,
+            "reader_scheme": LH._scheme_of(l) if hasattr(LH, "_scheme_of") else None,
+            "declared_readings": len(getattr(l, "pronunciations", ()) or ())}
 
 
 def _variant_lexes(variant, lines, sb, LH, build_lexicon):
@@ -372,6 +400,7 @@ def main():
         paths["default_propose"] = via_line
     if hasattr(LOOP, "default_propose_group"):
         paths["default_propose_group"] = via_group
+    paths_missing = [p for p in REQUIRED_PATHS if p not in paths]
     declared = []
     for line, targets, slots in DECLARED_CASES:
         for m, lex in lexes.items():
@@ -479,6 +508,8 @@ def main():
             u["readable_controls_unresolved"] = len(sel(read_unres))
         if sel(decl_unres):
             u["declared_paths_unresolved"] = len(sel(decl_unres))
+        if paths_missing:
+            u["declared_paths_missing"] = len(paths_missing)
         if neg_failed:
             u["negative_controls_failed"] = len(neg_failed)
         if excluded["not_reproduced"] or not accounted:
@@ -503,7 +534,7 @@ def main():
            "readable_controls": readable, "readable_controls_failed": read_failed,
            "readable_controls_v1_legacy": [c for c in readable if scheme_of(c["mode"]) == "v1"],
            "declared": declared, "declared_failed": decl_failed, "declared_unresolved": decl_unres,
-           "declared_paths": list(paths),
+           "declared_paths": list(paths), "declared_paths_missing": paths_missing,
            "negative_controls": negatives, "negative_controls_failed": neg_failed,
            "production_calls": calls, "production_uses_not_replicated": {"calls": odd, "other_references": other},
            "pins": {"commit": commit, "tracked_changes": tracked_changes, "harness_root": ROOT,
@@ -514,22 +545,13 @@ def main():
                     "revise_sha256": _sha(os.path.join(ROOT, "quality", "revise.py")),
                     "swap_keywords_replicated": list(kws), "modes": list(lexes),
                     "loop_word_re": WR is not None,
-                    "lexicon": {"class": type(base).__name__, "fallback": "none",
-                                "supplement": {"version": "v2",
-                                               "path": getattr(base, "supplement_path", None)
-                                               and os.path.relpath(base.supplement_path, ROOT),
-                                               "sha256": getattr(base, "supplement_path", None)
-                                               and _sha(base.supplement_path)},
-                                "cmudict_sha256": _sha(LH.CMUDICT_PATH)
-                                if os.path.exists(getattr(LH, "CMUDICT_PATH", "")) else None,
-                                "reader_scheme": {m: LH._scheme_of(l) if hasattr(LH, "_scheme_of") else None
-                                                  for m, l in lexes.items()}},
-                    "lexicon_variant": None if not VARIANT else {
-                        "variant": VARIANT, "declarations": variant_info,
-                        "modes": {m: {"class": type(l).__name__, "fallback": repr(getattr(l, "fallback", None)),
-                                      "supplement_path": getattr(l, "supplement_path", None)
-                                      and os.path.relpath(l.supplement_path, ROOT),
-                                      "strip_parens": l.strip_parens} for m, l in lexes.items()}},
+                    "lexicons_measured": {m: _lex_pin(l, LH) for m, l in lexes.items()},
+                    "negative_control_lexicon": dict(_lex_pin(base, LH), note=(
+                        "the default lexicon, build_lexicon('v2', 'none'), asides stripped: the negative controls "
+                        "run on it in every run, a --lexicons= run included")),
+                    "cmudict_sha256": _sha(LH.CMUDICT_PATH)
+                    if os.path.exists(getattr(LH, "CMUDICT_PATH", "")) else None,
+                    "lexicon_variant": None if not VARIANT else {"variant": VARIANT, "declarations": variant_info},
                     "population_accounted": {"intended_line_modes": intended, "admitted": admitted,
                                              "excluded": dict(excluded), "accounted": accounted},
                     "population": {"path": os.path.basename(POP), "lines": len(lines),
