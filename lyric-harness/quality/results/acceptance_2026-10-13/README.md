@@ -231,6 +231,55 @@ On a tree without reader schemes it is version 1. Re-run on `fce4bf0f`, it gives
 
 It is fit for bounded diagnostic use on this candidate, and the candidate gate is FAIL. The case-by-case match with the base is in `slot_match_67889851/`.
 
+## Slot binding by occurrence (tool v3), at R2's slot head `61b6618a`
+
+    cd <tree>/lyric-harness
+    python3 quality/results/acceptance_2026-10-13/slot_occurrence.py <OUT_PREFIX> quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt <HARNESS_ROOT>
+    python3 quality/results/acceptance_2026-10-13/slot_occurrence_join.py quality/results/acceptance_2026-10-13/slot_match_67889851/fce4bf0f.jsonl.gz quality/results/acceptance_2026-10-13/slot_match_67889851/67889851.jsonl.gz <V3_BASE.jsonl.gz> <V3_CAND.jsonl.gz> <V3_HEAD.jsonl.gz> <OUT.json>
+
+**Why a new tool.** From R2's `58de1816` on, production calls `swap_at_slot(..., scheme=, strip_parens=, lex=)`. Under v2, a non-default slot is meant to replace the token `slots.resolve` binds, which is not always the literal first, last or n-th word.
+- Tool v2 cannot replicate the `lex` keyword. Run unchanged at `61b6618a`, it reports FAIL: 40 controls fail and 3 call sites are not replicated (`slot_occurrence_61b6618a/slot_binding_v2tool_61b6618a.json`). That record stands.
+- **`slot_occurrence.py` is a separate file.** It imports `slot_binding.py` unchanged, whose sha256 it pins. It adds `lex` to the replicated keywords, with the grading lexicon as its value. It judges each case by **occurrence**: the raw half-open span the edit replaced against the raw span the grader binds. It records v2's **literal** kind beside that.
+- Every record carries the raw spans and text of the named, bound and edited token. It also carries `same_spelling`: the raw spans of every other token in the line with the same folded spelling.
+
+**Revision 3.1** follows 3PO's review (#527, 6162609268). Revision 3.0's receipts are kept in `slot_occurrence_61b6618a/v3.0/`; on every population case, 3.0 and 3.1 give the same occurrence kind at the head.
+- An edit where the grader binds **no** syllable (`edit_unbound`) is a **FAIL**. Revision 3.0 counted it apart as a policy residual.
+- **Readable positive controls**, 18 per mode, must read `occ_agree`. In these lines the literal slot word is a numeral, a dash fragment, an aside or a repeated word, and the grader binds a readable word. R2's SlotBinding lines are among them.
+- **Declared occurrence readings.** 7 lines carry readings declared on chosen raw spans: a numeral end, an unknown word repeated with only one occurrence declared, an aside numeral, and repeated `wind` with different readings. They are declared with `validate_choices`, as `pin_readings` does. Each is run through the three production splice paths, with the keywords production passes:
+  - `Reviser._splice`;
+  - `default_propose` (line);
+  - `default_propose_group` (group).
+- **A verdict per reader scheme** (`gate_by_scheme`), so a v2 result is never read off a FAIL that only v1 holds.
+- **Pins:** the measured tree's dirty state, the tool's own git state, and the population file's sha256.
+
+**Negative controls**, all caught on every tree:
+- v2's four resolver rigs;
+- ten wrong-occurrence swap rigs. Each one moves the real edit onto another occurrence of the same spelling, and must read `occ_wrong`.
+
+**Results on the 3,990-line population** (receipts in `slot_occurrence_61b6618a/`):
+
+| | `fce4bf0f` | `67889851` v2 | `61b6618a` v2 | `61b6618a` v1 |
+|---|---:|---:|---:|---:|
+| `occ_wrong` (stripped / sung) | 353 / 348 | 414 / 575 | **0 / 0** | 353 / 348 |
+| `edit_unbound` (stripped / sung) | 1,095 / 1,095 | 1,248 / 1,476 | **191 / 191** | 1,099 / 1,099 |
+| unplaceable, no-op | 0 | 0 | 0 | 0 |
+| `resolver_mismatch` | 2 / 2 | 0 | 0 | 2 / 2 |
+| readable controls failed | 4 | 14 | **0** | (legacy: reported, not gated) |
+| declared-path cases failed | 12 | 15 | **0** | 18 |
+| scheme verdict | FAIL | FAIL | **FAIL (191 + 191 `edit_unbound`)** | FAIL |
+
+- **Tool equality.** v3's `literal` equals v2's `kind` on every case at `fce4bf0f` (95,760) and `67889851` (191,520).
+- **The `67889851` cohorts at `61b6618a`.** All five are `occ_agree`: 138, 42, 113, 10 and 686, so all 989. In about 100 of them (an estimate from a regex count, by a skeptic) the line holds another word with the same spelling, and the edit landed on the bound one. **They pass only under the occurrence contract:** v2's literal rule reads all 989 as `wrong_word`.
+- **2,342 cases where the grader binds nothing now refuse** instead of editing the literal word: 2,292 `T<n>`, 26 `headrime`, 12 `head` and 12 `endword`.
+- **The default `end` slot is unchanged on every case.**
+- **The v2 residual: 191 per mode, all on `end`:** 181 other words, 7 numerals and 3 hyphenated. The default end replaces a last word the grader binds no syllable on, when `line_anchors` names it as the endpoint. 3PO's review rules this an **open contract failure** (`quality/loop.py:479-515` at `61b6618a`): a named literal endpoint is weaker than a grader-bound occurrence. A relaxed policy needs an explicit decision. As a consequence, `end` and `endword` now edit **different** words on 371 v2 line-modes, where at `67889851` they never did.
+- **v1 at `61b6618a`** is identical to `67889851`'s v1 on all 95,760 cases. Its failures are `fce4bf0f`'s failures, unchanged pre-batch behaviour, and are labelled separately.
+
+**What this does not establish:**
+- The zero counts cover the 3,990-line population, the controls and the 7 declared lines only, not the corpus.
+- `occ_agree` shows that the reviser edits what the grader binds. It does not show that the binding is the musically right word, and both sides call `slots.resolve`, so the agreement is partly by construction. The negative controls show that the oracle catches a wrong occurrence; they cannot show that the grader's choice is right.
+- The declared-reading cases use one lexicon and readings declared by this probe, not a real song's declarations.
+
 ## The disputed dictionary rows
 
     python3 quality/results/acceptance_2026-10-13/disputed_rows.py quality/results/acceptance_2026-10-13/disputed_rows.json MPRON
