@@ -7,6 +7,6 @@
 - **So the totals are the same.** Per aside mode, the guard refuses 16,999 default-end edits: 16,697 where the oracle shows the grader binds nothing, and 302 on lines with a multi-piece token. `../endpoint_unmapped_0af39c6f/` shows all 302 bind zero syllables at the end, so each refusal is the contract's.
 - **Part 2:** the four focused rigged cases witness the guard in both modes, the controls agree, and both are equal to `0af39c6f`'s.
 
-**Not stored again:** the per-shard receipts, which are equal to the committed `0af39c6f` ones apart from the commit pin. To repeat the sweep, run from `lyric-harness` at this head:
+**Raw receipts:** `egw_8ea94ac9_<k>.json.gz`, one per shard, added after the comparison (3PO, #527 6169357841). They are equal to the committed `0af39c6f` ones apart from the commit pin. To repeat the sweep, run from `lyric-harness` at this head:
 
     python3 quality/results/acceptance_2026-10-13/endpoint_guard_witness.py <OUT_k.json> . <k>/4
