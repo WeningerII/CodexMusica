@@ -12,22 +12,8 @@
         {
           "strip_parens": true,
           "mode": "aside-stripped",
-          "tokens": [
-            "Then",
-            "the",
-            "ominous",
-            "words",
-            "It's",
-            "a",
-            "Boo-"
-          ],
-          "unread": [
-            [
-              0,
-              6,
-              "Boo-"
-            ]
-          ],
+          "tokens": ["Then", "the", "ominous", "words", "It's", "a", "Boo-"],
+          "unread": [[0, 6, "Boo-"]],
           "split": false,
           "perfect rhyme": null,
           "broken rhyme": null
@@ -35,22 +21,8 @@
         {
           "strip_parens": false,
           "mode": "voices",
-          "tokens": [
-            "Then",
-            "the",
-            "ominous",
-            "words",
-            "It's",
-            "a",
-            "Boo-"
-          ],
-          "unread": [
-            [
-              0,
-              6,
-              "Boo-"
-            ]
-          ],
+          "tokens": ["Then", "the", "ominous", "words", "It's", "a", "Boo-"],
+          "unread": [[0, 6, "Boo-"]],
           "split": false,
           "perfect rhyme": null,
           "broken rhyme": null
@@ -236,15 +208,7 @@
         {
           "strip_parens": true,
           "mode": "aside-stripped",
-          "tokens": [
-            "Then",
-            "the",
-            "ominous",
-            "words",
-            "It's",
-            "a",
-            "Boo-"
-          ],
+          "tokens": ["Then", "the", "ominous", "words", "It's", "a", "Boo-"],
           "unread": [],
           "split": false,
           "perfect rhyme": true,
@@ -253,15 +217,7 @@
         {
           "strip_parens": false,
           "mode": "voices",
-          "tokens": [
-            "Then",
-            "the",
-            "ominous",
-            "words",
-            "It's",
-            "a",
-            "Boo-"
-          ],
+          "tokens": ["Then", "the", "ominous", "words", "It's", "a", "Boo-"],
           "unread": [],
           "split": false,
           "perfect rhyme": true,
