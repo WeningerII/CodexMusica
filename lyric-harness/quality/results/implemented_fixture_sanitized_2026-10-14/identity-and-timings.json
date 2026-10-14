@@ -1,0 +1,23 @@
+{
+  "published_head": "88fa63a81d8e88e5797780a50a57f0087c24d3bd",
+  "published_tree": "4dba9281795584519e815a2844cab7d27a8868a2",
+  "tested_source_sha256": "227a6d74b95371d7a03632ae31d899d6457843e4c0b6573c41b2d621f2d9dabe",
+  "published_source_sha256": "a6dd79fbcf42ab31eb4d3e52464d98aba134a7251b0d412f2bc51985297353a9",
+  "difference": "One comment changes the documentation-link filename; no executable difference",
+  "exact_published_commit_executed_locally": false,
+  "ci_run_testing_published_head": 38641921790,
+  "commands": [
+    "node --test --test-name-pattern='lyric_revise: a pasted run' mcp/test_high_report.mjs",
+    "node --test mcp/test_high_report.mjs"
+  ],
+  "timings_ms": {
+    "focused_first_request": 10942.588848,
+    "focused_test": 20226.066962,
+    "full_file_first_request": 6954.954999,
+    "full_file_test8": 12326.706776,
+    "full_file_total": 96664.628549,
+    "deadline": 60000,
+    "final_ci_first_request": 16184.391486,
+    "final_ci_margin": 43815.608514
+  }
+}
