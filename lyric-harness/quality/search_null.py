@@ -151,11 +151,15 @@ PER_K_BUCKETS = ((3, 4), (5, 8), (9, 16), (17, None))
 #: whole move is the ruling's. THE FINDING HOLDS: the modal bucket's crossover
 #: still sits ABOVE `theta_rhyme` 0.75 and the search buys nothing there. The
 #: song rows are untouched and remain the 2026-09-18 record.
+#: Re-banked 2026-10-14 with owner approval: full ten-seed sonnet measurement.
+#: Prior rows, unrounded results and immutable receipts are preserved in
+#: `../docs/reader-calibration-adoption-2026-10-14.md` (repository root docs/).
+#: Thresholds and song-arm rows are unchanged.
 PER_K_CROSSOVER = {
-    ("sonnets", (3, 4)): {"pairs": 813, "crossover": 0.7594,
-                          "buys_pp": -0.17, "clears": "NO, 4 of 10"},
-    ("sonnets", (5, 8)): {"pairs": 208, "crossover": 0.6428,
-                          "buys_pp": +5.35, "clears": "yes, 10 of 10"},
+    ("sonnets", (3, 4)): {"pairs": 808, "crossover": 0.7590,
+                          "buys_pp": -0.16, "clears": "NO, 4 of 10"},
+    ("sonnets", (5, 8)): {"pairs": 207, "crossover": 0.6424,
+                          "buys_pp": +5.30, "clears": "yes, 10 of 10"},
     ("song", (3, 4)): {"pairs": 162711, "crossover": 0.6901,
                        "buys_pp": +0.13, "clears": "yes, 10 of 10"},
     ("song", (5, 8)): {"pairs": 35021, "crossover": 0.7261,
@@ -430,7 +434,7 @@ def main(argv):
               f"{rec['buys_pp']:>+10.2f}{rec['clears']:>16}")
     print(f"    below the first bucket: {below} pair(s), counted apart and "
           f"never folded in (doctrine 79)")
-    print("    the sonnet CROSSOVERS above are a RECORD (re-banked 2026-10-01; "
+    print("    the sonnet CROSSOVERS above are a RECORD (re-banked 2026-10-14; "
           "receipt in PER_K_CROSSOVER's note); what --check")
     print("    re-derives is the bucket POPULATIONS beside them, so a "
           "population that moves")

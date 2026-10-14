@@ -1,16 +1,16 @@
 {
-  "fingerprint": "9d5d81461aec2c94c8997431b3211727f7db56686712c1678cd1348966dc0df8",
+  "fingerprint": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
   "parts": {
     "Declaration()": "5f1ef1c954d2534cdcdcad5f817d5a33b6148ea194e93d2ffd7a34add802bb68",
     "_couplet_pairs": "942c42ed7326bedcc27b0e8b42671b4094c225d7b5773fec1227c3350c8e5a86",
     "cmudict.dict": "449bfdeafc1c748d11f822c78b4a77981a82635f5f6b7729253a9790d3683b85",
     "features.py": "80e6fb9f6df23662f16f61819eb4ee40f55e5fda0974ae20ef92db3e70888db1",
-    "lyric_harness.py closure": "c0a100c4cbd445e51973166752a693023c38b65ef1c77b036fe43b13ae9d0152",
+    "lyric_harness.py closure": "21af9ed51c81f6912b2f98fb267bb6e2767917d842581c7ca384af5ec8fa329c",
     "opensubtitles_en_50k.tsv": "1869ef3c76633403756cd7922c98599567e5a6f1a3f2c6e8eac0b894b955dc09",
     "predictability_frac": "b786e21a6e2d17e283a1829d21f6365524e72c51deaf2b148423d866f778c8c9"
   },
-  "pinned_on": "",
-  "verdict": "RESULT: HOLDS \u2014 the owner's NEAR ruling (Declaration.nucleus_licence_before_r = (('IH','IY'),), read by nucleus_agrees: IH~IY agree before a coda R; M-320) moved 2 of 7 inputs, Declaration() and the lyric_harness.py closure. The predictability memo was rebuilt from nothing over twelve shards (8,597 items, 34,701 CPU-s): length_curve_calibration.py check --rows HOLDS on all 5 curves, and song_profile_calibration.py --check (song and short) reproduces every shipped constant; expected_drift PASS. Three items' predictability moved, each by a NEAR rhyme the ruling restores (Hemans fear/hear, Hawker hear/near, Scollard fears/years' field). Nothing re-adopted. Still open: held-out E2 on short.",
-  "verified_by": "quality/results/comparator_repin_2026-10-11/curve-check.txt",
+  "pinned_on": "2026-10-14",
+  "verdict": "RESULT: HOLDS \u2014 the lyric row's 5 curves re-derive from the corpus",
+  "verified_by": "../docs/reader-calibration-adoption-2026-10-14.md",
   "version": 1
 }
