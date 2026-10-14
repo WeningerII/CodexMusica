@@ -1,0 +1,80 @@
+TAP version 13
+# Subtest: real MCP preserves draft coordinates and uses the placed-return judge
+ok 1 - real MCP preserves draft coordinates and uses the placed-return judge
+  ---
+  duration_ms: 36195.591029
+  type: 'test'
+  ...
+# Subtest: published capacities and vocabularies match the harness they describe
+ok 2 - published capacities and vocabularies match the harness they describe
+  ---
+  duration_ms: 452.810227
+  type: 'test'
+  ...
+# Subtest: published lyric text carries no ticket, date, doctrine number or stale claim
+ok 3 - published lyric text carries no ticket, date, doctrine number or stale claim
+  ---
+  duration_ms: 25.895896
+  type: 'test'
+  ...
+# Subtest: the grade stamp and meaning say what the verdict says
+ok 4 - the grade stamp and meaning say what the verdict says
+  ---
+  duration_ms: 0.595329
+  type: 'test'
+  ...
+# Subtest: lyric_types names an ordinary rhyme at the line end, and the position is declarable
+ok 5 - lyric_types names an ordinary rhyme at the line end, and the position is declarable
+  ---
+  duration_ms: 6659.89356
+  type: 'test'
+  ...
+# Subtest: recover numbers its mandate over sung lines, and every refusal carries its reason
+ok 6 - recover numbers its mandate over sung lines, and every refusal carries its reason
+  ---
+  duration_ms: 53485.955786
+  type: 'test'
+  ...
+# Subtest: a ban names the bound words and their places, and an unknown name lists the vocabulary
+ok 7 - a ban names the bound words and their places, and an unknown name lists the vocabulary
+  ---
+  duration_ms: 22606.924727
+  type: 'test'
+  ...
+# Subtest: lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes
+not ok 8 - lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes
+  ---
+  duration_ms: 60468.651937
+  type: 'test'
+  location: '/workspace/musica-ci/mcp/test_high_report.mjs:387:1'
+  failureType: 'testCodeFailure'
+  error: 'MCP error -32001: Request timed out'
+  code: -32001
+  name: 'McpError'
+  stack: |-
+    McpError.fromError (file:///workspace/musica-ci/mcp/node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:2048:16)
+    Timeout.timeoutHandler (file:///workspace/musica-ci/mcp/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:741:58)
+    listOnTimeout (node:internal/timers:635:17)
+    process.processTimers (node:internal/timers:571:7)
+  ...
+# Subtest: lyric_plan block 0 is the plan and brief, without the server path or CLI commands
+ok 9 - lyric_plan block 0 is the plan and brief, without the server path or CLI commands
+  ---
+  duration_ms: 745.407463
+  type: 'test'
+  ...
+# Subtest: the website chat's lyric text matches the fields its kitchen declarations keep
+ok 10 - the website chat's lyric text matches the fields its kitchen declarations keep
+  ---
+  duration_ms: 19.954092
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 181597.805875

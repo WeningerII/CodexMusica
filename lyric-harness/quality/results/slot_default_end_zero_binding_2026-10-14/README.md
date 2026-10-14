@@ -43,8 +43,12 @@ figure below can be reconstructed from files in this folder (3PO #519
 
 - Population: that folder's `slot_match_67889851/population.txt` (3,990
   lines, sha256 `87946276…76c0`).
-- Comparison: `compare_runs.py` (sha256 `e0d06574…aeb9` at this commit) reads
-  only the per-case records (never the tool's summaries):
+- Comparison: `compare_runs.py` (sha256 `e0d0657465d5cad0d118b3a5ef7ac2efdcdf1f560ab11eb28face7349c93eaa9` at this commit) reads
+  only the per-case records (never the tool's summaries). It compares decoded
+  serialized record strings after stripping trailing newlines, not raw file
+  bytes or parsed-object equality; JSON key order and spacing still matter.
+  Its historical `byte_identical` output keys mean equality under that
+  normalization:
 
       cd lyric-harness
       R=quality/results/slot_default_end_zero_binding_2026-10-14
@@ -62,14 +66,16 @@ figure below can be reconstructed from files in this folder (3PO #519
 |---|---|---|
 | `full_dumps/so_61b6618a.jsonl.gz` | every case at `61b6618a` (190,530 records) | `36636f74ee9283ed74f75d25734f9a151421a58f51234c1fa90469966ca3a27a` |
 | `full_dumps/so_61b6618a.summary.json.gz` | the tool's summary at `61b6618a` | `f7524ff611488690c6eb676a9e7fb1a4ebb3d3d3b5952c29083564aeda4e19c1` |
-| `full_dumps/so_61b6618a.log` | its run log | `df9cbde62e70394261c0c7208353dc8b4e54407ee2fcd9516c8a5322d46c0aeb` |
 | `full_dumps/so_7c26d40c4.jsonl.gz` | every case at `7c26d40c4` (190,530 records) | `3aca16f85af1d94bd0fe5e638dc7333f0cfcc68f6b34475f0527a6a640bb2b50` |
 | `full_dumps/so_7c26d40c4.summary.json.gz` | the tool's summary at `7c26d40c4` | `7e1457ba8be439fe7d84b41a3395bdb29a71be69ad1f89d342e14a140d66f293` |
-| `full_dumps/so_7c26d40c4.log` | its run log | `a7a7d75a7032f2d01f6f5694a01fb7fd69cce3cc90aa2c29ab1cd69091700cf7` |
 | `full_dumps/comparison_61b6618a_7c26d40c4.json.gz` | `compare_runs.py`'s output | `ad4e2e96b92866ab23b202e90c0071d186bbdc29788e49e5e27a3b4ba5fcce6f` |
 | `full_dumps/default_end_direct_61b6618a.json.gz` | `default_end_direct.py` at `61b6618a` | `f2ce63e6bf532020179ffdd21471cbbe58eb4d51ff0314bee7a75065c68dda3f` |
 | `full_dumps/default_end_direct_7c26d40c4.json.gz` | `default_end_direct.py` at `7c26d40c4` | `b7142b54f2251991ca69b25f6a130189b253ce1ad419efa5448ac844404e605b` |
 | `summary.json`, `changed_cases.json` | the first run's reduced outputs (`61b6618a` against `0af39c6f`) | unchanged |
+
+The two run logs named in an earlier receipt are absent from this checkout
+and are not supplied as evidence. The committed dumps and summaries above
+remain available.
 
 Decompressed content hashes, for comparing with copies compressed elsewhere:
 `so_61b6618a.jsonl` `6f194ffa…ba37`, identical to BB8's committed
@@ -99,15 +105,15 @@ Reconstructed by `compare_runs.py` from the per-case records:
   7 numeral and 3 hyphenated end words. REPAIRED 0 / REFUSED 191 / NO-OP 0 per
   mode: none is edited any more, because the grader binds nothing there.
 - **All 6,052 readable v2 default-end cases** (`occ_agree` at `61b6618a`,
-  multi-word anchors included) are byte-identical at the head.
-- **All 95,265 v1 cases are byte-identical** (whole record). The v1 failures
+  multi-word anchors included) have identical normalized serialized records at the head.
+- **All 95,265 v1 cases have identical normalized serialized records** (whole record). The v1 failures
   (353/348 `occ_wrong`, 1,099 `edit_unbound` per mode, 18 declared-path
   cases, 2 resolver mismatches per mode) are pre-batch behaviour, as on
   `fce4bf0f`.
-- All 174,660 non-end cases are byte-identical.
+- All 174,660 non-end cases have identical normalized serialized records.
 - **The 989 cohort** (v2 cases whose `literal` at `67889851` was
   `grader_elsewhere`): 989 found, `occ_agree` in both dumps, all 989
-  byte-identical.
+  identical under the same serialized-record comparison.
 
 "Readable default ends unchanged" is a statement about THIS population and
 lexicon. It is not a corpus claim: on BB8's crafted and fuzzed lines,
@@ -137,8 +143,11 @@ The 5, each with a multi-piece token mid-line, the same in both modes:
 `An' Charlie he 's our ain.`, `He said, "My dear, ye 're sune asteer;`,
 `My wrath I 'll vent forth upon old Auchtertool.`,
 `And I 'm nae mair in doubts o' the spoilin' o't.`,
-`There 's some hae land, and some hae gowd,`. The v2 zero-binding refusal
-covers them. They are reported here and NOT added to the 3,990-line gate's
+`There 's some hae land, and some hae gowd,`. The direct probe reports only changed outputs: it skips both `None`
+(refusal) and unchanged output. Its zeros establish no unbound edit, not
+refusal rather than a no-op for each witness. The refusal interpretation
+comes from the zero-binding guard and separate focused refusal tests.
+They are reported here and NOT added to the 3,990-line gate's
 counts.
 
 ## What this does not establish

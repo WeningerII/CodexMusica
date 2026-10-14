@@ -1,0 +1,20 @@
+Run from the repository root using Python 3.12 with the pinned runtime requirements
+and staged runtime assets. No model-provider calls; production files unchanged.
+
+python3 lyric-harness/quality/test_reader.py Normalisation.test_final_stem_recovery_keeps_the_declared_judges_fallback_policy Normalisation.test_a_declared_broken_token_reading_precedes_stem_recovery > lyric-harness/quality/results/reader_continuation_2026-10-14/p7_pristine.txt 2>&1
+python3 lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutations.py C > lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutant_C.txt 2>&1
+python3 lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutations.py F2 > lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutant_F2.txt 2>&1
+
+python3 lyric-harness/quality/test_reader.py Normalisation > lyric-harness/quality/results/reader_continuation_2026-10-14/p7_normalisation.txt 2>&1
+
+Both mutation commands exit zero only for assertion failures without test errors.
+C: forcibly enables high G2P for recovered stems; viewest- wrongly becomes readable.
+F2: stem recovery overrides an existing declared pronunciation; declared king- as
+K AE1 T wrongly rhymes with wing and fails to rhyme with hat. Ordinary undeclared
+king- controls retain the opposite verdicts. Both '-' and '-,' forms are covered.
+
+Mutation source: BB8 faf976ae041f7553e4d126940e1c93fbd927806e,
+lyric-harness/quality/results/acceptance_2026-10-13/findings_0af39c6f/repro/king-relation/e/mut/
+relations.mutC_stem_g2p.diff and relations.mutF2_stem_overrides_declared.diff.
+The historical F2 diff included a cut guard that the current implementation has
+already removed; the same two semantic mutations are applied to the current code.

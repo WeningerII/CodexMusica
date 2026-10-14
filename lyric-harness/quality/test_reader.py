@@ -457,6 +457,59 @@ class Normalisation(unittest.TestCase):
             self.assertIsNone(PH.get("eng").split_final_stem("king-dom"))
             self.assertIsNone(PH.get("eng").split_final_stem("king-'s"))
 
+    def test_final_stem_recovery_keeps_the_declared_judges_fallback_policy(self):
+        # P7 / mutant C: a numeral cannot detect accidentally enabling G2P
+        # here. An alphabetic morphology-only stem can, with the same word
+        # readable as a positive control under an explicitly enabled fallback.
+        import quality.relations as RL
+        import quality.revise as RV
+        from quality.phonology.eng import English
+        with LH.reader_scheme_scope("v2"):
+            judge = RV.relation_phonology_for(LH.Lexicon(reader_scheme="v2"))
+            enabled = English(fallback="high", reader_scheme="v2")
+            self.assertIsNone(judge.read("viewest"))
+            reading = enabled.read("viewest")
+            self.assertIsNotNone(reading)
+            self.assertNotEqual(reading.layer, "dictionary")
+            for ending in ("-", "-,"):
+                lines = ["I viewest" + ending, "you viewest"]
+                with self.subTest(ending=ending):
+                    refused = RL.build_stream(lines, judge)
+                    self.assertEqual(refused.unreadable,
+                                     [(0, 1, "viewest-"), (1, 1, "viewest")])
+                    allowed = RL.build_stream(lines, enabled)
+                    self.assertEqual(allowed.unreadable, [])
+                    for stream, expected in ((refused, None), (allowed, False)):
+                        self.assertIs(RL.line_pairs_for(
+                            RL.REGISTRY["perfect rhyme"], stream, keep_refusal=True,
+                            requested_pairs={(1, 2)}).verdict((1, 2)), expected)
+            self.assertEqual(self._declared("v2", "king-"),
+                             {"broken rhyme": True, "perfect rhyme": True, "unread": []})
+
+    def test_a_declared_broken_token_reading_precedes_stem_recovery(self):
+        # P7 / mutant F2: a conflicting occurrence declaration must win over
+        # the dictionary's king. Check both the displaced and selected rhyme,
+        # plus the ordinary undeclared stem recovery as a positive control.
+        import quality.relations as RL
+        import quality.revise as RV
+        with LH.reader_scheme_scope("v2"):
+            for first in ("king-", "king-,"):
+                declared = LH.Lexicon(reader_scheme="v2", pronunciations=[{
+                    "line": first, "token": 1, "word": "king-",
+                    "phones": ["K", "AE1", "T"], "basis": "declared",
+                    "source": "test: conflicting occurrence pronunciation"}])
+                plain = LH.Lexicon(reader_scheme="v2")
+                for lex, other, expected in ((declared, "wing", False),
+                                             (declared, "hat", True),
+                                             (plain, "wing", True),
+                                             (plain, "hat", False)):
+                    with self.subTest(first=first, declared=lex is declared, other=other):
+                        stream = RL.build_stream([first, other], RV.relation_phonology_for(lex))
+                        self.assertEqual(stream.unreadable, [])
+                        self.assertIs(RL.line_pairs_for(
+                            RL.REGISTRY["perfect rhyme"], stream, keep_refusal=True,
+                            requested_pairs={(1, 2)}).verdict((1, 2)), expected)
+
     def test_the_brief_verb_judges_the_declared_broken_word(self):
         # The same through the `brief` verb (the connector's lyric_check), one
         # run per scheme and relation over the five spellings at once (groups

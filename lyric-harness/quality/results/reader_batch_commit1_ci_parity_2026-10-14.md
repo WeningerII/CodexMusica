@@ -21,7 +21,7 @@ section before it describes `58de1816`, unchanged.
 6163216518) and the three items of #527 6163315071; see "Contract-blocker
 round". Items those commits left open (returns annotations and Library
 coverage, punctuated hyphen ends, F4 retention, F1 member mapping, the form and
-Undo blockers) are handled in the fourth pass ("Fourth pass" at the end).
+Library cross-draft evidence blockers) are handled in the fourth pass ("Fourth pass" at the end).
 
 **Push state.** Everything up to and including `43d32cdf` is pushed (CI run
 38554634818; see "Fourth pass"). The fourth pass's commits and this file's
@@ -441,7 +441,7 @@ Receipt: `quality/results/slot_default_end_zero_binding_2026-10-14/` (README,
   NO-OP 0 per mode.
 - Per mode, those 191 split as 181 unread words, 7 numerals and 3 hyphenated
   words.
-- All 6,052 readable v2 default-end `occ_agree` records are byte-identical,
+- All 6,052 readable v2 default-end `occ_agree` records have identical normalized serialized content,
   multi-word anchors included.
 - No non-end record changed, so the 989-case cohort is as at `61b6618a`,
   where BB8 reproduced it as REPAIRED 989 (all `occ_agree`).
@@ -518,12 +518,26 @@ U+00AD`-`):
 No re-pin is applied on this branch. The proposals stay on
 `claude/reader-batch-2026-10-13-repins`.
 
+## Scope qualification (P8)
+
+Accumulating `.txt` migration logs, making Dismiss permanent across every
+history path, and preserving the browser's native Undo stack are not newly
+promised-contract blockers. The implemented retention and application
+history behavior below are evidence of those specific paths, not broader
+new guarantees. The real Library cross-draft overwrite remains a blocker
+covered by browser 9e: draft A's stored record and session must not receive
+B's migration evidence.
+
+An empty initial page mount does not establish lost startup migration:
+`uiRestoreSession` restores startup content and runs its boundary migration.
+That distinction is documentation only; no new empty-mount repair is claimed.
+
 ## Fourth pass (3PO #519 6164274432, 6165168676, 6166169619, 6166749777, 6167042191; #527 6164215811; BB8 66cef416)
 
 Code commits, on top of `43d32cdf` (pushed), local and with no CI run:
 
 - `34ecc6bcc` — Lyrics page: F4 retention, F1 member mapping, the form-writer
-  blocker, the Undo-evidence blocker, whole-line vs placed returns (items 1,
+  blocker, the Library cross-draft evidence blocker, whole-line vs placed returns (items 1,
   2, 6, 7, 8, 9);
 - `7c26d40c4` — harness: punctuated hyphen ends, the two slot-guard
   qualification tests, the WarmWorker wording (items 10, 4, 3).
@@ -541,9 +555,9 @@ CI and from an independent final-head qualification. The page baseline stays
 | Library-card qualification (#527 6164215811) | Stated in `mcp/LYRICS_RUNTIME.md` and the page comment: the record belongs to its draft. Importing ANOTHER draft (a Library working copy, a saved draft reopened) shows that draft's record; the earlier draft's record stays with that draft (Undo, reopening it) and is never carried into or saved under the other. A `.txt` import replaces the same draft's text, so its entries join the same list. No claim that evidence survives a later import of another draft. | Browser 9e (below). |
 | 2. F1 member mapping | `lyMapOffset` aligns a rewritten row unit by unit (separators `;` `,` ` — ` `]`, longest common subsequence); a character in a unit present in both spellings maps onto itself; a selection's start follows the character after it, its end the character before. | Unit B §1b: the unchanged `2.end` in `[SETUP — returns — 1.T2, 2.end]` -> `… 1.T3, 2.end — cut v2]` keeps [25,30] (it became [39,39]); every caret inside it; the changed member's selection is exactly `1.T3`; a multi-member row (two renumbered, one carried, three unchanged). Restoring the one-prefix/one-suffix mapping fails 14. |
 | 6. Form writers (BLOCKER) | Every rhyme groups / returns form writer (Link endings, Remove link, a placed return, Declare exact repeat, removing links that bind no word, Keep / Remove on a carried member) reads the rows of its key through `lyFormBase`: unmarked rows rebound by span or kept undecided and named places carried, exactly as the boundary migration does, BEFORE the row is written back marked. The renumbering is recorded on the card and said in the form's own message. The typing refresh still never rewrites the draft. Remaining, disclosed: before any boundary or form, the Rhymes and Repeats display still shows an unmarked row under the current cut (display only). | Unit O: six writer/row-type pairs; form-then-send and send-then-form give the same final text and `1.T5` (`love`), and the harness's placed-return verdict on the payload (`1.T5,8.T2` on `And love above`) is the same in both orders. Removing the policy pass fails 25. |
-| 7. Undo evidence (BLOCKER) | The record is tied to its draftId and is part of each history step (`lyricMetaHistory`); `_restoreSnapshot` restores the step's record instead of keeping the live one; `lyLibraryCapture` saves a record only under the draft it belongs to (an unowned record is the current draft's). No history redesign, no separate migration Undo step; Dismiss updates the current step in place. | Browser 9e: `.txt` draft A (renumbers a reading) -> Library working copy B (renumbers a rhyme link) -> Undo. A's text and id come back with A's card; after the page's re-save A's IndexedDB record, the saved session and the card hold only A's entries and B's record keeps B's; after a reload A shows A's, and B reopened from History shows B's. Reverting the history and capture changes fails 4 (B's card over A, A's stored record and the session overwritten, A's after reload). |
+| 7. Library cross-draft evidence overwrite (BLOCKER) | The record is tied to its draftId and is part of each history step (`lyricMetaHistory`); `_restoreSnapshot` restores the step's record instead of keeping the live one; `lyLibraryCapture` saves a record only under the draft it belongs to (an unowned record is the current draft's). No history redesign, no separate migration Undo step; Dismiss updates the current step in place. | Browser 9e: `.txt` draft A (renumbers a reading) -> Library working copy B (renumbers a rhyme link) -> Undo. A's text and id come back with A's card; after the page's re-save A's IndexedDB record, the saved session and the card hold only A's entries and B's record keeps B's; after a reload A shows A's, and B reopened from History shows B's. Reverting the history and capture changes fails 4 (B's card over A, A's stored record and the session overwritten, A's after reload). |
 | 8. N.end identity follow-up | See "Item 8: the exact delta" below. | Unit E (rewritten), browser 9e. |
-| 9. Returns classes | In a returns row a bare `N` and `N.line` are WHOLE-LINE returns and are never carried, annotated, labelled "last rhyme" or shown with endpoint words; placed returns (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) follow the word-place rules through import, Keep and the outgoing payload. A whole-line member an earlier page annotated is named a whole-line return in Review (no word shown) and Keep drops the note. The parser comment claiming bare `N` and `N.end` bind alike is corrected (true for rhyme groups, false for returns). | Unit E on valid classes only (`2.end,6.end;1,5;1.line,3.line;1.head,7.head;2,4`, no mixed class): migration, Review, Keep, the wire, and the harness's own `schemes.mandate` / `returns_check` / `placed_returns_check` run on the exact `returns` payload (two whole-line classes, three placed; the whole-line judge fires only on `1,5`, the placed judge on `head` and `line`). Browser 9e: the same classes through the Library working-copy receiver (`lyLibraryImport`). Making `lyWholeLineReturn` false fails 10 (E 6, P 2, R 2). Units P and R were updated where they expected bare returns to be carried. |
+| 9. Returns classes | In a returns row bare `N` is a whole-line return judged by `returns_check`; explicit `N.line` is a placed return judged by `placed_returns_check`, using the `line` placement. These have distinct harness semantics. Both are exempt from word-offset migration and are never carried, annotated, labelled "last rhyme" or shown with endpoint words; other placed returns (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) follow the word-place rules through import, Keep and the outgoing payload. A whole-line member an earlier page annotated is named a whole-line return in Review (no word shown) and Keep drops the note. The parser comment claiming bare `N` and `N.end` bind alike is corrected (true for rhyme groups, false for returns). | Unit E on valid classes only (`2.end,6.end;1,5;1.line,3.line;1.head,7.head;2,4`, no mixed class): migration, Review, Keep, the wire, and the harness's own `schemes.mandate` / `returns_check` / `placed_returns_check` run on the exact `returns` payload (two whole-line classes, three placed; the whole-line judge fires only on `1,5`, the placed judge on `head` and `line`). Browser 9e: the same classes through the Library working-copy receiver (`lyLibraryImport`). Making `lyWholeLineReturn` false fails 10 (E 6, P 2, R 2). Units P and R were updated where they expected bare returns to be carried. |
 | 4. Slot guards | `SlotBinding.test_a_span_holding_more_than_word_material_refuses` pins `_only_word_material` on the non-default splice (`love×you more`, `lo÷ve`, U+1FEF, each with a declared reading so the grader binds the token) and on the default end (U+1FEF, U+1FFD), through `swap_at_slot`, `swap_end_word` and `Reviser._splice`, with word-material controls. `test_the_default_end_endpoint_must_be_the_replaced_pieces` pins the endpoint-pieces check of `_end_occurrence_bound` by direct call: on the 3,990-line population the asides-kept cut and the lexicon's cut differ at the end on 264 line-modes and an earlier guard refuses every one, so no production splice reaches the check with a mismatch; it is defence in depth, and the test says so. | Removing the non-default guard fails 10 subtests, the default-end guard 4, the pieces check 1. No `loop.py` change. |
 | 10. Punctuated hyphen ends | `relations.build_stream` reads the printed part of the line's last token whenever it ends in a hyphen (a closing quote after it allowed), through the same phonology, so `king-,`, `king-.`, `king-;`, `king-'` read `king`, as `line_anchors` reads them. Whether the line is SPLIT stays `split_final`'s answer, so punctuation never becomes a broken-word continuation. v2 now answers exactly as v1: declared perfect rhyme True, declared broken rhyme False (they were None/None). | `Normalisation.test_punctuation_after_the_hyphen_is_read_not_continued`: 11 shapes x v1/v2, the `line_anchors` premise, split, numeral (`2-,`) and printed-boundary controls, a mid-word hyphen. Reverting the stream change fails 11 subtests; dropping the closing-quote allowance fails 2. |
 | 3. WarmWorker wording | `_caches_hold_their_schemes` is described as what it checks: scheme ownership, not a count (BB8 counted 4 entries in `fit._LEX`). The child peak assertion is unchanged. | none (wording) |
@@ -561,7 +575,8 @@ Reverting `src/pages/lyrics.js` alone to `43d32cdf` fails 53 unit assertions
 - **`82fe130e`'s own delta over 6955e342:** the `explicit` flag in every member
   shape, so members of a row marked with an unknown cut keep `.end` when a
   form merges the row, and Review names them as written.
-- **This pass:** whole-line returns (bare `N`, `N.line`) are no longer carried
+- **This pass:** bare whole-line returns and explicit `N.line` placements
+  (distinct harness classes) are no longer carried
   or annotated on changed-cut lines (the 6955e342/43d32cdf page carried them,
   `lyrics.js` ~314-319); no returns member is called "last rhyme" or shown
   with endpoint words unless it is a placed end (~1407-1417); `N.line` and
@@ -582,15 +597,31 @@ Reverting `src/pages/lyrics.js` alone to `43d32cdf` fails 53 unit assertions
 On the English song corpus (281,399 sung lines by the page's filter), 2 lines
 end on a hyphen followed by punctuation: `Then the ominous words “It’s a
 Boo-”` is now read (`Boo`); `Yecleap'd _Buce-_` stays refused (the stem has
-no reading). No earlier shape is claimed closed beyond this matrix.
+no reading). The `Boo-”` witness was still refused at `0af39c6f`; "now"
+refers to the punctuation/closing-quote repair in `7c26d40c4`. A focused
+probe with `we knew` as the comparison line finds unread `Boo-` and
+None/None perfect/broken verdicts before, versus no unread token and
+True/False after, in both aside-stripped and voices modes. This witness
+has no parenthetical aside. Those modes remain distinct for corpus counts:
+aside-stripped mode removes parenthetical material, while voices retains it.
+The focused check loaded the historical `relations.py` and `phonology/eng.py`
+against this continuation's unchanged supporting reader modules; it is not
+an independent full-tree run or a live-service acceptance result. Reproduce
+with `quality/results/reader_continuation_2026-10-14/boo_quote_probe.py`;
+its adjacent `boo_quote_probe.json` records exact pins, loaded-module hashes,
+dictionary hash and both modes. Supporting module bytes are checked against
+`8ea94ac9d5141eb5062a8094351a9330f4edc38c` before the result is emitted.
+No earlier shape is claimed closed beyond this matrix.
 
 ### Item 4: the five excluded witnesses
 
 At `61b6618a` a direct call finds 196 unbound default-end edits per v2 mode,
 the slot tool's 191 plus 5 lines it excludes as `excluded_transformed`
 (spaced enclitics: `An' Charlie he 's our ain.` and four more, listed in the
-slot receipt). At `7c26d40c4`: 0 per mode, so the v2 zero-binding refusal
-covers them. "Default end unchanged" is scoped to the measured 3,990-line
+slot receipt). At `7c26d40c4`: 0 changed outputs per mode. This direct probe skips
+both refusal (`None`) and unchanged outputs; the zeros alone do not
+distinguish those outcomes. The guard and focused refusal tests support
+the zero-binding refusal interpretation. "Default end unchanged" is scoped to the measured 3,990-line
 population and lexicon; BB8's 1,760 crafted/fuzzed conservative refusals at
 `61b6618a` stay disclosed (the probed examples bind zero syllables at this
 head; the full crafted set was not re-run).
@@ -599,16 +630,18 @@ head; the full crafted set was not re-run).
 
 `quality/results/slot_default_end_zero_binding_2026-10-14/` now holds the full
 per-case dumps for `61b6618a` and the code head `7c26d40c4` (with the tool's
-summaries and logs, sha256 in its README), `compare_runs.py` (the exact
-comparison, reading only per-case records) and its output, and
+summaries, sha256 in its README; the previously named run logs are absent),
+`compare_runs.py` (the exact comparison, reading only per-case records) and its output, and
 `default_end_direct.py` with both outputs. Reconstructed from the dumps:
 190,530 cases each; exactly 382 differ, all v2 default `end` (191 per mode
 `edit_unbound` -> `refused_unbound`; 181 unread, 7 numeral, 3 hyphenated);
-6,052 of 6,052 readable v2 default-end cases byte-identical; 95,265 of 95,265
-v1 cases byte-identical; 174,660 non-end cases byte-identical; the 989 cohort
-(v2 `grader_elsewhere` at 67889851, from BB8's committed dump) all `occ_agree`
-and byte-identical. The code head's per-case dump is byte-identical
-(decompressed) to the `0af39c6f` run's, and the `61b6618a` dump to BB8's
+6,052 of 6,052 readable v2 default-end cases have identical normalized
+serialized records; so do 95,265 of 95,265 v1 cases and 174,660 non-end
+cases; the 989 cohort (v2 `grader_elsewhere` at 67889851, from BB8's committed dump) all `occ_agree`
+and identical under that comparison. `compare_runs.py` compares decoded
+serialized record strings with trailing newlines stripped, not raw file
+bytes; its historical `byte_identical` keys name that normalization.
+The code head's per-case dump is byte-identical (decompressed) to the `0af39c6f` run's, and the `61b6618a` dump to BB8's
 committed one. The five witnesses and any alternate lexicon are kept apart
 from the 3,990-line gate. The trees are archives, not checkouts (the
 attestation limitation is in the receipt).

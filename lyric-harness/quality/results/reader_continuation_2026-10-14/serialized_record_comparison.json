@@ -1,0 +1,9208 @@
+{
+ "before": "lyric-harness/quality/results/slot_default_end_zero_binding_2026-10-14/full_dumps/so_61b6618a.jsonl.gz",
+ "after": "lyric-harness/quality/results/slot_default_end_zero_binding_2026-10-14/full_dumps/so_7c26d40c4.jsonl.gz",
+ "cases": {
+  "before": 190530,
+  "after": 190530
+ },
+ "only_before": 0,
+ "only_after": 0,
+ "changed": {
+  "count": 382,
+  "by_transition": {
+   "cur:stripped | end | edit_unbound -> refused_unbound": 191,
+   "cur:sung | end | edit_unbound -> refused_unbound": 191
+  },
+  "unbound_end_by_shape": {
+   "cur:stripped | hyphenated": 3,
+   "cur:stripped | numeral": 7,
+   "cur:stripped | unread": 181,
+   "cur:sung | hyphenated": 3,
+   "cur:sung | numeral": 7,
+   "cur:sung | unread": 181
+  },
+  "every_change_is_cur_end": true
+ },
+ "readable_v2_default_end": {
+  "cases": 6052,
+  "byte_identical": 6052
+ },
+ "v1": {
+  "cases": 95265,
+  "byte_identical": 95265
+ },
+ "non_end": {
+  "cases": 174660,
+  "byte_identical": 174660
+ },
+ "changed_cases": [
+  {
+   "mode": "cur:stripped",
+   "line": "(It was the Miller's Nancy told it to me),                       10",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      65,
+      67
+     ],
+     "text": "10"
+    },
+    "result": "(It was the Miller's Nancy told it to me),                       zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(It was the Miller's Nancy told it to me),                       10",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      65,
+      67
+     ],
+     "text": "10"
+    },
+    "result": "(It was the Miller's Nancy told it to me),                       zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "_Mrs. T. (aside)._ I've known him play that Exmoor",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      44,
+      50
+     ],
+     "text": "Exmoor"
+    },
+    "result": "_Mrs. T. (aside)._ I've known him play that Zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "_Mrs. T. (aside)._ I've known him play that Exmoor",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      44,
+      50
+     ],
+     "text": "Exmoor"
+    },
+    "result": "_Mrs. T. (aside)._ I've known him play that Zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Ah! (then said he) thou cruel Quean,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      35
+     ],
+     "text": "Quean"
+    },
+    "result": "Ah! (then said he) thou cruel Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Ah! (then said he) thou cruel Quean,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      35
+     ],
+     "text": "Quean"
+    },
+    "result": "Ah! (then said he) thou cruel Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "the Ship called_ (the Cuckolds Venture) _now riding at_ Cuckolds",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      56,
+      64
+     ],
+     "text": "Cuckolds"
+    },
+    "result": "the Ship called_ (the Cuckolds Venture) _now riding at_ Zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "the Ship called_ (the Cuckolds Venture) _now riding at_ Cuckolds",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      56,
+      64
+     ],
+     "text": "Cuckolds"
+    },
+    "result": "the Ship called_ (the Cuckolds Venture) _now riding at_ Zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Had the King (quoth he) put me upon't,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      37
+     ],
+     "text": "upon't"
+    },
+    "result": "Had the King (quoth he) put me zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Had the King (quoth he) put me upon't,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      37
+     ],
+     "text": "upon't"
+    },
+    "result": "Had the King (quoth he) put me zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "lwoad"
+    },
+    "result": "(1) Well, here we be, then, wi' the vu'st poor zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(1) Well, here we be, then, wi' the vu'st poor lwoad",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "lwoad"
+    },
+    "result": "(1) Well, here we be, then, wi' the vu'st poor zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      49,
+      55
+     ],
+     "text": "drough"
+    },
+    "result": "(2) Do goo, George, no.  The pleäce we can't get zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(2) Do goo, George, no.  The pleäce we can't get drough.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      49,
+      55
+     ],
+     "text": "drough"
+    },
+    "result": "(2) Do goo, George, no.  The pleäce we can't get zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The wheels.  (2) There's na'r a speäde to dig wi'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      46,
+      49
+     ],
+     "text": "wi'"
+    },
+    "result": "The wheels.  (2) There's na'r a speäde to dig zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The wheels.  (2) There's na'r a speäde to dig wi'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      46,
+      49
+     ],
+     "text": "wi'"
+    },
+    "result": "The wheels.  (2) There's na'r a speäde to dig zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      47
+     ],
+     "text": "drow"
+    },
+    "result": "(1) An' teäke an' cut a lock o' frith, an' zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(1) An' teäke an' cut a lock o' frith, an' drow",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      47
+     ],
+     "text": "drow"
+    },
+    "result": "(1) An' teäke an' cut a lock o' frith, an' zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Upon the clay.  (2) Nor hook to cut a twig wi'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      46
+     ],
+     "text": "wi'"
+    },
+    "result": "Upon the clay.  (2) Nor hook to cut a twig zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Upon the clay.  (2) Nor hook to cut a twig wi'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      46
+     ],
+     "text": "wi'"
+    },
+    "result": "Upon the clay.  (2) Nor hook to cut a twig zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "consaït"
+    },
+    "result": "(2) If I can clim' en; but 'tis my zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(2) If I can clim' en; but 'tis my consaït,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "consaït"
+    },
+    "result": "(2) If I can clim' en; but 'tis my zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      42,
+      46
+     ],
+     "text": "vall"
+    },
+    "result": "(1) You overzet en!  No, Jeämes, he won't zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(1) You overzet en!  No, Jeämes, he won't vall,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      42,
+      46
+     ],
+     "text": "vall"
+    },
+    "result": "(1) You overzet en!  No, Jeämes, he won't zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(1) Come, William, dig away!  Why you do spuddle",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      41,
+      48
+     ],
+     "text": "spuddle"
+    },
+    "result": "(1) Come, William, dig away!  Why you do zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(1) Come, William, dig away!  Why you do spuddle",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      41,
+      48
+     ],
+     "text": "spuddle"
+    },
+    "result": "(1) Come, William, dig away!  Why you do zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(2) Do wag. (1) Do goo at last.  (3) Well done.  'Tis drough.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      54,
+      60
+     ],
+     "text": "drough"
+    },
+    "result": "(2) Do wag. (1) Do goo at last.  (3) Well done.  'Tis zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(2) Do wag. (1) Do goo at last.  (3) Well done.  'Tis drough.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      54,
+      60
+     ],
+     "text": "drough"
+    },
+    "result": "(2) Do wag. (1) Do goo at last.  (3) Well done.  'Tis zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(1) There be the greyhounds! lo'k! an' there's the heäre!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      51,
+      56
+     ],
+     "text": "heäre"
+    },
+    "result": "(1) There be the greyhounds! lo'k! an' there's the zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(1) There be the greyhounds! lo'k! an' there's the heäre!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      51,
+      56
+     ],
+     "text": "heäre"
+    },
+    "result": "(1) There be the greyhounds! lo'k! an' there's the zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(3) Oh! there's the heäre, a-meäkèn for the drong.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      44,
+      49
+     ],
+     "text": "drong"
+    },
+    "result": "(3) Oh! there's the heäre, a-meäkèn for the zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(3) Oh! there's the heäre, a-meäkèn for the drong.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      44,
+      49
+     ],
+     "text": "drong"
+    },
+    "result": "(3) Oh! there's the heäre, a-meäkèn for the zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(2) Done vor a crown. They woon't! He's gwäin to groun'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      49,
+      55
+     ],
+     "text": "groun'"
+    },
+    "result": "(2) Done vor a crown. They woon't! He's gwäin to zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(2) Done vor a crown. They woon't! He's gwäin to groun'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      49,
+      55
+     ],
+     "text": "groun'"
+    },
+    "result": "(2) Done vor a crown. They woon't! He's gwäin to zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(3) He is! (1) He idden! (3) Ah! 'tis well his tooes",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "tooes"
+    },
+    "result": "(3) He is! (1) He idden! (3) Ah! 'tis well his zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(3) He is! (1) He idden! (3) Ah! 'tis well his tooes",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "tooes"
+    },
+    "result": "(3) He is! (1) He idden! (3) Ah! 'tis well his zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(1) He's geäme a runnèn too. Why, he do mwore",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      40,
+      45
+     ],
+     "text": "mwore"
+    },
+    "result": "(1) He's geäme a runnèn too. Why, he do zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(1) He's geäme a runnèn too. Why, he do mwore",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      40,
+      45
+     ],
+     "text": "mwore"
+    },
+    "result": "(1) He's geäme a runnèn too. Why, he do zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Than eärn his life. (3) His life wer his avore.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      41,
+      46
+     ],
+     "text": "avore"
+    },
+    "result": "Than eärn his life. (3) His life wer his zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Than eärn his life. (3) His life wer his avore.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      41,
+      46
+     ],
+     "text": "avore"
+    },
+    "result": "Than eärn his life. (3) His life wer his zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(1) He idden! (2) Ees he is! (3) He's out o' zight.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      45,
+      50
+     ],
+     "text": "zight"
+    },
+    "result": "(1) He idden! (2) Ees he is! (3) He's out o' zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(1) He idden! (2) Ees he is! (3) He's out o' zight.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      45,
+      50
+     ],
+     "text": "zight"
+    },
+    "result": "(1) He idden! (2) Ees he is! (3) He's out o' zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(2) An' that's a meesh that he've a-took avore.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      41,
+      46
+     ],
+     "text": "avore"
+    },
+    "result": "(2) An' that's a meesh that he've a-took zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(2) An' that's a meesh that he've a-took avore.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      41,
+      46
+     ],
+     "text": "avore"
+    },
+    "result": "(2) An' that's a meesh that he've a-took zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "O' Knapton Hill. We'll ax en. (1) Here, my bwoy!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      47
+     ],
+     "text": "bwoy"
+    },
+    "result": "O' Knapton Hill. We'll ax en. (1) Here, my zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "O' Knapton Hill. We'll ax en. (1) Here, my bwoy!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      47
+     ],
+     "text": "bwoy"
+    },
+    "result": "O' Knapton Hill. We'll ax en. (1) Here, my zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Can'st tell us where's the heäre? (4) He's got awoy.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      47,
+      51
+     ],
+     "text": "awoy"
+    },
+    "result": "Can'st tell us where's the heäre? (4) He's got zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Can'st tell us where's the heäre? (4) He's got awoy.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      47,
+      51
+     ],
+     "text": "awoy"
+    },
+    "result": "Can'st tell us where's the heäre? (4) He's got zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(2) Ees, got awoy, in coo'se, I never zeed",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      38,
+      42
+     ],
+     "text": "zeed"
+    },
+    "result": "(2) Ees, got awoy, in coo'se, I never zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(2) Ees, got awoy, in coo'se, I never zeed",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      38,
+      42
+     ],
+     "text": "zeed"
+    },
+    "result": "(2) Ees, got awoy, in coo'se, I never zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "(3) No! no! I wish the squier would let me feäre",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      48
+     ],
+     "text": "feäre"
+    },
+    "result": "(3) No! no! I wish the squier would let me zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "(3) No! no! I wish the squier would let me feäre",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      48
+     ],
+     "text": "feäre"
+    },
+    "result": "(3) No! no! I wish the squier would let me zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And a merry tale he hummeth",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      20,
+      27
+     ],
+     "text": "hummeth"
+    },
+    "result": "And a merry tale he zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And a merry tale he hummeth",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      20,
+      27
+     ],
+     "text": "hummeth"
+    },
+    "result": "And a merry tale he zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Kingcup and daffodilly,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      12,
+      22
+     ],
+     "text": "daffodilly"
+    },
+    "result": "Kingcup and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Kingcup and daffodilly,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      12,
+      22
+     ],
+     "text": "daffodilly"
+    },
+    "result": "Kingcup and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Cat and the fiddlety,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      12,
+      20
+     ],
+     "text": "fiddlety"
+    },
+    "result": "Cat and the zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Cat and the fiddlety,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      12,
+      20
+     ],
+     "text": "fiddlety"
+    },
+    "result": "Cat and the zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Gars ony dress look weel.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      20,
+      24
+     ],
+     "text": "weel"
+    },
+    "result": "Gars ony dress look zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Gars ony dress look weel.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      20,
+      24
+     ],
+     "text": "weel"
+    },
+    "result": "Gars ony dress look zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Are gettin’ powler’t up an’ deawn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      33
+     ],
+     "text": "deawn"
+    },
+    "result": "Are gettin’ powler’t up an’ zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Are gettin’ powler’t up an’ deawn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      33
+     ],
+     "text": "deawn"
+    },
+    "result": "Are gettin’ powler’t up an’ zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The which on Themmes brode agèd backe doe ryde,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      42,
+      46
+     ],
+     "text": "ryde"
+    },
+    "result": "The which on Themmes brode agèd backe doe zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The which on Themmes brode agèd backe doe ryde,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      42,
+      46
+     ],
+     "text": "ryde"
+    },
+    "result": "The which on Themmes brode agèd backe doe zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "_Like a great Boobee_.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      14,
+      20
+     ],
+     "text": "Boobee"
+    },
+    "result": "_Like a great Zqzq_."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "_Like a great Boobee_.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      14,
+      20
+     ],
+     "text": "Boobee"
+    },
+    "result": "_Like a great Zqzq_."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "To zee my Fanny's smilèn feäce;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      30
+     ],
+     "text": "feäce"
+    },
+    "result": "To zee my Fanny's smilèn zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "To zee my Fanny's smilèn feäce;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      30
+     ],
+     "text": "feäce"
+    },
+    "result": "To zee my Fanny's smilèn zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The _Serjeants_ and _Yeomen_,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      27
+     ],
+     "text": "Yeomen"
+    },
+    "result": "The _Serjeants_ and _Zqzq_,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The _Serjeants_ and _Yeomen_,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      27
+     ],
+     "text": "Yeomen"
+    },
+    "result": "The _Serjeants_ and _Zqzq_,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Draws as Daylight fainteth;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      26
+     ],
+     "text": "fainteth"
+    },
+    "result": "Draws as Daylight zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Draws as Daylight fainteth;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      26
+     ],
+     "text": "fainteth"
+    },
+    "result": "Draws as Daylight zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Which even to name wad be unlawfu'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      34
+     ],
+     "text": "unlawfu'"
+    },
+    "result": "Which even to name wad be zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Which even to name wad be unlawfu'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      34
+     ],
+     "text": "unlawfu'"
+    },
+    "result": "Which even to name wad be zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The draught, M'sieu'?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      13,
+      20
+     ],
+     "text": "M'sieu'"
+    },
+    "result": "The draught, Zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The draught, M'sieu'?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      13,
+      20
+     ],
+     "text": "M'sieu'"
+    },
+    "result": "The draught, Zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An' get the brutes the power themsel's",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      38
+     ],
+     "text": "themsel's"
+    },
+    "result": "An' get the brutes the power zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An' get the brutes the power themsel's",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      38
+     ],
+     "text": "themsel's"
+    },
+    "result": "An' get the brutes the power zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "'S the rwose that do blow in the zummer.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      39
+     ],
+     "text": "zummer"
+    },
+    "result": "'S the rwose that do blow in the zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "'S the rwose that do blow in the zummer.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      39
+     ],
+     "text": "zummer"
+    },
+    "result": "'S the rwose that do blow in the zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "To vind the nest the blackbird meäde",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      36
+     ],
+     "text": "meäde"
+    },
+    "result": "To vind the nest the blackbird zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "To vind the nest the blackbird meäde",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      36
+     ],
+     "text": "meäde"
+    },
+    "result": "To vind the nest the blackbird zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Thy father, Adolphus! was false, false as hell,                      _45",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      70,
+      72
+     ],
+     "text": "45"
+    },
+    "result": "Thy father, Adolphus! was false, false as hell,                      _zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Thy father, Adolphus! was false, false as hell,                      _45",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      70,
+      72
+     ],
+     "text": "45"
+    },
+    "result": "Thy father, Adolphus! was false, false as hell,                      _zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And thick around Elisha stands;[2",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      33
+     ],
+     "text": "2"
+    },
+    "result": "And thick around Elisha stands;[zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And thick around Elisha stands;[2",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      33
+     ],
+     "text": "2"
+    },
+    "result": "And thick around Elisha stands;[zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Ask it o' yoursel'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      10,
+      18
+     ],
+     "text": "yoursel'"
+    },
+    "result": "Ask it o' zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Ask it o' yoursel'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      10,
+      18
+     ],
+     "text": "yoursel'"
+    },
+    "result": "Ask it o' zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Noo vrost can whiten in the sheäde,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      34
+     ],
+     "text": "sheäde"
+    },
+    "result": "Noo vrost can whiten in the zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Noo vrost can whiten in the sheäde,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      34
+     ],
+     "text": "sheäde"
+    },
+    "result": "Noo vrost can whiten in the zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Where sedgy pool, nor bubbling fount,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      36
+     ],
+     "text": "fount"
+    },
+    "result": "Where sedgy pool, nor bubbling zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Where sedgy pool, nor bubbling fount,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      36
+     ],
+     "text": "fount"
+    },
+    "result": "Where sedgy pool, nor bubbling zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Now smoking and frothing",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      16,
+      24
+     ],
+     "text": "frothing"
+    },
+    "result": "Now smoking and zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Now smoking and frothing",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      16,
+      24
+     ],
+     "text": "frothing"
+    },
+    "result": "Now smoking and zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An' lissen'd to thy merry zong",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      30
+     ],
+     "text": "zong"
+    },
+    "result": "An' lissen'd to thy merry zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An' lissen'd to thy merry zong",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      30
+     ],
+     "text": "zong"
+    },
+    "result": "An' lissen'd to thy merry zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The moth did eat her Zunday ceäpe;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      33
+     ],
+     "text": "ceäpe"
+    },
+    "result": "The moth did eat her Zunday zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The moth did eat her Zunday ceäpe;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      33
+     ],
+     "text": "ceäpe"
+    },
+    "result": "The moth did eat her Zunday zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Bright rose the sun of Gettysburg that morrow morningtide,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      46,
+      57
+     ],
+     "text": "morningtide"
+    },
+    "result": "Bright rose the sun of Gettysburg that morrow zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Bright rose the sun of Gettysburg that morrow morningtide,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      46,
+      57
+     ],
+     "text": "morningtide"
+    },
+    "result": "Bright rose the sun of Gettysburg that morrow zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Wer by a young man cast azide.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      29
+     ],
+     "text": "azide"
+    },
+    "result": "Wer by a young man cast zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Wer by a young man cast azide.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      29
+     ],
+     "text": "azide"
+    },
+    "result": "Wer by a young man cast zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "As thankless as the sea vor raïn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      32
+     ],
+     "text": "raïn"
+    },
+    "result": "As thankless as the sea vor zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "As thankless as the sea vor raïn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      32
+     ],
+     "text": "raïn"
+    },
+    "result": "As thankless as the sea vor zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Of how a dawn diviner",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      14,
+      21
+     ],
+     "text": "diviner"
+    },
+    "result": "Of how a dawn zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Of how a dawn diviner",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      14,
+      21
+     ],
+     "text": "diviner"
+    },
+    "result": "Of how a dawn zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "fleetness--",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "fleetness"
+    },
+    "result": "zqzq--"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "fleetness--",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      0,
+      9
+     ],
+     "text": "fleetness"
+    },
+    "result": "zqzq--"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "His Brains ne'er incumbred,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      26
+     ],
+     "text": "incumbred"
+    },
+    "result": "His Brains ne'er zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "His Brains ne'er incumbred,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      26
+     ],
+     "text": "incumbred"
+    },
+    "result": "His Brains ne'er zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Now, Fanny, 'tis too bad, you teazèn maïd!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "maïd"
+    },
+    "result": "Now, Fanny, 'tis too bad, you teazèn zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Now, Fanny, 'tis too bad, you teazèn maïd!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "maïd"
+    },
+    "result": "Now, Fanny, 'tis too bad, you teazèn zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An awful, a tremendous night is this, meseems!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      38,
+      45
+     ],
+     "text": "meseems"
+    },
+    "result": "An awful, a tremendous night is this, zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An awful, a tremendous night is this, meseems!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      38,
+      45
+     ],
+     "text": "meseems"
+    },
+    "result": "An awful, a tremendous night is this, zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "As dew that steams upward from the grass,                          20",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      67,
+      69
+     ],
+     "text": "20"
+    },
+    "result": "As dew that steams upward from the grass,                          zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "As dew that steams upward from the grass,                          20",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      67,
+      69
+     ],
+     "text": "20"
+    },
+    "result": "As dew that steams upward from the grass,                          zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Contentment and innocence mingle sae weel",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "weel"
+    },
+    "result": "Contentment and innocence mingle sae zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Contentment and innocence mingle sae weel",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "weel"
+    },
+    "result": "Contentment and innocence mingle sae zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Exiret, magnum dextera fecit iter.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      33
+     ],
+     "text": "iter"
+    },
+    "result": "Exiret, magnum dextera fecit zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Exiret, magnum dextera fecit iter.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      33
+     ],
+     "text": "iter"
+    },
+    "result": "Exiret, magnum dextera fecit zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Tation of his Number 10.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      23
+     ],
+     "text": "10"
+    },
+    "result": "Tation of his Number zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Tation of his Number 10.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      23
+     ],
+     "text": "10"
+    },
+    "result": "Tation of his Number zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "My hertes wounde, whyl that hit is grene,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      40
+     ],
+     "text": "grene"
+    },
+    "result": "My hertes wounde, whyl that hit is zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "My hertes wounde, whyl that hit is grene,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      40
+     ],
+     "text": "grene"
+    },
+    "result": "My hertes wounde, whyl that hit is zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Oh! they hae nae winsome love like mine, in the wars o' Germanie.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      56,
+      64
+     ],
+     "text": "Germanie"
+    },
+    "result": "Oh! they hae nae winsome love like mine, in the wars o' Zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Oh! they hae nae winsome love like mine, in the wars o' Germanie.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      56,
+      64
+     ],
+     "text": "Germanie"
+    },
+    "result": "Oh! they hae nae winsome love like mine, in the wars o' Zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Think, in this batter'd Caravanserai",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      36
+     ],
+     "text": "Caravanserai"
+    },
+    "result": "Think, in this batter'd Zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Think, in this batter'd Caravanserai",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      36
+     ],
+     "text": "Caravanserai"
+    },
+    "result": "Think, in this batter'd Zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And beat'st thy gen'rous breast, that o're",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      38,
+      42
+     ],
+     "text": "o're"
+    },
+    "result": "And beat'st thy gen'rous breast, that zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And beat'st thy gen'rous breast, that o're",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      38,
+      42
+     ],
+     "text": "o're"
+    },
+    "result": "And beat'st thy gen'rous breast, that zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "There she zot, wi' breast a-heavèn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      34
+     ],
+     "text": "a-heavèn"
+    },
+    "result": "There she zot, wi' breast zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "There she zot, wi' breast a-heavèn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      34
+     ],
+     "text": "a-heavèn"
+    },
+    "result": "There she zot, wi' breast zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An’ tak it while I’m preychin’.”",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      30
+     ],
+     "text": "preychin’"
+    },
+    "result": "An’ tak it while I’m zqzq.”"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An’ tak it while I’m preychin’.”",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      30
+     ],
+     "text": "preychin’"
+    },
+    "result": "An’ tak it while I’m zqzq.”"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The spirit of the pedagogue",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      27
+     ],
+     "text": "pedagogue"
+    },
+    "result": "The spirit of the zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The spirit of the pedagogue",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      27
+     ],
+     "text": "pedagogue"
+    },
+    "result": "The spirit of the zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Get without repining;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      12,
+      20
+     ],
+     "text": "repining"
+    },
+    "result": "Get without zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Get without repining;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      12,
+      20
+     ],
+     "text": "repining"
+    },
+    "result": "Get without zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "He lifted beams an' blocks o' stwone,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      36
+     ],
+     "text": "stwone"
+    },
+    "result": "He lifted beams an' blocks o' zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "He lifted beams an' blocks o' stwone,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      36
+     ],
+     "text": "stwone"
+    },
+    "result": "He lifted beams an' blocks o' zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Avore the night do dim our zight,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      27,
+      32
+     ],
+     "text": "zight"
+    },
+    "result": "Avore the night do dim our zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Avore the night do dim our zight,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      27,
+      32
+     ],
+     "text": "zight"
+    },
+    "result": "Avore the night do dim our zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "In troth I needna swither,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "swither"
+    },
+    "result": "In troth I needna zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "In troth I needna swither,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "swither"
+    },
+    "result": "In troth I needna zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The brook that's in a vog,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      25
+     ],
+     "text": "vog"
+    },
+    "result": "The brook that's in a zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The brook that's in a vog,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      25
+     ],
+     "text": "vog"
+    },
+    "result": "The brook that's in a zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "A half behind, an' half upzides.\"",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      31
+     ],
+     "text": "upzides"
+    },
+    "result": "A half behind, an' half zqzq.\""
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "A half behind, an' half upzides.\"",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      31
+     ],
+     "text": "upzides"
+    },
+    "result": "A half behind, an' half zqzq.\""
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "As, in the music of a chaunt",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      28
+     ],
+     "text": "chaunt"
+    },
+    "result": "As, in the music of a zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "As, in the music of a chaunt",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      28
+     ],
+     "text": "chaunt"
+    },
+    "result": "As, in the music of a zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "While I whistle and sing at the plowin' o't.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      40,
+      43
+     ],
+     "text": "o't"
+    },
+    "result": "While I whistle and sing at the plowin' zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "While I whistle and sing at the plowin' o't.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      40,
+      43
+     ],
+     "text": "o't"
+    },
+    "result": "While I whistle and sing at the plowin' zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Fortunam moveat loco superbus.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      29
+     ],
+     "text": "superbus"
+    },
+    "result": "Fortunam moveat loco zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Fortunam moveat loco superbus.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      29
+     ],
+     "text": "superbus"
+    },
+    "result": "Fortunam moveat loco zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Syne we'll sit down an' tak our whitter,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      39
+     ],
+     "text": "whitter"
+    },
+    "result": "Syne we'll sit down an' tak our zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Syne we'll sit down an' tak our whitter,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      39
+     ],
+     "text": "whitter"
+    },
+    "result": "Syne we'll sit down an' tak our zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "While music wer a-soundèn.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      16,
+      25
+     ],
+     "text": "a-soundèn"
+    },
+    "result": "While music wer zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "While music wer a-soundèn.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      16,
+      25
+     ],
+     "text": "a-soundèn"
+    },
+    "result": "While music wer zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "“I’th name o’ good Katty, Jem, wheer arto beawn?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      42,
+      47
+     ],
+     "text": "beawn"
+    },
+    "result": "“I’th name o’ good Katty, Jem, wheer arto zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "“I’th name o’ good Katty, Jem, wheer arto beawn?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      42,
+      47
+     ],
+     "text": "beawn"
+    },
+    "result": "“I’th name o’ good Katty, Jem, wheer arto zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Formaq; Risu,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "Risu"
+    },
+    "result": "Formaq; Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Formaq; Risu,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      8,
+      12
+     ],
+     "text": "Risu"
+    },
+    "result": "Formaq; Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Seem to their staves the ensigns furl’d.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      39
+     ],
+     "text": "furl’d"
+    },
+    "result": "Seem to their staves the ensigns zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Seem to their staves the ensigns furl’d.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      39
+     ],
+     "text": "furl’d"
+    },
+    "result": "Seem to their staves the ensigns zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Still cheerily the chickadee",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      28
+     ],
+     "text": "chickadee"
+    },
+    "result": "Still cheerily the zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Still cheerily the chickadee",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      28
+     ],
+     "text": "chickadee"
+    },
+    "result": "Still cheerily the zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The dome is vast immensity--",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      26
+     ],
+     "text": "immensity"
+    },
+    "result": "The dome is vast zqzq--"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The dome is vast immensity--",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      26
+     ],
+     "text": "immensity"
+    },
+    "result": "The dome is vast zqzq--"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "What next did you do?  Did you transmigrate?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      43
+     ],
+     "text": "transmigrate"
+    },
+    "result": "What next did you do?  Did you zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "What next did you do?  Did you transmigrate?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      43
+     ],
+     "text": "transmigrate"
+    },
+    "result": "What next did you do?  Did you zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Herself i' th' silken sepulchre;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      31
+     ],
+     "text": "sepulchre"
+    },
+    "result": "Herself i' th' silken zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Herself i' th' silken sepulchre;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      31
+     ],
+     "text": "sepulchre"
+    },
+    "result": "Herself i' th' silken zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "A Carlin auld and teugh.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      23
+     ],
+     "text": "teugh"
+    },
+    "result": "A Carlin auld and zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "A Carlin auld and teugh.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      23
+     ],
+     "text": "teugh"
+    },
+    "result": "A Carlin auld and zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Aft thee an' I, in aught hours' gaun,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "gaun"
+    },
+    "result": "Aft thee an' I, in aught hours' zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Aft thee an' I, in aught hours' gaun,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "gaun"
+    },
+    "result": "Aft thee an' I, in aught hours' zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And deep be your meed",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      21
+     ],
+     "text": "meed"
+    },
+    "result": "And deep be your zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And deep be your meed",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      21
+     ],
+     "text": "meed"
+    },
+    "result": "And deep be your zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Thou seest my feebleness;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      14,
+      24
+     ],
+     "text": "feebleness"
+    },
+    "result": "Thou seest my zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Thou seest my feebleness;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      14,
+      24
+     ],
+     "text": "feebleness"
+    },
+    "result": "Thou seest my zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "This is a darkish evenèn; b'ye a-feärd",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "a-feärd"
+    },
+    "result": "This is a darkish evenèn; b'ye zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "This is a darkish evenèn; b'ye a-feärd",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "a-feärd"
+    },
+    "result": "This is a darkish evenèn; b'ye zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Then, straught or crooked, yird or nane,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      39
+     ],
+     "text": "nane"
+    },
+    "result": "Then, straught or crooked, yird or zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Then, straught or crooked, yird or nane,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      39
+     ],
+     "text": "nane"
+    },
+    "result": "Then, straught or crooked, yird or zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Wi' pride avore my own blue geäte,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      33
+     ],
+     "text": "geäte"
+    },
+    "result": "Wi' pride avore my own blue zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Wi' pride avore my own blue geäte,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      33
+     ],
+     "text": "geäte"
+    },
+    "result": "Wi' pride avore my own blue zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And lang ere blaws the winter wun',",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      34
+     ],
+     "text": "wun'"
+    },
+    "result": "And lang ere blaws the winter zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And lang ere blaws the winter wun',",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      34
+     ],
+     "text": "wun'"
+    },
+    "result": "And lang ere blaws the winter zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "I thought them something like yoursel'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      38
+     ],
+     "text": "yoursel'"
+    },
+    "result": "I thought them something like zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "I thought them something like yoursel'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      38
+     ],
+     "text": "yoursel'"
+    },
+    "result": "I thought them something like zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Her, San Sisto names, and Her, Foligno,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "Foligno"
+    },
+    "result": "Her, San Sisto names, and Her, Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Her, San Sisto names, and Her, Foligno,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "Foligno"
+    },
+    "result": "Her, San Sisto names, and Her, Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The cure of envy, fretfulness, and unbelief;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      43
+     ],
+     "text": "unbelief"
+    },
+    "result": "The cure of envy, fretfulness, and zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The cure of envy, fretfulness, and unbelief;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      43
+     ],
+     "text": "unbelief"
+    },
+    "result": "The cure of envy, fretfulness, and zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Well, now, an' how do vo'k treat Jeäne?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      38
+     ],
+     "text": "Jeäne"
+    },
+    "result": "Well, now, an' how do vo'k treat Zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Well, now, an' how do vo'k treat Jeäne?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      38
+     ],
+     "text": "Jeäne"
+    },
+    "result": "Well, now, an' how do vo'k treat Zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Nor was his suit deny'd.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      23
+     ],
+     "text": "deny'd"
+    },
+    "result": "Nor was his suit zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Nor was his suit deny'd.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      23
+     ],
+     "text": "deny'd"
+    },
+    "result": "Nor was his suit zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An’ whispers, “Yo’re nobbut a lodger:",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      36
+     ],
+     "text": "lodger"
+    },
+    "result": "An’ whispers, “Yo’re nobbut a zqzq:"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An’ whispers, “Yo’re nobbut a lodger:",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      36
+     ],
+     "text": "lodger"
+    },
+    "result": "An’ whispers, “Yo’re nobbut a zqzq:"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Both. For a' the joys that gowd can gie,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      36,
+      39
+     ],
+     "text": "gie"
+    },
+    "result": "Both. For a' the joys that gowd can zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Both. For a' the joys that gowd can gie,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      36,
+      39
+     ],
+     "text": "gie"
+    },
+    "result": "Both. For a' the joys that gowd can zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "When the kye comes hame,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      23
+     ],
+     "text": "hame"
+    },
+    "result": "When the kye comes zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "When the kye comes hame,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      23
+     ],
+     "text": "hame"
+    },
+    "result": "When the kye comes zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The immortal gift in vain libations.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      35
+     ],
+     "text": "libations"
+    },
+    "result": "The immortal gift in vain zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The immortal gift in vain libations.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      35
+     ],
+     "text": "libations"
+    },
+    "result": "The immortal gift in vain zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Or the early milkmaid carolling?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      31
+     ],
+     "text": "carolling"
+    },
+    "result": "Or the early milkmaid zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Or the early milkmaid carolling?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      31
+     ],
+     "text": "carolling"
+    },
+    "result": "Or the early milkmaid zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Then did she sing as one that thought no man could her reprove,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      55,
+      62
+     ],
+     "text": "reprove"
+    },
+    "result": "Then did she sing as one that thought no man could her zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Then did she sing as one that thought no man could her reprove,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      55,
+      62
+     ],
+     "text": "reprove"
+    },
+    "result": "Then did she sing as one that thought no man could her zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "For anything tougher than suet;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      30
+     ],
+     "text": "suet"
+    },
+    "result": "For anything tougher than zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "For anything tougher than suet;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      30
+     ],
+     "text": "suet"
+    },
+    "result": "For anything tougher than zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "When severed hearts repine,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      20,
+      26
+     ],
+     "text": "repine"
+    },
+    "result": "When severed hearts zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "When severed hearts repine,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      20,
+      26
+     ],
+     "text": "repine"
+    },
+    "result": "When severed hearts zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "When the kye comes hame!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      23
+     ],
+     "text": "hame"
+    },
+    "result": "When the kye comes zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "When the kye comes hame!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      23
+     ],
+     "text": "hame"
+    },
+    "result": "When the kye comes zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "To you a simple poet's pray'rs",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      30
+     ],
+     "text": "pray'rs"
+    },
+    "result": "To you a simple poet's zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "To you a simple poet's pray'rs",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      30
+     ],
+     "text": "pray'rs"
+    },
+    "result": "To you a simple poet's zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Warton from Euripides.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      12,
+      21
+     ],
+     "text": "Euripides"
+    },
+    "result": "Warton from Zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Warton from Euripides.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      12,
+      21
+     ],
+     "text": "Euripides"
+    },
+    "result": "Warton from Zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An' the brown leaf had fa'n:",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      27
+     ],
+     "text": "fa'n"
+    },
+    "result": "An' the brown leaf had zqzq:"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An' the brown leaf had fa'n:",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      27
+     ],
+     "text": "fa'n"
+    },
+    "result": "An' the brown leaf had zqzq:"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Sweet son of song! thy course is o'er;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      37
+     ],
+     "text": "o'er"
+    },
+    "result": "Sweet son of song! thy course is zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Sweet son of song! thy course is o'er;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      37
+     ],
+     "text": "o'er"
+    },
+    "result": "Sweet son of song! thy course is zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Down to the Bay o' Fundy,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      24
+     ],
+     "text": "Fundy"
+    },
+    "result": "Down to the Bay o' Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Down to the Bay o' Fundy,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      24
+     ],
+     "text": "Fundy"
+    },
+    "result": "Down to the Bay o' Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Sing on, thou sweet mavis, thy hymn to the e'ening!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      50
+     ],
+     "text": "e'ening"
+    },
+    "result": "Sing on, thou sweet mavis, thy hymn to the zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Sing on, thou sweet mavis, thy hymn to the e'ening!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      43,
+      50
+     ],
+     "text": "e'ening"
+    },
+    "result": "Sing on, thou sweet mavis, thy hymn to the zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "I found in Connaught the just, redundance",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      41
+     ],
+     "text": "redundance"
+    },
+    "result": "I found in Connaught the just, zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "I found in Connaught the just, redundance",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      41
+     ],
+     "text": "redundance"
+    },
+    "result": "I found in Connaught the just, zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "His gear may buy him kye and yowes,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      34
+     ],
+     "text": "yowes"
+    },
+    "result": "His gear may buy him kye and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "His gear may buy him kye and yowes,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      34
+     ],
+     "text": "yowes"
+    },
+    "result": "His gear may buy him kye and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "By elem trees a-growèn roun'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      28
+     ],
+     "text": "roun'"
+    },
+    "result": "By elem trees a-growèn zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "By elem trees a-growèn roun'.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      28
+     ],
+     "text": "roun'"
+    },
+    "result": "By elem trees a-growèn zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "But while she vell, my Meäker's greäce",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      38
+     ],
+     "text": "greäce"
+    },
+    "result": "But while she vell, my Meäker's zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "But while she vell, my Meäker's greäce",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      38
+     ],
+     "text": "greäce"
+    },
+    "result": "But while she vell, my Meäker's zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Fed on madwort and agramie,--",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      26
+     ],
+     "text": "agramie"
+    },
+    "result": "Fed on madwort and zqzq,--"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Fed on madwort and agramie,--",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      26
+     ],
+     "text": "agramie"
+    },
+    "result": "Fed on madwort and zqzq,--"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Muses, who know and rule all minstrelsy",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      39
+     ],
+     "text": "minstrelsy"
+    },
+    "result": "Muses, who know and rule all zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Muses, who know and rule all minstrelsy",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      39
+     ],
+     "text": "minstrelsy"
+    },
+    "result": "Muses, who know and rule all zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Contented I lived in my canty auld biggin',",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "biggin'"
+    },
+    "result": "Contented I lived in my canty auld zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Contented I lived in my canty auld biggin',",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "biggin'"
+    },
+    "result": "Contented I lived in my canty auld zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The chosen tribes possest",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "possest"
+    },
+    "result": "The chosen tribes zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The chosen tribes possest",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "possest"
+    },
+    "result": "The chosen tribes zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "A-leävèn there alwone to murn",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      29
+     ],
+     "text": "murn"
+    },
+    "result": "A-leävèn there alwone to zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "A-leävèn there alwone to murn",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      29
+     ],
+     "text": "murn"
+    },
+    "result": "A-leävèn there alwone to zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Sing as they go, and in singing forget they are weary and wayworn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      58,
+      65
+     ],
+     "text": "wayworn"
+    },
+    "result": "Sing as they go, and in singing forget they are weary and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Sing as they go, and in singing forget they are weary and wayworn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      58,
+      65
+     ],
+     "text": "wayworn"
+    },
+    "result": "Sing as they go, and in singing forget they are weary and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And what can these avail                                        40",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      64,
+      66
+     ],
+     "text": "40"
+    },
+    "result": "And what can these avail                                        zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And what can these avail                                        40",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      64,
+      66
+     ],
+     "text": "40"
+    },
+    "result": "And what can these avail                                        zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Her dear, long, lean, little arms lying out on the counterpane;--",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      51,
+      62
+     ],
+     "text": "counterpane"
+    },
+    "result": "Her dear, long, lean, little arms lying out on the zqzq;--"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Her dear, long, lean, little arms lying out on the counterpane;--",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      51,
+      62
+     ],
+     "text": "counterpane"
+    },
+    "result": "Her dear, long, lean, little arms lying out on the zqzq;--"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "I faund that it tremblit tenderlie.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      34
+     ],
+     "text": "tenderlie"
+    },
+    "result": "I faund that it tremblit zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "I faund that it tremblit tenderlie.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      34
+     ],
+     "text": "tenderlie"
+    },
+    "result": "I faund that it tremblit zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Vor us to goo an' zit avore,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      27
+     ],
+     "text": "avore"
+    },
+    "result": "Vor us to goo an' zit zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Vor us to goo an' zit avore,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      27
+     ],
+     "text": "avore"
+    },
+    "result": "Vor us to goo an' zit zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "As closely twined wi' earliest thochts,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "thochts"
+    },
+    "result": "As closely twined wi' earliest zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "As closely twined wi' earliest thochts,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      38
+     ],
+     "text": "thochts"
+    },
+    "result": "As closely twined wi' earliest zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Yet on ears of sense unstirred",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      30
+     ],
+     "text": "unstirred"
+    },
+    "result": "Yet on ears of sense zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Yet on ears of sense unstirred",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      30
+     ],
+     "text": "unstirred"
+    },
+    "result": "Yet on ears of sense zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "_Thy thorn without, my thorn my heart invadeth._",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      38,
+      46
+     ],
+     "text": "invadeth"
+    },
+    "result": "_Thy thorn without, my thorn my heart zqzq._"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "_Thy thorn without, my thorn my heart invadeth._",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      38,
+      46
+     ],
+     "text": "invadeth"
+    },
+    "result": "_Thy thorn without, my thorn my heart zqzq._"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "“Weel, weel!” says I, “a bargain be't;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      37
+     ],
+     "text": "be't"
+    },
+    "result": "“Weel, weel!” says I, “a bargain zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "“Weel, weel!” says I, “a bargain be't;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      37
+     ],
+     "text": "be't"
+    },
+    "result": "“Weel, weel!” says I, “a bargain zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Town's-bodies ran, an' stood abeigh,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      35
+     ],
+     "text": "abeigh"
+    },
+    "result": "Town's-bodies ran, an' stood zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Town's-bodies ran, an' stood abeigh,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      35
+     ],
+     "text": "abeigh"
+    },
+    "result": "Town's-bodies ran, an' stood zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "With a white light on our faces, spirit over spirit furled?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      52,
+      58
+     ],
+     "text": "furled"
+    },
+    "result": "With a white light on our faces, spirit over spirit zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "With a white light on our faces, spirit over spirit furled?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      52,
+      58
+     ],
+     "text": "furled"
+    },
+    "result": "With a white light on our faces, spirit over spirit zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An' the vo'k wer a-gather'd woonce mwore,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      40
+     ],
+     "text": "mwore"
+    },
+    "result": "An' the vo'k wer a-gather'd woonce zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An' the vo'k wer a-gather'd woonce mwore,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      40
+     ],
+     "text": "mwore"
+    },
+    "result": "An' the vo'k wer a-gather'd woonce zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "In as many virtues dight",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      24
+     ],
+     "text": "dight"
+    },
+    "result": "In as many virtues zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "In as many virtues dight",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      19,
+      24
+     ],
+     "text": "dight"
+    },
+    "result": "In as many virtues zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Along the leäne an' the hedge's zide;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "zide"
+    },
+    "result": "Along the leäne an' the hedge's zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Along the leäne an' the hedge's zide;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      36
+     ],
+     "text": "zide"
+    },
+    "result": "Along the leäne an' the hedge's zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "O' Zunday evenèns, eärm in eärm,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      27,
+      31
+     ],
+     "text": "eärm"
+    },
+    "result": "O' Zunday evenèns, eärm in zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "O' Zunday evenèns, eärm in eärm,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      27,
+      31
+     ],
+     "text": "eärm"
+    },
+    "result": "O' Zunday evenèns, eärm in zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Wi' smeechy doust from heel to tooe.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      35
+     ],
+     "text": "tooe"
+    },
+    "result": "Wi' smeechy doust from heel to zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Wi' smeechy doust from heel to tooe.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      35
+     ],
+     "text": "tooe"
+    },
+    "result": "Wi' smeechy doust from heel to zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "To let out land lik' this in ouer pleäce;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      34,
+      40
+     ],
+     "text": "pleäce"
+    },
+    "result": "To let out land lik' this in ouer zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "To let out land lik' this in ouer pleäce;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      34,
+      40
+     ],
+     "text": "pleäce"
+    },
+    "result": "To let out land lik' this in ouer zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Where the cow did loudly bleäre",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      31
+     ],
+     "text": "bleäre"
+    },
+    "result": "Where the cow did loudly zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Where the cow did loudly bleäre",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      31
+     ],
+     "text": "bleäre"
+    },
+    "result": "Where the cow did loudly zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The bells ov Alderburnham.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      13,
+      25
+     ],
+     "text": "Alderburnham"
+    },
+    "result": "The bells ov Zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The bells ov Alderburnham.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      13,
+      25
+     ],
+     "text": "Alderburnham"
+    },
+    "result": "The bells ov Zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Obscured with the false fires of his sceme,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "sceme"
+    },
+    "result": "Obscured with the false fires of his zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Obscured with the false fires of his sceme,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "sceme"
+    },
+    "result": "Obscured with the false fires of his zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "To keep that knave frae scaith.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      30
+     ],
+     "text": "scaith"
+    },
+    "result": "To keep that knave frae zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "To keep that knave frae scaith.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      30
+     ],
+     "text": "scaith"
+    },
+    "result": "To keep that knave frae zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Eileen Aroon!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      7,
+      12
+     ],
+     "text": "Aroon"
+    },
+    "result": "Eileen Zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Eileen Aroon!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      7,
+      12
+     ],
+     "text": "Aroon"
+    },
+    "result": "Eileen Zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And _France_ will banish _Perkenite_,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      35
+     ],
+     "text": "Perkenite"
+    },
+    "result": "And _France_ will banish _Zqzq_,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And _France_ will banish _Perkenite_,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      35
+     ],
+     "text": "Perkenite"
+    },
+    "result": "And _France_ will banish _Zqzq_,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And open fields, and we not see’t?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      33
+     ],
+     "text": "see’t"
+    },
+    "result": "And open fields, and we not zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And open fields, and we not see’t?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      28,
+      33
+     ],
+     "text": "see’t"
+    },
+    "result": "And open fields, and we not zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Fareweel, the braes o' Aberfoyle!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      32
+     ],
+     "text": "Aberfoyle"
+    },
+    "result": "Fareweel, the braes o' Zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Fareweel, the braes o' Aberfoyle!",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      32
+     ],
+     "text": "Aberfoyle"
+    },
+    "result": "Fareweel, the braes o' Zqzq!"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Curst were thy minions, their roster and scutcheon,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      41,
+      50
+     ],
+     "text": "scutcheon"
+    },
+    "result": "Curst were thy minions, their roster and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Curst were thy minions, their roster and scutcheon,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      41,
+      50
+     ],
+     "text": "scutcheon"
+    },
+    "result": "Curst were thy minions, their roster and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "'Till the Canon atoned the deed,                                     _110",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      70,
+      73
+     ],
+     "text": "110"
+    },
+    "result": "'Till the Canon atoned the deed,                                     _zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "'Till the Canon atoned the deed,                                     _110",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      70,
+      73
+     ],
+     "text": "110"
+    },
+    "result": "'Till the Canon atoned the deed,                                     _zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "This camphor, storax, spikenard, galbanum;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      41
+     ],
+     "text": "galbanum"
+    },
+    "result": "This camphor, storax, spikenard, zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "This camphor, storax, spikenard, galbanum;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      41
+     ],
+     "text": "galbanum"
+    },
+    "result": "This camphor, storax, spikenard, zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "In grave _Diebus_",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      10,
+      16
+     ],
+     "text": "Diebus"
+    },
+    "result": "In grave _Zqzq_"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "In grave _Diebus_",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      10,
+      16
+     ],
+     "text": "Diebus"
+    },
+    "result": "In grave _Zqzq_"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "As she used, in years agone,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      27
+     ],
+     "text": "agone"
+    },
+    "result": "As she used, in years zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "As she used, in years agone,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      27
+     ],
+     "text": "agone"
+    },
+    "result": "As she used, in years zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "As one in long-lamented widowhood,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      33
+     ],
+     "text": "widowhood"
+    },
+    "result": "As one in long-lamented zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "As one in long-lamented widowhood,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      24,
+      33
+     ],
+     "text": "widowhood"
+    },
+    "result": "As one in long-lamented zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "With joy I see the well-fill'd sheaf, and mark each rising stook,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      59,
+      64
+     ],
+     "text": "stook"
+    },
+    "result": "With joy I see the well-fill'd sheaf, and mark each rising zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "With joy I see the well-fill'd sheaf, and mark each rising stook,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      59,
+      64
+     ],
+     "text": "stook"
+    },
+    "result": "With joy I see the well-fill'd sheaf, and mark each rising zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An' when vrom a meetèn o' me'th",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      31
+     ],
+     "text": "me'th"
+    },
+    "result": "An' when vrom a meetèn o' zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An' when vrom a meetèn o' me'th",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      31
+     ],
+     "text": "me'th"
+    },
+    "result": "An' when vrom a meetèn o' zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "When on yon mossy stane,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      23
+     ],
+     "text": "stane"
+    },
+    "result": "When on yon mossy zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "When on yon mossy stane,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      23
+     ],
+     "text": "stane"
+    },
+    "result": "When on yon mossy zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An' twitt'rèn birds did hop in drough",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      37
+     ],
+     "text": "drough"
+    },
+    "result": "An' twitt'rèn birds did hop in zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An' twitt'rèn birds did hop in drough",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      37
+     ],
+     "text": "drough"
+    },
+    "result": "An' twitt'rèn birds did hop in zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And does March over Rocks, let's huzza, huzza, huzza,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "huzza"
+    },
+    "result": "And does March over Rocks, let's huzza, huzza, zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And does March over Rocks, let's huzza, huzza, huzza,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      47,
+      52
+     ],
+     "text": "huzza"
+    },
+    "result": "And does March over Rocks, let's huzza, huzza, zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "This festive Fete Champetre.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      27
+     ],
+     "text": "Champetre"
+    },
+    "result": "This festive Fete Zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "This festive Fete Champetre.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      27
+     ],
+     "text": "Champetre"
+    },
+    "result": "This festive Fete Zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Making one divine concent",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "concent"
+    },
+    "result": "Making one divine zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Making one divine concent",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      18,
+      25
+     ],
+     "text": "concent"
+    },
+    "result": "Making one divine zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "\"Give your burnt offerings o'er,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      27,
+      31
+     ],
+     "text": "o'er"
+    },
+    "result": "\"Give your burnt offerings zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "\"Give your burnt offerings o'er,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      27,
+      31
+     ],
+     "text": "o'er"
+    },
+    "result": "\"Give your burnt offerings zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Wha, by Castalia's wimplin streamies,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      27,
+      36
+     ],
+     "text": "streamies"
+    },
+    "result": "Wha, by Castalia's wimplin zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Wha, by Castalia's wimplin streamies,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      27,
+      36
+     ],
+     "text": "streamies"
+    },
+    "result": "Wha, by Castalia's wimplin zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "There's noo good o' goold, but to buy what 'ull meäke",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      48,
+      53
+     ],
+     "text": "meäke"
+    },
+    "result": "There's noo good o' goold, but to buy what 'ull zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "There's noo good o' goold, but to buy what 'ull meäke",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      48,
+      53
+     ],
+     "text": "meäke"
+    },
+    "result": "There's noo good o' goold, but to buy what 'ull zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Nor poverty the mind appal.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      26
+     ],
+     "text": "appal"
+    },
+    "result": "Nor poverty the mind zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Nor poverty the mind appal.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      26
+     ],
+     "text": "appal"
+    },
+    "result": "Nor poverty the mind zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "That was hir a lessoun.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      15,
+      22
+     ],
+     "text": "lessoun"
+    },
+    "result": "That was hir a zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "That was hir a lessoun.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      15,
+      22
+     ],
+     "text": "lessoun"
+    },
+    "result": "That was hir a zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Invention flagged, the lute had got unstrung,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      36,
+      44
+     ],
+     "text": "unstrung"
+    },
+    "result": "Invention flagged, the lute had got zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Invention flagged, the lute had got unstrung,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      36,
+      44
+     ],
+     "text": "unstrung"
+    },
+    "result": "Invention flagged, the lute had got zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "There's a justice that appals",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      29
+     ],
+     "text": "appals"
+    },
+    "result": "There's a justice that zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "There's a justice that appals",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      23,
+      29
+     ],
+     "text": "appals"
+    },
+    "result": "There's a justice that zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "O city of the deep! from Sybil grots",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      36
+     ],
+     "text": "grots"
+    },
+    "result": "O city of the deep! from Sybil zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "O city of the deep! from Sybil grots",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      31,
+      36
+     ],
+     "text": "grots"
+    },
+    "result": "O city of the deep! from Sybil zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "With violets and posies,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      23
+     ],
+     "text": "posies"
+    },
+    "result": "With violets and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "With violets and posies,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      17,
+      23
+     ],
+     "text": "posies"
+    },
+    "result": "With violets and zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "There are streams of unconquer’d Asturias",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      41
+     ],
+     "text": "Asturias"
+    },
+    "result": "There are streams of unconquer’d Zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "There are streams of unconquer’d Asturias",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      33,
+      41
+     ],
+     "text": "Asturias"
+    },
+    "result": "There are streams of unconquer’d Zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "With his own beloved bratling.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      29
+     ],
+     "text": "bratling"
+    },
+    "result": "With his own beloved zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "With his own beloved bratling.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      29
+     ],
+     "text": "bratling"
+    },
+    "result": "With his own beloved zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "As erst in life's young morning, around his Hieland hame.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      52,
+      56
+     ],
+     "text": "hame"
+    },
+    "result": "As erst in life's young morning, around his Hieland zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "As erst in life's young morning, around his Hieland hame.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      52,
+      56
+     ],
+     "text": "hame"
+    },
+    "result": "As erst in life's young morning, around his Hieland zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An' she has twa sparkling roguish een.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      34,
+      37
+     ],
+     "text": "een"
+    },
+    "result": "An' she has twa sparkling roguish zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An' she has twa sparkling roguish een.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      34,
+      37
+     ],
+     "text": "een"
+    },
+    "result": "An' she has twa sparkling roguish zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Is out with the kine,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      16,
+      20
+     ],
+     "text": "kine"
+    },
+    "result": "Is out with the zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Is out with the kine,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      16,
+      20
+     ],
+     "text": "kine"
+    },
+    "result": "Is out with the zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Where the weary stitcher",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      16,
+      24
+     ],
+     "text": "stitcher"
+    },
+    "result": "Where the weary zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Where the weary stitcher",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      16,
+      24
+     ],
+     "text": "stitcher"
+    },
+    "result": "Where the weary zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "With shield of proof shield me from out the prease",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      44,
+      50
+     ],
+     "text": "prease"
+    },
+    "result": "With shield of proof shield me from out the zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "With shield of proof shield me from out the prease",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      44,
+      50
+     ],
+     "text": "prease"
+    },
+    "result": "With shield of proof shield me from out the zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "The sun wi' clouds may be o'ercast,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      34
+     ],
+     "text": "o'ercast"
+    },
+    "result": "The sun wi' clouds may be zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "The sun wi' clouds may be o'ercast,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      26,
+      34
+     ],
+     "text": "o'ercast"
+    },
+    "result": "The sun wi' clouds may be zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And or I wad anither jad,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      24
+     ],
+     "text": "jad"
+    },
+    "result": "And or I wad anither zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And or I wad anither jad,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      21,
+      24
+     ],
+     "text": "jad"
+    },
+    "result": "And or I wad anither zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "An' the cheäk-burnèn seasons o' mowèn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      37
+     ],
+     "text": "mowèn"
+    },
+    "result": "An' the cheäk-burnèn seasons o' zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "An' the cheäk-burnèn seasons o' mowèn,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      32,
+      37
+     ],
+     "text": "mowèn"
+    },
+    "result": "An' the cheäk-burnèn seasons o' zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Sed quod tu facies, hoc mihi, Paete, dolet.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "dolet"
+    },
+    "result": "Sed quod tu facies, hoc mihi, Paete, zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Sed quod tu facies, hoc mihi, Paete, dolet.",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "dolet"
+    },
+    "result": "Sed quod tu facies, hoc mihi, Paete, zqzq."
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "But true men await me afar in Duhallow,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      38
+     ],
+     "text": "Duhallow"
+    },
+    "result": "But true men await me afar in Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "But true men await me afar in Duhallow,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      38
+     ],
+     "text": "Duhallow"
+    },
+    "result": "But true men await me afar in Zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And their hands could not wield an assagay,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "assagay"
+    },
+    "result": "And their hands could not wield an zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And their hands could not wield an assagay,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      35,
+      42
+     ],
+     "text": "assagay"
+    },
+    "result": "And their hands could not wield an zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Aye, John, I have, John; an' I ben't afeärd",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      43
+     ],
+     "text": "afeärd"
+    },
+    "result": "Aye, John, I have, John; an' I ben't zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Aye, John, I have, John; an' I ben't afeärd",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      43
+     ],
+     "text": "afeärd"
+    },
+    "result": "Aye, John, I have, John; an' I ben't zqzq"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Come, let's stroll down so vur's the poun',",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "poun'"
+    },
+    "result": "Come, let's stroll down so vur's the zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Come, let's stroll down so vur's the poun',",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      42
+     ],
+     "text": "poun'"
+    },
+    "result": "Come, let's stroll down so vur's the zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Do stan' so thick as sheep in vwold:",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      35
+     ],
+     "text": "vwold"
+    },
+    "result": "Do stan' so thick as sheep in zqzq:"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Do stan' so thick as sheep in vwold:",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      30,
+      35
+     ],
+     "text": "vwold"
+    },
+    "result": "Do stan' so thick as sheep in zqzq:"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Bedim to-day thy flow'ry sh'oud,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      31
+     ],
+     "text": "sh'oud"
+    },
+    "result": "Bedim to-day thy flow'ry zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Bedim to-day thy flow'ry sh'oud,",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      25,
+      31
+     ],
+     "text": "sh'oud"
+    },
+    "result": "Bedim to-day thy flow'ry zqzq,"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "As thou wast hymnèd on the shores of Baiæ?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "Baiæ"
+    },
+    "result": "As thou wast hymnèd on the shores of Zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "As thou wast hymnèd on the shores of Baiæ?",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      37,
+      41
+     ],
+     "text": "Baiæ"
+    },
+    "result": "As thou wast hymnèd on the shores of Zqzq?"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "I fancied first the womenkind;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      20,
+      29
+     ],
+     "text": "womenkind"
+    },
+    "result": "I fancied first the zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "I fancied first the womenkind;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      20,
+      29
+     ],
+     "text": "womenkind"
+    },
+    "result": "I fancied first the zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "Thee, aith-detesting, chaste Kilkerran;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      38
+     ],
+     "text": "Kilkerran"
+    },
+    "result": "Thee, aith-detesting, chaste Zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "Thee, aith-detesting, chaste Kilkerran;",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      29,
+      38
+     ],
+     "text": "Kilkerran"
+    },
+    "result": "Thee, aith-detesting, chaste Zqzq;"
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:stripped",
+   "line": "And a \"Ben Dieu garde M'sieu'!\"",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      29
+     ],
+     "text": "M'sieu'"
+    },
+    "result": "And a \"Ben Dieu garde Zqzq!\""
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  },
+  {
+   "mode": "cur:sung",
+   "line": "And a \"Ben Dieu garde M'sieu'!\"",
+   "slot": "end",
+   "ordinal": 1,
+   "before": {
+    "occurrence": "edit_unbound",
+    "literal": "agree_unbound",
+    "edited": {
+     "span": [
+      22,
+      29
+     ],
+     "text": "M'sieu'"
+    },
+    "result": "And a \"Ben Dieu garde Zqzq!\""
+   },
+   "after": {
+    "occurrence": "refused_unbound",
+    "literal": "refused_unbound",
+    "edited": null,
+    "result": null
+   }
+  }
+ ]
+}

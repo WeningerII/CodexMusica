@@ -135,10 +135,11 @@ function lyWordSpans(text, voices) {
 //   preserved". On a line whose cut did not change the member is carried
 //   silently. A member the grader cannot judge under the current cut (a
 //   numeral end, say) stays a visible refusal in the grader's own verdict.
-// - In a RETURNS row a bare `N` (and `N.line`) is a whole-line return, not a
-//   word place: it says the lines are the same line, names no word, and so
-//   is never carried, annotated or shown with a word. Only placed returns
-//   (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) name a word.
+// - In a RETURNS row bare `N` uses the harness's whole-line returns_check;
+//   explicit `N.line` uses placed_returns_check with place `line`. Their
+//   grading semantics differ, but neither needs word-offset migration.
+//   Other placed returns (`N.end`, `N.endword`, `N.head`, `N.headrime`,
+//   `N.T<k>`) name a word.
 //   "Differ" means the token texts, their characters, their number -- or
 //   the words the grader LOOKS UP for the line (lyLineCutChanged): the
 //   earlier cut's end anchor re-cut its own tokens joined by spaces, so an
@@ -254,9 +255,8 @@ function lyReadingSuperseded(r, line, token, voices) {
 }
 // Whether a group member is a word place numbered under the current cut.
 const lyNumberedMember = (m) => !m.bad && !m.undecided && /^T\d+$/.test(m.place || '');
-// Whether a member of a `key` row is a whole-line return (a bare `N`, or
-// `N.line`, in a returns row): a different class from a placed return, which
-// names the word at a place (see lyMigrateSavedReadings).
+// Members exempt from word-offset migration: bare `N` and explicit `N.line`
+// in returns rows. The harness grades these with distinct return judges.
 const lyWholeLineReturn = (key, m) =>
   key === 'returns' && !m.bad && (!m.explicit || m.place === 'line');
 // A text's unmarked (legacy by compatibility policy) readings and word places
@@ -289,14 +289,11 @@ const lyWholeLineReturn = (key, m) =>
 // again and renumbers it -- right for a row saved under the earlier cut,
 // wrong for one typed today without the mark -- and says so.
 //
-// RETURNS HAVE TWO CLASSES, and only one of them names a word. A bare `N`
-// in a returns row (and `N.line`) is a WHOLE-LINE return: the harness reads
-// it as "these lines are the same line" (quality/schemes.py, a return class
-// of line numbers; `N.line` the placed class whose place is the whole
-// line), which names no word, so no word cut can move what it names and it
-// is never carried, annotated or labelled as a word place. `N.end`,
-// `N.endword`, `N.head`, `N.headrime` and `N.T<k>` are PLACED returns: the
-// word at that place returns, so they follow the rhyme-group rules above.
+// RETURNS HAVE TWO CLASSES: bare `N` is a whole-line return handled by
+// returns_check; explicit `N.line` is a placed return handled by
+// placed_returns_check. These have distinct grading semantics. Both are
+// exempt from word-offset migration. Other placed returns (`N.end`,
+// `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) follow the word-place rules.
 // In a rhyme groups row a bare `N` is the default end -- a word place.
 //
 // `keys`, when given, limits the pass to the rhyme groups / returns rows of
@@ -425,23 +422,56 @@ function lyRowUnits(row) {
   }
   return out;
 }
-// Longest common subsequence of two unit lists -> matched index pairs, in
-// order. Rows are short; a pathological one falls back to the common head
-// and tail of units.
+// Match members independently when the migration preserves their comma/semicolon
+// boundaries. This keeps repeated members anchored and makes long declaration
+// lists linear in the number of members, rather than allocating a row-wide matrix.
+// Other large stretches use a linear-space LCS, never a lossy head/tail fallback.
 function lyAlignUnits(u, v) {
   const n = u.length,
     m = v.length;
   const pairs = [];
+  if (n === 1) {
+    const q = v.findIndex((x) => x.text === u[0].text);
+    return q < 0 ? [] : [[0, q]];
+  }
   if (n * m > 250000) {
-    let h = 0;
-    while (h < n && h < m && u[h].text === v[h].text) pairs.push([h, h++]);
-    let t = 0;
-    const tail = [];
-    while (t < n - h && t < m - h && u[n - 1 - t].text === v[m - 1 - t].text) {
-      tail.unshift([n - 1 - t, m - 1 - t]);
-      t++;
+    const cuts = (units) => units.flatMap((x, i) => (/^[;,]$/.test(x.text) ? [i] : []));
+    const a = cuts(u),
+      b = cuts(v);
+    if (a.length && a.length === b.length && a.every((p, i) => u[p].text === v[b[i]].text)) {
+      let p = 0,
+        q = 0;
+      for (let i = 0; i <= a.length; i++) {
+        const pe = a[i] ?? n,
+          qe = b[i] ?? m;
+        for (const [x, y] of lyAlignUnits(u.slice(p, pe), v.slice(q, qe)))
+          pairs.push([p + x, q + y]);
+        if (i < a.length) pairs.push([pe, qe]);
+        p = pe + 1;
+        q = qe + 1;
+      }
+      return pairs;
     }
-    return pairs.concat(tail);
+    // Hirschberg's split: only two score rows are resident at a time.
+    const scores = (left, right) => {
+      let prev = new Int32Array(right.length + 1);
+      for (const x of left) {
+        const next = new Int32Array(right.length + 1);
+        for (let j = 0; j < right.length; j++)
+          next[j + 1] = x.text === right[j].text ? prev[j] + 1 : Math.max(prev[j + 1], next[j]);
+        prev = next;
+      }
+      return prev;
+    };
+    const mid = Math.floor(n / 2);
+    const left = scores(u.slice(0, mid), v);
+    const right = scores(u.slice(mid).reverse(), v.slice().reverse());
+    let split = 0;
+    for (let j = 1; j <= m; j++)
+      if (left[j] + right[m - j] > left[split] + right[m - split]) split = j;
+    return lyAlignUnits(u.slice(0, mid), v.slice(0, split)).concat(
+      lyAlignUnits(u.slice(mid), v.slice(split)).map(([p, q]) => [p + mid, q + split])
+    );
   }
   const L = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
   for (let p = n - 1; p >= 0; p--)
@@ -550,6 +580,15 @@ function lyEnsureTokenScheme(how = 'page') {
       lyMapOffset(before, done.text, sel[1], 'end'),
       sel[2] || 'none'
     );
+  if (LY.songCaret) {
+    const [start, end, scroll] = LY.songCaret;
+    LY.songCaretMapped = true;
+    LY.songCaret = [
+      lyMapOffset(before, done.text, start, start === end ? 'end' : 'start'),
+      lyMapOffset(before, done.text, end, 'end'),
+      scroll,
+    ];
+  }
   lyRecordRenumbered(done);
   uiSaveLyrics();
   if (how === 'page' && Array.isArray(app.history) && app.history[app.historyIndex] !== undefined)
@@ -606,7 +645,8 @@ function lyRecordRenumbered(done) {
   const prior = lyRenumbered(meta);
   // Another draft's record is never extended into this one (a record made
   // before this draft had an id is this draft's).
-  const kept = prior && (!prior.draftId || prior.draftId === draftId) ? prior.items : [];
+  const sameDraft = prior && (!prior.draftId || prior.draftId === draftId);
+  const kept = sameDraft ? prior.items : [];
   const items = [
     ...kept,
     ...done.moved.map((m) => ({
@@ -618,7 +658,11 @@ function lyRecordRenumbered(done) {
       to: m.to,
     })),
   ];
-  meta.renumbered = { ...(draftId ? { draftId } : {}), items };
+  meta.renumbered = {
+    ...(draftId ? { draftId } : {}),
+    items,
+    ...(sameDraft && prior.more ? { more: prior.more } : {}),
+  };
 }
 // The migration's summary in words, for a toast or a commit message:
 // -> { text, blocked } ('' when it moved, carried and blocked nothing).
@@ -5462,6 +5506,7 @@ const LY_ACTIONS = {
     if (LY.mobile === 'song') {
       const d = lyDraft();
       LY.songCaret = [d.selectionStart, d.selectionEnd, $ui('ly-main-scroll').scrollTop];
+      LY.songCaretMapped = false;
     }
     LY.mobile = id;
     if (id !== 'song') LY.tab = id;
@@ -5471,7 +5516,25 @@ const LY_ACTIONS = {
       draft.setSelectionRange(LY.songCaret[0], LY.songCaret[1]);
       $ui('ly-main-scroll').scrollTop = LY.songCaret[2];
     }
-    uiFocus($ui(`ly-mtab-${id}`));
+    const tab = $ui(`ly-mtab-${id}`);
+    uiFocus(tab);
+    if (id === 'song' && LY.songCaretMapped) {
+      // Showing the textarea can make the browser clear its selection after
+      // this click returns. Reapply only this migration's cached offsets once
+      // that native update has finished, without overriding a new user focus.
+      const caret = LY.songCaret,
+        text = lyDraft().value;
+      LY.songCaretMapped = false;
+      requestAnimationFrame(() => {
+        if (
+          LY.mobile === 'song' &&
+          LY.songCaret === caret &&
+          document.activeElement === tab &&
+          lyDraft().value === text
+        )
+          lyDraft().setSelectionRange(caret[0], caret[1]);
+      });
+    }
   },
   'ly-run-review'() {
     lyCloseMenus();
@@ -6191,6 +6254,20 @@ function lyWire(surface) {
     lySyncCaret();
     lyRenderEditor();
     lyRefresh();
+  });
+  // Keep an editor selection attached to its focused textarea on a mouse
+  // review. Disabling the clicked Run button during send otherwise lets the
+  // browser reset the just-mapped selection after the click handler returns.
+  // Keyboard activation still follows its normal focus path.
+  surface.addEventListener('mousedown', (e) => {
+    if (
+      e.button === 0 &&
+      document.activeElement === draft &&
+      e.target.closest('[data-ui="ly-run-review"]')
+    ) {
+      e.preventDefault();
+      pushHistory(); // retain the history boundary normally recorded on blur
+    }
   });
   draft.addEventListener('blur', () => {
     pushHistory();

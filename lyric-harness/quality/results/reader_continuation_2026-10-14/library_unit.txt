@@ -1,0 +1,30 @@
+fatal: pathspec 'library/code' did not match any files
+✔ a publish merges beside the previous generation and keeps it 30 days (6.167561ms)
+✔ re-publishing the same build changes nothing; returning to an old one revives it (3.055248ms)
+✔ a build with no chunks retires the current generation and, after 30 days, empties the record (1.144394ms)
+✔ a content-hashed name published with other bytes is refused (1.196841ms)
+✔ --check refuses drift (1.82901ms)
+✔ sync-pages stages library/code only when there is something to stage (103.096991ms)
+✔ canonical SHA256 authenticates identity, exact text and every source notice (18.915947ms)
+✔ unsupported versions, missing coordinates and unsafe envelope fields refuse (2.214581ms)
+✔ atomic commit preserves full previous draft, private continuation and provenance (10.974538ms)
+✔ write failure rolls back old draft, new draft, receipt and nonce claim together (2.205731ms)
+✔ lost ACK and identical retry create one imported draft; changed digest and nonce reuse refuse (27.808334ms)
+✔ wrong origin, source and nonce do not commit or acknowledge (1.210969ms)
+✔ failed commits always release the current-draft lock and never acknowledge (2.056238ms)
+✔ file and window imports serialize so each preserves the immediately preceding active draft (3.695587ms)
+✔ unused handshake expires at 60 seconds; a committed retry remains safe (1.876865ms)
+✔ receiver reload completes committed activation without duplicate draft creation (4.252534ms)
+✔ file import retains an oversized native reading verbatim and refuses writer eligibility (1158.926883ms)
+✔ origins require exact production or explicitly configured localhost equality (0.605683ms)
+✔ metadata, saved copies, session exports and Undo retain the full untruncated provenance sidecar (35.640833ms)
+✔ working-copy download binds the complete text and mandatory credits in one importable envelope (31.15201ms)
+✔ Lyrics activation preserves the old private continuation without aborting it or inheriting its certification (21.425381ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1457.067669

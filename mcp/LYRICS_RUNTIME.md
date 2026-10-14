@@ -234,7 +234,9 @@ does and does not protect one built before the release.
       start, a saved session loaded or copied, a session file imported, the
       Lyrics page mounted), when a `.txt` or Library working copy is
       imported, and before anything is sent to the writer. Never from the
-      typing refresh, so the draft is not rewritten under the writer.
+      typing refresh, so the draft is not rewritten under the writer. An
+      empty initial mount precedes startup content restored by
+      `uiRestoreSession`; that restore supplies the migration boundary.
     - It adds no Undo step. At an open or import, the step that event
       records already holds the migrated text, so Undo returns to the draft
       from before it and Redo to the migrated text. At an in-page boundary
@@ -327,16 +329,16 @@ does and does not protect one built before the release.
     included; `.end` is never added to a bare member. A member the page itself
     makes for the end is bare. The two do not always mean the same thing. In
     a rhyme groups row a bare `N` is the default end. In a RETURNS row a bare
-    `N`, and `N.line`, is a WHOLE-LINE return (the harness's return class of
-    line numbers: the line returns, no word is named), while `N.end`,
-    `N.endword`, `N.head`, `N.headrime` and `N.T<k>` are PLACED returns (the
-    word at that place returns); the harness refuses one class holding both.
-    A whole-line return is never carried, annotated, labelled "last rhyme" or
-    shown with a word, on any line, because no word cut can move what it
-    names; the rules below apply to placed returns and rhyme-group members.
-    A whole-line member an earlier version of this page annotated is named as
-    a whole-line return in Review, with no word shown, and Keep drops the
-    note.
+    `N` is a whole-line return judged by `returns_check`. Explicit `N.line`
+    is a placed return judged by `placed_returns_check` through the `line`
+    placement; it is not an alias for bare `N`. The harness semantics are
+    distinct, and mixed whole-line/placed classes are refused. Both forms
+    are exempt from word-offset migration: neither is carried, annotated,
+    labelled "last rhyme" or shown with an endpoint word. Other placed
+    returns (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) follow
+    the word-place migration rules below. Review drops an unnecessary
+    word-cut note on bare `N` or `N.line` when Keep is chosen; that shared
+    migration treatment does not change their grading policy.
     In an unmarked row (legacy by compatibility policy) a `N.Tk` is rebound by
     span identity, or kept under its old number as
     `N.Tk (numbered under the earlier cut)`, binding nothing and stopping every
@@ -431,7 +433,14 @@ does and does not protect one built before the release.
     declared perfect rhyme holds and a declared broken rhyme is false, exactly
     as v1 answers. Before, these shapes were refused under v2 (both relations
     unjudged). On the English song corpus 2 lines end that way; 1 (`Boo-`) is
-    now read and 1 (`Buce-`) stays refused, its stem having no reading.
+    now read and 1 (`Buce-`) stays refused, its stem having no reading. The
+    printed witness is `Then the ominous words “It’s a Boo-”`. At `0af39c6f`
+    its closing quote still left `Boo-` unread; the punctuation/quote repair
+    in `7c26d40c4` reads it. With `we knew` as the comparison line, the repaired
+    stream judges perfect rhyme True and broken rhyme False. This witness
+    has no parenthetical aside, so it gives the same result in aside-stripped
+    and voices modes. Corpus counts still need mode labels: voices retains
+    parenthetical material that aside-stripped mode removes.
 - **A bare word is looked up as a token is.** Under v2,
   `pronunciation_variants` (and `English.parses`, `whole_reading` and the
   `types` verb built on it) looks a bare word up under the reader's entry
