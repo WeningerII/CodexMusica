@@ -1,0 +1,5 @@
+Tool 3.3 (slot_occurrence.py, committed at d2e32d3e) on the 3,990-line population at 6955e342963a90bdf470741266cea0dd84f0a797.
+The uncompressed records (190,530) are byte-identical to slot_occurrence_61b6618a/so_61b6618a.jsonl.gz:
+records_sha256.txt holds the sha256 of each uncompressed stream (6955e342 first, 61b6618a second), so the
+.jsonl.gz is not duplicated here. Between the two heads loop.py and slots.py change only docstrings.
+Gate: v2 FAIL on 191 + 191 default-end edit_unbound only; v1 unchanged legacy failures.
