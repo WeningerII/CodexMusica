@@ -16321,10 +16321,25 @@ function lyricMetaOf(v){
   // lines. Keep the complete versioned bundle through saves and exports.
   if(typeof v.draftId==='string'&&/^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$/.test(v.draftId))out.draftId=v.draftId;
   if(v.libraryOrigin?.version===1)out.libraryOrigin=plain(v.libraryOrigin,Infinity);
+  // The Lyrics page's record of word numbers its migration renumbered, kept
+  // WHOLE until the writer dismisses it (src/pages/lyrics.js
+  // lyRecordRenumbered): no cap on entries, so nothing is evicted; a save
+  // the browser cannot hold fails loudly, as any session save does. It is
+  // tied to the draftId it was recorded for.
+  if(v.renumbered&&typeof v.renumbered==='object'&&Array.isArray(v.renumbered.items)){
+    const r=plain(v.renumbered,Infinity);
+    if(Array.isArray(r.items)){
+      out.renumbered={items:r.items.filter(x=>x&&typeof x==='object'&&!Array.isArray(x))};
+      if(typeof r.draftId==='string'&&/^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$/.test(r.draftId))out.renumbered.draftId=r.draftId;
+      if(Number.isInteger(r.more)&&r.more>0)out.renumbered.more=r.more;
+    }
+  }
   return out;
 }
-// What Undo restores of it: the creative context the person edited.
-const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes,...(m.draftId?{draftId:m.draftId}:{}),...(m.libraryOrigin?{libraryOrigin:m.libraryOrigin}:{})});
+// What Undo restores of it: the creative context the person edited, and
+// the draft's own renumbering record (restored with its text and draftId, so
+// Undo never leaves one draft's record over another draft).
+const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes,...(m.draftId?{draftId:m.draftId}:{}),...(m.libraryOrigin?{libraryOrigin:m.libraryOrigin}:{}),...(m.renumbered?{renumbered:m.renumbered}:{})});
 function sessionSnapshot() {
   const meta=lyricMetaOf(app.lyricMeta);
   return {cards:app.cards.map(c=>({...c,..._CARD_TRANSIENTS})),name:app.workspaceName||'Untitled session',lyrics:app.lyrics||'',lyricMeta:lyricMetaHistory(meta)};
@@ -16351,7 +16366,7 @@ function _restoreSnapshot(idx) {
     if(Array.isArray(snapshot))app.cards=snapshot;
     else {
       app.cards=snapshot.cards;app.workspaceName=snapshot.name;app.lyrics=snapshot.lyrics||'';
-      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});delete m.draftId;delete m.libraryOrigin;app.lyricMeta={...m,...lyricMetaHistory(h)};}
+      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});delete m.draftId;delete m.libraryOrigin;delete m.renumbered;app.lyricMeta={...m,...lyricMetaHistory(h)};}
     }
     for(const c of app.cards)if(tabs.has(c.id))c._uiTab=tabs.get(c.id);
     if(typeof UI!=='undefined')UI.lyricRevision++;

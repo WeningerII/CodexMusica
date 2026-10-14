@@ -253,9 +253,34 @@ does and does not protect one built before the release.
       is re-read under the earlier cut if its line is later edited across
       the cut. That cost is open for the owner; nothing decides it here.
     - Every number the migration changes is reported twice: in a toast, and
-      in a Review card listing each one ("word 2 → 3"). The card persists in
-      the page context across later imports and reloads until the writer
-      dismisses it.
+      in a Review card listing each one ("word 2 → 3"). The card keeps every
+      entry whole (the word as saved, every sung line it names) until the
+      writer dismisses it: nothing is truncated or evicted, the card shows
+      the first 20 and "Show all" lists every one.
+    - The record belongs to its draft (`app.lyricMeta.renumbered`, tied to
+      the draft's id). It is part of each Undo/Redo step, so Undo restores a
+      draft's text, id and record together and never leaves one draft's
+      record over another; the session's saves keep it; and the draft's
+      Library store entry is saved only with its own record. Importing
+      ANOTHER draft (a Library working copy, a saved draft reopened from
+      History) shows that draft's record instead: the earlier draft's record
+      stays with the earlier draft, reachable through Undo and by reopening
+      it, and is never carried into or saved under the other. It does not
+      follow the text into a new Library working copy, which is a new draft.
+      A `.txt` import replaces the text of the same draft, so its entries join
+      the same list.
+    - A form that rewrites a rhyme groups or returns row (Link endings,
+      Remove link, a placed return, Declare exact repeat, removing links that
+      bind no word, Keep / Remove on a carried member) first reads every
+      unmarked row of that kind exactly as a boundary would (rebound by span,
+      kept undecided, named places carried), and only then writes the row
+      back marked. Before this, marking without that reading made the binding
+      depend on whether a form or a send came first (`1.T4` bound `my` one
+      way and `love` the other). The form's own message and the Review card
+      report what it renumbered. The typing refresh still never rewrites the
+      draft. Before any boundary or form, the page's own Rhymes and Repeats
+      display still shows an unmarked row under the current cut (display
+      only; nothing is sent from it).
   - The Library tab: every pronunciation choice it saves on a device carries
     `token_cut: "v2"` on the saved record (the page's own storage; the rows
     sent keep their six fields). A record without it is legacy by
@@ -297,10 +322,21 @@ does and does not protect one built before the release.
   - **The website's rhyme links and declared returns** (team policy A): every
     row it writes carries `— cut v2` after its members (never sent to a tool).
     A member keeps the spelling the writer used: `2.end` (the end, named) stays
-    `2.end` and a bare `4` (the whole-line/default member) stays `4`, through
-    the migration, Keep, the forms, section reorder, export/import and what
-    the tools receive, sibling groups included; `.end` is never added to a
-    bare member. A member the page itself makes for the end is bare.
+    `2.end` and a bare `4` stays `4`, through the migration, Keep, the forms,
+    section reorder, export/import and what the tools receive, sibling groups
+    included; `.end` is never added to a bare member. A member the page itself
+    makes for the end is bare. The two do not always mean the same thing. In
+    a rhyme groups row a bare `N` is the default end. In a RETURNS row a bare
+    `N`, and `N.line`, is a WHOLE-LINE return (the harness's return class of
+    line numbers: the line returns, no word is named), while `N.end`,
+    `N.endword`, `N.head`, `N.headrime` and `N.T<k>` are PLACED returns (the
+    word at that place returns); the harness refuses one class holding both.
+    A whole-line return is never carried, annotated, labelled "last rhyme" or
+    shown with a word, on any line, because no word cut can move what it
+    names; the rules below apply to placed returns and rhyme-group members.
+    A whole-line member an earlier version of this page annotated is named as
+    a whole-line return in Review, with no word shown, and Keep drops the
+    note.
     In an unmarked row (legacy by compatibility policy) a `N.Tk` is rebound by
     span identity, or kept under its old number as
     `N.Tk (numbered under the earlier cut)`, binding nothing and stopping every
@@ -345,6 +381,17 @@ does and does not protect one built before the release.
     pre-batch body verbatim (`lyric-harness/quality/loop.py` `swap_at_slot` docstring).
   - The standalone Library Site (`sites/library`) posts device pronunciation
     choices to the server without this release's migration.
+  - The reviser can accept a candidate that deletes a word. On the empty-walk
+    path the stock tier-2 proposer's `GroupBrief` carries an empty pivot
+    (`pivot_word=''`), `default_propose_group` splices that empty string in,
+    and `revise_loop` accepts the result: `['zap be free', 'zip me now',
+    'zop see that']` with `1.head,2.head,3.head` becomes `[' be free',
+    ' me now', 'zop  that']` (BB8 #527 6164278661). `67889851` and `fce4bf0f`
+    do the same. It is a shared-loop candidate-validity question, separate
+    from WHICH occurrence a splice edits, and it is not fixed here: changing
+    what the loop accepts needs the owner's bounded approval. The slot
+    receipts splice a non-empty marker, so they cannot see it, and they do not
+    show that production candidates are safe.
   - Two items await the owner's scope decision and are not touched here: a
     retained 30-day Library chunk that saves declarations without their cut
     (F2), and the mixed-version deploy window between page, server and
@@ -377,6 +424,14 @@ does and does not protect one built before the release.
   has no reading. All five hyphen spellings give one verdict; v1 keeps its own
   answers (ASCII `-` only). On the English song corpus, 13 of the 18 lines that
   end on such a word (of 281,069) are now read in the stream; 5 stay refused.
+  - The same holds when punctuation or a closing quote follows the hyphen
+    (`king-,`, `king-.`, `king-;`, `king-'`), which `line_anchors` also reads as
+    `king`: the stream reads the printed part, and the line is NOT split,
+    because punctuation never makes the word continue on the next line. So a
+    declared perfect rhyme holds and a declared broken rhyme is false, exactly
+    as v1 answers. Before, these shapes were refused under v2 (both relations
+    unjudged). On the English song corpus 2 lines end that way; 1 (`Boo-`) is
+    now read and 1 (`Buce-`) stays refused, its stem having no reading.
 - **A bare word is looked up as a token is.** Under v2,
   `pronunciation_variants` (and `English.parses`, `whole_reading` and the
   `types` verb built on it) looks a bare word up under the reader's entry
