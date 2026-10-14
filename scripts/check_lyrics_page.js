@@ -415,7 +415,9 @@ function unitSavedReadings() {
     // 7. Rhyme links and declared returns name words by number too (`N.Tk`,
     // the pre-release "Word N" pickers). An unmarked row's word places are
     // rebound by span identity and the row gains the mark, which the tools
-    // never receive; place words do not move.
+    // never receive. Named places are never converted to a number; on a line
+    // whose cut changed (OH's dash run) they are kept named and carried
+    // across the change (policy A, section P below).
     const OHS = `[VERSE]\n${OH}\nYou are the one I dream of\n${OH}`;
     const linked = `[SETUP — rhyme groups — 1.T4,2]\n[SETUP — returns — 1.T2,3.T2;1.head,3.head]\n\n${OHS}`;
     const member = (text, key, k) => {
@@ -433,7 +435,8 @@ function unitSavedReadings() {
     const rows6 = draft.value.split('\n');
     check(
       rows6[0] === '[SETUP — rhyme groups — 1.T5,2 — cut v2]' &&
-        rows6[1] === '[SETUP — returns — 1.T3,3.T3;1.head,3.head — cut v2]',
+        rows6[1] ===
+          '[SETUP — returns — 1.T3,3.T3;1.head (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2]',
       `word places not rebound and marked: ${JSON.stringify(rows6.slice(0, 2))}`
     );
     const love = member(draft.value, 'rhyme groups', 0);
@@ -465,10 +468,12 @@ function unitSavedReadings() {
       set.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
       'a written word place carries no cut mark'
     );
+    // Every rhyme groups / returns row the page writes is marked, named
+    // places only included (policy A: an unmarked row is legacy by policy).
     check(
       run('lySetSetup("returns", ["1,3"], __t)', { __t: OHS }).split('\n')[0] ===
-        '[SETUP — returns — 1,3]',
-      'a row with no word place was marked'
+        '[SETUP — returns — 1,3 — cut v2]',
+      'a row the page writes carries no cut mark'
     );
     const moved = run('lyAssemble(lyBlocks(lyParse(__t))).text', { __t: set });
     check(
@@ -485,7 +490,7 @@ function unitSavedReadings() {
     check(run('lyEnsureTokenScheme()') === true, 'a lost word place was not flagged');
     check(
       draft.value.split('\n')[0] ===
-        '[SETUP — returns — 1.T1 (numbered under the earlier cut),2.T1 (numbered under the earlier cut);1,2 — cut v2]',
+        '[SETUP — returns — 1.T1 (numbered under the earlier cut),2.T1 (numbered under the earlier cut);1 (carried across the word-cut change),2 (carried across the word-cut change) — cut v2]',
       `the lost word place was moved or dropped: ${draft.value.split('\n')[0]}`
     );
     check(member(draft.value, 'returns', 0).word === null, 'a lost word place binds a word');
@@ -509,7 +514,7 @@ function unitSavedReadings() {
     check(
       review.some(
         (x) =>
-          /declared return saved before this release needs your decision/.test(x.title) &&
+          /declared return saved without the current cut mark needs your decision/.test(x.title) &&
           x.actions.some((a) => a[0] === 'ly-drop-undecided')
       ) && !review.some((x) => /which the draft does not have/.test(x.title)),
       `Review shows no decision card for a lost word place: ${JSON.stringify(review.map((x) => x.title))}`
@@ -535,7 +540,8 @@ function unitSavedReadings() {
         'LY.model = lyParse(lyDraft().value); typeof LY_ACTIONS["ly-drop-undecided"] === "function" && LY_ACTIONS["ly-drop-undecided"]("returns")'
       );
       check(
-        draft.value.split('\n')[0] === '[SETUP — returns — 1,2]' &&
+        draft.value.split('\n')[0] ===
+          '[SETUP — returns — 1 (carried across the word-cut change),2 (carried across the word-cut change) — cut v2]' &&
           run('lyUndecidedRefusal(lyParse(__t))', { __t: draft.value }) === '',
         `removing the link did not clear the block: ${draft.value.split('\n')[0]}`
       );
@@ -568,6 +574,412 @@ function unitSavedReadings() {
       );
     });
   });
+}
+
+// ── P. rhyme links and returns across the reader's v2 cut (policy A) ──────
+// `N.Tk` is a count: rebound by span or blocked. A bare `N` and the named
+// places (end, endword, head, headrime, line) are definitions the grader
+// applies to the line as it reads it: never converted to a number; on a line
+// whose earlier and current cuts differ ANYWHERE they are kept named, marked
+// `(carried across the word-cut change)`, still sent, and Review shows one
+// notice per member (line, place, the words the page shows under each cut,
+// labelled as the page's display) with Keep the link / Remove it. On a line
+// whose cut did not change nothing happens. An unknown cut mark blocks the
+// row and names the accepted value. The states live in the text, so they
+// survive every path the text takes.
+async function unitPolicyA() {
+  stage = 'P. named places';
+  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+  const draft = { value: '' };
+  const toasts = [];
+  const app = { lyricMeta: { version: 1 }, history: ['before'], historyIndex: 0, lyrics: '' };
+  const ctx = vm.createContext({
+    console,
+    $ui: (id) => (id === 'lyrics-draft' ? draft : null),
+    uiRegisterPage: () => {},
+    uiCount: (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`,
+    chatState: { generation: 0, lyric: null, busy: false },
+    UI: {},
+    app,
+    lyricMetaOf: (v) => (v && v.version === 1 ? v : { version: 1, notes: {}, ui: {} }),
+    uiAutosave: () => {},
+    uiSaveLyrics: () => (app.lyrics = draft.value),
+    sessionSnapshot: () => ({ lyrics: app.lyrics, lyricMeta: { ...app.lyricMeta } }),
+    showToast: (m, tone) => toasts.push([m, tone]),
+    pushHistory: () => {},
+  });
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8'), ctx);
+  vm.runInContext(src, ctx, { filename: 'src/pages/lyrics.js' });
+  const run = (code, vars = {}) => {
+    Object.assign(ctx, vars);
+    return vm.runInContext(code, ctx);
+  };
+  ctx.lyRefresh = () => {};
+  const CARRIED = '(carried across the word-cut change)';
+  // Sung lines, each chosen for one shape of the cut change.
+  const L = {
+    dash: 'Oh--oh, oh my love', // internal dash run; a repeated word
+    lead: '--and so we go home', // leading dashes: the head moves
+    plain: 'we sing it plain tonight', // unchanged
+    numeral: 'love 4 love, love me true', // a numeral; repeated words
+    tail: 'I counted up to 4', // trailing numeral: the end moves
+    bass: 'my bass--line sings low', // an earlier word only ("double bass")
+    aside: 'we wait (U--h) for you', // a cut change inside an aside
+    plain2: 'You are the one I dream of', // unchanged
+    unread: 'we go home 2nite', // a numeral inside the last word
+    lawdy: 'U--h, u--h, Lawdy,', // no current word covers "U--h"
+  };
+  const order = Object.keys(L);
+  const n = (k) => order.indexOf(k) + 1;
+  const song = (rows, voices = false) =>
+    `${voices ? '[SETUP — voices — parentheses are sung]\n' : ''}${rows.join('\n')}\n\n[VERSE]\n${order.map((k) => L[k]).join('\n')}`;
+  const changed = (k, voices = false) =>
+    run('lyLineCutChanged(__l, __v)', { __l: L[k], __v: voices });
+  const migrate = (text) => run('lyMigrateSavedReadings(__t)', { __t: text });
+  const checks = (text) => Array.from(run('lyLocalChecks(lyParse(__t))', { __t: text }));
+  const carriedNotes = (text) => checks(text).filter((x) => /:carried:/.test(x.id));
+  const decl = (text) =>
+    JSON.parse(run('JSON.stringify(lyDeclarationsOf(lyParse(__t)))', { __t: text }));
+  const refusal = (text) => run('lyUndecidedRefusal(lyParse(__t))', { __t: text });
+
+  // The fixture keeps its point: which lines' cuts changed.
+  for (const k of ['dash', 'lead', 'numeral', 'tail', 'bass', 'unread', 'lawdy'])
+    check(changed(k), `fixture: the cut of “${L[k]}” no longer changes`);
+  for (const k of ['plain', 'plain2', 'aside'])
+    check(!changed(k), `fixture: the cut of “${L[k]}” changes`);
+  check(changed('aside', true), 'fixture: with voices on, the aside line’s cut does not change');
+  // The "double bass" shape: the last word is the same characters under both
+  // cuts, and the line still counts as changed.
+  const bassCuts = run('lyLineCuts(__l, false)', { __l: L.bass });
+  check(
+    JSON.stringify(bassCuts.old.at(-1).pieces) === JSON.stringify(bassCuts.cur.at(-1).pieces),
+    'fixture: the bass line’s last word moved'
+  );
+
+  // 1. Both row types x the seven spellings, a changed line linked with an
+  // unchanged one in the same group.
+  const NAMED = ['', '.end', '.endword', '.head', '.headrime', '.line'];
+  for (const key of ['rhyme groups', 'returns']) {
+    for (const sp of NAMED) {
+      const label = `${key} ${sp || 'bare N'}`;
+      const text = song([`[SETUP — ${key} — ${n('dash')}${sp},${n('plain')}${sp}]`]);
+      const got = migrate(text);
+      const row = got.text.split('\n')[0];
+      const plainSp = sp === '.end' ? '' : sp; // the page writes `.end` as a bare number
+      check(
+        row ===
+          `[SETUP — ${key} — ${n('dash')}${plainSp} ${CARRIED},${n('plain')}${plainSp} — cut v2]`,
+        `${label}: not kept named and carried: ${row}`
+      );
+      check(
+        !/\.T\d/.test(row) && got.carried.length === 1 && got.moved.length === 0,
+        `${label}: a named place was converted or moved: ${JSON.stringify(got)}`
+      );
+      const notes = carriedNotes(got.text);
+      check(
+        notes.length === 1 &&
+          notes[0].tone === 'note' &&
+          notes[0].lines.join() === String(n('dash')) &&
+          notes[0].actions.map((a) => a[1]).join('|') === 'Keep the link|Remove it' &&
+          /page's display, not the grader's evidence/.test(notes[0].text),
+        `${label}: notice ${JSON.stringify(notes.map((x) => [x.title, x.text]))}`
+      );
+      // Non-blocking: the member is sent, as declared, without the page note.
+      const d = decl(got.text);
+      const field = key === 'returns' ? 'returns' : 'groups';
+      check(
+        d[field] === `${n('dash')}${plainSp},${n('plain')}${plainSp}` &&
+          !d[`${field}_need_decision`],
+        `${label}: the tools would receive ${JSON.stringify(d)}`
+      );
+      check(refusal(got.text) === '', `${label}: a carried member blocked the send`);
+      // On unchanged lines only, nothing happens at all.
+      const quiet = song([`[SETUP — ${key} — ${n('plain')}${sp},${n('plain2')}${sp}]`]);
+      check(
+        migrate(quiet).text === quiet && carriedNotes(quiet).length === 0,
+        `${label}: an unchanged-cut line was touched or noticed`
+      );
+    }
+    // T<k>: a count, rebound by span (never carried).
+    const t = song([`[SETUP — ${key} — ${n('dash')}.T2,${n('plain')}.T2]`]);
+    const gt = migrate(t);
+    check(
+      gt.text.split('\n')[0] === `[SETUP — ${key} — ${n('dash')}.T3,${n('plain')}.T2 — cut v2]` &&
+        gt.carried.length === 0 &&
+        gt.moved.length === 1,
+      `${key} Tn: ${gt.text.split('\n')[0]}`
+    );
+    check(carriedNotes(gt.text).length === 0, `${key} Tn: a counted place got a carried notice`);
+    // Missing old binding, narrower overlap (no new binding), changed
+    // occurrence: blocked, blocked, rebound.
+    const tb = migrate(
+      song([
+        `[SETUP — ${key} — ${n('dash')}.T9,${n('plain')};${n('lawdy')}.T1,${n('plain2')};${n('numeral')}.T3,${n('plain2')}]`,
+      ])
+    );
+    const tbRow = tb.text.split('\n')[0];
+    check(
+      tbRow.includes(`${n('dash')}.T9 (numbered under the earlier cut)`) &&
+        tbRow.includes(`${n('lawdy')}.T1 (numbered under the earlier cut)`) &&
+        tbRow.includes(`${n('numeral')}.T4,`),
+      `${key} Tn blocks/rebinds: ${tbRow}`
+    );
+    check(
+      JSON.stringify(run('CMLyricTokens.readerLine(__l).tokens[3].pieces', { __l: L.numeral })) ===
+        '[[13,17]]',
+      'the rebound repeated "love" is not the occurrence the number named'
+    );
+  }
+
+  // 2. The words shown under each cut, labelled as display.
+  const shown = (k, place) => run('lyPlaceWords(__l, false, __p)', { __l: L[k], __p: place });
+  const sw = [
+    shown('lead', 'head'),
+    shown('tail', 'end'),
+    shown('bass', 'end'),
+    shown('unread', 'endword'),
+    shown('numeral', 'line'),
+  ];
+  check(
+    JSON.stringify(sw) ===
+      JSON.stringify([
+        { before: '--and', now: 'and' },
+        { before: 'to', now: '4' },
+        { before: 'low', now: 'low' },
+        { before: 'nite', now: '2nite' },
+        { before: 'love love love me true', now: 'love 4 love love me true' },
+      ]),
+    `words shown under each cut: ${JSON.stringify(sw)}`
+  );
+  // The "double bass" shape and the trailing numeral both fire.
+  for (const k of ['bass', 'tail', 'unread', 'lead']) {
+    const got = migrate(song([`[SETUP — rhyme groups — ${n(k)},${n('plain')}]`]));
+    const notes = carriedNotes(got.text);
+    check(
+      notes.length === 1 && notes[0].lines.join() === String(n(k)),
+      `no notice for the ${k} line: ${got.text.split('\n')[0]}`
+    );
+  }
+  const tailNote = carriedNotes(
+    migrate(song([`[SETUP — rhyme groups — ${n('tail')},${n('plain')}]`])).text
+  )[0];
+  check(
+    /“to” under the earlier cut and “4” under the current one/.test(tailNote?.text || ''),
+    `the trailing-numeral notice does not show both words: ${tailNote?.text}`
+  );
+
+  // 3. Asides: voices off, the aside is not read by either cut (no notice);
+  // voices on, the aside's dash run changes the cut (notice).
+  const asideOff = song([`[SETUP — returns — ${n('aside')},${n('plain')}]`]);
+  check(
+    migrate(asideOff).text === asideOff,
+    'voices off: the aside line was flagged although neither cut reads the aside'
+  );
+  const asideOn = song([`[SETUP — returns — ${n('aside')},${n('plain')}]`], true);
+  const gotOn = migrate(asideOn);
+  check(
+    gotOn.carried.length === 1 && carriedNotes(gotOn.text).length === 1,
+    `voices on: no notice for the aside line: ${gotOn.text.split('\n')[1]}`
+  );
+
+  // 4. A mixed group with one undecidable member: that group is held back
+  // (and the send stops); its carried member is still noticed; another group
+  // still goes.
+  const mixed = migrate(
+    song([
+      `[SETUP — rhyme groups — ${n('lawdy')}.T1,${n('dash')},${n('plain')};${n('plain2')},${n('plain')}]`,
+    ])
+  );
+  const dm = decl(mixed.text);
+  check(
+    dm.groups === `${n('plain2')},${n('plain')}` &&
+      dm.groups_need_decision?.length === 1 &&
+      dm.groups_need_decision[0].includes('(numbered under the earlier cut)') &&
+      /Nothing was sent/.test(refusal(mixed.text)) &&
+      carriedNotes(mixed.text).length === 1,
+    `mixed group: ${JSON.stringify(dm)}`
+  );
+
+  // 5. Unknown marks block, name the accepted value, and are never rewritten
+  // as the current cut's -- not by the migration, not by a form merging rows.
+  for (const mark of ['v3', 'vX']) {
+    const alien = song([`[SETUP — rhyme groups — ${n('dash')},${n('plain')} — cut ${mark}]`]);
+    check(migrate(alien).text === alien, `cut ${mark}: the migration rewrote an unknown mark`);
+    const da = decl(alien);
+    check(
+      !da.groups && da.groups_need_decision?.length === 1,
+      `cut ${mark}: a row with an unknown mark was sent: ${JSON.stringify(da)}`
+    );
+    const why = refusal(alien);
+    check(
+      new RegExp(`marked cut ${mark.toLowerCase()}.*accepts only “cut v2”`).test(why),
+      `cut ${mark}: refusal ${why}`
+    );
+    check(
+      checks(alien).some((x) => /does not read/.test(x.title) && /only “cut v2”/.test(x.text)),
+      `cut ${mark}: no Review card naming the accepted value`
+    );
+    // The rhymes form merges every row into one: the alien members stay
+    // blocked, each saying the cut it was marked with.
+    const res = run(
+      'LY_FORMS.rhymes.apply(lyParse(__t), "", { members: [{ line: __a, place: "end" }, { line: __b, place: "end" }] }, ["members"])',
+      { __t: alien, __a: n('plain'), __b: n('plain2') }
+    );
+    check(
+      res.text.split('\n')[0] ===
+        `[SETUP — rhyme groups — ${n('dash')} (marked cut ${mark.toLowerCase()}: not read here),${n('plain')} (marked cut ${mark.toLowerCase()}: not read here);${n('plain')},${n('plain2')} — cut v2]` &&
+        /Nothing was sent/.test(refusal(res.text)),
+      `cut ${mark}: the form laundered the unknown mark: ${res.text.split('\n')[0]}`
+    );
+  }
+  const alienReading = song([
+    `[SETUP — reading — token 2 "oh" in ${JSON.stringify(L.dash)} — OW1 — declared — source: me — cut v9]`,
+  ]);
+  check(
+    migrate(alienReading).text === alienReading &&
+      !decl(alienReading).pronunciations &&
+      /“oh” marked cut v9.*accepts only “cut v2”/.test(refusal(alienReading)),
+    'a reading with an unknown mark was rewritten or sent'
+  );
+
+  // 6. Keep / Remove, and the state through every path the text takes.
+  const legacy = song([
+    `[SETUP — rhyme groups — ${n('dash')}.head,${n('plain')};${n('tail')},${n('plain2')}]`,
+    `[SETUP — returns — ${n('bass')},${n('plain')}]`,
+  ]);
+  draft.value = legacy;
+  app.history = ['before'];
+  app.historyIndex = 0;
+  toasts.length = 0;
+  check(run('lyEnsureTokenScheme()') === true, 'the legacy links were not read');
+  check(
+    toasts.length === 1 && /3 rhyme or return places .* kept as declared/.test(toasts[0][0]),
+    `no notice when the links were carried: ${JSON.stringify(toasts)}`
+  );
+  const migrated = draft.value;
+  const notesOf = (t) => carriedNotes(t).map((x) => x.lines.join());
+  check(
+    notesOf(migrated).join() === [n('dash'), n('tail'), n('bass')].join(),
+    `notices: ${notesOf(migrated)}`
+  );
+  // Save and reopen: the state is in the text; nothing re-reads it.
+  check(
+    migrate(migrated).text === migrated && run('lyEnsureTokenScheme()') === false,
+    'a carried draft was migrated again on reopen'
+  );
+  // Text export and import: the downloaded text is the draft.
+  draft.value = migrated + '';
+  check(notesOf(draft.value).length === 3, 'an exported and imported draft lost its notices');
+  // A Library working copy round-trip keeps the text byte for byte.
+  const LI = require('../src/library-import.js');
+  const meta = {
+    version: 1,
+    libraryOrigin: {
+      version: 1,
+      handoffId: 'handoff:x',
+      digest: '0'.repeat(64),
+      adapted: true,
+      title: 'Song',
+      language: 'eng',
+      scope: 'whole',
+      provenance: {
+        snapshotId: 'snap:1',
+        unitId: 'unit:1',
+        workId: 'work:1',
+        editionId: 'ed:1',
+        revisionId: 'rev:1',
+      },
+      lineage: [],
+      declarations: [],
+    },
+  };
+  const env = await LI.makeWorkingCopyEnvelope(migrated, meta, require('crypto').webcrypto);
+  const back = LI.importedDraft(
+    await LI.validateEnvelope(env, require('crypto').webcrypto),
+    1
+  ).text;
+  check(back === migrated && notesOf(back).length === 3, 'a Library working copy lost the states');
+  // Section reorder: the member follows its line, state and mark kept.
+  // The song is split before the bass line, and the two sections swapped.
+  const split = migrated.replace(`\n${L.bass}\n`, `\n\n[CHORUS]\n${L.bass}\n`);
+  check(
+    migrate(split).text === split && notesOf(split).length === 3,
+    'a section header moved a state'
+  );
+  const reordered = run(
+    '(() => { const p = lyBlocks(lyParse(__t)); p.blocks.reverse(); return lyAssemble(p).text; })()',
+    { __t: split }
+  );
+  const head = order.length - n('bass') + 1; // lines before the bass line, moved after it
+  check(
+    reordered.split('\n')[0].includes(`${n('dash') + head}.head ${CARRIED}`) &&
+      / — cut v2\]$/.test(reordered.split('\n')[0]) &&
+      notesOf(reordered).sort().join() ===
+        [n('dash') + head, n('tail') + head, 1].map(String).sort().join(),
+    `reassembly lost the carried state: ${reordered.split('\n')[0]} ${notesOf(reordered)}`
+  );
+  // The repeats form merges rows too: the carried member stays carried.
+  const viaForm = run(
+    'LY_FORMS["repeats-voices"].apply(lyParse(__t), "", { placed: [{ line: __a, place: "end" }, { line: __b, place: "end" }] }, ["placed"]).text',
+    { __t: migrated, __a: n('plain'), __b: n('plain2') }
+  );
+  check(
+    viaForm.split('\n')[1] ===
+      `[SETUP — returns — ${n('bass')} ${CARRIED},${n('plain')};${n('plain')},${n('plain2')} — cut v2]`,
+    `the repeats form dropped the carried state: ${viaForm.split('\n')[1]}`
+  );
+  // Keep the link: the notice goes, the link stays, and it does not come back.
+  const keepId = carriedNotes(migrated).find((x) => x.lines.join() === String(n('dash')))
+    ?.actions[0][3];
+  draft.value = migrated;
+  run('LY_ACTIONS["ly-carried-keep"](__id)', { __id: keepId });
+  const kept = draft.value;
+  check(
+    kept.split('\n')[0] ===
+      `[SETUP — rhyme groups — ${n('dash')}.head,${n('plain')};${n('tail')} ${CARRIED},${n('plain2')} — cut v2]` &&
+      notesOf(kept).join() === [n('tail'), n('bass')].join(),
+    `Keep did not clear exactly that notice: ${kept.split('\n')[0]}`
+  );
+  check(
+    migrate(kept).text === kept &&
+      notesOf(run('lyAssemble(lyBlocks(lyParse(__t))).text', { __t: kept })).join() ===
+        [n('tail'), n('bass')].join(),
+    'a kept link was flagged again'
+  );
+  // Remove it: the member goes; a link left with one member goes whole.
+  const removeId = carriedNotes(kept).find((x) => x.lines.join() === String(n('bass')))
+    ?.actions[1][3];
+  run('LY_ACTIONS["ly-carried-remove"](__id)', { __id: removeId });
+  check(
+    !draft.value.includes('[SETUP — returns') && notesOf(draft.value).join() === String(n('tail')),
+    `Remove did not remove the link: ${draft.value.split('\n').slice(0, 2)}`
+  );
+  check(
+    decl(draft.value).groups === `${n('dash')}.head,${n('plain')};${n('tail')},${n('plain2')}`,
+    `after Keep/Remove the tools would receive ${JSON.stringify(decl(draft.value))}`
+  );
+  // No notice anywhere on a draft whose lines' cuts are all unchanged, for
+  // every named spelling at once (asides read by neither cut included); a
+  // counted place there only gains the mark, on the same number.
+  const allQuiet = song([
+    `[SETUP — rhyme groups — ${n('plain')},${n('plain2')};${n('plain')}.end,${n('plain2')}.endword;${n('plain')}.head,${n('plain2')}.headrime;${n('plain')}.line,${n('plain2')}.line]`,
+    `[SETUP — returns — ${n('aside')},${n('plain2')};${n('plain')}.head,${n('aside')}.head]`,
+  ]);
+  draft.value = allQuiet;
+  check(
+    run('lyEnsureTokenScheme()') === false &&
+      draft.value === allQuiet &&
+      carriedNotes(allQuiet).length === 0,
+    'a notice or rewrite on a draft with no changed cut'
+  );
+  const quietT = migrate(song([`[SETUP — returns — ${n('plain')}.T2,${n('plain2')}.T3]`]));
+  check(
+    quietT.text.split('\n')[0] ===
+      `[SETUP — returns — ${n('plain')}.T2,${n('plain2')}.T3 — cut v2]` &&
+      quietT.moved.length === 0 &&
+      carriedNotes(quietT.text).length === 0,
+    `a counted place on an unchanged line moved or was noticed: ${quietT.text.split('\n')[0]}`
+  );
 }
 
 // ── H. headers and the document's identity, unit-level ────────────────────
@@ -2054,7 +2466,7 @@ async function browserChecks(chromium) {
       check(got.saved === got.text, 'the autosaved session does not hold the migrated rows');
       const review = await pane(page, 'review');
       check(
-        /saved before this release needs your decision/.test(review),
+        /saved without the current cut mark needs your decision/.test(review),
         'Review does not show it'
       );
       // Neither send path reaches /chat while it is undecided.
@@ -2198,6 +2610,99 @@ async function browserChecks(chromium) {
       }
     });
 
+    // ── 9c. a rhyme link's named place across the word-cut change, in the
+    // shipped page: the notice, Keep / Remove, Undo / Redo, reload ─────────
+    await step('9c. named places carried across the cut', async () => {
+      const { ctx, page, q } = await boot();
+      const OH = 'Oh--oh, oh my love';
+      const pre = `[SETUP — rhyme groups — 1.head,2]\n\n[VERSE]\n${OH}\nWe sing it plain tonight\nThe dark comes early on`;
+      const CARRIED = '1.head (carried across the word-cut change),2 — cut v2]';
+      const state = () =>
+        page.evaluate(() => ({
+          row: $ui('lyrics-draft').value.split('\n')[0],
+          items: LY.items.filter((i) => /:carried:/.test(i.id)).map((i) => i.id),
+          saved: JSON.parse(localStorage.getItem('codex-workbench-v1') || '{}').lyrics || '',
+        }));
+      await page.evaluate((t) => {
+        $ui('lyrics-draft').value = t;
+        uiSaveLyrics();
+        lyRefresh(true);
+      }, pre);
+      let st = await state();
+      check(st.row.endsWith(CARRIED), `the head place was not carried: ${st.row}`);
+      check(st.items.length === 1, `Review notices: ${JSON.stringify(st.items)}`);
+      const review = await pane(page, 'review');
+      check(
+        /carried across the word-cut change/.test(review) &&
+          /“Oh--oh” under the earlier cut and “Oh” under the current one/.test(review) &&
+          /not the grader's evidence/.test(review) &&
+          /Keep the link/.test(review) &&
+          /Remove it/.test(review),
+        'Review does not show the carried notice with both words and both actions'
+      );
+      // It is sent, as declared, and nothing blocks the send.
+      const calls = q.calls.length;
+      q.replies.push({ reply: 'ok', history: [], sig: 'x' });
+      await page.evaluate(async () => LY_ACTIONS['ly-run-review']());
+      await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      const sent = q.calls.slice(calls).map((c) => c.lyric_context?.declarations?.groups);
+      check(
+        sent.length === 1 && sent[0] === '1.head,2',
+        `the carried link was not sent as declared: ${JSON.stringify(sent)}`
+      );
+      // Reload: the state is in the saved text and comes back as it was.
+      await page.reload();
+      await page.waitForFunction(() => typeof UI !== 'undefined' && UI.ready && !!LY.model, null, {
+        timeout: 60000,
+      });
+      await page.evaluate(() => lyRefresh(true));
+      st = await state();
+      check(
+        st.row.endsWith(CARRIED) && st.items.length === 1,
+        `the carried state did not survive a reload: ${st.row}`
+      );
+      // Keep the link, then Undo and Redo.
+      const id = st.items[0];
+      await page.evaluate((i) => {
+        const item = LY.items.find((x) => x.id === i);
+        LY_ACTIONS['ly-carried-keep'](item.actions[0][3]);
+      }, id);
+      st = await state();
+      check(
+        st.row === '[SETUP — rhyme groups — 1.head,2 — cut v2]' && st.items.length === 0,
+        `Keep did not clear the state: ${st.row}`
+      );
+      await page.evaluate(() => $ui('btn-undo').click());
+      await page.evaluate(() => lyRefresh(true));
+      st = await state();
+      check(
+        st.row.endsWith(CARRIED) && st.items.length === 1,
+        `Undo did not restore the carried state: ${st.row}`
+      );
+      await page.evaluate(() => $ui('btn-redo').click());
+      await page.evaluate(() => lyRefresh(true));
+      st = await state();
+      check(
+        st.row === '[SETUP — rhyme groups — 1.head,2 — cut v2]' && st.items.length === 0,
+        `Redo did not keep the link: ${st.row}`
+      );
+      check(st.saved.split('\n')[0] === st.row, 'the kept link was not saved');
+      // Remove it, from the restored state: the two-member link goes whole.
+      await page.evaluate(() => $ui('btn-undo').click());
+      await page.evaluate(() => lyRefresh(true));
+      await page.evaluate(() => {
+        const item = LY.items.find((x) => /:carried:/.test(x.id));
+        LY_ACTIONS['ly-carried-remove'](item.actions[1][3]);
+      });
+      st = await state();
+      check(
+        !/rhyme groups/.test(await page.evaluate(() => $ui('lyrics-draft').value)) &&
+          st.items.length === 0,
+        `Remove did not remove the link: ${st.row}`
+      );
+      await ctx.close();
+    });
+
     // ── screenshots: a suggestion, light and dark, desktop and phone ─────
     if (SHOTS) {
       stage = 'screenshots';
@@ -2230,6 +2735,7 @@ async function browserChecks(chromium) {
 (async () => {
   unitWriterPayload();
   await unitSavedReadings();
+  await unitPolicyA();
   unitHeadersAndIdentity();
   if (flags['unit-only']) {
     if (failures.length) {
