@@ -20,7 +20,7 @@ These are the minimal repro scripts and raw outputs behind the findings posted o
    - copy the pinned `lyric-harness/cmudict.dict` into `wt-678` and `wt-base`, and point `LYRIC_STAGED_DATA` at the staged data directory;
    - symlink `node_modules` into `wt-678` and `wt-main`;
    - launch Chromium as `/opt/pw-browsers/chromium`.
-3. **Copy each agent folder** to `$W/h678/<agent>/`. Its `COMMANDS.txt` (or `COMMANDS_*.txt`) then runs as written, including the build steps for the excluded pages:
+3. **Copy each agent folder** to `$W/h678/<agent>/`. Its `COMMANDS.txt` (or `COMMANDS_*.txt`) gives the build steps for the excluded pages. The scripts need this documented layout or adapted paths: some, such as `caret2.js` and `lib.js`, keep the original scratch paths, and `six_lines/end_census.py` reads the corpus from a fixed path and records the candidate SHA as a literal, without asserting the checkout. The build steps:
    - `CODEX_LIBRARY=1 node scripts/build_html.js --out=…`;
    - a mixed root is symlinks to every `wt-678` entry, with `codex-old.html` = `wt-main`'s `codex.html`.
 
@@ -98,7 +98,7 @@ Every body is accepted by `validate`. A body that carries a scheme marker is ref
 
 **The recorder measure:** lines whose tokens and final are identical but whose `line_anchors` changed. `record.py` measured these over its 227,540-line population (`../diff_breakdown_67889851/`).
 
-**The union** pairs, for every line, the identical spans, both ends' readings and `line_anchors`, and says which measure found it. That includes the two Barnes `[=o]` lines that only the recorder measure sees.
+**The union** (commands in `six_lines/COMMANDS.txt`) pairs, for every line, the identical spans, both ends' readings and `line_anchors`, and says which measure found it. That includes the two Barnes `[=o]` lines that only the recorder measure sees. Its `A2_trigger_fires: false` is inferred from the identical spans, not from running the page's trigger.
 
 **The identity-recovery ledger** prefilters on `'s` / recorder texts, and was used only to recover identities before the census existed. It is not a census.
 

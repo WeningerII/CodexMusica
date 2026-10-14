@@ -1,0 +1,14 @@
+Six-line ledger: exact commands (candidate worktree at 67889851144dd2a7eefedd9960a868978fb7bfae as wt-678;
+cmudict.dict staged; LYRIC_STAGED_DATA=<staged data dir>). end_census.py reads the corpus from
+/home/user/CodexMusica/lyric-harness/corpus (adapt the path to your checkout) and records the candidate SHA as a
+literal; it does not assert the checkout.
+
+cd <W>/wt-678/lyric-harness
+python3 <this dir>/end_census.py . 0 2 <this dir>/end_census_0.json    # shard 0 of 2
+python3 <this dir>/end_census.py . 1 2 <this dir>/end_census_1.json    # shard 1 of 2
+python3 <this dir>/union.py . <this dir>/end_census_0.json <this dir>/end_census_1.json <this dir>/six_lines.json <this dir>/union.json
+# identity recovery only (prefiltered, not a census):
+python3 <this dir>/ledger.py . <this dir>/six_lines.json <this dir>/six_ledger.json
+
+six_lines.json comes from the recorder diff (../../diff_breakdown_67889851, class anchors_changed with identical
+tokens and final). union.py's A2_trigger_fires:false is INFERRED from identical v1/v2 spans, not from a page run.
