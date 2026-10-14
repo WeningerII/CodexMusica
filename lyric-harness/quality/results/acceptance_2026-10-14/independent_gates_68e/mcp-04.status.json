@@ -1,0 +1,10 @@
+{
+  "label": "mcp-04",
+  "command": "python3 scripts/test_lyrics_capacity.py",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:32:51Z",
+  "exit_code": 0,
+  "duration_seconds": 0.193,
+  "log_sha256": "dc9d2e4156e19ac5c5fcf910cea1377250ecc1e7a1e6c7ffbbee82eb9466d7d0"
+}

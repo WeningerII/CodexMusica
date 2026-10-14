@@ -1,0 +1,360 @@
+[
+  {
+    "label": "revise-1",
+    "command": "python3 quality/test_revise.py",
+    "cwd": "/workspace/acceptance-code/lyric-harness",
+    "environment": {
+      "TEST_REVISE_SHARD": "1/4"
+    },
+    "started_utc": "2026-10-14T15:17:37Z",
+    "exit_code": 0,
+    "duration_seconds": 329.746,
+    "log_sha256": "304fe5c0fe9a40f0523bed7ed0fd9f462aec0fff00ce325b8addab763f45dfac",
+    "summary_lines": [
+      "all revision-loop regressions pass"
+    ],
+    "pass_assertions": 106
+  },
+  {
+    "label": "revise-2",
+    "command": "python3 quality/test_revise.py",
+    "cwd": "/workspace/acceptance-code/lyric-harness",
+    "environment": {
+      "TEST_REVISE_SHARD": "2/4"
+    },
+    "started_utc": "2026-10-14T15:17:37Z",
+    "exit_code": 0,
+    "duration_seconds": 335.383,
+    "log_sha256": "d3244ec8f918ab8a00fde57f96bbd61cdc04fe7646836dec7dbfe7909ade0e0e",
+    "summary_lines": [
+      "all revision-loop regressions pass"
+    ],
+    "pass_assertions": 113
+  },
+  {
+    "label": "revise-3",
+    "command": "python3 quality/test_revise.py",
+    "cwd": "/workspace/acceptance-code/lyric-harness",
+    "environment": {
+      "TEST_REVISE_SHARD": "3/4"
+    },
+    "started_utc": "2026-10-14T15:23:06Z",
+    "exit_code": 0,
+    "duration_seconds": 157.729,
+    "log_sha256": "fc48b43237bad851c7dc5309f1ef5bfb0c83ca37c7f635b83ea73817152ae4b9",
+    "summary_lines": [
+      "all revision-loop regressions pass"
+    ],
+    "pass_assertions": 115
+  },
+  {
+    "label": "revise-4",
+    "command": "python3 quality/test_revise.py",
+    "cwd": "/workspace/acceptance-code/lyric-harness",
+    "environment": {
+      "TEST_REVISE_SHARD": "4/4"
+    },
+    "started_utc": "2026-10-14T15:23:12Z",
+    "exit_code": 0,
+    "duration_seconds": 162.518,
+    "log_sha256": "c3363d94a992b569b5a0aa5349bcbcadc49aed7375167539f4caf8a93fbebbd6",
+    "summary_lines": [
+      "all revision-loop regressions pass"
+    ],
+    "pass_assertions": 93
+  },
+  {
+    "label": "mcp-01",
+    "command": "node mcp/test.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:17:37Z",
+    "exit_code": 0,
+    "duration_seconds": 724.574,
+    "log_sha256": "11ef6ae04fc4f993a90cbf1cf900fe83c9fa9d3d892f934a75edae0c1684cf7b",
+    "summary_lines": [
+      "193 checks passed"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-02",
+    "command": "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_verdict_view.mjs mcp/test_connector_http.mjs mcp/test_chatgpt.mjs mcp/test_chatgpt_harness.mjs mcp/test_chatgpt_revise.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs mcp/test_session_repairs.mjs mcp/test_pronunciation_choices.mjs mcp/test_lexicon_basis.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:29:41Z",
+    "exit_code": 0,
+    "duration_seconds": 153.874,
+    "log_sha256": "d832c889dffbacfd5c2e96ce372fbf21261db838c735fb39b4b6fe2b97708c1c",
+    "summary_lines": [
+      "\u2139 tests 179",
+      "\u2139 pass 179",
+      "\u2139 fail 0",
+      "\u2139 skipped 0"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-03",
+    "command": "node --test mcp/test_chatgpt_parked.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:32:15Z",
+    "exit_code": 0,
+    "duration_seconds": 35.803,
+    "log_sha256": "77f1f9a3887475b31c0ca79b102748a15bb588d33fada1cae0aae4ab8ad64ea0",
+    "summary_lines": [
+      "\u2139 tests 1",
+      "\u2139 pass 1",
+      "\u2139 fail 0",
+      "\u2139 skipped 0"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-04",
+    "command": "python3 scripts/test_lyrics_capacity.py",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:32:51Z",
+    "exit_code": 0,
+    "duration_seconds": 0.193,
+    "log_sha256": "dc9d2e4156e19ac5c5fcf910cea1377250ecc1e7a1e6c7ffbbee82eb9466d7d0",
+    "summary_lines": [
+      "Ran 34 tests in 0.031s"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-05",
+    "command": "python3 scripts/test_profile_lyrics_phase.py",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:32:51Z",
+    "exit_code": 0,
+    "duration_seconds": 4.736,
+    "log_sha256": "f9744aa22bc95d521fa4ac0b54db7de3743b13610b83d5f63510466e5d83123c",
+    "summary_lines": [
+      "Ran 8 tests in 4.637s"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-06",
+    "command": "python3 scripts/test_worker_measurement_capture.py",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:32:56Z",
+    "exit_code": 0,
+    "duration_seconds": 0.131,
+    "log_sha256": "d8788fb668ab485288228ba408880db88f6bc1e91fecb5466716ec0bebc051a5",
+    "summary_lines": [
+      "Ran 6 tests in 0.010s"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-07",
+    "command": "python3 scripts/test_lyric_continuations.py",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:32:56Z",
+    "exit_code": 0,
+    "duration_seconds": 0.263,
+    "log_sha256": "ecb5a6f9a860c3eefd5ef779c3b2bec29afeb56d49a71e3b63589d8ec62f2298",
+    "summary_lines": [
+      "Ran 11 tests in 0.143s"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-08",
+    "command": "python3 scripts/test_production_qualification.py",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:32:56Z",
+    "exit_code": 0,
+    "duration_seconds": 0.224,
+    "log_sha256": "f7d539bbcf64dadb2e8aba14fea7c04274f003035145606662057a4ac502273b",
+    "summary_lines": [
+      "Ran 9 tests in 0.123s"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-09",
+    "command": "python3 lyric-harness/quality/test_session_repairs.py",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:32:56Z",
+    "exit_code": 0,
+    "duration_seconds": 13.189,
+    "log_sha256": "6c59ff2c32b6704854b49a7b324df39ed42779c6af1d31451846911a52465b6e",
+    "summary_lines": [
+      "Ran 5 tests in 12.232s"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-10",
+    "command": "python3 lyric-harness/quality/test_pronunciation_choices.py",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:33:09Z",
+    "exit_code": 0,
+    "duration_seconds": 63.132,
+    "log_sha256": "f3571d335c2c1e8da7463f3f86e350a0e4d1ca810caea14df64e2eb25cdb7478",
+    "summary_lines": [
+      "Ran 36 tests in 61.823s"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-11",
+    "command": "python3 lyric-harness/quality/test_computational_audit.py",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:34:13Z",
+    "exit_code": 0,
+    "duration_seconds": 6.95,
+    "log_sha256": "68a2c60f0d59699801aea6dc95d76a4171b21e333d76c83d81a50fd74baca296",
+    "summary_lines": [
+      "Ran 24 tests in 5.585s"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-12",
+    "command": "node --test --test-concurrency=1 mcp/test_paid_budget.mjs mcp/test_python_bridge.mjs mcp/test_lookup_queue.mjs mcp/test_lyric_state.mjs mcp/test_turn_lifecycle.mjs mcp/test_battery_lifecycle.mjs mcp/test_battery_archive.mjs mcp/test_battery_storage.mjs mcp/test_job_store.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:34:20Z",
+    "exit_code": 0,
+    "duration_seconds": 65.773,
+    "log_sha256": "fe3f30f30c96ffdbd0d3a4fd1aaedc4034ddfe9f0a3a4134964a357eece9b824",
+    "summary_lines": [
+      "\u2139 tests 75",
+      "\u2139 pass 75",
+      "\u2139 fail 0",
+      "\u2139 skipped 0"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-13",
+    "command": "node mcp/test_lyric_state.mjs --harness",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:35:25Z",
+    "exit_code": 0,
+    "duration_seconds": 35.744,
+    "log_sha256": "bdb72ebb99925667234ced78a2a944780fd88d6cf8f0ef5b72d9ddd52010b5c4",
+    "summary_lines": [],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-14",
+    "command": "node mcp/test_run_continuation.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:36:01Z",
+    "exit_code": 0,
+    "duration_seconds": 442.978,
+    "log_sha256": "181da26e82f8507394b454cbc943507191112642b111769fab97e23da05a0599",
+    "summary_lines": [],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-15",
+    "command": "node mcp/test_deferred_continuation.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:43:24Z",
+    "exit_code": 0,
+    "duration_seconds": 37.301,
+    "log_sha256": "b01ec42522901d2b65d27573ed3785f8539a642e1d9c4729405a271271ed956d",
+    "summary_lines": [],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-16",
+    "command": "node --test mcp/test_continuation_audit.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:44:01Z",
+    "exit_code": 0,
+    "duration_seconds": 151.138,
+    "log_sha256": "04bd3ee90453e695d25279834d8e960f4427e64f3b8072d4e470e3f37a05dd80",
+    "summary_lines": [
+      "\u2139 tests 12",
+      "\u2139 pass 12",
+      "\u2139 fail 0",
+      "\u2139 skipped 0"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-17",
+    "command": "node --test mcp/test_loop_redesign.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:46:33Z",
+    "exit_code": 0,
+    "duration_seconds": 17.072,
+    "log_sha256": "06534bd2843cf9205eb83186cc945e8eb99225282f2230f6d018371201d0fe68",
+    "summary_lines": [
+      "\u2139 tests 8",
+      "\u2139 pass 8",
+      "\u2139 fail 0",
+      "\u2139 skipped 0"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-18",
+    "command": "node mcp/test_kitchen_repairs.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:46:50Z",
+    "exit_code": 0,
+    "duration_seconds": 11.559,
+    "log_sha256": "9631ccb44e34a47ae8d9e83458dc097adfd9841f644494c972c83aafe16add32",
+    "summary_lines": [],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-19",
+    "command": "node --test mcp/test_high_report.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:47:01Z",
+    "exit_code": 0,
+    "duration_seconds": 135.59,
+    "log_sha256": "538b68cfeeb9fddaae5d4cd8a7c2f4451609b53160667784e11d9d8ceb9e9fdf",
+    "summary_lines": [
+      "\u2139 tests 10",
+      "\u2139 pass 10",
+      "\u2139 fail 0",
+      "\u2139 skipped 0"
+    ],
+    "pass_assertions": null
+  },
+  {
+    "label": "mcp-20",
+    "command": "node --test --test-concurrency=1 mcp/test_reader_job_store.mjs mcp/test_reader_store_bounds.mjs mcp/test_reader_client.mjs mcp/test_reader_integration.mjs mcp/test_library_search.mjs mcp/test_library_viewer_routes.mjs mcp/test_library_exports.mjs mcp/test_library_corpus.mjs mcp/test_spend_store.mjs mcp/test_resume_stopped.mjs",
+    "cwd": "/workspace/acceptance-code",
+    "environment": {},
+    "started_utc": "2026-10-14T15:49:17Z",
+    "exit_code": 0,
+    "duration_seconds": 158.273,
+    "log_sha256": "73adb68a0285849fb33aae933b25011e30498e5efbd10679d9e6c35dd616aeba",
+    "summary_lines": [
+      "\ufe63 actual catalog reader interruption/resume matches an uninterrupted complete analysis (0.687805ms) # SKIP",
+      "\u2139 tests 142",
+      "\u2139 pass 141",
+      "\u2139 fail 0",
+      "\u2139 skipped 1"
+    ],
+    "pass_assertions": null
+  }
+]

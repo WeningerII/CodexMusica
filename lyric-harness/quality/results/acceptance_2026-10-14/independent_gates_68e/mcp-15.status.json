@@ -1,0 +1,10 @@
+{
+  "label": "mcp-15",
+  "command": "node mcp/test_deferred_continuation.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:43:24Z",
+  "exit_code": 0,
+  "duration_seconds": 37.301,
+  "log_sha256": "b01ec42522901d2b65d27573ed3785f8539a642e1d9c4729405a271271ed956d"
+}

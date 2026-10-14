@@ -1,0 +1,14 @@
+{
+  "base": "8ea94ac9",
+  "old": "a09703a0",
+  "head": "68e213d0",
+  "counts": {
+    "8ea94ac9d5141eb5062a8094351a9330f4edc38c": 1739,
+    "a09703a0eb9581a37b97c8041e8fcc640c7cf2b1": 1739,
+    "68e213d0aadf589319bce345b8eebc4b0d0a60f1": 1739
+  },
+  "base_equals_head": true,
+  "base_equals_a097": false,
+  "head_only_rows": [],
+  "base_only_rows": []
+}

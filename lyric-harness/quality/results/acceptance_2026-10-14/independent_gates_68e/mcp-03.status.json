@@ -1,0 +1,10 @@
+{
+  "label": "mcp-03",
+  "command": "node --test mcp/test_chatgpt_parked.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:32:15Z",
+  "exit_code": 0,
+  "duration_seconds": 35.803,
+  "log_sha256": "77f1f9a3887475b31c0ca79b102748a15bb588d33fada1cae0aae4ab8ad64ea0"
+}

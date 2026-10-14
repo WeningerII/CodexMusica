@@ -1,0 +1,15 @@
+{
+  "base": "a09703a0eb9581a37b97c8041e8fcc640c7cf2b1",
+  "head": "68e213d0aadf589319bce345b8eebc4b0d0a60f1",
+  "identical_entries": 64333,
+  "changed": {
+    "lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutations.py": {
+      "a09703a0eb9581a37b97c8041e8fcc640c7cf2b1": "100644 blob 33ef89a3d1f9853076cbedf162e39457b1d0cd15",
+      "68e213d0aadf589319bce345b8eebc4b0d0a60f1": "100644 blob 1c50aac001f8924e8971f8a3cac6ad1399e4444b"
+    },
+    "lyric-harness/quality/test_reader.py": {
+      "a09703a0eb9581a37b97c8041e8fcc640c7cf2b1": "100644 blob 2afdfa8afd70fd9662d385e8122c7f5e1d7dbe59",
+      "68e213d0aadf589319bce345b8eebc4b0d0a60f1": "100644 blob a9cbf8ffe4ef9ff4499e05bab2b461800e6170a8"
+    }
+  }
+}

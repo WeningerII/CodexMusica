@@ -1,0 +1,10 @@
+{
+  "label": "mcp-12",
+  "command": "node --test --test-concurrency=1 mcp/test_paid_budget.mjs mcp/test_python_bridge.mjs mcp/test_lookup_queue.mjs mcp/test_lyric_state.mjs mcp/test_turn_lifecycle.mjs mcp/test_battery_lifecycle.mjs mcp/test_battery_archive.mjs mcp/test_battery_storage.mjs mcp/test_job_store.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:34:20Z",
+  "exit_code": 0,
+  "duration_seconds": 65.773,
+  "log_sha256": "fe3f30f30c96ffdbd0d3a4fd1aaedc4034ddfe9f0a3a4134964a357eece9b824"
+}

@@ -1,0 +1,10 @@
+{
+  "label": "mcp-16",
+  "command": "node --test mcp/test_continuation_audit.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:44:01Z",
+  "exit_code": 0,
+  "duration_seconds": 151.138,
+  "log_sha256": "04bd3ee90453e695d25279834d8e960f4427e64f3b8072d4e470e3f37a05dd80"
+}

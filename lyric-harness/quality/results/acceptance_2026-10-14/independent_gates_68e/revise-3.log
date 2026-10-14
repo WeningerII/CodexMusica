@@ -1,0 +1,266 @@
+SHARD 3/4: 15 of 62 sections (dealt by index residue over the cost-ordered tuple)
+
+2. doctrine 9 — the brief pushes AWAY from the optimum
+  PASS  a rhyme finding earns a candidate field
+          24 offered, 6 forbidden
+  PASS  the forbidden words are the MOST PREDICTABLE ones under that key — or same-spelled with a call, which tier 1 bans at ANY rank
+          forbidden ['fire', 'higher', 'tire', 'conspire', 'require'] — each same-rime with a call or ranked ahead of offered ['our', 'matter', 'power', 'hour', 'master']
+  PASS  the current end word is carried as the INCUMBENT, on its own field — re-proposing what is already there is not a revision
+          forbidden_incumbent='fire'
+  PASS  ...and this fixture cannot prove that rule ALONE, which is why the field is asserted rather than list membership: 'fire' is ALSO head[0] of its own modal field, so it would sit on the modal list under doctrine 9 with the incumbent clause deleted
+          overlap is real and deliberate; head=['fire', 'higher', 'tire']
+  PASS  nothing forbidden leaks into the offered list — neither rule
+  PASS  with the rule disabled the DIFFERENTLY-SPELLED modal words come back — the same-spelled class stays banned at any setting
+          modal_exclusion=0 is reachable so the frequency tier's defect is demonstrable; tier 1 deliberately has no such switch
+
+6. REJECT — changing the shape of the draft
+  PASS  dropping a line is rejected
+          line count changed 4 -> 3; the loop revises lines, it does not restructure the draft
+
+10. doctrine 20 — handed nothing, the loop REFUSES
+  PASS  brief() with no mandate refuses
+          no mandate was declared, so there is NOTHING to check this draft against
+  PASS  inspect() with no mandate refuses
+          no mandate was declared, so there is NOTHING to check this draft against
+  PASS  grade() with no mandate refuses
+          no mandate was declared, so there is NOTHING to check this draft against
+  PASS  verify() with no mandate refuses
+          no mandate was declared, so there is NOTHING to check this draft against
+  PASS  an all-free scheme refuses too
+          'XXXX' mandates no pair, so grading against it passes vacuously; the mandate declares no group of two or 
+  PASS  a length mismatch refuses instead of being ignored
+
+14. the song with no letter scheme — both paths
+  PASS  41 lines
+          41
+  PASS  the declared letter mandate still passes 8/8, 0 violations
+          8/8 judged, 0 violations, 57 collisions
+  PASS  the partition reproduces mandated verdicts and confirmed collisions
+          (8, 57, 57)
+  PASS  its maximal cliques OVERLAP, so no letter scheme exists (constructed fixture)
+          2 cliques, overlapping node(s) [2, 4]
+  PASS  the fixture's own clique cover is a mandate with no letter scheme
+          2 groups, pivots [2, 4]
+  PASS  and it declares itself NOT INDEPENDENT of the grader
+          doctrine 14 — every clique band-passes by construction, so a clean rhyme result against it is an identity, not a verdict
+  PASS  grading it is not vacuous: the graph admits REPEAT edges that a mandate rejects
+          2 violation(s), all REPEAT: L2/L4 'gates', L2/L4 'gates'
+  PASS  the brief carries the non-independence as a whole-draft finding
+
+17b. a declared RETURN is the requirement, not the slop
+  PASS  the villanelle's refrain pairs are IN pairs0 — this is the leak
+          93 rhyme pairs, 12 of them declared returns
+  PASS  and the floor is handed pairs0 MINUS them
+          93 - 12 = 81. Both the numerator and the denominator: the returns were also inflating `npairs`, which is what every real radif is licensed against.
+  PASS  a formally PERFECT villanelle draws no REPEAT_IN_VERSE
+          0 — it was 1, reading the refrain as slop
+  PASS  the layer that DOES understand identity agreed all along
+          returns_check() is empty on this draft: the returns are perfect. Two layers, one draft, opposite verdicts — and the one that was wrong is the one that does not know what a refrain is.
+  PASS  a DRIFTED return is still caught, by the layer that owns it
+          ['LEXICAL_VARIATION'] — one interior word changed and the refrain requirement fails, so the subtraction removed a false charge without removing a true one.
+
+21. the mandate the song was WRITTEN to — what comes out
+  PASS  the song passes its declared mandate outright
+          mandated 8, judged 8, refused 0, 0 violation(s)
+  PASS  every RHYME-layer finding it emits is a collision, not a defect
+          36 line(s) carry findings; collision codes ['NEAR_COLLISION', 'REPEAT_ACROSS_GROUPS', 'SCHEME_COLLISION']. The length-sensitive floor findings are a separate layer and are NOT this cell's (quality/floor.py)
+  PASS  and NOT ONE collision earns a candidate field
+          no collision code is in RHYME_FINDINGS, and that is a DECISION with a measurement behind it, not a gap -- see test 24
+  PASS  the chorus coming back is a substantial share of the collision set, not a stray edge
+          12/57 join chorus to chorus2. A letter scheme cannot say 'these two groups are the same words', so it gives them different letters -- and the collision detector then reports the identity the projection was forced to hide (doctrine 2)
+  PASS  and every edge the merge detector recovers, from the GRAPH alone with no blueprint and no section name, is genuinely among the collisions it was built from
+          12 merge edges, all present in the 57 collisions; 8 of them are among the 12 chorus-crossing collisions. The section labels above come from the blueprint; `group_merges` never reads it -- it asks whether two mandated groups would pass as ONE. (The reverse containment does not hold here: a few OTHER end-word pairs across the two choruses also happen to collide without belonging to the same merged group -- a property of this fixture's incidental word choices, not of the merge detector.)
+  PASS  some of them are outright REPEAT, the refrain itself
+          4 of the chorus's returns are an IDENTICAL end word. Doctrine 3 calls REPEAT the REQUIREMENT across chorus instances, and `repeat_licence` defaults to 'unlicensed', so the derived-cover run reports them as SCHEME_VIOLATIONs -- see RESULTS_REVISION_LOOP.md §5
+
+25. the METER layer joins rhyme in ONE finding set, no new veto
+  PASS  with no blueprint, nothing changes
+          meter is opt-in: omitting `blueprint=` leaves brief/inspect/verify exactly as they were before this test existed
+  PASS  a blueprint with NO declared subdivision reports ONCE, not per line
+          whole-draft codes: ['DOWNBEAT_LOCKED', 'FUNCTION_UNDECLARED', 'HOOK_UNDECLARED', 'MANDATE_NOT_INDEPENDENT', 'METER_LOCKED', 'NO_SETTING', 'NO_SUBDIVISION', 'UNIFORM_LINE_LENGTH']
+  PASS  ...covering all 41 lines each, exactly once
+          [('NO_SUBDIVISION', 41), ('NO_SETTING', 41)]
+  PASS  inspect reports exactly the fit engine's proven slot overflows, without promoting uncertain readings into failures
+          ([13, 14, 15, 16, 17, 18, 19, 20, 33, 34, 35, 37, 38, 39, 40, 41], [13, 14, 15, 16, 17, 18, 19, 20, 33, 34, 35, 37, 38, 39, 40, 41])
+  PASS  every SLOTS_EXCEEDED lands as severity=flag, never note
+          fit.py's OWN satisfiable=False is what decides this -- this module keeps no second opinion about which findings are hard
+  PASS  the softer prominence findings land as notes, not flags
+          not mathematically impossible -- a style call the loop reports and does not force
+  PASS  an admitted edit that overflows a bar is rejected by the shared finding diff
+          ["introduced 1 new flagged finding(s) [(1, 'SLOTS_EXCEEDED', 'flag', (1,), (), ())] while fixing 2; a revision may not trade one defect for another"]
+  PASS  a blueprint/draft line-count mismatch REFUSES rather than silently misaligning
+          position-based correlation with no length check would attribute every finding after the first difference to the wrong line
+
+29. `MODAL_RHYME` asks doctrine 9's own question of a pair that never failed anything — FOUND MISSING by measuring two real songs' worth of rhymes that all passed grade() cleanly against modal_field() after the fact: half were the #1 or #2 ranked candidate, and nothing had ever asked
+  PASS  claim/name -- the single most frequent realised partner for 'claim' -- fires MODAL_RHYME even though the pair rhymes and the mandate is satisfied
+          'name' is one of the 6 most-predictable answers to 'claim' — realised as its rhyme partner 42 time(s) in the song corpus; 'claim' is one of the 6 most-predictable answers to 'name' — realised as its rhyme partner 42 time(s) in the song corpus. modal_exclusion=6 over the differently-spelled remainder, at most, and only partners the song corpus has seen answer the call (the same-spelled class is banned outright as HOMEOTELEUTON); set it to 0 to silence this the same way it silences the reactive check. Doctrine 9's exclusion is otherwise only consulted when fixing an already-flagged line; this asks the same question of a pair that never failed anything, because a first draft can reach for the predictable rhyme exactly as easily as a revision can.
+  PASS  claim/became -- outside both tiers in both directions, verified against modal_field directly -- stays silent (claim/tame held this slot until tier 2's deeper reach caught it from tame's side, 2026-08-18)
+  PASS  MODAL_RHYME is a note, not a flag -- it discloses, it does not reject: doctrine 7 is a floor, and ordering an already-satisfied mandate's permitted region is the one thing a floor may not do
+  PASS  modal_exclusion=0 silences this exactly the way it silences the reactive check -- one declared coordinate, not a second switch
+  PASS  the line carrying MODAL_RHYME earns a real candidate field, not just a citation -- doctrine 9's whole point is to hand back an alternative
+          ['became', 'lame', 'nickname', 'dame', 'surname', 'mainframe', 'overcame', 'ballgame']
+  PASS  'name' itself -- the very word MODAL_RHYME is about -- is not offered back as its own replacement
+
+33. `Mandate.scope` reaches the COLLISION LOOP — a pair the mandate does not speak about is UNDECLARED, not an unintended rhyme (doctrine 20/28), and not silence either (doctrine 24)
+  PASS  the scoped run marks the collisions that touch a line the mandate does not speak about
+          41 of 61 collisions are UNDECLARED; the mandate speaks about 16 of 41 lines. Before 2026-08-13 `grade()`'s collision loop never asked `Mandate.scope` at all and this was 0 of 73 (~~49 of 73~~ before 2026-10-01's any-reading rule)
+  PASS  and the UNSCOPED mandate marks none of them — the default path is the one every production mandate takes
+  PASS  the collision SET is unchanged by the scope — same 73 pairs
+          suppressing the 49 would make a scoped run indistinguishable from one where those pairs were checked and came back clean, which is doctrine 20's collapse pointed the other way -- and an unmandated rhyme is quite often the best thing in a song
+  PASS  every collision finding the scoped run drops it RE-EMITS under the fourth code — the partition is exact, nothing is silenced
+          unscoped {'SCHEME_COLLISION': 32, 'REPEAT_ACROSS_GROUPS': 8, 'NEAR_COLLISION': 21}  ->  scoped {'COLLISION_UNDECLARED': 41, 'SCHEME_COLLISION': 10, 'NEAR_COLLISION': 6, 'REPEAT_ACROSS_GROUPS': 4}
+  PASS  ...and it is drawn from ALL THREE relation types, so the code is not a rename of one of them
+          22 rhymes + 15 near-relations + 4 repeats = the 41 (~~24 + 21 + 4 = 49~~ before 2026-10-01's any-reading rule; ~~25 + 20 + 4~~ before 2026-09-24's licensed nucleus)
+  PASS  no UNDECLARED collision is described to the writer as `free` — 'cannot tell' and 'nothing required here' are different answers
+          41 finding(s); before the fix all 49 were rendered `L1 (free) and L3 (free) RHYME and share no mandated group`
+  PASS  it names WHICH line is outside the scope, and what the pair WOULD have been called if the mandate reached it
+          L1 and L3 collide — 'frame' ~ 'name' 1.000 ASSONANCE+CONSONANCE+RHYME — and the mandate DOES NOT SPEAK about L1 and L3: UNDECLARED, not an unintended rhyme
+  PASS  it is a NOTE, never a flag: the mandate declined to speak here, so this cannot be a thing the loop asks a writer to change (doctrine 7)
+  PASS  the scope itself is disclosed once, with the two counts kept SEPARATE (doctrine 79)
+          this mandate SPEAKS ABOUT 16 of 41 line(s); of its 61 collision(s), 20 are inside that scope and 41 touch a line it does not speak about
+  PASS  and an unscoped mandate discloses nothing, because it has nothing to disclose — it speaks about every line
+  PASS  `COLLISION_CUT_IS_SCALAR_ONLY` reports the same 28 of 73 with the scope on and off
+          21 of the 61 collision(s) on this draft are NOT rhymes under this harness's own band, and the collision detector reported them anyway
+  PASS  no edge absorbed into a group merge is UNDECLARED — a scope that excluded a mandated line would have been REFUSED at construction
+          0 absorbed edge(s)
+  PASS  four lines: L2/L4 rhyme, the mandate speaks only about L1/L3, so that one collision is UNDECLARED — and is SCHEME_COLLISION under the same mandate with no scope
+          scoped ['COLLISION_UNDECLARED'], unscoped ['SCHEME_COLLISION']
+  PASS  a scope over ALL 41 lines reproduces the unscoped collision codes exactly, and discloses itself as speaking about all of them
+          {'SCHEME_COLLISION': 32, 'REPEAT_ACROSS_GROUPS': 8, 'NEAR_COLLISION': 21} -- `scope` is a claim about what the mandate COVERS, and covering everything is the same claim the empty tuple makes implicitly
+
+37. the WHOLE-DRAFT half of the finding set reaches the REPORT — `brief()` is per_line-only by construction and the CLI printed nothing else, so five findings including a FLAG were computed and discarded on every `brief` and `song` run
+  PASS  HOOK_ABSENT is in `inspect()`'s WHOLE bucket, as a FLAG
+          ['FUNCTION_UNDECLARED', 'HOOK_ABSENT', 'NO_SETTING', 'NO_SUBDIVISION', 'RETURN_NEVER_RETURNS', 'SINGLE_INSTANCE', 'SINGLE_INSTANCE', 'TITLE_NOT_IN_HOOK']
+  PASS  it names NO line — which is why no `Brief` can carry it: a Brief is `line_no` + `candidates` + `must_answer`, and a finding with no line has no place to sit inside one
+  PASS  and it is in no per-line list either, so this is a REACHABILITY gap and not a duplicate
+          ['CROWDED', 'MODAL_RHYME', 'PROMINENCE_EXCEEDS_HEADS']
+  PASS  `brief()` returns not one Brief carrying it — UNCHANGED by this fix, and deliberately so: fabricating a line number to smuggle a whole-draft finding into a per-line record is the move `quality/loop.py` declined to make when its stop conditions hit this same wall (`LoopResult.whole_flags` instead)
+  PASS  `brief` keeps its exit contract on this incompletely specified draft (exit 0)
+          rc 0
+  PASS  `brief` PRINTS HOOK_ABSENT — the whole point: this verb's own banner says song-function joins the finding set, and until this fix that was true of the SET and false of the report
+  PASS  `brief` marks it a FLAG rather than folding it in unlabelled — a whole-draft NOTE and a whole-draft FLAG are not the same news (doctrine 79)
+  PASS  `brief` says in the report itself that a whole-draft finding names no line and cannot be briefed, so a reader is not left to wonder which line to revise
+  PASS  `brief` does NOT print the unqualified all-clear over a draft carrying a whole-draft flag
+  PASS  `song` keeps its exit contract on this incompletely specified draft (exit 3)
+          rc 3
+  PASS  `song` PRINTS HOOK_ABSENT — the whole point: this verb's own banner says song-function joins the finding set, and until this fix that was true of the SET and false of the report
+  PASS  `song` marks it a FLAG rather than folding it in unlabelled — a whole-draft NOTE and a whole-draft FLAG are not the same news (doctrine 79)
+  PASS  `song` says in the report itself that a whole-draft finding names no line and cannot be briefed, so a reader is not left to wonder which line to revise
+  PASS  `song` does NOT print the unqualified all-clear over a draft carrying a whole-draft flag
+  PASS  putting the hook INTO the draft clears HOOK_ABSENT, so the finding tracks the draft and not the blueprint's stored text
+          ['FUNCTION_UNDECLARED', 'HOOK_DOES_NOT_RECUR', 'NO_SETTING', 'NO_SUBDIVISION', 'RETURN_NEVER_RETURNS', 'SINGLE_INSTANCE', 'TITLE_NOT_IN_HOOK']
+  PASS  verify() still REJECTS a revision that erases the hook, keyed on `(0, 'HOOK_ABSENT')` — the whole bucket's own key shape, untouched by this fix
+          ["introduced 1 new flagged finding(s) [(0, 'HOOK_ABSENT', 'flag', (), (), ('hook', 0))] while fixing 1; a revision may not trade one defect for another"]
+  PASS  and it reaches the ACCEPTANCE GATE, not just the disclosure: the whole-draft flag is the ONLY member of `new_flags`, so the rejection rests on the half of the finding set the report was throwing away
+          new_flags=[(0, 'HOOK_ABSENT')], new_notes=[(4, 'MODAL_RHYME')]
+  PASS  and it is still true that no Brief asks for the hook back: the loop can reject on it and can never brief it, which is DISCLOSED now instead of silent
+
+39. a requirement that HOLDS is not repaired by ending it
+  PASS  the two chorus instances are verbatim, so RETURN_LOCKED holds
+          ['DOWNBEAT_LOCKED', 'FUNCTION_UNDECLARED', 'HOOK_UNDECLARED', 'LEXICAL_MONOTONY', 'METER_LOCKED', 'NO_SETTING', 'NO_SUBDIVISION', 'PHRASE_LENGTH_LOCKED', 'RETURN_LOCKED', 'SECTION_LENGTH_LOCKED', 'UNCOVERED_BARS']
+  PASS  a revision whose ONLY effect is ending the return is REJECTED -- it was accepted before, on the strength of the record it destroyed
+          accepted=False fixed=[] broken=[(0, 'RETURN_LOCKED')]
+  PASS  ...and the reason says which half it is, rather than 'nothing was fixed' alone
+          nothing was fixed — the only finding(s) removed were [(0, 'RETURN_LOCKED', 'note', (), (), ())], which record a requirem
+  PASS  a genuine repair that incidentally ends it is ACCEPTED and says so -- doctrine 96, the return is convention-measured and a writer may depart from it
+          accepted=True broken=[(0, 'RETURN_LOCKED')] :: fixed 2, introduced 0, and ENDING 1 holding requirement/licence [(0, 'RETURN_LOCKED', 'note', (), (), ())], ch
+  PASS  a DECLARED verbatim return still rejects on its own FLAG, so this split changed nothing there
+          accepted=False new_flags=[(0, 'LEXICAL_MONOTONY'), (3, 'RETURN_NOT_VERBATIM')]
+  PASS  MANDATE_EXCUSED_BY_OVERLAP is NOT in the set -- it records a pair that FAILED and was excused, so its removal IS a repair
+          ['RADIF_LICENSED', 'REFRAIN_REPEAT', 'RETURN_LOCKED']
+
+43. a declared RETURN is not rendered as a rhyme
+  PASS  the brief for a line in a declared verbatim return CARRIES the requirement kind, which `must_answer` alone cannot say
+          return_groups=('A',) must_answer=[('A', [1, 3], [(1, 'given')])]
+  PASS  CONTROL: an ordinary rhyme group is NOT marked, though its members sit in `must_answer` in exactly the same shape
+          return_groups=() must_answer=[('B', [2, 4], [(2, 'light')])]
+  PASS  a LICENSED repeat is not marked a return — the field is asked of `Mandate.requirement`, not inferred from `returns` membership
+          requirement=LICENSE_REPEAT return_groups=()
+  PASS  `Brief.__str__` says the line must BE the other one, word for word, and no longer states a relation obligation
+          ['- [note] REFRAIN_REPEAT: L1 and L3 are the same end word inside group A, licensed as a refrain', "group A [1, 3] is a RETURN: this line must BE L1 ('given') — the same line, word for word, not merely a rhyme"]
+  PASS  the TIER 1 prompt says the same
+          ['[note] REFRAIN_REPEAT: L1 and L3 are the same end word inside group A, licensed as a refrain (lines 1, 3)', "group A [1, 3] is a RETURN — this line must BE L1 ('given'), the same line word for word."]
+  PASS  the prompt advertises the actual atomic return rewrite
+          REVISE ONE LINE — L3 of a 4-line draft. You are given a draft, one line of it a grader has flagged, everything that grader measured, and the rules it will apply to what you send back. Rewrite that ONE line. ATTEMPT This is ATTEMPT 1 of this line's retry budget. No previous attempt was rejected on th
+  PASS  the TIER 2 prompt says the same — this is the channel rung 3 found it on, and it renders the mandate through the SAME block
+          ['Rewrite the coupled members of group A [1, 3].', '[note] REFRAIN_REPEAT: L1 and L3 are the same end word inside group A, licensed as a refrain (lines 1, 3)', "group A [1, 3] is a RETURN — this line must BE L1 ('given'), the same line word for word."]
+  PASS  CONTROL: an ordinary group still renders its relation obligation, and is not relabelled a return
+          ["group B [2, 4] at its end word — this line must stand in at least one relation with: L2 ('light') — HOLDS, but it carries a note (NOTE HOMEOTELEUTON), which the loop still asks to change: this is the word to change"]
+
+50. M-184 — one candidate field per binding PLACE, and the violated place is the one the brief is about
+  PASS  the probe's shape: only L3 is flagged, and its flag is group A at its T2 word (night ~ left)
+          {3: ['SCHEME_VIOLATION']}
+  PASS  the violated group is attributed off the finding's own pair, and the holding one is named as holding
+          violated=('A',) slots={'A': '3.T2', 'B': None}
+  PASS  `slot` is the VIOLATED place — T2 — not the first group's
+          3.T2
+  PASS  one field per place: two entries, T2 violated with a night-family field, the end HOLDING with its own door-family field
+          {'3.T2': (True, ('night',), 24), None: (False, ('door',), 24)}
+  PASS  the brief's own field is the T2 place's: a NON-EMPTY offer that rhymes with 'night', with the night head forbidden
+          offered ['site', 'goodnight', 'satellite', 'website', 'dynamite', 'insight'] forbidden ['light', 'bright', 'sight', 'delight', 'flight', 'right']
+  PASS  the incumbent is the word AT THAT PLACE, 'left', not the end word 'war'
+          left
+  PASS  no joint conflict: two places are two questions, and the conjunction at T2 has one call
+  PASS  the groups a tier-2 backtrack may touch are the ones at THIS place
+          ('A',)
+  PASS  the prompt no longer blames the mandate, names the T2 word as the word to change, and tells the writer group B holds
+          REVISE ONE LINE — L3 of a 3-line draft.
+
+You are given a draft, one line of it a grader has flagged, everything that grader
+measured, and the rules it will apply to what you send back. Rewrite that ONE line.
+
+ATTEMPT
+  This is ATTEMPT 1 of this line's retry budget.
+  No previous attempt was rejected on this line in this round.
+
+THE LINE TO REVISE
+  L3: i left my keys before the war
+  THE BOUND WOR
+  PASS  an end-only pivot still has ONE place and its field is the brief's field, unchanged in shape
+          {None: 24}
+  PASS  the stub loop fixes L3 at its T2 word through TIER 1 in round 1 — L1 and L4 are never touched
+          [(1, True, 'fixed 1, introduced 0, changed only [3]')]
+
+54. M-207 — a pair finding names two LINES, and the group it was actually judged in
+  PASS  the premise: L2 is briefed, and the ban fires on the END words
+          ['HOMEOTELEUTON']
+  PASS  ...and the judge PASSES the other place, so a brief that calls it violated is stating something false
+  PASS  the finding NAMES its own group — read off the verdict's `label`, not inferred from the lines
+          ('B',)
+  PASS  ...so the WORD-2 place is not violated and the END place is — the two places the old attribution could not tell apart
+          [(('A',), False), (('B',), True)]
+  PASS  the MUTATION — the same finding with its group dropped marks BOTH places, which is what every brief did before this repair
+          ([0, 1], [1])
+  PASS  `groups` is DISCLOSURE — a Finding that names none is the object it always was, and no default changed
+
+56. M-212 — a blueprint that declares `hook_slot` has its hook re-read from THIS draft's line at that slot, so revising the hook line is not HOOK_ABSENT; a blueprint naming only a phrase is graded exactly as before
+  PASS  before the revision, the slot reading finds the hook (no HOOK_ABSENT) — the slot and the snapshot agree on an unmoved draft
+          ['FUNCTION_UNDECLARED', 'HOOK_DOES_NOT_RECUR', 'NO_SETTING', 'NO_SUBDIVISION', 'RETURN_NEVER_RETURNS', 'SINGLE_INSTANCE', 'TITLE_NOT_IN_HOOK']
+  PASS  after the hook line moves, the SLOT reading still finds it — the hook is whatever the draft holds at line 3 now
+          ['FUNCTION_UNDECLARED', 'HOOK_DOES_NOT_RECUR', 'NO_SETTING', 'NO_SUBDIVISION', 'RETURN_NEVER_RETURNS', 'SINGLE_INSTANCE', 'TITLE_NOT_IN_HOOK']
+  PASS  the same revision under a PHRASE-only blueprint is HOOK_ABSENT, as it always was — a phrase the writer named names itself
+          ['FUNCTION_UNDECLARED', 'HOOK_ABSENT', 'NO_SETTING', 'NO_SUBDIVISION', 'RETURN_NEVER_RETURNS', 'SINGLE_INSTANCE', 'TITLE_NOT_IN_HOOK']
+  PASS  verify() under the phrase blueprint names HOOK_ABSENT among its reasons and under the slot blueprint does not
+          slot=['nothing was fixed'] phrase=["introduced 1 new flagged finding(s) [(0, 'HOOK_ABSENT', 'flag', (), (), ('hook', 0))] while fixing 1; a revision may not trade one defect for another"]
+  PASS  _blueprint_hook_slot reads a dict, ignores a bool, and answers None for a phrase-only blueprint
+  PASS  ...and reads the same slot off a PATH, the other shape `grid.song_from_blueprint` takes
+==============================================================
+SECTION COST, slowest first — the top line is the floor a shard count cannot beat:
+      47.5s  test_a_field_is_per_place_not_per_line
+      22.3s  test_what_the_loop_can_say_on_the_declared_mandate
+      20.6s  test_the_whole_draft_half_reaches_the_report
+      19.5s  test_meter_folds_into_the_same_finding_set
+      12.0s  test_a_pair_finding_names_its_own_group
+       9.1s  test_the_brief_excludes_the_modal_region
+       5.9s  test_a_declared_return_is_not_slop
+       5.4s  test_modal_rhyme_fires_on_a_passing_pair
+       4.2s  test_the_song_the_loop_could_not_grade
+       2.0s  test_scope_reaches_the_collision_loop
+       1.9s  test_a_holding_requirement_is_not_fixed_by_breaking_it
+       0.8s  test_a_return_is_not_rendered_as_a_rhyme
+       0.2s  test_the_hook_is_read_from_the_slot_not_the_snapshot
+       0.0s  test_reject_restructuring
+       0.0s  test_no_mandate_is_a_refusal_not_a_pass
+     151.4s  TOTAL, this shard (15 of 62 sections)
+==============================================================
+all revision-loop regressions pass

@@ -1,0 +1,10 @@
+{
+  "label": "mcp-20",
+  "command": "node --test --test-concurrency=1 mcp/test_reader_job_store.mjs mcp/test_reader_store_bounds.mjs mcp/test_reader_client.mjs mcp/test_reader_integration.mjs mcp/test_library_search.mjs mcp/test_library_viewer_routes.mjs mcp/test_library_exports.mjs mcp/test_library_corpus.mjs mcp/test_spend_store.mjs mcp/test_resume_stopped.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:49:17Z",
+  "exit_code": 0,
+  "duration_seconds": 158.273,
+  "log_sha256": "73adb68a0285849fb33aae933b25011e30498e5efbd10679d9e6c35dd616aeba"
+}

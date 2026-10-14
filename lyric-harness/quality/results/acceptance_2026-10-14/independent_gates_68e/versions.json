@@ -1,0 +1,12 @@
+{
+  "node": "v24.19.0",
+  "python": "Python 3.12.14",
+  "pip_freeze": [
+    "click==8.5.0",
+    "defusedxml==0.7.1",
+    "joblib==1.5.3",
+    "nltk==3.10.3",
+    "regex==2026.9.3",
+    "tqdm==4.70.0"
+  ]
+}

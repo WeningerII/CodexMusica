@@ -1,0 +1,10 @@
+{
+  "label": "mcp-14",
+  "command": "node mcp/test_run_continuation.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:36:01Z",
+  "exit_code": 0,
+  "duration_seconds": 442.978,
+  "log_sha256": "181da26e82f8507394b454cbc943507191112642b111769fab97e23da05a0599"
+}

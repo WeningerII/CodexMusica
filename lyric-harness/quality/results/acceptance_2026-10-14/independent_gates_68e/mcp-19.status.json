@@ -1,0 +1,10 @@
+{
+  "label": "mcp-19",
+  "command": "node --test mcp/test_high_report.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:47:01Z",
+  "exit_code": 0,
+  "duration_seconds": 135.59,
+  "log_sha256": "538b68cfeeb9fddaae5d4cd8a7c2f4451609b53160667784e11d9d8ceb9e9fdf"
+}

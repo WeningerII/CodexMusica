@@ -1,0 +1,29 @@
+/workspace/acceptance-68e/lyric-harness/quality/counters.py:564: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+/tmp/acceptance-symbol-8ea94ac9/quality/counters.py:564: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+/tmp/acceptance-symbol-8ea94ac9/quality/test_triage.py:104: SyntaxWarning: invalid escape sequence '\`'
+  `~~\`PARTIAL\`~~ \`CLOSED\`` -- and BOTH shipped readers took the first
+/tmp/acceptance-symbol-8ea94ac9/quality/test_verify_entries.py:263: SyntaxWarning: invalid escape sequence '\d'
+  """`\b\d+` reads "1,297 English files" as 297 — the word boundary sits
+/tmp/acceptance-symbol-8ea94ac9/quality/verify_doctrines.py:97: SyntaxWarning: invalid escape sequence '\|'
+  dash, en dash and `--` fold together); and an ESCAPED PIPE (`\|`, the one
+8ea94ac9d5141eb5062a8094351a9330f4edc38c 1739 4.252481698989868
+/tmp/acceptance-symbol-a09703a0/quality/counters.py:564: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+/tmp/acceptance-symbol-a09703a0/quality/test_triage.py:104: SyntaxWarning: invalid escape sequence '\`'
+  `~~\`PARTIAL\`~~ \`CLOSED\`` -- and BOTH shipped readers took the first
+/tmp/acceptance-symbol-a09703a0/quality/test_verify_entries.py:263: SyntaxWarning: invalid escape sequence '\d'
+  """`\b\d+` reads "1,297 English files" as 297 — the word boundary sits
+/tmp/acceptance-symbol-a09703a0/quality/verify_doctrines.py:97: SyntaxWarning: invalid escape sequence '\|'
+  dash, en dash and `--` fold together); and an ESCAPED PIPE (`\|`, the one
+a09703a0eb9581a37b97c8041e8fcc640c7cf2b1 1739 4.287504196166992
+/tmp/acceptance-symbol-68e213d0/quality/counters.py:564: SyntaxWarning: invalid escape sequence '\`'
+  text kept          -> `D-3`'s heading is `~~\`PARTIAL\`~~ \`CLOSED\``,
+/tmp/acceptance-symbol-68e213d0/quality/test_triage.py:104: SyntaxWarning: invalid escape sequence '\`'
+  `~~\`PARTIAL\`~~ \`CLOSED\`` -- and BOTH shipped readers took the first
+/tmp/acceptance-symbol-68e213d0/quality/test_verify_entries.py:263: SyntaxWarning: invalid escape sequence '\d'
+  """`\b\d+` reads "1,297 English files" as 297 — the word boundary sits
+/tmp/acceptance-symbol-68e213d0/quality/verify_doctrines.py:97: SyntaxWarning: invalid escape sequence '\|'
+  dash, en dash and `--` fold together); and an ESCAPED PIPE (`\|`, the one
+68e213d0aadf589319bce345b8eebc4b0d0a60f1 1739 4.483171701431274

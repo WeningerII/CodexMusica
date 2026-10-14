@@ -1,0 +1,47 @@
+test_final_stem_recovery_keeps_the_declared_judges_fallback_policy (test_reader.Normalisation.test_final_stem_recovery_keeps_the_declared_judges_fallback_policy) ... 
+  test_final_stem_recovery_keeps_the_declared_judges_fallback_policy (test_reader.Normalisation.test_final_stem_recovery_keeps_the_declared_judges_fallback_policy) (ending='-') ... FAIL
+  test_final_stem_recovery_keeps_the_declared_judges_fallback_policy (test_reader.Normalisation.test_final_stem_recovery_keeps_the_declared_judges_fallback_policy) (ending='-,') ... FAIL
+
+======================================================================
+FAIL: test_final_stem_recovery_keeps_the_declared_judges_fallback_policy (test_reader.Normalisation.test_final_stem_recovery_keeps_the_declared_judges_fallback_policy) (ending='-')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-68e/lyric-harness/quality/test_reader.py", line 478, in test_final_stem_recovery_keeps_the_declared_judges_fallback_policy
+    self.assertEqual(refused.unreadable,
+AssertionError: Lists differ: [(1, 1, 'viewest')] != [(0, 1, 'viewest-'), (1, 1, 'viewest')]
+
+First differing element 0:
+(1, 1, 'viewest')
+(0, 1, 'viewest-')
+
+Second list contains 1 additional elements.
+First extra element 1:
+(1, 1, 'viewest')
+
+- [(1, 1, 'viewest')]
++ [(0, 1, 'viewest-'), (1, 1, 'viewest')]
+
+======================================================================
+FAIL: test_final_stem_recovery_keeps_the_declared_judges_fallback_policy (test_reader.Normalisation.test_final_stem_recovery_keeps_the_declared_judges_fallback_policy) (ending='-,')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/acceptance-68e/lyric-harness/quality/test_reader.py", line 478, in test_final_stem_recovery_keeps_the_declared_judges_fallback_policy
+    self.assertEqual(refused.unreadable,
+AssertionError: Lists differ: [(1, 1, 'viewest')] != [(0, 1, 'viewest-'), (1, 1, 'viewest')]
+
+First differing element 0:
+(1, 1, 'viewest')
+(0, 1, 'viewest-')
+
+Second list contains 1 additional elements.
+First extra element 1:
+(1, 1, 'viewest')
+
+- [(1, 1, 'viewest')]
++ [(0, 1, 'viewest-'), (1, 1, 'viewest')]
+
+----------------------------------------------------------------------
+Ran 1 test in 1.647s
+
+FAILED (failures=2)
+MUTANT C KILLED

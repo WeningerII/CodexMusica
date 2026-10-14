@@ -1,0 +1,52 @@
+{
+  "head": "a09703a0eb9581a37b97c8041e8fcc640c7cf2b1",
+  "mcp_commands": [
+    "node mcp/test.mjs",
+    "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_verdict_view.mjs mcp/test_connector_http.mjs mcp/test_chatgpt.mjs mcp/test_chatgpt_harness.mjs mcp/test_chatgpt_revise.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs mcp/test_session_repairs.mjs mcp/test_pronunciation_choices.mjs mcp/test_lexicon_basis.mjs",
+    "node --test mcp/test_chatgpt_parked.mjs",
+    "python3 scripts/test_lyrics_capacity.py",
+    "python3 scripts/test_profile_lyrics_phase.py",
+    "python3 scripts/test_worker_measurement_capture.py",
+    "python3 scripts/test_lyric_continuations.py",
+    "python3 scripts/test_production_qualification.py",
+    "python3 lyric-harness/quality/test_session_repairs.py",
+    "python3 lyric-harness/quality/test_pronunciation_choices.py",
+    "python3 lyric-harness/quality/test_computational_audit.py",
+    "node --test --test-concurrency=1 mcp/test_paid_budget.mjs mcp/test_python_bridge.mjs mcp/test_lookup_queue.mjs mcp/test_lyric_state.mjs mcp/test_turn_lifecycle.mjs mcp/test_battery_lifecycle.mjs mcp/test_battery_archive.mjs mcp/test_battery_storage.mjs mcp/test_job_store.mjs",
+    "node mcp/test_lyric_state.mjs --harness",
+    "node mcp/test_run_continuation.mjs",
+    "node mcp/test_deferred_continuation.mjs",
+    "node --test mcp/test_continuation_audit.mjs",
+    "node --test mcp/test_loop_redesign.mjs",
+    "node mcp/test_kitchen_repairs.mjs",
+    "node --test mcp/test_high_report.mjs",
+    "node --test --test-concurrency=1 mcp/test_reader_job_store.mjs mcp/test_reader_store_bounds.mjs mcp/test_reader_client.mjs mcp/test_reader_integration.mjs mcp/test_library_search.mjs mcp/test_library_viewer_routes.mjs mcp/test_library_exports.mjs mcp/test_library_corpus.mjs mcp/test_spend_store.mjs mcp/test_resume_stopped.mjs"
+  ],
+  "extra_files": [
+    "test_reader_job_store.mjs",
+    "test_reader_store_bounds.mjs",
+    "test_reader_client.mjs",
+    "test_reader_integration.mjs",
+    "test_library_search.mjs",
+    "test_library_viewer_routes.mjs",
+    "test_library_exports.mjs",
+    "test_library_corpus.mjs",
+    "test_spend_store.mjs",
+    "test_resume_stopped.mjs"
+  ],
+  "parallelism": "2 revise shards + 1 serial MCP command; BLAS threads=1",
+  "environment_overrides": {
+    "PATH": "/workspace/acceptance-venv/bin:/home/agent/.local/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/override:/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/node/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin:/opt/codex/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/agent/.local/bin:/opt/codex/runtimes/codex-primary-runtime/dependencies/bin/fallback",
+    "LYRIC_PYTHON": "/workspace/acceptance-venv/bin/python",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONUNBUFFERED": "1",
+    "PLAYWRIGHT_BROWSERS_PATH": "/tmp/acceptance-browsers"
+  },
+  "excluded_mcp_files": {
+    "test_library_fixtures.mjs": "shared fixture module, not test entry point",
+    "test_library_search_parity.mjs": "requires separately built pinned 317c corpus store; investigate separately",
+    "test_library_exports_parity.mjs": "requires separately built pinned 317c corpus store; investigate separately"
+  }
+}

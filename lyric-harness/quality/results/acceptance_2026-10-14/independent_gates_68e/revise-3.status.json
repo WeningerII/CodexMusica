@@ -1,0 +1,12 @@
+{
+  "label": "revise-3",
+  "command": "python3 quality/test_revise.py",
+  "cwd": "/workspace/acceptance-code/lyric-harness",
+  "environment": {
+    "TEST_REVISE_SHARD": "3/4"
+  },
+  "started_utc": "2026-10-14T15:23:06Z",
+  "exit_code": 0,
+  "duration_seconds": 157.729,
+  "log_sha256": "fc48b43237bad851c7dc5309f1ef5bfb0c83ca37c7f635b83ea73817152ae4b9"
+}

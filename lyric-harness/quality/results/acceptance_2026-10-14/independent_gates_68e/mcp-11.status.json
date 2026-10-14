@@ -1,0 +1,10 @@
+{
+  "label": "mcp-11",
+  "command": "python3 lyric-harness/quality/test_computational_audit.py",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:34:13Z",
+  "exit_code": 0,
+  "duration_seconds": 6.95,
+  "log_sha256": "68a2c60f0d59699801aea6dc95d76a4171b21e333d76c83d81a50fd74baca296"
+}

@@ -1,0 +1,10 @@
+{
+  "label": "mcp-09",
+  "command": "python3 lyric-harness/quality/test_session_repairs.py",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:32:56Z",
+  "exit_code": 0,
+  "duration_seconds": 13.189,
+  "log_sha256": "6c59ff2c32b6704854b49a7b324df39ed42779c6af1d31451846911a52465b6e"
+}

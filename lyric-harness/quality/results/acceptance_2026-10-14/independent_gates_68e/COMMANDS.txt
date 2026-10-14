@@ -1,0 +1,7 @@
+python3 /workspace/acceptance-gates/run.py
+python3 /workspace/acceptance-gates/focused-68e/run.py
+/workspace/acceptance-venv/bin/python /workspace/acceptance-gates/focused-68e/attribution.py
+/workspace/acceptance-venv/bin/python lyric-harness/lyric_harness.py wiring
+python3 /workspace/acceptance-gates/summarize.py
+
+Exact expanded commands are in manifest.json/results.json. Focused commands and timings are in focused-68e/results.json.

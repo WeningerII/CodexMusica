@@ -1,0 +1,4 @@
+PASS real MCP + real Python: immutable defaults/input; one concurrent continuation; stale revision refused; capacity stop preserves exact artifact and journal and refuses replay.
+{"batch_door_continuation":4,"walk":["propose_group[1,8,9,10,11]","propose[1]","propose[1]","propose[1]"],"first_batch":[2,3,4,5,14,15,17,19,21,23],"state_bytes":304710}
+{"split_continuation":1,"question_kind":"propose","asked":[2],"answered":[1,1,1,2,3,4,5,14,15,17,19,21,23],"rejected_first_subset":[2],"unvisited_first_subset":[3,4,5,14,15,17,19,21,23],"omitted_tail_folded":[],"accepted_draft_sha256":"dcddfc39f9270faab7c5a011604fdd45523b50fdd8392bd6c195f398db20e667"}
+PASS actual seed1/24 split liveness at attempts3: batch door on continuation 4, first [2,3,4,5,14,15,17,19,21,23] retained, pivot rejected, omitted [] reasked and folded after 1 further continuation(s); exact draft preserved; actual batch results keep future unvisited answers unknown.

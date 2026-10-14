@@ -1,0 +1,10 @@
+{
+  "label": "mcp-17",
+  "command": "node --test mcp/test_loop_redesign.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:46:33Z",
+  "exit_code": 0,
+  "duration_seconds": 17.072,
+  "log_sha256": "06534bd2843cf9205eb83186cc945e8eb99225282f2230f6d018371201d0fe68"
+}

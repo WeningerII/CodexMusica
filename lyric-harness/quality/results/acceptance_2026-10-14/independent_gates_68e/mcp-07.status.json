@@ -1,0 +1,10 @@
+{
+  "label": "mcp-07",
+  "command": "python3 scripts/test_lyric_continuations.py",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:32:56Z",
+  "exit_code": 0,
+  "duration_seconds": 0.263,
+  "log_sha256": "ecb5a6f9a860c3eefd5ef779c3b2bec29afeb56d49a71e3b63589d8ec62f2298"
+}

@@ -1,0 +1,10 @@
+{
+  "label": "mcp-05",
+  "command": "python3 scripts/test_profile_lyrics_phase.py",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:32:51Z",
+  "exit_code": 0,
+  "duration_seconds": 4.736,
+  "log_sha256": "f9744aa22bc95d521fa4ac0b54db7de3743b13610b83d5f63510466e5d83123c"
+}

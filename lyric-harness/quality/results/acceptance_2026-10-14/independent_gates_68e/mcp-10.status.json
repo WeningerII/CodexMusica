@@ -1,0 +1,10 @@
+{
+  "label": "mcp-10",
+  "command": "python3 lyric-harness/quality/test_pronunciation_choices.py",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:33:09Z",
+  "exit_code": 0,
+  "duration_seconds": 63.132,
+  "log_sha256": "f3571d335c2c1e8da7463f3f86e350a0e4d1ca810caea14df64e2eb25cdb7478"
+}

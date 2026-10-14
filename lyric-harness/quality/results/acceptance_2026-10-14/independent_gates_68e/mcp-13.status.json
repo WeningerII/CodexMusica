@@ -1,0 +1,10 @@
+{
+  "label": "mcp-13",
+  "command": "node mcp/test_lyric_state.mjs --harness",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:35:25Z",
+  "exit_code": 0,
+  "duration_seconds": 35.744,
+  "log_sha256": "bdb72ebb99925667234ced78a2a944780fd88d6cf8f0ef5b72d9ddd52010b5c4"
+}

@@ -1,0 +1,10 @@
+{
+  "label": "mcp-06",
+  "command": "python3 scripts/test_worker_measurement_capture.py",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:32:56Z",
+  "exit_code": 0,
+  "duration_seconds": 0.131,
+  "log_sha256": "d8788fb668ab485288228ba408880db88f6bc1e91fecb5466716ec0bebc051a5"
+}

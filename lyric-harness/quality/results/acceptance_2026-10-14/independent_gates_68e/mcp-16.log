@@ -1,0 +1,20 @@
+✔ a verified rewrite retires its old occurrence reading and retains the original declaration (12387.183557ms)
+✔ group fold receipts cannot use a previous attempt verdict for an ungraded answer (0.518899ms)
+✔ the chat wrapper also keeps uncertified recovery distinct from lyric rejection (0.447762ms)
+✔ F02: structured targets are validated before any journal or revision changes (20182.390938ms)
+✔ F03: a lyric cannot fabricate suspended diagnostics (10327.424256ms)
+✔ raw single-line target refusal retains a correctable pending question (8455.077298ms)
+✔ F01/F03: accepted batch progress keeps authoritative counters; malformed row sets refuse (27811.337615ms)
+✔ F04/F06: mixed versions refuse; repeated questions and cache-loss recovery retain accepted lyrics (15698.138691ms)
+✔ F05: a rejected whole-song answer opens a new attempt which can succeed (14680.81062ms)
+✔ F07: uncertified results retain their exit code and actionable coverage recovery (3350.125183ms)
+✔ F08: native creation carries server revisions through repeated answers and reconnect (33795.040973ms)
+✔ structured answers without a pending question name the missing question (3509.495943ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 151101.125058

@@ -1,0 +1,252 @@
+<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:564: SyntaxWarning: invalid escape sequence '\`'
+VERB -> LAYER
+  declaration                            lyric_harness.py             the declaration tuple itself
+  score / candidates / graph / chains    lyric_harness.py             spine
+  scheme (letters)                       lyric_harness.py             spine
+  meter (template)                       lyric_harness.py             spine
+  qafiya / prasa / cynghanedd            lyric_harness.py             spine
+  internal / density / weight            lyric_harness.py             spine
+  demo                                   lyric_harness.py             the acceptance suite
+  wiring                                 lyric_harness.py             this map, checked against the dispatch
+  types                                  quality/rhyme_types.py       9-axis coordinate + anchor
+  screen                                 quality/revise.py            pair screening -- every relation each pair stands in, plus the song grader's bans on a minimal mandated pair; --bank adds quality/cross_song.py's cross-song disclosure
+  recover                                quality/recover.py           structure recovery -- the second door: a pasted song's sections, syllables and rhyme web, each coordinate with how it was obtained
+  capacity                               quality/capacity.py          derived rhyme-family capacity -- what the lexicon sustains
+  partition                              quality/schemes.py           set partitions, Bell numbers
+  refrain                                quality/schemes.py           A-1 notation: the VERBATIM return
+  cycle                                  quality/meter.py             exact-rational metric cycles
+  relations                              quality/relations.py         ~~77~~ 78 named relation schemas (`len(relations.REGISTRY)` is the count)
+  brief / verify / song                  quality/revise.py            the revision loop -- song adds a structural pre-check against quality/grid.py, then shares this same report
+  revise                                 quality/loop.py              the automated write-check-fix loop, driven on top of brief/verify
+  tryline                                quality/loop.py              the PRE-FLIGHT -- would this one line be accepted? -- a front door onto `Reviser.verify`, the loop's own acceptance decision, over `loop.apply_candidate`, the loop's own definition of what a one-line answer moves
+  finish                                 quality/loop.py              the working order's last step as one door: plan-derived mandate, the loop to a stop condition, and the render exists only past one
+  plan                                   quality/plan.py              the planning phase -- request to blueprint + mandate, generated from the enumerated scheme space
+  readability                            quality/readability.py       ingestion refusals
+  grid                                   quality/grid.py              bar grid, stanza lock
+  function                               quality/grid.py              section function, returns, hook
+  fit                                    quality/fit.py               syllables against the bar's pulses
+
+TABLE COVERAGE (the map, checked against the dispatch)
+  dispatched 34   on the map 34   in --help 34/34
+  every dispatched verb is on the map and in --help, and every mapped verb is dispatched
+
+IMPORT REACHABILITY (production modules with no non-test caller)
+  one-shot runners, standalone by design (`__main__`): 116
+    python3 imports/gutenberg-next-ten/13646/adapter.py Extract 112 numbered limericks plus complete introductory verse; HTML br pre
+    python3 imports/gutenberg-next-ten/1568/adapter.py Reproduce reviewed whole-poem candidates from the compressed pinned witness.
+    python3 imports/gutenberg-next-ten/27195/adapter.py Offline extraction of PG27195's 1922 edition, retaining its printed dialect.
+    python3 imports/gutenberg-next-ten/3138/adapter.py Reproduce reviewed whole-poem candidates from the compressed pinned witness.
+    python3 imports/gutenberg-next-ten/40048/adapter.py Replay PG40048's complete 1842 song units from the pinned HTML witness.
+    python3 imports/gutenberg-next-ten/50878/adapter.py Extract complete song units from this supplied Gutenberg HTML witness.
+    python3 imports/gutenberg-next-ten/51226/adapter.py Extract complete song units from this supplied Gutenberg HTML witness.
+    python3 imports/gutenberg-next-ten/58414/adapter.py Extract complete song units from this supplied Gutenberg HTML witness.
+    python3 imports/gutenberg-next-ten/69378/adapter.py Replay PG69378 plaintext verse boundaries against the byte-pinned witness.
+    python3 imports/gutenberg-next-ten/934/adapter.py Extract all 87 PG934 songs, using the supplied HTML to resolve text wrapping
+    python3 imports/gutenberg-next-ten/prepare_catalog.py Register this import's sources and pin the complete Library input tree.
+    python3 imports/gutenberg-ten/20476/validate.py Independent source-fidelity check. Pass pinned HTML and ISO-8859-1 text path
+    python3 imports/gutenberg-ten/21300/adapter.py Extract the 153 complete indexed units from PG 21300's 1929 printing.
+    python3 imports/gutenberg-ten/22223/adapter.py Parse the exact 1903 Gutenberg 22223 plain-text transcription, without split
+    python3 imports/gutenberg-ten/30418/adapter.py Extract the complete nursery rhymes in the supplied 1843 PG30418 HTML.
+    python3 imports/gutenberg-ten/46041/validate.py Verify the pinned source, complete numbered coverage, and apparatus removal.
+    python3 imports/gutenberg-ten/56625/adapter.py Extract complete numbered songs from PG56625's April 1913 reprint.
+    python3 imports/gutenberg-ten/59263/adapter.py Extract all 88 numbered items from the exact PG59263 HTML edition.
+    python3 imports/gutenberg-ten/65524/adapter.py Extract indexed songs plus the separately titled John Hobbs from PG 65524.
+    python3 imports/gutenberg-ten/76498/adapter.py Extract all 594 entries from the contiguous PG76498 plain-text transcription
+    python3 imports/gutenberg-ten/76941/adapter.py Parse Gutenberg 76941's 1908 edition. Preserve complete contents units and s
+    python3 imports/gutenberg-ten/prepare_catalog.py Register this import's sources and pin the complete Library input tree.
+    python3 imports/gutenberg-third-ten/1030/adapter.py Offline source-specific extraction; source-defined work boundaries only.
+    python3 imports/gutenberg-third-ten/17884/adapter.py Reproduce reviewed whole-poem candidates from the compressed pinned witness.
+    python3 imports/gutenberg-third-ten/18007/adapter.py Reproduce reviewed whole-poem candidates from the compressed pinned witness.
+    python3 imports/gutenberg-third-ten/20774/adapter.py Replay the 30 complete printed lyric blocks, excluding notes and score image
+    python3 imports/gutenberg-third-ten/21723/adapter.py Offline source-specific extraction; source-defined work boundaries only.
+    python3 imports/gutenberg-third-ten/33417/adapter.py Reproduce reviewed whole-poem candidates from the compressed pinned witness.
+    python3 imports/gutenberg-third-ten/48494/adapter.py Extract complete song units from this supplied Gutenberg HTML witness.
+    python3 imports/gutenberg-third-ten/49629/adapter.py Extract complete song units from this supplied Gutenberg HTML witness.
+    python3 imports/gutenberg-third-ten/50041/adapter.py Extract complete song units from this supplied Gutenberg HTML witness.
+    python3 imports/gutenberg-third-ten/69866/adapter.py Reproduce reviewed whole-poem candidates from the compressed pinned witness.
+    python3 imports/gutenberg-third-ten/prepare_catalog.py Register this import's sources and pin the complete Library input tree.
+    python3 library/catalog_downloads.py       Deterministic, rights-filtered corpus downloads, with bounded upload parts.
+    python3 library/catalog_static_export.py   Static Library data for the native tab, served by Pages (docs/library-native
+    python3 library/unit_manifest.py           Write the immutable per-unit manifest of one built Library snapshot.
+    python3 map/build.py                       Generate the lyric harness map: the small index every session loads
+    python3 quality/audit_band_control.py      AUDIT: the conjunctive band's negative control, against a matched null.
+    python3 quality/audit_fwer_fpr.py          AUDIT: the time layer's "false-event rate measured at 5.4% against a
+    python3 quality/audit_hafez_radif.py       AUDIT: "radif visible in 297 of 495 ghazals", with the setting and a null.
+    python3 quality/audit_joint_auc_null.py    AUDIT: the joint held-out AUCs, against a label-permutation null and
+    python3 quality/audit_kalevala_null.py     AUDIT: the Kalevala alliteration figure against a matched null -- and the
+    python3 quality/audit_register.py          Adversary 5/6 — the instrument that attacks THE RECORD.
+    python3 quality/audit_rhyme_organization.py Reproduce the frozen L-1/L-2 redesign controls; no rebaselining or fitting.
+    python3 quality/audit_spans.py             Adversary 7 — do the number, the label and the evidence agree?
+    python3 quality/audit_tang_null.py         AUDIT: the 律詩 88.1% "rhyme agreement at mandated positions", with nulls.
+    python3 quality/audit_time_pooled_null.py  AUDIT: is the time layer's pooled Fisher p a fact about verse, or the
+    python3 quality/backlog_status.py          DO THE QUEUE AND THE REGISTER AGREE ABOUT WHAT IS STILL OPEN?
+    python3 quality/ban_convergence.py         The two-tier ban, measured against the bank (C18 / M-168, 2026-09-02).
+    python3 quality/battery_rounds.py          THE FLASH BATTERY, ONE ROW PER ROUND, ONE LAYER PER ROW (`MISSING.md`
+    python3 quality/build_ci_corpus.py         Reconstruct a ci (詞) corpus from sources that carry NO LIVING COPYRIGHT.
+    python3 quality/check_comparator_pin.py    THE COMPARATOR PIN: has the comparator moved since anyone last verified it?
+    python3 quality/check_render_form.py       Check section apparatus and the provenance of a finished presentation.
+    python3 quality/corpus_taxonomy.py         The corpus taxonomy: language x region/tradition x function/venue.
+    python3 quality/coverage_log.py            Session logger for the coverage experiment.
+    python3 quality/cym_rhyme_rate.py          Welsh end-rhyme (*odl*) — every figure in `quality/RESULTS_CYM_RHYME.md`.
+    python3 quality/cynghanedd_rate.py         How often does cynghanedd fire -- and how often would it fire on nothing?
+    python3 quality/door_census.py             WHICH DOOR DOES EACH SITE JUDGE A PAIR AT — the census, not the claim.
+    python3 quality/e5_coda_adoption.py        Reproduce E-5's declared compatibility experiment; exit nonzero on failure.
+    python3 quality/eval_matrix.py             Held-out evaluation of the fitted matrix, against MATRIX_PREREGISTRATION.md.
+    python3 quality/expected_drift.py          Declared drift — the difference between a gate that is RED and a gate that
+    python3 quality/fetch_data.py              Stage the lexical resources the quality layer needs.
+    python3 quality/fin_rhyme_rate.py          Does the staged Finnish corpus satisfy loppusointu -- and what would chance 
+    python3 quality/fixtures/capture_reader_v1_defer_states.py Capture pre-batch deferred-run states (`reader_v1_defer_states.json`).
+    python3 quality/fixtures/capture_reader_v1_oracle.py Capture the frozen v1 reader oracle (`reader_v1_oracle.json`).
+    python3 quality/fold_series.py             Time successive `--propose=defer:` FOLDS on a FLAGGED draft — the
+    python3 quality/gate_corpora.py            Run the provenance gate over the real corpus rows and report survival.
+    python3 quality/graph_probe.py             DOES CONSULTING THE CODE GRAPH COST LESS THAN SEARCHING — AND ANSWER THE SAM
+    python3 quality/hafez_rate.py              Radif and qāfiya in Hafez -- and what the same detectors report on nothing.
+    python3 quality/internal_rhyme_rate.py     THE IN-LINE RHYME RATE.  quality/INTERNAL_RHYME_PREREGISTRATION.md is the
+    python3 quality/kalevala_calibration.py    The Kalevala alliteration calibration — phase 2, run 1.
+    python3 quality/kalevala_rate.py           How often does Kalevala alliteration fire -- and how often on nothing?
+    python3 quality/loop_redesign_phase1/drive.py PHASE-1 MEASUREMENT DRIVER (scratch; never used to produce a song).
+    python3 quality/loop_redesign_phase1/mkdraft.py 
+    python3 quality/ltc_overlap.py             What the OR over readings bought, priced against three controls.
+    python3 quality/m40_poet_cells.py          M-40's declared follow-up cells; exploratory, never an admissibility update.
+    python3 quality/mark_coverage.py           Mark coverage: how much of the corpus the section vocabulary cannot type.
+    python3 quality/mutate.py                  Adversary 4 — mutation testing. Can this suite detect a broken harness?
+    python3 quality/phrase_commonplace.py      PHRASE COMMONPLACE — the phrase-level half of MISSING.md H-1, MEASURED,
+    python3 quality/pilot_frame.py             THE MOBY CONVERTER-SCREENING PILOT: freeze the frame, then draw from it.
+    python3 quality/pin_sweep.py               WHICH COMMITTED FIGURES DOES THIS WORKING TREE MOVE?  --  `MISSING.md` M-21.
+    python3 quality/positive_control.py        Positive control for the time layer — does the statistic detect periodicity
+    python3 quality/prasa_rate.py              Does the Digital Corpus of Sanskrit satisfy dvitīyākṣara-prāsa? -- measured.
+    python3 quality/prove_relation_index.py    Does the widening index ever drop a word the grade would accept?
+    python3 quality/recertify_capacity.py      Rebuild all adopted RHYME witnesses with bounded parallel workers.
+    python3 quality/regrade_verdicts.py        RE-DERIVE EVERY BANKED SONG VERDICT AGAINST THIS TREE.
+    python3 quality/relation_shapes.py         WHICH OF THE 78 DECLARED RELATIONS FIT A WORD-PAIR MANDATE, AND WHICH ONES
+    python3 quality/results/census_validation_2026-10-12/compare.py Receipt for the 2026-10-12 validation-side census (PR #527, BB8 6133890644).
+    python3 quality/results/m170_2026-09-17/predicate_probe.py M-170 fixed-word field comparison and held-instance declaration counterexamp
+    python3 quality/results/m244_ci_2026-09-17/observation-control-command.py M-244 regression counterexample; run explicitly from lyric-harness.
+    python3 quality/results/named_place_lookup_2026-10-14/measure.py Identical-cut lines whose default END binding moves between reader schemes.
+    python3 quality/results/otterbein_m25_2026-10-04/final/residue_measure.py Re-derive the two residue measurements `MISSING.md` M-25 quotes.
+    python3 quality/results/reader_continuation_2026-10-14/boo_quote_probe.py Focused Boo-” historical-module comparison, not full-tree acceptance.
+    python3 quality/results/reader_continuation_2026-10-14/p7_mutations.py P7 mutation proof; run with C or F2. Only in-memory module code is changed.
+    python3 quality/results/scope_2026-10-12/hyphen_end_classes.py Item 6's four classes of hyphenated anchor end tokens, with a stable id per
+    python3 quality/results/scope_2026-10-12/lex_vs_moby.py Every reading in CMUdict + supplement v2 vs Moby (converted). Read-only.
+    python3 quality/results/scope_2026-10-12/occurrence_sidecar.py Raw-occurrence sidecar for 3PO's M1/M2 context ledger (PR #527, 3PO
+    python3 quality/results/scope_2026-10-12/reader_disagree.py Every end word where the grader's anchor reader and the grid reader disagree
+    python3 quality/results/scope_2026-10-12/selected_vs_moby.py Item 2 on the population that matters: the reading the program SELECTS for
+    python3 quality/results/slot_default_end_zero_binding_2026-10-14/compare_runs.py Reconstruct this receipt's claims from the FULL slot-tool dumps.
+    python3 quality/results/slot_default_end_zero_binding_2026-10-14/default_end_direct.py Default end, by direct call: every line where the reviser's default-end
+    python3 quality/results/warm_worker_rss_2026-10-13/measure.py Peak resident memory of ONE warm worker holding both reader schemes'
+    python3 quality/schema_census.py           HOW MANY OF THE ~~77~~ SCHEMAS CAN BE ASKED, AND WHAT BLOCKS THE REST.
+    python3 quality/schema_window.py           How far apart are the lines the whole-draft schema door actually rescues?<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+<unknown>:564: SyntaxWarning: invalid escape sequence '\`'
+<unknown>:564: SyntaxWarning: invalid escape sequence '\`'
+
+    python3 quality/search_null.py             DOES THE COMPARATOR'S SPAN SEARCH BEAT A NULL UNDER THE SAME SEARCH?
+    python3 quality/section_marks.py           THE BRACKETED MARKS THIS CORPUS PRINTS, TRIAGED BY KIND (`MISSING.md` M-52).
+    python3 quality/shard.py                   ONE IDIOM FOR DEALING A SUITE'S SECTIONS ACROSS CI SHARDS, AND TIMING THEM.
+    python3 quality/som_channel_audit.py       Somali — which channels does the gabay CONSTRAIN, and which does an
+    python3 quality/song_shape.py              THE SHAPE OF THE SERIES — what section orders the songs actually use.
+    python3 quality/stage_sagadb.py            Stage the Old Norse verse of `sveinbjornt/sagadb.org` -- `MISSING.md` K-4.
+    python3 quality/suite_sweep.py             IS THE WHOLE SUITE TREE GREEN, AND WHERE DOES THE TIME GO?
+    python3 quality/time_attainable.py         CAN THE TIME LAYER PRODUCE AN EVENT AT ALL, UNDER AN HONEST FAMILY SIZE?
+    python3 quality/triage.py                  WHAT IS ACTUALLY NEXT — the registers' declared status, crossed against the
+    python3 quality/verify_capacity.py         Actually verify every reviewed capacity witness in this installed runtime.
+    python3 quality/verify_entries.py          ENTRY CLAIMS — the sentences in MISSING.md and BACKLOG.md, checked; plus
+    python3 quality/verify_figures.py          verify_figures — the prose that quotes a pinned figure answers to the pin.
+
+  ALSO RUNNABLE, and imported by production code (`__main__` + a caller): 76
+    not 'standalone by design' -- these are libraries you can also run, and the count above deliberately excludes them
+    python3 battery.py                         Test battery for the Lyric Harness.
+    python3 imports/gutenberg-next-ten/integrate.py Integrate the next ten collections with the existing, unchanged batch rules.
+    python3 imports/gutenberg-ten/20476/extract.py Extract PG20476's complete numbered hymns from the pinned XHTML edition.
+    python3 imports/gutenberg-ten/46041/extract.py Extract the complete 1870 Christian Hymn Book's explicit hymn/verse markup.
+    python3 imports/gutenberg-ten/integrate.py Integrate the ten reviewed Gutenberg collections with the existing Library.
+    python3 imports/gutenberg-third-ten/integrate.py Integrate the third ten collections with the existing, unchanged batch rules
+    python3 library/catalog.py                 Build immutable, source-faithful Library snapshots. No network or model call
+    python3 library/catalog_site_export.py     Rights-filtered deployment from a complete canonical Library snapshot.
+    python3 library/registry.py                The Library method reference, generated from the installed engine.
+    python3 library/search_store.py            Exact search store for the native Library tab (/library/v1/search).
+    python3 lyric_harness.py                   Lyric Harness MVP
+    python3 quality/audit_corpus.py            Adversary 5 — the instrument that attacks THE CORPUS.
+    python3 quality/brief_provenance.py        WAS THIS REVISION BRIEFED, OR GUESSED?
+    python3 quality/build_song_frequency.py    Build the RHYME-POSITION frequency tables over corpus/song/eng_*.
+    python3 quality/calibration_rebuild.py     Rebuild every current calibration row using the existing scoring functions.
+    python3 quality/canon_sources.py           M-15a. The survey index that `RHYME_CANON.md` cites, recovered and INLINED.
+    python3 quality/capacity.py                English rhyme capacity, constructed and checked through the current judge.
+    python3 quality/chance_rate.py             HOW OFTEN DOES THE SHIPPED DOOR CALL TWO RANDOM WORDS A RHYME — and the
+    python3 quality/check_data_rows.py         Re-derive the mechanical claims `data/sources.tsv` makes about `data/`.
+    python3 quality/controls.py                Controls and calibration — blockers 2 and 3.
+    python3 quality/corpus.py                  Corpus loading and the pre-registered survival labels.
+    python3 quality/corpus_manifest.py         The calibration-set manifest: WHICH corpus state the adopted constants
+    python3 quality/counters.py                COUNTERS — every row of BACKLOG.md's counters table, MEASURED.
+    python3 quality/coverage_census.py         THE COVERAGE CENSUS: how much sung text the lexicon cannot read, by word,
+    python3 quality/coverage_queue.py          THE RANKED REVIEW QUEUE: which unread spellings to review first, ranked by
+    python3 quality/coverage_split.py          THE COVERAGE SPLIT: a frozen, work-grouped dev / validation split of the
+    python3 quality/cross_song.py              CROSS-SONG WORD REUSE, DISCLOSED AND NEVER GRADED — `MISSING.md` M-111.
+    python3 quality/declared_inputs.py         The six declared-input families — R1-R6, the honest boundary.
+    python3 quality/discriminate.py            Discrimination test for the pre-registered quality features.
+    python3 quality/features.py                Quality features for the Lyric Harness.
+    python3 quality/figure_exhibits.py         ONE-LINE WITNESSES FOR THE INTRA-LINE FIGURES — the census's second evidence
+    python3 quality/figures.py                 INTRA-LINE FIGURES — the ~~19~~ ~~21~~ 20 schemas no pair of lines can stand
+    python3 quality/fit.py                     Does the line FIT the bar? — the DECLARED layer, and only the declared layer
+    python3 quality/fit_matrix.py              Fitted substitution matrix — closes known gap 2, resolves doctrine 5.
+    python3 quality/floor.py                   The slop floor — a rejection gate for generated verse.
+    python3 quality/frequency.py               Independent frequency layer — blocker 1.
+    python3 quality/fwer_family.py             The family size is a MEASUREMENT, and it was being read off the wrong set.
+    python3 quality/g2p.py                     Known gap 1 — a transcription fallback for English words CMUdict cannot read
+    python3 quality/gate_census.py             WHICH FINDINGS CAN REFUSE ANYTHING — the census, not the claim.
+    python3 quality/length_curve_calibration.py Length-conditioned floor thresholds over the WHOLE song corpus.
+    python3 quality/lexicon_supplement.py      THE REVIEWED LEXICON SUPPLEMENT: pronunciations CMUdict lacks, added offline
+    python3 quality/loop.py                    The automated write-check-fix loop — quality/revise.py driven to
+    python3 quality/meter_bands.py             Calibration runner: what sung English lines actually ask a bar to hold.
+    python3 quality/moby_convert.py            THE MOBY CONVERTER: Moby Pronunciator II (Project Gutenberg #3205,
+    python3 quality/morphology.py              THE DECLARED ENGLISH MORPHOLOGY RESOURCE — root and affix, for the two
+    python3 quality/narrative.py               The narrative vocabulary and the story line-up counter — step 4's
+    python3 quality/narrative_bands.py         Narrative proxy calibration runner — P1 and P2 of
+    python3 quality/near_relation_pricing.py   PRICING THE NEAR-RELATION DOOR, AND THE EMPTY/EMPTY CODA — the runner for
+    python3 quality/negative_control.py        THE REPLACEMENT NEGATIVE CONTROL.  MISSING.md K-2 / K-3, BACKLOG §3.5.
+    python3 quality/populate_authority.py      Populate the authority table from dataset-carried dates.
+    python3 quality/provenance.py              Provenance gate — nothing enters a cell without positive evidence.
+    python3 quality/quotients.py               DECLARED QUOTIENTS — the named partitions a schema may be judged under.
+    python3 quality/readability.py             Readability of a text to the shipped lexicon — the recorded refusal.
+    python3 quality/reader_cases.py            Generated lines for the English reader's property tests and fixtures.
+    python3 quality/recover.py                 STRUCTURE RECOVERY: the second door into the one pipeline.
+    python3 quality/redteam_band.py            RED TEAM for the conjunctive band — generate counterexamples mechanically.
+    python3 quality/relations.py               SPAN-PAIR RELATIONS over one flat phonological stream for a whole song.
+    python3 quality/relations_null.py          MATCHED CONTROLS for quality/relations.py.  BACKLOG §2.6.<unknown>:97: SyntaxWarning: invalid escape sequence '\|'
+
+    python3 quality/release_assets.py          Exact bytes and declared redistribution decisions for the production image.
+    python3 quality/revise.py                  The revision loop — spec, draft, check, revise flagged lines, re-check.
+    python3 quality/rhyme_constraints.py       Rhyme types as DECLARATIVE CONSTRAINTS over an annotated site stream.
+    python3 quality/rhyme_organization.py      Test rhyme organization, not the significance of individual rhyme edges.
+    python3 quality/run_positive_control.py    Part B of the positive control — run it on the real corpora.
+    python3 quality/schema_end_reading.py      Does the whole-vocabulary schema door rescue pairs a listener hears as
+    python3 quality/senses.py                  THE SENSE RESOURCE — WordNet, and a NAMED disambiguation algorithm.
+    python3 quality/sentencehood.py            The sentencehood layer: a line of stacked nouns is not a sung phrase.
+    python3 quality/song_log.py                THE PROCESS BESIDE THE PRODUCT — what the verbs said while a song was writte
+    python3 quality/song_profile_calibration.py Re-derive the `song` profile in quality/floor.py from corpus/song/.
+    python3 quality/song_record.py             THE SONGS AS FIXED WITNESSES — a banked measurement, not an opinion.
+    python3 quality/sourced_tables.py          SOURCED TABLES for the schemas that otherwise answer only on a fixture.
+    python3 quality/structure_census.py        The structure census — run 1: English.
+    python3 quality/structures.py              The structure catalog: what a mandated group can DEMAND, as declared rows.
+    python3 quality/time_layer.py              The time layer — rhyme placement against a metric period.
+    python3 quality/type_canon.py              The declared join from the `type` namespace to the 601-entry canon.
+    python3 quality/verify_doctrines.py        Doctrine cross-reference verifier, and the doctrine -> check REGISTRY.
+    python3 quality/within_item.py             Within-item respecification of the quality features.
+  STRANDED  none — every production module is either imported or runnable
+
+OFFLINE RESEARCH TOOLS (declared; they fetch their sources, so CI runs none of them): 7
+    data/labels/finnic_variant_counts/build_finnic_variant_counts.py
+        python3 data/labels/finnic_variant_counts/build_finnic_variant_counts.py -- fetches hsci-r/filter-data and rahvaluule/erab into $FINNIC_CACHE (default /tmp/finnic_cache) and writes the label_variant_count / label_parish_spread tables beside itself
+    data/labels/finnic_variant_counts/verify.py
+        python3 data/labels/finnic_variant_counts/verify.py -- AFTER the builder, on the same $FINNIC_CACHE: an independent re-derivation of the emitted tables, 24 assertions, exit 1 on any failure (an offline suite: its inputs are fetched, so it cannot run in CI)
+    data/labels/ja_hyakunin_isshu/build_ja_hyakunin_isshu.py
+        python3 data/labels/ja_hyakunin_isshu/build_ja_hyakunin_isshu.py -- fetches borh/hachidaishu (hachidai.db) and nyoronjp's Ogura Hyakunin Isshu CSV itself
+    data/labels/pa_bani/build_pa_bani.py
+        python3 data/labels/pa_bani/build_pa_bani.py -- fetches @shabados/database (version pinned in the file) from registry.npmjs.org into .shabados_cache/
+    data/labels/sa_subhasita/build_sa_subhasita.py
+        python3 data/labels/sa_subhasita/build_sa_subhasita.py -- fetches GRETIL through a git-pinned mirror into .gretil_cache/ (CC BY-NC-SA: the TEXT is inadmissible here, the LABEL is a fact about it); run it BEFORE sa_amarusataka
+    data/labels/sa_subhasita/gretil_io.py
+        not run: the GRETIL fetch / verse-extraction helper both sa builders import
+    data/labels/sa_amarusataka/build_sa_amarusataka.py
+        python3 data/labels/sa_amarusataka/build_sa_amarusataka.py -- fetches the GRETIL Amarusataka itself and reads sa_subhasita's dedup table, so that builder runs first
+  every .py under data/ is declared, and every declared tool is on disk

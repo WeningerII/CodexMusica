@@ -1,0 +1,10 @@
+{
+  "label": "mcp-02",
+  "command": "node --test --test-concurrency=1 --test-timeout=120000 mcp/test_release_gates.mjs mcp/test_battery_repairs.mjs mcp/test_chat_production.mjs mcp/test_connector_contracts.mjs mcp/test_verdict_view.mjs mcp/test_connector_http.mjs mcp/test_chatgpt.mjs mcp/test_chatgpt_harness.mjs mcp/test_chatgpt_revise.mjs mcp/test_runtime_assets.mjs mcp/test_state_codec.mjs mcp/test_lyric_workflow.mjs mcp/test_session_repairs.mjs mcp/test_pronunciation_choices.mjs mcp/test_lexicon_basis.mjs",
+  "cwd": "/workspace/acceptance-code",
+  "environment": {},
+  "started_utc": "2026-10-14T15:29:41Z",
+  "exit_code": 0,
+  "duration_seconds": 153.874,
+  "log_sha256": "d832c889dffbacfd5c2e96ce372fbf21261db838c735fb39b4b6fe2b97708c1c"
+}

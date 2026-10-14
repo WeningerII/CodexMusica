@@ -1,0 +1,42 @@
+[
+  {
+    "command": [
+      "/workspace/acceptance-venv/bin/python",
+      "lyric-harness/quality/test_reader.py",
+      "Normalisation"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 126.94111609458923,
+    "log": "1.log"
+  },
+  {
+    "command": [
+      "/workspace/acceptance-venv/bin/python",
+      "lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutations.py",
+      "C"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 2.3599162101745605,
+    "log": "2.log"
+  },
+  {
+    "command": [
+      "/workspace/acceptance-venv/bin/python",
+      "lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutations.py",
+      "F2"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 3.5911431312561035,
+    "log": "3.log"
+  },
+  {
+    "command": [
+      "/workspace/acceptance-venv/bin/python",
+      "-c",
+      "import runpy; runpy.run_path('lyric-harness/quality/results/reader_continuation_2026-10-14/p7_mutations.py', run_name='independent_import_probe'); print('PASS: import without argv has no mutation or test execution')"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 0.0615689754486084,
+    "log": "4.log"
+  }
+]

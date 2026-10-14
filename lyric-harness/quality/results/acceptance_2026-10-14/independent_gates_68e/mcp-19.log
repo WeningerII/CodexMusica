@@ -1,0 +1,18 @@
+✔ real MCP preserves draft coordinates and uses the placed-return judge (20696.963707ms)
+✔ published capacities and vocabularies match the harness they describe (193.830778ms)
+✔ published lyric text carries no ticket, date, doctrine number or stale claim (25.815991ms)
+✔ the grade stamp and meaning say what the verdict says (0.694384ms)
+✔ lyric_types names an ordinary rhyme at the line end, and the position is declarable (6013.286507ms)
+✔ recover numbers its mandate over sung lines, and every refusal carries its reason (34814.130655ms)
+✔ a ban names the bound words and their places, and an unknown name lists the vocabulary (18494.852944ms)
+✔ lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes (53872.005283ms)
+✔ lyric_plan block 0 is the plan and brief, without the server path or CLI commands (570.657286ms)
+✔ the website chat's lyric text matches the fields its kitchen declarations keep (12.384108ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135553.768746

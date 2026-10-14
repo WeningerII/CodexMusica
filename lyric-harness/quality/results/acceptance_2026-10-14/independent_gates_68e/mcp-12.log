@@ -1,0 +1,164 @@
+✔ inspection classifies the real plan count refusal and groups exact repeated headlines (146.058215ms)
+✔ inspection keeps kitchen clocks, recovery phase and unknown spend without private payloads (0.636437ms)
+✔ inspection distinguishes corrupt or missing evidence and strips private driver tails (1.064951ms)
+✔ the archive summary CLI exposes diagnostics after encrypted restore without running a battery (47.979059ms)
+✔ archive round trip preserves every byte and restores private permissions (2.397103ms)
+✔ wrong key or ciphertext tampering creates no restore tree (1.832614ms)
+✔ seal refuses symlink sources and leaves prior archive and plaintext intact (2.145856ms)
+✔ restore refuses existing destinations and symlinked ancestors (1.737923ms)
+✔ authenticated malicious paths and duplicate entries cannot partially restore (7.748669ms)
+✔ safe public summary cannot carry capability-bearing strings or nested metadata (0.597408ms)
+✔ workflow validates the secret before paid work and uploads no plaintext path (7.64731ms)
+ok 1 - declared 500 ms budget owns socket setup and delivery
+ok 2 - declared 40 ms budget owns socket setup and delivery
+ok 3 - park history follows every call in order: [5,5,5]
+ok 4 - park history follows every call in order: [5,5,4]
+ok 5 - park history follows every call in order: [5,4,5]
+ok 6 - park history follows every call in order: [null,null,null]
+ok 7 - failed identity probe preserves the cause and never sends paid work
+ok 8 - round-24 archived park sequence stops at the next boundary after turn 2
+ok 9 - persistent paced429 cannot borrow ordinary retry budget
+ok 10 - paced wait sum never admits a retry exceeding its remaining budget
+ok 11 - post-header aborted settles with durable transport outcome
+ok 12 - post-header invalid-json settles with durable transport outcome
+ok 13 - post-header deadline settles with durable transport outcome
+ok 14 - kill during first request leaves intent; resume retrieves completion without repeating POST
+ok 15 - ambiguous missing job is never reissued on resume
+ok 16 - cancelled kitchen continuation distinguishes replayed outcomes
+ok 17 - cancelled kitchen continuation distinguishes rejected outcomes
+ok 18 - cancelled kitchen continuation distinguishes applied outcomes
+ok 19 - cancelled kitchen continuation distinguishes missing outcomes
+ok 20 - cancelled kitchen continuation distinguishes idle-disabled outcomes
+ok 21 - wall canary replays the exact durable checkpoint into a clean verified application
+ok 22 - wall canary replays the exact durable checkpoint into a parked verified application
+ok 23 - wall receipts refuse fabricated progress, changed identity, and incomplete replay
+ok 24 - wall progress compares the exact prior applied identity set independently of lexical ordering
+ok 25 - actual native nested replay measures only advancement beyond the preserved accepted frontier
+ok 26 - wall continuation retains the actual parked artifact and declarations
+ok 27 - actual wall HTTP refused-not-run cannot pass the canary
+ok 28 - actual wall HTTP missing-inventory cannot pass the canary
+ok 29 - explicit resume can continue interrupted signed checkpoint with a new request ID
+ok 30 - aggregate admission refuses a request that cannot finish before delivery reserve
+ok 31 - multi-song finished policy has an explicit outcome
+ok 32 - multi-song survey policy has an explicit outcome
+ok 33 - wrong live SHA refuses paid request
+ok 34 - pending job is polled to its actual completion without a second paid POST
+ok 35 - measurement requires durable recovery before spending
+ok 36 - same commit with changed configuration stops before the next paid turn
+ok 37 - partial upstream429 preserves the envelope and honors its pacing hint
+ok 38 - actual job-router persistence503 recovers and never enters ordinary retry
+ok 39 - actual retired receipt refuses replay after its full response was evicted
+ok 40 - uncertain proposal stops automatic continuation and plain resume
+ok 41 - measurement refuses incomplete fingerprint identity even with durable recovery
+ok 42 - interrupted proposal uncertainty is terminal even when its signed checkpoint survives
+ok 43 - job receipt detects a deployment between health probe and paid request
+ok 44 - completion rejects blank delivery
+ok 45 - completion rejects earlier success followed by unfinished result
+ok 46 - completion rejects HTTP200 error after success
+ok 47 - completion rejects changed final draft under old receipt
+ok 48 - terminal checkpoint restores verdict lost before summary write without another request
+ok 49 - multi-song resume restores a lost failed verdict instead of passing a sparse summary
+ok 50 - a bare signed empty wall cannot satisfy the continuation canary
+ok 51 - mandatory remote recovery refuses before any paid POST when unavailable
+ok 52 - verified receipt keeps complete request latency rather than the final lookup latency
+ok 53 - error checkpoint (top-level) is retained and resumed without retrying the stale envelope
+ok 54 - error checkpoint (nested) is retained and resumed without retrying the stale envelope
+ok 55 - durable continuation uses only the parent receipt, including large signed state
+ok 56 - stale continuation follows the existing successor without another paid branch
+56 battery lifecycle checks passed
+✔ mcp/test_battery_lifecycle.mjs (9606.459671ms)
+✔ 480 identical recovery polls retain a full checkpoint without inflating the journal beyond archive limits (5819.194466ms)
+✔ recording capacity stops before POST and leaves a sealed resumable checkpoint (564.116896ms)
+✔ per-file recording headroom stops before a permitted archive file can overflow (462.594415ms)
+✔ resume refuses a missing historical journal segment before any new POST (268.041563ms)
+✔ rolled attempt segments replay a durable response after a lagging checkpoint without repeating POST (809.858443ms)
+✔ non-ASCII receipts fit a bounded heap and preserve exact independent replay values (3385.623603ms)
+✔ receipt precedes execution; pending/different-input duplicates cannot dispatch; final payload is replayed (77.965481ms)
+✔ a killed process leaves an interrupted receipt and preserved signed checkpoint, never permission to replay (112.330753ms)
+✔ receipts another surface keeps in the same store are never served by the chat routes (9.869315ms)
+✔ an intent carrying undefined fields digests as its JSON and is admitted (0.452209ms)
+✔ adopting a finished receipt copies it unchanged and keeps one already held (0.807904ms)
+✔ final receipt survives a lost response and is available to a second HTTP connection (10.136587ms)
+✔ corrupt receipts, key files and spend counters fail closed without overwriting evidence (4.029217ms)
+✔ storage failure before dispatch blocks execution and final persistence failure never claims a completed receipt (11.838024ms)
+✔ receipt capacity is bounded, active jobs cannot expire, and expiry is explicit (0.810598ms)
+✔ build fingerprints change with declared runtime config and never contain credentials (564.609552ms)
+✔ recovered error receipts preserve Retry-After pacing (15.08125ms)
+✔ capability redaction covers case-insensitive routes, query strings and referrers (0.427583ms)
+✔ rejected requests cannot consume recovery capacity before chat admission (12.407901ms)
+✔ terminal payload eviction retains a durable tombstone so its identifier cannot execute again (4.800066ms)
+✔ payload eviction retires superseded, then completed receipts, and never an interrupted receipt holding accepted lines (2.390063ms)
+✔ SIGKILL after a budgeted provider dispatch retains uncertainty and cannot replay the request (149.850341ms)
+✔ lyric_types answers while a grade holds the lyric queue (3022.68783ms)
+lyric state: capability isolation, same-seed coexistence, validation safety, annotations and verify grid contract passed
+✔ mcp/test_lyric_state.mjs (1484.66941ms)
+✔ admission is shared across operations and settles actual thinking usage once (2.554921ms)
+✔ an uncosted or failed model request is never admitted as free (0.44536ms)
+✔ reservations survive a process restart as unknown spend, and corrupt storage blocks admission (1.850993ms)
+✔ provider envelope violations stay blocked after restart (0.686172ms)
+✔ UTC rollover preserves active reservations and backwards clocks cannot refund spend (0.351989ms)
+✔ loopback kitchen broker shares admission, isolates reservations and retains unknown work on close (43.684363ms)
+✔ expired kitchen admission and inherited cancellation prevent dispatch (9.79021ms)
+✔ broker returns its authoritative settlement and isolates call accounting (12.556079ms)
+✔ child contexts preserve authoritative monotonic deadlines after clock steps (0.465901ms)
+✔ settlement itself rolls UTC day before charging newly completed work (0.544879ms)
+✔ restart across UTC midnight retains interrupted reservations on the recovered day (0.772532ms)
+✔ inconsistent provider totals retain unknown spending rather than discard tokens (0.238689ms)
+✔ invalid persisted dates and unknown totals cannot restore paid allowance (0.526722ms)
+✔ non-private, oversized and linked ledger files are refused before loading or replacing them (0.455705ms)
+✔ kitchen dispatch permission waits for durable usage admission, and receipt failure returns no capability (5.291446ms)
+✔ queue deadline includes waiting and expired work never starts (723.090327ms)
+✔ cancellation removes queued work and stops an active worker (26.742792ms)
+✔ warm and cold kills retain the same checkpoint and completed usage (2005.060475ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ active kitchen crash does not transparently replay paid work (127.616335ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+[lyric] warm worker unavailable; deterministic cold fallback {"event":"worker_cold_fallback","remaining_ms":1871}
+✔ deterministic crash fallback has only the remaining admission budget (2028.789046ms)
+✔ warm and cold count UTF-8 report bytes with identical output ceilings (123.951678ms)
+✔ checkpoint controls do not consume the verbose report cap (38.615373ms)
+✔ MCP cancellation notification reaches a running bridge job (51.460437ms)
+✔ real Python proposer shares admission and full usage with the Node budget broker (67.392594ms)
+✔ kitchen budget refuses before provider HTTP and an interrupted request holds unknown usage (70.426813ms)
+✔ ordinary lyric text cannot impersonate a checkpoint control record (28.191296ms)
+[lyric] warm worker exited {"event":"worker_exit","code":9,"signal":null,"active":true}
+✔ a crash between atomic checkpoint write and stdout is recovered from its trusted file (26.542775ms)
+✔ budget-close failure refuses while preserving accepted state and known usage (40.216133ms)
+✔ a queued job cannot spawn until the killed worker emits close (64.828533ms)
+✔ unexpected worker death and deterministic fallback are logged without lyric content (162.441051ms)
+✔ temporary cleanup waits for reap without holding the failure response open (38.154275ms)
+✔ known billed response remains uncertain until the answer journal is written (2004.555706ms)
+✔ standalone Node CLI survives idle worker kill and awaited respawn (102.643187ms)
+✔ monotonic contexts ignore wall-clock steps on warm and cold paths (127.943961ms)
+✔ either inherited or explicit cancellation prevents spawn and cancels active work (58.74361ms)
+✔ global admission bounds jobs and bytes and cancellation promptly frees queue capacity (236.243074ms)
+✔ preparation admission spans sequential verbs and releases safely in finally (46.705093ms)
+✔ real warm/cold CLI refuses invalid usage and truncated candidates with authoritative accounting (28584.625318ms)
+PASS chat price overrides cannot price an unrelated unknown kitchen model
+PASS each emitted call is paired; expired later calls never start
+PASS each completed tool has a signed-ready recovery transcript before the next starts
+PASS model latency uses the same deadline as tool admission
+PASS a stalled fetch ends without any tool call
+PASS a stalled body ends without any tool call
+PASS large retry hints are clamped and waits cancel at the deadline
+PASS cancelled tools return their exact checkpoint before the paired result is recorded
+PASS an uncertain paid proposal stops automatic replay and preserves accepted work
+PASS an explicit fresh run bypasses the old parked record without injecting its capability
+PASS uncertified completion keeps the exact draft and coverage for continuation
+PASS reported kitchen thinking cost stops admission inside a multi-call hop
+PASS each model attempt reserves before dispatch and settles unknown cancellation
+PASS a budget refusal before a model fetch yields a recoverable stopped turn
+PASS already-cancelled work is never dispatched, including inside admission
+PASS rate limiting after completed work preserves the envelope and pacing hint
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+PASS actual HTTP and SDK preserve signed continuation and stop on disconnect
+17 turn lifecycle regressions passed
+✔ mcp/test_turn_lifecycle.mjs (1308.007897ms)
+ℹ tests 75
+ℹ suites 0
+ℹ pass 75
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 65722.485328
