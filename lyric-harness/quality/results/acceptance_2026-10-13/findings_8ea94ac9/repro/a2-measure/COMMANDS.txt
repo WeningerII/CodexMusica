@@ -1,0 +1,5 @@
+# A.2 lookup condition at 8ea94ac9 (BB8, 2026-10-14 13:01-13:11 UTC), clean worktree of 8ea94ac9d5141eb5062a8094351a9330f4edc38c
+cd <scratch>/wt-8ea/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data nice -n 5 <scratch>/venv311/bin/python quality/results/named_place_lookup_2026-10-14/measure.py > a_measure_stdout.json 2> a_measure_stderr.txt   (no --write: prints only)
+# exit 0, 9m42s wall
+cmp ../../../findings_6955e342/repro/a2-and-old-blockers/a_measure_stdout.json a_measure_stdout.json   -> identical (sha256 c17dbb35a48f8050...)
+# measure.py last changed in 643e292e, so the same script ran on both heads.

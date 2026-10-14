@@ -1,0 +1,13 @@
+{
+ "population": {
+  "rule": "corpus/song/eng_*.txt stripped lines, non-blank, not starting '#', '---' or '['; voices off",
+  "sung_lines": 281399,
+  "identical_cut": 271092,
+  "unique_identical_cut": 262604
+ },
+ "condition": "v1 lookup words (_line_tokens_v1 of the space-joined words before the last, then the last word) differ from the identical cut",
+ "lookup_differs": 24,
+ "end_changed": 8,
+ "label_nfc_only": 7,
+ "python": "CPython 3.11.17"
+}
