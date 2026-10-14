@@ -6255,18 +6255,26 @@ function lyWire(surface) {
     lyRenderEditor();
     lyRefresh();
   });
-  // Keep an editor selection attached to its focused textarea on a mouse
-  // review. Disabling the clicked Run button during send otherwise lets the
-  // browser reset the just-mapped selection after the click handler returns.
+  // Keep an editor selection attached to its textarea on a mouse review,
+  // including a selection retained after Tab has moved focus elsewhere.
+  // Disabling the clicked Run button during send otherwise lets the browser reset the just-mapped selection after the click handler returns.
   // Keyboard activation still follows its normal focus path.
   surface.addEventListener('mousedown', (e) => {
     if (
       e.button === 0 &&
-      document.activeElement === draft &&
+      (document.activeElement === draft || draft.selectionStart !== draft.selectionEnd) &&
       e.target.closest('[data-ui="ly-run-review"]')
     ) {
       e.preventDefault();
-      pushHistory(); // retain the history boundary normally recorded on blur
+      if (document.activeElement === draft)
+        pushHistory(); // replace the prevented blur boundary
+      else {
+        // Tab may already have focused Run review. Move focus off the button
+        // before send disables it, preserving the selection across focus.
+        const selection = [draft.selectionStart, draft.selectionEnd, draft.selectionDirection];
+        draft.focus({ preventScroll: true });
+        draft.setSelectionRange(...selection);
+      }
     }
   });
   draft.addEventListener('blur', () => {

@@ -92,3 +92,21 @@ The old/new Library pronunciation compatibility and queued-job version
 identity/release safeguards extension remains awaiting owner approval.
 Rejecting empty replacement candidates in the shared reviser loop is also
 excluded pending owner approval.
+
+## P5 follow-up: retained selection after Tab
+
+Review comment 6171257812 identified a missing hybrid interaction. The new
+browser regression selects `sing it`, presses Tab, verifies focus left the
+textarea while the selection remains, then mouse-clicks Run review. Against
+`37f7bcb76a1429f152d0b01a90ef7b943f39554c` this reproduces a reset to `[0,0]`
+after the successful migration and one fixture request
+(`page_tab_mouse_before.txt`).
+
+The mouse guard now also protects a retained nonempty textarea selection.
+Because Tab can already focus the Run button, it returns focus to the editor
+while preserving the range before send disables the button. The usual history
+boundary is added only when the editor was focused initially; Tab already
+recorded its blur boundary. Keyboard activation retains its existing path.
+The focused gate passes 13 assertions across direct mouse, Tab then mouse,
+keyboard, dock and phone (`page_tab_mouse_after.txt`). Other P1–P8 repairs,
+grading policy, and the two excluded extensions are unchanged.

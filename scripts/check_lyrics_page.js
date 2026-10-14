@@ -3622,7 +3622,7 @@ async function browserChecks(chromium) {
     });
 
     await step('9d. real send selection', async () => {
-      for (const mode of ['mouse', 'keyboard', 'dock', 'phone']) {
+      for (const mode of ['mouse', 'tab-mouse', 'keyboard', 'dock', 'phone']) {
         const { ctx, page, q } = await boot({ phone: mode === 'phone' });
         const text =
           '[SETUP — rhyme groups — 1.T2,2.end]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight';
@@ -3633,6 +3633,17 @@ async function browserChecks(chromium) {
           const at = d.value.indexOf('sing it');
           d.setSelectionRange(at, at + 7, 'backward');
         });
+        if (mode === 'tab-mouse') {
+          await page.keyboard.press('Tab');
+          const retained = await page.evaluate(() => {
+            const d = $ui('lyrics-draft');
+            return (
+              document.activeElement !== d &&
+              d.value.slice(d.selectionStart, d.selectionEnd) === 'sing it'
+            );
+          });
+          check(retained, 'P5 Tab moved focus away while retaining the textarea selection');
+        }
         q.replies.push({ reply: 'Fixture review only', history: [], sig: 'fixture' });
         if (mode === 'phone') await page.locator('#ly-mtab-review').click();
         if (mode === 'dock') {
