@@ -294,6 +294,23 @@ It is fit for bounded diagnostic use on this candidate, and the candidate gate i
 - A splice path missing on a tree is skipped without a verdict in revisions 3.1 and 3.2. The expected three are present at `61b6618a` (`declared_paths` in the receipt); the replacement head's qualification will assert all three.
 - The oracle and production share `slots.resolve` and the raw-token machinery. That, and the fact that the skeptic reports reviewed revision 3.0, are the documented limits on independence.
 
+## The default end's endpoint guard, witnessed (`61b6618a`)
+
+    cd <tree>/lyric-harness
+    python3 quality/results/acceptance_2026-10-13/endpoint_guard_witness.py <OUT.json> <HARNESS_ROOT> <SHARD/SHARDS>
+
+3PO asked for this (#527, 6163217917). On the slot population, `_end_occurrence_bound` (`quality/loop.py` at `61b6618a`) changes 0 of 15,870 `end` records, so the population never exercises it. Receipts are in `endpoint_guard_61b6618a/`: four shards, pinned to the commit and to the sha256 of `loop.py` and this tool.
+
+- **Real inputs: the guard changes no outcome in the corpus.** The sweep covers all 272,317 reader lines of `corpus/song/eng_*`, in both aside modes under the v2 lexicon. It compares the production call (`swap_end_word(line, mark, lex=lex)`) with the same function given no lexicon, where the guard does not run. The two return the same line on every line in both modes, with 0 errors. The guard is therefore never the reason a real end edit is refused or allowed, under these two lexicons.
+- **Focused cases: the guard is what refuses a wrong endpoint.** The simulated grader ends on another token, replacing `quality.loop._RESOLVE` and `slots.resolve` together so the reviser and the oracle see the same grader. On all 4 lines in both modes, the guarded swap **refuses**. With `_end_occurrence_bound` forced True, the same swap edits the last token, which the oracle reads as **`occ_wrong`**:
+  - `I want to hold it`: edits `it`, while the grader ends on `hold`;
+  - `do me a favour, do`: edits the last `do`, while the grader ends on the first `do`, the same spelling;
+  - `love, love me do`: edits `do`, while the grader ends on the second `love`;
+  - `the night and the day goes on`: edits `on`, while the grader ends on `day`.
+- **Controls:** with the real resolver, the guarded and unguarded swaps agree on all 8 and read `occ_agree`.
+
+**What this does not establish.** The focused cases simulate the disagreement, so the guard is shown to work only against a grader that disagrees. No real input in this corpus, under these lexicons, makes it disagree.
+
 ## The disputed dictionary rows
 
     python3 quality/results/acceptance_2026-10-13/disputed_rows.py quality/results/acceptance_2026-10-13/disputed_rows.json MPRON

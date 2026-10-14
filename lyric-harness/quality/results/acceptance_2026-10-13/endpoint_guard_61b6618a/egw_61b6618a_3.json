@@ -1,0 +1,33 @@
+{
+ "part1_real_inputs": {
+  "shard": [
+   3,
+   4
+  ],
+  "corpus_files": 1344,
+  "counts": {
+   "cur:stripped": {
+    "lines": 68079,
+    "same": 68079,
+    "differ": 0,
+    "errors": 0
+   },
+   "cur:sung": {
+    "lines": 68079,
+    "same": 68079,
+    "differ": 0,
+    "errors": 0
+   }
+  },
+  "lines_where_guard_changes_outcome": []
+ },
+ "part2_focused": [],
+ "part2_controls": [],
+ "part2_ok": null,
+ "pins": {
+  "commit": "61b6618ae9373e00b60d3df3ab2d19cc11cc93cc",
+  "loop_sha256": "a307ec7457babd11ef5859ab7c3cd77a7bae7b4c776a01ea0594d24f59ddc3b1",
+  "tool_sha256": "389fb9ca30785edc276cdfd0947d9a138d2f02171156ec0a725c55871594f326",
+  "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026"
+ }
+}

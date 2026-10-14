@@ -1,0 +1,635 @@
+{
+ "part1_real_inputs": {
+  "shard": [
+   0,
+   4
+  ],
+  "corpus_files": 1344,
+  "counts": {
+   "cur:stripped": {
+    "lines": 68080,
+    "same": 68080,
+    "differ": 0,
+    "errors": 0
+   },
+   "cur:sung": {
+    "lines": 68080,
+    "same": 68080,
+    "differ": 0,
+    "errors": 0
+   }
+  },
+  "lines_where_guard_changes_outcome": []
+ },
+ "part2_focused": [
+  {
+   "line": "I want to hold it",
+   "mode": "cur:stripped",
+   "rigged_endpoint": [
+    3,
+    "hold"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     10,
+     14
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      10,
+      14
+     ],
+     "text": "hold"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "I want to hold it",
+   "mode": "cur:sung",
+   "rigged_endpoint": [
+    3,
+    "hold"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     10,
+     14
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      10,
+      14
+     ],
+     "text": "hold"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "rigged_endpoint": [
+    0,
+    "do"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     0,
+     2
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "rigged_endpoint": [
+    0,
+    "do"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     0,
+     2
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      0,
+      2
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "rigged_endpoint": [
+    1,
+    "love"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     6,
+     10
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      6,
+      10
+     ],
+     "text": "love"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "rigged_endpoint": [
+    1,
+    "love"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     6,
+     10
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      6,
+      10
+     ],
+     "text": "love"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:stripped",
+   "rigged_endpoint": [
+    4,
+    "day"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     18,
+     21
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      18,
+      21
+     ],
+     "text": "day"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "witnessed": true
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:sung",
+   "rigged_endpoint": [
+    4,
+    "day"
+   ],
+   "guarded": {
+    "oracle": "refused",
+    "bound": [
+     18,
+     21
+    ]
+   },
+   "guard_removed": {
+    "oracle": "occ_wrong",
+    "bound": {
+     "span": [
+      18,
+      21
+     ],
+     "text": "day"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "witnessed": true
+  }
+ ],
+ "part2_controls": [
+  {
+   "line": "I want to hold it",
+   "mode": "cur:stripped",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "I want to hold it",
+   "mode": "cur:sung",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "edited": {
+     "span": [
+      15,
+      17
+     ],
+     "text": "it"
+    },
+    "result": "I want to hold zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:stripped",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "do me a favour, do",
+   "mode": "cur:sung",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      16,
+      18
+     ],
+     "text": "do"
+    },
+    "result": "do me a favour, zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:stripped",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "love, love me do",
+   "mode": "cur:sung",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "edited": {
+     "span": [
+      14,
+      16
+     ],
+     "text": "do"
+    },
+    "result": "love, love me zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:stripped",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "agree": true
+  },
+  {
+   "line": "the night and the day goes on",
+   "mode": "cur:sung",
+   "guarded": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "guard_removed": {
+    "oracle": "occ_agree",
+    "bound": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "edited": {
+     "span": [
+      27,
+      29
+     ],
+     "text": "on"
+    },
+    "result": "the night and the day goes zqzq"
+   },
+   "agree": true
+  }
+ ],
+ "part2_ok": true,
+ "pins": {
+  "commit": "61b6618ae9373e00b60d3df3ab2d19cc11cc93cc",
+  "loop_sha256": "a307ec7457babd11ef5859ab7c3cd77a7bae7b4c776a01ea0594d24f59ddc3b1",
+  "tool_sha256": "389fb9ca30785edc276cdfd0947d9a138d2f02171156ec0a725c55871594f326",
+  "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026"
+ }
+}
