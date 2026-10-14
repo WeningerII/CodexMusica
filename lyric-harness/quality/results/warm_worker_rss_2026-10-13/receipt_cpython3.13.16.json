@@ -46,18 +46,10 @@
   "peak_rss_bytes": 507371520,
   "peak_fraction_of_guard": 0.473,
   "caches_after": {
-    "eng._LEX": [
-      "v1",
-      "v2"
-    ],
+    "eng._LEX": ["v1", "v2"],
     "eng._CUT_LEX": [],
-    "fit._LEX": [
-      "v1"
-    ],
+    "fit._LEX": ["v1"],
     "lexicon_supplement._SUPPLEMENTED": [],
-    "meter_bands._READERS": [
-      "fallback-low/v1",
-      "fallback-low/v2"
-    ]
+    "meter_bands._READERS": ["fallback-low/v1", "fallback-low/v2"]
   }
 }
