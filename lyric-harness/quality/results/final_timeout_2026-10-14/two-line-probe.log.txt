@@ -1,0 +1,10 @@
+REVISE_REQUEST_TIMING {"wallMs":7003.661926,"workerPidAtStart":null,"nodeCpuMs":306.212,"schedulerStatsEnabled":null,"cgroupCpuMax":"400000 100000","cgroupCpuBefore":"usage_usec 28047760443\nuser_usec 27428560063\nsystem_usec 619200379\nnice_usec 0\nnr_periods 113730\nnr_throttled 21313\nthrottled_usec 701678912\nnr_bursts 0\nburst_usec 0","cgroupCpuAfter":"usage_usec 28054916311\nuser_usec 27435287015\nsystem_usec 619629296\nnice_usec 0\nnr_periods 113800\nnr_throttled 21313\nthrottled_usec 701678912\nnr_bursts 0\nburst_usec 0","pythonHashSeed":"0","cpuModel":"INTEL(R) XEON(R) PLATINUM 8573C","logicalCpus":5,"loadAverage":[0.52,0.15,0.05],"workers":[{"pid":30783,"firstSampleMs":100.4169730000001,"lastSampleMs":7003.6424019999995,"cpuBeforeFirstSampleMs":92.111449,"cpuMs":6614.408792,"runnableWaitMs":1.182302,"slices":37}]}
+✔ lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes (12815.644787ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13773.590535

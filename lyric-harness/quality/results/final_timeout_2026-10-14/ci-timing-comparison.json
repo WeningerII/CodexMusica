@@ -1,0 +1,89 @@
+[
+  {
+    "head": "f2e973dbb",
+    "wallMs": 60002.34698899998,
+    "workerPidAtStart": null,
+    "nodeCpuMs": 140.583,
+    "schedulerStatsEnabled": "0",
+    "cgroupCpuMax": null,
+    "cgroupCpuBefore": "usage_usec 4737651000\\nuser_usec 4539634000\\nsystem_usec 198017000\\nnice_usec 2647000\\ncore_sched.force_idle_usec 0\\nnr_periods 0\\nnr_throttled 0\\nthrottled_usec 0\\nnr_bursts 0\\nburst_usec 0",
+    "cgroupCpuAfter": "usage_usec 4976777000\\nuser_usec 4774171000\\nsystem_usec 202606000\\nnice_usec 2647000\\ncore_sched.force_idle_usec 0\\nnr_periods 0\\nnr_throttled 0\\nthrottled_usec 0\\nnr_bursts 0\\nburst_usec 0",
+    "pythonHashSeed": null,
+    "cpuModel": "AMD EPYC 7763 64-Core Processor",
+    "logicalCpus": 4,
+    "loadAverage": [
+      5.44,
+      5.55,
+      4.88
+    ],
+    "workers": [
+      {
+        "pid": 8278,
+        "firstSampleMs": 100.41424499999266,
+        "lastSampleMs": 59916.195049,
+        "cpuBeforeFirstSampleMs": 59.522547,
+        "cpuMs": 58923.297284,
+        "runnableWaitMs": 892.328987,
+        "slices": 9210
+      }
+    ]
+  },
+  {
+    "head": "55e89f28",
+    "wallMs": 34691.881568,
+    "workerPidAtStart": null,
+    "nodeCpuMs": 425.259,
+    "schedulerStatsEnabled": "0",
+    "cgroupCpuMax": null,
+    "cgroupCpuBefore": "usage_usec 3178565000\\nuser_usec 3028772000\\nsystem_usec 149793000\\nnice_usec 2860000\\ncore_sched.force_idle_usec 0\\nnr_periods 0\\nnr_throttled 0\\nthrottled_usec 0\\nnr_bursts 0\\nburst_usec 0",
+    "cgroupCpuAfter": "usage_usec 3317273000\\nuser_usec 3166702000\\nsystem_usec 150571000\\nnice_usec 2860000\\ncore_sched.force_idle_usec 0\\nnr_periods 0\\nnr_throttled 0\\nthrottled_usec 0\\nnr_bursts 0\\nburst_usec 0",
+    "pythonHashSeed": null,
+    "cpuModel": "AMD EPYC 9V45 96-Core Processor",
+    "logicalCpus": 4,
+    "loadAverage": [
+      4.55,
+      5.38,
+      3.99
+    ],
+    "workers": [
+      {
+        "pid": 8025,
+        "firstSampleMs": 101.05736700000125,
+        "lastSampleMs": 34691.83347700001,
+        "cpuBeforeFirstSampleMs": 45.846058,
+        "cpuMs": 34043.19511,
+        "runnableWaitMs": 124.041237,
+        "slices": 5347
+      }
+    ]
+  },
+  {
+    "head": "3870c8e7",
+    "wallMs": 32201.30487800001,
+    "workerPidAtStart": null,
+    "nodeCpuMs": 343.03,
+    "schedulerStatsEnabled": "0",
+    "cgroupCpuMax": null,
+    "cgroupCpuBefore": "usage_usec 2851978000\\nuser_usec 2714691000\\nsystem_usec 137287000\\nnice_usec 1734000\\ncore_sched.force_idle_usec 0\\nnr_periods 0\\nnr_throttled 0\\nthrottled_usec 0\\nnr_bursts 0\\nburst_usec 0",
+    "cgroupCpuAfter": "usage_usec 2980258000\\nuser_usec 2841292000\\nsystem_usec 138966000\\nnice_usec 1734000\\ncore_sched.force_idle_usec 0\\nnr_periods 0\\nnr_throttled 0\\nthrottled_usec 0\\nnr_bursts 0\\nburst_usec 0",
+    "pythonHashSeed": null,
+    "cpuModel": "AMD EPYC 9V45 96-Core Processor",
+    "logicalCpus": 4,
+    "loadAverage": [
+      5.41,
+      5.56,
+      3.76
+    ],
+    "workers": [
+      {
+        "pid": 8070,
+        "firstSampleMs": 101.09027700001025,
+        "lastSampleMs": 32201.271508000005,
+        "cpuBeforeFirstSampleMs": 52.612555,
+        "cpuMs": 31488.05608,
+        "runnableWaitMs": 323.337828,
+        "slices": 5572
+      }
+    ]
+  }
+]

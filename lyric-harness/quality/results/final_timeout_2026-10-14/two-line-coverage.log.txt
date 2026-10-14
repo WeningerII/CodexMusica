@@ -1,0 +1,13 @@
+REVISE_REQUEST_TIMING {"wallMs":6810.8638470000005,"workerPidAtStart":null,"nodeCpuMs":416.492,"schedulerStatsEnabled":null,"cgroupCpuMax":"400000 100000","cgroupCpuBefore":"usage_usec 28115766552\nuser_usec 27492363068\nsystem_usec 623403483\nnice_usec 0\nnr_periods 114424\nnr_throttled 21313\nthrottled_usec 701678912\nnr_bursts 0\nburst_usec 0","cgroupCpuAfter":"usage_usec 28122752681\nuser_usec 27498737421\nsystem_usec 624015260\nnice_usec 0\nnr_periods 114492\nnr_throttled 21313\nthrottled_usec 701678912\nnr_bursts 0\nburst_usec 0","pythonHashSeed":"0","cpuModel":"INTEL(R) XEON(R) PLATINUM 8573C","logicalCpus":5,"loadAverage":[0.73,0.31,0.12],"workers":[{"pid":30985,"firstSampleMs":100.50639999999999,"lastSampleMs":6810.842226000001,"cpuBeforeFirstSampleMs":89.748785,"cpuMs":6281.875353,"runnableWaitMs":9.360012,"slices":69}]}
+PROBE_INITIAL {"exit":4,"revision":1}
+PROBE_STATE_CONTINUE {"i":0,"exit":4,"revision":2}
+PROBE_STATE_CONTINUE {"i":1,"exit":3,"revision":3}
+✔ lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes (12345.596506ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13372.775647

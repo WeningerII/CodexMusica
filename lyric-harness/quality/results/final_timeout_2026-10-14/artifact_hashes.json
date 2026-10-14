@@ -1,0 +1,68 @@
+{
+  "README.md": {
+    "bytes": 7058,
+    "sha256": "026e325c5908eec9a13d02d51f07f2f7315890ac983c5aa8428cbef2f3118ad1"
+  },
+  "ci-census.json": {
+    "bytes": 186649,
+    "sha256": "f959bbf35d5dd19406372c4c37bfbc694542382e6bcc4e9525bbd17a09c0b6e9"
+  },
+  "ci-timing-comparison.json": {
+    "bytes": 3238,
+    "sha256": "0d73a2973ff919810cf6875584110ddefc231689796866a9057c5883e52461d6"
+  },
+  "first-request.events.jsonl.gz": {
+    "bytes": 244065,
+    "sha256": "bbcd2d6f8339f3f024e2b2f74fcdca641aaaf9d3f755203d0c09a6c47ed0b0f9",
+    "uncompressed_sha256": "36cb635eca470e2e9ee3daede06a16c856f50a74c2dc412f5e66e8f8dbd8ddf4"
+  },
+  "first-request.log.txt": {
+    "bytes": 19,
+    "sha256": "91a42913042d9c7aac4bf96ecc7c33e75e4b1b535fc6d413250df2ed5f5bceb0"
+  },
+  "first-request.mjs.txt": {
+    "bytes": 1492,
+    "sha256": "f7e381282475bbfbdc04234538d77c0711a9a7efe415708e14b668ca9ee64b9f"
+  },
+  "original-control.log.txt": {
+    "bytes": 1067,
+    "sha256": "1e5620a66ac49fb82778417d1e724a395aa27ec69deb75a6b412c5ade3bc0011"
+  },
+  "python-observer.txt": {
+    "bytes": 3711,
+    "sha256": "26820b7360ed3e39c5a3534f952400b3163097ce295560ab980210051301cce2"
+  },
+  "two-line-coverage.log.txt": {
+    "bytes": 1216,
+    "sha256": "1c6d630f5227010ef59523d30165bc58fe0fccea8ac3f2e2d5004b869a167bd3"
+  },
+  "two-line-coverage.mjs.txt": {
+    "bytes": 25649,
+    "sha256": "571efc832d8c0426010a45592929271a561d04686a25fb31610cff7824695cca"
+  },
+  "two-line-probe.log.txt": {
+    "bytes": 1069,
+    "sha256": "1c43b9bcff9a1839fa6fc277ca81f9ebd2b6f197ed36fbb46245dcb5195dc043"
+  },
+  "two-line-probe.mjs.txt": {
+    "bytes": 25304,
+    "sha256": "25f4ab71261f5db082e0c8dd7a49c467b7aedbc4c1a344a20914938c29037e89"
+  },
+  "two-line-required-note.log.txt": {
+    "bytes": 1196,
+    "sha256": "14828af118599aac90736a685a83acb88343b57f4affc6c165b7734893960b9e"
+  },
+  "two-line-required-note.mjs.txt": {
+    "bytes": 25890,
+    "sha256": "b2bfe9047231e8e1d6bab59a590041c51f5b23657be139a33441ca0fee9be9bc"
+  },
+  "verify-116096541955.log.txt.gz": {
+    "bytes": 104516,
+    "sha256": "7363033374035b05fa6632fea60f99e4fa415156b6c21f0fe39c101e4a7ea35a",
+    "uncompressed_sha256": "85fde4d0b442685cf6d5d717e640dbaf41ca0638df9b2078fb0f5ecdc70ee301"
+  },
+  "workload-comparison.json": {
+    "bytes": 284,
+    "sha256": "41013ab3cfe23db1da7be4b8b40ac92bfd045496cd1eab252094e8fb5f74490b"
+  }
+}

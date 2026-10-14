@@ -1,0 +1,7 @@
+{
+  "normalization": "query/query_end/counts events only; remove pid/wall/cpu; preserve event order and all remaining fields",
+  "current_events": 12491,
+  "prior_events": 12491,
+  "equal": true,
+  "limit": "No exhaustive score argument/result trace; no phase trace from failed CI"
+}

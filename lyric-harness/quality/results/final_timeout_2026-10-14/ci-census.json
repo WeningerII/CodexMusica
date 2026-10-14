@@ -1,0 +1,5258 @@
+{
+  "total_count": 48,
+  "jobs": [
+    {
+      "id": 116095369338,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB9LAeg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116095369338",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116095369338",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:46:27Z",
+      "started_at": "2026-10-14T20:46:30Z",
+      "completed_at": "2026-10-14T20:46:34Z",
+      "name": "dup",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:46:31Z",
+          "completed_at": "2026-10-14T20:46:31Z"
+        },
+        {
+          "name": "Does anything else already own this commit's CI?",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:46:31Z",
+          "completed_at": "2026-10-14T20:46:32Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:46:32Z",
+          "completed_at": "2026-10-14T20:46:32Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116095369338",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083281,
+      "runner_name": "GitHub Actions 1000083281",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116095371183,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB9LHrw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116095371183",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116095371183",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-10-14T20:46:28Z",
+      "started_at": "2026-10-14T20:46:28Z",
+      "completed_at": "2026-10-14T20:46:27Z",
+      "name": "tandem",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116095371183",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 116095371290,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB9LIGg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116095371290",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116095371290",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-10-14T20:46:28Z",
+      "started_at": "2026-10-14T20:46:28Z",
+      "completed_at": "2026-10-14T20:46:27Z",
+      "name": "mutation",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116095371290",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 116095423386,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB9OTmg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116095423386",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116095423386",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:46:34Z",
+      "started_at": "2026-10-14T20:46:37Z",
+      "completed_at": "2026-10-14T20:48:56Z",
+      "name": "gate",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:46:38Z",
+          "completed_at": "2026-10-14T20:46:39Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:46:39Z",
+          "completed_at": "2026-10-14T20:47:09Z"
+        },
+        {
+          "name": "Scope — can this diff move a built artifact?",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:47:09Z",
+          "completed_at": "2026-10-14T20:47:10Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:47:10Z",
+          "completed_at": "2026-10-14T20:47:12Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:47:12Z",
+          "completed_at": "2026-10-14T20:47:14Z"
+        },
+        {
+          "name": "Lint",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:47:14Z",
+          "completed_at": "2026-10-14T20:47:20Z"
+        },
+        {
+          "name": "Formatting (prettier --check)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:47:20Z",
+          "completed_at": "2026-10-14T20:48:10Z"
+        },
+        {
+          "name": "Validate references",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:48:10Z",
+          "completed_at": "2026-10-14T20:48:15Z"
+        },
+        {
+          "name": "Signature attribution (every cultural pair ruled, no false pair published)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:48:15Z",
+          "completed_at": "2026-10-14T20:48:16Z"
+        },
+        {
+          "name": "Signature mirror parity (src/app.js TRADITION_SIGNATURES == the JSON)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:48:16Z",
+          "completed_at": "2026-10-14T20:48:16Z"
+        },
+        {
+          "name": "Docs drift + documented-command validity",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:48:16Z",
+          "completed_at": "2026-10-14T20:48:46Z"
+        },
+        {
+          "name": "Library readable works never regress (id by id)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-14T20:48:46Z",
+          "completed_at": "2026-10-14T20:48:47Z"
+        },
+        {
+          "name": "Library baseline writer refuses unauthenticated snapshots",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:48:47Z",
+          "completed_at": "2026-10-14T20:48:47Z"
+        },
+        {
+          "name": "Served tree inside GitHub Pages limits",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:48:47Z",
+          "completed_at": "2026-10-14T20:48:47Z"
+        },
+        {
+          "name": "Build closure is sound (scope decision is provable)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:48:47Z",
+          "completed_at": "2026-10-14T20:48:53Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-10-14T20:48:53Z",
+          "completed_at": "2026-10-14T20:48:53Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-10-14T20:48:53Z",
+          "completed_at": "2026-10-14T20:48:54Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-14T20:48:54Z",
+          "completed_at": "2026-10-14T20:48:54Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116095423386",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083282,
+      "runner_name": "GitHub Actions 1000083282",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096541955,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SlAw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096541955",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096541955",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T21:19:58Z",
+      "name": "verify",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:02Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:02Z",
+          "completed_at": "2026-10-14T20:49:32Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:32Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:37Z"
+        },
+        {
+          "name": "Install connector dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:37Z",
+          "completed_at": "2026-10-14T20:49:39Z"
+        },
+        {
+          "name": "Stage the lyric harness for mcp/test.mjs's live checks",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:39Z",
+          "completed_at": "2026-10-14T20:49:45Z"
+        },
+        {
+          "name": "Cache Playwright browsers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:45Z",
+          "completed_at": "2026-10-14T20:50:01Z"
+        },
+        {
+          "name": "Install Chromium (for UI reachability)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:50:01Z",
+          "completed_at": "2026-10-14T20:50:14Z"
+        },
+        {
+          "name": "Static API contract (committed api/ honors promises)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:50:14Z",
+          "completed_at": "2026-10-14T20:50:17Z"
+        },
+        {
+          "name": "Promise→gate coverage (every promise documented AND gated, 0 orphans)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:50:17Z",
+          "completed_at": "2026-10-14T20:50:17Z"
+        },
+        {
+          "name": "Connector tool lists in docs match the served surface",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:50:17Z",
+          "completed_at": "2026-10-14T20:50:18Z"
+        },
+        {
+          "name": "Preface lexicon hygiene (no dup/empty/production-dead tokens, no dup ids)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-14T20:50:18Z",
+          "completed_at": "2026-10-14T20:50:19Z"
+        },
+        {
+          "name": "Authoring dead-token gate (every preface token reaches a tradition-default card)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:50:19Z",
+          "completed_at": "2026-10-14T20:50:23Z"
+        },
+        {
+          "name": "Name isolation (no tradition's picks depend on another's name)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:50:23Z",
+          "completed_at": "2026-10-14T20:50:36Z"
+        },
+        {
+          "name": "Publish guard (a superseded build can never overwrite the live site)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:50:36Z",
+          "completed_at": "2026-10-14T20:50:37Z"
+        },
+        {
+          "name": "Audit data quality",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:50:37Z",
+          "completed_at": "2026-10-14T20:50:48Z"
+        },
+        {
+          "name": "Regression (recipes, prefaces, slots, app), locale invariance, edit differential and the CLI pipe -- every leaf concurrently",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 17,
+          "started_at": "2026-10-14T20:50:48Z",
+          "completed_at": "2026-10-14T21:19:54Z"
+        },
+        {
+          "name": "Build codex.html (lazy shell + no-table-leak + byte-ceiling check)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 18,
+          "started_at": "2026-10-14T21:19:54Z",
+          "completed_at": "2026-10-14T21:19:54Z"
+        },
+        {
+          "name": "UI reachability",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 19,
+          "started_at": "2026-10-14T21:19:54Z",
+          "completed_at": "2026-10-14T21:19:54Z"
+        },
+        {
+          "name": "Build the embedded codex.html (--check)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 20,
+          "started_at": "2026-10-14T21:19:54Z",
+          "completed_at": "2026-10-14T21:19:54Z"
+        },
+        {
+          "name": "Post Cache Playwright browsers",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 38,
+          "started_at": "2026-10-14T21:19:54Z",
+          "completed_at": "2026-10-14T21:19:54Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 39,
+          "started_at": "2026-10-14T21:19:54Z",
+          "completed_at": "2026-10-14T21:19:54Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 40,
+          "started_at": "2026-10-14T21:19:54Z",
+          "completed_at": "2026-10-14T21:19:55Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 41,
+          "started_at": "2026-10-14T21:19:55Z",
+          "completed_at": "2026-10-14T21:19:55Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096541955",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083288,
+      "runner_name": "GitHub Actions 1000083288",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096541968,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SlEA",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096541968",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096541968",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T21:11:59Z",
+      "name": "freshness",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:19Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:19Z",
+          "completed_at": "2026-10-14T20:49:25Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:25Z",
+          "completed_at": "2026-10-14T20:49:28Z"
+        },
+        {
+          "name": "Install connector dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:28Z",
+          "completed_at": "2026-10-14T20:49:29Z"
+        },
+        {
+          "name": "Cache Playwright browsers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:29Z",
+          "completed_at": "2026-10-14T20:49:43Z"
+        },
+        {
+          "name": "Install Chromium (for the mobile-layout fault class)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:43Z",
+          "completed_at": "2026-10-14T20:50:00Z"
+        },
+        {
+          "name": "Identify the complete artifact build inputs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:50:00Z",
+          "completed_at": "2026-10-14T20:50:02Z"
+        },
+        {
+          "name": "Restore an exact artifact build",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:50:02Z",
+          "completed_at": "2026-10-14T20:50:04Z"
+        },
+        {
+          "name": "Admit the restored build bytes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:50:04Z",
+          "completed_at": "2026-10-14T20:50:05Z"
+        },
+        {
+          "name": "Build a fresh artifact from source",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2026-10-14T20:50:05Z",
+          "completed_at": "2026-10-14T20:50:05Z"
+        },
+        {
+          "name": "Reproducibility — committed api/ + codex.html == fresh build (0 diff)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-14T20:50:05Z",
+          "completed_at": "2026-10-14T20:50:07Z"
+        },
+        {
+          "name": "Record the verified build inventory",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-10-14T20:50:07Z",
+          "completed_at": "2026-10-14T20:50:07Z"
+        },
+        {
+          "name": "Cache the verified artifact build",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-10-14T20:50:07Z",
+          "completed_at": "2026-10-14T20:50:07Z"
+        },
+        {
+          "name": "Payload budget — the lazy page and its engine file within their gzip budgets",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:50:07Z",
+          "completed_at": "2026-10-14T20:50:07Z"
+        },
+        {
+          "name": "Fault injection — every gate is two-sided (0 escapes)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:50:07Z",
+          "completed_at": "2026-10-14T21:11:48Z"
+        },
+        {
+          "name": "Post Cache Playwright browsers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-10-14T21:11:48Z",
+          "completed_at": "2026-10-14T21:11:56Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-14T21:11:56Z",
+          "completed_at": "2026-10-14T21:11:56Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-10-14T21:11:56Z",
+          "completed_at": "2026-10-14T21:11:57Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-14T21:11:57Z",
+          "completed_at": "2026-10-14T21:11:57Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096541968",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083290,
+      "runner_name": "GitHub Actions 1000083290",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096541984,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SlIA",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096541984",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096541984",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T21:09:59Z",
+      "name": "lyrics-image",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:02Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:02Z",
+          "completed_at": "2026-10-14T20:49:24Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:24Z",
+          "completed_at": "2026-10-14T20:49:27Z"
+        },
+        {
+          "name": "High-severity production dependency advisories",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:27Z",
+          "completed_at": "2026-10-14T20:49:29Z"
+        },
+        {
+          "name": "Restore the newest capacity receipt banked on this branch or main",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:29Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Build the deployed lyrics runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T21:06:41Z"
+        },
+        {
+          "name": "Read the receipt the tested image carries",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T21:06:41Z",
+          "completed_at": "2026-10-14T21:06:42Z"
+        },
+        {
+          "name": "Bank the receipt under its own bytes",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-10-14T21:06:42Z",
+          "completed_at": "2026-10-14T21:06:42Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T21:06:42Z",
+          "completed_at": "2026-10-14T21:06:43Z"
+        },
+        {
+          "name": "Image gate readiness polling against stalled and unhealthy fixtures",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T21:06:43Z",
+          "completed_at": "2026-10-14T21:06:50Z"
+        },
+        {
+          "name": "Offline image pipeline and restart recovery",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T21:06:50Z",
+          "completed_at": "2026-10-14T21:08:56Z"
+        },
+        {
+          "name": "Capacity acceptance oracle counterexamples",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-14T21:08:56Z",
+          "completed_at": "2026-10-14T21:08:56Z"
+        },
+        {
+          "name": "Qualify the reader against the exact production image",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T21:08:56Z",
+          "completed_at": "2026-10-14T21:09:54Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T21:09:54Z",
+          "completed_at": "2026-10-14T21:09:56Z"
+        },
+        {
+          "name": "Preserve and publish the exact tested image",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-10-14T21:09:56Z",
+          "completed_at": "2026-10-14T21:09:56Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 16,
+          "started_at": "2026-10-14T21:09:56Z",
+          "completed_at": "2026-10-14T21:09:56Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-14T21:09:56Z",
+          "completed_at": "2026-10-14T21:09:56Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-10-14T21:09:56Z",
+          "completed_at": "2026-10-14T21:09:56Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-14T21:09:56Z",
+          "completed_at": "2026-10-14T21:09:56Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096541984",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083303,
+      "runner_name": "GitHub Actions 1000083303",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096541994,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SlKg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096541994",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096541994",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T21:00:38Z",
+      "name": "suites (shard 2/3)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:48:59Z",
+          "completed_at": "2026-10-14T20:49:00Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:41Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:41Z",
+          "completed_at": "2026-10-14T20:49:49Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:49Z",
+          "completed_at": "2026-10-14T20:49:50Z"
+        },
+        {
+          "name": "Install nltk (five suites reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:50Z",
+          "completed_at": "2026-10-14T20:49:52Z"
+        },
+        {
+          "name": "Install numpy (rhyme_organization's conditional nulls are vectorised)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:52Z",
+          "completed_at": "2026-10-14T20:49:54Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:54Z",
+          "completed_at": "2026-10-14T20:49:55Z"
+        },
+        {
+          "name": "The 109 cheap suites (their history is the comment above)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:55Z",
+          "completed_at": "2026-10-14T20:57:47Z"
+        },
+        {
+          "name": "Song-profile calibration, against the drift that is RULED (not silenced)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:57:47Z",
+          "completed_at": "2026-10-14T20:58:40Z"
+        },
+        {
+          "name": "Meter-band adoption check, the shipped constants re-derived",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-10-14T20:58:40Z",
+          "completed_at": "2026-10-14T20:58:40Z"
+        },
+        {
+          "name": "Span-search null, the shipped band against the measured crossover",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:58:40Z",
+          "completed_at": "2026-10-14T20:58:43Z"
+        },
+        {
+          "name": "The schema door's end-rhyme reading, split from its satisfaction",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-14T20:58:43Z",
+          "completed_at": "2026-10-14T20:59:38Z"
+        },
+        {
+          "name": "The schema door's rescues by line distance, and why the sonnets cannot answer",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:59:38Z",
+          "completed_at": "2026-10-14T21:00:33Z"
+        },
+        {
+          "name": "Door census, every pair-satisfaction site against every relation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T21:00:33Z",
+          "completed_at": "2026-10-14T21:00:35Z"
+        },
+        {
+          "name": "Chance rate, the shipped door against random pairs",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-10-14T21:00:35Z",
+          "completed_at": "2026-10-14T21:00:35Z"
+        },
+        {
+          "name": "E-5 empty-coda evidence compatibility",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 16,
+          "started_at": "2026-10-14T21:00:35Z",
+          "completed_at": "2026-10-14T21:00:35Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-14T21:00:35Z",
+          "completed_at": "2026-10-14T21:00:35Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-10-14T21:00:35Z",
+          "completed_at": "2026-10-14T21:00:35Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-14T21:00:35Z",
+          "completed_at": "2026-10-14T21:00:35Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096541994",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083286,
+      "runner_name": "GitHub Actions 1000083286",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542002,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SlMg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542002",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542002",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T21:12:57Z",
+      "name": "suites (shard 3/3)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:48:59Z",
+          "completed_at": "2026-10-14T20:49:00Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:23Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:23Z",
+          "completed_at": "2026-10-14T20:49:32Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:32Z",
+          "completed_at": "2026-10-14T20:49:32Z"
+        },
+        {
+          "name": "Install nltk (five suites reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:32Z",
+          "completed_at": "2026-10-14T20:49:34Z"
+        },
+        {
+          "name": "Install numpy (rhyme_organization's conditional nulls are vectorised)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:34Z",
+          "completed_at": "2026-10-14T20:49:37Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:37Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "The 109 cheap suites (their history is the comment above)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T21:06:21Z"
+        },
+        {
+          "name": "Song-profile calibration, against the drift that is RULED (not silenced)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-10-14T21:06:21Z",
+          "completed_at": "2026-10-14T21:06:21Z"
+        },
+        {
+          "name": "Meter-band adoption check, the shipped constants re-derived",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T21:06:21Z",
+          "completed_at": "2026-10-14T21:08:15Z"
+        },
+        {
+          "name": "Span-search null, the shipped band against the measured crossover",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2026-10-14T21:08:15Z",
+          "completed_at": "2026-10-14T21:08:15Z"
+        },
+        {
+          "name": "The schema door's end-rhyme reading, split from its satisfaction",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-10-14T21:08:15Z",
+          "completed_at": "2026-10-14T21:08:15Z"
+        },
+        {
+          "name": "The schema door's rescues by line distance, and why the sonnets cannot answer",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-10-14T21:08:15Z",
+          "completed_at": "2026-10-14T21:08:15Z"
+        },
+        {
+          "name": "Door census, every pair-satisfaction site against every relation",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-10-14T21:08:15Z",
+          "completed_at": "2026-10-14T21:08:15Z"
+        },
+        {
+          "name": "Chance rate, the shipped door against random pairs",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 15,
+          "started_at": "2026-10-14T21:08:15Z",
+          "completed_at": "2026-10-14T21:08:15Z"
+        },
+        {
+          "name": "E-5 empty-coda evidence compatibility",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T21:08:15Z",
+          "completed_at": "2026-10-14T21:12:54Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-14T21:12:54Z",
+          "completed_at": "2026-10-14T21:12:54Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-10-14T21:12:54Z",
+          "completed_at": "2026-10-14T21:12:55Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-14T21:12:55Z",
+          "completed_at": "2026-10-14T21:12:55Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542002",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083284,
+      "runner_name": "GitHub Actions 1000083284",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542019,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SlQw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542019",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542019",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:50:22Z",
+      "name": "capacity (1/3)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:49:42Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:42Z",
+          "completed_at": "2026-10-14T20:49:43Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:43Z",
+          "completed_at": "2026-10-14T20:49:44Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:44Z",
+          "completed_at": "2026-10-14T20:49:45Z"
+        },
+        {
+          "name": "test_capacity shard 1/3 (sections dealt by residue)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:45Z",
+          "completed_at": "2026-10-14T20:50:18Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:50:18Z",
+          "completed_at": "2026-10-14T20:50:18Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:50:18Z",
+          "completed_at": "2026-10-14T20:50:18Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:50:18Z",
+          "completed_at": "2026-10-14T20:50:18Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542019",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083285,
+      "runner_name": "GitHub Actions 1000083285",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542053,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SlZQ",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542053",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542053",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T21:05:49Z",
+      "name": "suites (shard 1/3)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:00Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:27Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:27Z",
+          "completed_at": "2026-10-14T20:49:36Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:36Z",
+          "completed_at": "2026-10-14T20:49:36Z"
+        },
+        {
+          "name": "Install nltk (five suites reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:36Z",
+          "completed_at": "2026-10-14T20:49:39Z"
+        },
+        {
+          "name": "Install numpy (rhyme_organization's conditional nulls are vectorised)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:39Z",
+          "completed_at": "2026-10-14T20:49:41Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:41Z",
+          "completed_at": "2026-10-14T20:49:42Z"
+        },
+        {
+          "name": "The 109 cheap suites (their history is the comment above)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:42Z",
+          "completed_at": "2026-10-14T21:04:19Z"
+        },
+        {
+          "name": "Song-profile calibration, against the drift that is RULED (not silenced)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-10-14T21:04:19Z",
+          "completed_at": "2026-10-14T21:04:19Z"
+        },
+        {
+          "name": "Meter-band adoption check, the shipped constants re-derived",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-10-14T21:04:19Z",
+          "completed_at": "2026-10-14T21:04:19Z"
+        },
+        {
+          "name": "Span-search null, the shipped band against the measured crossover",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2026-10-14T21:04:19Z",
+          "completed_at": "2026-10-14T21:04:19Z"
+        },
+        {
+          "name": "The schema door's end-rhyme reading, split from its satisfaction",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-10-14T21:04:19Z",
+          "completed_at": "2026-10-14T21:04:19Z"
+        },
+        {
+          "name": "The schema door's rescues by line distance, and why the sonnets cannot answer",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-10-14T21:04:19Z",
+          "completed_at": "2026-10-14T21:04:19Z"
+        },
+        {
+          "name": "Door census, every pair-satisfaction site against every relation",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-10-14T21:04:19Z",
+          "completed_at": "2026-10-14T21:04:19Z"
+        },
+        {
+          "name": "Chance rate, the shipped door against random pairs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T21:04:19Z",
+          "completed_at": "2026-10-14T21:05:46Z"
+        },
+        {
+          "name": "E-5 empty-coda evidence compatibility",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 16,
+          "started_at": "2026-10-14T21:05:46Z",
+          "completed_at": "2026-10-14T21:05:46Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-14T21:05:46Z",
+          "completed_at": "2026-10-14T21:05:46Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-10-14T21:05:46Z",
+          "completed_at": "2026-10-14T21:05:46Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-14T21:05:46Z",
+          "completed_at": "2026-10-14T21:05:46Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542053",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083305,
+      "runner_name": "GitHub Actions 1000083305",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542071,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Sldw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542071",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542071",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:52:18Z",
+      "name": "plan (3/5)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:28Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:28Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:49:39Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:39Z",
+          "completed_at": "2026-10-14T20:49:42Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:42Z",
+          "completed_at": "2026-10-14T20:49:43Z"
+        },
+        {
+          "name": "test_plan shard 3/5 (sections dealt by residue over the cost-ordered tuple; §3 deals its seeds by the same coordinate)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:43Z",
+          "completed_at": "2026-10-14T20:52:14Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:52:14Z",
+          "completed_at": "2026-10-14T20:52:14Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:52:14Z",
+          "completed_at": "2026-10-14T20:52:15Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:52:15Z",
+          "completed_at": "2026-10-14T20:52:15Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542071",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083283,
+      "runner_name": "GitHub Actions 1000083283",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542087,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Slhw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542087",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542087",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T21:00:48Z",
+      "name": "record",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:44Z"
+        },
+        {
+          "name": "Confirm the harness needs no third-party packages",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:44Z",
+          "completed_at": "2026-10-14T20:49:44Z"
+        },
+        {
+          "name": "Install numpy (kalevala_rate's permutation null is vectorised)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:44Z",
+          "completed_at": "2026-10-14T20:49:47Z"
+        },
+        {
+          "name": "Cache CMUdict",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:47Z",
+          "completed_at": "2026-10-14T20:49:48Z"
+        },
+        {
+          "name": "Stage the lexicon",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:48Z",
+          "completed_at": "2026-10-14T20:49:48Z"
+        },
+        {
+          "name": "Doctrine numbering and the doctrine→check registry (1-96, no number in both files, every citation resolves, every doctrine mapped to a check or a declared refusal)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:48Z",
+          "completed_at": "2026-10-14T20:49:53Z"
+        },
+        {
+          "name": "Entry claims (the sentences in MISSING.md and BACKLOG.md, checked; plus repo paths and per-family rhyme-capacity figures quoted in prose)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:49:53Z",
+          "completed_at": "2026-10-14T20:50:49Z"
+        },
+        {
+          "name": "The flash battery, one row per round (M-254 D)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:50:49Z",
+          "completed_at": "2026-10-14T20:50:49Z"
+        },
+        {
+          "name": "Committed counters against their measurement",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:50:49Z",
+          "completed_at": "2026-10-14T20:53:04Z"
+        },
+        {
+          "name": "The comparator is where the pin says (a moved comparator owns its re-verification)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-10-14T20:53:04Z",
+          "completed_at": "2026-10-14T20:53:04Z"
+        },
+        {
+          "name": "The pin sweep's argv-consumption proof (every instrument's check flag provably consumable, M-21)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:53:04Z",
+          "completed_at": "2026-10-14T20:53:05Z"
+        },
+        {
+          "name": "Tracked figures in prose against the pin (live/history declared, M-33)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:53:05Z",
+          "completed_at": "2026-10-14T20:53:05Z"
+        },
+        {
+          "name": "The gate census — which findings can refuse anything (exit 3 on drift)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:53:05Z",
+          "completed_at": "2026-10-14T20:53:10Z"
+        },
+        {
+          "name": "The lyric map matches the code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:53:10Z",
+          "completed_at": "2026-10-14T20:53:18Z"
+        },
+        {
+          "name": "Register triage (no OPEN entry is named by a regression without saying why)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:53:18Z",
+          "completed_at": "2026-10-14T20:53:19Z"
+        },
+        {
+          "name": "data/sources.tsv rows against the files they describe",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-10-14T20:53:19Z",
+          "completed_at": "2026-10-14T20:53:19Z"
+        },
+        {
+          "name": "n_types, re-derived where the derivation is declared",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-10-14T20:53:19Z",
+          "completed_at": "2026-10-14T20:53:19Z"
+        },
+        {
+          "name": "The fitted-matrix artifact against a fresh derivation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-10-14T20:53:19Z",
+          "completed_at": "2026-10-14T20:53:25Z"
+        },
+        {
+          "name": "Mark coverage against RESULTS_MARK_COVERAGE.md's pins",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-10-14T20:53:25Z",
+          "completed_at": "2026-10-14T20:54:11Z"
+        },
+        {
+          "name": "Span/label agreement against RESULTS_SPANS.md's headline",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-10-14T20:54:11Z",
+          "completed_at": "2026-10-14T20:55:48Z"
+        },
+        {
+          "name": "Corpus audit against RESULTS_CORPUS_AUDIT.md's committed shape",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-10-14T20:55:48Z",
+          "completed_at": "2026-10-14T20:57:14Z"
+        },
+        {
+          "name": "Pooled-Fisher H0 calibration still reads as the record describes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-10-14T20:57:14Z",
+          "completed_at": "2026-10-14T20:57:36Z"
+        },
+        {
+          "name": "Kalevala alliteration counts against their committed values",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-10-14T20:57:36Z",
+          "completed_at": "2026-10-14T20:57:39Z"
+        },
+        {
+          "name": "The positive control's own instrument (doctrine 31/76)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2026-10-14T20:57:39Z",
+          "completed_at": "2026-10-14T20:58:08Z"
+        },
+        {
+          "name": "Mutation anchors still apply (all 59 — adversary 4 is still aimed at the code)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2026-10-14T20:58:08Z",
+          "completed_at": "2026-10-14T20:58:08Z"
+        },
+        {
+          "name": "Mutation list is well formed (static — no sweep, forks nothing)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 28,
+          "started_at": "2026-10-14T20:58:08Z",
+          "completed_at": "2026-10-14T20:58:32Z"
+        },
+        {
+          "name": "Hafez radif/qāfiya rates against their committed values",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-10-14T20:58:32Z",
+          "completed_at": "2026-10-14T20:58:48Z"
+        },
+        {
+          "name": "Hafez radif audit against its committed sweep",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-10-14T20:58:48Z",
+          "completed_at": "2026-10-14T20:58:48Z"
+        },
+        {
+          "name": "Sanskrit prāsa figures against their committed counts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-10-14T20:58:48Z",
+          "completed_at": "2026-10-14T20:58:49Z"
+        },
+        {
+          "name": "Tang null, Kalevala rate and the positive control — pins nothing asked",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 32,
+          "started_at": "2026-10-14T20:58:49Z",
+          "completed_at": "2026-10-14T20:58:52Z"
+        },
+        {
+          "name": "Band negative control against its committed capture counts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 33,
+          "started_at": "2026-10-14T20:58:52Z",
+          "completed_at": "2026-10-14T20:58:57Z"
+        },
+        {
+          "name": "The record against the code (adversary 8)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 34,
+          "started_at": "2026-10-14T20:58:57Z",
+          "completed_at": "2026-10-14T20:58:59Z"
+        },
+        {
+          "name": "Welsh odl figures against RESULTS_CYM_RHYME.md's committed counts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 35,
+          "started_at": "2026-10-14T20:58:59Z",
+          "completed_at": "2026-10-14T20:59:12Z"
+        },
+        {
+          "name": "Cynghanedd search rate against its committed counts (both editions)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 36,
+          "started_at": "2026-10-14T20:59:12Z",
+          "completed_at": "2026-10-14T20:59:18Z"
+        },
+        {
+          "name": "The time layer is still mute, and for the recorded reason",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 37,
+          "started_at": "2026-10-14T20:59:18Z",
+          "completed_at": "2026-10-14T21:00:45Z"
+        },
+        {
+          "name": "Post Cache CMUdict",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 72,
+          "started_at": "2026-10-14T21:00:45Z",
+          "completed_at": "2026-10-14T21:00:46Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 73,
+          "started_at": "2026-10-14T21:00:46Z",
+          "completed_at": "2026-10-14T21:00:46Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 74,
+          "started_at": "2026-10-14T21:00:46Z",
+          "completed_at": "2026-10-14T21:00:46Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 75,
+          "started_at": "2026-10-14T21:00:46Z",
+          "completed_at": "2026-10-14T21:00:46Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542087",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083309,
+      "runner_name": "GitHub Actions 1000083309",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542109,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SlnQ",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542109",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542109",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:52:10Z",
+      "name": "catalog (shard 3/8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:31Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:31Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:49:37Z"
+        },
+        {
+          "name": "Catalog-wide smoke (every tradition through the live pipeline)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:37Z",
+          "completed_at": "2026-10-14T20:52:07Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:52:07Z",
+          "completed_at": "2026-10-14T20:52:07Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:52:07Z",
+          "completed_at": "2026-10-14T20:52:07Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:52:07Z",
+          "completed_at": "2026-10-14T20:52:07Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542109",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083287,
+      "runner_name": "GitHub Actions 1000083287",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542123,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Slqw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542123",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542123",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:54:36Z",
+      "name": "revision-loop (4/4)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:02Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:02Z",
+          "completed_at": "2026-10-14T20:49:24Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:24Z",
+          "completed_at": "2026-10-14T20:49:31Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:31Z",
+          "completed_at": "2026-10-14T20:49:31Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:31Z",
+          "completed_at": "2026-10-14T20:49:34Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:34Z",
+          "completed_at": "2026-10-14T20:49:36Z"
+        },
+        {
+          "name": "The revision loop, both suites at once (timed here, not labelled from memory)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:36Z",
+          "completed_at": "2026-10-14T20:54:32Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:54:32Z",
+          "completed_at": "2026-10-14T20:54:32Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:54:32Z",
+          "completed_at": "2026-10-14T20:54:32Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:54:32Z",
+          "completed_at": "2026-10-14T20:54:33Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542123",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083304,
+      "runner_name": "GitHub Actions 1000083304",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542154,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Slyg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542154",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542154",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:50:06Z",
+      "name": "capacity (2/3)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:25Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:25Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:49:34Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:34Z",
+          "completed_at": "2026-10-14T20:49:36Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:36Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "test_capacity shard 2/3 (sections dealt by residue)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:50:03Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:50:03Z",
+          "completed_at": "2026-10-14T20:50:03Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:50:03Z",
+          "completed_at": "2026-10-14T20:50:04Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:50:04Z",
+          "completed_at": "2026-10-14T20:50:04Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542154",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083297,
+      "runner_name": "GitHub Actions 1000083297",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542168,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Sl2A",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542168",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542168",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:51:44Z",
+      "name": "plan (4/5)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:28Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:28Z",
+          "completed_at": "2026-10-14T20:49:37Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:37Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:49:40Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:40Z",
+          "completed_at": "2026-10-14T20:49:41Z"
+        },
+        {
+          "name": "test_plan shard 4/5 (sections dealt by residue over the cost-ordered tuple; §3 deals its seeds by the same coordinate)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:41Z",
+          "completed_at": "2026-10-14T20:51:41Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:51:41Z",
+          "completed_at": "2026-10-14T20:51:41Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:51:41Z",
+          "completed_at": "2026-10-14T20:51:41Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:51:41Z",
+          "completed_at": "2026-10-14T20:51:41Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542168",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083318,
+      "runner_name": "GitHub Actions 1000083318",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542182,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Sl5g",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542182",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542182",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:52:05Z",
+      "name": "plan (5/5)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:22Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:22Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "test_plan shard 5/5 (sections dealt by residue over the cost-ordered tuple; §3 deals its seeds by the same coordinate)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:52:02Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:52:02Z",
+          "completed_at": "2026-10-14T20:52:03Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:52:03Z",
+          "completed_at": "2026-10-14T20:52:03Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:52:03Z",
+          "completed_at": "2026-10-14T20:52:03Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542182",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083299,
+      "runner_name": "GitHub Actions 1000083299",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542184,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Sl6A",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542184",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542184",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:50:57Z",
+      "name": "catalog (shard 7/8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:23Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:23Z",
+          "completed_at": "2026-10-14T20:49:28Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:28Z",
+          "completed_at": "2026-10-14T20:49:31Z"
+        },
+        {
+          "name": "Catalog-wide smoke (every tradition through the live pipeline)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:31Z",
+          "completed_at": "2026-10-14T20:50:54Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:50:54Z",
+          "completed_at": "2026-10-14T20:50:54Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:50:54Z",
+          "completed_at": "2026-10-14T20:50:55Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:50:55Z",
+          "completed_at": "2026-10-14T20:50:55Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542184",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083296,
+      "runner_name": "GitHub Actions 1000083296",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542224,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmEA",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542224",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542224",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:54:04Z",
+      "name": "plan (2/5)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:25Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:25Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:49:40Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:40Z",
+          "completed_at": "2026-10-14T20:49:41Z"
+        },
+        {
+          "name": "test_plan shard 2/5 (sections dealt by residue over the cost-ordered tuple; §3 deals its seeds by the same coordinate)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:41Z",
+          "completed_at": "2026-10-14T20:54:02Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:54:02Z",
+          "completed_at": "2026-10-14T20:54:02Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:54:02Z",
+          "completed_at": "2026-10-14T20:54:02Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:54:02Z",
+          "completed_at": "2026-10-14T20:54:02Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542224",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083298,
+      "runner_name": "GitHub Actions 1000083298",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542232,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmGA",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542232",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542232",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:51:35Z",
+      "name": "catalog (shard 5/8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:00Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:26Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:26Z",
+          "completed_at": "2026-10-14T20:49:27Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:27Z",
+          "completed_at": "2026-10-14T20:49:29Z"
+        },
+        {
+          "name": "Catalog-wide smoke (every tradition through the live pipeline)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:29Z",
+          "completed_at": "2026-10-14T20:51:33Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:51:33Z",
+          "completed_at": "2026-10-14T20:51:33Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:51:33Z",
+          "completed_at": "2026-10-14T20:51:33Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:51:33Z",
+          "completed_at": "2026-10-14T20:51:33Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542232",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083294,
+      "runner_name": "GitHub Actions 1000083294",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542235,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmGw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542235",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542235",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:53:11Z",
+      "name": "verbs (5)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:24Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:24Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:49:34Z"
+        },
+        {
+          "name": "Install nltk (sections reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:34Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Install PyYAML (§43 parses this workflow with a real parser)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:36Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:36Z",
+          "completed_at": "2026-10-14T20:49:37Z"
+        },
+        {
+          "name": "test_verbs shard 5/8 (the whole file, dealt by section residue over the cost-ordered tuple)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:37Z",
+          "completed_at": "2026-10-14T20:53:08Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:53:08Z",
+          "completed_at": "2026-10-14T20:53:08Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:53:08Z",
+          "completed_at": "2026-10-14T20:53:09Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:53:09Z",
+          "completed_at": "2026-10-14T20:53:09Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542235",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083291,
+      "runner_name": "GitHub Actions 1000083291",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542252,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmLA",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542252",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542252",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:53:55Z",
+      "name": "revision-loop (3/4)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:49:40Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:40Z",
+          "completed_at": "2026-10-14T20:49:40Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:40Z",
+          "completed_at": "2026-10-14T20:49:42Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:42Z",
+          "completed_at": "2026-10-14T20:49:43Z"
+        },
+        {
+          "name": "The revision loop, both suites at once (timed here, not labelled from memory)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:43Z",
+          "completed_at": "2026-10-14T20:53:51Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:53:51Z",
+          "completed_at": "2026-10-14T20:53:51Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:53:51Z",
+          "completed_at": "2026-10-14T20:53:52Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:53:52Z",
+          "completed_at": "2026-10-14T20:53:52Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542252",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083302,
+      "runner_name": "GitHub Actions 1000083302",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542258,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmMg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542258",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542258",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:58:43Z",
+      "name": "revision-loop (2/4)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:22Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:22Z",
+          "completed_at": "2026-10-14T20:49:29Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:29Z",
+          "completed_at": "2026-10-14T20:49:29Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:29Z",
+          "completed_at": "2026-10-14T20:49:31Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:31Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "The revision loop, both suites at once (timed here, not labelled from memory)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:58:40Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:58:40Z",
+          "completed_at": "2026-10-14T20:58:40Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:58:40Z",
+          "completed_at": "2026-10-14T20:58:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:58:40Z",
+          "completed_at": "2026-10-14T20:58:41Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542258",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083301,
+      "runner_name": "GitHub Actions 1000083301",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542263,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmNw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542263",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542263",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:52:42Z",
+      "name": "catalog (shard 6/8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:02Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:02Z",
+          "completed_at": "2026-10-14T20:49:27Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:27Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Catalog-wide smoke (every tradition through the live pipeline)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:52:39Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:52:39Z",
+          "completed_at": "2026-10-14T20:52:39Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:52:39Z",
+          "completed_at": "2026-10-14T20:52:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:52:40Z",
+          "completed_at": "2026-10-14T20:52:40Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542263",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083293,
+      "runner_name": "GitHub Actions 1000083293",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542265,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmOQ",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542265",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542265",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T21:04:08Z",
+      "name": "revision-loop (1/4)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:23Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:23Z",
+          "completed_at": "2026-10-14T20:49:31Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:31Z",
+          "completed_at": "2026-10-14T20:49:32Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:32Z",
+          "completed_at": "2026-10-14T20:49:34Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:34Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "The revision loop, both suites at once (timed here, not labelled from memory)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T21:04:04Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T21:04:04Z",
+          "completed_at": "2026-10-14T21:04:05Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T21:04:05Z",
+          "completed_at": "2026-10-14T21:04:05Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T21:04:05Z",
+          "completed_at": "2026-10-14T21:04:05Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542265",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083316,
+      "runner_name": "GitHub Actions 1000083316",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542271,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmPw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542271",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542271",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:49:58Z",
+      "name": "capacity (3/3)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:26Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:26Z",
+          "completed_at": "2026-10-14T20:49:34Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:34Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:36Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:36Z",
+          "completed_at": "2026-10-14T20:49:37Z"
+        },
+        {
+          "name": "test_capacity shard 3/3 (sections dealt by residue)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:37Z",
+          "completed_at": "2026-10-14T20:49:55Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:49:55Z",
+          "completed_at": "2026-10-14T20:49:55Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:49:55Z",
+          "completed_at": "2026-10-14T20:49:55Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:49:55Z",
+          "completed_at": "2026-10-14T20:49:55Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542271",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083312,
+      "runner_name": "GitHub Actions 1000083312",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542298,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmWg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542298",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542298",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:50:58Z",
+      "name": "catalog (shard 4/8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:00Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:23Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:23Z",
+          "completed_at": "2026-10-14T20:49:28Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:28Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Catalog-wide smoke (every tradition through the live pipeline)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:50:55Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:50:55Z",
+          "completed_at": "2026-10-14T20:50:55Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:50:55Z",
+          "completed_at": "2026-10-14T20:50:56Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:50:56Z",
+          "completed_at": "2026-10-14T20:50:56Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542298",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083295,
+      "runner_name": "GitHub Actions 1000083295",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542327,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Smdw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542327",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542327",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:54:48Z",
+      "name": "verbs (2)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:49:43Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:43Z",
+          "completed_at": "2026-10-14T20:49:44Z"
+        },
+        {
+          "name": "Install nltk (sections reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:44Z",
+          "completed_at": "2026-10-14T20:49:46Z"
+        },
+        {
+          "name": "Install PyYAML (§43 parses this workflow with a real parser)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:46Z",
+          "completed_at": "2026-10-14T20:49:46Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:46Z",
+          "completed_at": "2026-10-14T20:49:48Z"
+        },
+        {
+          "name": "test_verbs shard 2/8 (the whole file, dealt by section residue over the cost-ordered tuple)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:48Z",
+          "completed_at": "2026-10-14T20:54:44Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:54:44Z",
+          "completed_at": "2026-10-14T20:54:44Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:54:44Z",
+          "completed_at": "2026-10-14T20:54:44Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:54:44Z",
+          "completed_at": "2026-10-14T20:54:44Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542327",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083292,
+      "runner_name": "GitHub Actions 1000083292",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542337,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmgQ",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542337",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542337",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:52:21Z",
+      "name": "catalog (shard 8/8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:22Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:22Z",
+          "completed_at": "2026-10-14T20:49:23Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:23Z",
+          "completed_at": "2026-10-14T20:49:26Z"
+        },
+        {
+          "name": "Catalog-wide smoke (every tradition through the live pipeline)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:26Z",
+          "completed_at": "2026-10-14T20:52:19Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:52:19Z",
+          "completed_at": "2026-10-14T20:52:19Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:52:19Z",
+          "completed_at": "2026-10-14T20:52:19Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:52:19Z",
+          "completed_at": "2026-10-14T20:52:19Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542337",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083310,
+      "runner_name": "GitHub Actions 1000083310",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542344,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmiA",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542344",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542344",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:52:51Z",
+      "name": "verbs (7)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:27Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:27Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Install nltk (sections reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "Install PyYAML (§43 parses this workflow with a real parser)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:49:39Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:39Z",
+          "completed_at": "2026-10-14T20:49:40Z"
+        },
+        {
+          "name": "test_verbs shard 7/8 (the whole file, dealt by section residue over the cost-ordered tuple)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:40Z",
+          "completed_at": "2026-10-14T20:52:47Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:52:47Z",
+          "completed_at": "2026-10-14T20:52:47Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:52:47Z",
+          "completed_at": "2026-10-14T20:52:48Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:52:48Z",
+          "completed_at": "2026-10-14T20:52:48Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542344",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083307,
+      "runner_name": "GitHub Actions 1000083307",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542345,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmiQ",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542345",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542345",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:52:18Z",
+      "name": "catalog (shard 2/8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:27Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:27Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Catalog-wide smoke (every tradition through the live pipeline)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:52:16Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:52:16Z",
+          "completed_at": "2026-10-14T20:52:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:52:16Z",
+          "completed_at": "2026-10-14T20:52:16Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:52:16Z",
+          "completed_at": "2026-10-14T20:52:16Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542345",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083311,
+      "runner_name": "GitHub Actions 1000083311",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542366,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Smng",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542366",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542366",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:54:06Z",
+      "name": "plan (1/5)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:27Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:27Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Install nltk (the floor reaches the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:39Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:39Z",
+          "completed_at": "2026-10-14T20:49:40Z"
+        },
+        {
+          "name": "test_plan shard 1/5 (sections dealt by residue over the cost-ordered tuple; §3 deals its seeds by the same coordinate)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:40Z",
+          "completed_at": "2026-10-14T20:54:02Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-10-14T20:54:02Z",
+          "completed_at": "2026-10-14T20:54:02Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-10-14T20:54:02Z",
+          "completed_at": "2026-10-14T20:54:03Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:54:03Z",
+          "completed_at": "2026-10-14T20:54:03Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542366",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083300,
+      "runner_name": "GitHub Actions 1000083300",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542380,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SmrA",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542380",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542380",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:55:20Z",
+      "name": "verbs (3)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:22Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:22Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:49:31Z"
+        },
+        {
+          "name": "Install nltk (sections reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:31Z",
+          "completed_at": "2026-10-14T20:49:34Z"
+        },
+        {
+          "name": "Install PyYAML (§43 parses this workflow with a real parser)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:34Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:37Z"
+        },
+        {
+          "name": "test_verbs shard 3/8 (the whole file, dealt by section residue over the cost-ordered tuple)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:37Z",
+          "completed_at": "2026-10-14T20:55:16Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:55:16Z",
+          "completed_at": "2026-10-14T20:55:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:55:16Z",
+          "completed_at": "2026-10-14T20:55:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:55:17Z",
+          "completed_at": "2026-10-14T20:55:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542380",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083289,
+      "runner_name": "GitHub Actions 1000083289",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542446,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Sm7g",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542446",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542446",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:52:24Z",
+      "name": "catalog (shard 1/8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:22Z"
+        },
+        {
+          "name": "Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:22Z",
+          "completed_at": "2026-10-14T20:49:23Z"
+        },
+        {
+          "name": "Install dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:23Z",
+          "completed_at": "2026-10-14T20:49:26Z"
+        },
+        {
+          "name": "Catalog-wide smoke (every tradition through the live pipeline)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:26Z",
+          "completed_at": "2026-10-14T20:52:22Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:52:22Z",
+          "completed_at": "2026-10-14T20:52:22Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-10-14T20:52:22Z",
+          "completed_at": "2026-10-14T20:52:23Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:52:23Z",
+          "completed_at": "2026-10-14T20:52:23Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542446",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083308,
+      "runner_name": "GitHub Actions 1000083308",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542509,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SnLQ",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542509",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542509",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:53:20Z",
+      "name": "verbs (1)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:00Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:24Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:24Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Install nltk (sections reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:37Z"
+        },
+        {
+          "name": "Install PyYAML (§43 parses this workflow with a real parser)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:37Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:49:39Z"
+        },
+        {
+          "name": "test_verbs shard 1/8 (the whole file, dealt by section residue over the cost-ordered tuple)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:39Z",
+          "completed_at": "2026-10-14T20:53:18Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:53:18Z",
+          "completed_at": "2026-10-14T20:53:18Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:53:18Z",
+          "completed_at": "2026-10-14T20:53:18Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:53:18Z",
+          "completed_at": "2026-10-14T20:53:18Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542509",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083315,
+      "runner_name": "GitHub Actions 1000083315",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542515,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-SnMw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542515",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542515",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:58:40Z",
+      "name": "verbs (4)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:00Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:22Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:22Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:49:30Z"
+        },
+        {
+          "name": "Install nltk (sections reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:30Z",
+          "completed_at": "2026-10-14T20:49:33Z"
+        },
+        {
+          "name": "Install PyYAML (§43 parses this workflow with a real parser)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:33Z",
+          "completed_at": "2026-10-14T20:49:34Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:34Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "test_verbs shard 4/8 (the whole file, dealt by section residue over the cost-ordered tuple)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:58:38Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:58:38Z",
+          "completed_at": "2026-10-14T20:58:38Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:58:38Z",
+          "completed_at": "2026-10-14T20:58:39Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:58:39Z",
+          "completed_at": "2026-10-14T20:58:39Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542515",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083313,
+      "runner_name": "GitHub Actions 1000083313",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542571,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Snaw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542571",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542571",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:56:34Z",
+      "name": "verbs (6)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:02Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:02Z",
+          "completed_at": "2026-10-14T20:49:28Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:28Z",
+          "completed_at": "2026-10-14T20:49:41Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:41Z",
+          "completed_at": "2026-10-14T20:49:42Z"
+        },
+        {
+          "name": "Install nltk (sections reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:42Z",
+          "completed_at": "2026-10-14T20:49:44Z"
+        },
+        {
+          "name": "Install PyYAML (§43 parses this workflow with a real parser)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:44Z",
+          "completed_at": "2026-10-14T20:49:45Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:45Z",
+          "completed_at": "2026-10-14T20:49:46Z"
+        },
+        {
+          "name": "test_verbs shard 6/8 (the whole file, dealt by section residue over the cost-ordered tuple)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:46Z",
+          "completed_at": "2026-10-14T20:56:30Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:56:30Z",
+          "completed_at": "2026-10-14T20:56:30Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:56:30Z",
+          "completed_at": "2026-10-14T20:56:30Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:56:30Z",
+          "completed_at": "2026-10-14T20:56:30Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542571",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083306,
+      "runner_name": "GitHub Actions 1000083306",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542611,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Snkw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542611",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542611",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:48:59Z",
+      "completed_at": "2026-10-14T20:53:51Z",
+      "name": "verbs (8)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:00Z",
+          "completed_at": "2026-10-14T20:49:01Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:27Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:27Z",
+          "completed_at": "2026-10-14T20:49:35Z"
+        },
+        {
+          "name": "Stage the pronunciation dictionary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:35Z",
+          "completed_at": "2026-10-14T20:49:36Z"
+        },
+        {
+          "name": "Install nltk (sections reach the POS tagger through features.py)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:36Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "Install PyYAML (§43 parses this workflow with a real parser)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:49:38Z"
+        },
+        {
+          "name": "Stage the tagger model and the concreteness norms",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:38Z",
+          "completed_at": "2026-10-14T20:49:39Z"
+        },
+        {
+          "name": "test_verbs shard 8/8 (the whole file, dealt by section residue over the cost-ordered tuple)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:39Z",
+          "completed_at": "2026-10-14T20:53:48Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-10-14T20:53:48Z",
+          "completed_at": "2026-10-14T20:53:49Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-10-14T20:53:49Z",
+          "completed_at": "2026-10-14T20:53:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-10-14T20:53:49Z",
+          "completed_at": "2026-10-14T20:53:49Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542611",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083314,
+      "runner_name": "GitHub Actions 1000083314",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096542619,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-Snmw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096542619",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096542619",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:48:56Z",
+      "started_at": "2026-10-14T20:49:00Z",
+      "completed_at": "2026-10-14T20:49:54Z",
+      "name": "capacity-proof / verify",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:01Z",
+          "completed_at": "2026-10-14T20:49:03Z"
+        },
+        {
+          "name": "Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:03Z",
+          "completed_at": "2026-10-14T20:49:26Z"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:26Z",
+          "completed_at": "2026-10-14T20:49:36Z"
+        },
+        {
+          "name": "Install the exact runtime dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-10-14T20:49:36Z",
+          "completed_at": "2026-10-14T20:49:39Z"
+        },
+        {
+          "name": "Stage the actual lexical runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-10-14T20:49:39Z",
+          "completed_at": "2026-10-14T20:49:40Z"
+        },
+        {
+          "name": "Restore the newest runner receipt banked on this branch or main",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-10-14T20:49:40Z",
+          "completed_at": "2026-10-14T20:49:41Z"
+        },
+        {
+          "name": "Verify all81 current-runtime witnesses once, or admit a receipt this runtime verifies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-10-14T20:49:41Z",
+          "completed_at": "2026-10-14T20:49:46Z"
+        },
+        {
+          "name": "Bind verified proof to this commit and attempt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-10-14T20:49:46Z",
+          "completed_at": "2026-10-14T20:49:50Z"
+        },
+        {
+          "name": "Read the receipt this attempt binds",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-10-14T20:49:50Z",
+          "completed_at": "2026-10-14T20:49:51Z"
+        },
+        {
+          "name": "Bank the receipt under its own bytes",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-10-14T20:49:51Z",
+          "completed_at": "2026-10-14T20:49:51Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-10-14T20:49:51Z",
+          "completed_at": "2026-10-14T20:49:51Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-10-14T20:49:51Z",
+          "completed_at": "2026-10-14T20:49:52Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v5",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-10-14T20:49:52Z",
+          "completed_at": "2026-10-14T20:49:52Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-10-14T20:49:52Z",
+          "completed_at": "2026-10-14T20:49:52Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096542619",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000083317,
+      "runner_name": "GitHub Actions 1000083317",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116096983760,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-ti0A",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116096983760",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116096983760",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:49:54Z",
+      "started_at": "2026-10-14T20:49:57Z",
+      "completed_at": "2026-10-14T20:49:59Z",
+      "name": "capacity-proof-result",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:49:57Z",
+          "completed_at": "2026-10-14T20:49:57Z"
+        },
+        {
+          "name": "Require actual all-family proof from this workflow attempt",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:49:57Z",
+          "completed_at": "2026-10-14T20:49:58Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:49:58Z",
+          "completed_at": "2026-10-14T20:49:58Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116096983760",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083319,
+      "runner_name": "GitHub Actions 1000083319",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116097025177,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-wEmQ",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116097025177",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116097025177",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-10-14T20:50:00Z",
+      "started_at": "2026-10-14T20:50:00Z",
+      "completed_at": "2026-10-14T20:50:00Z",
+      "name": "nightly",
+      "steps": [],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116097025177",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 116097208214,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbB-7Plg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116097208214",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116097208214",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:50:22Z",
+      "started_at": "2026-10-14T20:50:25Z",
+      "completed_at": "2026-10-14T20:50:28Z",
+      "name": "capacity-result",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:50:26Z",
+          "completed_at": "2026-10-14T20:50:26Z"
+        },
+        {
+          "name": "Aggregate the capacity shards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:50:26Z",
+          "completed_at": "2026-10-14T20:50:26Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:50:26Z",
+          "completed_at": "2026-10-14T20:50:26Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116097208214",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083320,
+      "runner_name": "GitHub Actions 1000083320",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116098338531,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbCAAO4w",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116098338531",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116098338531",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:52:43Z",
+      "started_at": "2026-10-14T20:52:46Z",
+      "completed_at": "2026-10-14T20:52:49Z",
+      "name": "catalog-result",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:52:46Z",
+          "completed_at": "2026-10-14T20:52:47Z"
+        },
+        {
+          "name": "Aggregate the catalog shards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:52:47Z",
+          "completed_at": "2026-10-14T20:52:47Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:52:47Z",
+          "completed_at": "2026-10-14T20:52:47Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116098338531",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083321,
+      "runner_name": "GitHub Actions 1000083321",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116099005244,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbCAo7PA",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116099005244",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116099005244",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:54:06Z",
+      "started_at": "2026-10-14T20:54:09Z",
+      "completed_at": "2026-10-14T20:54:12Z",
+      "name": "plan-result",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:54:10Z",
+          "completed_at": "2026-10-14T20:54:10Z"
+        },
+        {
+          "name": "Aggregate the plan shards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:54:10Z",
+          "completed_at": "2026-10-14T20:54:10Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:54:10Z",
+          "completed_at": "2026-10-14T20:54:10Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116099005244",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083322,
+      "runner_name": "GitHub Actions 1000083322",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116101157371,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbCCsR-w",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116101157371",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116101157371",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T20:58:41Z",
+      "started_at": "2026-10-14T20:58:43Z",
+      "completed_at": "2026-10-14T20:58:46Z",
+      "name": "verbs-result",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T20:58:44Z",
+          "completed_at": "2026-10-14T20:58:44Z"
+        },
+        {
+          "name": "Aggregate the verbs shards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T20:58:44Z",
+          "completed_at": "2026-10-14T20:58:44Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T20:58:44Z",
+          "completed_at": "2026-10-14T20:58:44Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116101157371",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083323,
+      "runner_name": "GitHub Actions 1000083323",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116103662471,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbCFFLhw",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116103662471",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116103662471",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T21:04:08Z",
+      "started_at": "2026-10-14T21:04:11Z",
+      "completed_at": "2026-10-14T21:04:18Z",
+      "name": "revision-loop-result",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T21:04:11Z",
+          "completed_at": "2026-10-14T21:04:12Z"
+        },
+        {
+          "name": "Aggregate the revision-loop shards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T21:04:12Z",
+          "completed_at": "2026-10-14T21:04:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T21:04:12Z",
+          "completed_at": "2026-10-14T21:04:12Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116103662471",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083324,
+      "runner_name": "GitHub Actions 1000083324",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 116107701070,
+      "run_id": 38634883740,
+      "workflow_name": "CI",
+      "head_branch": "codex/reader-repair-continuation-20261014",
+      "run_url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/runs/38634883740",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOStBJjs8AAAAbCI7rTg",
+      "head_sha": "f2e973dbb0aae0459264975745ecaaab9ca5edcd",
+      "url": "https://api.github.com/repos/WeningerII/CodexMusica/actions/jobs/116107701070",
+      "html_url": "https://github.com/WeningerII/CodexMusica/actions/runs/38634883740/job/116107701070",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-14T21:12:58Z",
+      "started_at": "2026-10-14T21:13:01Z",
+      "completed_at": "2026-10-14T21:13:03Z",
+      "name": "suites-result",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-10-14T21:13:01Z",
+          "completed_at": "2026-10-14T21:13:01Z"
+        },
+        {
+          "name": "Aggregate the suites shards",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-10-14T21:13:02Z",
+          "completed_at": "2026-10-14T21:13:02Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-10-14T21:13:02Z",
+          "completed_at": "2026-10-14T21:13:02Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/WeningerII/CodexMusica/check-runs/116107701070",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000083325,
+      "runner_name": "GitHub Actions 1000083325",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}
