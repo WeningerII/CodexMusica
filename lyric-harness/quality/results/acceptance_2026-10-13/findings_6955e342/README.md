@@ -57,11 +57,14 @@ The F4 and F1 skeptics finished. The **Scope** paragraph above says which did no
      - the card exists only at `643e292e`.
    - **Files:** `repro/library-undo-card/` and `repro/check-library-undo-card/`.
    - **Side finding:** a migrating Library import sets `libraryOrigin.adapted` with no edit, which adds one Undo step. The same happens at `61b6618a`. By code reading only, a later working-copy download would then drop the Library declarations.
-3. **CONFIRMED (skeptics on F4): the renumbering card loses entries from one large import.** The card's display state has a 3,200-character budget (`lyrics.js:468`) and evicts from the front (`:497`).
+3. **CONFIRMED (13 skeptics on F4; 11 uphold their item as a failure): the renumbering card loses entries from one large import.** The card's display state has a 3,200-character budget (`lyrics.js:468`) and evicts from the front (`:497`).
    - **Measured:** at 50, 200 and 500 moved entries it lists 48–49 and says how many it dropped. A skeptic found the first drop at about 52–56 short entries, or 32–34 at 40-character words.
    - **Truncation:** words longer than 40 code units are cut silently (`:478`), and matching lines are cut at 4 with no "more" marker (`:485`).
    - **Not a breach of the card's written contract.** As one skeptic notes, R2's plan promised "a card listing every renumbered item", and both import paths do list every item at small sizes (7 of 7, and 5 of 5).
-   - **Also (TESTER):** Dismiss has no Undo, and the card is hidden in a closed section once a review returns items.
+   - **Reproduced, but two skeptics reject the "fail" label** (`verify:f4-card:6` and `:7`), and a third narrows one (`:9`). R2 promises the card persists until it is dismissed; R2 never promises that it matches the draft or that a dismissal can be undone:
+     - after Undo between two `.txt` imports, the card still lists the later import's entries. They are stale, not lost: Redo and reload keep all of them (`:6`);
+     - Dismiss is immediate and permanent, with no confirmation and no Undo. Re-importing the same `.txt` re-creates the card. This is an owner question, not a contract failure (`:7`);
+     - once a review returns any item, the card sits in the closed "Local checks" section, and every re-render closes it again. This is a discoverability finding (`:9`).
    - **Files:** `repro/f4-card/` and `repro/verify-f4-card-*/`.
 4. **CONFIRMED (eight F1 skeptics, `repro/verify-f1-selection-0..8/`): selection mapping across a rewritten row.** `lyMapOffset` takes one common prefix and suffix for the whole row. A node replica predicts the page's offsets 96/96.
    - **Unchanged members after the changed one collapse.** In `[SETUP — returns — 1.T2, 2.end]`, a selection `[25,30]` on `2.end` becomes `[39,39]` before `]`.
