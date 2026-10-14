@@ -1,0 +1,46 @@
+tree has reader schemes: True | scheme in force: v1
+
+LINE 'I gave it all my heart.    10'
+  raw_final_token        -> 'heart'
+  word_syllable_map words-> [(0, 'I'), (1, 'gave'), (2, 'it'), (3, 'all'), (4, 'my'), (5, 'heart')]
+  line_anchors label     -> 'heart' anchors=2
+  slots.resolve 1          -> label='heart' anchors=2
+  slots.resolve 1.end      -> label='heart' anchors=2
+  slots.resolve 1.endword  -> label='heart' anchors=1
+  slots.resolve 1.head     -> label='I' anchors=1
+
+LINE 'I gave it all my heart zzzqx'
+  raw_final_token        -> 'zzzqx'
+  word_syllable_map words-> [(0, 'I'), (1, 'gave'), (2, 'it'), (3, 'all'), (4, 'my'), (5, 'heart')]
+  line_anchors label     -> 'zzzqx' anchors=0
+  slots.resolve 1          -> label='zzzqx' anchors=0
+  slots.resolve 1.end      -> label='zzzqx' anchors=0
+  slots.resolve 1.endword  -> label='heart' anchors=1
+  slots.resolve 1.head     -> label='I' anchors=1
+
+LINE 'I gave it all my heart.'
+  raw_final_token        -> 'heart'
+  word_syllable_map words-> [(0, 'I'), (1, 'gave'), (2, 'it'), (3, 'all'), (4, 'my'), (5, 'heart')]
+  line_anchors label     -> 'heart' anchors=2
+  slots.resolve 1          -> label='heart' anchors=2
+  slots.resolve 1.end      -> label='heart' anchors=2
+  slots.resolve 1.endword  -> label='heart' anchors=1
+  slots.resolve 1.head     -> label='I' anchors=1
+
+LINE 'we met in nineteen 99'
+  raw_final_token        -> 'nineteen'
+  word_syllable_map words-> [(0, 'we'), (1, 'met'), (2, 'in'), (3, 'nineteen')]
+  line_anchors label     -> 'nineteen' anchors=2
+  slots.resolve 1          -> label='nineteen' anchors=2
+  slots.resolve 1.end      -> label='nineteen' anchors=2
+  slots.resolve 1.endword  -> label='nineteen' anchors=1
+  slots.resolve 1.head     -> label='we' anchors=1
+
+LINE 'the year was 1999'
+  raw_final_token        -> 'was'
+  word_syllable_map words-> [(0, 'the'), (1, 'year'), (2, 'was')]
+  line_anchors label     -> 'was' anchors=3
+  slots.resolve 1          -> label='was' anchors=3
+  slots.resolve 1.end      -> label='was' anchors=3
+  slots.resolve 1.endword  -> label='was' anchors=1
+  slots.resolve 1.head     -> label='the' anchors=1

@@ -1,0 +1,15 @@
+test_the_broken_rhyme_split_reads_the_normalised_line (quality.test_reader.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line) ... ok
+test_a_supplemented_bare_word_is_normalised_as_a_token_is (quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is) ... ok
+test_an_end_word_swap_never_misses_the_printed_end (quality.test_reader.LoopSwaps.test_an_end_word_swap_never_misses_the_printed_end) ... ok
+test_the_grid_endpoint_binds_through_the_reader (quality.test_reader.Declarations.test_the_grid_endpoint_binds_through_the_reader) ... ok
+test_the_any_reading_search_cuts_as_the_stream_does (quality.test_reader.LexiconCut.test_the_any_reading_search_cuts_as_the_stream_does) ... ok
+test_a_v1_scope_never_leaves_its_fallback_to_a_v2_read (quality.test_reader.SharedFallback.test_a_v1_scope_never_leaves_its_fallback_to_a_v2_read) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 9.980s
+
+OK
+
+real	0m12.562s
+user	0m11.812s
+sys	0m0.556s

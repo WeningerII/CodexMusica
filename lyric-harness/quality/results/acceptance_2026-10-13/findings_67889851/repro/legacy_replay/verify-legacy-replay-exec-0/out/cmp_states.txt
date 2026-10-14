@@ -1,0 +1,14 @@
+cand_absent {'state_rs': 'v1', 'answered_rs': '<absent>', 'pending_kind': 'propose', 'pending_record': 'd01e4c434a92', 'pending_prompt': '8cc1f373999d', 'accepted': '5887df5543ba', 'answered': '6edd849d18ec', 'status': 'accepted', 'round': 1}
+cand_null {'state_rs': 'v2', 'answered_rs': 'v2', 'pending_kind': 'propose', 'pending_record': '7f2fed34ac40', 'pending_prompt': '3d8a2da9bc06', 'accepted': 'ffa781ad2ded', 'answered': '6edd849d18ec', 'status': 'accepted', 'round': 1}
+cand_v1 {'state_rs': 'v1', 'answered_rs': '<absent>', 'pending_kind': 'propose', 'pending_record': 'd01e4c434a92', 'pending_prompt': '8cc1f373999d', 'accepted': '5887df5543ba', 'answered': '6edd849d18ec', 'status': 'accepted', 'round': 1}
+cand_v2 {'state_rs': 'v2', 'answered_rs': 'v2', 'pending_kind': 'propose', 'pending_record': '7f2fed34ac40', 'pending_prompt': '3d8a2da9bc06', 'accepted': 'ffa781ad2ded', 'answered': '6edd849d18ec', 'status': 'accepted', 'round': 1}
+cand_v9 {'state_rs': 'v9', 'answered_rs': '<absent>', 'pending_kind': 'propose_batch', 'pending_record': '6ab6a6ef3bef', 'pending_prompt': '445aacf082b6', 'accepted': 'd6b1d742380d', 'answered': '2b8078693608', 'status': 'grading', 'round': 1}
+cand_null_flagv1 {'state_rs': 'v1', 'answered_rs': '<absent>', 'pending_kind': 'propose', 'pending_record': 'd01e4c434a92', 'pending_prompt': '8cc1f373999d', 'accepted': '5887df5543ba', 'answered': '6edd849d18ec', 'status': 'accepted', 'round': 1}
+base_absent {'state_rs': '<absent>', 'answered_rs': '<absent>', 'pending_kind': 'propose', 'pending_record': 'd01e4c434a92', 'pending_prompt': '8cc1f373999d', 'accepted': '5887df5543ba', 'answered': '6edd849d18ec', 'status': 'accepted', 'round': 1}
+base_null {'state_rs': None, 'answered_rs': '<absent>', 'pending_kind': 'propose', 'pending_record': 'd01e4c434a92', 'pending_prompt': '8cc1f373999d', 'accepted': '5887df5543ba', 'answered': '6edd849d18ec', 'status': 'accepted', 'round': 1}
+
+null pending == v2 pending: True True
+null pending == absent(v1) pending: False
+absent pending == base absent pending: True
+base null == base absent: True True
+null_flagv1 == absent: True

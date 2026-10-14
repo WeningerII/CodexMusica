@@ -1,0 +1,892 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [
+      {
+        "line": 4,
+        "attempt": 0,
+        "round": 1,
+        "draft": "b744efd500e2",
+        "text": "Cup and in the end it's only love",
+        "batch": null
+      }
+    ],
+    "propose_group": []
+  },
+  "pending": {
+    "kind": "propose_group",
+    "record": {
+      "members": [
+        1,
+        4
+      ],
+      "texts": [
+        "Oh--oh, oh my love",
+        "Cup and in the end it's only love"
+      ],
+      "words": [
+        "",
+        ""
+      ],
+      "round": 1,
+      "attempt": 0,
+      "question_sha256": "a315e82f7c6c51252d86c7a05fbe2e5a11d50ec31f43b73bd93a461777515d67",
+      "new": null
+    },
+    "prompt": "REWRITE A WHOLE RHYME GROUP \u2014 2 coupled line(s): pivot L4, with L1.\n\nTHE REPAIR OPERATION\n  Rewrite the coupled members of group A [1, 4].\n  The bounded candidate search did not close this repair one line at a time.\n  Its finite menus do not prove the declaration impossible. The words may change;\n  the declared relation, every overlapping obligation, and all other lines remain fixed.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE 2 LINES\n  PIVOT   L4: Cup and in the end it's only love\n  MEMBER  L1: Oh--oh, oh my love\n\nTHE WHOLE DRAFT (context \u2014 only L1, L4 may change)\n  >> L1  Oh--oh, oh my love\n     L2  Up--i--de--i--de--i--di,\n     L3  I gave it all my heart.    10\n  >> L4  Cup and in the end it's only love\n     L5  we drank the night away with tea\n     L6  Go, you took the very best part\n\nWHAT THE GRADER FOUND ON L4 (1)\n  [flag] SCHEME_VIOLATION: L1 and L4 are both in group A [1, 4] but do not stand in the relation it requires (lines 1, 4)\n      evidence: REPEAT not rhyme (identical word) (score 1.000; 'love' ~ 'love')\n\nWHOLE-DRAFT FINDINGS \u2014 PRESERVE THESE CONSTRAINTS (1)\n  These are measured over the WHOLE DRAFT. Preserve their constraints while changing only the permitted lines.\n  A permitted rewrite may improve or clear a whole-draft finding; it is not required to clear every one in this single edit.\n  The grader reads them too: a revision that makes one WORSE is rejected.\n  [note] FLOOR_LOCUS_SCOPE: end-rhyme floor checks exclude pairs declared only at other anchors\n      evidence: 6 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\n\nTHE RHYME MANDATE ON THE PIVOT\n  group A [1, 4] at its end word \u2014 this line must stand in at least one relation with: L1 ('love') \u2014 VIOLATED, this is the word to change\n  group E [2, 4] at its first word \u2014 this line must stand in at least one relation with: L2 ('Up--i--de--i--de--i--di') \u2014 HOLDS as written; leave that word alone\n  This line binds at 2 PLACES, listed above: each place is its own word answering its own group(s), so fix the violated place and keep the word at any place that holds.\n\nPIVOT OPTIONS \u2014 words L4 could bind on once the rest of the group moves\n  (none offered)\n\nL4 ON ITS OWN \u2014 as offered in L4's line question (attempt 1, round 1)\n  OFFERED: gov, what, have, but, just, up, one, come, from, us, some, because, give, much, must, won, leave, does, done, believe, someone, enough, son, live\n  FORBIDDEN (rule 3 below): above, dove, glove, move, prove, drove, remove, approve, shove, improve, stove, grove, cove, disapprove, disprove, trove, clove, rove, wove, hove, of, thereof\n\nL1 OPTIONS \u2014 words L1 could bind on instead of what it binds on now\n  (none offered)\n  IF EVERY OTHER LINE KEEPS ITS WORDS, L1's word 4 could be:\n  24 word(s); field read at field_depth=complete pool, field_band='grader'\n    gov, what, have, but, just, up, one, come, from, us, some, because, give, much, must, won, leave, does, done, believe, someone, enough, son, live\n\n  Every list is OFFERED, not required, and the 2 picks are COUPLED: whatever each\n  line binds on must stand in a relation with what every OTHER member binds on, because group\n  A [1, 4] still holds after the rewrite. The offered lists are ORDERED \u2014\n  each was searched against the pivot's word and every member listed BEFORE it, and\n  against none listed after \u2014 so the loop's own picks above are mutually rhyming,\n  and reaching past them into two late lists at once is the one way to pick a set\n  that answers the pivot and not itself.\n\nWHAT THE GRADER ENFORCES ON YOUR ANSWER\n  1. 2 line(s) back \u2014 one for each of L1, L4. The draft stays 6 lines.\n  2. ONLY L1, L4 change. Every other line must come back\n     byte-identical, or the revision is rejected outright.\n  3. No bound word may be the most predictable answer in its own field (doctrine 9),\n     and this is checked only for a word a line MOVES TO. For L4 the modal head is\n     the FORBIDDEN list printed above under its line question: a word it MOVES TO\n     may not be on it. For L1 it applies only to a line that carries a\n     finding of its own, against that line's own head.\n  4. The rewrite must FIX something. It may not trade one defect for another: new FLAG\n     findings anywhere in the draft reject it (new NOTES do not).\n\nHOW TO ANSWER\n  Exactly 2 line(s), each with its own line-number marker, and nothing else:\n\n    L1: <the new L1>\n    L4: <the new L4>\n\n  Every marker is required and each may appear once. A response missing one, or\n  repeating one, or carrying a marker for a line outside the group, is discarded\n  unread \u2014 which line is which would be a guess, and guessing wrong writes each\n  line into another's place. No quotation marks, no commentary.\n  Each line is at most 200 characters; a longer one is not accepted.",
+    "answer": null
+  },
+  "lexicon": {
+    "supplement_id": null,
+    "sha256": null
+  },
+  "input_draft": [
+    "Oh--oh, oh my love",
+    "Up--i--de--i--de--i--di,",
+    "I gave it all my heart.    10",
+    "Cup and in the end it's only love",
+    "we drank the night away with tea",
+    "Go, you took the very best part"
+  ],
+  "accepted_lines": [
+    "Oh--oh, oh my love",
+    "Up--i--de--i--de--i--di,",
+    "I gave it all my heart.    10",
+    "Cup and in the end it's only love",
+    "we drank the night away with tea",
+    "Go, you took the very best part"
+  ],
+  "outcomes": [
+    {
+      "line": 4,
+      "attempt": 0,
+      "round": 1,
+      "text": "Cup and in the end it's only love",
+      "accepted": false,
+      "reasons": [
+        "nothing was fixed"
+      ]
+    }
+  ],
+  "group_outcomes": [],
+  "dispositions": [],
+  "round": 1,
+  "status": "grading",
+  "cursor": {
+    "version": 1,
+    "loop": {
+      "phase": "pass",
+      "round": 1,
+      "at": 0,
+      "pass": [
+        4,
+        5
+      ],
+      "judged_open": true,
+      "draft": [
+        "Oh--oh, oh my love",
+        "Up--i--de--i--de--i--di,",
+        "I gave it all my heart.    10",
+        "Cup and in the end it's only love",
+        "we drank the night away with tea",
+        "Go, you took the very best part"
+      ],
+      "round_draft": null,
+      "touched": [],
+      "fixed": [],
+      "resolved": [],
+      "attempts": [],
+      "rounds": [],
+      "barren": 0,
+      "touched_by": {},
+      "last_accept": [],
+      "unit_verdicts": [
+        [
+          [
+            "a10552820daa445143feb3705d8c1a21182d4c3654eefe112abebf207f195861",
+            "a10552820daa445143feb3705d8c1a21182d4c3654eefe112abebf207f195861",
+            [
+              4
+            ]
+          ],
+          false,
+          [
+            "nothing was fixed"
+          ]
+        ]
+      ],
+      "menus": [
+        [
+          "('place', 'a10552820daa445143feb3705d8c1a21182d4c3654eefe112abebf207f195861', 4, 'None')",
+          {
+            "$dc": "quality.revise:SlotField",
+            "a": {
+              "slot": {
+                "$dc": "quality.slots:Slot",
+                "a": {
+                  "line": 4,
+                  "rule": {
+                    "$dc": "quality.span_rules:SpanRule",
+                    "a": {
+                      "locus": "line_final_token",
+                      "anchor": "last_stressed",
+                      "direction": 1,
+                      "magnitude": "to_word_end",
+                      "cross_word": false,
+                      "requires": {
+                        "$t": []
+                      }
+                    }
+                  }
+                }
+              },
+              "labels": {
+                "$t": [
+                  "A"
+                ]
+              },
+              "calls": {
+                "$t": [
+                  "love"
+                ]
+              },
+              "incumbent": "love",
+              "offered": [
+                "gov",
+                "what",
+                "have",
+                "but",
+                "just",
+                "up",
+                "one",
+                "come",
+                "from",
+                "us",
+                "some",
+                "because",
+                "give",
+                "much",
+                "must",
+                "won",
+                "leave",
+                "does",
+                "done",
+                "believe",
+                "someone",
+                "enough",
+                "son",
+                "live"
+              ],
+              "forbidden": [
+                "above",
+                "dove",
+                "glove",
+                "move",
+                "prove",
+                "drove",
+                "remove",
+                "approve",
+                "shove",
+                "improve",
+                "stove",
+                "grove",
+                "cove",
+                "disapprove",
+                "disprove",
+                "trove",
+                "clove",
+                "rove",
+                "wove",
+                "hove",
+                "of",
+                "thereof"
+              ],
+              "violated": true,
+              "joint_conflict": false,
+              "dropped": {
+                "$t": []
+              },
+              "by_call": {
+                "$t": []
+              },
+              "schema_refused": {
+                "$t": []
+              },
+              "grader_refused": {
+                "$t": []
+              },
+              "widened": 0
+            }
+          }
+        ],
+        [
+          "('place', 'a10552820daa445143feb3705d8c1a21182d4c3654eefe112abebf207f195861', 4, \"'4.headrime'\")",
+          {
+            "$dc": "quality.revise:SlotField",
+            "a": {
+              "slot": {
+                "$dc": "quality.slots:Slot",
+                "a": {
+                  "line": 4,
+                  "rule": {
+                    "$dc": "quality.span_rules:SpanRule",
+                    "a": {
+                      "locus": "line_initial_token",
+                      "anchor": "last_stressed",
+                      "direction": 1,
+                      "magnitude": "to_word_end",
+                      "cross_word": false,
+                      "requires": {
+                        "$t": []
+                      }
+                    }
+                  }
+                }
+              },
+              "labels": {
+                "$t": [
+                  "E"
+                ]
+              },
+              "calls": {
+                "$t": [
+                  "Up--i--de--i--de--i--di"
+                ]
+              },
+              "incumbent": "Cup",
+              "offered": [
+                "we",
+                "me",
+                "he",
+                "be",
+                "she",
+                "see",
+                "really",
+                "three",
+                "pretty",
+                "probably",
+                "easy",
+                "nobody",
+                "city",
+                "free",
+                "company",
+                "yesterday",
+                "busy",
+                "tv",
+                "key",
+                "quickly",
+                "sea",
+                "agree",
+                "tea",
+                "tree"
+              ],
+              "forbidden": [
+                "i",
+                "hi",
+                "fbi",
+                "li",
+                "mi",
+                "di",
+                "si",
+                "chi",
+                "ji",
+                "ni",
+                "ski",
+                "merci",
+                "ravi",
+                "fi",
+                "shi",
+                "pi",
+                "ki",
+                "vi",
+                "csi",
+                "qi",
+                "bi",
+                "mri",
+                "xi",
+                "ti",
+                "sri",
+                "thi",
+                "psi",
+                "phi",
+                "zi",
+                "tiki",
+                "bibi",
+                "tri",
+                "waikiki",
+                "cgi",
+                "potpourri",
+                "yuichi",
+                "sci",
+                "shri"
+              ],
+              "violated": false,
+              "joint_conflict": false,
+              "dropped": {
+                "$t": []
+              },
+              "by_call": {
+                "$t": []
+              },
+              "schema_refused": {
+                "$t": []
+              },
+              "grader_refused": {
+                "$t": []
+              },
+              "widened": 0
+            }
+          }
+        ],
+        [
+          "('brief', 'a10552820daa445143feb3705d8c1a21182d4c3654eefe112abebf207f195861', [4])",
+          [
+            {
+              "$dc": "quality.revise:Brief",
+              "a": {
+                "line_no": 4,
+                "text": "Cup and in the end it's only love",
+                "findings": [
+                  {
+                    "$dc": "quality.floor:Finding",
+                    "a": {
+                      "code": "SCHEME_VIOLATION",
+                      "severity": "flag",
+                      "message": "L1 and L4 are both in group A [1, 4] but do not stand in the relation it requires",
+                      "evidence": "REPEAT not rhyme (identical word) (score 1.000; 'love' ~ 'love')",
+                      "locations": [
+                        1,
+                        4
+                      ],
+                      "groups": {
+                        "$t": [
+                          "A"
+                        ]
+                      },
+                      "obligations": {
+                        "$t": []
+                      },
+                      "subject": {
+                        "$t": []
+                      }
+                    }
+                  }
+                ],
+                "slot": {
+                  "$dc": "quality.slots:Slot",
+                  "a": {
+                    "line": 4,
+                    "rule": {
+                      "$dc": "quality.span_rules:SpanRule",
+                      "a": {
+                        "locus": "line_final_token",
+                        "anchor": "last_stressed",
+                        "direction": 1,
+                        "magnitude": "to_word_end",
+                        "cross_word": false,
+                        "requires": {
+                          "$t": []
+                        }
+                      }
+                    }
+                  }
+                },
+                "slot_conflict": false,
+                "fields_by_slot": {
+                  "$d": [
+                    [
+                      null,
+                      {
+                        "$dc": "quality.revise:SlotField",
+                        "a": {
+                          "slot": {
+                            "$dc": "quality.slots:Slot",
+                            "a": {
+                              "line": 4,
+                              "rule": {
+                                "$dc": "quality.span_rules:SpanRule",
+                                "a": {
+                                  "locus": "line_final_token",
+                                  "anchor": "last_stressed",
+                                  "direction": 1,
+                                  "magnitude": "to_word_end",
+                                  "cross_word": false,
+                                  "requires": {
+                                    "$t": []
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "labels": {
+                            "$t": [
+                              "A"
+                            ]
+                          },
+                          "calls": {
+                            "$t": [
+                              "love"
+                            ]
+                          },
+                          "incumbent": "love",
+                          "offered": [
+                            "gov",
+                            "what",
+                            "have",
+                            "but",
+                            "just",
+                            "up",
+                            "one",
+                            "come",
+                            "from",
+                            "us",
+                            "some",
+                            "because",
+                            "give",
+                            "much",
+                            "must",
+                            "won",
+                            "leave",
+                            "does",
+                            "done",
+                            "believe",
+                            "someone",
+                            "enough",
+                            "son",
+                            "live"
+                          ],
+                          "forbidden": [
+                            "above",
+                            "dove",
+                            "glove",
+                            "move",
+                            "prove",
+                            "drove",
+                            "remove",
+                            "approve",
+                            "shove",
+                            "improve",
+                            "stove",
+                            "grove",
+                            "cove",
+                            "disapprove",
+                            "disprove",
+                            "trove",
+                            "clove",
+                            "rove",
+                            "wove",
+                            "hove",
+                            "of",
+                            "thereof"
+                          ],
+                          "violated": true,
+                          "joint_conflict": false,
+                          "dropped": {
+                            "$t": []
+                          },
+                          "by_call": {
+                            "$t": []
+                          },
+                          "schema_refused": {
+                            "$t": []
+                          },
+                          "grader_refused": {
+                            "$t": []
+                          },
+                          "widened": 0
+                        }
+                      }
+                    ],
+                    [
+                      "4.headrime",
+                      {
+                        "$dc": "quality.revise:SlotField",
+                        "a": {
+                          "slot": {
+                            "$dc": "quality.slots:Slot",
+                            "a": {
+                              "line": 4,
+                              "rule": {
+                                "$dc": "quality.span_rules:SpanRule",
+                                "a": {
+                                  "locus": "line_initial_token",
+                                  "anchor": "last_stressed",
+                                  "direction": 1,
+                                  "magnitude": "to_word_end",
+                                  "cross_word": false,
+                                  "requires": {
+                                    "$t": []
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "labels": {
+                            "$t": [
+                              "E"
+                            ]
+                          },
+                          "calls": {
+                            "$t": [
+                              "Up--i--de--i--de--i--di"
+                            ]
+                          },
+                          "incumbent": "Cup",
+                          "offered": [
+                            "we",
+                            "me",
+                            "he",
+                            "be",
+                            "she",
+                            "see",
+                            "really",
+                            "three",
+                            "pretty",
+                            "probably",
+                            "easy",
+                            "nobody",
+                            "city",
+                            "free",
+                            "company",
+                            "yesterday",
+                            "busy",
+                            "tv",
+                            "key",
+                            "quickly",
+                            "sea",
+                            "agree",
+                            "tea",
+                            "tree"
+                          ],
+                          "forbidden": [
+                            "i",
+                            "hi",
+                            "fbi",
+                            "li",
+                            "mi",
+                            "di",
+                            "si",
+                            "chi",
+                            "ji",
+                            "ni",
+                            "ski",
+                            "merci",
+                            "ravi",
+                            "fi",
+                            "shi",
+                            "pi",
+                            "ki",
+                            "vi",
+                            "csi",
+                            "qi",
+                            "bi",
+                            "mri",
+                            "xi",
+                            "ti",
+                            "sri",
+                            "thi",
+                            "psi",
+                            "phi",
+                            "zi",
+                            "tiki",
+                            "bibi",
+                            "tri",
+                            "waikiki",
+                            "cgi",
+                            "potpourri",
+                            "yuichi",
+                            "sci",
+                            "shri"
+                          ],
+                          "violated": false,
+                          "joint_conflict": false,
+                          "dropped": {
+                            "$t": []
+                          },
+                          "by_call": {
+                            "$t": []
+                          },
+                          "schema_refused": {
+                            "$t": []
+                          },
+                          "grader_refused": {
+                            "$t": []
+                          },
+                          "widened": 0
+                        }
+                      }
+                    ]
+                  ]
+                },
+                "group_slots": {
+                  "$d": [
+                    [
+                      "A",
+                      null
+                    ],
+                    [
+                      "E",
+                      "4.headrime"
+                    ]
+                  ]
+                },
+                "violated_groups": {
+                  "$t": [
+                    "A"
+                  ]
+                },
+                "noted_groups": {
+                  "$d": []
+                },
+                "slot_groups": {
+                  "$t": [
+                    "A"
+                  ]
+                },
+                "screened_out": {
+                  "$t": []
+                },
+                "round_no": 0,
+                "must_rhyme_with": {
+                  "$t": [
+                    1,
+                    "love"
+                  ]
+                },
+                "candidates": [
+                  "gov",
+                  "what",
+                  "have",
+                  "but",
+                  "just",
+                  "up",
+                  "one",
+                  "come",
+                  "from",
+                  "us",
+                  "some",
+                  "because",
+                  "give",
+                  "much",
+                  "must",
+                  "won",
+                  "leave",
+                  "does",
+                  "done",
+                  "believe",
+                  "someone",
+                  "enough",
+                  "son",
+                  "live"
+                ],
+                "forbidden_modal": [
+                  "above",
+                  "dove",
+                  "glove",
+                  "move",
+                  "prove",
+                  "drove",
+                  "remove",
+                  "approve",
+                  "shove",
+                  "improve",
+                  "stove",
+                  "grove",
+                  "cove",
+                  "disapprove",
+                  "disprove",
+                  "trove",
+                  "clove",
+                  "rove",
+                  "wove",
+                  "hove",
+                  "of",
+                  "thereof"
+                ],
+                "forbidden_incumbent": "love",
+                "return_groups": {
+                  "$t": []
+                },
+                "return_members": {
+                  "$t": []
+                },
+                "field_computed": true,
+                "empty_head_cause": "",
+                "keep": [
+                  1,
+                  2,
+                  3
+                ],
+                "must_answer": [
+                  {
+                    "$t": [
+                      "A",
+                      [
+                        1,
+                        4
+                      ],
+                      [
+                        {
+                          "$t": [
+                            1,
+                            "love"
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "$t": [
+                      "E",
+                      [
+                        2,
+                        4
+                      ],
+                      [
+                        {
+                          "$t": [
+                            2,
+                            "Up--i--de--i--de--i--di"
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ],
+                "joint_conflict": false,
+                "partial_by_call": {
+                  "$t": []
+                },
+                "schema_refused": {
+                  "$t": []
+                },
+                "grader_refused": {
+                  "$t": []
+                },
+                "field_widened": 0,
+                "offer_emptied_by_ban": "",
+                "field_declaration": "field_depth=complete pool, field_band='grader'",
+                "offers_requested": true
+              }
+            }
+          ]
+        ],
+        [
+          "('member', 'a10552820daa445143feb3705d8c1a21182d4c3654eefe112abebf207f195861', 1, 0)",
+          {
+            "$dc": "quality.revise:SlotField",
+            "a": {
+              "slot": {
+                "$dc": "quality.slots:Slot",
+                "a": {
+                  "line": 1,
+                  "rule": {
+                    "$dc": "quality.span_rules:SpanRule",
+                    "a": {
+                      "locus": "any_token",
+                      "anchor": "last_stressed",
+                      "direction": 1,
+                      "magnitude": "to_word_end",
+                      "cross_word": false,
+                      "requires": {
+                        "$t": [
+                          "token:3"
+                        ]
+                      }
+                    }
+                  }
+                }
+              },
+              "labels": {
+                "$t": [
+                  "A"
+                ]
+              },
+              "calls": {
+                "$t": [
+                  "love"
+                ]
+              },
+              "incumbent": "love",
+              "offered": [
+                "gov",
+                "what",
+                "have",
+                "but",
+                "just",
+                "up",
+                "one",
+                "come",
+                "from",
+                "us",
+                "some",
+                "because",
+                "give",
+                "much",
+                "must",
+                "won",
+                "leave",
+                "does",
+                "done",
+                "believe",
+                "someone",
+                "enough",
+                "son",
+                "live"
+              ],
+              "forbidden": [
+                "above",
+                "dove",
+                "glove",
+                "move",
+                "prove",
+                "drove",
+                "remove",
+                "approve",
+                "shove",
+                "improve",
+                "stove",
+                "grove",
+                "cove",
+                "disapprove",
+                "disprove",
+                "trove",
+                "clove",
+                "rove",
+                "wove",
+                "hove",
+                "of",
+                "thereof"
+              ],
+              "violated": false,
+              "joint_conflict": false,
+              "dropped": {
+                "$t": []
+              },
+              "by_call": {
+                "$t": []
+              },
+              "schema_refused": {
+                "$t": []
+              },
+              "grader_refused": {
+                "$t": []
+              },
+              "widened": 0
+            }
+          }
+        ]
+      ]
+    },
+    "tally_hit": 0,
+    "stale": [],
+    "batch_stale": [],
+    "rej": [],
+    "grej": [],
+    "k1": 1,
+    "k2": 0,
+    "digest": "ba131386949fe6b98dd4f8f9baea50938446b7312e125c8f026b2d4f6f40f87b",
+    "run_key": "99b7f7d04c9bcfd12e7389090b4df7841280424bec3e2c1b57e13e3129abf5d7",
+    "scorer": "7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a"
+  }
+}

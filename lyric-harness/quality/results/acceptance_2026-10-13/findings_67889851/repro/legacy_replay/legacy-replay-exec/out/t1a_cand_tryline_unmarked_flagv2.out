@@ -1,0 +1,6 @@
+  MANDATE: read from the plan (seed 23) — groups, returns and relations as its own GRADE IT line spells them; the blueprint is the plan filled with THIS draft and the subdivision is the plan's own. Nothing on this command line restates any of it.
+  MANDATE: 2 group(s) over 12 lines, 4 mandated pair(s), source=declared (declared line groups)
+           group A = lines 5,6,8, group B = lines 9,10 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: /tmp/finish_bp_7p4mko9h.json — meter and song-function join the rhyme/floor finding set, subdivision=4 (the plan's own declared subdivision (seed 23), read off the artifact `finish` derived the mandate from), no isochrony assumed — the setting questions refuse (`NO_SETTING`) rather than divide the span evenly on their own
+  REFUSED — READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.
+  lyric result: {"status":"refused","exit":2,"refusal":"READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.","version":1,"transport_token":null}

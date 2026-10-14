@@ -1,0 +1,98 @@
+  MANDATE: 2 group(s) over 4 lines, 2 mandated pair(s), source=declared (--groups=)
+           group A = lines 1,2, group B = lines 1,3 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  PROPOSER: defer:/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/legacy-replay-exec/t4/run/state.json — 2 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; nothing outside this process is reached, and the loop SUSPENDS at the first unanswered request rather than guessing
+  lyric checkpoint: {"version":1,"answered":{"propose":[{"line":1,"attempt":0,"round":1,"draft":"f046720c17ab","text":"I left my heart beside the door (the rain)","batch":null}],"propose_group":[{"members":[1,2],"texts":["I left my heart beside the door (the rain)","You never came to see the shore"],"words":["maine","pain"],"round":1,"attempt":0,"question_sha256":"7c2b74f6579a8b6e2a337bcf14907959392834d2dbd551c672c5670aa4d02b54","new":["I left my heart out in the lane (the rain)","You never came, it was in vain"]}]},"pending":null,"lexicon":{"supplement_id":null,"sha256":null},"input_draft":["I left my heart beside the door (the rain)","You never came to see the shore","The night is cold and full of pain","And nothing grows here anymore"],"accepted_lines":["I left my heart beside the door (the rain)","You never came to see the shore","The night is cold and full of pain","And nothing grows here anymore"],"outcomes":[{"line":1,"attempt":0,"round":1,"text":"I left my heart beside the door (the rain)","accepted":false,"reasons":["nothing was fixed"]}],"group_outcomes":[],"dispositions":[],"round":1,"status":"resumed","cursor":{"version":1,"loop":{"phase":"pass","round":1,"at":0,"pass":[1,2],"judged_open":true,"draft":["I left my heart beside the door (the rain)","You never came to see the shore","The night is cold and full of pain","And nothing grows here anymore"],"round_draft":null,"touched":[],"fixed":[],"resolved":[],"attempts":[],"rounds":[],"barren":0,"touched_by":{},"last_accept":[],"unit_verdicts":[[["b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae","b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae",[1]],false,["nothing was fixed"]]],"menus":[["('brief', 'b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae', [1])",[{"$dc":"quality.revise:Brief","a":{"line_no":1,"text":"I left my heart beside the door (the rain)","findings":[{"$dc":"quality.floor:Finding","a":{"code":"CLICHE_PAIR","severity":"flag","message":"1 rhyme pair(s) on the stock list","evidence":"rain/pain. WHAT THIS IS: membership in a hand-typed list of 30 pairs (`FloorDeclaration.cliche_pairs`), nothing more. It fires as a FLAG because the shipped list has a measured interruption rate on held-out human song: author-held out, 200 seeds, 50/50 — the same protocol that gives LEXICAL_MONOTONY 5.43% and FUNCTION_WORD_HEAVY 5.23%. WHERE THAT RATE WAS TAKEN, REPINNED 2026-09-05 (M-239): only in the two band rows, 7.33% at 150-350 tokens (`song`, seed 5th-95th 5.69-8.71%) and 4.51% at 50-150 tokens (`short`, seed 5th-95th 3.96-5.08%) — rows SUPERSEDED on 2026-09-04 for their percentiles, kept for their own drift checks, and still the only measured cliche rates the floor has. This text is at an EXACT STANZA profile (`section`), where the rate is being carried across rather than quoted from a reading taken there. What is known about the two stanza lengths: over the 4,930 corpus items bucketed on 2026-08-14 the check fired on 0.00% of the 86 that landed in `section` exactly and 5.49% of the 437 that landed in `sonnet` exactly — at or under the band rate, which is why the carry-over is not what `sev()` is guarding against. Measuring the rate per length bin over the current lyric range is owed (M-239). WHAT IT IS NOT: a cliche detector, and it does not measure over-familiarity to a living listener. Against this repo's own pair table (`data/song_rhymepair_en.tsv`, 15,409 distinct pairs by author dispersion) the shipped list has low SENSITIVITY: only 4 of the table's top 30 pairs are on it (13.3%; 3 of 10 at the top ten), its own median dispersion rank is #254 of 15,409, and 9 of its 30 pairs never fire anywhere in corpus/song/eng_*. The table's most dispersed rhymes are away/day, be/me, me/thee — none a cliche to anyone now, and none on the list. `quality/relations.py`'s `frequency` Unprovidable and `quality/phrase_commonplace.py` both REFUSE the over-familiarity claim at their own levels, because every admissible English source here is pre-1931; a shorter list does not earn the claim they declined. So this finding says 'this pair is on a named list that interrupts a human songwriter about 6% of the time', and it does not say the rhyme is tired. PRECISION DEFECT, RECORDED NOT FIXED: there is no rhyme test in front of the membership test — it is raw string-set membership on the two end words. `tears`/`years` fires 21 times over the corpus, 5 in band, on couplets the same pair table records as NOT rhyming (count zero), because cmudict's first pronunciation of `tears` is the rips sense and the table reads `prons[0]`. Neither layer read which sense is on the page. Both fixes were priced in band: a `prons[0]` gate takes 118 to 114 by asserting one convention over another, and an any-pronunciation gate changes nothing at all (136 of 136 listed pairs pass it)","locations":[1],"groups":{"$t":[]},"obligations":{"$t":[{"$t":[1,3]}]},"subject":{"$t":[]}}}],"slot":null,"slot_conflict":false,"fields_by_slot":{"$d":[[null,{"$dc":"quality.revise:SlotField","a":{"slot":null,"labels":{"$t":["A","B"]},"calls":{"$t":["shore","pain"]},"incumbent":"rain","offered":["on","gone","dawn","sean","von","drawn","shawn","lawn","anton","swan","pawn","vaughn","withdrawn","shaun","siobhan","braun","coupon","spawn","yawn","fawn","prawn","manon","brawn","vaughan"],"forbidden":[],"violated":true,"joint_conflict":false,"dropped":{"$t":[]},"by_call":{"$t":[]},"schema_refused":{"$t":[]},"grader_refused":{"$t":[]},"widened":0}}]]},"group_slots":{"$d":[["A",null],["B",null]]},"violated_groups":{"$t":["A","B"]},"noted_groups":{"$d":[]},"slot_groups":{"$t":["A","B"]},"screened_out":{"$t":[]},"round_no":0,"must_rhyme_with":{"$t":[2,"shore"]},"candidates":["on","gone","dawn","sean","von","drawn","shawn","lawn","anton","swan","pawn","vaughn","withdrawn","shaun","siobhan","braun","coupon","spawn","yawn","fawn","prawn","manon","brawn","vaughan"],"forbidden_modal":[],"forbidden_incumbent":"rain","return_groups":{"$t":[]},"return_members":{"$t":[]},"field_computed":true,"empty_head_cause":"UNEVIDENCED","keep":[],"must_answer":[{"$t":["A",[1,2],[{"$t":[2,"shore"]}]]},{"$t":["B",[1,3],[{"$t":[3,"pain"]}]]}],"joint_conflict":false,"partial_by_call":{"$t":[]},"schema_refused":{"$t":[]},"grader_refused":{"$t":[]},"field_widened":0,"offer_emptied_by_ban":"","field_declaration":"field_depth=complete pool, field_band='grader'","offers_requested":true}}]]]},"tally_hit":0,"stale":[],"batch_stale":[],"rej":[],"grej":[],"k1":1,"k2":0,"digest":"5b8e1dae995cfe1d21dbdad56ce35483a4b422c255da94c1f6e178f25e6e3640","run_key":"0167ee385bd8fbdcefba2e716d056560181180da381982faf7a0515d8c583813","scorer":"7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a"},"transport_token":null}
+
+  SUSPENDED — the loop asked for a propose_group it has no answer for, and will not guess one.
+  REPLAY MEMO: cold — 0 of 5 grading call(s) answered from the process memo (runs held: 1 of 4)
+  PAIR MEMO: warm — 88 line pair(s) served from the process memo, 1447 judged and recorded (84 schema slot(s), 1447 row(s) held)
+  SCORE MEMO: pair scores 1 served / 11 scored; RANK MEMO: field rankings 0 served / 4 ranked
+  Written to /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/legacy-replay-exec/t4/run/state.json. Fill `pending.answer`, then run the SAME command again.
+
+REWRITE A WHOLE RHYME GROUP — 2 coupled line(s): pivot L1, with L2.
+
+THE REPAIR OPERATION
+  Rewrite the coupled members of group A [1, 2].
+  The bounded candidate search did not close this repair one line at a time.
+  Its finite menus do not prove the declaration impossible. The words may change;
+  the declared relation, every overlapping obligation, and all other lines remain fixed.
+
+ATTEMPT
+  This is ATTEMPT 2 of this line's retry budget.
+  The PREVIOUS attempt was REJECTED. The grader's reasons, verbatim:
+    - L2 took the modal candidate 'vain' — it passes the band and it is the most predictable word in the field, which is the slop direction (doctrine 9)
+  Do not send back something the same reason would reject again.
+
+THE 2 LINES
+  PIVOT   L1: I left my heart beside the door (the rain)
+  MEMBER  L2: You never came to see the shore
+
+THE SET THE GRADER'S OWN SEARCH IS PROPOSING
+  L1 to bind on 'maine'
+  L2 to bind on 'vain'
+  Offered, not required — they are the set the mechanical search believes makes
+  the mandate hold, and they are MUTUALLY rhyming by construction: each was
+  searched against the pivot's word AND every member listed above it. Binding
+  elsewhere is allowed; the grader re-derives the findings either way and rejects
+  a set that does not actually hold.
+
+THE WHOLE DRAFT (context — only L1, L2 may change)
+  >> L1  I left my heart beside the door (the rain)
+  >> L2  You never came to see the shore
+     L3  The night is cold and full of pain
+     L4  And nothing grows here anymore
+
+WHAT THE GRADER FOUND ON L1 (1)
+  [flag] CLICHE_PAIR: 1 rhyme pair(s) on the stock list (lines 1)
+      evidence: rain/pain. WHAT THIS IS: membership in a hand-typed list of 30 pairs (`FloorDeclaration.cliche_pairs`), nothing more. It fires as a FLAG because the shipped list has a measured interruption rate on held-out human song: author-held out, 200 seeds, 50/50 — the same protocol that gives LEXICAL_MONOTONY 5.43% and FUNCTION_WORD_HEAVY 5.23%. WHERE THAT RATE WAS TAKEN, REPINNED 2026-09-05 (M-239): only in the two band rows, 7.33% at 150-350 tokens (`song`, seed 5th-95th 5.69-8.71%) and 4.51% at 50-150 tokens (`short`, seed 5th-95th 3.96-5.08%) — rows SUPERSEDED on 2026-09-04 for their percentiles, kept for their own drift checks, and still the only measured cliche rates the floor has. This text is at an EXACT STANZA profile (`section`), where the rate is being carried across rather than quoted from a reading taken there. What is known about the two stanza lengths: over the 4,930 corpus items bucketed on 2026-08-14 the check fired on 0.00% of the 86 that landed in `section` exactly and 5.49% of the 437 that landed in `sonnet` exactly — at or under the band rate, which is why the carry-over is not what `sev()` is guarding against. Measuring the rate per length bin over the current lyric range is owed (M-239). WHAT IT IS NOT: a cliche detector, and it does not measure over-familiarity to a living listener. Against this repo's own pair table (`data/song_rhymepair_en.tsv`, 15,409 distinct pairs by author dispersion) the shipped list has low SENSITIVITY: only 4 of the table's top 30 pairs are on it (13.3%; 3 of 10 at the top ten), its own median dispersion rank is #254 of 15,409, and 9 of its 30 pairs never fire anywhere in corpus/song/eng_*. The table's most dispersed rhymes are away/day, be/me, me/thee — none a cliche to anyone now, and none on the list. `quality/relations.py`'s `frequency` Unprovidable and `quality/phrase_commonplace.py` both REFUSE the over-familiarity claim at their own levels, because every admissible English source here is pre-1931; a shorter list does not earn the claim they declined. So this finding says 'this pair is on a named list that interrupts a human songwriter about 6% of the time', and it does not say the rhyme is tired. PRECISION DEFECT, RECORDED NOT FIXED: there is no rhyme test in front of the membership test — it is raw string-set membership on the two end words. `tears`/`years` fires 21 times over the corpus, 5 in band, on couplets the same pair table records as NOT rhyming (count zero), because cmudict's first pronunciation of `tears` is the rips sense and the table reads `prons[0]`. Neither layer read which sense is on the page. Both fixes were priced in band: a `prons[0]` gate takes 118 to 114 by asserting one convention over another, and an any-pronunciation gate changes nothing at all (136 of 136 listed pairs pass it)
+
+THE RHYME MANDATE ON THE PIVOT
+  group A [1, 2] at its end word — this line must stand in at least one relation with: L2 ('shore') — VIOLATED, this is the word to change
+  group B [1, 3] at its end word — this line must stand in at least one relation with: L3 ('pain') — VIOLATED, this is the word to change
+  This line is a PIVOT: it is in 2 groups and must answer EVERY one of them at once (conjunctive; doctrine 2). Answering one and breaking another is not a fix.
+
+PIVOT OPTIONS — words L1 could bind on once the rest of the group moves
+  24 word(s); field read at field_depth=complete pool, field_band='grader'
+    maine, insane, champagne, wayne, ln, crane, shane, cocaine, airplane, elaine, cane, hurricane, sane, dwayne, lorraine, caine, dane, blaine, ukraine, zane, duane, hussein, methane, humane
+
+L1 ON ITS OWN — as offered in L1's line question (attempt 1, round 1)
+  OFFERED: on, gone, dawn, sean, von, drawn, shawn, lawn, anton, swan, pawn, vaughn, withdrawn, shaun, siobhan, braun, coupon, spawn, yawn, fawn, prawn, manon, brawn, vaughan
+  FORBIDDEN (rule 3 below): (none)
+
+L2 OPTIONS — words L2 could bind on instead of what it binds on now
+  24 word(s); field read at field_depth=complete pool, field_band='grader'
+    pain, vain, strain, bane, train, main, lane, stain, vein, seine, again, explain, brain, plane, jane, remain, insane, champagne, campaign, wayne, complain, ln, maintain, crane
+
+  Every list is OFFERED, not required, and the 2 picks are COUPLED: whatever each
+  line binds on must stand in a relation with what every OTHER member binds on, because group
+  A [1, 2] still holds after the rewrite. The offered lists are ORDERED —
+  each was searched against the pivot's word and every member listed BEFORE it, and
+  against none listed after — so the loop's own picks above are mutually rhyming,
+  and reaching past them into two late lists at once is the one way to pick a set
+  that answers the pivot and not itself.
+
+WHAT THE GRADER ENFORCES ON YOUR ANSWER
+  1. 2 line(s) back — one for each of L1, L2. The draft stays 4 lines.
+  2. ONLY L1, L2 change. Every other line must come back
+     byte-identical, or the revision is rejected outright.
+  3. No bound word may be the most predictable answer in its own field (doctrine 9),
+     and this is checked only for a word a line MOVES TO. For L1 the modal head is
+     the FORBIDDEN list printed above under its line question: a word it MOVES TO
+     may not be on it. For L2 it applies only to a line that carries a
+     finding of its own, against that line's own head.
+  4. The rewrite must FIX something. It may not trade one defect for another: new FLAG
+     findings anywhere in the draft reject it (new NOTES do not).
+
+HOW TO ANSWER
+  Exactly 2 line(s), each with its own line-number marker, and nothing else:
+
+    L1: <the new L1>
+    L2: <the new L2>
+
+  Every marker is required and each may appear once. A response missing one, or
+  repeating one, or carrying a marker for a line outside the group, is discarded
+  unread — which line is which would be a guess, and guessing wrong writes each
+  line into another's place. No quotation marks, no commentary.
+  Each line is at most 200 characters; a longer one is not accepted.
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"status":"suspended","exit":4,"memo_state":"cold","memo_hit":0,"memo_asked":5,"stale_answers":0,"replayed_answers":0,"cursor_resumed":true,"cursor_stripped":null,"version":1,"transport_token":null}

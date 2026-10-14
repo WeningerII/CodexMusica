@@ -1,0 +1,1556 @@
+{
+ "mode": "v2",
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+ "a_swap_end_word": {
+  "I said ×": {
+   "swap_end_word": null,
+   "line_tokens": [
+    "I",
+    "said",
+    "×"
+   ],
+   "raw_final_token": "said",
+   "line_anchors_end": [
+    "said",
+    [
+     "said"
+    ]
+   ],
+   "n_anchors": 0
+  },
+  "× marks the spot": {
+   "swap_end_word": "× marks the zebra",
+   "line_tokens": [
+    "×",
+    "marks",
+    "the",
+    "spot"
+   ],
+   "raw_final_token": "spot",
+   "line_anchors_end": [
+    "spot",
+    [
+     "×"
+    ]
+   ],
+   "n_anchors": 2
+  },
+  "love ×night": {
+   "swap_end_word": null,
+   "line_tokens": [
+    "love",
+    "×night"
+   ],
+   "raw_final_token": "night",
+   "line_anchors_end": [
+    "night",
+    [
+     "night"
+    ]
+   ],
+   "n_anchors": 0
+  },
+  "x ×2": {
+   "swap_end_word": null,
+   "line_tokens": [
+    "x",
+    "×2"
+   ],
+   "raw_final_token": "2",
+   "line_anchors_end": [
+    "2",
+    [
+     "2"
+    ]
+   ],
+   "n_anchors": 0
+  },
+  "I said yes": {
+   "swap_end_word": "I said zebra",
+   "line_tokens": [
+    "I",
+    "said",
+    "yes"
+   ],
+   "raw_final_token": "yes",
+   "line_anchors_end": [
+    "yes",
+    []
+   ],
+   "n_anchors": 2
+  },
+  "K1×δQ": {
+   "swap_end_word": null,
+   "line_tokens": [
+    "K1×",
+    "Q"
+   ],
+   "raw_final_token": "δQ",
+   "line_anchors_end": [
+    "δQ",
+    [
+     "δQ"
+    ]
+   ],
+   "n_anchors": 0
+  },
+  "sing÷δnight": {
+   "swap_end_word": null,
+   "line_tokens": [
+    "sing÷",
+    "night"
+   ],
+   "raw_final_token": "δnight",
+   "line_anchors_end": [
+    "δnight",
+    [
+     "δnight"
+    ]
+   ],
+   "n_anchors": 0
+  },
+  "I love you (love you)": {
+   "swap_end_word": null,
+   "line_tokens": [
+    "I",
+    "love",
+    "you"
+   ],
+   "raw_final_token": "you",
+   "line_anchors_end": [
+    "you",
+    []
+   ],
+   "n_anchors": 2
+  },
+  "say it × 2": {
+   "swap_end_word": "say it × zebra",
+   "line_tokens": [
+    "say",
+    "it",
+    "×",
+    "2"
+   ],
+   "raw_final_token": "2",
+   "line_anchors_end": [
+    "2",
+    [
+     "×",
+     "2"
+    ]
+   ],
+   "n_anchors": 0
+  }
+ },
+ "b_split_right": {
+  "the crown of the king-": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "king-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "king-"
+    ]
+   ]
+  },
+  "the crown of the king‐": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "king-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "king-"
+    ]
+   ]
+  },
+  "the crown of the king‑": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "king-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "king-"
+    ]
+   ]
+  },
+  "the crown of the king­-": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "king-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "king-"
+    ]
+   ]
+  },
+  "the crown of the king-­": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "king-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "king-"
+    ]
+   ]
+  },
+  "the crown of the café-": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "café-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "café-"
+    ]
+   ]
+  },
+  "the crown of the café-": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "café-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "café-"
+    ]
+   ]
+  },
+  "the crown of the kings’-": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "kings'-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "kings'-"
+    ]
+   ]
+  },
+  "Thundered the battery’s double bass--": {
+   "tokens0": [
+    "Thundered",
+    "the",
+    "battery's",
+    "double",
+    "bass"
+   ],
+   "last_unit_token": "bass",
+   "split_right": false,
+   "next_split_left": false,
+   "unreadable": []
+  },
+  "the crown of the king -": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "king"
+   ],
+   "last_unit_token": "king",
+   "split_right": false,
+   "next_split_left": false,
+   "unreadable": []
+  },
+  "the crown of the king‐ ": {
+   "tokens0": [
+    "the",
+    "crown",
+    "of",
+    "the",
+    "king-"
+   ],
+   "last_unit_token": "the",
+   "split_right": false,
+   "next_split_left": true,
+   "unreadable": [
+    [
+     0,
+     4,
+     "king-"
+    ]
+   ]
+  }
+ },
+ "c_grid_fragment_key": {
+  "plain | I said ×": {
+   "end_occurrence": [
+    "said",
+    null,
+    null
+   ],
+   "qafiya_endword": "said",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "said",
+    [
+     "said"
+    ]
+   ]
+  },
+  "plain | × marks the spot": {
+   "end_occurrence": [
+    "spot",
+    4,
+    "AA T"
+   ],
+   "qafiya_endword": "spot",
+   "qafiya_unreadable": false,
+   "line_anchors_end": [
+    "spot",
+    [
+     "×"
+    ]
+   ]
+  },
+  "plain | love ×night": {
+   "end_occurrence": [
+    "night",
+    null,
+    null
+   ],
+   "qafiya_endword": "night",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "night",
+    [
+     "night"
+    ]
+   ]
+  },
+  "plain | x ×2": {
+   "end_occurrence": [
+    "2",
+    null,
+    null
+   ],
+   "qafiya_endword": "2",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "2",
+    [
+     "2"
+    ]
+   ]
+  },
+  "plain | I said yes": {
+   "end_occurrence": [
+    "yes",
+    3,
+    "EH S"
+   ],
+   "qafiya_endword": "yes",
+   "qafiya_unreadable": false,
+   "line_anchors_end": [
+    "yes",
+    []
+   ]
+  },
+  "plain | the night̳": {
+   "end_occurrence": [
+    "night",
+    null,
+    null
+   ],
+   "qafiya_endword": "night̳",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "night̳",
+    [
+     "night̳"
+    ]
+   ]
+  },
+  "plain | the night (of ×)": {
+   "end_occurrence": [
+    "of",
+    null,
+    "AH V"
+   ],
+   "qafiya_endword": "night",
+   "qafiya_unreadable": false,
+   "line_anchors_end": [
+    "night",
+    []
+   ]
+  },
+  "plain | the end (of the night)": {
+   "end_occurrence": [
+    "night",
+    null,
+    "AY T"
+   ],
+   "qafiya_endword": "end",
+   "qafiya_unreadable": false,
+   "line_anchors_end": [
+    "end",
+    []
+   ]
+  },
+  "plain | _rhyme_code(['I said ×','where they led'])": [
+   null,
+   "[EndWordFailure(side='', section_line=1, text='I said ×', token=None, word='said', line=None)]"
+  ],
+  "voices | I said ×": {
+   "end_occurrence": [
+    "said",
+    null,
+    null
+   ],
+   "qafiya_endword": "said",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "said",
+    [
+     "said"
+    ]
+   ]
+  },
+  "voices | × marks the spot": {
+   "end_occurrence": [
+    "spot",
+    4,
+    "AA T"
+   ],
+   "qafiya_endword": "spot",
+   "qafiya_unreadable": false,
+   "line_anchors_end": [
+    "spot",
+    [
+     "×"
+    ]
+   ]
+  },
+  "voices | love ×night": {
+   "end_occurrence": [
+    "night",
+    null,
+    null
+   ],
+   "qafiya_endword": "night",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "night",
+    [
+     "night"
+    ]
+   ]
+  },
+  "voices | x ×2": {
+   "end_occurrence": [
+    "2",
+    null,
+    null
+   ],
+   "qafiya_endword": "2",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "2",
+    [
+     "2"
+    ]
+   ]
+  },
+  "voices | I said yes": {
+   "end_occurrence": [
+    "yes",
+    3,
+    "EH S"
+   ],
+   "qafiya_endword": "yes",
+   "qafiya_unreadable": false,
+   "line_anchors_end": [
+    "yes",
+    []
+   ]
+  },
+  "voices | the night̳": {
+   "end_occurrence": [
+    "night",
+    null,
+    null
+   ],
+   "qafiya_endword": "night̳",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "night̳",
+    [
+     "night̳"
+    ]
+   ]
+  },
+  "voices | the night (of ×)": {
+   "end_occurrence": [
+    "of",
+    null,
+    null
+   ],
+   "qafiya_endword": "of",
+   "qafiya_unreadable": true,
+   "line_anchors_end": [
+    "of",
+    [
+     "of"
+    ]
+   ]
+  },
+  "voices | the end (of the night)": {
+   "end_occurrence": [
+    "night",
+    5,
+    "AY T"
+   ],
+   "qafiya_endword": "night",
+   "qafiya_unreadable": false,
+   "line_anchors_end": [
+    "night",
+    []
+   ]
+  },
+  "voices | _rhyme_code(['I said ×','where they led'])": [
+   null,
+   "[EndWordFailure(side='', section_line=1, text='I said ×', token=None, word='said', line=None)]"
+  ]
+ },
+ "d_any_reading_pin": {
+  "end word in aside (bed) | plain": {
+   "phon": "English(strip_parens=None)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all"
+    ],
+    [
+     "and",
+     "went",
+     "to",
+     "bed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": true,
+   "plain_answer": "False",
+   "any_reading_answer": "False",
+   "witness": "None"
+  },
+  "end word in aside (bed) | voices": {
+   "phon": "English(strip_parens=False)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all",
+     "and",
+     "read"
+    ],
+    [
+     "and",
+     "went",
+     "to",
+     "bed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": false,
+   "plain_answer": "None",
+   "any_reading_answer": "True",
+   "witness": "['read = R EH1 D']"
+  },
+  "end word in aside (seed) | plain": {
+   "phon": "English(strip_parens=None)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all"
+    ],
+    [
+     "the",
+     "sowing",
+     "seed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": true,
+   "plain_answer": "False",
+   "any_reading_answer": "False",
+   "witness": "None"
+  },
+  "end word in aside (seed) | voices": {
+   "phon": "English(strip_parens=False)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all",
+     "and",
+     "read"
+    ],
+    [
+     "the",
+     "sowing",
+     "seed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": false,
+   "plain_answer": "None",
+   "any_reading_answer": "True",
+   "witness": "['read = R IY1 D']"
+  },
+  "control: no aside (bed) | plain": {
+   "phon": "English(strip_parens=None)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all",
+     "and",
+     "read"
+    ],
+    [
+     "and",
+     "went",
+     "to",
+     "bed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": true,
+   "plain_answer": "None",
+   "any_reading_answer": "True",
+   "witness": "['read = R EH1 D']"
+  },
+  "control: no aside (bed) | voices": {
+   "phon": "English(strip_parens=False)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all",
+     "and",
+     "read"
+    ],
+    [
+     "and",
+     "went",
+     "to",
+     "bed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": false,
+   "plain_answer": "None",
+   "any_reading_answer": "True",
+   "witness": "['read = R EH1 D']"
+  },
+  "control: no aside (seed) | plain": {
+   "phon": "English(strip_parens=None)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all",
+     "and",
+     "read"
+    ],
+    [
+     "the",
+     "sowing",
+     "seed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": true,
+   "plain_answer": "None",
+   "any_reading_answer": "True",
+   "witness": "['read = R IY1 D']"
+  },
+  "control: no aside (seed) | voices": {
+   "phon": "English(strip_parens=False)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all",
+     "and",
+     "read"
+    ],
+    [
+     "the",
+     "sowing",
+     "seed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": false,
+   "plain_answer": "None",
+   "any_reading_answer": "True",
+   "witness": "['read = R IY1 D']"
+  },
+  "mid-line aside word T1 (bed) | plain": {
+   "phon": "English(strip_parens=None)",
+   "stream_tokens": [
+    [
+     "the",
+     "letter",
+     "burned"
+    ],
+    [
+     "and",
+     "went",
+     "to",
+     "bed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": true,
+   "plain_answer": "False",
+   "any_reading_answer": "False",
+   "witness": "None"
+  },
+  "mid-line aside word T1 (bed) | voices": {
+   "phon": "English(strip_parens=False)",
+   "stream_tokens": [
+    [
+     "the",
+     "read",
+     "letter",
+     "burned"
+    ],
+    [
+     "and",
+     "went",
+     "to",
+     "bed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": false,
+   "plain_answer": "None",
+   "any_reading_answer": "True",
+   "witness": "['read = R EH1 D']"
+  },
+  "two-reading word in aside, end outside (seed) | plain": {
+   "phon": "English(strip_parens=None)",
+   "stream_tokens": [
+    [
+     "she",
+     "and",
+     "wept"
+    ],
+    [
+     "the",
+     "sowing",
+     "seed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": true,
+   "plain_answer": "False",
+   "any_reading_answer": "False",
+   "witness": "None"
+  },
+  "two-reading word in aside, end outside (seed) | voices": {
+   "phon": "English(strip_parens=False)",
+   "stream_tokens": [
+    [
+     "she",
+     "would",
+     "read",
+     "and",
+     "wept"
+    ],
+    [
+     "the",
+     "sowing",
+     "seed"
+    ]
+   ],
+   "stream_lexicon_strip_parens": false,
+   "plain_answer": "None",
+   "any_reading_answer": "True",
+   "witness": "['read = R IY1 D']"
+  },
+  "negative: aside read vs hat | plain": {
+   "phon": "English(strip_parens=None)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all"
+    ],
+    [
+     "he",
+     "lost",
+     "his",
+     "hat"
+    ]
+   ],
+   "stream_lexicon_strip_parens": true,
+   "plain_answer": "False",
+   "any_reading_answer": "False",
+   "witness": "None"
+  },
+  "negative: aside read vs hat | voices": {
+   "phon": "English(strip_parens=False)",
+   "stream_tokens": [
+    [
+     "she",
+     "wrote",
+     "it",
+     "all",
+     "and",
+     "read"
+    ],
+    [
+     "he",
+     "lost",
+     "his",
+     "hat"
+    ]
+   ],
+   "stream_lexicon_strip_parens": false,
+   "plain_answer": "False",
+   "any_reading_answer": "False",
+   "witness": "None"
+  }
+ },
+ "e_supplement_transcribe_word": {
+  "twenty-two": {
+   "supplemented": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_variants": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ]
+   ],
+   "plain_lexicon": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    [
+     "so",
+     "twenty-two"
+    ],
+    []
+   ]
+  },
+  "twenty\\u2010two": {
+   "supplemented": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    [
+     "so",
+     "twenty-two"
+    ],
+    []
+   ]
+  },
+  "twenty\\u2011two": {
+   "supplemented": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_variants": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ]
+   ],
+   "plain_lexicon": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    [
+     "so",
+     "twenty-two"
+    ],
+    []
+   ]
+  },
+  "twen\\xadty-two": {
+   "supplemented": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    [
+     "so",
+     "twenty-two"
+    ],
+    []
+   ]
+  },
+  "twenty-two\\xad": {
+   "supplemented": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    [
+     "so",
+     "twenty-two"
+    ],
+    []
+   ]
+  },
+  "streetlight": {
+   "supplemented": [
+    [
+     "S",
+     "T",
+     "R",
+     "IY1",
+     "T",
+     "L",
+     "AY2",
+     "T"
+    ],
+    false
+   ],
+   "supplemented_variants": [
+    [
+     "S",
+     "T",
+     "R",
+     "IY1",
+     "T",
+     "L",
+     "AY2",
+     "T"
+    ]
+   ],
+   "plain_lexicon": [
+    [],
+    true
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "S",
+     "T",
+     "R",
+     "IY1",
+     "T",
+     "L",
+     "AY2",
+     "T"
+    ],
+    [
+     "so",
+     "streetlight"
+    ],
+    []
+   ]
+  },
+  "street\\xadlight": {
+   "supplemented": [
+    [
+     "S",
+     "T",
+     "R",
+     "IY1",
+     "T",
+     "L",
+     "AY2",
+     "T"
+    ],
+    false
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [],
+    true
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "S",
+     "T",
+     "R",
+     "IY1",
+     "T",
+     "L",
+     "AY2",
+     "T"
+    ],
+    [
+     "so",
+     "streetlight"
+    ],
+    []
+   ]
+  },
+  "o\\u2019er": {
+   "supplemented": [
+    [],
+    true
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [],
+    true
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0"
+    ],
+    [
+     "so",
+     "o'er"
+    ],
+    [
+     "o'er"
+    ]
+   ]
+  },
+  "o'er": {
+   "supplemented": [
+    [],
+    true
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [],
+    true
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0"
+    ],
+    [
+     "so",
+     "o'er"
+    ],
+    [
+     "o'er"
+    ]
+   ]
+  },
+  "cafe\\u0301": {
+   "supplemented": [
+    [],
+    true
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [],
+    true
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0"
+    ],
+    [
+     "so",
+     "café"
+    ],
+    [
+     "café"
+    ]
+   ]
+  },
+  "caf\\xe9": {
+   "supplemented": [
+    [],
+    true
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [],
+    true
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0"
+    ],
+    [
+     "so",
+     "café"
+    ],
+    [
+     "café"
+    ]
+   ]
+  },
+  "cafe": {
+   "supplemented": [
+    [
+     "K",
+     "AH0",
+     "F",
+     "EY1"
+    ],
+    false
+   ],
+   "supplemented_variants": [
+    [
+     "K",
+     "AH0",
+     "F",
+     "EY1"
+    ],
+    [
+     "K",
+     "AE0",
+     "F",
+     "EY1"
+    ]
+   ],
+   "plain_lexicon": [
+    [
+     "K",
+     "AH0",
+     "F",
+     "EY1"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "K",
+     "AH0",
+     "F",
+     "EY1"
+    ],
+    [
+     "so",
+     "cafe"
+    ],
+    []
+   ]
+  },
+  "don\\u2019t": {
+   "supplemented": [
+    [
+     "D",
+     "OW1",
+     "N",
+     "T"
+    ],
+    false
+   ],
+   "supplemented_variants": [
+    [
+     "D",
+     "OW1",
+     "N",
+     "T"
+    ],
+    [
+     "D",
+     "OW1",
+     "N"
+    ]
+   ],
+   "plain_lexicon": [
+    [
+     "D",
+     "OW1",
+     "N",
+     "T"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "D",
+     "OW1",
+     "N",
+     "T"
+    ],
+    [
+     "so",
+     "don't"
+    ],
+    []
+   ]
+  },
+  "don't": {
+   "supplemented": [
+    [
+     "D",
+     "OW1",
+     "N",
+     "T"
+    ],
+    false
+   ],
+   "supplemented_variants": [
+    [
+     "D",
+     "OW1",
+     "N",
+     "T"
+    ],
+    [
+     "D",
+     "OW1",
+     "N"
+    ]
+   ],
+   "plain_lexicon": [
+    [
+     "D",
+     "OW1",
+     "N",
+     "T"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "D",
+     "OW1",
+     "N",
+     "T"
+    ],
+    [
+     "so",
+     "don't"
+    ],
+    []
+   ]
+  },
+  "na\\u0131\\u0308ve": {
+   "supplemented": [
+    [],
+    true
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [],
+    true
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "V",
+     "IY1"
+    ],
+    [
+     "so",
+     "naı",
+     "ve"
+    ],
+    [
+     "naı"
+    ]
+   ]
+  },
+  "Twenty\\u2010Two": {
+   "supplemented": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_variants": [],
+   "plain_lexicon": [
+    [
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    false
+   ],
+   "supplemented_line_transcribe": [
+    [
+     "S",
+     "OW0",
+     "T",
+     "W",
+     "EH1",
+     "N",
+     "T",
+     "IY0",
+     "T",
+     "UW2"
+    ],
+    [
+     "so",
+     "Twenty-Two"
+    ],
+    []
+   ]
+  }
+ }
+}

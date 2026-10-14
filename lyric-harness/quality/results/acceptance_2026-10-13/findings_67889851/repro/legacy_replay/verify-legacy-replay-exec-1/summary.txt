@@ -1,0 +1,42 @@
+b_junk_bare.out              scheme=None certified=False judged=0 refused=1 rhyme=['refused'] codes=['SCHEME_UNREADABLE', 'UNREADABLE_END_WORD', 'SUBSTITUTED_END_WORD', 'SCHEME_UNREADABLE']
+       must answer group A [1, 2]: L2 ('part') — UNJUDGED
+       must answer group A [1, 2]: L1 ('zzzqx') — UNJUDGED
+b_junk_endword.out           scheme=None certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME', 'UNREADABLE_END_WORD', 'SUBSTITUTED_END_WORD', 'FLOOR_LOCUS_SCOPE']
+       must answer group A [1, 2] at 1.endword: L2 ('part')
+       must answer group A [1, 2] at 2.endword: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+b_num_bare.out               scheme=None certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME']
+       must answer group A [1, 2]: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+b_num_end.out                scheme=None certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME']
+       must answer group A [1, 2]: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+b_num_endword.out            scheme=None certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME', 'FLOOR_LOCUS_SCOPE']
+       must answer group A [1, 2] at 2.endword: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+c1_num_bare.out              scheme=v1 certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME']
+       must answer group A [1, 2]: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+c1_num_endword.out           scheme=v1 certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME', 'FLOOR_LOCUS_SCOPE']
+       must answer group A [1, 2] at 2.endword: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+c_junk_bare.out              scheme=v2 certified=False judged=0 refused=1 rhyme=['refused'] codes=['SCHEME_UNREADABLE', 'UNREADABLE_END_WORD', 'SUBSTITUTED_END_WORD', 'SCHEME_UNREADABLE']
+       must answer group A [1, 2]: L2 ('part') — UNJUDGED
+       must answer group A [1, 2]: L1 ('zzzqx') — UNJUDGED
+c_junk_endword.out           scheme=v2 certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME', 'UNREADABLE_END_WORD', 'SUBSTITUTED_END_WORD', 'FLOOR_LOCUS_SCOPE']
+       must answer group A [1, 2] at 1.endword: L2 ('part')
+       must answer group A [1, 2] at 2.endword: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+c_num_bare.out               scheme=v2 certified=False judged=0 refused=1 rhyme=['refused'] codes=['SCHEME_UNREADABLE', 'SUBSTITUTED_END_WORD', 'SCHEME_UNREADABLE']
+       must answer group A [1, 2]: L2 ('part') — UNJUDGED
+       must answer group A [1, 2]: L1 ('10') — UNJUDGED
+c_num_brief_mixed.out        scheme=v2 certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME', 'SUBSTITUTED_END_WORD', 'FLOOR_LOCUS_SCOPE']
+       must answer group A [1, 2] at 1.endword: L2 ('part')
+       must answer group A [1, 2]: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+c_num_brief_mixed2.out       scheme=v2 certified=False judged=0 refused=1 rhyme=['refused'] codes=['SCHEME_UNREADABLE', 'SUBSTITUTED_END_WORD', 'SCHEME_UNREADABLE', 'FLOOR_LOCUS_SCOPE']
+       must answer group A [1, 2]: L2 ('part') — UNJUDGED
+       must answer group A [1, 2] at 2.endword: L1 ('10') — UNJUDGED
+c_num_end.out                scheme=v2 certified=False judged=0 refused=1 rhyme=['refused'] codes=['SCHEME_UNREADABLE', 'SUBSTITUTED_END_WORD', 'SCHEME_UNREADABLE']
+       must answer group A [1, 2]: L2 ('part') — UNJUDGED
+       must answer group A [1, 2]: L1 ('10') — UNJUDGED
+c_num_endword.out            scheme=v2 certified=True judged=1 refused=0 rhyme=['answered'] codes=['MODAL_RHYME', 'SUBSTITUTED_END_WORD', 'FLOOR_LOCUS_SCOPE']
+       must answer group A [1, 2] at 1.endword: L2 ('part')
+       must answer group A [1, 2] at 2.endword: L1 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+c_num_verify_bare.out        scheme=None certified=None judged=None refused=None rhyme=[] codes=[]
+c_num_verify_endword.out     scheme=None certified=None judged=None refused=None rhyme=[] codes=[]
+/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/out/probe_base_none.out NO RESULT
+/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/out/probe_cand_v1.out NO RESULT
+/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/out/probe_cand_v2.out NO RESULT

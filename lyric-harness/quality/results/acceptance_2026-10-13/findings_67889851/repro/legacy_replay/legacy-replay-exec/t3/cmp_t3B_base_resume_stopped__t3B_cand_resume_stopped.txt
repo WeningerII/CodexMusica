@@ -1,0 +1,23 @@
+stdout raw bytes equal: False
+stdout lines: A=125 B=125; equal after bp-path normalisation: False
+  ~ lyric checkpoint: (A line 6): 3 differing path(s)
+      differ /round: A=1 B=0
+      differ /status: A="resumed" B="started"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 7): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 8): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 9): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric result: (A line 125): 3 differing path(s)
+      differ /cursor_resumed: A=true B=false
+      differ /cursor_stripped: A=null B="run_key"
+      only-B /reader_scheme: A=null B="v1"
+written state raw bytes equal: False
+written state: 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"

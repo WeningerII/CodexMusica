@@ -1,0 +1,19 @@
+# BB8 verify-library-tests-1 (adversarial re-check of library-tests finding: Library->Lyrics handoff drops undecided choices)
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; O=$S/h678/verify-library-tests-1
+# node: $(node -v)
+## build (own builds; same recipe as scripts/check_library_page.js build())
+for t in wt-678 wt-main; do mkdir -p $O/b-$t && (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/b-$t/codex.html --quiet > $O/build_$t.log 2>&1; echo exit=$? >> $O/build_$t.log); done
+v22.22.0
+## own Playwright scenarios (vt.js; helper half of each tree's own scripts/check_library_page.js for server+Render stub; scenarios/assertions ours)
+for t in wt-678 wt-main; do (cd $O && timeout 600 node vt.js --tree=$S/$t --built=$O/b-$t --out=$O/vt_$t.json > $O/vt_$t.log 2>&1; echo exit=$? >> $O/vt_$t.log); done
+## vt.js extended with silent-path scenarios (v9_insp_closed, second_visit_insp_closed, v9_390, legacy_blocked_390); run only those:
+for t in wt-678 wt-main; do (cd $O && timeout 600 node vt.js --tree=$S/$t --built=$O/b-$t --out=$O/vt2_$t.json --only=v9_insp_closed,second_visit_insp_closed,v9_390,legacy_blocked_390 > $O/vt2_$t.log 2>&1; echo exit=$? >> $O/vt2_$t.log); done
+## source reads (no execution): grep -n "declarations" src/library/reader.js (handoff uses ana.declarations getter = st.declarations, analysis.js:1949);
+##   analysis.js savedInterpretation (697-755) leaves set-aside rows out of declarations; exported declarations() (1248) is NOT on the reader's path;
+##   scripts/test_library_declarations.js:319 'the Lyrics handoff carries the current cut's rows only (route 3)' asserts the omission (author test, independent=false);
+##   only src/library-import.js reads libraryOrigin.declarations (makeWorkingCopyEnvelope 209/221); mcp/LYRICS_RUNTIME.md:246-248 says handoff choices are source history only, never sent to the grader.
+## cleanup: nothing >50 MB created; tracked files untouched (git status above shows only pre-existing untracked node_modules links).
+?? mcp/node_modules
+?? node_modules
+?? node_modules
+## author test (independent=false): (cd $S/wt-678 && TMPDIR=$O/tmp node --test scripts/test_library_declarations.js > $O/author_test_library_declarations_wt-678.log 2>&1)

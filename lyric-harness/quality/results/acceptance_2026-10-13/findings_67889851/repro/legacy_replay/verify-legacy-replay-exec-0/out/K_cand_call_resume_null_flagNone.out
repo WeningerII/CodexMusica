@@ -1,0 +1,2 @@
+  REFUSED — --reader-scheme wants v1 or v2, got 'None' (not free text, not coerced)
+  lyric result: {"status":"refused","exit":2,"refusal":"--reader-scheme wants v1 or v2, got 'None' (not free text, not coerced)","version":1,"transport_token":null}

@@ -1,0 +1,22 @@
+== base types live -- give
+  phonology: eng — English (General American)
+  agreement (onset,nucleus,coda) per syllable: ((False, False, True),)
+  cells: [('consonance',)]
+  anchor A: last-prominent / rule-fixed / span to-end
+  anchor B: last-prominent / rule-fixed / span to-end
+  identity: distinct
+  stress: aligned
+  position: None
+  boundary: simple
+  length: equal
+  realisation: phonetic
+  NAMES: UNNAMED — and the coordinate is INCOMPLETE: no `--position=` was declared, and 31 of 49 named keys need one (end, internal, leonine, cross, head, holorhyme). A line-final pair is `--position=end`.
+  relations: rhyme (channels)=False, alliteration (channels)=False
+  as two line-final words — coarse relations: ASSONANCE, CONSONANCE, RHYME; registry schemas: Scots vowel-length rhyme (Aitken's Law), assonance, cluster consonance / skothending span, consonance, family rhyme, pantun ABAB, perfect rhyme; undecided: 15
+  route: {'rhyme': 'channels', 'alliteration': 'channels'}   (doctrine 84 — 'declared_relation' means the phonology answered, not the channels)
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"status":"typed","exit":0,"version":1,"transport_token":null}
+exit=0
+== base types $'li\302\255ve' -- give
+  UNREADABLE in eng: the phonology refuses one or both members. That is a refusal, not a non-rhyme.
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"status":"unreadable","exit":0,"version":1,"transport_token":null}
+exit=0

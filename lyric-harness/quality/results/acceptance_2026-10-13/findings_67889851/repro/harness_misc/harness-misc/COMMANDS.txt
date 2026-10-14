@@ -1,0 +1,40 @@
+BB8 harness-misc — exact invocations (all from bash; S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad)
+W=$S/wt-678 (candidate 67889851)   B=$S/wt-base (fce4bf0f)   H=$S/h678/harness-misc
+export LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data
+python3 = system 3.13; PY=$S/venv311/bin/python (CI 3.11) used for the author's unittest runs.
+
+== TASK 1: reader-scheme cache leak (warm process vs cold process) ==
+# fixtures (draft = map/song.txt with lines 3,7,11,16 replaced by the probe lines; draft2 adds asides)
+cd $W/lyric-harness && python3 lyric_harness.py plan --seed=0 --lines=16 --out=$H/t1/plan.json
+cd $W/lyric-harness && python3 lyric_harness.py plan --seed=0 --form=verse-chorus --lines=16 --input-format=literal --fill=$H/t1/draft.txt --out=$H/t1/bp.json
+# driver: $H/t1/cachetest.py TREE OUT.json REQ...  (REQ=name@scheme; CLI requests go through mcp/worker.py run_one, the warm worker's own entrance;
+#   "api" = in-process quality.meter_bands.reader/measure_line, quality.fit.read_line, eng.English under LH.reader_scheme_scope)
+#   names: meter, meterlow (--fallback=low), gradesup (--lexicon-supplement=v2 song bp draft ...), gradeplain, gradevoices (--voices, draft2), gradepron (--lexicon-supplement=v2 --pronunciations=[1999 token 8]), api
+$H/t1/run_matrix.sh      # warm A (all v2 then all v1), warm B (all v1 then all v2)   [first cold pass in it failed: relative out path; fixed]
+$H/t1/run_cold.sh        # 14 cold single-request processes + cold2 repeat of gradesup@v2, gradesup@v1, api@v1 (determinism)
+$H/t1/run_warm2.sh       # warm A/B rerun after fixing gradepron's token index (7 -> 8) + cold gradepron@v1/v2
+python3 cachetest.py $W warm_interleaved_C.json gradeplain@v2 gradeplain@v1 gradesup@v2 gradesup@v1 gradevoices@v1 gradevoices@v2 gradepron@v1 gradepron@v2 meterlow@v1 meterlow@v2 api@v2 api@v1 meter@v1 meter@v2
+python3 cachetest.py $W warm_interleaved_D.json api@v1 gradesup@v2 api@v2 gradesup@v1 meterlow@v2 gradeplain@v1 gradeplain@v2
+python3 $H/t1/compare.py        -> $H/t1/compare.out            (A, B vs cold: DIFFS: 0; every request's v1 != v2 cold; cold2 == cold)
+(inline compare)                -> $H/t1/compare_interleaved.out (C, D vs cold: DIFFS: 0)
+(inline)                        -> $H/t1/api_v1_vs_v2.txt        (which api fields the scheme moves)
+raw: $H/t1/warm_*.json, $H/t1/cold/*.json, $H/t1/cold2/*.json, $H/t1/run1/ (first pass, gradepron token 7)
+
+== TASK 2: R2's earlier 1b findings (a)-(e) ==
+cd $H/t2
+python3 r2_1b.py $W v2 out_cand_v2.json ; python3 r2_1b.py $W v1 out_cand_v1.json ; python3 r2_1b.py $B base out_base.json
+python3 show.py a_swap_end_word > a.txt ; python3 show.py b_split_right > b.txt ; python3 show.py c_grid_fragment_key > c.txt
+(inline) -> d.txt (any-reading), e.txt (SupplementedLexicon.transcribe_word)
+python3 broken.py $W v2 ; python3 broken.py $W v1   -> broken_cand.txt ; python3 broken.py $B base -> broken_base.txt
+python3 broken2.py $W v2 ; python3 broken2.py $W v1 ; python3 broken2.py $B base -> broken2.txt   (broken rhyme verdict x phonology)
+# end-to-end lyric_check verb (brief) on Hopkins' Windhover lines 1-4, groups 1,4, relation schema:broken rhyme
+cd $W/lyric-harness && python3 lyric_harness.py --reader-scheme=v2 brief $H/t2/wh/windhover.txt --groups=1,4 "--relation=schema:broken rhyme"   -> $H/t2/wh/brief_v2.out
+cd $W/lyric-harness && python3 lyric_harness.py --reader-scheme=v1 brief ... (same)   -> brief_v1.out
+cd $B/lyric-harness && python3 lyric_harness.py brief ... (same)                      -> brief_base.out
+cd $W/lyric-harness && python3 lyric_harness.py --reader-scheme=v2 --fallback=high brief ... -> brief_v2_fbhigh.out
+cd $W/lyric-harness && python3 lyric_harness.py --lexicon-supplement=v2 brief ...            -> brief_v2default_sup.out
+(an earlier attempt with "--relation=broken rhyme" was refused by name ambiguity in all three trees; types king- -- wing -> types_king.txt, unreadable both schemes)
+
+== AUTHOR'S TESTS (independent=false) ==
+cd $W/lyric-harness && $PY -m unittest -v quality.test_reader.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is quality.test_reader.LoopSwaps.test_an_end_word_swap_never_misses_the_printed_end quality.test_reader.Declarations.test_the_grid_endpoint_binds_through_the_reader quality.test_reader.LexiconCut.test_the_any_reading_search_cuts_as_the_stream_does quality.test_reader.SharedFallback.test_a_v1_scope_never_leaves_its_fallback_to_a_v2_read   -> $H/author/targeted.log (6 OK)
+cd $W/lyric-harness && $PY -m unittest -v quality.test_reader.WarmWorker   -> $H/author/warmworker.log (3 OK, 43 s)

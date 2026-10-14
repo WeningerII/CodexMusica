@@ -1,0 +1,25 @@
+BB8 verify-harness-misc-0 (refute T2b-split_right). S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad
+D=$S/h678/verify-harness-misc-0 ; export LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data ; python3 = 3.13
+Trees: $S/wt-678 (67889851, candidate), $S/wt-base (fce4bf0f), parent = `git archive 40d222daa^ lyric-harness` (15027bbc) into $D/parent + copied cmudict.dict (deleted after use, 166 MB)
+
+# 1 in-process probe (my own script br.py): verdict of broken rhyme L1~L4 x 5 spellings x 4 phonologies
+python3 $D/br.py $S/wt-678 v2 > br_678_v2.json ; python3 $D/br.py $S/wt-678 v1 > br_678_v1.json ; python3 $D/br.py $S/wt-base base > br_base.json
+python3 $D/br.py $D/parent v2 > br_parent_v2.json ; python3 $D/br.py $D/parent v1 > br_parent_v1.json
+# 2 line_anchors / word readers
+python3 $D/anch.py {$S/wt-678 v2|v1, $S/wt-base base} -> anch.out ; python3 $D/readers.py ... -> readers.out
+# 3 end to end, brief verb (= connector lyric_check), fixtures $D/e2e/wh_{ascii,u2010,u2011,hyshy,shyhy}.txt (wh_ascii == tester's windhover.txt, cmp)
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py --reader-scheme=v2 brief $D/e2e/wh_ascii.txt --groups=1,4 "--relation=schema:broken rhyme"   -> e2e/brief_678_v2_ascii.out
+   same with wh_u2010 / wh_shyhy                                    -> brief_678_v2_u2010.out, brief_678_v2_shyhy.out
+   --reader-scheme=v1 (ascii)                                       -> brief_678_v1_ascii.out
+   (no scheme flag = default v2) (ascii)                            -> brief_678_default_ascii.out
+   --reader-scheme=v2 --fallback=high (ascii)                       -> brief_678_v2_fbhigh_ascii.out
+   --lexicon-supplement=v2 (ascii, default v2)                      -> brief_678_default_supv2_ascii.out
+   --reader-scheme=v1 --lexicon-supplement=v2 (ascii)               -> brief_678_v1_supv2_ascii.out
+cd $S/wt-base/lyric-harness && python3 lyric_harness.py brief ... (ascii)            -> brief_base_ascii.out
+   --fallback=high (ascii)                                          -> brief_base_fbhigh_ascii.out
+   --lexicon-supplement=v2 (ascii)                                  -> brief_base_supv2_ascii.out
+   (v1 u2010 run killed after ~5 min CPU, not used)
+python3 $D/summ.py $D/e2e -> e2e/summary.txt
+# 4 generalisation: python3 $D/dash.py {tree mode} -> dash.out (word+'-' as punctuation)
+# 5 main == base for relevant code (source): git rev-parse {fce4bf0f,8b1d2ad2}:lyric-harness/{quality/relations.py,quality/phonology/eng.py,quality/revise.py,lyric_harness.py} -> identical blobs
+# 6 author test (independent=false): cd $S/wt-678/lyric-harness && $S/venv311/bin/python -m unittest -v quality.test_reader.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line -> author_test.log (OK)

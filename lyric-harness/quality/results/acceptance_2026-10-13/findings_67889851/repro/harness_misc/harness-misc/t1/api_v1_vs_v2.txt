@@ -1,0 +1,39 @@
+'Oh--oh, oh my love' fields differing v1 vs v2: ['read_low', 'read_default', 'read_low_voices', 'eng_tokens', 'eng_low_tokens', 'eng_unreadable', 'lex_scheme_seen']
+    measure_low v1= (5, 4, 0, ()) v2= (5, 4, 0, ())
+    lex_scheme_seen v1= ['v1', 'v1'] v2= ['v2', 'v2']
+    eng_low_unreadable v1= [] v2= []
+'Thundered the battery’s double bass--' fields differing v1 vs v2: ['read_low', 'read_default', 'read_low_voices', 'eng_tokens', 'eng_low_tokens', 'eng_unreadable', 'lex_scheme_seen']
+    measure_low v1= (9, 4, 0, ()) v2= (9, 4, 0, ())
+    lex_scheme_seen v1= ['v1', 'v1'] v2= ['v2', 'v2']
+    eng_low_unreadable v1= [] v2= []
+"I know it 's true" fields differing v1 vs v2: ['read_low', 'read_default', 'read_low_voices', 'eng_tokens', 'eng_low_tokens', 'lex_scheme_seen']
+    measure_low v1= (4, 3, 0, ()) v2= (4, 3, 0, ())
+    lex_scheme_seen v1= ['v1', 'v1'] v2= ['v2', 'v2']
+    eng_low_unreadable v1= [] v2= []
+'The river owes us nothing, not since 1999' fields differing v1 vs v2: ['read_low', 'read_default', 'read_low_voices', 'eng_tokens', 'eng_low_tokens', 'eng_unreadable', 'eng_low_unreadable', 'lex_scheme_seen']
+    measure_low v1= (8, 5, 0, ('NUMERAL', 'UNRESOLVED_READING')) v2= (8, 5, 0, ('NUMERAL', 'UNRESOLVED_READING'))
+    lex_scheme_seen v1= ['v1', 'v1'] v2= ['v2', 'v2']
+    eng_low_unreadable v1= ['us'] v2= ['us', '1999']
+'Catch-22 and 4ever (oh--oh) we sang' fields differing v1 vs v2: ['read_low', 'read_default', 'read_low_voices', 'eng_tokens', 'eng_low_tokens', 'eng_unreadable', 'eng_low_unreadable', 'lex_scheme_seen']
+    measure_low v1= (6, 3, 0, ('NUMERAL',)) v2= (6, 3, 0, ('NUMERAL',))
+    lex_scheme_seen v1= ['v1', 'v1'] v2= ['v2', 'v2']
+    eng_low_unreadable v1= [] v2= ['Catch-22', '4ever']
+'o’er the hill the café (my love) stands' fields differing v1 vs v2: ['read_low', 'read_default', 'read_low_voices', 'eng_tokens', 'eng_low_tokens', 'eng_unreadable', 'eng_low_unreadable', 'lex_scheme_seen']
+    measure_low v1= (5, 3, 1, ('OUT_OF_LEXICON',)) v2= (5, 3, 1, ('OUT_OF_LEXICON',))
+    lex_scheme_seen v1= ['v1', 'v1'] v2= ['v2', 'v2']
+    eng_low_unreadable v1= [] v2= ['café']
+gradesup v1->v2 differing lines: 52
+   -  lyric result: {"version":1,"status":"graded","command":"song","transport_token":null,"final_draft":["The kettle sings before the sky is grey","My mother sets a cup out on the tray","Oh--oh, oh my love","And how my father waited
+   +  lyric result: {"version":1,"status":"graded","command":"song","transport_token":null,"final_draft":["The kettle sings before the sky is grey","My mother sets a cup out on the tray","Oh--oh, oh my love","And how my father waited
+   -  REPORT: 16 line(s) briefed — 7 FLAG, 53 NOTE (two counts, never summed: doctrine 79); 10 WHOLE-DRAFT finding(s), 1 of them FLAG(S), below
+   -          3 code(s) covering 46 finding(s) are ROLLED UP below, and 14 print in full. Nothing is dropped — a rolled code names every line it fired on and carries its own count
+   +  REPORT: 16 line(s) briefed — 7 FLAG, 54 NOTE (two counts, never summed: doctrine 79); 10 WHOLE-DRAFT finding(s), 1 of them FLAG(S), below
+   +          3 code(s) covering 46 finding(s) are ROLLED UP below, and 15 print in full. Nothing is dropped — a rolled code names every line it fired on and carries its own count
+   -    3. SCHEME_VIOLATION — L16
+   +    3. SCHEME_VIOLATION — L8
+   +  L8: I counted every light and named each star
+   +      FINDING [FLAG] SCHEME_VIOLATION: L7 and L8 are both in group C [7, 8] but do not stand in the relation it requires (lines 7, 8)
+   +         NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PR
+   +      FAILS L7-L8 (bass/star): 0.659  NO_RELATION  — NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declar
+   +          NAMED PAIR IS NOT THE EVIDENCE: right reaches past `star`
+   +          scored on: bass  ~  each star   (best of k=8)   MOSAIC (right): the winning span reaches back past the end word

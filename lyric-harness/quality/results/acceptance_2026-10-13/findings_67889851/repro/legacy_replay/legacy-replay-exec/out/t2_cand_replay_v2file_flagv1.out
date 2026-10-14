@@ -1,0 +1,3 @@
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  REFUSED — READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v2, and this call declares v1. Replay it under --reader-scheme=v2 (or with no --reader-scheme).
+  lyric result: {"status":"refused","exit":2,"refusal":"READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v2, and this call declares v1. Replay it under --reader-scheme=v2 (or with no --reader-scheme).","version":1,"transport_token":null}

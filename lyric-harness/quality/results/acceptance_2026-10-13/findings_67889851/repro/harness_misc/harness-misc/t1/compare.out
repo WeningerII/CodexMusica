@@ -1,0 +1,40 @@
+cold requests: 14
+warm_v2_then_v1.json     # 0 meter@v2         code=0 cold_code=0 stdout_len=481 SAME
+warm_v2_then_v1.json     # 1 meterlow@v2      code=0 cold_code=0 stdout_len=474 SAME
+warm_v2_then_v1.json     # 2 api@v2           code=None cold_code=None stdout_len=0 SAME
+warm_v2_then_v1.json     # 3 gradesup@v2      code=2 cold_code=2 stdout_len=64739 SAME
+warm_v2_then_v1.json     # 4 gradeplain@v2    code=2 cold_code=2 stdout_len=64468 SAME
+warm_v2_then_v1.json     # 5 gradevoices@v2   code=2 cold_code=2 stdout_len=64599 SAME
+warm_v2_then_v1.json     # 6 gradepron@v2     code=3 cold_code=3 stdout_len=60903 SAME
+warm_v2_then_v1.json     # 7 meter@v1         code=0 cold_code=0 stdout_len=437 SAME
+warm_v2_then_v1.json     # 8 meterlow@v1      code=0 cold_code=0 stdout_len=424 SAME
+warm_v2_then_v1.json     # 9 api@v1           code=None cold_code=None stdout_len=0 SAME
+warm_v2_then_v1.json     #10 gradesup@v1      code=2 cold_code=2 stdout_len=63717 SAME
+warm_v2_then_v1.json     #11 gradeplain@v1    code=2 cold_code=2 stdout_len=61170 SAME
+warm_v2_then_v1.json     #12 gradevoices@v1   code=2 cold_code=2 stdout_len=61295 SAME
+warm_v2_then_v1.json     #13 gradepron@v1     code=2 cold_code=2 stdout_len=331 SAME
+warm_v1_then_v2.json     # 0 meter@v1         code=0 cold_code=0 stdout_len=437 SAME
+warm_v1_then_v2.json     # 1 meterlow@v1      code=0 cold_code=0 stdout_len=424 SAME
+warm_v1_then_v2.json     # 2 api@v1           code=None cold_code=None stdout_len=0 SAME
+warm_v1_then_v2.json     # 3 gradesup@v1      code=2 cold_code=2 stdout_len=63717 SAME
+warm_v1_then_v2.json     # 4 gradeplain@v1    code=2 cold_code=2 stdout_len=61170 SAME
+warm_v1_then_v2.json     # 5 gradevoices@v1   code=2 cold_code=2 stdout_len=61295 SAME
+warm_v1_then_v2.json     # 6 gradepron@v1     code=2 cold_code=2 stdout_len=331 SAME
+warm_v1_then_v2.json     # 7 meter@v2         code=0 cold_code=0 stdout_len=481 SAME
+warm_v1_then_v2.json     # 8 meterlow@v2      code=0 cold_code=0 stdout_len=474 SAME
+warm_v1_then_v2.json     # 9 api@v2           code=None cold_code=None stdout_len=0 SAME
+warm_v1_then_v2.json     #10 gradesup@v2      code=2 cold_code=2 stdout_len=64739 SAME
+warm_v1_then_v2.json     #11 gradeplain@v2    code=2 cold_code=2 stdout_len=64468 SAME
+warm_v1_then_v2.json     #12 gradevoices@v2   code=2 cold_code=2 stdout_len=64599 SAME
+warm_v1_then_v2.json     #13 gradepron@v2     code=3 cold_code=3 stdout_len=60903 SAME
+DIFFS: 0
+cold meter: v1==v2? False
+cold meterlow: v1==v2? False
+cold api: v1==v2? False
+cold gradesup: v1==v2? False
+cold gradeplain: v1==v2? False
+cold gradevoices: v1==v2? False
+cold gradepron: v1==v2? False
+cold2 gradesup@v2: equals cold? True
+cold2 api@v1: equals cold? True
+cold2 gradesup@v1: equals cold? True

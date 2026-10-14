@@ -1,0 +1,630 @@
+  PLAN: form=verse-chorus seed=23 -> 12 line(s), 6 section(s): chorus-postchorus-chorus-postchorus-verse-coda
+    (pattern drawn from generated grammar: 22 cell types x 1..3 cells under the drawn total and declared brief, optional intro/outro/coda, roster 20 of 22 functions)
+  RELATION: none declared and none drawn — every mandated group is judged against EVERY relation (each coarse relation and every registry schema) and is satisfied by any one its pairs stand in.
+  METER: 13/8 as (3, 2, 2, 3, 3) -- 13390236392546005317973140 derived cycles (beats envelope [2, 200], slots envelope [1, 800]), measured BY DERIVATION ON THE DECLARED COORDINATE: 1 of 199 beats-per-line values, then 1 of 15 bars x subdivision factorisation(s) of 117 beats, then 1 of 16 groupings of 13. The line runs 117 beat(s) — at most 200, the longest line in characters, since a syllable is at least one character and a sung line carries at least one syllable a beat — and holds 468 slot(s). The pair share follows from how many ways each beat count factorises. Unit is notation, never enforced; subdivision 4, 9 bar(s) per line
+  SCHEME chorus: 1 line(s), rgs (0,) -- one of 1 (a one-line section mandates no pair)
+  SCHEME postchorus: 1 line(s), rgs (0,) -- one of 1 (a one-line section mandates no pair)
+  SCHEME verse: 4 line(s), rgs (0, 0, 1, 0) -- one of 14 with a mandated pair
+  SCHEME coda: 4 line(s), rgs (0, 0, 1, 2) -- one of 14 with a mandated pair
+  GROUPS : 5,6,8;9,10
+  RETURNS: 1,3
+  AUDIBLE: 0 of 2 end-bound group(s) require a schema heard as END RHYME (nucleus and coda agree at the line end: none); 2 on the bare default; 0 on a relation heard as something else (none). 0 explicit class/type declaration(s) outside this schema-only inventory (none). A record, not a gate (M-192); no relation is drawn: a bare group is judged against EVERY relation, coarse and schema, and stands in any its pairs support.
+  BOUND  : distinct bound words / token capacity, per section (a disclosure — no calibrated ceiling exists):
+    CHORUS1        0 of 465  (0.00)
+    POSTCHORUS1    0 of 466  (0.00)
+    CHORUS2        0 of 465  (0.00)
+    POSTCHORUS2    0 of 466  (0.00)
+    VERSE1         3 of 1860  (0.00)
+    CODA1          2 of 1864  (0.00)
+
+Write a song: 12 lines, 6 sections, in this order:
+  [CHORUS — 1 line — 9 bars of 13/8, three-quarter-beat pickup]
+      up to 465 syllables a line after the pickup
+  [POSTCHORUS — 1 line — 9 bars of 13/8, half-beat pickup]
+      up to 466 syllables a line after the pickup
+  [CHORUS — 1 line — 9 bars of 13/8, three-quarter-beat pickup]
+      up to 465 syllables a line after the pickup
+  [POSTCHORUS — 1 line — 9 bars of 13/8, half-beat pickup]
+      up to 466 syllables a line after the pickup
+  [VERSE — 4 lines — 36 bars of 13/8, three-quarter-beat pickup]
+      up to 465 syllables a line after the pickup
+  [CODA — 4 lines — 36 bars of 13/8, half-beat pickup]
+      up to 466 syllables a line after the pickup
+Feel: 13/8 grouped 3+2+2+3+3.
+Rhyme plan (line numbers over the whole song):
+  lines 5 & 6 & 8 must stand in at least one relation — any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema
+  lines 9 & 10 must stand in at least one relation — any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema
+Story plan (one job per sung section; each enters from the section before it as stated):
+  CHORUS1 is the fixed claim the song keeps returning to
+  POSTCHORUS1 is a compressed verdict on what has happened — because of CHORUS1
+  CHORUS2 is the fixed claim the song keeps returning to — against POSTCHORUS1
+  POSTCHORUS2 is a compressed verdict on what has happened — set beside (connection unstated) CHORUS2
+  VERSE1 is a compressed verdict on what has happened — after POSTCHORUS2
+  CODA1 is a compressed verdict on what has happened — set beside (connection unstated) VERSE1
+Every chorus after the first repeats the first chorus word for word, line for line.
+Line 1 is the hook — make it the line someone leaves humming.
+
+{
+ "choices": {
+  "anacrusis": {
+   "chorus": {
+    "chosen_from": [
+     0.0,
+     0.25,
+     0.5,
+     0.75,
+     1.0
+    ],
+    "value": 0.75
+   },
+   "coda": {
+    "chosen_from": [
+     0.0,
+     0.25,
+     0.5,
+     0.75,
+     1.0
+    ],
+    "value": 0.5
+   },
+   "postchorus": {
+    "chosen_from": [
+     0.0,
+     0.25,
+     0.5,
+     0.75,
+     1.0
+    ],
+    "value": 0.5
+   },
+   "verse": {
+    "chosen_from": [
+     0.0,
+     0.25,
+     0.5,
+     0.75,
+     1.0
+    ],
+    "value": 0.75
+   }
+  },
+  "audible": {
+   "audible": 0,
+   "audible_names": [],
+   "bare": 2,
+   "end_bound": 2,
+   "inaudible": [],
+   "unclassified": []
+  },
+  "bars_per_line": 9,
+  "end_rhyme": {
+   "added": 0,
+   "blocked": 2,
+   "chosen_from": "NOT A DRAW \u2014 each sung section's own `schemes[fn].rgs` re-realised at the line ends, so this consumes no seed entropy and the placement draw above is untouched. Three counts, never summed (doctrine 79): `added` groups emitted; `blocked` blocks whose ends the placement draw had already spent; `narrow` blocks whose lines cannot carry one more DISTINCT word.",
+   "groups": [],
+   "narrow": 0
+  },
+  "meter": {
+   "beats_per_line": 117,
+   "chosen_from": "13390236392546005317973140 derived cycles (beats envelope [2, 200], slots envelope [1, 800]), measured BY DERIVATION ON THE DECLARED COORDINATE: 1 of 199 beats-per-line values, then 1 of 15 bars x subdivision factorisation(s) of 117 beats, then 1 of 16 groupings of 13. The line runs 117 beat(s) \u2014 at most 200, the longest line in characters, since a syllable is at least one character and a sung line carries at least one syllable a beat \u2014 and holds 468 slot(s). The pair share follows from how many ways each beat count factorises. Unit is notation, never enforced",
+   "slots_per_line": 468,
+   "value": {
+    "beats": 13,
+    "groups": [
+     3,
+     2,
+     2,
+     3,
+     3
+    ],
+    "unit": 8
+   }
+  },
+  "narrative": {
+   "chosen_from": "uniform over the 19024 legal story line-ups of this shape (quality/narrative.py, M-121; the count is exact and the draw is entropy-last)",
+   "value": {
+    "atoms": [
+     [
+      0,
+      "chorus",
+      "ANCHOR"
+     ],
+     [
+      1,
+      "postchorus",
+      "JUDGE"
+     ],
+     [
+      2,
+      "chorus",
+      "ANCHOR"
+     ],
+     [
+      3,
+      "postchorus",
+      "JUDGE"
+     ],
+     [
+      4,
+      "verse",
+      "JUDGE"
+     ],
+     [
+      5,
+      "coda",
+      "JUDGE"
+     ]
+    ],
+    "junctions": [
+     [
+      0,
+      1,
+      "THEREFORE"
+     ],
+     [
+      1,
+      2,
+      "BUT"
+     ],
+     [
+      2,
+      3,
+      "JUXTAPOSE"
+     ],
+     [
+      3,
+      4,
+      "AND_THEN"
+     ],
+     [
+      4,
+      5,
+      "JUXTAPOSE"
+     ]
+    ],
+    "lineups": 19024,
+    "mode": "drawn"
+   }
+  },
+  "pattern": {
+   "chosen_from": "generated grammar: 22 cell types x 1..3 cells under the drawn total and declared brief, optional intro/outro/coda, roster 20 of 22 functions",
+   "functions": [
+    "chorus",
+    "postchorus",
+    "chorus",
+    "postchorus",
+    "verse",
+    "coda"
+   ]
+  },
+  "placements": {
+   "measure": "every member is bound at the end of its line (owner's ruling 2026-10-04: rhymes tie only line ends)",
+   "pool": [
+    "end"
+   ],
+   "words": [
+    "last"
+   ]
+  },
+  "relations": {
+   "chosen_from": "NOT DRAWN \u2014 every group is judged against the whole vocabulary: every coarse relation and every registry schema; a pair satisfies a group when it stands in any of them",
+   "value": {}
+  },
+  "schemes": {
+   "chorus": {
+    "chosen_from": 1,
+    "lines": 1,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0
+    ]
+   },
+   "coda": {
+    "chosen_from": 14,
+    "lines": 4,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0,
+     0,
+     1,
+     2
+    ]
+   },
+   "postchorus": {
+    "chosen_from": 1,
+    "lines": 1,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0
+    ]
+   },
+   "verse": {
+    "chosen_from": 14,
+    "lines": 4,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  "shape_attempts": 2,
+  "structures": {
+   "chorus": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   },
+   "coda": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   },
+   "postchorus": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   },
+   "verse": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   }
+  },
+  "subdivision": 4
+ },
+ "envelope": {
+  "anacrusis": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "bars_per_line": [
+   1,
+   100
+  ],
+  "beats_per_line": [
+   2,
+   200
+  ],
+  "body_cells": [
+   1,
+   463
+  ],
+  "lines_per_section": [
+   1,
+   463
+  ],
+  "sections": [
+   1,
+   115
+  ],
+  "slots_per_line": [
+   1,
+   800
+  ],
+  "subdivisions": [
+   1,
+   2,
+   4
+  ],
+  "total_lines": [
+   12,
+   463
+  ]
+ },
+ "functions": [],
+ "functions_unused": [],
+ "groups": "5,6,8;9,10",
+ "hook_slot": 1,
+ "hook_slot_refused": "",
+ "line_slots": [
+  {
+   "bar": 1,
+   "beat": 1.75,
+   "duration": 116.25,
+   "function": "chorus",
+   "line": 1,
+   "section": "CHORUS1"
+  },
+  {
+   "bar": 10,
+   "beat": 1.5,
+   "duration": 116.5,
+   "function": "postchorus",
+   "line": 2,
+   "section": "POSTCHORUS1"
+  },
+  {
+   "bar": 19,
+   "beat": 1.75,
+   "duration": 116.25,
+   "function": "chorus",
+   "line": 3,
+   "section": "CHORUS2"
+  },
+  {
+   "bar": 28,
+   "beat": 1.5,
+   "duration": 116.5,
+   "function": "postchorus",
+   "line": 4,
+   "section": "POSTCHORUS2"
+  },
+  {
+   "bar": 37,
+   "beat": 1.75,
+   "duration": 116.25,
+   "function": "verse",
+   "line": 5,
+   "section": "VERSE1"
+  },
+  {
+   "bar": 46,
+   "beat": 1.75,
+   "duration": 116.25,
+   "function": "verse",
+   "line": 6,
+   "section": "VERSE1"
+  },
+  {
+   "bar": 55,
+   "beat": 1.75,
+   "duration": 116.25,
+   "function": "verse",
+   "line": 7,
+   "section": "VERSE1"
+  },
+  {
+   "bar": 64,
+   "beat": 1.75,
+   "duration": 116.25,
+   "function": "verse",
+   "line": 8,
+   "section": "VERSE1"
+  },
+  {
+   "bar": 73,
+   "beat": 1.5,
+   "duration": 116.5,
+   "function": "coda",
+   "line": 9,
+   "section": "CODA1"
+  },
+  {
+   "bar": 82,
+   "beat": 1.5,
+   "duration": 116.5,
+   "function": "coda",
+   "line": 10,
+   "section": "CODA1"
+  },
+  {
+   "bar": 91,
+   "beat": 1.5,
+   "duration": 116.5,
+   "function": "coda",
+   "line": 11,
+   "section": "CODA1"
+  },
+  {
+   "bar": 100,
+   "beat": 1.5,
+   "duration": 116.5,
+   "function": "coda",
+   "line": 12,
+   "section": "CODA1"
+  }
+ ],
+ "narrative": {
+  "atoms": [
+   [
+    0,
+    "chorus",
+    "ANCHOR"
+   ],
+   [
+    1,
+    "postchorus",
+    "JUDGE"
+   ],
+   [
+    2,
+    "chorus",
+    "ANCHOR"
+   ],
+   [
+    3,
+    "postchorus",
+    "JUDGE"
+   ],
+   [
+    4,
+    "verse",
+    "JUDGE"
+   ],
+   [
+    5,
+    "coda",
+    "JUDGE"
+   ]
+  ],
+  "junctions": [
+   [
+    0,
+    1,
+    "THEREFORE"
+   ],
+   [
+    1,
+    2,
+    "BUT"
+   ],
+   [
+    2,
+    3,
+    "JUXTAPOSE"
+   ],
+   [
+    3,
+    4,
+    "AND_THEN"
+   ],
+   [
+    4,
+    5,
+    "JUXTAPOSE"
+   ]
+  ],
+  "lineups": 19024,
+  "mode": "drawn"
+ },
+ "plan_version": 3,
+ "relation": "",
+ "relations": {},
+ "request": {
+  "form": "verse-chorus",
+  "functions": null,
+  "lines": 12,
+  "narrative": null,
+  "relation": null,
+  "seed": 23,
+  "title": null,
+  "wants": []
+ },
+ "returns": "1,3",
+ "sections": [
+  {
+   "bars": 9,
+   "function": "chorus",
+   "meter": {
+    "beats": 13,
+    "groups": [
+     3,
+     2,
+     2,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 1
+  },
+  {
+   "bars": 9,
+   "function": "postchorus",
+   "meter": {
+    "beats": 13,
+    "groups": [
+     3,
+     2,
+     2,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS1",
+   "start_bar": 10
+  },
+  {
+   "bars": 9,
+   "function": "chorus",
+   "meter": {
+    "beats": 13,
+    "groups": [
+     3,
+     2,
+     2,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS2",
+   "start_bar": 19
+  },
+  {
+   "bars": 9,
+   "function": "postchorus",
+   "meter": {
+    "beats": 13,
+    "groups": [
+     3,
+     2,
+     2,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "POSTCHORUS2",
+   "start_bar": 28
+  },
+  {
+   "bars": 36,
+   "function": "verse",
+   "meter": {
+    "beats": 13,
+    "groups": [
+     3,
+     2,
+     2,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 37
+  },
+  {
+   "bars": 36,
+   "function": "coda",
+   "meter": {
+    "beats": 13,
+    "groups": [
+     3,
+     2,
+     2,
+     3,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CODA1",
+   "start_bar": 73
+  }
+ ],
+ "subdivision": 4,
+ "title": "",
+ "total_lines": 12,
+ "writer_brief": "Write a song: 12 lines, 6 sections, in this order:\n  [CHORUS \u2014 1 line \u2014 9 bars of 13/8, three-quarter-beat pickup]\n      up to 465 syllables a line after the pickup\n  [POSTCHORUS \u2014 1 line \u2014 9 bars of 13/8, half-beat pickup]\n      up to 466 syllables a line after the pickup\n  [CHORUS \u2014 1 line \u2014 9 bars of 13/8, three-quarter-beat pickup]\n      up to 465 syllables a line after the pickup\n  [POSTCHORUS \u2014 1 line \u2014 9 bars of 13/8, half-beat pickup]\n      up to 466 syllables a line after the pickup\n  [VERSE \u2014 4 lines \u2014 36 bars of 13/8, three-quarter-beat pickup]\n      up to 465 syllables a line after the pickup\n  [CODA \u2014 4 lines \u2014 36 bars of 13/8, half-beat pickup]\n      up to 466 syllables a line after the pickup\nFeel: 13/8 grouped 3+2+2+3+3.\nRhyme plan (line numbers over the whole song):\n  lines 5 & 6 & 8 must stand in at least one relation \u2014 any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema\n  lines 9 & 10 must stand in at least one relation \u2014 any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema\nStory plan (one job per sung section; each enters from the section before it as stated):\n  CHORUS1 is the fixed claim the song keeps returning to\n  POSTCHORUS1 is a compressed verdict on what has happened \u2014 because of CHORUS1\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 against POSTCHORUS1\n  POSTCHORUS2 is a compressed verdict on what has happened \u2014 set beside (connection unstated) CHORUS2\n  VERSE1 is a compressed verdict on what has happened \u2014 after POSTCHORUS2\n  CODA1 is a compressed verdict on what has happened \u2014 set beside (connection unstated) VERSE1\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 1 is the hook \u2014 make it the line someone leaves humming."
+}
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"status":"planned","exit":0,"plan_lines":12,"plan_version":3,"version":1,"transport_token":null}
+
+  GRADE IT — TWO STEPS on the plan-first path (the file --out wrote is a PLAN; `song` reads a BLUEPRINT):
+    1. write the draft to DRAFT.txt, then render and get the blueprint:
+       python3 lyric_harness.py plan --seed=23 --form=verse-chorus --lines=12 --input-format=literal --fill=DRAFT.txt --out=BP.json
+    2. python3 lyric_harness.py song BP.json DRAFT.txt --input-format=literal '--groups=5,6,8;9,10' --returns=1,3 --subdivision 4

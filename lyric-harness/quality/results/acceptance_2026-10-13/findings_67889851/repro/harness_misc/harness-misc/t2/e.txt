@@ -1,0 +1,272 @@
+### twenty-two
+   supplemented:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      base: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+   supplemented_variants:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+      v1  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+      base: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+   plain_lexicon:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      base: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+      v1  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+      base: [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+### twenty\u2010two
+   supplemented:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+      v1  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW1"], ["so", "twenty", "two"], []]
+      base: [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW1"], ["so", "twenty", "two"], []]
+### twenty\u2011two
+   supplemented:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      base: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+   supplemented_variants:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+      v1  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+      base: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+   plain_lexicon:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+      v1  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW1"], ["so", "twenty", "two"], []]
+      base: [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW1"], ["so", "twenty", "two"], []]
+### twen\xadty-two
+   supplemented:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+      v1  : [["S", "OW0", "T", "AY1", "T", "UW1"], ["so", "twen", "ty-two"], ["twen"]]
+      base: [["S", "OW0", "T", "AY1", "T", "UW1"], ["so", "twen", "ty-two"], ["twen"]]
+### twenty-two\xad
+   supplemented:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+      v1  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+      base: [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "twenty-two"], []]
+### streetlight
+   supplemented:
+      v2  : [["S", "T", "R", "IY1", "T", "L", "AY2", "T"], false]
+      v1  : [["S", "T", "R", "IY1", "T", "L", "AY2", "T"], false]
+      base: [["S", "T", "R", "IY1", "T", "L", "AY2", "T"], false]
+   supplemented_variants:
+      v2  : [["S", "T", "R", "IY1", "T", "L", "AY2", "T"]]
+      v1  : [["S", "T", "R", "IY1", "T", "L", "AY2", "T"]]
+      base: [["S", "T", "R", "IY1", "T", "L", "AY2", "T"]]
+   plain_lexicon:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "S", "T", "R", "IY1", "T", "L", "AY2", "T"], ["so", "streetlight"], []]
+      v1  : [["S", "OW0", "S", "T", "R", "IY1", "T", "L", "AY2", "T"], ["so", "streetlight"], []]
+      base: [["S", "OW0", "S", "T", "R", "IY1", "T", "L", "AY2", "T"], ["so", "streetlight"], []]
+### street\xadlight
+   supplemented:
+      v2  : [["S", "T", "R", "IY1", "T", "L", "AY2", "T"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "S", "T", "R", "IY1", "T", "L", "AY2", "T"], ["so", "streetlight"], []]
+      v1  : [["S", "OW0", "S", "T", "R", "IY1", "T", "L", "AY1", "T"], ["so", "street", "light"], []]
+      base: [["S", "OW0", "S", "T", "R", "IY1", "T", "L", "AY1", "T"], ["so", "street", "light"], []]
+### o\u2019er
+   supplemented:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0"], ["so", "o'er"], ["o'er"]]
+      v1  : [["S", "OW0"], ["so", "o'er"], ["o'er"]]
+      base: [["S", "OW0"], ["so", "o'er"], ["o'er"]]
+### o'er
+   supplemented:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0"], ["so", "o'er"], ["o'er"]]
+      v1  : [["S", "OW0"], ["so", "o'er"], ["o'er"]]
+      base: [["S", "OW0"], ["so", "o'er"], ["o'er"]]
+### cafe\u0301
+   supplemented:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0"], ["so", "café"], ["café"]]
+      v1  : [["S", "OW0", "K", "AH0", "F", "EY1"], ["so", "cafe"], []]
+      base: [["S", "OW0", "K", "AH0", "F", "EY1"], ["so", "cafe"], []]
+### caf\xe9
+   supplemented:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0"], ["so", "café"], ["café"]]
+      v1  : [["S", "OW0"], ["so", "café"], ["café"]]
+      base: [["S", "OW0"], ["so", "café"], ["café"]]
+### cafe
+   supplemented:
+      v2  : [["K", "AH0", "F", "EY1"], false]
+      v1  : [["K", "AH0", "F", "EY1"], false]
+      base: [["K", "AH0", "F", "EY1"], false]
+   supplemented_variants:
+      v2  : [["K", "AH0", "F", "EY1"], ["K", "AE0", "F", "EY1"]]
+      v1  : [["K", "AH0", "F", "EY1"], ["K", "AE0", "F", "EY1"]]
+      base: [["K", "AH0", "F", "EY1"], ["K", "AE0", "F", "EY1"]]
+   plain_lexicon:
+      v2  : [["K", "AH0", "F", "EY1"], false]
+      v1  : [["K", "AH0", "F", "EY1"], false]
+      base: [["K", "AH0", "F", "EY1"], false]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "K", "AH0", "F", "EY1"], ["so", "cafe"], []]
+      v1  : [["S", "OW0", "K", "AH0", "F", "EY1"], ["so", "cafe"], []]
+      base: [["S", "OW0", "K", "AH0", "F", "EY1"], ["so", "cafe"], []]
+### don\u2019t
+   supplemented:
+      v2  : [["D", "OW1", "N", "T"], false]
+      v1  : [["D", "OW1", "N", "T"], false]
+      base: [["D", "OW1", "N", "T"], false]
+   supplemented_variants:
+      v2  : [["D", "OW1", "N", "T"], ["D", "OW1", "N"]]
+      v1  : [["D", "OW1", "N", "T"], ["D", "OW1", "N"]]
+      base: [["D", "OW1", "N", "T"], ["D", "OW1", "N"]]
+   plain_lexicon:
+      v2  : [["D", "OW1", "N", "T"], false]
+      v1  : [["D", "OW1", "N", "T"], false]
+      base: [["D", "OW1", "N", "T"], false]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "D", "OW1", "N", "T"], ["so", "don't"], []]
+      v1  : [["S", "OW0", "D", "OW1", "N", "T"], ["so", "don't"], []]
+      base: [["S", "OW0", "D", "OW1", "N", "T"], ["so", "don't"], []]
+### don't
+   supplemented:
+      v2  : [["D", "OW1", "N", "T"], false]
+      v1  : [["D", "OW1", "N", "T"], false]
+      base: [["D", "OW1", "N", "T"], false]
+   supplemented_variants:
+      v2  : [["D", "OW1", "N", "T"], ["D", "OW1", "N"]]
+      v1  : [["D", "OW1", "N", "T"], ["D", "OW1", "N"]]
+      base: [["D", "OW1", "N", "T"], ["D", "OW1", "N"]]
+   plain_lexicon:
+      v2  : [["D", "OW1", "N", "T"], false]
+      v1  : [["D", "OW1", "N", "T"], false]
+      base: [["D", "OW1", "N", "T"], false]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "D", "OW1", "N", "T"], ["so", "don't"], []]
+      v1  : [["S", "OW0", "D", "OW1", "N", "T"], ["so", "don't"], []]
+      base: [["S", "OW0", "D", "OW1", "N", "T"], ["so", "don't"], []]
+### na\u0131\u0308ve
+   supplemented:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [[], true]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "V", "IY1"], ["so", "naı", "ve"], ["naı"]]
+      v1  : [["S", "OW0", "V", "IY1"], ["so", "naı", "ve"], ["naı"]]
+      base: [["S", "OW0", "V", "IY1"], ["so", "naı", "ve"], ["naı"]]
+### Twenty\u2010Two
+   supplemented:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_variants:
+      v2  : []
+      v1  : []
+      base: []
+   plain_lexicon:
+      v2  : [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], false]
+      v1  : [[], true]
+      base: [[], true]
+   supplemented_line_transcribe:
+      v2  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], ["so", "Twenty-Two"], []]
+      v1  : [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW1"], ["so", "Twenty", "Two"], []]
+      base: [["S", "OW0", "T", "W", "EH1", "N", "T", "IY0", "T", "UW1"], ["so", "Twenty", "Two"], []]

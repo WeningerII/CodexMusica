@@ -1,0 +1,21 @@
+v2 lex.transcribe(line) tail: ['K', 'IH1', 'NG'] oov: ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king-']
+v2 lex.transcribe_word('king-'): ([], True)
+v2 PH.get('eng').syllabify('king-'): []
+v2 PH.get('eng').syllabify('king'): ["Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"]
+v2 eng.tokens_for_line: ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king-']
+v2 relations.tokenise: ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king']
+v2 word_syllable_map tail: ': (), 'word_unread': ()}, {'onset': ['K'], 'nucleus': 'IH', 'stress': 1, 'coda': ['NG'], 'word': 'king-', 'widx': 6, 'syl_in_word': 1, 'word_syllables': 1, 'word_read': ('king',), 'word_unread': ()}]
+v1 lex.transcribe(line) tail: ['K', 'IH1', 'NG'] oov: ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king-']
+v1 lex.transcribe_word('king-'): ([], True)
+v1 PH.get('eng').syllabify('king-'): []
+v1 PH.get('eng').syllabify('king'): ["Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"]
+v1 eng.tokens_for_line: None
+v1 relations.tokenise: ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king']
+v1 word_syllable_map tail: ': (), 'word_unread': ()}, {'onset': ['K'], 'nucleus': 'IH', 'stress': 1, 'coda': ['NG'], 'word': 'king-', 'widx': 6, 'syl_in_word': 1, 'word_syllables': 1, 'word_read': ('king',), 'word_unread': ()}]
+base lex.transcribe(line) tail: ['K', 'IH1', 'NG'] oov: ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king-']
+base lex.transcribe_word('king-'): ([], True)
+base PH.get('eng').syllabify('king-'): []
+base PH.get('eng').syllabify('king'): ["Syllable(text='king', onset=('K',), nucleus='IH', coda=('NG',), prominence=1, moras=1)"]
+base eng.tokens_for_line: None
+base relations.tokenise: ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king']
+base word_syllable_map tail: ': (), 'word_unread': ()}, {'onset': ['K'], 'nucleus': 'IH', 'stress': 1, 'coda': ['NG'], 'word': 'king-', 'widx': 6, 'syl_in_word': 1, 'word_syllables': 1, 'word_read': ('king',), 'word_unread': ()}]

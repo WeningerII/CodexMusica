@@ -1,0 +1,75 @@
+### b_num_bare (tree=base fce4bf0f1)
+### c_num_bare (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief fx/num.txt --groups=1\,2 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief fx/num.txt --groups=1\,2 
+### c_num_endword (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief fx/num.txt --groups=1.endword\,2.endword 
+### c_num_end (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief fx/num.txt --groups=1.end\,2.end 
+  -> rc=2 out=out/c_num_bare.out (10.981165708s)
+  -> rc=2 out=out/b_num_bare.out (11.537505108s)
+  -> rc=2 out=out/c_num_end.out (11.552369917s)
+  -> rc=2 out=out/c_num_endword.out (11.720925050s)
+# NOTE: first 4 runs above used relative fx/ path and were refused (rc=2, file not found); discarded and rerun with absolute paths below
+### c_num_end (tree=cand 678898511)
+### c_num_bare (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1\,2 
+### b_num_bare (tree=base fce4bf0f1)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1\,2 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1.end\,2.end 
+### c_num_endword (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1.endword\,2.endword 
+  -> [c_num_bare] rc=0 out=out/c_num_bare.out (21.667863959s)
+  -> [c_num_end] rc=0 out=out/c_num_end.out (22.468771950s)
+  -> [c_num_endword] rc=0 out=out/c_num_endword.out (33.395747849s)
+  -> [b_num_bare] rc=0 out=out/b_num_bare.out (34.410142961s)
+### b_num_endword (tree=base fce4bf0f1)
+### c1_num_endword (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1.endword\,2.endword 
+### b_num_end (tree=base fce4bf0f1)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1.end\,2.end 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py --reader-scheme=v1 brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1.endword\,2.endword 
+### c1_num_bare (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py --reader-scheme=v1 brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1\,2 
+  -> [b_num_end] rc=0 out=out/b_num_end.out (56.192143217s)
+  -> [b_num_endword] rc=0 out=out/b_num_endword.out (56.505505284s)
+  -> [c1_num_endword] rc=0 out=out/c1_num_endword.out (56.608954226s)
+  -> [c1_num_bare] rc=0 out=out/c1_num_bare.out (56.915710875s)
+### b_junk_endword (tree=base fce4bf0f1)
+### c_junk_endword (tree=cand 678898511)
+### b_junk_bare (tree=base fce4bf0f1)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/junk.txt --groups=1\,2 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/junk.txt --groups=1.endword\,2.endword 
+### c_junk_bare (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/junk.txt --groups=1\,2 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/junk.txt --groups=1.endword\,2.endword 
+  -> [c_junk_bare] rc=0 out=out/c_junk_bare.out (25.481093181s)
+  -> [b_junk_bare] rc=0 out=out/b_junk_bare.out (25.751165356s)
+  -> [c_junk_endword] rc=0 out=out/c_junk_endword.out (38.303872359s)
+  -> [b_junk_endword] rc=0 out=out/b_junk_endword.out (38.831271346s)
+## probe_resolve.py (direct calls)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/probe_resolve.py v2 > /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/out/probe_cand_v2.out
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/probe_resolve.py v1 > /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/out/probe_cand_v1.out
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base/lyric-harness && LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/probe_resolve.py  > /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/out/probe_base_none.out
+  -> [probe_cand_v2] rc=0
+  -> [probe_cand_v1] rc=0
+  -> [probe_base_none] rc=0
+### c_num_brief_mixed2 (tree=cand 678898511)
+### c_num_brief_mixed (tree=cand 678898511)
+### c_num_verify_endword (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1\,2.endword 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py brief /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1.endword\,2 
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py verify /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1.endword\,2.endword 
+### c_num_verify_bare (tree=cand 678898511)
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py verify /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-1/fx/num.txt --groups=1\,2 
+  -> [c_num_verify_bare] rc=2 out=out/c_num_verify_bare.out (17.327784031s)
+  -> [c_num_verify_endword] rc=2 out=out/c_num_verify_endword.out (18.262194131s)
+  -> [c_num_brief_mixed2] rc=0 out=out/c_num_brief_mixed2.out (26.015488679s)
+  -> [c_num_brief_mixed] rc=0 out=out/c_num_brief_mixed.out (32.781759097s)
+# NOTE: c_num_verify_* runs refused rc=2 (verify takes a second file positional, not --groups); not used as evidence.
+## source checks (executed git commands)
+git -C wt-678 diff --quiet fce4bf0f HEAD -- lyric-harness/quality/slots.py   -> unchanged
+git -C wt-678 diff --quiet 8b1d2ad2 HEAD -- lyric-harness/quality/slots.py   -> unchanged
+git -C wt-base diff --stat fce4bf0f 8b1d2ad2 -- lyric-harness/lyric_harness.py lyric-harness/quality/slots.py lyric-harness/quality/readability.py -> empty (base==main for these)
+## byte-compare with tester's outputs (path normalised): x_v2_brief_{1_2,1_endword_2_endword}, x_base_brief_{endword,bare} == my c_num_bare, c_num_endword, b_num_endword, b_num_bare
+## summaries: /usr/bin/python3 summ.py out/<label>.out

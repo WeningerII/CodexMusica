@@ -1,0 +1,30 @@
+stdout raw bytes equal: False
+stdout lines: A=68 B=68; equal after bp-path normalisation: False
+  ~ lyric checkpoint: (A line 6): 2 differing path(s)
+      only-B /cursor: A=null B={"version": 1, "loop": {"phase": "pass", "round": 1, "at": 0, "pass": [9], "judged_open": true, "draft": ["Hold the lantern high tonight", "Nothing stays the sa...
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 7): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 8): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 9): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 10): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 11): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric checkpoint: (A line 25): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric result: (A line 26): 2 differing path(s)
+      differ /cursor_stripped: A="missing" B="run_key"
+      only-B /reader_scheme: A=null B="v1"
+written state raw bytes equal: False
+written state: 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"

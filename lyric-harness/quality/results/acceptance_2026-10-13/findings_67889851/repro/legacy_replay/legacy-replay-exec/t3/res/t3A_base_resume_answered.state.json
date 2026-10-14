@@ -1,0 +1,240 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [
+      {
+        "line": 9,
+        "attempt": 0,
+        "round": 1,
+        "draft": "ec026ad6b0f3",
+        "text": "and all of it for me",
+        "batch": null
+      }
+    ],
+    "propose_group": []
+  },
+  "pending": null,
+  "lexicon": {
+    "supplement_id": null,
+    "sha256": null
+  },
+  "input_draft": [
+    "Hold the lantern high tonight",
+    "Nothing stays the same",
+    "Hold the lantern high tonight",
+    "Every road returns",
+    "I gave my heart away in 1999",
+    "the river ran so fine",
+    "and nobody came",
+    "Oh--oh, oh my sweet design",
+    "the salt is on the sea",
+    "we sang it by the sea--",
+    "the morning took the rain",
+    "and so the night was free"
+  ],
+  "accepted_lines": [
+    "Hold the lantern high tonight",
+    "Nothing stays the same",
+    "Hold the lantern high tonight",
+    "Every road returns",
+    "I gave my heart away in 1999",
+    "the river ran so fine",
+    "and nobody came",
+    "Oh--oh, oh my sweet design",
+    "and all of it for me",
+    "we sang it by the sea--",
+    "the morning took the rain",
+    "and so the night was free"
+  ],
+  "outcomes": [
+    {
+      "line": 9,
+      "attempt": 0,
+      "round": 1,
+      "text": "and all of it for me",
+      "accepted": true,
+      "reasons": [
+        "fixed 2, introduced 0, changed only [9]"
+      ]
+    }
+  ],
+  "group_outcomes": [],
+  "dispositions": [],
+  "round": 1,
+  "status": "finished",
+  "cursor": {
+    "version": 1,
+    "loop": {
+      "phase": "round_open",
+      "round": 2,
+      "draft": [
+        "Hold the lantern high tonight",
+        "Nothing stays the same",
+        "Hold the lantern high tonight",
+        "Every road returns",
+        "I gave my heart away in 1999",
+        "the river ran so fine",
+        "and nobody came",
+        "Oh--oh, oh my sweet design",
+        "and all of it for me",
+        "we sang it by the sea--",
+        "the morning took the rain",
+        "and so the night was free"
+      ],
+      "rounds": [
+        [
+          1,
+          [
+            [
+              9,
+              1,
+              true,
+              1,
+              "fixed 2, introduced 0, changed only [9]",
+              [
+                9
+              ],
+              true
+            ]
+          ],
+          [
+            9
+          ],
+          []
+        ]
+      ],
+      "barren": 0,
+      "menus": []
+    },
+    "tally_hit": 1,
+    "stale": [],
+    "batch_stale": [],
+    "rej": [],
+    "grej": [],
+    "k1": 1,
+    "k2": 0,
+    "digest": "800dad0e746e6677a4b0672b555ec2e0abfbe1922a7a76d231605b9f0fe676a7",
+    "run_key": "3c9728f327835fc2e404b01348156f4a78b26a648b3309b4178e8fa731e4071e",
+    "scorer": "7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a"
+  },
+  "final_draft": [
+    "Hold the lantern high tonight",
+    "Nothing stays the same",
+    "Hold the lantern high tonight",
+    "Every road returns",
+    "I gave my heart away in 1999",
+    "the river ran so fine",
+    "and nobody came",
+    "Oh--oh, oh my sweet design",
+    "and all of it for me",
+    "we sang it by the sea--",
+    "the morning took the rain",
+    "and so the night was free"
+  ],
+  "coverage": {
+    "pairs_mandated": 4,
+    "pairs_judged": 4,
+    "pairs_refused": 0,
+    "scope": "requested_layers",
+    "certified": false,
+    "obligations": [
+      {
+        "id": "function:draft",
+        "layer": "function",
+        "status": "answered"
+      },
+      {
+        "id": "function:SINGLE_INSTANCE:0",
+        "layer": "function",
+        "status": "not_requested",
+        "code": "SINGLE_INSTANCE"
+      },
+      {
+        "id": "function:FUNCTION_UNDECLARED:1",
+        "layer": "function",
+        "status": "not_requested",
+        "code": "FUNCTION_UNDECLARED"
+      },
+      {
+        "id": "function:TITLE_UNDECLARED:2",
+        "layer": "function",
+        "status": "not_requested",
+        "code": "TITLE_UNDECLARED"
+      },
+      {
+        "id": "shape:draft",
+        "layer": "shape",
+        "status": "answered"
+      },
+      {
+        "id": "sentencehood:draft",
+        "layer": "sentencehood",
+        "status": "answered"
+      },
+      {
+        "id": "floor:draft",
+        "layer": "floor",
+        "status": "answered"
+      },
+      {
+        "id": "meter:draft",
+        "layer": "meter",
+        "status": "answered"
+      },
+      {
+        "id": "slot_grid:draft",
+        "layer": "slot_grid",
+        "status": "answered"
+      },
+      {
+        "id": "setting:draft",
+        "layer": "setting",
+        "status": "not_requested"
+      },
+      {
+        "id": "meter:COUNT_IS_A_LOWER_BOUND:L5",
+        "layer": "meter",
+        "line": 5,
+        "status": "refused"
+      },
+      {
+        "id": "rhyme:5:6:0",
+        "layer": "rhyme",
+        "status": "answered"
+      },
+      {
+        "id": "rhyme:5:8:0",
+        "layer": "rhyme",
+        "status": "answered"
+      },
+      {
+        "id": "rhyme:6:8:0",
+        "layer": "rhyme",
+        "status": "answered"
+      },
+      {
+        "id": "rhyme:9:10:1",
+        "layer": "rhyme",
+        "status": "answered"
+      },
+      {
+        "id": "return:1:3",
+        "layer": "return",
+        "status": "answered"
+      }
+    ],
+    "refused_obligations": [
+      "meter:COUNT_IS_A_LOWER_BOUND:L5"
+    ]
+  },
+  "stop": "uncertified",
+  "exit": 2,
+  "complete": {
+    "stop": "uncertified",
+    "exit": 2,
+    "draft": "ec026ad6b0f3",
+    "final": "9ab69cc99786",
+    "unresolved": [],
+    "whole_flags": []
+  }
+}

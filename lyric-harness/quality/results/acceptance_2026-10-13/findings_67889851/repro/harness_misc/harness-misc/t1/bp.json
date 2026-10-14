@@ -1,0 +1,213 @@
+{
+ "hook_slot": 7,
+ "hooks": [
+  "Thundered the battery\u2019s double bass--"
+ ],
+ "lines": [
+  {
+   "bar": 1,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "VERSE1",
+   "text": "The kettle sings before the sky is grey"
+  },
+  {
+   "bar": 18,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "VERSE1",
+   "text": "My mother sets a cup out on the tray"
+  },
+  {
+   "bar": 35,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "VERSE1",
+   "text": "Oh--oh, oh my love"
+  },
+  {
+   "bar": 52,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "VERSE1",
+   "text": "And how my father waited on the hill"
+  },
+  {
+   "bar": 69,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "DROP1",
+   "text": "She says he never cried and never prayed"
+  },
+  {
+   "bar": 86,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "DROP1",
+   "text": "He only sang until the water stayed"
+  },
+  {
+   "bar": 103,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "CHORUS1",
+   "text": "Thundered the battery\u2019s double bass--"
+  },
+  {
+   "bar": 120,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "CHORUS1",
+   "text": "I counted every light and named each star"
+  },
+  {
+   "bar": 137,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "CHORUS1",
+   "text": "Hold the wheel and let the water go"
+  },
+  {
+   "bar": 154,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "PRECHORUS1",
+   "text": "Some things you keep by letting them go slow"
+  },
+  {
+   "bar": 171,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "PRECHORUS1",
+   "text": "I know it 's true"
+  },
+  {
+   "bar": 188,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "CHORUS2",
+   "text": "Even after all the flooding drums"
+  },
+  {
+   "bar": 205,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "CHORUS2",
+   "text": "Now he's old and walks the bank at dawn"
+  },
+  {
+   "bar": 222,
+   "beat": 2.0,
+   "duration": 118.0,
+   "section": "CHORUS2",
+   "text": "He tells me where the stones were, where they've gone"
+  },
+  {
+   "bar": 239,
+   "beat": 1.0,
+   "duration": 119.0,
+   "section": "CODA1",
+   "text": "I write it down so I will not forget"
+  },
+  {
+   "bar": 256,
+   "beat": 1.0,
+   "duration": 119.0,
+   "section": "CODA1",
+   "text": "The river owes us nothing, not since 1999"
+  }
+ ],
+ "sections": [
+  {
+   "bars": 68,
+   "function": "verse",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 1
+  },
+  {
+   "bars": 34,
+   "function": "drop",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "DROP1",
+   "start_bar": 69
+  },
+  {
+   "bars": 51,
+   "function": "chorus",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 103
+  },
+  {
+   "bars": 34,
+   "function": "prechorus",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "PRECHORUS1",
+   "start_bar": 154
+  },
+  {
+   "bars": 51,
+   "function": "chorus",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS2",
+   "start_bar": 188
+  },
+  {
+   "bars": 34,
+   "function": "coda",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CODA1",
+   "start_bar": 239
+  }
+ ],
+ "title": ""
+}

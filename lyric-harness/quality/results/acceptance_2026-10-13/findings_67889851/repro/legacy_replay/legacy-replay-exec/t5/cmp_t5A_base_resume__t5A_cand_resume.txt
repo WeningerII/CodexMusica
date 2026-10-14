@@ -1,0 +1,27 @@
+stdout raw bytes equal: False
+stdout lines: A=98 B=102; equal after bp-path normalisation: False
+  - A5:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":4,"attempt":0,"round":1,"draft":"b744efd500e2","text":"Cup and in the end it's only love","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supp
+  - A6:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":4,"attempt":0,"round":1,"draft":"b744efd500e2","text":"Cup and in the end it's only love","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supp
+  + B5:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":4,"attempt":0,"round":1,"draft":"b744efd500e2","text":"Cup and in the end it's only love","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supp
+  + B6:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":4,"attempt":0,"round":1,"draft":"b744efd500e2","text":"Cup and in the end it's only love","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supp
+  + B7:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":4,"attempt":0,"round":1,"draft":"b744efd500e2","text":"Cup and in the end it's only love","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supp
+  + B8:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":4,"attempt":0,"round":1,"draft":"b744efd500e2","text":"Cup and in the end it's only love","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supp
+  + B9:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":4,"attempt":0,"round":1,"draft":"b744efd500e2","text":"Cup and in the end it's only love","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supp
+  + B10:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":4,"attempt":0,"round":1,"draft":"b744efd500e2","text":"Cup and in the end it's only love","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supp
+  ~ A9:   REPLAY MEMO: cold — 0 of 3 grading call(s) answered from the process memo (runs held: 1 of 4)
+    B13:   REPLAY MEMO: cold — 0 of 4 grading call(s) answered from the process memo (runs held: 1 of 4)
+  ~ A10:   PAIR MEMO: cold — 0 line pair(s) served from the process memo, 252 judged and recorded (70 schema slot(s), 252 row(s) held)
+    B14:   PAIR MEMO: cold — 0 line pair(s) served from the process memo, 264 judged and recorded (71 schema slot(s), 264 row(s) held)
+  ~ A11:   SCORE MEMO: pair scores 0 served / 15 scored; RANK MEMO: field rankings 0 served / 1 ranked
+    B15:   SCORE MEMO: pair scores 0 served / 15 scored; RANK MEMO: field rankings 1 served / 2 ranked
+  ~ lyric result: (A line 98): 4 differing path(s)
+      differ /memo_asked: A=3 B=4
+      differ /cursor_resumed: A=true B=false
+      differ /cursor_stripped: A=null B="run_key"
+      only-B /reader_scheme: A=null B="v1"
+written state raw bytes equal: False
+written state: 4 differing path(s)
+      differ /status: A="resumed" B="grading"
+      differ /cursor/loop/menus: A=[["('brief', 'a10552820daa445143feb3705d8c1a21182d4c3654eefe112abebf207f195861', [4])", [{"$dc": "quality.revise:Brief", "a": {"line_no": 4, "text": "Cup and in... B=[["('place', 'a10552820daa445143feb3705d8c1a21182d4c3654eefe112abebf207f195861', 4, 'None')", {"$dc": "quality.revise:SlotField", "a": {"slot": {"$dc": "quality...
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"

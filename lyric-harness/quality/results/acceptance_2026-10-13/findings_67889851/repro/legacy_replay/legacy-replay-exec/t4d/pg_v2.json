@@ -1,0 +1,545 @@
+{
+ "group_calls": [
+  {
+   "brief": {
+    "anchors": [
+     {
+      "calls": [],
+      "line_no": 1,
+      "offered": [],
+      "one_move": [
+       "uproar",
+       "your",
+       "or",
+       "therefore",
+       "drawer",
+       "moore",
+       "mentor",
+       "dinosaur",
+       "senor",
+       "igor",
+       "por",
+       "theodore",
+       "furthermore",
+       "bookstore",
+       "outdoor",
+       "drugstore",
+       "sophomore",
+       "cor",
+       "encore",
+       "tor",
+       "indoor",
+       "bangalore",
+       "hors",
+       "decor"
+      ],
+      "slot": {
+       "line": 1,
+       "rule": {
+        "anchor": "last_stressed",
+        "cross_word": false,
+        "direction": 1,
+        "locus": "line_final_token",
+        "magnitude": "to_word_end",
+        "requires": []
+       }
+      },
+      "text": "I left my heart beside the door (the rain)",
+      "word": ""
+     }
+    ],
+    "attempt": 0,
+    "brief": {
+     "candidates": [
+      "vein",
+      "reign",
+      "bane",
+      "rein",
+      "feign",
+      "fane",
+      "insane",
+      "champagne",
+      "campaign",
+      "ln",
+      "crane",
+      "shane",
+      "cocaine",
+      "airplane",
+      "elaine",
+      "kane",
+      "hurricane",
+      "sane",
+      "dwayne",
+      "lorraine",
+      "caine",
+      "dane",
+      "blaine",
+      "ukraine"
+     ],
+     "empty_head_cause": "",
+     "field_computed": true,
+     "field_declaration": "field_depth=complete pool, field_band='grader'",
+     "field_widened": 0,
+     "fields_by_slot": {
+      "None": {
+       "by_call": [],
+       "calls": [
+        "rain"
+       ],
+       "dropped": [
+        "cane",
+        "ane",
+        "plane",
+        "jane"
+       ],
+       "forbidden": [
+        "plain",
+        "pain",
+        "vain",
+        "spain",
+        "strain",
+        "main",
+        "train",
+        "slain",
+        "complain",
+        "grain",
+        "stain",
+        "chain",
+        "gain",
+        "refrain",
+        "disdain",
+        "fain",
+        "brain",
+        "remain",
+        "domain",
+        "restrain",
+        "swain",
+        "twain",
+        "attain",
+        "drain",
+        "lain",
+        "explain",
+        "entertain",
+        "obtain",
+        "again",
+        "maintain",
+        "contain",
+        "regain",
+        "cain",
+        "sustain",
+        "terrain",
+        "retain",
+        "alain",
+        "detain",
+        "mccain",
+        "ascertain",
+        "sprain",
+        "germain",
+        "hussain",
+        "abstain",
+        "romain",
+        "bain",
+        "mcbain",
+        "sylvain",
+        "bahrain",
+        "mcclain",
+        "pertain",
+        "jain",
+        "crain",
+        "lane",
+        "maine",
+        "wane",
+        "wayne",
+        "zane",
+        "pane"
+       ],
+       "grader_refused": [],
+       "incumbent": "shore",
+       "joint_conflict": false,
+       "labels": [
+        "A"
+       ],
+       "offered": [
+        "vein",
+        "reign",
+        "bane",
+        "rein",
+        "feign",
+        "fane",
+        "insane",
+        "champagne",
+        "campaign",
+        "ln",
+        "crane",
+        "shane",
+        "cocaine",
+        "airplane",
+        "elaine",
+        "kane",
+        "hurricane",
+        "sane",
+        "dwayne",
+        "lorraine",
+        "caine",
+        "dane",
+        "blaine",
+        "ukraine"
+       ],
+       "schema_refused": [],
+       "slot": {
+        "line": 2,
+        "rule": {
+         "anchor": "last_stressed",
+         "cross_word": false,
+         "direction": 1,
+         "locus": "line_final_token",
+         "magnitude": "to_word_end",
+         "requires": []
+        }
+       },
+       "violated": true,
+       "widened": 0
+      }
+     },
+     "findings": [
+      {
+       "code": "SCHEME_VIOLATION",
+       "evidence": "NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.700; 'rain' ~ 'shore') — NAMED PAIR IS NOT THE EVIDENCE: scored on: door the rain  ~  shore   (best of k=4)   MOSAIC (left): the winning span reaches back past the end word",
+       "groups": [
+        "A"
+       ],
+       "locations": [
+        1,
+        2
+       ],
+       "message": "L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires",
+       "obligations": [],
+       "severity": "flag",
+       "subject": []
+      }
+     ],
+     "forbidden_incumbent": "shore",
+     "forbidden_modal": [
+      "plain",
+      "pain",
+      "vain",
+      "spain",
+      "strain",
+      "main",
+      "train",
+      "slain",
+      "complain",
+      "grain",
+      "stain",
+      "chain",
+      "gain",
+      "refrain",
+      "disdain",
+      "fain",
+      "brain",
+      "remain",
+      "domain",
+      "restrain",
+      "swain",
+      "twain",
+      "attain",
+      "drain",
+      "lain",
+      "explain",
+      "entertain",
+      "obtain",
+      "again",
+      "maintain",
+      "contain",
+      "regain",
+      "cain",
+      "sustain",
+      "terrain",
+      "retain",
+      "alain",
+      "detain",
+      "mccain",
+      "ascertain",
+      "sprain",
+      "germain",
+      "hussain",
+      "abstain",
+      "romain",
+      "bain",
+      "mcbain",
+      "sylvain",
+      "bahrain",
+      "mcclain",
+      "pertain",
+      "jain",
+      "crain",
+      "lane",
+      "maine",
+      "wane",
+      "wayne",
+      "zane",
+      "pane"
+     ],
+     "grader_refused": [],
+     "group_slots": {
+      "A": null
+     },
+     "joint_conflict": false,
+     "keep": [
+      1,
+      3
+     ],
+     "line_no": 2,
+     "must_answer": [
+      [
+       "A",
+       [
+        1,
+        2
+       ],
+       [
+        [
+         1,
+         "rain"
+        ]
+       ]
+      ]
+     ],
+     "must_rhyme_with": [
+      1,
+      "rain"
+     ],
+     "noted_groups": {},
+     "offer_emptied_by_ban": "",
+     "offers_requested": true,
+     "partial_by_call": [],
+     "return_groups": [],
+     "return_members": [],
+     "round_no": 1,
+     "schema_refused": [],
+     "screened_out": [
+      "cane",
+      "ane",
+      "plane",
+      "jane"
+     ],
+     "slot": {
+      "line": 2,
+      "rule": {
+       "anchor": "last_stressed",
+       "cross_word": false,
+       "direction": 1,
+       "locus": "line_final_token",
+       "magnitude": "to_word_end",
+       "requires": []
+      }
+     },
+     "slot_conflict": false,
+     "slot_groups": [
+      "A"
+     ],
+     "text": "You never came to see the shore",
+     "violated_groups": [
+      "A"
+     ]
+    },
+    "label": "A",
+    "lines": [
+     "I left my heart beside the door (the rain)",
+     "You never came to see the shore",
+     "The night is cold and full of pain",
+     "And nothing grows here anymore"
+    ],
+    "mandate_description": "",
+    "members": [
+     1,
+     2
+    ],
+    "path": "escalation",
+    "pivot_line_forbidden": [
+     "plain",
+     "pain",
+     "vain",
+     "spain",
+     "strain",
+     "main",
+     "train",
+     "slain",
+     "complain",
+     "grain",
+     "stain",
+     "chain",
+     "gain",
+     "refrain",
+     "disdain",
+     "fain",
+     "brain",
+     "remain",
+     "domain",
+     "restrain",
+     "swain",
+     "twain",
+     "attain",
+     "drain",
+     "lain",
+     "explain",
+     "entertain",
+     "obtain",
+     "again",
+     "maintain",
+     "contain",
+     "regain",
+     "cain",
+     "sustain",
+     "terrain",
+     "retain",
+     "alain",
+     "detain",
+     "mccain",
+     "ascertain",
+     "sprain",
+     "germain",
+     "hussain",
+     "abstain",
+     "romain",
+     "bain",
+     "mcbain",
+     "sylvain",
+     "bahrain",
+     "mcclain",
+     "pertain",
+     "jain",
+     "crain",
+     "lane",
+     "maine",
+     "wane",
+     "wayne",
+     "zane",
+     "pane"
+    ],
+    "pivot_line_no": 2,
+    "pivot_line_offered": [
+     "vein",
+     "reign",
+     "bane",
+     "rein",
+     "feign",
+     "fane",
+     "insane",
+     "champagne",
+     "campaign",
+     "ln",
+     "crane",
+     "shane",
+     "cocaine",
+     "airplane",
+     "elaine",
+     "kane",
+     "hurricane",
+     "sane",
+     "dwayne",
+     "lorraine",
+     "caine",
+     "dane",
+     "blaine",
+     "ukraine"
+    ],
+    "pivot_line_question": "L2's line question (attempt 1, round 1)",
+    "pivot_offered": [],
+    "pivot_slot": {
+     "line": 2,
+     "rule": {
+      "anchor": "last_stressed",
+      "cross_word": false,
+      "direction": 1,
+      "locus": "line_final_token",
+      "magnitude": "to_word_end",
+      "requires": []
+     }
+    },
+    "pivot_text": "You never came to see the shore",
+    "pivot_word": "",
+    "prior": null,
+    "reasons": null,
+    "whole": [
+     {
+      "code": "FLOOR_LOCUS_SCOPE",
+      "evidence": "1 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.",
+      "groups": [],
+      "locations": [],
+      "message": "end-rhyme floor checks exclude pairs declared only at other anchors",
+      "obligations": [],
+      "severity": "note",
+      "subject": []
+     }
+    ],
+    "whole_repair": false
+   },
+   "members": [
+    1,
+    2
+   ],
+   "out": null,
+   "proposals": {
+    "1": [
+     "I left my heart beside the door (the rain)",
+     "",
+     {
+      "line": 1,
+      "rule": {
+       "anchor": "last_stressed",
+       "cross_word": false,
+       "direction": 1,
+       "locus": "line_final_token",
+       "magnitude": "to_word_end",
+       "requires": []
+      }
+     }
+    ],
+    "2": [
+     "You never came to see the shore",
+     "",
+     {
+      "line": 2,
+      "rule": {
+       "anchor": "last_stressed",
+       "cross_word": false,
+       "direction": 1,
+       "locus": "line_final_token",
+       "magnitude": "to_word_end",
+       "requires": []
+      }
+     }
+    ]
+   }
+  }
+ ],
+ "lines": [
+  "I left my heart beside the door (the rain)",
+  "You never came to see the shore",
+  "The night is cold and full of pain",
+  "And nothing grows here anymore"
+ ],
+ "mode": "v2",
+ "rounds": [
+  [
+   [
+    2,
+    1,
+    false,
+    0,
+    "the PROPOSER declined at attempt 0 with 24 candidate(s) offered — its refusal, not an empty field",
+    []
+   ],
+   [
+    2,
+    2,
+    false,
+    0,
+    "after tier 1 found no accepted line, escalated to tier 2: tried 0 joint rewrite(s) across 1 group(s), none accepted; 1 group(s) have an UNCONSTRAINED pivot and were asked with an empty offered field rather than skipped — no ranking exists, which is freedom and not a dead end: group A [1, 2]: L2 has no obligation outside this group, so no field ranks its candidates — every word is legal for it and the members follow whatever it takes",
+    []
+   ]
+  ]
+ ],
+ "stop": "no_progress"
+}

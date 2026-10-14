@@ -1,0 +1,16 @@
+  MANDATE: read from the plan (seed 23) — groups, returns and relations as its own GRADE IT line spells them; the blueprint is the plan filled with THIS draft and the subdivision is the plan's own. Nothing on this command line restates any of it.
+  MANDATE: 2 group(s) over 12 lines, 4 mandated pair(s), source=declared (declared line groups)
+           group A = lines 5,6,8, group B = lines 9,10 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: /tmp/finish_bp_2sdh53ph.json — meter and song-function join the rhyme/floor finding set, subdivision=4 (the plan's own declared subdivision (seed 23), read off the artifact `finish` derived the mandate from), no isochrony assumed — the setting questions refuse (`NO_SETTING`) rather than divide the span evenly on their own
+  AGAINST: the loop's CURRENT draft from /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-0/wk/try_null_f2.json — round 1, status grading; 0 line(s) moved since the handed-in file
+  OPEN   : the loop's open question is L6, L9 (propose_batch)
+           a batch's rows are verified in order with each ACCEPTED row folded before the next; its members are independent by the loop's own test, so only a whole-draft finding could read differently there than here
+
+  VERDICT: ACCEPTED — L9
+  MOVES  : L9
+  WHY    : fixed 2, introduced 0, changed only [9]
+  FIXED  : 2  L9:REPEAT_IN_VERSE, L12:SCHEME_COLLISION
+  NEW FLAG: 0  (a new flag is what rejects)
+  NEW NOTE: 0  (notes never reject — doctrine 7)
+  COVERAGE LOST: 0
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"reader_scheme":"v2","version":1,"status":"tryline","command":"tryline","line":9,"moves":[9],"candidate":"the stone is in the yard","accepted":true,"reasons":["fixed 2, introduced 0, changed only [9]"],"fixed":[[9,"REPEAT_IN_VERSE"],[12,"SCHEME_COLLISION"]],"new_flags":[],"new_notes":[],"coverage_regressions":[],"against":"state","state":"/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-legacy-replay-exec-0/wk/try_null_f2.json","state_round":1,"state_status":"grading","moved_since_handed_in":[],"open_question":[6,9],"transport_token":null}

@@ -1,0 +1,17 @@
+# BB8 verify-library-tests-0 (claim C8b) — exact invocations; raw outputs in this dir
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; O=$S/h678/verify-library-tests-0
+## build (own builds, same recipe as check_library_page.js build())
+for t in wt-678 wt-main; do mkdir -p $O/b-$t && (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/b-$t/codex.html --quiet > $O/build_$t.log 2>&1; echo exit=$? >> $O/build_$t.log); done
+## own Playwright probe (c8b_probe.js): seeds the Library device record, reloads, records Library-side alert/toasts, clicks
+## "Open in Lyrics" (whole reading), then records Lyrics toasts, surface text, History panel, lyMeta().libraryOrigin,
+## the "Export source details" and "Download text and sources" downloads, every IndexedDB store and localStorage; term-scans each.
+for t in wt-678 wt-main; do for w in 1280 390; do (cd $O && timeout 600 node c8b_probe.js --tree=$S/$t --built=$O/b-$t --width=$w --out=$O/c8b_${t}_$w.json > $O/c8b_${t}_$w.log 2>&1; echo exit=$? >> $O/c8b_${t}_$w.log); done; done
+# RERUN (final script version): the first pass seeded the record after a first app load, so that page could migrate the record
+# before the reload (its toast was then lost with the reload; seen as "library toasts: []" for unmarked_blocked@1280).
+# c8b_probe.js now seeds IndexedDB from a same-origin static URL (api/index.json) BEFORE the app ever loads; screenshots added.
+# All c8b_*.json/.log below are from this final version (first-pass outputs overwritten; an early smoke log was deleted).
+for t in wt-678 wt-main; do for w in 1280 390; do (cd $O && timeout 600 node c8b_probe.js --tree=$S/$t --built=$O/b-$t --width=$w --shots=$O/shots-$t --out=$O/c8b_${t}_$w.json > $O/c8b_${t}_$w.log 2>&1; echo exit=$? >> $O/c8b_${t}_$w.log); done; done
+python3 summarize.py > summary.txt
+## author test (independent=false)
+cd $S/wt-678 && TMPDIR=$O/tmp timeout 300 node --test scripts/test_library_declarations.js > $O/author_test_library_declarations_wt-678.log 2>&1; echo exit=$? >> $O/author_test_library_declarations_wt-678.log
+## cleanup: rm -rf $O/tmp; trees' git status unchanged (only pre-existing untracked node_modules links)

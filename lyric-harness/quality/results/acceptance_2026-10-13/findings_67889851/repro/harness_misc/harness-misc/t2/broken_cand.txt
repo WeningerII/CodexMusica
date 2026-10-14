@@ -1,0 +1,20 @@
+v2 syllabify 'king-' -> 0 syl; transcribe_word ([], True)
+v2 syllabify 'king‐' -> 0 syl; transcribe_word ([], True)
+v2 syllabify 'king' -> 1 syl; transcribe_word (['K', 'IH1', 'NG'], False)
+v2 line_anchors "I caught this morning morning's minion, king-" -> end 'king-' oov [] n_anchors 2
+v2 line_readability "I caught this morning morning's minion, king-" -> {'text': "I caught this morning morning's minion, king-", 'final_token': 'king-', 'readable': True, 'final_unreadable': False, 'final_unreadable_cause': None, 'final_unread_pieces': [], 'unreadable': [], 'interior_unreadable': [], 'reason': None, 'numeral_tokens': []}
+v2 line_anchors 'the crown of the king‐' -> end 'king-' oov [] n_anchors 2
+v2 line_readability 'the crown of the king‐' -> {'text': 'the crown of the king‐', 'final_token': 'king-', 'readable': True, 'final_unreadable': False, 'final_unreadable_cause': None, 'final_unread_pieces': [], 'unreadable': [], 'interior_unreadable': [], 'reason': None, 'numeral_tokens': []}
+v2 stream tokens L0 ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king-'] unreadable [(0, 6, 'king-'), (1, 4, 'dapple-dawn-drawn'), (3, 10, 'wimpling')]
+v2 broken rhyme (L1 end, L4 end) -> None
+v2 perfect rhyme (L1 end, L4 end) -> None
+v1 syllabify 'king-' -> 0 syl; transcribe_word ([], True)
+v1 syllabify 'king‐' -> 0 syl; transcribe_word ([], True)
+v1 syllabify 'king' -> 1 syl; transcribe_word (['K', 'IH1', 'NG'], False)
+v1 line_anchors "I caught this morning morning's minion, king-" -> end 'king-' oov [] n_anchors 2
+v1 line_readability "I caught this morning morning's minion, king-" -> {'text': "I caught this morning morning's minion, king-", 'final_token': 'king-', 'readable': True, 'final_unreadable': False, 'final_unreadable_cause': None, 'final_unread_pieces': [], 'unreadable': [], 'interior_unreadable': [], 'reason': None}
+v1 line_anchors 'the crown of the king‐' -> end 'king' oov [] n_anchors 2
+v1 line_readability 'the crown of the king‐' -> {'text': 'the crown of the king‐', 'final_token': 'king', 'readable': True, 'final_unreadable': False, 'final_unreadable_cause': None, 'final_unread_pieces': [], 'unreadable': [], 'interior_unreadable': [], 'reason': None}
+v1 stream tokens L0 ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king'] unreadable [(1, 4, 'dapple-dawn-drawn'), (3, 10, 'wimpling')]
+v1 broken rhyme (L1 end, L4 end) -> True
+v1 perfect rhyme (L1 end, L4 end) -> True

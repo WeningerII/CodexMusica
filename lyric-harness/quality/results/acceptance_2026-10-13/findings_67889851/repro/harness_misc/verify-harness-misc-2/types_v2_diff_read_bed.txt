@@ -1,0 +1,17 @@
+2,3c2,3
+<   agreement (onset,nucleus,coda) per syllable: ((False, False, True),)
+<   cells: [('consonance',)]
+---
+>   agreement (onset,nucleus,coda) per syllable: ((False, True, True),)
+>   cells: [('assonance', 'vowel rhyme', 'consonance', 'perfect rhyme', 'full rhyme', 'true rhyme')]
+13,14c13,19
+<   NAMES: consonance, slant rhyme (consonant)
+<   relations: rhyme (channels)=False, alliteration (channels)=False
+---
+>   NAMES: masculine rhyme, single rhyme, qafiya, antya-prasa, assonance, slant rhyme (vowel), consonance, slant rhyme (consonant), perfect rhyme (last stressed syllable), cynghanedd lusg
+>   TRADITION (4 of 10 name(s) come from outside 'eng'):
+>     - 'single rhyme' is UNSOURCED: the 601 records no entry under this spelling, so no tradition is attached to it — see `quality/type_canon.py` UNSOURCED for why (doctrine 20: a refusal is not an absence).
+>     - 'qafiya' comes from ara, fas, hin (S1; S74; I29) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+>     - 'antya-prasa' comes from san, kan (I6) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+>     - 'cynghanedd lusg' comes from cym (C13) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+>   relations: rhyme (channels)=True, alliteration (channels)=False

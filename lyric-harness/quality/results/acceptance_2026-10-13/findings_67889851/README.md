@@ -158,6 +158,38 @@ Every agent's full result, the skeptics' included, is in `gap_checks_b_page_conn
 - **A member annotation the page cannot parse is not blocked.** This is mostly pre-existing: main `8b1d2ad2` sends the same saved rows the same way (`repro/returns_nend/verify-page-matrix-1/`, `-5/`). What is new is that the candidate has its own marker words, and a misplaced or misspelt copy takes that old path. Unknown cut marks (`— cut v1`, `v3`, `v9`) do block.
 - **The carried notice calls a bare `N` returns member "last rhyme",** while the grader reads it as the whole line (`repro/returns_nend/verify-page-matrix-4/`). After the upgrade, a row written by main's "Declare as exact repeat" gets one such notice per line.
 
+## Gap checks: legacy replay, harness residuals, Library (workflow A)
+
+Every agent's full result, the skeptics' included, is in `gap_checks_a_legacy_harness_library.json`. The folders are:
+- `repro/legacy_replay/`
+- `repro/harness_misc/`
+- `repro/library_tests/`
+
+Files over 200 KB are gzipped in place. Four Library dumps of about 9 MB each (`c8b_*.json`) are left out; their scripts regenerate them.
+
+- **Legacy replay: PASS.** All five properties were executed independently against base-made states:
+  - `tryline` refuses a scheme mismatch, and inherits the recorded scheme when no flag is given;
+  - a call → answered → replay cycle keeps v2, and a base-made file replays as v1, byte-equal to base apart from the added key;
+  - a pre-batch state resumed on the candidate keeps its rows, digest and run key;
+  - `--voices` tier-2 questions equal base's;
+  - policy 5's named places resolve under v1.
+
+  Two minor findings, both confirmed by a skeptic:
+  - **A deferred state holding `"reader_scheme": null` is resumed under v2,** where a replay file holding null is refused. A `call:` checkpoint holding null is refused with advice that cannot be followed. Only a hand-edited or foreign state can hold null.
+  - **On a line ending in a numeral, `endword` binds the preceding word and certifies,** while `end` and a bare `N` refuse. The binding itself predates the batch: `slots.py` is unchanged, and base already did this for unreadable alphabetic end words. v2 makes it an inconsistency on numeral-end lines.
+- **Harness residuals and warm caches.**
+  - Warm processes match cold ones in every order: 14/14 per order, plus two interleaved orders.
+  - R2's earlier findings (a), (c), (d) and (e) are fixed.
+  - **(b), broken rhyme across a line end, is a regression under v2,** confirmed by two skeptics:
+    - **The case:** a pair whose line ends in a hyphenated word (`king-` in every hyphen spelling, `anguish-` too) and that has a **declared schema relation** (`schema:broken rhyme` or `schema:perfect rhyme`).
+    - **The effect:** that pair now reads UNJUDGED, refused and uncertified on the default reader. Base and v1 read HOLDS, certified, for ASCII `-`.
+    - **The cause:** the v2 cut (`382c36438`) gives the relation judge the token `king-`, which it cannot read without G2P. In the same run, `line_anchors` reads it, so the two disagree.
+    - **Not affected:** pairs with no declared relation still hold under v2.
+    - **R2's commit:** its message promised one verdict for every spelling, which is met, as a refusal. Only its test asserts True, and the test builds `English(fallback='high')`, which no production path builds.
+    - **At `61b6618a`:** `relations.py` and `eng.py` are unchanged, so this stands there too.
+  - Minor: `pronunciation_variants` and the readers built on it don't normalise a raw spelling, while `transcribe_word` does under v2. The two methods agree under v1 and disagree under v2. This reaches the `types` verb on soft-hyphen spellings.
+- **Library.** The Lyrics handoff carries the current cut's rows only; that is deliberate and tested. But **nothing in Lyrics notices the undecided choices left out:** no toast, no surface text, no history, no store, no download. On a phone, a `v9` or already-migrated record gives no on-screen signal before the handoff. Main hands every stored row over, numbered under its own v1 cut.
+
 ## Passes behind #519 6162326336
 
 These are committed as receipts. Each was reproduced by an independent skeptic agent. They are pinned to the same trees.

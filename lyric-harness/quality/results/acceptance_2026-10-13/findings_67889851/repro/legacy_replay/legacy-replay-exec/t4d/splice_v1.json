@@ -1,0 +1,812 @@
+[
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": null,
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "T1",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "T2",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "T3",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "T4",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "head",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "endword",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "end",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "headrime",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I left my heart beside the door (the rain)",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": null,
+  "out": [
+   "Oh--oh, oh my zephyr"
+  ],
+  "out_voices": [
+   "Oh--oh, oh my zephyr"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "T1",
+  "out": [
+   "Zephyr, oh my love"
+  ],
+  "out_voices": [
+   "Zephyr, oh my love"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "T2",
+  "out": [
+   "Oh--oh, zephyr my love"
+  ],
+  "out_voices": [
+   "Oh--oh, zephyr my love"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "T3",
+  "out": [
+   "Oh--oh, oh zephyr love"
+  ],
+  "out_voices": [
+   "Oh--oh, oh zephyr love"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "T4",
+  "out": [
+   "Oh--oh, oh my zephyr"
+  ],
+  "out_voices": [
+   "Oh--oh, oh my zephyr"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "head",
+  "out": [
+   "Zephyr, oh my love"
+  ],
+  "out_voices": [
+   "Zephyr, oh my love"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "endword",
+  "out": [
+   "Oh--oh, oh my zephyr"
+  ],
+  "out_voices": [
+   "Oh--oh, oh my zephyr"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "end",
+  "out": [
+   "Oh--oh, oh my zephyr"
+  ],
+  "out_voices": [
+   "Oh--oh, oh my zephyr"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "headrime",
+  "out": [
+   "Zephyr, oh my love"
+  ],
+  "out_voices": [
+   "Zephyr, oh my love"
+  ]
+ },
+ {
+  "text": "Oh--oh, oh my love",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": null,
+  "out": [
+   "Zephyr,"
+  ],
+  "out_voices": [
+   "Zephyr,"
+  ]
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "T1",
+  "out": [
+   "Zephyr,"
+  ],
+  "out_voices": [
+   "Zephyr,"
+  ]
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "T2",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "T3",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "T4",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "head",
+  "out": [
+   "Zephyr,"
+  ],
+  "out_voices": [
+   "Zephyr,"
+  ]
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "endword",
+  "out": [
+   "Zephyr,"
+  ],
+  "out_voices": [
+   "Zephyr,"
+  ]
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "end",
+  "out": [
+   "Zephyr,"
+  ],
+  "out_voices": [
+   "Zephyr,"
+  ]
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "headrime",
+  "out": [
+   "Zephyr,"
+  ],
+  "out_voices": [
+   "Zephyr,"
+  ]
+ },
+ {
+  "text": "Up--i--de--i--de--i--di,",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": null,
+  "out": [
+   "I gave it all my zephyr.    10"
+  ],
+  "out_voices": [
+   "I gave it all my zephyr.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "T1",
+  "out": [
+   "ZEPHYR gave it all my heart.    10"
+  ],
+  "out_voices": [
+   "ZEPHYR gave it all my heart.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "T2",
+  "out": [
+   "I zephyr it all my heart.    10"
+  ],
+  "out_voices": [
+   "I zephyr it all my heart.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "T3",
+  "out": [
+   "I gave zephyr all my heart.    10"
+  ],
+  "out_voices": [
+   "I gave zephyr all my heart.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "T4",
+  "out": [
+   "I gave it zephyr my heart.    10"
+  ],
+  "out_voices": [
+   "I gave it zephyr my heart.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "head",
+  "out": [
+   "ZEPHYR gave it all my heart.    10"
+  ],
+  "out_voices": [
+   "ZEPHYR gave it all my heart.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "endword",
+  "out": [
+   "I gave it all my zephyr.    10"
+  ],
+  "out_voices": [
+   "I gave it all my zephyr.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "end",
+  "out": [
+   "I gave it all my zephyr.    10"
+  ],
+  "out_voices": [
+   "I gave it all my zephyr.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "headrime",
+  "out": [
+   "ZEPHYR gave it all my heart.    10"
+  ],
+  "out_voices": [
+   "ZEPHYR gave it all my heart.    10"
+  ]
+ },
+ {
+  "text": "I gave it all my heart.    10",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": null,
+  "out": [
+   "(oh) hello my zephyr"
+  ],
+  "out_voices": [
+   "(oh) hello my zephyr"
+  ]
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "T1",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "T2",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "T3",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "T4",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "head",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "endword",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "end",
+  "out": [
+   "(oh) hello my zephyr"
+  ],
+  "out_voices": [
+   "(oh) hello my zephyr"
+  ]
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "headrime",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "(oh) hello my world",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": null,
+  "out": [
+   "we go (oh) 's the zephyr"
+  ],
+  "out_voices": [
+   "we go (oh) 's the zephyr"
+  ]
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "T1",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "T2",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "T3",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "T4",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "head",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "endword",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "end",
+  "out": [
+   "we go (oh) 's the zephyr"
+  ],
+  "out_voices": [
+   "we go (oh) 's the zephyr"
+  ]
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "headrime",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "we go (oh) 's the night",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": null,
+  "out": [
+   "Catch-22 is the zephyr"
+  ],
+  "out_voices": [
+   "Catch-22 is the zephyr"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "T1",
+  "out": [
+   "Zephyr22 is the end"
+  ],
+  "out_voices": [
+   "Zephyr22 is the end"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "T2",
+  "out": [
+   "Catch-22 zephyr the end"
+  ],
+  "out_voices": [
+   "Catch-22 zephyr the end"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "T3",
+  "out": [
+   "Catch-22 is zephyr end"
+  ],
+  "out_voices": [
+   "Catch-22 is zephyr end"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "T4",
+  "out": [
+   "Catch-22 is the zephyr"
+  ],
+  "out_voices": [
+   "Catch-22 is the zephyr"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "head",
+  "out": [
+   "Zephyr22 is the end"
+  ],
+  "out_voices": [
+   "Zephyr22 is the end"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "endword",
+  "out": [
+   "Catch-22 is the zephyr"
+  ],
+  "out_voices": [
+   "Catch-22 is the zephyr"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "end",
+  "out": [
+   "Catch-22 is the zephyr"
+  ],
+  "out_voices": [
+   "Catch-22 is the zephyr"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "headrime",
+  "out": [
+   "Zephyr22 is the end"
+  ],
+  "out_voices": [
+   "Zephyr22 is the end"
+  ]
+ },
+ {
+  "text": "Catch-22 is the end",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": null,
+  "out": [
+   "she sang 4ever and a zephyr"
+  ],
+  "out_voices": [
+   "she sang 4ever and a zephyr"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "T1",
+  "out": [
+   "zephyr sang 4ever and a day"
+  ],
+  "out_voices": [
+   "zephyr sang 4ever and a day"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "T2",
+  "out": [
+   "she zephyr 4ever and a day"
+  ],
+  "out_voices": [
+   "she zephyr 4ever and a day"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "T3",
+  "out": [
+   "she sang 4zephyr and a day"
+  ],
+  "out_voices": [
+   "she sang 4zephyr and a day"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "T4",
+  "out": [
+   "she sang 4ever zephyr a day"
+  ],
+  "out_voices": [
+   "she sang 4ever zephyr a day"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "head",
+  "out": [
+   "zephyr sang 4ever and a day"
+  ],
+  "out_voices": [
+   "zephyr sang 4ever and a day"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "endword",
+  "out": [
+   "she sang 4ever and a zephyr"
+  ],
+  "out_voices": [
+   "she sang 4ever and a zephyr"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "end",
+  "out": [
+   "she sang 4ever and a zephyr"
+  ],
+  "out_voices": [
+   "she sang 4ever and a zephyr"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "headrime",
+  "out": [
+   "zephyr sang 4ever and a day"
+  ],
+  "out_voices": [
+   "zephyr sang 4ever and a day"
+  ]
+ },
+ {
+  "text": "she sang 4ever and a day",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": null,
+  "out": [
+   "thee--Arise and zephyr"
+  ],
+  "out_voices": [
+   "thee--Arise and zephyr"
+  ]
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "T1",
+  "out": [
+   "zephyr and sing"
+  ],
+  "out_voices": [
+   "zephyr and sing"
+  ]
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "T2",
+  "out": [
+   "thee--Arise zephyr sing"
+  ],
+  "out_voices": [
+   "thee--Arise zephyr sing"
+  ]
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "T3",
+  "out": [
+   "thee--Arise and zephyr"
+  ],
+  "out_voices": [
+   "thee--Arise and zephyr"
+  ]
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "T4",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "T7",
+  "out": null,
+  "out_voices": null
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "head",
+  "out": [
+   "zephyr and sing"
+  ],
+  "out_voices": [
+   "zephyr and sing"
+  ]
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "endword",
+  "out": [
+   "thee--Arise and zephyr"
+  ],
+  "out_voices": [
+   "thee--Arise and zephyr"
+  ]
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "end",
+  "out": [
+   "thee--Arise and zephyr"
+  ],
+  "out_voices": [
+   "thee--Arise and zephyr"
+  ]
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "headrime",
+  "out": [
+   "zephyr and sing"
+  ],
+  "out_voices": [
+   "zephyr and sing"
+  ]
+ },
+ {
+  "text": "thee--Arise and sing",
+  "place": "line",
+  "out": null,
+  "out_voices": null
+ }
+]

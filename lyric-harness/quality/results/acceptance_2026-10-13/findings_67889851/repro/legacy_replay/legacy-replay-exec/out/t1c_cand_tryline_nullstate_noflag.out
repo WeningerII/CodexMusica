@@ -1,0 +1,15 @@
+  MANDATE: read from the plan (seed 23) — groups, returns and relations as its own GRADE IT line spells them; the blueprint is the plan filled with THIS draft and the subdivision is the plan's own. Nothing on this command line restates any of it.
+  MANDATE: 2 group(s) over 12 lines, 4 mandated pair(s), source=declared (declared line groups)
+           group A = lines 5,6,8, group B = lines 9,10 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: /tmp/finish_bp_4i1p19cm.json — meter and song-function join the rhyme/floor finding set, subdivision=4 (the plan's own declared subdivision (seed 23), read off the artifact `finish` derived the mandate from), no isochrony assumed — the setting questions refuse (`NO_SETTING`) rather than divide the span evenly on their own
+  AGAINST: the loop's CURRENT draft from /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/legacy-replay-exec/t1v2/state_null.json — round 1, status grading; 0 line(s) moved since the handed-in file
+  OPEN   : the loop's open question is L9 (propose)
+
+  VERDICT: ACCEPTED — L9
+  MOVES  : L9
+  WHY    : fixed 2, introduced 0, disclosing 1 new note(s) [(9, 'SCHEME_COLLISION')], changed only [9]
+  FIXED  : 2  L9:REPEAT_IN_VERSE, L12:SCHEME_COLLISION
+  NEW FLAG: 0  (a new flag is what rejects)
+  NEW NOTE: 1  L9:SCHEME_COLLISION  (notes never reject — doctrine 7)
+  COVERAGE LOST: 0
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"reader_scheme":"v2","version":1,"status":"tryline","command":"tryline","line":9,"moves":[9],"candidate":"the salt is on the line","accepted":true,"reasons":["fixed 2, introduced 0, disclosing 1 new note(s) [(9, 'SCHEME_COLLISION')], changed only [9]"],"fixed":[[9,"REPEAT_IN_VERSE"],[12,"SCHEME_COLLISION"]],"new_flags":[],"new_notes":[[9,"SCHEME_COLLISION"]],"coverage_regressions":[],"against":"state","state":"/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/legacy-replay-exec/t1v2/state_null.json","state_round":1,"state_status":"grading","moved_since_handed_in":[],"open_question":[9],"transport_token":null}

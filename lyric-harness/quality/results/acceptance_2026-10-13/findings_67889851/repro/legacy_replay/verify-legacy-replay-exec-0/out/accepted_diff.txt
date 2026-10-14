@@ -1,0 +1,15 @@
+1 'Carry the ember home tonight' 
+2 'nothing waits for me' 
+3 'Carry the ember home tonight' 
+4 'every bell is free' 
+5 'I lost my way in 1987' 
+6 'the water ran so cold'   <v1 | null/v2>  'the water ran so slow'
+7 'and nobody knew' 
+8 'Oh--oh, my lonely road' 
+9 'the stone is in the field'   <v1 | null/v2>  'the stone is in the yard'
+10 'we ran it through the field--' 
+11 'the evening took the snow' 
+12 'and so the dark would yield' 
+pending line v1: 8  null: 10
+outcomes v1: [{"line": 6, "attempt": 0, "round": 1, "text": "the water ran so cold", "accepted": true, "reasons": ["fixed 1, introduced 0, changed only [6]"]}]
+outcomes null: [{"line": 9, "attempt": 0, "round": 1, "text": "the stone is in the yard", "accepted": true, "reasons": ["fixed 2, introduced 0, changed only [9]"]}]

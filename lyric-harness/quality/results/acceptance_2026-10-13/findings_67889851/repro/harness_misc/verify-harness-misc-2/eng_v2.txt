@@ -1,0 +1,12 @@
+v2 'streetlight' -> S T R IY1 T L AY2 T  [dictionary/certain] <- streetlight  moby:3205:attested
+   whole_reading: (['S', 'T', 'R', 'IY1', 'T', 'L', 'AY2', 'T'], 'moby:3205:attested') | reading_source(raw): moby:3205:attested
+   syllabify: [Syllable(text='streetlight', onset=('S', 'T', 'R'), nucleus='IY', coda=('T',), prominence=1, moras=1), Syllable(text='streetlight', onset=('L',), nucleus='AY', coda=('T',), prominence=1, moras=1)]
+v2 'street\xadlight' -> S T R IY1 T L AY2 T  [dictionary/certain] <- street­light  CMUdict
+   whole_reading: None | reading_source(raw): None
+   syllabify: [Syllable(text='street\xadlight', onset=('S', 'T', 'R'), nucleus='IY', coda=('T',), prominence=1, moras=1), Syllable(text='street\xadlight', onset=('L',), nucleus='AY', coda=('T',), prominence=1, moras=1)]
+v2 'twenty‐two' -> T W EH1 N T IY0 T UW2  [dictionary/certain] <- twenty‐two  CMUdict
+   whole_reading: None | reading_source(raw): None
+   syllabify: [Syllable(text='twenty‐two', onset=('T', 'W'), nucleus='EH', coda=('N',), prominence=1, moras=1), Syllable(text='twenty‐two', onset=('T',), nucleus='IY', coda=(), prominence=0, moras=1), Syllable(text='twenty‐two', onset=('T',), nucleus='UW', coda=(), prominence=1, moras=1)]
+v2 'twenty-two' -> T W EH1 N T IY0 T UW2  [dictionary/certain] <- twenty-two  CMUdict
+   whole_reading: (['T', 'W', 'EH1', 'N', 'T', 'IY0', 'T', 'UW2'], 'cmudict') | reading_source(raw): None
+   syllabify: [Syllable(text='twenty-two', onset=('T', 'W'), nucleus='EH', coda=('N',), prominence=1, moras=1), Syllable(text='twenty-two', onset=('T',), nucleus='IY', coda=(), prominence=0, moras=1), Syllable(text='twenty-two', onset=('T',), nucleus='UW', coda=(), prominence=1, moras=1)]

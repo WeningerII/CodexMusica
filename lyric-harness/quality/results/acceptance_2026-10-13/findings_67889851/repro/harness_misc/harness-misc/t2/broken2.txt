@@ -1,0 +1,9 @@
+v2 English(fallback='high') [author test] fallback= high {'-': True, '\\u2010': True, '\\u2011': True, '-\\xad': True, '\\xad-': True}
+v2 English() no fallback fallback= None {'-': None, '\\u2010': None, '\\u2011': None, '-\\xad': None, '\\xad-': None}
+v2 relation_phonology_for(Lexicon()) [production judge] fallback= None {'-': None, '\\u2010': None, '\\u2011': None, '-\\xad': None, '\\xad-': None}
+v1 English(fallback='high') [author test] fallback= high {'-': True, '\\u2010': False, '\\u2011': False, '-\\xad': False, '\\xad-': False}
+v1 English() no fallback fallback= None {'-': True, '\\u2010': False, '\\u2011': False, '-\\xad': False, '\\xad-': False}
+v1 relation_phonology_for(Lexicon()) [production judge] fallback= None {'-': True, '\\u2010': False, '\\u2011': False, '-\\xad': False, '\\xad-': False}
+base English(fallback='high') [author test] fallback= high {'-': True, '\\u2010': False, '\\u2011': False, '-\\xad': False, '\\xad-': False}
+base English() no fallback fallback= None {'-': True, '\\u2010': False, '\\u2011': False, '-\\xad': False, '\\xad-': False}
+base relation_phonology_for(Lexicon()) [production judge] fallback= None {'-': True, '\\u2010': False, '\\u2011': False, '-\\xad': False, '\\xad-': False}

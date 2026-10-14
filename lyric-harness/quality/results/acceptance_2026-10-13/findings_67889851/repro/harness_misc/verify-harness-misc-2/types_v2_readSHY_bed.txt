@@ -1,0 +1,22 @@
+  phonology: eng — English (General American)
+  agreement (onset,nucleus,coda) per syllable: ((False, True, True),)
+  cells: [('assonance', 'vowel rhyme', 'consonance', 'perfect rhyme', 'full rhyme', 'true rhyme')]
+  anchor A: last-prominent / rule-fixed / span to-end
+  anchor B: last-prominent / rule-fixed / span to-end
+  identity: distinct
+  stress: aligned
+  position: end (DECLARED by `--position=`, as a mandate declares it for a line-final group — asserted, not measured from a line)
+  boundary: simple
+  length: equal
+  realisation: phonetic
+  not asked at this length: syllabic rhyme (final unstressed syllable), apocopated rhyme (penultimate stressed syllable), syllabic rime riche, apocopated rime riche, dvitiyakshara-prasa, anuprasa (second-aksara), dvitiyakshara-prasa (full aksara), dvitiyakshara-prasa (consonant only), skothending, adalhending (identical onsets), adalhending (a registered anchor has no referent in one member — a refusal, not a no)
+  NAMES: masculine rhyme, single rhyme, qafiya, antya-prasa, assonance, slant rhyme (vowel), consonance, slant rhyme (consonant), perfect rhyme (last stressed syllable), cynghanedd lusg
+  TRADITION (4 of 10 name(s) come from outside 'eng'):
+    - 'single rhyme' is UNSOURCED: the 601 records no entry under this spelling, so no tradition is attached to it — see `quality/type_canon.py` UNSOURCED for why (doctrine 20: a refusal is not an absence).
+    - 'qafiya' comes from ara, fas, hin (S1; S74; I29) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+    - 'antya-prasa' comes from san, kan (I6) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+    - 'cynghanedd lusg' comes from cym (C13) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+  relations: rhyme (channels)=True, alliteration (channels)=False
+  as two line-final words — coarse relations: ASSONANCE, CONSONANCE, RHYME; registry schemas: Scots vowel-length rhyme (Aitken's Law), assonance, cluster consonance / skothending span, consonance, family rhyme, pantun ABAB, perfect rhyme; undecided: 15
+  route: {'rhyme': 'channels', 'alliteration': 'channels'}   (doctrine 84 — 'declared_relation' means the phonology answered, not the channels)
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"reader_scheme":"v2","status":"typed","exit":0,"version":1,"transport_token":null}

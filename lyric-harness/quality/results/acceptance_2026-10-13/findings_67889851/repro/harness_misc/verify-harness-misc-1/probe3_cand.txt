@@ -1,0 +1,6 @@
+v2 '-' line_anchors last syllable per reading -> [('king-', 6, ['K'], 'IH', ['NG']), ('king-', 6, ['K'], 'IH', ['NG'])] | other fields: ('king-', [])
+v1 '-' line_anchors last syllable per reading -> [('king-', 6, ['K'], 'IH', ['NG']), ('king-', 6, ['K'], 'IH', ['NG'])] | other fields: ('king-', [])
+v2 '‐' line_anchors last syllable per reading -> [('king-', 6, ['K'], 'IH', ['NG']), ('king-', 6, ['K'], 'IH', ['NG'])] | other fields: ('king-', [])
+v1 '‐' line_anchors last syllable per reading -> [('king', 6, ['K'], 'IH', ['NG']), ('king', 6, ['K'], 'IH', ['NG'])] | other fields: ('king', [])
+v2 '\xad-' line_anchors last syllable per reading -> [('king-', 6, ['K'], 'IH', ['NG']), ('king-', 6, ['K'], 'IH', ['NG'])] | other fields: ('king-', [])
+v1 '\xad-' line_anchors last syllable per reading -> [('king', 6, ['K'], 'IH', ['NG']), ('king', 6, ['K'], 'IH', ['NG'])] | other fields: ('king', [])

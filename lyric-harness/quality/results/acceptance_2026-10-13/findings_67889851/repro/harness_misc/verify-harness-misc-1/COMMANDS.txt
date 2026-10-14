@@ -1,0 +1,35 @@
+verify-harness-misc-1 (BB8 adversarial re-check of harness-misc "broken rhyme under v2" finding)
+S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; D=$S/h678/verify-harness-misc-1
+export LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data ; python3 = system 3.13
+Trees: wt-678 = 67889851 (candidate), wt-base = fce4bf0f. `git diff --quiet fce4bf0f 8b1d2ad2 -- lyric-harness/` -> no diff, so wt-base's harness == main's (wt-main has no cmudict staged).
+
+== in-process probes (my own scripts) ==
+python3 $D/probe.py  $S/wt-678 cand > $D/probe_cand.txt ; python3 $D/probe.py $S/wt-base base > $D/probe_base.txt
+   broken/perfect rhyme verdict (1,4) x 5 hyphen spellings x phonology {relation_phonology_for(None), relation_phonology_for(Lexicon()), English(), English(fallback='high')} x scheme
+python3 $D/probe2.py $S/wt-678 > $D/probe2_cand.txt ; python3 $D/probe2.py $S/wt-base > $D/probe2_base.txt
+   syllabify/read('king-'), tokens_for_line, stream lexical tokens, Lexicon().transcribe_word('king-')
+python3 $D/probe3.py $S/wt-678 > $D/probe3_cand.txt ; python3 $D/probe3.py $S/wt-base > $D/probe3_base.txt
+   LH.line_anchors(Lexicon(), line) last syllable per reading
+python3 $D/probe4.py $S/wt-678 > $D/probe4_cand.txt ; python3 $D/probe4.py $S/wt-base > $D/probe4_base.txt
+   shape sweep: 'king-', 'king -', 'king--', em dash, 'king-,', 'king-.', mid-line 'king- dom', 'anguish-', U+2010 (production relation phonology)
+
+== end-to-end CLI `brief` (= connector lyric_check, mcp/lyric_tools.js:899) ==
+fixtures: $D/e2e/wh.txt (Windhover 1-4, own copy), $D/e2e/bar.txt ("...old bar-" / "ricade beneath a distant star")
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py brief $D/e2e/wh.txt --groups=1,4 "--relation=schema:broken rhyme"                      > e2e/wh_cand_default.out
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py --reader-scheme=v1 brief $D/e2e/wh.txt --groups=1,4 "--relation=schema:broken rhyme"  > e2e/wh_cand_v1.out
+cd $S/wt-base/lyric-harness && python3 lyric_harness.py brief $D/e2e/wh.txt --groups=1,4 "--relation=schema:broken rhyme"                     > e2e/wh_base.out
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py --fallback=high brief ...(same)                > e2e/wh_cand_fbhigh.out
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py --lexicon-supplement=v2 brief ...(same)        > e2e/wh_cand_sup.out
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py brief $D/e2e/wh.txt --groups=1,4               > e2e/wh_cand_norel.out   (no declared relation)
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py --reader-scheme=v1 brief $D/e2e/wh.txt --groups=1,4  > e2e/wh_cand_v1_norel.out
+cd $S/wt-base/lyric-harness && python3 lyric_harness.py brief $D/e2e/wh.txt --groups=1,4              > e2e/wh_base_norel.out
+... "--relation=schema:perfect rhyme" on cand default / cand v1 / base   > e2e/wh_cand_perf.out, wh_cand_v1_perf.out, wh_base_perf.out
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py [--reader-scheme=v1] brief $D/e2e/bar.txt --groups=1,2 "--relation=schema:broken rhyme" > e2e/bar_cand_v2.out / bar_cand_v1.out
+cd $S/wt-base/lyric-harness && python3 lyric_harness.py brief $D/e2e/bar.txt --groups=1,2 "--relation=schema:broken rhyme" > e2e/bar_base.out
+   (summary greps of coverage.certified / pairs_judged / "must answer" lines printed in the session; all rc=0)
+
+== scope grep (raw text, not a harness count) ==
+(inline python, cd $S/wt-678/lyric-harness/corpus) -> $D/scope_grep.txt   regex [\w’'](-)\s*$ per line
+
+== AUTHOR'S TEST (independent=false) ==
+cd $S/wt-678/lyric-harness && $S/venv311/bin/python -m unittest -v quality.test_reader.Normalisation.test_the_broken_rhyme_split_reads_the_normalised_line > $D/author_test.log  (OK, 1 test)

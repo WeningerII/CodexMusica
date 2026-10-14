@@ -1,0 +1,5 @@
+absent        _defer_record_scheme='v1'   _defer_scheme_check(noflag,v2)='v1'                   recorded[defer]='v1'   recorded[replay]='v1'   recorded[ckpt]='v1'
+null          _defer_record_scheme=None   _defer_scheme_check(noflag,v2)=None                   recorded[defer]=None   recorded[replay]=None   recorded[ckpt]=None
+v1            _defer_record_scheme='v1'   _defer_scheme_check(noflag,v2)='v1'                   recorded[defer]='v1'   recorded[replay]='v1'   recorded[ckpt]='v1'
+empty-string  _defer_record_scheme=''     _defer_scheme_check(noflag,v2)='REFUSED(exit 2)'      recorded[defer]=None   recorded[replay]=None   recorded[ckpt]=None
+v9            _defer_record_scheme='v9'   _defer_scheme_check(noflag,v2)='REFUSED(exit 2)'      recorded[defer]=None   recorded[replay]=None   recorded[ckpt]=None

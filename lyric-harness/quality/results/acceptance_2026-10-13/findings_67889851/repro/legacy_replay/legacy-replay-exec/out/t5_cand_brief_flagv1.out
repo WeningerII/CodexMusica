@@ -1,0 +1,63 @@
+  MANDATE: 6 group(s) over 6 lines, 6 mandated pair(s), source=declared (--groups=)
+           group A = lines 1.T4,4, group B = lines 2.endword,5.endword, group C = lines 3.endword,6.endword, group D = lines 1.head,6.head, group E = lines 2.headrime,4.headrime, group F = lines 3.line,5.line — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  draft: 6 line(s), md5 b744efd500e2
+  lyric result: {"version":1,"status":"graded","command":"brief","transport_token":null,"final_draft":["Oh--oh, oh my love","Up--i--de--i--de--i--di,","I gave it all my heart.    10","Cup and in the end it's only love","we drank the night away with tea","Go, you took the very best part"],"coverage":{"pairs_mandated":6,"pairs_judged":6,"pairs_refused":0,"scope":"requested_layers","certified":true,"obligations":[{"id":"function:draft","layer":"function","status":"not_requested"},{"id":"shape:draft","layer":"shape","status":"not_requested"},{"id":"sentencehood:draft","layer":"sentencehood","status":"answered"},{"id":"floor:draft","layer":"floor","status":"answered"},{"id":"meter:draft","layer":"meter","status":"not_requested"},{"id":"slot_grid:draft","layer":"slot_grid","status":"not_requested"},{"id":"setting:draft","layer":"setting","status":"not_requested"},{"id":"rhyme:1:4:0","layer":"rhyme","status":"answered"},{"id":"rhyme:1:6:3","layer":"rhyme","status":"answered"},{"id":"rhyme:2:4:4","layer":"rhyme","status":"answered"},{"id":"rhyme:2:5:1","layer":"rhyme","status":"answered"},{"id":"rhyme:3:5:5","layer":"rhyme","status":"answered"},{"id":"rhyme:3:6:2","layer":"rhyme","status":"answered"}],"refused_obligations":[]},"pronunciations":[],"pronunciation_options":{"items":[],"total":10,"truncated":false,"scope":"no_refused_obligation","eligible":0},"findings":[{"code":"SCHEME_VIOLATION","severity":"flag","message":"L1 and L4 are both in group A [1, 4] but do not stand in the relation it requires","evidence":"REPEAT not rhyme (identical word) (score 1.000; 'love' ~ 'love')","locations":[1,4],"groups":["A"],"obligations":[],"subject":[]},{"code":"SCHEME_VIOLATION","severity":"flag","message":"L3 and L5 are both in group F [3, 5] but do not stand in the relation it requires","evidence":"NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.157; 'I gave it all my heart' ~ 'we drank the night away with tea') — NAMED PAIR IS NOT THE EVIDENCE: scored on: I gave it all my heart  ~  we drank the night away with tea   (best of k=1)   MOSAIC (both sides): the winning span reaches back past the end word","locations":[3,5],"groups":["F"],"obligations":[],"subject":[]},{"code":"MODAL_RHYME","severity":"note","message":"L3/L6 rhyme, but the pair is one this word's own forbidden-modal set would exclude if either line were being revised","evidence":"'part' is one of the 6 most-predictable answers to 'heart' — realised as its rhyme partner 411 time(s) in the song corpus; 'heart' is one of the 2 most-predictable answers to 'part' — realised as its rhyme partner 411 time(s) in the song corpus. modal_exclusion=6 over the differently-spelled remainder, at most, and only partners the song corpus has seen answer the call (the same-spelled class is banned outright as HOMEOTELEUTON); set it to 0 to silence this the same way it silences the reactive check. Doctrine 9's exclusion is otherwise only consulted when fixing an already-flagged line; this asks the same question of a pair that never failed anything, because a first draft can reach for the predictable rhyme exactly as easily as a revision can.","locations":[3,6],"groups":["C"],"obligations":[],"subject":[],"binding":[{"line":3,"word":"heart","place":"3.endword","what":"end word"},{"line":6,"word":"part","place":"6.endword","what":"end word"}]},{"code":"FLOOR_LOCUS_SCOPE","severity":"note","message":"end-rhyme floor checks exclude pairs declared only at other anchors","evidence":"6 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.","locations":[],"groups":[],"obligations":[],"subject":[]}],"ban_scope":{"asked":6,"not_asked":[]},"lexicon":{"supplement_id":null,"sha256":null},"reader_scheme":"v1"}
+  SCHEMA RELATIONS: 4 mandated pair(s) stand in at least one registry schema (every pair is judged against every schema, beside the coarse relations) — L1~L6 (group D): head rhyme (positional), internal rhyme; L2~L4 (group E): head rhyme (positional), internal rhyme; L2~L5 (group B): consonance; L3~L6 (group C): Scots vowel-length rhyme (Aitken's Law), assonance, cluster consonance / skothending span, consonance, family rhyme, mosaic rhyme, perfect rhyme — laziness at these relations is UNCALIBRATED; declaring a relation narrows (M-116)
+    of those, 1 read as END RHYME and 3 do NOT — two counts, never summed (M-140): a schema is the end-rhyme reading only when BOTH its spans sit at the line-final token and it requires the nucleus AND the coda to agree. The rest are real relations this grade judges correctly and a listener does not hear as the lines rhyming.
+    not heard as end rhyme: L1~L6: head rhyme (positional), internal rhyme; L2~L4: head rhyme (positional), internal rhyme; L2~L5: consonance
+    (the schema family's chance rate is PINNED at 896..921 of 4,000 random CMUdict pairs (22.4%–23.0%, 5.7–5.8x the sonnet canon arm's 3.95%; quality/chance_rate.py, a band over its sampler grid) and UNPRICED (M-140))
+  ADJACENCY: longest stress run 3 (L1), longest weak run 3 (L4) — disclosed, uncalibrated, never charged (M-115).
+  REPORT: 3 line(s) briefed — 2 FLAG, 1 NOTE (two counts, never summed: doctrine 79); 1 WHOLE-DRAFT finding(s), 0 of them FLAG(S), below
+
+  WHAT TO CHANGE — 2 decision(s). Flags only; the notes below are measurements handed back, not defects (doctrine 96)
+    1. SCHEME_VIOLATION — L4
+    2. SCHEME_VIOLATION — L5
+
+  THE EVIDENCE — every finding not rolled up, in full; the lines carrying an un-rolled flag first
+  L4: Cup and in the end it's only love
+      FINDING [FLAG] SCHEME_VIOLATION: L1 and L4 are both in group A [1, 4] but do not stand in the relation it requires (lines 1, 4)
+         REPEAT not rhyme (identical word) (score 1.000; 'love' ~ 'love')
+      FAILS L1-L4 (love/love): 1.0  ASSONANCE+CONSONANCE+REPEAT+RHYME  — REPEAT not rhyme (identical word)
+          scored on: love  ~  love   (best of k=2)
+      must answer group A [1, 4]: L1 ('love') — VIOLATED
+      must answer group E [2, 4] at 4.headrime: L2 ('Up--i--de--i--de--i--di') — HOLDS
+      L4 binds at 2 PLACES — each place is its own word answering its own group(s); the field below is for the violated place (M-184)
+      FORBIDDEN (modal — doctrine 9): above, dove, glove, move, prove, drove, remove, approve, shove, improve, stove, grove, cove, disapprove, disprove, trove, clove, rove, wove, hove, of, thereof
+      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): love
+      offered: gov, what, have, but, just, up, one, come, from, us, some, because
+  L5: we drank the night away with tea
+      FINDING [FLAG] SCHEME_VIOLATION: L3 and L5 are both in group F [3, 5] but do not stand in the relation it requires (lines 3, 5)
+         NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.157; 'I gave it all my heart' ~ 'we drank the night away with tea') — NAMED PAIR IS NOT THE EVIDENCE: scored on: I gave it all my heart  ~  we drank the night away with tea   (best of k=1)   MOSAIC (both sides): the winning span reaches back past the end word
+      FAILS L3-L5 (I gave it all my heart/we drank the night away with tea): 0.157  NO_RELATION  — NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+          NAMED PAIR IS NOT THE EVIDENCE: left reaches past `I gave it all my heart`, right reaches past `we drank the night away with tea`
+          scored on: I gave it all my heart  ~  we drank the night away with tea   (best of k=1)   MOSAIC (both sides): the winning span reaches back past the end word
+      must answer group B [2, 5] at 5.endword: L2 ('Up--i--de--i--de--i--di') — HOLDS
+      must answer group F [3, 5] at 5.line: L3 ('I gave it all my heart') — VIOLATED
+      L5 binds at 2 PLACES — each place is its own word answering its own group(s); the field below is for the violated place (M-184)
+      FORBIDDEN (modal — doctrine 9): heart
+      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): we drank the night away with tea
+      NOTHING OFFERED: the searched answers to 'I gave it all my heart' were
+      removed by the two-tier ban (HOMEOTELEUTON / MODAL_RHYME; 1 under
+      FORBIDDEN). This bounded field does not prove that no one-line repair
+      exists. The GROUP (F) can move together through tier 2, the joint backtrack
+      (M-105): `revise`/`finish` escalate there after tier 1 fails (M-205). The
+      CLI uses `--backtrack=5`; connector `lyric_revise` uses `backtrack=1` by
+      default (0 disables group search). Preserve every declared relation and
+      return while rewriting. `capacity WORD` can also show a certified chain and
+      the words the ban admits against WORD; that evidence has its own declared
+      scope.
+  L6: Go, you took the very best part
+      FINDING [NOTE] MODAL_RHYME: L3/L6 rhyme, but the pair is one this word's own forbidden-modal set would exclude if either line were being revised (lines 3, 6)
+         'part' is one of the 6 most-predictable answers to 'heart' — realised as its rhyme partner 411 time(s) in the song corpus; 'heart' is one of the 2 most-predictable answers to 'part' — realised as its rhyme partner 411 time(s) in the song corpus. modal_exclusion=6 over the differently-spelled remainder, at most, and only partners the song corpus has seen answer the call (the same-spelled class is banned outright as HOMEOTELEUTON); set it to 0 to silence this the same way it silences the reactive check. Doctrine 9's exclusion is otherwise only consulted when fixing an already-flagged line; this asks the same question of a pair that never failed anything, because a first draft can reach for the predictable rhyme exactly as easily as a revision can.
+      must answer group C [3, 6] at 6.endword: L3 ('heart') — HOLDS, but its rhyme is a predictable one (NOTE MODAL_RHYME), which the loop still asks to change
+      must answer group D [1, 6] at 6.head: L1 ('Oh--oh') — HOLDS
+      L6 binds at 2 PLACES — each place is its own word answering its own group(s); the field below is for the violated place (M-184)
+      FORBIDDEN (modal — doctrine 9): part, art, depart, apart, smart, impart
+      ALREADY THERE (a different rule — re-proposing the end word that is already on this line is not a revision): part
+      offered: bart, tart, lockhart, restart, bonaparte, bogart, outsmart, carte, counterpart, reinhardt, hobart, eckhart
+
+  WHOLE DRAFT — 1 finding(s) that name no single line, 0 of them FLAG(S)
+      These findings measure the complete draft or its declarations and assign no single target line. A permitted local edit can improve a text-dependent finding, and the declared whole-draft writer can be asked for a wider repair. `verify()` reads these findings alongside per-line findings. Rewriting words cannot repair an unchanged grid declaration.
+      FINDING [NOTE] FLOOR_LOCUS_SCOPE: end-rhyme floor checks exclude pairs declared only at other anchors
+         6 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.

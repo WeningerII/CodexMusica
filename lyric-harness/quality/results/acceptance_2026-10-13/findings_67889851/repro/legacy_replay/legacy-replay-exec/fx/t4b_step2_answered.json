@@ -1,0 +1,501 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [
+      {
+        "line": 2,
+        "attempt": 0,
+        "round": 1,
+        "draft": "f046720c17ab",
+        "text": "You never came to see the shore",
+        "batch": null
+      }
+    ],
+    "propose_group": []
+  },
+  "pending": {
+    "kind": "propose_group",
+    "record": {
+      "members": [
+        1,
+        2
+      ],
+      "texts": [
+        "I left my heart beside the door (the rain)",
+        "You never came to see the shore"
+      ],
+      "words": [
+        "",
+        ""
+      ],
+      "round": 1,
+      "attempt": 0,
+      "question_sha256": "0404578cbc9d67ff810ea467c3dd6f4d6ca160842614eb20b47a8086fff086a2",
+      "new": null
+    },
+    "prompt": "REWRITE A WHOLE RHYME GROUP \u2014 2 coupled line(s): pivot L2, with L1.\n\nTHE REPAIR OPERATION\n  Rewrite the coupled members of group A [1, 2].\n  The bounded candidate search did not close this repair one line at a time.\n  Its finite menus do not prove the declaration impossible. The words may change;\n  the declared relation, every overlapping obligation, and all other lines remain fixed.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE 2 LINES\n  PIVOT   L2: You never came to see the shore\n  MEMBER  L1: I left my heart beside the door (the rain)\n\nTHE WHOLE DRAFT (context \u2014 only L1, L2 may change)\n  >> L1  I left my heart beside the door (the rain)\n  >> L2  You never came to see the shore\n     L3  The night is cold and full of pain\n     L4  And nothing grows here anymore\n\nWHAT THE GRADER FOUND ON L2 (1)\n  [flag] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires (lines 1, 2)\n      evidence: NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) \u2014 none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.700; 'rain' ~ 'shore') \u2014 NAMED PAIR IS NOT THE EVIDENCE: scored on: door the rain  ~  shore   (best of k=4)   MOSAIC (left): the winning span reaches back past the end word\n\nWHOLE-DRAFT FINDINGS \u2014 PRESERVE THESE CONSTRAINTS (1)\n  These are measured over the WHOLE DRAFT. Preserve their constraints while changing only the permitted lines.\n  A permitted rewrite may improve or clear a whole-draft finding; it is not required to clear every one in this single edit.\n  The grader reads them too: a revision that makes one WORSE is rejected.\n  [note] FLOOR_LOCUS_SCOPE: end-rhyme floor checks exclude pairs declared only at other anchors\n      evidence: 1 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\n\nTHE RHYME MANDATE ON THE PIVOT\n  group A [1, 2] at its end word \u2014 this line must stand in at least one relation with: L1 ('rain') \u2014 VIOLATED, this is the word to change\n\nPIVOT OPTIONS \u2014 words L2 could bind on once the rest of the group moves\n  (none offered)\n\nL2 ON ITS OWN \u2014 as offered in L2's line question (attempt 1, round 1)\n  OFFERED: vein, reign, bane, rein, feign, fane, insane, champagne, campaign, ln, crane, shane, cocaine, airplane, elaine, kane, hurricane, sane, dwayne, lorraine, caine, dane, blaine, ukraine\n  FORBIDDEN (rule 3 below): plain, pain, vain, spain, strain, main, train, slain, complain, grain, stain, chain, gain, refrain, disdain, fain, brain, remain, domain, restrain, swain, twain, attain, drain, lain, explain, entertain, obtain, again, maintain, contain, regain, cain, sustain, terrain, retain, alain, detain, mccain, ascertain, sprain, germain, hussain, abstain, romain, bain, mcbain, sylvain, bahrain, mcclain, pertain, jain, crain, lane, maine, wane, wayne, zane, pane\n\nAND L1 HAS GROUPS OF ITS OWN \u2014 it is a pivot too\n  Besides group A [1, 2], L1 must also answer: 'pain'.\n  Those groups are NOT being rewritten, so they still hold: whatever L1 moves\n  to has to answer them as well, and a new bound word that breaks one of them is\n  a new FLAG under item 4 below. The options list below already has them folded in.\n\nL1 OPTIONS \u2014 words L1 could bind on instead of what it binds on now\n  24 word(s); field read at field_depth=complete pool, field_band='grader'\n    maine, insane, champagne, wayne, ln, crane, shane, cocaine, airplane, elaine, cane, hurricane, sane, dwayne, lorraine, caine, dane, blaine, ukraine, zane, duane, hussein, methane, humane\n\n  Every list is OFFERED, not required, and the 2 picks are COUPLED: whatever each\n  line binds on must stand in a relation with what every OTHER member binds on, because group\n  A [1, 2] still holds after the rewrite. The offered lists are ORDERED \u2014\n  each was searched against the pivot's word and every member listed BEFORE it, and\n  against none listed after \u2014 so the loop's own picks above are mutually rhyming,\n  and reaching past them into two late lists at once is the one way to pick a set\n  that answers the pivot and not itself.\n\nWHAT THE GRADER ENFORCES ON YOUR ANSWER\n  1. 2 line(s) back \u2014 one for each of L1, L2. The draft stays 4 lines.\n  2. ONLY L1, L2 change. Every other line must come back\n     byte-identical, or the revision is rejected outright.\n  3. No bound word may be the most predictable answer in its own field (doctrine 9),\n     and this is checked only for a word a line MOVES TO. For L2 the modal head is\n     the FORBIDDEN list printed above under its line question: a word it MOVES TO\n     may not be on it. For L1 it applies only to a line that carries a\n     finding of its own, against that line's own head.\n  4. The rewrite must FIX something. It may not trade one defect for another: new FLAG\n     findings anywhere in the draft reject it (new NOTES do not).\n\nHOW TO ANSWER\n  Exactly 2 line(s), each with its own line-number marker, and nothing else:\n\n    L1: <the new L1>\n    L2: <the new L2>\n\n  Every marker is required and each may appear once. A response missing one, or\n  repeating one, or carrying a marker for a line outside the group, is discarded\n  unread \u2014 which line is which would be a guess, and guessing wrong writes each\n  line into another's place. No quotation marks, no commentary.\n  Each line is at most 200 characters; a longer one is not accepted.",
+    "answer": "L1: I left my heart beside the door (the shore)\nL2: You never came to see the floor"
+  },
+  "lexicon": {
+    "supplement_id": null,
+    "sha256": null
+  },
+  "input_draft": [
+    "I left my heart beside the door (the rain)",
+    "You never came to see the shore",
+    "The night is cold and full of pain",
+    "And nothing grows here anymore"
+  ],
+  "accepted_lines": [
+    "I left my heart beside the door (the rain)",
+    "You never came to see the shore",
+    "The night is cold and full of pain",
+    "And nothing grows here anymore"
+  ],
+  "outcomes": [
+    {
+      "line": 2,
+      "attempt": 0,
+      "round": 1,
+      "text": "You never came to see the shore",
+      "accepted": false,
+      "reasons": [
+        "nothing was fixed"
+      ]
+    }
+  ],
+  "group_outcomes": [],
+  "dispositions": [],
+  "round": 1,
+  "status": "resumed",
+  "cursor": {
+    "version": 1,
+    "loop": {
+      "phase": "pass",
+      "round": 1,
+      "at": 0,
+      "pass": [
+        2
+      ],
+      "judged_open": true,
+      "draft": [
+        "I left my heart beside the door (the rain)",
+        "You never came to see the shore",
+        "The night is cold and full of pain",
+        "And nothing grows here anymore"
+      ],
+      "round_draft": null,
+      "touched": [],
+      "fixed": [],
+      "resolved": [],
+      "attempts": [],
+      "rounds": [],
+      "barren": 0,
+      "touched_by": {},
+      "last_accept": [],
+      "unit_verdicts": [
+        [
+          [
+            "b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae",
+            "b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae",
+            [
+              2
+            ]
+          ],
+          false,
+          [
+            "nothing was fixed"
+          ]
+        ]
+      ],
+      "menus": [
+        [
+          "('brief', 'b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae', [2])",
+          [
+            {
+              "$dc": "quality.revise:Brief",
+              "a": {
+                "line_no": 2,
+                "text": "You never came to see the shore",
+                "findings": [
+                  {
+                    "$dc": "quality.floor:Finding",
+                    "a": {
+                      "code": "SCHEME_VIOLATION",
+                      "severity": "flag",
+                      "message": "L1 and L2 are both in group A [1, 2] but do not stand in the relation it requires",
+                      "evidence": "NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) \u2014 none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.700; 'rain' ~ 'shore') \u2014 NAMED PAIR IS NOT THE EVIDENCE: scored on: door the rain  ~  shore   (best of k=4)   MOSAIC (left): the winning span reaches back past the end word",
+                      "locations": [
+                        1,
+                        2
+                      ],
+                      "groups": {
+                        "$t": [
+                          "A"
+                        ]
+                      },
+                      "obligations": {
+                        "$t": []
+                      },
+                      "subject": {
+                        "$t": []
+                      }
+                    }
+                  }
+                ],
+                "slot": {
+                  "$dc": "quality.slots:Slot",
+                  "a": {
+                    "line": 2,
+                    "rule": {
+                      "$dc": "quality.span_rules:SpanRule",
+                      "a": {
+                        "locus": "line_final_token",
+                        "anchor": "last_stressed",
+                        "direction": 1,
+                        "magnitude": "to_word_end",
+                        "cross_word": false,
+                        "requires": {
+                          "$t": []
+                        }
+                      }
+                    }
+                  }
+                },
+                "slot_conflict": false,
+                "fields_by_slot": {
+                  "$d": [
+                    [
+                      null,
+                      {
+                        "$dc": "quality.revise:SlotField",
+                        "a": {
+                          "slot": {
+                            "$dc": "quality.slots:Slot",
+                            "a": {
+                              "line": 2,
+                              "rule": {
+                                "$dc": "quality.span_rules:SpanRule",
+                                "a": {
+                                  "locus": "line_final_token",
+                                  "anchor": "last_stressed",
+                                  "direction": 1,
+                                  "magnitude": "to_word_end",
+                                  "cross_word": false,
+                                  "requires": {
+                                    "$t": []
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "labels": {
+                            "$t": [
+                              "A"
+                            ]
+                          },
+                          "calls": {
+                            "$t": [
+                              "rain"
+                            ]
+                          },
+                          "incumbent": "shore",
+                          "offered": [
+                            "vein",
+                            "reign",
+                            "bane",
+                            "rein",
+                            "feign",
+                            "fane",
+                            "insane",
+                            "champagne",
+                            "campaign",
+                            "ln",
+                            "crane",
+                            "shane",
+                            "cocaine",
+                            "airplane",
+                            "elaine",
+                            "kane",
+                            "hurricane",
+                            "sane",
+                            "dwayne",
+                            "lorraine",
+                            "caine",
+                            "dane",
+                            "blaine",
+                            "ukraine"
+                          ],
+                          "forbidden": [
+                            "plain",
+                            "pain",
+                            "vain",
+                            "spain",
+                            "strain",
+                            "main",
+                            "train",
+                            "slain",
+                            "complain",
+                            "grain",
+                            "stain",
+                            "chain",
+                            "gain",
+                            "refrain",
+                            "disdain",
+                            "fain",
+                            "brain",
+                            "remain",
+                            "domain",
+                            "restrain",
+                            "swain",
+                            "twain",
+                            "attain",
+                            "drain",
+                            "lain",
+                            "explain",
+                            "entertain",
+                            "obtain",
+                            "again",
+                            "maintain",
+                            "contain",
+                            "regain",
+                            "cain",
+                            "sustain",
+                            "terrain",
+                            "retain",
+                            "alain",
+                            "detain",
+                            "mccain",
+                            "ascertain",
+                            "sprain",
+                            "germain",
+                            "hussain",
+                            "abstain",
+                            "romain",
+                            "bain",
+                            "mcbain",
+                            "sylvain",
+                            "bahrain",
+                            "mcclain",
+                            "pertain",
+                            "jain",
+                            "crain",
+                            "lane",
+                            "maine",
+                            "wane",
+                            "wayne",
+                            "zane",
+                            "pane"
+                          ],
+                          "violated": true,
+                          "joint_conflict": false,
+                          "dropped": {
+                            "$t": [
+                              "cane",
+                              "ane",
+                              "plane",
+                              "jane"
+                            ]
+                          },
+                          "by_call": {
+                            "$t": []
+                          },
+                          "schema_refused": {
+                            "$t": []
+                          },
+                          "grader_refused": {
+                            "$t": []
+                          },
+                          "widened": 0
+                        }
+                      }
+                    ]
+                  ]
+                },
+                "group_slots": {
+                  "$d": [
+                    [
+                      "A",
+                      null
+                    ]
+                  ]
+                },
+                "violated_groups": {
+                  "$t": [
+                    "A"
+                  ]
+                },
+                "noted_groups": {
+                  "$d": []
+                },
+                "slot_groups": {
+                  "$t": [
+                    "A"
+                  ]
+                },
+                "screened_out": {
+                  "$t": [
+                    "cane",
+                    "ane",
+                    "plane",
+                    "jane"
+                  ]
+                },
+                "round_no": 0,
+                "must_rhyme_with": {
+                  "$t": [
+                    1,
+                    "rain"
+                  ]
+                },
+                "candidates": [
+                  "vein",
+                  "reign",
+                  "bane",
+                  "rein",
+                  "feign",
+                  "fane",
+                  "insane",
+                  "champagne",
+                  "campaign",
+                  "ln",
+                  "crane",
+                  "shane",
+                  "cocaine",
+                  "airplane",
+                  "elaine",
+                  "kane",
+                  "hurricane",
+                  "sane",
+                  "dwayne",
+                  "lorraine",
+                  "caine",
+                  "dane",
+                  "blaine",
+                  "ukraine"
+                ],
+                "forbidden_modal": [
+                  "plain",
+                  "pain",
+                  "vain",
+                  "spain",
+                  "strain",
+                  "main",
+                  "train",
+                  "slain",
+                  "complain",
+                  "grain",
+                  "stain",
+                  "chain",
+                  "gain",
+                  "refrain",
+                  "disdain",
+                  "fain",
+                  "brain",
+                  "remain",
+                  "domain",
+                  "restrain",
+                  "swain",
+                  "twain",
+                  "attain",
+                  "drain",
+                  "lain",
+                  "explain",
+                  "entertain",
+                  "obtain",
+                  "again",
+                  "maintain",
+                  "contain",
+                  "regain",
+                  "cain",
+                  "sustain",
+                  "terrain",
+                  "retain",
+                  "alain",
+                  "detain",
+                  "mccain",
+                  "ascertain",
+                  "sprain",
+                  "germain",
+                  "hussain",
+                  "abstain",
+                  "romain",
+                  "bain",
+                  "mcbain",
+                  "sylvain",
+                  "bahrain",
+                  "mcclain",
+                  "pertain",
+                  "jain",
+                  "crain",
+                  "lane",
+                  "maine",
+                  "wane",
+                  "wayne",
+                  "zane",
+                  "pane"
+                ],
+                "forbidden_incumbent": "shore",
+                "return_groups": {
+                  "$t": []
+                },
+                "return_members": {
+                  "$t": []
+                },
+                "field_computed": true,
+                "empty_head_cause": "",
+                "keep": [
+                  1,
+                  3
+                ],
+                "must_answer": [
+                  {
+                    "$t": [
+                      "A",
+                      [
+                        1,
+                        2
+                      ],
+                      [
+                        {
+                          "$t": [
+                            1,
+                            "rain"
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ],
+                "joint_conflict": false,
+                "partial_by_call": {
+                  "$t": []
+                },
+                "schema_refused": {
+                  "$t": []
+                },
+                "grader_refused": {
+                  "$t": []
+                },
+                "field_widened": 0,
+                "offer_emptied_by_ban": "",
+                "field_declaration": "field_depth=complete pool, field_band='grader'",
+                "offers_requested": true
+              }
+            }
+          ]
+        ]
+      ]
+    },
+    "tally_hit": 0,
+    "stale": [],
+    "batch_stale": [],
+    "rej": [],
+    "grej": [],
+    "k1": 1,
+    "k2": 0,
+    "digest": "c3d5840a3e596d874555ffedb9b433b14d0db5d34d11bb39704c5b26d565abb5",
+    "run_key": "8895279aeac5ea88cbf2fe330cb18af7e235373e48d2c147599922dfb55c8498",
+    "scorer": "7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a"
+  }
+}

@@ -1,0 +1,88 @@
+  PLAN: form=verse-chorus seed=0 -> 16 line(s), 6 section(s): verse-drop-chorus-prechorus-chorus-coda
+    (pattern drawn from generated grammar: 22 cell types x 1..4 cells under the drawn total and declared brief, optional intro/outro/coda, roster 20 of 22 functions)
+  RELATION: none declared and none drawn — every mandated group is judged against EVERY relation (each coarse relation and every registry schema) and is satisfied by any one its pairs stand in.
+  METER: 7/8 as (2, 2, 3) -- 13390236392546005317973140 derived cycles (beats envelope [2, 200], slots envelope [1, 800]), measured BY DERIVATION ON THE DECLARED COORDINATE: 1 of 199 beats-per-line values, then 1 of 9 bars x subdivision factorisation(s) of 119 beats, then 1 of 3 groupings of 7. The line runs 119 beat(s) — at most 200, the longest line in characters, since a syllable is at least one character and a sung line carries at least one syllable a beat — and holds 119 slot(s). The pair share follows from how many ways each beat count factorises. Unit is notation, never enforced; subdivision 1, 17 bar(s) per line
+  SCHEME verse: 4 line(s), rgs (0, 1, 1, 1) -- one of 14 with a mandated pair
+  SCHEME drop: 2 line(s), rgs (0, 0) -- one of 1 with a mandated pair
+  SCHEME chorus: 3 line(s), rgs (0, 0, 1) -- one of 4 with a mandated pair
+  SCHEME prechorus: 2 line(s), rgs (0, 0) -- one of 1 with a mandated pair
+  SCHEME coda: 2 line(s), rgs (0, 0) -- one of 1 with a mandated pair
+  GROUPS : 2,3,4;5,6;7,8;10,11;15,16
+  RETURNS: 7,12;8,13;9,14
+  AUDIBLE: 0 of 5 end-bound group(s) require a schema heard as END RHYME (nucleus and coda agree at the line end: none); 5 on the bare default; 0 on a relation heard as something else (none). 0 explicit class/type declaration(s) outside this schema-only inventory (none). A record, not a gate (M-192); no relation is drawn: a bare group is judged against EVERY relation, coarse and schema, and stands in any its pairs support.
+  BOUND  : distinct bound words / token capacity, per section (a disclosure — no calibrated ceiling exists):
+    VERSE1         3 of 472  (0.01)
+    DROP1          2 of 236  (0.01)
+    CHORUS1        2 of 354  (0.01)
+    PRECHORUS1     2 of 236  (0.01)
+    CHORUS2        0 of 354  (0.00)
+    CODA1          2 of 238  (0.01)
+
+Write a song: 16 lines, 6 sections, in this order:
+  [VERSE — 4 lines — 68 bars of 7/8, one-beat pickup]
+      up to 118 syllables a line after the pickup
+  [DROP — 2 lines — 34 bars of 7/8, one-beat pickup]
+      up to 118 syllables a line after the pickup
+  [CHORUS — 3 lines — 51 bars of 7/8, one-beat pickup]
+      up to 118 syllables a line after the pickup
+  [PRECHORUS — 2 lines — 34 bars of 7/8, one-beat pickup]
+      up to 118 syllables a line after the pickup
+  [CHORUS — 3 lines — 51 bars of 7/8, one-beat pickup]
+      up to 118 syllables a line after the pickup
+  [CODA — 2 lines — 34 bars of 7/8]
+      up to 119 syllables a line after the pickup
+Feel: 7/8 grouped 2+2+3.
+Rhyme plan (line numbers over the whole song):
+  lines 2 & 3 & 4 must stand in at least one relation — any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema
+  lines 5 & 6 must stand in at least one relation — any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema
+  lines 7 & 8 must stand in at least one relation — any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema
+  lines 10 & 11 must stand in at least one relation — any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema
+  lines 15 & 16 must stand in at least one relation — any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema
+Story plan (one job per sung section; each enters from the section before it as stated):
+  VERSE1 puts the world and its cast in place
+  DROP1 is the fixed claim the song keeps returning to — because of VERSE1
+  CHORUS1 is the fixed claim the song keeps returning to — against DROP1
+  PRECHORUS1 lets the pressure in — after CHORUS1
+  CHORUS2 is the fixed claim the song keeps returning to — against PRECHORUS1
+  CODA1 cashes the standing pressure — set beside (connection unstated) CHORUS2
+Every chorus after the first repeats the first chorus word for word, line for line.
+Line 7 is the hook — make it the line someone leaves humming.
+
+  THE SONG, PERFORMANCE ORDER:
+
+[VERSE — 4 lines — 68 bars of 7/8, one-beat pickup]
+The kettle sings before the sky is grey
+My mother sets a cup out on the tray
+Oh--oh, oh my love
+And how my father waited on the hill
+
+[DROP — 2 lines — 34 bars of 7/8, one-beat pickup]
+She says he never cried and never prayed
+He only sang until the water stayed
+
+[CHORUS — 3 lines — 51 bars of 7/8, one-beat pickup]
+Thundered the battery’s double bass--
+I counted every light and named each star
+Hold the wheel and let the water go
+
+[PRECHORUS — 2 lines — 34 bars of 7/8, one-beat pickup]
+Some things you keep by letting them go slow
+I know it 's true
+
+[CHORUS — 3 lines — 51 bars of 7/8, one-beat pickup]
+Even after all the flooding drums
+Now he's old and walks the bank at dawn
+He tells me where the stones were, where they've gone
+
+[CODA — 2 lines — 34 bars of 7/8]
+I write it down so I will not forget
+The river owes us nothing, not since 1999
+
+  WROTE completed blueprint -> /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/harness-misc/t1/bp.json
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"reader_scheme":"v2","status":"planned","exit":0,"plan_lines":16,"plan_version":3,"version":1,"transport_token":null}
+
+  GRADE IT: python3 lyric_harness.py song /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/harness-misc/t1/bp.json /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/harness-misc/t1/draft.txt --input-format=literal '--groups=2,3,4;5,6;7,8;10,11;15,16' '--returns=7,12;8,13;9,14' --subdivision 1
+
+real	0m0.873s
+user	0m0.697s
+sys	0m0.079s

@@ -1,0 +1,10 @@
+base syllabify 'king-' -> 0 syl; transcribe_word ([], True)
+base syllabify 'king‐' -> 0 syl; transcribe_word ([], True)
+base syllabify 'king' -> 1 syl; transcribe_word (['K', 'IH1', 'NG'], False)
+base line_anchors "I caught this morning morning's minion, king-" -> end 'king-' oov [] n_anchors 2
+base line_readability "I caught this morning morning's minion, king-" -> {'text': "I caught this morning morning's minion, king-", 'final_token': 'king-', 'readable': True, 'final_unreadable': False, 'final_unreadable_cause': None, 'final_unread_pieces': [], 'unreadable': [], 'interior_unreadable': [], 'reason': None}
+base line_anchors 'the crown of the king‐' -> end 'king' oov [] n_anchors 2
+base line_readability 'the crown of the king‐' -> {'text': 'the crown of the king‐', 'final_token': 'king', 'readable': True, 'final_unreadable': False, 'final_unreadable_cause': None, 'final_unread_pieces': [], 'unreadable': [], 'interior_unreadable': [], 'reason': None}
+base stream tokens L0 ['I', 'caught', 'this', 'morning', "morning's", 'minion', 'king'] unreadable [(1, 4, 'dapple-dawn-drawn'), (3, 10, 'wimpling')]
+base broken rhyme (L1 end, L4 end) -> True
+base perfect rhyme (L1 end, L4 end) -> True

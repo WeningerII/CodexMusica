@@ -1,0 +1,428 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [
+      {
+        "line": 1,
+        "attempt": 0,
+        "round": 1,
+        "draft": "f046720c17ab",
+        "text": "I left my heart beside the door (the rain)",
+        "batch": null
+      }
+    ],
+    "propose_group": [],
+    "reader_scheme": "v2"
+  },
+  "pending": {
+    "kind": "propose_group",
+    "record": {
+      "members": [
+        1,
+        2
+      ],
+      "texts": [
+        "I left my heart beside the door (the rain)",
+        "You never came to see the shore"
+      ],
+      "words": [
+        "maine",
+        "pain"
+      ],
+      "round": 1,
+      "attempt": 0,
+      "question_sha256": "7c2b74f6579a8b6e2a337bcf14907959392834d2dbd551c672c5670aa4d02b54",
+      "new": null
+    },
+    "prompt": "REWRITE A WHOLE RHYME GROUP \u2014 2 coupled line(s): pivot L1, with L2.\n\nTHE REPAIR OPERATION\n  Rewrite the coupled members of group A [1, 2].\n  The bounded candidate search did not close this repair one line at a time.\n  Its finite menus do not prove the declaration impossible. The words may change;\n  the declared relation, every overlapping obligation, and all other lines remain fixed.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE 2 LINES\n  PIVOT   L1: I left my heart beside the door (the rain)\n  MEMBER  L2: You never came to see the shore\n\nTHE SET THE GRADER'S OWN SEARCH IS PROPOSING\n  L1 to bind on 'maine'\n  L2 to bind on 'pain'\n  Offered, not required \u2014 they are the set the mechanical search believes makes\n  the mandate hold, and they are MUTUALLY rhyming by construction: each was\n  searched against the pivot's word AND every member listed above it. Binding\n  elsewhere is allowed; the grader re-derives the findings either way and rejects\n  a set that does not actually hold.\n\nTHE WHOLE DRAFT (context \u2014 only L1, L2 may change)\n  >> L1  I left my heart beside the door (the rain)\n  >> L2  You never came to see the shore\n     L3  The night is cold and full of pain\n     L4  And nothing grows here anymore\n\nWHAT THE GRADER FOUND ON L1 (1)\n  [flag] CLICHE_PAIR: 1 rhyme pair(s) on the stock list (lines 1)\n      evidence: rain/pain. WHAT THIS IS: membership in a hand-typed list of 30 pairs (`FloorDeclaration.cliche_pairs`), nothing more. It fires as a FLAG because the shipped list has a measured interruption rate on held-out human song: author-held out, 200 seeds, 50/50 \u2014 the same protocol that gives LEXICAL_MONOTONY 5.43% and FUNCTION_WORD_HEAVY 5.23%. WHERE THAT RATE WAS TAKEN, REPINNED 2026-09-05 (M-239): only in the two band rows, 7.33% at 150-350 tokens (`song`, seed 5th-95th 5.69-8.71%) and 4.51% at 50-150 tokens (`short`, seed 5th-95th 3.96-5.08%) \u2014 rows SUPERSEDED on 2026-09-04 for their percentiles, kept for their own drift checks, and still the only measured cliche rates the floor has. This text is at an EXACT STANZA profile (`section`), where the rate is being carried across rather than quoted from a reading taken there. What is known about the two stanza lengths: over the 4,930 corpus items bucketed on 2026-08-14 the check fired on 0.00% of the 86 that landed in `section` exactly and 5.49% of the 437 that landed in `sonnet` exactly \u2014 at or under the band rate, which is why the carry-over is not what `sev()` is guarding against. Measuring the rate per length bin over the current lyric range is owed (M-239). WHAT IT IS NOT: a cliche detector, and it does not measure over-familiarity to a living listener. Against this repo's own pair table (`data/song_rhymepair_en.tsv`, 15,409 distinct pairs by author dispersion) the shipped list has low SENSITIVITY: only 4 of the table's top 30 pairs are on it (13.3%; 3 of 10 at the top ten), its own median dispersion rank is #254 of 15,409, and 9 of its 30 pairs never fire anywhere in corpus/song/eng_*. The table's most dispersed rhymes are away/day, be/me, me/thee \u2014 none a cliche to anyone now, and none on the list. `quality/relations.py`'s `frequency` Unprovidable and `quality/phrase_commonplace.py` both REFUSE the over-familiarity claim at their own levels, because every admissible English source here is pre-1931; a shorter list does not earn the claim they declined. So this finding says 'this pair is on a named list that interrupts a human songwriter about 6% of the time', and it does not say the rhyme is tired. PRECISION DEFECT, RECORDED NOT FIXED: there is no rhyme test in front of the membership test \u2014 it is raw string-set membership on the two end words. `tears`/`years` fires 21 times over the corpus, 5 in band, on couplets the same pair table records as NOT rhyming (count zero), because cmudict's first pronunciation of `tears` is the rips sense and the table reads `prons[0]`. Neither layer read which sense is on the page. Both fixes were priced in band: a `prons[0]` gate takes 118 to 114 by asserting one convention over another, and an any-pronunciation gate changes nothing at all (136 of 136 listed pairs pass it)\n\nTHE RHYME MANDATE ON THE PIVOT\n  group A [1, 2] at its end word \u2014 this line must stand in at least one relation with: L2 ('shore') \u2014 VIOLATED, this is the word to change\n  group B [1, 3] at its end word \u2014 this line must stand in at least one relation with: L3 ('pain') \u2014 VIOLATED, this is the word to change\n  This line is a PIVOT: it is in 2 groups and must answer EVERY one of them at once (conjunctive; doctrine 2). Answering one and breaking another is not a fix.\n\nPIVOT OPTIONS \u2014 words L1 could bind on once the rest of the group moves\n  24 word(s); field read at field_depth=complete pool, field_band='grader'\n    maine, insane, champagne, wayne, ln, crane, shane, cocaine, airplane, elaine, cane, hurricane, sane, dwayne, lorraine, caine, dane, blaine, ukraine, zane, duane, hussein, methane, humane\n\nL1 ON ITS OWN \u2014 as offered in L1's line question (attempt 1, round 1)\n  OFFERED: on, gone, dawn, sean, von, drawn, shawn, lawn, anton, swan, pawn, vaughn, withdrawn, shaun, siobhan, braun, coupon, spawn, yawn, fawn, prawn, manon, brawn, vaughan\n  FORBIDDEN (rule 3 below): (none)\n\nL2 OPTIONS \u2014 words L2 could bind on instead of what it binds on now\n  24 word(s); field read at field_depth=complete pool, field_band='grader'\n    pain, vain, strain, bane, train, main, lane, stain, vein, seine, again, explain, brain, plane, jane, remain, insane, champagne, campaign, wayne, complain, ln, maintain, crane\n\n  Every list is OFFERED, not required, and the 2 picks are COUPLED: whatever each\n  line binds on must stand in a relation with what every OTHER member binds on, because group\n  A [1, 2] still holds after the rewrite. The offered lists are ORDERED \u2014\n  each was searched against the pivot's word and every member listed BEFORE it, and\n  against none listed after \u2014 so the loop's own picks above are mutually rhyming,\n  and reaching past them into two late lists at once is the one way to pick a set\n  that answers the pivot and not itself.\n\nWHAT THE GRADER ENFORCES ON YOUR ANSWER\n  1. 2 line(s) back \u2014 one for each of L1, L2. The draft stays 4 lines.\n  2. ONLY L1, L2 change. Every other line must come back\n     byte-identical, or the revision is rejected outright.\n  3. No bound word may be the most predictable answer in its own field (doctrine 9),\n     and this is checked only for a word a line MOVES TO. For L1 the modal head is\n     the FORBIDDEN list printed above under its line question: a word it MOVES TO\n     may not be on it. For L2 it applies only to a line that carries a\n     finding of its own, against that line's own head.\n  4. The rewrite must FIX something. It may not trade one defect for another: new FLAG\n     findings anywhere in the draft reject it (new NOTES do not).\n\nHOW TO ANSWER\n  Exactly 2 line(s), each with its own line-number marker, and nothing else:\n\n    L1: <the new L1>\n    L2: <the new L2>\n\n  Every marker is required and each may appear once. A response missing one, or\n  repeating one, or carrying a marker for a line outside the group, is discarded\n  unread \u2014 which line is which would be a guess, and guessing wrong writes each\n  line into another's place. No quotation marks, no commentary.\n  Each line is at most 200 characters; a longer one is not accepted.",
+    "answer": null
+  },
+  "lexicon": {
+    "supplement_id": null,
+    "sha256": null
+  },
+  "input_draft": [
+    "I left my heart beside the door (the rain)",
+    "You never came to see the shore",
+    "The night is cold and full of pain",
+    "And nothing grows here anymore"
+  ],
+  "accepted_lines": [
+    "I left my heart beside the door (the rain)",
+    "You never came to see the shore",
+    "The night is cold and full of pain",
+    "And nothing grows here anymore"
+  ],
+  "outcomes": [
+    {
+      "line": 1,
+      "attempt": 0,
+      "round": 1,
+      "text": "I left my heart beside the door (the rain)",
+      "accepted": false,
+      "reasons": [
+        "nothing was fixed"
+      ]
+    }
+  ],
+  "group_outcomes": [],
+  "dispositions": [],
+  "round": 1,
+  "status": "grading",
+  "cursor": {
+    "version": 1,
+    "loop": {
+      "phase": "pass",
+      "round": 1,
+      "at": 0,
+      "pass": [
+        1,
+        2
+      ],
+      "judged_open": true,
+      "draft": [
+        "I left my heart beside the door (the rain)",
+        "You never came to see the shore",
+        "The night is cold and full of pain",
+        "And nothing grows here anymore"
+      ],
+      "round_draft": null,
+      "touched": [],
+      "fixed": [],
+      "resolved": [],
+      "attempts": [],
+      "rounds": [],
+      "barren": 0,
+      "touched_by": {},
+      "last_accept": [],
+      "unit_verdicts": [
+        [
+          [
+            "b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae",
+            "b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae",
+            [
+              1
+            ]
+          ],
+          false,
+          [
+            "nothing was fixed"
+          ]
+        ]
+      ],
+      "menus": [
+        [
+          "('place', 'b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae', 1, 'None')",
+          {
+            "$dc": "quality.revise:SlotField",
+            "a": {
+              "slot": null,
+              "labels": {
+                "$t": [
+                  "A",
+                  "B"
+                ]
+              },
+              "calls": {
+                "$t": [
+                  "shore",
+                  "pain"
+                ]
+              },
+              "incumbent": "rain",
+              "offered": [
+                "on",
+                "gone",
+                "dawn",
+                "sean",
+                "von",
+                "drawn",
+                "shawn",
+                "lawn",
+                "anton",
+                "swan",
+                "pawn",
+                "vaughn",
+                "withdrawn",
+                "shaun",
+                "siobhan",
+                "braun",
+                "coupon",
+                "spawn",
+                "yawn",
+                "fawn",
+                "prawn",
+                "manon",
+                "brawn",
+                "vaughan"
+              ],
+              "forbidden": [],
+              "violated": true,
+              "joint_conflict": false,
+              "dropped": {
+                "$t": []
+              },
+              "by_call": {
+                "$t": []
+              },
+              "schema_refused": {
+                "$t": []
+              },
+              "grader_refused": {
+                "$t": []
+              },
+              "widened": 0
+            }
+          }
+        ],
+        [
+          "('brief', 'b0d0b778175126aea4bd3a87aadd57b98ad6bfec7650e9576a13f3ec53510fae', [1])",
+          [
+            {
+              "$dc": "quality.revise:Brief",
+              "a": {
+                "line_no": 1,
+                "text": "I left my heart beside the door (the rain)",
+                "findings": [
+                  {
+                    "$dc": "quality.floor:Finding",
+                    "a": {
+                      "code": "CLICHE_PAIR",
+                      "severity": "flag",
+                      "message": "1 rhyme pair(s) on the stock list",
+                      "evidence": "rain/pain. WHAT THIS IS: membership in a hand-typed list of 30 pairs (`FloorDeclaration.cliche_pairs`), nothing more. It fires as a FLAG because the shipped list has a measured interruption rate on held-out human song: author-held out, 200 seeds, 50/50 \u2014 the same protocol that gives LEXICAL_MONOTONY 5.43% and FUNCTION_WORD_HEAVY 5.23%. WHERE THAT RATE WAS TAKEN, REPINNED 2026-09-05 (M-239): only in the two band rows, 7.33% at 150-350 tokens (`song`, seed 5th-95th 5.69-8.71%) and 4.51% at 50-150 tokens (`short`, seed 5th-95th 3.96-5.08%) \u2014 rows SUPERSEDED on 2026-09-04 for their percentiles, kept for their own drift checks, and still the only measured cliche rates the floor has. This text is at an EXACT STANZA profile (`section`), where the rate is being carried across rather than quoted from a reading taken there. What is known about the two stanza lengths: over the 4,930 corpus items bucketed on 2026-08-14 the check fired on 0.00% of the 86 that landed in `section` exactly and 5.49% of the 437 that landed in `sonnet` exactly \u2014 at or under the band rate, which is why the carry-over is not what `sev()` is guarding against. Measuring the rate per length bin over the current lyric range is owed (M-239). WHAT IT IS NOT: a cliche detector, and it does not measure over-familiarity to a living listener. Against this repo's own pair table (`data/song_rhymepair_en.tsv`, 15,409 distinct pairs by author dispersion) the shipped list has low SENSITIVITY: only 4 of the table's top 30 pairs are on it (13.3%; 3 of 10 at the top ten), its own median dispersion rank is #254 of 15,409, and 9 of its 30 pairs never fire anywhere in corpus/song/eng_*. The table's most dispersed rhymes are away/day, be/me, me/thee \u2014 none a cliche to anyone now, and none on the list. `quality/relations.py`'s `frequency` Unprovidable and `quality/phrase_commonplace.py` both REFUSE the over-familiarity claim at their own levels, because every admissible English source here is pre-1931; a shorter list does not earn the claim they declined. So this finding says 'this pair is on a named list that interrupts a human songwriter about 6% of the time', and it does not say the rhyme is tired. PRECISION DEFECT, RECORDED NOT FIXED: there is no rhyme test in front of the membership test \u2014 it is raw string-set membership on the two end words. `tears`/`years` fires 21 times over the corpus, 5 in band, on couplets the same pair table records as NOT rhyming (count zero), because cmudict's first pronunciation of `tears` is the rips sense and the table reads `prons[0]`. Neither layer read which sense is on the page. Both fixes were priced in band: a `prons[0]` gate takes 118 to 114 by asserting one convention over another, and an any-pronunciation gate changes nothing at all (136 of 136 listed pairs pass it)",
+                      "locations": [
+                        1
+                      ],
+                      "groups": {
+                        "$t": []
+                      },
+                      "obligations": {
+                        "$t": [
+                          {
+                            "$t": [
+                              1,
+                              3
+                            ]
+                          }
+                        ]
+                      },
+                      "subject": {
+                        "$t": []
+                      }
+                    }
+                  }
+                ],
+                "slot": null,
+                "slot_conflict": false,
+                "fields_by_slot": {
+                  "$d": [
+                    [
+                      null,
+                      {
+                        "$dc": "quality.revise:SlotField",
+                        "a": {
+                          "slot": null,
+                          "labels": {
+                            "$t": [
+                              "A",
+                              "B"
+                            ]
+                          },
+                          "calls": {
+                            "$t": [
+                              "shore",
+                              "pain"
+                            ]
+                          },
+                          "incumbent": "rain",
+                          "offered": [
+                            "on",
+                            "gone",
+                            "dawn",
+                            "sean",
+                            "von",
+                            "drawn",
+                            "shawn",
+                            "lawn",
+                            "anton",
+                            "swan",
+                            "pawn",
+                            "vaughn",
+                            "withdrawn",
+                            "shaun",
+                            "siobhan",
+                            "braun",
+                            "coupon",
+                            "spawn",
+                            "yawn",
+                            "fawn",
+                            "prawn",
+                            "manon",
+                            "brawn",
+                            "vaughan"
+                          ],
+                          "forbidden": [],
+                          "violated": true,
+                          "joint_conflict": false,
+                          "dropped": {
+                            "$t": []
+                          },
+                          "by_call": {
+                            "$t": []
+                          },
+                          "schema_refused": {
+                            "$t": []
+                          },
+                          "grader_refused": {
+                            "$t": []
+                          },
+                          "widened": 0
+                        }
+                      }
+                    ]
+                  ]
+                },
+                "group_slots": {
+                  "$d": [
+                    [
+                      "A",
+                      null
+                    ],
+                    [
+                      "B",
+                      null
+                    ]
+                  ]
+                },
+                "violated_groups": {
+                  "$t": [
+                    "A",
+                    "B"
+                  ]
+                },
+                "noted_groups": {
+                  "$d": []
+                },
+                "slot_groups": {
+                  "$t": [
+                    "A",
+                    "B"
+                  ]
+                },
+                "screened_out": {
+                  "$t": []
+                },
+                "round_no": 0,
+                "must_rhyme_with": {
+                  "$t": [
+                    2,
+                    "shore"
+                  ]
+                },
+                "candidates": [
+                  "on",
+                  "gone",
+                  "dawn",
+                  "sean",
+                  "von",
+                  "drawn",
+                  "shawn",
+                  "lawn",
+                  "anton",
+                  "swan",
+                  "pawn",
+                  "vaughn",
+                  "withdrawn",
+                  "shaun",
+                  "siobhan",
+                  "braun",
+                  "coupon",
+                  "spawn",
+                  "yawn",
+                  "fawn",
+                  "prawn",
+                  "manon",
+                  "brawn",
+                  "vaughan"
+                ],
+                "forbidden_modal": [],
+                "forbidden_incumbent": "rain",
+                "return_groups": {
+                  "$t": []
+                },
+                "return_members": {
+                  "$t": []
+                },
+                "field_computed": true,
+                "empty_head_cause": "UNEVIDENCED",
+                "keep": [],
+                "must_answer": [
+                  {
+                    "$t": [
+                      "A",
+                      [
+                        1,
+                        2
+                      ],
+                      [
+                        {
+                          "$t": [
+                            2,
+                            "shore"
+                          ]
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "$t": [
+                      "B",
+                      [
+                        1,
+                        3
+                      ],
+                      [
+                        {
+                          "$t": [
+                            3,
+                            "pain"
+                          ]
+                        }
+                      ]
+                    ]
+                  }
+                ],
+                "joint_conflict": false,
+                "partial_by_call": {
+                  "$t": []
+                },
+                "schema_refused": {
+                  "$t": []
+                },
+                "grader_refused": {
+                  "$t": []
+                },
+                "field_widened": 0,
+                "offer_emptied_by_ban": "",
+                "field_declaration": "field_depth=complete pool, field_band='grader'",
+                "offers_requested": true
+              }
+            }
+          ]
+        ]
+      ]
+    },
+    "tally_hit": 0,
+    "stale": [],
+    "batch_stale": [],
+    "rej": [],
+    "grej": [],
+    "k1": 1,
+    "k2": 0,
+    "digest": "5b8e1dae995cfe1d21dbdad56ce35483a4b422c255da94c1f6e178f25e6e3640",
+    "run_key": "f6b39b0bc0be4a708d591e78071309b762558e75bf66d2468a0454dce61f7065",
+    "scorer": "cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+  },
+  "reader_scheme": "v2"
+}

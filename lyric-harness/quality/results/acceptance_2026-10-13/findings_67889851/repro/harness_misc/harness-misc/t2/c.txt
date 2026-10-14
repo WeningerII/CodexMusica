@@ -1,0 +1,280 @@
+### plain | I said ×
+   end_occurrence:
+      v2  : ["said", null, null]
+      v1  : ["said", null, "EH D"]
+      base: ["said", null, "EH D"]
+   qafiya_endword:
+      v2  : "said"
+      v1  : "said"
+      base: "said"
+   qafiya_unreadable:
+      v2  : true
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["said", ["said"]]
+      v1  : ["said", ["said"]]
+      base: ["said", ["said"]]
+### plain | × marks the spot
+   end_occurrence:
+      v2  : ["spot", 4, "AA T"]
+      v1  : ["spot", 4, "AA T"]
+      base: ["spot", 4, "AA T"]
+   qafiya_endword:
+      v2  : "spot"
+      v1  : "spot"
+      base: "spot"
+   qafiya_unreadable:
+      v2  : false
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["spot", ["×"]]
+      v1  : ["spot", ["×"]]
+      base: ["spot", ["×"]]
+### plain | love ×night
+   end_occurrence:
+      v2  : ["night", null, null]
+      v1  : ["night", null, "AY T"]
+      base: ["night", null, "AY T"]
+   qafiya_endword:
+      v2  : "night"
+      v1  : "night"
+      base: "night"
+   qafiya_unreadable:
+      v2  : true
+      v1  : true
+      base: true
+   line_anchors_end:
+      v2  : ["night", ["night"]]
+      v1  : ["night", ["night"]]
+      base: ["night", ["night"]]
+### plain | x ×2
+   end_occurrence:
+      v2  : ["2", null, null]
+      v1  : ["2", null, null]
+      base: ["2", null, null]
+   qafiya_endword:
+      v2  : "2"
+      v1  : "x"
+      base: "x"
+   qafiya_unreadable:
+      v2  : true
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["2", ["2"]]
+      v1  : ["x", ["x"]]
+      base: ["x", ["x"]]
+### plain | I said yes
+   end_occurrence:
+      v2  : ["yes", 3, "EH S"]
+      v1  : ["yes", 3, "EH S"]
+      base: ["yes", 3, "EH S"]
+   qafiya_endword:
+      v2  : "yes"
+      v1  : "yes"
+      base: "yes"
+   qafiya_unreadable:
+      v2  : false
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["yes", []]
+      v1  : ["yes", []]
+      base: ["yes", []]
+### plain | the night̳
+   end_occurrence:
+      v2  : ["night", null, null]
+      v1  : ["night", 2, "AY T"]
+      base: ["night", 2, "AY T"]
+   qafiya_endword:
+      v2  : "night̳"
+      v1  : "night̳"
+      base: "night̳"
+   qafiya_unreadable:
+      v2  : true
+      v1  : true
+      base: true
+   line_anchors_end:
+      v2  : ["night̳", ["night̳"]]
+      v1  : ["night̳", ["night̳"]]
+      base: ["night̳", ["night̳"]]
+### plain | the night (of ×)
+   end_occurrence:
+      v2  : ["of", null, "AH V"]
+      v1  : ["of", null, "AH V"]
+      base: ["of", null, "AH V"]
+   qafiya_endword:
+      v2  : "night"
+      v1  : "night"
+      base: "night"
+   qafiya_unreadable:
+      v2  : false
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["night", []]
+      v1  : ["night", []]
+      base: ["night", []]
+### plain | the end (of the night)
+   end_occurrence:
+      v2  : ["night", null, "AY T"]
+      v1  : ["night", null, "AY T"]
+      base: ["night", null, "AY T"]
+   qafiya_endword:
+      v2  : "end"
+      v1  : "end"
+      base: "end"
+   qafiya_unreadable:
+      v2  : false
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["end", []]
+      v1  : ["end", []]
+      base: ["end", []]
+### plain | _rhyme_code(['I said ×','where they led'])
+   v2  : [null, "[EndWordFailure(side='', section_line=1, text='I said ×', token=None, word='said', line=None)]"]
+   v1  : [[0, 0], "[]"]
+   base: [[0, 0], "[]"]
+### voices | I said ×
+   end_occurrence:
+      v2  : ["said", null, null]
+      v1  : ["said", null, "EH D"]
+      base: ["said", null, "EH D"]
+   qafiya_endword:
+      v2  : "said"
+      v1  : "said"
+      base: "said"
+   qafiya_unreadable:
+      v2  : true
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["said", ["said"]]
+      v1  : ["said", ["said"]]
+      base: ["said", ["said"]]
+### voices | × marks the spot
+   end_occurrence:
+      v2  : ["spot", 4, "AA T"]
+      v1  : ["spot", 4, "AA T"]
+      base: ["spot", 4, "AA T"]
+   qafiya_endword:
+      v2  : "spot"
+      v1  : "spot"
+      base: "spot"
+   qafiya_unreadable:
+      v2  : false
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["spot", ["×"]]
+      v1  : ["spot", ["×"]]
+      base: ["spot", ["×"]]
+### voices | love ×night
+   end_occurrence:
+      v2  : ["night", null, null]
+      v1  : ["night", null, "AY T"]
+      base: ["night", null, "AY T"]
+   qafiya_endword:
+      v2  : "night"
+      v1  : "night"
+      base: "night"
+   qafiya_unreadable:
+      v2  : true
+      v1  : true
+      base: true
+   line_anchors_end:
+      v2  : ["night", ["night"]]
+      v1  : ["night", ["night"]]
+      base: ["night", ["night"]]
+### voices | x ×2
+   end_occurrence:
+      v2  : ["2", null, null]
+      v1  : ["2", null, null]
+      base: ["2", null, null]
+   qafiya_endword:
+      v2  : "2"
+      v1  : "x"
+      base: "x"
+   qafiya_unreadable:
+      v2  : true
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["2", ["2"]]
+      v1  : ["x", ["x"]]
+      base: ["x", ["x"]]
+### voices | I said yes
+   end_occurrence:
+      v2  : ["yes", 3, "EH S"]
+      v1  : ["yes", 3, "EH S"]
+      base: ["yes", 3, "EH S"]
+   qafiya_endword:
+      v2  : "yes"
+      v1  : "yes"
+      base: "yes"
+   qafiya_unreadable:
+      v2  : false
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["yes", []]
+      v1  : ["yes", []]
+      base: ["yes", []]
+### voices | the night̳
+   end_occurrence:
+      v2  : ["night", null, null]
+      v1  : ["night", 2, "AY T"]
+      base: ["night", 2, "AY T"]
+   qafiya_endword:
+      v2  : "night̳"
+      v1  : "night̳"
+      base: "night̳"
+   qafiya_unreadable:
+      v2  : true
+      v1  : true
+      base: true
+   line_anchors_end:
+      v2  : ["night̳", ["night̳"]]
+      v1  : ["night̳", ["night̳"]]
+      base: ["night̳", ["night̳"]]
+### voices | the night (of ×)
+   end_occurrence:
+      v2  : ["of", null, null]
+      v1  : ["of", null, "AH V"]
+      base: ["of", null, "AH V"]
+   qafiya_endword:
+      v2  : "of"
+      v1  : "of"
+      base: "of"
+   qafiya_unreadable:
+      v2  : true
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["of", ["of"]]
+      v1  : ["of", ["of"]]
+      base: ["of", ["of"]]
+### voices | the end (of the night)
+   end_occurrence:
+      v2  : ["night", 5, "AY T"]
+      v1  : ["night", 5, "AY T"]
+      base: ["night", 5, "AY T"]
+   qafiya_endword:
+      v2  : "night"
+      v1  : "night"
+      base: "night"
+   qafiya_unreadable:
+      v2  : false
+      v1  : false
+      base: false
+   line_anchors_end:
+      v2  : ["night", []]
+      v1  : ["night", []]
+      base: ["night", []]
+### voices | _rhyme_code(['I said ×','where they led'])
+   v2  : [null, "[EndWordFailure(side='', section_line=1, text='I said ×', token=None, word='said', line=None)]"]
+   v1  : [[0, 0], "[]"]
+   base: [[0, 0], "[]"]

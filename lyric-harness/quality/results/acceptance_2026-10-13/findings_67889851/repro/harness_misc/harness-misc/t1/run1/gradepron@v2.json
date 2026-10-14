@@ -1,0 +1,22 @@
+[
+ {
+  "req": "gradepron@v2",
+  "argv": [
+   "--reader-scheme=v2",
+   "--lexicon-supplement=v2",
+   "--pronunciations=[{\"line\": \"The river owes us nothing, not since 1999\", \"token\": 7, \"word\": \"1999\", \"phones\": [\"N\", \"AY1\", \"N\", \"T\", \"IY1\", \"N\", \"N\", \"AY1\", \"N\", \"T\", \"IY0\", \"N\", \"AY1\", \"N\"], \"basis\": \"declared\", \"source\": \"bb8 probe\"}]",
+   "song",
+   "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/harness-misc/t1/bp.json",
+   "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/harness-misc/t1/draft.txt",
+   "--input-format=literal",
+   "--groups=2,3,4;5,6;7,8;10,11;15,16",
+   "--returns=7,12;8,13;9,14",
+   "--subdivision",
+   "1"
+  ],
+  "code": 2,
+  "stdout": "  REFUSED — invalid pronunciation declaration: pronunciation token/word must match the exact sung token in its declared line ('1999' declared; token 7 there is 'since')\n  lyric result: {\"status\":\"refused\",\"exit\":2,\"refusal\":\"invalid pronunciation declaration: pronunciation token/word must match the exact sung token in its declared line ('1999' declared; token 7 there is 'since')\",\"version\":1,\"transport_token\":null}\n",
+  "stderr": "",
+  "scheme_after": null
+ }
+]

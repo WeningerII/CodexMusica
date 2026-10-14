@@ -1,0 +1,1225 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/b-wt-main",
+ "scenarios": {
+  "legacy_blocked": {
+   "errors": [],
+   "seeded": true,
+   "library_before": {
+    "noinsp_class": false,
+    "undecided_text": "",
+    "undecided_visible": false,
+    "renumbered_text": "",
+    "renumbered_visible": false,
+    "toasts": []
+   },
+   "envelope": [
+    {
+     "scope": "whole",
+     "declarations": [
+      {
+       "pronunciations": [
+        {
+         "line": "Oh--oh, oh my love",
+         "token": 2,
+         "word": "oh",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        },
+        {
+         "line": "ways:--and the road",
+         "token": 2,
+         "word": "--and",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lyrics_origin_declarations": [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      },
+      {
+       "line": "ways:--and the road",
+       "token": 2,
+       "word": "--and",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   ],
+   "lyrics_text": "Untitled song\n\nWorkspace: Untitled workspace\n\nNot reviewed\nRun review\nWrite with AI\nExport\nSections\nSong brief\nNo brief yet\nHook not declared\nEdit brief\n\n Epithalamion · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nThe writing workflow accepts 2–12 sung words per line. The full reading is retained.\n\nExport source details\nFind\nUndo\nRedo\nDisplay\n1\nYe learnèd sisters, which have oftentimes\n2\nBeene to me ayding, others to adorne,\n3\nWhom ye thought worthy of your gracefull rymes,\n4\nThat even the greatest did not greatly scorne\n5\nTo heare theyr names sung in your simple layes,\n6\nBut joyèd in theyr praise;\n7\nAnd when ye list your owne mishaps to mourne,\n8\nWhich death, or love, or fortunes wreck did rayse,\n9\nYour string could soone to sadder tenor turne,\n10\nAnd teach the woods and waters to lament\n11\nYour dolefull dreriment:\n12\nNow lay those sorrowfull complaints aside;\n13\nAnd, having all your heads with girlands crownd,\n14\nHelpe me mine owne loves prayses to resound;\n15\nNe let the same of any be envide:\n16\nSo Orpheus did for his owne bride!\n17\nSo I unto my selfe alone will sing;\n18\nThe woods shall to me answer, and my Eccho ring.\n19\nEarly, before the worlds light-giving lampe\n20\nHis golden beame upon the hils doth spred,\n21\nHaving disperst the nights unchearefull dampe,\n22\nDoe ye awake; and, with fresh lusty-hed,\n23\nGo to the bowre of my belovèd love,\n24\nMy truest turtle dove;\n25\nBid her awake; for Hymen is awake,\n26\nAnd long since ready forth his maske to move,\n27\nWith his bright Tead that flames with many a flake,\n28\nAnd many a bachelor to waite on him,\n29\nIn theyr fresh garments trim.\n30\nBid her awake therefore, and soone her dight,\n31\nFor lo! the wishèd day is come at last,\n32\nThat shall, for all the paynes and sorrowes past,\n33\nPay to her usury of long delight:\n34\nAnd, whylest she doth her dight,\n35\nDoe ye to her of joy and solace sing,\n36\nThat all the woods may answer, and your eccho ring.\n37\nBring with you all the Nymphes that you can heare\n38\nBoth of the rivers and the forrests greene,\n39\nAnd of the sea that neighbours to her neare:\n40\nAl with gay girlands goodly wel beseene.\n41\nAnd let them also with them bring in hand\n42\nAnother gay girland\n43\nFor my fayre love, of lillyes and of roses,\n44\nBound truelove wize, with a blew silke riband.\n45\nAnd let them make great store of bridale poses,\n46\nAnd let them eeke bring store of other flowers,\n47\nTo deck the bridale bowers.\n48\nAnd let the ground whereas her foot shall tread,\n49\nFor feare the stones her tender foot should wrong,\n50\nBe strewed with fragrant flowers all along,\n51\nAnd diapred lyke the discolored mead.\n52\nWhich done, doe at her chamber dore awayt,\n53\nFor she will waken strayt;\n54\nThe whiles doe ye this song unto her sing,\n55\nThe woods shall to you answer, and your Eccho ring.\n56\nYe Nymphes of Mulla, which with carefull heed\n57\nThe silver scaly trouts doe tend full well,\n58\nAnd greedy pikes which use therein to feed;\n59\n(Those trouts and pikes all others doo excell;)\n60\nAnd ye likewise, which keepe the rushy lake,\n61\nWhere none doo fishes take;\n62\nBynd up the locks the which hang scatterd light,\n63\nAnd in his waters, which your mirror make,\n64\nBehold your faces as the christall bright,\n65\nThat when you come whereas my love doth lie,\n66\nNo blemish she may spie.\n67\nAnd eke, ye lightfoot mayds, which keepe the deere,\n68\nThat on the hoary mountayne used to towre;\n69\nAnd the wylde wolves, which seeke them to devoure,\n70\nWith your steele darts doo chace from comming neer;\n71\nBe also present heere,\n72\nTo helpe to decke her, and to help to sing,\n73\nThat all the woods may answer, and your eccho ring.\n74\nWake now, my love, awake! for it is time;\n75\nThe Rosy Morne long since left Tithones bed,\n76\nAll ready to her silver coche to clyme;\n77\nAnd Phœbus gins to shew his glorious hed.\n78\nHark! how the cheerefull birds do chaunt theyr laies\n79\nAnd carroll of Loves praise.\n80\nThe merry Larke hir mattins sings aloft;\n81\nThe Thrush replyes; the Mavis descant playes;\n82\nThe Ouzell shrills; the Ruddock warbles soft;\n83\nSo goodly all agree, with sweet consent,\n84\nTo this dayes merriment.\n85\nAh! my deere love, why doe ye sleepe thus long?\n86\nWhen meeter were that ye should now awake,\n87\nT’ awayt the comming of your joyous make,\n88\nAnd hearken to the birds love-learnèd song,\n89\nThe deawy leaves among!\n90\nNor they of joy and pleasance to you sing,\n91\nThat all the woods them answer, and theyr eccho ring.\n92\nMy love is now awake out of her dreames,\n93\nAnd her fayre eyes, like stars that dimmèd were\n94\nWith darksome cloud, now shew theyr goodly beams\n95\nMore bright then Hesperus his head doth rere.\n96\nCome now, ye damzels, daughters of delight,\n97\nHelpe quickly her to dight:\n98\nBut first come ye fayre houres, which were begot\n99\nIn Joves sweet paradice of Day and Night;\n100\nWhich doe the seasons of the yeare allot,\n101\nAnd al, that ever in this world is fayre,\n102\nDoe make and still repayre:\n103\nAnd ye three handmayds of the Cyprian Queene,\n104\nThe which doe still adorne her beauties pride,\n105\nHelpe to addorne my beautifullest bride:\n106\nAnd, as ye her array, still throw betweene\n107\nSome graces to be seene;\n108\nAnd, as ye use to Venus, to her sing,\n109\nThe whiles the woods shal answer, and your eccho ring.\n110\nNow is my love all ready forth to come:\n111\nLet all the virgins therefore well awayt:\n112\nAnd ye fresh boyes, that tend upon her groome,\n113\nPrepare your selves; for he is comming strayt.\n114\nSet all your things in seemely good aray,\n115\nFit for so joyfull day:\n116\nThe joyfulst day that ever sunne did see.\n117\nFaire Sun! shew forth thy favourable ray,\n118\nAnd let thy lifull heat not fervent be,\n119\nFor feare of burning her sunshyny face,\n120\nHer beauty to disgrace.\n121\nO fayrest Phœbus! father of the Muse!\n122\nIf ever I did honour thee aright,\n123\nOr sing the thing that mote thy mind delight,\n124\nDoe not thy servants simple boone refuse;\n125\nBut let this day, let this one day, be myne;\n126\nLet all the rest be thine.\n127\nThen I thy soverayne prayses loud wil sing,\n128\nThat all the woods shal answer, and theyr eccho ring.\n129\nHarke! how the Minstrils gin to shrill aloud\n130\nTheir merry Musick that resounds from far,\n131\nThe pipe, the tabor, and the trembling Croud,\n132\nThat well agree withouten breach or jar.\n133\nBut, most of all, the Damzels doe delite\n134\nWhen they their tymbrels smyte,\n135\nAnd thereunto doe daunce and carrol sweet,\n136\nThat all the sences they doe ravish quite;\n137\nThe whyles the boyes run up and downe the street,\n138\nCrying aloud with strong confusèd noyce,\n139\nAs if it were one voyce,\n140\nHymen, iö Hymen, Hymen, they do shout;\n141\nThat even to the heavens theyr shouting shrill\n142\nDoth reach, and all the firmament doth fill;\n143\nTo which the people standing all about,\n144\nAs in approvance, doe thereto applaud,\n145\nAnd loud advaunce her laud;\n146\nAnd evermore they Hymen, Hymen sing,\n147\nThat al the woods them answer, and theyr eccho ring.\n148\nLoe! where she comes along with portly pace,\n149\nLyke Phœbe, from her chamber of the East,\n150\nArysing forth to run her mighty race,\n151\nClad all in white, that seemes a virgin best.\n152\nSo well it her beseemes, that ye would weene\n153\nSome angell she had beene.\n154\nHer long loose yellow locks lyke golden wyre,\n155\nSprinckled with perle, and perling flowres atweene,\n156\nDoe lyke a golden mantle her attyre;\n157\nAnd, being crownèd with a girland greene,\n158\nSeeme lyke some mayden Queene.\n159\nHer modest eyes, abashèd to behold\n160\nSo many gazers as on her do stare,\n161\nUpon the lowly ground affixèd are;\n162\nNe dare lift up her countenance too bold,\n163\nBut blush to heare her prayses sung so loud,\n164\nSo farre from being proud.\n165\nNathlesse doe ye still loud her prayses sing,\n166\nThat all the woods may answer, and your eccho ring.\n167\nTell me, ye merchants daughters, did ye see\n168\nSo fayre a creature in your towne before;\n169\nSo sweet, so lovely, and so mild as she,\n170\nAdornd with beautyes grace and vertues store?\n171\nHer goodly eyes lyke Saphyres shining bright,\n172\nHer forehead yvory white,\n173\nHer cheekes lyke apples which the sun hath rudded,\n174\nHer lips lyke cherryes charming men to byte,\n175\nHer brest like to a bowle of creame uncrudded,\n176\nHer paps lyke lyllies budded,\n177\nHer snowie necke lyke to a marble towre;\n178\nAnd all her body like a pallace fayre,\n179\nAscending up, with many a stately stayre,\n180\nTo honors seat and chastities sweet bowre.\n181\nWhy stand ye still ye virgins in amaze,\n182\nUpon her so to gaze,\n183\nWhiles ye forget your former lay to sing,\n184\nTo which the woods did answer, and your eccho ring?\n185\nBut if ye saw that which no eyes can see,\n186\nThe inward beauty of her lively spright,\n187\nGarnisht with heavenly guifts of high degree,\n188\nMuch more then would ye wonder at that sight,\n189\nAnd stand astonisht lyke to those which red\n190\nMedusaes mazeful hed.\n191\nThere dwels sweet love, and constant chastity,\n192\nUnspotted fayth, and comely womanhood,\n193\nRegard of honour, and mild modesty;\n194\nThere vertue raynes as Queene in royal throne,\n195\nAnd giveth lawes alone,\n196\nThe which the base affections doe obay,\n197\nAnd yeeld theyr services unto her will;\n198\nNe thought of thing uncomely ever may\n199\nThereto approch to tempt her mind to ill.\n200\nHad ye once seene these her celestial threasures,\n201\nAnd unrevealèd pleasures,\n202\nThen would ye wonder, and her prayses sing,\n203\nThat al the woods should answer, and your echo ring.\n204\nOpen the temple gates unto my love,\n205\nOpen them wide that she may enter in,\n206\nAnd all the postes adorne as doth behove,\n207\nAnd all the pillours deck with girlands trim,\n208\nFor to receyve this Saynt with honour dew,\n209\nThat commeth in to you.\n210\nWith trembling steps, and humble reverence,\n211\nShe commeth in, before th’ Almighties view;\n212\nOf her ye virgins learne obedience,\n213\nWhen so ye come into those holy places,\n214\nTo humble your proud faces:\n215\nBring her up to th’ high altar, that she may\n216\nThe sacred ceremonies there partake,\n217\nThe which do endlesse matrimony make;\n218\nAnd let the roring Organs loudly play\n219\nThe praises of the Lord in lively notes;\n220\nThe whiles, with hollow throates,\n221\nThe Choristers the joyous Antheme sing,\n222\nThat al the woods may answere, and their eccho ring.\n223\nBehold, whiles she before the altar stands,\n224\nHearing the holy priest that to her speakes,\n225\nAnd blesseth her with his two happy hands,\n226\nHow the red roses flush up in her cheekes,\n227\nAnd the pure snow, with goodly vermill stayne\n228\nLike crimsin dyde in grayne:\n229\nThat even th’ Angels, which continually\n230\nAbout the sacred Altare doe remaine,\n231\nForget their service and about her fly,\n232\nOfte peeping in her face, that seems more fayre,\n233\nThe more they on it stare.\n234\nBut her sad eyes, still fastened on the ground,\n235\nAre governèd with goodly modesty,\n236\nThat suffers not one looke to glaunce awry,\n237\nWhich may let in a little thought unsownd.\n238\nWhy blush ye, love, to give to me your hand,\n239\nThe pledge of all our band!\n240\nSing, ye sweet Angels, Alleluya sing,\n241\nThat all the woods may answere, and your eccho ring.\n242\nNow al is done: bring home the bride againe;\n243\nBring home the triumph of our victory:\n244\nBring home with you the glory of her gaine;\n245\nWith joyance bring her and with jollity.\n246\nNever had man more joyfull day then this,\n247\nWhom heaven would heape with blis,\n248\nMake feast therefore now all this live-long day;\n249\nThis day for ever to me holy is.\n250\nPoure out the wine without restraint or stay,\n251\nPoure not by cups, but by the belly full,\n252\nPoure out to all that wull,\n253\nAnd sprinkle all the postes and wals with wine,\n254\nThat they may sweat, and drunken be withall.\n255\nCrowne ye God Bacchus with a coronall,\n256\nAnd Hymen also crowne with wreathes of vine;\n257\nAnd let the Graces daunce unto the rest,\n258\nFor they can doo it best:\n259\nThe whiles the maydens doe theyr carroll sing,\n260\nTo which the woods shall answer, and theyr eccho ring.\n261\nRing ye the bels, ye yong men of the towne,\n262\nAnd leave your wonted labors for this day:\n263\nThis day is holy; doe ye write it downe,\n264\nThat ye for ever it remember may.\n265\nThis day the sunne is in his chiefest hight,\n266\nWith Barnaby the bright,\n267\nFrom whence declining daily by degrees,\n268\nHe somewhat loseth of his heat and light,\n269\nWhen once the Crab behind his back he sees.\n270\nBut for this time it ill ordainèd was,\n271\nTo chose the longest day in all the yeare,\n272\nAnd shortest night, when longest fitter weare:\n273\nYet never day so long, but late would passe.\n274\nRing ye the bels, to make it weare away,\n275\nAnd bonefiers make all day;\n276\nAnd daunce about them, and about them sing,\n277\nThat all the woods may answer, and your eccho ring.\n278\nAh! when will this long weary day have end,\n279\nAnd lende me leave to come unto my love?\n280\nHow slowly do the houres theyr numbers spend?\n281\nHow slowly does sad Time his feathers move?\n282\nHast thee, O fayrest Planet, to thy home,\n283\nWithin the Westerne fome:\n284\nThy tyrèd steedes long since have need of rest.\n285\nLong though it be, at last I see it gloome,\n286\nAnd the bright evening-star with golden creast\n287\nAppeare out of the East.\n288\nFayre childe of beauty! glorious lampe of love!\n289\nThat all the host of heaven in rankes doost lead,\n290\nAnd guydest lovers through the nights sad dread,\n291\nHow chearefully thou lookest from above,\n292\nAnd seemst to laugh atweene thy twinkling light,\n293\nAs joying in the sight\n294\nOf these glad many, which for joy doe sing,\n295\nThat all the woods them answer, and their echo ring!\n296\nNow ceasse, ye damsels, your delights fore-past;\n297\nEnough it is that all the day was youres:\n298\nNow day is doen, and night is nighing fast,\n299\nNow bring the Bryde into the brydall boures.\n300\nThe night is come, now soon her disaray,\n301\nAnd in her bed her lay;\n302\nLay her in lillies and in violets,\n303\nAnd silken courteins over her display,\n304\nAnd odourd sheetes, and Arras coverlets.\n305\nBehold how goodly my faire love does ly,\n306\nIn proud humility!\n307\nLike unto Maia, when as Jove her took\n308\nIn Tempe, lying on the flowry gras,\n309\nTwixt sleepe and wake, after she weary was,\n310\nWith bathing in the Acidalian brooke.\n311\nNow it is night, ye damsels may be gon,\n312\nAnd leave my love alone,\n313\nAnd leave likewise your former lay to sing:\n314\nThe woods no more shall answere, nor your echo ring.\n315\nNow welcome, night! thou night so long expected,\n316\nThat long daies labour doest at last defray,\n317\nAnd all my cares, which cruell Love collected,\n318\nHast sumd in one, and cancellèd for aye:\n319\nSpread thy broad wing over my love and me,\n320\nThat no man may us see;\n321\nAnd in thy sable mantle us enwrap,\n322\nFrom feare of perrill and foule horror free.\n323\nLet no false treason seeke us to entrap,\n324\nNor any dread disquiet once annoy\n325\nThe safety of our joy;\n326\nBut let the night be calme, and quietsome,\n327\nWithout tempestuous storms or sad afray:\n328\nLyke as when Jove with fayre Alcmena lay,\n329\nWhen he begot the great Tirynthian groome:\n330\nOr lyke as when he with thy selfe did lie\n331\nAnd begot Majesty.\n332\nAnd let the mayds and yong men cease to sing;\n333\nNe let the woods them answer nor theyr eccho ring.\n334\nLet no lamenting cryes, nor dolefull teares,\n335\nBe heard all night within, nor yet without:\n336\nNe let false whispers, breeding hidden feares,\n337\nBreake gentle sleepe with misconceivèd dout.\n338\nLet no deluding dreames, nor dreadfull sights,\n339\nMake sudden sad affrights;\n340\nNe let house-fyres, nor lightnings helpelesse harmes,\n341\nNe let the Pouke, nor other evill sprights,\n342\nNe let mischivous witches with theyr charmes,\n343\nNe let hob Goblins, names whose sence we see not,\n344\nFray us with things that be not:\n345\nLet not the shriech Oule nor the Storke be heard,\n346\nNor the night Raven, that still deadly yels;\n347\nNor damnèd ghosts, cald up with mighty spels,\n348\nNor griesly vultures, make us once affeard:\n349\nNe let th’ unpleasant Quyre of Frogs still croking\n350\nMake us to wish theyr choking.\n351\nLet none of these theyr drery accents sing;\n352\nNe let the woods them answer, nor theyr eccho ring.\n353\nBut let stil Silence trew night-watches keepe,\n354\nThat sacred Peace may in assurance rayne,\n355\nAnd tymely Sleep, when it is tyme to sleepe,\n356\nMay poure his limbs forth on your pleasant playne;\n357\nThe whiles an hundred little wingèd loves,\n358\nLike divers-fethered doves,\n359\nShall fly and flutter round about your bed,\n360\nAnd in the secret darke, that none reproves,\n361\nTheir prety stealthes shal worke, and snares shal spread\n362\nTo filch away sweet snatches of delight,\n363\nConceald through covert night.\n364\nYe sonnes of Venus, play your sports at will!\n365\nFor greedy pleasure, carelesse of your toyes,\n366\nThinks more upon her paradise of joyes,\n367\nThen what ye do, albe it good or ill.\n368\nAll night therefore attend your merry play,\n369\nFor it will soone be day:\n370\nNow none doth hinder you, that say or sing;\n371\nNe will the woods now answer, nor your Eccho ring.\n372\nWho is the same, which at my window peepes?\n373\nOr whose is that faire face that shines so bright?\n374\nIs it not Cinthia, she that never sleepes,\n375\nBut walkes about high heaven al the night?\n376\nO! fayrest goddesse, do thou not envy\n377\nMy love with me to spy:\n378\nFor thou likewise didst love, though now unthought,\n379\nAnd for a fleece of wooll, which privily\n380\nThe Latmian shepherd once unto thee brought,\n381\nHis pleasures with thee wrought.\n382\nTherefore to us be favorable now;\n383\nAnd sith of wemens labours thou hast charge,\n384\nAnd generation goodly dost enlarge,\n385\nEncline thy will t’effect our wishfull vow,\n386\nAnd the chast wombe informe with timely seed\n387\nThat may our comfort breed:\n388\nTill which we cease our hopefull hap to sing;\n389\nNe let the woods us answere, nor our Eccho ring.\n390\nAnd thou, great Juno! which with awful might\n391\nThe lawes of wedlock still dost patronize;\n392\nAnd the religion of the faith first plight\n393\nWith sacred rites hast taught to solemnize;\n394\nAnd eeke for comfort often callèd art\n395\nOf women in their smart;\n396\nEternally bind thou this lovely band,\n397\nAnd all thy blessings unto us impart.\n398\nAnd thou, glad Genius! in whose gentle hand\n399\nThe bridale bowre and geniall bed remaine,\n400\nWithout blemish or staine;\n401\nAnd the sweet pleasures of theyr loves delight\n402\nWith secret ayde doest succour and supply,\n403\nTill they bring forth the fruitfull progeny;\n404\nSend us the timely fruit of this same night.\n405\nAnd thou, fayre Hebe! and thou, Hymen free!\n406\nGrant that it may so be.\n407\nTil which we cease your further prayse to sing;\n408\nNe any woods shall answer, nor your Eccho ring.\n409\nAnd ye high heavens, the temple of the gods,\n410\nIn which a thousand torches flaming bright\n411\nDoe burne, that to us wretched earthly clods\n412\nIn dreadful darknesse lend desirèd light\n413\nAnd all ye powers which in the same remayne,\n414\nMore then we men can fayne!\n415\nPoure out your blessing on us plentiously,\n416\nAnd happy influence upon us raine,\n417\nThat we may raise a large posterity,\n418\nWhich from the earth, which they may long possesse\n419\nWith lasting happinesse,\n420\nUp to your haughty pallaces may mount;\n421\nAnd, for the guerdon of theyr glorious merit,\n422\nMay heavenly tabernacles there inherit,\n423\nOf blessèd Saints for to increase the count.\n424\nSo let us rest, sweet love, in hope of this,\n425\nAnd cease till then our tymely joyes to sing:\n426\nThe woods no more us answer, nor our eccho ring!\n427\n_Song! made in lieu of many ornaments._\n428\n_With which my love should duly have been dect,_\n429\n_Which cutting off through hasty accidents,_\n430\n_Ye would not stay your dew time to expect_\n431\n_But promist both to recompens;_\n432\n_Be unto her a goodly ornament,_\n433\n_And for short time an endlesse moniment._\nLyrics document. A line in [brackets] starts a section.\nTools\nWriter\nReview\nHistory\nTools\nForm & story\nSection order and story jobs\nRhymes\nDeclared rhyme links\nRhythm\nMeter and line placement\nPronunciation\nSung-word readings\nRepeats & voices\nExact repeats and sung asides\nWord rules\nRequired and avoided phrases\nThis version has not been reviewed\n\nRun a review to check form, rhymes, rhythm and pronunciation.\n\nRun review",
+   "toasts_after": [
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "export_source": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/legacy_blocked.source.json",
+    "declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "has_dash_and": true
+   },
+   "download_label": "Download text and sources",
+   "working_copy": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/legacy_blocked.working-copy.json",
+    "payload_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "workingCopy_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "adapted": false,
+    "has_dash_and": true
+   },
+   "reimport": {
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "origin_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "origin_handoff": "handoff:d38529ef-f5b1-43df-a285-9ca0de66abdb"
+   },
+   "library_record_after": {
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      },
+      {
+       "line": "ways:--and the road",
+       "token": 2,
+       "word": "--and",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   },
+   "lyrics_mentions": {
+    "dash_and": false,
+    "pronunciation": true,
+    "decision_words": false,
+    "declaration": false
+   }
+  },
+  "migrated_second_visit": {
+   "errors": [],
+   "seeded": true,
+   "first_visit_record": {
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      },
+      {
+       "line": "ways:--and the road",
+       "token": 2,
+       "word": "--and",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   },
+   "library_before": {
+    "noinsp_class": false,
+    "undecided_text": "",
+    "undecided_visible": false,
+    "renumbered_text": "",
+    "renumbered_visible": false,
+    "toasts": []
+   },
+   "envelope": [
+    {
+     "scope": "whole",
+     "declarations": [
+      {
+       "pronunciations": [
+        {
+         "line": "Oh--oh, oh my love",
+         "token": 2,
+         "word": "oh",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        },
+        {
+         "line": "ways:--and the road",
+         "token": 2,
+         "word": "--and",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lyrics_origin_declarations": [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      },
+      {
+       "line": "ways:--and the road",
+       "token": 2,
+       "word": "--and",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   ],
+   "lyrics_text": "Untitled song\n\nWorkspace: Untitled workspace\n\nNot reviewed\nRun review\nWrite with AI\nExport\nSections\nSong brief\nNo brief yet\nHook not declared\nEdit brief\n\n Epithalamion · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nThe writing workflow accepts 2–12 sung words per line. The full reading is retained.\n\nExport source details\nFind\nUndo\nRedo\nDisplay\n1\nYe learnèd sisters, which have oftentimes\n2\nBeene to me ayding, others to adorne,\n3\nWhom ye thought worthy of your gracefull rymes,\n4\nThat even the greatest did not greatly scorne\n5\nTo heare theyr names sung in your simple layes,\n6\nBut joyèd in theyr praise;\n7\nAnd when ye list your owne mishaps to mourne,\n8\nWhich death, or love, or fortunes wreck did rayse,\n9\nYour string could soone to sadder tenor turne,\n10\nAnd teach the woods and waters to lament\n11\nYour dolefull dreriment:\n12\nNow lay those sorrowfull complaints aside;\n13\nAnd, having all your heads with girlands crownd,\n14\nHelpe me mine owne loves prayses to resound;\n15\nNe let the same of any be envide:\n16\nSo Orpheus did for his owne bride!\n17\nSo I unto my selfe alone will sing;\n18\nThe woods shall to me answer, and my Eccho ring.\n19\nEarly, before the worlds light-giving lampe\n20\nHis golden beame upon the hils doth spred,\n21\nHaving disperst the nights unchearefull dampe,\n22\nDoe ye awake; and, with fresh lusty-hed,\n23\nGo to the bowre of my belovèd love,\n24\nMy truest turtle dove;\n25\nBid her awake; for Hymen is awake,\n26\nAnd long since ready forth his maske to move,\n27\nWith his bright Tead that flames with many a flake,\n28\nAnd many a bachelor to waite on him,\n29\nIn theyr fresh garments trim.\n30\nBid her awake therefore, and soone her dight,\n31\nFor lo! the wishèd day is come at last,\n32\nThat shall, for all the paynes and sorrowes past,\n33\nPay to her usury of long delight:\n34\nAnd, whylest she doth her dight,\n35\nDoe ye to her of joy and solace sing,\n36\nThat all the woods may answer, and your eccho ring.\n37\nBring with you all the Nymphes that you can heare\n38\nBoth of the rivers and the forrests greene,\n39\nAnd of the sea that neighbours to her neare:\n40\nAl with gay girlands goodly wel beseene.\n41\nAnd let them also with them bring in hand\n42\nAnother gay girland\n43\nFor my fayre love, of lillyes and of roses,\n44\nBound truelove wize, with a blew silke riband.\n45\nAnd let them make great store of bridale poses,\n46\nAnd let them eeke bring store of other flowers,\n47\nTo deck the bridale bowers.\n48\nAnd let the ground whereas her foot shall tread,\n49\nFor feare the stones her tender foot should wrong,\n50\nBe strewed with fragrant flowers all along,\n51\nAnd diapred lyke the discolored mead.\n52\nWhich done, doe at her chamber dore awayt,\n53\nFor she will waken strayt;\n54\nThe whiles doe ye this song unto her sing,\n55\nThe woods shall to you answer, and your Eccho ring.\n56\nYe Nymphes of Mulla, which with carefull heed\n57\nThe silver scaly trouts doe tend full well,\n58\nAnd greedy pikes which use therein to feed;\n59\n(Those trouts and pikes all others doo excell;)\n60\nAnd ye likewise, which keepe the rushy lake,\n61\nWhere none doo fishes take;\n62\nBynd up the locks the which hang scatterd light,\n63\nAnd in his waters, which your mirror make,\n64\nBehold your faces as the christall bright,\n65\nThat when you come whereas my love doth lie,\n66\nNo blemish she may spie.\n67\nAnd eke, ye lightfoot mayds, which keepe the deere,\n68\nThat on the hoary mountayne used to towre;\n69\nAnd the wylde wolves, which seeke them to devoure,\n70\nWith your steele darts doo chace from comming neer;\n71\nBe also present heere,\n72\nTo helpe to decke her, and to help to sing,\n73\nThat all the woods may answer, and your eccho ring.\n74\nWake now, my love, awake! for it is time;\n75\nThe Rosy Morne long since left Tithones bed,\n76\nAll ready to her silver coche to clyme;\n77\nAnd Phœbus gins to shew his glorious hed.\n78\nHark! how the cheerefull birds do chaunt theyr laies\n79\nAnd carroll of Loves praise.\n80\nThe merry Larke hir mattins sings aloft;\n81\nThe Thrush replyes; the Mavis descant playes;\n82\nThe Ouzell shrills; the Ruddock warbles soft;\n83\nSo goodly all agree, with sweet consent,\n84\nTo this dayes merriment.\n85\nAh! my deere love, why doe ye sleepe thus long?\n86\nWhen meeter were that ye should now awake,\n87\nT’ awayt the comming of your joyous make,\n88\nAnd hearken to the birds love-learnèd song,\n89\nThe deawy leaves among!\n90\nNor they of joy and pleasance to you sing,\n91\nThat all the woods them answer, and theyr eccho ring.\n92\nMy love is now awake out of her dreames,\n93\nAnd her fayre eyes, like stars that dimmèd were\n94\nWith darksome cloud, now shew theyr goodly beams\n95\nMore bright then Hesperus his head doth rere.\n96\nCome now, ye damzels, daughters of delight,\n97\nHelpe quickly her to dight:\n98\nBut first come ye fayre houres, which were begot\n99\nIn Joves sweet paradice of Day and Night;\n100\nWhich doe the seasons of the yeare allot,\n101\nAnd al, that ever in this world is fayre,\n102\nDoe make and still repayre:\n103\nAnd ye three handmayds of the Cyprian Queene,\n104\nThe which doe still adorne her beauties pride,\n105\nHelpe to addorne my beautifullest bride:\n106\nAnd, as ye her array, still throw betweene\n107\nSome graces to be seene;\n108\nAnd, as ye use to Venus, to her sing,\n109\nThe whiles the woods shal answer, and your eccho ring.\n110\nNow is my love all ready forth to come:\n111\nLet all the virgins therefore well awayt:\n112\nAnd ye fresh boyes, that tend upon her groome,\n113\nPrepare your selves; for he is comming strayt.\n114\nSet all your things in seemely good aray,\n115\nFit for so joyfull day:\n116\nThe joyfulst day that ever sunne did see.\n117\nFaire Sun! shew forth thy favourable ray,\n118\nAnd let thy lifull heat not fervent be,\n119\nFor feare of burning her sunshyny face,\n120\nHer beauty to disgrace.\n121\nO fayrest Phœbus! father of the Muse!\n122\nIf ever I did honour thee aright,\n123\nOr sing the thing that mote thy mind delight,\n124\nDoe not thy servants simple boone refuse;\n125\nBut let this day, let this one day, be myne;\n126\nLet all the rest be thine.\n127\nThen I thy soverayne prayses loud wil sing,\n128\nThat all the woods shal answer, and theyr eccho ring.\n129\nHarke! how the Minstrils gin to shrill aloud\n130\nTheir merry Musick that resounds from far,\n131\nThe pipe, the tabor, and the trembling Croud,\n132\nThat well agree withouten breach or jar.\n133\nBut, most of all, the Damzels doe delite\n134\nWhen they their tymbrels smyte,\n135\nAnd thereunto doe daunce and carrol sweet,\n136\nThat all the sences they doe ravish quite;\n137\nThe whyles the boyes run up and downe the street,\n138\nCrying aloud with strong confusèd noyce,\n139\nAs if it were one voyce,\n140\nHymen, iö Hymen, Hymen, they do shout;\n141\nThat even to the heavens theyr shouting shrill\n142\nDoth reach, and all the firmament doth fill;\n143\nTo which the people standing all about,\n144\nAs in approvance, doe thereto applaud,\n145\nAnd loud advaunce her laud;\n146\nAnd evermore they Hymen, Hymen sing,\n147\nThat al the woods them answer, and theyr eccho ring.\n148\nLoe! where she comes along with portly pace,\n149\nLyke Phœbe, from her chamber of the East,\n150\nArysing forth to run her mighty race,\n151\nClad all in white, that seemes a virgin best.\n152\nSo well it her beseemes, that ye would weene\n153\nSome angell she had beene.\n154\nHer long loose yellow locks lyke golden wyre,\n155\nSprinckled with perle, and perling flowres atweene,\n156\nDoe lyke a golden mantle her attyre;\n157\nAnd, being crownèd with a girland greene,\n158\nSeeme lyke some mayden Queene.\n159\nHer modest eyes, abashèd to behold\n160\nSo many gazers as on her do stare,\n161\nUpon the lowly ground affixèd are;\n162\nNe dare lift up her countenance too bold,\n163\nBut blush to heare her prayses sung so loud,\n164\nSo farre from being proud.\n165\nNathlesse doe ye still loud her prayses sing,\n166\nThat all the woods may answer, and your eccho ring.\n167\nTell me, ye merchants daughters, did ye see\n168\nSo fayre a creature in your towne before;\n169\nSo sweet, so lovely, and so mild as she,\n170\nAdornd with beautyes grace and vertues store?\n171\nHer goodly eyes lyke Saphyres shining bright,\n172\nHer forehead yvory white,\n173\nHer cheekes lyke apples which the sun hath rudded,\n174\nHer lips lyke cherryes charming men to byte,\n175\nHer brest like to a bowle of creame uncrudded,\n176\nHer paps lyke lyllies budded,\n177\nHer snowie necke lyke to a marble towre;\n178\nAnd all her body like a pallace fayre,\n179\nAscending up, with many a stately stayre,\n180\nTo honors seat and chastities sweet bowre.\n181\nWhy stand ye still ye virgins in amaze,\n182\nUpon her so to gaze,\n183\nWhiles ye forget your former lay to sing,\n184\nTo which the woods did answer, and your eccho ring?\n185\nBut if ye saw that which no eyes can see,\n186\nThe inward beauty of her lively spright,\n187\nGarnisht with heavenly guifts of high degree,\n188\nMuch more then would ye wonder at that sight,\n189\nAnd stand astonisht lyke to those which red\n190\nMedusaes mazeful hed.\n191\nThere dwels sweet love, and constant chastity,\n192\nUnspotted fayth, and comely womanhood,\n193\nRegard of honour, and mild modesty;\n194\nThere vertue raynes as Queene in royal throne,\n195\nAnd giveth lawes alone,\n196\nThe which the base affections doe obay,\n197\nAnd yeeld theyr services unto her will;\n198\nNe thought of thing uncomely ever may\n199\nThereto approch to tempt her mind to ill.\n200\nHad ye once seene these her celestial threasures,\n201\nAnd unrevealèd pleasures,\n202\nThen would ye wonder, and her prayses sing,\n203\nThat al the woods should answer, and your echo ring.\n204\nOpen the temple gates unto my love,\n205\nOpen them wide that she may enter in,\n206\nAnd all the postes adorne as doth behove,\n207\nAnd all the pillours deck with girlands trim,\n208\nFor to receyve this Saynt with honour dew,\n209\nThat commeth in to you.\n210\nWith trembling steps, and humble reverence,\n211\nShe commeth in, before th’ Almighties view;\n212\nOf her ye virgins learne obedience,\n213\nWhen so ye come into those holy places,\n214\nTo humble your proud faces:\n215\nBring her up to th’ high altar, that she may\n216\nThe sacred ceremonies there partake,\n217\nThe which do endlesse matrimony make;\n218\nAnd let the roring Organs loudly play\n219\nThe praises of the Lord in lively notes;\n220\nThe whiles, with hollow throates,\n221\nThe Choristers the joyous Antheme sing,\n222\nThat al the woods may answere, and their eccho ring.\n223\nBehold, whiles she before the altar stands,\n224\nHearing the holy priest that to her speakes,\n225\nAnd blesseth her with his two happy hands,\n226\nHow the red roses flush up in her cheekes,\n227\nAnd the pure snow, with goodly vermill stayne\n228\nLike crimsin dyde in grayne:\n229\nThat even th’ Angels, which continually\n230\nAbout the sacred Altare doe remaine,\n231\nForget their service and about her fly,\n232\nOfte peeping in her face, that seems more fayre,\n233\nThe more they on it stare.\n234\nBut her sad eyes, still fastened on the ground,\n235\nAre governèd with goodly modesty,\n236\nThat suffers not one looke to glaunce awry,\n237\nWhich may let in a little thought unsownd.\n238\nWhy blush ye, love, to give to me your hand,\n239\nThe pledge of all our band!\n240\nSing, ye sweet Angels, Alleluya sing,\n241\nThat all the woods may answere, and your eccho ring.\n242\nNow al is done: bring home the bride againe;\n243\nBring home the triumph of our victory:\n244\nBring home with you the glory of her gaine;\n245\nWith joyance bring her and with jollity.\n246\nNever had man more joyfull day then this,\n247\nWhom heaven would heape with blis,\n248\nMake feast therefore now all this live-long day;\n249\nThis day for ever to me holy is.\n250\nPoure out the wine without restraint or stay,\n251\nPoure not by cups, but by the belly full,\n252\nPoure out to all that wull,\n253\nAnd sprinkle all the postes and wals with wine,\n254\nThat they may sweat, and drunken be withall.\n255\nCrowne ye God Bacchus with a coronall,\n256\nAnd Hymen also crowne with wreathes of vine;\n257\nAnd let the Graces daunce unto the rest,\n258\nFor they can doo it best:\n259\nThe whiles the maydens doe theyr carroll sing,\n260\nTo which the woods shall answer, and theyr eccho ring.\n261\nRing ye the bels, ye yong men of the towne,\n262\nAnd leave your wonted labors for this day:\n263\nThis day is holy; doe ye write it downe,\n264\nThat ye for ever it remember may.\n265\nThis day the sunne is in his chiefest hight,\n266\nWith Barnaby the bright,\n267\nFrom whence declining daily by degrees,\n268\nHe somewhat loseth of his heat and light,\n269\nWhen once the Crab behind his back he sees.\n270\nBut for this time it ill ordainèd was,\n271\nTo chose the longest day in all the yeare,\n272\nAnd shortest night, when longest fitter weare:\n273\nYet never day so long, but late would passe.\n274\nRing ye the bels, to make it weare away,\n275\nAnd bonefiers make all day;\n276\nAnd daunce about them, and about them sing,\n277\nThat all the woods may answer, and your eccho ring.\n278\nAh! when will this long weary day have end,\n279\nAnd lende me leave to come unto my love?\n280\nHow slowly do the houres theyr numbers spend?\n281\nHow slowly does sad Time his feathers move?\n282\nHast thee, O fayrest Planet, to thy home,\n283\nWithin the Westerne fome:\n284\nThy tyrèd steedes long since have need of rest.\n285\nLong though it be, at last I see it gloome,\n286\nAnd the bright evening-star with golden creast\n287\nAppeare out of the East.\n288\nFayre childe of beauty! glorious lampe of love!\n289\nThat all the host of heaven in rankes doost lead,\n290\nAnd guydest lovers through the nights sad dread,\n291\nHow chearefully thou lookest from above,\n292\nAnd seemst to laugh atweene thy twinkling light,\n293\nAs joying in the sight\n294\nOf these glad many, which for joy doe sing,\n295\nThat all the woods them answer, and their echo ring!\n296\nNow ceasse, ye damsels, your delights fore-past;\n297\nEnough it is that all the day was youres:\n298\nNow day is doen, and night is nighing fast,\n299\nNow bring the Bryde into the brydall boures.\n300\nThe night is come, now soon her disaray,\n301\nAnd in her bed her lay;\n302\nLay her in lillies and in violets,\n303\nAnd silken courteins over her display,\n304\nAnd odourd sheetes, and Arras coverlets.\n305\nBehold how goodly my faire love does ly,\n306\nIn proud humility!\n307\nLike unto Maia, when as Jove her took\n308\nIn Tempe, lying on the flowry gras,\n309\nTwixt sleepe and wake, after she weary was,\n310\nWith bathing in the Acidalian brooke.\n311\nNow it is night, ye damsels may be gon,\n312\nAnd leave my love alone,\n313\nAnd leave likewise your former lay to sing:\n314\nThe woods no more shall answere, nor your echo ring.\n315\nNow welcome, night! thou night so long expected,\n316\nThat long daies labour doest at last defray,\n317\nAnd all my cares, which cruell Love collected,\n318\nHast sumd in one, and cancellèd for aye:\n319\nSpread thy broad wing over my love and me,\n320\nThat no man may us see;\n321\nAnd in thy sable mantle us enwrap,\n322\nFrom feare of perrill and foule horror free.\n323\nLet no false treason seeke us to entrap,\n324\nNor any dread disquiet once annoy\n325\nThe safety of our joy;\n326\nBut let the night be calme, and quietsome,\n327\nWithout tempestuous storms or sad afray:\n328\nLyke as when Jove with fayre Alcmena lay,\n329\nWhen he begot the great Tirynthian groome:\n330\nOr lyke as when he with thy selfe did lie\n331\nAnd begot Majesty.\n332\nAnd let the mayds and yong men cease to sing;\n333\nNe let the woods them answer nor theyr eccho ring.\n334\nLet no lamenting cryes, nor dolefull teares,\n335\nBe heard all night within, nor yet without:\n336\nNe let false whispers, breeding hidden feares,\n337\nBreake gentle sleepe with misconceivèd dout.\n338\nLet no deluding dreames, nor dreadfull sights,\n339\nMake sudden sad affrights;\n340\nNe let house-fyres, nor lightnings helpelesse harmes,\n341\nNe let the Pouke, nor other evill sprights,\n342\nNe let mischivous witches with theyr charmes,\n343\nNe let hob Goblins, names whose sence we see not,\n344\nFray us with things that be not:\n345\nLet not the shriech Oule nor the Storke be heard,\n346\nNor the night Raven, that still deadly yels;\n347\nNor damnèd ghosts, cald up with mighty spels,\n348\nNor griesly vultures, make us once affeard:\n349\nNe let th’ unpleasant Quyre of Frogs still croking\n350\nMake us to wish theyr choking.\n351\nLet none of these theyr drery accents sing;\n352\nNe let the woods them answer, nor theyr eccho ring.\n353\nBut let stil Silence trew night-watches keepe,\n354\nThat sacred Peace may in assurance rayne,\n355\nAnd tymely Sleep, when it is tyme to sleepe,\n356\nMay poure his limbs forth on your pleasant playne;\n357\nThe whiles an hundred little wingèd loves,\n358\nLike divers-fethered doves,\n359\nShall fly and flutter round about your bed,\n360\nAnd in the secret darke, that none reproves,\n361\nTheir prety stealthes shal worke, and snares shal spread\n362\nTo filch away sweet snatches of delight,\n363\nConceald through covert night.\n364\nYe sonnes of Venus, play your sports at will!\n365\nFor greedy pleasure, carelesse of your toyes,\n366\nThinks more upon her paradise of joyes,\n367\nThen what ye do, albe it good or ill.\n368\nAll night therefore attend your merry play,\n369\nFor it will soone be day:\n370\nNow none doth hinder you, that say or sing;\n371\nNe will the woods now answer, nor your Eccho ring.\n372\nWho is the same, which at my window peepes?\n373\nOr whose is that faire face that shines so bright?\n374\nIs it not Cinthia, she that never sleepes,\n375\nBut walkes about high heaven al the night?\n376\nO! fayrest goddesse, do thou not envy\n377\nMy love with me to spy:\n378\nFor thou likewise didst love, though now unthought,\n379\nAnd for a fleece of wooll, which privily\n380\nThe Latmian shepherd once unto thee brought,\n381\nHis pleasures with thee wrought.\n382\nTherefore to us be favorable now;\n383\nAnd sith of wemens labours thou hast charge,\n384\nAnd generation goodly dost enlarge,\n385\nEncline thy will t’effect our wishfull vow,\n386\nAnd the chast wombe informe with timely seed\n387\nThat may our comfort breed:\n388\nTill which we cease our hopefull hap to sing;\n389\nNe let the woods us answere, nor our Eccho ring.\n390\nAnd thou, great Juno! which with awful might\n391\nThe lawes of wedlock still dost patronize;\n392\nAnd the religion of the faith first plight\n393\nWith sacred rites hast taught to solemnize;\n394\nAnd eeke for comfort often callèd art\n395\nOf women in their smart;\n396\nEternally bind thou this lovely band,\n397\nAnd all thy blessings unto us impart.\n398\nAnd thou, glad Genius! in whose gentle hand\n399\nThe bridale bowre and geniall bed remaine,\n400\nWithout blemish or staine;\n401\nAnd the sweet pleasures of theyr loves delight\n402\nWith secret ayde doest succour and supply,\n403\nTill they bring forth the fruitfull progeny;\n404\nSend us the timely fruit of this same night.\n405\nAnd thou, fayre Hebe! and thou, Hymen free!\n406\nGrant that it may so be.\n407\nTil which we cease your further prayse to sing;\n408\nNe any woods shall answer, nor your Eccho ring.\n409\nAnd ye high heavens, the temple of the gods,\n410\nIn which a thousand torches flaming bright\n411\nDoe burne, that to us wretched earthly clods\n412\nIn dreadful darknesse lend desirèd light\n413\nAnd all ye powers which in the same remayne,\n414\nMore then we men can fayne!\n415\nPoure out your blessing on us plentiously,\n416\nAnd happy influence upon us raine,\n417\nThat we may raise a large posterity,\n418\nWhich from the earth, which they may long possesse\n419\nWith lasting happinesse,\n420\nUp to your haughty pallaces may mount;\n421\nAnd, for the guerdon of theyr glorious merit,\n422\nMay heavenly tabernacles there inherit,\n423\nOf blessèd Saints for to increase the count.\n424\nSo let us rest, sweet love, in hope of this,\n425\nAnd cease till then our tymely joyes to sing:\n426\nThe woods no more us answer, nor our eccho ring!\n427\n_Song! made in lieu of many ornaments._\n428\n_With which my love should duly have been dect,_\n429\n_Which cutting off through hasty accidents,_\n430\n_Ye would not stay your dew time to expect_\n431\n_But promist both to recompens;_\n432\n_Be unto her a goodly ornament,_\n433\n_And for short time an endlesse moniment._\nLyrics document. A line in [brackets] starts a section.\nTools\nWriter\nReview\nHistory\nTools\nForm & story\nSection order and story jobs\nRhymes\nDeclared rhyme links\nRhythm\nMeter and line placement\nPronunciation\nSung-word readings\nRepeats & voices\nExact repeats and sung asides\nWord rules\nRequired and avoided phrases\nThis version has not been reviewed\n\nRun a review to check form, rhymes, rhythm and pronunciation.\n\nRun review",
+   "toasts_after": [
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "export_source": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/migrated_second_visit.source.json",
+    "declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "has_dash_and": true
+   },
+   "download_label": "Download text and sources",
+   "working_copy": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/migrated_second_visit.working-copy.json",
+    "payload_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "workingCopy_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "adapted": false,
+    "has_dash_and": true
+   },
+   "reimport": {
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "origin_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "origin_handoff": "handoff:aa3d9bfd-ecc3-46b9-9880-e85a62be2e0a"
+   },
+   "library_record_after": {
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      },
+      {
+       "line": "ways:--and the road",
+       "token": 2,
+       "word": "--and",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   },
+   "lyrics_mentions": {
+    "dash_and": false,
+    "pronunciation": true,
+    "decision_words": false,
+    "declaration": false
+   }
+  },
+  "v9_pron": {
+   "errors": [],
+   "seeded": true,
+   "library_before": {
+    "noinsp_class": false,
+    "undecided_text": "",
+    "undecided_visible": false,
+    "renumbered_text": "",
+    "renumbered_visible": false,
+    "toasts": []
+   },
+   "envelope": [
+    {
+     "scope": "whole",
+     "declarations": [
+      {
+       "pronunciations": [
+        {
+         "line": "Oh--oh, oh my love",
+         "token": 2,
+         "word": "oh",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lyrics_origin_declarations": [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   ],
+   "lyrics_text": "Untitled song\n\nWorkspace: Untitled workspace\n\nNot reviewed\nRun review\nWrite with AI\nExport\nSections\nSong brief\nNo brief yet\nHook not declared\nEdit brief\n\n Epithalamion · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nThe writing workflow accepts 2–12 sung words per line. The full reading is retained.\n\nExport source details\nFind\nUndo\nRedo\nDisplay\n1\nYe learnèd sisters, which have oftentimes\n2\nBeene to me ayding, others to adorne,\n3\nWhom ye thought worthy of your gracefull rymes,\n4\nThat even the greatest did not greatly scorne\n5\nTo heare theyr names sung in your simple layes,\n6\nBut joyèd in theyr praise;\n7\nAnd when ye list your owne mishaps to mourne,\n8\nWhich death, or love, or fortunes wreck did rayse,\n9\nYour string could soone to sadder tenor turne,\n10\nAnd teach the woods and waters to lament\n11\nYour dolefull dreriment:\n12\nNow lay those sorrowfull complaints aside;\n13\nAnd, having all your heads with girlands crownd,\n14\nHelpe me mine owne loves prayses to resound;\n15\nNe let the same of any be envide:\n16\nSo Orpheus did for his owne bride!\n17\nSo I unto my selfe alone will sing;\n18\nThe woods shall to me answer, and my Eccho ring.\n19\nEarly, before the worlds light-giving lampe\n20\nHis golden beame upon the hils doth spred,\n21\nHaving disperst the nights unchearefull dampe,\n22\nDoe ye awake; and, with fresh lusty-hed,\n23\nGo to the bowre of my belovèd love,\n24\nMy truest turtle dove;\n25\nBid her awake; for Hymen is awake,\n26\nAnd long since ready forth his maske to move,\n27\nWith his bright Tead that flames with many a flake,\n28\nAnd many a bachelor to waite on him,\n29\nIn theyr fresh garments trim.\n30\nBid her awake therefore, and soone her dight,\n31\nFor lo! the wishèd day is come at last,\n32\nThat shall, for all the paynes and sorrowes past,\n33\nPay to her usury of long delight:\n34\nAnd, whylest she doth her dight,\n35\nDoe ye to her of joy and solace sing,\n36\nThat all the woods may answer, and your eccho ring.\n37\nBring with you all the Nymphes that you can heare\n38\nBoth of the rivers and the forrests greene,\n39\nAnd of the sea that neighbours to her neare:\n40\nAl with gay girlands goodly wel beseene.\n41\nAnd let them also with them bring in hand\n42\nAnother gay girland\n43\nFor my fayre love, of lillyes and of roses,\n44\nBound truelove wize, with a blew silke riband.\n45\nAnd let them make great store of bridale poses,\n46\nAnd let them eeke bring store of other flowers,\n47\nTo deck the bridale bowers.\n48\nAnd let the ground whereas her foot shall tread,\n49\nFor feare the stones her tender foot should wrong,\n50\nBe strewed with fragrant flowers all along,\n51\nAnd diapred lyke the discolored mead.\n52\nWhich done, doe at her chamber dore awayt,\n53\nFor she will waken strayt;\n54\nThe whiles doe ye this song unto her sing,\n55\nThe woods shall to you answer, and your Eccho ring.\n56\nYe Nymphes of Mulla, which with carefull heed\n57\nThe silver scaly trouts doe tend full well,\n58\nAnd greedy pikes which use therein to feed;\n59\n(Those trouts and pikes all others doo excell;)\n60\nAnd ye likewise, which keepe the rushy lake,\n61\nWhere none doo fishes take;\n62\nBynd up the locks the which hang scatterd light,\n63\nAnd in his waters, which your mirror make,\n64\nBehold your faces as the christall bright,\n65\nThat when you come whereas my love doth lie,\n66\nNo blemish she may spie.\n67\nAnd eke, ye lightfoot mayds, which keepe the deere,\n68\nThat on the hoary mountayne used to towre;\n69\nAnd the wylde wolves, which seeke them to devoure,\n70\nWith your steele darts doo chace from comming neer;\n71\nBe also present heere,\n72\nTo helpe to decke her, and to help to sing,\n73\nThat all the woods may answer, and your eccho ring.\n74\nWake now, my love, awake! for it is time;\n75\nThe Rosy Morne long since left Tithones bed,\n76\nAll ready to her silver coche to clyme;\n77\nAnd Phœbus gins to shew his glorious hed.\n78\nHark! how the cheerefull birds do chaunt theyr laies\n79\nAnd carroll of Loves praise.\n80\nThe merry Larke hir mattins sings aloft;\n81\nThe Thrush replyes; the Mavis descant playes;\n82\nThe Ouzell shrills; the Ruddock warbles soft;\n83\nSo goodly all agree, with sweet consent,\n84\nTo this dayes merriment.\n85\nAh! my deere love, why doe ye sleepe thus long?\n86\nWhen meeter were that ye should now awake,\n87\nT’ awayt the comming of your joyous make,\n88\nAnd hearken to the birds love-learnèd song,\n89\nThe deawy leaves among!\n90\nNor they of joy and pleasance to you sing,\n91\nThat all the woods them answer, and theyr eccho ring.\n92\nMy love is now awake out of her dreames,\n93\nAnd her fayre eyes, like stars that dimmèd were\n94\nWith darksome cloud, now shew theyr goodly beams\n95\nMore bright then Hesperus his head doth rere.\n96\nCome now, ye damzels, daughters of delight,\n97\nHelpe quickly her to dight:\n98\nBut first come ye fayre houres, which were begot\n99\nIn Joves sweet paradice of Day and Night;\n100\nWhich doe the seasons of the yeare allot,\n101\nAnd al, that ever in this world is fayre,\n102\nDoe make and still repayre:\n103\nAnd ye three handmayds of the Cyprian Queene,\n104\nThe which doe still adorne her beauties pride,\n105\nHelpe to addorne my beautifullest bride:\n106\nAnd, as ye her array, still throw betweene\n107\nSome graces to be seene;\n108\nAnd, as ye use to Venus, to her sing,\n109\nThe whiles the woods shal answer, and your eccho ring.\n110\nNow is my love all ready forth to come:\n111\nLet all the virgins therefore well awayt:\n112\nAnd ye fresh boyes, that tend upon her groome,\n113\nPrepare your selves; for he is comming strayt.\n114\nSet all your things in seemely good aray,\n115\nFit for so joyfull day:\n116\nThe joyfulst day that ever sunne did see.\n117\nFaire Sun! shew forth thy favourable ray,\n118\nAnd let thy lifull heat not fervent be,\n119\nFor feare of burning her sunshyny face,\n120\nHer beauty to disgrace.\n121\nO fayrest Phœbus! father of the Muse!\n122\nIf ever I did honour thee aright,\n123\nOr sing the thing that mote thy mind delight,\n124\nDoe not thy servants simple boone refuse;\n125\nBut let this day, let this one day, be myne;\n126\nLet all the rest be thine.\n127\nThen I thy soverayne prayses loud wil sing,\n128\nThat all the woods shal answer, and theyr eccho ring.\n129\nHarke! how the Minstrils gin to shrill aloud\n130\nTheir merry Musick that resounds from far,\n131\nThe pipe, the tabor, and the trembling Croud,\n132\nThat well agree withouten breach or jar.\n133\nBut, most of all, the Damzels doe delite\n134\nWhen they their tymbrels smyte,\n135\nAnd thereunto doe daunce and carrol sweet,\n136\nThat all the sences they doe ravish quite;\n137\nThe whyles the boyes run up and downe the street,\n138\nCrying aloud with strong confusèd noyce,\n139\nAs if it were one voyce,\n140\nHymen, iö Hymen, Hymen, they do shout;\n141\nThat even to the heavens theyr shouting shrill\n142\nDoth reach, and all the firmament doth fill;\n143\nTo which the people standing all about,\n144\nAs in approvance, doe thereto applaud,\n145\nAnd loud advaunce her laud;\n146\nAnd evermore they Hymen, Hymen sing,\n147\nThat al the woods them answer, and theyr eccho ring.\n148\nLoe! where she comes along with portly pace,\n149\nLyke Phœbe, from her chamber of the East,\n150\nArysing forth to run her mighty race,\n151\nClad all in white, that seemes a virgin best.\n152\nSo well it her beseemes, that ye would weene\n153\nSome angell she had beene.\n154\nHer long loose yellow locks lyke golden wyre,\n155\nSprinckled with perle, and perling flowres atweene,\n156\nDoe lyke a golden mantle her attyre;\n157\nAnd, being crownèd with a girland greene,\n158\nSeeme lyke some mayden Queene.\n159\nHer modest eyes, abashèd to behold\n160\nSo many gazers as on her do stare,\n161\nUpon the lowly ground affixèd are;\n162\nNe dare lift up her countenance too bold,\n163\nBut blush to heare her prayses sung so loud,\n164\nSo farre from being proud.\n165\nNathlesse doe ye still loud her prayses sing,\n166\nThat all the woods may answer, and your eccho ring.\n167\nTell me, ye merchants daughters, did ye see\n168\nSo fayre a creature in your towne before;\n169\nSo sweet, so lovely, and so mild as she,\n170\nAdornd with beautyes grace and vertues store?\n171\nHer goodly eyes lyke Saphyres shining bright,\n172\nHer forehead yvory white,\n173\nHer cheekes lyke apples which the sun hath rudded,\n174\nHer lips lyke cherryes charming men to byte,\n175\nHer brest like to a bowle of creame uncrudded,\n176\nHer paps lyke lyllies budded,\n177\nHer snowie necke lyke to a marble towre;\n178\nAnd all her body like a pallace fayre,\n179\nAscending up, with many a stately stayre,\n180\nTo honors seat and chastities sweet bowre.\n181\nWhy stand ye still ye virgins in amaze,\n182\nUpon her so to gaze,\n183\nWhiles ye forget your former lay to sing,\n184\nTo which the woods did answer, and your eccho ring?\n185\nBut if ye saw that which no eyes can see,\n186\nThe inward beauty of her lively spright,\n187\nGarnisht with heavenly guifts of high degree,\n188\nMuch more then would ye wonder at that sight,\n189\nAnd stand astonisht lyke to those which red\n190\nMedusaes mazeful hed.\n191\nThere dwels sweet love, and constant chastity,\n192\nUnspotted fayth, and comely womanhood,\n193\nRegard of honour, and mild modesty;\n194\nThere vertue raynes as Queene in royal throne,\n195\nAnd giveth lawes alone,\n196\nThe which the base affections doe obay,\n197\nAnd yeeld theyr services unto her will;\n198\nNe thought of thing uncomely ever may\n199\nThereto approch to tempt her mind to ill.\n200\nHad ye once seene these her celestial threasures,\n201\nAnd unrevealèd pleasures,\n202\nThen would ye wonder, and her prayses sing,\n203\nThat al the woods should answer, and your echo ring.\n204\nOpen the temple gates unto my love,\n205\nOpen them wide that she may enter in,\n206\nAnd all the postes adorne as doth behove,\n207\nAnd all the pillours deck with girlands trim,\n208\nFor to receyve this Saynt with honour dew,\n209\nThat commeth in to you.\n210\nWith trembling steps, and humble reverence,\n211\nShe commeth in, before th’ Almighties view;\n212\nOf her ye virgins learne obedience,\n213\nWhen so ye come into those holy places,\n214\nTo humble your proud faces:\n215\nBring her up to th’ high altar, that she may\n216\nThe sacred ceremonies there partake,\n217\nThe which do endlesse matrimony make;\n218\nAnd let the roring Organs loudly play\n219\nThe praises of the Lord in lively notes;\n220\nThe whiles, with hollow throates,\n221\nThe Choristers the joyous Antheme sing,\n222\nThat al the woods may answere, and their eccho ring.\n223\nBehold, whiles she before the altar stands,\n224\nHearing the holy priest that to her speakes,\n225\nAnd blesseth her with his two happy hands,\n226\nHow the red roses flush up in her cheekes,\n227\nAnd the pure snow, with goodly vermill stayne\n228\nLike crimsin dyde in grayne:\n229\nThat even th’ Angels, which continually\n230\nAbout the sacred Altare doe remaine,\n231\nForget their service and about her fly,\n232\nOfte peeping in her face, that seems more fayre,\n233\nThe more they on it stare.\n234\nBut her sad eyes, still fastened on the ground,\n235\nAre governèd with goodly modesty,\n236\nThat suffers not one looke to glaunce awry,\n237\nWhich may let in a little thought unsownd.\n238\nWhy blush ye, love, to give to me your hand,\n239\nThe pledge of all our band!\n240\nSing, ye sweet Angels, Alleluya sing,\n241\nThat all the woods may answere, and your eccho ring.\n242\nNow al is done: bring home the bride againe;\n243\nBring home the triumph of our victory:\n244\nBring home with you the glory of her gaine;\n245\nWith joyance bring her and with jollity.\n246\nNever had man more joyfull day then this,\n247\nWhom heaven would heape with blis,\n248\nMake feast therefore now all this live-long day;\n249\nThis day for ever to me holy is.\n250\nPoure out the wine without restraint or stay,\n251\nPoure not by cups, but by the belly full,\n252\nPoure out to all that wull,\n253\nAnd sprinkle all the postes and wals with wine,\n254\nThat they may sweat, and drunken be withall.\n255\nCrowne ye God Bacchus with a coronall,\n256\nAnd Hymen also crowne with wreathes of vine;\n257\nAnd let the Graces daunce unto the rest,\n258\nFor they can doo it best:\n259\nThe whiles the maydens doe theyr carroll sing,\n260\nTo which the woods shall answer, and theyr eccho ring.\n261\nRing ye the bels, ye yong men of the towne,\n262\nAnd leave your wonted labors for this day:\n263\nThis day is holy; doe ye write it downe,\n264\nThat ye for ever it remember may.\n265\nThis day the sunne is in his chiefest hight,\n266\nWith Barnaby the bright,\n267\nFrom whence declining daily by degrees,\n268\nHe somewhat loseth of his heat and light,\n269\nWhen once the Crab behind his back he sees.\n270\nBut for this time it ill ordainèd was,\n271\nTo chose the longest day in all the yeare,\n272\nAnd shortest night, when longest fitter weare:\n273\nYet never day so long, but late would passe.\n274\nRing ye the bels, to make it weare away,\n275\nAnd bonefiers make all day;\n276\nAnd daunce about them, and about them sing,\n277\nThat all the woods may answer, and your eccho ring.\n278\nAh! when will this long weary day have end,\n279\nAnd lende me leave to come unto my love?\n280\nHow slowly do the houres theyr numbers spend?\n281\nHow slowly does sad Time his feathers move?\n282\nHast thee, O fayrest Planet, to thy home,\n283\nWithin the Westerne fome:\n284\nThy tyrèd steedes long since have need of rest.\n285\nLong though it be, at last I see it gloome,\n286\nAnd the bright evening-star with golden creast\n287\nAppeare out of the East.\n288\nFayre childe of beauty! glorious lampe of love!\n289\nThat all the host of heaven in rankes doost lead,\n290\nAnd guydest lovers through the nights sad dread,\n291\nHow chearefully thou lookest from above,\n292\nAnd seemst to laugh atweene thy twinkling light,\n293\nAs joying in the sight\n294\nOf these glad many, which for joy doe sing,\n295\nThat all the woods them answer, and their echo ring!\n296\nNow ceasse, ye damsels, your delights fore-past;\n297\nEnough it is that all the day was youres:\n298\nNow day is doen, and night is nighing fast,\n299\nNow bring the Bryde into the brydall boures.\n300\nThe night is come, now soon her disaray,\n301\nAnd in her bed her lay;\n302\nLay her in lillies and in violets,\n303\nAnd silken courteins over her display,\n304\nAnd odourd sheetes, and Arras coverlets.\n305\nBehold how goodly my faire love does ly,\n306\nIn proud humility!\n307\nLike unto Maia, when as Jove her took\n308\nIn Tempe, lying on the flowry gras,\n309\nTwixt sleepe and wake, after she weary was,\n310\nWith bathing in the Acidalian brooke.\n311\nNow it is night, ye damsels may be gon,\n312\nAnd leave my love alone,\n313\nAnd leave likewise your former lay to sing:\n314\nThe woods no more shall answere, nor your echo ring.\n315\nNow welcome, night! thou night so long expected,\n316\nThat long daies labour doest at last defray,\n317\nAnd all my cares, which cruell Love collected,\n318\nHast sumd in one, and cancellèd for aye:\n319\nSpread thy broad wing over my love and me,\n320\nThat no man may us see;\n321\nAnd in thy sable mantle us enwrap,\n322\nFrom feare of perrill and foule horror free.\n323\nLet no false treason seeke us to entrap,\n324\nNor any dread disquiet once annoy\n325\nThe safety of our joy;\n326\nBut let the night be calme, and quietsome,\n327\nWithout tempestuous storms or sad afray:\n328\nLyke as when Jove with fayre Alcmena lay,\n329\nWhen he begot the great Tirynthian groome:\n330\nOr lyke as when he with thy selfe did lie\n331\nAnd begot Majesty.\n332\nAnd let the mayds and yong men cease to sing;\n333\nNe let the woods them answer nor theyr eccho ring.\n334\nLet no lamenting cryes, nor dolefull teares,\n335\nBe heard all night within, nor yet without:\n336\nNe let false whispers, breeding hidden feares,\n337\nBreake gentle sleepe with misconceivèd dout.\n338\nLet no deluding dreames, nor dreadfull sights,\n339\nMake sudden sad affrights;\n340\nNe let house-fyres, nor lightnings helpelesse harmes,\n341\nNe let the Pouke, nor other evill sprights,\n342\nNe let mischivous witches with theyr charmes,\n343\nNe let hob Goblins, names whose sence we see not,\n344\nFray us with things that be not:\n345\nLet not the shriech Oule nor the Storke be heard,\n346\nNor the night Raven, that still deadly yels;\n347\nNor damnèd ghosts, cald up with mighty spels,\n348\nNor griesly vultures, make us once affeard:\n349\nNe let th’ unpleasant Quyre of Frogs still croking\n350\nMake us to wish theyr choking.\n351\nLet none of these theyr drery accents sing;\n352\nNe let the woods them answer, nor theyr eccho ring.\n353\nBut let stil Silence trew night-watches keepe,\n354\nThat sacred Peace may in assurance rayne,\n355\nAnd tymely Sleep, when it is tyme to sleepe,\n356\nMay poure his limbs forth on your pleasant playne;\n357\nThe whiles an hundred little wingèd loves,\n358\nLike divers-fethered doves,\n359\nShall fly and flutter round about your bed,\n360\nAnd in the secret darke, that none reproves,\n361\nTheir prety stealthes shal worke, and snares shal spread\n362\nTo filch away sweet snatches of delight,\n363\nConceald through covert night.\n364\nYe sonnes of Venus, play your sports at will!\n365\nFor greedy pleasure, carelesse of your toyes,\n366\nThinks more upon her paradise of joyes,\n367\nThen what ye do, albe it good or ill.\n368\nAll night therefore attend your merry play,\n369\nFor it will soone be day:\n370\nNow none doth hinder you, that say or sing;\n371\nNe will the woods now answer, nor your Eccho ring.\n372\nWho is the same, which at my window peepes?\n373\nOr whose is that faire face that shines so bright?\n374\nIs it not Cinthia, she that never sleepes,\n375\nBut walkes about high heaven al the night?\n376\nO! fayrest goddesse, do thou not envy\n377\nMy love with me to spy:\n378\nFor thou likewise didst love, though now unthought,\n379\nAnd for a fleece of wooll, which privily\n380\nThe Latmian shepherd once unto thee brought,\n381\nHis pleasures with thee wrought.\n382\nTherefore to us be favorable now;\n383\nAnd sith of wemens labours thou hast charge,\n384\nAnd generation goodly dost enlarge,\n385\nEncline thy will t’effect our wishfull vow,\n386\nAnd the chast wombe informe with timely seed\n387\nThat may our comfort breed:\n388\nTill which we cease our hopefull hap to sing;\n389\nNe let the woods us answere, nor our Eccho ring.\n390\nAnd thou, great Juno! which with awful might\n391\nThe lawes of wedlock still dost patronize;\n392\nAnd the religion of the faith first plight\n393\nWith sacred rites hast taught to solemnize;\n394\nAnd eeke for comfort often callèd art\n395\nOf women in their smart;\n396\nEternally bind thou this lovely band,\n397\nAnd all thy blessings unto us impart.\n398\nAnd thou, glad Genius! in whose gentle hand\n399\nThe bridale bowre and geniall bed remaine,\n400\nWithout blemish or staine;\n401\nAnd the sweet pleasures of theyr loves delight\n402\nWith secret ayde doest succour and supply,\n403\nTill they bring forth the fruitfull progeny;\n404\nSend us the timely fruit of this same night.\n405\nAnd thou, fayre Hebe! and thou, Hymen free!\n406\nGrant that it may so be.\n407\nTil which we cease your further prayse to sing;\n408\nNe any woods shall answer, nor your Eccho ring.\n409\nAnd ye high heavens, the temple of the gods,\n410\nIn which a thousand torches flaming bright\n411\nDoe burne, that to us wretched earthly clods\n412\nIn dreadful darknesse lend desirèd light\n413\nAnd all ye powers which in the same remayne,\n414\nMore then we men can fayne!\n415\nPoure out your blessing on us plentiously,\n416\nAnd happy influence upon us raine,\n417\nThat we may raise a large posterity,\n418\nWhich from the earth, which they may long possesse\n419\nWith lasting happinesse,\n420\nUp to your haughty pallaces may mount;\n421\nAnd, for the guerdon of theyr glorious merit,\n422\nMay heavenly tabernacles there inherit,\n423\nOf blessèd Saints for to increase the count.\n424\nSo let us rest, sweet love, in hope of this,\n425\nAnd cease till then our tymely joyes to sing:\n426\nThe woods no more us answer, nor our eccho ring!\n427\n_Song! made in lieu of many ornaments._\n428\n_With which my love should duly have been dect,_\n429\n_Which cutting off through hasty accidents,_\n430\n_Ye would not stay your dew time to expect_\n431\n_But promist both to recompens;_\n432\n_Be unto her a goodly ornament,_\n433\n_And for short time an endlesse moniment._\nLyrics document. A line in [brackets] starts a section.\nTools\nWriter\nReview\nHistory\nTools\nForm & story\nSection order and story jobs\nRhymes\nDeclared rhyme links\nRhythm\nMeter and line placement\nPronunciation\nSung-word readings\nRepeats & voices\nExact repeats and sung asides\nWord rules\nRequired and avoided phrases\nThis version has not been reviewed\n\nRun a review to check form, rhymes, rhythm and pronunciation.\n\nRun review",
+   "toasts_after": [
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "export_source": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/v9_pron.source.json",
+    "declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "has_dash_and": false
+   },
+   "download_label": "Download text and sources",
+   "working_copy": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/v9_pron.working-copy.json",
+    "payload_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "workingCopy_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "adapted": false,
+    "has_dash_and": false
+   },
+   "reimport": {
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "origin_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "origin_handoff": "handoff:8c8c0e8e-e454-44bb-87fc-15971261a544"
+   },
+   "library_record_after": {
+    "token_cut": "v9",
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   },
+   "lyrics_mentions": {
+    "dash_and": false,
+    "pronunciation": true,
+    "decision_words": false,
+    "declaration": false
+   }
+  },
+  "v9_mixed": {
+   "errors": [],
+   "seeded": true,
+   "library_before": {
+    "noinsp_class": false,
+    "undecided_text": "",
+    "undecided_visible": false,
+    "renumbered_text": "",
+    "renumbered_visible": false,
+    "toasts": []
+   },
+   "envelope": [
+    {
+     "scope": "whole",
+     "declarations": [
+      {
+       "pronunciations": [
+        {
+         "line": "Oh--oh, oh my love",
+         "token": 2,
+         "word": "oh",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        }
+       ],
+       "narrative": {
+        "source": "the singer",
+        "atoms": [
+         "ESTABLISH"
+        ],
+        "junctions": []
+       }
+      }
+     ]
+    }
+   ],
+   "lyrics_origin_declarations": [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ],
+     "narrative": {
+      "source": "the singer",
+      "atoms": [
+       "ESTABLISH"
+      ],
+      "junctions": []
+     }
+    }
+   ],
+   "lyrics_text": "Untitled song\n\nWorkspace: Untitled workspace\n\nNot reviewed\nRun review\nWrite with AI\nExport\nSections\nSong brief\nNo brief yet\nHook not declared\nEdit brief\n\n Epithalamion · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nThe writing workflow accepts 2–12 sung words per line. The full reading is retained.\n\nExport source details\nFind\nUndo\nRedo\nDisplay\n1\nYe learnèd sisters, which have oftentimes\n2\nBeene to me ayding, others to adorne,\n3\nWhom ye thought worthy of your gracefull rymes,\n4\nThat even the greatest did not greatly scorne\n5\nTo heare theyr names sung in your simple layes,\n6\nBut joyèd in theyr praise;\n7\nAnd when ye list your owne mishaps to mourne,\n8\nWhich death, or love, or fortunes wreck did rayse,\n9\nYour string could soone to sadder tenor turne,\n10\nAnd teach the woods and waters to lament\n11\nYour dolefull dreriment:\n12\nNow lay those sorrowfull complaints aside;\n13\nAnd, having all your heads with girlands crownd,\n14\nHelpe me mine owne loves prayses to resound;\n15\nNe let the same of any be envide:\n16\nSo Orpheus did for his owne bride!\n17\nSo I unto my selfe alone will sing;\n18\nThe woods shall to me answer, and my Eccho ring.\n19\nEarly, before the worlds light-giving lampe\n20\nHis golden beame upon the hils doth spred,\n21\nHaving disperst the nights unchearefull dampe,\n22\nDoe ye awake; and, with fresh lusty-hed,\n23\nGo to the bowre of my belovèd love,\n24\nMy truest turtle dove;\n25\nBid her awake; for Hymen is awake,\n26\nAnd long since ready forth his maske to move,\n27\nWith his bright Tead that flames with many a flake,\n28\nAnd many a bachelor to waite on him,\n29\nIn theyr fresh garments trim.\n30\nBid her awake therefore, and soone her dight,\n31\nFor lo! the wishèd day is come at last,\n32\nThat shall, for all the paynes and sorrowes past,\n33\nPay to her usury of long delight:\n34\nAnd, whylest she doth her dight,\n35\nDoe ye to her of joy and solace sing,\n36\nThat all the woods may answer, and your eccho ring.\n37\nBring with you all the Nymphes that you can heare\n38\nBoth of the rivers and the forrests greene,\n39\nAnd of the sea that neighbours to her neare:\n40\nAl with gay girlands goodly wel beseene.\n41\nAnd let them also with them bring in hand\n42\nAnother gay girland\n43\nFor my fayre love, of lillyes and of roses,\n44\nBound truelove wize, with a blew silke riband.\n45\nAnd let them make great store of bridale poses,\n46\nAnd let them eeke bring store of other flowers,\n47\nTo deck the bridale bowers.\n48\nAnd let the ground whereas her foot shall tread,\n49\nFor feare the stones her tender foot should wrong,\n50\nBe strewed with fragrant flowers all along,\n51\nAnd diapred lyke the discolored mead.\n52\nWhich done, doe at her chamber dore awayt,\n53\nFor she will waken strayt;\n54\nThe whiles doe ye this song unto her sing,\n55\nThe woods shall to you answer, and your Eccho ring.\n56\nYe Nymphes of Mulla, which with carefull heed\n57\nThe silver scaly trouts doe tend full well,\n58\nAnd greedy pikes which use therein to feed;\n59\n(Those trouts and pikes all others doo excell;)\n60\nAnd ye likewise, which keepe the rushy lake,\n61\nWhere none doo fishes take;\n62\nBynd up the locks the which hang scatterd light,\n63\nAnd in his waters, which your mirror make,\n64\nBehold your faces as the christall bright,\n65\nThat when you come whereas my love doth lie,\n66\nNo blemish she may spie.\n67\nAnd eke, ye lightfoot mayds, which keepe the deere,\n68\nThat on the hoary mountayne used to towre;\n69\nAnd the wylde wolves, which seeke them to devoure,\n70\nWith your steele darts doo chace from comming neer;\n71\nBe also present heere,\n72\nTo helpe to decke her, and to help to sing,\n73\nThat all the woods may answer, and your eccho ring.\n74\nWake now, my love, awake! for it is time;\n75\nThe Rosy Morne long since left Tithones bed,\n76\nAll ready to her silver coche to clyme;\n77\nAnd Phœbus gins to shew his glorious hed.\n78\nHark! how the cheerefull birds do chaunt theyr laies\n79\nAnd carroll of Loves praise.\n80\nThe merry Larke hir mattins sings aloft;\n81\nThe Thrush replyes; the Mavis descant playes;\n82\nThe Ouzell shrills; the Ruddock warbles soft;\n83\nSo goodly all agree, with sweet consent,\n84\nTo this dayes merriment.\n85\nAh! my deere love, why doe ye sleepe thus long?\n86\nWhen meeter were that ye should now awake,\n87\nT’ awayt the comming of your joyous make,\n88\nAnd hearken to the birds love-learnèd song,\n89\nThe deawy leaves among!\n90\nNor they of joy and pleasance to you sing,\n91\nThat all the woods them answer, and theyr eccho ring.\n92\nMy love is now awake out of her dreames,\n93\nAnd her fayre eyes, like stars that dimmèd were\n94\nWith darksome cloud, now shew theyr goodly beams\n95\nMore bright then Hesperus his head doth rere.\n96\nCome now, ye damzels, daughters of delight,\n97\nHelpe quickly her to dight:\n98\nBut first come ye fayre houres, which were begot\n99\nIn Joves sweet paradice of Day and Night;\n100\nWhich doe the seasons of the yeare allot,\n101\nAnd al, that ever in this world is fayre,\n102\nDoe make and still repayre:\n103\nAnd ye three handmayds of the Cyprian Queene,\n104\nThe which doe still adorne her beauties pride,\n105\nHelpe to addorne my beautifullest bride:\n106\nAnd, as ye her array, still throw betweene\n107\nSome graces to be seene;\n108\nAnd, as ye use to Venus, to her sing,\n109\nThe whiles the woods shal answer, and your eccho ring.\n110\nNow is my love all ready forth to come:\n111\nLet all the virgins therefore well awayt:\n112\nAnd ye fresh boyes, that tend upon her groome,\n113\nPrepare your selves; for he is comming strayt.\n114\nSet all your things in seemely good aray,\n115\nFit for so joyfull day:\n116\nThe joyfulst day that ever sunne did see.\n117\nFaire Sun! shew forth thy favourable ray,\n118\nAnd let thy lifull heat not fervent be,\n119\nFor feare of burning her sunshyny face,\n120\nHer beauty to disgrace.\n121\nO fayrest Phœbus! father of the Muse!\n122\nIf ever I did honour thee aright,\n123\nOr sing the thing that mote thy mind delight,\n124\nDoe not thy servants simple boone refuse;\n125\nBut let this day, let this one day, be myne;\n126\nLet all the rest be thine.\n127\nThen I thy soverayne prayses loud wil sing,\n128\nThat all the woods shal answer, and theyr eccho ring.\n129\nHarke! how the Minstrils gin to shrill aloud\n130\nTheir merry Musick that resounds from far,\n131\nThe pipe, the tabor, and the trembling Croud,\n132\nThat well agree withouten breach or jar.\n133\nBut, most of all, the Damzels doe delite\n134\nWhen they their tymbrels smyte,\n135\nAnd thereunto doe daunce and carrol sweet,\n136\nThat all the sences they doe ravish quite;\n137\nThe whyles the boyes run up and downe the street,\n138\nCrying aloud with strong confusèd noyce,\n139\nAs if it were one voyce,\n140\nHymen, iö Hymen, Hymen, they do shout;\n141\nThat even to the heavens theyr shouting shrill\n142\nDoth reach, and all the firmament doth fill;\n143\nTo which the people standing all about,\n144\nAs in approvance, doe thereto applaud,\n145\nAnd loud advaunce her laud;\n146\nAnd evermore they Hymen, Hymen sing,\n147\nThat al the woods them answer, and theyr eccho ring.\n148\nLoe! where she comes along with portly pace,\n149\nLyke Phœbe, from her chamber of the East,\n150\nArysing forth to run her mighty race,\n151\nClad all in white, that seemes a virgin best.\n152\nSo well it her beseemes, that ye would weene\n153\nSome angell she had beene.\n154\nHer long loose yellow locks lyke golden wyre,\n155\nSprinckled with perle, and perling flowres atweene,\n156\nDoe lyke a golden mantle her attyre;\n157\nAnd, being crownèd with a girland greene,\n158\nSeeme lyke some mayden Queene.\n159\nHer modest eyes, abashèd to behold\n160\nSo many gazers as on her do stare,\n161\nUpon the lowly ground affixèd are;\n162\nNe dare lift up her countenance too bold,\n163\nBut blush to heare her prayses sung so loud,\n164\nSo farre from being proud.\n165\nNathlesse doe ye still loud her prayses sing,\n166\nThat all the woods may answer, and your eccho ring.\n167\nTell me, ye merchants daughters, did ye see\n168\nSo fayre a creature in your towne before;\n169\nSo sweet, so lovely, and so mild as she,\n170\nAdornd with beautyes grace and vertues store?\n171\nHer goodly eyes lyke Saphyres shining bright,\n172\nHer forehead yvory white,\n173\nHer cheekes lyke apples which the sun hath rudded,\n174\nHer lips lyke cherryes charming men to byte,\n175\nHer brest like to a bowle of creame uncrudded,\n176\nHer paps lyke lyllies budded,\n177\nHer snowie necke lyke to a marble towre;\n178\nAnd all her body like a pallace fayre,\n179\nAscending up, with many a stately stayre,\n180\nTo honors seat and chastities sweet bowre.\n181\nWhy stand ye still ye virgins in amaze,\n182\nUpon her so to gaze,\n183\nWhiles ye forget your former lay to sing,\n184\nTo which the woods did answer, and your eccho ring?\n185\nBut if ye saw that which no eyes can see,\n186\nThe inward beauty of her lively spright,\n187\nGarnisht with heavenly guifts of high degree,\n188\nMuch more then would ye wonder at that sight,\n189\nAnd stand astonisht lyke to those which red\n190\nMedusaes mazeful hed.\n191\nThere dwels sweet love, and constant chastity,\n192\nUnspotted fayth, and comely womanhood,\n193\nRegard of honour, and mild modesty;\n194\nThere vertue raynes as Queene in royal throne,\n195\nAnd giveth lawes alone,\n196\nThe which the base affections doe obay,\n197\nAnd yeeld theyr services unto her will;\n198\nNe thought of thing uncomely ever may\n199\nThereto approch to tempt her mind to ill.\n200\nHad ye once seene these her celestial threasures,\n201\nAnd unrevealèd pleasures,\n202\nThen would ye wonder, and her prayses sing,\n203\nThat al the woods should answer, and your echo ring.\n204\nOpen the temple gates unto my love,\n205\nOpen them wide that she may enter in,\n206\nAnd all the postes adorne as doth behove,\n207\nAnd all the pillours deck with girlands trim,\n208\nFor to receyve this Saynt with honour dew,\n209\nThat commeth in to you.\n210\nWith trembling steps, and humble reverence,\n211\nShe commeth in, before th’ Almighties view;\n212\nOf her ye virgins learne obedience,\n213\nWhen so ye come into those holy places,\n214\nTo humble your proud faces:\n215\nBring her up to th’ high altar, that she may\n216\nThe sacred ceremonies there partake,\n217\nThe which do endlesse matrimony make;\n218\nAnd let the roring Organs loudly play\n219\nThe praises of the Lord in lively notes;\n220\nThe whiles, with hollow throates,\n221\nThe Choristers the joyous Antheme sing,\n222\nThat al the woods may answere, and their eccho ring.\n223\nBehold, whiles she before the altar stands,\n224\nHearing the holy priest that to her speakes,\n225\nAnd blesseth her with his two happy hands,\n226\nHow the red roses flush up in her cheekes,\n227\nAnd the pure snow, with goodly vermill stayne\n228\nLike crimsin dyde in grayne:\n229\nThat even th’ Angels, which continually\n230\nAbout the sacred Altare doe remaine,\n231\nForget their service and about her fly,\n232\nOfte peeping in her face, that seems more fayre,\n233\nThe more they on it stare.\n234\nBut her sad eyes, still fastened on the ground,\n235\nAre governèd with goodly modesty,\n236\nThat suffers not one looke to glaunce awry,\n237\nWhich may let in a little thought unsownd.\n238\nWhy blush ye, love, to give to me your hand,\n239\nThe pledge of all our band!\n240\nSing, ye sweet Angels, Alleluya sing,\n241\nThat all the woods may answere, and your eccho ring.\n242\nNow al is done: bring home the bride againe;\n243\nBring home the triumph of our victory:\n244\nBring home with you the glory of her gaine;\n245\nWith joyance bring her and with jollity.\n246\nNever had man more joyfull day then this,\n247\nWhom heaven would heape with blis,\n248\nMake feast therefore now all this live-long day;\n249\nThis day for ever to me holy is.\n250\nPoure out the wine without restraint or stay,\n251\nPoure not by cups, but by the belly full,\n252\nPoure out to all that wull,\n253\nAnd sprinkle all the postes and wals with wine,\n254\nThat they may sweat, and drunken be withall.\n255\nCrowne ye God Bacchus with a coronall,\n256\nAnd Hymen also crowne with wreathes of vine;\n257\nAnd let the Graces daunce unto the rest,\n258\nFor they can doo it best:\n259\nThe whiles the maydens doe theyr carroll sing,\n260\nTo which the woods shall answer, and theyr eccho ring.\n261\nRing ye the bels, ye yong men of the towne,\n262\nAnd leave your wonted labors for this day:\n263\nThis day is holy; doe ye write it downe,\n264\nThat ye for ever it remember may.\n265\nThis day the sunne is in his chiefest hight,\n266\nWith Barnaby the bright,\n267\nFrom whence declining daily by degrees,\n268\nHe somewhat loseth of his heat and light,\n269\nWhen once the Crab behind his back he sees.\n270\nBut for this time it ill ordainèd was,\n271\nTo chose the longest day in all the yeare,\n272\nAnd shortest night, when longest fitter weare:\n273\nYet never day so long, but late would passe.\n274\nRing ye the bels, to make it weare away,\n275\nAnd bonefiers make all day;\n276\nAnd daunce about them, and about them sing,\n277\nThat all the woods may answer, and your eccho ring.\n278\nAh! when will this long weary day have end,\n279\nAnd lende me leave to come unto my love?\n280\nHow slowly do the houres theyr numbers spend?\n281\nHow slowly does sad Time his feathers move?\n282\nHast thee, O fayrest Planet, to thy home,\n283\nWithin the Westerne fome:\n284\nThy tyrèd steedes long since have need of rest.\n285\nLong though it be, at last I see it gloome,\n286\nAnd the bright evening-star with golden creast\n287\nAppeare out of the East.\n288\nFayre childe of beauty! glorious lampe of love!\n289\nThat all the host of heaven in rankes doost lead,\n290\nAnd guydest lovers through the nights sad dread,\n291\nHow chearefully thou lookest from above,\n292\nAnd seemst to laugh atweene thy twinkling light,\n293\nAs joying in the sight\n294\nOf these glad many, which for joy doe sing,\n295\nThat all the woods them answer, and their echo ring!\n296\nNow ceasse, ye damsels, your delights fore-past;\n297\nEnough it is that all the day was youres:\n298\nNow day is doen, and night is nighing fast,\n299\nNow bring the Bryde into the brydall boures.\n300\nThe night is come, now soon her disaray,\n301\nAnd in her bed her lay;\n302\nLay her in lillies and in violets,\n303\nAnd silken courteins over her display,\n304\nAnd odourd sheetes, and Arras coverlets.\n305\nBehold how goodly my faire love does ly,\n306\nIn proud humility!\n307\nLike unto Maia, when as Jove her took\n308\nIn Tempe, lying on the flowry gras,\n309\nTwixt sleepe and wake, after she weary was,\n310\nWith bathing in the Acidalian brooke.\n311\nNow it is night, ye damsels may be gon,\n312\nAnd leave my love alone,\n313\nAnd leave likewise your former lay to sing:\n314\nThe woods no more shall answere, nor your echo ring.\n315\nNow welcome, night! thou night so long expected,\n316\nThat long daies labour doest at last defray,\n317\nAnd all my cares, which cruell Love collected,\n318\nHast sumd in one, and cancellèd for aye:\n319\nSpread thy broad wing over my love and me,\n320\nThat no man may us see;\n321\nAnd in thy sable mantle us enwrap,\n322\nFrom feare of perrill and foule horror free.\n323\nLet no false treason seeke us to entrap,\n324\nNor any dread disquiet once annoy\n325\nThe safety of our joy;\n326\nBut let the night be calme, and quietsome,\n327\nWithout tempestuous storms or sad afray:\n328\nLyke as when Jove with fayre Alcmena lay,\n329\nWhen he begot the great Tirynthian groome:\n330\nOr lyke as when he with thy selfe did lie\n331\nAnd begot Majesty.\n332\nAnd let the mayds and yong men cease to sing;\n333\nNe let the woods them answer nor theyr eccho ring.\n334\nLet no lamenting cryes, nor dolefull teares,\n335\nBe heard all night within, nor yet without:\n336\nNe let false whispers, breeding hidden feares,\n337\nBreake gentle sleepe with misconceivèd dout.\n338\nLet no deluding dreames, nor dreadfull sights,\n339\nMake sudden sad affrights;\n340\nNe let house-fyres, nor lightnings helpelesse harmes,\n341\nNe let the Pouke, nor other evill sprights,\n342\nNe let mischivous witches with theyr charmes,\n343\nNe let hob Goblins, names whose sence we see not,\n344\nFray us with things that be not:\n345\nLet not the shriech Oule nor the Storke be heard,\n346\nNor the night Raven, that still deadly yels;\n347\nNor damnèd ghosts, cald up with mighty spels,\n348\nNor griesly vultures, make us once affeard:\n349\nNe let th’ unpleasant Quyre of Frogs still croking\n350\nMake us to wish theyr choking.\n351\nLet none of these theyr drery accents sing;\n352\nNe let the woods them answer, nor theyr eccho ring.\n353\nBut let stil Silence trew night-watches keepe,\n354\nThat sacred Peace may in assurance rayne,\n355\nAnd tymely Sleep, when it is tyme to sleepe,\n356\nMay poure his limbs forth on your pleasant playne;\n357\nThe whiles an hundred little wingèd loves,\n358\nLike divers-fethered doves,\n359\nShall fly and flutter round about your bed,\n360\nAnd in the secret darke, that none reproves,\n361\nTheir prety stealthes shal worke, and snares shal spread\n362\nTo filch away sweet snatches of delight,\n363\nConceald through covert night.\n364\nYe sonnes of Venus, play your sports at will!\n365\nFor greedy pleasure, carelesse of your toyes,\n366\nThinks more upon her paradise of joyes,\n367\nThen what ye do, albe it good or ill.\n368\nAll night therefore attend your merry play,\n369\nFor it will soone be day:\n370\nNow none doth hinder you, that say or sing;\n371\nNe will the woods now answer, nor your Eccho ring.\n372\nWho is the same, which at my window peepes?\n373\nOr whose is that faire face that shines so bright?\n374\nIs it not Cinthia, she that never sleepes,\n375\nBut walkes about high heaven al the night?\n376\nO! fayrest goddesse, do thou not envy\n377\nMy love with me to spy:\n378\nFor thou likewise didst love, though now unthought,\n379\nAnd for a fleece of wooll, which privily\n380\nThe Latmian shepherd once unto thee brought,\n381\nHis pleasures with thee wrought.\n382\nTherefore to us be favorable now;\n383\nAnd sith of wemens labours thou hast charge,\n384\nAnd generation goodly dost enlarge,\n385\nEncline thy will t’effect our wishfull vow,\n386\nAnd the chast wombe informe with timely seed\n387\nThat may our comfort breed:\n388\nTill which we cease our hopefull hap to sing;\n389\nNe let the woods us answere, nor our Eccho ring.\n390\nAnd thou, great Juno! which with awful might\n391\nThe lawes of wedlock still dost patronize;\n392\nAnd the religion of the faith first plight\n393\nWith sacred rites hast taught to solemnize;\n394\nAnd eeke for comfort often callèd art\n395\nOf women in their smart;\n396\nEternally bind thou this lovely band,\n397\nAnd all thy blessings unto us impart.\n398\nAnd thou, glad Genius! in whose gentle hand\n399\nThe bridale bowre and geniall bed remaine,\n400\nWithout blemish or staine;\n401\nAnd the sweet pleasures of theyr loves delight\n402\nWith secret ayde doest succour and supply,\n403\nTill they bring forth the fruitfull progeny;\n404\nSend us the timely fruit of this same night.\n405\nAnd thou, fayre Hebe! and thou, Hymen free!\n406\nGrant that it may so be.\n407\nTil which we cease your further prayse to sing;\n408\nNe any woods shall answer, nor your Eccho ring.\n409\nAnd ye high heavens, the temple of the gods,\n410\nIn which a thousand torches flaming bright\n411\nDoe burne, that to us wretched earthly clods\n412\nIn dreadful darknesse lend desirèd light\n413\nAnd all ye powers which in the same remayne,\n414\nMore then we men can fayne!\n415\nPoure out your blessing on us plentiously,\n416\nAnd happy influence upon us raine,\n417\nThat we may raise a large posterity,\n418\nWhich from the earth, which they may long possesse\n419\nWith lasting happinesse,\n420\nUp to your haughty pallaces may mount;\n421\nAnd, for the guerdon of theyr glorious merit,\n422\nMay heavenly tabernacles there inherit,\n423\nOf blessèd Saints for to increase the count.\n424\nSo let us rest, sweet love, in hope of this,\n425\nAnd cease till then our tymely joyes to sing:\n426\nThe woods no more us answer, nor our eccho ring!\n427\n_Song! made in lieu of many ornaments._\n428\n_With which my love should duly have been dect,_\n429\n_Which cutting off through hasty accidents,_\n430\n_Ye would not stay your dew time to expect_\n431\n_But promist both to recompens;_\n432\n_Be unto her a goodly ornament,_\n433\n_And for short time an endlesse moniment._\nLyrics document. A line in [brackets] starts a section.\nTools\nWriter\nReview\nHistory\nTools\nForm & story\nSection order and story jobs\nRhymes\nDeclared rhyme links\nRhythm\nMeter and line placement\nPronunciation\nSung-word readings\nRepeats & voices\nExact repeats and sung asides\nWord rules\nRequired and avoided phrases\nThis version has not been reviewed\n\nRun a review to check form, rhymes, rhythm and pronunciation.\n\nRun review",
+   "toasts_after": [
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "export_source": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/v9_mixed.source.json",
+    "declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ],
+      "narrative": {
+       "source": "the singer",
+       "atoms": [
+        "ESTABLISH"
+       ],
+       "junctions": []
+      }
+     }
+    ],
+    "has_dash_and": false
+   },
+   "download_label": "Download text and sources",
+   "working_copy": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/v9_mixed.working-copy.json",
+    "payload_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ],
+      "narrative": {
+       "source": "the singer",
+       "atoms": [
+        "ESTABLISH"
+       ],
+       "junctions": []
+      }
+     }
+    ],
+    "workingCopy_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ],
+      "narrative": {
+       "source": "the singer",
+       "atoms": [
+        "ESTABLISH"
+       ],
+       "junctions": []
+      }
+     }
+    ],
+    "adapted": false,
+    "has_dash_and": false
+   },
+   "reimport": {
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "origin_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ],
+      "narrative": {
+       "source": "the singer",
+       "atoms": [
+        "ESTABLISH"
+       ],
+       "junctions": []
+      }
+     }
+    ],
+    "origin_handoff": "handoff:ec87b211-5f43-41ea-a78b-d31cd542ce02"
+   },
+   "library_record_after": {
+    "token_cut": "v9",
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ],
+     "narrative": {
+      "source": "the singer",
+      "atoms": [
+       "ESTABLISH"
+      ],
+      "junctions": []
+     }
+    }
+   },
+   "lyrics_mentions": {
+    "dash_and": false,
+    "pronunciation": true,
+    "decision_words": false,
+    "declaration": false
+   }
+  },
+  "legacy_blocked_insp_closed": {
+   "errors": [],
+   "seeded": true,
+   "library_before": {
+    "noinsp_class": true,
+    "undecided_text": "",
+    "undecided_visible": false,
+    "renumbered_text": "",
+    "renumbered_visible": false,
+    "toasts": []
+   },
+   "envelope": [
+    {
+     "scope": "whole",
+     "declarations": [
+      {
+       "pronunciations": [
+        {
+         "line": "Oh--oh, oh my love",
+         "token": 2,
+         "word": "oh",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        },
+        {
+         "line": "ways:--and the road",
+         "token": 2,
+         "word": "--and",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lyrics_origin_declarations": [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      },
+      {
+       "line": "ways:--and the road",
+       "token": 2,
+       "word": "--and",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   ],
+   "lyrics_text": "Untitled song\n\nWorkspace: Untitled workspace\n\nNot reviewed\nRun review\nWrite with AI\nExport\nSections\nSong brief\nNo brief yet\nHook not declared\nEdit brief\n\n Epithalamion · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nThe writing workflow accepts 2–12 sung words per line. The full reading is retained.\n\nExport source details\nFind\nUndo\nRedo\nDisplay\n1\nYe learnèd sisters, which have oftentimes\n2\nBeene to me ayding, others to adorne,\n3\nWhom ye thought worthy of your gracefull rymes,\n4\nThat even the greatest did not greatly scorne\n5\nTo heare theyr names sung in your simple layes,\n6\nBut joyèd in theyr praise;\n7\nAnd when ye list your owne mishaps to mourne,\n8\nWhich death, or love, or fortunes wreck did rayse,\n9\nYour string could soone to sadder tenor turne,\n10\nAnd teach the woods and waters to lament\n11\nYour dolefull dreriment:\n12\nNow lay those sorrowfull complaints aside;\n13\nAnd, having all your heads with girlands crownd,\n14\nHelpe me mine owne loves prayses to resound;\n15\nNe let the same of any be envide:\n16\nSo Orpheus did for his owne bride!\n17\nSo I unto my selfe alone will sing;\n18\nThe woods shall to me answer, and my Eccho ring.\n19\nEarly, before the worlds light-giving lampe\n20\nHis golden beame upon the hils doth spred,\n21\nHaving disperst the nights unchearefull dampe,\n22\nDoe ye awake; and, with fresh lusty-hed,\n23\nGo to the bowre of my belovèd love,\n24\nMy truest turtle dove;\n25\nBid her awake; for Hymen is awake,\n26\nAnd long since ready forth his maske to move,\n27\nWith his bright Tead that flames with many a flake,\n28\nAnd many a bachelor to waite on him,\n29\nIn theyr fresh garments trim.\n30\nBid her awake therefore, and soone her dight,\n31\nFor lo! the wishèd day is come at last,\n32\nThat shall, for all the paynes and sorrowes past,\n33\nPay to her usury of long delight:\n34\nAnd, whylest she doth her dight,\n35\nDoe ye to her of joy and solace sing,\n36\nThat all the woods may answer, and your eccho ring.\n37\nBring with you all the Nymphes that you can heare\n38\nBoth of the rivers and the forrests greene,\n39\nAnd of the sea that neighbours to her neare:\n40\nAl with gay girlands goodly wel beseene.\n41\nAnd let them also with them bring in hand\n42\nAnother gay girland\n43\nFor my fayre love, of lillyes and of roses,\n44\nBound truelove wize, with a blew silke riband.\n45\nAnd let them make great store of bridale poses,\n46\nAnd let them eeke bring store of other flowers,\n47\nTo deck the bridale bowers.\n48\nAnd let the ground whereas her foot shall tread,\n49\nFor feare the stones her tender foot should wrong,\n50\nBe strewed with fragrant flowers all along,\n51\nAnd diapred lyke the discolored mead.\n52\nWhich done, doe at her chamber dore awayt,\n53\nFor she will waken strayt;\n54\nThe whiles doe ye this song unto her sing,\n55\nThe woods shall to you answer, and your Eccho ring.\n56\nYe Nymphes of Mulla, which with carefull heed\n57\nThe silver scaly trouts doe tend full well,\n58\nAnd greedy pikes which use therein to feed;\n59\n(Those trouts and pikes all others doo excell;)\n60\nAnd ye likewise, which keepe the rushy lake,\n61\nWhere none doo fishes take;\n62\nBynd up the locks the which hang scatterd light,\n63\nAnd in his waters, which your mirror make,\n64\nBehold your faces as the christall bright,\n65\nThat when you come whereas my love doth lie,\n66\nNo blemish she may spie.\n67\nAnd eke, ye lightfoot mayds, which keepe the deere,\n68\nThat on the hoary mountayne used to towre;\n69\nAnd the wylde wolves, which seeke them to devoure,\n70\nWith your steele darts doo chace from comming neer;\n71\nBe also present heere,\n72\nTo helpe to decke her, and to help to sing,\n73\nThat all the woods may answer, and your eccho ring.\n74\nWake now, my love, awake! for it is time;\n75\nThe Rosy Morne long since left Tithones bed,\n76\nAll ready to her silver coche to clyme;\n77\nAnd Phœbus gins to shew his glorious hed.\n78\nHark! how the cheerefull birds do chaunt theyr laies\n79\nAnd carroll of Loves praise.\n80\nThe merry Larke hir mattins sings aloft;\n81\nThe Thrush replyes; the Mavis descant playes;\n82\nThe Ouzell shrills; the Ruddock warbles soft;\n83\nSo goodly all agree, with sweet consent,\n84\nTo this dayes merriment.\n85\nAh! my deere love, why doe ye sleepe thus long?\n86\nWhen meeter were that ye should now awake,\n87\nT’ awayt the comming of your joyous make,\n88\nAnd hearken to the birds love-learnèd song,\n89\nThe deawy leaves among!\n90\nNor they of joy and pleasance to you sing,\n91\nThat all the woods them answer, and theyr eccho ring.\n92\nMy love is now awake out of her dreames,\n93\nAnd her fayre eyes, like stars that dimmèd were\n94\nWith darksome cloud, now shew theyr goodly beams\n95\nMore bright then Hesperus his head doth rere.\n96\nCome now, ye damzels, daughters of delight,\n97\nHelpe quickly her to dight:\n98\nBut first come ye fayre houres, which were begot\n99\nIn Joves sweet paradice of Day and Night;\n100\nWhich doe the seasons of the yeare allot,\n101\nAnd al, that ever in this world is fayre,\n102\nDoe make and still repayre:\n103\nAnd ye three handmayds of the Cyprian Queene,\n104\nThe which doe still adorne her beauties pride,\n105\nHelpe to addorne my beautifullest bride:\n106\nAnd, as ye her array, still throw betweene\n107\nSome graces to be seene;\n108\nAnd, as ye use to Venus, to her sing,\n109\nThe whiles the woods shal answer, and your eccho ring.\n110\nNow is my love all ready forth to come:\n111\nLet all the virgins therefore well awayt:\n112\nAnd ye fresh boyes, that tend upon her groome,\n113\nPrepare your selves; for he is comming strayt.\n114\nSet all your things in seemely good aray,\n115\nFit for so joyfull day:\n116\nThe joyfulst day that ever sunne did see.\n117\nFaire Sun! shew forth thy favourable ray,\n118\nAnd let thy lifull heat not fervent be,\n119\nFor feare of burning her sunshyny face,\n120\nHer beauty to disgrace.\n121\nO fayrest Phœbus! father of the Muse!\n122\nIf ever I did honour thee aright,\n123\nOr sing the thing that mote thy mind delight,\n124\nDoe not thy servants simple boone refuse;\n125\nBut let this day, let this one day, be myne;\n126\nLet all the rest be thine.\n127\nThen I thy soverayne prayses loud wil sing,\n128\nThat all the woods shal answer, and theyr eccho ring.\n129\nHarke! how the Minstrils gin to shrill aloud\n130\nTheir merry Musick that resounds from far,\n131\nThe pipe, the tabor, and the trembling Croud,\n132\nThat well agree withouten breach or jar.\n133\nBut, most of all, the Damzels doe delite\n134\nWhen they their tymbrels smyte,\n135\nAnd thereunto doe daunce and carrol sweet,\n136\nThat all the sences they doe ravish quite;\n137\nThe whyles the boyes run up and downe the street,\n138\nCrying aloud with strong confusèd noyce,\n139\nAs if it were one voyce,\n140\nHymen, iö Hymen, Hymen, they do shout;\n141\nThat even to the heavens theyr shouting shrill\n142\nDoth reach, and all the firmament doth fill;\n143\nTo which the people standing all about,\n144\nAs in approvance, doe thereto applaud,\n145\nAnd loud advaunce her laud;\n146\nAnd evermore they Hymen, Hymen sing,\n147\nThat al the woods them answer, and theyr eccho ring.\n148\nLoe! where she comes along with portly pace,\n149\nLyke Phœbe, from her chamber of the East,\n150\nArysing forth to run her mighty race,\n151\nClad all in white, that seemes a virgin best.\n152\nSo well it her beseemes, that ye would weene\n153\nSome angell she had beene.\n154\nHer long loose yellow locks lyke golden wyre,\n155\nSprinckled with perle, and perling flowres atweene,\n156\nDoe lyke a golden mantle her attyre;\n157\nAnd, being crownèd with a girland greene,\n158\nSeeme lyke some mayden Queene.\n159\nHer modest eyes, abashèd to behold\n160\nSo many gazers as on her do stare,\n161\nUpon the lowly ground affixèd are;\n162\nNe dare lift up her countenance too bold,\n163\nBut blush to heare her prayses sung so loud,\n164\nSo farre from being proud.\n165\nNathlesse doe ye still loud her prayses sing,\n166\nThat all the woods may answer, and your eccho ring.\n167\nTell me, ye merchants daughters, did ye see\n168\nSo fayre a creature in your towne before;\n169\nSo sweet, so lovely, and so mild as she,\n170\nAdornd with beautyes grace and vertues store?\n171\nHer goodly eyes lyke Saphyres shining bright,\n172\nHer forehead yvory white,\n173\nHer cheekes lyke apples which the sun hath rudded,\n174\nHer lips lyke cherryes charming men to byte,\n175\nHer brest like to a bowle of creame uncrudded,\n176\nHer paps lyke lyllies budded,\n177\nHer snowie necke lyke to a marble towre;\n178\nAnd all her body like a pallace fayre,\n179\nAscending up, with many a stately stayre,\n180\nTo honors seat and chastities sweet bowre.\n181\nWhy stand ye still ye virgins in amaze,\n182\nUpon her so to gaze,\n183\nWhiles ye forget your former lay to sing,\n184\nTo which the woods did answer, and your eccho ring?\n185\nBut if ye saw that which no eyes can see,\n186\nThe inward beauty of her lively spright,\n187\nGarnisht with heavenly guifts of high degree,\n188\nMuch more then would ye wonder at that sight,\n189\nAnd stand astonisht lyke to those which red\n190\nMedusaes mazeful hed.\n191\nThere dwels sweet love, and constant chastity,\n192\nUnspotted fayth, and comely womanhood,\n193\nRegard of honour, and mild modesty;\n194\nThere vertue raynes as Queene in royal throne,\n195\nAnd giveth lawes alone,\n196\nThe which the base affections doe obay,\n197\nAnd yeeld theyr services unto her will;\n198\nNe thought of thing uncomely ever may\n199\nThereto approch to tempt her mind to ill.\n200\nHad ye once seene these her celestial threasures,\n201\nAnd unrevealèd pleasures,\n202\nThen would ye wonder, and her prayses sing,\n203\nThat al the woods should answer, and your echo ring.\n204\nOpen the temple gates unto my love,\n205\nOpen them wide that she may enter in,\n206\nAnd all the postes adorne as doth behove,\n207\nAnd all the pillours deck with girlands trim,\n208\nFor to receyve this Saynt with honour dew,\n209\nThat commeth in to you.\n210\nWith trembling steps, and humble reverence,\n211\nShe commeth in, before th’ Almighties view;\n212\nOf her ye virgins learne obedience,\n213\nWhen so ye come into those holy places,\n214\nTo humble your proud faces:\n215\nBring her up to th’ high altar, that she may\n216\nThe sacred ceremonies there partake,\n217\nThe which do endlesse matrimony make;\n218\nAnd let the roring Organs loudly play\n219\nThe praises of the Lord in lively notes;\n220\nThe whiles, with hollow throates,\n221\nThe Choristers the joyous Antheme sing,\n222\nThat al the woods may answere, and their eccho ring.\n223\nBehold, whiles she before the altar stands,\n224\nHearing the holy priest that to her speakes,\n225\nAnd blesseth her with his two happy hands,\n226\nHow the red roses flush up in her cheekes,\n227\nAnd the pure snow, with goodly vermill stayne\n228\nLike crimsin dyde in grayne:\n229\nThat even th’ Angels, which continually\n230\nAbout the sacred Altare doe remaine,\n231\nForget their service and about her fly,\n232\nOfte peeping in her face, that seems more fayre,\n233\nThe more they on it stare.\n234\nBut her sad eyes, still fastened on the ground,\n235\nAre governèd with goodly modesty,\n236\nThat suffers not one looke to glaunce awry,\n237\nWhich may let in a little thought unsownd.\n238\nWhy blush ye, love, to give to me your hand,\n239\nThe pledge of all our band!\n240\nSing, ye sweet Angels, Alleluya sing,\n241\nThat all the woods may answere, and your eccho ring.\n242\nNow al is done: bring home the bride againe;\n243\nBring home the triumph of our victory:\n244\nBring home with you the glory of her gaine;\n245\nWith joyance bring her and with jollity.\n246\nNever had man more joyfull day then this,\n247\nWhom heaven would heape with blis,\n248\nMake feast therefore now all this live-long day;\n249\nThis day for ever to me holy is.\n250\nPoure out the wine without restraint or stay,\n251\nPoure not by cups, but by the belly full,\n252\nPoure out to all that wull,\n253\nAnd sprinkle all the postes and wals with wine,\n254\nThat they may sweat, and drunken be withall.\n255\nCrowne ye God Bacchus with a coronall,\n256\nAnd Hymen also crowne with wreathes of vine;\n257\nAnd let the Graces daunce unto the rest,\n258\nFor they can doo it best:\n259\nThe whiles the maydens doe theyr carroll sing,\n260\nTo which the woods shall answer, and theyr eccho ring.\n261\nRing ye the bels, ye yong men of the towne,\n262\nAnd leave your wonted labors for this day:\n263\nThis day is holy; doe ye write it downe,\n264\nThat ye for ever it remember may.\n265\nThis day the sunne is in his chiefest hight,\n266\nWith Barnaby the bright,\n267\nFrom whence declining daily by degrees,\n268\nHe somewhat loseth of his heat and light,\n269\nWhen once the Crab behind his back he sees.\n270\nBut for this time it ill ordainèd was,\n271\nTo chose the longest day in all the yeare,\n272\nAnd shortest night, when longest fitter weare:\n273\nYet never day so long, but late would passe.\n274\nRing ye the bels, to make it weare away,\n275\nAnd bonefiers make all day;\n276\nAnd daunce about them, and about them sing,\n277\nThat all the woods may answer, and your eccho ring.\n278\nAh! when will this long weary day have end,\n279\nAnd lende me leave to come unto my love?\n280\nHow slowly do the houres theyr numbers spend?\n281\nHow slowly does sad Time his feathers move?\n282\nHast thee, O fayrest Planet, to thy home,\n283\nWithin the Westerne fome:\n284\nThy tyrèd steedes long since have need of rest.\n285\nLong though it be, at last I see it gloome,\n286\nAnd the bright evening-star with golden creast\n287\nAppeare out of the East.\n288\nFayre childe of beauty! glorious lampe of love!\n289\nThat all the host of heaven in rankes doost lead,\n290\nAnd guydest lovers through the nights sad dread,\n291\nHow chearefully thou lookest from above,\n292\nAnd seemst to laugh atweene thy twinkling light,\n293\nAs joying in the sight\n294\nOf these glad many, which for joy doe sing,\n295\nThat all the woods them answer, and their echo ring!\n296\nNow ceasse, ye damsels, your delights fore-past;\n297\nEnough it is that all the day was youres:\n298\nNow day is doen, and night is nighing fast,\n299\nNow bring the Bryde into the brydall boures.\n300\nThe night is come, now soon her disaray,\n301\nAnd in her bed her lay;\n302\nLay her in lillies and in violets,\n303\nAnd silken courteins over her display,\n304\nAnd odourd sheetes, and Arras coverlets.\n305\nBehold how goodly my faire love does ly,\n306\nIn proud humility!\n307\nLike unto Maia, when as Jove her took\n308\nIn Tempe, lying on the flowry gras,\n309\nTwixt sleepe and wake, after she weary was,\n310\nWith bathing in the Acidalian brooke.\n311\nNow it is night, ye damsels may be gon,\n312\nAnd leave my love alone,\n313\nAnd leave likewise your former lay to sing:\n314\nThe woods no more shall answere, nor your echo ring.\n315\nNow welcome, night! thou night so long expected,\n316\nThat long daies labour doest at last defray,\n317\nAnd all my cares, which cruell Love collected,\n318\nHast sumd in one, and cancellèd for aye:\n319\nSpread thy broad wing over my love and me,\n320\nThat no man may us see;\n321\nAnd in thy sable mantle us enwrap,\n322\nFrom feare of perrill and foule horror free.\n323\nLet no false treason seeke us to entrap,\n324\nNor any dread disquiet once annoy\n325\nThe safety of our joy;\n326\nBut let the night be calme, and quietsome,\n327\nWithout tempestuous storms or sad afray:\n328\nLyke as when Jove with fayre Alcmena lay,\n329\nWhen he begot the great Tirynthian groome:\n330\nOr lyke as when he with thy selfe did lie\n331\nAnd begot Majesty.\n332\nAnd let the mayds and yong men cease to sing;\n333\nNe let the woods them answer nor theyr eccho ring.\n334\nLet no lamenting cryes, nor dolefull teares,\n335\nBe heard all night within, nor yet without:\n336\nNe let false whispers, breeding hidden feares,\n337\nBreake gentle sleepe with misconceivèd dout.\n338\nLet no deluding dreames, nor dreadfull sights,\n339\nMake sudden sad affrights;\n340\nNe let house-fyres, nor lightnings helpelesse harmes,\n341\nNe let the Pouke, nor other evill sprights,\n342\nNe let mischivous witches with theyr charmes,\n343\nNe let hob Goblins, names whose sence we see not,\n344\nFray us with things that be not:\n345\nLet not the shriech Oule nor the Storke be heard,\n346\nNor the night Raven, that still deadly yels;\n347\nNor damnèd ghosts, cald up with mighty spels,\n348\nNor griesly vultures, make us once affeard:\n349\nNe let th’ unpleasant Quyre of Frogs still croking\n350\nMake us to wish theyr choking.\n351\nLet none of these theyr drery accents sing;\n352\nNe let the woods them answer, nor theyr eccho ring.\n353\nBut let stil Silence trew night-watches keepe,\n354\nThat sacred Peace may in assurance rayne,\n355\nAnd tymely Sleep, when it is tyme to sleepe,\n356\nMay poure his limbs forth on your pleasant playne;\n357\nThe whiles an hundred little wingèd loves,\n358\nLike divers-fethered doves,\n359\nShall fly and flutter round about your bed,\n360\nAnd in the secret darke, that none reproves,\n361\nTheir prety stealthes shal worke, and snares shal spread\n362\nTo filch away sweet snatches of delight,\n363\nConceald through covert night.\n364\nYe sonnes of Venus, play your sports at will!\n365\nFor greedy pleasure, carelesse of your toyes,\n366\nThinks more upon her paradise of joyes,\n367\nThen what ye do, albe it good or ill.\n368\nAll night therefore attend your merry play,\n369\nFor it will soone be day:\n370\nNow none doth hinder you, that say or sing;\n371\nNe will the woods now answer, nor your Eccho ring.\n372\nWho is the same, which at my window peepes?\n373\nOr whose is that faire face that shines so bright?\n374\nIs it not Cinthia, she that never sleepes,\n375\nBut walkes about high heaven al the night?\n376\nO! fayrest goddesse, do thou not envy\n377\nMy love with me to spy:\n378\nFor thou likewise didst love, though now unthought,\n379\nAnd for a fleece of wooll, which privily\n380\nThe Latmian shepherd once unto thee brought,\n381\nHis pleasures with thee wrought.\n382\nTherefore to us be favorable now;\n383\nAnd sith of wemens labours thou hast charge,\n384\nAnd generation goodly dost enlarge,\n385\nEncline thy will t’effect our wishfull vow,\n386\nAnd the chast wombe informe with timely seed\n387\nThat may our comfort breed:\n388\nTill which we cease our hopefull hap to sing;\n389\nNe let the woods us answere, nor our Eccho ring.\n390\nAnd thou, great Juno! which with awful might\n391\nThe lawes of wedlock still dost patronize;\n392\nAnd the religion of the faith first plight\n393\nWith sacred rites hast taught to solemnize;\n394\nAnd eeke for comfort often callèd art\n395\nOf women in their smart;\n396\nEternally bind thou this lovely band,\n397\nAnd all thy blessings unto us impart.\n398\nAnd thou, glad Genius! in whose gentle hand\n399\nThe bridale bowre and geniall bed remaine,\n400\nWithout blemish or staine;\n401\nAnd the sweet pleasures of theyr loves delight\n402\nWith secret ayde doest succour and supply,\n403\nTill they bring forth the fruitfull progeny;\n404\nSend us the timely fruit of this same night.\n405\nAnd thou, fayre Hebe! and thou, Hymen free!\n406\nGrant that it may so be.\n407\nTil which we cease your further prayse to sing;\n408\nNe any woods shall answer, nor your Eccho ring.\n409\nAnd ye high heavens, the temple of the gods,\n410\nIn which a thousand torches flaming bright\n411\nDoe burne, that to us wretched earthly clods\n412\nIn dreadful darknesse lend desirèd light\n413\nAnd all ye powers which in the same remayne,\n414\nMore then we men can fayne!\n415\nPoure out your blessing on us plentiously,\n416\nAnd happy influence upon us raine,\n417\nThat we may raise a large posterity,\n418\nWhich from the earth, which they may long possesse\n419\nWith lasting happinesse,\n420\nUp to your haughty pallaces may mount;\n421\nAnd, for the guerdon of theyr glorious merit,\n422\nMay heavenly tabernacles there inherit,\n423\nOf blessèd Saints for to increase the count.\n424\nSo let us rest, sweet love, in hope of this,\n425\nAnd cease till then our tymely joyes to sing:\n426\nThe woods no more us answer, nor our eccho ring!\n427\n_Song! made in lieu of many ornaments._\n428\n_With which my love should duly have been dect,_\n429\n_Which cutting off through hasty accidents,_\n430\n_Ye would not stay your dew time to expect_\n431\n_But promist both to recompens;_\n432\n_Be unto her a goodly ornament,_\n433\n_And for short time an endlesse moniment._\nLyrics document. A line in [brackets] starts a section.\nTools\nWriter\nReview\nHistory\nTools\nForm & story\nSection order and story jobs\nRhymes\nDeclared rhyme links\nRhythm\nMeter and line placement\nPronunciation\nSung-word readings\nRepeats & voices\nExact repeats and sung asides\nWord rules\nRequired and avoided phrases\nThis version has not been reviewed\n\nRun a review to check form, rhymes, rhythm and pronunciation.\n\nRun review",
+   "toasts_after": [
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "export_source": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/legacy_blocked_insp_closed.source.json",
+    "declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "has_dash_and": true
+   },
+   "download_label": "Download text and sources",
+   "working_copy": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/legacy_blocked_insp_closed.working-copy.json",
+    "payload_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "workingCopy_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "adapted": false,
+    "has_dash_and": true
+   },
+   "reimport": {
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "origin_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 2,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       },
+       {
+        "line": "ways:--and the road",
+        "token": 2,
+        "word": "--and",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "origin_handoff": "handoff:472aea69-a0ad-4e38-94e7-4e95e4d453cf"
+   },
+   "library_record_after": {
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 2,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      },
+      {
+       "line": "ways:--and the road",
+       "token": 2,
+       "word": "--and",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   },
+   "lyrics_mentions": {
+    "dash_and": false,
+    "pronunciation": true,
+    "decision_words": false,
+    "declaration": false
+   }
+  },
+  "valid_v2": {
+   "errors": [],
+   "seeded": true,
+   "library_before": {
+    "noinsp_class": false,
+    "undecided_text": "",
+    "undecided_visible": false,
+    "renumbered_text": "",
+    "renumbered_visible": false,
+    "toasts": []
+   },
+   "envelope": [
+    {
+     "scope": "whole",
+     "declarations": [
+      {
+       "pronunciations": [
+        {
+         "line": "Oh--oh, oh my love",
+         "token": 3,
+         "word": "oh",
+         "phones": [
+          "AA1"
+         ],
+         "basis": "declared",
+         "source": "the singer"
+        }
+       ]
+      }
+     ]
+    }
+   ],
+   "lyrics_origin_declarations": [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 3,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   ],
+   "lyrics_text": "Untitled song\n\nWorkspace: Untitled workspace\n\nNot reviewed\nRun review\nWrite with AI\nExport\nSections\nSong brief\nNo brief yet\nHook not declared\nEdit brief\n\n Epithalamion · Complete reading\n\nSource credits and coordinate lineage are preserved separately from sung lines.\n\nThe writing workflow accepts 2–12 sung words per line. The full reading is retained.\n\nExport source details\nFind\nUndo\nRedo\nDisplay\n1\nYe learnèd sisters, which have oftentimes\n2\nBeene to me ayding, others to adorne,\n3\nWhom ye thought worthy of your gracefull rymes,\n4\nThat even the greatest did not greatly scorne\n5\nTo heare theyr names sung in your simple layes,\n6\nBut joyèd in theyr praise;\n7\nAnd when ye list your owne mishaps to mourne,\n8\nWhich death, or love, or fortunes wreck did rayse,\n9\nYour string could soone to sadder tenor turne,\n10\nAnd teach the woods and waters to lament\n11\nYour dolefull dreriment:\n12\nNow lay those sorrowfull complaints aside;\n13\nAnd, having all your heads with girlands crownd,\n14\nHelpe me mine owne loves prayses to resound;\n15\nNe let the same of any be envide:\n16\nSo Orpheus did for his owne bride!\n17\nSo I unto my selfe alone will sing;\n18\nThe woods shall to me answer, and my Eccho ring.\n19\nEarly, before the worlds light-giving lampe\n20\nHis golden beame upon the hils doth spred,\n21\nHaving disperst the nights unchearefull dampe,\n22\nDoe ye awake; and, with fresh lusty-hed,\n23\nGo to the bowre of my belovèd love,\n24\nMy truest turtle dove;\n25\nBid her awake; for Hymen is awake,\n26\nAnd long since ready forth his maske to move,\n27\nWith his bright Tead that flames with many a flake,\n28\nAnd many a bachelor to waite on him,\n29\nIn theyr fresh garments trim.\n30\nBid her awake therefore, and soone her dight,\n31\nFor lo! the wishèd day is come at last,\n32\nThat shall, for all the paynes and sorrowes past,\n33\nPay to her usury of long delight:\n34\nAnd, whylest she doth her dight,\n35\nDoe ye to her of joy and solace sing,\n36\nThat all the woods may answer, and your eccho ring.\n37\nBring with you all the Nymphes that you can heare\n38\nBoth of the rivers and the forrests greene,\n39\nAnd of the sea that neighbours to her neare:\n40\nAl with gay girlands goodly wel beseene.\n41\nAnd let them also with them bring in hand\n42\nAnother gay girland\n43\nFor my fayre love, of lillyes and of roses,\n44\nBound truelove wize, with a blew silke riband.\n45\nAnd let them make great store of bridale poses,\n46\nAnd let them eeke bring store of other flowers,\n47\nTo deck the bridale bowers.\n48\nAnd let the ground whereas her foot shall tread,\n49\nFor feare the stones her tender foot should wrong,\n50\nBe strewed with fragrant flowers all along,\n51\nAnd diapred lyke the discolored mead.\n52\nWhich done, doe at her chamber dore awayt,\n53\nFor she will waken strayt;\n54\nThe whiles doe ye this song unto her sing,\n55\nThe woods shall to you answer, and your Eccho ring.\n56\nYe Nymphes of Mulla, which with carefull heed\n57\nThe silver scaly trouts doe tend full well,\n58\nAnd greedy pikes which use therein to feed;\n59\n(Those trouts and pikes all others doo excell;)\n60\nAnd ye likewise, which keepe the rushy lake,\n61\nWhere none doo fishes take;\n62\nBynd up the locks the which hang scatterd light,\n63\nAnd in his waters, which your mirror make,\n64\nBehold your faces as the christall bright,\n65\nThat when you come whereas my love doth lie,\n66\nNo blemish she may spie.\n67\nAnd eke, ye lightfoot mayds, which keepe the deere,\n68\nThat on the hoary mountayne used to towre;\n69\nAnd the wylde wolves, which seeke them to devoure,\n70\nWith your steele darts doo chace from comming neer;\n71\nBe also present heere,\n72\nTo helpe to decke her, and to help to sing,\n73\nThat all the woods may answer, and your eccho ring.\n74\nWake now, my love, awake! for it is time;\n75\nThe Rosy Morne long since left Tithones bed,\n76\nAll ready to her silver coche to clyme;\n77\nAnd Phœbus gins to shew his glorious hed.\n78\nHark! how the cheerefull birds do chaunt theyr laies\n79\nAnd carroll of Loves praise.\n80\nThe merry Larke hir mattins sings aloft;\n81\nThe Thrush replyes; the Mavis descant playes;\n82\nThe Ouzell shrills; the Ruddock warbles soft;\n83\nSo goodly all agree, with sweet consent,\n84\nTo this dayes merriment.\n85\nAh! my deere love, why doe ye sleepe thus long?\n86\nWhen meeter were that ye should now awake,\n87\nT’ awayt the comming of your joyous make,\n88\nAnd hearken to the birds love-learnèd song,\n89\nThe deawy leaves among!\n90\nNor they of joy and pleasance to you sing,\n91\nThat all the woods them answer, and theyr eccho ring.\n92\nMy love is now awake out of her dreames,\n93\nAnd her fayre eyes, like stars that dimmèd were\n94\nWith darksome cloud, now shew theyr goodly beams\n95\nMore bright then Hesperus his head doth rere.\n96\nCome now, ye damzels, daughters of delight,\n97\nHelpe quickly her to dight:\n98\nBut first come ye fayre houres, which were begot\n99\nIn Joves sweet paradice of Day and Night;\n100\nWhich doe the seasons of the yeare allot,\n101\nAnd al, that ever in this world is fayre,\n102\nDoe make and still repayre:\n103\nAnd ye three handmayds of the Cyprian Queene,\n104\nThe which doe still adorne her beauties pride,\n105\nHelpe to addorne my beautifullest bride:\n106\nAnd, as ye her array, still throw betweene\n107\nSome graces to be seene;\n108\nAnd, as ye use to Venus, to her sing,\n109\nThe whiles the woods shal answer, and your eccho ring.\n110\nNow is my love all ready forth to come:\n111\nLet all the virgins therefore well awayt:\n112\nAnd ye fresh boyes, that tend upon her groome,\n113\nPrepare your selves; for he is comming strayt.\n114\nSet all your things in seemely good aray,\n115\nFit for so joyfull day:\n116\nThe joyfulst day that ever sunne did see.\n117\nFaire Sun! shew forth thy favourable ray,\n118\nAnd let thy lifull heat not fervent be,\n119\nFor feare of burning her sunshyny face,\n120\nHer beauty to disgrace.\n121\nO fayrest Phœbus! father of the Muse!\n122\nIf ever I did honour thee aright,\n123\nOr sing the thing that mote thy mind delight,\n124\nDoe not thy servants simple boone refuse;\n125\nBut let this day, let this one day, be myne;\n126\nLet all the rest be thine.\n127\nThen I thy soverayne prayses loud wil sing,\n128\nThat all the woods shal answer, and theyr eccho ring.\n129\nHarke! how the Minstrils gin to shrill aloud\n130\nTheir merry Musick that resounds from far,\n131\nThe pipe, the tabor, and the trembling Croud,\n132\nThat well agree withouten breach or jar.\n133\nBut, most of all, the Damzels doe delite\n134\nWhen they their tymbrels smyte,\n135\nAnd thereunto doe daunce and carrol sweet,\n136\nThat all the sences they doe ravish quite;\n137\nThe whyles the boyes run up and downe the street,\n138\nCrying aloud with strong confusèd noyce,\n139\nAs if it were one voyce,\n140\nHymen, iö Hymen, Hymen, they do shout;\n141\nThat even to the heavens theyr shouting shrill\n142\nDoth reach, and all the firmament doth fill;\n143\nTo which the people standing all about,\n144\nAs in approvance, doe thereto applaud,\n145\nAnd loud advaunce her laud;\n146\nAnd evermore they Hymen, Hymen sing,\n147\nThat al the woods them answer, and theyr eccho ring.\n148\nLoe! where she comes along with portly pace,\n149\nLyke Phœbe, from her chamber of the East,\n150\nArysing forth to run her mighty race,\n151\nClad all in white, that seemes a virgin best.\n152\nSo well it her beseemes, that ye would weene\n153\nSome angell she had beene.\n154\nHer long loose yellow locks lyke golden wyre,\n155\nSprinckled with perle, and perling flowres atweene,\n156\nDoe lyke a golden mantle her attyre;\n157\nAnd, being crownèd with a girland greene,\n158\nSeeme lyke some mayden Queene.\n159\nHer modest eyes, abashèd to behold\n160\nSo many gazers as on her do stare,\n161\nUpon the lowly ground affixèd are;\n162\nNe dare lift up her countenance too bold,\n163\nBut blush to heare her prayses sung so loud,\n164\nSo farre from being proud.\n165\nNathlesse doe ye still loud her prayses sing,\n166\nThat all the woods may answer, and your eccho ring.\n167\nTell me, ye merchants daughters, did ye see\n168\nSo fayre a creature in your towne before;\n169\nSo sweet, so lovely, and so mild as she,\n170\nAdornd with beautyes grace and vertues store?\n171\nHer goodly eyes lyke Saphyres shining bright,\n172\nHer forehead yvory white,\n173\nHer cheekes lyke apples which the sun hath rudded,\n174\nHer lips lyke cherryes charming men to byte,\n175\nHer brest like to a bowle of creame uncrudded,\n176\nHer paps lyke lyllies budded,\n177\nHer snowie necke lyke to a marble towre;\n178\nAnd all her body like a pallace fayre,\n179\nAscending up, with many a stately stayre,\n180\nTo honors seat and chastities sweet bowre.\n181\nWhy stand ye still ye virgins in amaze,\n182\nUpon her so to gaze,\n183\nWhiles ye forget your former lay to sing,\n184\nTo which the woods did answer, and your eccho ring?\n185\nBut if ye saw that which no eyes can see,\n186\nThe inward beauty of her lively spright,\n187\nGarnisht with heavenly guifts of high degree,\n188\nMuch more then would ye wonder at that sight,\n189\nAnd stand astonisht lyke to those which red\n190\nMedusaes mazeful hed.\n191\nThere dwels sweet love, and constant chastity,\n192\nUnspotted fayth, and comely womanhood,\n193\nRegard of honour, and mild modesty;\n194\nThere vertue raynes as Queene in royal throne,\n195\nAnd giveth lawes alone,\n196\nThe which the base affections doe obay,\n197\nAnd yeeld theyr services unto her will;\n198\nNe thought of thing uncomely ever may\n199\nThereto approch to tempt her mind to ill.\n200\nHad ye once seene these her celestial threasures,\n201\nAnd unrevealèd pleasures,\n202\nThen would ye wonder, and her prayses sing,\n203\nThat al the woods should answer, and your echo ring.\n204\nOpen the temple gates unto my love,\n205\nOpen them wide that she may enter in,\n206\nAnd all the postes adorne as doth behove,\n207\nAnd all the pillours deck with girlands trim,\n208\nFor to receyve this Saynt with honour dew,\n209\nThat commeth in to you.\n210\nWith trembling steps, and humble reverence,\n211\nShe commeth in, before th’ Almighties view;\n212\nOf her ye virgins learne obedience,\n213\nWhen so ye come into those holy places,\n214\nTo humble your proud faces:\n215\nBring her up to th’ high altar, that she may\n216\nThe sacred ceremonies there partake,\n217\nThe which do endlesse matrimony make;\n218\nAnd let the roring Organs loudly play\n219\nThe praises of the Lord in lively notes;\n220\nThe whiles, with hollow throates,\n221\nThe Choristers the joyous Antheme sing,\n222\nThat al the woods may answere, and their eccho ring.\n223\nBehold, whiles she before the altar stands,\n224\nHearing the holy priest that to her speakes,\n225\nAnd blesseth her with his two happy hands,\n226\nHow the red roses flush up in her cheekes,\n227\nAnd the pure snow, with goodly vermill stayne\n228\nLike crimsin dyde in grayne:\n229\nThat even th’ Angels, which continually\n230\nAbout the sacred Altare doe remaine,\n231\nForget their service and about her fly,\n232\nOfte peeping in her face, that seems more fayre,\n233\nThe more they on it stare.\n234\nBut her sad eyes, still fastened on the ground,\n235\nAre governèd with goodly modesty,\n236\nThat suffers not one looke to glaunce awry,\n237\nWhich may let in a little thought unsownd.\n238\nWhy blush ye, love, to give to me your hand,\n239\nThe pledge of all our band!\n240\nSing, ye sweet Angels, Alleluya sing,\n241\nThat all the woods may answere, and your eccho ring.\n242\nNow al is done: bring home the bride againe;\n243\nBring home the triumph of our victory:\n244\nBring home with you the glory of her gaine;\n245\nWith joyance bring her and with jollity.\n246\nNever had man more joyfull day then this,\n247\nWhom heaven would heape with blis,\n248\nMake feast therefore now all this live-long day;\n249\nThis day for ever to me holy is.\n250\nPoure out the wine without restraint or stay,\n251\nPoure not by cups, but by the belly full,\n252\nPoure out to all that wull,\n253\nAnd sprinkle all the postes and wals with wine,\n254\nThat they may sweat, and drunken be withall.\n255\nCrowne ye God Bacchus with a coronall,\n256\nAnd Hymen also crowne with wreathes of vine;\n257\nAnd let the Graces daunce unto the rest,\n258\nFor they can doo it best:\n259\nThe whiles the maydens doe theyr carroll sing,\n260\nTo which the woods shall answer, and theyr eccho ring.\n261\nRing ye the bels, ye yong men of the towne,\n262\nAnd leave your wonted labors for this day:\n263\nThis day is holy; doe ye write it downe,\n264\nThat ye for ever it remember may.\n265\nThis day the sunne is in his chiefest hight,\n266\nWith Barnaby the bright,\n267\nFrom whence declining daily by degrees,\n268\nHe somewhat loseth of his heat and light,\n269\nWhen once the Crab behind his back he sees.\n270\nBut for this time it ill ordainèd was,\n271\nTo chose the longest day in all the yeare,\n272\nAnd shortest night, when longest fitter weare:\n273\nYet never day so long, but late would passe.\n274\nRing ye the bels, to make it weare away,\n275\nAnd bonefiers make all day;\n276\nAnd daunce about them, and about them sing,\n277\nThat all the woods may answer, and your eccho ring.\n278\nAh! when will this long weary day have end,\n279\nAnd lende me leave to come unto my love?\n280\nHow slowly do the houres theyr numbers spend?\n281\nHow slowly does sad Time his feathers move?\n282\nHast thee, O fayrest Planet, to thy home,\n283\nWithin the Westerne fome:\n284\nThy tyrèd steedes long since have need of rest.\n285\nLong though it be, at last I see it gloome,\n286\nAnd the bright evening-star with golden creast\n287\nAppeare out of the East.\n288\nFayre childe of beauty! glorious lampe of love!\n289\nThat all the host of heaven in rankes doost lead,\n290\nAnd guydest lovers through the nights sad dread,\n291\nHow chearefully thou lookest from above,\n292\nAnd seemst to laugh atweene thy twinkling light,\n293\nAs joying in the sight\n294\nOf these glad many, which for joy doe sing,\n295\nThat all the woods them answer, and their echo ring!\n296\nNow ceasse, ye damsels, your delights fore-past;\n297\nEnough it is that all the day was youres:\n298\nNow day is doen, and night is nighing fast,\n299\nNow bring the Bryde into the brydall boures.\n300\nThe night is come, now soon her disaray,\n301\nAnd in her bed her lay;\n302\nLay her in lillies and in violets,\n303\nAnd silken courteins over her display,\n304\nAnd odourd sheetes, and Arras coverlets.\n305\nBehold how goodly my faire love does ly,\n306\nIn proud humility!\n307\nLike unto Maia, when as Jove her took\n308\nIn Tempe, lying on the flowry gras,\n309\nTwixt sleepe and wake, after she weary was,\n310\nWith bathing in the Acidalian brooke.\n311\nNow it is night, ye damsels may be gon,\n312\nAnd leave my love alone,\n313\nAnd leave likewise your former lay to sing:\n314\nThe woods no more shall answere, nor your echo ring.\n315\nNow welcome, night! thou night so long expected,\n316\nThat long daies labour doest at last defray,\n317\nAnd all my cares, which cruell Love collected,\n318\nHast sumd in one, and cancellèd for aye:\n319\nSpread thy broad wing over my love and me,\n320\nThat no man may us see;\n321\nAnd in thy sable mantle us enwrap,\n322\nFrom feare of perrill and foule horror free.\n323\nLet no false treason seeke us to entrap,\n324\nNor any dread disquiet once annoy\n325\nThe safety of our joy;\n326\nBut let the night be calme, and quietsome,\n327\nWithout tempestuous storms or sad afray:\n328\nLyke as when Jove with fayre Alcmena lay,\n329\nWhen he begot the great Tirynthian groome:\n330\nOr lyke as when he with thy selfe did lie\n331\nAnd begot Majesty.\n332\nAnd let the mayds and yong men cease to sing;\n333\nNe let the woods them answer nor theyr eccho ring.\n334\nLet no lamenting cryes, nor dolefull teares,\n335\nBe heard all night within, nor yet without:\n336\nNe let false whispers, breeding hidden feares,\n337\nBreake gentle sleepe with misconceivèd dout.\n338\nLet no deluding dreames, nor dreadfull sights,\n339\nMake sudden sad affrights;\n340\nNe let house-fyres, nor lightnings helpelesse harmes,\n341\nNe let the Pouke, nor other evill sprights,\n342\nNe let mischivous witches with theyr charmes,\n343\nNe let hob Goblins, names whose sence we see not,\n344\nFray us with things that be not:\n345\nLet not the shriech Oule nor the Storke be heard,\n346\nNor the night Raven, that still deadly yels;\n347\nNor damnèd ghosts, cald up with mighty spels,\n348\nNor griesly vultures, make us once affeard:\n349\nNe let th’ unpleasant Quyre of Frogs still croking\n350\nMake us to wish theyr choking.\n351\nLet none of these theyr drery accents sing;\n352\nNe let the woods them answer, nor theyr eccho ring.\n353\nBut let stil Silence trew night-watches keepe,\n354\nThat sacred Peace may in assurance rayne,\n355\nAnd tymely Sleep, when it is tyme to sleepe,\n356\nMay poure his limbs forth on your pleasant playne;\n357\nThe whiles an hundred little wingèd loves,\n358\nLike divers-fethered doves,\n359\nShall fly and flutter round about your bed,\n360\nAnd in the secret darke, that none reproves,\n361\nTheir prety stealthes shal worke, and snares shal spread\n362\nTo filch away sweet snatches of delight,\n363\nConceald through covert night.\n364\nYe sonnes of Venus, play your sports at will!\n365\nFor greedy pleasure, carelesse of your toyes,\n366\nThinks more upon her paradise of joyes,\n367\nThen what ye do, albe it good or ill.\n368\nAll night therefore attend your merry play,\n369\nFor it will soone be day:\n370\nNow none doth hinder you, that say or sing;\n371\nNe will the woods now answer, nor your Eccho ring.\n372\nWho is the same, which at my window peepes?\n373\nOr whose is that faire face that shines so bright?\n374\nIs it not Cinthia, she that never sleepes,\n375\nBut walkes about high heaven al the night?\n376\nO! fayrest goddesse, do thou not envy\n377\nMy love with me to spy:\n378\nFor thou likewise didst love, though now unthought,\n379\nAnd for a fleece of wooll, which privily\n380\nThe Latmian shepherd once unto thee brought,\n381\nHis pleasures with thee wrought.\n382\nTherefore to us be favorable now;\n383\nAnd sith of wemens labours thou hast charge,\n384\nAnd generation goodly dost enlarge,\n385\nEncline thy will t’effect our wishfull vow,\n386\nAnd the chast wombe informe with timely seed\n387\nThat may our comfort breed:\n388\nTill which we cease our hopefull hap to sing;\n389\nNe let the woods us answere, nor our Eccho ring.\n390\nAnd thou, great Juno! which with awful might\n391\nThe lawes of wedlock still dost patronize;\n392\nAnd the religion of the faith first plight\n393\nWith sacred rites hast taught to solemnize;\n394\nAnd eeke for comfort often callèd art\n395\nOf women in their smart;\n396\nEternally bind thou this lovely band,\n397\nAnd all thy blessings unto us impart.\n398\nAnd thou, glad Genius! in whose gentle hand\n399\nThe bridale bowre and geniall bed remaine,\n400\nWithout blemish or staine;\n401\nAnd the sweet pleasures of theyr loves delight\n402\nWith secret ayde doest succour and supply,\n403\nTill they bring forth the fruitfull progeny;\n404\nSend us the timely fruit of this same night.\n405\nAnd thou, fayre Hebe! and thou, Hymen free!\n406\nGrant that it may so be.\n407\nTil which we cease your further prayse to sing;\n408\nNe any woods shall answer, nor your Eccho ring.\n409\nAnd ye high heavens, the temple of the gods,\n410\nIn which a thousand torches flaming bright\n411\nDoe burne, that to us wretched earthly clods\n412\nIn dreadful darknesse lend desirèd light\n413\nAnd all ye powers which in the same remayne,\n414\nMore then we men can fayne!\n415\nPoure out your blessing on us plentiously,\n416\nAnd happy influence upon us raine,\n417\nThat we may raise a large posterity,\n418\nWhich from the earth, which they may long possesse\n419\nWith lasting happinesse,\n420\nUp to your haughty pallaces may mount;\n421\nAnd, for the guerdon of theyr glorious merit,\n422\nMay heavenly tabernacles there inherit,\n423\nOf blessèd Saints for to increase the count.\n424\nSo let us rest, sweet love, in hope of this,\n425\nAnd cease till then our tymely joyes to sing:\n426\nThe woods no more us answer, nor our eccho ring!\n427\n_Song! made in lieu of many ornaments._\n428\n_With which my love should duly have been dect,_\n429\n_Which cutting off through hasty accidents,_\n430\n_Ye would not stay your dew time to expect_\n431\n_But promist both to recompens;_\n432\n_Be unto her a goodly ornament,_\n433\n_And for short time an endlesse moniment._\nLyrics document. A line in [brackets] starts a section.\nTools\nWriter\nReview\nHistory\nTools\nForm & story\nSection order and story jobs\nRhymes\nDeclared rhyme links\nRhythm\nMeter and line placement\nPronunciation\nSung-word readings\nRepeats & voices\nExact repeats and sung asides\nWord rules\nRequired and avoided phrases\nThis version has not been reviewed\n\nRun a review to check form, rhymes, rhythm and pronunciation.\n\nRun review",
+   "toasts_after": [
+    "Library working copy imported. Your previous draft is under History."
+   ],
+   "export_source": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/valid_v2.source.json",
+    "declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 3,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "has_dash_and": false
+   },
+   "download_label": "Download text and sources",
+   "working_copy": {
+    "file": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h678/verify-library-tests-1/dl-vt_wt-main/valid_v2.working-copy.json",
+    "payload_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 3,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "workingCopy_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 3,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "adapted": false,
+    "has_dash_and": false
+   },
+   "reimport": {
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ],
+    "origin_declarations": [
+     {
+      "pronunciations": [
+       {
+        "line": "Oh--oh, oh my love",
+        "token": 3,
+        "word": "oh",
+        "phones": [
+         "AA1"
+        ],
+        "basis": "declared",
+        "source": "the singer"
+       }
+      ]
+     }
+    ],
+    "origin_handoff": "handoff:f68eac0c-bf0f-43e4-8efa-2e3529e7d9d5"
+   },
+   "library_record_after": {
+    "token_cut": "v2",
+    "declarations": {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 3,
+       "word": "oh",
+       "phones": [
+        "AA1"
+       ],
+       "basis": "declared",
+       "source": "the singer"
+      }
+     ]
+    }
+   },
+   "lyrics_mentions": {
+    "dash_and": false,
+    "pronunciation": true,
+    "decision_words": false,
+    "declaration": false
+   }
+  }
+ },
+ "key": "interpretation:reading_570567e3-ba7f-56f3-a1bf-f06c6a8d9b81:03858a0ffa9f59fdcb2510c658ce641432da0aa88db92a107fbd118d6a3e6d2d"
+}

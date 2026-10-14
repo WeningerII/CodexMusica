@@ -1,0 +1,189 @@
+### I said ×
+   swap_end_word:
+      v2  : null
+      v1  : null
+      base: null
+   line_tokens:
+      v2  : ["I", "said", "×"]
+      v1  : ["I", "said", "×"]
+      base: ["I", "said", "×"]
+   raw_final_token:
+      v2  : "said"
+      v1  : "said"
+      base: "said"
+   line_anchors_end:
+      v2  : ["said", ["said"]]
+      v1  : ["said", ["said"]]
+      base: ["said", ["said"]]
+   n_anchors:
+      v2  : 0
+      v1  : 0
+      base: 0
+### × marks the spot
+   swap_end_word:
+      v2  : "× marks the zebra"
+      v1  : "× marks the zebra"
+      base: "× marks the zebra"
+   line_tokens:
+      v2  : ["×", "marks", "the", "spot"]
+      v1  : ["×", "marks", "the", "spot"]
+      base: ["×", "marks", "the", "spot"]
+   raw_final_token:
+      v2  : "spot"
+      v1  : "spot"
+      base: "spot"
+   line_anchors_end:
+      v2  : ["spot", ["×"]]
+      v1  : ["spot", ["×"]]
+      base: ["spot", ["×"]]
+   n_anchors:
+      v2  : 2
+      v1  : 2
+      base: 2
+### love ×night
+   swap_end_word:
+      v2  : null
+      v1  : null
+      base: null
+   line_tokens:
+      v2  : ["love", "×night"]
+      v1  : ["love", "×night"]
+      base: ["love", "×night"]
+   raw_final_token:
+      v2  : "night"
+      v1  : "night"
+      base: "night"
+   line_anchors_end:
+      v2  : ["night", ["night"]]
+      v1  : ["night", ["night"]]
+      base: ["night", ["night"]]
+   n_anchors:
+      v2  : 0
+      v1  : 0
+      base: 0
+### x ×2
+   swap_end_word:
+      v2  : null
+      v1  : null
+      base: null
+   line_tokens:
+      v2  : ["x", "×2"]
+      v1  : ["x", "×"]
+      base: ["x", "×"]
+   raw_final_token:
+      v2  : "2"
+      v1  : "x"
+      base: "x"
+   line_anchors_end:
+      v2  : ["2", ["2"]]
+      v1  : ["x", ["x"]]
+      base: ["x", ["x"]]
+   n_anchors:
+      v2  : 0
+      v1  : 0
+      base: 0
+### I said yes
+   swap_end_word:
+      v2  : "I said zebra"
+      v1  : "I said zebra"
+      base: "I said zebra"
+   line_tokens:
+      v2  : ["I", "said", "yes"]
+      v1  : ["I", "said", "yes"]
+      base: ["I", "said", "yes"]
+   raw_final_token:
+      v2  : "yes"
+      v1  : "yes"
+      base: "yes"
+   line_anchors_end:
+      v2  : ["yes", []]
+      v1  : ["yes", []]
+      base: ["yes", []]
+   n_anchors:
+      v2  : 2
+      v1  : 2
+      base: 2
+### K1×δQ
+   swap_end_word:
+      v2  : null
+      v1  : null
+      base: null
+   line_tokens:
+      v2  : ["K1×", "Q"]
+      v1  : ["K", "×", "Q"]
+      base: ["K", "×", "Q"]
+   raw_final_token:
+      v2  : "δQ"
+      v1  : "δQ"
+      base: "δQ"
+   line_anchors_end:
+      v2  : ["δQ", ["δQ"]]
+      v1  : ["δQ", ["δQ"]]
+      base: ["δQ", ["δQ"]]
+   n_anchors:
+      v2  : 0
+      v1  : 0
+      base: 0
+### sing÷δnight
+   swap_end_word:
+      v2  : null
+      v1  : null
+      base: null
+   line_tokens:
+      v2  : ["sing÷", "night"]
+      v1  : ["sing÷", "night"]
+      base: ["sing÷", "night"]
+   raw_final_token:
+      v2  : "δnight"
+      v1  : "δnight"
+      base: "δnight"
+   line_anchors_end:
+      v2  : ["δnight", ["δnight"]]
+      v1  : ["δnight", ["δnight"]]
+      base: ["δnight", ["δnight"]]
+   n_anchors:
+      v2  : 0
+      v1  : 0
+      base: 0
+### I love you (love you)
+   swap_end_word:
+      v2  : null
+      v1  : "I love you (love zebra)"
+      base: "I love you (love zebra)"
+   line_tokens:
+      v2  : ["I", "love", "you"]
+      v1  : ["I", "love", "you"]
+      base: ["I", "love", "you"]
+   raw_final_token:
+      v2  : "you"
+      v1  : "you"
+      base: "you"
+   line_anchors_end:
+      v2  : ["you", []]
+      v1  : ["you", []]
+      base: ["you", []]
+   n_anchors:
+      v2  : 2
+      v1  : 2
+      base: 2
+### say it × 2
+   swap_end_word:
+      v2  : "say it × zebra"
+      v1  : null
+      base: null
+   line_tokens:
+      v2  : ["say", "it", "×", "2"]
+      v1  : ["say", "it", "×"]
+      base: ["say", "it", "×"]
+   raw_final_token:
+      v2  : "2"
+      v1  : "it"
+      base: "it"
+   line_anchors_end:
+      v2  : ["2", ["×", "2"]]
+      v1  : ["it", ["it"]]
+      base: ["it", ["it"]]
+   n_anchors:
+      v2  : 0
+      v1  : 0
+      base: 0

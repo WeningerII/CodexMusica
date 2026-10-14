@@ -1,0 +1,610 @@
+{
+ "choices": {
+  "anacrusis": {
+   "chorus": {
+    "chosen_from": [
+     0.0,
+     1.0
+    ],
+    "value": 1.0
+   },
+   "coda": {
+    "chosen_from": [
+     0.0,
+     1.0
+    ],
+    "value": 0.0
+   },
+   "drop": {
+    "chosen_from": [
+     0.0,
+     1.0
+    ],
+    "value": 1.0
+   },
+   "prechorus": {
+    "chosen_from": [
+     0.0,
+     1.0
+    ],
+    "value": 1.0
+   },
+   "verse": {
+    "chosen_from": [
+     0.0,
+     1.0
+    ],
+    "value": 1.0
+   }
+  },
+  "audible": {
+   "audible": 0,
+   "audible_names": [],
+   "bare": 5,
+   "end_bound": 5,
+   "inaudible": [],
+   "unclassified": []
+  },
+  "bars_per_line": 17,
+  "end_rhyme": {
+   "added": 0,
+   "blocked": 5,
+   "chosen_from": "NOT A DRAW \u2014 each sung section's own `schemes[fn].rgs` re-realised at the line ends, so this consumes no seed entropy and the placement draw above is untouched. Three counts, never summed (doctrine 79): `added` groups emitted; `blocked` blocks whose ends the placement draw had already spent; `narrow` blocks whose lines cannot carry one more DISTINCT word.",
+   "groups": [],
+   "narrow": 0
+  },
+  "meter": {
+   "beats_per_line": 119,
+   "chosen_from": "13390236392546005317973140 derived cycles (beats envelope [2, 200], slots envelope [1, 800]), measured BY DERIVATION ON THE DECLARED COORDINATE: 1 of 199 beats-per-line values, then 1 of 9 bars x subdivision factorisation(s) of 119 beats, then 1 of 3 groupings of 7. The line runs 119 beat(s) \u2014 at most 200, the longest line in characters, since a syllable is at least one character and a sung line carries at least one syllable a beat \u2014 and holds 119 slot(s). The pair share follows from how many ways each beat count factorises. Unit is notation, never enforced",
+   "slots_per_line": 119,
+   "value": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   }
+  },
+  "narrative": {
+   "chosen_from": "uniform over the 11008 legal story line-ups of this shape (quality/narrative.py, M-121; the count is exact and the draw is entropy-last)",
+   "value": {
+    "atoms": [
+     [
+      0,
+      "verse",
+      "ESTABLISH"
+     ],
+     [
+      1,
+      "drop",
+      "ANCHOR"
+     ],
+     [
+      2,
+      "chorus",
+      "ANCHOR"
+     ],
+     [
+      3,
+      "prechorus",
+      "COMPLICATE"
+     ],
+     [
+      4,
+      "chorus",
+      "ANCHOR"
+     ],
+     [
+      5,
+      "coda",
+      "RESOLVE"
+     ]
+    ],
+    "junctions": [
+     [
+      0,
+      1,
+      "THEREFORE"
+     ],
+     [
+      1,
+      2,
+      "BUT"
+     ],
+     [
+      2,
+      3,
+      "AND_THEN"
+     ],
+     [
+      3,
+      4,
+      "BUT"
+     ],
+     [
+      4,
+      5,
+      "JUXTAPOSE"
+     ]
+    ],
+    "lineups": 11008,
+    "mode": "drawn"
+   }
+  },
+  "pattern": {
+   "chosen_from": "generated grammar: 22 cell types x 1..4 cells under the drawn total and declared brief, optional intro/outro/coda, roster 20 of 22 functions",
+   "functions": [
+    "verse",
+    "drop",
+    "chorus",
+    "prechorus",
+    "chorus",
+    "coda"
+   ]
+  },
+  "placements": {
+   "measure": "every member is bound at the end of its line (owner's ruling 2026-10-04: rhymes tie only line ends)",
+   "pool": [
+    "end"
+   ],
+   "words": [
+    "last"
+   ]
+  },
+  "relations": {
+   "chosen_from": "NOT DRAWN \u2014 every group is judged against the whole vocabulary: every coarse relation and every registry schema; a pair satisfies a group when it stands in any of them",
+   "value": {}
+  },
+  "schemes": {
+   "chorus": {
+    "chosen_from": 4,
+    "lines": 3,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0,
+     0,
+     1
+    ]
+   },
+   "coda": {
+    "chosen_from": 1,
+    "lines": 2,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0,
+     0
+    ]
+   },
+   "drop": {
+    "chosen_from": 1,
+    "lines": 2,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0,
+     0
+    ]
+   },
+   "prechorus": {
+    "chosen_from": 1,
+    "lines": 2,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0,
+     0
+    ]
+   },
+   "verse": {
+    "chosen_from": 14,
+    "lines": 4,
+    "lines_chosen_from": [
+     1,
+     463
+    ],
+    "rgs": [
+     0,
+     1,
+     1,
+     1
+    ]
+   }
+  },
+  "shape_attempts": 1,
+  "structures": {
+   "chorus": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   },
+   "coda": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   },
+   "drop": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   },
+   "prechorus": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   },
+   "verse": {
+    "chosen_from": [
+     "english-end-rhyme"
+    ],
+    "name": "english-end-rhyme"
+   }
+  },
+  "subdivision": 1
+ },
+ "envelope": {
+  "anacrusis": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "bars_per_line": [
+   1,
+   100
+  ],
+  "beats_per_line": [
+   2,
+   200
+  ],
+  "body_cells": [
+   1,
+   463
+  ],
+  "lines_per_section": [
+   1,
+   463
+  ],
+  "sections": [
+   1,
+   115
+  ],
+  "slots_per_line": [
+   1,
+   800
+  ],
+  "subdivisions": [
+   1,
+   2,
+   4
+  ],
+  "total_lines": [
+   12,
+   463
+  ]
+ },
+ "functions": [],
+ "functions_unused": [],
+ "groups": "2,3,4;5,6;7,8;10,11;15,16",
+ "hook_slot": 7,
+ "hook_slot_refused": "",
+ "line_slots": [
+  {
+   "bar": 1,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "verse",
+   "line": 1,
+   "section": "VERSE1"
+  },
+  {
+   "bar": 18,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "verse",
+   "line": 2,
+   "section": "VERSE1"
+  },
+  {
+   "bar": 35,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "verse",
+   "line": 3,
+   "section": "VERSE1"
+  },
+  {
+   "bar": 52,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "verse",
+   "line": 4,
+   "section": "VERSE1"
+  },
+  {
+   "bar": 69,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "drop",
+   "line": 5,
+   "section": "DROP1"
+  },
+  {
+   "bar": 86,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "drop",
+   "line": 6,
+   "section": "DROP1"
+  },
+  {
+   "bar": 103,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "chorus",
+   "line": 7,
+   "section": "CHORUS1"
+  },
+  {
+   "bar": 120,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "chorus",
+   "line": 8,
+   "section": "CHORUS1"
+  },
+  {
+   "bar": 137,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "chorus",
+   "line": 9,
+   "section": "CHORUS1"
+  },
+  {
+   "bar": 154,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "prechorus",
+   "line": 10,
+   "section": "PRECHORUS1"
+  },
+  {
+   "bar": 171,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "prechorus",
+   "line": 11,
+   "section": "PRECHORUS1"
+  },
+  {
+   "bar": 188,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "chorus",
+   "line": 12,
+   "section": "CHORUS2"
+  },
+  {
+   "bar": 205,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "chorus",
+   "line": 13,
+   "section": "CHORUS2"
+  },
+  {
+   "bar": 222,
+   "beat": 2.0,
+   "duration": 118.0,
+   "function": "chorus",
+   "line": 14,
+   "section": "CHORUS2"
+  },
+  {
+   "bar": 239,
+   "beat": 1.0,
+   "duration": 119.0,
+   "function": "coda",
+   "line": 15,
+   "section": "CODA1"
+  },
+  {
+   "bar": 256,
+   "beat": 1.0,
+   "duration": 119.0,
+   "function": "coda",
+   "line": 16,
+   "section": "CODA1"
+  }
+ ],
+ "narrative": {
+  "atoms": [
+   [
+    0,
+    "verse",
+    "ESTABLISH"
+   ],
+   [
+    1,
+    "drop",
+    "ANCHOR"
+   ],
+   [
+    2,
+    "chorus",
+    "ANCHOR"
+   ],
+   [
+    3,
+    "prechorus",
+    "COMPLICATE"
+   ],
+   [
+    4,
+    "chorus",
+    "ANCHOR"
+   ],
+   [
+    5,
+    "coda",
+    "RESOLVE"
+   ]
+  ],
+  "junctions": [
+   [
+    0,
+    1,
+    "THEREFORE"
+   ],
+   [
+    1,
+    2,
+    "BUT"
+   ],
+   [
+    2,
+    3,
+    "AND_THEN"
+   ],
+   [
+    3,
+    4,
+    "BUT"
+   ],
+   [
+    4,
+    5,
+    "JUXTAPOSE"
+   ]
+  ],
+  "lineups": 11008,
+  "mode": "drawn"
+ },
+ "plan_version": 3,
+ "relation": "",
+ "relations": {},
+ "request": {
+  "form": "verse-chorus",
+  "functions": null,
+  "lines": 16,
+  "narrative": null,
+  "relation": null,
+  "seed": 0,
+  "title": null,
+  "wants": []
+ },
+ "returns": "7,12;8,13;9,14",
+ "sections": [
+  {
+   "bars": 68,
+   "function": "verse",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "VERSE1",
+   "start_bar": 1
+  },
+  {
+   "bars": 34,
+   "function": "drop",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "DROP1",
+   "start_bar": 69
+  },
+  {
+   "bars": 51,
+   "function": "chorus",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS1",
+   "start_bar": 103
+  },
+  {
+   "bars": 34,
+   "function": "prechorus",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "PRECHORUS1",
+   "start_bar": 154
+  },
+  {
+   "bars": 51,
+   "function": "chorus",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CHORUS2",
+   "start_bar": 188
+  },
+  {
+   "bars": 34,
+   "function": "coda",
+   "meter": {
+    "beats": 7,
+    "groups": [
+     2,
+     2,
+     3
+    ],
+    "unit": 8
+   },
+   "name": "CODA1",
+   "start_bar": 239
+  }
+ ],
+ "subdivision": 1,
+ "title": "",
+ "total_lines": 16,
+ "writer_brief": "Write a song: 16 lines, 6 sections, in this order:\n  [VERSE \u2014 4 lines \u2014 68 bars of 7/8, one-beat pickup]\n      up to 118 syllables a line after the pickup\n  [DROP \u2014 2 lines \u2014 34 bars of 7/8, one-beat pickup]\n      up to 118 syllables a line after the pickup\n  [CHORUS \u2014 3 lines \u2014 51 bars of 7/8, one-beat pickup]\n      up to 118 syllables a line after the pickup\n  [PRECHORUS \u2014 2 lines \u2014 34 bars of 7/8, one-beat pickup]\n      up to 118 syllables a line after the pickup\n  [CHORUS \u2014 3 lines \u2014 51 bars of 7/8, one-beat pickup]\n      up to 118 syllables a line after the pickup\n  [CODA \u2014 2 lines \u2014 34 bars of 7/8]\n      up to 119 syllables a line after the pickup\nFeel: 7/8 grouped 2+2+3.\nRhyme plan (line numbers over the whole song):\n  lines 2 & 3 & 4 must stand in at least one relation \u2014 any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema\n  lines 5 & 6 must stand in at least one relation \u2014 any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema\n  lines 7 & 8 must stand in at least one relation \u2014 any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema\n  lines 10 & 11 must stand in at least one relation \u2014 any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema\n  lines 15 & 16 must stand in at least one relation \u2014 any coarse relation (rhyme, rime riche, assonance, consonance) or any registry schema\nStory plan (one job per sung section; each enters from the section before it as stated):\n  VERSE1 puts the world and its cast in place\n  DROP1 is the fixed claim the song keeps returning to \u2014 because of VERSE1\n  CHORUS1 is the fixed claim the song keeps returning to \u2014 against DROP1\n  PRECHORUS1 lets the pressure in \u2014 after CHORUS1\n  CHORUS2 is the fixed claim the song keeps returning to \u2014 against PRECHORUS1\n  CODA1 cashes the standing pressure \u2014 set beside (connection unstated) CHORUS2\nEvery chorus after the first repeats the first chorus word for word, line for line.\nLine 7 is the hook \u2014 make it the line someone leaves humming."
+}

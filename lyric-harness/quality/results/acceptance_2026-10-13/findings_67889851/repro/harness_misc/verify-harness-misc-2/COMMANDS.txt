@@ -1,0 +1,22 @@
+verify-harness-misc-2 (BB8, adversarial re-check of harness-misc finding: SupplementedLexicon.pronunciation_variants not normalised under v2)
+S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad  D=$S/h678/verify-harness-misc-2
+export LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data ; python3 = system 3.13
+
+# 1. own probe: transcribe_word vs pronunciation_variants(raw / normalised), whole_reading, dictionary_readings,
+#    plain Lexicon too, English.read, line transcribe; candidate v2, v1 (explicit reader_scheme) and base tree
+cd $D && python3 probe.py $S/wt-678 v2 $D/out_v2.json ; python3 probe.py $S/wt-678 v1 $D/out_v1.json ; python3 probe.py $S/wt-base base $D/out_base.json
+python3 $D/show.py $D > $D/show.txt
+# 2. English.read provenance (supplement row reached through the raw spelling)
+python3 $D/probe_eng.py $S/wt-678 v2 > eng_v2.txt ; python3 $D/probe_eng.py $S/wt-678 v1 > eng_v1.txt ; python3 $D/probe_eng.py $S/wt-base base > eng_base.txt
+# 3. English.parses (readings='all') raw U+00AD spelling vs plain; plain and supplemented lexicon
+for m in v2 v1; do python3 $D/probe_parses.py $S/wt-678 $m 0; python3 $D/probe_parses.py $S/wt-678 $m 1; done > parses_cand.txt
+python3 $D/probe_parses.py $S/wt-base base 0 > parses_base.txt ; python3 $D/probe_parses.py $S/wt-base base 1 >> parses_base.txt
+# 4. end-to-end CLI `types` verb (whitespace-split bare words), SHY=U+00AD
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py --reader-scheme={v2,v1} types {live,li<SHY>ve} -- give        -> types_cand.txt
+cd $S/wt-base/lyric-harness && python3 lyric_harness.py types {live,li<SHY>ve} -- give                              -> types_base.txt
+cd $S/wt-678/lyric-harness && python3 lyric_harness.py --reader-scheme=v2 types {A,A-with-SHY-after-2-chars} -- B --position=end
+   for A--B in live--give live--five read--bed read--seed  -> types_v2_<A>[SHY]_<B>.txt  (diffs printed to terminal; see FINDINGS below)
+# 5. main vs base identity (source, not executed: no cmudict staged in wt-main)
+cd $S/wt-678 && git diff --stat 8b1d2ad2 fce4bf0f -- lyric-harness/quality/lexicon_supplement.py lyric-harness/lyric_harness.py lyric-harness/quality/phonology/eng.py lyric-harness/quality/rhyme_types.py   -> (empty: identical)
+# AUTHOR'S TEST (independent=false)
+cd $S/wt-678/lyric-harness && $S/venv311/bin/python -m unittest -v quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is -> author_test.log (OK)

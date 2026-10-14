@@ -1,0 +1,27 @@
+stdout raw bytes equal: False
+stdout lines: A=65 B=68; equal after bp-path normalisation: False
+  - A6:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  - A7:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  - A8:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  + B6:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  + B7:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  + B8:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  + B9:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  + B10:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  + B11:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":9,"attempt":0,"round":1,"draft":"ec026ad6b0f3","text":"and all of it for me","batch":null}],"propose_group":[]},"pending":null,"lexicon":{"supplement_id":nu
+  ~ A17:   REPLAY MEMO: warm — 1 of 6 grading call(s) answered from the process memo (runs held: 1 of 4)
+    B20:   REPLAY MEMO: warm — 1 of 7 grading call(s) answered from the process memo (runs held: 1 of 4)
+  ~ A19:   SCORE MEMO: pair scores 65 served / 67 scored; RANK MEMO: field rankings 0 served / 1 ranked
+    B22:   SCORE MEMO: pair scores 65 served / 67 scored; RANK MEMO: field rankings 1 served / 1 ranked
+  ~ lyric checkpoint: (A line 22): 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"
+  ~ lyric result: (A line 23): 4 differing path(s)
+      differ /memo_asked: A=6 B=7
+      differ /cursor_resumed: A=true B=false
+      differ /cursor_stripped: A=null B="run_key"
+      only-B /reader_scheme: A=null B="v1"
+written state raw bytes equal: False
+written state: 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"

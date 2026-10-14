@@ -1,0 +1,744 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-base",
+ "mode": "base",
+ "has_normalise_word": false,
+ "twenty-two": {
+  "S.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "S.pronunciation_variants(raw)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "S.dictionary_readings(raw)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "P.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "P.pronunciation_variants(raw)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": [
+   "Reading",
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   null
+  ],
+  "EngP.read(raw)": [
+   "Reading",
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   null
+  ],
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   [
+    "so",
+    "twenty-two"
+   ],
+   []
+  ]
+ },
+ "twenty\\u2010two": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   [
+    "so",
+    "twenty",
+    "two"
+   ],
+   []
+  ]
+ },
+ "twenty\\u2011two": {
+  "S.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "S.pronunciation_variants(raw)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "S.dictionary_readings(raw)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": [
+   "Reading",
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   null
+  ],
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   [
+    "so",
+    "twenty",
+    "two"
+   ],
+   []
+  ]
+ },
+ "twen\\xadty-two": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "T",
+    "AY1",
+    "T",
+    "UW1"
+   ],
+   [
+    "so",
+    "twen",
+    "ty-two"
+   ],
+   [
+    "twen"
+   ]
+  ]
+ },
+ "twenty-two\\xad": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   [
+    "so",
+    "twenty-two"
+   ],
+   []
+  ]
+ },
+ "streetlight": {
+  "S.transcribe_word": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   false
+  ],
+  "S.pronunciation_variants(raw)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   "moby:3205:attested"
+  ],
+  "S.dictionary_readings(raw)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": [
+   "Reading",
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   null
+  ],
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   [
+    "so",
+    "streetlight"
+   ],
+   []
+  ]
+ },
+ "street\\xadlight": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY1",
+    "T"
+   ],
+   [
+    "so",
+    "street",
+    "light"
+   ],
+   []
+  ]
+ },
+ "streetli\\xadght": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0"
+   ],
+   [
+    "so",
+    "streetli",
+    "ght"
+   ],
+   [
+    "streetli",
+    "ght"
+   ]
+  ]
+ },
+ "cafe\\u0301": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "K",
+    "AH0",
+    "F",
+    "EY1"
+   ],
+   [
+    "so",
+    "cafe"
+   ],
+   []
+  ]
+ },
+ "caf\\xe9": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0"
+   ],
+   [
+    "so",
+    "café"
+   ],
+   [
+    "café"
+   ]
+  ]
+ },
+ "hel\\xadlo": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "L",
+    "OW1"
+   ],
+   [
+    "so",
+    "hel",
+    "lo"
+   ],
+   [
+    "hel"
+   ]
+  ]
+ },
+ "hello": {
+  "S.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "S.pronunciation_variants(raw)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "S.dictionary_readings(raw)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "P.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "P.pronunciation_variants(raw)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": [
+   "Reading",
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   null
+  ],
+  "EngP.read(raw)": [
+   "Reading",
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   null
+  ],
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "so",
+    "hello"
+   ],
+   []
+  ]
+ },
+ "Twenty\\u2010Two": {
+  "S.transcribe_word": [
+   [],
+   true
+  ],
+  "S.pronunciation_variants(raw)": [],
+  "S.pronunciation_variants(normalised)": null,
+  "S.whole_reading(raw)": null,
+  "S.dictionary_readings(raw)": [],
+  "P.transcribe_word": [
+   [],
+   true
+  ],
+  "P.pronunciation_variants(raw)": [],
+  "P.pronunciation_variants(normalised)": null,
+  "EngS.read(raw)": null,
+  "EngP.read(raw)": null,
+  "S.transcribe('so '+w)": [
+   [
+    "S",
+    "OW0",
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   [
+    "so",
+    "Twenty",
+    "Two"
+   ],
+   []
+  ]
+ }
+}

@@ -1,0 +1,6 @@
+stdout raw bytes equal: False
+stdout lines: A=116 B=116; equal after bp-path normalisation: False
+  ~ lyric result: (A line 5): 1 differing path(s)
+      only-B /reader_scheme: A=null B="v1"
+written state raw bytes equal: True
+written state: 0 differing path(s)

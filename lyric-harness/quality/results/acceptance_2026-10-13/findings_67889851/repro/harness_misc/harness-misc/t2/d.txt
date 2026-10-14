@@ -1,0 +1,280 @@
+### end word in aside (bed) | plain
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all"], ["and", "went", "to", "bed"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      v2  : true
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "False"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "False"
+      v1  : "None"
+      base: "None"
+   witness:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+### end word in aside (bed) | voices
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      v2  : false
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "True"
+      v1  : "None"
+      base: "None"
+   witness:
+      v2  : "['read = R EH1 D']"
+      v1  : "None"
+      base: "None"
+### end word in aside (seed) | plain
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all"], ["the", "sowing", "seed"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      v2  : true
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "False"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "False"
+      v1  : "None"
+      base: "None"
+   witness:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+### end word in aside (seed) | voices
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      v2  : false
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "True"
+      v1  : "None"
+      base: "None"
+   witness:
+      v2  : "['read = R IY1 D']"
+      v1  : "None"
+      base: "None"
+### control: no aside (bed) | plain
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      v2  : true
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "True"
+      v1  : "True"
+      base: "True"
+   witness:
+      v2  : "['read = R EH1 D']"
+      v1  : "['read = R EH1 D']"
+      base: "['read = R EH1 D']"
+### control: no aside (bed) | voices
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["and", "went", "to", "bed"]]
+      v2  : false
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "True"
+      v1  : "True"
+      base: "True"
+   witness:
+      v2  : "['read = R EH1 D']"
+      v1  : "['read = R EH1 D']"
+      base: "['read = R EH1 D']"
+### control: no aside (seed) | plain
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      v2  : true
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "True"
+      v1  : "True"
+      base: "True"
+   witness:
+      v2  : "['read = R IY1 D']"
+      v1  : "['read = R IY1 D']"
+      base: "['read = R IY1 D']"
+### control: no aside (seed) | voices
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["the", "sowing", "seed"]]
+      v2  : false
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "True"
+      v1  : "True"
+      base: "True"
+   witness:
+      v2  : "['read = R IY1 D']"
+      v1  : "['read = R IY1 D']"
+      base: "['read = R IY1 D']"
+### mid-line aside word T1 (bed) | plain
+   stream_tokens:
+      v2  : [["the", "letter", "burned"], ["and", "went", "to", "bed"]]
+      v1  : [["the", "read", "letter", "burned"], ["and", "went", "to", "bed"]]
+      base: [["the", "read", "letter", "burned"], ["and", "went", "to", "bed"]]
+      v2  : true
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "False"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "False"
+      v1  : "None"
+      base: "None"
+   witness:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+### mid-line aside word T1 (bed) | voices
+   stream_tokens:
+      v2  : [["the", "read", "letter", "burned"], ["and", "went", "to", "bed"]]
+      v1  : [["the", "read", "letter", "burned"], ["and", "went", "to", "bed"]]
+      base: [["the", "read", "letter", "burned"], ["and", "went", "to", "bed"]]
+      v2  : false
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "True"
+      v1  : "None"
+      base: "None"
+   witness:
+      v2  : "['read = R EH1 D']"
+      v1  : "None"
+      base: "None"
+### two-reading word in aside, end outside (seed) | plain
+   stream_tokens:
+      v2  : [["she", "and", "wept"], ["the", "sowing", "seed"]]
+      v1  : [["she", "would", "read", "and", "wept"], ["the", "sowing", "seed"]]
+      base: [["she", "would", "read", "and", "wept"], ["the", "sowing", "seed"]]
+      v2  : true
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "False"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "False"
+      v1  : "None"
+      base: "None"
+   witness:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+### two-reading word in aside, end outside (seed) | voices
+   stream_tokens:
+      v2  : [["she", "would", "read", "and", "wept"], ["the", "sowing", "seed"]]
+      v1  : [["she", "would", "read", "and", "wept"], ["the", "sowing", "seed"]]
+      base: [["she", "would", "read", "and", "wept"], ["the", "sowing", "seed"]]
+      v2  : false
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+   any_reading_answer:
+      v2  : "True"
+      v1  : "None"
+      base: "None"
+   witness:
+      v2  : "['read = R IY1 D']"
+      v1  : "None"
+      base: "None"
+### negative: aside read vs hat | plain
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all"], ["he", "lost", "his", "hat"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["he", "lost", "his", "hat"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["he", "lost", "his", "hat"]]
+      v2  : true
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "False"
+      v1  : "False"
+      base: "False"
+   any_reading_answer:
+      v2  : "False"
+      v1  : "False"
+      base: "False"
+   witness:
+      v2  : "None"
+      v1  : "None"
+      base: "None"
+### negative: aside read vs hat | voices
+   stream_tokens:
+      v2  : [["she", "wrote", "it", "all", "and", "read"], ["he", "lost", "his", "hat"]]
+      v1  : [["she", "wrote", "it", "all", "and", "read"], ["he", "lost", "his", "hat"]]
+      base: [["she", "wrote", "it", "all", "and", "read"], ["he", "lost", "his", "hat"]]
+      v2  : false
+      v1  : true
+      base: true
+   plain_answer:
+      v2  : "False"
+      v1  : "False"
+      base: "False"
+   any_reading_answer:
+      v2  : "False"
+      v1  : "False"
+      base: "False"
+   witness:
+      v2  : "None"
+      v1  : "None"
+      base: "None"

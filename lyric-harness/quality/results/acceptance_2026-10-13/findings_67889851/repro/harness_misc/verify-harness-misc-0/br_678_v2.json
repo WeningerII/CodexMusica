@@ -1,0 +1,452 @@
+{
+ "tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-678",
+ "mode": "v2",
+ "registered_eng_fallback": null,
+ "production_judge": {
+  "is_registered": true,
+  "fallback": null,
+  "type": "English"
+ },
+ "PH.get('eng')": {
+  "ascii -": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  },
+  "read('king-')": null,
+  "read('king')": [
+   [
+    "K",
+    "IH1",
+    "NG"
+   ],
+   "dictionary"
+  ],
+  "split_final?": true,
+  "U+2010": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  },
+  "U+2011": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  },
+  "-U+00AD": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  },
+  "U+00AD-": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  }
+ },
+ "relation_phonology_for(Lexicon())": {
+  "ascii -": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  },
+  "read('king-')": null,
+  "read('king')": [
+   [
+    "K",
+    "IH1",
+    "NG"
+   ],
+   "dictionary"
+  ],
+  "split_final?": true,
+  "U+2010": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  },
+  "U+2011": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  },
+  "-U+00AD": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  },
+  "U+00AD-": {
+   "verdict": null,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     0,
+     6,
+     "king-"
+    ],
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "minion",
+   "last_unit_split_right": false,
+   "line1_first_split_left": true
+  }
+ },
+ "English(fallback='high')": {
+  "ascii -": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  },
+  "read('king-')": [
+   [
+    "K",
+    "IH1",
+    "NG"
+   ],
+   "dictionary"
+  ],
+  "read('king')": [
+   [
+    "K",
+    "IH1",
+    "NG"
+   ],
+   "dictionary"
+  ],
+  "split_final?": true,
+  "U+2010": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  },
+  "U+2011": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  },
+  "-U+00AD": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  },
+  "U+00AD-": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [
+    [
+     1,
+     4,
+     "dapple-dawn-drawn"
+    ],
+    [
+     3,
+     10,
+     "wimpling"
+    ]
+   ],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  }
+ },
+ "English(fallback='low')": {
+  "ascii -": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  },
+  "read('king-')": [
+   [
+    "K",
+    "IH1",
+    "NG"
+   ],
+   "dictionary"
+  ],
+  "read('king')": [
+   [
+    "K",
+    "IH1",
+    "NG"
+   ],
+   "dictionary"
+  ],
+  "split_final?": true,
+  "U+2010": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  },
+  "U+2011": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  },
+  "-U+00AD": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  },
+  "U+00AD-": {
+   "verdict": true,
+   "tok0_last": "king-",
+   "unreadable": [],
+   "last_unit_word": "king-",
+   "last_unit_split_right": true,
+   "line1_first_split_left": true
+  }
+ },
+ "lex.transcribe_word('king-')": [
+  [],
+  true
+ ],
+ "line_anchors(L1)": "EXC AttributeError(\"'str' object has no attribute 'strip_parens'\")"
+}

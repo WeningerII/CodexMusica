@@ -1,0 +1,14 @@
+test_a_recorded_state_names_the_scheme_a_resume_reads (quality.test_reader.LegacyReplay.test_a_recorded_state_names_the_scheme_a_resume_reads) ... ok
+test_pre_batch_states_resume_as_v1_through_the_cli (quality.test_reader.LegacyReplay.test_pre_batch_states_resume_as_v1_through_the_cli) ... ok
+test_an_explicit_other_scheme_refuses_to_resume (quality.test_reader.LegacyReplay.test_an_explicit_other_scheme_refuses_to_resume) ... ok
+test_tryline_reads_a_deferred_state_under_its_recorded_scheme (quality.test_reader.LegacyReplay.test_tryline_reads_a_deferred_state_under_its_recorded_scheme) ... ok
+test_the_deferred_scheme_check_writes_nothing (quality.test_reader.LegacyReplay.test_the_deferred_scheme_check_writes_nothing) ... ok
+test_the_run_key_is_the_pre_batch_key_under_v1 (quality.test_reader.LegacyReplay.test_the_run_key_is_the_pre_batch_key_under_v1) ... ok
+test_a_pre_batch_checkpoint_resumes_byte_for_byte (quality.test_reader.LegacyReplay.test_a_pre_batch_checkpoint_resumes_byte_for_byte) ... ok
+test_a_call_checkpoints_answered_block_replays_on_its_scheme (quality.test_reader.LegacyReplay.test_a_call_checkpoints_answered_block_replays_on_its_scheme) ... ok
+test_a_v1_voices_tier2_cut_is_the_pre_batch_one (quality.test_reader.LexiconCut.test_a_v1_voices_tier2_cut_is_the_pre_batch_one) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 260.642s
+
+OK

@@ -1,0 +1,20 @@
+base|base|prod relation_phonology_for(None)|ascii - {"last_token": "king-", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 1, "broken rhyme": true, "perfect rhyme": true}
+base|base|prod relation_phonology_for(None)|U+2010 {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|prod relation_phonology_for(None)|U+2011 {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|prod relation_phonology_for(None)|-U+00AD {"last_token": "king-", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|prod relation_phonology_for(None)|U+00AD- {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|prod relation_phonology_for(Lexicon())|ascii - {"last_token": "king-", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 1, "broken rhyme": true, "perfect rhyme": true}
+base|base|prod relation_phonology_for(Lexicon())|U+2010 {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|prod relation_phonology_for(Lexicon())|U+2011 {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|prod relation_phonology_for(Lexicon())|-U+00AD {"last_token": "king-", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|prod relation_phonology_for(Lexicon())|U+00AD- {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|English()|ascii - {"last_token": "king-", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 1, "broken rhyme": true, "perfect rhyme": true}
+base|base|English()|U+2010 {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|English()|U+2011 {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|English()|-U+00AD {"last_token": "king-", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|English()|U+00AD- {"last_token": "king", "fallback": null, "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|English(fallback='high')|ascii - {"last_token": "king-", "fallback": "high", "unreadable_line0": [], "split_right_units_line0": 1, "broken rhyme": true, "perfect rhyme": true}
+base|base|English(fallback='high')|U+2010 {"last_token": "king", "fallback": "high", "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|English(fallback='high')|U+2011 {"last_token": "king", "fallback": "high", "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|English(fallback='high')|-U+00AD {"last_token": "king-", "fallback": "high", "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}
+base|base|English(fallback='high')|U+00AD- {"last_token": "king", "fallback": "high", "unreadable_line0": [], "split_right_units_line0": 0, "broken rhyme": false, "perfect rhyme": true}

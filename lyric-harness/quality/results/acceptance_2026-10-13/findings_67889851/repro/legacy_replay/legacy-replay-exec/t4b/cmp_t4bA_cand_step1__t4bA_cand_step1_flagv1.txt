@@ -1,0 +1,4 @@
+stdout raw bytes equal: True
+stdout lines: A=100 B=100; equal after bp-path normalisation: True
+written state raw bytes equal: True
+written state: 0 differing path(s)

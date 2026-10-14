@@ -1,0 +1,637 @@
+### twenty-two
+   S.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: T W EH1 N T IY0 T UW2
+   S.pronunciation_variants(raw)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: T W EH1 N T IY0 T UW2
+   S.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   S.whole_reading(raw)
+      v2  : T W EH1 N T IY0 T UW2 / cmudict
+      v1  : T W EH1 N T IY0 T UW2 / cmudict
+      base: T W EH1 N T IY0 T UW2 / cmudict
+   S.dictionary_readings(raw)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: T W EH1 N T IY0 T UW2
+   P.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: T W EH1 N T IY0 T UW2
+   P.pronunciation_variants(raw)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: T W EH1 N T IY0 T UW2
+   P.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   EngS.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : Reading T W EH1 N T IY0 T UW2 src=None
+      base: Reading T W EH1 N T IY0 T UW2 src=None
+   EngP.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : Reading T W EH1 N T IY0 T UW2 src=None
+      base: Reading T W EH1 N T IY0 T UW2 src=None
+   S.transcribe('so '+w)
+      v2  : S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+      v1  : S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+      base: S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / twenty-two
+      v1  : so / twenty-two
+      base: n/a
+### twenty\u2010two
+   S.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   EngS.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+      v1  : S OW0 T W EH1 N T IY0 T UW1 | words=['so', 'twenty', 'two'] | oov=[]
+      base: S OW0 T W EH1 N T IY0 T UW1 | words=['so', 'twenty', 'two'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / twenty-two
+      v1  : so / twenty-two
+      base: n/a
+### twenty\u2011two
+   S.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: T W EH1 N T IY0 T UW2
+   S.pronunciation_variants(raw)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: T W EH1 N T IY0 T UW2
+   S.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   S.whole_reading(raw)
+      v2  : T W EH1 N T IY0 T UW2 / cmudict
+      v1  : T W EH1 N T IY0 T UW2 / cmudict
+      base: T W EH1 N T IY0 T UW2 / cmudict
+   S.dictionary_readings(raw)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: T W EH1 N T IY0 T UW2
+   P.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   EngS.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : Reading T W EH1 N T IY0 T UW2 src=None
+      base: Reading T W EH1 N T IY0 T UW2 src=None
+   EngP.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+      v1  : S OW0 T W EH1 N T IY0 T UW1 | words=['so', 'twenty', 'two'] | oov=[]
+      base: S OW0 T W EH1 N T IY0 T UW1 | words=['so', 'twenty', 'two'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / twenty-two
+      v1  : so / twenty-two
+      base: n/a
+### twen\xadty-two
+   S.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   EngS.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+      v1  : S OW0 T AY1 T UW1 | words=['so', 'twen', 'ty-two'] | oov=['twen']
+      base: S OW0 T AY1 T UW1 | words=['so', 'twen', 'ty-two'] | oov=['twen']
+   line_tokens_v2('so '+w)
+      v2  : so / twenty-two
+      v1  : so / twenty-two
+      base: n/a
+### twenty-two\xad
+   S.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   EngS.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+      v1  : S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+      base: S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'twenty-two'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / twenty-two
+      v1  : so / twenty-two
+      base: n/a
+### streetlight
+   S.transcribe_word
+      v2  : S T R IY1 T L AY2 T
+      v1  : S T R IY1 T L AY2 T
+      base: S T R IY1 T L AY2 T
+   S.pronunciation_variants(raw)
+      v2  : S T R IY1 T L AY2 T
+      v1  : S T R IY1 T L AY2 T
+      base: S T R IY1 T L AY2 T
+   S.pronunciation_variants(normalised)
+      v2  : S T R IY1 T L AY2 T
+      v1  : S T R IY1 T L AY2 T
+      base: None
+   S.whole_reading(raw)
+      v2  : S T R IY1 T L AY2 T / moby:3205:attested
+      v1  : S T R IY1 T L AY2 T / moby:3205:attested
+      base: S T R IY1 T L AY2 T / moby:3205:attested
+   S.dictionary_readings(raw)
+      v2  : S T R IY1 T L AY2 T
+      v1  : S T R IY1 T L AY2 T
+      base: S T R IY1 T L AY2 T
+   P.transcribe_word
+      v2  : OOV
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : []
+      v1  : []
+      base: None
+   EngS.read(raw)
+      v2  : Reading S T R IY1 T L AY2 T src=None
+      v1  : Reading S T R IY1 T L AY2 T src=None
+      base: Reading S T R IY1 T L AY2 T src=None
+   EngP.read(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 S T R IY1 T L AY2 T | words=['so', 'streetlight'] | oov=[]
+      v1  : S OW0 S T R IY1 T L AY2 T | words=['so', 'streetlight'] | oov=[]
+      base: S OW0 S T R IY1 T L AY2 T | words=['so', 'streetlight'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / streetlight
+      v1  : so / streetlight
+      base: n/a
+### street\xadlight
+   S.transcribe_word
+      v2  : S T R IY1 T L AY2 T
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : S T R IY1 T L AY2 T
+      v1  : S T R IY1 T L AY2 T
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : OOV
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : []
+      v1  : []
+      base: None
+   EngS.read(raw)
+      v2  : Reading S T R IY1 T L AY2 T src=None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 S T R IY1 T L AY2 T | words=['so', 'streetlight'] | oov=[]
+      v1  : S OW0 S T R IY1 T L AY1 T | words=['so', 'street', 'light'] | oov=[]
+      base: S OW0 S T R IY1 T L AY1 T | words=['so', 'street', 'light'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / streetlight
+      v1  : so / streetlight
+      base: n/a
+### streetli\xadght
+   S.transcribe_word
+      v2  : S T R IY1 T L AY2 T
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : S T R IY1 T L AY2 T
+      v1  : S T R IY1 T L AY2 T
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : OOV
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : []
+      v1  : []
+      base: None
+   EngS.read(raw)
+      v2  : Reading S T R IY1 T L AY2 T src=None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 S T R IY1 T L AY2 T | words=['so', 'streetlight'] | oov=[]
+      v1  : S OW0 | words=['so', 'streetli', 'ght'] | oov=['streetli', 'ght']
+      base: S OW0 | words=['so', 'streetli', 'ght'] | oov=['streetli', 'ght']
+   line_tokens_v2('so '+w)
+      v2  : so / streetlight
+      v1  : so / streetlight
+      base: n/a
+### cafe\u0301
+   S.transcribe_word
+      v2  : OOV
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : []
+      v1  : []
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : OOV
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : []
+      v1  : []
+      base: None
+   EngS.read(raw)
+      v2  : None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 | words=['so', 'café'] | oov=['café']
+      v1  : S OW0 K AH0 F EY1 | words=['so', 'cafe'] | oov=[]
+      base: S OW0 K AH0 F EY1 | words=['so', 'cafe'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / café
+      v1  : so / café
+      base: n/a
+### caf\xe9
+   S.transcribe_word
+      v2  : OOV
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : []
+      v1  : []
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : OOV
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : []
+      v1  : []
+      base: None
+   EngS.read(raw)
+      v2  : None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 | words=['so', 'café'] | oov=['café']
+      v1  : S OW0 | words=['so', 'café'] | oov=['café']
+      base: S OW0 | words=['so', 'café'] | oov=['café']
+   line_tokens_v2('so '+w)
+      v2  : so / café
+      v1  : so / café
+      base: n/a
+### hel\xadlo
+   S.transcribe_word
+      v2  : HH AH0 L OW1
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : HH AH0 L OW1 / HH EH0 L OW1
+      v1  : HH AH0 L OW1 / HH EH0 L OW1
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : HH AH0 L OW1
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : HH AH0 L OW1 / HH EH0 L OW1
+      v1  : HH AH0 L OW1 / HH EH0 L OW1
+      base: None
+   EngS.read(raw)
+      v2  : Reading HH AH0 L OW1 src=None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : Reading HH AH0 L OW1 src=None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 HH AH0 L OW1 | words=['so', 'hello'] | oov=[]
+      v1  : S OW0 L OW1 | words=['so', 'hel', 'lo'] | oov=['hel']
+      base: S OW0 L OW1 | words=['so', 'hel', 'lo'] | oov=['hel']
+   line_tokens_v2('so '+w)
+      v2  : so / hello
+      v1  : so / hello
+      base: n/a
+### hello
+   S.transcribe_word
+      v2  : HH AH0 L OW1
+      v1  : HH AH0 L OW1
+      base: HH AH0 L OW1
+   S.pronunciation_variants(raw)
+      v2  : HH AH0 L OW1 / HH EH0 L OW1
+      v1  : HH AH0 L OW1 / HH EH0 L OW1
+      base: HH AH0 L OW1 / HH EH0 L OW1
+   S.pronunciation_variants(normalised)
+      v2  : HH AH0 L OW1 / HH EH0 L OW1
+      v1  : HH AH0 L OW1 / HH EH0 L OW1
+      base: None
+   S.whole_reading(raw)
+      v2  : HH AH0 L OW1 / cmudict
+      v1  : HH AH0 L OW1 / cmudict
+      base: HH AH0 L OW1 / cmudict
+   S.dictionary_readings(raw)
+      v2  : HH AH0 L OW1 / HH EH0 L OW1
+      v1  : HH AH0 L OW1 / HH EH0 L OW1
+      base: HH AH0 L OW1 / HH EH0 L OW1
+   P.transcribe_word
+      v2  : HH AH0 L OW1
+      v1  : HH AH0 L OW1
+      base: HH AH0 L OW1
+   P.pronunciation_variants(raw)
+      v2  : HH AH0 L OW1 / HH EH0 L OW1
+      v1  : HH AH0 L OW1 / HH EH0 L OW1
+      base: HH AH0 L OW1 / HH EH0 L OW1
+   P.pronunciation_variants(normalised)
+      v2  : HH AH0 L OW1 / HH EH0 L OW1
+      v1  : HH AH0 L OW1 / HH EH0 L OW1
+      base: None
+   EngS.read(raw)
+      v2  : Reading HH AH0 L OW1 src=None
+      v1  : Reading HH AH0 L OW1 src=None
+      base: Reading HH AH0 L OW1 src=None
+   EngP.read(raw)
+      v2  : Reading HH AH0 L OW1 src=None
+      v1  : Reading HH AH0 L OW1 src=None
+      base: Reading HH AH0 L OW1 src=None
+   S.transcribe('so '+w)
+      v2  : S OW0 HH AH0 L OW1 | words=['so', 'hello'] | oov=[]
+      v1  : S OW0 HH AH0 L OW1 | words=['so', 'hello'] | oov=[]
+      base: S OW0 HH AH0 L OW1 | words=['so', 'hello'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / hello
+      v1  : so / hello
+      base: n/a
+### Twenty\u2010Two
+   S.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   S.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   S.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   S.whole_reading(raw)
+      v2  : None
+      v1  : None
+      base: None
+   S.dictionary_readings(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.transcribe_word
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : OOV
+      base: OOV
+   P.pronunciation_variants(raw)
+      v2  : []
+      v1  : []
+      base: []
+   P.pronunciation_variants(normalised)
+      v2  : T W EH1 N T IY0 T UW2
+      v1  : T W EH1 N T IY0 T UW2
+      base: None
+   EngS.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   EngP.read(raw)
+      v2  : Reading T W EH1 N T IY0 T UW2 src=None
+      v1  : None
+      base: None
+   S.transcribe('so '+w)
+      v2  : S OW0 T W EH1 N T IY0 T UW2 | words=['so', 'Twenty-Two'] | oov=[]
+      v1  : S OW0 T W EH1 N T IY0 T UW1 | words=['so', 'Twenty', 'Two'] | oov=[]
+      base: S OW0 T W EH1 N T IY0 T UW1 | words=['so', 'Twenty', 'Two'] | oov=[]
+   line_tokens_v2('so '+w)
+      v2  : so / Twenty-Two
+      v1  : so / Twenty-Two
+      base: n/a

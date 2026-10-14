@@ -1,0 +1,115 @@
+[
+ {
+  "req": "api@v2",
+  "api": {
+   "Oh--oh, oh my love": {
+    "measure_default": "(5, 4, 0, ())",
+    "measure_low": "(5, 4, 0, ())",
+    "read_low": "((Unit(index=0, text='OW', word='Oh', widx=0, prominence=1, moras=1), Unit(index=1, text='OW', word='oh', widx=1, prominence=1, moras=1), Unit(index=2, text='OW', word='oh', widx=2, prominence=1, moras=1), Unit(index=3, text='AY', word='my', widx=3, prominence=0, moras=1), Unit(index=4, text='AH', word='love', widx=4, prominence=1, moras=1)), (), ('Oh', 'oh', 'oh', 'my', 'love'), (), (3, 1))",
+    "read_default": "((Unit(index=0, text='OW', word='Oh', widx=0, prominence=1, moras=1), Unit(index=1, text='OW', word='oh', widx=1, prominence=1, moras=1), Unit(index=2, text='OW', word='oh', widx=2, prominence=1, moras=1), Unit(index=3, text='AY', word='my', widx=3, prominence=0, moras=1), Unit(index=4, text='AH', word='love', widx=4, prominence=1, moras=1)), (), ('Oh', 'oh', 'oh', 'my', 'love'), (3, 1))",
+    "read_low_voices": "((Unit(index=0, text='OW', word='Oh', widx=0, prominence=1, moras=1), Unit(index=1, text='OW', word='oh', widx=1, prominence=1, moras=1), Unit(index=2, text='OW', word='oh', widx=2, prominence=1, moras=1), Unit(index=3, text='AY', word='my', widx=3, prominence=0, moras=1), Unit(index=4, text='AH', word='love', widx=4, prominence=1, moras=1)), (), ('Oh', 'oh', 'oh', 'my', 'love'))",
+    "eng_tokens": null,
+    "eng_unreadable": "[]",
+    "eng_low_unreadable": "[]",
+    "eng_split_final": "False",
+    "lex_scheme_seen": [
+     "v2",
+     "v2"
+    ]
+   },
+   "Thundered the battery’s double bass--": {
+    "measure_default": "(9, 4, 0, ())",
+    "measure_low": "(9, 4, 0, ())",
+    "read_low": "((Unit(index=0, text='AH', word='Thundered', widx=0, prominence=1, moras=1), Unit(index=1, text='ER', word='Thundered', widx=0, prominence=0, moras=1), Unit(index=2, text='AH', word='the', widx=1, prominence=0, moras=1), Unit(index=3, text='AE', word=\"battery's\", widx=2, prominence=1, moras=1), Unit(index=4, text='ER', word=\"battery's\", widx=2, prominence=0, moras=1), Unit(index=5, text='IY', word=\"battery's\", widx=2, prominence=0, moras=1), Unit(index=6, text='AH', word='double', widx=3, prominence=1, moras=1), Unit(index=7, text='AH', word='double', widx=3, prominence=0, moras=1), Unit(index=8, text='AE', word='bass', widx=4, prominence=1, moras=1)), (), ('Thundered', 'the', \"battery's\", 'double', 'bass'), (), (1, 2))",
+    "read_default": "((Unit(index=0, text='AH', word='Thundered', widx=0, prominence=1, moras=1), Unit(index=1, text='ER', word='Thundered', widx=0, prominence=0, moras=1), Unit(index=2, text='AH', word='the', widx=1, prominence=0, moras=1), Unit(index=3, text='AE', word=\"battery's\", widx=2, prominence=1, moras=1), Unit(index=4, text='ER', word=\"battery's\", widx=2, prominence=0, moras=1), Unit(index=5, text='IY', word=\"battery's\", widx=2, prominence=0, moras=1), Unit(index=6, text='AH', word='double', widx=3, prominence=1, moras=1), Unit(index=7, text='AH', word='double', widx=3, prominence=0, moras=1), Unit(index=8, text='AE', word='bass', widx=4, prominence=1, moras=1)), (), ('Thundered', 'the', \"battery's\", 'double', 'bass'), (1, 2))",
+    "read_low_voices": "((Unit(index=0, text='AH', word='Thundered', widx=0, prominence=1, moras=1), Unit(index=1, text='ER', word='Thundered', widx=0, prominence=0, moras=1), Unit(index=2, text='AH', word='the', widx=1, prominence=0, moras=1), Unit(index=3, text='AE', word=\"battery's\", widx=2, prominence=1, moras=1), Unit(index=4, text='ER', word=\"battery's\", widx=2, prominence=0, moras=1), Unit(index=5, text='IY', word=\"battery's\", widx=2, prominence=0, moras=1), Unit(index=6, text='AH', word='double', widx=3, prominence=1, moras=1), Unit(index=7, text='AH', word='double', widx=3, prominence=0, moras=1), Unit(index=8, text='AE', word='bass', widx=4, prominence=1, moras=1)), (), ('Thundered', 'the', \"battery's\", 'double', 'bass'))",
+    "eng_tokens": null,
+    "eng_unreadable": "[]",
+    "eng_low_unreadable": "[]",
+    "eng_split_final": "False",
+    "lex_scheme_seen": [
+     "v2",
+     "v2"
+    ]
+   },
+   "I know it 's true": {
+    "measure_default": "(4, 3, 0, ())",
+    "measure_low": "(4, 3, 0, ())",
+    "read_low": "((Unit(index=0, text='AY', word='I', widx=0, prominence=0, moras=1), Unit(index=1, text='OW', word='know', widx=1, prominence=1, moras=1), Unit(index=2, text='IH', word=\"it's\", widx=2, prominence=1, moras=1), Unit(index=3, text='UW', word='true', widx=3, prominence=1, moras=1)), (), ('I', 'know', \"it's\", 'true'), (WordReadings(word='I', widx=0, readings=((('AY', 0),),), refusal=None), WordReadings(word='know', widx=1, readings=((('OW', 1),),), refusal=None), WordReadings(word=\"it's\", widx=2, readings=((('IH', 1),), (('IH', 0),)), refusal=None), WordReadings(word='true', widx=3, readings=((('UW', 1),),), refusal=None)), (3, 1))",
+    "read_default": "((Unit(index=0, text='AY', word='I', widx=0, prominence=0, moras=1), Unit(index=1, text='OW', word='know', widx=1, prominence=1, moras=1), Unit(index=2, text='IH', word=\"it's\", widx=2, prominence=1, moras=1), Unit(index=3, text='UW', word='true', widx=3, prominence=1, moras=1)), (), ('I', 'know', \"it's\", 'true'), (3, 1))",
+    "read_low_voices": "((Unit(index=0, text='AY', word='I', widx=0, prominence=0, moras=1), Unit(index=1, text='OW', word='know', widx=1, prominence=1, moras=1), Unit(index=2, text='IH', word=\"it's\", widx=2, prominence=1, moras=1), Unit(index=3, text='UW', word='true', widx=3, prominence=1, moras=1)), (), ('I', 'know', \"it's\", 'true'))",
+    "eng_tokens": null,
+    "eng_unreadable": "[]",
+    "eng_low_unreadable": "[]",
+    "eng_split_final": "False",
+    "lex_scheme_seen": [
+     "v2",
+     "v2"
+    ]
+   },
+   "The river owes us nothing, not since 1999": {
+    "measure_default": "(8, 5, 0, ('NUMERAL', 'UNRESOLVED_READING'))",
+    "measure_low": "(8, 5, 0, ('NUMERAL', 'UNRESOLVED_READING'))",
+    "read_low": "((Unit(index=0, text='AH', word='The', widx=0, prominence=0, moras=1), Unit(index=1, text='IH', word='river', widx=1, prominence=1, moras=1), Unit(index=2, text='ER', word='river', widx=1, prominence=0, moras=1), Unit(index=3, text='OW', word='owes', widx=2, prominence=1, moras=1), Unit(index=4, text='AH', word='nothing', widx=4, prominence=1, moras=1), Unit(index=5, text='IH', word='nothing', widx=4, prominence=0, moras=1), Unit(index=6, text='AA', word='not', widx=5, prominence=1, moras=1), Unit(index=7, text='IH', word='since', widx=6, prominence=1, moras=1)), (RefusedToken(token='1999', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.'), RefusedToken(token='us', cause='UNRESOLVED_READING', detail='pronunciations disagree on syllable count; no reading was selected')), ('The', 'river', 'owes', 'us', 'nothing', 'not', 'since', '1999'), (WordReadings(word='The', widx=0, readings=((('AH', 0),),), refusal=None), WordReadings(word='river', widx=1, readings=((('IH', 1), ('ER', 0)),), refusal=None), WordReadings(word='owes', widx=2, readings=((('OW', 1),),), refusal=None), WordReadings(word='us', widx=3, readings=((('AH', 0),), (('UW', 0), ('EH', 0))), refusal=RefusedToken(token='us', cause='UNRESOLVED_READING', detail='pronunciations disagree on syllable count; no reading was selected')), WordReadings(word='nothing', widx=4, readings=((('AH', 1), ('IH', 0)),), refusal=None), WordReadings(word='not', widx=5, readings=((('AA', 1),),), refusal=None), WordReadings(word='since', widx=6, readings=((('IH', 1),),), refusal=None)), (2, 1))",
+    "read_default": "((Unit(index=0, text='AH', word='The', widx=0, prominence=0, moras=1), Unit(index=1, text='IH', word='river', widx=1, prominence=1, moras=1), Unit(index=2, text='ER', word='river', widx=1, prominence=0, moras=1), Unit(index=3, text='OW', word='owes', widx=2, prominence=1, moras=1), Unit(index=4, text='AH', word='nothing', widx=4, prominence=1, moras=1), Unit(index=5, text='IH', word='nothing', widx=4, prominence=0, moras=1), Unit(index=6, text='AA', word='not', widx=5, prominence=1, moras=1), Unit(index=7, text='IH', word='since', widx=6, prominence=1, moras=1)), (RefusedToken(token='1999', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.'), RefusedToken(token='us', cause='UNRESOLVED_READING', detail='pronunciations disagree on syllable count; no reading was selected')), ('The', 'river', 'owes', 'us', 'nothing', 'not', 'since', '1999'), (2, 1))",
+    "read_low_voices": "((Unit(index=0, text='AH', word='The', widx=0, prominence=0, moras=1), Unit(index=1, text='IH', word='river', widx=1, prominence=1, moras=1), Unit(index=2, text='ER', word='river', widx=1, prominence=0, moras=1), Unit(index=3, text='OW', word='owes', widx=2, prominence=1, moras=1), Unit(index=4, text='AH', word='nothing', widx=4, prominence=1, moras=1), Unit(index=5, text='IH', word='nothing', widx=4, prominence=0, moras=1), Unit(index=6, text='AA', word='not', widx=5, prominence=1, moras=1), Unit(index=7, text='IH', word='since', widx=6, prominence=1, moras=1)), (RefusedToken(token='1999', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.'), RefusedToken(token='us', cause='UNRESOLVED_READING', detail='pronunciations disagree on syllable count; no reading was selected')), ('The', 'river', 'owes', 'us', 'nothing', 'not', 'since', '1999'))",
+    "eng_tokens": null,
+    "eng_unreadable": "['us', '1999']",
+    "eng_low_unreadable": "['us', '1999']",
+    "eng_split_final": "False",
+    "lex_scheme_seen": [
+     "v2",
+     "v2"
+    ]
+   },
+   "Catch-22 and 4ever (oh--oh) we sang": {
+    "measure_default": "(6, 3, 0, ('NUMERAL',))",
+    "measure_low": "(6, 3, 0, ('NUMERAL',))",
+    "read_low": "((Unit(index=0, text='AH', word='and', widx=1, prominence=0, moras=1), Unit(index=1, text='IY', word='we', widx=3, prominence=0, moras=1), Unit(index=2, text='AE', word='sang', widx=4, prominence=1, moras=1)), (RefusedToken(token='Catch-22', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.'), RefusedToken(token='4ever', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.')), ('Catch-22', 'and', '4ever', 'we', 'sang'), (), (1, 2))",
+    "read_default": "((Unit(index=0, text='AH', word='and', widx=1, prominence=0, moras=1), Unit(index=1, text='IY', word='we', widx=3, prominence=0, moras=1), Unit(index=2, text='AE', word='sang', widx=4, prominence=1, moras=1)), (RefusedToken(token='Catch-22', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.'), RefusedToken(token='4ever', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.')), ('Catch-22', 'and', '4ever', 'we', 'sang'), (1, 2))",
+    "read_low_voices": "((Unit(index=0, text='AH', word='and', widx=1, prominence=0, moras=1), Unit(index=1, text='OW', word='oh', widx=3, prominence=1, moras=1), Unit(index=2, text='OW', word='oh', widx=4, prominence=1, moras=1), Unit(index=3, text='IY', word='we', widx=5, prominence=0, moras=1), Unit(index=4, text='AE', word='sang', widx=6, prominence=1, moras=1)), (RefusedToken(token='Catch-22', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.'), RefusedToken(token='4ever', cause='NUMERAL', detail='a numeral token reads only through a reading declared for this occurrence: the reader does not expand numbers into words, so it contributes no syllables here and the count without it is a LOWER BOUND.')), ('Catch-22', 'and', '4ever', 'oh', 'oh', 'we', 'sang'))",
+    "eng_tokens": null,
+    "eng_unreadable": "['Catch-22', '4ever']",
+    "eng_low_unreadable": "['Catch-22', '4ever']",
+    "eng_split_final": "False",
+    "lex_scheme_seen": [
+     "v2",
+     "v2"
+    ]
+   },
+   "o’er the hill the café (my love) stands": {
+    "measure_default": "(4, 2, 0, ('OUT_OF_LEXICON',))",
+    "measure_low": "(5, 3, 1, ('OUT_OF_LEXICON',))",
+    "read_low": "((Unit(index=0, text='AO', word=\"o'er\", widx=0, prominence=1, moras=1), Unit(index=1, text='AH', word='the', widx=1, prominence=0, moras=1), Unit(index=2, text='IH', word='hill', widx=2, prominence=1, moras=1), Unit(index=3, text='AH', word='the', widx=3, prominence=0, moras=1), Unit(index=4, text='AE', word='stands', widx=5, prominence=1, moras=1)), (RefusedToken(token='café', cause='OUT_OF_LEXICON', detail='English (General American) could not read it, so it contributed no syllables. Known gap 1 (G2P for OOV).'),), (\"o'er\", 'the', 'hill', 'the', 'café', 'stands'), (), (1, 1))",
+    "read_default": "((Unit(index=0, text='AH', word='the', widx=1, prominence=0, moras=1), Unit(index=1, text='IH', word='hill', widx=2, prominence=1, moras=1), Unit(index=2, text='AH', word='the', widx=3, prominence=0, moras=1), Unit(index=3, text='AE', word='stands', widx=5, prominence=1, moras=1)), (RefusedToken(token=\"o'er\", cause='OUT_OF_LEXICON', detail='English (General American) could not read it, so it contributed no syllables. Known gap 1 (G2P for OOV).'), RefusedToken(token='café', cause='OUT_OF_LEXICON', detail='English (General American) could not read it, so it contributed no syllables. Known gap 1 (G2P for OOV).')), (\"o'er\", 'the', 'hill', 'the', 'café', 'stands'), (1, 1))",
+    "read_low_voices": "((Unit(index=0, text='AO', word=\"o'er\", widx=0, prominence=1, moras=1), Unit(index=1, text='AH', word='the', widx=1, prominence=0, moras=1), Unit(index=2, text='IH', word='hill', widx=2, prominence=1, moras=1), Unit(index=3, text='AH', word='the', widx=3, prominence=0, moras=1), Unit(index=4, text='AY', word='my', widx=5, prominence=0, moras=1), Unit(index=5, text='AH', word='love', widx=6, prominence=1, moras=1), Unit(index=6, text='AE', word='stands', widx=7, prominence=1, moras=1)), (RefusedToken(token='café', cause='OUT_OF_LEXICON', detail='English (General American) could not read it, so it contributed no syllables. Known gap 1 (G2P for OOV).'),), (\"o'er\", 'the', 'hill', 'the', 'café', 'my', 'love', 'stands'))",
+    "eng_tokens": null,
+    "eng_unreadable": "[\"o'er\", 'café']",
+    "eng_low_unreadable": "['café']",
+    "eng_split_final": "False",
+    "lex_scheme_seen": [
+     "v2",
+     "v2"
+    ]
+   }
+  }
+ },
+ {
+  "req": "meter@v2",
+  "argv": [
+   "--reader-scheme=v2",
+   "meter",
+   "./././././",
+   "Oh--oh, oh my love",
+   "Thundered the battery’s double bass--",
+   "I know it 's true",
+   "The river owes us nothing, not since 1999",
+   "Catch-22 and 4ever (oh--oh) we sang",
+   "o’er the hill the café (my love) stands"
+  ],
+  "code": 0,
+  "stdout": "  L1 [BAD] 5 syl (target 10)  stress ///./  strong-pos agreement 0.2\n  L2 [BAD] 9 syl (target 10)  stress /../.././  strong-pos agreement 0.2\n  L3 [BAD] 4 syl (target 10)  stress .///  strong-pos agreement 0.4\n  L4 [BAD] 9 syl (target 10)  stress ././././/  strong-pos agreement 0.8  OOV:['1999']\n  L5 [BAD] 3 syl (target 10)  stress ../  strong-pos agreement 0.0  OOV:['Catch-22', '4ever']\n  L6 [BAD] 4 syl (target 10)  stress ././  strong-pos agreement 0.4  OOV:[\"o'er\", 'café']\n",
+  "stderr": "",
+  "scheme_after": null
+ }
+]

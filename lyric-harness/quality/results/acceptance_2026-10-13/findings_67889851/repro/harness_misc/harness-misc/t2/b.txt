@@ -1,0 +1,231 @@
+### the crown of the king-
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "king-"]
+      v1  : ["the", "crown", "of", "the", "king"]
+      base: ["the", "crown", "of", "the", "king"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "king"
+      base: "king"
+   split_right:
+      v2  : false
+      v1  : true
+      base: true
+   next_split_left:
+      v2  : true
+      v1  : true
+      base: true
+   unreadable:
+      v2  : [[0, 4, "king-"]]
+      v1  : []
+      base: []
+### the crown of the king‐
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "king-"]
+      v1  : ["the", "crown", "of", "the", "king"]
+      base: ["the", "crown", "of", "the", "king"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "king"
+      base: "king"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : true
+      v1  : false
+      base: false
+   unreadable:
+      v2  : [[0, 4, "king-"]]
+      v1  : []
+      base: []
+### the crown of the king‑
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "king-"]
+      v1  : ["the", "crown", "of", "the", "king"]
+      base: ["the", "crown", "of", "the", "king"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "king"
+      base: "king"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : true
+      v1  : false
+      base: false
+   unreadable:
+      v2  : [[0, 4, "king-"]]
+      v1  : []
+      base: []
+### the crown of the king­-
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "king-"]
+      v1  : ["the", "crown", "of", "the", "king"]
+      base: ["the", "crown", "of", "the", "king"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "king"
+      base: "king"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : true
+      v1  : false
+      base: false
+   unreadable:
+      v2  : [[0, 4, "king-"]]
+      v1  : []
+      base: []
+### the crown of the king-­
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "king-"]
+      v1  : ["the", "crown", "of", "the", "king"]
+      base: ["the", "crown", "of", "the", "king"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "king"
+      base: "king"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : true
+      v1  : false
+      base: false
+   unreadable:
+      v2  : [[0, 4, "king-"]]
+      v1  : []
+      base: []
+### the crown of the café-
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "café-"]
+      v1  : ["the", "crown", "of", "the", "cafe"]
+      base: ["the", "crown", "of", "the", "cafe"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "cafe"
+      base: "cafe"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : true
+      v1  : false
+      base: false
+   unreadable:
+      v2  : [[0, 4, "café-"]]
+      v1  : []
+      base: []
+### the crown of the café-
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "café-"]
+      v1  : ["the", "crown", "of", "the", "café"]
+      base: ["the", "crown", "of", "the", "café"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "the"
+      base: "the"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : true
+      v1  : true
+      base: true
+   unreadable:
+      v2  : [[0, 4, "café-"]]
+      v1  : [[0, 4, "café"]]
+      base: [[0, 4, "café"]]
+### the crown of the kings’-
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "kings'-"]
+      v1  : ["the", "crown", "of", "the", "kings"]
+      base: ["the", "crown", "of", "the", "kings"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "kings"
+      base: "kings"
+   split_right:
+      v2  : false
+      v1  : true
+      base: true
+   next_split_left:
+      v2  : true
+      v1  : true
+      base: true
+   unreadable:
+      v2  : [[0, 4, "kings'-"]]
+      v1  : []
+      base: []
+### Thundered the battery’s double bass--
+   tokens0:
+      v2  : ["Thundered", "the", "battery's", "double", "bass"]
+      v1  : ["Thundered", "the", "battery’s", "double", "bass"]
+      base: ["Thundered", "the", "battery’s", "double", "bass"]
+   last_unit_token:
+      v2  : "bass"
+      v1  : "bass"
+      base: "bass"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : false
+      v1  : false
+      base: false
+   unreadable:
+      v2  : []
+      v1  : []
+      base: []
+### the crown of the king -
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "king"]
+      v1  : ["the", "crown", "of", "the", "king"]
+      base: ["the", "crown", "of", "the", "king"]
+   last_unit_token:
+      v2  : "king"
+      v1  : "king"
+      base: "king"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : false
+      v1  : false
+      base: false
+   unreadable:
+      v2  : []
+      v1  : []
+      base: []
+### the crown of the king‐ 
+   tokens0:
+      v2  : ["the", "crown", "of", "the", "king-"]
+      v1  : ["the", "crown", "of", "the", "king"]
+      base: ["the", "crown", "of", "the", "king"]
+   last_unit_token:
+      v2  : "the"
+      v1  : "king"
+      base: "king"
+   split_right:
+      v2  : false
+      v1  : false
+      base: false
+   next_split_left:
+      v2  : true
+      v1  : false
+      base: false
+   unreadable:
+      v2  : [[0, 4, "king-"]]
+      v1  : []
+      base: []

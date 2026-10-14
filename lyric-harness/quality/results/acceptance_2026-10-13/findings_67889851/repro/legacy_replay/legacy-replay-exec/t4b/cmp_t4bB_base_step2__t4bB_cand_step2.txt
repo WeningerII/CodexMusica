@@ -1,0 +1,23 @@
+stdout raw bytes equal: False
+stdout lines: A=100 B=103; equal after bp-path normalisation: False
+  - A5:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":2,"attempt":0,"round":1,"draft":"f046720c17ab","text":"You never came to see the shore","batch":null}],"propose_group":[{"members":[1,2],"texts":["I left my
+  - A6:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":2,"attempt":0,"round":1,"draft":"f046720c17ab","text":"You never came to see the shore","batch":null}],"propose_group":[{"members":[1,2],"texts":["I left my
+  + B5:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":2,"attempt":0,"round":1,"draft":"f046720c17ab","text":"You never came to see the shore","batch":null}],"propose_group":[{"members":[1,2],"texts":["I left my
+  + B6:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":2,"attempt":0,"round":1,"draft":"f046720c17ab","text":"You never came to see the shore","batch":null}],"propose_group":[{"members":[1,2],"texts":["I left my
+  + B7:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":2,"attempt":0,"round":1,"draft":"f046720c17ab","text":"You never came to see the shore","batch":null}],"propose_group":[{"members":[1,2],"texts":["I left my
+  + B8:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":2,"attempt":0,"round":1,"draft":"f046720c17ab","text":"You never came to see the shore","batch":null}],"propose_group":[{"members":[1,2],"texts":["I left my
+  + B9:   lyric checkpoint: {"version":1,"answered":{"propose":[{"line":2,"attempt":0,"round":1,"draft":"f046720c17ab","text":"You never came to see the shore","batch":null}],"propose_group":[{"members":[1,2],"texts":["I left my
+  ~ A9:   REPLAY MEMO: warm — 2 of 6 grading call(s) answered from the process memo (runs held: 1 of 4)
+    B12:   REPLAY MEMO: warm — 2 of 8 grading call(s) answered from the process memo (runs held: 1 of 4)
+  ~ A11:   SCORE MEMO: pair scores 1 served / 11 scored; RANK MEMO: field rankings 0 served / 2 ranked
+    B14:   SCORE MEMO: pair scores 1 served / 11 scored; RANK MEMO: field rankings 1 served / 2 ranked
+  ~ lyric result: (A line 100): 5 differing path(s)
+      differ /memo_asked: A=6 B=8
+      differ /replayed_answers: A=0 B=1
+      differ /cursor_resumed: A=true B=false
+      differ /cursor_stripped: A=null B="run_key"
+      only-B /reader_scheme: A=null B="v1"
+written state raw bytes equal: False
+written state: 2 differing path(s)
+      differ /cursor/scorer: A="7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a" B="cc3678e72bd864fe3cd559b2cbfc7177f314ba6b717b7d0fdb917589be374868"
+      only-B /reader_scheme: A=null B="v1"

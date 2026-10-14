@@ -1,0 +1,12 @@
+base 'the minion king-'               tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=True
+base 'the minion king -'              tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=False
+base 'the minion king--'              tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=False
+base 'the minion king—'               tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=False
+base 'the minion king —'              tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=False
+base 'the minion king-,'              tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=False
+base 'the minion king-.'              tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=False
+base 'the king- dom of a sing'        tokens=['the', 'king', 'dom', 'of', 'a', 'sing'] unreadable=[] perfect=True broken=False
+base 'the minion king'                tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=False
+base 'the minion king-  '             tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=True
+base 'our anguish-'                   tokens=['our', 'anguish'] unreadable=['our'] perfect=False broken=False
+base 'the minion king‐'               tokens=['the', 'minion', 'king'] unreadable=[] perfect=True broken=False

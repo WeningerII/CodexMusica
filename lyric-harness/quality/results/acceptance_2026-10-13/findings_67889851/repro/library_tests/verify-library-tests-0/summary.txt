@@ -1,0 +1,224 @@
+===== c8b_wt-678_1280.json
+  v2_clean
+    library: alert='' visible=False sheet_toggle=False
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371107)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: NONE
+    errors: []
+  unmarked_blocked
+    library: alert='1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts unt' visible=True sheet_toggle=False
+    library toasts: ['1 saved pronunciation choice needs your decision before a new analysis.']
+    renumbered note: '1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word' visible=True
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371107)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: NONE
+    errors: []
+  v2_persisted_undecided
+    library: alert='1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts unt' visible=True sheet_toggle=False
+    library toasts: []
+    renumbered note: '1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word' visible=True
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371107)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: NONE
+    errors: []
+  unknown_cut_v9
+    library: alert='2 saved pronunciation choices need your decision. They bind no word and are not sent; no new analysis starts u' visible=True sheet_toggle=False
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[]]
+    libraryOrigin.declarations: [{"pronunciations": []}]
+    downloads: [('codex-musica-library-source.json', 351825), ('lyrics.library-working-copy.json', 370559)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: NONE
+    errors: []
+  unmarked_only_blocked
+    library: alert='1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts unt' visible=True sheet_toggle=False
+    library toasts: ['1 saved pronunciation choice needs your decision before a new analysis.']
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[]]
+    libraryOrigin.declarations: [{"pronunciations": []}]
+    downloads: [('codex-musica-library-source.json', 351825), ('lyrics.library-working-copy.json', 370559)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: NONE
+    errors: []
+===== c8b_wt-678_390.json
+  v2_clean
+    library: alert='' visible=False sheet_toggle=True
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371105)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: NONE
+    errors: []
+  unmarked_blocked
+    library: alert='1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts unt' visible=False sheet_toggle=True
+    library toasts: ['1 saved pronunciation choice needs your decision before a new analysis.']
+    renumbered note: '1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371105)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: NONE
+    errors: []
+  v2_persisted_undecided
+    library: alert='1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts unt' visible=False sheet_toggle=True
+    library toasts: []
+    renumbered note: '1 saved pronunciation choice carried no word-cut mark, so its number was read under the earlier word' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371105)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: NONE
+    errors: []
+  unknown_cut_v9
+    library: alert='2 saved pronunciation choices need your decision. They bind no word and are not sent; no new analysis starts u' visible=False sheet_toggle=True
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[]]
+    libraryOrigin.declarations: [{"pronunciations": []}]
+    downloads: [('codex-musica-library-source.json', 351825), ('lyrics.library-working-copy.json', 370557)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: NONE
+    errors: []
+  unmarked_only_blocked
+    library: alert='1 saved pronunciation choice needs your decision. It binds no word and is not sent; no new analysis starts unt' visible=False sheet_toggle=True
+    library toasts: ['1 saved pronunciation choice needs your decision before a new analysis.']
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[]]
+    libraryOrigin.declarations: [{"pronunciations": []}]
+    downloads: [('codex-musica-library-source.json', 351825), ('lyrics.library-working-copy.json', 370557)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: NONE
+    errors: []
+===== c8b_wt-main_1280.json
+  v2_clean
+    library: alert='' visible=False sheet_toggle=False
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371107)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: NONE
+    errors: []
+  unmarked_blocked
+    library: alert='' visible=False sheet_toggle=False
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 2, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}, {"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 2, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}, {"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352325), ('lyrics.library-working-copy.json', 371643)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: {'libraryOrigin': ['dash_and'], 'downloads': ['dash_and'], 'lyrics_idb': ['dash_and'], 'localStorage': ['dash_and']}
+    errors: []
+  v2_persisted_undecided
+    library: alert='' visible=False sheet_toggle=False
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371107)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: NONE
+    errors: []
+  unknown_cut_v9
+    library: alert='' visible=False sheet_toggle=False
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}, {"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}, {"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352325), ('lyrics.library-working-copy.json', 371643)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: {'libraryOrigin': ['dash_and'], 'downloads': ['dash_and'], 'lyrics_idb': ['dash_and'], 'localStorage': ['dash_and']}
+    errors: []
+  unmarked_only_blocked
+    library: alert='' visible=False sheet_toggle=False
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352081), ('lyrics.library-working-copy.json', 371115)] ly_download_clicked True
+    surface_text chars: 20285 | history has panel: True
+    term hits on Lyrics side: {'libraryOrigin': ['dash_and'], 'downloads': ['dash_and'], 'lyrics_idb': ['dash_and'], 'localStorage': ['dash_and']}
+    errors: []
+===== c8b_wt-main_390.json
+  v2_clean
+    library: alert='' visible=False sheet_toggle=True
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371105)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: NONE
+    errors: []
+  unmarked_blocked
+    library: alert='' visible=False sheet_toggle=True
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 2, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}, {"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 2, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}, {"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352325), ('lyrics.library-working-copy.json', 371641)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: {'libraryOrigin': ['dash_and'], 'downloads': ['dash_and'], 'lyrics_idb': ['dash_and'], 'localStorage': ['dash_and']}
+    errors: []
+  v2_persisted_undecided
+    library: alert='' visible=False sheet_toggle=True
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352077), ('lyrics.library-working-copy.json', 371105)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: NONE
+    errors: []
+  unknown_cut_v9
+    library: alert='' visible=False sheet_toggle=True
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}, {"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "Oh--oh, oh my love", "token": 3, "word": "oh", "phones": ["AA1"], "basis": "declared", "source": "the singer"}, {"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352325), ('lyrics.library-working-copy.json', 371641)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: {'libraryOrigin': ['dash_and'], 'downloads': ['dash_and'], 'lyrics_idb': ['dash_and'], 'localStorage': ['dash_and']}
+    errors: []
+  unmarked_only_blocked
+    library: alert='' visible=False sheet_toggle=True
+    library toasts: []
+    renumbered note: '' visible=False
+    hash after: #lyrics | toasts after click: ['Library working copy imported. Your previous draft is under History.']
+    carried pronunciations: [[{"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]]
+    libraryOrigin.declarations: [{"pronunciations": [{"line": "ways:--and the road", "token": 2, "word": "--and", "phones": ["AA1"], "basis": "declared", "source": "the singer"}]}]
+    downloads: [('codex-musica-library-source.json', 352081), ('lyrics.library-working-copy.json', 371113)] ly_download_clicked True
+    surface_text chars: 19943 | history has panel: False
+    term hits on Lyrics side: {'libraryOrigin': ['dash_and'], 'downloads': ['dash_and'], 'lyrics_idb': ['dash_and'], 'localStorage': ['dash_and']}
+    errors: []
