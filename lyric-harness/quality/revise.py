@@ -1155,7 +1155,11 @@ def _field_scope():
     """One slot's field computation (`_place_field`): while open,
     `_engine_candidates` and `English.syllabify` (`_reading_scope`) remember
     what they compute. Both memos are dropped when the outermost scope
-    closes, so nothing read inside one is served to a call after it."""
+    closes, so nothing read inside one is served to a call after it.
+
+    The stack is module-level: the guarantee assumes serialized, synchronous
+    callers (the CLI's one command, `mcp/worker.py`'s one request at a time).
+    Overlapping callers on two threads would share the outer memo."""
     from quality.phonology.eng import _reading_scope
     _FIELD_SCOPE.append(_FIELD_SCOPE[-1] if _FIELD_SCOPE else {})
     try:

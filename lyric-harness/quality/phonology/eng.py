@@ -126,7 +126,8 @@ _READING_SCOPE = []
 def _reading_scope():
     """While open, `English.syllabify` remembers each word it reads, for the
     phonology and lexicon that read it. Nested scopes share the outer memo;
-    the memo is dropped when the outermost scope closes."""
+    the memo is dropped when the outermost scope closes. Module-level, so it
+    assumes serialized, synchronous callers, as the harness runs."""
     _READING_SCOPE.append(_READING_SCOPE[-1] if _READING_SCOPE else {})
     try:
         yield

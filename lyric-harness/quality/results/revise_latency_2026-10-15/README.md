@@ -61,9 +61,22 @@ source bytes). Through MCP the song text block is identical and every
 verdict field matches except `ms` and the sealed `state` token, which also
 differ between two runs of main.
 
-The slower CI runner measured ~1.25x this container on the same request
-(`high_report_timeout_2026-10-14/`), so the change is expected near 45 s
-against the unchanged 60 s deadline: real headroom, not a 2x margin.
+These are local measurements only. They do not establish a CI or live
+margin: the historical CI report (`high_report_timeout_2026-10-14/`) says its
+host load was uncontrolled and that whole-test durations do not give one
+request's margin, so no runner-speed factor is applied here. Exact-head CI
+and an independent timing are the evidence for any deadline claim.
+
+## Scope of the memos
+
+`_field_scope` (`quality/revise.py`) and `_reading_scope`
+(`quality/phonology/eng.py`) keep their memos on module-level stacks. Their
+guarantee -- nothing is remembered outside one `_place_field` call -- holds
+for serialized, synchronous use, which is how the harness runs: the CLI runs
+one command, and `mcp/worker.py` reads and answers one request at a time on
+one thread. Two callers overlapping in one process (threads) would share the
+outer memo; no such caller exists today, and adding one would need these
+scopes made per-call first.
 
 ## Not done, and why
 
