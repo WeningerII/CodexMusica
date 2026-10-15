@@ -249,15 +249,17 @@ fs.mkdirSync(out, { recursive: true });
       if (process.env.TEST_SHARED_DOCK === '1') {
         const initial = await page.locator('#lyrics-draft').inputValue();
         const trigger = page.locator('#ly-linedock [data-ui="ly-menu"]');
-        await trigger.click();
-        const menu = page.locator('#ly-menu-line-actions');
+        if (width < 960) await trigger.click();
+        const menu = page.locator(width < 960 ? '#ly-menu-line-actions' : '#ly-toolbar');
+        if (width >= 960) await menu.scrollIntoViewIfNeeded();
         const bounds = await menu.boundingBox();
         assert.ok(
           bounds && bounds.y >= 0 && bounds.y + bounds.height <= height,
-          'Line actions menu inside viewport'
+          'History controls inside viewport after reaching their container'
         );
         assert.equal(await menu.locator('[data-ui="ly-undo"]').isEnabled(), true);
-        assert.equal(await menu.getByText('Pronunciation', { exact: true }).isVisible(), true);
+        if (width < 960)
+          assert.equal(await menu.getByText('Pronunciation', { exact: true }).isVisible(), true);
         await page.screenshot({ path: path.join(out, `${width}-${theme}-line-actions.png`) });
         await menu.locator('[data-ui="ly-undo"]').click();
         await page.waitForTimeout(100);
@@ -266,7 +268,7 @@ fs.mkdirSync(out, { recursive: true });
           initial,
           'Undo changes actual draft'
         );
-        await trigger.click();
+        if (width < 960) await trigger.click();
         await menu.locator('[data-ui="ly-redo"]').click();
         await page.waitForTimeout(100);
         assert.equal(
@@ -274,7 +276,7 @@ fs.mkdirSync(out, { recursive: true });
           initial,
           'Redo restores actual draft'
         );
-        checks.push('shared dock menu visible, Undo and Redo operate actual history');
+        checks.push('viewport history controls visible, Undo and Redo operate actual history');
       }
       await page.screenshot({ path: path.join(out, `${width}-${theme}.png`) });
       assert.deepEqual(errors, []);

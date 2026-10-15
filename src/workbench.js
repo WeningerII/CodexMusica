@@ -671,6 +671,15 @@ function uiUpdatePrompt() {
     ? 'Describe the song, or paste lyrics to edit…'
     : 'Describe the recording recipe you want…';
   input.setAttribute('aria-label', lyric ? 'Lyrics request' : 'Recipe request');
+  const sendLabel = $ui('chat-send')?.querySelector('.btn-label');
+  if (sendLabel) sendLabel.textContent = lyric ? 'Send' : 'Ask';
+  const mode = $ui('ly-composer-mode');
+  if (mode)
+    mode.textContent = lyric
+      ? domain.value === 'lyrics-edit'
+        ? 'Edit this draft · Your current document accompanies this request.'
+        : 'New song · Describe your idea. Opening Writer does not replace your document.'
+      : 'A recording recipe conversation is active. Finish it before starting lyric work.';
 }
 function uiSwitchChat(target) {
   const current =

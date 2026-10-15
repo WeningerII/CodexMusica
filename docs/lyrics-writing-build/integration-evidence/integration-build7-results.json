@@ -1,0 +1,1083 @@
+{
+  "root": "/workspace/musica-lyrics-integration",
+  "bundleSha256": "30f877d4899d9b228ceb31a4864321e5100f13abb6d24ccae80656ef6c923368",
+  "results": [
+    {
+      "width": 1180,
+      "height": 757,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": true
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": true
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": true
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions menu is within viewport and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable after menu scrolling",
+          "ok": true
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Undo is visible and hit-testable in its viewport control",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 867,
+        "y": 310.1875,
+        "width": 262,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "sendOnEntry": {
+        "x": 1057.625,
+        "y": 412.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "composer": {
+        "x": 867,
+        "y": 310.1875,
+        "width": 262,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "send": {
+        "x": 1057.625,
+        "y": 412.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "songMenu": {
+        "x": 830,
+        "y": 132,
+        "width": 320,
+        "height": 444,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "downloadInitial": {
+        "x": 839,
+        "y": 487,
+        "width": 302,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "download": {
+        "x": 839,
+        "y": 487,
+        "width": 302,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "undo": {
+        "x": 232.234375,
+        "y": 226,
+        "width": 85.46875,
+        "height": 40,
+        "hit": "",
+        "reachable": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": true
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": true
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": true
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions menu is within viewport and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable after menu scrolling",
+          "ok": true
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Undo is visible and hit-testable in its viewport control",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 24,
+        "y": 378.1875,
+        "width": 332,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "sendOnEntry": {
+        "x": 284.625,
+        "y": 480.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "composer": {
+        "x": 24,
+        "y": 378.1875,
+        "width": 332,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "send": {
+        "x": 284.625,
+        "y": 480.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "songMenu": {
+        "x": 44,
+        "y": 277,
+        "width": 320,
+        "height": 444,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "downloadInitial": {
+        "x": 53,
+        "y": 632,
+        "width": 302,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "download": {
+        "x": 53,
+        "y": 632,
+        "width": 302,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "undo": {
+        "x": 21,
+        "y": 601.359375,
+        "width": 171,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": true
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": true
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": true
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions menu is within viewport and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable after menu scrolling",
+          "ok": true
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Undo is visible and hit-testable in its viewport control",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 24,
+        "y": 235.1875,
+        "width": 332,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "sendOnEntry": {
+        "x": 284.625,
+        "y": 337.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "composer": {
+        "x": 24,
+        "y": 235.1875,
+        "width": 332,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "send": {
+        "x": 284.625,
+        "y": 337.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "songMenu": {
+        "x": 44,
+        "y": 116,
+        "width": 320,
+        "height": 327,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "downloadInitial": {
+        "x": 53,
+        "y": 469,
+        "width": 302,
+        "height": 40,
+        "hit": "ly-mtab-writer",
+        "reachable": false
+      },
+      "download": {
+        "x": 53,
+        "y": 354,
+        "width": 302,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "undo": {
+        "x": 21,
+        "y": 265.359375,
+        "width": 171,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": true
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": true
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": true
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions menu is within viewport and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable after menu scrolling",
+          "ok": true
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Undo is visible and hit-testable in its viewport control",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 24,
+        "y": 176.34375,
+        "width": 786,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "sendOnEntry": {
+        "x": 738.625,
+        "y": 278.34375,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "composer": {
+        "x": 24,
+        "y": 176.34375,
+        "width": 786,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "send": {
+        "x": 738.625,
+        "y": 278.34375,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "songMenu": {
+        "x": 498,
+        "y": 116,
+        "width": 320,
+        "height": 209,
+        "hit": "",
+        "reachable": true
+      },
+      "downloadInitial": {
+        "x": 507,
+        "y": 469,
+        "width": 302,
+        "height": 40,
+        "reachable": false
+      },
+      "download": {
+        "x": 507,
+        "y": 236,
+        "width": 302,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "undo": {
+        "x": 21,
+        "y": 246.53125,
+        "width": 171,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      }
+    },
+    {
+      "kind": "menu",
+      "height": 844,
+      "line": 1,
+      "size": "0",
+      "fallback": false,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          8,
+          8
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 442.796875,
+        "bottom": 553.796875,
+        "left": 12,
+        "right": 372,
+        "height": 111
+      },
+      "row": {
+        "top": 561.796875,
+        "bottom": 590.59375,
+        "left": 56,
+        "right": 348,
+        "height": 28.796875
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": true,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": true
+        },
+        {
+          "label": "Pronunciation",
+          "hit": true
+        },
+        {
+          "label": "Undo",
+          "hit": true
+        },
+        {
+          "label": "Redo",
+          "hit": true
+        }
+      ],
+      "statuses": [],
+      "selection": [
+        8,
+        8
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    },
+    {
+      "kind": "menu",
+      "height": 844,
+      "line": 30,
+      "size": "0",
+      "fallback": false,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          724,
+          724
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 429.90625,
+        "bottom": 540.90625,
+        "left": 12,
+        "right": 372,
+        "height": 111
+      },
+      "row": {
+        "top": 548.90625,
+        "bottom": 577.703125,
+        "left": 56,
+        "right": 348,
+        "height": 28.796875
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": true,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": true
+        },
+        {
+          "label": "Pronunciation",
+          "hit": true
+        },
+        {
+          "label": "Undo",
+          "hit": true
+        },
+        {
+          "label": "Redo",
+          "hit": true
+        }
+      ],
+      "statuses": [],
+      "selection": [
+        724,
+        724
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    },
+    {
+      "kind": "menu",
+      "height": 844,
+      "line": 55,
+      "size": "0",
+      "fallback": false,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          1349,
+          1349
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 429.828125,
+        "bottom": 540.828125,
+        "left": 12,
+        "right": 372,
+        "height": 111
+      },
+      "row": {
+        "top": 548.828125,
+        "bottom": 577.625,
+        "left": 56,
+        "right": 348,
+        "height": 28.796875
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": true,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": true
+        },
+        {
+          "label": "Pronunciation",
+          "hit": true
+        },
+        {
+          "label": "Undo",
+          "hit": true
+        },
+        {
+          "label": "Redo",
+          "hit": true
+        }
+      ],
+      "statuses": [],
+      "selection": [
+        1349,
+        1349
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    },
+    {
+      "kind": "menu",
+      "height": 508,
+      "line": 1,
+      "size": "0",
+      "fallback": false,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          8,
+          8
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 174.796875,
+        "bottom": 285.796875,
+        "left": 12,
+        "right": 372,
+        "height": 111
+      },
+      "row": {
+        "top": 293.796875,
+        "bottom": 322.59375,
+        "left": 56,
+        "right": 348,
+        "height": 28.796875
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": true,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": true
+        },
+        {
+          "label": "Pronunciation",
+          "hit": true
+        },
+        {
+          "label": "Undo",
+          "hit": true
+        },
+        {
+          "label": "Redo",
+          "hit": true
+        }
+      ],
+      "statuses": [],
+      "selection": [
+        8,
+        8
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    },
+    {
+      "kind": "menu",
+      "height": 508,
+      "line": 30,
+      "size": "0",
+      "fallback": false,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          724,
+          724
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 174.90625,
+        "bottom": 285.90625,
+        "left": 12,
+        "right": 372,
+        "height": 111
+      },
+      "row": {
+        "top": 293.90625,
+        "bottom": 322.703125,
+        "left": 56,
+        "right": 348,
+        "height": 28.796875
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": true,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": true
+        },
+        {
+          "label": "Pronunciation",
+          "hit": true
+        },
+        {
+          "label": "Undo",
+          "hit": true
+        },
+        {
+          "label": "Redo",
+          "hit": true
+        }
+      ],
+      "statuses": [],
+      "selection": [
+        724,
+        724
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    },
+    {
+      "kind": "menu",
+      "height": 508,
+      "line": 55,
+      "size": "0",
+      "fallback": false,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          1349,
+          1349
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 174.828125,
+        "bottom": 285.828125,
+        "left": 12,
+        "right": 372,
+        "height": 111
+      },
+      "row": {
+        "top": 293.828125,
+        "bottom": 322.625,
+        "left": 56,
+        "right": 348,
+        "height": 28.796875
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": true,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": true
+        },
+        {
+          "label": "Pronunciation",
+          "hit": true
+        },
+        {
+          "label": "Undo",
+          "hit": true
+        },
+        {
+          "label": "Redo",
+          "hit": true
+        }
+      ],
+      "statuses": [],
+      "selection": [
+        1349,
+        1349
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    },
+    {
+      "kind": "menu",
+      "height": 508,
+      "line": 30,
+      "size": "2",
+      "fallback": false,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          724,
+          724
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 169,
+        "bottom": 280,
+        "left": 12,
+        "right": 372,
+        "height": 111
+      },
+      "row": {
+        "top": 288,
+        "bottom": 328,
+        "left": 56,
+        "right": 348,
+        "height": 40
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": true,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": true
+        },
+        {
+          "label": "Pronunciation",
+          "hit": true
+        },
+        {
+          "label": "Undo",
+          "hit": true
+        },
+        {
+          "label": "Redo",
+          "hit": true
+        }
+      ],
+      "statuses": [],
+      "selection": [
+        724,
+        724
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    },
+    {
+      "kind": "menu",
+      "height": 260,
+      "line": 30,
+      "size": "2",
+      "fallback": true,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          724,
+          724
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 116,
+        "bottom": 139,
+        "left": 12,
+        "right": 372,
+        "height": 23
+      },
+      "row": {
+        "top": 164,
+        "bottom": 204,
+        "left": 56,
+        "right": 348,
+        "height": 40
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": false,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": false
+        },
+        {
+          "label": "Pronunciation",
+          "hit": false
+        },
+        {
+          "label": "Undo",
+          "hit": false
+        },
+        {
+          "label": "Redo",
+          "hit": false
+        }
+      ],
+      "statuses": [
+        "This view is too short to show the line and all actions together. Close Line actions or press Escape to see the line again."
+      ],
+      "selection": [
+        724,
+        724
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    },
+    {
+      "kind": "menu",
+      "height": 844,
+      "resizeTo": 508,
+      "line": 30,
+      "size": "0",
+      "fallback": false,
+      "before": {
+        "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+        "selection": [
+          724,
+          724
+        ],
+        "dockHeight": 61
+      },
+      "menu": {
+        "top": 271.703125,
+        "bottom": 382.703125,
+        "left": 12,
+        "right": 372,
+        "height": 111
+      },
+      "row": {
+        "top": 234.90625,
+        "bottom": 263.703125,
+        "left": 56,
+        "right": 348,
+        "height": 28.796875
+      },
+      "onScreen": true,
+      "focusPreserved": true,
+      "rowVisible": true,
+      "overlap": false,
+      "itemHits": [
+        {
+          "label": "Rhythm",
+          "hit": true
+        },
+        {
+          "label": "Pronunciation",
+          "hit": true
+        },
+        {
+          "label": "Undo",
+          "hit": true
+        },
+        {
+          "label": "Redo",
+          "hit": true
+        }
+      ],
+      "statuses": [],
+      "selection": [
+        724,
+        724
+      ],
+      "text": "[VERSE]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40\nI sing the quiet song 41\nI sing the quiet song 42\nI sing the quiet song 43\nI sing the quiet song 44\nI sing the quiet song 45\nI sing the quiet song 46\nI sing the quiet song 47\nI sing the quiet song 48\nI sing the quiet song 49\nI sing the quiet song 50\nI sing the quiet song 51\nI sing the quiet song 52\nI sing the quiet song 53\nI sing the quiet song 54\nI sing the quiet song 55\nI sing the quiet song 56\nI sing the quiet song 57\nI sing the quiet song 58\nI sing the quiet song 59\nI sing the quiet song 60",
+      "overflowX": false
+    }
+  ],
+  "errors": []
+}

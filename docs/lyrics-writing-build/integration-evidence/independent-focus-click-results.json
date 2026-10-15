@@ -1,0 +1,58 @@
+{
+  "root": "/workspace/musica-lyrics-integration",
+  "bundleSha256": "90c6305a091b2f22f8807d1ec4a9d97fc751210d27318a90d7a122ba2b43c0eb",
+  "results": [
+    {
+      "width": 390,
+      "height": 844,
+      "before": {
+        "x": 81,
+        "y": 562.796875,
+        "hit": "lyrics-draft",
+        "start": 309,
+        "scroll": 0
+      },
+      "after": {
+        "start": 23,
+        "row": 2,
+        "active": "lyrics-draft",
+        "scroll": 0
+      }
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "before": {
+        "x": 81,
+        "y": 307.796875,
+        "hit": "lyrics-draft",
+        "start": 309,
+        "scroll": 268
+      },
+      "after": {
+        "start": 23,
+        "row": 2,
+        "active": "lyrics-draft",
+        "scroll": 268
+      }
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "before": {
+        "x": 226,
+        "y": 333,
+        "hit": "lyrics-draft",
+        "start": 309,
+        "scroll": 0
+      },
+      "after": {
+        "start": 23,
+        "row": 2,
+        "active": "lyrics-draft",
+        "scroll": 0
+      }
+    }
+  ],
+  "errors": []
+}

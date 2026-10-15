@@ -163,10 +163,16 @@ const settle = async (p) => {
       if (panel) {
         if (width < 960) await p.tap('#ly-mtab-review');
         else await p.locator('[data-ui="ly-tab"][data-id="review"]').first().click();
+      } else {
+        const review = p.locator('.ly-head [data-ui="ly-tab"][data-id="review"]');
+        if (mode === 'keyboard') {
+          await review.focus();
+          await p.keyboard.press('Enter');
+        } else await review.click();
+        await settle(p);
+        check(p.posts.length === 0, 'Header Review sent a request ' + label);
       }
-      const opener = panel
-        ? '#ly-panel-review [data-ui="ly-run-review"]'
-        : '.ly-head [data-ui="ly-run-review"]';
+      const opener = '#ly-panel-review [data-ui="ly-run-review"]';
       const before = await p.evaluate(() => ({
         text: lyDraft().value,
         selection: [lyDraft().selectionStart, lyDraft().selectionEnd],
@@ -285,8 +291,7 @@ const settle = async (p) => {
             'Cancel changed tab ' + label
           );
           check(
-            after.active === 'ly-run-review' &&
-              (panel ? after.activePanel === 'ly-panel-review' : after.activeHeader),
+            after.active === 'ly-run-review' && after.activePanel === 'ly-panel-review',
             'Cancel did not restore actual visible opener ' + label
           );
           check((await position(p, opener))?.hit, 'restored opener obstructed ' + label);

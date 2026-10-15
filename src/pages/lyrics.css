@@ -1663,3 +1663,80 @@
     animation: none !important;
   }
 }
+
+/* Writing lane integration: the dock owns one stable action row. */
+#surface-lyrics .ly-linedock .ly-menu {
+  top: auto;
+  bottom: calc(100% + 4px);
+  max-height: min(360px, 50dvh);
+  overflow-y: auto;
+}
+#surface-lyrics .ly-linedock .ly-line-menu-positioned {
+  position: fixed;
+  bottom: auto;
+  right: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+#surface-lyrics .ly-line-menu-positioned .cm-menu-sep,
+#surface-lyrics .ly-line-menu-note {
+  grid-column: 1 / -1;
+}
+#surface-lyrics .ly-line-menu-positioned .ly-menu-item {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+#surface-lyrics .ly-line-menu-note {
+  margin: 4px 8px 8px;
+}
+
+/* Keep the request and its Send control together, before older conversation.
+   The existing dock nodes move between workspaces; only Lyrics changes order. */
+#surface-lyrics #lyrics-chat #chat-form {
+  order: -1;
+  flex: none;
+}
+#surface-lyrics #lyrics-chat #chat-log {
+  flex: none;
+  min-height: 80px;
+  max-height: 240px;
+  overflow-y: auto;
+}
+#surface-lyrics #lyrics-chat #chat-input {
+  min-height: 90px;
+  max-height: 160px;
+}
+#surface-lyrics .ly-convo {
+  margin: 0 0 16px;
+}
+#surface-lyrics .ly-head-actions .ly-menu {
+  max-width: calc(100vw - 32px);
+  max-height: min(480px, 65dvh);
+  overflow-y: auto;
+}
+#surface-lyrics .ly-head-actions .ly-menu-wrap {
+  margin-left: auto;
+}
+
+/* The compact tall-phone header is new geometry. Short-height H1 remains
+   page-scrolled; its header does not acquire a new sticky or hiding mode. */
+@media (min-height: 601px) {
+  #surface-lyrics .ly-page[data-size='narrow'] .ly-head {
+    gap: 8px;
+    padding: 8px 16px;
+  }
+  #surface-lyrics .ly-page[data-size='narrow'] .ly-head-main {
+    flex-basis: 100%;
+  }
+  #surface-lyrics .ly-page[data-size='narrow'] .ly-head-actions {
+    display: flex;
+    gap: 8px;
+  }
+  #surface-lyrics .ly-page[data-size='narrow'] .ly-badge-wrap {
+    flex: 1 1 auto;
+  }
+  #surface-lyrics .ly-page[data-size='narrow'] .ly-head-actions > .cm-btn,
+  #surface-lyrics .ly-page[data-size='narrow'] .ly-head-actions .ly-menu-wrap > .cm-btn {
+    width: auto;
+  }
+}
