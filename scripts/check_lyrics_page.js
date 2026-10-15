@@ -756,6 +756,77 @@ function unitVoicesBasis() {
     !r2.pronunciations && (r2.readings_need_decision || []).length === 1,
     `a reading two settings place on different characters was guessed: ${JSON.stringify(r2)}`
   );
+  // 7. The refusal and Review say the real reason: no saved sung-asides
+  // setting, the row, the member or token, both candidate occurrences --
+  // and not the earlier-cut wording, which is a different cause.
+  const refusal = run('lyUndecidedRefusal(lyParse(__t))', { __t: song([bare], true) });
+  check(
+    /has no saved setting for whether parenthesized words were sung/.test(refusal) &&
+      /document line 1/.test(refusal) &&
+      /1\.T5/.test(refusal) &&
+      /choose the occurrence you intended, or remove this declaration/.test(refusal) &&
+      !/earlier/.test(refusal),
+    `the refusal did not give the sung-asides reason: ${refusal}`
+  );
+  const cards = run('lyLocalChecks(lyParse(__t))', {
+    __t: `${reading(2, 'oh', echo)}\n[SETUP — voices — sung]\n\n[VERSE]\n${echo}`,
+  });
+  const card = cards.find((c) => /^reading:/.test(c.id));
+  check(
+    card &&
+      /token 2/.test(card.title) &&
+      card.title.includes(echo) &&
+      /document line 1/.test(card.text) &&
+      card.text.includes('oh (oh) [oh] love') &&
+      card.text.includes('oh ([oh]) oh love') &&
+      /no setting for whether parenthesized words were sung/.test(card.text) &&
+      !/earlier word cut/.test(card.text),
+    `the reading card does not identify the row, token, line and both occurrences: ${JSON.stringify(card)}`
+  );
+  // 8. Two ambiguous groups: each has its own card, and removing one
+  // removes only that one.
+  const two = song(['[SETUP — rhyme groups — 1.T5,2.end;1.T3,2.T4 — cut v2]'], true);
+  const groupCards = run('lyLocalChecks(lyParse(__t))', { __t: two }).filter((c) =>
+    /^rhyme groups:\d+:undecided:\d+$/.test(c.id)
+  );
+  check(
+    groupCards.length === 2 &&
+      groupCards.every((c) =>
+        /no saved setting for whether parenthesized words were sung/.test(c.text)
+      ) &&
+      groupCards[0].text.includes('Oh--oh, (ah) oh my [love]') &&
+      groupCards[0].text.includes('Oh--oh, (ah) oh [my] love'),
+    `two ambiguous groups did not get one card each: ${JSON.stringify(groupCards.map((c) => [c.id, c.title]))}`
+  );
+  draft.value = two;
+  app.lyrics = two;
+  ctx.pushHistory = () => {};
+  const firstArg = groupCards[0] && groupCards[0].actions[0][3];
+  run('LY.model = lyParse(lyDraft().value); LY_ACTIONS["ly-drop-undecided"](__a)', {
+    __a: firstArg,
+  });
+  const left = draft.value.split('\n')[0];
+  check(
+    !/1\.T5/.test(left) && /1\.T3/.test(left) && /2\.T4/.test(left),
+    `removing one ambiguous link removed the other too: ${left}`
+  );
+  // 9. A pre-release row the migration blocks for the same ambiguity keeps
+  // a marker the parser reads back (no separator inside it), so it is never
+  // sent as a plain number.
+  const legacyBlocked = run('lyMigrateSavedReadings(__t).text', {
+    __t: song(['[SETUP — rhyme groups — 1.T4,2.end]'], false),
+  });
+  const lw = wire(legacyBlocked);
+  check(
+    /no saved setting for sung asides/.test(legacyBlocked.split('\n')[0]) &&
+      !lw.groups &&
+      (lw.groups_need_decision || []).length === 1,
+    `a migration-blocked row was sent: ${JSON.stringify([legacyBlocked.split('\n')[0], lw])}`
+  );
+  check(
+    run('LY_MEMBER_MARKERS.every(([m]) => !/[,;]|—/.test(m))'),
+    'a member marker holds a separator'
+  );
   // 6. The page path: an undecided row stops the send and keeps its bytes.
   const stored = song([bare], true);
   draft.value = stored;
@@ -1208,7 +1279,8 @@ function unitSavedReadings() {
     check(
       review.some(
         (x) =>
-          /declared return saved without the current cut mark needs your decision/.test(x.title) &&
+          /^A declared return .* needs your decision$/.test(x.title) &&
+          /earlier word cut/.test(x.text) &&
           x.actions.some((a) => a[0] === 'ly-drop-undecided')
       ) && !review.some((x) => /which the draft does not have/.test(x.title)),
       `Review shows no decision card for a lost word place: ${JSON.stringify(review.map((x) => x.title))}`
@@ -3630,7 +3702,7 @@ async function browserChecks(chromium) {
       check(got.saved === got.text, 'the autosaved session does not hold the migrated rows');
       const review = await pane(page, 'review');
       check(
-        /saved without the current cut mark needs your decision/.test(review),
+        /The reading for “U--h”, token 1 in .* needs your decision/.test(review),
         'Review does not show it'
       );
       // Neither send path reaches /chat while it is undecided.
