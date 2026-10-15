@@ -1,0 +1,6 @@
+cd /workspace/musica-ui-three
+NODE_PATH=/workspace/musica-repair/node_modules PLAYWRIGHT_BROWSERS_PATH=/tmp/musica-browsers TEST_HTML=/tmp/ui-natural-correction/before.html TEST_EVIDENCE=/tmp/ui-natural-correction/red40-final node scripts/check_lyrics_natural_resize.js > /tmp/ui-natural-correction/red40-final.log 2>&1
+NODE_PATH=/workspace/musica-repair/node_modules PLAYWRIGHT_BROWSERS_PATH=/tmp/musica-browsers TEST_EVIDENCE=/tmp/ui-natural-correction/green40-final node scripts/check_lyrics_natural_resize.js > /tmp/ui-natural-correction/green40-final.log 2>&1
+NODE_PATH=/workspace/musica-repair/node_modules PLAYWRIGHT_BROWSERS_PATH=/tmp/musica-browsers TEST_EVIDENCE=/tmp/ui-natural-correction/held30 node scripts/check_lyrics_viewport.js > /tmp/ui-natural-correction/held30.log 2>&1
+node_modules/.bin/prettier --check scripts/check_lyrics_natural_resize.js
+node_modules/.bin/eslint scripts/check_lyrics_natural_resize.js

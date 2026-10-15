@@ -1,0 +1,25 @@
+Natural resize/input acceptance, #562 comment6196801718
+
+New test only: scripts/check_lyrics_natural_resize.js. Existing30 script untouched.
+Same-script final baseline40: 9 caret failures. Candidate40: 0 errors. Existing held30: 0 errors.
+Each40 is two bounded repeats of L9/L30 x type/ArrowRight x requested0/16/33/100ms plus four post-input wheel/Home controls. Actual keyboard events and native animation-frame scheduling; callbacks are observed without holding/rescheduling them. Requested delays are labels, not phase guarantees.
+
+Baseline bundle SHA256: 3d38dff60d17cabc096d202be9b7b831e0fa900756fddcc6058e9836a5aac12b
+Final bundle SHA256: 9683457f71fb8b50498d6b99d406f8888f9bd88b790ee2a1f548f392e321d27a
+Test script SHA256: d04fbcfe21ebd568ab92bffa236d8378c1ecbba1d5202bdb1c428cdcbff4a4e9
+
+All40 records per run independently checked classified. Actual first-key phases:
+Baseline: 3 before-first, 11 between-frames, 26 after-second.
+Final: 3 before-first, 13 between-frames, 24 after-second.
+Nine baseline failures all occurred between frames: L9 type d16 caret obscured (between-frames); L9 arrow d0 caret obscured (between-frames); L9 arrow d33 caret obscured (between-frames); L30 type d0 caret obscured (between-frames); L30 type d16 caret obscured (between-frames); L30 arrow d16 caret obscured (between-frames); L9 type d0 caret obscured (between-frames); L9 arrow d0 caret obscured (between-frames); L30 arrow d0 caret obscured (between-frames)
+The requested33ms ArrowRight failure demonstrates timing jitter; the log, not requested delay, establishes phase.
+
+Baseline failures leave L9 at483.171875..511.96875 or L30 at483.90625..512.703125 behind mobile navigation. Candidate plain typing/arrow cases clear the row (L9 235.171875..263.96875; L30 208.90625..237.703125). Expected exact text and selection are asserted throughout.
+
+All post-input intent controls pass baseline/final: wheel ends at clamped1496; CtrlHome at481, preserving selection/text. The wheel/Home action itself occurred AFTER the second reveal frame in all eight controls. These natural controls therefore do not independently establish queued post-input intent handling; retained held-frame tests cover queued wheel/selection and typing/navigation separately. No stronger claim is made.
+
+Intermediate red16 has correct event logs but mislabeled second callback, retained as diagnostic only. red40/green40 use an earlier wheel fixture whose snapshot could precede native wheel scroll. Those are superseded by red40-final/green40-final, whose expected wheel target comes from the actual wheel event and clamped scroll extent. A logged caret.ok=false in wheel controls is intentional offscreen navigation; assertions check preserved intent instead.
+
+External network blocked; MCP responses fixture-only, zero POST assertions per case. No provider calls. Natural timings are nondeterministic desktop Chromium mobile emulation with observational instrumentation and some concurrent local browser test load, not real-phone keyboard/IME or native zoom acceptance. Script-only caret moves and tap-other-line witness are not claimed. No source/build/commit/push by this test worker.
+
+Commands in commands.txt; exact results and full event traces in red40-final/results.json and green40-final/results.json. ESLint/Prettier passed.

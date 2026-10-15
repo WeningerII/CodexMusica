@@ -1,0 +1,12 @@
+{
+  "base": "b887e5effcea84bf11722ca69bd13fc7088755c5",
+  "combined_patch_sha256": "0436aaf6e669e2c25bd8c6af1fbc9a6cf84a378ac5608a6c0cdac257fe0748f2",
+  "delta_patch_sha256": "6e3c4f652f662c957785a651f981f2e675fa7b7c91274d986089aa863f9b001b",
+  "files": {
+    "codex.html": "90431a928789ce879b9e719571ea450b5df21593b3f338e177be35306e99dd3f",
+    "scripts/check_lyrics_page.js": "1b6d4a9c64694e12a859036bc764ddfcbf7d1ed93924d6336ead563cc9e7b0dd",
+    "src/pages/lyrics.css": "7ca921748cfecfc73dada331c2c353692ded8882799ad73c9651ba9e042eadbe",
+    "src/pages/lyrics.js": "fb4c6bb5338172888f9acc352394d226e2ed8aa346db35613c3cc1f7c6db5b38",
+    "scripts/check_lyrics_viewport.js": "d83de609a37359e00a7cec75d9bf4e6d9f52b5aa1e4ea9c674623537df3dfb6a"
+  }
+}

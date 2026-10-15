@@ -1,0 +1,1592 @@
+{
+  "root": "/workspace/musica-ui-three",
+  "html": "/workspace/musica-ui-three/codex.html",
+  "bundleSha256": "1b4f22cdf8cef0ba62c22a5dab0573a674195c7aa56ae7e1b8a349b8ced3643d",
+  "results": [
+    {
+      "width": 390,
+      "height": 508,
+      "mode": "touch",
+      "action": "apply",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 451,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          1015,
+          1015
+        ],
+        "selected": "",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 0,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "5835523154d311009412b84f2dc1c32da8847644314ff3c627cb4a8bbae86391",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "f9c6fecf82910c692de4f11d1d40d8719cc3b44f0b53d6b97535e4cf940ff5e8",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "mode": "touch",
+      "action": "saved",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 451,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "838b47b0a0bc83672b118134903f1f0f32c4e024feca6f421a94bada0f540e58",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "70af1007af7e75a6c4574c816bad5058394b35e4d82133d7bddfbdbdde2d3965",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "mode": "touch",
+      "action": "close",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 451,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activePanel": "ly-panel-review",
+        "activeHeader": false
+      },
+      "posts": []
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "mode": "keyboard",
+      "action": "apply",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 451,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          1015,
+          1015
+        ],
+        "selected": "",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 0,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "43e0fc67c7d61a2eaf237175609794aa94d5cd437cb08a87583a72945478cabf",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "f9c6fecf82910c692de4f11d1d40d8719cc3b44f0b53d6b97535e4cf940ff5e8",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "mode": "keyboard",
+      "action": "saved",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 451,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "0010b415181e4a752c9d7521be72d6109fa2b5e93121170c2c98da598bf07878",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "70af1007af7e75a6c4574c816bad5058394b35e4d82133d7bddfbdbdde2d3965",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "mode": "keyboard",
+      "action": "close",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 451,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activePanel": "ly-panel-review",
+        "activeHeader": false
+      },
+      "posts": []
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "mode": "touch",
+      "action": "apply",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 543,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          1015,
+          1015
+        ],
+        "selected": "",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 0,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "013d2a68d0cdc2787e87ceb5f8b7fd6cd261adc5693a0da7f4c549479a8e13ae",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "f9c6fecf82910c692de4f11d1d40d8719cc3b44f0b53d6b97535e4cf940ff5e8",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "mode": "touch",
+      "action": "saved",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 543,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "d84db178128f92da97e41cd9fd7f5e2b0b1bb352e19b0ec15944587d27e7d4b3",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "70af1007af7e75a6c4574c816bad5058394b35e4d82133d7bddfbdbdde2d3965",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "mode": "touch",
+      "action": "close",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 543,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activePanel": "ly-panel-review",
+        "activeHeader": false
+      },
+      "posts": []
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "mode": "keyboard",
+      "action": "apply",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 543,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          1015,
+          1015
+        ],
+        "selected": "",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 0,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "cc9ceeade0f17d2d08a31e7afdd12488f17c0f532d1d36b450b5807fef5c2f80",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "f9c6fecf82910c692de4f11d1d40d8719cc3b44f0b53d6b97535e4cf940ff5e8",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "mode": "keyboard",
+      "action": "saved",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 543,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "956c3c4015003eed7a29063bc82262068996ed814ddb5555d2139fdc17668b22",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "70af1007af7e75a6c4574c816bad5058394b35e4d82133d7bddfbdbdde2d3965",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "height": 600,
+      "mode": "keyboard",
+      "action": "close",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 108,
+        "bottom": 296,
+        "limit": 543,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 212,
+          "top": 190,
+          "bottom": 234,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 264,
+          "top": 242,
+          "bottom": 286,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activePanel": "ly-panel-review",
+        "activeHeader": false
+      },
+      "posts": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mode": "touch",
+      "action": "close",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 333,
+        "bottom": 521,
+        "limit": 787,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 437,
+          "top": 415,
+          "bottom": 459,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 437,
+          "top": 415,
+          "bottom": 459,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 489,
+          "top": 467,
+          "bottom": 511,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activePanel": "ly-panel-review",
+        "activeHeader": false
+      },
+      "posts": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mode": "keyboard",
+      "action": "close",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 333,
+        "bottom": 521,
+        "limit": 787,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 437,
+          "top": 415,
+          "bottom": 459,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 437,
+          "top": 415,
+          "bottom": 459,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 489,
+          "top": 467,
+          "bottom": 511,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activePanel": "ly-panel-review",
+        "activeHeader": false
+      },
+      "posts": []
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "mode": "keyboard",
+      "action": "close",
+      "panel": false,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "tools",
+        "mobile": "song",
+        "pending": 1
+      },
+      "opened": {
+        "top": 149,
+        "bottom": 235,
+        "limit": 757,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "tools",
+        "mobile": "song",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 140.4609375,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 295.0078125,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 431.890625,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "tools",
+        "mobile": "song",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activeHeader": true
+      },
+      "posts": []
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "mode": "keyboard",
+      "action": "close",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "song",
+        "pending": 1
+      },
+      "opened": {
+        "top": 149,
+        "bottom": 235,
+        "limit": 757,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "song",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 140.4609375,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 295.0078125,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 431.890625,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "review",
+        "mobile": "song",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activePanel": "ly-panel-review",
+        "activeHeader": false
+      },
+      "posts": []
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "mode": "mouse",
+      "action": "close",
+      "panel": false,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "tools",
+        "mobile": "song",
+        "pending": 1
+      },
+      "opened": {
+        "top": 149,
+        "bottom": 235,
+        "limit": 757,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "tools",
+        "mobile": "song",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 140.4609375,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 295.0078125,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 431.890625,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "selected": "quiet",
+        "tab": "tools",
+        "mobile": "song",
+        "pending": 1,
+        "active": "ly-run-review",
+        "activeHeader": true
+      },
+      "posts": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mode": "keyboard",
+      "action": "apply",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "opened": {
+        "top": 333,
+        "bottom": 521,
+        "limit": 787,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "review",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 80.4609375,
+          "y": 437,
+          "top": 415,
+          "bottom": 459,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 235.0078125,
+          "y": 437,
+          "top": 415,
+          "bottom": 459,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 62.796875,
+          "y": 489,
+          "top": 467,
+          "bottom": 511,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          1015,
+          1015
+        ],
+        "selected": "",
+        "tab": "review",
+        "mobile": "review",
+        "pending": 0,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "88dd9fef7bce02c83c7b91132de718b15849f56825e290727a7ee53c8f4a8a00",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "f9c6fecf82910c692de4f11d1d40d8719cc3b44f0b53d6b97535e4cf940ff5e8",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "mode": "keyboard",
+      "action": "apply",
+      "panel": true,
+      "before": {
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "song",
+        "pending": 1
+      },
+      "opened": {
+        "top": 149,
+        "bottom": 235,
+        "limit": 757,
+        "active": "ly-gate-apply",
+        "text": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          30,
+          35
+        ],
+        "tab": "review",
+        "mobile": "song",
+        "pending": 1
+      },
+      "buttons": {
+        "apply": {
+          "x": 140.4609375,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        },
+        "saved": {
+          "x": 295.0078125,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        },
+        "close": {
+          "x": 431.890625,
+          "y": 205,
+          "top": 185,
+          "bottom": 225,
+          "hit": true,
+          "visible": true
+        }
+      },
+      "exercised": true,
+      "after": {
+        "gate": false,
+        "text": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "selection": [
+          1015,
+          1015
+        ],
+        "selected": "",
+        "tab": "review",
+        "mobile": "song",
+        "pending": 0,
+        "activeHeader": false
+      },
+      "posts": [
+        {
+          "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+          "request_id": "482a94d0a09afde7dc63384246ad6d4977028c18bd79cb79fdad4b393ae62226",
+          "task": {
+            "domain": "lyrics",
+            "phase": "edit"
+          },
+          "lyric_context": {
+            "version": 1,
+            "document": "[VERSE — 40 lines — 6/8]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+            "declarations": {},
+            "brief": "",
+            "notes": [],
+            "binding": {
+              "document_sha256": "f9c6fecf82910c692de4f11d1d40d8719cc3b44f0b53d6b97535e4cf940ff5e8",
+              "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

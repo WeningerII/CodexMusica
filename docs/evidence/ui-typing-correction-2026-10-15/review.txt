@@ -1,0 +1,30 @@
+Independent bounded typing-during-rise review
+Reviewer: /root/ui_four_review
+Final bundle SHA256: 3d38dff60d17cabc096d202be9b7b831e0fa900756fddcc6058e9836a5aac12b
+
+No unresolved concrete introduced regression found in final source/test delta.
+Input is accepted only if it occurred during the pending resize and the final text/selection matches the captured input-associated tuple. Plain horizontal arrows are accepted only while collapsed on the same raw row. Cross-row navigation is finalized before later typing, and pre-resize arrow state is finalized before capturing intent. Pointer/wheel/touch and deliberate navigation remain authoritative.
+The inter-frame scroll exception is bounded to exact recorded input/arrow selection plus scroller and scrollTop. Arrow-position capture changes only with selection, so unchanged selectionchange events cannot relabel an unrelated scroll as arrow-induced. Pinch, focus, previous visibility, reading anchor and gate-center behavior remain in scope as existing controls; no unrelated changes reviewed or made.
+
+Independent runtime probes on the exact final bundle: 8 cases, zero failures.
+- Actual Chromium typing during a held resize reveals the caret.
+- Typing then Ctrl+End, and Ctrl+End then typing, preserve browser navigation position.
+- Actual ArrowRight and typing then ArrowRight on the same row reveal the caret.
+- Same-row ArrowRight then typing reveals; ArrowRight crossing newline then typing preserves deliberate position.
+- Actual CSS viewport reflow with ArrowRight between queued frames reveals line30 at y208.90625–237.703125, hit-tested as lyrics-draft.
+Evidence directories under /tmp/ui-typing-correction:
+final2-independent-native-input/results.json
+final2-independent-arrow/results.json
+final2-independent-arrow-boundary/results.json
+final2-independent-css-arrow/results.json
+The first seven use a visualViewport stub and held resize frame; the eighth uses real CSS viewport resizing and controlled application frame timing. All use Chromium keyboard input, not synthetic input events.
+
+Also inspected worker-produced green30-final/results.json: same bundle hash, 30 cases, errors empty. This 30-case result is inspected evidence, not an independent rerun. Earlier between-frame arrow failure is resolved on this bundle.
+
+Limits: no native on-screen keyboard, physical-device touch, real pinch zoom or assistive technology acceptance. A direct programmatic selection increment without keyboard events is deliberately not treated as the actual-arrow acceptance case. No repository edits, provider calls or external writes by reviewer; only local evidence files/probes were written.
+
+Independent probe source paths for archiving:
+/tmp/ui-typing-native-input-probe.js
+/tmp/ui-typing-arrow-probe.js
+/tmp/ui-typing-arrow-boundary-probe.js
+/tmp/ui-typing-css-arrow-probe.js

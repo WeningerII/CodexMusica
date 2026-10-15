@@ -1,0 +1,21 @@
+Queued typing / horizontal-arrow resize regression receipt
+
+Changed test: scripts/check_lyrics_viewport.js (+85 lines). Source/build owned by parent and page_repairs.
+Commands: commands.txt in this directory.
+
+Baseline: 30 cases, 4 failures (early/between typing, early/between real ArrowRight).
+Final: 30 cases, 0 errors. All original 22 cases retained.
+Baseline bundle SHA256: 3668086b54aad45b179aed2b50ae5a01b65291ef9bf9db88003d0941e84b81ea
+Final bundle SHA256: 3d38dff60d17cabc096d202be9b7b831e0fa900756fddcc6058e9836a5aac12b
+Test script SHA256: e04de438f4c309444106913527ad20e4fb087acefb39ee0e9b72558b2beb70fb
+Prettier and ESLint passed.
+
+Eight new cases use actual CSS viewport resize 390x844 -> 390x508, holding application requestAnimationFrame callbacks to insert actual keyboard events before frame 1 or between frames 1 and 2. Queue assertions establish deferred work exists (3 initial callbacks; 1 after frame 1). The four baseline typing/ArrowRight failures leave line 30 at y483.90625..512.703125, hit by ly-mtab-song. All four final cases put it at y208.90625..237.703125, clear and focused. Typed text and the intended selection are preserved.
+
+The other new controls cover Control+Home, Control+Shift+Home, typing then Control+Home, and Control+Home then typing. They assert resulting deliberate scroll position, text and selection are retained; they do NOT promise the navigated caret becomes visible. All pass baseline and final.
+
+Retained cases cover reading-position transfer, deliberate scroll-away, active forward selection endpoint, queued wheel/selection, six original rise+typing paths, visualViewport-only height reduction, scale/unfocused guards, and gate reach/focus. Existing initial line30 set+focus overlap of 0.703125px is not masked or claimed repaired; resize acceptance still requires a clear caret.
+
+Limits: these are hermetic local fixtures, not mobile-device keyboard/IME timing or native zoom acceptance. External traffic is blocked and MCP fixture POST count is zero in each case. Actual ArrowRight is distinguished from Jony's synthetic no-keydown selectionStart+1 reference; that synthetic policy is not asserted. No provider calls, commits, pushes or builds by this test worker.
+
+Intermediate green28 and green30 are superseded failed candidates retained for audit; final result is green30-final/results.json. red28 is superseded by red30.

@@ -1,0 +1,55 @@
+{
+  "root": "/workspace/musica-ui-three",
+  "bundleSha256": "3668086b54aad45b179aed2b50ae5a01b65291ef9bf9db88003d0941e84b81ea",
+  "results": [
+    {
+      "mode": "scroll-before-frame",
+      "before": {
+        "line": 1,
+        "top": 613.796875,
+        "bottom": 642.59375,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      },
+      "intent": {
+        "scroll": 600,
+        "selection": [
+          19,
+          19
+        ]
+      },
+      "after": {
+        "line": 1,
+        "top": 13.796875,
+        "bottom": 42.59375,
+        "over": [],
+        "hit": "ui-brand",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 600,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,11 @@
+Independent bounded static review — ui-three versus preserved ui-eight
+Reviewer: /root/ui_four_review
+
+No concrete introduced production regression found in the final source/test delta.
+CSS is byte-identical to ui-eight; Cancel reachability therefore relies on existing H1, not a new CSS repair. No new surface padding or scroll container is introduced.
+The caret reveal computes one obstruction midpoint, selects H1's page scroller when body overflow is visible, and guards focus and visualViewport scale at execution. Resize scheduling also rejects non-unit scale. The delayed callback rechecks focus/scale, covering queued blur/pinch.
+Cancel refreshes before resolving the Review-panel Run review button, centers that button, then uses existing preventScroll focus. No draft or pending-form mutation was added.
+The standalone test now covers six resize/typing paths, a scale-1 visualViewport-only positive path, four negative focus/pinch paths, and four gate paths. It asserts opener hit-test, Review selection, pending count, unchanged draft, and no POST. Wheel/tap gate checks do not use programmatic scrolling to establish reachability.
+The pre-existing line-30 set+focus overlap is explicitly exempted only before resize and its geometry retained; this is not a claim that all pre-resize caret overlap is repaired.
+
+Limits: source/test review only; no independent runtime rerun. Runtime verdicts belong to the test worker/root. Viewport and visualViewport stub tests do not establish native keyboard, real pinch zoom, real finger drag, or physical-device nested scrolling behavior. No repository edits or external actions performed by reviewer.
