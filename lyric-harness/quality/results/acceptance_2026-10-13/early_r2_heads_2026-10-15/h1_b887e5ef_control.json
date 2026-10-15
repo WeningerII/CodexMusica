@@ -1,0 +1,425 @@
+{
+ "tree_commit": "b887e5effcea84bf11722ca69bd13fc7088755c5",
+ "has_numbering_flag": true,
+ "ok": false,
+ "rows": [
+  {
+   "case": "read_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Read--read, read it again",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "read_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Read--read, read it again",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "UNJUDGED",
+   "pass": false,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "refused"
+    ]
+   ],
+   "codes": [
+    "SCHEME_UNREADABLE"
+   ],
+   "certified": false,
+   "refusal": " 1 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\n"
+  },
+  {
+   "case": "lead_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Lead--lead, lead the way",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "lead_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Lead--lead, lead the way",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "UNJUDGED",
+   "pass": false,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "refused"
+    ]
+   ],
+   "codes": [
+    "SCHEME_UNREADABLE"
+   ],
+   "certified": false,
+   "refusal": " 1 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\n"
+  },
+  {
+   "case": "wound_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Wound--wound, wound it tight",
+    "the ground is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "wound_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Wound--wound, wound it tight",
+    "the ground is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "UNJUDGED",
+   "pass": false,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "refused"
+    ]
+   ],
+   "codes": [
+    "SCHEME_UNREADABLE"
+   ],
+   "certified": false,
+   "refusal": " 1 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\n"
+  },
+  {
+   "case": "tear_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Tear--tear, tear it down",
+    "the care is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "tear_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Tear--tear, tear it down",
+    "the care is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "UNJUDGED",
+   "pass": false,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "refused"
+    ]
+   ],
+   "codes": [
+    "SCHEME_UNREADABLE"
+   ],
+   "certified": false,
+   "refusal": ".29-7.54%). It says how often this fires on a human songwriter, not whether it catches a machine. Null within Shakespeare (0.536), so this is a register signal with no within-tradition support. Presumes a clean function/content split and does not transfer to agglutinative or polysynthetic languages\n"
+  },
+  {
+   "case": "live_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Live--live, live it out",
+    "the give is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "live_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Live--live, live it out",
+    "the give is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "UNJUDGED",
+   "pass": false,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "refused"
+    ]
+   ],
+   "codes": [
+    "SCHEME_UNREADABLE"
+   ],
+   "certified": false,
+   "refusal": " 1 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.\n"
+  },
+  {
+   "case": "read_plain_control",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "I read, I read it again",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "read_plain_control",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "I read, I read it again",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "unmarked_ambiguous",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T3,2.end",
+    "--relation=perfect rhyme"
+   ],
+   "lines": [
+    "I 2 love you love",
+    "the dove above"
+   ],
+   "expect": "REFUSED",
+   "got": "REFUSED",
+   "pass": true,
+   "rc": 2,
+   "rhyme_obligations": [],
+   "codes": [],
+   "certified": null,
+   "refusal": "groups: ambiguous token 3 in 'I 2 love you love': v1 binds ('you', ((9, 12),)); v2 binds ('love', ((4, 8),)); declare numbering explicitly"
+  },
+  {
+   "case": "unmarked_ambiguous",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T3,2.end",
+    "--relation=perfect rhyme"
+   ],
+   "lines": [
+    "I 2 love you love",
+    "the dove above"
+   ],
+   "expect": "REFUSED",
+   "got": "REFUSED",
+   "pass": true,
+   "rc": 2,
+   "rhyme_obligations": [],
+   "codes": [],
+   "certified": null,
+   "refusal": "groups: ambiguous token 3 in 'I 2 love you love': v1 binds ('you', ((9, 12),)); v2 binds ('love', ((4, 8),)); declare numbering explicitly"
+  }
+ ]
+}
