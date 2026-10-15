@@ -1676,7 +1676,7 @@
   bottom: auto;
   right: auto;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 #surface-lyrics .ly-line-menu-positioned .cm-menu-sep,
 #surface-lyrics .ly-line-menu-note {
@@ -1739,4 +1739,84 @@
   #surface-lyrics .ly-page[data-size='narrow'] .ly-head-actions .ly-menu-wrap > .cm-btn {
     width: auto;
   }
+}
+
+/* The same reserved row owns ordinary actions and inspection exits. */
+#surface-lyrics .ly-relation-dock {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+#surface-lyrics .ly-relation-dock > span {
+  max-width: 84px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#surface-lyrics .ly-relation-dock button,
+#surface-lyrics .ly-relation-inspector button,
+#surface-lyrics .ly-relations-dialog button {
+  min-height: 44px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+#surface-lyrics .ly-relation-dock button {
+  flex: 0 1 auto;
+  font-size: 12px;
+  line-height: 1.15;
+}
+#surface-lyrics .ly-relation-dock button:disabled,
+#surface-lyrics .ly-relation-inspector button:disabled,
+#surface-lyrics .ly-relations-dialog button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+#surface-lyrics .ly-relation-inspector {
+  flex: none;
+  max-height: min(42dvh, 380px);
+  overflow: auto;
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+}
+#surface-lyrics .ly-relations-dialog {
+  width: min(620px, calc(100vw - 24px));
+  max-height: calc(100dvh - 24px);
+  box-sizing: border-box;
+  padding: 16px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+}
+#surface-lyrics .ly-relations-dialog::backdrop {
+  background: rgb(0 0 0 / 45%);
+}
+#surface-lyrics .ly-relation-inspector li,
+#surface-lyrics .ly-relations-dialog li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+#surface-lyrics .ly-relation-inspector button:focus-visible,
+#surface-lyrics .ly-relations-dialog button:focus-visible,
+#surface-lyrics .ly-relation-dock button:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+#surface-lyrics .ly-relations-dialog:not(.is-expanded) {
+  max-height: min(70dvh, 620px);
+}
+#surface-lyrics .ly-relations-dialog.is-expanded {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  border-radius: 0;
 }

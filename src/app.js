@@ -19375,7 +19375,7 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
     _chatAppend('<div class="chat-msg chat-msg-error">This browser could not save the request for recovery. Free local storage before starting it.</div>');
     return { ok: false, reason: 'storage' };
   }
-  if(typeof UI!=='undefined'&&UI.ready&&domain==='lyrics')UI.lyricRequest={id:request_id,revision:UI.lyricRevision,text:app.lyrics||''};
+  if(typeof UI!=='undefined'&&UI.ready&&domain==='lyrics')UI.lyricRequest={id:request_id,revision:UI.lyricRevision,text:app.lyrics||'',submittedContext:body.lyric_context?JSON.parse(JSON.stringify(body.lyric_context)):null};
   _chatOpenPanel();
   _chatAppend(`<div class="chat-msg chat-msg-you">${esc(message)}</div>`);
   if (clearInput && input) {
