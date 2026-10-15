@@ -56,7 +56,15 @@ const gradedLexicon = (verdict) => {
     ? { lexicon_supplement: l.supplement_id, lexicon_supplement_sha256: l.sha256 }
     : null;
 };
-const UNPLANNED_FIELDS = ['scheme', 'groups', 'returns', 'structures', 'blueprint', 'subdivision'];
+const UNPLANNED_FIELDS = [
+  'scheme',
+  'groups',
+  'returns',
+  'numbering',
+  'structures',
+  'blueprint',
+  'subdivision',
+];
 // plan.request carries the Python parser's structured story declaration;
 // MCP carries the same declaration as ATOM,ATOM/JUNCTION cells.
 const narrative = (value) => {
@@ -258,6 +266,12 @@ export function creationRefusal(task, name, args, lyric = null) {
     return 'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.';
   for (const key of READING_FIELDS) {
     const graded = readingValue(key, w.grade.readings?.[key]);
+    if (
+      key === 'pronunciations' &&
+      Array.isArray(w.grade.normalized_pronunciations) &&
+      same(args[key], w.grade.normalized_pronunciations)
+    )
+      args[key] = structuredClone(graded);
     if (args[key] !== undefined && !same(readingValue(key, args[key]), graded))
       return `CREATION_GRADE: ${key} differs from the graded reading; execute lyric_grade again before starting a new revision.`;
     if (args[key] === undefined && graded !== null) args[key] = structuredClone(graded);
@@ -334,6 +348,10 @@ export function recordCreation(task, name, args, verdict, isError = false) {
         plan_sha256: w.plan.sha256,
         draft_sha256: verdict.final_draft_sha256,
         coverage_certified: verdict.coverage.certified,
+        ...(Array.isArray(verdict.pronunciations) &&
+        !same(verdict.pronunciations, args.pronunciations ?? [])
+          ? { normalized_pronunciations: structuredClone(verdict.pronunciations) }
+          : {}),
         readings: {
           ...Object.fromEntries(
             READING_FIELDS.map((key) => [key, structuredClone(readingValue(key, args[key]))])

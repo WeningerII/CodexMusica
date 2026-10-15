@@ -1,0 +1,69 @@
+# Subtest: real MCP preserves draft coordinates and uses the placed-return judge
+2026-10-14T08:48:53.8303162Z ok 1 - real MCP preserves draft coordinates and uses the placed-return judge
+2026-10-14T08:48:53.8304073Z   ---
+2026-10-14T08:48:53.8304618Z   duration_ms: 39196.686274
+2026-10-14T08:48:53.8305309Z   type: 'test'
+2026-10-14T08:48:53.8305846Z   ...
+2026-10-14T08:48:53.8306813Z # Subtest: published capacities and vocabularies match the harness they describe
+2026-10-14T08:48:53.8308293Z ok 2 - published capacities and vocabularies match the harness they describe
+2026-10-14T08:48:53.8309548Z   ---
+2026-10-14T08:48:53.8310101Z   duration_ms: 335.763446
+2026-10-14T08:48:53.8310699Z   type: 'test'
+2026-10-14T08:48:53.8311231Z   ...
+2026-10-14T08:48:53.8312234Z # Subtest: published lyric text carries no ticket, date, doctrine number or stale claim
+2026-10-14T08:48:53.8313663Z ok 3 - published lyric text carries no ticket, date, doctrine number or stale claim
+2026-10-14T08:48:53.8314590Z   ---
+2026-10-14T08:48:53.8315119Z   duration_ms: 63.313823
+2026-10-14T08:48:53.8315702Z   type: 'test'
+2026-10-14T08:48:53.8316233Z   ...
+2026-10-14T08:48:53.8317045Z # Subtest: the grade stamp and meaning say what the verdict says
+2026-10-14T08:48:53.8318125Z ok 4 - the grade stamp and meaning say what the verdict says
+2026-10-14T08:48:53.8319647Z   ---
+2026-10-14T08:48:53.8320204Z   duration_ms: 1.047008
+2026-10-14T08:48:53.8320804Z   type: 'test'
+2026-10-14T08:48:53.8321338Z   ...
+2026-10-14T08:48:53.8322841Z # Subtest: lyric_types names an ordinary rhyme at the line end, and the position is declarable
+2026-10-14T08:48:53.8324386Z ok 5 - lyric_types names an ordinary rhyme at the line end, and the position is declarable
+2026-10-14T08:48:53.8325357Z   ---
+2026-10-14T08:48:53.8325900Z   duration_ms: 9565.732897
+2026-10-14T08:48:53.8326479Z   type: 'test'
+2026-10-14T08:48:53.8326991Z   ...
+2026-10-14T08:48:53.8328024Z # Subtest: recover numbers its mandate over sung lines, and every refusal carries its reason
+2026-10-14T08:48:53.8329734Z ok 6 - recover numbers its mandate over sung lines, and every refusal carries its reason
+2026-10-14T08:48:53.8330680Z   ---
+2026-10-14T08:48:53.8331217Z   duration_ms: 60563.817407
+2026-10-14T08:48:53.8331825Z   type: 'test'
+2026-10-14T08:48:53.8332357Z   ...
+2026-10-14T08:48:53.8333711Z # Subtest: a ban names the bound words and their places, and an unknown name lists the vocabulary
+2026-10-14T08:48:53.8335185Z ok 7 - a ban names the bound words and their places, and an unknown name lists the vocabulary
+2026-10-14T08:48:53.8336244Z   ---
+2026-10-14T08:48:53.8336866Z   duration_ms: 29698.869119
+2026-10-14T08:48:53.8337527Z   type: 'test'
+2026-10-14T08:48:53.8338092Z   ...
+2026-10-14T08:48:53.8339651Z # Subtest: lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes
+2026-10-14T08:48:53.8341379Z ok 8 - lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes
+2026-10-14T08:48:53.8342414Z   ---
+2026-10-14T08:48:53.8342954Z   duration_ms: 114613.194789
+2026-10-14T08:48:53.8343569Z   type: 'test'
+2026-10-14T08:48:53.8344063Z   ...
+2026-10-14T08:48:53.8345013Z # Subtest: lyric_plan block 0 is the plan and brief, without the server path or CLI commands
+2026-10-14T08:48:53.8346409Z ok 9 - lyric_plan block 0 is the plan and brief, without the server path or CLI commands
+2026-10-14T08:48:53.8347354Z   ---
+2026-10-14T08:48:53.8347868Z   duration_ms: 1082.415594
+2026-10-14T08:48:53.8348446Z   type: 'test'
+2026-10-14T08:48:53.8349494Z   ...
+2026-10-14T08:48:53.8350510Z # Subtest: the website chat's lyric text matches the fields its kitchen declarations keep
+2026-10-14T08:48:53.8351951Z ok 10 - the website chat's lyric text matches the fields its kitchen declarations keep
+2026-10-14T08:48:53.8352900Z   ---
+2026-10-14T08:48:53.8353441Z   duration_ms: 35.084525
+2026-10-14T08:48:53.8354033Z   type: 'test'
+2026-10-14T08:48:53.8354565Z   ...
+2026-10-14T08:48:53.8355048Z 1..10
+2026-10-14T08:48:53.8355538Z # tests 10
+2026-10-14T08:48:53.8356040Z # suites 0
+2026-10-14T08:48:53.8356552Z # pass 10
+2026-10-14T08:48:53.8357062Z # fail 0
+2026-10-14T08:48:53.8357568Z # cancelled 0
+2026-10-14T08:48:53.8452684Z # skipped 0
+2026-10-14T08:48:53.8453202Z # todo 0
+2026-10-14T08:48:53.8453619Z # duration_ms 256781.136053

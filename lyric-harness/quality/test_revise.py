@@ -5174,7 +5174,7 @@ def test_the_offer_falls_back_per_call_when_the_conjunction_is_empty():
     for call, words in by_call.items():
         for w in words[:6]:
             after = list(draft)
-            moved = swap_at_slot(draft[2], b.slot, w)
+            moved = swap_at_slot(draft[2], b.slot, w, lex=R.lex)
             if moved is None:
                 continue
             after[2] = moved
@@ -5242,7 +5242,7 @@ def test_the_per_call_menu_is_screened_by_the_grader():
     survived, broke = [], []
     for call, words in by_call.items():
         for w in list(words)[:4]:
-            moved = swap_at_slot(draft[13], b.slot, w)
+            moved = swap_at_slot(draft[13], b.slot, w, lex=R.lex)
             if moved is None:
                 continue
             after = list(draft)

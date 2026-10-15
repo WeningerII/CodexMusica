@@ -85,13 +85,14 @@ def items_of(path):
     return items
 
 
-def build_lexicon(supplement, fallback):
+def build_lexicon(supplement, fallback, reader_scheme=None):
     import lyric_harness as LH
     fb = None if fallback == "none" else fallback
     if supplement == "none":
-        return LH.Lexicon(fallback=fb)
+        return LH.Lexicon(fallback=fb, reader_scheme=reader_scheme)
     from quality import lexicon_supplement as S
-    return S.SupplementedLexicon(fallback=fb, version=supplement)
+    return S.SupplementedLexicon(fallback=fb, version=supplement,
+                                 reader_scheme=reader_scheme)
 
 
 def item_lookup_blockers(lex, lines):
@@ -106,7 +107,8 @@ def item_lookup_blockers(lex, lines):
     import lyric_harness as LH
     found, nonlexical = set(), 0
     for line in lines:
-        f = LH.raw_final_token(line, strip_parens=lex.strip_parens)
+        f = LH.raw_final_token(line, strip_parens=lex.strip_parens,
+                               scheme=lex.reader_scheme)
         if f is None:
             nonlexical += 1
         _ph, toks, _oov = lex.transcribe(line)
@@ -169,11 +171,13 @@ def census(paths, lex, top=0, keep=None):
             here = {k: set() for k in readers}
             no_endpoint_here = unlookupable_here = 0
             for line in lines:
-                if LH.raw_final_token(line, strip_parens=lex.strip_parens) is None:
+                if LH.raw_final_token(line, strip_parens=lex.strip_parens,
+                                      scheme=lex.reader_scheme) is None:
                     no_endpoint_here += 1
                 line_toks = None
                 ends = {"end_anchor": LH.raw_final_token(line,
-                                                         strip_parens=lex.strip_parens),
+                                                         strip_parens=lex.strip_parens,
+                                                         scheme=lex.reader_scheme),
                         "end_grid": G._end_word(line) or None}
                 for k, ew in ends.items():
                     if not ew:
@@ -371,6 +375,9 @@ def main(argv=None):
     ap.add_argument("--lexicon-supplement", default="none",
                     help="`none` or a manifest version id (v1, v2, ...)")
     ap.add_argument("--fallback", default="none", choices=("none", "high", "low"))
+    # The English reader's token scheme (lyric_harness.READER_SCHEMES). A
+    # record without `reader_scheme` was measured under v1, the pre-batch cut.
+    ap.add_argument("--reader-scheme", default="v2", choices=("v1", "v2"))
     ap.add_argument("--top", type=int, default=0,
                     help="list the N most frequent unread types")
     ap.add_argument("--out", help="write the JSON record here as well")
@@ -397,13 +404,14 @@ def main(argv=None):
                   f"never a reused one")
             return 2
         keep = {u for u, side in assignment.items() if side == a.split}
-    lex = build_lexicon(a.lexicon_supplement, a.fallback)
+    lex = build_lexicon(a.lexicon_supplement, a.fallback, a.reader_scheme)
     rec = {"population": a.population, "globs": POPULATIONS[a.population],
            "files": len(paths), "inputs_sha256": inputs_sha256(paths),
            "population_manifest": population_manifest(paths),
            "lexicon_supplement": a.lexicon_supplement,
            "lexicon_supplement_sha256": _lexicon_sha256(lex),
-           "fallback": a.fallback, "census_commit": _commit()}
+           "fallback": a.fallback, "reader_scheme": a.reader_scheme,
+           "census_commit": _commit()}
     if keep is not None:
         rec["split"] = split_record(a.split, keep, split_meta)
         if split_meta["inputs_sha256"] != rec["inputs_sha256"]:

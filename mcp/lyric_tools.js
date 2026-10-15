@@ -42,6 +42,7 @@ import {
 } from './lexicon_basis.js';
 import { openKitchenBudget } from './paid_budget.js';
 import { createHash } from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import { AsyncLocalStorage } from 'node:async_hooks';
 import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -1007,6 +1008,8 @@ function verdictOf(r) {
   if (lexicon) v.lexicon = lexicon;
   if (Array.isArray(record.pronunciations)) v.pronunciations = record.pronunciations;
   if (record.pronunciation_options) v.pronunciation_options = record.pronunciation_options;
+  if (record.numbered_mandate) v.numbered_mandate = record.numbered_mandate;
+  if (Array.isArray(record.numbering_notices)) v.numbering_notices = record.numbering_notices;
   if (r.code === 2 && ['graded', 'finished'].includes(record.status))
     v.meaning =
       'measured — coverage incomplete; this is an uncertified draft, not a successful song';
@@ -1249,6 +1252,54 @@ async function withRunLock(args, fn) {
   }
 }
 
+// Compare source-bound declarations through the same Python reader as execution.
+// Restore the original spelling only after independently mapping both inputs;
+// the worker's existing argv fingerprint and saved journal remain unchanged.
+async function restoreEquivalentNumbering(args, original, lines, readerScheme) {
+  const fields = ['pronunciations', 'groups', 'returns', 'numbering'];
+  const moved = movedDeclarations(original, args);
+  if (!moved.length || moved.some(({ field }) => !fields.includes(field))) return;
+  if (!Array.isArray(lines) || !['v1', 'v2'].includes(readerScheme)) return;
+  const candidate = { ...original };
+  for (const key of fields) if (args[key] !== undefined) candidate[key] = args[key];
+  const canonical = await withTempDir(async (dir) => {
+    const file = path.join(dir, 'numbering.txt');
+    await writeFile(file, lines.join('\n') + '\n', 'utf8');
+    const normalize = async (declarations) => {
+      const argv = [
+        ...globalsFor({ ...declarations }),
+        `--reader-scheme=${readerScheme}`,
+        'normalize-numbering',
+        file,
+      ];
+      for (const field of ['groups', 'returns'])
+        if (declarations[field]) argv.push(`--${field}=${declarations[field]}`);
+      const result = await runVerb(argv);
+      return result.code === 0 ? result.lyric_result?.canonical_declarations : null;
+    };
+    // The worker serializes commands; neither normalization performs grading.
+    return [await normalize(original), await normalize(candidate)];
+  });
+  if (!canonical[0] || !canonical[1] || !isDeepStrictEqual(canonical[0], canonical[1])) return;
+  for (const key of fields) {
+    if (original[key] === undefined) delete args[key];
+    else args[key] = structuredClone(original[key]);
+  }
+}
+function numberingInputForRun(record, args) {
+  // A parked run explicitly accepts a rewritten draft. Suspended continuations
+  // replay their original input and must not reinterpret it as accepted text.
+  return record.status === 'parked' && Array.isArray(args.draft)
+    ? args.draft
+    : record.replay_draft || record.draft;
+}
+function recordedNumberingScheme(record) {
+  if (record && Object.hasOwn(record, 'reader_scheme')) return record.reader_scheme;
+  if (record?.answered && Object.hasOwn(record.answered, 'reader_scheme'))
+    return record.answered.reader_scheme;
+  return 'v1';
+}
+
 function recoverContinuationOnly(args) {
   const fields = ['state', 'checkpoint'].filter((field) => args[field] != null);
   const extra = Object.keys(args).filter(
@@ -1275,6 +1326,7 @@ function globalsFor(a) {
   const out = [...lexiconGlobals(a)];
   if (a && a.voices === true) out.push('--voices');
   if (a && (a.fallback === 'high' || a.fallback === 'low')) out.push(`--fallback=${a.fallback}`);
+  if (a?.numbering !== undefined) out.push(`--numbering=${a.numbering}`);
   if (a?.pronunciations !== undefined)
     out.push(`--pronunciations=${JSON.stringify(a.pronunciations)}`);
   return out;
@@ -1479,10 +1531,22 @@ const lexiconSupplementShaField = z
   .describe(
     "The sha256 of the supplement version's file that a saved grade or run recorded (its verdict's `lexicon.sha256`). Omit it: the run and the session carry it. When given, a file that is not those bytes refuses rather than re-reading the song under a different supplement."
   );
+const numberingField = z
+  .enum(['v1', 'v1+voices', 'v2', 'v2+voices'])
+  .optional()
+  .describe(
+    'Source token numbering for T<n> members in groups and returns. Copy the marker from the evidence that supplied those positions; never stamp unmarked held data. Named places are unchanged. An ambiguous unmarked position refuses.'
+  );
 const pronunciationField = z
   .array(
     z
       .object({
+        numbering: z
+          .enum(['v1', 'v1+voices', 'v2', 'v2+voices'])
+          .optional()
+          .describe(
+            'Copy numbering from the pronunciation_options item that supplied this token. Do not infer it from the current reader or stamp an unmarked held choice.'
+          ),
         line: z
           .string()
           .min(1)
@@ -1675,6 +1739,8 @@ export function answerFromRows(rows, pending) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  restoreEquivalentNumbering,
+  numberingInputForRun,
   publishedReport,
   verificationEvidenceOf,
   resumeEvidenceOf,
@@ -1793,6 +1859,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         "For a pasted song (no seed): the letter rhyme scheme over the lines, e.g. 'ABAB' (X = free)."
       ),
+    numbering: numberingField,
     groups: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -1973,6 +2040,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_LINES)
       .optional()
       .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
+    numbering: numberingField,
     groups: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -2054,6 +2122,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_LINES)
       .optional()
       .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
+    numbering: numberingField,
     groups: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -2158,7 +2227,7 @@ function reviseDescription({ kitchen = false } = {}) {
     `(${READING_DECLARATIONS}) lyric_grade used; or, for a pasted song, against the same mandate lyric_check ` +
     'graded (no seed; scheme or groups, optional returns/relation/structures, blueprint with subdivision) — the ' +
     'plan declarations belong to a seeded run and are refused without a seed. The loop grades, holds every ' +
-    'flagged and banned line open, and keeps going until a stop condition. THERE IS NO SONG IN ANY RESPONSE ' +
+    'flagged line open, and keeps going until a stop condition. THERE IS NO SONG IN ANY RESPONSE ' +
     "UNTIL THE LOOP REACHES A STOP CONDITION. At a stop condition the tool result's first text block is the " +
     'rendered song in performance order under its bracket headers with a [FINISHED — seed N — exit E — ' +
     'STOP_REASON — ...] stamp. The stamp marks a stop, not a finished song: ONLY exit 0 with certified ' +
@@ -2472,6 +2541,13 @@ export function registerLyricTools(server, tool) {
               const carried = { state: false, draft: false, decl: false };
               if (runRec) {
                 const recDecl = withLegacyLexicon(runRec.decl);
+                const held = runRec.state || runRec.checkpoint;
+                await restoreEquivalentNumbering(
+                  a,
+                  recDecl,
+                  numberingInputForRun(runRec, a),
+                  held ? recordedNumberingScheme(decodeState(held)) : runRec.reader_scheme
+                );
                 const moved = movedDeclarations(recDecl, a);
                 if (moved.length) throw refuse(movedRefusal(runRec, moved));
                 for (const [k, v] of Object.entries(recDecl || {}))
@@ -2530,6 +2606,12 @@ export function registerLyricTools(server, tool) {
                         z.object(KITCHEN_REVISE_SCHEMA).parse(decoded.connector_declarations)
                       )
                     );
+                    await restoreEquivalentNumbering(
+                      a,
+                      decl,
+                      decoded.input_draft,
+                      recordedNumberingScheme(decoded)
+                    );
                     const moved = movedDeclarations(decl, a);
                     if (moved.length)
                       throw refuse(
@@ -2586,6 +2668,12 @@ export function registerLyricTools(server, tool) {
                     declarationsOf(
                       z.object(KITCHEN_REVISE_SCHEMA).parse(checkpoint.connector_declarations)
                     )
+                  );
+                  await restoreEquivalentNumbering(
+                    a,
+                    decl,
+                    checkpoint.input_draft,
+                    recordedNumberingScheme(checkpoint)
                   );
                   const moved = movedDeclarations(decl, a);
                   if (moved.length)
@@ -2709,12 +2797,13 @@ export function registerLyricTools(server, tool) {
                 (hasScheme ||
                   hasGroups ||
                   a.returns ||
+                  a.numbering != null ||
                   a.structures ||
                   a.blueprint ||
                   a.subdivision != null)
               )
                 throw refuse(
-                  'a seeded run takes its mandate and its blueprint OFF THE PLAN — drop scheme/groups/returns/structures/blueprint/subdivision, or drop the seed to revise a pasted song'
+                  'a seeded run takes its mandate and its blueprint OFF THE PLAN — drop scheme/groups/returns/numbering/structures/blueprint/subdivision, or drop the seed to revise a pasted song'
                 );
               // A pasted song has no plan for these to shape; they used to be
               // accepted, stored as the run's declarations and never read.
@@ -2906,6 +2995,9 @@ export function registerLyricTools(server, tool) {
                   state: result.state,
                   checkpoint: result.checkpoint,
                   decl: declarationsOf(a),
+                  reader_scheme:
+                    r.lyric_result?.reader_scheme ??
+                    (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                   run_id: runId,
                 });
                 result.run_id = saved.run_id;
@@ -2942,6 +3034,9 @@ export function registerLyricTools(server, tool) {
                       draft: a.draft,
                       replay_draft: a.draft,
                       decl: declarationsOf(a),
+                      reader_scheme:
+                        r.lyric_result?.reader_scheme ??
+                        (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                       answers: onRecord,
                       run_id: runId,
                     })
@@ -2996,6 +3091,9 @@ export function registerLyricTools(server, tool) {
                             'plan_lines',
                             'cursor_stripped',
                             'lexicon',
+                            'pronunciations',
+                            'numbered_mandate',
+                            'numbering_notices',
                           ]
                             .filter((key) => suspendedVerdict[key] !== undefined)
                             .map((key) => [key, suspendedVerdict[key]])
@@ -3044,6 +3142,9 @@ export function registerLyricTools(server, tool) {
                     draft: exactDraft,
                     replay_draft: a.draft,
                     decl: declarationsOf(a),
+                    reader_scheme:
+                      r.lyric_result?.reader_scheme ??
+                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                     stop: verdict.loop_stop_reason ?? null,
                     open: Array.isArray(verdict.loop_unresolved_lines)
                       ? verdict.loop_unresolved_lines
@@ -3155,6 +3256,9 @@ export function registerLyricTools(server, tool) {
                     draft: exactDraft,
                     replay_draft: a.draft,
                     decl: declarationsOf(a),
+                    reader_scheme:
+                      r.lyric_result?.reader_scheme ??
+                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                     run_id: runId,
                   });
                   other.run_id = saved.run_id;
@@ -3581,7 +3685,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'structure — ban_not_asked lists them, and banned_pairs is null when no pair was asked. For unresolved ' +
     'pronunciation, read pronunciation_options from grade/check (it lists the lines a refused obligation names; ' +
     'total counts every ambiguous word), select the intended dictionary reading or ' +
-    'supply ARPABET with an honest source in pronunciations, then regrade. Choices bind exact line text and ' +
+    "supply ARPABET with an honest source in pronunciations, then regrade. Copy each option's numbering marker unchanged with its token; never invent one for held unmarked choices. Choices bind exact line text and " +
     'token position, including every verbatim chorus return. Never choose phones just to pass a check. A ' +
     'revision can remove an original occurrence; its reading is retained as retired and never applied to ' +
     'changed text. New text is graded independently. Supplying new readings during revision requires regrading ' +

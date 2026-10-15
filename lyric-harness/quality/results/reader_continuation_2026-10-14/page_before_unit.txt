@@ -1,0 +1,7 @@
+LYRICS PAGE (unit): FAIL — 6 problem(s):
+  ✗ B. boundaries: P1 124 groups: [29,34] became {"start":1396,"end":1396,"dir":"backward"}
+  ✗ B. boundaries: P1 124 groups: [1382,1387] became {"start":1396,"end":1396,"dir":"backward"}
+  ✗ B. boundaries: P1 1000 groups: [29,34] became {"start":11032,"end":11032,"dir":"backward"}
+  ✗ B. boundaries: P1 1000 groups: [11018,11023] became {"start":11032,"end":11032,"dir":"backward"}
+  ✗ B. boundaries: P6 cached song selection became [103,111,73]
+  ✗ B. boundaries: P2 appending migration lost legacy missing-entry warning: Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: the reading for “oh”, line 1: word 2 → 3; a declared return on “oh”, line 1: word 2 → 3; a declared return on “oh”, line 3: word 2 → 3. Nothing else about them changed. Dismiss this when you have checked them.

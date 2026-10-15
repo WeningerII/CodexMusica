@@ -13,6 +13,19 @@
         "works.fd3dfc5815.js"
       ],
       "first_published": "2026-10-11",
+      "retired": "2026-10-14"
+    },
+    {
+      "id": "2a4a544ce3151790",
+      "files": [
+        "analysis.9ebd86e5f8.js",
+        "compare.e48e7feb47.js",
+        "core.0dcc6ec3f7.js",
+        "reader.4d0287465c.js",
+        "rights.8a94ca24b7.js",
+        "works.fd3dfc5815.js"
+      ],
+      "first_published": "2026-10-14",
       "retired": null
     }
   ]

@@ -1676,7 +1676,10 @@ returns the same question, not a worse song.
 block is byte-for-byte the schema `replay:` reads, ASSERTED and not claimed —
 `quality/test_verbs.py` §20 hands it to `--propose=replay:` and requires the
 same final draft, so a session that wrote a song is reproducible by someone
-with no writer and no credential (doctrine 14).
+with no writer and no credential (doctrine 14). Under reader scheme `v2` the
+block also carries `"reader_scheme": "v2"`, and `replay:` reads the record
+under the scheme it names; a block without the key predates the field and
+replays under `v1`, as a pre-batch deferred state resumes.
 
 TWO TIERS, matching what backspacing through a draft actually does. TIER 1
 swaps a flagged line's own word for an offered candidate. TIER 2

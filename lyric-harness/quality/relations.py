@@ -907,8 +907,18 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                            if tokeniser is tokenise and hasattr(line_phon, "tokens_for_line") else None)
         words = (list(analysis.tokens) if analysis else
                  declared_tokens if declared_tokens is not None else tokeniser(raw))
+        # A PRINTED BOUNDARY IS NEVER READ (D14): the phonology appended the
+        # line's printed endpoint as a boundary token (`English.tokens_for_line`),
+        # which is not a word of its token cut, so it is refused unread.
+        boundary = (line_phon.printed_boundary(raw)
+                    if declared_tokens is not None and not analysis
+                    and hasattr(line_phon, "printed_boundary") else None)
         lexical.append(tuple(words))
-        cut = bool(re.search(r"[\w’'](-)\s*$", raw)) and hyphen_continues
+        # The split flag reads the line the phonology's token cut reads (an
+        # English v2 cut folds U+2010/U+2011 and ignores U+00AD); any other
+        # phonology keeps the raw spelling.
+        cut = (line_phon.split_final(raw) if hasattr(line_phon, "split_final")
+               else bool(re.search(r"[\w’'](-)\s*$", raw))) and hyphen_continues
         read = []
         if analysis:
             unreadable.extend((li, ti, w) for ti, w in analysis.refused)
@@ -929,7 +939,18 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
                 miss = []
                 for ti, w in enumerate(words):
                     token_phon = line_phon.for_token(ti) if hasattr(line_phon, "for_token") else line_phon
-                    sy = token_phon.syllabify(w)
+                    sy = token_phon.syllabify(w) if ti != boundary else []
+                    if (not sy and ti == len(words) - 1 and ti != boundary
+                            and hasattr(token_phon, "split_final_stem")):
+                        # The line's last word ending in a hyphen (`king-`,
+                        # `king-,`): the phonology names the printed part it
+                        # reads, as `line_anchors` reads that endpoint; the
+                        # token keeps its text. Whether the line is SPLIT is
+                        # `cut` alone (a hyphen then only whitespace):
+                        # punctuation after the hyphen never continues the
+                        # word, so `king-,` reads `king` without `split_right`.
+                        stem = token_phon.split_final_stem(w)
+                        sy = token_phon.syllabify(stem) if stem else []
                     if sy:
                         read.append((ti, w, sy))
                     else:
@@ -9625,7 +9646,17 @@ def _uncertain_tokens(stream, ids):
 def _stream_lexicon(stream):
     ph = stream.phon
     lx = getattr(ph, "lexicon", None)
-    if lx is None and hasattr(ph, "_lexicon"):
+    if lx is None and hasattr(ph, "cut_lexicon"):
+        # A phonology declaring its own cut without a lexicon (a plain
+        # `--voices` lexicon's `English(strip_parens=False)`) reads its stream
+        # that way; the any-reading search locates and pins occurrences
+        # through the lexicon returned here, so it must cut lines the same
+        # way, or an end word sung inside `(...)` cannot be found.
+        try:
+            lx = ph.cut_lexicon()
+        except Exception:
+            lx = None
+    elif lx is None and hasattr(ph, "_lexicon"):
         try:
             lx = ph._lexicon()
         except Exception:

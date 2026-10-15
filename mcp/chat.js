@@ -968,6 +968,8 @@ export async function createChatRouter({
           // The choices the lyrics page's Rhymes and Pronunciation tools offer.
           pairs: c.pairs ?? null,
           pronunciation_options: c.pronunciation_options ?? null,
+          ...(c.numbered_mandate ? { numbered_mandate: c.numbered_mandate } : {}),
+          ...(Array.isArray(c.numbering_notices) ? { numbering_notices: c.numbering_notices } : {}),
         })),
         stopped: run.stopped,
         // WHY IT STOPPED, WITH THE NUMBERS (2026-09-02, triage C11).

@@ -5165,6 +5165,10 @@ await check('validation: actionable errors', () => {
       'mcp/test_lyric_workflow.mjs':
         'offline lyrics creation order and task authorization regressions',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
+      'mcp/test_pronunciation_native.mjs':
+        'offline real native pronunciation continuation regressions',
+      'mcp/test_pronunciation_checkpoint.mjs':
+        'localhost fixture pronunciation checkpoint regressions',
       'mcp/test_session_repairs.mjs': 'offline session workflow and Rich rendering regressions',
       'mcp/test_high_report.mjs':
         'native connector regressions for the high-severity report repairs, executed by CI (test:connector:live)',

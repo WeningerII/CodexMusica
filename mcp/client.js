@@ -119,6 +119,14 @@ export async function connectConnector({
           if (name === 'lyric_revise' && selected.phase === 'create' && !args.recover_only) {
             if (continuation && !args.new_run) {
               for (const [key, value] of Object.entries(continuation.args)) {
+                // A recorded continuation is checked by the authoritative reader
+                // on the server. Keep its state and every other declaration fixed.
+                if (
+                  ['pronunciations', 'groups', 'returns', 'numbering'].includes(key) &&
+                  args[key] !== undefined &&
+                  (continuation.args.state || continuation.args.checkpoint)
+                )
+                  continue;
                 if (args[key] !== undefined && JSON.stringify(args[key]) !== JSON.stringify(value))
                   throw new Error(
                     'CREATION_CONTINUATION: ' + key + ' differs from the recorded run.'

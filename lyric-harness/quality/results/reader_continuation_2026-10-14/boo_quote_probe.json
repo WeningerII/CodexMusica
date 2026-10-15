@@ -1,0 +1,401 @@
+{
+  "scope": "historical relation/phonology modules with pinned supporting modules; not full-tree or live acceptance",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "witness": "Then the ominous words “It’s a Boo-”",
+  "comparison_line": "we knew",
+  "dictionary_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+  "runs": [
+    {
+      "historical_module_head": "0af39c6ff3bb9f1c0229bbf7bf14f49816e298e2",
+      "support_head": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+      "results": [
+        {
+          "strip_parens": true,
+          "mode": "aside-stripped",
+          "tokens": ["Then", "the", "ominous", "words", "It's", "a", "Boo-"],
+          "unread": [[0, 6, "Boo-"]],
+          "split": false,
+          "perfect rhyme": null,
+          "broken rhyme": null
+        },
+        {
+          "strip_parens": false,
+          "mode": "voices",
+          "tokens": ["Then", "the", "ominous", "words", "It's", "a", "Boo-"],
+          "unread": [[0, 6, "Boo-"]],
+          "split": false,
+          "perfect rhyme": null,
+          "broken rhyme": null
+        }
+      ],
+      "loaded_harness_modules": [
+        {
+          "path": "lyric-harness/lyric_harness.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "1bfd00ed8b6c7efee3adac83a1e623c0aa3bd2531f4c5dd4a9e1154e4d92534f"
+        },
+        {
+          "path": "lyric-harness/quality/__init__.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "lyric-harness/quality/canon_sources.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "73f39c0b0c1132ed3ecabb95a8f663d7d30322216e1ca30954c6e9e14fb3b110"
+        },
+        {
+          "path": "lyric-harness/quality/features.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "de8f73d9ec3247b52ab40caedf6619f4c6c08b95014728053c19a4536f6de341"
+        },
+        {
+          "path": "lyric-harness/quality/field_store.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "50cb91f7930f1e951bf7b30f3de270b32de9028bc22c419129af4b8cc195c679"
+        },
+        {
+          "path": "lyric-harness/quality/fit.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "8920317c39f9269e9b218c864ff77cd6a2ac2048d4be379a32ca53b82ccd1c7c"
+        },
+        {
+          "path": "lyric-harness/quality/floor.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "19ddf8fa75814a7c889d4ad09285bcbc944cbdf6f65287780ca3f3c50f5978c5"
+        },
+        {
+          "path": "lyric-harness/quality/frequency.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "71569a5e0c9f132a019ba32e59719e69ae7d435f24f3d9383e84dd843e29d9f5"
+        },
+        {
+          "path": "lyric-harness/quality/g2p.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "1eeb174b32331bbb164f89e57e9494571d2993e4cf2e1febc13ad625fd3d0ea6"
+        },
+        {
+          "path": "lyric-harness/quality/grid.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "7bd3b3c956010ebf485f38ad2cbec1c31136eac59551375fccf0bb3f0554ea06"
+        },
+        {
+          "path": "lyric-harness/quality/meter.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "39b48bc3397157618f9a536a062d998329da19ec63a905f06ffc1e1cefe507bf"
+        },
+        {
+          "path": "lyric-harness/quality/morphology.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "cb47385ec3107e9a56a8e6cf5afa7ef7230950391c151d3bbfae3525b14de633"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/__init__.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "896b05ce90bda11560f9bdb1bedb8af9e95e6ec655b625b753d7eb3e75eeb528"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/cym.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "2953f38d37cdf66a6fb4f6d8c2ae4e23851a5373b81c4c3cd501fdda73c2c74c"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/eng.py",
+          "commit": "0af39c6ff3bb9f1c0229bbf7bf14f49816e298e2",
+          "sha256": "bc5a4b268b6e99e4b963925688502a6282665f3dc57f68ddb0b557efe292d91c"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/fas.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "b015ec0c4b64ff2da3ac66c0be984236925aa30883033731ea118f3b0eb35306"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/fin.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "7048a3e185ff76373d7dcc79612366e15643fe2ffb5ec76c0aa9623c17a1a65f"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/ltc.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "f09e90252be740c55f6fb62a149a34679a30a14bf526971f6bcb14c4af05813f"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/msa.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "e67a7804ca5597f314df852eeeca39583d706a6116880adc681a69ee990654f0"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/non.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "a6c285ebc24636fba4f7375e6a25bb4cd5c8280625fa2b82e51ea1b53f9abaa2"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/san.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "6b0dcb02e5571327935e044b9a977cf33c8e97898f49283ac5bb2c1ec427a14c"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/som.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "5af13c08c9fa5775446793556e0ffddbbfe667ed9754c68220f8ebf110d773ba"
+        },
+        {
+          "path": "lyric-harness/quality/provenance.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "37131a3ed800dcecd2db05fadfdc9fd9842f1e1a385c303186ed207d610cbb7d"
+        },
+        {
+          "path": "lyric-harness/quality/quotients.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "794bcafd5414e3b73f29d0014859c1e8ec1bbec0702151f086807718137b8325"
+        },
+        {
+          "path": "lyric-harness/quality/readability.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "b37b55a103516a25e30db37ede6f1c1431162f1b85ca5405770ed7eabe6a3801"
+        },
+        {
+          "path": "lyric-harness/quality/relations.py",
+          "commit": "0af39c6ff3bb9f1c0229bbf7bf14f49816e298e2",
+          "sha256": "e004953f3c6922ebab850d6bed9705752b3b1feefed02235c86df7dde5b7316e"
+        },
+        {
+          "path": "lyric-harness/quality/release_assets.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "460171d518818cbb65c1c739b08a881c5295b4ab093ec4322fc5f94ed2552909"
+        },
+        {
+          "path": "lyric-harness/quality/revise.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "3b40a7ed97289247c2f3840021a09dabbc4179d08ff90f8cd29c8a883e17924f"
+        },
+        {
+          "path": "lyric-harness/quality/rhyme_constraints.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "bb090f089853b160747555ea4a20519e600369816ca46c8973dd48c47135c07a"
+        },
+        {
+          "path": "lyric-harness/quality/schemes.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "2f5cb26a3a8d84af7eb98fe76763d8a3d50916743cb34bbdbcb1be213c0cdf62"
+        },
+        {
+          "path": "lyric-harness/quality/sentencehood.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "0983dcdec5f8233fb9b296833300c0ec33cd1025070f72aadf98160f55ffbd25"
+        },
+        {
+          "path": "lyric-harness/quality/slots.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "db52a91a04f5f53c0a91ea7dabe41e9a6eeebcd6ff81f8c5a6cbad79f534faf2"
+        },
+        {
+          "path": "lyric-harness/quality/span_rules.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "03f51c397c830a47380efa3bb6209a969bae8c86a015e319ced9d2da5a2a675e"
+        },
+        {
+          "path": "lyric-harness/quality/tempo.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "4fd83ebb4ff98c93d886ff023ebaf2c4c22843743c967073603e899aa017f802"
+        }
+      ]
+    },
+    {
+      "historical_module_head": "7c26d40c4b441851fb9946fb4c54fc50d737b1fd",
+      "support_head": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+      "results": [
+        {
+          "strip_parens": true,
+          "mode": "aside-stripped",
+          "tokens": ["Then", "the", "ominous", "words", "It's", "a", "Boo-"],
+          "unread": [],
+          "split": false,
+          "perfect rhyme": true,
+          "broken rhyme": false
+        },
+        {
+          "strip_parens": false,
+          "mode": "voices",
+          "tokens": ["Then", "the", "ominous", "words", "It's", "a", "Boo-"],
+          "unread": [],
+          "split": false,
+          "perfect rhyme": true,
+          "broken rhyme": false
+        }
+      ],
+      "loaded_harness_modules": [
+        {
+          "path": "lyric-harness/lyric_harness.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "1bfd00ed8b6c7efee3adac83a1e623c0aa3bd2531f4c5dd4a9e1154e4d92534f"
+        },
+        {
+          "path": "lyric-harness/quality/__init__.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "lyric-harness/quality/canon_sources.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "73f39c0b0c1132ed3ecabb95a8f663d7d30322216e1ca30954c6e9e14fb3b110"
+        },
+        {
+          "path": "lyric-harness/quality/features.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "de8f73d9ec3247b52ab40caedf6619f4c6c08b95014728053c19a4536f6de341"
+        },
+        {
+          "path": "lyric-harness/quality/field_store.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "50cb91f7930f1e951bf7b30f3de270b32de9028bc22c419129af4b8cc195c679"
+        },
+        {
+          "path": "lyric-harness/quality/fit.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "8920317c39f9269e9b218c864ff77cd6a2ac2048d4be379a32ca53b82ccd1c7c"
+        },
+        {
+          "path": "lyric-harness/quality/floor.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "19ddf8fa75814a7c889d4ad09285bcbc944cbdf6f65287780ca3f3c50f5978c5"
+        },
+        {
+          "path": "lyric-harness/quality/frequency.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "71569a5e0c9f132a019ba32e59719e69ae7d435f24f3d9383e84dd843e29d9f5"
+        },
+        {
+          "path": "lyric-harness/quality/g2p.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "1eeb174b32331bbb164f89e57e9494571d2993e4cf2e1febc13ad625fd3d0ea6"
+        },
+        {
+          "path": "lyric-harness/quality/grid.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "7bd3b3c956010ebf485f38ad2cbec1c31136eac59551375fccf0bb3f0554ea06"
+        },
+        {
+          "path": "lyric-harness/quality/meter.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "39b48bc3397157618f9a536a062d998329da19ec63a905f06ffc1e1cefe507bf"
+        },
+        {
+          "path": "lyric-harness/quality/morphology.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "cb47385ec3107e9a56a8e6cf5afa7ef7230950391c151d3bbfae3525b14de633"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/__init__.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "896b05ce90bda11560f9bdb1bedb8af9e95e6ec655b625b753d7eb3e75eeb528"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/cym.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "2953f38d37cdf66a6fb4f6d8c2ae4e23851a5373b81c4c3cd501fdda73c2c74c"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/eng.py",
+          "commit": "7c26d40c4b441851fb9946fb4c54fc50d737b1fd",
+          "sha256": "5e3de90fe8bbb749015c7bc17a5df550e3ed7a63af096e6e359ec061b115509b"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/fas.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "b015ec0c4b64ff2da3ac66c0be984236925aa30883033731ea118f3b0eb35306"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/fin.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "7048a3e185ff76373d7dcc79612366e15643fe2ffb5ec76c0aa9623c17a1a65f"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/ltc.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "f09e90252be740c55f6fb62a149a34679a30a14bf526971f6bcb14c4af05813f"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/msa.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "e67a7804ca5597f314df852eeeca39583d706a6116880adc681a69ee990654f0"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/non.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "a6c285ebc24636fba4f7375e6a25bb4cd5c8280625fa2b82e51ea1b53f9abaa2"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/san.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "6b0dcb02e5571327935e044b9a977cf33c8e97898f49283ac5bb2c1ec427a14c"
+        },
+        {
+          "path": "lyric-harness/quality/phonology/som.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "5af13c08c9fa5775446793556e0ffddbbfe667ed9754c68220f8ebf110d773ba"
+        },
+        {
+          "path": "lyric-harness/quality/provenance.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "37131a3ed800dcecd2db05fadfdc9fd9842f1e1a385c303186ed207d610cbb7d"
+        },
+        {
+          "path": "lyric-harness/quality/quotients.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "794bcafd5414e3b73f29d0014859c1e8ec1bbec0702151f086807718137b8325"
+        },
+        {
+          "path": "lyric-harness/quality/readability.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "b37b55a103516a25e30db37ede6f1c1431162f1b85ca5405770ed7eabe6a3801"
+        },
+        {
+          "path": "lyric-harness/quality/relations.py",
+          "commit": "7c26d40c4b441851fb9946fb4c54fc50d737b1fd",
+          "sha256": "53e0793017305e084f84be9c0675584953eb90ff865ead67e8be1b9099b8e1b6"
+        },
+        {
+          "path": "lyric-harness/quality/release_assets.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "460171d518818cbb65c1c739b08a881c5295b4ab093ec4322fc5f94ed2552909"
+        },
+        {
+          "path": "lyric-harness/quality/revise.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "3b40a7ed97289247c2f3840021a09dabbc4179d08ff90f8cd29c8a883e17924f"
+        },
+        {
+          "path": "lyric-harness/quality/rhyme_constraints.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "bb090f089853b160747555ea4a20519e600369816ca46c8973dd48c47135c07a"
+        },
+        {
+          "path": "lyric-harness/quality/schemes.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "2f5cb26a3a8d84af7eb98fe76763d8a3d50916743cb34bbdbcb1be213c0cdf62"
+        },
+        {
+          "path": "lyric-harness/quality/sentencehood.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "0983dcdec5f8233fb9b296833300c0ec33cd1025070f72aadf98160f55ffbd25"
+        },
+        {
+          "path": "lyric-harness/quality/slots.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "db52a91a04f5f53c0a91ea7dabe41e9a6eeebcd6ff81f8c5a6cbad79f534faf2"
+        },
+        {
+          "path": "lyric-harness/quality/span_rules.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "03f51c397c830a47380efa3bb6209a969bae8c86a015e319ced9d2da5a2a675e"
+        },
+        {
+          "path": "lyric-harness/quality/tempo.py",
+          "commit": "8ea94ac9d5141eb5062a8094351a9330f4edc38c",
+          "sha256": "4fd83ebb4ff98c93d886ff023ebaf2c4c22843743c967073603e899aa017f802"
+        }
+      ]
+    }
+  ]
+}

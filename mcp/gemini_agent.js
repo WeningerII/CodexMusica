@@ -488,6 +488,8 @@ function loopFields(v) {
     // upstream (12 words make 66 pairs; MAX_CHOICES is 128 readings).
     pairs: Array.isArray(v?.pairs) ? v.pairs.slice(0, 66).map(pairRow) : null,
     pronunciation_options: readingOptions(v?.pronunciation_options),
+    ...(v?.numbered_mandate ? { numbered_mandate: v.numbered_mandate } : {}),
+    ...(Array.isArray(v?.numbering_notices) ? { numbering_notices: v.numbering_notices } : {}),
   };
 }
 
@@ -512,6 +514,7 @@ function readingOptions(o) {
       line: typeof it?.line === 'string' ? it.line : null,
       token: Number.isInteger(it?.token) ? it.token : null,
       word: typeof it?.word === 'string' ? it.word : null,
+      ...(typeof it?.numbering === 'string' ? { numbering: it.numbering } : {}),
       matching_lines: Array.isArray(it?.matching_lines) ? it.matching_lines : [],
       dictionary_readings: Array.isArray(it?.dictionary_readings)
         ? it.dictionary_readings.map((r) => ({
@@ -1067,7 +1070,7 @@ function uncertifiedRunNote() {
   return (
     'The lyric_revise run is UNCERTIFIED at exit 2 (no question pending). ' +
     'Preserve its accepted draft and inspect the returned coverage and lyric_grade pronunciation options. ' +
-    'Resolve only readings you can establish explicitly; do not guess pronunciations or rewrite nonexistent open lines. ' +
+    "Copy each pronunciation option's numbering marker unchanged with its token; never stamp unmarked held choices. Resolve only readings you can establish explicitly; do not guess pronunciations or rewrite nonexistent open lines. " +
     'Start independent work with the retained draft and the resolved declarations in a new lyrics task. ' +
     'This result is not a certified song.'
   );

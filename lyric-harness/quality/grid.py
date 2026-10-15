@@ -1903,8 +1903,8 @@ def rime_cmudict(lex=None):
     returns None, and None propagates to a REFUSAL rather than to a False
     (doctrine 79).
     """
+    import lyric_harness as LH
     if lex is None:
-        import lyric_harness as LH
         lex = LH.Lexicon()
 
     def key(word, *, line=None, token=None):
@@ -1913,6 +1913,11 @@ def rime_cmudict(lex=None):
             reader = lex.for_line(line).for_token(token - 1)
         w = normalise_line(word).strip("'")
         if not w:
+            return None
+        if (getattr(reader, "_pronunciation_choice", None) is None
+                and LH._scheme_of(lex) == "v2" and LH.has_numeral(w)):
+            # Reader scheme v2: a numeral endpoint is read only through a
+            # declared reading (the reader's numeral guard); never piecewise.
             return None
         if getattr(reader, "_pronunciation_choice", None) is not None:
             # A bound declaration keys the exact sung token, including edge
@@ -1949,20 +1954,50 @@ def rime_cmudict(lex=None):
         # Preserve the legacy endpoint even when the declaration tokenizer
         # omits it (digits, non-Latin text, unsung parentheticals). Bind only
         # if that same physical span is exactly the last complete sung token.
-        import lyric_harness as LH
-        word = _end_word(line)
-        # Declaration indexes belong to the original exact line. NFC may
-        # join a combining mark and change the declaration tokenizer's count.
         raw = line
+        if LH._scheme_of(lex) == "v2":
+            # Reader scheme v2: the endpoint is the reader's last PHYSICAL run
+            # (any script, numerals included, a `(...)` aside included, as the
+            # legacy endpoint was), and the end word is that run's reader
+            # spelling -- U+00AD removed, U+2010/U+2011 folded, a dash run a
+            # break, NFC -- never a fragment of it. It binds, and is keyed on
+            # the exact sung token, when the run IS the line's last sung token
+            # (same raw pieces); a run after the last sung token (a final
+            # aside, a non-Latin run) is keyed unbound, as before. Where the
+            # last sung token shares characters with the run without being it
+            # (`night` inside `×night`, `night` followed by a mark NFC cannot
+            # compose, U+0333) or ends after it (`I said ×` ends on the token `×`),
+            # the end is no readable word -- `line_anchors` and the relation
+            # stream refuse it -- so it keys nothing. A numeral endpoint keys
+            # only through a declared reading.
+            runs = LH.reader_line(raw, False, "v2").runs
+            if not runs:
+                return "", None, key("", line=line, token=None)
+            last = runs[-1]
+            tokens = LH.reader_line(raw, lex.strip_parens, "v2").tokens
+            if (tokens and tokens[-1].pieces == last.pieces
+                    and tokens[-1].text == last.text):
+                token = len(tokens)
+                return (normalise_line(last.text), token,
+                        key(last.text, line=line, token=token))
+            word = normalise_line(last.text)
+            if tokens and tokens[-1].pieces[-1][1] > last.pieces[0][0]:
+                return word, None, None
+            return word, None, key(word, line=line, token=None)
+        # Scheme v1, the pre-batch binding: declaration indexes belong to the
+        # original exact line. NFC may join a combining mark and change the
+        # declaration tokenizer's count.
+        word = _end_word(line)
         spans = list(re.finditer(r"(?:[^\W_]|['‘’-])+", raw))
-        words = LH.line_tokens(raw, strip_parens=lex.strip_parens)
+        words = LH.line_tokens(raw, strip_parens=lex.strip_parens, scheme="v1")
         token = None
         if spans and words:
             span = spans[-1]
             without = raw[:span.start()] + " " * len(span.group()) + raw[span.end():]
             if (normalise_line(span.group()) == word == normalise_line(words[-1])
-                    and LH.line_tokens(span.group(), strip_parens=False) == [words[-1]]
-                    and LH.line_tokens(without, strip_parens=lex.strip_parens) == words[:-1]):
+                    and LH.line_tokens(span.group(), strip_parens=False, scheme="v1") == [words[-1]]
+                    and LH.line_tokens(without, strip_parens=lex.strip_parens,
+                                       scheme="v1") == words[:-1]):
                 token = len(words)
         return word, token, key(word, line=line, token=token)
 

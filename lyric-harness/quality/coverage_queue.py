@@ -202,6 +202,8 @@ def main(argv=None):
                          "(a final set step may pass it by up to two)")
     ap.add_argument("--attested", help="restrict to these headwords (one per line)")
     ap.add_argument("--lexicon-supplement", default="none")
+    # A summary without `reader_scheme` was measured under v1 (pre-batch).
+    ap.add_argument("--reader-scheme", default="v2", choices=("v1", "v2"))
     ap.add_argument("--out", help="write the queue TSV here")
     a = ap.parse_args(argv)
     from quality.coverage_census import (build_lexicon, inputs_sha256,
@@ -209,7 +211,7 @@ def main(argv=None):
     from quality.coverage_split import checked_assignment
     from quality import lexicon_supplement as S
     import lyric_harness as LH
-    lex = build_lexicon(a.lexicon_supplement, "none")
+    lex = build_lexicon(a.lexicon_supplement, "none", a.reader_scheme)
     items, nonlexical_items, tokens, case = blockers(lex)
     allowed, attested = (attested_identity(a.attested) if a.attested
                          else (None, None))
@@ -224,6 +226,7 @@ def main(argv=None):
         "inputs_sha256": inputs_sha256(files),
         "split": split_record("dev", keep, meta),
         "lexicon": S.lexicon_identity(lex),
+        "reader_scheme": a.reader_scheme,
         "attested": attested,
         "source_commit": _source_commit(),
         "dev_items": len(items) + nonlexical_items,

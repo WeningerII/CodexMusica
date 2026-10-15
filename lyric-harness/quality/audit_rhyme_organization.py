@@ -150,6 +150,7 @@ def run_replication(base):
         path = root / "corpus" / "song" / f"eng_celtic_{name}.txt"
         real_results, twins, items = [], [], []
         for index, (title, at, body) in enumerate(calibration_items(path)):
+            # `WordGraph(Lexicon())` reads the process's scheme; so does this.
             lines = [row.text for row in body if line_tokens(row.text)]
             if len(lines) < 14:
                 continue

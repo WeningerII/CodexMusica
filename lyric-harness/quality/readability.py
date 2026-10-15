@@ -100,6 +100,8 @@ class Finding:
 #: them. Stated here rather than left to each caller, because doctrine 58 says
 #: a bare n-of-N is a coordinate of some setting nobody wrote down.
 def countable(text):
+    # No lexicon here, so the cut every lexicon this process builds without a
+    # declared scheme reads under -- the process's scheme.
     return bool(line_tokens(text))
 
 
@@ -309,7 +311,8 @@ def substitution_report(lex, lines):
     """
     out = []
     for i, text in enumerate(lines):
-        final = raw_final_token(text, strip_parens=lex.strip_parens)
+        final = raw_final_token(text, strip_parens=lex.strip_parens,
+                                scheme=getattr(lex, "reader_scheme", None))
         if final is None:
             continue
         smap = word_syllable_map(lex, text)
@@ -420,7 +423,7 @@ def corpus_rate(lex, paths):
     """
     tot = unread = subst = 0
     subst_flagged = subst_silent = 0
-    by_token = by_piece = 0
+    by_token = by_piece = by_numeral = 0
     overstates = 0
     misfiled = misfiled_unexplained = 0
     words = {}
@@ -432,6 +435,7 @@ def corpus_rate(lex, paths):
         u = [r for r in c if r["final_unreadable"]]
         t = [r for r in u if r["final_unreadable_cause"] == "token"]
         pc = [r for r in u if r["final_unreadable_cause"] == "piece"]
+        nm = [r for r in u if r["final_unreadable_cause"] == "numeral"]
         lo = [r for r in c
               if not r["final_unreadable"] and r["final_unread_pieces"]]
         s = substitution_report(lex, lines)
@@ -439,6 +443,7 @@ def corpus_rate(lex, paths):
         unread += len(u)
         by_token += len(t)
         by_piece += len(pc)
+        by_numeral += len(nm)
         overstates += len(lo)
         subst += len(s)
         # THE SUBSET CLAIM, MEASURED IN THE PASS THAT WAS ALREADY BEING MADE.
@@ -492,8 +497,8 @@ def corpus_rate(lex, paths):
                 continue
             misfiled += 1
             earlier = set()
-            for tk in line_tokens(r["text"],
-                                  strip_parens=lex.strip_parens)[:-1]:
+            for tk in line_tokens(r["text"], strip_parens=lex.strip_parens,
+                                  scheme=getattr(lex, "reader_scheme", None))[:-1]:
                 earlier.update(token_pieces(lex, tk)[1])
             if any(pi not in earlier for pi in over):
                 misfiled_unexplained += 1
@@ -506,7 +511,7 @@ def corpus_rate(lex, paths):
                          "unreadable_final_piece": len(pc),
                          "rate": (len(u) / len(c)) if c else 0.0,
                          "rate_token": (len(t) / len(c)) if c else 0.0})
-    return {"files": len(per_file), "lines_countable": tot,
+    rec = {"files": len(per_file), "lines_countable": tot,
             "unreadable_final": unread,
             # SPLIT BY CAUSE 2026-08-11. `unreadable_final_token` is the
             # quantity every pin recorded before the hyphen refusal shipped,
@@ -536,6 +541,15 @@ def corpus_rate(lex, paths):
             "top_unreadable_finals": sorted(words.items(),
                                             key=lambda kv: (-kv[1], kv[0]))[:20],
             "per_file": per_file}
+    import lyric_harness as _LH
+    if _LH._scheme_of(lex) != "v1":
+        # Reader scheme v2 (2026-10-13): an end word that is a numeral token
+        # with no declared reading -- `'62`, a margin line number
+        # `heart.    10` -- is its own cause. Absent under v1, whose cut
+        # dropped digits and read the word before them instead, so a v1
+        # record keeps its pre-batch shape.
+        rec["unreadable_final_numeral"] = by_numeral
+    return rec
 
 
 def main(argv):

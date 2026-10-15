@@ -37,6 +37,8 @@ const KEPT = [
   'certified',
   'status',
   'refusal',
+  'numbering_notices',
+  'numbered_mandate',
   'loop_stop_reason',
   'loop_rounds',
   'loop_unresolved_lines',

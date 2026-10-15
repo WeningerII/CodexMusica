@@ -123,9 +123,11 @@ def test_a_refused_token_makes_the_count_a_lower_bound():
     num = read_line("Tonight it is County Road 6")
     check("a NUMERAL is refused too — a defect this cell found",
           [r.cause for r in num.refused] == ["NUMERAL"],
-          "`lyric_harness.line_tokens` matches [A-Za-z'-]+, so '6' is not a "
-          "token at all: it contributed no syllables AND raised no refusal, "
-          "which is the silent half of the same gap")
+          "with no reading declared for it: under reader scheme v2 `6` is "
+          "one sung token that reads only through a declared reading (the "
+          "reader expands no numbers); under v1 `line_tokens` matched "
+          "[A-Za-z'-]+, so '6' contributed no syllables AND raised no "
+          "refusal, which is the silent half of the same gap")
     check("a fully readable line is CERTAIN",
           read_line("I don't get to go").certain)
 

@@ -676,10 +676,16 @@ MUTATIONS = [
     # `test_mut_oracle.py` section 6 still asks exactly that. `raw_final_token`
     # carries an identical `norm =` line, so the anchor includes the closing
     # docstring quotes that only `line_tokens`' copy follows.
+    # RE-ANCHORED 2026-10-13 (the reader batch): ~~old='    """\n    norm =
+    # join_spaced_enclitics(text)\n'~~. `line_tokens` reads `reader_line`
+    # (scheme v2), whose fold of the eight apostrophes is `_reader_fold`'s
+    # first branch; the pre-batch line survives only in the frozen v1 cutter,
+    # which the default path no longer reads. The mutant folds only the
+    # hyphens, so `prepar\u2019d` splits again and section 6 still asks it.
     Mutation(
         name="M22", layer="ingestion", file=LH,
-        old='    """\n    norm = join_spaced_enclitics(text)\n',
-        new='    """\n    norm = _SPACED_ENCLITIC.sub(r"\\1\\2", text)\n',
+        old='    if ch in APOSTROPHES:\n        return "\'"\n',
+        new='    if False:\n        return "\'"\n',
         subset=T_INGEST,
         rationale=(
             "Doctrine 26, planted: U+2019 stops being normalised where a word "
@@ -699,10 +705,13 @@ MUTATIONS = [
             "indistinguishable from a measurement. Every rate downstream loses "
             "its denominator correction."),
     ),
+    # RE-ANCHORED 2026-10-13 (the reader batch): ~~old="    return runs[-1]
+    # if runs else None"~~, now the frozen v1 cutter's line; the default
+    # `raw_final_token` returns the last `reader_line` run.
     Mutation(
         name="M24", layer="ingestion", file=LH,
-        old="    return runs[-1] if runs else None",
-        new="    return runs[0] if runs else None",
+        old="    return runs[-1].text if runs else None",
+        new="    return runs[0].text if runs else None",
         subset=T_INGEST,
         rationale=(
             "`raw_final_token` returns the line's FIRST word. The recorded "

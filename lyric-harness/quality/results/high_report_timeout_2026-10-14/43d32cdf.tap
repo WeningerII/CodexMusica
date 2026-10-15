@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: real MCP preserves draft coordinates and uses the placed-return judge
+ok 1 - real MCP preserves draft coordinates and uses the placed-return judge
+  ---
+  duration_ms: 20177.89519
+  type: 'test'
+  ...
+# Subtest: published capacities and vocabularies match the harness they describe
+ok 2 - published capacities and vocabularies match the harness they describe
+  ---
+  duration_ms: 455.068785
+  type: 'test'
+  ...
+# Subtest: published lyric text carries no ticket, date, doctrine number or stale claim
+ok 3 - published lyric text carries no ticket, date, doctrine number or stale claim
+  ---
+  duration_ms: 43.17148
+  type: 'test'
+  ...
+# Subtest: the grade stamp and meaning say what the verdict says
+ok 4 - the grade stamp and meaning say what the verdict says
+  ---
+  duration_ms: 0.937733
+  type: 'test'
+  ...
+# Subtest: lyric_types names an ordinary rhyme at the line end, and the position is declarable
+ok 5 - lyric_types names an ordinary rhyme at the line end, and the position is declarable
+  ---
+  duration_ms: 6236.418924
+  type: 'test'
+  ...
+# Subtest: recover numbers its mandate over sung lines, and every refusal carries its reason
+ok 6 - recover numbers its mandate over sung lines, and every refusal carries its reason
+  ---
+  duration_ms: 34839.244856
+  type: 'test'
+  ...
+# Subtest: a ban names the bound words and their places, and an unknown name lists the vocabulary
+ok 7 - a ban names the bound words and their places, and an unknown name lists the vocabulary
+  ---
+  duration_ms: 19327.773669
+  type: 'test'
+  ...
+# Subtest: lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes
+ok 8 - lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes
+  ---
+  duration_ms: 75317.675377
+  type: 'test'
+  ...
+# Subtest: lyric_plan block 0 is the plan and brief, without the server path or CLI commands
+ok 9 - lyric_plan block 0 is the plan and brief, without the server path or CLI commands
+  ---
+  duration_ms: 558.128662
+  type: 'test'
+  ...
+# Subtest: the website chat's lyric text matches the fields its kitchen declarations keep
+ok 10 - the website chat's lyric text matches the fields its kitchen declarations keep
+  ---
+  duration_ms: 13.679392
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 10
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 158340.194034

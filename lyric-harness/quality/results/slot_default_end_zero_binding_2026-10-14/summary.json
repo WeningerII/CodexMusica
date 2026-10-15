@@ -1,0 +1,307 @@
+{
+  "tool": "BB8 slot_occurrence.py 3.3 + slot_binding.py, from origin bb8/shape-sweep-2026-10-13 at 9ae80be5, run unmodified",
+  "population": "slot_match_67889851/population.txt (3,990 lines) from the same branch",
+  "interpreter": "/dev/shm/py311 CPython 3.11.17 (CI pins 3.11.16)",
+  "trees": "git archive of each commit's lyric-harness/, staged data copied in; commit pins are null because an archive is not a checkout",
+  "runs": {
+    "61b6618a (BB8 reproduction)": {
+      "gate": "FAIL",
+      "gate_by_scheme": {
+        "cur": "FAIL",
+        "v1": "FAIL"
+      },
+      "failures": {
+        "cur:stripped:edit_unbound": 191,
+        "cur:sung:edit_unbound": 191,
+        "v1:stripped:occ_wrong": 353,
+        "v1:stripped:edit_unbound": 1099,
+        "v1:sung:occ_wrong": 348,
+        "v1:sung:edit_unbound": 1099,
+        "declared_paths_failed": 18
+      },
+      "unresolved": {
+        "v1:stripped:resolver_mismatch": 2,
+        "v1:sung:resolver_mismatch": 2
+      },
+      "outcomes": {
+        "cur:stripped": {
+          "occ_agree": 33591,
+          "no_word_refused": 12513,
+          "refused_bound": 250,
+          "refused_unbound": 1071,
+          "edit_unbound": 191
+        },
+        "cur:sung": {
+          "occ_agree": 39143,
+          "no_word_refused": 6235,
+          "refused_bound": 704,
+          "refused_unbound": 1331,
+          "edit_unbound": 191
+        },
+        "v1:stripped": {
+          "occ_agree": 28733,
+          "refused_bound": 4731,
+          "no_word_refused": 12554,
+          "occ_wrong": 353,
+          "refused_unbound": 144,
+          "resolver_mismatch": 2,
+          "edit_unbound": 1099
+        },
+        "v1:sung": {
+          "occ_agree": 28738,
+          "refused_bound": 10802,
+          "no_word_refused": 6275,
+          "refused_unbound": 340,
+          "resolver_mismatch": 2,
+          "edit_unbound": 1099,
+          "occ_wrong": 348
+        }
+      },
+      "controls_failed": 0,
+      "readable_controls_failed": 0,
+      "negative_controls_failed": 0,
+      "declared_failed_by_mode": {
+        "v1:stripped": 9,
+        "v1:sung": 9
+      },
+      "declared_paths": ["Reviser._splice", "default_propose", "default_propose_group"],
+      "declared_paths_missing": [],
+      "production_uses_not_replicated": {
+        "calls": [],
+        "other_references": []
+      },
+      "pins": {
+        "tool_version": "3.3",
+        "tool_sha256": "e543b4f457f7a8d6d92b336b0a1e49838e92d1b58d618642f31729612bfedc88",
+        "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026",
+        "loop_sha256": "a307ec7457babd11ef5859ab7c3cd77a7bae7b4c776a01ea0594d24f59ddc3b1",
+        "revise_sha256": "3b40a7ed97289247c2f3840021a09dabbc4179d08ff90f8cd29c8a883e17924f",
+        "swap_keywords_replicated": ["lex", "scheme", "strip_parens"],
+        "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+        "population": {
+          "path": "population.txt",
+          "lines": 3990,
+          "sha256": "641a3c27f618fd1324ce5dafe80bd5a6bf266dfba59fe53b1733e260a928633a",
+          "sha256_note": "of the non-empty lines joined by newlines",
+          "file_sha256": "8794627609750f15a218231cc6a497686f7cc07eccee3fed1f6ba0e1b04776c0"
+        },
+        "population_accounted": {
+          "intended_line_modes": 15960,
+          "admitted": 15870,
+          "excluded": {
+            "transformed": 90,
+            "not_reproduced": 0
+          },
+          "accounted": true
+        },
+        "lexicons_measured": {
+          "cur:stripped": {
+            "class": "SupplementedLexicon",
+            "g2p_fallback": null,
+            "supplement": {
+              "id": "v2",
+              "path": "data/lexicon_supplement_v2.tsv",
+              "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+              "rows": 205
+            },
+            "strip_parens": true,
+            "reader_scheme": "v2",
+            "declared_readings": 0
+          },
+          "cur:sung": {
+            "class": "SupplementedLexicon",
+            "g2p_fallback": null,
+            "supplement": {
+              "id": "v2",
+              "path": "data/lexicon_supplement_v2.tsv",
+              "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+              "rows": 205
+            },
+            "strip_parens": false,
+            "reader_scheme": "v2",
+            "declared_readings": 0
+          },
+          "v1:stripped": {
+            "class": "SupplementedLexicon",
+            "g2p_fallback": null,
+            "supplement": {
+              "id": "v2",
+              "path": "data/lexicon_supplement_v2.tsv",
+              "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+              "rows": 205
+            },
+            "strip_parens": true,
+            "reader_scheme": "v1",
+            "declared_readings": 0
+          },
+          "v1:sung": {
+            "class": "SupplementedLexicon",
+            "g2p_fallback": null,
+            "supplement": {
+              "id": "v2",
+              "path": "data/lexicon_supplement_v2.tsv",
+              "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+              "rows": 205
+            },
+            "strip_parens": false,
+            "reader_scheme": "v1",
+            "declared_readings": 0
+          }
+        }
+      }
+    },
+    "0af39c6f (this round)": {
+      "gate": "FAIL",
+      "gate_by_scheme": {
+        "cur": "PASS",
+        "v1": "FAIL"
+      },
+      "failures": {
+        "v1:stripped:occ_wrong": 353,
+        "v1:stripped:edit_unbound": 1099,
+        "v1:sung:occ_wrong": 348,
+        "v1:sung:edit_unbound": 1099,
+        "declared_paths_failed": 18
+      },
+      "unresolved": {
+        "v1:stripped:resolver_mismatch": 2,
+        "v1:sung:resolver_mismatch": 2
+      },
+      "outcomes": {
+        "cur:stripped": {
+          "occ_agree": 33591,
+          "no_word_refused": 12513,
+          "refused_bound": 250,
+          "refused_unbound": 1262
+        },
+        "cur:sung": {
+          "occ_agree": 39143,
+          "no_word_refused": 6235,
+          "refused_bound": 704,
+          "refused_unbound": 1522
+        },
+        "v1:stripped": {
+          "occ_agree": 28733,
+          "refused_bound": 4731,
+          "no_word_refused": 12554,
+          "occ_wrong": 353,
+          "refused_unbound": 144,
+          "resolver_mismatch": 2,
+          "edit_unbound": 1099
+        },
+        "v1:sung": {
+          "occ_agree": 28738,
+          "refused_bound": 10802,
+          "no_word_refused": 6275,
+          "refused_unbound": 340,
+          "resolver_mismatch": 2,
+          "edit_unbound": 1099,
+          "occ_wrong": 348
+        }
+      },
+      "controls_failed": 0,
+      "readable_controls_failed": 0,
+      "negative_controls_failed": 0,
+      "declared_failed_by_mode": {
+        "v1:stripped": 9,
+        "v1:sung": 9
+      },
+      "declared_paths": ["Reviser._splice", "default_propose", "default_propose_group"],
+      "declared_paths_missing": [],
+      "production_uses_not_replicated": {
+        "calls": [],
+        "other_references": []
+      },
+      "pins": {
+        "tool_version": "3.3",
+        "tool_sha256": "e543b4f457f7a8d6d92b336b0a1e49838e92d1b58d618642f31729612bfedc88",
+        "slot_binding_sha256": "42e878a0c28299311d2db91a1c09ec0906403fcc411c2682b02eed7109d9a026",
+        "loop_sha256": "e9e5646119d27dcfbeab4bd9a9ec9f9a82828d3a3e5a91f2462f5f540b4f044f",
+        "revise_sha256": "3b40a7ed97289247c2f3840021a09dabbc4179d08ff90f8cd29c8a883e17924f",
+        "swap_keywords_replicated": ["lex", "scheme", "strip_parens"],
+        "cmudict_sha256": "81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22",
+        "population": {
+          "path": "population.txt",
+          "lines": 3990,
+          "sha256": "641a3c27f618fd1324ce5dafe80bd5a6bf266dfba59fe53b1733e260a928633a",
+          "sha256_note": "of the non-empty lines joined by newlines",
+          "file_sha256": "8794627609750f15a218231cc6a497686f7cc07eccee3fed1f6ba0e1b04776c0"
+        },
+        "population_accounted": {
+          "intended_line_modes": 15960,
+          "admitted": 15870,
+          "excluded": {
+            "transformed": 90,
+            "not_reproduced": 0
+          },
+          "accounted": true
+        },
+        "lexicons_measured": {
+          "cur:stripped": {
+            "class": "SupplementedLexicon",
+            "g2p_fallback": null,
+            "supplement": {
+              "id": "v2",
+              "path": "data/lexicon_supplement_v2.tsv",
+              "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+              "rows": 205
+            },
+            "strip_parens": true,
+            "reader_scheme": "v2",
+            "declared_readings": 0
+          },
+          "cur:sung": {
+            "class": "SupplementedLexicon",
+            "g2p_fallback": null,
+            "supplement": {
+              "id": "v2",
+              "path": "data/lexicon_supplement_v2.tsv",
+              "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+              "rows": 205
+            },
+            "strip_parens": false,
+            "reader_scheme": "v2",
+            "declared_readings": 0
+          },
+          "v1:stripped": {
+            "class": "SupplementedLexicon",
+            "g2p_fallback": null,
+            "supplement": {
+              "id": "v2",
+              "path": "data/lexicon_supplement_v2.tsv",
+              "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+              "rows": 205
+            },
+            "strip_parens": true,
+            "reader_scheme": "v1",
+            "declared_readings": 0
+          },
+          "v1:sung": {
+            "class": "SupplementedLexicon",
+            "g2p_fallback": null,
+            "supplement": {
+              "id": "v2",
+              "path": "data/lexicon_supplement_v2.tsv",
+              "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+              "rows": 205
+            },
+            "strip_parens": false,
+            "reader_scheme": "v1",
+            "declared_readings": 0
+          }
+        }
+      }
+    }
+  },
+  "changed_vs_61b6618a": {
+    "count": 382,
+    "by": {
+      "cur:stripped end edit_unbound->refused_unbound (unread word)": 181,
+      "cur:sung end edit_unbound->refused_unbound (unread word)": 181,
+      "cur:stripped end edit_unbound->refused_unbound (numeral)": 7,
+      "cur:sung end edit_unbound->refused_unbound (numeral)": 7,
+      "cur:stripped end edit_unbound->refused_unbound (hyphen)": 3,
+      "cur:sung end edit_unbound->refused_unbound (hyphen)": 3
+    }
+  }
+}

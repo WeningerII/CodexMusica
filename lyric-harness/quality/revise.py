@@ -968,9 +968,25 @@ def relation_phonology_for(lex):
     drift. A plain lexicon (or none) answers with the shared plain reader,
     unchanged.
     """
+    import lyric_harness as _LH
     if lex is None or (not getattr(lex, "pronunciations", ())
                        and not getattr(lex, "supplement_path", None)):
-        return _relation_phonology()
+        if lex is None:
+            return _relation_phonology()
+        scheme = _LH._scheme_of(lex)
+        aside = getattr(lex, "strip_parens", True)
+        # Under v1 the plain reader's stream read no aside rule (it fell back
+        # to `relations.tokenise`), so only the scheme can differ there.
+        if scheme == _LH.resolve_reader_scheme(None) and (
+                scheme == "v1" or aside == _relation_phonology()._aside_rule()):
+            return _relation_phonology()
+        # A plain lexicon cut under another reader scheme than this
+        # process's, or under the other aside rule (`--voices`): the plain
+        # reader, cutting lines the lexicon's way -- so the relation stream
+        # reads the end word `line_anchors` reads through `lex`.
+        from quality.phonology.eng import English
+        return English(fallback=_relation_phonology().fallback,
+                       reader_scheme=scheme, strip_parens=aside)
     from quality.phonology.eng import English
     # Preserve the registered relation reader's fallback policy on unselected words.
     return English(fallback=_relation_phonology().fallback, lexicon=lex)
@@ -1167,10 +1183,11 @@ class Reviser:
         the song must have and wrong for one it must avoid, so a pair whose
         end words have several readings (or end on a small word that may be
         sung weak) is asked again with every combination required."""
-        from lyric_harness import fold_apostrophes, line_tokens, weak_token
+        from lyric_harness import fold_apostrophes, line_tokens, weak_token, _scheme_of
         ambiguous = False
         for text in (lines[i], lines[j]):
-            words = line_tokens(text, strip_parens=self.lex.strip_parens)
+            words = line_tokens(text, strip_parens=self.lex.strip_parens,
+                                scheme=_scheme_of(self.lex))
             if not words:
                 continue
             key = fold_apostrophes(words[-1]).lower().strip("'\".,;:!?()[]")
@@ -3271,6 +3288,9 @@ class Reviser:
         if runs_out is None:
             return {}
         from quality import meter_bands as MB
+        import lyric_harness as _LH
+        # The meter reader cuts lines the way the grading lexicon does.
+        _scheme = _LH._scheme_of(self.lex)
         phon = MB.reader(MB.ADOPTED_READER)
         supplement = getattr(self.lex, "supplement_path", None)
         if getattr(self.lex, "pronunciations", ()) or supplement:
@@ -3280,16 +3300,19 @@ class Reviser:
                 from quality.lexicon_supplement import supplemented_lexicon
                 base = supplemented_lexicon(strip_parens=self.lex.strip_parens,
                                             fallback=phon.fallback,
-                                            supplement_path=supplement)
+                                            supplement_path=supplement,
+                                            reader_scheme=_scheme)
             else:
                 base = FT._english_lexicon(strip_parens=self.lex.strip_parens,
-                                           fallback=phon.fallback)
+                                           fallback=phon.fallback,
+                                           reader_scheme=_scheme)
             reader_lex = copy.copy(base)
             reader_lex.pronunciations = self.lex.pronunciations
             phon = English(fallback=phon.fallback, lexicon=reader_lex)
         for i, text in enumerate(lines):
             lu = FT.read_line(text, phon=phon,
-                              strip_parens=self.lex.strip_parens)
+                              strip_parens=self.lex.strip_parens,
+                              reader_scheme=_scheme)
             runs_out[i + 1] = lu.prominence_runs
         return {}
 
@@ -4471,12 +4494,24 @@ class Reviser:
 
     # -- the brief --------------------------------------------------------
 
+    def _splice(self, text, slot, word):
+        """-> `text` with `word` spliced in at `slot` under this lexicon's
+        cut (its reader scheme and its aside rule, the coordinate `grade()`
+        resolves the slot in), or None where the loop has no such move.
+        The grading lexicon itself goes too, so under `v2` the splice
+        replaces the occurrence `grade()`'s own `slots.resolve` binds (with
+        this lexicon's declared readings), or refuses."""
+        from quality.loop import swap_at_slot
+        import lyric_harness as _LH
+        return swap_at_slot(text, slot, word, scheme=_LH._scheme_of(self.lex),
+                            strip_parens=getattr(self.lex, "strip_parens", True),
+                            lex=self.lex)
+
     def _anchors_at(self, text, slot, word):
         """-> bool. Whether `word`, spliced in at `slot`, gives the grade an
         anchor there: the test `grade()`'s `_anchorless` applies, asked of
         the line the writer would hand back."""
-        from quality.loop import swap_at_slot
-        trial = swap_at_slot(text, slot, word)
+        trial = self._splice(text, slot, word)
         if trial is None:
             return False
         anc, label, _ = _SL.resolve(self.lex, trial, slot)
@@ -4496,7 +4531,6 @@ class Reviser:
         may be introduced. Omission requests every incident pair as before.
         The finite input is a suggestion pool, not an impossibility proof.
         """
-        from quality.loop import swap_at_slot
         requested = set(group_indices)
         relevant = set(requested)
         ret = m.return_of(line)
@@ -4519,7 +4553,7 @@ class Reviser:
         baseline_bad = baseline_unknown = moot = None
         kept, refused = [], []
         for word in dict.fromkeys(candidates):
-            text = swap_at_slot(lines[line - 1], slot, word)
+            text = self._splice(lines[line - 1], slot, word)
             if text is None:
                 refused.append(word)
                 continue
@@ -4833,7 +4867,8 @@ class Reviser:
         profile, theta, admit), every declared field of `Declaration`
         (`discriminate.declaration_tuple` — the same spelling the feature
         cache uses), and the lexicon's identity (its dictionary file, its
-        aside rule, its G2P fallback and that fallback's floor). A lexicon
+        aside rule, its G2P fallback and that fallback's floor, its reader
+        scheme and the process's). A lexicon
         this cannot describe returns None and the process memo is bypassed
         for it — a miss, never a wrong hit.
         """
@@ -4848,6 +4883,7 @@ class Reviser:
             from quality.discriminate import declaration_tuple
             from quality.pronunciation import fingerprint
             from lyric_harness import CMUDICT_PATH as _cmudict_path
+            import lyric_harness as _LH
             dt = tuple(sorted(declaration_tuple(self.decl).items()))
             lex = self.lex
             fb = getattr(lex, "g2p_fallback", None)
@@ -4859,7 +4895,13 @@ class Reviser:
                   fingerprint(getattr(lex, "pronunciations", ())),
                   # A SupplementedLexicon reads one more file; its digest is a
                   # coordinate of every reading (quality/lexicon_supplement.py).
-                  getattr(lex, "supplement_sha256", None))
+                  getattr(lex, "supplement_sha256", None),
+                  # The reader scheme cuts every line these answers read, on
+                  # the supplement's rule; with the process's scheme beside
+                  # it, because the shared relation reader (no lexicon) cuts
+                  # under that one. A warm worker serves v1 replays and v2
+                  # work from one memo.
+                  _LH._scheme_of(lex), _LH.resolve_reader_scheme(None))
             return (dt, lk)
         except Exception:
             return None

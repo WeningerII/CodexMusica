@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import os from 'node:os';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer } from './tools.js';
@@ -42,6 +43,77 @@ function verdictIn(response) {
       }
     })
     .find((value) => typeof value?.exit_code === 'number');
+}
+
+// Diagnostic only: preserve the SDK deadline and every assertion. Linux's
+// scheduler counters separate CPU execution from time runnable but not scheduled.
+async function measureReviseRequest(call) {
+  if (process.platform !== 'linux') return call();
+  const started = performance.now();
+  const workerPidAtStart = _workerInternals.pid();
+  const nodeCpuAtStart = process.cpuUsage();
+  const kernelValue = (file) => {
+    try {
+      return readFileSync(file, 'utf8').trim();
+    } catch {
+      return null;
+    }
+  };
+  const schedulerStatsEnabled = kernelValue('/proc/sys/kernel/sched_schedstats');
+  const cgroupCpuBefore = kernelValue('/sys/fs/cgroup/cpu.stat');
+  const samples = new Map();
+  let samplingError;
+  const sample = () => {
+    const pid = _workerInternals.pid();
+    if (!pid) return;
+    try {
+      const [cpuNs, queueNs, slices] = readFileSync(`/proc/${pid}/schedstat`, 'utf8')
+        .trim()
+        .split(/\s+/)
+        .map(Number);
+      const point = { elapsedMs: performance.now() - started, cpuNs, queueNs, slices };
+      const row = samples.get(pid);
+      if (row) row.last = point;
+      else samples.set(pid, { first: point, last: point });
+    } catch (error) {
+      samplingError = error.code || error.name;
+    }
+  };
+  sample();
+  const timer = setInterval(sample, 100);
+  try {
+    return await call();
+  } finally {
+    clearInterval(timer);
+    sample();
+    const nodeCpu = process.cpuUsage(nodeCpuAtStart);
+    console.error(
+      'REVISE_REQUEST_TIMING ' +
+        JSON.stringify({
+          wallMs: performance.now() - started,
+          workerPidAtStart,
+          nodeCpuMs: (nodeCpu.user + nodeCpu.system) / 1000,
+          schedulerStatsEnabled,
+          cgroupCpuMax: kernelValue('/sys/fs/cgroup/cpu.max'),
+          cgroupCpuBefore,
+          cgroupCpuAfter: kernelValue('/sys/fs/cgroup/cpu.stat'),
+          pythonHashSeed: process.env.PYTHONHASHSEED ?? null,
+          cpuModel: os.cpus()[0]?.model,
+          logicalCpus: os.cpus().length,
+          loadAverage: os.loadavg(),
+          samplingError,
+          workers: [...samples].map(([pid, row]) => ({
+            pid,
+            firstSampleMs: row.first.elapsedMs,
+            lastSampleMs: row.last.elapsedMs,
+            cpuBeforeFirstSampleMs: row.first.cpuNs / 1e6,
+            cpuMs: (row.last.cpuNs - row.first.cpuNs) / 1e6,
+            runnableWaitMs: (row.last.queueNs - row.first.queueNs) / 1e6,
+            slices: row.last.slices - row.first.slices,
+          })),
+        })
+    );
+  }
 }
 
 function caller(client) {
@@ -184,6 +256,7 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
     /replace those end words/, // bans sit at placed bindings
     /cannot report banned pairs\./, // verify reports introduced ones
     /For "is the song finished", use lyric_grade/, // only revise finishes
+    /holds every flagged and banned line open/, // bans are advisory notes
   ])
     assert.doesNotMatch(text, stale, String(stale));
   // The declarations that change a plan, and the readings a grade is taken
@@ -192,6 +265,9 @@ test('published lyric text carries no ticket, date, doctrine number or stale cla
   try {
     const { tools } = await client.listTools();
     const grade = tools.find((t) => t.name === 'lyric_grade').description;
+    const revise = tools.find((t) => t.name === 'lyric_revise').description;
+    assert.match(revise, /holds every flagged line open/);
+    assert.match(revise, /Banned pairs .* are reported as notes and hold no line open/);
     for (const field of [...PLAN_FIELDS.filter((f) => f !== 'seed'), ...READING_FIELDS])
       assert.ok(grade.includes(field), `lyric_grade names ${field}`);
     const lines = tools.find((t) => t.name === 'lyric_plan').inputSchema.properties.lines;
@@ -387,27 +463,21 @@ test('a ban names the bound words and their places, and an unknown name lists th
 test('lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes', async () => {
   const { server, client } = await connect({ task: { domain: 'lyrics' } });
   const raw = (args) => client.callTool({ name: 'lyric_revise', arguments: args });
-  // 2026-10-01: under ABAB with no declared relation this draft now runs to
-  // exit 0 with no question. It used to suspend because L2~L4 was UNJUDGED
-  // (SCHEME_UNREADABLE: a small word could not anchor), so both members were
-  // briefed and asked one at a time, and a rejected coverage-only answer never
-  // escalated to a group question. Under the any-reading rule
-  // (lyric-harness/CLAUDE.md, standing rule 5) a small word may be sung
-  // stressed, so L1~L3 holds as anaphora on 'I' and L2~L4 as an internal
-  // rhyme. The run below declares perfect rhyme over one group instead: no two
-  // of tonight/sea/rain/us rhyme, so L2, L3 and L4 are genuinely in violation
-  // and, being in ONE group, are asked one line at a time. `backtrack: 0`
-  // keeps a rejected answer from escalating to a group question (which takes
-  // `answers`, not the one-line `answer` this test continues with).
-  // superseded: first run { draft_text, scheme: 'ABAB' } with the default
-  // relation and backtrack.
-  const draft_text =
-    'I walked along the road tonight\nThe stars were cold above the sea\nI held your hand and felt the rain\nAnd nothing else was left for us';
+  // This interface fixture uses one violated pair: tonight/sea do not rhyme.
+  // The former four-line AAAA fixture exercised three violating members and
+  // required nearly 60 seconds of worker CPU on a slower CI runner. The
+  // approved two-line fixture gives the unchanged SDK deadline margin while
+  // retaining declaration refusals, state continuation and returned-note use.
+  // It no longer covers that three-violating-member workload. The old draft,
+  // measurements and coverage tradeoff are preserved in the diagnostic receipt
+  // linked from docs/revise-interface-fixture-2026-10-14.md.
+  // backtrack: 0 keeps the rejected answer from becoming a group question.
+  const draft_text = 'I walked along the road tonight\nThe stars were cold above the sea';
   try {
     // Declarations that only shape a plan used to be accepted, stored and
     // never read on a pasted song's run.
     for (const extra of [{ title: 'Road Tonight' }, { lines: 12 }, { melody: 'not json' }]) {
-      const refused = await raw({ draft_text, scheme: 'ABAB', ...extra });
+      const refused = await raw({ draft_text, scheme: 'AA', ...extra });
       assert.ok(refused.isError, JSON.stringify(extra));
       assert.match(refused.content[0].text, /applies only to a seeded run/);
     }
@@ -416,14 +486,17 @@ test('lyric_revise: a pasted run refuses plan declarations, a long answer, and f
     assert.match(seededGrid.content[0].text, /subdivision/);
 
     const before = RUNS.size();
-    const first = await raw({
-      draft_text,
-      scheme: 'AAAA',
-      relation: 'class:RHYME',
-      backtrack: 0,
-    });
+    const first = await measureReviseRequest(() =>
+      raw({
+        draft_text,
+        scheme: 'AA',
+        relation: 'class:RHYME',
+        backtrack: 0,
+      })
+    );
     const v1 = verdictIn(first);
     assert.equal(v1.exit_code, 4, 'the interview suspends on its first question');
+    assert.equal(v1.run_revision, 1);
     // The note names every field a continuation needs, run_revision included.
     assert.match(
       first.content[0].text,
@@ -436,28 +509,28 @@ test('lyric_revise: a pasted run refuses plan declarations, a long answer, and f
     });
     assert.ok(tooLong.isError);
     assert.match(tooLong.content[0].text, /ANSWER_TOO_LONG/);
-    // Continuing by state keeps one run: same run_id, advancing revision.
-    let v = v1;
-    const ids = new Set([v1.run_id]);
-    for (let i = 0; i < 2 && v.exit_code === 4; i++) {
-      const next = await raw({ state: v.state, answer: `The stars were cold and so were we ${i}` });
-      assert.ok(!next.isError, next.content[0].text);
-      const prior = v;
-      v = verdictIn(next);
-      ids.add(v.run_id);
-      if (v.exit_code === 4) assert.equal(v.run_revision, prior.run_revision + 1);
-    }
-    assert.equal(ids.size, 1, 'one run, not one per state-carried call');
+    // State continuation must suspend again, leaving a real note to follow.
+    const next = await raw({ state: v1.state, answer: 'The stars were cold and so were we 0' });
+    assert.ok(!next.isError, next.content[0].text);
+    const v2 = verdictIn(next);
+    assert.equal(v2.exit_code, 4, 'the state continuation leaves a note to follow');
+    assert.equal(v2.run_id, v1.run_id, 'state continuation keeps the same run');
+    assert.equal(v2.run_revision, 2);
+    assert.match(
+      next.content[0].text,
+      /CONTINUE: call lyric_revise with `run_id`, `run_revision` 2 and `answer/
+    );
+    // Follow that note unconditionally; a terminal state must not skip this check.
+    const followed = await raw({
+      run_id: v2.run_id,
+      run_revision: v2.run_revision,
+      answer: 'The stars were cold and so were we again',
+    });
+    assert.ok(!followed.isError, followed.content[0].text);
+    const v3 = verdictIn(followed);
+    assert.equal(v3.run_id, v1.run_id, 'note continuation keeps the same run');
+    assert.equal(v3.run_revision, 3);
     assert.ok(RUNS.size() <= before + 1, 'the shared cache holds one record for the song');
-    // Following the continue note literally works (run_id + run_revision).
-    if (v.exit_code === 4) {
-      const followed = await raw({
-        run_id: v.run_id,
-        run_revision: v.run_revision,
-        answer: 'The stars were cold and so were we again',
-      });
-      assert.ok(!followed.isError, followed.content[0].text);
-    }
   } finally {
     _workerInternals.kill();
     await client.close();

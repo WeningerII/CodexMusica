@@ -114,18 +114,25 @@ from quality.phonology import Phonology, Syllable, merge_readings, register
 from quality import quotients as _QUOTIENTS  # noqa: E402
 from quality import morphology as _MORPH  # noqa: E402
 
-_LEX = None
+_LEX = {}
+#: `English.cut_lexicon`'s plain lexicons, keyed (reader scheme, strip_parens).
+_CUT_LEX = {}
 
 
 def _lexicon():
     """Lazily built. `lyric_harness` imports `quality.phonology` inside a
     function to avoid a cycle; importing it at module scope here would close
-    that cycle from the other side."""
-    global _LEX
-    if _LEX is None:
-        import lyric_harness as _lh
-        _LEX = _lh.Lexicon()
-    return _LEX
+    that cycle from the other side.
+
+    One per reader scheme, keyed by this process's scheme at the call: a warm
+    worker serves requests under both, and a single lexicon built under the
+    first request's scheme would have cut every later request's lines that way.
+    """
+    import lyric_harness as _lh
+    scheme = _lh.resolve_reader_scheme(None)
+    if scheme not in _LEX:
+        _LEX[scheme] = _lh.Lexicon(reader_scheme=scheme)
+    return _LEX[scheme]
 
 
 #: The values `fallback` takes, and what each one licenses. `None` is the
@@ -171,12 +178,29 @@ class English(Phonology):
               "5837aa6e49fd070d482b8ca0525f28ef; BSD-2-clause (Carnegie "
               "Mellon University), NOT public domain; see data/sources.tsv")
 
-    def __init__(self, fallback=None, readings="all", lexicon=None):
+    def __init__(self, fallback=None, readings="all", lexicon=None,
+                 reader_scheme=None, strip_parens=None):
         """`fallback` is a DECLARED coordinate, defaulting to the refusal.
 
         It is not a boolean, because "did you guess" has three answers here and
         two of them are different kinds of derivation. See `FALLBACK_MODES`.
+
+        `reader_scheme` (`lyric_harness.READER_SCHEMES`) is how this phonology
+        cuts a line into words; None reads the lexicon's, or with no lexicon
+        this process's (`v2` unless declared otherwise).
+
+        `strip_parens` (`lyric_harness.line_tokens`) is the aside rule the
+        stream's English words are cut under; None reads the lexicon's (the
+        shared lexicon's `True` when there is none). A judge handed a plain
+        `--voices` lexicon passes `False` without the lexicon itself
+        (`quality.revise.relation_phonology_for`), so the relation stream
+        reads the same end word as `line_anchors`. Scheme `v1` ignores it.
         """
+        self._strip_parens = strip_parens
+        if reader_scheme is not None:
+            import lyric_harness as _lh
+            reader_scheme = _lh.resolve_reader_scheme(reader_scheme)
+        self._reader_scheme = reader_scheme
         if fallback not in FALLBACK_MODES:
             raise ValueError(
                 f"fallback={fallback!r} is not declared; the modes are "
@@ -230,6 +254,16 @@ class English(Phonology):
         # this declaration must tell its versions apart. Absent, unchanged.
         if getattr(self.lexicon, "supplement_sha256", None):
             d["lexicon_supplement_sha256"] = self.lexicon.supplement_sha256
+        # THE READER SCHEME, on the supplement's rule: a memo keyed by this
+        # declaration must tell the token schemes apart, and the pre-batch
+        # scheme (`v1`) is the declaration that carried no such key.
+        if self.reader_scheme != "v1":
+            d["reader_scheme"] = self.reader_scheme
+            # Under v2 the aside rule cuts the stream's words, so a reader
+            # keeping `(...)` as sung is a different declaration (v1's stream
+            # read no aside rule without a lexicon, and declared none).
+            if not self._aside_rule():
+                d["strip_parens"] = False
         d["fallback"] = self.fallback
         d["fallback_licenses"] = FALLBACK_MODES[self.fallback]
         return d
@@ -237,35 +271,176 @@ class English(Phonology):
     def _lexicon(self):
         return self.lexicon if self.lexicon is not None else _lexicon()
 
+    def cut_lexicon(self):
+        """-> a lexicon that cuts lines as this phonology's stream does: its
+        own lexicon, or the shared one, or -- where this phonology declares a
+        `v2` cut the shared lexicon does not make (a plain `--voices`
+        lexicon's `strip_parens=False`, another scheme than this process's)
+        -- a plain lexicon of that cut, one per (scheme, aside rule). Under
+        `v1` the stream reads no aside rule, so the cut is the pre-batch
+        shared lexicon's: scheme `v1`, asides stripped."""
+        lx = self._lexicon()
+        if self.lexicon is not None:
+            return lx
+        scheme = self.reader_scheme
+        aside = self._aside_rule() if scheme == "v2" else True
+        if lx.reader_scheme == scheme and lx.strip_parens == aside:
+            return lx
+        key = (scheme, aside)
+        if key not in _CUT_LEX:
+            import lyric_harness as _lh
+            _CUT_LEX[key] = _lh.Lexicon(reader_scheme=scheme, strip_parens=aside)
+        return _CUT_LEX[key]
+
+    def _aside_rule(self):
+        """-> the `strip_parens` this phonology's stream cuts under."""
+        if self._strip_parens is not None:
+            return self._strip_parens
+        return self._lexicon().strip_parens
+
+    @property
+    def reader_scheme(self):
+        import lyric_harness as lh
+        if self._reader_scheme is not None:
+            return self._reader_scheme
+        if self.lexicon is not None:
+            return lh._scheme_of(self.lexicon)
+        return lh.resolve_reader_scheme(None)
+
     def for_line(self, text):
         if self.lexicon is None or not self.lexicon.pronunciations:
             return self
         return English(fallback=self.fallback, readings=self.readings,
-                       lexicon=self.lexicon.for_line(text))
+                       lexicon=self.lexicon.for_line(text),
+                       reader_scheme=self._reader_scheme,
+                       strip_parens=self._strip_parens)
 
     def for_token(self, index):
         if self.lexicon is None or not self.lexicon.pronunciations:
             return self
         return English(fallback=self.fallback, readings=self.readings,
-                       lexicon=self.lexicon.for_token(index))
+                       lexicon=self.lexicon.for_token(index),
+                       reader_scheme=self._reader_scheme,
+                       strip_parens=self._strip_parens)
 
     def tokens_for_line(self, text):
-        if self.lexicon is None:
-            return None
+        """-> the line's `line_tokens`, the relations stream's English words.
+
+        Under scheme `v2` this answers with or without a lexicon, so the
+        stream never falls back to `relations.tokenise` for English (which
+        dropped digits, stripped edge apostrophes, joined no enclitic and
+        stripped no parenthetical, unlike every other English surface).
+        Under `v1` it keeps the pre-batch answer: None without a lexicon.
+
+        THE PRINTED ENDPOINT STAYS THE BOUNDARY. When the line's last raw run
+        (`raw_final_token`) is not its last English token -- `cat 我`, or a
+        letter run with a mark NFC could not compose -- that run is appended
+        as one more, unreadable, token. The stream's boundary is lexical
+        (`relations.build_stream`), so without it `cat 我 / hat` would be
+        judged on `cat`; every `line_tokens` index is unchanged.
+
+        The appended run is ALWAYS UNREADABLE (D14), whatever its letters:
+        `printed_boundary` names its index and the stream refuses it without
+        reading it. It is not a word of the line's token cut -- in `×night`
+        the token is `×night` and the run only `night` -- so reading it
+        would judge a readable fragment where `line_anchors` refuses the line.
+        """
         import lyric_harness as lh
-        return lh.line_tokens(text, strip_parens=self.lexicon.strip_parens)
+        if self.reader_scheme == "v1":
+            if self.lexicon is None:
+                return None
+            return lh.line_tokens(text, strip_parens=self.lexicon.strip_parens,
+                                  scheme="v1")
+        rl = lh.reader_line(text, strip_parens=self._aside_rule(),
+                            scheme="v2")
+        words = [t.text for t in rl.tokens]
+        endpoint = lh.printed_endpoint(rl)
+        if endpoint is not None:
+            words.append(endpoint.text)
+        return words
+
+    def printed_boundary(self, text):
+        """-> the index in `tokens_for_line(text)` of the appended printed
+        endpoint, or None when nothing was appended (and always under `v1`).
+        `relations.build_stream` records that token unreadable without
+        reading it: a boundary, never a word the stream judges."""
+        import lyric_harness as lh
+        if self.reader_scheme == "v1":
+            return None
+        rl = lh.reader_line(text, strip_parens=self._aside_rule(), scheme="v2")
+        return len(rl.tokens) if lh.printed_endpoint(rl) is not None else None
+
+    #: A word broken across the line end: a letter or apostrophe, then one
+    #: hyphen, then only whitespace (`relations.build_stream`'s split flag).
+    _SPLIT_FINAL = re.compile(r"[\w’'](-)\s*$")
+
+    def split_final(self, text):
+        """-> True when the line ends on a word broken by a hyphen. Under `v2`
+        it is asked of the reader's normalised line, the spelling its token
+        cut reads (D13): `king-` spelled with U+2010 or U+2011, or with a
+        U+00AD beside the hyphen, is the one token `king-` and gets the one
+        answer. `v1` asks the raw line, as the pre-batch stream did."""
+        import lyric_harness as lh
+        if self.reader_scheme != "v1":
+            text = lh.normalise_word(text)
+        return bool(self._SPLIT_FINAL.search(text))
+
+    def split_final_stem(self, word):
+        """-> the spelling the relation stream reads for a line's LAST token
+        when that token ends in a hyphen after a letter or apostrophe
+        (`king-`), or None.
+
+        Under `v2` the token cut keeps the hyphen of `king-` inside the token
+        (D3), and a hyphenated word reads only whole (`read`), so the
+        canonical token `king-` -- every hyphen spelling folds to it -- read
+        as no word, while `line_anchors` reads the printed part before the
+        hyphen at the line's end: a declared `broken rhyme` or `perfect rhyme`
+        on that line went from judged to refused (BB8 #527, 3PO 6163315071).
+        That holds whether the line is split (`king-`, the hyphen then only
+        whitespace: `split_final`) or the hyphen is followed by closing
+        punctuation (`king-,`, `king-.`: BB8's earlier packet, 3PO #519
+        6166749777) or a closing quote (`king-'`), because `line_anchors`
+        reads each of those endpoints as `king`.
+        The stream asks this only for the line-final token, and only after
+        the token itself read nothing (a declared reading of `king-` answers
+        first); the stem is then read by this same phonology, with its own
+        fallback policy and every guard (`2-` stays a refused numeral, a
+        stem that is itself hyphenated reads whole or not at all). Whether
+        the line is SPLIT stays `split_final`'s answer alone: punctuation
+        after the hyphen never makes the word continue on the next line, so
+        `king-,` is read as `king` and is not a broken word. No other token,
+        and no bare-word reading, changes. `v1` answers None: its stream cut
+        `king` without the hyphen already."""
+        import lyric_harness as lh
+        if self.reader_scheme == "v1":
+            return None
+        # A closing quote set after the hyphen (`king-'`) is part of the
+        # token, as an apostrophe is; `line_anchors` reads that endpoint as
+        # `king` too.
+        w = lh.normalise_word(word).rstrip("'’")
+        if not w.endswith("-") or not re.search(r"[\w’']-$", w):
+            return None
+        return w[:-1]
 
     def _fallback(self):
-        if self._fb is None and self.fallback is not None:
+        """-> the G2P fallback over the lexicon this phonology reads through
+        NOW. Without its own lexicon a phonology reads through the shared one
+        of the process's scheme at the call, so the fallback is cached per
+        that lexicon: built once under a `v1` scope (a pinned instrument such
+        as `meter_bands.measure_line`), it must not answer a later `v2` read."""
+        if self.fallback is None:
+            return None
+        base = self._lexicon()
+        if self._fb is None or self._fb[0] is not base:
             from quality.g2p import Fallback
-            lex = self._lexicon()
+            lex = base
             # A supplemented lexicon hands derivation CMUdict alone: a
             # reviewed row is a reading of its word, never a stem or a piece.
             # `read` consults the whole entries before this fallback.
             if hasattr(lex, "cmu_lexicon"):
                 lex = lex.cmu_lexicon()
-            self._fb = Fallback(lex, min_confidence=self.fallback)
-        return self._fb
+            self._fb = (base, Fallback(lex, min_confidence=self.fallback))
+        return self._fb[1]
 
     # ---------------------------------------------------------------- reads
     def read(self, word):
@@ -281,9 +456,15 @@ class English(Phonology):
         change when the mode does.
         """
         from quality.g2p import Reading
+        import lyric_harness as lh
         choice = getattr(self.lexicon, '_pronunciation_choice', None)
         if choice and choice['word'] == word:
             return Reading(tuple(choice['phones']), 'declared', choice['source'], (word.lower(),))
+        # THE NUMERAL GUARD (M1): a numeral-bearing token without a declared
+        # reading (answered just above) is refused before any fallback.
+        # Scheme v1 reads a bare word as before the batch.
+        if lh.has_numeral(word) and self.reader_scheme == "v2":
+            return None
         lex = self._lexicon()
         # Inside the supplement coordinate a whole entry -- CMUdict's or a
         # reviewed row -- is read whole before any fallback splits it, and
@@ -404,7 +585,9 @@ class English(Phonology):
         The battery reports 50 refused sonnet pairs; this is the same fact
         made available to any caller before it computes a rate.
         """
-        return [t for t in self._tokens(text) if not self.syllabify(t)]
+        return [t for t in self._tokens(text, self.reader_scheme,
+                                        self._aside_rule())
+                if not self.syllabify(t)]
 
     def derived(self, text):
         """-> [(token, layer)] the tokens read by something OTHER than the
@@ -415,14 +598,26 @@ class English(Phonology):
         verdict over `text` needs both lists or neither.
         """
         out = []
-        for t in self._tokens(text):
+        for t in self._tokens(text, self.reader_scheme, self._aside_rule()):
             lay = self.layer_of(t)
             if lay is not None and lay != "dictionary":
                 out.append((t, lay))
         return out
 
     @staticmethod
-    def _tokens(text):
+    def _tokens(text, scheme=None, strip_parens=True):
+        """-> the words `unreadable`/`derived` read: `line_tokens` under
+        reader scheme `v2`; under `v1` the pre-batch cutter below, verbatim
+        (no enclitic join, no paren strip, two of the eight apostrophes).
+        `scheme` None is this process's, so the unbound spelling
+        `English._tokens(text)` stays callable."""
+        import lyric_harness as lh
+        if lh.resolve_reader_scheme(scheme) != "v1":
+            return lh.line_tokens(text, strip_parens=strip_parens, scheme="v2")
+        return English._tokens_v1(text)
+
+    @staticmethod
+    def _tokens_v1(text):
         # U+2019 is folded before the split, not after (doctrine 26): the
         # apostrophe is INSIDE the tokens this phonology cares most about
         # (`grow'st`, `o'er`), so a split that treats it as punctuation

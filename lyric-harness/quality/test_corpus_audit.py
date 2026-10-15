@@ -1462,6 +1462,8 @@ def test_bracket_guard_l():
               ("corpus/song/eng_planted_wrap.txt", AC.CorpusFile(wrap)),
               ("corpus/song/eng_planted_clean.txt", AC.CorpusFile(clean))]
         got = AC.check_bracket_declarations(fs, None)
+        with LH_.reader_scheme_scope("v1"):
+            got_v1 = AC.check_bracket_declarations(fs, None)
     by = {}
     for f in got:
         by.setdefault(f.path, []).append(f)
@@ -1486,9 +1488,16 @@ def test_bracket_guard_l():
           "the kept continuation line ends on an orphan `]`",
           any("orphan" in f.what for f in _wrap) and len(_wrap) == 2,
           str([f.what[:60] for f in _wrap]))
-    check("a numeric span is measured harmless and earns NOTHING — a "
-          "letters-only tokeniser reads no word in `[10]`",
-          "corpus/song/eng_planted_clean.txt" not in by)
+    # REPOINTED 2026-10-13 (the reader batch): under reader scheme v2 a
+    # numeral is a token, so `[10]` is the line's end word (refused unless a
+    # reading is declared) and the span is no longer harmless; the v1 cut,
+    # letters only, still reads no word in it.
+    check("a numeric span NOTEs under reader scheme v2 — `[10]` is a numeral "
+          "token there, and it would be the line's end word",
+          "corpus/song/eng_planted_clean.txt" in by)
+    check("...and under v1 it earns NOTHING — a letters-only tokeniser reads "
+          "no word in `[10]`",
+          "corpus/song/eng_planted_clean.txt" not in {f.path for f in got_v1})
     real = os.path.join(AC.CORPUS_DIR, "song", "eng_british_lord_byron.txt")
     if os.path.exists(real):
         rel = "corpus/song/eng_british_lord_byron.txt"

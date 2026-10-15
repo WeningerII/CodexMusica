@@ -1,0 +1,79 @@
+# Subtest: real MCP preserves draft coordinates and uses the placed-return judge
+2026-10-14T11:41:54.0913983Z ok 1 - real MCP preserves draft coordinates and uses the placed-return judge
+2026-10-14T11:41:54.0914732Z   ---
+2026-10-14T11:41:54.0915078Z   duration_ms: 38690.349811
+2026-10-14T11:41:54.0915505Z   type: 'test'
+2026-10-14T11:41:54.0915915Z   ...
+2026-10-14T11:41:54.0939403Z # Subtest: published capacities and vocabularies match the harness they describe
+2026-10-14T11:41:54.0969314Z ok 2 - published capacities and vocabularies match the harness they describe
+2026-10-14T11:41:54.0990756Z   ---
+2026-10-14T11:41:54.0991354Z   duration_ms: 274.035691
+2026-10-14T11:41:54.0992239Z   type: 'test'
+2026-10-14T11:41:54.0992830Z   ...
+2026-10-14T11:41:54.0993879Z # Subtest: published lyric text carries no ticket, date, doctrine number or stale claim
+2026-10-14T11:41:54.0995352Z ok 3 - published lyric text carries no ticket, date, doctrine number or stale claim
+2026-10-14T11:41:54.0996330Z   ---
+2026-10-14T11:41:54.0996914Z   duration_ms: 72.086075
+2026-10-14T11:41:54.0997546Z   type: 'test'
+2026-10-14T11:41:54.0998120Z   ...
+2026-10-14T11:41:54.0999257Z # Subtest: the grade stamp and meaning say what the verdict says
+2026-10-14T11:41:54.1000405Z ok 4 - the grade stamp and meaning say what the verdict says
+2026-10-14T11:41:54.1001338Z   ---
+2026-10-14T11:41:54.1002397Z   duration_ms: 1.029413
+2026-10-14T11:41:54.1003070Z   type: 'test'
+2026-10-14T11:41:54.1003639Z   ...
+2026-10-14T11:41:54.1004792Z # Subtest: lyric_types names an ordinary rhyme at the line end, and the position is declarable
+2026-10-14T11:41:54.1006301Z ok 5 - lyric_types names an ordinary rhyme at the line end, and the position is declarable
+2026-10-14T11:41:54.1007293Z   ---
+2026-10-14T11:41:54.1007870Z   duration_ms: 9056.35258
+2026-10-14T11:41:54.1008870Z   type: 'test'
+2026-10-14T11:41:54.1009576Z   ...
+2026-10-14T11:41:54.1010646Z # Subtest: recover numbers its mandate over sung lines, and every refusal carries its reason
+2026-10-14T11:41:54.1012435Z ok 6 - recover numbers its mandate over sung lines, and every refusal carries its reason
+2026-10-14T11:41:54.1013404Z   ---
+2026-10-14T11:41:54.1013971Z   duration_ms: 59148.762583
+2026-10-14T11:41:54.1014622Z   type: 'test'
+2026-10-14T11:41:54.1015187Z   ...
+2026-10-14T11:41:54.1016285Z # Subtest: a ban names the bound words and their places, and an unknown name lists the vocabulary
+2026-10-14T11:41:54.1017797Z ok 7 - a ban names the bound words and their places, and an unknown name lists the vocabulary
+2026-10-14T11:41:54.1019072Z   ---
+2026-10-14T11:41:54.1019643Z   duration_ms: 28966.074785
+2026-10-14T11:41:54.1020298Z   type: 'test'
+2026-10-14T11:41:54.1020863Z   ...
+2026-10-14T11:41:54.1022038Z # Subtest: lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes
+2026-10-14T11:41:54.1023713Z not ok 8 - lyric_revise: a pasted run refuses plan declarations, a long answer, and follows its own notes
+2026-10-14T11:41:54.1024781Z   ---
+2026-10-14T11:41:54.1025350Z   duration_ms: 60033.49042
+2026-10-14T11:41:54.1025993Z   type: 'test'
+2026-10-14T11:41:54.1026963Z   location: '/home/runner/work/CodexMusica/CodexMusica/mcp/test_high_report.mjs:387:1'
+2026-10-14T11:41:54.1028043Z   failureType: 'testCodeFailure'
+2026-10-14T11:41:54.1029268Z   error: 'MCP error -32001: Request timed out'
+2026-10-14T11:41:54.1030027Z   code: -32001
+2026-10-14T11:41:54.1030620Z   name: 'McpError'
+2026-10-14T11:41:54.1031223Z   stack: |-
+2026-10-14T11:41:54.1032600Z     McpError.fromError (file:///home/runner/work/CodexMusica/CodexMusica/mcp/node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:2048:16)
+2026-10-14T11:41:54.1034874Z     Timeout.timeoutHandler (file:///home/runner/work/CodexMusica/CodexMusica/mcp/node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:741:58)
+2026-10-14T11:41:54.1036429Z     listOnTimeout (node:internal/timers:585:17)
+2026-10-14T11:41:54.1037351Z     process.processTimers (node:internal/timers:521:7)
+2026-10-14T11:41:54.1038133Z   ...
+2026-10-14T11:41:54.1039424Z # Subtest: lyric_plan block 0 is the plan and brief, without the server path or CLI commands
+2026-10-14T11:41:54.1040856Z ok 9 - lyric_plan block 0 is the plan and brief, without the server path or CLI commands
+2026-10-14T11:41:54.1041810Z   ---
+2026-10-14T11:41:54.1042379Z   duration_ms: 1243.372928
+2026-10-14T11:41:54.1043030Z   type: 'test'
+2026-10-14T11:41:54.1043600Z   ...
+2026-10-14T11:41:54.1044638Z # Subtest: the website chat's lyric text matches the fields its kitchen declarations keep
+2026-10-14T11:41:54.1046045Z ok 10 - the website chat's lyric text matches the fields its kitchen declarations keep
+2026-10-14T11:41:54.1046993Z   ---
+2026-10-14T11:41:54.1047557Z   duration_ms: 28.620725
+2026-10-14T11:41:54.1048377Z   type: 'test'
+2026-10-14T11:41:54.1048989Z   ...
+2026-10-14T11:41:54.1049540Z 1..10
+2026-10-14T11:41:54.1050084Z # tests 10
+2026-10-14T11:41:54.1050645Z # suites 0
+2026-10-14T11:41:54.1051187Z # pass 9
+2026-10-14T11:41:54.1051736Z # fail 1
+2026-10-14T11:41:54.1052290Z # cancelled 0
+2026-10-14T11:41:54.1052865Z # skipped 0
+2026-10-14T11:41:54.1053411Z # todo 0
+2026-10-14T11:41:54.1054002Z # duration_ms 199155.286617

@@ -25,8 +25,13 @@ test('real browser transfer commits atomically, binds the opener and safely re-a
       response.end(helper);
       return;
     }
+    if (request.url === '/lyric-tokens.js') {
+      response.setHeader('Content-Type', 'text/javascript;charset=utf-8');
+      response.end(fs.readFileSync(path.join(__dirname, '../src/lyric-tokens.js'), 'utf8'));
+      return;
+    }
     response.setHeader('Content-Type', 'text/html;charset=utf-8');
-    response.end(`<!doctype html><title>Lyrics receiver fixture</title><script src="/library-import.js"></script><script>
+    response.end(`<!doctype html><title>Lyrics receiver fixture</title><script src="/lyric-tokens.js"></script><script src="/library-import.js"></script><script>
       window.current=JSON.parse(localStorage.getItem('current')||'null')||{draftId:'draft:old',text:'My original song',meta:{version:1,brief:'Keep this'},writer:{continuationId:'private-existing-run',pending:{request_id:'request-existing'}},savedAt:1};
       window.activations=[];window.errors=[];window.eventsSeen=[];addEventListener('message',event=>eventsSeen.push({origin:event.origin,sourceIsOpener:event.source===opener,type:event.data?.type}));window.store=CMLibraryImport.createIndexedDBStore();
       window.receiver=CMLibraryImport.createReceiver({window,store,devOrigin:${JSON.stringify(senderOrigin)},captureCurrent:()=>current,activate:async(draft)=>{current=draft;activations.push(draft.draftId);localStorage.setItem('current',JSON.stringify(draft));},onError:error=>errors.push(error.message)});

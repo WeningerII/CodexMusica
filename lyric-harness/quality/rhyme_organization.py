@@ -209,7 +209,8 @@ class WordGraph:
         tokens, lengths = [], []
         for line in lines:
             words = [fold_apostrophes(w).lower() for w in
-                     line_tokens(line, strip_parens=self.lex.strip_parens)]
+                     line_tokens(line, strip_parens=self.lex.strip_parens,
+                                 scheme=getattr(self.lex, "reader_scheme", None))]
             if not words:
                 raise ValueError("each lyric line must contain at least one word")
             tokens.extend(words)

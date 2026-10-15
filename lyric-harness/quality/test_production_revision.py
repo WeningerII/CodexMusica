@@ -157,7 +157,7 @@ class ProductionRevisionTests(unittest.TestCase):
         from quality.loop import swap_at_slot
         for word in b.candidates[:6]:
             trial = list(lines)
-            trial[5] = swap_at_slot(lines[5], b.slot, word)
+            trial[5] = swap_at_slot(lines[5], b.slot, word, lex=r.lex)
             g = r.grade(trial, m, _only_groups={m.labels.index('D')})
             self.assertFalse([v for v in g['violations'] if 6 in v['lines']], word)
         # The offered words are the declared judge's own; nothing claims an
@@ -394,7 +394,7 @@ class ProductionRevisionTests(unittest.TestCase):
                      r._slot_word(lines, m, 0, ln, {}) == call]
             for word in words:
                 trial = list(lines)
-                trial[1] = swap_at_slot(lines[1], b.slot, word)
+                trial[1] = swap_at_slot(lines[1], b.slot, word, lex=r.lex)
                 g = r.grade(trial, m, _only_groups={0})
                 self.assertFalse([v for v in g['violations']
                                   if 2 in v['lines'] and any(ln in v['lines'] for ln in mates)],
@@ -753,7 +753,7 @@ class ProductionRevisionTests(unittest.TestCase):
             for limit in [None, 1]:
                 expected = ([], [])
                 for word in dict.fromkeys(words):
-                    trial = [swap_at_slot(lines[0], m.slot_of(0, 1), word), *lines[1:]]
+                    trial = [swap_at_slot(lines[0], m.slot_of(0, 1), word, lex=r.lex), *lines[1:]]
                     # The oracle asks the whole mandate, with no group
                     # projection or early rejection, for every candidate.
                     after = r.grade(trial, m)

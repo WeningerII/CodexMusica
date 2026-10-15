@@ -19,11 +19,130 @@ class PronunciationChoices(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.base = lh.Lexicon()
+        # Reader scheme v1, the pre-batch cut: the legacy-replay coordinate.
+        cls.base_v1 = cls.base.with_reader_scheme('v1')
 
-    def lex(self, rows):
-        lex = copy.copy(self.base)
+    def lex(self, rows, base=None):
+        lex = copy.copy(base or self.base)
         lex.pronunciations = P.validate_choices(rows, lex)
         return lex
+
+    def test_caller_numbering_preserves_occurrences(self):
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        lex._numbering_notices = []
+        row = choice('Oh--oh oh', 2, 'oh', ['OW1'], basis='declared')
+        with self.assertRaisesRegex(ValueError, 'ambiguous.*v1.*v2.*numbering'):
+            P.validate_choices([row], lex)
+        old = P.validate_choices([dict(row, numbering='v1')], lex)
+        new = P.validate_choices([dict(row, numbering='v2')], lex)
+        self.assertEqual(old[0]['token'], 3)
+        self.assertEqual(new[0]['token'], 2)
+        self.assertEqual(new[0]['numbering'], 'v2')
+        self.assertEqual(P.validate_choices(old, lex), old)
+        self.assertEqual(P.validate_choices(new, lex), new)
+        self.assertTrue(lex._numbering_notices)
+        moved = choice('U--h record', 2)
+        self.assertEqual(P.validate_choices([moved], lex)[0]['token'], 3)
+        split = choice('U--h record', 1, 'U--h', ['AH1'], basis='declared')
+        self.assertEqual(P.validate_choices([split], self.base_v1), [split])
+        with self.assertRaises(ValueError):
+            P.validate_choices([dict(split, numbering='v1')], lex)
+        self.assertEqual(P.validate_choices([choice()], lex), [choice()])
+        self.assertEqual(P.validate_choices([dict(choice(), numbering='v2')], lex),
+                         [dict(choice(), numbering='v2')])
+        # Library/default validator retains the exact old six-field contract.
+        self.assertEqual(P.validate_choices([row], self.base.with_reader_scheme('v2')), [row])
+        with self.assertRaises(ValueError):
+            P.validate_choices([dict(row, numbering='v2')], self.base)
+        legacy = copy.copy(self.base_v1)
+        legacy._numbering_guard = True
+        self.assertEqual(P.validate_choices([row], legacy), [row])
+        self.assertEqual(P.fingerprint(P.validate_choices([row], legacy)), P.fingerprint([row]))
+
+    def test_numbering_matrix_matches_independent_raw_piece_oracle(self):
+        counts = {'mapped': 0, 'refused': 0, 'moved': 0}
+        for separator in ('--', '—', ':', ':--', '/', ' '):
+            for line in (f'love{separator}love love',
+                         f'love{separator}(love) love',
+                         f'(love) love{separator}love'):
+                for source in P.NUMBERINGS:
+                    source_tokens = lh.reader_token_spans(
+                        line, '+voices' not in source, source.split('+')[0])
+                    for target in P.NUMBERINGS:
+                        lex = copy.copy(self.base)
+                        lex.reader_scheme = target.split('+')[0]
+                        lex.strip_parens = '+voices' not in target
+                        lex._numbering_guard = True
+                        target_tokens = lh.reader_token_spans(
+                            line, lex.strip_parens, lex.reader_scheme)
+                        for index, (word, pieces) in enumerate(source_tokens or (), 1):
+                            with self.subTest(line=line, source=source, target=target, token=index):
+                                # Oracle compares the readers' actual pieces directly;
+                                # it does not call the production mapping helper.
+                                expected = [i for i, item in enumerate(target_tokens or (), 1)
+                                            if item == (word, pieces)]
+                                row = choice(line, index, word, ['L', 'AH1', 'V'], 'declared')
+                                row['numbering'] = source
+                                if len(expected) != 1:
+                                    with self.assertRaises(ValueError):
+                                        P.validate_choices([row], lex)
+                                    counts['refused'] += 1
+                                else:
+                                    got = P.validate_choices([row], lex)[0]
+                                    self.assertEqual(got['token'], expected[0])
+                                    self.assertEqual(got['numbering'], target)
+                                    self.assertEqual(target_tokens[got['token'] - 1][1], pieces)
+                                    self.assertEqual(P.validate_choices([got], lex), [got])
+                                    counts['mapped'] += 1
+                                    counts['moved'] += got['token'] != index
+        self.assertGreater(counts['mapped'], 100)
+        self.assertGreater(counts['refused'], 0)
+        self.assertGreater(counts['moved'], 0)
+
+    def test_numbering_voices_and_token_slots(self):
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        row = choice('(oh) record record', 2)
+        self.assertEqual(P.validate_choices([dict(row, numbering='v2+voices')], lex)[0]['token'], 1)
+        aside = choice('(record) record', 1)
+        with self.assertRaises(ValueError):
+            P.validate_choices([dict(aside, numbering='v2+voices')], lex)
+        lines = ['Oh--oh oh', 'a night']
+        with self.assertRaisesRegex(ValueError, 'ambiguous'):
+            P.numbered_groups([['1.T2', '2.end']], lines, lex)
+        self.assertEqual(P.numbered_groups([['1.T2', '2.end']], lines, lex, 'v1'),
+                         [['1.T3', '2.end']])
+        self.assertEqual(P.numbered_groups([['1.line', '2.head', '2']], lines, lex),
+                         [['1.line', '2.head', '2']])
+        self.assertEqual(P.reading_options(lex, ['zzqxqzz'])['items'][0]['numbering'], 'v2')
+        self.assertEqual(P.reading_options(self.base_v1, ['zzqxqzz'])['items'][0]['numbering'], 'v1')
+
+    def test_fresh_v1_options_preserve_voices_occurrence(self):
+        from collections import ChainMap
+        line = '(oh) love, love me do'
+        source = copy.copy(self.base_v1)
+        source.strip_parens = False
+        # CMUdict has only one love reading, so it ordinarily needs no menu.
+        # Two explicit local fixture readings exercise menu-origin metadata.
+        source.entries = ChainMap({'love': [['L', 'AH1', 'V'], ['L', 'AH0', 'V']]},
+                                  source.entries)
+        option = next(row for row in P.reading_options(source, [line])['items']
+                      if row['token'] == 2)
+        self.assertEqual(option['numbering'], 'v1+voices')
+        row = choice(line, option['token'], option['word'], ['L', 'AH1', 'V'], 'declared')
+        row['numbering'] = option['numbering']
+        for scheme in ('v1', 'v2'):
+            target = copy.copy(self.base.with_reader_scheme(scheme))
+            target._numbering_guard = True
+            moved = P.validate_choices([row], target)[0]
+            self.assertEqual(moved['token'], 1)
+            self.assertEqual(moved['numbering'], scheme)
+            self.assertEqual(lh.reader_token_spans(line, False, 'v1')[1][1],
+                             lh.reader_token_spans(line, True, scheme)[0][1])
+        legacy = choice(line, 1, 'love', ['L', 'AH1', 'V'], 'declared')
+        self.assertEqual(P.fingerprint(P.validate_choices([legacy], self.base_v1)),
+                         P.fingerprint([legacy]))
 
     def test_selected_meter_and_verbatim_returns_but_no_dictionary_mutation(self):
         lex = self.lex([choice()])
@@ -230,6 +349,22 @@ class PronunciationChoices(unittest.TestCase):
         self.assertTrue(retired['retired'])
         self.assertFalse(retired['matching_lines'])
 
+    def test_marked_reading_retires_after_revision_without_rebinding(self):
+        from quality.revise import Reviser
+        from quality.schemes import mandate
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        lex.pronunciations = P.validate_choices([dict(choice(), numbering='v2')], lex)
+        before = [LINE, 'We hold our breath and let the feeling pass']
+        after = [LINE.replace('Cut', 'Play'), before[1]]
+        result = Reviser(lex=lex).verify(before, after,
+            mandate('AA', n_lines=2, default_relation='class:ASSONANCE'), targeted={1})
+        retired = next(row for row in result['coverage_after']['obligations']
+                       if row['id'] == 'pronunciation:1')
+        self.assertTrue(retired['retired'])
+        self.assertEqual(retired['matching_lines'], [])
+        self.assertEqual(retired['status'], 'not_requested')
+
     def test_actual_cli_parses_choices_and_exports_options(self):
         import json, subprocess, tempfile
         with tempfile.TemporaryDirectory() as directory:
@@ -241,6 +376,79 @@ class PronunciationChoices(unittest.TestCase):
             self.assertIn(result.returncode, [0, 2, 3], result.stderr)
             self.assertIn('"pronunciation_options":', result.stdout)
             self.assertIn('"pronunciations":[', result.stdout)
+
+    def test_actual_cli_numbered_groups_and_returns(self):
+        import json, subprocess, tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            draft = Path(directory) / 'draft.txt'
+            draft.write_text('Oh--oh oh\nOh--oh oh\n')
+            base = [sys.executable, str(Path(lh.__file__).resolve()),
+                    '--reader-scheme=v2', 'brief', str(draft)]
+            for field in ('groups', 'returns'):
+                refused = subprocess.run(base + [f'--{field}=1.T2,2.T2'],
+                                         capture_output=True, text=True)
+                self.assertIn(f'{field}: ambiguous token 2', refused.stdout)
+            accepted = subprocess.run(base[:2] + ['--numbering=v1',
+                '--pronunciations=' + json.dumps([dict(choice('Oh--oh oh', 2, 'oh',
+                    ['OW1'], 'declared'), numbering='v1')])] + base[2:] + ['--groups=1.T2,2.T2'],
+                                      capture_output=True, text=True)
+            self.assertIn('NUMBERING: token 2 -> 3', accepted.stdout)
+            records = [json.loads(line.split('lyric result: ', 1)[1])
+                       for line in accepted.stdout.splitlines() if 'lyric result: ' in line]
+            self.assertEqual(records[-1]['numbered_mandate'],
+                             {'groups': '1.T3,2.T3', 'numbering': 'v2'})
+            self.assertTrue(records[-1]['numbering_notices'])
+
+    def test_private_numbering_normalization_compares_physical_occurrences(self):
+        import json, os, subprocess, tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            draft = Path(directory) / 'draft.txt'
+            draft.write_text('Oh--oh oh\nThe night\n')
+
+            def normalize(row, groups, marker, reader='v2'):
+                env = dict(os.environ, LYRIC_CONTROL_TOKEN='numbering-test')
+                args = [sys.executable, str(Path(lh.__file__).resolve()),
+                        '--reader-scheme=' + reader, '--numbering=' + marker,
+                        '--pronunciations=' + json.dumps([row]),
+                        'normalize-numbering', str(draft), '--groups=' + groups,
+                        '--returns=1.line,2.end']
+                result = subprocess.run(args, capture_output=True, text=True, env=env)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                record = json.loads(next(line.split('lyric result: ', 1)[1]
+                    for line in result.stdout.splitlines() if 'lyric result: ' in line))
+                self.assertEqual(record['transport_token'], 'numbering-test')
+                self.assertEqual(record['status'], 'normalized')
+                return record['canonical_declarations']
+
+            old = dict(choice('Oh--oh oh', 2, 'oh', ['OW1'], 'declared'), numbering='v1')
+            current = dict(old, token=3, numbering='v2')
+            original = normalize(old, '1.T2,2.end', 'v1')
+            self.assertEqual(original, normalize(current, '1.T3,2.end', 'v2'))
+            self.assertNotEqual(original, normalize(dict(current, token=2), '1.T3,2.end', 'v2'))
+            self.assertNotEqual(original, normalize(dict(current, phones=['AA1']), '1.T3,2.end', 'v2'))
+            self.assertNotEqual(original, normalize(current, '1.T2,2.end', 'v2'))
+            self.assertEqual(original['returns'], '1.line,2.end')
+            stable = choice('The night', 2, 'night', ['N', 'AY1', 'T'], 'declared')
+            self.assertEqual(normalize(stable, '1.end,2.end', 'v2'),
+                             normalize(dict(stable, numbering='v2'), '1.end,2.end', 'v2'))
+            legacy = normalize(old, '1.T2,2.end', 'v1', reader='v1')
+            self.assertEqual(legacy['pronunciations'][0]['token'], 2)
+            self.assertEqual(legacy['groups'], '1.T2,2.end')
+            self.assertEqual(old['token'], 2)  # Input record was never rewritten.
+            # An absent declaration and an explicitly empty one compare alike.
+            bare = [sys.executable, str(Path(lh.__file__).resolve()),
+                    '--reader-scheme=v1', 'normalize-numbering', str(draft)]
+            empty_records = []
+            for extra in ([], ['--pronunciations=[]']):
+                result = subprocess.run(bare[:2] + extra + bare[2:],
+                                        capture_output=True, text=True)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                empty_records.append(json.loads(next(line.split('lyric result: ', 1)[1]
+                    for line in result.stdout.splitlines() if 'lyric result: ' in line))[
+                        'canonical_declarations'])
+            self.assertEqual(empty_records[0], empty_records[1])
+            self.assertEqual(empty_records[0], {'pronunciations': [], 'groups': '',
+                                              'returns': '', 'numbering': 'v1'})
 
     def test_cli_refuses_unsupported_command_without_crashing(self):
         import subprocess
@@ -456,8 +664,11 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(note.locations, [1, 3])
 
     def test_function_preserves_legacy_endpoints_without_declarations(self):
+        # Reader scheme v1 (legacy replay): `1966` and `record2` have no
+        # sung-token position, because the v1 cut drops digits. The v2 table
+        # is `test_function_reads_numeral_endpoints_as_tokens_under_v2`.
         from quality import grid as G
-        key = G.rime_cmudict(self.base)
+        key = G.rime_cmudict(self.base_v1)
         for line, word, token in [
             ('I gave my heart to you 我', '我', None),
             ('we have waited since 1966', '1966', None),
@@ -486,49 +697,120 @@ class PronunciationChoices(unittest.TestCase):
             self.assertEqual((failure.word, failure.token), (word, None))
             self.assertIn('no sung-token position', failure.describe())
 
+    def test_function_reads_numeral_endpoints_as_tokens_under_v2(self):
+        # Reader scheme v2 (M1): a digit-bearing run is ONE sung token, so
+        # `1966` and `record2` take a position -- unread (key None) until a
+        # reading is declared for it. A spaced enclitic is part of its word in
+        # the reader's runs too, so `That 's` ends on the token `That's`
+        # (the grid's own split read `'s`). Every other endpoint is unchanged.
+        from quality import grid as G
+        key = G.rime_cmudict(self.base)
+        for line, word, token in [
+            ('I gave my heart to you 我', '我', None),
+            ('we have waited since 1966', '1966', 5),
+            ("I'm going home (ooh)", 'ooh', None),
+            ('(Name your price and take it home)', 'home', None),
+            ('Read record (record)', 'record', None),
+            ("That 's", "that's", 1),
+            ('Read record我', 'record我', None),
+            ('Read record2', 'record2', 2),
+            ('Read (quietly) record', 'record', 2),
+            ("There 's record", 'record', 2),
+            ('Read **record**!', 'record', 2),
+            ('', '', None), ('...', '', None),
+        ]:
+            with self.subTest(line=line):
+                self.assertEqual(key.end_occurrence(line), (word, token, key(word)))
+        self.assertIsNone(key('1966'))
+        line = 'We wait 1966'
+        result = G.compare_returns([line], [line], rhyme_key=key)
+        self.assertIsNone(result.rhyme_scheme_preserved)
+        failure = result.refusals[0].failed_words[0]
+        self.assertEqual((failure.word, failure.token), ('1966', 3))
+        # A declared reading on the numeral token binds it and reads it.
+        lex = self.lex([choice(line, 3, '1966', ['N', 'AY1', 'N', 'T', 'IY0', 'N'], 'declared')])
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('1966', 3, 'AY N T IY N'))
+
     def test_function_only_binds_the_complete_physical_endpoint(self):
         from quality import grid as G
-        for line in ['Read (quietly) record', "There 's record"]:
-            lex = self.lex([choice(line, 2, 'record', NOUN)])
-            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 2, 'EH K ER D'))
-        for line in ['Read record (record)', 'Read record2', 'Read record我']:
-            lex = self.lex([choice(line, 2, 'record', NOUN)])
-            got = G.rime_cmudict(lex).end_occurrence(line)
-            self.assertIsNone(got[1])
-            self.assertEqual(got[2], G.rime_cmudict(self.base)(G._end_word(line)))
-        # Voices includes parentheses in its declaration stream, but still
-        # cannot bind a component of a joined enclitic as a whole token.
-        lex = copy.copy(self.base)
-        lex.strip_parens = False
-        line = 'Read record (record)'
-        lex.pronunciations = P.validate_choices([choice(line, 3, 'record', NOUN)], lex)
-        self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 3, 'EH K ER D'))
-        line = "That 's"
-        lex = self.lex([choice(line, 1, "That's", ['DH', 'AE1', 'T', 'S'], 'declared')])
-        self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ("'s", None, G.rime_cmudict(self.base)("'s")))
+        for base in (self.base_v1, self.base):
+            for line in ['Read (quietly) record', "There 's record"]:
+                lex = self.lex([choice(line, 2, 'record', NOUN)], base)
+                self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 2, 'EH K ER D'))
+            # `Read record2` declares `record` at token 2 only under v1, which
+            # split it; under v2 token 2 is `record2` itself (below).
+            for line in (['Read record (record)', 'Read record2', 'Read record我']
+                         if base is self.base_v1 else ['Read record (record)', 'Read record我']):
+                lex = self.lex([choice(line, 2, 'record', NOUN)], base)
+                got = G.rime_cmudict(lex).end_occurrence(line)
+                self.assertIsNone(got[1])
+                self.assertEqual(got[2], G.rime_cmudict(base)(G._end_word(line)))
+            # Voices includes parentheses in its declaration stream, but still
+            # cannot bind a component of a joined enclitic as a whole token.
+            lex = copy.copy(base)
+            lex.strip_parens = False
+            line = 'Read record (record)'
+            lex.pronunciations = P.validate_choices([choice(line, 3, 'record', NOUN)], lex)
+            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line), ('record', 3, 'EH K ER D'))
+            # A joined enclitic: v1's grid split the physical `'s` off and could
+            # not bind; v2's end word is the reader's run, the token `That's`.
+            line = "That 's"
+            lex = self.lex([choice(line, 1, "That's", ['DH', 'AE1', 'T', 'S'], 'declared')], base)
+            self.assertEqual(G.rime_cmudict(lex).end_occurrence(line),
+                             ("'s", None, G.rime_cmudict(base)("'s")) if base is self.base_v1
+                             else ("that's", 1, 'AE T S'))
+        with self.assertRaisesRegex(ValueError, "token 2 there is 'record2'"):
+            self.lex([choice('Read record2', 2, 'record', NOUN)])
+        lex = self.lex([choice('Read record2', 2, 'record2', NOUN, 'declared')])
+        self.assertEqual(G.rime_cmudict(lex).end_occurrence('Read record2'),
+                         ('record2', 2, 'EH K ER D'))
 
-    def test_function_uses_original_unicode_line_for_declaration_positions(self):
+    def test_function_reads_the_nfc_line_for_declaration_positions_under_v2(self):
+        # Reader scheme v2 reverses MISSING.md's 2026-10 record that
+        # declaration positions use the un-NFC'd line: NFC happens at reader
+        # entry, so a decomposed `cafe\u0301s` is the one token `cafés` and a
+        # declaration counts it once. The line's identity stays its raw text.
         from quality import grid as G
         import unicodedata
         line = 'Read cafe\u0301s record'
         composed = unicodedata.normalize('NFC', line)
-        self.assertEqual(lh.line_tokens(line), ['Read', 'cafe', 's', 'record'])
+        self.assertEqual(lh.line_tokens(line), ['Read', 'cafés', 'record'])
         self.assertEqual(lh.line_tokens(composed), ['Read', 'cafés', 'record'])
-        lex = self.lex([choice(line, 4, 'record', NOUN)])
+        lex = self.lex([choice(line, 3, 'record', NOUN)])
+        self.assertEqual(lex.for_line(line).for_token(2).transcribe_word('record'), (NOUN, False))
+        key = G.rime_cmudict(lex)
+        self.assertEqual(key.end_occurrence(line), ('record', 3, 'EH K ER D'))
+        self.assertEqual(key.end_occurrence(composed), ('record', 3, key('record')))
+        with self.assertRaises(ValueError):
+            self.lex([choice(line, 4, 'record', NOUN)])
+        decomposed_end = 'Sing cafe\u0301s'
+        self.assertEqual(lh.line_tokens(decomposed_end), ['Sing', 'cafés'])
+        self.assertEqual(key.end_occurrence(decomposed_end), ('cafés', 2, key('cafés')))
+
+    def test_function_uses_original_unicode_line_for_declaration_positions(self):
+        # Reader scheme v1 (legacy replay): positions on the un-NFC'd line.
+        from quality import grid as G
+        import unicodedata
+        line = 'Read cafe\u0301s record'
+        composed = unicodedata.normalize('NFC', line)
+        self.assertEqual(lh.line_tokens(line, scheme='v1'), ['Read', 'cafe', 's', 'record'])
+        self.assertEqual(lh.line_tokens(composed, scheme='v1'), ['Read', 'cafés', 'record'])
+        lex = self.lex([choice(line, 4, 'record', NOUN)], self.base_v1)
         self.assertEqual(lex.for_line(line).for_token(3).transcribe_word('record'), (NOUN, False))
         key = G.rime_cmudict(lex)
         self.assertEqual(key.end_occurrence(line), ('record', 4, 'EH K ER D'))
         self.assertEqual(key.end_occurrence(composed), ('record', 3, key('record')))
-        self.assertEqual(G.rime_cmudict(self.base).end_occurrence(line), ('record', 4, key('record')))
+        self.assertEqual(G.rime_cmudict(self.base_v1).end_occurrence(line), ('record', 4, key('record')))
         repeated = line + ' record'
-        earlier = self.lex([choice(repeated, 4, 'record', NOUN)])
+        earlier = self.lex([choice(repeated, 4, 'record', NOUN)], self.base_v1)
         self.assertEqual(G.rime_cmudict(earlier).end_occurrence(repeated),
                          ('record', 5, key('record')))
-        final = self.lex([choice(repeated, 4, 'record', VERB), choice(repeated, 5, 'record', NOUN)])
+        final = self.lex([choice(repeated, 4, 'record', VERB), choice(repeated, 5, 'record', NOUN)],
+                         self.base_v1)
         self.assertEqual(G.rime_cmudict(final).end_occurrence(repeated),
                          ('record', 5, 'EH K ER D'))
         decomposed_end = 'Sing cafe\u0301s'
-        self.assertEqual(lh.line_tokens(decomposed_end), ['Sing', 'cafe', 's'])
+        self.assertEqual(lh.line_tokens(decomposed_end, scheme='v1'), ['Sing', 'cafe', 's'])
         self.assertEqual(key.end_occurrence(decomposed_end), ('cafés', None, key('cafés')))
         # Diagnostic coordinates use that same exact-line token stream.
         unknown = line.replace('record', 'streetlights')

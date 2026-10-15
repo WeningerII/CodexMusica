@@ -821,6 +821,11 @@ def _every_verb_fixture():
 
     cases = {
         "declaration": ["declaration"],
+        # Coordinate comparison executes the real raw-piece normalizer and
+        # needs no grading resources; section 47 uses this same invocation.
+        "normalize-numbering": ["normalize-numbering", quat,
+                                "--groups=1.T2,2.end", "--returns=3.line,4.line",
+                                "--numbering=v2"],
         "score": ["score", "fire", "--", "desire"],
         "candidates": ["candidates", "desire", "5"],
         "meter": ["meter", "./" * 4, "The river took the bridge at dawn"],
@@ -895,6 +900,13 @@ def test_every_verb_runs():
     # is the whole thing this line is checking for.
     for verb, argv in sorted(cases.items()):
         rc, out, err = run(*argv)
+        if verb == "normalize-numbering":
+            record = _machine_result(out)
+            check("coordinate comparison executes and emits canonical declarations without grading",
+                  rc == 0 and record.get("status") == "normalized"
+                  and record.get("canonical_declarations") == {
+                      "pronunciations": [], "numbering": "v2",
+                      "groups": "1.T2,2.end", "returns": "3.line,4.line"})
         if "Traceback" in err or rc not in (0, 2, 3):
             bad.append(f"{verb} (rc {rc})")
     check(f"none of the {len(cases)} verbs raises",
@@ -2860,6 +2872,14 @@ def test_the_loop_suspends_instead_of_guessing():
     rc4, out4, _ = run("revise", draft, *mand, f"--propose=replay:{rep}")
     check("the answered journal independently replays the same change without any writer",
           rc4 == 0 and "* L2: " + answer in out4 and "* L1:" not in out4)
+    # The journal names the reader scheme its answers were asked under, and
+    # the replay reads under it; another declared scheme refuses.
+    check("the answered journal carries its reader scheme",
+          st["answered"].get("reader_scheme") == "v2" == st.get("reader_scheme"))
+    rc7, out7, _ = run("revise", draft, *mand, f"--propose=replay:{rep}",
+                       "--reader-scheme=v1", expect_rc=2)
+    check("a replay under a contrary declared reader scheme refuses",
+          rc7 == 2 and "READER_SCHEME_MISMATCH" in out7, f"rc {rc7}")
     rc5, out5, _ = run("revise", draft, *mand, "--propose=defer", expect_rc=2)
     check("defer without a PATH refuses as an invalid flag", rc5 == 2 and "REFUSED" in out5)
 
@@ -5145,9 +5165,9 @@ def test_a_missing_staged_resource_refuses_instead_of_crashing():
           refusing == NEED,
           f"refusing: {refusing}")
     check("the verbs the ruling names -- score, candidates, plan -- and "
-          "readability answer CLEAN (rc 0) without any of the three",
+          "readability and coordinate comparison answer CLEAN (rc 0) without any of the three",
           all(answering.get(v) == 0
-              for v in ("score", "candidates", "plan", "readability")),
+              for v in ("score", "candidates", "plan", "readability", "normalize-numbering")),
           f"answering: {sorted(answering.items())}")
     # `recover` joined §7's roster 2026-09-02 (M-195) and answers WITHOUT
     # the floor at its OWN exit 3: the bare quatrain has no mark and no

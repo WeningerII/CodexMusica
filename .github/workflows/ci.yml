@@ -2742,7 +2742,11 @@ jobs:
       #   commit: a stored frame is drawn from only when its own payload, its header and the
       #   re-derived frame agree with the same bindings, and the draw is a pure function of
       #   frame and seed; synthetic frames only, under a second; label 107 to 108
-      - name: The 108 cheap suites (their history is the comment above)
+      #   reader joined 2026-10-13 with the reader batch (quality/test_reader.py): scheme v1
+      #   against the oracle captured on the pre-batch tree, the v2 reader's properties over
+      #   generated lines, legacy replay of a pre-batch checkpoint, and the website mirror's
+      #   fixture freshness; about 80 s; label 108 to 109
+      - name: The 109 cheap suites (their history is the comment above)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2837,7 +2841,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
                    songs ban_convergence cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index lexicon_supplement moby_convert coverage_split coverage_queue pilot_frame; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader moby_convert coverage_split coverage_queue pilot_frame; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured

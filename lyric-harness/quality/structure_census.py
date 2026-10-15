@@ -911,6 +911,13 @@ def check():
 
 
 def main():
+    # Pinned to reader scheme v1: STRUCTURE_CENSUS_PREREGISTRATION.md names
+    # `line_tokens` at its shipped default, which was v1 (the reader batch).
+    with LH.reader_scheme_scope("v1"):
+        return _main()
+
+
+def _main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--pilot", action="store_true")
     ap.add_argument("--full", action="store_true")

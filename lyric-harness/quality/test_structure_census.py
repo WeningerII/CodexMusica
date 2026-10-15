@@ -453,9 +453,15 @@ def test_tokeniser_is_declared():
     # cannot differ -- doctrine 20's "an empty population reads like a
     # pass", inside the check written to stop exactly that.  `PARENS` is
     # the smallest eng file whose SUNG lines distinguish them.
+    # The census is pinned to reader scheme v1 (its `main`), and so is this
+    # control: under v2 `English._tokens` reads the lexicon's `line_tokens`
+    # and the two readings it compares are one reading (the reader batch).
     from quality.phonology.eng import English
-    strip_ec, strip_wl = CEN.pair_counters(PARENS)
-    keep_ec, keep_wl = CEN.pair_counters(PARENS, tokens=English._tokens)
+    with LH.reader_scheme_scope("v1"):
+        strip_ec, strip_wl = CEN.pair_counters(PARENS)
+        keep_ec, keep_wl = CEN.pair_counters(PARENS, tokens=English._tokens)
+        declared_parens = CEN.pair_counters(PARENS, tokens=LH.line_tokens)
+        small = (CEN.pair_counters(SMALL), CEN.pair_counters(SMALL, tokens=LH.line_tokens))
     # The two readings differ on WORD-WITHIN-LINE and NOT on endword-cross
     # here, and that is a fact about where a parenthetical sits: erasing
     # `(...)` removes interior words while a line's LAST word is usually
@@ -466,10 +472,7 @@ def test_tokeniser_is_declared():
           f"word-within-line {len(strip_wl)} vs {len(keep_wl)} distinct pairs; "
           f"endword-cross identical ({len(strip_ec)}), as expected")
     check("eng is byte-identical through the declared path",
-          (strip_ec, strip_wl) == CEN.pair_counters(
-              PARENS, tokens=LH.line_tokens)
-          and CEN.pair_counters(SMALL) == CEN.pair_counters(
-              SMALL, tokens=LH.line_tokens),
+          (strip_ec, strip_wl) == declared_parens and small[0] == small[1],
           f"{sum(strip_ec.values())} endword-cross pairs, unmoved")
     check("eng resolves to line_tokens, not English._tokens",
           CEN.tokeniser_for("eng") is LH.line_tokens)

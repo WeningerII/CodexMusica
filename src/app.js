@@ -1,4 +1,4 @@
-/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 /* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine */
 
 
@@ -14602,6 +14602,8 @@ async function restoreSavedWorkspace(key,fork){
   if(typeof d.lyrics==='string'){app.lyrics=d.lyrics;app.lyricMeta=lyricMetaOf(d.lyricMeta);}
   if(typeof UI!=='undefined')UI.lyricRevision++;
   const draft=document.getElementById('lyrics-draft');if(draft)draft.value=app.lyrics||'';
+  // An open boundary (src/pages/lyrics.js): saved word numbers migrate before the step is recorded.
+  if(draft&&typeof uiLyricsOpened==='function')uiLyricsOpened();
   closeModal('modal-saved');pushHistory();renderAll();
   showToast(`${fork?'Copied':'Loaded'} "${app.workspaceName}"`,'success');
 }
@@ -16319,10 +16321,25 @@ function lyricMetaOf(v){
   // lines. Keep the complete versioned bundle through saves and exports.
   if(typeof v.draftId==='string'&&/^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$/.test(v.draftId))out.draftId=v.draftId;
   if(v.libraryOrigin?.version===1)out.libraryOrigin=plain(v.libraryOrigin,Infinity);
+  // The Lyrics page's record of word numbers its migration renumbered, kept
+  // WHOLE until the writer dismisses it (src/pages/lyrics.js
+  // lyRecordRenumbered): no cap on entries, so nothing is evicted; a save
+  // the browser cannot hold fails loudly, as any session save does. It is
+  // tied to the draftId it was recorded for.
+  if(v.renumbered&&typeof v.renumbered==='object'&&Array.isArray(v.renumbered.items)){
+    const r=plain(v.renumbered,Infinity);
+    if(Array.isArray(r.items)){
+      out.renumbered={items:r.items.filter(x=>x&&typeof x==='object'&&!Array.isArray(x))};
+      if(typeof r.draftId==='string'&&/^[A-Za-z0-9][A-Za-z0-9._:-]{0,199}$/.test(r.draftId))out.renumbered.draftId=r.draftId;
+      if(Number.isInteger(r.more)&&r.more>0)out.renumbered.more=r.more;
+    }
+  }
   return out;
 }
-// What Undo restores of it: the creative context the person edited.
-const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes,...(m.draftId?{draftId:m.draftId}:{}),...(m.libraryOrigin?{libraryOrigin:m.libraryOrigin}:{})});
+// What Undo restores of it: the creative context the person edited, and
+// the draft's own renumbering record (restored with its text and draftId, so
+// Undo never leaves one draft's record over another draft).
+const lyricMetaHistory=(m)=>({version:1,brief:m.brief,notes:m.notes,...(m.draftId?{draftId:m.draftId}:{}),...(m.libraryOrigin?{libraryOrigin:m.libraryOrigin}:{}),...(m.renumbered?{renumbered:m.renumbered}:{})});
 function sessionSnapshot() {
   const meta=lyricMetaOf(app.lyricMeta);
   return {cards:app.cards.map(c=>({...c,..._CARD_TRANSIENTS})),name:app.workspaceName||'Untitled session',lyrics:app.lyrics||'',lyricMeta:lyricMetaHistory(meta)};
@@ -16349,7 +16366,7 @@ function _restoreSnapshot(idx) {
     if(Array.isArray(snapshot))app.cards=snapshot;
     else {
       app.cards=snapshot.cards;app.workspaceName=snapshot.name;app.lyrics=snapshot.lyrics||'';
-      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});delete m.draftId;delete m.libraryOrigin;app.lyricMeta={...m,...lyricMetaHistory(h)};}
+      if(snapshot.lyricMeta){const m=lyricMetaOf(app.lyricMeta),h=lyricMetaOf({...snapshot.lyricMeta,version:1});delete m.draftId;delete m.libraryOrigin;delete m.renumbered;app.lyricMeta={...m,...lyricMetaHistory(h)};}
     }
     for(const c of app.cards)if(tabs.has(c.id))c._uiTab=tabs.get(c.id);
     if(typeof UI!=='undefined')UI.lyricRevision++;
@@ -19342,6 +19359,12 @@ async function _chatSend(message, { choice, context = null, clearInput = false }
     // declarations, brief, notes) as its own validated field, never appended
     // to the message; a continuation keeps the context it began with.
     const ctx = context || (typeof window.uiLyricContext === 'function' ? window.uiLyricContext(choice) : null);
+    // The page refuses to send a draft whose saved readings are undecided.
+    if (ctx?.blocked) {
+      _chatOpenPanel();
+      _chatAppend(`<div class="chat-msg chat-msg-error">${esc(ctx.blocked)}</div>`);
+      return { ok: false, reason: 'declarations' };
+    }
     if (ctx) body.lyric_context = ctx;
   }
   chatState.pending = {request_id,message,domain,created_at:Date.now()};

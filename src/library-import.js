@@ -1,5 +1,5 @@
 /* exported CMLibraryImport */
-/* global module */
+/* global module, require */
 /* Library working-copy transport. No source edits, grading, recipe work or
    network dispatch. Acknowledgements follow a durable, atomic draft commit. */
 (function (root) {
@@ -117,6 +117,11 @@
       return false;
     }
   }
+  const lyricTokens = () =>
+    root.CMLyricTokens ||
+    (typeof require === 'function'
+      ? require('./lyric-tokens.js')
+      : fail('The lyric reader is not loaded.'));
   function eligibleForWriter(text, language) {
     const reasons = [];
     const rows = text.split(/\r\n?|\n/);
@@ -133,9 +138,8 @@
     if (
       rows.some((line) => {
         if (!line.trim() || /^\[[^\]]*\]$/.test(line.trim())) return false;
-        const words = (
-          line.replace(/\([^)]*\)/g, ' ').match(/(?:[A-Za-zÀ-ɏḀ-ỿ]|['’‘-])+/g) || []
-        ).filter((word) => /[A-Za-zÀ-ɏḀ-ỿ]/.test(word));
+        // The grader's own word count (src/lyric-tokens.js mirrors it).
+        const words = lyricTokens().lineTokens(line, true);
         return words.length < 2 || words.length > 12;
       })
     )

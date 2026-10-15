@@ -1,0 +1,55 @@
+{
+  "label": "test-process isolation, not a production capacity bound",
+  "python": "CPython 3.13.16",
+  "guard_envelope_bytes": 1073741824,
+  "steps": [
+    {
+      "step": "worker loaded",
+      "rss_bytes": 25280512,
+      "peak_rss_bytes": 25280512
+    },
+    {
+      "step": "new lyrics request",
+      "exit": 4,
+      "reader_scheme": "v2",
+      "rss_bytes": 431341568,
+      "peak_rss_bytes": 431341568
+    },
+    {
+      "step": "legacy lyrics request",
+      "exit": 4,
+      "reader_scheme": "v1",
+      "rss_bytes": 455901184,
+      "peak_rss_bytes": 507371520
+    },
+    {
+      "step": "Library analysis (the test's two-line unit)",
+      "status": "complete",
+      "error": null,
+      "lines": 2,
+      "rows": 3,
+      "checkpoint_frames": 7,
+      "rss_bytes": 462880768,
+      "peak_rss_bytes": 507371520
+    },
+    {
+      "step": "Library analysis (largest verse unit, line02115)",
+      "status": "complete",
+      "error": null,
+      "lines": 100,
+      "rows": 52,
+      "checkpoint_frames": 3307,
+      "rss_bytes": 461598720,
+      "peak_rss_bytes": 507371520
+    }
+  ],
+  "peak_rss_bytes": 507371520,
+  "peak_fraction_of_guard": 0.473,
+  "caches_after": {
+    "eng._LEX": ["v1", "v2"],
+    "eng._CUT_LEX": [],
+    "fit._LEX": ["v1"],
+    "lexicon_supplement._SUPPLEMENTED": [],
+    "meter_bands._READERS": ["fallback-low/v1", "fallback-low/v2"]
+  }
+}

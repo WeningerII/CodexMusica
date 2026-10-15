@@ -697,7 +697,7 @@ def arm_spans(lex, decl, n_items=20, redeals=8, seed=SEED):
     from quality.controls import cross_item_redeal, rime_pool_redeal
 
     son = [l for _, l in sorted(load_sonnets().items())][:n_items]
-    tok = lambda ln: line_tokens(ln)                        # noqa: E731
+    tok = lambda ln: line_tokens(ln, scheme=lex.reader_scheme)  # noqa: E731
     shp = lambda w: _shape(lex, w)                          # noqa: E731
     rim = lambda w: _rime(lex, w)                           # noqa: E731
 

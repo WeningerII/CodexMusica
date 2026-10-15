@@ -2128,7 +2128,7 @@ def indent_rhyme_witness(cf, rel):
             blocks += 1
             keys = []
             for l in b.lines:
-                w = LH.raw_final_token(l)
+                w = LH.raw_final_token(l)     # spelled rimes: the process's scheme
                 keys.append(LH.spelled_rime(w) if w else None)
             for i, j in itertools.combinations(range(len(part)), 2):
                 if keys[i] is None or keys[j] is None:
@@ -2463,7 +2463,7 @@ def check_bracket_declarations(files, src):
                 continue
             resolved = LH_.normalise_bracket_spans(s, base)
             for m in LH_._BRACKET_SPAN.finditer(resolved):
-                if LH_.line_tokens(m.group(1)):
+                if LH_.line_tokens(m.group(1)):   # no lexicon: the process's scheme
                     undeclared += 1
                     sample = sample or s[:80]
         if undeclared:
@@ -3274,7 +3274,10 @@ def main(argv=None):
 # 2026-10-09 third ten Library collections: files 2277 -> 2328; NOTE
 # 1804 -> 1856 (44 elision notes, eight one-line stanza residue notes).
 # FAIL remains zero; WARN remains 38. Calibration populations unchanged.
-PINNED_SHAPE = {"files": 2328, "FAIL": 0, "WARN": 38, "NOTE": 1856}
+# 2026-10-14 approved reader audit refresh: NOTE ~~1856~~ -> 1861.
+# Check L now detects numeric footnote markers in five unchanged corpus files
+# (47 spans); every finding is retained. See RESULTS_CORPUS_AUDIT.md.
+PINNED_SHAPE = {"files": 2328, "FAIL": 0, "WARN": 38, "NOTE": 1861}
 
 
 def _verify_shape(files, findings):

@@ -32,12 +32,12 @@ by 3PO 6133908534). It changes no code path and no data the program reads.
 
 ## Commands
 
-Each census record (run from `lyric-harness/`). At a checkout of `4b14ff5b` the output is byte for byte. At any later checkout only `census_commit` differs; it records the checkout, as Provenance below explains:
+Each census record (run from `lyric-harness/`). At a checkout of `4b14ff5b` (which predates `--reader-scheme`: drop the flag there) the output is byte for byte. At any later checkout only `census_commit` differs (it records the checkout, as Provenance below explains), and a record written since the reader batch also names its `reader_scheme`. `--reader-scheme=v1` reproduces a historical input (D8a): these records were measured under the pre-batch reader cut, and the census now defaults to v2:
 
     mkdir -p quality/results/census_validation_2026-10-12/
-    python3 quality/coverage_census.py --population song --split validation --out quality/results/census_validation_2026-10-12/census_cmudict_only.json
-    python3 quality/coverage_census.py --population song --split validation --lexicon-supplement=v2 --out quality/results/census_validation_2026-10-12/census_v2.json
-    python3 quality/coverage_census.py --population song --split validation --lexicon-supplement=v2 --fallback=high --out quality/results/census_validation_2026-10-12/census_v2_fallback_high.json
+    python3 quality/coverage_census.py --reader-scheme=v1 --population song --split validation --out quality/results/census_validation_2026-10-12/census_cmudict_only.json
+    python3 quality/coverage_census.py --reader-scheme=v1 --population song --split validation --lexicon-supplement=v2 --out quality/results/census_validation_2026-10-12/census_v2.json
+    python3 quality/coverage_census.py --reader-scheme=v1 --population song --split validation --lexicon-supplement=v2 --fallback=high --out quality/results/census_validation_2026-10-12/census_v2_fallback_high.json
 
 `compare_output.json`: the three commands in `compare.py`'s docstring. They
 add `--top 100000`, which writes larger records than the three above.

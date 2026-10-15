@@ -117,6 +117,12 @@ def _normal_request(requested):
     return {"layers": sorted(set(layers)), "schemas": sorted(set(schemas)) if schemas is not None else None}
 
 
+def _reader_scheme_of(phon):
+    """-> the reader scheme an English phonology cuts lines under."""
+    import lyric_harness as LH
+    return LH.resolve_reader_scheme(getattr(phon, "reader_scheme", None))
+
+
 def _public_declarations(value):
     if isinstance(value, dict):
         if any(k in ("source", "provenance", "citation") and not isinstance(v, str) for k, v in value.items()):
@@ -263,6 +269,22 @@ class AnalysisSession:
             if any(catalog[m].get("language", self.language) != self.language for m in requested_methods):
                 raise ValueError("UNSUPPORTED_METHOD: native method belongs to another phonology")
         clear_reader_resources_if_language_changed(self.language)
+        if self.language == "eng" and private_declarations.get("pronunciations"):
+            # A declaration set from the v1-bound Gutenberg asset, read by a
+            # v2 reader, moves to the same physical tokens (raw-span identity;
+            # a row with no identical span refuses rather than re-attaching).
+            # The asset's approved bytes stay as they are.
+            import lyric_harness as LH
+            from quality.pronunciation import rebind_occurrences, v1_bound_declarations
+            rows = private_declarations["pronunciations"]
+            if LH.resolve_reader_scheme(None) == "v2" and v1_bound_declarations(rows):
+                try:
+                    private_declarations["pronunciations"] = rebind_occurrences(
+                        rows, "v1", "v2", strip_parens=False)
+                    self.declarations["pronunciations"] = rebind_occurrences(
+                        self.declarations["pronunciations"], "v1", "v2", strip_parens=False)
+                except ValueError as exc:
+                    raise ValueError(f"STALE_READING: {exc}") from None
         settings = self.declarations.get("phonology", {})
         if not isinstance(settings, dict):
             raise ValueError("INVALID_DECLARATION: phonology settings must be an object")
@@ -536,7 +558,32 @@ class AnalysisSession:
             return self._token_projection_cache[li]
         raw, words = self.stream.text_lines[li], self.stream.lexical_tokens[li]
         positions = []
-        if self.language == "eng":
+        if self.language == "eng" and _reader_scheme_of(self.phon) == "v2":
+            import lyric_harness as LH
+            rl = LH.reader_line(raw, strip_parens=False, scheme="v2")
+            # The reader's own raw pieces (codepoint offsets into the analysis
+            # text), guarded so they are the tokens the stream read -- with
+            # the printed endpoint the stream appends when it is not an
+            # English token (`English.tokens_for_line`).
+            located = list(rl.tokens)
+            endpoint = LH.printed_endpoint(rl)
+            if endpoint is not None:
+                located.append(endpoint)
+            # A token whose pieces do not rebuild its text (a line the reader
+            # had to map in whitespace chunks) has no exact span: it falls
+            # back to the row's range rather than claim a chunk as `exact`.
+            # Neither does an endpoint sharing characters with a token before
+            # it (`go кот5`), so no two exact ranges overlap.
+            claimed = {i for t in rl.tokens for a, b in t.pieces for i in range(a, b)}
+            positions = ([list(t.pieces) if LH.normalise_word(
+                              "".join(raw[a:b] for a, b in t.pieces)) == t.text
+                          and not (t is endpoint and any(
+                              i in claimed for a, b in t.pieces for i in range(a, b)))
+                          else []
+                          for t in located]
+                         if tuple(t.text for t in located) == tuple(words) else None)
+        elif self.language == "eng":
+            # Reader scheme v1: the pre-batch projection, verbatim.
             import lyric_harness as LH
             folded = LH.fold_apostrophes(raw)
             removed = {i for match in LH._SPACED_ENCLITIC.finditer(folded)
@@ -568,6 +615,14 @@ class AnalysisSession:
                 cursor = at + len(word)
         self._token_projection_cache[li] = positions
         return positions
+
+    def _is_printed_boundary(self, li, ti):
+        """True when token `ti` of line `li` is the printed endpoint the
+        phonology appended as an unread boundary (`English.printed_boundary`)."""
+        raw = self.stream.text_lines[li]
+        ph = self.phon.for_line(raw) if hasattr(self.phon, "for_line") else self.phon
+        find = getattr(ph, "printed_boundary", None)
+        return find is not None and find(raw) == ti
 
     def _token_ranges(self, li, ti):
         row = self._row(li)
@@ -772,6 +827,15 @@ class AnalysisSession:
                                line_id=self._line_id(li), token=ti, text=word,
                                source_ranges=ranges, normalized_range=normalized,
                                unit_ids=[f"syllable:{i}" for i in ids], readable=bool(ids))
+            if self._is_printed_boundary(li, ti):
+                # The printed endpoint the stream appended as a boundary is no
+                # token of the line's cut (D14): never read, and no reading can
+                # be declared for it.
+                from quality.phonology import UNREADABLE
+                out["reading_status"] = UNREADABLE
+                out["reading_note"] = ("the line's printed end is not one of its English "
+                                       "tokens; it stays an unread boundary")
+                return out
             if hasattr(self.phon, "reading_status"):
                 ph = self.phon.for_line(self.stream.text_lines[li]) if hasattr(self.phon, "for_line") else self.phon
                 ph = ph.for_token(ti) if hasattr(ph, "for_token") else ph
@@ -810,18 +874,26 @@ class AnalysisSession:
         pb = pb.for_token(len(self.stream.lexical_tokens[lb]) - 1) if hasattr(pb, "for_token") else pb
         # Occurrence choices are carried through the two scoped phonologies.
         # Native modules currently have no per-occurrence override adapter.
+        boundary = [li for li in (la, lb)
+                    if self._is_printed_boundary(li, len(self.stream.lexical_tokens[li]) - 1)]
         result = self.phon.relations(a, b)
         coord = None
         reason = None
-        try:
-            coord = RT.classify_pair(a, b, self.phon, member_phons=(pa, pb))
-        except (ValueError, RT.Indeterminate, self.RL.NoReferent) as exc:
-            reason = str(exc)
+        if boundary:
+            # A printed boundary is never read (D14): no predicate, no type.
+            result = {k: None for k in result}
+            reason = ("the printed end of line(s) " + ", ".join(str(li + 1) for li in boundary)
+                      + " is not one of its English tokens; it stays an unread boundary")
+        else:
+            try:
+                coord = RT.classify_pair(a, b, self.phon, member_phons=(pa, pb))
+            except (ValueError, RT.Indeterminate, self.RL.NoReferent) as exc:
+                reason = str(exc)
         out = self._record("native_pair", mid, [la, lb], namespace="native",
                            language=self.language, line_ids=[self._line_id(la), self._line_id(lb)],
                            words=[a, b], predicates={k: verdict(v) for k, v in result.items()},
                            coverage="answered" if result and all(v is not None for v in result.values()) else "refused",
-                           reason=reason if result else "No native rhyme predicate is supplied by this profile.")
+                           reason=reason if result or boundary else "No native rhyme predicate is supplied by this profile.")
         if coord is not None:
             out["type_coordinate"] = json_safe(coord)
             out["type_names"] = list(coord.names())

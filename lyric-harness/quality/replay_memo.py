@@ -84,7 +84,7 @@ def _digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def run_key(argv, input_paths=()):
+def run_key(argv, input_paths=(), reader_scheme=None):
     """Freeze one deferred run's invariant inputs into a registry key.
 
     `argv` is the verb's own argument list; `input_paths` names the files
@@ -95,6 +95,13 @@ def run_key(argv, input_paths=()):
     remaining argv is replaced by that file's content digest, because the
     connector writes the same bytes through a FRESH temp path per request
     and a path-keyed run would never match itself.
+
+    `reader_scheme` is the scheme the run EFFECTIVELY reads (lyric_harness
+    `READER_SCHEMES`), not the flag: a run resumed with no `--reader-scheme`
+    inherits its recorded scheme, so the same run is spelled with and
+    without the flag. Every `--reader-scheme=` argument is dropped and the
+    scheme keyed on its own; `v1` (and None) adds nothing, so a key computed
+    before the reader batch, which had no scheme, is the `v1` key unchanged.
     """
     digests = {}
     for p in input_paths:
@@ -109,14 +116,16 @@ def run_key(argv, input_paths=()):
             return None
     frozen = []
     for a in argv:
-        if a.startswith("--propose"):
+        if a.startswith("--propose") or a.startswith("--reader-scheme"):
             continue
         for p, d in digests.items():
             if p and p in a:
                 a = a.replace(p, f"<input:{d}>")
         frozen.append(a)
-    return _digest(json.dumps({"argv": frozen,
-                               "inputs": sorted(digests.values())}))
+    key = {"argv": frozen, "inputs": sorted(digests.values())}
+    if reader_scheme not in (None, "v1"):
+        key["reader_scheme"] = reader_scheme
+    return _digest(json.dumps(key))
 
 
 #: run key -> {"store": {entry key: result}, "tally": {...}, "cap": int}

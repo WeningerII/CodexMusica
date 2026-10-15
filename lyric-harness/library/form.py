@@ -492,7 +492,8 @@ def _return_key(declarations, phon, language, sung):
     from lyric_harness import line_tokens
     endings = {}
     for line in sung:
-        ts = line_tokens(line["text"], strip_parens=False)
+        ts = line_tokens(line["text"], strip_parens=False,
+                         scheme=getattr(lex, "reader_scheme", None))
         if ts:
             endings[line["text"]] = (len(ts), ts[-1].lower())
     for choice in declarations["pronunciations"]:
@@ -786,13 +787,17 @@ def analyze_language(source, declarations=None):
             result["line_endings"] = endings
             result["tokenizer"] = f"native phonology {language}"
         return result
-    from lyric_harness import Lexicon, LexicalAssetUnavailable, line_tokens
+    from lyric_harness import (Lexicon, LexicalAssetUnavailable, line_tokens,
+                               resolve_reader_scheme)
     from quality import sentencehood as S, readability as R
+    # One scheme for the spelling tokens below and the lexicon built after
+    # them, so the repetitions and the readability report cut alike.
+    scheme = resolve_reader_scheme(None)
     text = [l["text"] for l in lines]
     repeats = defaultdict(list)
     endings = []
     for row in lines:
-        tokens = line_tokens(row["text"], strip_parens=False)
+        tokens = line_tokens(row["text"], strip_parens=False, scheme=scheme)
         for index, word in enumerate(tokens):
             repeats[word.lower()].append({"line_id": row["id"], "token": index + 1, "source_ranges": _ranges(row)})
         endings.append({"line_id": row["id"], "word": tokens[-1] if tokens else None})
@@ -808,7 +813,7 @@ def analyze_language(source, declarations=None):
                    "reason": None if math.isfinite(mattr) else "no countable tokens"}
     try:
         lex = Lexicon(strip_parens=False, fallback=declarations.get("phonology", {}).get("fallback"),
-                      pronunciations=declarations.get("pronunciations"))
+                      pronunciations=declarations.get("pronunciations"), reader_scheme=scheme)
     except LexicalAssetUnavailable as exc:
         for value in unavailable.values():
             value["reason"] = str(exc)

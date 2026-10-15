@@ -124,6 +124,10 @@ def lyric_lines(path):
 #: G2P fallback at min_confidence="low", from which read_line derives the
 #: matching Lexicon so refusals and syllables can never disagree.
 READER_MODES = ("default", "fallback-low")
+#: One per (mode, reader scheme), keyed by this process's scheme at the call:
+#: the reader reads through `eng._lexicon()` and caches a G2P fallback built
+#: on it, so one instance shared by a warm worker's v1 and v2 requests would
+#: hand every later request the first request's lexicon.
 _READERS = {}
 
 
@@ -134,10 +138,12 @@ def reader(mode="default"):
             f"reader {mode!r} is not declared; the modes are {READER_MODES}")
     if mode == "default":
         return None
-    if mode not in _READERS:
+    import lyric_harness as _lh
+    key = (mode, _lh.resolve_reader_scheme(None))
+    if key not in _READERS:
         from quality.phonology.eng import English
-        _READERS[mode] = English(fallback="low")
-    return _READERS[mode]
+        _READERS[key] = English(fallback="low")
+    return _READERS[key]
 
 
 def measure_line(text, phon=None):
@@ -154,15 +160,19 @@ def measure_line(text, phon=None):
     CERTAIN/DERIVED split the reader registration adjudicates with.
     """
     import quality.fit as FT
-    lu = FT.read_line(text, phon=phon) if phon is not None \
-        else FT.read_line(text)
-    causes = sorted({r.cause for r in lu.refused})
-    if not lu.units and not causes:
-        causes = ["ZERO_UNITS"]
-    if any(u.prominence is None for u in lu.units):
-        causes.append("PROMINENCE_UNDECIDED")
-    derived = len(phon.derived(text)) if phon is not None \
-        and hasattr(phon, "derived") else 0
+    import lyric_harness as LH
+    # Pinned to reader scheme v1: the preregistered calibration (run one, the
+    # amendment and the reader trial) was measured with the pre-batch reader.
+    with LH.reader_scheme_scope("v1"):
+        lu = FT.read_line(text, phon=phon) if phon is not None \
+            else FT.read_line(text)
+        causes = sorted({r.cause for r in lu.refused})
+        if not lu.units and not causes:
+            causes = ["ZERO_UNITS"]
+        if any(u.prominence is None for u in lu.units):
+            causes.append("PROMINENCE_UNDECIDED")
+        derived = len(phon.derived(text)) if phon is not None \
+            and hasattr(phon, "derived") else 0
     return lu.syllables, len(lu.prominent), derived, tuple(causes)
 
 

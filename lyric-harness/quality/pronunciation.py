@@ -29,20 +29,119 @@ def dictionary_readings(lex, word):
     return [list(p) for p in lex.entries.get(fold_apostrophes(word).lower(), [])]
 
 
+def _scheme(lex):
+    from lyric_harness import resolve_reader_scheme
+    return resolve_reader_scheme(getattr(lex, 'reader_scheme', None))
+
+
+NUMBERINGS = ('v1', 'v1+voices', 'v2', 'v2+voices')
+
+
+def numbering_of(lex):
+    return _scheme(lex) + ('' if lex.strip_parens else '+voices')
+
+
+def numbered_token(line, token, lex, numbering=None, word=None):
+    """Resolve a caller coordinate by identical server-derived raw pieces."""
+    from lyric_harness import reader_token_spans
+    current = numbering_of(lex)
+    if numbering is not None and numbering not in NUMBERINGS:
+        raise ValueError('numbering must be v1, v1+voices, v2 or v2+voices')
+
+    def tokens(mark):
+        return reader_token_spans(line, '+voices' not in mark, mark.split('+')[0]) or []
+
+    def at(mark):
+        rows = tokens(mark)
+        if type(token) is int and 1 <= token <= len(rows):
+            value = rows[token - 1]
+            if word is None or value[0] == word:
+                return value
+        return None
+
+    dst = tokens(current)
+    if numbering is not None:
+        origin = at(numbering)
+    else:
+        now = at(current)
+        oldmark = 'v1' + ('' if lex.strip_parens else '+voices')
+        old = at(oldmark)
+        if now and old and now[1] != old[1]:
+            raise ValueError(f'ambiguous token {token} in {line!r}: '
+                             f'{oldmark} binds {old!r}; {current} binds {now!r}; '
+                             'declare numbering explicitly')
+        origin = now or old
+    hits = [i + 1 for i, item in enumerate(dst) if origin is not None and item == origin]
+    if len(hits) != 1:
+        raise ValueError(f'cannot resolve token {token} in {line!r} under {current}: '
+                         'no unique token has the same word and raw pieces; declare numbering')
+    if hits[0] != token:
+        notices = getattr(lex, '_numbering_notices', None)
+        if notices is not None:
+            notices.append(f'NUMBERING: token {token} -> {hits[0]} in {line!r} '
+                           f'under {current}; identical raw pieces preserved')
+    return hits[0]
+
+
+def numbered_groups(groups, lines, lex, numbering=None):
+    """Normalize explicit Tn slots only; named placements retain their meaning."""
+    import re
+    out = []
+    for group in groups:
+        members = []
+        for member in group:
+            match = re.fullmatch(r'(\d+)\.T([1-9]\d*)', str(member))
+            if match:
+                line, token = map(int, match.groups())
+                if not 1 <= line <= len(lines):
+                    raise ValueError(f'{member}: line does not exist')
+                mapped = numbered_token(lines[line - 1], token, lex, numbering)
+                member = f'{line}.T{mapped}'
+            members.append(member)
+        out.append(members)
+    return out
+
+
 def validate_choices(rows, lex):
+    """A declaration's `token` is a 1-based position in `line_tokens` of its
+    exact line, cut under the lexicon's own reader scheme: under `v2` a
+    numeral token (`1966`) is a position like any other, and a declared
+    reading is the only way it reads."""
     from lyric_harness import line_tokens
     if not isinstance(rows, list) or len(rows) > MAX_CHOICES:
         raise ValueError('pronunciations must be a list of at most 128 occurrence declarations')
     out, seen = [], set()
     for row in rows:
-        if not isinstance(row, dict) or set(row) != {'line', 'token', 'word', 'phones', 'basis', 'source'}:
+        guard = getattr(lex, '_numbering_guard', False)
+        required = {'line', 'token', 'word', 'phones', 'basis', 'source'}
+        if not isinstance(row, dict) or not (set(row) == required or
+                guard and set(row) == required | {'numbering'}):
             raise ValueError('each pronunciation requires line, token, word, phones, basis and source')
+        if 'numbering' in row and row['numbering'] not in NUMBERINGS:
+            raise ValueError('numbering must be v1, v1+voices, v2 or v2+voices')
         line, token, word, phones = (row[k] for k in ('line', 'token', 'word', 'phones'))
         if not isinstance(line, str) or not line.strip() or len(line) > 4000 or any(c in line for c in '\r\n'):
             raise ValueError('pronunciation line must be one exact nonempty lyric line, at most 4000 characters')
-        words = line_tokens(line, strip_parens=lex.strip_parens)
+        scheme = _scheme(lex)
+        if guard and (scheme == 'v2' or 'numbering' in row):
+            row = copy.deepcopy(row)
+            original_token = token
+            token = numbered_token(line, token, lex, row.get('numbering'), word)
+            row['token'] = token
+            # Keep explicit provenance and record every migrated coordinate.
+            # Unmarked unchanged rows alone preserve the historical six fields.
+            if 'numbering' in row or token != original_token:
+                row['numbering'] = numbering_of(lex)
+        words = line_tokens(line, strip_parens=lex.strip_parens, scheme=scheme)
         if type(token) is not int or not 1 <= token <= len(words) or words[token-1] != word:
-            raise ValueError('pronunciation token/word must match the exact sung token in its declared line')
+            # Under v2 the refusal names what the position holds, because the
+            # numbering moved for some lines; v1 keeps the pre-batch text.
+            found = ('' if scheme == 'v1' else
+                     f' ({word!r} declared; token {token} there is {words[token-1]!r})'
+                     if type(token) is int and 1 <= token <= len(words)
+                     else f' ({word!r} declared; the line has {len(words)} sung tokens)')
+            raise ValueError('pronunciation token/word must match the exact sung token in its declared line'
+                             + found)
         if (line, token) in seen:
             raise ValueError('duplicate pronunciation occurrence; declare one reading per token')
         seen.add((line, token))
@@ -60,6 +159,78 @@ def validate_choices(rows, lex):
             raise ValueError(f'{word!r}: chosen phones are not a CMUdict reading; use declared with an explicit source for a supplied pronunciation')
         out.append(copy.deepcopy(row))
     return out
+
+
+def rebind_occurrences(rows, from_scheme, to_scheme, strip_parens=True):
+    """-> `rows` with each declaration's `token` moved from its position under
+    `from_scheme` to the token with the IDENTICAL raw span under `to_scheme`.
+
+    A declaration names a physical token of an exact line. When the reader
+    scheme changes, the same token can sit at another position (`U--h, Lawdy`
+    is two tokens under `v1` and three under `v2`, so `Lawdy` moves from 2 to
+    3). Its raw span does not move, so that is what binds it: the row moves to
+    the one token whose pieces are the same codepoints and whose text is the
+    declared word. When no such token exists the row cannot be carried and
+    this raises ValueError naming it -- a declaration is never re-attached to
+    a nearby word. Nothing but `token` changes; rows are copied.
+    """
+    from lyric_harness import reader_token_spans
+    out = []
+    for row in rows:
+        row = copy.deepcopy(row)
+        line, token, word = row['line'], row['token'], row['word']
+        src = reader_token_spans(line, strip_parens, from_scheme)
+        if src is None or type(token) is not int or not 1 <= token <= len(src) \
+                or src[token-1][0] != word:
+            raise ValueError(f'cannot rebind {word!r} at token {token} of {line!r}: '
+                             f'it is not that token under scheme {from_scheme}')
+        dst = reader_token_spans(line, strip_parens, to_scheme)
+        hits = [k for k, (text, pieces) in enumerate(dst or ())
+                if pieces == src[token-1][1] and text == word]
+        if len(hits) != 1:
+            raise ValueError(f'cannot rebind {word!r} at token {token} of {line!r}: '
+                             f'no token under scheme {to_scheme} has the same raw span')
+        row['token'] = hits[0] + 1
+        out.append(row)
+    return out
+
+
+#: The approved runtime asset whose declarations were BOUND UNDER READER
+#: SCHEME v1: prepared 2026-10-09, before the reader batch, and hash-pinned in
+#: `data/runtime_assets.json` (the reader scheduler injects one candidate's
+#: set as a Library analysis's declarations). Its bytes stay as approved; a
+#: `v2` reader rebinds a set from it by raw span (`rebind_occurrences`), and a
+#: `v1` replay reads it verbatim.
+V1_BOUND_ASSET = 'gutenberg_next_ten_pronunciations'
+_V1_BOUND_SETS = None
+
+
+def v1_bound_declarations(rows):
+    """-> True when `rows` is exactly one candidate's declaration set from
+    `V1_BOUND_ASSET`, read from the files whose sizes and sha256 the runtime
+    registry pins (a file that is not those bytes contributes nothing)."""
+    global _V1_BOUND_SETS
+    if _V1_BOUND_SETS is None:
+        import os
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        sets = set()
+        try:
+            with open(os.path.join(root, 'data', 'runtime_assets.json'), encoding='utf-8') as fh:
+                registry = json.load(fh)
+            asset = next(a for a in registry.get('assets', []) if a.get('id') == V1_BOUND_ASSET)
+            for entry in asset.get('files', []):
+                if entry['path'].endswith('/bindings.json'):
+                    continue
+                with open(os.path.join(root, entry['path']), 'rb') as fh:
+                    raw = fh.read()
+                if len(raw) != entry['bytes'] or hashlib.sha256(raw).hexdigest() != entry['sha256']:
+                    continue
+                for payload in json.loads(raw.decode('utf-8')).values():
+                    sets.add(fingerprint(payload.get('pronunciations') or []))
+        except (OSError, ValueError, StopIteration, KeyError):
+            sets = set()
+        _V1_BOUND_SETS = frozenset(sets)
+    return bool(rows) and fingerprint(rows) in _V1_BOUND_SETS
 
 
 def fingerprint(rows):
@@ -168,7 +339,8 @@ def reading_options(lex, lines, coverage=None):
             continue
         seen.add(line)
         matching = [i+1 for i, text in enumerate(lines) if text == line]
-        for index, word in enumerate(line_tokens(line, strip_parens=lex.strip_parens)):
+        for index, word in enumerate(line_tokens(line, strip_parens=lex.strip_parens,
+                                                 scheme=_scheme(lex))):
             prons = dictionary_readings(lex, word)
             distinct = sorted({tuple(p) for p in prons})
             if len(distinct) == 1:
@@ -179,6 +351,7 @@ def reading_options(lex, lines, coverage=None):
             eligible += 1
             if len(items) < MAX_CHOICES:
                 items.append({'line': line, 'token': index+1, 'word': word,
+                    'numbering': numbering_of(lex),
                     'matching_lines': matching,
                     'dictionary_readings': [dict({'phones': list(p),
                         'stress': [s['stress'] for s in syllabify(p)],
@@ -202,8 +375,8 @@ def for_member(lex, line, member, endpoint=-1):
     scoped = for_line(lex, line)
     if not getattr(scoped, '_pronunciation_tokens', None):
         return scoped
-    words = line_tokens(line, strip_parens=lex.strip_parens)
-    tokens = line_tokens(member, strip_parens=lex.strip_parens)
+    words = line_tokens(line, strip_parens=lex.strip_parens, scheme=_scheme(lex))
+    tokens = line_tokens(member, strip_parens=lex.strip_parens, scheme=_scheme(lex))
     end = endpoint % len(words) if endpoint is not None and words else None
     starts = [i for i in range(len(words)-len(tokens)+1)
               if words[i:i+len(tokens)] == tokens and
@@ -249,7 +422,7 @@ def occurrence_readings(lex, line, words, t):
     of `words` in `line`, or None when it cannot be located or has no reading.
     A token the writer already declared answers only the declared reading."""
     from lyric_harness import line_tokens
-    lt = line_tokens(line, strip_parens=lex.strip_parens)
+    lt = line_tokens(line, strip_parens=lex.strip_parens, scheme=_scheme(lex))
     j = occurrence_position(words, t, lt)
     if j is None:
         return None
