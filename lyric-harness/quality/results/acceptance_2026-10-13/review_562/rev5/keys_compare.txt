@@ -1,0 +1,40 @@
+type 0                     r0 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 0                     r1 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 0                     r2 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 0                     r3 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 0                     r4 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 16                    r0 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 16                    r1 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 16                    r2 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 16                    r3 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 16                    r4 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 33                    r0 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 33                    r1 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 33                    r2 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 33                    r3 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type 33                    r4 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type settle                r0 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type settle                r1 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type settle                r2 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type settle                r3 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+type settle                r4 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+ArrowRight 0               r0 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+ArrowRight 0               r1 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+ArrowRight 0               r2 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+ArrowRight 0               r3 | f25f VIS L30 208.9..237.7 pg=1240                 | 3ff4 VIS L30 208.9..237.7 pg=1240
+ArrowRight 0               r4 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 VIS L30 208.9..237.7 pg=1240
+ArrowDown 0                r0 | f25f VIS L31 208.7..237.5 pg=1269                 | 3ff4 VIS L31 208.7..237.5 pg=1269
+ArrowDown 0                r1 | f25f HID L31 483.7..512.5 [ly-mnav] pg=994        | 3ff4 HID L31 483.7..512.5 [ly-mnav] pg=994
+ArrowDown 0                r2 | f25f VIS L31 208.7..237.5 pg=1269                 | 3ff4 VIS L31 208.7..237.5 pg=1269
+ArrowDown 0                r3 | f25f VIS L31 208.7..237.5 pg=1269                 | 3ff4 VIS L31 208.7..237.5 pg=1269
+ArrowDown 0                r4 | f25f VIS L31 208.7..237.5 pg=1269                 | 3ff4 HID L31 483.7..512.5 [ly-mnav] pg=994
+PageDown 0                 r0 | f25f HID L30 -47.1..-18.3 pg=1496                 | 3ff4 HID L30 -47.1..-18.3 pg=1496
+PageDown 0                 r1 | f25f HID L30 -47.1..-18.3 pg=1496                 | 3ff4 HID L30 -47.1..-18.3 pg=1496
+PageDown 0                 r2 | f25f HID L30 -47.1..-18.3 pg=1496                 | 3ff4 HID L30 1098.9..1127.7 pg=350
+PageDown 0                 r3 | f25f HID L30 -47.1..-18.3 pg=1496                 | 3ff4 HID L30 -47.1..-18.3 pg=1496
+PageDown 0                 r4 | f25f HID L30 -47.1..-18.3 pg=1496                 | 3ff4 HID L30 -47.1..-18.3 pg=1496
+scrollaway-then-type 0     r0 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 HID L30 608.9..637.7 pg=840
+scrollaway-then-type 0     r1 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 HID L30 608.9..637.7 pg=840
+scrollaway-then-type 0     r2 | f25f HID L30 483.9..512.7 [ly-mnav] pg=965        | 3ff4 HID L30 483.9..512.7 [ly-mnav] pg=965
+scrollaway-then-type 0     r3 | f25f HID L30 608.9..637.7 pg=840                  | 3ff4 HID L30 608.9..637.7 pg=840
+scrollaway-then-type 0     r4 | f25f HID L30 608.9..637.7 pg=840                  | 3ff4 HID L30 483.9..512.7 [ly-mnav] pg=965

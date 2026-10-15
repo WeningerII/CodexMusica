@@ -1,0 +1,11 @@
+# rev4 (head e079aeba). S=scratchpad R4=$S/review_562/rev4. env NODE_PATH=/home/user/CodexMusica/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
+git -C /home/user/CodexMusica worktree remove --force $S/wt-562c
+git -C /home/user/CodexMusica fetch origin e079aebafa911fced461cd39e2d8d4328fd7db83
+git -C /home/user/CodexMusica worktree add -f $S/wt-562d e079aebafa911fced461cd39e2d8d4328fd7db83 ; ln -s node_modules; cp cmudict.dict
+git -C /home/user/CodexMusica show f25faf00:codex.html > $R4/bundles/codex.f25faf00.html
+(cd $S/wt-562d && time node scripts/check_lyrics_page.js) > $R4/full_562d.log
+# full suite PASS 747 exit 0
+cd $S/wt-562d; TEST_EVIDENCE=$R4/vp_green node scripts/check_lyrics_viewport.js; TEST_HTML=$R4/bundles/codex.f25faf00.html TEST_EVIDENCE=$R4/vp_red_f25f node scripts/check_lyrics_viewport.js
+TEST_EVIDENCE=$R4/gate_green node scripts/check_lyrics_gate.js
+node scripts/build_html.js --out=$R4/codex_562d_rebuilt.html --check --quiet; cmp; eslint; prettier --check
+node $R4/probe_keys.js $S/wt-562d 30 > $R4/keys_e079.json; node $R4/probe_keys.js $R4/rootf25f 30 > $R4/keys_f25f.json   # rootf25f = symlinks to wt-562d + f25f codex.html; 3 reps each

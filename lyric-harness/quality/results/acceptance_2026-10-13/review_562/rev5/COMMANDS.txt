@@ -1,0 +1,14 @@
+# rev5 (head 3ff4aff7). S=scratchpad R5=$S/review_562/rev5. env NODE_PATH=/home/user/CodexMusica/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
+git -C /home/user/CodexMusica worktree remove --force $S/wt-562d   (wt-562c already removed in rev4)
+git -C /home/user/CodexMusica fetch origin 3ff4aff7eed653d62d346ecfca186c5899f8cd78
+git -C /home/user/CodexMusica worktree add -f $S/wt-562e 3ff4aff7eed653d62d346ecfca186c5899f8cd78 ; node_modules symlink; cmudict copy
+git show f25faf00:codex.html / e079aeba:codex.html > $R5/bundles/
+(cd $S/wt-562e && time node scripts/check_lyrics_page.js) > $R5/full_562e.log
+# full suite PASS 747 exit 0
+cd $S/wt-562e
+TEST_EVIDENCE=$R5/vp_green node scripts/check_lyrics_viewport.js ; TEST_HTML=$R5/bundles/codex.f25faf00.html TEST_EVIDENCE=$R5/vp_red_f25f node scripts/check_lyrics_viewport.js
+TEST_EVIDENCE=$R5/gate_green node scripts/check_lyrics_gate.js
+TEST_EVIDENCE=$R5/nat_green node scripts/check_lyrics_natural_resize.js ; TEST_HTML=$R5/bundles/codex.e079aeba.html TEST_EVIDENCE=$R5/nat_red_e079 node scripts/check_lyrics_natural_resize.js ; TEST_HTML=$R5/bundles/codex.f25faf00.html TEST_EVIDENCE=$R5/nat_red_f25f node scripts/check_lyrics_natural_resize.js
+build/cmp/eslint/prettier/hash/check-count commands as rev4
+REPS=5 node $R5/probe_keys.js $S/wt-562e 30 > $R5/keys_3ff4.json; REPS=5 node $R5/probe_keys.js $R5/rootf25f 30 > $R5/keys_f25f.json   # actual page.keyboard events; rootf25f = symlinks + f25f bundle
+node $R3/probe_rev3.js $S/wt-562e > $R5/probe_rev3_on_3ff4.json; node $R3/probe_rev3b.js $S/wt-562e > $R5/probe_rev3b_on_3ff4.json
