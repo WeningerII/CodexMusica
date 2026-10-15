@@ -650,6 +650,123 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
 // is flagged as needing the writer's decision, shown, and stops every send. A
 // marked row (every row this page writes) is left untouched, wherever the text
 // came from, and an unmarked row is migrated wherever it came from.
+// P-A (BB8 #527 6193594353, 2026-10-15). A word number depends on whether
+// asides are sung. A row records the setting it was counted under
+// (`— numbering v2` / `v2+voices`, migration and forms alike), and the page
+// reads it into the current setting by raw span. A `— cut v2` row that
+// records no setting -- what this page's migration wrote on b887e5ef -- binds
+// only where both settings name the same characters, and otherwise stops the
+// send with its bytes kept: it is never read under whatever setting the page
+// has now, which bound `my` for `love` after a voices toggle.
+function unitVoicesBasis() {
+  stage = 'V. voices basis';
+  const src = fs.readFileSync(UNIT_SOURCE, 'utf8');
+  const draft = { value: '' };
+  const toasts = [];
+  const sends = [];
+  const app = { lyricMeta: { version: 1 }, history: ['before'], historyIndex: 0, lyrics: '' };
+  const ctx = vm.createContext({
+    console,
+    $ui: (id) => (id === 'lyrics-draft' ? draft : null),
+    uiRegisterPage: () => {},
+    uiCount: (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`,
+    chatState: { generation: 0, lyric: null, busy: false },
+    UI: {},
+    app,
+    lyricMetaOf: (v) => (v && v.version === 1 ? v : { version: 1, notes: {}, ui: {} }),
+    uiAutosave: () => {},
+    uiSaveLyrics: () => (app.lyrics = draft.value),
+    sessionSnapshot: () => ({ lyrics: app.lyrics, lyricMeta: { ...app.lyricMeta } }),
+    showToast: (m, tone) => toasts.push([m, tone]),
+    _chatSend: (...a) => (sends.push(a), Promise.resolve({ ok: true })),
+    uiSwitchChat: () => (sends.push(['switch']), false),
+  });
+  vm.runInContext(fs.readFileSync(path.join(ROOT, 'src/lyric-tokens.js'), 'utf8'), ctx);
+  vm.runInContext(src, ctx, { filename: 'src/pages/lyrics.js' });
+  const run = (code, vars = {}) => {
+    Object.assign(ctx, vars);
+    return vm.runInContext(code, ctx);
+  };
+  ctx.lyShowTab = () => {};
+  ctx.lyRefresh = () => {};
+  ctx.lyCloseMenus = () => {};
+  const LINE = 'Oh--oh, (ah) oh my love';
+  const song = (rows, voices) =>
+    `${rows.join('\n')}\n${voices ? '[SETUP — voices — sung]\n' : ''}\n[VERSE]\n${LINE}\nyou are my dove`;
+  const wire = (text) => run('lyDeclarationsOf(lyParse(__t))', { __t: text });
+  const word = (text, key = 'rhyme groups') => {
+    const m = run('lyParse(__t)', { __t: text });
+    const g = run('lyParseGroups(lySetupOf(__m, __k)[0].value)', { __m: m, __k: key });
+    return g[0][0].undecided ? null : run('lyMemberWord(__m, __x)', { __m: m, __x: g[0][0] });
+  };
+  // 1. A legacy row migrated under each setting records that setting.
+  for (const voices of [false, true]) {
+    const migrated = run('lyMigrateSavedReadings(__t).text', {
+      __t: `[SETUP — rhyme groups — 1.T4,2]\n${voices ? '[SETUP — voices — sung]\n' : ''}\n[VERSE]\nOh--oh, oh my love\nyou are my dove`,
+    });
+    check(
+      migrated.split('\n')[0] ===
+        `[SETUP — rhyme groups — 1.T5,2 — numbering ${voices ? 'v2+voices' : 'v2'} — cut v2]`,
+      `a migrated row did not record its voices setting: ${migrated.split('\n')[0]}`
+    );
+  }
+  // 2. BB8's repro: a row counted with asides unsung, then voices set to
+  // sung. It binds love (T6 under v2+voices), never my.
+  const counted = '[SETUP — rhyme groups — 1.T5,2.end — numbering v2 — cut v2]';
+  check(word(song([counted], false)) === 'love', 'the counted row lost love before the toggle');
+  const after = wire(song([counted], true));
+  check(
+    word(song([counted], true)) === 'love' &&
+      after.groups === '1.T6,2.end' &&
+      after.numbering === 'v2+voices',
+    `after the voices toggle the row was sent as ${JSON.stringify([after.groups, after.numbering])}`
+  );
+  // 3. The same row as b887e5ef stored it (no setting recorded): under
+  // either setting the two plausible counts name different words (love,
+  // my), so it is an open decision and nothing is sent; its bytes stay.
+  const bare = '[SETUP — rhyme groups — 1.T5,2.end — cut v2]';
+  for (const voices of [false, true]) {
+    const text = song([bare], voices);
+    const w = wire(text);
+    check(
+      word(text) === null && !w.groups && (w.groups_need_decision || []).length === 1,
+      `a row with no recorded setting was guessed (voices ${voices}): ${JSON.stringify(w)}`
+    );
+  }
+  // 4. Where both settings name the same characters, such a row binds.
+  const agreed = wire(
+    '[SETUP — rhyme groups — 1.T5,2.T4 — cut v2]\n[SETUP — voices — sung]\n\n[VERSE]\nOh--oh, oh my love\nyou are my dove'
+  );
+  check(
+    agreed.groups === '1.T5,2.T4' && agreed.numbering === 'v2+voices',
+    `a row both settings agree on was not carried: ${JSON.stringify([agreed.groups, agreed.numbering])}`
+  );
+  // 5. Readings: a basis that does not hold the saved word there is ruled
+  // out; one that names other characters of the same spelling is not.
+  const reading = (token, w, line) =>
+    `[SETUP — reading — token ${token} ${JSON.stringify(w)} in ${JSON.stringify(line)} — L AH1 V — declared — source: the singer — cut v2]`;
+  const r1 = wire(song([reading(5, 'love', LINE)], true)).pronunciations;
+  check(
+    r1 && r1.length === 1 && r1[0].token === 6 && r1[0].numbering === 'v2+voices',
+    `a reading with one plausible basis was not carried: ${JSON.stringify(r1)}`
+  );
+  const echo = 'oh (oh) oh love';
+  const r2 = wire(`${reading(2, 'oh', echo)}\n[SETUP — voices — sung]\n\n[VERSE]\n${echo}`);
+  check(
+    !r2.pronunciations && (r2.readings_need_decision || []).length === 1,
+    `a reading two settings place on different characters was guessed: ${JSON.stringify(r2)}`
+  );
+  // 6. The page path: an undecided row stops the send and keeps its bytes.
+  const stored = song([bare], true);
+  draft.value = stored;
+  app.lyrics = stored;
+  app.lyricMeta.drafts = app.lyricMeta.drafts || {};
+  const ok = run('lySubmitLyricsAction("review")');
+  return Promise.resolve(ok).then((value) => {
+    check(value === false && sends.length === 0, 'a row with no recorded setting was sent');
+    check(draft.value === stored, 'a refused send rewrote the stored row');
+  });
+}
 function unitSavedReadings() {
   stage = 'R. saved readings';
   const src = fs.readFileSync(UNIT_SOURCE, 'utf8');
@@ -922,7 +1039,7 @@ function unitSavedReadings() {
       'migration not saved'
     );
     check(
-      draft.value.split('\n')[0].endsWith(' — source: the singer — cut v2]') &&
+      draft.value.split('\n')[0].endsWith(' — source: the singer — numbering v2 — cut v2]') &&
         run('lySetupOf(lyParse(__t), "reading")[0].cut', { __t: draft.value }) === 'v2',
       'the rebound row does not carry the cut it is now numbered under'
     );
@@ -1010,9 +1127,9 @@ function unitSavedReadings() {
     check(run('lyEnsureTokenScheme()') === true, 'word places were not migrated');
     const rows6 = draft.value.split('\n');
     check(
-      rows6[0] === '[SETUP — rhyme groups — 1.T5,2 — cut v2]' &&
+      rows6[0] === '[SETUP — rhyme groups — 1.T5,2 — numbering v2 — cut v2]' &&
         rows6[1] ===
-          '[SETUP — returns — 1.T3,3.T3;1.head (carried across the word-cut change),3.head (carried across the word-cut change) — cut v2]',
+          '[SETUP — returns — 1.T3,3.T3;1.head (carried across the word-cut change),3.head (carried across the word-cut change) — numbering v2 — cut v2]',
       `word places not rebound and marked: ${JSON.stringify(rows6.slice(0, 2))}`
     );
     const love = member(draft.value, 'rhyme groups', 0);
@@ -1067,7 +1184,7 @@ function unitSavedReadings() {
     check(
       draft.value.split('\n')[0] ===
         // `1,2` is a whole-line return: never carried (3PO #519 6166749777).
-        '[SETUP — returns — 1.T1 (numbered under the earlier cut),2.T1 (numbered under the earlier cut);1,2 — cut v2]',
+        '[SETUP — returns — 1.T1 (numbered under the earlier cut),2.T1 (numbered under the earlier cut);1,2 — numbering v2 — cut v2]',
       `the lost word place was moved or dropped: ${draft.value.split('\n')[0]}`
     );
     check(member(draft.value, 'returns', 0).word === null, 'a lost word place binds a word');
@@ -1295,7 +1412,8 @@ async function unitPolicyA() {
     const t = song([`[SETUP — ${key} — ${n('dash')}.T2,${n('plain')}.T2]`]);
     const gt = migrate(t);
     check(
-      gt.text.split('\n')[0] === `[SETUP — ${key} — ${n('dash')}.T3,${n('plain')}.T2 — cut v2]` &&
+      gt.text.split('\n')[0] ===
+        `[SETUP — ${key} — ${n('dash')}.T3,${n('plain')}.T2 — numbering v2 — cut v2]` &&
         gt.carried.length === 0 &&
         gt.moved.length === 1,
       `${key} Tn: ${gt.text.split('\n')[0]}`
@@ -1648,7 +1766,7 @@ async function unitBoundaries() {
   const PLAIN = 'we sing it plain tonight';
   const body = `[VERSE]\n${OH}\n${DOVE}\n${OH}\n${PLAIN}`;
   const LEGACY = '[SETUP — returns — 1.T2,3.T2]';
-  const MIGRATED = '[SETUP — returns — 1.T3,3.T3 — cut v2]';
+  const MIGRATED = '[SETUP — returns — 1.T3,3.T3 — numbering v2 — cut v2]';
 
   // 1. F1, an in-page boundary (send, mount): the writer's own text is
   // recorded first, the migrated text replaces that same step, Undo goes to
@@ -1693,7 +1811,7 @@ async function unitBoundaries() {
   const ONE = '[SETUP — returns — 1.T2, 2.end]';
   let s1 = selected(ONE, ONE.indexOf('2.end'), ONE.indexOf('2.end') + 5);
   check(
-    s1.text.startsWith('[SETUP — returns — 1.T3, 2.end — cut v2]') &&
+    s1.text.startsWith('[SETUP — returns — 1.T3, 2.end — numbering v2 — cut v2]') &&
       s1.got === '2.end' &&
       s1.sel.start === 25,
     `a selection of the unchanged 2.end did not keep its characters: ${JSON.stringify(s1.sel)} “${s1.got}”`
@@ -1736,7 +1854,7 @@ async function unitBoundaries() {
   // The multi-member variant: two renumbered members, a carried one and
   // three unchanged ones, with the writer's own spaces, in one row.
   const MANY = '[SETUP — rhyme groups — 1.T2,2.end;3.T2, 4.head ,2;1.end,4]';
-  const wantMany = `[SETUP — rhyme groups — 1.T3,2.end;3.T3, 4.head ,2;1.end ${'(carried across the word-cut change)'},4 — cut v2]`;
+  const wantMany = `[SETUP — rhyme groups — 1.T3,2.end;3.T3, 4.head ,2;1.end ${'(carried across the word-cut change)'},4 — numbering v2 — cut v2]`;
   for (const member of ['2.end', ' 4.head ', '2;1', ',4', '1.T2,2.end;3']) {
     const at = MANY.indexOf(member);
     const m = selected(MANY, at, at + member.length);
@@ -1750,7 +1868,7 @@ async function unitBoundaries() {
   // mark inserted before `]`) covers the insertion: nothing is lost from it.
   const at4 = MANY.indexOf('4]');
   check(
-    selected(MANY, at4, at4 + 2).got === '4 — cut v2]',
+    selected(MANY, at4, at4 + 2).got === '4 — numbering v2 — cut v2]',
     'a selection across the inserted mark lost characters'
   );
   delete app.lyricMeta.renumbered; // these probes' own record
@@ -1947,7 +2065,7 @@ async function unitBoundaries() {
   check(
     run('lyMigrateSavedReadings(__t).text', {
       __t: `[SETUP — returns — 2.end, 1.T2]\n\n[VERSE]\n${OH}\n${PLAIN}`,
-    }).split('\n')[0] === '[SETUP — returns — 2.end, 1.T3 — cut v2]',
+    }).split('\n')[0] === '[SETUP — returns — 2.end, 1.T3 — numbering v2 — cut v2]',
     'a rewritten row respelled a member that did not change'
   );
 
@@ -3901,8 +4019,8 @@ async function browserChecks(chromium) {
         return { changed, text: d.value, caret: [d.selectionStart, d.selectionEnd] };
       });
       const migrated = typed
-        .replace(TOP, '[SETUP — rhyme groups — 2.T5,1.T2 — cut v2]')
-        .replace(END, '[SETUP — returns — 2.T3,1.T2 — cut v2]');
+        .replace(TOP, '[SETUP — rhyme groups — 2.T5,1.T2 — numbering v2 — cut v2]')
+        .replace(END, '[SETUP — returns — 2.T3,1.T2 — numbering v2 — cut v2]');
       check(st.changed && st.text === migrated, `the send boundary: ${JSON.stringify(st.text)}`);
       const shifted = migrated.indexOf('--oh my') + '--oh my'.length;
       check(
@@ -3938,7 +4056,7 @@ async function browserChecks(chromium) {
       const imported = await page.evaluate(() => $ui('lyrics-draft').value);
       const wantImported = file.replace(
         reading,
-        `[SETUP — reading — token 3 "oh" in ${JSON.stringify(OH)} — OW1 — declared — source: me — cut v2]`
+        `[SETUP — reading — token 3 "oh" in ${JSON.stringify(OH)} — OW1 — declared — source: me — numbering v2 — cut v2]`
       );
       check(imported === wantImported, `the import was not migrated: ${JSON.stringify(imported)}`);
       [u, r] = await undoRedo();
@@ -4040,7 +4158,10 @@ async function browserChecks(chromium) {
         text: $ui('lyrics-draft').value,
         steps: app.history.map((h) => JSON.parse(h).lyrics),
       }));
-      const openedWant = stored.replace(END, '[SETUP — returns — 2.T3,1.T2 — cut v2]');
+      const openedWant = stored.replace(
+        END,
+        '[SETUP — returns — 2.T3,1.T2 — numbering v2 — cut v2]'
+      );
       check(
         st.text === openedWant && st.steps.length === 1 && st.steps[0] === openedWant,
         `the stored session was not migrated at open: ${JSON.stringify(st)}`
@@ -4129,7 +4250,7 @@ async function browserChecks(chromium) {
       check(lib.err === null, `the Library working copy was refused: ${lib.err}`);
       check(
         lib.text.startsWith(
-          '[SETUP — rhyme groups — 1.T5,4 — cut v2]\n[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\n'
+          '[SETUP — rhyme groups — 1.T5,4 — numbering v2 — cut v2]\n[SETUP — returns — 1,3;1.line,3.line;1.head (carried across the word-cut change),3.head (carried across the word-cut change);2.end,4.end — cut v2]\n'
         ),
         `the Library receiver did not class the returns: ${JSON.stringify(lib.text.split('\n').slice(0, 2))}`
       );
@@ -4263,6 +4384,7 @@ async function browserChecks(chromium) {
   if (!flags['browser-only']) {
     unitWriterPayload();
     await unitSavedReadings();
+    await unitVoicesBasis();
     await unitPolicyA();
     await unitBoundaries();
     unitEndIdentity();

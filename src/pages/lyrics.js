@@ -170,6 +170,37 @@ function lyNumberingTarget(line, token, word, numbering, voices) {
     .filter(Boolean);
   return matches.length === 1 ? matches[0] : null;
 }
+// A number saved under the current reader cut with no voices setting recorded
+// -> its token now, or null. Each setting is a plausible basis unless it
+// cannot have produced the row: the line has no such token under it, or --
+// for a reading -- the saved word is not the token there. The row binds
+// only when every plausible basis names the SAME characters (identity by
+// raw pieces, never spelling), and is null when they part or none remains.
+function lyBasisFreeTarget(line, token, word, voices) {
+  const targets = [];
+  for (const sung of [false, true]) {
+    const at = CMLyricTokens.readerLine(line, { stripParens: !sung }).tokens[token - 1];
+    if (!at || (word !== null && at.text !== word)) continue;
+    targets.push(lyNumberingTarget(line, token, word, lyNumbering(sung), voices));
+  }
+  return targets.length && targets.every((t) => t && t === targets[0]) ? targets[0] : null;
+}
+// A rhyme groups / returns value with each `N.Tk` member moved to
+// `target(line, k)`, or kept under its old number and flagged undecided when
+// that is null. Separators, spacing and other members are untouched.
+function lyRetargetMembers(value, model, target) {
+  return value
+    .split(/([;,])/)
+    .map((part, i) => {
+      if (i % 2) return part;
+      const m = lyParseGroups(part)[0]?.[0];
+      if (!m || m.bad || m.undecided || !lyNumberedMember(m)) return part;
+      const line = model.sung[m.line - 1]?.text;
+      const to = line == null ? null : target(line, Number(m.place.slice(1)));
+      return to ? part.replace(/\.T\d+/i, `.T${to}`) : `${part} ${LY_MEMBER_UNDECIDED}`;
+    })
+    .join('');
+}
 const LY_READING_CUT = `cut ${LY_TOKEN_SCHEME}`;
 const LY_READING_UNDECIDED = 'needs a decision: numbered under the earlier word cut';
 const LY_MEMBER_UNDECIDED = '(numbered under the earlier cut)';
@@ -210,8 +241,36 @@ function lyRebindSpan(line, token, voices, word = null) {
     !voices
   );
 }
+// A number saved under the page's earlier cut, which recorded no voices
+// setting -> { token, word } under the current cut, or { blocked }. Each
+// setting that could have produced it (asides read or not, and -- for a
+// reading -- holding the saved word there) is a plausible basis; it rebinds
+// only when every plausible basis names the same characters, and otherwise
+// is an open decision for the writer, never a guess from the page's voices
+// setting of the moment (P-A, 2026-10-15).
+function lyRebindSpanAgreed(line, token, voices, word = null) {
+  const bases = [false, true]
+    .map((v) => lyV1MigrationSpans(line, v))
+    .filter(
+      (spans) => spans && spans[token - 1] && (word === null || spans[token - 1].text === word)
+    );
+  if (!bases.length) return lyRebindSpan(line, token, voices, word);
+  const at = bases[0][token - 1];
+  if (bases.some((spans) => spans[token - 1].from !== at.from || spans[token - 1].to !== at.to))
+    return {
+      blocked:
+        'its number names different words with asides read and without, and the row does not say which was meant',
+    };
+  return CMLyricTokens.rebindBySpan(
+    line,
+    token,
+    word,
+    bases[0].map((s) => ({ text: s.text, pieces: [[s.from, s.to]] })),
+    !voices
+  );
+}
 // One saved reading -> { token, word } under the current cut, or { blocked }.
-const lyRebindReading = (r, voices) => lyRebindSpan(r.line, r.token, voices, r.word);
+const lyRebindReading = (r, voices) => lyRebindSpanAgreed(r.line, r.token, voices, r.word);
 // The grader's earlier cut of a line (CMLyricTokens.v1GraderSpans, scheme v1)
 // and the current one, as the named places read them.
 function lyLineCuts(text, voices) {
@@ -336,7 +395,10 @@ function lyMigrateSavedReadings(text, keys = null) {
           /^(\[SETUP\s+—\s+reading\s+—\s+)token \d+ "(?:[^"\\]|\\.)*"/i,
           (_, head) => `${head}token ${got.token} ${lyQuote(got.word)}`
         )
-        .replace(/\]$/, `${LY_DASH}${LY_READING_CUT}]`);
+        .replace(
+          /\]$/,
+          `${LY_DASH}numbering ${lyNumbering(model.voices)}${LY_DASH}${LY_READING_CUT}]`
+        );
       out.rebound++;
     }
   }
@@ -364,7 +426,7 @@ function lyMigrateSavedReadings(text, keys = null) {
         }
         const from = Number(m.place.slice(1));
         const got = row
-          ? lyRebindSpan(row.text, from, model.voices)
+          ? lyRebindSpanAgreed(row.text, from, model.voices)
           : { blocked: `line ${m.line} is not in the draft` };
         if (got.blocked) {
           respelled.set(k, `${m.line}.${m.place} ${LY_MEMBER_UNDECIDED}`);
@@ -375,7 +437,8 @@ function lyMigrateSavedReadings(text, keys = null) {
           out.rebound++;
         }
       }
-      if (respelled.size) rows[d.i] = lyRespellGroupRow(rows[d.i], d.value, respelled);
+      if (respelled.size)
+        rows[d.i] = lyRespellGroupRow(rows[d.i], d.value, respelled, model.voices);
     }
   out.text = rows.join('\n');
   return out;
@@ -383,7 +446,7 @@ function lyMigrateSavedReadings(text, keys = null) {
 // One rhyme groups / returns row with the members `respelled` names (member
 // index, in lyParseGroups' order -> new spelling) replaced in place: every
 // other member, separator and space as the writer wrote it, then the mark.
-function lyRespellGroupRow(row, value, respelled) {
+function lyRespellGroupRow(row, value, respelled, voices = false) {
   let k = -1;
   const members = value
     .split(/([;,])/)
@@ -398,7 +461,10 @@ function lyRespellGroupRow(row, value, respelled) {
     .join('');
   const end = row.lastIndexOf(']');
   const at = row.lastIndexOf(value, end);
-  return `${row.slice(0, at)}${members}${LY_DASH}${LY_READING_CUT}${row.slice(at + value.length)}`;
+  // The row records the voices setting its word numbers were counted under
+  // (P-A, 2026-10-15), exactly as a form-written row does (lyGroupRow):
+  // `— cut v2` alone says which reader cut, not whether asides were read.
+  return `${row.slice(0, at)}${members}${lyGroupNumberingMark(members, voices)}${LY_DASH}${LY_READING_CUT}${row.slice(at + value.length)}`;
 }
 // A writer offset in `before` -> the same character in `after`, for a
 // rewrite that replaced whole rows in place (the migration never adds or
@@ -1037,6 +1103,33 @@ function lyParse(text) {
   model.voices = model.setup.some(
     (s) => s.key === 'voices' && /sung/i.test(s.value) && !/unsung/i.test(s.value)
   );
+  // A `— cut v2` row that records no voices setting (as this page's
+  // migration wrote rows before 2026-10-15, P-A) names a number nobody can
+  // say was counted with asides read or not. Its bytes are kept. It binds
+  // where BOTH settings name the same characters of the line -- then which
+  // one was meant cannot matter -- and is otherwise an open decision for the
+  // writer: never read under the voices setting the page happens to have
+  // now, which silently bound `my` for `love` after a toggle.
+  for (const r of model.setup.filter(
+    (s) => s.key === 'reading' && s.cut === LY_TOKEN_SCHEME && !s.numbering && !s.undecided
+  )) {
+    const target = lyBasisFreeTarget(r.line, r.token, r.word, model.voices);
+    if (!target) r.undecided = true;
+    else {
+      r.token = target;
+      r.numbering = lyNumbering(model.voices);
+    }
+  }
+  for (const d of model.setup.filter(
+    (s) => LY_GROUP_KEYS.includes(s.key) && s.cut === LY_TOKEN_SCHEME && !s.numbering
+  )) {
+    if (!/\b\d+\.T\d+\b/i.test(d.value)) continue;
+    d.value = lyRetargetMembers(d.value, model, (line, token) =>
+      lyBasisFreeTarget(line, token, null, model.voices)
+    );
+    d.numbering = lyNumbering(model.voices);
+    d.basisFree = true;
+  }
   for (const r of model.setup.filter((s) => s.key === 'reading' && s.numbering)) {
     const target = lyNumberingTarget(r.line, r.token, r.word, r.numbering, model.voices);
     if (!target) r.undecided = true;
@@ -1047,21 +1140,12 @@ function lyParse(text) {
   }
   // Read each marked row into the current page coordinate before forms or
   // send combine rows. Raw saved text retains its original source marker.
-  for (const d of model.setup.filter((s) => LY_GROUP_KEYS.includes(s.key) && s.numbering)) {
-    d.value = d.value
-      .split(/([;,])/)
-      .map((part, i) => {
-        if (i % 2) return part;
-        const m = lyParseGroups(part)[0]?.[0];
-        if (!m || m.bad || m.undecided || !lyNumberedMember(m)) return part;
-        const line = model.sung[m.line - 1]?.text;
-        const target =
-          line == null
-            ? null
-            : lyNumberingTarget(line, Number(m.place.slice(1)), null, d.numbering, model.voices);
-        return target ? part.replace(/\.T\d+/i, `.T${target}`) : `${part} ${LY_MEMBER_UNDECIDED}`;
-      })
-      .join('');
+  for (const d of model.setup.filter(
+    (s) => LY_GROUP_KEYS.includes(s.key) && s.numbering && !s.basisFree
+  )) {
+    d.value = lyRetargetMembers(d.value, model, (line, token) =>
+      lyNumberingTarget(line, token, null, d.numbering, model.voices)
+    );
   }
   // Names: a bare repeated name is numbered (Verse 1, Verse 2) as it reads.
   const seen = {},
@@ -1504,10 +1588,10 @@ function lyDeclarationsOf(model) {
       phones: r.phones,
       basis: r.basis,
       source: r.source,
-      // Older cut-v2 rows establish the reader but did not record voices.
-      ...(r.numbering || r.cut === LY_TOKEN_SCHEME
-        ? { numbering: r.numbering || lyNumbering(model.voices) }
-        : {}),
+      // A cut-v2 row with no recorded voices setting reaches here only when
+      // both settings name the same characters (lyParse); it never borrows
+      // the page's current setting for a number counted under another.
+      ...(r.numbering ? { numbering: r.numbering } : {}),
     }));
   if (chosen.length) d.pronunciations = chosen;
   const open = readings
