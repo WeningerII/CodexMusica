@@ -18,3 +18,16 @@ These are **early** results. R2 had pushed the heads but hadn't yet posted them 
 - slot, guard and A.2 (H1 changes `quality/pronunciation.py`, not `loop.py` or the reader, so I skipped these);
 - CI;
 - any combined tree.
+
+## P-A head update: `26a2c76f` (PR #566), 17:40 UTC
+
+This head supersedes `d1961461` and adds two commits, the Choose-again and occurrence-offer fixes.
+
+| Check | Result |
+|---|---|
+| `probes/pa_voices/run.sh` | **PASS.** Identical to `d1961461`: 162 cases, 0 WRONG_WORD, 0 DROPPED, 0 GUESSED; 93 SAME_WORD, 69 REFUSED (`pa_26a2c76f.*`). |
+| `scripts/check_lyrics_page.js` | PASS, **699** assertions (668 at `d1961461`). |
+| `node scripts/build_html.js` | rebuilding leaves `codex.html` unchanged (`93675a22…`). |
+| Red control: the `26a2c76f` page checks against `d1961461`'s page (rebuilt, `cmudict.dict` staged) | **6 failures, all real:** 4 in "V. voices basis" (Choose again doesn't settle exactly its row; the card offers occurrences that aren't the saved word) and 2 in "9b2. choose again on an undecided reading" (`pa_page_red_control_d19614615.txt`). A first try without `cmudict.dict` staged added 7 harness-read failures that came from the environment; that run isn't counted. |
+
+The page checks run against fixture replies in emulation. No real device was used, and nothing reached `/chat`.
