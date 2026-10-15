@@ -37,5 +37,15 @@
     "negative": "Identical lyrics with different groups/readings; changed frontend model; absent submitted context; transformed sections/source; missing invocation; lyric_revise final report.",
     "limits": "No section/blueprint equivalence or final-draft mapping inferred. Such reports stay unknown. Existing 754 gate and scratch parity entries above predate this transport followup; no integrated committed HTML qualification.",
     "lint_format_diff": "pass"
+  },
+  "sectioned_binding_followup": {
+    "real_pipeline_and_projection_tests": 3,
+    "adapter_tests": 12,
+    "chat_tests": 28,
+    "positive": "Plain and sectioned pages through real Python/MCP/agent/HTTP/frontend; headers, blank rows, repeated words and emoji; exact UTF-16 occurrence offsets; unmodified producer metadata.",
+    "negative": "Actual HTTP changed-reading/group context with unchanged tool declarations; frontend changed model/snapshot; missing or tampered row projection; added/missing sung content; malformed/inline brackets retained as sung.",
+    "projection": "Every context row accounted for with half-open UTF-16 bounds and SHA256 of complete submitted context document; existing sung-row predicate; frontend independent parser verification; existing ordinal map into full editor text.",
+    "limits": "Excluded structural rows are not claimed as graded obligations. Blueprint/declaration transformations and revised final drafts without exact associations remain unknown. No combined HTML qualification.",
+    "lint_format_diff": "pass"
   }
 }

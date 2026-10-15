@@ -30,11 +30,52 @@
       );
     return value;
   }
+  function projectionMatches(projection, document, sourceText) {
+    if (!projection || typeof document !== 'string' || typeof globalThis.lyParse !== 'function')
+      return false;
+    // Re-read every context row with the page's existing parser. No word search.
+    const parsed = globalThis.lyParse(document);
+    let start = 0,
+      sourceStart = 0;
+    const rows = parsed.rows.map((row, i) => {
+      const kind = row.kind === 'sung' ? 'sung' : row.kind === 'blank' ? 'blank' : 'section';
+      const item = { row: i, kind, start, end: start + row.raw.length };
+      if (kind === 'sung') {
+        const textStart = start + row.raw.length - row.raw.trimStart().length;
+        Object.assign(item, {
+          source_start: sourceStart,
+          source_end: sourceStart + row.text.length,
+          text_start: textStart,
+          text_end: textStart + row.text.length,
+        });
+        sourceStart += row.text.length + 1;
+      }
+      start += row.raw.length + 1;
+      return item;
+    });
+    return (
+      parsed.sung.map((row) => row.text).join('\n') === sourceText &&
+      canonical(projection) ===
+        canonical({
+          version: 1,
+          convention: 'lyric_text/sung-rows-v1',
+          document_sha256: hash(document),
+          source_text: sourceText,
+          rows,
+        })
+    );
+  }
+
   function receiptFor(evidence, basis, submittedContext, model) {
     const proof = evidence?.request_binding;
     if (
       proof?.version !== 1 ||
       !submittedContext ||
+      !projectionMatches(
+        proof.source_projection,
+        submittedContext.document,
+        evidence.source_text
+      ) ||
       typeof globalThis.lyDeclarationsOf !== 'function' ||
       typeof globalThis.lyWriterText !== 'function' ||
       canonical(proof.context) !== canonical(submittedContext) ||
