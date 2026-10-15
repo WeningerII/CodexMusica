@@ -1,4 +1,4 @@
-/* exported uiLyricsWaiting, lyDraftForWriter, uiLyricsOpened */
+/* exported uiLyricsWaiting, lyDraftForWriter, uiLyricsOpened, lyPrepareRangeMarks, lyCaptureWritingOrigin, lyRestoreWritingOrigin, lyGoToRangeParts, lyWritingLineActions, lySetWritingRangeMarks */
 /* global $ui, UI, UILayout, CHAT_BACKEND, CHAT_STORAGE_KEY, CMLibraryImport, CMLyricTokens, _chatPersistedState, _chatPollStop, _chatSave, _chatRecover, _chatReset, _chatSend, _chatSyncCount, app, chatState, compileRecipeStack, esc, execCopyFallback, icon, lyricMetaOf, pushHistory, showToast, uiAutosave, uiButton, uiChatOpen, uiChatSessions, uiCount, uiDownload, uiEmptyState, uiExport, uiFocus, uiNavigate, uiRegisterPage, uiSaveLyrics, uiSwitchChat, uiUpdatePrompt, sessionSnapshot */
 /* Lyrics page. Owned by the Lyrics page worker; see docs/ui-foundation.md.
 
@@ -4020,28 +4020,209 @@ function lySectionAtRow(model, i) {
 // textarea's caret expects it. Headers, setup rows and stamps are drawn as
 // labels over their (invisible) raw text; the row holding the caret shows its
 // raw text so it can be edited in place.
+// Exact raw-document consumers for the tools lane's validated evidence adapter.
+// These are NOT evidence validators: source, reader, voices, freshness and pair
+// identity must already have been checked by the caller. No word-search fallback.
+function lyValidateRangeParts(text, parts) {
+  const fail = (reason) => ({ ok: false, reason });
+  if (typeof text !== 'string' || !Array.isArray(parts) || !parts.length)
+    return fail('missing-parts');
+  if (typeof Intl.Segmenter !== 'function') return fail('grapheme-boundaries-unavailable');
+  const boundaries = new Set([text.length]);
+  for (const segment of new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(text))
+    boundaries.add(segment.index);
+  let previous = 0;
+  for (const part of parts) {
+    if (
+      !part ||
+      !Number.isInteger(part.start) ||
+      !Number.isInteger(part.end) ||
+      part.start < previous ||
+      part.end <= part.start ||
+      part.end > text.length
+    )
+      return fail('invalid-range');
+    if (!boundaries.has(part.start) || !boundaries.has(part.end)) return fail('split-grapheme');
+    if (typeof part.text !== 'string' || text.slice(part.start, part.end) !== part.text)
+      return fail('text-mismatch');
+    previous = part.end;
+  }
+  return { ok: true, parts: parts.map(({ start, end, text }) => ({ start, end, text })) };
+}
+// Split overlaps without losing occurrence IDs or painting the gaps between a
+// discontinuous endpoint's parts. Unplaceable occurrences remain caller-owned.
+function lyPrepareRangeMarks(currentText, view) {
+  if (!view || view.text !== currentText || !Array.isArray(view.occurrences))
+    return { ok: false, reason: 'document-mismatch', segments: [] };
+  const edges = new Map(),
+    rejected = [],
+    seen = new Set();
+  for (const occurrence of view.occurrences) {
+    const id = occurrence?.id;
+    if (typeof id !== 'string' || !id || seen.has(id))
+      return { ok: false, reason: 'invalid-occurrence-id', segments: [] };
+    seen.add(id);
+    const checked =
+      occurrence.canPaint === true
+        ? lyValidateRangeParts(currentText, occurrence.parts)
+        : { ok: false, reason: 'painting-not-authorized' };
+    if (!checked.ok) {
+      rejected.push({ id, reason: checked.reason });
+      continue;
+    }
+    for (const { start, end } of checked.parts) {
+      if (!edges.has(start)) edges.set(start, { add: [], remove: [] });
+      if (!edges.has(end)) edges.set(end, { add: [], remove: [] });
+      edges.get(start).add.push(id);
+      edges.get(end).remove.push(id);
+    }
+  }
+  const segments = [],
+    active = new Set();
+  let start = 0;
+  for (const end of [...edges.keys()].sort((a, b) => a - b)) {
+    if (active.size && end > start) segments.push({ start, end, ids: [...active] });
+    const edge = edges.get(end);
+    edge.remove.forEach((id) => active.delete(id));
+    edge.add.forEach((id) => active.add(id));
+    start = end;
+  }
+  return { ok: true, segments, rejected };
+}
+// Explicit adapter calls alone install marks. Typing never starts inspection;
+// a changed raw document stops displaying these offsets on the next render.
+function lySetWritingRangeMarks(view) {
+  if (view == null) {
+    LY.rangeMarks = null;
+    lyRenderEditor();
+    return { ok: true };
+  }
+  const checked = lyPrepareRangeMarks(lyDraft()?.value, view);
+  LY.rangeMarks = checked.ok ? { text: view.text, segments: checked.segments } : null;
+  lyRenderEditor();
+  return checked;
+}
+function lyRangeTextHtml(raw, offset, segments) {
+  let cursor = 0,
+    html = '';
+  for (const segment of segments) {
+    const start = Math.max(0, segment.start - offset);
+    const end = Math.min(raw.length, segment.end - offset);
+    if (end <= start) continue;
+    html += esc(raw.slice(cursor, start));
+    html += `<span class="ly-relation-mark" data-occurrences="${esc(JSON.stringify(segment.ids))}">${esc(raw.slice(start, end))}</span>`;
+    cursor = end;
+  }
+  return html + esc(raw.slice(cursor));
+}
+function lyWritingFocusReady() {
+  const draft = lyDraft();
+  if (!draft || !draft.getClientRects().length || draft.closest('[inert]')) return false;
+  return ![...document.querySelectorAll('[aria-modal="true"], dialog[open]')].some(
+    (modal) => modal.getClientRects().length
+  );
+}
+function lyCaptureWritingOrigin() {
+  const draft = lyDraft();
+  if (!draft) return null;
+  const scroll = [];
+  for (let node = draft; node; node = node.parentElement)
+    scroll.push({ node, left: node.scrollLeft, top: node.scrollTop });
+  return {
+    text: draft.value,
+    start: draft.selectionStart,
+    end: draft.selectionEnd,
+    direction: draft.selectionDirection,
+    scroll,
+    windowLeft: window.scrollX,
+    windowTop: window.scrollY,
+  };
+}
+// The navigation owner reveals Song and closes its modal BEFORE calling either
+// focus hook. Close/Back do not call Return. A changed draft never restores an
+// old offset, even if its semantic song identity happened to remain unchanged.
+function lyRestoreWritingOrigin(origin) {
+  const draft = lyDraft();
+  if (!origin || !draft || origin.text !== draft.value)
+    return { ok: false, reason: 'document-mismatch' };
+  if (
+    !Number.isInteger(origin.start) ||
+    !Number.isInteger(origin.end) ||
+    origin.start < 0 ||
+    origin.end < origin.start ||
+    origin.end > draft.value.length ||
+    !['forward', 'backward', 'none'].includes(origin.direction) ||
+    !Array.isArray(origin.scroll)
+  )
+    return { ok: false, reason: 'invalid-origin' };
+  if (!lyWritingFocusReady()) return { ok: false, reason: 'editor-not-available' };
+  draft.setSelectionRange(origin.start, origin.end, origin.direction);
+  draft.focus({ preventScroll: true });
+  lySyncCaret();
+  for (const { node, left, top } of origin.scroll)
+    if (node?.isConnected) {
+      node.scrollLeft = left;
+      node.scrollTop = top;
+    }
+  window.scrollTo(origin.windowLeft, origin.windowTop);
+  return { ok: true };
+}
+function lyGoToRangeParts(target, partIndex) {
+  const draft = lyDraft();
+  if (!target || !draft || target.text !== draft.value)
+    return { ok: false, reason: 'document-mismatch' };
+  if (target.canGo !== true) return { ok: false, reason: 'navigation-not-authorized' };
+  const checked = lyValidateRangeParts(draft.value, target.parts);
+  if (!checked.ok) return checked;
+  // A textarea cannot select disjoint parts. Never select the union (and gaps).
+  if (partIndex === undefined && checked.parts.length > 1)
+    return { ok: false, reason: 'choose-part', partCount: checked.parts.length };
+  const index = partIndex === undefined ? 0 : partIndex;
+  if (!Number.isInteger(index) || index < 0 || index >= checked.parts.length)
+    return { ok: false, reason: 'invalid-part-index' };
+  if (!lyWritingFocusReady()) return { ok: false, reason: 'editor-not-available' };
+  const part = checked.parts[index];
+  draft.setSelectionRange(part.start, part.end, 'forward');
+  draft.focus({ preventScroll: true });
+  lySyncCaret();
+  lyRevealCaretAfterResize();
+  return { ok: true, partIndex: index, partCount: checked.parts.length };
+}
+function lyFamilyLabel(index) {
+  let label = '';
+  for (let n = index + 1; n > 0; n = Math.floor((n - 1) / 26))
+    label = String.fromCharCode(65 + ((n - 1) % 26)) + label;
+  return label;
+}
 function lyRowHtml(row, model, ctx) {
   const raw = row.raw;
   const caret = ctx.caretRow === row.i;
   if (row.kind === 'blank') return `<div class="ly-r" data-i="${row.i}"><br></div>`;
   if (row.kind === 'sung') {
     const tone = ctx.marks.get(row.n);
+    let offset = ctx.rowStarts?.[row.i] || 0;
+    const rangeText = (text) => {
+      const html = lyRangeTextHtml(text, offset, ctx.rangeSegments || []);
+      offset += text.length;
+      return html;
+    };
     const spans = lyWordSpans(raw, model.voices)
       .map((p) => {
-        if (p.gap !== undefined) return esc(p.gap);
+        if (p.gap !== undefined) return rangeText(p.gap);
         const cls = [];
         if (p.aside) cls.push('ly-aside');
         if (ctx.find && p.word.toLowerCase().includes(ctx.find)) cls.push('ly-hit');
-        const g = p.token && ctx.ends.get(`${row.n}:${p.token}`);
+        const groups = (p.token && ctx.ends.get(`${row.n}:${p.token}`)) || [];
+        const g = groups[0];
         if (g) cls.push('ly-end');
         if (p.token && ctx.reading === `${row.text}|${p.token}`) cls.push('ly-reading');
         return cls.length
-          ? `<span class="${cls.join(' ')}"${g ? ` data-g="${g.k % 6}"` : ''}>${esc(p.word)}</span>`
-          : esc(p.word);
+          ? `<span class="${cls.join(' ')}"${g ? ` data-g="${g.k % 2}" data-groups="${groups.map((item) => item.letter).join(' ')}" title="${groups.map((item) => `${item.pending ? 'Proposed' : 'Declared'} rhyme ${item.letter}`).join(', ')} (not measured)"` : ''}>${rangeText(p.word)}</span>`
+          : rangeText(p.word);
       })
       .join('');
     const letters = ctx.letters.get(row.n) || [];
-    return `<div class="ly-r ly-r-sung${LY.activeLine === row.n ? ' is-active' : ''}${ctx.focus.has(row.n) ? ' is-focus' : ''}" data-i="${row.i}" data-n="${row.n}"${tone ? ` data-tone="${tone}"` : ''}><span class="ly-gut">${letters.map((g) => `<span class="ly-letter" data-g="${g.k % 6}">${g.letter}</span>`).join('')}<span class="ly-num">${row.n}</span></span><span class="ly-t">${spans || '<br>'}</span></div>`;
+    return `<div class="ly-r ly-r-sung${LY.activeLine === row.n ? ' is-active' : ''}${ctx.focus.has(row.n) ? ' is-focus' : ''}" data-i="${row.i}" data-n="${row.n}"${tone ? ` data-tone="${tone}"` : ''}><span class="ly-gut">${letters.map((g) => `<span class="ly-letter" title="${g.pending ? 'Proposed' : 'Declared'} rhyme ${g.letter} (not measured)">${g.letter}</span>`).join('')}<span class="ly-num">${row.n}</span></span><span class="ly-t">${spans || '<br>'}</span></div>`;
   }
   let label = '',
     kind = row.kind;
@@ -4061,20 +4242,19 @@ function lyRowHtml(row, model, ctx) {
   else kind = 'other';
   return `<div class="ly-r ly-r-${kind}${caret ? ' is-caret' : ''}" data-i="${row.i}"><span class="ly-raw">${esc(raw)}</span>${label ? `<span class="ly-lab" aria-hidden="true">${label}</span>` : ''}</div>`;
 }
-// Rhyme annotation: every declared link gets a letter and a colour; the
-// colour is identity, never a verdict.
+// Declared scheme: letters carry identity (including overlaps); two existing
+// palette tints aid scanning. A declaration is never a measured verdict.
 function lyRhymeMarks(model) {
   const ends = new Map(),
     letters = new Map();
-  if (LY.tool !== 'rhymes') return { ends, letters };
   const groups = lySetupOf(model, 'rhyme groups').flatMap((d) => lyRowGroups(d));
-  const pending = lyVal('rhymes', 'song', 'members', []) || [];
+  const pending = LY.tool === 'rhymes' ? lyVal('rhymes', 'song', 'members', []) || [] : [];
   const all = [
     ...groups.map((g) => ({ g })),
     ...(pending.length ? [{ g: pending, pending: true }] : []),
   ];
-  all.forEach(({ g }, k) => {
-    const letter = String.fromCharCode(65 + (k % 26));
+  all.forEach(({ g, pending = false }, k) => {
+    const letter = lyFamilyLabel(k);
     for (const m of g) {
       // A word place kept under its earlier number marks no word.
       if (m.bad || m.undecided) continue;
@@ -4084,9 +4264,15 @@ function lyRhymeMarks(model) {
       let t = toks.length;
       if (/^T\d+$/.test(m.place)) t = Number(m.place.slice(1));
       else if (m.place === 'head' || m.place === 'headrime') t = 1;
-      if (m.place !== 'line') ends.set(`${m.line}:${t}`, { k, letter });
+      if (m.place !== 'line') {
+        if (!Number.isInteger(t) || t < 1 || t > toks.length) continue;
+        const key = `${m.line}:${t}`;
+        const memberships = ends.get(key) || [];
+        if (!memberships.some((item) => item.k === k)) memberships.push({ k, letter, pending });
+        ends.set(key, memberships);
+      }
       const list = letters.get(m.line) || [];
-      if (!list.some((x) => x.letter === letter)) list.push({ k, letter });
+      if (!list.some((x) => x.letter === letter)) list.push({ k, letter, pending });
       letters.set(m.line, list);
     }
   });
@@ -4105,7 +4291,15 @@ function lyRenderEditor() {
   const { ends, letters } = lyRhymeMarks(model);
   const readingTarget =
     LY.tool === 'pronunciation' && LY.picks.reading ? lyReadingTarget(LY.picks.reading) : null;
+  let rowOffset = 0;
+  const rowStarts = model.rows.map((row) => {
+    const start = rowOffset;
+    rowOffset += row.raw.length + 1;
+    return start;
+  });
   const ctx = {
+    rowStarts,
+    rangeSegments: LY.rangeMarks?.text === model.text ? LY.rangeMarks.segments : [],
     caretRow: document.activeElement === draft ? LY.caretRow : -1,
     marks,
     ends,
@@ -4126,14 +4320,14 @@ function lyRenderEditor() {
   box.hidden = !empty || document.activeElement === draft;
   if (!box.hidden)
     box.innerHTML = uiEmptyState({
-      title: 'No lyrics yet',
-      text: 'Write in the document below, import a text file, or start a new song with the writer. Section headers such as [Verse 1] or [CHORUS — 4 lines — 4 bars of 4/4] shape the outline.',
+      title: 'Start your lyrics',
+      text: 'Write here, bring in a text file, or work with the writer. Add headers such as [Verse 1] to organize sections.',
       actions:
-        lyBtn('ly-focus-doc', 'Start writing', 'pencil', { cls: 'cm-btn cm-btn-outline' }) +
-        lyBtn('new-lyrics', 'New song with the writer', 'sparkles', {
+        lyBtn('ly-focus-doc', 'Write myself', 'pencil', { cls: 'cm-btn cm-btn-outline' }) +
+        lyBtn('new-lyrics', 'Write with the writer', 'sparkles', {
           cls: 'cm-btn cm-btn-outline',
         }) +
-        lyBtn('ly-import', 'Import a text file', 'upload', { cls: 'cm-btn cm-btn-outline' }),
+        lyBtn('ly-import', 'Import lyrics', 'upload', { cls: 'cm-btn cm-btn-outline' }),
     });
   lyPlaceLineBar();
 }
@@ -4237,6 +4431,35 @@ function lyRevealCaretAfterResize() {
   const rect = row.getBoundingClientRect();
   if (bottom <= top || (rect.top >= top && rect.bottom <= bottom)) return;
   scroller.scrollTop += rect.top - (top + Math.max(0, (bottom - top - rect.height) / 2));
+}
+// Reused by the integration owner's single contextual dock. Existing actions
+// keep history, rhythm and pronunciation on their canonical paths.
+function lyWritingLineActions(n) {
+  const line = Number.isInteger(n) && n > 0 && !!LY.model?.sung[n - 1];
+  const disabled = line ? '' : 'disabled';
+  return lyMenu(
+    'line-actions',
+    'Line actions',
+    'ellipsis',
+    lyMenuItem('ly-line-tool', 'Rhythm', 'music', line ? `rhythm:${n}` : '', disabled) +
+      lyMenuItem(
+        'ly-line-tool',
+        'Pronunciation',
+        'message-circle',
+        line ? `pronunciation:${n}` : '',
+        disabled
+      ) +
+      '<div class="cm-menu-sep"></div>' +
+      lyMenuItem('ly-undo', 'Undo', 'undo-2', '', app.historyIndex > 0 ? '' : 'disabled') +
+      lyMenuItem(
+        'ly-redo',
+        'Redo',
+        'redo-2',
+        '',
+        app.historyIndex < app.history.length - 1 ? '' : 'disabled'
+      ),
+    { cls: 'cm-btn ly-lt', align: 'end', chevron: false }
+  );
 }
 function lyPlaceLineBar() {
   const bar = $ui('ly-linebar'),
@@ -4613,7 +4836,7 @@ function lyToolRhymes(model) {
   const committedList = groups.length
     ? `<ul class="ly-links">${groups
         .map((g, k) => {
-          const letter = String.fromCharCode(65 + (k % 26));
+          const letter = lyFamilyLabel(k);
           return `<li><label class="ly-check"><input type="radio" name="ly-link-group" value="${k}"${k === selGroup ? ' checked' : ''}><span class="ly-letter" data-g="${k % 6}">${letter}</span><span><strong>${letter} · declared ${esc(relName(c.relation))}</strong><small>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line} · ${esc(String(lyMemberWord(model, m) ?? 'missing').slice(0, 30))}`)).join(' ~ ')}</small></span></label></li>`;
         })
         .join('')}</ul>`
