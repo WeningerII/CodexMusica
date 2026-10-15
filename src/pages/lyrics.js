@@ -6652,15 +6652,73 @@ function lyWire(surface) {
     }).observe(surface);
   let revealPending = false,
     viewportPosition = null,
-    scrollIntent = 0;
-  for (const event of ['wheel', 'touchmove'])
+    positionIntent = 0;
+  for (const event of ['wheel', 'touchmove', 'pointerdown'])
     surface.addEventListener(
       event,
       () => {
-        scrollIntent++;
+        positionIntent++;
       },
       { passive: true, capture: true }
     );
+  // Input and same-row horizontal caret movement still need keyboard reveal.
+  // Selections and movement to another row retain ownership of their position.
+  const selection = () =>
+    JSON.stringify([
+      draft.value,
+      draft.selectionStart,
+      draft.selectionEnd,
+      draft.selectionDirection,
+    ]);
+  const caretRow = () => draft.value.slice(0, draft.selectionStart).split('\n').length;
+  let arrowSequence = 0,
+    arrow = null;
+  const sameArrowRow = () =>
+    arrow &&
+    draft.value === arrow.text &&
+    draft.selectionStart === draft.selectionEnd &&
+    caretRow() === arrow.row;
+  const finishArrow = () => {
+    if (arrow && !sameArrowRow()) positionIntent++;
+    arrow = null;
+  };
+  draft.addEventListener('keydown', (event) => {
+    finishArrow();
+    if (
+      ['ArrowLeft', 'ArrowRight'].includes(event.key) &&
+      !event.shiftKey &&
+      !event.ctrlKey &&
+      !event.metaKey &&
+      !event.altKey &&
+      draft.selectionStart === draft.selectionEnd
+    ) {
+      arrowSequence++;
+      arrow = { text: draft.value, row: caretRow(), selection: selection() };
+    } else if (
+      /^(Arrow(Left|Right|Up|Down)|Home|End|PageUp|PageDown|Tab)$/.test(event.key) ||
+      ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'a')
+    )
+      positionIntent++;
+  });
+  const rememberArrowPosition = () => {
+    if (!sameArrowRow() || arrow.selection === selection()) return;
+    arrow.selection = selection();
+    arrow.scroller = lyViewportScroller();
+    arrow.scrollTop = arrow.scroller?.scrollTop;
+  };
+  draft.addEventListener('keyup', rememberArrowPosition);
+  document.addEventListener('selectionchange', rememberArrowPosition);
+  draft.addEventListener('beforeinput', finishArrow);
+  let inputSequence = 0,
+    inputSelection = null,
+    inputScroller = null,
+    inputScrollTop = 0;
+  draft.addEventListener('input', () => {
+    inputSequence++;
+    inputSelection = selection();
+    inputScroller = lyViewportScroller();
+    inputScrollTop = inputScroller?.scrollTop;
+  });
   const viewportGeometry = () =>
     [innerWidth, innerHeight, window.visualViewport?.width, window.visualViewport?.height].join(
       ':'
@@ -6704,18 +6762,12 @@ function lyWire(surface) {
   const viewportResize = () => {
     if (window.visualViewport && window.visualViewport.scale !== 1) return;
     if (revealPending) return;
+    finishArrow(); // Earlier navigation is part of the starting position, not queued intent.
     const before = viewportPosition;
-    const selection = () => {
-      const draft = lyDraft();
-      return JSON.stringify([
-        draft?.value,
-        draft?.selectionStart,
-        draft?.selectionEnd,
-        draft?.selectionDirection,
-      ]);
-    };
     const selected = selection();
-    const intendedScroll = scrollIntent;
+    const inputAtResize = inputSequence;
+    const arrowAtResize = arrowSequence;
+    const intendedScroll = positionIntent;
     revealPending = true;
     requestAnimationFrame(() => {
       const firstScroller = lyViewportScroller();
@@ -6724,11 +6776,23 @@ function lyWire(surface) {
         revealPending = false;
         if (window.visualViewport && window.visualViewport.scale !== 1) return;
         const scroller = lyViewportScroller();
-        // Do not undo an intervening selection or scroll while the layout settles.
+        const inputMatches = inputSequence > inputAtResize && selection() === inputSelection;
+        const arrowMatches = arrowSequence > arrowAtResize && sameArrowRow();
+        // Accept only the input-associated position, not subsequent navigation or scrolling.
         if (
-          scrollIntent !== intendedScroll ||
-          selection() !== selected ||
-          (scroller === firstScroller && scroller?.scrollTop !== firstScrollTop)
+          positionIntent !== intendedScroll ||
+          (selection() !== selected && !inputMatches && !arrowMatches) ||
+          (scroller === firstScroller &&
+            scroller?.scrollTop !== firstScrollTop &&
+            !(
+              (inputMatches &&
+                scroller === inputScroller &&
+                scroller?.scrollTop === inputScrollTop) ||
+              (arrowMatches &&
+                arrow.selection === selection() &&
+                scroller === arrow.scroller &&
+                scroller?.scrollTop === arrow.scrollTop)
+            ))
         ) {
           rememberViewportPosition(true);
           return;

@@ -314,6 +314,91 @@ const settle = async (p) => {
       results.push({ kind: 'queued-intent', mode, before, intended, after, afterCaret });
       await p.finish();
     }
+    for (const mode of [
+      'early-type',
+      'between-type',
+      'early-arrow',
+      'between-arrow',
+      'navigate',
+      'select-range',
+      'type-navigate',
+      'navigate-type',
+    ]) {
+      const p = await open();
+      await select(p, 30);
+      const before = await caret(p);
+      check(before.line === 30 && before.focused, 'queued typing fixture not on focused line30');
+      await p.evaluate(() => {
+        window.__resizeFrames = [];
+        window.__nativeFrame = window.requestAnimationFrame.bind(window);
+        window.requestAnimationFrame = (callback) => {
+          window.__resizeFrames.push(callback);
+          return window.__resizeFrames.length;
+        };
+      });
+      // Hold application animation frames, not native keyboard events. Resize
+      // performs actual CSS reflow; the explicit frame queue controls ordering.
+      await p.setViewportSize({ width: 390, height: 508 });
+      await p.waitForFunction(() => window.__resizeFrames.length > 0, null, {
+        polling: 10,
+        timeout: 5000,
+      });
+      const firstQueued = await p.evaluate(() => window.__resizeFrames.length);
+      if (mode !== 'early-type' && mode !== 'early-arrow')
+        await p.evaluate(
+          () =>
+            new Promise((resolve) =>
+              window.__nativeFrame((time) => {
+                const callbacks = window.__resizeFrames.splice(0);
+                callbacks.forEach((callback) => callback(time));
+                resolve();
+              })
+            )
+        );
+      const pending = await p.evaluate(() => window.__resizeFrames.length);
+      check(pending > 0, `queued ${mode} had no deferred frame`);
+      if (mode === 'early-type' || mode === 'between-type' || mode === 'type-navigate')
+        await p.keyboard.type('xy');
+      if (mode === 'navigate' || mode === 'type-navigate' || mode === 'navigate-type')
+        await p.keyboard.press('Control+Home');
+      if (mode === 'early-arrow' || mode === 'between-arrow') await p.keyboard.press('ArrowRight');
+      if (mode === 'select-range') await p.keyboard.press('Control+Shift+Home');
+      if (mode === 'navigate-type') await p.keyboard.type('xy');
+      const intended = await reading(p, 30),
+        intendedCaret = await caret(p);
+      await p.evaluate(() => {
+        window.requestAnimationFrame = window.__nativeFrame;
+        const callbacks = window.__resizeFrames.splice(0);
+        callbacks.forEach((callback) => window.requestAnimationFrame(callback));
+      });
+      await settle(p);
+      const after = await reading(p, 30),
+        afterCaret = await caret(p);
+      check(
+        after.text === intended.text &&
+          JSON.stringify(after.selection) === JSON.stringify(intended.selection),
+        `queued ${mode} changed typed text or selection`
+      );
+      if (['early-type', 'between-type', 'early-arrow', 'between-arrow'].includes(mode))
+        check(afterCaret.line === 30 && afterCaret.ok, `queued ${mode} left typing caret obscured`);
+      else
+        check(
+          JSON.stringify(after.scroll) === JSON.stringify(intended.scroll),
+          `queued ${mode} overrode deliberate keyboard position`
+        );
+      results.push({
+        kind: 'queued-typing',
+        mode,
+        firstQueued,
+        pending,
+        before,
+        intended,
+        intendedCaret,
+        after,
+        afterCaret,
+      });
+      await p.finish();
+    }
     for (const n of [1, 9, 30])
       for (const how of ['set', 'touch']) {
         const p = await open();
