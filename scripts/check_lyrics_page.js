@@ -2592,6 +2592,27 @@ async function browserChecks(chromium) {
           'Review action is missing or Tools still sends'
         );
         check(q.calls.length === 0, 'opening Review sent a request');
+        const unknown = await page.evaluate(() => {
+          chatState.task = { domain: 'lyrics', phase: 'edit' };
+          chatState.pending = { request_id: 'fixture-unknown-outcome' };
+          chatState.busy = false;
+          lyRefresh(true);
+          return {
+            reviewDisabled: $ui('ly-panel-review').querySelector('[data-ui="ly-run-review"]')
+              .disabled,
+            retrieve: $ui('ly-panel-review').querySelectorAll('[data-ui="ly-retrieve"]').length,
+            options: globalThis.lyToolRequestAction('ly-rhyme-options', 'Options', 'pencil'),
+          };
+        });
+        check(
+          unknown.reviewDisabled && unknown.retrieve === 1,
+          'unknown outcome did not make Review retrieval primary'
+        );
+        check(
+          /ly-retrieve/.test(unknown.options) && !/ly-rhyme-options/.test(unknown.options),
+          'unknown outcome still advertises a new tool request'
+        );
+        check(q.calls.length === 0, 'rendering unknown recovery dispatched a request');
         await ctx.close();
       }
     );

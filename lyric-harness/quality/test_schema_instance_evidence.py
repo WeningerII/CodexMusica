@@ -81,6 +81,15 @@ class EvidenceTests(unittest.TestCase):
         tiny = self.report(max_bytes=2048)
         self.assertLessEqual(len(canonical_json(tiny).encode()), 2048)
         self.assertFalse(tiny['coverage']['complete'])
+    def test_refused_and_unrequested_populations_never_claim_known_zero(self):
+        got = self.report()
+        self.assertTrue(any(m['status'] == 'refused' for m in got['coverage']['methods']))
+        self.assertIsNone(got['coverage']['total_records'])
+        self.assertGreater(got['coverage']['observed_records'], 0)
+        empty = self.report(schemas=[])
+        self.assertEqual(empty['coverage']['status'], 'not_requested')
+        self.assertFalse(empty['coverage']['complete'])
+
     def test_identity_changes_with_text_and_reading_declaration(self):
         a = self.report(schemas=['perfect rhyme'])
         b = from_stream(self.stream, self.phon, declarations={'voices': False},

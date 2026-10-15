@@ -87,6 +87,7 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
             continue
         if isinstance(instances, RL.Refusal):
             method.update(status="refused", refusal=json_safe(instances))
+            cov["remaining_records_unknown"] = True
             continue
         method["counts"] = {"true": sum(e.verdict is True for e in instances),
                             "false": sum(e.verdict is False for e in instances),
@@ -109,8 +110,10 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
                 method.update(status="partial", reason="byte_limit")
                 continue
             method["emitted"] += 1
-    cov["complete"] = all(m["status"] == "answered" for m in cov["methods"])
-    cov["status"] = "complete" if cov["complete"] else "partial"
+    cov["complete"] = bool(requested) and all(m["status"] == "answered" for m in cov["methods"])
+    cov["status"] = ("not_requested" if not requested else
+                     "complete" if cov["complete"] else "partial")
+    cov["observed_records"] = len(result["records"]) + cov["omitted_records"]
     cov["loaded_records"] = len(result["records"])
     cov["total_records"] = (None if cov["remaining_records_unknown"] else
                             len(result["records"]) + cov["omitted_records"])

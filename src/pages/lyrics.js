@@ -4379,6 +4379,16 @@ function lyRenderTools() {
   html = `${head}<div class="ly-tool-head">${icon(ic, 22)}<div><h3 class="ly-h3">${esc(label)}</h3><p class="ly-help">${esc(help)}</p></div></div>${lyToolBody(LY.tool, model)}`;
   lySetHtml(box, html, `tools:${LY.tool}:${LY.size}`);
 }
+// Rendering a request affordance does not bypass the existing dispatch guards.
+// Unknown outcomes make retrieval the primary action in every tool entry point.
+function lyToolRequestAction(action, label, glyph) {
+  if (lyWriterState().unknown)
+    return `${lyBtn('ly-retrieve', 'Retrieve saved result', 'refresh-cw', { cls: 'cm-btn cm-btn-primary ly-block' })}<p class="ly-help">The previous request's outcome is unknown. Retrieve it before asking for options.</p>`;
+  return lyBtn(action, label, glyph, {
+    cls: 'cm-btn cm-btn-outline ly-block',
+    extra: chatState.busy ? 'disabled' : '',
+  });
+}
 function lyToolBody(id, model) {
   return {
     'form-story': () => lyToolFormStory(model),
@@ -4568,7 +4578,7 @@ function lyToolRhythm(model) {
         )}</select></div>`
       : ''
   }<div class="ly-table-wrap"><table class="ly-table"><thead><tr><th>Line</th><th>Text</th><th>Bar</th><th>Start beat</th><th>Duration (${unit})</th></tr></thead><tbody>${prow}</tbody></table></div>
-<h4 class="ly-h4">Declared melody <small>(optional)</small></h4><p class="ly-help">One repeating phrase per line, in scientific pitch (A4 = 440 Hz); durations in beats of the meter’s unit.</p>${chips ? `<div class="ly-note-chips">${chips}</div>` : '<p class="ly-help">No melody declared.</p>'}<details class="cm-accordion"${md ? ' open' : ''}><summary>Advanced input</summary><div class="ly-form-grid"><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-meter">Meter</label><input id="ly-m-meter" class="cm-input" data-draft="${M}" data-target="song" data-field="meter" value="${esc(mv('meter'))}" placeholder="6/8"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-groups">Beat groups</label><input id="ly-m-groups" class="cm-input" data-draft="${M}" data-target="song" data-field="groups" value="${esc(mv('groups'))}" placeholder="3+3"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-bars">Bars per line</label><input id="ly-m-bars" class="cm-input" inputmode="numeric" data-draft="${M}" data-target="song" data-field="bars" value="${esc(mv('bars'))}" placeholder="1"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-sub">Subdivision</label><select id="ly-m-sub" class="cm-select" data-draft="${M}" data-target="song" data-field="subdivision">${lyOpts(
+<h4 class="ly-h4">Declared melody · whole song <small>(optional)</small></h4><p class="ly-help">One repeating phrase per line, in scientific pitch (A4 = 440 Hz); durations in beats of the meter’s unit.</p>${chips ? `<div class="ly-note-chips">${chips}</div>` : '<p class="ly-help">No melody declared.</p>'}<details class="cm-accordion"${md ? ' open' : ''}><summary>Advanced input</summary><div class="ly-form-grid"><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-meter">Meter</label><input id="ly-m-meter" class="cm-input" data-draft="${M}" data-target="song" data-field="meter" value="${esc(mv('meter'))}" placeholder="6/8"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-groups">Beat groups</label><input id="ly-m-groups" class="cm-input" data-draft="${M}" data-target="song" data-field="groups" value="${esc(mv('groups'))}" placeholder="3+3"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-bars">Bars per line</label><input id="ly-m-bars" class="cm-input" inputmode="numeric" data-draft="${M}" data-target="song" data-field="bars" value="${esc(mv('bars'))}" placeholder="1"></div><div class="ly-field ly-field-sm"><label class="ly-label" for="ly-m-sub">Subdivision</label><select id="ly-m-sub" class="cm-select" data-draft="${M}" data-target="song" data-field="subdivision">${lyOpts(
     [
       ['1', '1'],
       ['2', '2'],
@@ -4634,7 +4644,7 @@ function lyToolRhymes(model) {
 <h4 class="ly-label">Selected members</h4>${memberList}${lyErrText(d, 'members')}
 <div class="ly-actions">${lyBtn('ly-draft-apply', 'Link endings', 'link', { id: T, cls: 'cm-btn cm-btn-primary', extra: members.length >= 2 && !lyDraftStale(d) ? '' : 'disabled' })}${lyBtn('ly-link-remove', 'Remove link', 'link', { cls: 'cm-btn cm-btn-outline', extra: selGroup >= 0 ? '' : 'disabled' })}</div>
 <h4 class="ly-label">Declared links</h4>${committedList}
-${lyBtn('ly-rhyme-options', 'Ask writer for rhyme options', 'pencil', { cls: 'cm-btn cm-btn-outline ly-block', extra: busy ? 'disabled aria-describedby="ly-busy-note"' : '' })}${busy ? '<p class="ly-help" id="ly-busy-note">Writer is working. You can keep editing.</p>' : ''}${lyRhymeResults()}${status ? `<p class="ly-status-line">${status}</p>` : ''}${lyPendingStrip(T)}</div>`;
+${lyToolRequestAction('ly-rhyme-options', 'Ask writer for rhyme options', 'pencil')}${busy ? '<p class="ly-help" id="ly-busy-note">Writer is working. You can keep editing.</p>' : ''}${lyRhymeResults()}${status ? `<p class="ly-status-line">${status}</p>` : ''}${lyPendingStrip(T)}</div>`;
 }
 // A screen's pair verdicts as options; nothing is inserted or declared.
 function lyRhymeResults() {
@@ -4715,7 +4725,7 @@ function lyToolPronunciation(model) {
       own
         ? `<div class="ly-field"><label class="ly-label" for="ly-phones">Phones (stressed ARPABET)</label><input id="ly-phones" class="cm-input" data-draft="${T}" data-target="${esc(key)}" data-field="phones" value="${esc(lyVal(T, key, 'phones', ''))}" placeholder="G R OW1 S ER0" autocapitalize="characters"${lyErr(d, 'phones')}>${lyErrText(d, 'phones')}</div><div class="ly-field"><label class="ly-label" for="ly-source">Source (required)</label><input id="ly-source" class="cm-input" data-draft="${T}" data-target="${esc(key)}" data-field="source" value="${esc(lyVal(T, key, 'source', ''))}" placeholder="Who chose it and why"${lyErr(d, 'source')}>${lyErrText(d, 'source')}</div>`
         : ''
-    }${lyErrText(d, 'kind')}${lyBtn('ly-pron-options', 'Get dictionary options', 'search', { cls: 'cm-btn cm-btn-outline ly-block', extra: chatState.busy ? 'disabled' : '' })}${chatState.busy ? '<p class="ly-help">Writer is working. You can keep editing.</p>' : ''}${committed ? lyBtn('ly-remove-setup', 'Remove reading', 'trash-2', { id: committed.i, cls: 'cm-btn ly-link-btn' }) : ''}</div>`;
+    }${lyErrText(d, 'kind')}${lyToolRequestAction('ly-pron-options', 'Get dictionary options', 'search')}${chatState.busy ? '<p class="ly-help">Writer is working. You can keep editing.</p>' : ''}${committed ? lyBtn('ly-remove-setup', 'Remove reading', 'trash-2', { id: committed.i, cls: 'cm-btn ly-link-btn' }) : ''}</div>`;
   }
   const list = readings.length
     ? `<ul class="ly-readings">${readings

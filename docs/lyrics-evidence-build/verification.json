@@ -1,0 +1,31 @@
+{
+  "base": "3ff4aff7eed653d62d346ecfca186c5899f8cd78",
+  "h1_baseline": "b5a274ad1ab385bcb0fb0bba0df84ccad1679e1b",
+  "pa_reference": "d1961461547b4477f588779e7ca81317c44fe36d",
+  "comparator_fingerprints": {
+    "base": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
+    "head": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
+    "h1_base": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
+    "h1_head": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4"
+  },
+  "tests": {
+    "producer": 9,
+    "inspector_adapter_session": 9,
+    "chat_production": 28,
+    "lyrics_gate_rebuilt_fixture_html": 754,
+    "eslint_changed_js": "pass",
+    "prettier_changed_js": "pass",
+    "diff_check": "pass"
+  },
+  "existing_fields_and_exit_parity": {
+    "repeated": 21,
+    "parts": 25,
+    "voices": 34,
+    "unreadable": 0,
+    "h1_supplement_none": 30,
+    "h1_supplement_v2": 30
+  },
+  "comparison_method": "Same pinned assets and identical inputs; remove only schema_instance_evidence, compare every remaining machine field and exit code. H1 compared repaired baseline against same H1 plus report addition. P-A reference has no Python engine changes; combined P-A frontend validation remains integration-owned.",
+  "scratch_build_sha256": "e406f311ca38a7f12136347bec06782cb6b9d30d6408bb50e1dc3abc82036d98",
+  "build_scope": "Two byte-identical scratch builds; standalone inspector not mounted. Committed codex.html remains integration-owned; no integrated page acceptance claimed."
+}
