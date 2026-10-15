@@ -1,0 +1,14 @@
+tree 95d41ce61d8465eec9edc2f129cbc62052858016  (2026-10-15T20:19:01Z)
+control 
+build                      PASS  codex.html fff0bf2f79a84eb3 = fresh build
+h1_probe                   PASS  14/14 cases
+pa_voices                  PASS  all: {"REFUSED": 69, "SAME_WORD": 93, "FAIL": 0}
+unchanged_fields           SKIP  no CONTROL_TREE given
+page_suite                 PASS  LYRICS PAGE: PASS — 795 assertions (fixture replies, no provider): one document with fixed tabs and tools; n
+viewport                   PASS  
+gate                       PASS  
+natural_resize             PASS  
+lyrics_evidence            SKIP  scripts/test_lyrics_evidence.js not in tree
+real_keys                  PASS  type 0/16/33/settle + ArrowRight visible 5/5
+lint                       PASS  6 changed files
+VERDICT PASS
