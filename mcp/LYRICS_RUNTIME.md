@@ -190,9 +190,11 @@ A pronunciation declaration names a word by its one-based sung-token position
 in an exact line (`{line, token, word, …}`), and the English reader's cut of a
 line changed in this release (reader scheme v2: ASCII dash runs split words,
 digit-bearing runs are numeral tokens, NFC and the Unicode-hyphen folds apply).
-The published schema did not change and carries no scheme field, so a
-declaration does not say which cut numbered it. What follows is exactly what
-does and does not protect one built before the release.
+Each pronunciation may carry `numbering`: `v1`, `v1+voices`, `v2`, or
+`v2+voices`. Values without `+voices` strip parenthetical asides. The marker
+records the numbering of the source evidence, not the server currently reading
+a saved response. What follows protects fresh lyric calls without rewriting
+pre-batch v1 state rows or their fingerprints.
 
 - **A continuation across the release is refused.** A `state`, `checkpoint`,
   `run_id` or session receipt written by the earlier image carries its
@@ -201,32 +203,45 @@ does and does not protect one built before the release.
   `CONTINUATION_MIGRATION_REQUIRED`, and the declarations inside it are never
   replayed under the new cut. `recover_only:true` extracts the stored lyrics
   and journal without replay.
-- **Options are always numbered under the running release.**
-  `pronunciation_options` from `lyric_grade` and `lyric_check` (the harness's
-  `quality.pronunciation.reading_options`) number tokens under v2, so a
-  declaration chosen from options this release returned binds the occurrence
-  it names.
-- **A mismatched position refuses.** A held declaration sent to a NEW call is
-  validated against the line under v2; where its position no longer holds its
-  word (`token 3 "Lawdy"` in `U--h, u--h, Lawdy,`, now `u`), the call refuses
-  with the token the position names. It is never dropped silently.
-- **The residual (open until commit 2).** Where the old position still holds
-  the SAME word text under v2 but another occurrence of it, the held declaration
-  validates and binds that other occurrence: in `Oh--oh, oh my love`, a
-  pre-release `token 2 "oh"` meant the third `oh` (characters 8-10) and now
-  binds the second (4-6). Nothing in today's schema can detect it. Commit 2 of
-  this batch closes it: an optional numbering marker on each declaration,
-  approved by the owner, with unmarked declarations that name different
-  characters under the two cuts refused. Until it lands, a caller holding
-  declarations from before this release (its own record, or a session it keeps
-  across the deployment) re-reads `pronunciation_options` and re-declares before
-  grading lines whose cut moved (a dash run, a numeral, a Unicode hyphen, a soft
-  hyphen, combining marks).
-- **The website's own saved choices are migrated, not left to that residual.**
-  - The Lyrics page: every reading row it writes carries the cut it was
-    numbered under (`— cut v2`, in the row itself, so the mark survives a
+- **New v2 options carry their numbering on each item.** Copy it verbatim
+  with the exact line, token and word. Stored historical responses are not
+  restamped as current evidence. v1 replay retains its historical option shape.
+- **Marked input binds raw pieces, not a matching spelling nearby.** The
+  server derives the source token from its scheme and voices, then finds the
+  identical raw pieces in the requested run's coordinate. If no whole token
+  preserves that occurrence, the call refuses; callers supply no offsets.
+- **Unmarked v2 inputs are checked under both schemes with the requested
+  voices setting.** If both cuts validate the word at different raw pieces,
+  the call refuses and asks for `numbering`. Valid only under v2, or at identical
+  pieces under both cuts, retains its interpretation. Valid only under v1
+  rebinds by exact raw pieces with a notice, or refuses if v2 splits the token.
+  Neither matching refuses. For example, pre-release token 2 `oh` in
+  `Oh--oh, oh my love` names characters 8–10 under v1 and 4–6 under v2; an
+  unmarked fresh lyric call cannot choose between them.
+- **The existing unmarked-voices limitation remains.** An unmarked row does
+  not say whether its producer sang parentheses. The guard compares v1/v2
+  under the requested voices setting, not all four coordinates. Marked rows
+  preserve their originating voices coordinate; an unsung target refuses.
+- **Fresh input is normalized at the lyric boundary.** A caller may resend
+  the original marked declaration. A cached run or a verified signed interview
+  state also accepts the exact normalized declarations returned by that run,
+  restoring the original arguments before the unchanged worker identity check.
+  The groups/returns/numbering tuple is compared together. A standalone kitchen
+  checkpoint without a verified normalized receipt still requires its original
+  declarations (or omission); it does not trust caller-added aliases.
+  If original declarations plus the normalized alias exceed the existing 32 KiB
+  receipt allowance, the alias is omitted with `numbering_alias_unavailable`;
+  original replay remains usable. No capacity limit is increased.
+  A pre-batch v1 state's rows and fingerprint are never rewritten.
+- **Scope:** these safeguards apply to lyric calls, not the separately held
+  old/new Library `declaration_set`, evidence and queued-job compatibility
+  extension. The Library path keeps its existing validation boundary.
+- **The website's own saved choices retain their provenance.**
+  - The Lyrics page: new reading rows carry `numbering` with their source
+    scheme and voices, alongside `— cut v2`. These marks survive a
     downloaded `.txt`, a paste, an import, Undo/Redo and a Library working
-    copy). A row without it is legacy by compatibility policy (hand-typed or
+    copy. Historical cut-v2 rows lack voices provenance and keep that residual.
+    A row without a cut or numbering marker is legacy by compatibility policy (hand-typed or
     imported text can be unmarked too, so this is a reading rule, not a claim
     about when the row was written): it is rebound by span identity, or blocked
     for the writer's decision (`src/pages/lyrics.js`, `lyEnsureTokenScheme`).
@@ -316,13 +331,21 @@ does and does not protect one built before the release.
   is re-cut on 229 lines and names a different word on 1; `head` is re-cut on
   288; `headrime` on 284, plus 53 lines whose leading dashes only the current
   cut keeps out of the word. A named place is never converted to a number.
-  - **Connector callers' held `N.Tn` members are an OPEN residual.** The
-    owner approved extending commit 2's numbering marker to `groups` and
-    `returns`; until it lands, a caller holding such members from before this
-    release re-reads the line's words and re-declares them. Commit 1 does not
-    close this.
+  - **Connector callers' held `N.Tn` members use `numbering`.** The optional
+    call field names the same four scheme/voices coordinates as pronunciation
+    rows. Fresh v2 unmarked members compare raw pieces under v1 and v2 with
+    the requested voices setting: ambiguous positions refuse; v1-only positions
+    rebind by exact pieces with a notice or refuse. Marked positions preserve
+    their source occurrence or refuse. Named places keep their existing
+    semantics and are never converted to numbered tokens. Resumed v1 runs
+    retain their recorded coordinate.
   - **The website's rhyme links and declared returns** (team policy A): every
-    row it writes carries `— cut v2` after its members (never sent to a tool).
+    row it writes carries `— cut v2` after its members. New and form-rewritten
+    numbered rows also record their source `numbering`, including voices.
+    Each marked row maps to the current coordinate before mixed rows are sent
+    with one current call marker; excluded asides refuse. Historical rows
+    without voices provenance retain that residual. SETUP metadata itself
+    is never sent as member text.
     A member keeps the spelling the writer used: `2.end` (the end, named) stays
     `2.end` and a bare `4` stays `4`, through the migration, Keep, the forms,
     section reorder, export/import and what the tools receive, sibling groups

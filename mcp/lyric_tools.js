@@ -951,6 +951,7 @@ function verdictOf(r) {
     ...verificationEvidenceOf(r),
     ...resumeEvidenceOf(r),
   };
+  if (r.numbering_alias_unavailable) v.numbering_alias_unavailable = r.numbering_alias_unavailable;
   if (r.code === 1 && r.stderr) {
     v.stderr = String(r.stderr).slice(-8000);
     v.stderr_truncated = String(r.stderr).length > 8000;
@@ -1007,6 +1008,8 @@ function verdictOf(r) {
   if (lexicon) v.lexicon = lexicon;
   if (Array.isArray(record.pronunciations)) v.pronunciations = record.pronunciations;
   if (record.pronunciation_options) v.pronunciation_options = record.pronunciation_options;
+  if (record.numbered_mandate) v.numbered_mandate = record.numbered_mandate;
+  if (Array.isArray(record.numbering_notices)) v.numbering_notices = record.numbering_notices;
   if (r.code === 2 && ['graded', 'finished'].includes(record.status))
     v.meaning =
       'measured — coverage incomplete; this is an uncertified draft, not a successful song';
@@ -1249,6 +1252,64 @@ async function withRunLock(args, fn) {
   }
 }
 
+// A normalized spelling is accepted only when this run returned it. Restore
+// its original declarations before the worker's unchanged argv identity check.
+function restoreNumberingAlias(args, original, alias) {
+  if (!alias || typeof alias !== 'object') return;
+  if (
+    args.pronunciations !== undefined &&
+    Object.hasOwn(alias, 'pronunciations') &&
+    JSON.stringify(args.pronunciations) === JSON.stringify(alias.pronunciations)
+  )
+    args.pronunciations = structuredClone(original.pronunciations);
+  const fields = ['groups', 'returns', 'numbering'];
+  // A coordinate and its marker are one declaration. Never accept a mixed
+  // old/new tuple by recognizing independently matching fields.
+  if (
+    alias.mandate &&
+    fields.some((key) => args[key] !== undefined) &&
+    fields.every(
+      (key) =>
+        JSON.stringify(args[key] === undefined ? original[key] : args[key]) ===
+        JSON.stringify(alias.mandate[key])
+    )
+  ) {
+    for (const key of fields) {
+      if (original[key] === undefined) delete args[key];
+      else args[key] = structuredClone(original[key]);
+    }
+  }
+}
+function numberingAliasOf(record, original) {
+  const alias = {};
+  if (
+    Array.isArray(record?.pronunciations) &&
+    JSON.stringify(record.pronunciations) !== JSON.stringify(original.pronunciations ?? [])
+  )
+    alias.pronunciations = record.pronunciations;
+  if (record?.numbered_mandate) {
+    const fields = ['groups', 'returns', 'numbering'];
+    const mandate = Object.fromEntries(
+      fields.map((key) => [
+        key,
+        record.numbered_mandate[key] === undefined ? original[key] : record.numbered_mandate[key],
+      ])
+    );
+    if (fields.some((key) => JSON.stringify(mandate[key]) !== JSON.stringify(original[key])))
+      alias.mandate = mandate;
+  }
+  if (!Object.keys(alias).length) return undefined;
+  // Aliases are optional replay conveniences. Never mint an envelope whose
+  // metadata exceeds its existing allowance: original declarations still work.
+  if (
+    Buffer.byteLength(JSON.stringify(declarationsOf(original)), 'utf8') +
+      Buffer.byteLength(JSON.stringify(alias), 'utf8') >
+    CONNECTOR_DECLARATION_BYTES
+  )
+    return null;
+  return Object.keys(alias).length ? structuredClone(alias) : undefined;
+}
+
 function recoverContinuationOnly(args) {
   const fields = ['state', 'checkpoint'].filter((field) => args[field] != null);
   const extra = Object.keys(args).filter(
@@ -1275,6 +1336,7 @@ function globalsFor(a) {
   const out = [...lexiconGlobals(a)];
   if (a && a.voices === true) out.push('--voices');
   if (a && (a.fallback === 'high' || a.fallback === 'low')) out.push(`--fallback=${a.fallback}`);
+  if (a?.numbering !== undefined) out.push(`--numbering=${a.numbering}`);
   if (a?.pronunciations !== undefined)
     out.push(`--pronunciations=${JSON.stringify(a.pronunciations)}`);
   return out;
@@ -1479,10 +1541,22 @@ const lexiconSupplementShaField = z
   .describe(
     "The sha256 of the supplement version's file that a saved grade or run recorded (its verdict's `lexicon.sha256`). Omit it: the run and the session carry it. When given, a file that is not those bytes refuses rather than re-reading the song under a different supplement."
   );
+const numberingField = z
+  .enum(['v1', 'v1+voices', 'v2', 'v2+voices'])
+  .optional()
+  .describe(
+    'Source token numbering for T<n> members in groups and returns. Copy the marker from the evidence that supplied those positions; never stamp unmarked held data. Named places are unchanged. An ambiguous unmarked position refuses.'
+  );
 const pronunciationField = z
   .array(
     z
       .object({
+        numbering: z
+          .enum(['v1', 'v1+voices', 'v2', 'v2+voices'])
+          .optional()
+          .describe(
+            'Copy numbering from the pronunciation_options item that supplied this token. Do not infer it from the current reader or stamp an unmarked held choice.'
+          ),
         line: z
           .string()
           .min(1)
@@ -1675,6 +1749,8 @@ export function answerFromRows(rows, pending) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  numberingAliasOf,
+  restoreNumberingAlias,
   publishedReport,
   verificationEvidenceOf,
   resumeEvidenceOf,
@@ -1793,6 +1869,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         "For a pasted song (no seed): the letter rhyme scheme over the lines, e.g. 'ABAB' (X = free)."
       ),
+    numbering: numberingField,
     groups: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -1973,6 +2050,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_LINES)
       .optional()
       .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
+    numbering: numberingField,
     groups: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -2054,6 +2132,7 @@ export const LYRIC_TOOL_SCHEMAS = {
       .max(MAX_LINES)
       .optional()
       .describe("Letter rhyme scheme over the lines, e.g. 'ABAB' (X = free line)."),
+    numbering: numberingField,
     groups: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -2470,8 +2549,10 @@ export function registerLyricTools(server, tool) {
               const runWander = runRefusal(runRec, a);
               if (runWander) throw refuse(runWander);
               const carried = { state: false, draft: false, decl: false };
+              let numberingAlias = runRec?.numbering_alias;
               if (runRec) {
                 const recDecl = withLegacyLexicon(runRec.decl);
+                restoreNumberingAlias(a, recDecl, runRec.numbering_alias);
                 const moved = movedDeclarations(recDecl, a);
                 if (moved.length) throw refuse(movedRefusal(runRec, moved));
                 for (const [k, v] of Object.entries(recDecl || {}))
@@ -2530,6 +2611,11 @@ export function registerLyricTools(server, tool) {
                         z.object(KITCHEN_REVISE_SCHEMA).parse(decoded.connector_declarations)
                       )
                     );
+                    // Alias metadata is trusted only under the existing whole-state seal.
+                    if (decoded.cursor && !decoded.cursor_strip) {
+                      numberingAlias = decoded.connector_numbering_alias ?? numberingAlias;
+                      restoreNumberingAlias(a, decl, numberingAlias);
+                    }
                     const moved = movedDeclarations(decl, a);
                     if (moved.length)
                       throw refuse(
@@ -2553,6 +2639,7 @@ export function registerLyricTools(server, tool) {
                     delete decoded.connector_declarations;
                     delete decoded.connector_semantic_identity;
                     delete decoded.connector_run_ref;
+                    delete decoded.connector_numbering_alias;
                   }
                   a[field] = JSON.stringify(decoded);
                 }
@@ -2709,12 +2796,13 @@ export function registerLyricTools(server, tool) {
                 (hasScheme ||
                   hasGroups ||
                   a.returns ||
+                  a.numbering != null ||
                   a.structures ||
                   a.blueprint ||
                   a.subdivision != null)
               )
                 throw refuse(
-                  'a seeded run takes its mandate and its blueprint OFF THE PLAN — drop scheme/groups/returns/structures/blueprint/subdivision, or drop the seed to revise a pasted song'
+                  'a seeded run takes its mandate and its blueprint OFF THE PLAN — drop scheme/groups/returns/numbering/structures/blueprint/subdivision, or drop the seed to revise a pasted song'
                 );
               // A pasted song has no plan for these to shape; they used to be
               // accepted, stored as the run's declarations and never read.
@@ -2826,6 +2914,7 @@ export function registerLyricTools(server, tool) {
                   connector_declarations: declarationsOf(a),
                   connector_semantic_identity: continuationSemanticIdentity(),
                   connector_run_ref: runRef(runId),
+                  ...(numberingAlias ? { connector_numbering_alias: numberingAlias } : {}),
                 });
               if (budget.max_rounds !== undefined) args.push(`--max-rounds=${budget.max_rounds}`);
               args.push(`--attempts=${budget.attempts}`);
@@ -2843,6 +2932,12 @@ export function registerLyricTools(server, tool) {
                     }),
                 },
               });
+              const nextNumberingAlias = numberingAliasOf(r.lyric_result, a);
+              if (nextNumberingAlias === null) {
+                numberingAlias = undefined;
+                r.numbering_alias_unavailable =
+                  'Declaration receipt capacity: resend original declarations or omit them when the run carries them; normalized resends are unavailable for this receipt.';
+              } else numberingAlias = nextNumberingAlias ?? numberingAlias;
               // Bind the native replay receipt to both the exact file bytes it
               // consumed and the original signed connector wire supplied here.
               if (checkpointInput) {
@@ -2906,6 +3001,7 @@ export function registerLyricTools(server, tool) {
                   state: result.state,
                   checkpoint: result.checkpoint,
                   decl: declarationsOf(a),
+                  ...(numberingAlias ? { numbering_alias: numberingAlias } : {}),
                   run_id: runId,
                 });
                 result.run_id = saved.run_id;
@@ -2919,6 +3015,10 @@ export function registerLyricTools(server, tool) {
                 // nothing to leak even if it tried.
                 const st = JSON.parse(await readFile(statePath, 'utf8'));
                 const suspendedVerdict = verdictOf(r);
+                if (numberingAlias?.pronunciations && !suspendedVerdict.pronunciations)
+                  suspendedVerdict.pronunciations = numberingAlias.pronunciations;
+                if (numberingAlias?.mandate && !suspendedVerdict.numbered_mandate)
+                  suspendedVerdict.numbered_mandate = numberingAlias.mandate;
                 const stateWire = encodeInterview(st);
                 const onRecord = st.answered.propose.length + st.answered.propose_group.length;
                 const askedNow = askedOf(st.pending);
@@ -2942,6 +3042,7 @@ export function registerLyricTools(server, tool) {
                       draft: a.draft,
                       replay_draft: a.draft,
                       decl: declarationsOf(a),
+                      ...(numberingAlias ? { numbering_alias: numberingAlias } : {}),
                       answers: onRecord,
                       run_id: runId,
                     })
@@ -2996,6 +3097,10 @@ export function registerLyricTools(server, tool) {
                             'plan_lines',
                             'cursor_stripped',
                             'lexicon',
+                            'pronunciations',
+                            'numbered_mandate',
+                            'numbering_notices',
+                            'numbering_alias_unavailable',
                           ]
                             .filter((key) => suspendedVerdict[key] !== undefined)
                             .map((key) => [key, suspendedVerdict[key]])
@@ -3044,6 +3149,7 @@ export function registerLyricTools(server, tool) {
                     draft: exactDraft,
                     replay_draft: a.draft,
                     decl: declarationsOf(a),
+                    ...(numberingAlias ? { numbering_alias: numberingAlias } : {}),
                     stop: verdict.loop_stop_reason ?? null,
                     open: Array.isArray(verdict.loop_unresolved_lines)
                       ? verdict.loop_unresolved_lines
@@ -3155,6 +3261,7 @@ export function registerLyricTools(server, tool) {
                     draft: exactDraft,
                     replay_draft: a.draft,
                     decl: declarationsOf(a),
+                    ...(numberingAlias ? { numbering_alias: numberingAlias } : {}),
                     run_id: runId,
                   });
                   other.run_id = saved.run_id;
@@ -3581,7 +3688,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'structure — ban_not_asked lists them, and banned_pairs is null when no pair was asked. For unresolved ' +
     'pronunciation, read pronunciation_options from grade/check (it lists the lines a refused obligation names; ' +
     'total counts every ambiguous word), select the intended dictionary reading or ' +
-    'supply ARPABET with an honest source in pronunciations, then regrade. Choices bind exact line text and ' +
+    "supply ARPABET with an honest source in pronunciations, then regrade. Copy each option's numbering marker unchanged with its token; never invent one for held unmarked choices. Choices bind exact line text and " +
     'token position, including every verbatim chorus return. Never choose phones just to pass a check. A ' +
     'revision can remove an original occurrence; its reading is retained as retired and never applied to ' +
     'changed text. New text is graded independently. Supplying new readings during revision requires regrading ' +

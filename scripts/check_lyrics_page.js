@@ -251,7 +251,7 @@ function unitEndIdentity() {
   const members = (text, key) =>
     row(text, key)
       .replace(/^\[SETUP — [^—]+ — /, '')
-      .replace(/ — cut \S+\]$|\]$/, '')
+      .replace(/(?: — numbering \S+)? — cut \S+\]$|\]$/, '')
       .split(/[;,]/)
       .map((m) => m.replace(/\s+\(.*\)$/, '').trim());
   const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
@@ -686,6 +686,142 @@ function unitSavedReadings() {
   ctx.lyCloseMenus = () => {};
   const row = (token, word, line) =>
     `[SETUP — reading — token ${token} ${JSON.stringify(word)} in ${JSON.stringify(line)} — L AO1 D IY0 — declared — source: the singer]`;
+  // Provenance survives storage as text and is sent in its original coordinate.
+  const numbered = (numbering, token, word, line, voices = false) =>
+    `${row(token, word, line).slice(0, -1)} — numbering ${numbering} — cut v2]\n${voices ? '[SETUP — voices — sung]\n' : ''}[VERSE]\n${line}`;
+  for (const [marker, token, voices, target] of [
+    ['v2', 2, true, 3],
+    ['v2+voices', 3, false, 2],
+    ['v1', 2, true, 3],
+    ['v1+voices', 3, false, 2],
+  ]) {
+    const text = numbered(marker, token, 'love', 'oh (oh) love', voices);
+    const parsed = run('lySetupOf(lyParse(__t), "reading")[0]', { __t: text });
+    check(!parsed.undecided && parsed.token === target, 'marked reading lost raw-span target');
+    const wire = run('lyDeclarationsOf(lyParse(__t)).pronunciations[0]', { __t: text });
+    check(wire.numbering === marker && wire.token === token, 'source numbering was relabelled');
+    check(
+      run('lyMigrateSavedReadings(__t).text', { __t: text }) === text,
+      'marked row was migrated twice'
+    );
+  }
+  for (const voices of [false, true]) {
+    const text = `${voices ? '[SETUP — voices — sung]\n' : ''}[VERSE]\noh (oh) love`;
+    const result = run(
+      `LY_FORMS.pronunciation.apply(lyParse(__t),
+      lyReadingKey('oh (oh) love', ${voices ? 3 : 2}, 'love'),
+      { kind: 'declared', phones: 'L AH1 V', source: 'singer' })`,
+      { __t: text }
+    );
+    const wire = run('lyDeclarationsOf(lyParse(__t)).pronunciations[0]', { __t: result.text });
+    check(
+      wire.numbering === (voices ? 'v2+voices' : 'v2'),
+      'fresh manual choice lost current numbering'
+    );
+  }
+  const dict = run(`LY_FORMS.pronunciation.apply(lyParse('[VERSE]\\noh (oh) love'),
+    lyReadingKey('oh (oh) love', 2, 'love'),
+    { kind: 'dictionary', phones: 'L AH1 V', source: 'CMUdict', numbering: 'v2+voices', numberingToken: 3 })`);
+  const dictWire = run('lyDeclarationsOf(lyParse(__t)).pronunciations[0]', { __t: dict.text });
+  check(
+    dictWire.token === 3 && dictWire.numbering === 'v2+voices',
+    'dictionary option source coordinate was not retained'
+  );
+  const picked = run(`(() => {
+    const savedSet = lyDraftSet, savedApply = lyDraftApply;
+    const fields = {};
+    try {
+      LY.model = lyParse('[VERSE]\\noh (oh) love');
+      LY.picks.reading = lyReadingKey('oh (oh) love', 2, 'love');
+      LY.results.pronunciation = { numbering: 'v1', items: [{
+        line: 'oh (oh) love', token: 3, word: 'love', numbering: 'v2+voices',
+        dictionary_readings: [{ phones: ['L', 'AH1', 'V'] }] }] };
+      lyDraftSet = (_tool, _key, field, value) => { fields[field] = value; };
+      lyDraftApply = () => true;
+      LY_ACTIONS['ly-reading-use']('0');
+      return fields;
+    } finally { lyDraftSet = savedSet; lyDraftApply = savedApply; }
+  })()`);
+  check(
+    picked.numbering === 'v2+voices' && picked.numberingToken === 3,
+    'Use reading failed to copy the selected item marker over aggregate provenance'
+  );
+  const excluded = numbered('v2+voices', 2, 'oh', 'oh (oh) love');
+  check(
+    run('!!lyDeclarationsOf(lyParse(__t)).readings_need_decision', { __t: excluded }),
+    'excluded same-spelling aside rebound to another occurrence'
+  );
+  for (const voices of [false, true]) {
+    const text = `[SETUP — rhyme groups — 1.T1,2.end — cut v2]\n[SETUP — returns — 1.T1,2.T1 — cut v2]\n${voices ? '[SETUP — voices — sung]\n' : ''}[VERSE]\nlove\nlove`;
+    const wire = run('lyDeclarationsOf(lyParse(__t))', { __t: text });
+    check(
+      wire.numbering === (voices ? 'v2+voices' : 'v2') && wire.groups === '1.T1,2.end',
+      'word-place numbering missing or named place changed'
+    );
+  }
+  for (const key of ['rhyme groups', 'returns']) {
+    const made = run('lySetSetup(__key, ["1.T1,2.end"], "[VERSE]\\n(oh) love love\\nlove")', {
+      __key: key,
+    });
+    check(made.includes('numbering v2'), 'new word-place row omitted voices provenance');
+    const voiced = '[SETUP — voices — sung]\n' + made;
+    const field = key === 'returns' ? 'returns' : 'groups';
+    let wire = run('lyDeclarationsOf(lyParse(__t))', { __t: voiced });
+    check(
+      wire[field] === '1.T2,2.end' && wire.numbering === 'v2+voices',
+      'voices toggle rebound first love to aside or second love'
+    );
+    const rewritten = run('lySetSetup(__key, [lySetupOf(lyParse(__t), __key)[0].value], __t)', {
+      __key: key,
+      __t: voiced,
+    });
+    check(
+      rewritten.includes('numbering v2+voices') && rewritten.includes('1.T2,2.end'),
+      'rewritten marked group was not normalized before restamping'
+    );
+    wire = run('lyDeclarationsOf(lyParse(__t))', {
+      __t: rewritten.replace('[SETUP — voices — sung]\n', ''),
+    });
+    check(wire[field] === '1.T1,2.end', 'reverse voices toggle lost original physical word');
+    const excluded = made.replace('numbering v2', 'numbering v2+voices');
+    check(
+      run('!!lyDeclarationsOf(lyParse(__t))[__field + "_need_decision"]', {
+        __t: excluded,
+        __field: field,
+      }),
+      'removed aside group occurrence did not block'
+    );
+    check(
+      run('!!lyDeclarationsOf(lyParse(__t))[__field + "_need_decision"]', {
+        __t: made.replace('numbering v2', 'numbering future'),
+        __field: field,
+      }),
+      'unknown group numbering was silently accepted'
+    );
+  }
+  const noCut =
+    '[SETUP — rhyme groups — 1.T2,2.end — numbering v2+voices]\n[VERSE]\n(oh) love love\nlove';
+  check(
+    run('lyMigrateSavedReadings(__t).text', { __t: noCut }) === noCut,
+    'numbering-only row was double migrated'
+  );
+  check(
+    run('!!lyDeclarationsOf(lyParse(__t)).groups_need_decision', {
+      __t: noCut.replace('1.T2', '1.end').replace('numbering v2+voices', 'numbering future'),
+    }),
+    'unknown numbering on a named-only row escaped refusal'
+  );
+  const mixed =
+    '[SETUP — rhyme groups — 1.T1,2.end — numbering v2 — cut v2]\n' +
+    '[SETUP — returns — 1.T2,2.end — numbering v2+voices — cut v2]\n' +
+    '[VERSE]\n(oh) love love\nlove';
+  const mixedWire = run('lyDeclarationsOf(lyParse(__t))', { __t: mixed });
+  check(
+    mixedWire.groups === '1.T1,2.end' &&
+      mixedWire.returns === '1.T1,2.end' &&
+      mixedWire.numbering === 'v2',
+    'mixed source group and return markers were not normalized to one wire coordinate'
+  );
   const LAWDY = 'U--h, u--h, Lawdy,';
   const OH = 'Oh--oh, oh my love';
   const song = (rows) => `${rows.join('\n')}\n\n[VERSE]\n${LAWDY}\n${OH}\nWe sing it plain`;
@@ -905,7 +1041,7 @@ function unitSavedReadings() {
     // A row the page writes is marked; renumbering lines keeps the mark.
     const set = run('lySetSetup("returns", ["1.T2,3.T2"], __t)', { __t: OHS });
     check(
-      set.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
+      set.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — numbering v2 — cut v2]',
       'a written word place carries no cut mark'
     );
     // Every rhyme groups / returns row the page writes is marked, named
@@ -917,7 +1053,7 @@ function unitSavedReadings() {
     );
     const moved = run('lyAssemble(lyBlocks(lyParse(__t))).text', { __t: set });
     check(
-      moved.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
+      moved.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — numbering v2 — cut v2]',
       `reassembly dropped the mark: ${moved.split('\n')[0]}`
     );
     // 8. A word place with no current word over its characters keeps its

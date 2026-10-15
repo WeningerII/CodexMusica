@@ -27,6 +27,97 @@ class PronunciationChoices(unittest.TestCase):
         lex.pronunciations = P.validate_choices(rows, lex)
         return lex
 
+    def test_caller_numbering_preserves_occurrences(self):
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        lex._numbering_notices = []
+        row = choice('Oh--oh oh', 2, 'oh', ['OW1'], basis='declared')
+        with self.assertRaisesRegex(ValueError, 'ambiguous.*v1.*v2.*numbering'):
+            P.validate_choices([row], lex)
+        old = P.validate_choices([dict(row, numbering='v1')], lex)
+        new = P.validate_choices([dict(row, numbering='v2')], lex)
+        self.assertEqual(old[0]['token'], 3)
+        self.assertEqual(new[0]['token'], 2)
+        self.assertEqual(new[0]['numbering'], 'v2')
+        self.assertEqual(P.validate_choices(old, lex), old)
+        self.assertEqual(P.validate_choices(new, lex), new)
+        self.assertTrue(lex._numbering_notices)
+        moved = choice('U--h record', 2)
+        self.assertEqual(P.validate_choices([moved], lex)[0]['token'], 3)
+        split = choice('U--h record', 1, 'U--h', ['AH1'], basis='declared')
+        self.assertEqual(P.validate_choices([split], self.base_v1), [split])
+        with self.assertRaises(ValueError):
+            P.validate_choices([dict(split, numbering='v1')], lex)
+        self.assertEqual(P.validate_choices([choice()], lex), [choice()])
+        self.assertEqual(P.validate_choices([dict(choice(), numbering='v2')], lex),
+                         [dict(choice(), numbering='v2')])
+        # Library/default validator retains the exact old six-field contract.
+        self.assertEqual(P.validate_choices([row], self.base.with_reader_scheme('v2')), [row])
+        with self.assertRaises(ValueError):
+            P.validate_choices([dict(row, numbering='v2')], self.base)
+        legacy = copy.copy(self.base_v1)
+        legacy._numbering_guard = True
+        self.assertEqual(P.validate_choices([row], legacy), [row])
+        self.assertEqual(P.fingerprint(P.validate_choices([row], legacy)), P.fingerprint([row]))
+
+    def test_numbering_matrix_matches_independent_raw_piece_oracle(self):
+        counts = {'mapped': 0, 'refused': 0, 'moved': 0}
+        for separator in ('--', '—', ':', ':--', '/', ' '):
+            for line in (f'love{separator}love love',
+                         f'love{separator}(love) love',
+                         f'(love) love{separator}love'):
+                for source in P.NUMBERINGS:
+                    source_tokens = lh.reader_token_spans(
+                        line, '+voices' not in source, source.split('+')[0])
+                    for target in P.NUMBERINGS:
+                        lex = copy.copy(self.base)
+                        lex.reader_scheme = target.split('+')[0]
+                        lex.strip_parens = '+voices' not in target
+                        lex._numbering_guard = True
+                        target_tokens = lh.reader_token_spans(
+                            line, lex.strip_parens, lex.reader_scheme)
+                        for index, (word, pieces) in enumerate(source_tokens or (), 1):
+                            with self.subTest(line=line, source=source, target=target, token=index):
+                                # Oracle compares the readers' actual pieces directly;
+                                # it does not call the production mapping helper.
+                                expected = [i for i, item in enumerate(target_tokens or (), 1)
+                                            if item == (word, pieces)]
+                                row = choice(line, index, word, ['L', 'AH1', 'V'], 'declared')
+                                row['numbering'] = source
+                                if len(expected) != 1:
+                                    with self.assertRaises(ValueError):
+                                        P.validate_choices([row], lex)
+                                    counts['refused'] += 1
+                                else:
+                                    got = P.validate_choices([row], lex)[0]
+                                    self.assertEqual(got['token'], expected[0])
+                                    self.assertEqual(got['numbering'], target)
+                                    self.assertEqual(target_tokens[got['token'] - 1][1], pieces)
+                                    self.assertEqual(P.validate_choices([got], lex), [got])
+                                    counts['mapped'] += 1
+                                    counts['moved'] += got['token'] != index
+        self.assertGreater(counts['mapped'], 100)
+        self.assertGreater(counts['refused'], 0)
+        self.assertGreater(counts['moved'], 0)
+
+    def test_numbering_voices_and_token_slots(self):
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        row = choice('(oh) record record', 2)
+        self.assertEqual(P.validate_choices([dict(row, numbering='v2+voices')], lex)[0]['token'], 1)
+        aside = choice('(record) record', 1)
+        with self.assertRaises(ValueError):
+            P.validate_choices([dict(aside, numbering='v2+voices')], lex)
+        lines = ['Oh--oh oh', 'a night']
+        with self.assertRaisesRegex(ValueError, 'ambiguous'):
+            P.numbered_groups([['1.T2', '2.end']], lines, lex)
+        self.assertEqual(P.numbered_groups([['1.T2', '2.end']], lines, lex, 'v1'),
+                         [['1.T3', '2.end']])
+        self.assertEqual(P.numbered_groups([['1.line', '2.head', '2']], lines, lex),
+                         [['1.line', '2.head', '2']])
+        self.assertEqual(P.reading_options(lex, ['zzqxqzz'])['items'][0]['numbering'], 'v2')
+        self.assertNotIn('numbering', P.reading_options(self.base_v1, ['zzqxqzz'])['items'][0])
+
     def test_selected_meter_and_verbatim_returns_but_no_dictionary_mutation(self):
         lex = self.lex([choice()])
         for text in [LINE, LINE]:
@@ -232,6 +323,22 @@ class PronunciationChoices(unittest.TestCase):
         self.assertTrue(retired['retired'])
         self.assertFalse(retired['matching_lines'])
 
+    def test_marked_reading_retires_after_revision_without_rebinding(self):
+        from quality.revise import Reviser
+        from quality.schemes import mandate
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        lex.pronunciations = P.validate_choices([dict(choice(), numbering='v2')], lex)
+        before = [LINE, 'We hold our breath and let the feeling pass']
+        after = [LINE.replace('Cut', 'Play'), before[1]]
+        result = Reviser(lex=lex).verify(before, after,
+            mandate('AA', n_lines=2, default_relation='class:ASSONANCE'), targeted={1})
+        retired = next(row for row in result['coverage_after']['obligations']
+                       if row['id'] == 'pronunciation:1')
+        self.assertTrue(retired['retired'])
+        self.assertEqual(retired['matching_lines'], [])
+        self.assertEqual(retired['status'], 'not_requested')
+
     def test_actual_cli_parses_choices_and_exports_options(self):
         import json, subprocess, tempfile
         with tempfile.TemporaryDirectory() as directory:
@@ -243,6 +350,28 @@ class PronunciationChoices(unittest.TestCase):
             self.assertIn(result.returncode, [0, 2, 3], result.stderr)
             self.assertIn('"pronunciation_options":', result.stdout)
             self.assertIn('"pronunciations":[', result.stdout)
+
+    def test_actual_cli_numbered_groups_and_returns(self):
+        import json, subprocess, tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            draft = Path(directory) / 'draft.txt'
+            draft.write_text('Oh--oh oh\nOh--oh oh\n')
+            base = [sys.executable, str(Path(lh.__file__).resolve()),
+                    '--reader-scheme=v2', 'brief', str(draft)]
+            for field in ('groups', 'returns'):
+                refused = subprocess.run(base + [f'--{field}=1.T2,2.T2'],
+                                         capture_output=True, text=True)
+                self.assertIn(f'{field}: ambiguous token 2', refused.stdout)
+            accepted = subprocess.run(base[:2] + ['--numbering=v1',
+                '--pronunciations=' + json.dumps([dict(choice('Oh--oh oh', 2, 'oh',
+                    ['OW1'], 'declared'), numbering='v1')])] + base[2:] + ['--groups=1.T2,2.T2'],
+                                      capture_output=True, text=True)
+            self.assertIn('NUMBERING: token 2 -> 3', accepted.stdout)
+            records = [json.loads(line.split('lyric result: ', 1)[1])
+                       for line in accepted.stdout.splitlines() if 'lyric result: ' in line]
+            self.assertEqual(records[-1]['numbered_mandate'],
+                             {'groups': '1.T3,2.T3', 'numbering': 'v2'})
+            self.assertTrue(records[-1]['numbering_notices'])
 
     def test_cli_refuses_unsupported_command_without_crashing(self):
         import subprocess

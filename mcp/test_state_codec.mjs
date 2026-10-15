@@ -177,6 +177,30 @@ assert.deepEqual(
   boundaryWorker,
   'separately reserved connector metadata does not consume the worker journal budget'
 );
+// Exactly full worker journal plus a full combined declaration/alias
+// allowance: alias bookkeeping must not consume even one worker byte.
+const aliasBoundary = {
+  ...boundaryWorker,
+  connector_declarations: { data: 'x'.repeat(16000 - 11) },
+  connector_numbering_alias: { data: 'x'.repeat(CONNECTOR_DECLARATION_BYTES - 16000 - 11) },
+};
+assertContinuationCapacity(aliasBoundary);
+assert.deepEqual(decodeState(encodeState(aliasBoundary)), aliasBoundary);
+assert.throws(
+  () =>
+    assertContinuationCapacity({
+      ...aliasBoundary,
+      connector_numbering_alias: { data: aliasBoundary.connector_numbering_alias.data + 'x' },
+    }),
+  { code: 'DECLARATION_CAPACITY' }
+);
+assert.throws(
+  () =>
+    assertContinuationCapacity({
+      connector_numbering_alias: { data: 'x'.repeat(CONNECTOR_DECLARATION_BYTES) },
+    }),
+  { code: 'DECLARATION_CAPACITY' }
+);
 assert.throws(() => assertContinuationCapacity({ answered: 'x'.repeat(WORKER_STATE_BYTES) }), {
   code: 'CONTINUATION_CAPACITY',
 });

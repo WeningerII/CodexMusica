@@ -34,6 +34,74 @@ def _scheme(lex):
     return resolve_reader_scheme(getattr(lex, 'reader_scheme', None))
 
 
+NUMBERINGS = ('v1', 'v1+voices', 'v2', 'v2+voices')
+
+
+def numbering_of(lex):
+    return _scheme(lex) + ('' if lex.strip_parens else '+voices')
+
+
+def numbered_token(line, token, lex, numbering=None, word=None):
+    """Resolve a caller coordinate by identical server-derived raw pieces."""
+    from lyric_harness import reader_token_spans
+    current = numbering_of(lex)
+    if numbering is not None and numbering not in NUMBERINGS:
+        raise ValueError('numbering must be v1, v1+voices, v2 or v2+voices')
+
+    def tokens(mark):
+        return reader_token_spans(line, '+voices' not in mark, mark.split('+')[0]) or []
+
+    def at(mark):
+        rows = tokens(mark)
+        if type(token) is int and 1 <= token <= len(rows):
+            value = rows[token - 1]
+            if word is None or value[0] == word:
+                return value
+        return None
+
+    dst = tokens(current)
+    if numbering is not None:
+        origin = at(numbering)
+    else:
+        now = at(current)
+        oldmark = 'v1' + ('' if lex.strip_parens else '+voices')
+        old = at(oldmark)
+        if now and old and now[1] != old[1]:
+            raise ValueError(f'ambiguous token {token} in {line!r}: '
+                             f'{oldmark} binds {old!r}; {current} binds {now!r}; '
+                             'declare numbering explicitly')
+        origin = now or old
+    hits = [i + 1 for i, item in enumerate(dst) if origin is not None and item == origin]
+    if len(hits) != 1:
+        raise ValueError(f'cannot resolve token {token} in {line!r} under {current}: '
+                         'no unique token has the same word and raw pieces; declare numbering')
+    if hits[0] != token:
+        notices = getattr(lex, '_numbering_notices', None)
+        if notices is not None:
+            notices.append(f'NUMBERING: token {token} -> {hits[0]} in {line!r} '
+                           f'under {current}; identical raw pieces preserved')
+    return hits[0]
+
+
+def numbered_groups(groups, lines, lex, numbering=None):
+    """Normalize explicit Tn slots only; named placements retain their meaning."""
+    import re
+    out = []
+    for group in groups:
+        members = []
+        for member in group:
+            match = re.fullmatch(r'(\d+)\.T([1-9]\d*)', str(member))
+            if match:
+                line, token = map(int, match.groups())
+                if not 1 <= line <= len(lines):
+                    raise ValueError(f'{member}: line does not exist')
+                mapped = numbered_token(lines[line - 1], token, lex, numbering)
+                member = f'{line}.T{mapped}'
+            members.append(member)
+        out.append(members)
+    return out
+
+
 def validate_choices(rows, lex):
     """A declaration's `token` is a 1-based position in `line_tokens` of its
     exact line, cut under the lexicon's own reader scheme: under `v2` a
@@ -44,12 +112,26 @@ def validate_choices(rows, lex):
         raise ValueError('pronunciations must be a list of at most 128 occurrence declarations')
     out, seen = [], set()
     for row in rows:
-        if not isinstance(row, dict) or set(row) != {'line', 'token', 'word', 'phones', 'basis', 'source'}:
+        guard = getattr(lex, '_numbering_guard', False)
+        required = {'line', 'token', 'word', 'phones', 'basis', 'source'}
+        if not isinstance(row, dict) or not (set(row) == required or
+                guard and set(row) == required | {'numbering'}):
             raise ValueError('each pronunciation requires line, token, word, phones, basis and source')
+        if 'numbering' in row and row['numbering'] not in NUMBERINGS:
+            raise ValueError('numbering must be v1, v1+voices, v2 or v2+voices')
         line, token, word, phones = (row[k] for k in ('line', 'token', 'word', 'phones'))
         if not isinstance(line, str) or not line.strip() or len(line) > 4000 or any(c in line for c in '\r\n'):
             raise ValueError('pronunciation line must be one exact nonempty lyric line, at most 4000 characters')
         scheme = _scheme(lex)
+        if guard and (scheme == 'v2' or 'numbering' in row):
+            row = copy.deepcopy(row)
+            original_token = token
+            token = numbered_token(line, token, lex, row.get('numbering'), word)
+            row['token'] = token
+            # Keep explicit provenance and record every migrated coordinate.
+            # Unmarked unchanged rows alone preserve the historical six fields.
+            if 'numbering' in row or token != original_token:
+                row['numbering'] = numbering_of(lex)
         words = line_tokens(line, strip_parens=lex.strip_parens, scheme=scheme)
         if type(token) is not int or not 1 <= token <= len(words) or words[token-1] != word:
             # Under v2 the refusal names what the position holds, because the
@@ -269,6 +351,7 @@ def reading_options(lex, lines, coverage=None):
             eligible += 1
             if len(items) < MAX_CHOICES:
                 items.append({'line': line, 'token': index+1, 'word': word,
+                    **({'numbering': numbering_of(lex)} if _scheme(lex) == 'v2' else {}),
                     'matching_lines': matching,
                     'dictionary_readings': [dict({'phones': list(p),
                         'stress': [s['stress'] for s in syllabify(p)],

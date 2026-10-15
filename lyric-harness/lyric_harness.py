@@ -9974,29 +9974,53 @@ def main():
                 _refuse("LEXICON_SUPPLEMENT_UNAVAILABLE: --lexicon-supplement-sha256 "
                         "names a supplement's bytes, and no supplement version is "
                         "declared; declare the version it belongs to")
-            lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=choices,
+            lex = Lexicon(fallback=fallback, strip_parens=not voices, pronunciations=None,
                           reader_scheme=reader_scheme)
             _LEXICON_IDENTITY = {"supplement_id": None, "sha256": None}
         else:
             from quality import lexicon_supplement as _LS
             try:
                 lex = _LS.SupplementedLexicon(fallback=fallback, strip_parens=not voices,
-                                              pronunciations=choices,
+                                              pronunciations=None,
                                               version=_LS.canonical_version(supplement),
                                               expected_sha256=supplement_sha,
                                               reader_scheme=reader_scheme)
             except (_LS.SupplementUnavailable, OSError) as e:
                 _refuse(str(e))
             _LEXICON_IDENTITY = _LS.lexicon_identity(lex)
+        from quality.pronunciation import validate_choices
+        lex._numbering_guard = True
+        lex._numbering_notices = []
+        lex.pronunciations = validate_choices(choices, lex)
+        for notice in lex._numbering_notices:
+            print(notice)
     except (ValueError, TypeError) as e:
         _refuse(f"invalid pronunciation declaration: {e}")
 
+    from quality.pronunciation import reading_options, NUMBERINGS
+    if '--numbering' in args or sum(a.startswith('--numbering=') for a in args) > 1:
+        _refuse('use one --numbering=v1|v1+voices|v2|v2+voices')
+    numbering = _flag_value(args, '--numbering', eq_only=True)
+    if numbering is not None and numbering not in NUMBERINGS:
+        _refuse('numbering must be v1, v1+voices, v2 or v2+voices')
+    args = [a for a in args if not a.startswith('--numbering=')]
     if not args:
         _refuse("a pronunciation declaration requires a command")
     cmd = args[0]
     if pronunciation_json is not None and cmd not in {"song", "finish", "brief", "revise", "verify", "recover"}:
         _refuse("--pronunciations is supported on song, finish, brief, revise, verify and recover")
-    from quality.pronunciation import reading_options
+    if numbering is not None and cmd not in {'brief', 'verify', 'revise', 'song', 'finish', 'tryline'}:
+        _refuse('--numbering applies to groups and returns on song, finish, brief, revise and verify')
+    numbered_mandate = {}
+
+    def _numbering_kw():
+        out = {}
+        if lex._numbering_notices:
+            out['numbering_notices'] = list(dict.fromkeys(lex._numbering_notices))
+        if numbered_mandate:
+            from quality.pronunciation import numbering_of
+            out['numbered_mandate'] = dict(numbered_mandate, numbering=numbering_of(lex))
+        return out
 
     if cmd == "declaration":
         print(decl.show())
@@ -10877,6 +10901,7 @@ def main():
         # closing list, so a reader of the report alone gets no reason for
         # them; the record carries all of them, read off `rec.how`.
         _lyric_result(**_lexicon_kw(), status="recovered", exit=3 if _refs else 0,
+                      **_numbering_kw(),
                       input_format=input_format,
                       lines=list(getattr(rec, "sung_lines", []) or []),
                       set_aside=list(getattr(rec, "set_aside", []) or []),
@@ -12802,7 +12827,7 @@ def main():
             if flags and not names:              # unreachable; keeps the pair honest
                 _refuse("mandate flags were found and none was named")
 
-            def _groups(raw):
+            def _groups(raw, field):
                 # 1-based, ';'-separated, MAY OVERLAP.
                 #
                 # MEMBERS ARE LEFT AS STRINGS since 2026-08-23 and the `int()`
@@ -12815,8 +12840,22 @@ def main():
                 # placement by name — so parsing here would be a second
                 # statement of it (doctrine 1). A bare number reaches
                 # `_normalise_groups` and is int()ed there exactly as before.
-                return [[x.strip() for x in g.split(",") if x.strip()]
-                        for g in raw.split(";") if g.strip()]
+                groups = [[x.strip() for x in g.split(",") if x.strip()]
+                          for g in raw.split(";") if g.strip()]
+                if reader_scheme == 'v2' or numbering is not None:
+                    from quality.pronunciation import numbered_groups
+                    try:
+                        start_notices = len(lex._numbering_notices)
+                        groups = numbered_groups(groups, lines, lex, numbering)
+                        if (numbering is not None or len(lex._numbering_notices) > start_notices) and any(
+                                re.fullmatch(r'\d+\.T[1-9]\d*', str(m))
+                                for g in groups for m in g):
+                            numbered_mandate[field] = ';'.join(','.join(g) for g in groups)
+                        for notice in lex._numbering_notices[start_notices:]:
+                            print(notice)
+                    except ValueError as e:
+                        _refuse(f"{field}: {e}")
+                return groups
 
             def _structs(raw):
                 # --structures=B:kalevala-alliteration,A:qafiya — a group
@@ -12950,8 +12989,8 @@ def main():
                                 "spell the whole mandate as --groups= and/or "
                                 "--returns=."])
 
-            g = _groups(by["--groups="]) if "--groups=" in by else []
-            r = _groups(by["--returns="]) if "--returns=" in by else []
+            g = _groups(by["--groups="], "groups") if "--groups=" in by else []
+            r = _groups(by["--returns="], "returns") if "--returns=" in by else []
             for flag, val in (("--structures=", st), ("--relations=", rl)):
                 if val is not None and not (g or r):
                     _refuse(f"{flag} was handed in with no groups to "
@@ -13232,6 +13271,7 @@ def main():
                         "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                         "final_draft": list(lines), "coverage": found["coverage"],
                         "pronunciations": lex.pronunciations,
+                        **_numbering_kw(),
                         "pronunciation_options": reading_options(lex, lines, found["coverage"]),
                         "findings": _machine_findings,
                         "ban_scope": _ban_scope,
@@ -13906,6 +13946,7 @@ def main():
                 print("  lyric result: " + json.dumps({
                     "version": 1, "status": "verified", "command": "verify",
                     "pronunciations": lex.pronunciations,
+                    **_numbering_kw(),
                     "lexicon": dict(_LEXICON_IDENTITY),
                     "reader_scheme": resolve_reader_scheme(None),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
@@ -14479,6 +14520,9 @@ def main():
                           f"run the SAME command again.\n")
                     print(need.prompt)
                     _lyric_result(**_lexicon_kw(), status="suspended", exit=4,
+                                  **_numbering_kw(),
+                                  **({"pronunciations": lex.pronunciations} if any(
+                                      "numbering" in row for row in lex.pronunciations) else {}),
                                   **_lyric_run_record(say_memo, say_proposer,
                                                      finish_plan if cmd == "finish" else None))
                     sys.exit(4)
@@ -14503,6 +14547,9 @@ def main():
                     print(f"  Run the SAME command again with no answer to "
                           f"continue.\n")
                     _lyric_result(**_lexicon_kw(), status="stopped", exit=5,
+                                  **_numbering_kw(),
+                                  **({"pronunciations": lex.pronunciations} if any(
+                                      "numbering" in row for row in lex.pronunciations) else {}),
                                   stopped_before=stop.step,
                                   final_draft=list(say_proposer.state.get(
                                       "accepted_lines") or ()),
@@ -14616,6 +14663,7 @@ def main():
                     "accepted_lines": list(result.lines),
                     "final_draft": list(result.lines), "coverage": _coverage,
                     "pronunciations": lex.pronunciations,
+                    **_numbering_kw(),
                     "pronunciation_options": reading_options(lex, result.lines, _coverage),
                     "stop": result.stop_reason, "stop_reason": result.stop_reason.upper(),
                     "rounds": len(result.rounds), "unresolved_lines": _open,

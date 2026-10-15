@@ -537,3 +537,16 @@ test('unmapped physical endpoints name the word and line without inventing a sun
   );
   assert.equal(detailOf(v, 'coverage', [1]).coverage.obligations[0].token, null);
 });
+
+test('session short view retains numbering migration notices and normalized mandate', () => {
+  const numbered = {
+    ...verdict,
+    numbering_notices: ['NUMBERING: token 3 -> 4; identical raw pieces preserved'],
+    numbering_alias_unavailable: 'Declaration receipt capacity: resend original declarations.',
+    numbered_mandate: { groups: '1.T4,2.end', numbering: 'v2' },
+  };
+  const short = JSON.parse(sessionView('lyric_revise', blocks(numbered))[1].text);
+  assert.deepEqual(short.numbering_notices, numbered.numbering_notices);
+  assert.deepEqual(short.numbered_mandate, numbered.numbered_mandate);
+  assert.equal(short.numbering_alias_unavailable, numbered.numbering_alias_unavailable);
+});

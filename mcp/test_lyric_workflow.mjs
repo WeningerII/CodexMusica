@@ -630,3 +630,39 @@ test('array whitespace is normalized before binding the grade receipt', () => {
     null
   );
 });
+
+test('grade receipt accepts its exact normalized reading alias without accepting changed phones', () => {
+  const t = fresh();
+  const p = planned(t);
+  const original = [
+    {
+      line: draft[0],
+      token: 2,
+      word: 'kettle',
+      phones: ['K', 'EH1', 'T', 'AH0', 'L'],
+      basis: 'dictionary',
+      source: 'writer: test',
+      numbering: 'v1',
+    },
+  ];
+  const normalized = [{ ...original[0], token: 3, numbering: 'v2' }];
+  recordCreation(
+    t,
+    'lyric_grade',
+    { seed: 16, draft, pronunciations: original },
+    { ...gradeReceipt(p), pronunciations: normalized }
+  );
+  for (const choices of [original, normalized]) {
+    const args = { seed: 16, draft, pronunciations: structuredClone(choices) };
+    assert.equal(creationRefusal(t, 'lyric_revise', args), null);
+    assert.deepEqual(args.pronunciations, original, 'preserve original run identity');
+  }
+  assert.match(
+    creationRefusal(t, 'lyric_revise', {
+      seed: 16,
+      draft,
+      pronunciations: [{ ...normalized[0], phones: ['Z'] }],
+    }),
+    /CREATION_GRADE/
+  );
+});
