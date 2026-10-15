@@ -1,0 +1,33 @@
+# cwd: /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-564
+# cmd: python3 scripts/build_library_data.py --check
+# start: 2026-10-15T15:51:17Z
+$ /usr/bin/python3 -m library.catalog build --output library/snapshot --repo-sha 97ec4b0c4f0be7ec605940dd05b663f6ffd3d182 --source-manifest library/catalog_sources.json
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-564/lyric-harness/library/catalog.py", line 680, in <module>
+    if __name__ == "__main__": main()
+                               ~~~~^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-564/lyric-harness/library/catalog.py", line 676, in main
+    manifest = build(args.root, args.output, args.repo_sha, args.registry, args.source_manifest, args.write_registry)
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-564/lyric-harness/library/catalog.py", line 559, in build
+    if git_sha != entry["sha"]: raise CatalogError(f"pinned source drift: {entry['path']}")
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CatalogError: pinned source drift: lyric-harness/corpus/song/eng_british_richard_lovelace.txt
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-564/scripts/build_library_data.py", line 227, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-564/scripts/build_library_data.py", line 192, in main
+    run([sys.executable, "-m", "library.catalog", "build", "--output", "library/snapshot",
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+         "--repo-sha", pin, "--source-manifest", "library/catalog_sources.json"], cwd=HARNESS)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-564/scripts/build_library_data.py", line 47, in run
+    subprocess.run(args, check=True, **kwargs)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/usr/bin/python3', '-m', 'library.catalog', 'build', '--output', 'library/snapshot', '--repo-sha', '97ec4b0c4f0be7ec605940dd05b663f6ffd3d182', '--source-manifest', 'library/catalog_sources.json']' returned non-zero exit status 1.
+# end: 2026-10-15T15:51:18Z rc: 1 duration_s: 1

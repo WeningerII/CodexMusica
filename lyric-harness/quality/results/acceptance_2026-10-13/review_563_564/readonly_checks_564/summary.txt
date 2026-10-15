@@ -1,0 +1,6 @@
+capacity_head rc=1 start=2026-10-15T15:46:44Z end=2026-10-15T15:47:43Z dur=59s
+capacity_base rc=1 start=2026-10-15T15:46:44Z end=2026-10-15T15:47:45Z dur=61s
+search_null_base rc=0 start=2026-10-15T15:48:47Z end=2026-10-15T15:48:53Z dur=6s
+search_null_head rc=0 start=2026-10-15T15:48:47Z end=2026-10-15T15:48:53Z dur=6s
+library_head rc=1 start=2026-10-15T15:51:17Z end=2026-10-15T15:51:18Z dur=1s
+library_base rc=0 start=2026-10-15T15:51:17Z end=2026-10-15T16:04:12Z dur=775s

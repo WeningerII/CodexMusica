@@ -1,0 +1,14 @@
+# cwd: /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main2
+# cmd: python3 scripts/build_library_data.py --check
+# start: 2026-10-15T15:51:17Z
+$ /usr/bin/python3 -m library.catalog build --output library/snapshot --repo-sha 97ec4b0c4f0be7ec605940dd05b663f6ffd3d182 --source-manifest library/catalog_sources.json
+{"snapshot_id": "1503d477274959f38fb1578fcfdcee042f931e714b6a3e7c5fbe192fef3dce1d", "counts": {"source_files": 2327, "collections": 2327, "works": 36771, "editions": 7198, "reading_units": 36880, "readable_collections": 2279, "readable_works": 25417, "readable_editions": 6653, "readable_reading_units": 25525, "availability": {"readable": 25525, "research_only": 1, "held": 11354}}, "output": "library/snapshot"}
+$ /usr/bin/python3 -m library.catalog_site_export --source library/snapshot --output /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/check564/tmp/library-data-rokai718/export
+{"snapshot_id": "1503d477274959f38fb1578fcfdcee042f931e714b6a3e7c5fbe192fef3dce1d", "counts": {"availability": {"held": 11354, "readable": 25525, "research_only": 1}, "collections": 2327, "editions": 7198, "readable_collections": 2279, "readable_editions": 6653, "readable_reading_units": 25525, "readable_works": 25417, "reading_units": 36880, "source_files": 2327, "works": 36771}, "installed_files": 27807, "installed_bytes": 1751254472, "compressed_bytes": 338291170, "packs": 2339, "omitted_files": 11403, "output": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/check564/tmp/library-data-rokai718/export"}
+$ /usr/bin/python3 -m library.catalog_static_export /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/check564/tmp/library-data-rokai718/export /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/check564/tmp/library-data-rokai718/static --reuse /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main2/library/data
+{"data_id": "709469a17dc59a1c1a2c2de5a3c3d75be4dc958c98c6f4f5723a5a6626eb9aef", "readable": 25525, "files": 28919, "bytes": 90815145}
+retained 0 superseded reading directories (built_on 2026-10-11)
+$ /usr/bin/python3 /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main2/scripts/check_library_data.py /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/check564/tmp/library-data-rokai718/static --snapshot /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-main2/lyric-harness/library/snapshot
+check_library_data: PASS — 25525 readable units, 28918 files, data_id 709469a17dc5
+library/data is current
+# end: 2026-10-15T16:04:12Z rc: 0 duration_s: 775

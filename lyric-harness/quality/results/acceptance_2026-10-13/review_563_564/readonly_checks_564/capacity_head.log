@@ -1,0 +1,6 @@
+# cwd: /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-564/lyric-harness
+# cmd: /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python quality/capacity.py --check
+# start: 2026-10-15T15:46:44Z
+  DRIFT: CAPACITY_UNVERIFIED: actual-runtime all-family receipt is missing or unreadable
+CAPACITY CHECK: FAIL — tier 1 re-derived over 12387 families, ADOPTED constants compared, 6 witnesses re-graded
+# end: 2026-10-15T15:47:43Z rc: 1 duration_s: 59

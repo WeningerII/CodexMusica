@@ -1,0 +1,7 @@
+== wt-564
+repository_commit 97ec4b0c4f0be7ec605940dd05b663f6ffd3d182  pinned paths 2328  drifted 3  missing 0
+DRIFT lyric-harness/corpus/song/eng_british_richard_lovelace.txt pinned efa4395e21c6 now 0922ecc9c7e7 size 127420 -> 127810
+DRIFT lyric-harness/corpus/song/eng_british_robert_browning.txt pinned 15f7fbc07eb8 now b84008baa57b size 112101 -> 112179
+DRIFT lyric-harness/corpus/song/eng_british_robert_herrick.txt pinned ca3d36cd6179 now bafaed913cb1 size 305099 -> 305242
+== wt-main2
+repository_commit 97ec4b0c4f0be7ec605940dd05b663f6ffd3d182  pinned paths 2328  drifted 0  missing 0
