@@ -75,7 +75,7 @@ export const WORKER_OUTSIDE_KEYS = Object.freeze([
 ]);
 
 export function assertContinuationCapacity(state) {
-  const { connector_declarations, connector_numbering_alias, ...worker } = state;
+  const { connector_declarations, ...worker } = state;
   delete worker.connector_semantic_identity;
   for (const k of WORKER_OUTSIDE_KEYS) delete worker[k];
   if (Buffer.byteLength(JSON.stringify(worker), 'utf8') > WORKER_STATE_BYTES)
@@ -83,15 +83,13 @@ export function assertContinuationCapacity(state) {
       'CONTINUATION_CAPACITY',
       `Worker journal exceeds ${WORKER_STATE_BYTES} bytes. Keep the original continuation unchanged; recover accepted lyrics before starting an independent new run.`
     );
-  // Original declarations and authenticated normalized aliases share the
-  // existing metadata allowance; neither belongs to the worker journal.
-  const declarationBytes = [connector_declarations, connector_numbering_alias]
-    .filter((value) => value != null)
-    .reduce((total, value) => total + Buffer.byteLength(JSON.stringify(value), 'utf8'), 0);
-  if (declarationBytes > CONNECTOR_DECLARATION_BYTES)
+  if (
+    connector_declarations != null &&
+    Buffer.byteLength(JSON.stringify(connector_declarations), 'utf8') > CONNECTOR_DECLARATION_BYTES
+  )
     throw new StateCodecError(
       'DECLARATION_CAPACITY',
-      `Writer declarations and numbering aliases exceed ${CONNECTOR_DECLARATION_BYTES} bytes; no writer was started.`
+      `Writer declarations exceed ${CONNECTOR_DECLARATION_BYTES} bytes; no writer was started.`
     );
 }
 

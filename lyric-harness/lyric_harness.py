@@ -10007,9 +10007,9 @@ def main():
     if not args:
         _refuse("a pronunciation declaration requires a command")
     cmd = args[0]
-    if pronunciation_json is not None and cmd not in {"song", "finish", "brief", "revise", "verify", "recover"}:
+    if pronunciation_json is not None and cmd not in {"song", "finish", "brief", "revise", "verify", "recover", "normalize-numbering"}:
         _refuse("--pronunciations is supported on song, finish, brief, revise, verify and recover")
-    if numbering is not None and cmd not in {'brief', 'verify', 'revise', 'song', 'finish', 'tryline'}:
+    if numbering is not None and cmd not in {'brief', 'verify', 'revise', 'song', 'finish', 'tryline', 'normalize-numbering'}:
         _refuse('--numbering applies to groups and returns on song, finish, brief, revise and verify')
     numbered_mandate = {}
 
@@ -10022,7 +10022,34 @@ def main():
             out['numbered_mandate'] = dict(numbered_mandate, numbering=numbering_of(lex))
         return out
 
-    if cmd == "declaration":
+    if cmd == 'normalize-numbering':
+        # Private worker comparison only. Never save these canonical rows over
+        # caller declarations or feed these argv into a legacy replay key.
+        from quality.pronunciation import numbered_groups, numbering_of
+        tail = args[1:]
+        flags = [a for a in tail if a.startswith('--')]
+        paths = [a for a in tail if not a.startswith('--')]
+        if len(paths) != 1 or any(not a.startswith(('--groups=', '--returns=')) for a in flags):
+            _refuse('normalize-numbering requires one draft and optional groups/returns')
+        lines = read_input(paths[0])
+        canonical = {'pronunciations': [dict(row, numbering=numbering_of(lex))
+                                        for row in lex.pronunciations],
+                     'numbering': numbering_of(lex)}
+        for field in ('groups', 'returns'):
+            values = [a.split('=', 1)[1] for a in flags if a.startswith(f'--{field}=')]
+            if len(values) > 1:
+                _refuse(f'normalize-numbering accepts one {field} declaration')
+            groups = [[m.strip() for m in g.split(',') if m.strip()]
+                      for g in (values[0] if values else '').split(';') if g.strip()]
+            try:
+                groups = numbered_groups(groups, lines, lex, numbering)
+            except ValueError as e:
+                _refuse(f'{field}: {e}')
+            canonical[field] = ';'.join(','.join(g) for g in groups)
+        _lyric_result(status='normalized', exit=0, canonical_declarations=canonical)
+        return
+
+    elif cmd == "declaration":
         print(decl.show())
         if hasattr(lex, "declaration_line"):
             print(lex.declaration_line())

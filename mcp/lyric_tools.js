@@ -951,7 +951,6 @@ function verdictOf(r) {
     ...verificationEvidenceOf(r),
     ...resumeEvidenceOf(r),
   };
-  if (r.numbering_alias_unavailable) v.numbering_alias_unavailable = r.numbering_alias_unavailable;
   if (r.code === 1 && r.stderr) {
     v.stderr = String(r.stderr).slice(-8000);
     v.stderr_truncated = String(r.stderr).length > 8000;
@@ -1252,62 +1251,57 @@ async function withRunLock(args, fn) {
   }
 }
 
-// A normalized spelling is accepted only when this run returned it. Restore
-// its original declarations before the worker's unchanged argv identity check.
-function restoreNumberingAlias(args, original, alias) {
-  if (!alias || typeof alias !== 'object') return;
+// Compare source-bound declarations through the same Python reader as execution.
+// Restore the original spelling only after independently mapping both inputs;
+// the worker's existing argv fingerprint and saved journal remain unchanged.
+async function restoreEquivalentNumbering(args, original, lines, readerScheme) {
+  const fields = ['pronunciations', 'groups', 'returns', 'numbering'];
+  const moved = movedDeclarations(original, args);
+  if (!moved.length || moved.some(({ field }) => !fields.includes(field))) return;
+  if (!Array.isArray(lines) || !['v1', 'v2'].includes(readerScheme)) return;
+  const candidate = { ...original };
+  for (const key of fields) if (args[key] !== undefined) candidate[key] = args[key];
+  const canonical = await withTempDir(async (dir) => {
+    const file = path.join(dir, 'numbering.txt');
+    await writeFile(file, lines.join('\n') + '\n', 'utf8');
+    const normalize = async (declarations) => {
+      const argv = [
+        ...globalsFor({ ...declarations }),
+        `--reader-scheme=${readerScheme}`,
+        'normalize-numbering',
+        file,
+      ];
+      for (const field of ['groups', 'returns'])
+        if (declarations[field]) argv.push(`--${field}=${declarations[field]}`);
+      const result = await runVerb(argv);
+      return result.code === 0 ? result.lyric_result?.canonical_declarations : null;
+    };
+    // The worker serializes commands; neither normalization performs grading.
+    return [await normalize(original), await normalize(candidate)];
+  });
   if (
-    args.pronunciations !== undefined &&
-    Object.hasOwn(alias, 'pronunciations') &&
-    JSON.stringify(args.pronunciations) === JSON.stringify(alias.pronunciations)
+    !canonical[0] ||
+    !canonical[1] ||
+    JSON.stringify(canonical[0]) !== JSON.stringify(canonical[1])
   )
-    args.pronunciations = structuredClone(original.pronunciations);
-  const fields = ['groups', 'returns', 'numbering'];
-  // A coordinate and its marker are one declaration. Never accept a mixed
-  // old/new tuple by recognizing independently matching fields.
-  if (
-    alias.mandate &&
-    fields.some((key) => args[key] !== undefined) &&
-    fields.every(
-      (key) =>
-        JSON.stringify(args[key] === undefined ? original[key] : args[key]) ===
-        JSON.stringify(alias.mandate[key])
-    )
-  ) {
-    for (const key of fields) {
-      if (original[key] === undefined) delete args[key];
-      else args[key] = structuredClone(original[key]);
-    }
+    return;
+  for (const key of fields) {
+    if (original[key] === undefined) delete args[key];
+    else args[key] = structuredClone(original[key]);
   }
 }
-function numberingAliasOf(record, original) {
-  const alias = {};
-  if (
-    Array.isArray(record?.pronunciations) &&
-    JSON.stringify(record.pronunciations) !== JSON.stringify(original.pronunciations ?? [])
-  )
-    alias.pronunciations = record.pronunciations;
-  if (record?.numbered_mandate) {
-    const fields = ['groups', 'returns', 'numbering'];
-    const mandate = Object.fromEntries(
-      fields.map((key) => [
-        key,
-        record.numbered_mandate[key] === undefined ? original[key] : record.numbered_mandate[key],
-      ])
-    );
-    if (fields.some((key) => JSON.stringify(mandate[key]) !== JSON.stringify(original[key])))
-      alias.mandate = mandate;
-  }
-  if (!Object.keys(alias).length) return undefined;
-  // Aliases are optional replay conveniences. Never mint an envelope whose
-  // metadata exceeds its existing allowance: original declarations still work.
-  if (
-    Buffer.byteLength(JSON.stringify(declarationsOf(original)), 'utf8') +
-      Buffer.byteLength(JSON.stringify(alias), 'utf8') >
-    CONNECTOR_DECLARATION_BYTES
-  )
-    return null;
-  return Object.keys(alias).length ? structuredClone(alias) : undefined;
+function numberingInputForRun(record, args) {
+  // A parked run explicitly accepts a rewritten draft. Suspended continuations
+  // replay their original input and must not reinterpret it as accepted text.
+  return record.status === 'parked' && Array.isArray(args.draft)
+    ? args.draft
+    : record.replay_draft || record.draft;
+}
+function recordedNumberingScheme(record) {
+  if (record && Object.hasOwn(record, 'reader_scheme')) return record.reader_scheme;
+  if (record?.answered && Object.hasOwn(record.answered, 'reader_scheme'))
+    return record.answered.reader_scheme;
+  return 'v1';
 }
 
 function recoverContinuationOnly(args) {
@@ -1749,8 +1743,8 @@ export function answerFromRows(rows, pending) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
-  numberingAliasOf,
-  restoreNumberingAlias,
+  restoreEquivalentNumbering,
+  numberingInputForRun,
   publishedReport,
   verificationEvidenceOf,
   resumeEvidenceOf,
@@ -2549,10 +2543,15 @@ export function registerLyricTools(server, tool) {
               const runWander = runRefusal(runRec, a);
               if (runWander) throw refuse(runWander);
               const carried = { state: false, draft: false, decl: false };
-              let numberingAlias = runRec?.numbering_alias;
               if (runRec) {
                 const recDecl = withLegacyLexicon(runRec.decl);
-                restoreNumberingAlias(a, recDecl, runRec.numbering_alias);
+                const held = runRec.state || runRec.checkpoint;
+                await restoreEquivalentNumbering(
+                  a,
+                  recDecl,
+                  numberingInputForRun(runRec, a),
+                  held ? recordedNumberingScheme(decodeState(held)) : runRec.reader_scheme
+                );
                 const moved = movedDeclarations(recDecl, a);
                 if (moved.length) throw refuse(movedRefusal(runRec, moved));
                 for (const [k, v] of Object.entries(recDecl || {}))
@@ -2611,11 +2610,12 @@ export function registerLyricTools(server, tool) {
                         z.object(KITCHEN_REVISE_SCHEMA).parse(decoded.connector_declarations)
                       )
                     );
-                    // Alias metadata is trusted only under the existing whole-state seal.
-                    if (decoded.cursor && !decoded.cursor_strip) {
-                      numberingAlias = decoded.connector_numbering_alias ?? numberingAlias;
-                      restoreNumberingAlias(a, decl, numberingAlias);
-                    }
+                    await restoreEquivalentNumbering(
+                      a,
+                      decl,
+                      decoded.input_draft,
+                      recordedNumberingScheme(decoded)
+                    );
                     const moved = movedDeclarations(decl, a);
                     if (moved.length)
                       throw refuse(
@@ -2639,7 +2639,6 @@ export function registerLyricTools(server, tool) {
                     delete decoded.connector_declarations;
                     delete decoded.connector_semantic_identity;
                     delete decoded.connector_run_ref;
-                    delete decoded.connector_numbering_alias;
                   }
                   a[field] = JSON.stringify(decoded);
                 }
@@ -2673,6 +2672,12 @@ export function registerLyricTools(server, tool) {
                     declarationsOf(
                       z.object(KITCHEN_REVISE_SCHEMA).parse(checkpoint.connector_declarations)
                     )
+                  );
+                  await restoreEquivalentNumbering(
+                    a,
+                    decl,
+                    checkpoint.input_draft,
+                    recordedNumberingScheme(checkpoint)
                   );
                   const moved = movedDeclarations(decl, a);
                   if (moved.length)
@@ -2914,7 +2919,6 @@ export function registerLyricTools(server, tool) {
                   connector_declarations: declarationsOf(a),
                   connector_semantic_identity: continuationSemanticIdentity(),
                   connector_run_ref: runRef(runId),
-                  ...(numberingAlias ? { connector_numbering_alias: numberingAlias } : {}),
                 });
               if (budget.max_rounds !== undefined) args.push(`--max-rounds=${budget.max_rounds}`);
               args.push(`--attempts=${budget.attempts}`);
@@ -2932,12 +2936,6 @@ export function registerLyricTools(server, tool) {
                     }),
                 },
               });
-              const nextNumberingAlias = numberingAliasOf(r.lyric_result, a);
-              if (nextNumberingAlias === null) {
-                numberingAlias = undefined;
-                r.numbering_alias_unavailable =
-                  'Declaration receipt capacity: resend original declarations or omit them when the run carries them; normalized resends are unavailable for this receipt.';
-              } else numberingAlias = nextNumberingAlias ?? numberingAlias;
               // Bind the native replay receipt to both the exact file bytes it
               // consumed and the original signed connector wire supplied here.
               if (checkpointInput) {
@@ -3001,7 +2999,9 @@ export function registerLyricTools(server, tool) {
                   state: result.state,
                   checkpoint: result.checkpoint,
                   decl: declarationsOf(a),
-                  ...(numberingAlias ? { numbering_alias: numberingAlias } : {}),
+                  reader_scheme:
+                    r.lyric_result?.reader_scheme ??
+                    (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                   run_id: runId,
                 });
                 result.run_id = saved.run_id;
@@ -3015,10 +3015,6 @@ export function registerLyricTools(server, tool) {
                 // nothing to leak even if it tried.
                 const st = JSON.parse(await readFile(statePath, 'utf8'));
                 const suspendedVerdict = verdictOf(r);
-                if (numberingAlias?.pronunciations && !suspendedVerdict.pronunciations)
-                  suspendedVerdict.pronunciations = numberingAlias.pronunciations;
-                if (numberingAlias?.mandate && !suspendedVerdict.numbered_mandate)
-                  suspendedVerdict.numbered_mandate = numberingAlias.mandate;
                 const stateWire = encodeInterview(st);
                 const onRecord = st.answered.propose.length + st.answered.propose_group.length;
                 const askedNow = askedOf(st.pending);
@@ -3042,7 +3038,9 @@ export function registerLyricTools(server, tool) {
                       draft: a.draft,
                       replay_draft: a.draft,
                       decl: declarationsOf(a),
-                      ...(numberingAlias ? { numbering_alias: numberingAlias } : {}),
+                      reader_scheme:
+                        r.lyric_result?.reader_scheme ??
+                        (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                       answers: onRecord,
                       run_id: runId,
                     })
@@ -3100,7 +3098,6 @@ export function registerLyricTools(server, tool) {
                             'pronunciations',
                             'numbered_mandate',
                             'numbering_notices',
-                            'numbering_alias_unavailable',
                           ]
                             .filter((key) => suspendedVerdict[key] !== undefined)
                             .map((key) => [key, suspendedVerdict[key]])
@@ -3149,7 +3146,9 @@ export function registerLyricTools(server, tool) {
                     draft: exactDraft,
                     replay_draft: a.draft,
                     decl: declarationsOf(a),
-                    ...(numberingAlias ? { numbering_alias: numberingAlias } : {}),
+                    reader_scheme:
+                      r.lyric_result?.reader_scheme ??
+                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                     stop: verdict.loop_stop_reason ?? null,
                     open: Array.isArray(verdict.loop_unresolved_lines)
                       ? verdict.loop_unresolved_lines
@@ -3261,7 +3260,9 @@ export function registerLyricTools(server, tool) {
                     draft: exactDraft,
                     replay_draft: a.draft,
                     decl: declarationsOf(a),
-                    ...(numberingAlias ? { numbering_alias: numberingAlias } : {}),
+                    reader_scheme:
+                      r.lyric_result?.reader_scheme ??
+                      (a.state ? recordedNumberingScheme(JSON.parse(a.state)) : undefined),
                     run_id: runId,
                   });
                   other.run_id = saved.run_id;

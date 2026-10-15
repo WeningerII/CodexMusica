@@ -488,9 +488,6 @@ function loopFields(v) {
     // upstream (12 words make 66 pairs; MAX_CHOICES is 128 readings).
     pairs: Array.isArray(v?.pairs) ? v.pairs.slice(0, 66).map(pairRow) : null,
     pronunciation_options: readingOptions(v?.pronunciation_options),
-    ...(v?.numbering_alias_unavailable
-      ? { numbering_alias_unavailable: v.numbering_alias_unavailable }
-      : {}),
     ...(v?.numbered_mandate ? { numbered_mandate: v.numbered_mandate } : {}),
     ...(Array.isArray(v?.numbering_notices) ? { numbering_notices: v.numbering_notices } : {}),
   };

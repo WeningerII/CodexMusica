@@ -351,7 +351,7 @@ def reading_options(lex, lines, coverage=None):
             eligible += 1
             if len(items) < MAX_CHOICES:
                 items.append({'line': line, 'token': index+1, 'word': word,
-                    **({'numbering': numbering_of(lex)} if _scheme(lex) == 'v2' else {}),
+                    'numbering': numbering_of(lex),
                     'matching_lines': matching,
                     'dictionary_readings': [dict({'phones': list(p),
                         'stress': [s['stress'] for s in syllabify(p)],

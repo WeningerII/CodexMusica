@@ -22,18 +22,16 @@ setting: the existing unmarked-voices limitation is deliberately preserved.
 Marked input derives raw pieces from its declared scheme and voices, then binds
 only the identical occurrence in the run's coordinate. Callers supply no offsets.
 
-Normalize newly submitted lyric input. A cached run or verified signed interview
-state accepts its exact returned normalized declaration as an alias, restoring
-original arguments before worker identity checks. Groups, returns and their
-marker form one atomic tuple. Standalone kitchen checkpoints without a verified
-normalized receipt still require original declarations or omission: broader
-normalized checkpoint resubmission remains a limitation, not a claimed pass.
-Aliases that would exceed the existing combined 32 KiB declaration receipt
-allowance are omitted with `numbering_alias_unavailable`; original replay stays
-usable. The worker journal capacity and all limits are unchanged.
-Preserve pre-batch v1 rows and fingerprints. Options and actual
-first-party producers retain the numbering of their originating evidence;
-a generic client must not stamp a guessed marker onto held unmarked data.
+Normalize newly submitted lyric input and compare resubmissions only after
+normalizing both original and supplied declarations with the private Python
+`normalize-numbering` action. It uses the existing reader and pronunciation
+validator without grading or provider calls. Cached runs, interview state and
+standalone checkpoints use this same comparison; equal canonical declarations
+restore original arguments before the unchanged worker identity check.
+No normalized alias receipt or added metadata capacity is needed. Pre-batch v1
+rows and fingerprints are never rewritten. Newly generated options carry their
+actual source marker under all four coordinates; stored historical options are
+not restamped. Lyrics, Gemini and the native client retain originating evidence.
 
 This work does not implement the separately proposed old/new Library page,
 `declaration_set`, evidence or queued-job compatibility extensions. Library's
@@ -61,18 +59,19 @@ and Library's strict six-field boundary.
 Local integration checks:
 
 - `node scripts/check_lyrics_page.js`: 651 assertions, including browser paths.
-- `node --test mcp/test_pronunciation_choices.mjs`: 8 passing tests, including
+- `node --test mcp/test_pronunciation_choices.mjs`: 9 passing tests, including
   real local harness calls, original then normalized resends, cache/worker loss,
-  signed-state recovery, and changed-phones/member/mixed-marker/unsealed refusals.
+  signed and replayed state, and changed-phones/member/mixed-marker refusals.
+  A standalone kitchen checkpoint replay uses zero proposer calls and no extra
+  localhost fixture requests. The 32 KiB original-declaration boundary also passes.
 - `node --test mcp/test_lyric_workflow.mjs mcp/test_verdict_view.mjs`: 35 passing.
 - `node --test scripts/test_lyric_tokens.js scripts/test_library_declarations.js`:
   13 passing.
-- `python -m unittest quality.test_pronunciation_choices quality.test_source_identity`:
-  41 passing tests (76.133 seconds).
+- `python -m unittest quality.test_pronunciation_choices quality.test_source_identity quality.test_reader.V1Frozen`:
+  47 passing tests (115.758 seconds).
 - `node mcp/test_run_continuation.mjs`: real MCP/Python continuation checks pass,
   including immutable inputs, concurrency, stale revisions and capacity artifacts.
-- `node mcp/test_state_codec.mjs`: codec and exact worker/metadata boundary
-  checks pass; one extra metadata byte refuses.
+- `node mcp/test_state_codec.mjs`: existing codec and capacity checks pass.
 - Comparator pin: measured unchanged
   `51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4`.
 - Documented commands and paths, generated HTML, targeted JavaScript lint and
@@ -81,3 +80,23 @@ Local integration checks:
 The interpreter must have the repository's staged research data for the local
 harness checks. A missing browser installation initially prevented browser
 execution; using the already staged browser completed the full check above.
+
+The follow-up closes the standalone checkpoint and metadata-capacity gaps in
+initial commit `539931f5f0bd9fc437e402f299633959dde301f0`; exact returned aliases
+were insufficient for the approved normalize-before-compare rule. That initial
+head also completed the full reader suite: 105 tests, 99 passed and 6 skipped,
+618.991 seconds. Fresh v1 option provenance was subsequently corrected; six
+focused/private-normalization/frozen-v1 tests pass in 11.736 seconds. A real
+CMUdict probe additionally returned `record` token 2 with `v1+voices` from
+`(oh) record record`, then preserved the first physical `record` as v2 token 1
+with voices off.
+
+An independent native-client probe executed sweep, screen, plan, grade and
+revise with local judges. Original v1 token 3 continued as the same run using
+v2+voices token 4, a semantically equivalent marker never emitted verbatim.
+Changed phones and a second same-spelled occurrence refused; original-source
+resend then remained usable. No external provider calls occurred. The probe
+source SHA256 is
+`4a586d0e0d59a6c6d0c924e527520ab2e9597f86e6dff210e9294fb671243131`;
+normalized continuation took 7.749 seconds. This is local interface evidence,
+not live-service or lost-provider-response acceptance.

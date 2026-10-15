@@ -203,9 +203,10 @@ pre-batch v1 state rows or their fingerprints.
   `CONTINUATION_MIGRATION_REQUIRED`, and the declarations inside it are never
   replayed under the new cut. `recover_only:true` extracts the stored lyrics
   and journal without replay.
-- **New v2 options carry their numbering on each item.** Copy it verbatim
-  with the exact line, token and word. Stored historical responses are not
-  restamped as current evidence. v1 replay retains its historical option shape.
+- **Every newly generated option carries its numbering on each item.** Copy
+  it verbatim with the exact line, token and word, including `v1` and
+  `v1+voices` options. Stored historical responses are not restamped as
+  current evidence; legacy declaration rows and fingerprints are unchanged.
 - **Marked input binds raw pieces, not a matching spelling nearby.** The
   server derives the source token from its scheme and voices, then finds the
   identical raw pieces in the requested run's coordinate. If no whole token
@@ -222,17 +223,14 @@ pre-batch v1 state rows or their fingerprints.
   not say whether its producer sang parentheses. The guard compares v1/v2
   under the requested voices setting, not all four coordinates. Marked rows
   preserve their originating voices coordinate; an unsung target refuses.
-- **Fresh input is normalized at the lyric boundary.** A caller may resend
-  the original marked declaration. A cached run or a verified signed interview
-  state also accepts the exact normalized declarations returned by that run,
-  restoring the original arguments before the unchanged worker identity check.
-  The groups/returns/numbering tuple is compared together. A standalone kitchen
-  checkpoint without a verified normalized receipt still requires its original
-  declarations (or omission); it does not trust caller-added aliases.
-  If original declarations plus the normalized alias exceed the existing 32 KiB
-  receipt allowance, the alias is omitted with `numbering_alias_unavailable`;
-  original replay remains usable. No capacity limit is increased.
-  A pre-batch v1 state's rows and fingerprint are never rewritten.
+- **Re-sent declarations are normalized before comparison.** For a cached
+  run, interview state or standalone checkpoint, the connector asks the
+  private Python normalization action to resolve original and supplied
+  declarations under the recorded reader scheme and voices. Only equal
+  canonical occurrences restore the original arguments for the unchanged
+  worker identity check. Changed phones, occurrences and other declarations
+  still refuse. This does not depend on cached aliases or extra receipt
+  capacity and never rewrites pre-batch rows or fingerprints.
 - **Scope:** these safeguards apply to lyric calls, not the separately held
   old/new Library `declaration_set`, evidence and queued-job compatibility
   extension. The Library path keeps its existing validation boundary.

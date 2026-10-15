@@ -119,13 +119,14 @@ export async function connectConnector({
           if (name === 'lyric_revise' && selected.phase === 'create' && !args.recover_only) {
             if (continuation && !args.new_run) {
               for (const [key, value] of Object.entries(continuation.args)) {
+                // A recorded continuation is checked by the authoritative reader
+                // on the server. Keep its state and every other declaration fixed.
                 if (
-                  key === 'pronunciations' &&
-                  Array.isArray(continuation.normalized_pronunciations) &&
-                  JSON.stringify(args[key]) ===
-                    JSON.stringify(continuation.normalized_pronunciations)
+                  ['pronunciations', 'groups', 'returns', 'numbering'].includes(key) &&
+                  args[key] !== undefined &&
+                  (continuation.args.state || continuation.args.checkpoint)
                 )
-                  args[key] = structuredClone(value);
+                  continue;
                 if (args[key] !== undefined && JSON.stringify(args[key]) !== JSON.stringify(value))
                   throw new Error(
                     'CREATION_CONTINUATION: ' + key + ' differs from the recorded run.'
@@ -176,14 +177,7 @@ export async function connectConnector({
                 delete next[key];
                 if (verdict[key] != null) next[key] = verdict[key];
               }
-              continuation = {
-                seed: args.seed,
-                args: next,
-                ...(Array.isArray(verdict.pronunciations) &&
-                JSON.stringify(verdict.pronunciations) !== JSON.stringify(args.pronunciations ?? [])
-                  ? { normalized_pronunciations: structuredClone(verdict.pronunciations) }
-                  : {}),
-              };
+              continuation = { seed: args.seed, args: next };
             }
           }
           return result;

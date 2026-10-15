@@ -116,7 +116,33 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(P.numbered_groups([['1.line', '2.head', '2']], lines, lex),
                          [['1.line', '2.head', '2']])
         self.assertEqual(P.reading_options(lex, ['zzqxqzz'])['items'][0]['numbering'], 'v2')
-        self.assertNotIn('numbering', P.reading_options(self.base_v1, ['zzqxqzz'])['items'][0])
+        self.assertEqual(P.reading_options(self.base_v1, ['zzqxqzz'])['items'][0]['numbering'], 'v1')
+
+    def test_fresh_v1_options_preserve_voices_occurrence(self):
+        from collections import ChainMap
+        line = '(oh) love, love me do'
+        source = copy.copy(self.base_v1)
+        source.strip_parens = False
+        # CMUdict has only one love reading, so it ordinarily needs no menu.
+        # Two explicit local fixture readings exercise menu-origin metadata.
+        source.entries = ChainMap({'love': [['L', 'AH1', 'V'], ['L', 'AH0', 'V']]},
+                                  source.entries)
+        option = next(row for row in P.reading_options(source, [line])['items']
+                      if row['token'] == 2)
+        self.assertEqual(option['numbering'], 'v1+voices')
+        row = choice(line, option['token'], option['word'], ['L', 'AH1', 'V'], 'declared')
+        row['numbering'] = option['numbering']
+        for scheme in ('v1', 'v2'):
+            target = copy.copy(self.base.with_reader_scheme(scheme))
+            target._numbering_guard = True
+            moved = P.validate_choices([row], target)[0]
+            self.assertEqual(moved['token'], 1)
+            self.assertEqual(moved['numbering'], scheme)
+            self.assertEqual(lh.reader_token_spans(line, False, 'v1')[1][1],
+                             lh.reader_token_spans(line, True, scheme)[0][1])
+        legacy = choice(line, 1, 'love', ['L', 'AH1', 'V'], 'declared')
+        self.assertEqual(P.fingerprint(P.validate_choices([legacy], self.base_v1)),
+                         P.fingerprint([legacy]))
 
     def test_selected_meter_and_verbatim_returns_but_no_dictionary_mutation(self):
         lex = self.lex([choice()])
@@ -372,6 +398,57 @@ class PronunciationChoices(unittest.TestCase):
             self.assertEqual(records[-1]['numbered_mandate'],
                              {'groups': '1.T3,2.T3', 'numbering': 'v2'})
             self.assertTrue(records[-1]['numbering_notices'])
+
+    def test_private_numbering_normalization_compares_physical_occurrences(self):
+        import json, os, subprocess, tempfile
+        with tempfile.TemporaryDirectory() as directory:
+            draft = Path(directory) / 'draft.txt'
+            draft.write_text('Oh--oh oh\nThe night\n')
+
+            def normalize(row, groups, marker, reader='v2'):
+                env = dict(os.environ, LYRIC_CONTROL_TOKEN='numbering-test')
+                args = [sys.executable, str(Path(lh.__file__).resolve()),
+                        '--reader-scheme=' + reader, '--numbering=' + marker,
+                        '--pronunciations=' + json.dumps([row]),
+                        'normalize-numbering', str(draft), '--groups=' + groups,
+                        '--returns=1.line,2.end']
+                result = subprocess.run(args, capture_output=True, text=True, env=env)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                record = json.loads(next(line.split('lyric result: ', 1)[1]
+                    for line in result.stdout.splitlines() if 'lyric result: ' in line))
+                self.assertEqual(record['transport_token'], 'numbering-test')
+                self.assertEqual(record['status'], 'normalized')
+                return record['canonical_declarations']
+
+            old = dict(choice('Oh--oh oh', 2, 'oh', ['OW1'], 'declared'), numbering='v1')
+            current = dict(old, token=3, numbering='v2')
+            original = normalize(old, '1.T2,2.end', 'v1')
+            self.assertEqual(original, normalize(current, '1.T3,2.end', 'v2'))
+            self.assertNotEqual(original, normalize(dict(current, token=2), '1.T3,2.end', 'v2'))
+            self.assertNotEqual(original, normalize(dict(current, phones=['AA1']), '1.T3,2.end', 'v2'))
+            self.assertNotEqual(original, normalize(current, '1.T2,2.end', 'v2'))
+            self.assertEqual(original['returns'], '1.line,2.end')
+            stable = choice('The night', 2, 'night', ['N', 'AY1', 'T'], 'declared')
+            self.assertEqual(normalize(stable, '1.end,2.end', 'v2'),
+                             normalize(dict(stable, numbering='v2'), '1.end,2.end', 'v2'))
+            legacy = normalize(old, '1.T2,2.end', 'v1', reader='v1')
+            self.assertEqual(legacy['pronunciations'][0]['token'], 2)
+            self.assertEqual(legacy['groups'], '1.T2,2.end')
+            self.assertEqual(old['token'], 2)  # Input record was never rewritten.
+            # An absent declaration and an explicitly empty one compare alike.
+            bare = [sys.executable, str(Path(lh.__file__).resolve()),
+                    '--reader-scheme=v1', 'normalize-numbering', str(draft)]
+            empty_records = []
+            for extra in ([], ['--pronunciations=[]']):
+                result = subprocess.run(bare[:2] + extra + bare[2:],
+                                        capture_output=True, text=True)
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                empty_records.append(json.loads(next(line.split('lyric result: ', 1)[1]
+                    for line in result.stdout.splitlines() if 'lyric result: ' in line))[
+                        'canonical_declarations'])
+            self.assertEqual(empty_records[0], empty_records[1])
+            self.assertEqual(empty_records[0], {'pronunciations': [], 'groups': '',
+                                              'returns': '', 'numbering': 'v1'})
 
     def test_cli_refuses_unsupported_command_without_crashing(self):
         import subprocess
