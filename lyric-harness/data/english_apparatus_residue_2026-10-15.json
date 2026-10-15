@@ -1,0 +1,415 @@
+{
+  "version": 1,
+  "date": "2026-10-15",
+  "baseline_commit": "b887e5effcea84bf11722ca69bd13fc7088755c5",
+  "operation": "Close only the 13 items / 33 lines identified in MISSING.md M-25 and final/residue_measure.json. Prefix exact editorial rows and their wholly editorial section marks with # APPARATUS:; preserve every byte after the prefix, physical line number and title identity. No broader non-English or title-splitting rule.",
+  "review": "Independent local readings agreed on all 13 items; quoted English/Greek source examples belong to the enclosing editorial notes. Burns 10520 and Lovelace 3351 remain sung.",
+  "summary": {
+    "files": 3,
+    "items": 13,
+    "lyric_rows_removed_from_reader": 33,
+    "apparatus_only_titles_classified": 0,
+    "apparatus_only_section_labels_classified": 14,
+    "deleted_physical_lines": 0,
+    "lyric_lines_changed": 0
+  },
+  "files": [
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "before_sha256": "f1c5e8acbd50aae820e62664240f099d2dac7499787702d62371e78cc60a2ddb",
+      "after_sha256": "16b5eac9e91b1bd7807f44532b9db511163827994d8e634f809c901c922869fc",
+      "source_start_line": 31,
+      "before_body_sha256": "d6b723f11f573170918d63f8a1200c437fd423af466a813d4f840615f417d386",
+      "items": [
+        {
+          "title_line": 634,
+          "title": "Reverence",
+          "lyric_lines": [
+            640,
+            641
+          ]
+        },
+        {
+          "title_line": 688,
+          "title": "Doom",
+          "lyric_lines": [
+            698
+          ]
+        },
+        {
+          "title_line": 799,
+          "title": "Faire--Ms",
+          "lyric_lines": [
+            817,
+            818,
+            819
+          ]
+        },
+        {
+          "title_line": 879,
+          "title": "Caractacus(?)",
+          "lyric_lines": [
+            881,
+            882,
+            883,
+            884
+          ]
+        },
+        {
+          "title_line": 1137,
+          "title": "Dombe--LUCASTA",
+          "lyric_lines": [
+            1140,
+            1142,
+            1143
+          ]
+        },
+        {
+          "title_line": 1307,
+          "title": "An Unanoynted--Ms",
+          "lyric_lines": [
+            1311,
+            1312
+          ]
+        },
+        {
+          "title_line": 1316,
+          "title": "And--Ms",
+          "lyric_lines": [
+            1322,
+            1323,
+            1324
+          ]
+        },
+        {
+          "title_line": 1464,
+          "title": "Lucasta",
+          "lyric_lines": [
+            1474
+          ]
+        },
+        {
+          "title_line": 2367,
+          "title": "Blended",
+          "lyric_lines": [
+            2369
+          ]
+        }
+      ],
+      "replacements": {
+        "639": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "640": {
+          "before": "It may be presumed that LUCASTA had adopted the name",
+          "after": "# APPARATUS: It may be presumed that LUCASTA had adopted the name",
+          "reason": "editorial-note-residue"
+        },
+        "641": {
+          "before": "of CAELIA during her sylvan retreat.",
+          "after": "# APPARATUS: of CAELIA during her sylvan retreat.",
+          "reason": "editorial-note-residue"
+        },
+        "694": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "698": {
+          "before": "Nor run upon a high-strecht minikin.\"",
+          "after": "# APPARATUS: Nor run upon a high-strecht minikin.\"",
+          "reason": "editorial-note-residue"
+        },
+        "816": {
+          "before": "[VERSE 6]",
+          "after": "# APPARATUS: [VERSE 6]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "817": {
+          "before": "In the houses of such as could afford the expense,",
+          "after": "# APPARATUS: In the houses of such as could afford the expense,",
+          "reason": "editorial-note-residue"
+        },
+        "818": {
+          "before": "the walls of rooms were formerly lined with tapestry instead",
+          "after": "# APPARATUS: the walls of rooms were formerly lined with tapestry instead",
+          "reason": "editorial-note-residue"
+        },
+        "819": {
+          "before": "of paper.",
+          "after": "# APPARATUS: of paper.",
+          "reason": "editorial-note-residue"
+        },
+        "880": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "881": {
+          "before": "The mythology of Greece assigned to each wind a separate",
+          "after": "# APPARATUS: The mythology of Greece assigned to each wind a separate",
+          "reason": "editorial-note-residue"
+        },
+        "882": {
+          "before": "cave, in which it was supposed to await the commands of its",
+          "after": "# APPARATUS: cave, in which it was supposed to await the commands of its",
+          "reason": "editorial-note-residue"
+        },
+        "883": {
+          "before": "sovereign Aeolus, or Aeolos.  It is to this myth that Lovelace",
+          "after": "# APPARATUS: sovereign Aeolus, or Aeolos.  It is to this myth that Lovelace",
+          "reason": "editorial-note-residue"
+        },
+        "884": {
+          "before": "alludes.",
+          "after": "# APPARATUS: alludes.",
+          "reason": "editorial-note-residue"
+        },
+        "1138": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1140": {
+          "before": "for a sort of female TOM-O-BEDLAM--",
+          "after": "# APPARATUS: for a sort of female TOM-O-BEDLAM--",
+          "reason": "editorial-note-residue"
+        },
+        "1141": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1142": {
+          "before": "\"We treat mad-Bedlams, TOMS and BESSES,",
+          "after": "# APPARATUS: \"We treat mad-Bedlams, TOMS and BESSES,",
+          "reason": "editorial-note-residue"
+        },
+        "1143": {
+          "before": "With ceremonies and caresses!\"",
+          "after": "# APPARATUS: With ceremonies and caresses!\"",
+          "reason": "editorial-note-residue"
+        },
+        "1310": {
+          "before": "[VERSE 2]",
+          "after": "# APPARATUS: [VERSE 2]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1311": {
+          "before": "Alluding of course to the very familiar legend of",
+          "after": "# APPARATUS: Alluding of course to the very familiar legend of",
+          "reason": "editorial-note-residue"
+        },
+        "1312": {
+          "before": "Ulysses and the Syrens.",
+          "after": "# APPARATUS: Ulysses and the Syrens.",
+          "reason": "editorial-note-residue"
+        },
+        "1321": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1322": {
+          "before": "The tablature of Lovelace's time was the application",
+          "after": "# APPARATUS: The tablature of Lovelace's time was the application",
+          "reason": "editorial-note-residue"
+        },
+        "1323": {
+          "before": "of letters, of the alphabet or otherwise, to the purpose of",
+          "after": "# APPARATUS: of letters, of the alphabet or otherwise, to the purpose of",
+          "reason": "editorial-note-residue"
+        },
+        "1324": {
+          "before": "expressing the sounds or notes of a composition.",
+          "after": "# APPARATUS: expressing the sounds or notes of a composition.",
+          "reason": "editorial-note-residue"
+        },
+        "1471": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "1474": {
+          "before": "Mart. lib. I. Epig. 26.",
+          "after": "# APPARATUS: Mart. lib. I. Epig. 26.",
+          "reason": "editorial-note-residue"
+        },
+        "2368": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "2369": {
+          "before": "CAMPANIA may signify, in the present passage, either",
+          "after": "# APPARATUS: CAMPANIA may signify, in the present passage, either",
+          "reason": "editorial-note-residue"
+        }
+      }
+    },
+    {
+      "file": "eng_british_robert_browning.txt",
+      "before_sha256": "49d4d160574bd8d98d2f55f819165752f52102c79c4665a53b4cc9333f6acca8",
+      "after_sha256": "db9448929df8de82ae75d917a2f0b828f0767a2f9713d8d52a7556e64d1b7ed6",
+      "source_start_line": 26,
+      "before_body_sha256": "200da7eb49f9f60bbe0daac33996f759dfd5ebc9f6fffa9fff50a13521113bf9",
+      "items": [
+        {
+          "title_line": 176,
+          "title": "=clavichord=. An instrument of the type of the piano",
+          "lyric_lines": [
+            187
+          ]
+        },
+        {
+          "title_line": 463,
+          "title": "With an Introduction by CHARLES G. WHITING",
+          "lyric_lines": [
+            465,
+            466,
+            467
+          ]
+        }
+      ],
+      "replacements": {
+        "183": {
+          "before": "[VERSE 3]",
+          "after": "# APPARATUS: [VERSE 3]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "187": {
+          "before": "And one by one crept silently to rest.\"",
+          "after": "# APPARATUS: And one by one crept silently to rest.\"",
+          "reason": "editorial-note-residue"
+        },
+        "464": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "465": {
+          "before": "Any graduate or undergraduate of the C. L. S. C. reading the four",
+          "after": "# APPARATUS: Any graduate or undergraduate of the C. L. S. C. reading the four",
+          "reason": "editorial-note-residue"
+        },
+        "466": {
+          "before": "volumes of the CHAUTAUQUA LIBRARY GARNET SERIES will be entitled to the",
+          "after": "# APPARATUS: volumes of the CHAUTAUQUA LIBRARY GARNET SERIES will be entitled to the",
+          "reason": "editorial-note-residue"
+        },
+        "467": {
+          "before": "new Garnet Seal (University Seal) on his diploma.",
+          "after": "# APPARATUS: new Garnet Seal (University Seal) on his diploma.",
+          "reason": "editorial-note-residue"
+        }
+      }
+    },
+    {
+      "file": "eng_british_robert_herrick.txt",
+      "before_sha256": "e56736385cbffeb4956517898f754003440cb1e7fb7c4d1805356b413852e4fa",
+      "after_sha256": "2641255a735a1074879fa20e98791063458e8daf54aac6c2421df77537e63dc1",
+      "source_start_line": 40,
+      "before_body_sha256": "38ca5cbfdb7fb5d8d89d55b8708939065f7bbbe377c6db92b310732ebca48e42",
+      "items": [
+        {
+          "title_line": 4933,
+          "title": "_Upon Cupid._ Taken from Anacreon, 5 [59]",
+          "lyric_lines": [
+            4935,
+            4936,
+            4937,
+            4938,
+            4939,
+            4940,
+            4941
+          ]
+        },
+        {
+          "title_line": 9562,
+          "title": "_Consultation._ As noted in the text, this is from Sallust, _Cat._ i",
+          "lyric_lines": [
+            9573,
+            9574
+          ]
+        }
+      ],
+      "replacements": {
+        "4934": {
+          "before": "[VERSE 1]",
+          "after": "# APPARATUS: [VERSE 1]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "4935": {
+          "before": "Στέφος πλέκων ποθ' εὗρον",
+          "after": "# APPARATUS: Στέφος πλέκων ποθ' εὗρον",
+          "reason": "editorial-note-residue"
+        },
+        "4936": {
+          "before": "ἐν τοῖς ῥόδοις Ἔρωτα·",
+          "after": "# APPARATUS: ἐν τοῖς ῥόδοις Ἔρωτα·",
+          "reason": "editorial-note-residue"
+        },
+        "4937": {
+          "before": "καὶ τῶν πτερῶν κατασχών",
+          "after": "# APPARATUS: καὶ τῶν πτερῶν κατασχών",
+          "reason": "editorial-note-residue"
+        },
+        "4938": {
+          "before": "ἐβάπτισ' εἰς τὸν οἶνον·",
+          "after": "# APPARATUS: ἐβάπτισ' εἰς τὸν οἶνον·",
+          "reason": "editorial-note-residue"
+        },
+        "4939": {
+          "before": "λαβὼν δ' ἔπινον αὐτόν,",
+          "after": "# APPARATUS: λαβὼν δ' ἔπινον αὐτόν,",
+          "reason": "editorial-note-residue"
+        },
+        "4940": {
+          "before": "καὶ νῦν ἔσω μελῶν μου",
+          "after": "# APPARATUS: καὶ νῦν ἔσω μελῶν μου",
+          "reason": "editorial-note-residue"
+        },
+        "4941": {
+          "before": "πτεροῖσι γαργαλίζει.",
+          "after": "# APPARATUS: πτεροῖσι γαργαλίζει.",
+          "reason": "editorial-note-residue"
+        },
+        "9572": {
+          "before": "[VERSE 4]",
+          "after": "# APPARATUS: [VERSE 4]",
+          "reason": "stanza-label-attached-only-to-apparatus"
+        },
+        "9573": {
+          "before": "755. _The Eye._ Æschyl. _Fragm._ in Plutarch, _Amat._ 21: Νέας γυναικὸς",
+          "after": "# APPARATUS: 755. _The Eye._ Æschyl. _Fragm._ in Plutarch, _Amat._ 21: Νέας γυναικὸς",
+          "reason": "editorial-note-residue"
+        },
+        "9574": {
+          "before": "οὔ με μὴ λάθῃ φλέγων Ὀφθαλμὸς, ἥτις ἀνδρὸς ᾖ γεγευμένη.",
+          "after": "# APPARATUS: οὔ με μὴ λάθῃ φλέγων Ὀφθαλμὸς, ἥτις ἀνδρὸς ᾖ γεγευμένη.",
+          "reason": "editorial-note-residue"
+        }
+      }
+    }
+  ],
+  "excluded_verse_controls": [
+    {
+      "file": "eng_british_richard_lovelace.txt",
+      "title_line": 3351,
+      "lines": [
+        3353,
+        3354
+      ]
+    },
+    {
+      "file": "eng_celtic_robert_burns.txt",
+      "title_line": 10520,
+      "lines": [
+        10526,
+        10527
+      ]
+    }
+  ]
+}

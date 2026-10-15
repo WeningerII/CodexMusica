@@ -1,0 +1,20 @@
+Independent reviewer: /root/ui_four_review, 2026-10-15.
+Exact local patch /workspace/musica-m25 reviewed against the committed M25 report and staged source contexts. No content-classification concerns found.
+
+Lovelace title 634: lines 640-641 editorial explanation.
+Lovelace 688: 698 quoted verse within editorial note.
+Lovelace 799: 817-819 editorial explanation.
+Lovelace 879: 881-884 editorial explanation.
+Lovelace 1137: 1140,1142-1143 gloss and supporting verse quotation.
+Lovelace 1307: 1311-1312 editorial explanation.
+Lovelace 1316: 1322-1324 editorial explanation.
+Lovelace 1464: 1474 title-page citation.
+Lovelace 2367: 2369 editorial gloss continuation.
+Browning 176: 187 quoted Fitzgerald verse within comparison note.
+Browning 463: 465-467 publisher/course advertisement.
+Herrick 4933: 4935-4941 Anacreon source quotation within editorial apparatus.
+Herrick 9562: 9573-9574 numbered editorial citation and Greek quotation.
+
+Programmatic verification: exactly 33 recorded content lines and 14 wholly editorial section marks receive only '# APPARATUS: '. All 47 classify as apparatus. Physical line counts and every other corpus line are unchanged. Lovelace 3353-3354 and Burns 10526-10527 remain byte-identical lyrics. Receipt coordinates match original report; git diff --check passes.
+Marks: Lovelace 639,694,816,880,1138,1141,1310,1321,1471,2368; Browning 183,464; Herrick 4934,9572.
+Scope: Greek and quoted verse classified by editorial context, not language or poetic form. Seven other candidate blocks excluded. No external source fetch or broad search. Pipeline/calibration effects not independently tested.

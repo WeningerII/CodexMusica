@@ -1,0 +1,28 @@
+M-25 bounded local residue patch
+Worktree /workspace/musica-m25; branch codex/m25-residue-local-20261015.
+Uncommitted base b887e5effcea84bf11722ca69bd13fc7088755c5.
+
+Exactly 33 previously lyric rows in the named 13 items now use the existing # APPARATUS: prefix, plus 14 wholly editorial section marks. No title rows, text after prefixes, physical line numbers, or other corpus files change. Quoted Greek and English passages are identified by their enclosing editorial notes, not by a new language rule. Burns 10520 and Lovelace 3351 retain their exact verse bodies.
+
+Seven changed files: the Lovelace/Browning/Herrick corpus files; data/english_apparatus_residue_2026-10-15.json; quality/test_production_data.py; data/sources.tsv; data/runtime_assets.json. New receipt registers (33 lyric rows, 0 titles, 14 labels) in the existing chronological receipt chain. Source provenance appends current and superseded MD5s to two existing local rows and adds Browning's missing local annotation row using existing parent-source provenance. Manifest refresh changes only sources.tsv bytes and SHA256.
+
+Focused checks: 2 unittest methods PASS (receipt-chain preservation and exact 13-item / 33-line closure with two real-verse controls), 4.189s on the final run. verify_asset('runtime_tables') PASS. Reversing the 47 prefixes produces byte-identical baseline files; physical lines unchanged at 3698/3084/9947. git diff shows no other tracked corpus files changed; diff check clean.
+
+Artifacts:
+/tmp/musica-m25.patch
+/tmp/musica-m25-focused.log
+/tmp/musica-m25-preservation.json (exact source hashes and byte proof)
+/tmp/musica-m25-current-items.json (before: exact 33-line list)
+
+Commands, from /workspace/musica-m25:
+/workspace/musica-ci-venv/bin/python lyric-harness/quality/test_production_data.py ProductionDataTests.test_nonlyric_annotations_preserve_source_text_and_all_other_lyrics ProductionDataTests.test_m25_residue_is_exact_and_keeps_the_two_verse_controls
+# Python: quality.release_assets.verify_asset('runtime_tables',root=Path('lyric-harness'))
+git diff --check
+
+Integration limitations: this changes main's committed corpus reader inputs only. No calibration curves, population/table pins, generated Library exports, image, or live service were rebuilt or accepted. Historical measurements and derived records may now require separate regeneration/qualification; the old 4-token minimum is no longer supplied by the annotated citation, but no new global calibration range is claimed. Broader M-25 residue, seven candidate blocks, unsplit titles and non-English-policy work remain out of scope. No commit/push/external writes/provider calls.
+
+Storage recovery: discarded only the failed newly created M25 checkout (no edits existed) and recreated with a tighter sparse whitelist; narrowed unchanged phone-cache API/result checkout while preserving its prototype and evidence. All saved patches remain untouched.
+
+Patch SHA256: abc43547bdeb88e27e51fd89773dff1d5bfe14396234c94ace52772fd30446fe
+
+Follow-on: explicit per-item subTests check every one of 33 rows and 14 associated marks, plus exact replacement coverage. See /tmp/musica-m25-dependencies.txt for bounded Library/calibration dependency paths, existing collection counts, normal commands and pending qualification. Independent review: /tmp/musica-m25-independent-review.txt. No Library or calibration rebuild attempted.

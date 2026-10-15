@@ -165,3 +165,7 @@ lyric-harness/quality/fixtures/reader_v1_checkpoint.json
 lyric-harness/quality/fixtures/reader_v1_oracle.json
 lyric-harness/quality/fixtures/reader_v1_defer_states.json
 lyric-harness/quality/fixtures/reader_v2_mirror.json
+
+# Raw M25 measurement receipts: artifact-hashes.json indexes their exact bytes.
+/docs/evidence/m25-unqualified-2026-10-15/measurement/baseline-provenance-comparison.json
+/docs/evidence/m25-unqualified-2026-10-15/measurement/row-comparison.json

@@ -1,0 +1,31 @@
+M25 dependency assessment, main b887e5effcea84bf11722ca69bd13fc7088755c5
+No Library rebuild, calibration run, comparator/curve repin, or external write performed.
+
+Focused coverage: each of 13 items has a named subTest; all 33 lyric rows and all 14 associated stanza marks must read as apparatus. Every replacement must belong to exactly one tested item. Both real-verse controls remain exact. The existing chronological receipt-chain test reconstructs earlier files and compares every unaffected lyric body. Independent review: /tmp/musica-m25-independent-review.txt. Latest focused run: 2 methods PASS, 4.189s (/tmp/musica-m25-focused.log).
+
+Existing static collection metadata (library/data/collections.json, not newly generated counts):
+Richard Lovelace (1617-1657): collection_c9188950-921e-5fde-a2f0-fdd8d4f7ec53, 141 readable/141 total, c/<id>.json.gz one page.
+Robert Browning (1812-1889): collection_bd050462-c05e-5db0-9516-65c5afb0757f, 53/53, c/<id>.json.gz one page. Do not confuse with the separate Robert Browning collection_03a649bc-2a2e-558d-b97c-15766d5f9c70 (1/1).
+Robert Herrick (1591-1674): collection_b34cafa6-2480-524c-8947-9bfc8bc25a91, 489/489, c/<id>.json.gz and c/<id>.p1.json.gz.
+These are existing export counts, not a measured patched-build population.
+
+Normal Library build is not a bounded affected-file build. scripts/build_library_data.py --rebuild-snapshot deletes/recreates the entire lyric-harness/library/snapshot and performs full catalog/site/static export. catalog.build scans all corpus inputs, rejects source-manifest blob drift, and requires empty output. Current lyric-harness/library/catalog_sources.json pins repository_commit 97ec4b0c4f0be7ec605940dd05b663f6ffd3d182; it does not silently adopt the working patch. No collection/source selection flag exists. Thus no supported affected-only regeneration under current constraints; action was not attempted, not denied.
+
+After separate adoption and explicit source-pin review, the normal command is:
+  python scripts/build_library_data.py --rebuild-snapshot --out library/data
+Validation: python scripts/check_library_data.py library/data --snapshot lyric-harness/library/snapshot
+Do not run this command against unchanged old pins and call it patch acceptance.
+
+Dependent Library paths: lyric-harness/library/catalog_sources.json (source blob pins); snapshot/{sources/<sha256>.bin,readings/<unit>.json,identity_registry.json,index.json,manifest.json}; site-export intermediate packs/{kind}-NNNNN.json.gz and import_manifest.json; library/data/{catalog.json,collections.json,manifest.json,c/<collection>[.pN].json.gz,w/title/N.json.gz,u/<hh>.json.gz,r/<hh>/<unit>/<revision16>-<projection12>/{head,pages}*,rights/r-<hh>.json.gz,rights/rows-<hh>.json.gz,meta/<hh>.json.gz,notices/<sha>.json} as actually affected by hashes. Reading revision includes whole-source SHA and byte ranges, so surviving readings in each changed author file also acquire new revisions, not only the 13 now-empty items. Empty bodies are skipped by catalog.build. sources.tsv also affects rights provenance. All list files carry global data_id; unrelated list bytes may change. --reuse preserves only byte-identical files after full projection, not an incremental build. No claim of unaffected generated-work byte equality is possible without that build; unaffected corpus bytes and lyric bodies ARE verified.
+
+Calibration dependencies: lyric-harness/data/calibration_manifest.tsv and calibration_populations.json describe corpus population; saved row .meta.json provenance hashes entire consumed corpus files plus reader/comparator/question/model inputs. Existing rows therefore cannot qualify the patched corpus. quality/floor.py shipped curves and quality/song_profile_calibration.py profile values require qualification, not automatic repinning. Historical quality/results/otterbein_m25_2026-10-04/final/{adopted-profiles.json,curves-measurement.txt} remain historical evidence, not files to overwrite.
+
+Potential qualification commands, from lyric-harness, NOT EXECUTED:
+  python quality/corpus_manifest.py --check
+  python quality/calibration_rebuild.py --output-dir /tmp/m25-qualification --workers 4
+  python quality/length_curve_calibration.py check --rows /tmp/m25-qualification/current-calibration-rows.tsv
+The rebuild emits current-field-cache.sqlite, current-predictability.tsv, current-calibration-rows.tsv and its .meta.json. It measures the full population without sampling. Historical M25 reported 3958s with four workers initially and 235s with warm field cache over 8597 works / 278152 sung lines / 1343 files; these are historical scope/timings, not a current estimate or guarantee. Corpus adoption/manifest write, profile/curve fitting or threshold updates require separately reviewed results; none performed here.
+
+Local patch is not release-ready: dependent Library outputs and calibration qualification remain pending by task scope.
+
+Additional direct corpus consumers confirmed by source inspection (not remeasured): quality/build_song_frequency.py reads the shared corpus reader and writes data/song_endword_en.tsv and data/song_rhymepair_en.tsv; quality/section_marks.py writes data/section_marks.tsv. These derived inputs require revalidation in a full adoption sitting; no claim is made that every numeric value will change. Their source declarations/runtime pins and downstream frequency/capacity checks must follow actual measurements, not guessed repins. The current patch intentionally leaves these files unchanged.

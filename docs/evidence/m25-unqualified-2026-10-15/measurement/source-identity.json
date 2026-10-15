@@ -1,0 +1,38 @@
+{
+  "lyric-harness/lyric_harness.py": {
+    "sha256": "4a830aa1e62a4f025c105af58667dbf9c704c5bf599d5d19f40dae3c3d544eb1",
+    "identical_to_main": true
+  },
+  "lyric-harness/quality/calibration_rebuild.py": {
+    "sha256": "f1a8cd5bb0fc028cee4680c8bee5a7051ae5f3c0bd79cb410a1800bba1131b2d",
+    "identical_to_main": true
+  },
+  "lyric-harness/quality/length_curve_calibration.py": {
+    "sha256": "811eda901081930b0f89626d58c198f485996e33711cd628bc7605a491f27485",
+    "identical_to_main": true
+  },
+  "lyric-harness/quality/song_profile_calibration.py": {
+    "sha256": "df812d7335b1a10f533aae30b3fd3ffd8dd17a4854f744ac2ce2a2a8f76ae123",
+    "identical_to_main": true
+  },
+  "lyric-harness/quality/features.py": {
+    "sha256": "de8f73d9ec3247b52ab40caedf6619f4c6c08b95014728053c19a4536f6de341",
+    "identical_to_main": true
+  },
+  "lyric-harness/quality/floor.py": {
+    "sha256": "19ddf8fa75814a7c889d4ad09285bcbc944cbdf6f65287780ca3f3c50f5978c5",
+    "identical_to_main": true
+  },
+  "lyric-harness/quality/lyric_reader.py": {
+    "sha256": "eb1314369450b7c8eb5a02af590e7e24f27caf7da26bcb410e90d7a761045ba6",
+    "identical_to_main": true
+  },
+  "lyric-harness/data/lexicon_supplement.tsv": {
+    "sha256": "452d7aae056ed67f6bff94b76bf6f5df66516ce9e1c95d31796d45a8a92957f7",
+    "identical_to_main": true
+  },
+  "lyric-harness/data/lexicon_supplement_v2.tsv": {
+    "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+    "identical_to_main": true
+  }
+}
