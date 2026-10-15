@@ -1,0 +1,13 @@
+Checking 220 reachable entries against /tmp/reachability-repair/missing-ly-run-review.html
+  ✗ lyrics-review-draft — selector resolved to 0 elements
+      selector: #ly-panel-review:not([hidden]) [data-ui="ly-run-review"]:not(:disabled)
+      surface:  Lyrics — Review → Run review (with a nonempty draft): one direct edit-phase request with the committed document, declarations, brief and notes; with pending tool changes it first offers Apply all / Review saved version
+      impl:     ly-run-review → lySubmitLyricsAction('review') in src/pages/lyrics.js
+
+Reachability: 219 pass / 1 fail (out of 220 checked)
+
+FAILURES:
+  lyrics-review-draft: selector resolved to 0 elements
+
+Fix the missing surfaces or flip the affected entries to `status: pending`
+in tests/ui_capability_inventory.md if the drop is intentional.

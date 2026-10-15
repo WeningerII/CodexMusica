@@ -1,0 +1,3 @@
+Built /tmp/reachability-repair/codex.html (25,010,641 bytes)
+note: that is the resolved output dir, not the committed ./codex.html — that file is unchanged.
+      to update it: CODEX_OUT_DIR="$(pwd)" node scripts/build_html.js   (or --out=codex.html)

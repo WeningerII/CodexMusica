@@ -1,0 +1,18 @@
+Checking 220 reachable entries against /tmp/reachability-repair/codex.html
+  ✗ lyrics-review-draft — selector resolved to 0 elements
+      selector: [data-ui="ly-run-review"]
+      surface:  Lyrics — Run review (the header's one primary action): one direct edit-phase request with the committed document, declarations, brief and notes; with pending tool changes it first offers Apply all / Review saved version
+      impl:     ly-run-review → lySubmitLyricsAction('review') in src/pages/lyrics.js
+  ✗ lyrics-export — selector resolved to 0 elements
+      selector: [data-ui="ly-menu"][data-id="export"]
+      surface:  Lyrics — Export: Copy with headers (exact document), Copy sung lines, Download text, Export session
+      impl:     copy-lyrics / ly-copy-sung / ly-download / ly-export-session in src/pages/lyrics.js
+
+Reachability: 218 pass / 2 fail (out of 220 checked)
+
+FAILURES:
+  lyrics-review-draft: selector resolved to 0 elements
+  lyrics-export: selector resolved to 0 elements
+
+Fix the missing surfaces or flip the affected entries to `status: pending`
+in tests/ui_capability_inventory.md if the drop is intentional.

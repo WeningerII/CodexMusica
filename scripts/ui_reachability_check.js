@@ -107,6 +107,18 @@ const PRECONDITIONS = {
   empty: `
     // No setup. Workspace boots empty.
   `,
+  'lyrics draft review': `
+    uiNavigate('lyrics');
+    lyDraft().value = '[VERSE]\\nWe sing together tonight.';
+    uiSaveLyrics();
+    lyRefresh(true);
+    document.querySelector('#ly-head [data-ui="ly-tab"][data-id="review"]').click();
+  `,
+  'lyrics song actions': `
+    uiNavigate('lyrics');
+    lyCloseMenus();
+    document.querySelector('#ly-head [data-ui="ly-menu"][data-id="song-actions"]').click();
+  `,
   '1+ cards': `
     addCard('electric_guitar_single_coil', { traditionId: 'outlaw_country' });
     app.selected = app.cards[0].id;

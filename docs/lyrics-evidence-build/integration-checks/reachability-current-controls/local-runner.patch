@@ -1,0 +1,31 @@
+--- scripts/ui_reachability_check.js
++++ /tmp/reachability-repair/after-runner.js
+@@ -36,8 +36,8 @@
+ const os = require('os');
+ const path = require('path');
+ const { execFileSync } = require('child_process');
+-const { parseInventory } = require('./_inventory_parser.js');
+-const { HTML_OUT } = require('./_paths.js');
++const { parseInventory } = require('/workspace/musica-lyrics-integration/scripts/_inventory_parser.js');
++const { HTML_OUT } = require('/workspace/musica-lyrics-integration/scripts/_paths.js');
+ 
+ // A preinstalled Chromium may be a different build than the pinned playwright,
+ // which then looks for a `chromium_headless_shell-<pin>` that is not there and
+@@ -443,7 +443,7 @@
+     const page = await browser.newPage();
+     // Remote photos are a local PNG: the gate runs offline, and whether a
+     // photo's controls exist must not depend on the network.
+-    const placeholder = fs.readFileSync(path.join(__dirname, '..', 'assets', 'icon-192.png'));
++    const placeholder = fs.readFileSync('/workspace/musica-lyrics-integration/assets/icon-192.png');
+     await page.route(/^https:\/\//, (route) =>
+       route.request().resourceType() === 'image'
+         ? route.fulfill({ contentType: 'image/png', body: placeholder })
+@@ -452,7 +452,7 @@
+     page.on('pageerror', (err) => {
+       console.error(`  ! page error: ${err.message}`);
+     });
+-    await page.goto('file://' + testHtml, { waitUntil: 'load' });
++    await page.goto('http://127.0.0.1:8936/' + path.basename(testHtml), { waitUntil: 'load' });
+ 
+     for (const [precondition, groupEntries] of groups) {
+       // Reset state, then run precondition setup
