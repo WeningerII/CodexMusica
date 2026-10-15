@@ -4,9 +4,7 @@
   "changed": [
     {
       "path": "imports/gutenberg-ten/audit.json",
-      "changed_keys": [
-        "deduplication"
-      ],
+      "changed_keys": ["deduplication"],
       "before_deduplication": "Work matching: full normalized text or corroborated same opening.\n\n    The opening alone never decides: at least half the distinct lines of the\n    shorter version must match, and at least two lines must match. Different\n    texts sharing only a common title or generic opening remain distinct.\n    ",
       "after_deduplication": "Work matching: full normalized text or corroborated same opening.\n\nThe opening alone never decides: at least half the distinct lines of the\nshorter version must match, and at least two lines must match. Different\ntexts sharing only a common title or generic opening remain distinct.\n"
     }
