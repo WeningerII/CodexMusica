@@ -34,6 +34,19 @@ class _Serializer(AnalysisSession):
             start += len(line) + 1
 
 
+def _report_bytes(result, record_bytes):
+    """Exact canonical UTF-8 size with already measured, detached records.
+
+    Coverage changes while enumerating candidates, so serialize its envelope
+    afresh. _Serializer._record recursively detaches every admitted record;
+    their bytes cannot change as later methods and omission counts advance.
+    The empty array's brackets are in the envelope; only commas are additional.
+    """
+    envelope = {**result, "records": []}
+    return (len(canonical_json(envelope).encode("utf-8")) + record_bytes
+            + max(0, len(result["records"]) - 1))
+
+
 def from_stream(stream, phon, *, declarations, provenance, schemas=None,
                 max_records=MAX_RECORDS, max_bytes=MAX_BYTES,
                 max_candidates=MAX_CANDIDATES_PER_SCHEMA):
@@ -72,6 +85,7 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
                    "candidates_per_schema": max_candidates}, "records": []}
     serializer = _Serializer(stream, phon, identity)
     cov = result["coverage"]
+    record_bytes = 0
     # Reserve room for the small per-method coverage records. Never detach data
     # into pages: this report has no evidence retrieval endpoint.
     for name in requested:
@@ -103,12 +117,14 @@ def from_stream(stream, phon, *, declarations, provenance, schemas=None,
                 cov["omitted_records"] += 1
                 method.update(status="partial", reason="record_limit")
                 continue
+            candidate_bytes = len(canonical_json(record).encode("utf-8"))
             result["records"].append(record)
-            if len(canonical_json(result).encode()) > max_bytes - 32768:
+            if _report_bytes(result, record_bytes + candidate_bytes) > max_bytes - 32768:
                 result["records"].pop()
                 cov["omitted_records"] += 1
                 method.update(status="partial", reason="byte_limit")
                 continue
+            record_bytes += candidate_bytes
             method["emitted"] += 1
     cov["complete"] = bool(requested) and all(m["status"] == "answered" for m in cov["methods"])
     cov["status"] = ("not_requested" if not requested else

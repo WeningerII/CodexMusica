@@ -1,0 +1,21 @@
+{
+  "base": "31b4140452f7bfb95b39512f1e477c39382c9942",
+  "sha256": {
+    "lyric-harness/quality/schema_instance_evidence.py": {
+      "before": "10e4d4de2877a0412c19bb1a73b39cc6426d11512fd2aef374eb62dfce6ea118",
+      "after": "24b54d158e7b796761203c0ef27e77219d7e407745ec16143f59d9f43496eab5"
+    },
+    "lyric-harness/quality/test_schema_instance_evidence.py": {
+      "before": "1a358c716920bd106cc99508c0a0a4476d9e052753a196b0b5e74ccde5ecb478",
+      "after": "7406552ca1f1083eba79f39cd43fe9c08678d8b904224d781b3626f401ff0489"
+    },
+    "mcp/test_lexicon_basis.mjs": {
+      "before": "00914285c68f2e8a693a567202d475655dacf82e4b2e09249f27a62d86091144",
+      "after": "00914285c68f2e8a693a567202d475655dacf82e4b2e09249f27a62d86091144"
+    },
+    "codex.html": {
+      "before": "94dbde6a41896462fc82beeeb52213e26dea6b15bee03e4b11e2656878e3879e",
+      "after": "94dbde6a41896462fc82beeeb52213e26dea6b15bee03e4b11e2656878e3879e"
+    }
+  }
+}

@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import lyric_harness as LH
 from library.contracts import canonical_json
 from quality import relations as R
+from quality import schema_instance_evidence as E
 from quality.phonology import Phonology, Syllable
 from quality.schema_instance_evidence import from_stream, for_grade, _Serializer
 
@@ -101,6 +102,97 @@ class EvidenceTests(unittest.TestCase):
         self.assertNotEqual(a['identity']['hash'], b['identity']['hash'])
         self.stream = R.build_stream(['cat cat bat', 'hat'], self.phon, declaration={'language': 'eng'})
         self.assertNotEqual(a['identity']['hash'], self.report(schemas=['perfect rhyme'])['identity']['hash'])
+    def assert_reference_bytes(self, **kwargs):
+        # The pre-optimization check serialized the whole growing result for
+        # every candidate. Keep that independent oracle, not a second copy of
+        # the arithmetic being tested. All other enumeration behavior is shared.
+        def previous_size(result, _record_bytes):
+            return len(canonical_json(result).encode("utf-8"))
+        with patch.object(E, '_report_bytes', side_effect=previous_size):
+            expected = self.report(**kwargs)
+        measured = []
+        optimized_size = E._report_bytes
+        def checked_size(result, record_bytes):
+            got = optimized_size(result, record_bytes)
+            self.assertEqual(got, previous_size(result, None))
+            measured.append(got)
+            return got
+        with patch.object(E, '_report_bytes', side_effect=checked_size):
+            actual = self.report(**kwargs)
+        self.assertEqual(canonical_json(actual).encode("utf-8"),
+                         canonical_json(expected).encode("utf-8"))
+        return actual, measured
+
+    def test_byte_accounting_matches_previous_full_serialization(self):
+        self.stream = R.build_stream(['😀 cat “bat” cat', 'hat café'], self.phon,
+                                     declaration={'language': 'eng'})
+        # Real registry instances, refused methods, and candidate exhaustion.
+        for limits in ({}, {'max_records': 0}, {'max_records': 1},
+                       {'max_records': 2}, {'max_candidates': 0},
+                       {'max_candidates': 1}, {'max_bytes': 1024}, {'max_bytes': 2048},
+                       {'max_bytes': 36000}, {'schemas': []}):
+            with self.subTest(limits=limits):
+                self.assert_reference_bytes(**limits)
+        # Find exact admission boundaries using the old full-serialization
+        # oracle. The limit itself is serialized, so don't assume its digit width.
+        for count in (1, 2):
+            low, high = 32768, 262144
+            while low < high:
+                mid = (low + high) // 2
+                with patch.object(E, '_report_bytes', side_effect=lambda r, _: len(canonical_json(r).encode('utf-8'))):
+                    report = self.report(schemas=['internal rhyme'], max_records=count, max_bytes=mid)
+                if len(report['records']) >= count:
+                    high = mid
+                else:
+                    low = mid + 1
+            for budget in (low - 1, low, low + 1):
+                got, measured = self.assert_reference_bytes(
+                    schemas=['internal rhyme'], max_records=count, max_bytes=budget)
+                self.assertTrue(measured)
+                self.assertEqual(len(got['records']) >= count, budget >= low)
+
+    def test_rejected_record_bytes_do_not_accumulate(self):
+        names = sorted(n for n, schema in R.REGISTRY.items()
+                       if R.pair_scope_representable(schema))[:2]
+        records = [{'verdict': True, 'text': '😀é"\\' * 5000}]
+        records += [{'verdict': True, 'text': f'cat {i}'} for i in range(105)]
+        instances = [SimpleNamespace(verdict=True, record=r) for r in records]
+        # Reject the large first record, admit later small ones, cross decimal
+        # counter boundaries, and update the envelope with a later refusal.
+        def realise(schema, *_args, **_kwargs):
+            if schema is R.REGISTRY[names[0]]:
+                return instances
+            return R.Refusal(names[1], 'beat', 'fixture missing beat', missing=('beat',))
+        with patch.object(R, 'realise', side_effect=realise), patch.object(
+                E._Serializer, '_edge_record', side_effect=lambda inst, _st: copy.deepcopy(inst.record)):
+            for budget in (36000, 40000, 262144):
+                got, measured = self.assert_reference_bytes(schemas=names, max_bytes=budget)
+                self.assertTrue(measured)
+                self.assertTrue(got['records'])
+                if budget < 262144:
+                    self.assertFalse(any(r == records[0] for r in got['records']))
+                self.assertEqual(got['coverage']['methods'][-1]['status'], 'refused')
+            for limit in (0, 1, 9, 10, 99, 100):
+                self.assert_reference_bytes(schemas=names, max_records=limit, max_bytes=40000)
+            instances[:1] = [instances[0]] * 105
+            got, measured = self.assert_reference_bytes(schemas=names, max_bytes=40000)
+            self.assertGreaterEqual(got['coverage']['omitted_records'], 105)
+            self.assertTrue(got['records'])
+            self.assertGreater(len(measured), 105)
+
+    def test_byte_accounting_does_not_reserialize_admitted_records(self):
+        original = E.canonical_json
+        full_calls = []
+        def tracked(value):
+            if isinstance(value, dict) and value.get('records'):
+                full_calls.append(len(value['records']))
+            return original(value)
+        with patch.object(E, 'canonical_json', side_effect=tracked):
+            got = self.report(schemas=['internal rhyme'])
+        self.assertGreater(len(got['records']), 1)
+        self.assertEqual(full_calls, [len(got['records'])],
+                         'only the unchanged final full-size guard walks admitted records')
+
     def test_report_failure_does_not_replace_grade(self):
         with patch('quality.schema_instance_evidence._for_grade', side_effect=ValueError('fixture')):
             got = for_grade(None, self.lines, None)

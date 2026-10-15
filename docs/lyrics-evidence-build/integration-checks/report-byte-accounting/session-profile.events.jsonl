@@ -1,0 +1,16 @@
+{"event": "start", "pid": 249043, "wall": 115125.222274264, "cpu": 0.035807189, "target": "/workspace/musica-lyrics-integration/mcp/worker.py"}
+{"event": "ready", "pid": 249043, "wall": 115125.277484536, "cpu": 0.077215218, "elapsed_wall": 0.055276949002291076, "elapsed_cpu": 0.041471994000000005}
+{"event": "request_start", "pid": 249043, "wall": 115125.2775578, "cpu": 0.0772884, "request_id": 1, "argv": ["plan", "--sweep=31-32", "--lines=12"]}
+{"event": "request_end", "pid": 249043, "wall": 115125.723623994, "cpu": 0.522792766, "request_id": 1, "elapsed_wall": 0.4460017399978824, "elapsed_cpu": 0.44544398900000004}
+{"event": "request_start", "pid": 249043, "wall": 115125.735003058, "cpu": 0.522964954, "request_id": 2, "argv": ["--lexicon-supplement=v2", "--lexicon-supplement-sha256=bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51", "screen", "stove", "coat"]}
+{"event": "request_end", "pid": 249043, "wall": 115131.186381661, "cpu": 5.968730793, "request_id": 2, "elapsed_wall": 5.451289791002637, "elapsed_cpu": 5.445682436}
+{"event": "request_start", "pid": 249043, "wall": 115131.198137326, "cpu": 5.968880158, "request_id": 3, "argv": ["plan", "--seed=31", "--lines=12", "--out=/tmp/lyric-xNTan7/plan.json"]}
+{"event": "request_end", "pid": 249043, "wall": 115131.839525316, "cpu": 6.609624071, "request_id": 3, "elapsed_wall": 0.6412904239987256, "elapsed_cpu": 0.6406514950000002}
+{"event": "request_start", "pid": 249043, "wall": 115131.85049329, "cpu": 6.609806646, "request_id": 4, "argv": ["plan", "--seed=31", "--form=verse-chorus", "--lines=12", "--out=/tmp/lyric-34KAM9/plan.json"]}
+{"event": "request_end", "pid": 249043, "wall": 115132.264722635, "cpu": 7.022929452, "request_id": 4, "elapsed_wall": 0.41409047300112434, "elapsed_cpu": 0.412989692}
+{"event": "request_start", "pid": 249043, "wall": 115132.268853156, "cpu": 7.023148473, "request_id": 5, "argv": ["plan", "--seed=31", "--form=verse-chorus", "--lines=12", "--fill=/tmp/lyric-34KAM9/draft.txt", "--out=/tmp/lyric-34KAM9/bp.json"]}
+{"event": "request_end", "pid": 249043, "wall": 115132.696078301, "cpu": 7.447830851, "request_id": 5, "elapsed_wall": 0.42684243198891636, "elapsed_cpu": 0.42431867300000015}
+{"event": "request_start", "pid": 249043, "wall": 115132.702172786, "cpu": 7.448381909, "request_id": 6, "argv": ["--lexicon-supplement=v2", "--lexicon-supplement-sha256=bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51", "song", "/tmp/lyric-34KAM9/bp.json", "/tmp/lyric-34KAM9/draft.txt", "--groups=1,2;4,5;7,8;9,10;11,12", "--returns=3,6", "--subdivision", "2"]}
+{"event": "request_end", "pid": 249043, "wall": 115168.462877598, "cpu": 43.1793211, "request_id": 6, "elapsed_wall": 35.76053036900703, "elapsed_cpu": 35.730780024}
+{"event": "request_start", "pid": 249043, "wall": 115168.502499238, "cpu": 43.180970135, "request_id": 7, "argv": ["--lexicon-supplement=v2", "--lexicon-supplement-sha256=bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51", "--pronunciations=[]", "finish", "/tmp/lyric-hFstdU/draft.txt", "--seed=31", "--form=verse-chorus", "--lines=12", "--propose=defer:/tmp/lyric-hFstdU/state.json", "--attempts=1", "--backtrack=1"]}
+{"event": "request_end", "pid": 249043, "wall": 115185.601913606, "cpu": 60.278800899, "request_id": 7, "elapsed_wall": 17.099310734003666, "elapsed_cpu": 17.097740691}
