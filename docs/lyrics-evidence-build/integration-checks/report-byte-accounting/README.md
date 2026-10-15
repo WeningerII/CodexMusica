@@ -37,7 +37,7 @@ export LYRIC_PYTHON=/tmp/lexicon-profile-31b/python-profile
 export MUSICA_PROFILE_PREFIX=/tmp/lexicon-profile-31b/optimized
 node --import /tmp/lexicon-profile-31b/deps.mjs --test --test-concurrency=1 --test-timeout=120000 mcp/test_lexicon_basis.mjs
 python /tmp/lexicon-profile-31b/benchmark.py
-python -m unittest discover -s lyric-harness/quality -p test_schema_instance_evidence.py -v
+python lyric-harness/quality/test_schema_instance_evidence.py -v
 # The following gates use the normal Python executable, without instrumentation:
 export LYRIC_PYTHON=/workspace/musica-ci-venv/bin/python
 python lyric-harness/quality/test_reader.py V1Frozen LegacyReplay

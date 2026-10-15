@@ -31,7 +31,7 @@ Fetched or staged, not in the repo: `cmudict.dict`, `data/concreteness.txt`, `da
 
 ## Python — loadable, not loaded (18)
 
-`library/analysis.py` 20k, `quality/declared_inputs.py` 17k, `library/form.py` 15k, `quality/capacity.py` 14k, `quality/cross_song.py` 8.6k, `battery.py` 6.8k, `quality/build_song_frequency.py` 4.8k, `quality/relation_index.py` 3.9k, `quality/narrative_bands.py` 3.8k, `quality/metric_complexity.py` 3.8k, `quality/song_record.py` 3.7k, `quality/senses.py` 3.4k, `library/contracts.py` 3.1k, `quality/check_data_rows.py` 3.1k, `quality/schema_instance_evidence.py` 2.6k, `quality/source_identity.py` 2k, `library/registry.py` 1.9k, `quality/melody.py` <1k
+`library/analysis.py` 20k, `quality/declared_inputs.py` 17k, `library/form.py` 15k, `quality/capacity.py` 14k, `quality/cross_song.py` 8.6k, `battery.py` 6.8k, `quality/build_song_frequency.py` 4.8k, `quality/relation_index.py` 3.9k, `quality/narrative_bands.py` 3.8k, `quality/metric_complexity.py` 3.8k, `quality/song_record.py` 3.7k, `quality/senses.py` 3.4k, `library/contracts.py` 3.1k, `quality/check_data_rows.py` 3.1k, `quality/schema_instance_evidence.py` 2.8k, `quality/source_identity.py` 2k, `library/registry.py` 1.9k, `quality/melody.py` <1k
 
 ## Python — never loaded by a song (157)
 
