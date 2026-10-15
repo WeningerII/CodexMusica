@@ -19,7 +19,7 @@ These are **early** results. R2 had pushed the heads but hadn't yet posted them 
 - CI;
 - any combined tree.
 
-## P-A head update: `26a2c76f` (PR #566), 17:40 UTC
+## P-A head update: `26a2c76f` (PR #566), 17:28 UTC
 
 This head supersedes `d1961461` and adds two commits, the Choose-again and occurrence-offer fixes.
 
