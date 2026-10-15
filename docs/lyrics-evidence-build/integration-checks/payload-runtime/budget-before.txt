@@ -1,0 +1,22 @@
+check_payload_budget — bytes after gzip -6 (Node zlib level 6)
+  budget              gzip      limit
+  page             385,642    389,120  99%                /tmp/musica-payload-before/codex.html
+  critical         676,127    710,656  95%                /tmp/musica-payload-before/codex.html + /workspace/musica-ui-eight/api/browse_boot.json
+  inline-data       74,525     86,016  87%                6 labelled data <script> blocks, concatenated
+  engine           712,192    778,240  92%                /workspace/musica-ui-eight/api/engine.json
+  add-path       1,388,319  1,399,808  99%                /tmp/musica-payload-before/codex.html + /workspace/musica-ui-eight/api/browse_boot.json + /workspace/musica-ui-eight/api/engine.json
+  library-stub       2,788      4,096  68%                src/pages/library.js + 1 head preload + 265 B of #surface-library CSS
+  library-analysis      19,630     24,576  80%                /tmp/musica-payload-before/library/code/analysis.9ebd86e5f8.js
+  library-compare       6,053      6,144  99%                /tmp/musica-payload-before/library/code/compare.e48e7feb47.js
+  library-core      11,570     20,480  56%                /tmp/musica-payload-before/library/code/core.0dcc6ec3f7.js
+  library-reader      14,672     20,480  72%                /tmp/musica-payload-before/library/code/reader.4d0287465c.js
+  library-rights       9,490     12,288  77%                /tmp/musica-payload-before/library/code/rights.8a94ca24b7.js
+  library-works       9,187     12,288  75%                /tmp/musica-payload-before/library/code/works.fd3dfc5815.js
+  library-shelves-path     401,012    393,216  OVER by 7,796      /tmp/musica-payload-before/codex.html + core + /tmp/musica-payload-before/library/data/catalog.json
+check_payload_budget: FAIL — 1 budget(s) over. Raising one needs a cited Lighthouse run (see the header).
+  ✗ library-shelves-path: 401,012 B gzip, over its 393,216 B by 7,796 B (/tmp/musica-payload-before/codex.html + core + /tmp/musica-payload-before/library/data/catalog.json). Its 5 largest pieces, each gzipped alone:
+        133,964 B gzip      428,911 B raw  runtime: src/app.js
+         72,491 B gzip      244,579 B raw  runtime: src/pages/lyrics.js
+         44,035 B gzip      142,661 B raw  instrument engine: slots + first-view instrument index (tables via api/engine.json)
+         34,703 B gzip      196,508 B raw  (markup outside <script>: template, styles, comments)
+         20,298 B gzip       66,372 B raw  runtime: src/workbench.js

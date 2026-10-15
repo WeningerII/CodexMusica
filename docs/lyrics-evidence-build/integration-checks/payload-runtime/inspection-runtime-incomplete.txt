@@ -1,0 +1,34 @@
+[chat] the daily spend counter is IN-MEMORY: it resets on every restart and deploy, so CHAT_DAILY_USD ($25) bounds an uptime period rather than a UTC day. Set MODEL_SPEND_FILE or LYRIC_RUNTIME_DIR on a mounted disk to make it durable.
+1180x757 Actual transport did not verify request binding; see transport receipt
+390x844 Actual transport did not verify request binding; see transport receipt
+390x508 Actual transport did not verify request binding; see transport receipt
+none Actual transport did not verify request binding; see transport receipt
+unmatched Actual transport did not verify request binding; see transport receipt
+hash Cannot read properties of undefined (reading 'identity')
+row Cannot read properties of undefined (reading 'records')
+range Cannot read properties of undefined (reading 'records')
+reader Cannot read properties of undefined (reading 'identity')
+voices Cannot read properties of undefined (reading 'identity')
+multipart Actual transport did not verify request binding; see transport receipt
+history Actual transport did not verify request binding; see transport receipt
+{
+  "cases": 0,
+  "errors": [
+    "1180x757: Actual transport did not verify request binding; see transport receipt",
+    "390x844: Actual transport did not verify request binding; see transport receipt",
+    "390x508: Actual transport did not verify request binding; see transport receipt",
+    "long 1180: Cannot read properties of undefined (reading 'source_text')",
+    "long 390: Cannot read properties of undefined (reading 'source_text')",
+    "keyboard-stale: Actual transport did not verify request binding; see transport receipt",
+    "sectioned-projected: Actual transport did not verify request binding; see transport receipt",
+    "none: Actual transport did not verify request binding; see transport receipt",
+    "unmatched: Actual transport did not verify request binding; see transport receipt",
+    "hash: Cannot read properties of undefined (reading 'identity')",
+    "row: Cannot read properties of undefined (reading 'records')",
+    "range: Cannot read properties of undefined (reading 'records')",
+    "reader: Cannot read properties of undefined (reading 'identity')",
+    "voices: Cannot read properties of undefined (reading 'identity')",
+    "multipart: Actual transport did not verify request binding; see transport receipt",
+    "history: Actual transport did not verify request binding; see transport receipt"
+  ]
+}
