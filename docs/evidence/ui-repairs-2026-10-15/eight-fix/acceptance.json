@@ -1,0 +1,134 @@
+{
+  "baseline": "b887e5effcea84bf11722ca69bd13fc7088755c5",
+  "worktree": "/workspace/musica-ui-eight",
+  "branch": "codex/ui-eight-local-20261015",
+  "uncommitted": true,
+  "combined_patch": "/tmp/ui-eight-combined.patch",
+  "combined_patch_sha256": "1cf1eb648df4b35b75e9c13387e4497a106d780cb67e8b098bf03ea384fa9d77",
+  "bundle_sha256": "37ff79578415f3a2bf2d92bc882421ecaff2bab2c8e754d4230728388e78786d",
+  "fixes": [
+    {
+      "id": "J1",
+      "behavior": "Pager label/buttons follow caret without replacing DOM",
+      "patch": "/tmp/j1-pager-local-fix.patch",
+      "before_log": "/tmp/j1-expanded-red.log",
+      "before": "4 failures",
+      "after_log": "/tmp/j1-fixed.log",
+      "after": "13 assertions",
+      "patch_sha256": "49b77c58d017088e94b7070dee50e2431b5c697b2f7e30d40f83ea63e1083258"
+    },
+    {
+      "id": "J5",
+      "behavior": "Placed-return validation is inline, associated and focused",
+      "patch": "/tmp/musica-j5-evidence/full.patch",
+      "before_log": "/tmp/musica-j5-evidence/red.log",
+      "before": "2 failures",
+      "after_log": "/tmp/musica-j5-evidence/green.log",
+      "after": "11 assertions",
+      "patch_sha256": "4f6ffce21d23089599f199149cf87a9e045b5e9a6325fe850e026564594a5fcb"
+    },
+    {
+      "id": "J10",
+      "behavior": "Successful rhythm Apply clears matching Saved receipt",
+      "patch": "/tmp/musica-j10.patch",
+      "before_log": "/tmp/musica-j10-red.log",
+      "before": "1 failure",
+      "after_log": "/tmp/musica-j10-green.log",
+      "after": "8 assertions",
+      "patch_sha256": "33d45dd6e21836d65b4e15f15ef2a14cb92ea07d4bbac66e0a460147801d0413"
+    },
+    {
+      "id": "J11",
+      "behavior": "New song clears prior composer prefill after existing guards",
+      "patch": "/tmp/musica-j11-evidence/full.patch",
+      "before_log": "/tmp/musica-j11-evidence/before.txt",
+      "before": "2 failures",
+      "after_log": "/tmp/musica-j11-evidence/after.txt",
+      "after": "7 assertions",
+      "patch_sha256": "980a2fd7b514abd3f331aa7c3ad125ad52e8f9dd5ae443ad6c3aa1835fb46a63"
+    },
+    {
+      "id": "J4",
+      "behavior": "Rhyme options compare known request identity at render time",
+      "patch": "/tmp/musica-j4.patch",
+      "before_log": "/tmp/musica-j4-red.log",
+      "before": "3 failures",
+      "after_log": "/tmp/musica-j4-green.log",
+      "after": "10 assertions",
+      "patch_sha256": "3ac3156a32bed0bb679c94147c91c01d33dd444c2439e62ff6ddca87fa00666e"
+    },
+    {
+      "id": "J12",
+      "behavior": "Named actions validate existing message limit before reset",
+      "patch": "/tmp/musica-j12.patch",
+      "before_log": "/tmp/musica-j12-red.log",
+      "before": "5 failures; actual hidden HTTP400 error, generic-toast claim not reproduced",
+      "after_log": "/tmp/musica-j12-green.log",
+      "after": "10 assertions",
+      "patch_sha256": "382ea3a3dcbc1e9bac2cb9242ec74b12f2604350ad96e33b6772ee195a94adc1"
+    },
+    {
+      "id": "H1",
+      "behavior": "Narrow layouts at <=600px height scroll the whole page",
+      "patch": "/tmp/musica-h1.patch",
+      "before_log": "/tmp/musica-h1-evidence/red.txt",
+      "before": "590x378: no hit-test reachable lyric; reduced viewport only",
+      "after_log": "/tmp/musica-h1-evidence/green.txt",
+      "after": "37 assertions",
+      "patch_sha256": "92adc0b39e1f8c1c447c2d8e0314d6ffa4cf4e95e2bf9ec86405cbc53b4faec7"
+    },
+    {
+      "id": "H2",
+      "behavior": "Visually hidden Form action labels remain accessible",
+      "patch": "/tmp/musica-h2.patch",
+      "before_log": "/tmp/musica-h2-red.log",
+      "before": "3 missing accessible names; existing horizontal scrolling works",
+      "after_log": "/tmp/musica-h2-green.log",
+      "after": "12 assertions",
+      "patch_sha256": "fbe189511c8f4811337dbd0d15191032b6c47a3a696b7b510e03ac2f83811238"
+    }
+  ],
+  "limits": [
+    "H1 tests reduced CSS viewports, not native page or text zoom. Ctrl++ did not change metrics in installed headless Chromium.",
+    "Chromium accessibility tree and interactions, not physical-device or assistive-technology acceptance.",
+    "Offline fixtures only; no live-service acceptance.",
+    "J13 History policy, J14 reader/display semantics, download guard limits remain unchanged."
+  ],
+  "importer": {
+    "worktree": "/workspace/musica-importer313",
+    "patch": "/tmp/musica-importer313.patch",
+    "sha256": "1a3426891ac8d8f88561cdd29e5b160031efda118e3b6b1df524192fa61ddb4c",
+    "evidence": "/tmp/importer313-commands.txt",
+    "output_evidence": "/tmp/importer313-after-bytes.json",
+    "result": "14 tests pass on Python3.12.14 and3.13.5;725outputs byte-identical;3.11 unavailable"
+  },
+  "empty_replacement": {
+    "worktree": "/workspace/musica-empty-replacement",
+    "branch": "codex/reject-empty-replacement-20261015",
+    "sha": "d85d2f26d3f876040a37403575c56deec427f63a",
+    "status": "Clean, unchanged, separate; publication remains held; no PR",
+    "evidence": "/workspace/musica-empty-replacement/docs/empty-replacement-guard-2026-10-15.md"
+  },
+  "gate": {
+    "command": "NODE_PATH=/workspace/musica-repair/node_modules PLAYWRIGHT_BROWSERS_PATH=/tmp/musica-browsers node scripts/check_lyrics_page.js",
+    "result": "PASS",
+    "assertions": 747,
+    "wall_seconds": 133.432,
+    "exit_code": 0,
+    "runs": 1,
+    "log": "/tmp/ui-eight-evidence/full-gate.log"
+  },
+  "review": {
+    "result": "No concrete introduced regressions",
+    "reviewer": "/root/ui_four_review",
+    "scope": "independent static combined-diff and CSS/accessibility review",
+    "log": "/tmp/ui-eight-evidence/review.txt"
+  },
+  "commands": "/tmp/ui-eight-evidence/commands.txt",
+  "files": {
+    "src/pages/lyrics.js": "75194e7f51d5b6217416892b323d955e213160298d34fd65e774414db8f84ae9",
+    "src/pages/lyrics.css": "7ca921748cfecfc73dada331c2c353692ded8882799ad73c9651ba9e042eadbe",
+    "scripts/check_lyrics_page.js": "1b6d4a9c64694e12a859036bc764ddfcbf7d1ed93924d6336ead563cc9e7b0dd",
+    "codex.html": "37ff79578415f3a2bf2d92bc882421ecaff2bab2c8e754d4230728388e78786d"
+  }
+}

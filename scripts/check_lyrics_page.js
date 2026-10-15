@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame */
+/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -2396,6 +2396,169 @@ async function browserChecks(chromium) {
     }
   };
   try {
+    // H1: reduced CSS viewports are layout probes, not browser zoom.
+    await step('H1. short viewport reachability', async () => {
+      const results = [];
+      for (const [width, height] of [
+        [590, 378],
+        [720, 450],
+        [1180, 757],
+        [390, 844],
+      ]) {
+        const { ctx, page, q } = await boot({ theme: 'light' });
+        await page.setViewportSize({ width, height });
+        await setDraft(page, DRAFT);
+        await page.waitForTimeout(100);
+        const geometry = async () =>
+          page.evaluate(() => {
+            const rect = (el) => {
+              const r = el.getBoundingClientRect();
+              return { x: r.x, y: r.y, width: r.width, height: r.height, bottom: r.bottom };
+            };
+            const body = $ui('ly-body'),
+              draft = $ui('lyrics-draft');
+            const rows = [...document.querySelectorAll('#ly-overlay .ly-r-sung .ly-t')];
+            const hits = rows.map((row, i) => {
+              const r = row.getBoundingClientRect(),
+                x = r.x + 10,
+                y = r.y + Math.min(12, r.height / 2);
+              const hit = document.elementFromPoint(x, y);
+              return {
+                line: i + 1,
+                x,
+                y,
+                hit: hit?.id || hit?.className || '',
+                reachable: hit === draft,
+              };
+            });
+            return {
+              body: rect(body),
+              nav: rect($ui('ly-mnav')),
+              draft: rect(draft),
+              bodyScroll: body.scrollTop,
+              bodyScrollHeight: body.scrollHeight,
+              active: document.activeElement?.id,
+              visibleRows: hits.filter((r) => r.reachable),
+              firstRow: hits[0],
+              lastRow: hits[hits.length - 1],
+              viewport: {
+                width: innerWidth,
+                height: innerHeight,
+                dpr: devicePixelRatio,
+                scale: visualViewport.scale,
+              },
+            };
+          });
+        const initial = await geometry();
+        await page.screenshot({ path: `/tmp/ui-eight-evidence/h1/before-${width}x${height}.png` });
+        if (height <= 450) {
+          await page.mouse.move(width / 2, 200);
+          await page.mouse.wheel(0, 750);
+          await page.waitForTimeout(100);
+          check(
+            (await geometry()).visibleRows.length > 0,
+            `H1 wheel cannot reach lyrics at ${width}x${height}`
+          );
+        }
+        await page.locator('#lyrics-draft').focus();
+        await page.keyboard.press('Control+End');
+        const focused = await geometry();
+        await page.evaluate(() => {
+          const body = $ui('ly-body');
+          body.scrollTop = body.scrollHeight;
+        });
+        const scrolled = await geometry();
+        await page.screenshot({
+          path: `/tmp/ui-eight-evidence/h1/scrolled-${width}x${height}.png`,
+        });
+        const reachable = await page.evaluate(() => {
+          const draft = $ui('lyrics-draft');
+          return [...document.querySelectorAll('#ly-overlay .ly-r-sung .ly-t')].map((row, i) => {
+            row.scrollIntoView({ block: 'center' });
+            const r = row.getBoundingClientRect(),
+              x = r.x + 10,
+              y = r.y + 12;
+            return { line: i + 1, x, y, hit: document.elementFromPoint(x, y) === draft };
+          });
+        });
+        check(
+          reachable.every((r) => r.hit),
+          `H1 unreachable rows at ${width}x${height}: ` +
+            JSON.stringify(reachable.filter((r) => !r.hit))
+        );
+        const last = reachable[reachable.length - 1];
+        if (last.hit) {
+          await page.mouse.click(last.x, last.y);
+          check(
+            await page.evaluate(
+              () =>
+                document.activeElement === $ui('lyrics-draft') &&
+                $ui('lyrics-draft').selectionStart >= $ui('lyrics-draft').value.lastIndexOf('\n')
+            ),
+            `H1 last lyric cannot receive the caret at ${width}x${height}`
+          );
+        }
+        check(
+          (await page.inputValue('#lyrics-draft')) === DRAFT,
+          'H1 navigation changed draft text'
+        );
+        const review = page.locator('.ly-head [data-ui="ly-run-review"]').first();
+        check((await review.count()) === 1, 'H1 header review button missing');
+        if (await review.count()) {
+          await review.scrollIntoViewIfNeeded();
+          check(
+            await review.evaluate((el) => {
+              const r = el.getBoundingClientRect();
+              return el.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+            }),
+            `H1 header review button unreachable at ${width}x${height}`
+          );
+        }
+        if (width < 960) {
+          await page.locator('#ly-mtab-tools').click();
+          check(
+            await page.evaluate(() => getComputedStyle($ui('ly-main')).display === 'none'),
+            `H1 Tools navigation failed at ${width}x${height}`
+          );
+          await page.locator('#ly-mtab-song').click();
+          check(
+            await page.evaluate(() => getComputedStyle($ui('ly-main')).display !== 'none'),
+            `H1 Song navigation failed at ${width}x${height}`
+          );
+        }
+        await review.focus();
+        let tabReached = false;
+        for (let n = 0; n < 40; n++) {
+          await page.keyboard.press('Tab');
+          if (await page.evaluate(() => document.activeElement === $ui('lyrics-draft'))) {
+            tabReached = true;
+            break;
+          }
+        }
+        check(tabReached, `H1 keyboard Tab cannot reach draft at ${width}x${height}`);
+        check(q.calls.length === 0, 'H1 fixture sent chat');
+        results.push({ width, height, initial, focused, scrolled, reachable });
+        await ctx.close();
+      }
+      console.log('H1 geometry: ' + JSON.stringify(results));
+      const { ctx, page } = await boot();
+      const metrics = () =>
+        page.evaluate(() => ({
+          width: innerWidth,
+          height: innerHeight,
+          dpr: devicePixelRatio,
+          scale: visualViewport.scale,
+        }));
+      const before = await metrics();
+      await page.keyboard.press('Control++');
+      await page.keyboard.press('Control++');
+      await page.waitForTimeout(100);
+      console.log(
+        'H1 native zoom shortcut capability: ' + JSON.stringify({ before, after: await metrics() })
+      );
+      await ctx.close();
+    });
+
     // ── 0. the shape: one document, fixed tabs and tools, no mode switch ──
     await step('0. structure', async () => {
       const { ctx, page } = await boot({ theme: 'light' });
@@ -2732,6 +2895,106 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    await step('J12. named-action message limit', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      const proposal = '[VERSE]\n' + 'A long proposed line '.repeat(300) + '\nA second line';
+      await sendReview(
+        page,
+        q,
+        {
+          ...unfinished(),
+          artifact: {
+            text: proposal,
+            final_draft: proposal.split('\n').slice(1),
+            status: 'unfinished',
+          },
+        },
+        () => edit(page, 'The rain has blurred', 'The rain had blurred')
+      );
+      await pane(page, 'review');
+      const snapshot = () =>
+        page.evaluate(() =>
+          JSON.stringify({
+            generation: chatState.generation,
+            history: chatState.history,
+            sig: chatState.sig,
+            archives: chatState.archives,
+            task: chatState.task,
+            lyric: chatState.lyric,
+            request: UI.lyricRequest,
+            run: LY.run?.id,
+            text: $ui('lyrics-draft').value,
+          })
+        );
+      const before = await snapshot();
+      // Local fixture reproduces the server's existing inclusive message ceiling.
+      await ctx.route(/mcp\.codexmusica\.com\/chat$/, async (route) => {
+        const body = JSON.parse(route.request().postData());
+        q.calls.push(body);
+        const over = body.message.trim().length > 5000;
+        await route.fulfill({
+          status: over ? 400 : 200,
+          contentType: 'application/json',
+          body: JSON.stringify(
+            over
+              ? { error: 'Keep it under 5000 characters.' }
+              : {
+                  reply: 'Fixture accepted.',
+                  history: [],
+                  sig: 'fixture',
+                  task: { domain: 'lyrics', phase: 'edit' },
+                }
+          ),
+        });
+      });
+      await page.locator('#ly-panel-review [data-ui="ly-recheck"]').click();
+      await page.waitForFunction(() => !chatState.busy);
+      const toast = await page.locator('#toast').innerText();
+      check(q.calls.length === 1, 'over-limit Recheck sent a request');
+      check(
+        /5000-character message limit/.test(toast) &&
+          /shorter instruction/.test(toast) &&
+          /Edit this draft/.test(toast),
+        `J12 missing actionable length feedback: ${toast}`
+      );
+      check(
+        (await snapshot()) === before,
+        'over-limit Recheck reset the conversation or changed the draft'
+      );
+      const boundary = async (length) =>
+        page.evaluate(async (size) => {
+          const prefix = LY_ACTION_TEXT['recheck-whole']({ proposal: '' });
+          return lySubmitLyricsAction('recheck-whole', {
+            proposal: 'x'.repeat(size - prefix.length),
+          });
+        }, length);
+      check(
+        (await boundary(5001)) === false && q.calls.length === 1,
+        '5001-character action was not refused locally'
+      );
+      check(
+        (await boundary(5000)) === true && q.calls.at(-1)?.message.length === 5000,
+        'exactly 5000 characters were not accepted'
+      );
+      await setDraft(page, proposal);
+      await page.evaluate(() => LY_ACTIONS['edit-lyrics']());
+      check(
+        (await page.inputValue('#chat-input')) === 'Edit this draft: ',
+        'Edit this draft copied the long document into the message'
+      );
+      await page.fill('#chat-input', 'Edit this draft: smooth the wording.');
+      await page.locator('#chat-send').click();
+      await page.waitForFunction(() => !chatState.busy);
+      const sent = q.calls.at(-1);
+      check(
+        sent.message.length < 5000 && sent.lyric_context.document.length > 5000,
+        'long Edit draft did not travel separately in structured context'
+      );
+      check(q.calls.length === 3, `unexpected fixture request count: ${q.calls.length}`);
+      await ctx.close();
+    });
+
     // J3: whole-draft suggestions must recheck against today's committed context.
     await step('J3. whole-draft recheck', async () => {
       const { ctx, page, q } = await boot();
@@ -2813,6 +3076,46 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    await step('J11. new song clears the previous composer prefill', async () => {
+      const { ctx, page, q } = await boot();
+      await setDraft(page, DRAFT);
+      const choose = async (action) => {
+        await page.locator('[data-ui="ly-menu"][data-id="ai"]').click();
+        await page.locator(`#ly-menu-ai [data-ui="${action}"]`).click();
+      };
+      await choose('edit-lyrics');
+      check(
+        (await page.inputValue('#chat-input')) === 'Edit this draft: ',
+        'Edit this draft lost its explicit prefill'
+      );
+      await choose('new-lyrics');
+      check(
+        (await page.inputValue('#chat-input')) === '',
+        'New song retained the previous Edit this draft prefill'
+      );
+      check(
+        (await page.inputValue('#chat-domain')) === 'lyrics',
+        'New song did not select the new-song phase'
+      );
+      await choose('attach-recipe');
+      check(
+        (await page.inputValue('#chat-input')).startsWith(
+          'Write lyrics for this recording recipe:\n'
+        ),
+        'Use current recipe lost its explicit prefill'
+      );
+      await choose('new-lyrics');
+      check(
+        (await page.inputValue('#chat-input')) === '',
+        'New song retained the previous recipe prefill'
+      );
+      check(
+        (await page.inputValue('#lyrics-draft')) === DRAFT && q.calls.length === 0,
+        'changing conversation prefills changed the lyrics or sent a request'
+      );
+      await ctx.close();
+    });
+
     // J2: the explicit conversation choice must work, without bypassing recovery.
     await step('J2. unforced edit conversation keeps its phase', async () => {
       const { ctx, page, q } = await boot();
@@ -2886,6 +3189,7 @@ async function browserChecks(chromium) {
       const { ctx, page, q } = await boot();
       await setDraft(page, DRAFT);
       const state = await page.evaluate(async () => {
+        $ui('chat-input').value = 'Keep this unsent request';
         chatState.task = { domain: 'lyrics' };
         chatState.pending = { request_id: 'fixture-unknown', domain: 'lyrics' };
         const unknown = await lyStartConversation('lyrics', '', { force: true });
@@ -2899,6 +3203,7 @@ async function browserChecks(chromium) {
           kept,
           pending: chatState.pending?.request_id,
           archives: chatState.archives.length,
+          input: $ui('chat-input').value,
         };
       });
       check(
@@ -2906,7 +3211,8 @@ async function browserChecks(chromium) {
           state.busy === false &&
           state.kept === 'fixture-unknown' &&
           state.pending === 'fixture-unknown' &&
-          state.archives === 0,
+          state.archives === 0 &&
+          state.input === 'Keep this unsent request',
         'force bypassed the unknown-outcome or busy guard'
       );
       check(q.calls.length === 0, 'blocked conversation sent a request');
@@ -3008,6 +3314,76 @@ async function browserChecks(chromium) {
     });
 
     // ── 5. pending tool changes: drafts, the review gate, one undo ───────
+    await step('5j. placed-return inline validation (J5)', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, '[VERSE]\nLove stays here\nLove comes home');
+      await page.evaluate(() => {
+        LY.activeLine = 1;
+        LY_ACTIONS['ly-tool']('repeats-voices');
+      });
+      await page.getByText('Placed returns', { exact: true }).click();
+      await page.click('[data-ui="ly-placed-add"]');
+      const before = await page.evaluate(() => ({
+        text: $ui('lyrics-draft').value,
+        history: app.history.length,
+      }));
+      await page.click('[data-ui="ly-draft-apply"][data-id="repeats-voices"]');
+      const failed = await page.evaluate(() => {
+        const field = $ui('ly-placed-place');
+        const error = document.getElementById(field.getAttribute('aria-describedby'));
+        return {
+          invalid: field.getAttribute('aria-invalid'),
+          error: error?.textContent,
+          visible:
+            !!error?.getClientRects().length &&
+            error.getBoundingClientRect().bottom <=
+              $ui('ly-pending-repeats-voices').getBoundingClientRect().top,
+          focused: document.activeElement === field,
+          text: $ui('lyrics-draft').value,
+          history: app.history.length,
+          pending: lyDrafts('repeats-voices').length,
+        };
+      });
+      console.log('J5 invalid placed return:', JSON.stringify(failed));
+      check(
+        failed.invalid === 'true' &&
+          failed.error === 'A placed return needs at least two members.' &&
+          failed.visible,
+        'placed-return refusal has no visible inline error associated with its invalid field'
+      );
+      check(failed.focused, 'placed-return refusal did not focus its invalid field');
+      check(
+        failed.text === before.text && failed.history === before.history && failed.pending === 1,
+        'invalid placed return committed text/history or lost the pending entry'
+      );
+      await shot(page, 'j5-placed-return-invalid');
+      // A second member repairs the same pending entry; no policy changes.
+      await page.evaluate(() => {
+        LY.activeLine = 2;
+        lyRefresh(true);
+      });
+      await page.click('[data-ui="ly-placed-add"]');
+      check(
+        (await page.locator('#ly-err-placed').count()) === 0 &&
+          (await page.locator('#ly-placed-place[aria-invalid="true"]').count()) === 0,
+        'editing the placed-return members left a stale inline error'
+      );
+      await page.click('[data-ui="ly-draft-apply"][data-id="repeats-voices"]');
+      const saved = await page.evaluate(() => ({
+        returns: lyDeclarationsOf(LY.model).returns,
+        pending: lyDrafts('repeats-voices').length,
+        history: app.history.length,
+      }));
+      check(
+        saved.returns === '1.head,2.head' &&
+          saved.pending === 0 &&
+          saved.history === before.history + 1,
+        'corrected placed return did not commit once and clear its pending entry'
+      );
+      check(q.calls.length === 0, 'local placed-return validation contacted the writer');
+      await ctx.close();
+    });
+
     await step('5. tool drafts', async () => {
       const { ctx, page, q } = await boot({ theme: 'light' });
       await setDraft(page, DRAFT);
@@ -3160,7 +3536,185 @@ async function browserChecks(chromium) {
       await ctx.close();
     });
 
+    await step('J1 stale pager', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light', phone: true });
+      const draft = [
+        '[VERSE 1]',
+        ...Array.from({ length: 8 }, (_, i) => 'Verse lyric ' + (i + 1)),
+        '[CHORUS]',
+        ...Array.from({ length: 9 }, (_, i) => 'Chorus lyric ' + (i + 1)),
+      ].join('\n');
+      await setDraft(page, draft);
+      await page.evaluate(() => lyScrollToLine(1));
+      await page.evaluate(() => lyRefresh(true));
+      const snapshot = () =>
+        page.evaluate(() => ({
+          label: $ui('ly-section-nav').innerText.replace(/\s+/g, ' ').trim(),
+          active: LY.activeLine,
+          section: LY.model.sung[LY.activeLine - 1]?.section.title,
+          prev: $ui('ly-section-nav').querySelector('[data-id="-1"]').disabled,
+          next: $ui('ly-section-nav').querySelector('[data-id="1"]').disabled,
+          rows: document.querySelectorAll('#ly-overlay .ly-r-sung').length,
+          text: $ui('lyrics-draft').value,
+          selection: [$ui('lyrics-draft').selectionStart, $ui('lyrics-draft').selectionEnd],
+          focused: document.activeElement === $ui('lyrics-draft'),
+        }));
+      console.log('J1 initial ' + JSON.stringify(await snapshot()));
+      await page.locator('#ly-section-nav [data-id="1"]').click();
+      await page.waitForTimeout(200);
+      const after = await snapshot();
+      console.log('J1 after next ' + JSON.stringify(after));
+      check(
+        after.section === 'Chorus' && after.active === 9,
+        'Next must reach Chorus first sung line'
+      );
+      check(
+        /Chorus.*2 of 2/.test(after.label),
+        'Next pager must describe Chorus 2 of 2: ' + after.label
+      );
+      check(!after.prev && after.next, 'At Chorus Previous must enable and Next disable');
+      check(
+        after.text === draft && after.rows === 17,
+        'Section navigation must preserve whole song'
+      );
+      const chorusEnd = draft.indexOf('Chorus lyric 1') + 'Chorus lyric 1'.length;
+      check(
+        after.focused && after.selection[0] === chorusEnd && after.selection[1] === chorusEnd,
+        'Next must retain document focus and caret at destination'
+      );
+      await page.evaluate(() => lyRefresh(true));
+      const refreshed = await snapshot();
+      console.log('J1 refresh control ' + JSON.stringify(refreshed));
+      check(
+        /Chorus.*2 of 2/.test(refreshed.label) && !refreshed.prev && refreshed.next,
+        'Full refresh control must show correct Chorus pager'
+      );
+      await page.locator('#ly-section-nav [data-id="-1"]').click();
+      await page.waitForTimeout(200);
+      const back = await snapshot();
+      console.log('J1 after previous ' + JSON.stringify(back));
+      check(
+        back.section === 'Verse 1' && back.active === 1,
+        'Previous must reach Verse first sung line'
+      );
+      check(
+        /Verse 1.*1 of 2/.test(back.label) && back.prev && !back.next,
+        'Previous pager must describe Verse 1 of 2 and endpoints'
+      );
+      check(
+        back.focused && back.selection[0] === 23 && back.selection[1] === 23 && back.text === draft,
+        'Previous must retain document focus, caret and unchanged draft'
+      );
+      await page.evaluate(() => lyRefresh(true));
+      const caretOnly = await page.evaluate(() => {
+        const nav = $ui('ly-section-nav'),
+          position = nav.querySelector('.ly-sec-pos');
+        const d = $ui('lyrics-draft');
+        const offset = d.value.indexOf('Chorus lyric 2');
+        d.setSelectionRange(offset, offset);
+        lySyncCaret();
+        return {
+          same: position === nav.querySelector('.ly-sec-pos'),
+          focused: document.activeElement === d,
+          selection: [d.selectionStart, d.selectionEnd],
+          offset,
+          label: nav.innerText.replace(/\s+/g, ' ').trim(),
+        };
+      });
+      check(
+        caretOnly.same &&
+          caretOnly.focused &&
+          caretOnly.selection.every((n) => n === caretOnly.offset),
+        'Caret-only sync must preserve pager nodes, focus and selection'
+      );
+      check(
+        /Chorus.*2 of 2/.test(caretOnly.label),
+        'Caret-only section change must synchronize pager'
+      );
+      check(q.calls.length === 0, 'No writer calls');
+      await ctx.close();
+    });
+
     // ── 7. phone: one view at a time, a bottom bar, no sideways scroll ───
+    await step('H2. phone Form action names and reachability', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light', phone: true });
+      const original = '[VERSE]\nFirst line\n\n[CHORUS]\nSecond line';
+      await setDraft(page, original);
+      await page.evaluate(() => {
+        LY_ACTIONS['ly-mobile']('tools');
+        LY_ACTIONS['ly-tool']('form-story');
+      });
+      const row = page.locator('#ly-form-rows tr').first();
+      const names = await row.ariaSnapshot();
+      console.log('H2 accessible row:', names);
+      for (const name of ['Move up', 'Move down', 'Duplicate section', 'Remove'])
+        check(
+          (await row.getByRole('button', { name, exact: true }).count()) === 1,
+          `phone action has no accessible name: ${name}`
+        );
+      check(
+        await row.locator('[data-id="0:-1"]').isDisabled(),
+        'first section Move up must be disabled'
+      );
+      const down = row.locator('[data-id="0:1"]');
+      await down.focus();
+      await page.evaluate(
+        () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+      );
+      await down.evaluate((button) => {
+        const wrap = button.closest('.ly-table-wrap');
+        wrap.scrollLeft = wrap.scrollWidth;
+      });
+      const reach = await down.evaluate((button) => {
+        const wrap = button.closest('.ly-table-wrap');
+        const r = button.getBoundingClientRect();
+        return {
+          scrollLeft: wrap.scrollLeft,
+          scrollWidth: wrap.scrollWidth,
+          clientWidth: wrap.clientWidth,
+          x: r.x,
+          right: r.right,
+          width: r.width,
+          height: r.height,
+          hit: button.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2)),
+        };
+      });
+      console.log('H2 focused action geometry:', JSON.stringify(reach));
+      check(
+        reach.scrollWidth > reach.clientWidth &&
+          reach.scrollLeft > 0 &&
+          reach.hit &&
+          reach.x >= 0 &&
+          reach.right <= 390,
+        `table action is not reachable through horizontal scrolling: ${JSON.stringify(reach)}`
+      );
+      await page.keyboard.press('Enter');
+      check(
+        (await page.evaluate(() => $ui('lyrics-draft').value)).indexOf('[CHORUS]') === 0,
+        'keyboard Move down did not reorder the sections'
+      );
+      await page.evaluate(() => $ui('btn-undo').click());
+      check(
+        (await page.evaluate(() => $ui('lyrics-draft').value)) === original,
+        'Undo did not restore the moved draft'
+      );
+      const duplicate = page.locator('#ly-form-rows tr').first().locator('[data-ui="ly-sec-dup"]');
+      await duplicate.click();
+      check(
+        (await page.evaluate(() => LY.model.sections.length)) === 3,
+        'pointer Duplicate did not duplicate the section'
+      );
+      await page.evaluate(() => $ui('btn-undo').click());
+      check(
+        (await page.evaluate(() => $ui('lyrics-draft').value)) === original,
+        'Undo did not restore the duplicated draft'
+      );
+      check(q.calls.length === 0, 'local Form actions sent a request');
+      await ctx.close();
+    });
+
+    // N1/N2: Rhythm has three independently applied forms. A failure must
+    // not conceal successful commits, and review must account for all three.
     await step('7. phone', async () => {
       const { ctx, page } = await boot({ theme: 'light', phone: true });
       await setDraft(page, DRAFT);
@@ -3317,6 +3871,56 @@ async function browserChecks(chromium) {
         await ctx.close();
       });
     }
+    await step('J10. rhythm saved chip after strip Apply', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      const chip = () => page.locator('.ly-tool-view .ly-view-status').allTextContents();
+      await page.evaluate(() => {
+        LY.picks.rhythmSec = 3;
+        LY_ACTIONS['ly-tool']('rhythm');
+        lyDraftSet('rhythm', '3', 'meter', '6/8');
+        LY_ACTIONS['ly-rhythm-save']('3');
+      });
+      check(
+        (await chip()).join('') === '6/8 saved · bars not set',
+        'Save rhythm did not show its saved meter and unset bars'
+      );
+      // A refused Apply leaves both the committed header and receipt intact.
+      await page.fill('#ly-r-bars', '0');
+      await page.locator('#ly-pending-rhythm [data-ui="ly-draft-apply"]').click();
+      check(
+        (await chip()).join('') === '6/8 saved · bars not set',
+        'invalid Apply discarded the still-correct saved receipt'
+      );
+      await page.fill('#ly-r-bars', '8');
+      await page.locator('#ly-pending-rhythm [data-ui="ly-draft-apply"]').click();
+      const header = (await page.inputValue('#lyrics-draft'))
+        .split('\n')
+        .find((r) => r.startsWith('[BRIDGE'));
+      const after = await chip();
+      check(header === '[BRIDGE — 4 lines — 8 bars of 6/8]', `strip Apply header: ${header}`);
+      check(
+        after.length === 0,
+        `J10 stale receipt after strip Apply: ${JSON.stringify(after)}; header: ${header}`
+      );
+      await page.fill('#ly-r-bars', '12');
+      await page.locator('[data-ui="ly-rhythm-save"]').click();
+      check(
+        (await chip()).join('') === '6/8 saved · 12 bars',
+        'Save rhythm did not replace the receipt with the newly saved values'
+      );
+      await page.evaluate(() => {
+        lyDraftSet('rhythm', '0', 'meter', '3/4');
+        LY_ACTIONS['ly-draft-apply']('rhythm');
+      });
+      check(
+        (await chip()).join('') === '6/8 saved · 12 bars',
+        'applying a different section discarded the selected section receipt'
+      );
+      check(q.calls.length === 0, 'editing rhythm sent a writer request');
+      await ctx.close();
+    });
+
     await step('N2. selective save and partial review Apply all', async () => {
       const { ctx, page, q } = await boot({ theme: 'light' });
       await setDraft(page, DRAFT);
@@ -3362,6 +3966,63 @@ async function browserChecks(chromium) {
         ),
         'review gate discarded invalid or unattempted subforms'
       );
+      await ctx.close();
+    });
+
+    await step('J4. rhyme options version label', async () => {
+      const { ctx, page, q } = await boot({ theme: 'light' });
+      await setDraft(page, DRAFT);
+      const fixture = {
+        reply: 'Screened.',
+        history: [],
+        sig: 'fixture',
+        task: { domain: 'lyrics', phase: 'edit' },
+        tools: [
+          {
+            name: 'lyric_screen',
+            pairs: [{ a: 'you', b: 'blue', codes: [], refused: false, relations: ['RHYME'] }],
+          },
+        ],
+      };
+      await page.evaluate(() => {
+        lyScrollToLine(1);
+        LY_ACTIONS['ly-line-tool']('rhymes:1');
+      });
+      const label = () => page.locator('.ly-result .ly-help').innerText();
+      const stale = (text) => text.includes('asked about an earlier version');
+      q.replies.push(fixture);
+      await page.evaluate(() => LY_ACTIONS['ly-rhyme-options']());
+      check(!stale(await label()), 'fresh rhyme options were labelled stale');
+      check((await page.inputValue('#lyrics-draft')) === DRAFT, 'rhyme options changed the draft');
+      await edit(page, 'The rain has blurred', 'The rain had blurred');
+      check(stale(await label()), `J4 edit after reply has no stale label: ${await label()}`);
+      await edit(page, 'The rain had blurred', 'The rain has blurred');
+      check(!stale(await label()), 'restoring the requested version left the stale label');
+      // Version identity includes headers, not just sung lines.
+      await edit(page, '[BRIDGE — 4 lines]', '[BRIDGE — 4 lines — 6/8]');
+      check(stale(await label()), `J4 header edit has no stale label: ${await label()}`);
+      await setDraft(page, DRAFT);
+      q.delay = 1000;
+      q.replies.push(fixture);
+      const sent = page.evaluate(() => LY_ACTIONS['ly-rhyme-options']());
+      await page.waitForFunction(() => chatState.busy);
+      await edit(page, 'The rain has blurred', 'The rain had blurred');
+      await sent;
+      check(
+        stale(await label()),
+        `J4 reply to earlier version has no stale label: ${await label()}`
+      );
+      check(q.calls.length === 2, `expected two fixture requests, got ${q.calls.length}`);
+      check(
+        (await page.locator('.ly-options').innerText()).includes('you ~ blue'),
+        'stale status changed or removed the returned pair'
+      );
+      // A recovered result without its request has no known version to compare.
+      await page.evaluate((f) => {
+        lyReceive(f, null);
+        lyRefresh(true);
+      }, fixture);
+      check(!stale(await label()), 'an unbound recovered result claimed a known earlier version');
       await ctx.close();
     });
 

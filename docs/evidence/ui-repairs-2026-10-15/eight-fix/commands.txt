@@ -1,0 +1,35 @@
+Base: b887e5effcea84bf11722ca69bd13fc7088755c5
+Worktree: /workspace/musica-ui-eight
+Branch: codex/ui-eight-local-20261015
+All changes uncommitted/unpublished.
+
+To apply to a clean checkout of base:
+git apply /tmp/ui-eight-combined.patch
+
+Existing local assets/dependencies (no installation/download):
+cp /workspace/musica-numbering/lyric-harness/cmudict.dict lyric-harness/cmudict.dict
+export NODE_PATH=/workspace/musica-repair/node_modules
+export PLAYWRIGHT_BROWSERS_PATH=/tmp/musica-browsers
+# Sparse checkout includes api assets data library/code references scripts src
+# lyric-harness/quality lyric-harness/data lyric-harness/corpus/song.
+# Before running, fetch_data(download=False) verified cmudict;
+# named_place_lookup_2026-10-14/result.json and corpus/song were present.
+
+Build:
+node scripts/build_html.js --out=codex.html --check
+# Restore only unrelated generated-library pruning, as done here:
+git restore -- library/code/analysis.71b110b249.js library/code/generations.json
+
+Complete gate, once, units and all browser steps:
+mkdir -p /tmp/ui-eight-evidence/h1
+time node scripts/check_lyrics_page.js > /tmp/ui-eight-evidence/full-gate.log 2>&1
+
+Other checks:
+/workspace/musica-repair/node_modules/.bin/eslint src/pages/lyrics.js scripts/check_lyrics_page.js
+/workspace/musica-repair/node_modules/.bin/prettier --check src/pages/lyrics.js src/pages/lyrics.css scripts/check_lyrics_page.js
+git diff --check
+
+Integration reconciled test global declarations and included each test body.
+H1 screenshots redirected to this evidence directory to preserve original screenshots.
+During gate execution Prettier only wrapped the screenshot-call object over three lines;
+test-before-format.js preserves the executed preformat file. Runtime source/bundle did not change.

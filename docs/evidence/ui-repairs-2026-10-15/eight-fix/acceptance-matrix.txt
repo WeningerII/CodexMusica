@@ -1,0 +1,78 @@
+EIGHT-FIX LOCAL ACCEPTANCE — BB8 REVIEW
+Baseline: b887e5effcea84bf11722ca69bd13fc7088755c5
+Worktree: /workspace/musica-ui-eight
+Branch: codex/ui-eight-local-20261015 (uncommitted, unpublished)
+Combined patch: /tmp/ui-eight-combined.patch
+SHA256: 1cf1eb648df4b35b75e9c13387e4497a106d780cb67e8b098bf03ea384fa9d77
+Bundle SHA256: 37ff79578415f3a2bf2d92bc882421ecaff2bab2c8e754d4230728388e78786d
+
+Complete gate: PASS 747 assertions, exit 0, 133.432 seconds; run once with local assets staged.
+Independent static review: no concrete introduced regressions.
+Build, ESLint, formatting, whitespace checks passed.
+
+ID | Before | After (individual focused checks)
+J1 | 4 failures | 13 assertions passed — Pager label/buttons follow caret without replacing DOM
+J5 | 2 failures | 11 assertions passed — Placed-return validation is inline, associated and focused
+J10 | 1 failure | 8 assertions passed — Successful rhythm Apply clears matching Saved receipt
+J11 | 2 failures | 7 assertions passed — New song clears prior composer prefill after existing guards
+J4 | 3 failures | 10 assertions passed — Rhyme options compare known request identity at render time
+J12 | 5 failures; actual hidden HTTP400 error, generic-toast claim not reproduced | 10 assertions passed — Named actions validate existing message limit before reset
+H1 | 590x378: no hit-test reachable lyric; reduced viewport only | 37 assertions passed — Narrow layouts at <=600px height scroll the whole page
+H2 | 3 missing accessible names; existing horizontal scrolling works | 12 assertions passed — Visually hidden Form action labels remain accessible
+
+INDIVIDUAL PATCHES AND BEFORE/AFTER EVIDENCE
+J1: /tmp/j1-pager-local-fix.patch
+  SHA256 49b77c58d017088e94b7070dee50e2431b5c697b2f7e30d40f83ea63e1083258
+  before /tmp/j1-expanded-red.log
+  after  /tmp/j1-fixed.log
+J5: /tmp/musica-j5-evidence/full.patch
+  SHA256 4f6ffce21d23089599f199149cf87a9e045b5e9a6325fe850e026564594a5fcb
+  before /tmp/musica-j5-evidence/red.log
+  after  /tmp/musica-j5-evidence/green.log
+J10: /tmp/musica-j10.patch
+  SHA256 33d45dd6e21836d65b4e15f15ef2a14cb92ea07d4bbac66e0a460147801d0413
+  before /tmp/musica-j10-red.log
+  after  /tmp/musica-j10-green.log
+J11: /tmp/musica-j11-evidence/full.patch
+  SHA256 980a2fd7b514abd3f331aa7c3ad125ad52e8f9dd5ae443ad6c3aa1835fb46a63
+  before /tmp/musica-j11-evidence/before.txt
+  after  /tmp/musica-j11-evidence/after.txt
+J4: /tmp/musica-j4.patch
+  SHA256 3ac3156a32bed0bb679c94147c91c01d33dd444c2439e62ff6ddca87fa00666e
+  before /tmp/musica-j4-red.log
+  after  /tmp/musica-j4-green.log
+J12: /tmp/musica-j12.patch
+  SHA256 382ea3a3dcbc1e9bac2cb9242ec74b12f2604350ad96e33b6772ee195a94adc1
+  before /tmp/musica-j12-red.log
+  after  /tmp/musica-j12-green.log
+H1: /tmp/musica-h1.patch
+  SHA256 92adc0b39e1f8c1c447c2d8e0314d6ffa4cf4e95e2bf9ec86405cbc53b4faec7
+  before /tmp/musica-h1-evidence/red.txt
+  after  /tmp/musica-h1-evidence/green.txt
+H2: /tmp/musica-h2.patch
+  SHA256 fbe189511c8f4811337dbd0d15191032b6c47a3a696b7b510e03ac2f83811238
+  before /tmp/musica-h2-red.log
+  after  /tmp/musica-h2-green.log
+
+LIMITS
+H1 tests reduced CSS viewports, not native page or text zoom. Ctrl++ did not change metrics in installed headless Chromium.
+Chromium accessibility tree and interactions, not physical-device or assistive-technology acceptance.
+Offline fixtures only; no live-service acceptance.
+J13 History policy, J14 reader/display semantics, download guard limits remain unchanged.
+
+SEPARATE IMPORTER (not integrated)
+/tmp/musica-importer313.patch — SHA256 1a3426891ac8d8f88561cdd29e5b160031efda118e3b6b1df524192fa61ddb4c
+14 tests pass on Python3.12.14 and3.13.5;725outputs byte-identical;3.11 unavailable
+/tmp/importer313-commands.txt
+/tmp/importer313-after-bytes.json
+
+SEPARATE EMPTY-REPLACEMENT (not integrated)
+codex/reject-empty-replacement-20261015 at d85d2f26d3f876040a37403575c56deec427f63a
+Clean, unchanged, separate; publication remains held; no PR
+/workspace/musica-empty-replacement/docs/empty-replacement-guard-2026-10-15.md
+
+COMMANDS / COMBINED EVIDENCE
+/tmp/ui-eight-evidence/commands.txt
+/tmp/ui-eight-evidence/full-gate.log
+/tmp/ui-eight-evidence/review.txt
+/tmp/ui-eight-evidence/acceptance.json

@@ -1621,6 +1621,17 @@
 #surface-lyrics .ly-page[data-size='narrow'] .ly-ipanel {
   padding: 16px;
 }
+/* At short heights the fixed song header can consume the entire work area.
+   Let the narrow page scroll as one document, including that header. */
+@media (max-height: 600px) {
+  #surface-lyrics .ly-page[data-size='narrow'] {
+    overflow-y: auto;
+  }
+  #surface-lyrics .ly-page[data-size='narrow'] .ly-body {
+    flex: none;
+    overflow: visible;
+  }
+}
 @container lyrics (max-width: 767px) {
   #surface-lyrics .ly-page[data-size='narrow'] {
     --ly-lyric-size: 18px;
@@ -1633,7 +1644,12 @@
     font-size: 13px;
   }
   #surface-lyrics .ly-page[data-size='narrow'] .ly-table .ly-row-actions .cm-btn span {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 }
 @container lyrics (max-width: 359px) {
