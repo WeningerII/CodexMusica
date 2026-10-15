@@ -1,0 +1,172 @@
+page 1135f7df022453d9745cd0b9bc39fb2fad0dc4fa  harness 1135f7df022453d9745cd0b9bc39fb2fad0dc4fa
+(node VM over the tree source (not a browser); classifier: the harness tree's normalize-numbering)
+verdict class      case                                            mark          sent                        want -> got
+PASS    REFUSED    ohoh.love.groups.migration.off->sung            numbering+cut page: nothing sent          love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.groups.form.off->sung                 numbering+cut 1.T6,2 v2+voices            love@19 -> love@19
+PASS    REFUSED    ohoh.love.groups.b887-stored.off->sung          cut v2 only   page: nothing sent          love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.migration.off->sung           numbering+cut page: nothing sent          love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.returns.form.off->sung                numbering+cut 1.T6,2 v2+voices            love@19 -> love@19
+PASS    REFUSED    ohoh.love.returns.b887-stored.off->sung         cut v2 only   page: nothing sent          love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.reading.migration.off->sung           numbering+cut T5 v2                       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.off->sung                numbering+cut T5 v2                       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.off->sung         cut v2 only   T6 v2+voices                love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.migration.sung->off            numbering+cut 1.T5,2.end v2               love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.form.sung->off                 numbering+cut 1.T5,2 v2                   love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.b887-stored.sung->off          cut v2 only   1.T5,2.end v2               love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.migration.sung->off           numbering+cut 1.T5,2.end v2               love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.form.sung->off                numbering+cut 1.T5,2 v2                   love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.b887-stored.sung->off         cut v2 only   1.T5,2.end v2               love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.migration.sung->off           numbering+cut T6 v2+voices                love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.sung->off                numbering+cut T6 v2+voices                love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.sung->off         cut v2 only   T5 v2                       love@19 -> love@19
+PASS    REFUSED    ohoh.love.groups.migration.off->off             numbering+cut page: nothing sent          love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.groups.form.off->off                  numbering+cut 1.T5,2 v2                   love@19 -> love@19
+PASS    REFUSED    ohoh.love.groups.b887-stored.off->off           cut v2 only   page: nothing sent          love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.migration.off->off            numbering+cut page: nothing sent          love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.returns.form.off->off                 numbering+cut 1.T5,2 v2                   love@19 -> love@19
+PASS    REFUSED    ohoh.love.returns.b887-stored.off->off          cut v2 only   page: nothing sent          love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.reading.migration.off->off            numbering+cut T5 v2                       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.off->off                 numbering+cut T5 v2                       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.off->off          cut v2 only   T5 v2                       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.migration.sung->sung           numbering+cut 1.T6,2.end v2+voices        love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.form.sung->sung                numbering+cut 1.T6,2 v2+voices            love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.b887-stored.sung->sung         cut v2 only   1.T6,2.end v2+voices        love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.migration.sung->sung          numbering+cut 1.T6,2.end v2+voices        love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.form.sung->sung               numbering+cut 1.T6,2 v2+voices            love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.b887-stored.sung->sung        cut v2 only   1.T6,2.end v2+voices        love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.migration.sung->sung          numbering+cut T6 v2+voices                love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.sung->sung               numbering+cut T6 v2+voices                love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.sung->sung        cut v2 only   T6 v2+voices                love@19 -> love@19
+PASS    REFUSED    ohoh.ah.groups.migration.sung->off              numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.groups.form.sung->off                   numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.groups.b887-stored.sung->off            cut v2 only   page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.migration.sung->off             numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.form.sung->off                  numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.b887-stored.sung->off           cut v2 only   page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.reading.migration.sung->off             numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.reading.form.sung->off                  numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.reading.b887-stored.sung->off           cut v2 only   page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.groups.migration.sung->sung             numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    SAME_WORD  ohoh.ah.groups.form.sung->sung                  numbering+cut 1.T3,2 v2+voices            ah@9 -> ah@9
+PASS    REFUSED    ohoh.ah.groups.b887-stored.sung->sung           cut v2 only   page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.migration.sung->sung            numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    SAME_WORD  ohoh.ah.returns.form.sung->sung                 numbering+cut 1.T3,2 v2+voices            ah@9 -> ah@9
+PASS    REFUSED    ohoh.ah.returns.b887-stored.sung->sung          cut v2 only   page: nothing sent          ah@9 -> REFUSED
+PASS    SAME_WORD  ohoh.ah.reading.migration.sung->sung            numbering+cut T3 v2+voices                ah@9 -> ah@9
+PASS    SAME_WORD  ohoh.ah.reading.form.sung->sung                 numbering+cut T3 v2+voices                ah@9 -> ah@9
+PASS    SAME_WORD  ohoh.ah.reading.b887-stored.sung->sung          cut v2 only   T3 v2+voices                ah@9 -> ah@9
+PASS    REFUSED    byebye.bye.groups.migration.off->sung           numbering+cut page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.groups.form.off->sung                numbering+cut 1.T4,2 v2+voices            bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.groups.b887-stored.off->sung         cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.migration.off->sung          numbering+cut page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.returns.form.off->sung               numbering+cut 1.T4,2 v2+voices            bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.returns.b887-stored.off->sung        cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.reading.migration.off->sung          unmarked      page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.reading.form.off->sung               numbering+cut T3 v2                       bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.reading.b887-stored.off->sung        cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.migration.sung->off           numbering+cut page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.groups.form.sung->off                numbering+cut 1.T3,2 v2                   bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.groups.b887-stored.sung->off         cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.migration.sung->off          numbering+cut page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.returns.form.sung->off               numbering+cut 1.T3,2 v2                   bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.returns.b887-stored.sung->off        cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.reading.migration.sung->off          numbering+cut T4 v2+voices                bye@15 -> bye@15
+PASS    SAME_WORD  byebye.bye.reading.form.sung->off               numbering+cut T4 v2+voices                bye@15 -> bye@15
+PASS    SAME_WORD  byebye.bye.reading.b887-stored.sung->off        cut v2 only   T3 v2                       bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.groups.migration.off->off            numbering+cut page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.groups.form.off->off                 numbering+cut 1.T3,2 v2                   bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.groups.b887-stored.off->off          cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.migration.off->off           numbering+cut page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.returns.form.off->off                numbering+cut 1.T3,2 v2                   bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.returns.b887-stored.off->off         cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.reading.migration.off->off           unmarked      page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.reading.form.off->off                numbering+cut T3 v2                       bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.reading.b887-stored.off->off         cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.migration.sung->sung          numbering+cut page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.groups.form.sung->sung               numbering+cut 1.T4,2 v2+voices            bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.groups.b887-stored.sung->sung        cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.migration.sung->sung         numbering+cut page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.returns.form.sung->sung              numbering+cut 1.T4,2 v2+voices            bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.returns.b887-stored.sung->sung       cut v2 only   page: nothing sent          bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.reading.migration.sung->sung         numbering+cut T4 v2+voices                bye@15 -> bye@15
+PASS    SAME_WORD  byebye.bye.reading.form.sung->sung              numbering+cut T4 v2+voices                bye@15 -> bye@15
+PASS    SAME_WORD  byebye.bye.reading.b887-stored.sung->sung       cut v2 only   T4 v2+voices                bye@15 -> bye@15
+PASS    REFUSED    enclitic.home.groups.migration.off->sung        numbering+cut page: nothing sent          home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.groups.form.off->sung             numbering+cut 1.T6,2 v2+voices            home@28 -> home@28
+PASS    REFUSED    enclitic.home.groups.b887-stored.off->sung      cut v2 only   page: nothing sent          home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.returns.migration.off->sung       numbering+cut page: nothing sent          home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.returns.form.off->sung            numbering+cut 1.T6,2 v2+voices            home@28 -> home@28
+PASS    REFUSED    enclitic.home.returns.b887-stored.off->sung     cut v2 only   page: nothing sent          home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.reading.migration.off->sung       numbering+cut T4 v2                       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.form.off->sung            numbering+cut T4 v2                       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.b887-stored.off->sung     cut v2 only   T6 v2+voices                home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.migration.sung->off        numbering+cut 1.T4,2.end v2               home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.form.sung->off             numbering+cut 1.T4,2 v2                   home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.b887-stored.sung->off      cut v2 only   1.T4,2.end v2               home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.migration.sung->off       numbering+cut 1.T4,2.end v2               home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.form.sung->off            numbering+cut 1.T4,2 v2                   home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.b887-stored.sung->off     cut v2 only   1.T4,2.end v2               home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.migration.sung->off       numbering+cut T6 v2+voices                home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.form.sung->off            numbering+cut T6 v2+voices                home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.b887-stored.sung->off     cut v2 only   T4 v2                       home@28 -> home@28
+PASS    REFUSED    enclitic.home.groups.migration.off->off         numbering+cut page: nothing sent          home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.groups.form.off->off              numbering+cut 1.T4,2 v2                   home@28 -> home@28
+PASS    REFUSED    enclitic.home.groups.b887-stored.off->off       cut v2 only   page: nothing sent          home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.returns.migration.off->off        numbering+cut page: nothing sent          home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.returns.form.off->off             numbering+cut 1.T4,2 v2                   home@28 -> home@28
+PASS    REFUSED    enclitic.home.returns.b887-stored.off->off      cut v2 only   page: nothing sent          home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.reading.migration.off->off        numbering+cut T4 v2                       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.form.off->off             numbering+cut T4 v2                       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.b887-stored.off->off      cut v2 only   T4 v2                       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.migration.sung->sung       numbering+cut 1.T6,2.end v2+voices        home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.form.sung->sung            numbering+cut 1.T6,2 v2+voices            home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.b887-stored.sung->sung     cut v2 only   1.T6,2.end v2+voices        home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.migration.sung->sung      numbering+cut 1.T6,2.end v2+voices        home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.form.sung->sung           numbering+cut 1.T6,2 v2+voices            home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.b887-stored.sung->sung    cut v2 only   1.T6,2.end v2+voices        home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.migration.sung->sung      numbering+cut T6 v2+voices                home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.form.sung->sung           numbering+cut T6 v2+voices                home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.b887-stored.sung->sung    cut v2 only   T6 v2+voices                home@28 -> home@28
+PASS    REFUSED    holdon.on.groups.migration.off->sung            numbering+cut page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.groups.form.off->sung                 numbering+cut 1.T6,2 v2+voices            on@23 -> on@23
+PASS    REFUSED    holdon.on.groups.b887-stored.off->sung          cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.returns.migration.off->sung           numbering+cut page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.returns.form.off->sung                numbering+cut 1.T6,2 v2+voices            on@23 -> on@23
+PASS    REFUSED    holdon.on.returns.b887-stored.off->sung         cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.reading.migration.off->sung           unmarked      page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.reading.form.off->sung                numbering+cut T4 v2                       on@23 -> on@23
+PASS    REFUSED    holdon.on.reading.b887-stored.off->sung         cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.groups.migration.sung->off            numbering+cut page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.groups.form.sung->off                 numbering+cut 1.T4,2 v2                   on@23 -> on@23
+PASS    REFUSED    holdon.on.groups.b887-stored.sung->off          cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.returns.migration.sung->off           numbering+cut page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.returns.form.sung->off                numbering+cut 1.T4,2 v2                   on@23 -> on@23
+PASS    REFUSED    holdon.on.returns.b887-stored.sung->off         cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.reading.migration.sung->off           unmarked      T4 v2                       on@23 -> on@23
+PASS    SAME_WORD  holdon.on.reading.form.sung->off                numbering+cut T6 v2+voices                on@23 -> on@23
+PASS    SAME_WORD  holdon.on.reading.b887-stored.sung->off         cut v2 only   T4 v2                       on@23 -> on@23
+PASS    REFUSED    holdon.on.groups.migration.off->off             numbering+cut page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.groups.form.off->off                  numbering+cut 1.T4,2 v2                   on@23 -> on@23
+PASS    REFUSED    holdon.on.groups.b887-stored.off->off           cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.returns.migration.off->off            numbering+cut page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.returns.form.off->off                 numbering+cut 1.T4,2 v2                   on@23 -> on@23
+PASS    REFUSED    holdon.on.returns.b887-stored.off->off          cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.reading.migration.off->off            unmarked      page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.reading.form.off->off                 numbering+cut T4 v2                       on@23 -> on@23
+PASS    REFUSED    holdon.on.reading.b887-stored.off->off          cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.groups.migration.sung->sung           numbering+cut page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.groups.form.sung->sung                numbering+cut 1.T6,2 v2+voices            on@23 -> on@23
+PASS    REFUSED    holdon.on.groups.b887-stored.sung->sung         cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.returns.migration.sung->sung          numbering+cut page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.returns.form.sung->sung               numbering+cut 1.T6,2 v2+voices            on@23 -> on@23
+PASS    REFUSED    holdon.on.returns.b887-stored.sung->sung        cut v2 only   page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.reading.migration.sung->sung          unmarked      T6 (no numbering)           on@23 -> on@23
+PASS    SAME_WORD  holdon.on.reading.form.sung->sung               numbering+cut T6 v2+voices                on@23 -> on@23
+PASS    SAME_WORD  holdon.on.reading.b887-stored.sung->sung        cut v2 only   T6 v2+voices                on@23 -> on@23
+all: {"REFUSED": 69, "SAME_WORD": 93, "FAIL": 0}
+row records its basis (numbering+cut): {"REFUSED": 32, "SAME_WORD": 70, "FAIL": 0}
+row already migrated, no basis (cut v2 only): {"REFUSED": 33, "SAME_WORD": 21, "FAIL": 0}
+pre-release row left unmarked (no mark): {"REFUSED": 4, "SAME_WORD": 2, "FAIL": 0}
+voices changed: {"REFUSED": 37, "SAME_WORD": 44, "FAIL": 0}
+controls (voices unchanged): {"REFUSED": 32, "SAME_WORD": 49, "FAIL": 0}
+PASS

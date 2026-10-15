@@ -1,0 +1,40 @@
+  ...
+# Subtest: expansion survives Close/reopen and invalid selections cannot reuse an earlier target
+ok 9 - expansion survives Close/reopen and invalid selections cannot reuse an earlier target
+  ---
+  duration_ms: 4.315036
+  type: 'test'
+  ...
+# Subtest: identical lyrics cannot bind different or unproved declaration identities
+ok 10 - identical lyrics cannot bind different or unproved declaration identities
+  ---
+  duration_ms: 9.334404
+  type: 'test'
+  ...
+# Subtest: actual producer declaration variants cannot acquire a binding from lyric equality
+ok 11 - actual producer declaration variants cannot acquire a binding from lyric equality
+  ---
+  duration_ms: 2.865602
+  type: 'test'
+  ...
+# Subtest: inspector uses readable labels without hiding partial scope or placement reasons
+ok 12 - inspector uses readable labels without hiding partial scope or placement reasons
+  ---
+  duration_ms: 3.809583
+  type: 'test'
+  ...
+# Subtest: line display labels preserve raw IDs and plain reasons preserve navigation refusals
+ok 13 - line display labels preserve raw IDs and plain reasons preserve navigation refusals
+  ---
+  duration_ms: 4.96453
+  type: 'test'
+  ...
+1..13
+# tests 13
+# suites 0
+# pass 13
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 80.285397
