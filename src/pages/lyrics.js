@@ -2480,7 +2480,7 @@ function lyRunChecks(model) {
       text: !cur.known
         ? 'This reply came without the request it answered, so the version it certified is unknown here and it does not cover this draft.'
         : `Your ${changed.length ? changed.join(', ') : 'draft'} changed since that run, so its certification does not cover this version. Ask the writer to review the current draft.`,
-      actions: [['ly-run-review', 'Run review', 'play', '']],
+      actions: [['ly-tab', 'Open Review', 'clipboard-check', 'review']],
     });
   }
   return items;
@@ -4335,7 +4335,7 @@ function lyPendingStrip(tool, { applyLabel = 'Apply' } = {}) {
     stale.length
       ? `<p class="ly-pending-warn">${icon('triangle-alert', 16)}<span>Target changed. Review these entries before applying.</span>${lyBtn('ly-draft-rebase', 'Use current target', 'refresh-cw', { id: tool, cls: 'cm-btn ly-link-btn' })}</p>`
       : ''
-  }<span class="ly-pending-count">${lyPill('warning', `${n} pending change${n === 1 ? '' : 's'}`)}<small>Entries are kept when you switch tools.</small></span><span class="ly-actions">${lyBtn('ly-draft-apply', applyLabel, 'check', { id: tool, cls: 'cm-btn cm-btn-primary', extra: stale.length ? 'disabled aria-disabled="true"' : '' })}${lyBtn('ly-draft-discard', 'Discard', '', { id: tool, cls: 'cm-btn cm-btn-outline' })}</span></div>`;
+  }<span class="ly-pending-count">${lyPill('warning', `${n} pending change${n === 1 ? '' : 's'}`)}<small>Not applied to lyrics. Entries are kept when you switch tools.</small></span><span class="ly-actions">${lyBtn('ly-draft-apply', applyLabel, 'check', { id: tool, cls: 'cm-btn cm-btn-primary', extra: stale.length ? 'disabled aria-disabled="true"' : '' })}${lyBtn('ly-draft-discard', 'Discard', '', { id: tool, cls: 'cm-btn cm-btn-outline' })}</span></div>`;
 }
 function lyRenderTools() {
   const box = $ui('ly-panel-tools');
@@ -4346,9 +4346,9 @@ function lyRenderTools() {
     html = `<h3 class="ly-h3 ly-sr">Tools</h3><div class="ly-toolrows">${LY_TOOLS.map(([id]) => lyToolRow(id, { expanded: narrow ? false : null })).join('')}</div>`;
     const a = LY.state || lyAnalysis(model);
     if (a.state === 'none' && model.sung.length)
-      html += `<div class="ly-callout" data-tone="warning">${lyPill('warning', 'This version has not been reviewed')}<p>Run a review to check form, rhymes, rhythm and pronunciation.</p>${lyBtn('ly-run-review', 'Run review', 'play', { cls: 'cm-btn cm-btn-primary ly-block', extra: chatState.busy ? 'disabled' : '' })}</div>`;
+      html += `<div class="ly-callout" data-tone="warning">${lyPill('warning', 'This version has not been reviewed')}<p>Run a review to check form, rhymes, rhythm and pronunciation.</p>${lyBtn('ly-tab', 'Open Review', 'clipboard-check', { id: 'review', cls: 'cm-btn cm-btn-primary ly-block' })}</div>`;
     else if (a.state === 'stale')
-      html += `<div class="ly-callout" data-tone="warning">${lyPill('warning', 'Edited since review')}<p>The document changed after the last review. Review this version again.</p>${lyBtn('ly-run-review', 'Run review', 'play', { cls: 'cm-btn cm-btn-primary ly-block', extra: chatState.busy ? 'disabled' : '' })}</div>`;
+      html += `<div class="ly-callout" data-tone="warning">${lyPill('warning', 'Edited since review')}<p>The document changed after the last review. Review this version again.</p>${lyBtn('ly-tab', 'Open Review', 'clipboard-check', { id: 'review', cls: 'cm-btn cm-btn-primary ly-block' })}</div>`;
     lySetHtml(box, html, `tools:${LY.tool}:${LY.size}`);
     return;
   }
@@ -4864,14 +4864,16 @@ function lyRenderReview() {
   const local = items.filter((i) => i.source === 'page');
   const suggestions = run.filter((i) => i.decision && !i.stale);
   const others = run.filter((i) => !i.decision);
-  let html = `<section class="ly-card" aria-labelledby="ly-cur-h"><div class="ly-rev-head"><h3 class="ly-h3" id="ly-cur-h">Current version · ${esc(lyShortId(lyIdentity(model)))}</h3>${lyPill(a.tone, a.label)}</div>${a.certified ? `<p>${lyPill('success', 'Certified for this version')}</p>` : ''}${a.earlier ? `<p class="ly-inline" data-tone="warning">${icon('triangle-alert', 16)}<span>Review running for earlier version. Its results will arrive as history.</span></p>` : ''}${a.state === 'stale' && LY.run?.resultModel ? `<p class="ly-help">${esc(lyIdentityDiff(LY.run.resultModel, model).join(', ') || 'The document')} changed since the review.</p>` : ''}<h4 class="ly-h4">Coverage</h4>${lyCoverageRows(a)}${
-    a.state === 'none' || a.state === 'stale'
-      ? lyBtn('ly-run-review', 'Run review', 'play', {
-          cls: 'cm-btn cm-btn-primary ly-block',
-          extra: chatState.busy || !model.sung.length ? 'disabled' : '',
-        })
-      : ''
-  }</section>`;
+  const w = lyWriterState();
+  let html = `<section class="ly-card" aria-labelledby="ly-cur-h"><div class="ly-rev-head"><h3 class="ly-h3" id="ly-cur-h">Current version · ${esc(lyShortId(lyIdentity(model)))}</h3>${lyPill(a.tone, a.label)}</div>${a.certified ? `<p>${lyPill('success', 'Certified for this version')}</p>` : ''}${a.earlier ? `<p class="ly-inline" data-tone="warning">${icon('triangle-alert', 16)}<span>Review running for earlier version. Its results will arrive as history.</span></p>` : ''}${a.state === 'stale' && LY.run?.resultModel ? `<p class="ly-help">${esc(lyIdentityDiff(LY.run.resultModel, model).join(', ') || 'The document')} changed since the review.</p>` : ''}${w.unknown ? `<p class="ly-help">Outcome unknown. Retrieve the saved result before starting another request.</p>${lyBtn('ly-retrieve', 'Retrieve saved result', 'refresh-cw', { cls: 'cm-btn cm-btn-primary ly-block' })}` : ''}${lyBtn(
+    'ly-run-review',
+    'Run review',
+    'play',
+    {
+      cls: 'cm-btn cm-btn-primary ly-block',
+      extra: chatState.busy || w.unknown || !model.sung.length ? 'disabled' : '',
+    }
+  )}</section>`;
   if (LY.run && (LY.run.baseId || LY.run.resultId) && a.state !== 'stale' && a.state !== 'none')
     html += '';
   else if (LY.run)
@@ -4879,6 +4881,7 @@ function lyRenderReview() {
   html += suggestions.map(lySuggestionHtml).join('');
   if (others.length)
     html += `<section class="ly-card" aria-labelledby="ly-find-h"><h4 class="ly-h4" id="ly-find-h">From the review</h4><ul class="ly-items">${others.map(lyItemRow).join('')}</ul></section>`;
+  html += `<details class="ly-card ly-review-coverage"><summary><strong>Coverage details</strong></summary>${lyCoverageRows(a)}</details>`;
   html += `<details class="ly-card ly-local"${local.length && !run.length ? ' open' : ''}><summary><strong>Local checks</strong> <span class="ly-count">${local.length}</span></summary><p class="ly-help">Exact text facts found on this page: declared sizes, returns, readings, links and word rules. Not a review result.</p>${local.length ? `<ul class="ly-items">${local.map(lyItemRow).join('')}</ul>` : '<p class="ly-help">Nothing found.</p>'}</details><p class="ly-help">${icon('info', 14)} Changes to text, form or rhythm require a new review.</p>`;
   lySetHtml(box, html, 'review');
 }

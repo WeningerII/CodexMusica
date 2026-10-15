@@ -2560,6 +2560,42 @@ async function browserChecks(chromium) {
     });
 
     // ── 0. the shape: one document, fixed tabs and tools, no mode switch ──
+    await step(
+      'Evidence. Review navigation preserves pending edits and sends nothing',
+      async () => {
+        const { ctx, page, q } = await boot({ theme: 'light' });
+        await setDraft(page, DRAFT);
+        const before = await page.evaluate(() => {
+          lyDraftSet('rhythm', '0', 'bars', '9');
+          LY.tool = '';
+          LY_ACTIONS['ly-tab']('tools');
+          lyRefresh(true);
+          return { draft: $ui('lyrics-draft').value, pending: JSON.stringify(lyMeta().drafts) };
+        });
+        const callout = page.locator(
+          '#ly-panel-tools .ly-callout [data-ui="ly-tab"][data-id="review"]'
+        );
+        check((await callout.count()) === 1, 'Tools has no explicit Review navigation action');
+        await callout.click();
+        const after = await page.evaluate(() => ({
+          draft: $ui('lyrics-draft').value,
+          pending: JSON.stringify(lyMeta().drafts),
+          actions: $ui('ly-panel-review').querySelectorAll('[data-ui="ly-run-review"]').length,
+          toolSends: $ui('ly-panel-tools').querySelectorAll('[data-ui="ly-run-review"]').length,
+        }));
+        check(
+          after.draft === before.draft && after.pending === before.pending,
+          'opening Review changed pending or committed work'
+        );
+        check(
+          after.actions === 1 && after.toolSends === 0,
+          'Review action is missing or Tools still sends'
+        );
+        check(q.calls.length === 0, 'opening Review sent a request');
+        await ctx.close();
+      }
+    );
+
     await step('0. structure', async () => {
       const { ctx, page } = await boot({ theme: 'light' });
       await setDraft(page, DRAFT);
