@@ -1,0 +1,85 @@
+test_anonymous_publication_needs_matching_evidence (__main__.ProductionDataTests.test_anonymous_publication_needs_matching_evidence) ... ok
+test_audit_main_honors_explicit_argv_shape_gate (__main__.ProductionDataTests.test_audit_main_honors_explicit_argv_shape_gate) ... ok
+test_band_check_proves_population_count_and_refuses_missing_measurements (__main__.ProductionDataTests.test_band_check_proves_population_count_and_refuses_missing_measurements) ... ok
+test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer)
+The model the sidecar names must be the model the tagging uses. ... FAIL
+test_check_carries_deleted_members_into_readoption (__main__.ProductionDataTests.test_check_carries_deleted_members_into_readoption) ... ok
+test_cold_archive_staging_downloads_verifies_and_installs (__main__.ProductionDataTests.test_cold_archive_staging_downloads_verifies_and_installs) ...   fetching package.zip ... 154 bytes
+ok
+test_corpus_hash_gate_checks_snapshot_and_local_declaration_independently (__main__.ProductionDataTests.test_corpus_hash_gate_checks_snapshot_and_local_declaration_independently) ... ok
+test_corpus_snapshot_refuses_duplicate_weak_and_unbound_rows (__main__.ProductionDataTests.test_corpus_snapshot_refuses_duplicate_weak_and_unbound_rows) ... ok
+test_current_calibration_readers_match_runtime_source_rows (__main__.ProductionDataTests.test_current_calibration_readers_match_runtime_source_rows) ... ok
+test_curve_gate_checks_ttr_population_at_inclusive_window_boundary (__main__.ProductionDataTests.test_curve_gate_checks_ttr_population_at_inclusive_window_boundary) ... ok
+test_default_staging_never_fetches_optional_research_or_legacy_models (__main__.ProductionDataTests.test_default_staging_never_fetches_optional_research_or_legacy_models) ... ok
+test_editorial_staging_removes_prose_and_preserves_adjacent_verse (__main__.ProductionDataTests.test_editorial_staging_removes_prose_and_preserves_adjacent_verse) ... ok
+test_enclitic_audit_counts_disjoint_spellings_without_false_dominance (__main__.ProductionDataTests.test_enclitic_audit_counts_disjoint_spellings_without_false_dominance) ... ok
+test_every_module_the_runtime_reaches_imports_inside_the_shipped_tree (__main__.ProductionDataTests.test_every_module_the_runtime_reaches_imports_inside_the_shipped_tree)
+The image ships `release_assets.runtime_modules` and no other code. ... ok
+test_explicit_work_votes_preserve_sources_and_distinct_shared_titles (__main__.ProductionDataTests.test_explicit_work_votes_preserve_sources_and_distinct_shared_titles) ... ok
+test_field_checkpoint_rejects_executable_pickle_globals (__main__.ProductionDataTests.test_field_checkpoint_rejects_executable_pickle_globals) ... ok
+test_label_prefixes_strip_exactly_and_refuse_drift (__main__.ProductionDataTests.test_label_prefixes_strip_exactly_and_refuse_drift)
+A label in front of sung words is declared per line and stripped by ... ok
+test_m25_residue_is_exact_and_keeps_the_two_verse_controls (__main__.ProductionDataTests.test_m25_residue_is_exact_and_keeps_the_two_verse_controls) ... ok
+test_missing_item_source_cannot_bypass_terms_by_date (__main__.ProductionDataTests.test_missing_item_source_cannot_bypass_terms_by_date) ... ok
+test_missing_research_norms_names_explicit_research_staging (__main__.ProductionDataTests.test_missing_research_norms_names_explicit_research_staging) ... ok
+test_nonlyric_annotations_preserve_source_text_and_all_other_lyrics (__main__.ProductionDataTests.test_nonlyric_annotations_preserve_source_text_and_all_other_lyrics) ... ok
+test_optional_norms_do_not_disable_or_change_any_requested_floor_feature (__main__.ProductionDataTests.test_optional_norms_do_not_disable_or_change_any_requested_floor_feature) ... ok
+test_parallel_held_out_is_exactly_the_sequential_seed_population (__main__.ProductionDataTests.test_parallel_held_out_is_exactly_the_sequential_seed_population) ... ok
+test_release_gate_binds_decision_and_exact_bytes (__main__.ProductionDataTests.test_release_gate_binds_decision_and_exact_bytes) ... ok
+test_release_manifest_refuses_ambiguous_decisions_and_file_shapes (__main__.ProductionDataTests.test_release_manifest_refuses_ambiguous_decisions_and_file_shapes) ... ok
+test_release_root_selects_its_own_manifest_for_assembly_and_cli (__main__.ProductionDataTests.test_release_root_selects_its_own_manifest_for_assembly_and_cli) ... ok
+test_removed_english_member_still_owes_every_previous_adoption (__main__.ProductionDataTests.test_removed_english_member_still_owes_every_previous_adoption) ... ok
+test_saved_rows_refuse_missing_and_duplicate_shards (__main__.ProductionDataTests.test_saved_rows_refuse_missing_and_duplicate_shards) ... ok
+test_saved_rows_require_current_input_provenance_and_exact_bytes (__main__.ProductionDataTests.test_saved_rows_require_current_input_provenance_and_exact_bytes) ... ok
+test_short_band_proves_its_declared_unadopted_predictability_disposition (__main__.ProductionDataTests.test_short_band_proves_its_declared_unadopted_predictability_disposition) ... ok
+test_snapshot_actual_cli_publishes_a_bound_pair_and_preserves_it_on_owner_failure (__main__.ProductionDataTests.test_snapshot_actual_cli_publishes_a_bound_pair_and_preserves_it_on_owner_failure) ... ok
+test_song_frequency_literal_header_words_and_author_exclusion (__main__.ProductionDataTests.test_song_frequency_literal_header_words_and_author_exclusion) ... ok
+test_song_frequency_live_population_includes_literal_word (__main__.ProductionDataTests.test_song_frequency_live_population_includes_literal_word) ... ok
+test_song_frequency_refuses_bad_headers_counts_and_partial_cache (__main__.ProductionDataTests.test_song_frequency_refuses_bad_headers_counts_and_partial_cache) ... ok
+test_source_identity_survives_line_movement_and_detects_body_change (__main__.ProductionDataTests.test_source_identity_survives_line_movement_and_detects_body_change) ... ok
+test_sqlite_field_cache_eviction_preserves_exact_values_and_namespaces (__main__.ProductionDataTests.test_sqlite_field_cache_eviction_preserves_exact_values_and_namespaces) ... ok
+test_staging_refuses_nonempty_corruption_and_empty_package_dirs (__main__.ProductionDataTests.test_staging_refuses_nonempty_corruption_and_empty_package_dirs) ... ok
+test_structure_parts_bind_source_and_comparator (__main__.ProductionDataTests.test_structure_parts_bind_source_and_comparator) ... ok
+test_the_tagger_prepends_its_directory_once_and_keeps_it_first (__main__.ProductionDataTests.test_the_tagger_prepends_its_directory_once_and_keeps_it_first)
+Two properties, and the second is why the obvious fix is wrong. ... ok
+test_wordnet_honors_explicit_nltk_directory_before_shared_default (__main__.ProductionDataTests.test_wordnet_honors_explicit_nltk_directory_before_shared_default) ... ok
+test_wordnet_missing_resources_keep_sense_capability_absent (__main__.ProductionDataTests.test_wordnet_missing_resources_keep_sense_capability_absent) ... ok
+test_wordnet_uses_shared_staging_in_both_import_orders (__main__.ProductionDataTests.test_wordnet_uses_shared_staging_in_both_import_orders) ... FAIL
+
+======================================================================
+FAIL: test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer)
+The model the sidecar names must be the model the tagging uses.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt564/lyric-harness/quality/test_production_data.py", line 480, in test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer
+    self.assertEqual(told.returncode, 0, told.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt564/lyric-harness/quality/length_curve_calibration.py", line 113, in row_provenance
+    raise ValueError("calibration provenance requires the staged English tagger; configure NLTK_DATA") from None
+ValueError: calibration provenance requires the staged English tagger; configure NLTK_DATA
+
+
+======================================================================
+FAIL: test_wordnet_uses_shared_staging_in_both_import_orders (__main__.ProductionDataTests.test_wordnet_uses_shared_staging_in_both_import_orders)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt564/lyric-harness/quality/test_production_data.py", line 80, in test_wordnet_uses_shared_staging_in_both_import_orders
+    self._wordnet_probe(None, source)
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt564/lyric-harness/quality/test_production_data.py", line 75, in _wordnet_probe
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 :   fetching package.zip ... 1,539,115 bytes
+  fetching package.zip ... 10,775,600 bytes
+Traceback (most recent call last):
+  File "<string>", line 30, in <module>
+AssertionError: ['/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt564/lyric-harness/data/nltk', '/home/user/CodexMusica/lyric-harness/data/nltk/absent', '/home/user/CodexMusica/lyric-harness/data/nltk', '/home/user/CodexMusica/lyric-harness/data/nltk', '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt564/lyric-harness/data/nltk/taggers/averaged_perceptron_tagger_eng']
+
+
+----------------------------------------------------------------------
+Ran 42 tests in 26.765s
+
+FAILED (failures=2)
+
+real	0m27.090s
+user	0m25.901s
+sys	0m1.653s

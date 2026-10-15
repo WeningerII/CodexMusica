@@ -1,0 +1,51 @@
+CHANCE RATE · the shipped door against random CMUdict pairs
+  calibration scope: legacy scalar reader; production consensus/default coverage uncalibrated
+  canon arm: 40/1012 = 3.95% of Shakespeare's mandated pairs fail
+
+  seed 20260810 n 4000 | redteam(isalpha,2..12) | word anchor + score
+    drawn 4000   refused by CMUdict 0   judged 4000      (never summed)
+    ANY       926  23.15%    5.86x canon   ANY relation (the default door)
+    ADMIT      74   1.85%    0.47x canon   ADMIT  a coarse relation in decl.admit=['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+    RHYME       1   0.03%    0.01x canon   RHYME  one of ['PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+    SCHEMA    921  23.03%    5.83x canon   SCHEMA a registry schema, two-line stream
+    COARSE by relation: ASSONANCE=60 (0.38x)  CONSONANCE=15 (0.09x)  RHYME=1 (0.01x)   [cut: ASSONANCE 0.75, CONSONANCE 0.75]
+    SCHEMA top names  : consonance=393  assonance=200  pantun ABAB=138  syllabic rhyme=127  head rhyme (positional)=112  homoioteleuton=106  cluster consonance / skothending span=102  chain rhyme (rap)=94
+    DISOWNED  a schema the registry marks forbidden or deprecated HELD on 106, and was the only schema holding on 0 (held, never counted as satisfying)
+
+  seed 20260810 n 4000 | redteam(isalpha,2..12) | line anchor + best_score
+    drawn 4000   refused by CMUdict 0   judged 4000      (never summed)
+    ANY       926  23.15%    5.86x canon   ANY relation (the default door)
+    ADMIT      74   1.85%    0.47x canon   ADMIT  a coarse relation in decl.admit=['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+    RHYME       1   0.03%    0.01x canon   RHYME  one of ['PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+    SCHEMA    921  23.03%    5.83x canon   SCHEMA a registry schema, two-line stream
+    COARSE by relation: ASSONANCE=60 (0.38x)  CONSONANCE=15 (0.09x)  RHYME=1 (0.01x)   [cut: ASSONANCE 0.75, CONSONANCE 0.75]
+    SCHEMA top names  : consonance=393  assonance=200  pantun ABAB=138  syllabic rhyme=127  head rhyme (positional)=112  homoioteleuton=106  cluster consonance / skothending span=102  chain rhyme (rap)=94
+    DISOWNED  a schema the registry marks forbidden or deprecated HELD on 106, and was the only schema holding on 0 (held, never counted as satisfying)
+
+  seed 20260810 n 4000 | all entries | word anchor + score
+    drawn 4000   refused by CMUdict 1   judged 3999      (never summed)
+    ANY       903  22.57%    5.71x canon   ANY relation (the default door)
+    ADMIT      65   1.63%    0.41x canon   ADMIT  a coarse relation in decl.admit=['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+    RHYME       6   0.15%    0.04x canon   RHYME  one of ['PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+    SCHEMA    896  22.40%    5.67x canon   SCHEMA a registry schema, two-line stream
+    COARSE by relation: ASSONANCE=57 (0.36x)  CONSONANCE=10 (0.06x)  RHYME=6 (0.04x)   [cut: ASSONANCE 0.75, CONSONANCE 0.75]
+    SCHEMA top names  : consonance=384  assonance=213  head rhyme (positional)=121  pantun ABAB=114  chain rhyme (rap)=108  linked rhyme=107  cluster consonance / skothending span=105  syllabic rhyme=96
+    DISOWNED  a schema the registry marks forbidden or deprecated HELD on 81, and was the only schema holding on 0 (held, never counted as satisfying)
+
+  seed 20260810 n 4000 | all entries | line anchor + best_score
+    drawn 4000   refused by CMUdict 1   judged 3999      (never summed)
+    ANY       906  22.65%    5.73x canon   ANY relation (the default door)
+    ADMIT      69   1.73%    0.44x canon   ADMIT  a coarse relation in decl.admit=['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+    RHYME       6   0.15%    0.04x canon   RHYME  one of ['PROMOTED_RHYME', 'RHYME', 'RIME_RICHE']
+    SCHEMA    896  22.40%    5.67x canon   SCHEMA a registry schema, two-line stream
+    COARSE by relation: ASSONANCE=61 (0.39x)  CONSONANCE=10 (0.06x)  RHYME=6 (0.04x)   [cut: ASSONANCE 0.75, CONSONANCE 0.75]
+    SCHEMA top names  : consonance=384  assonance=213  head rhyme (positional)=121  pantun ABAB=114  chain rhyme (rap)=108  linked rhyme=107  cluster consonance / skothending span=105  syllabic rhyme=96
+    DISOWNED  a schema the registry marks forbidden or deprecated HELD on 81, and was the only schema holding on 0 (held, never counted as satisfying)
+
+  HOLDS  admit   65..74 inside 65..74
+  HOLDS  any     903..926 inside 903..926
+  HOLDS  rhyme   1..6 inside 1..6
+  HOLDS  schema  896..921 inside 896..921
+  HOLDS  the SHIPPED cell reproduces `redteam_band.sample_pairs` exactly (4000 pairs)
+
+all pins hold

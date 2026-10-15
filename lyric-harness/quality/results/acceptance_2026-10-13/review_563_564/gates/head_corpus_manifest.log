@@ -1,0 +1,30 @@
+MANIFEST: the live corpus is NOT the state the adopted constants describe — 0 new, 0 gone, 3 changed. An ANSWER, not a failure: finish the loading batch, re-derive and re-adopt the corpus-calibrated constants, then --write a fresh snapshot in the same sitting.
+  CHANGED  corpus/song/eng_british_richard_lovelace.txt (recorded 476abec6… measured edb8ea48…)
+  CHANGED  corpus/song/eng_british_robert_browning.txt (recorded 725b3787… measured 925c3c06…)
+  CHANGED  corpus/song/eng_british_robert_herrick.txt (recorded df5dbe51… measured 77702f52…)
+
+  RE-ADOPTION IS OWED — the drift lands inside:
+    meter bands: 3 file(s)
+      corpus/song/eng_british_richard_lovelace.txt
+      corpus/song/eng_british_robert_browning.txt
+      corpus/song/eng_british_robert_herrick.txt
+    the song floor profile: 3 file(s)
+      corpus/song/eng_british_richard_lovelace.txt
+      corpus/song/eng_british_robert_browning.txt
+      corpus/song/eng_british_robert_herrick.txt
+    the lyric length curves: 3 file(s)
+      corpus/song/eng_british_richard_lovelace.txt
+      corpus/song/eng_british_robert_browning.txt
+      corpus/song/eng_british_robert_herrick.txt
+    the rhyme-position tables: 3 file(s)
+      corpus/song/eng_british_richard_lovelace.txt
+      corpus/song/eng_british_robert_browning.txt
+      corpus/song/eng_british_robert_herrick.txt
+    structure-census chance rates: 3 file(s)
+      corpus/song/eng_british_richard_lovelace.txt
+      corpus/song/eng_british_robert_browning.txt
+      corpus/song/eng_british_robert_herrick.txt
+    certified rhyme-capacity witnesses: 3 file(s)
+      corpus/song/eng_british_richard_lovelace.txt
+      corpus/song/eng_british_robert_browning.txt
+      corpus/song/eng_british_robert_herrick.txt

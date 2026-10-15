@@ -1,0 +1,4 @@
+=== data/sources.tsv rows against the files they describe ===
+  verified 25   no-claim 6   fetched 2   skipped-qualified 2   MISMATCH 0
+  (five counts, never summed — doctrine 79)
+PASS — every unqualified claim re-derives from the file itself.

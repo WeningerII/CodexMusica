@@ -1,0 +1,89 @@
+
+1. the pin agrees with the tree it is committed against
+  PASS  no comparator input is missing, so this suite is measuring the comparator rather than its own container
+          absent=[]
+  PASS  the committed fingerprint equals the measured one — if this fails, the tree moved and the PR that moved it owes a re-verification
+          pin=51316f79c5093fa1 measured=51316f79c5093fa1
+  FAIL  the pin names the receipt that backs it, and that receipt is IN the tree — a pin on nobody's authority is the stale number wearing a measurement's clothes (doctrine 16)
+          ../docs/reader-calibration-adoption-2026-10-14.md
+PIN      51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4
+MEASURED 51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4
+  backed by ../docs/reader-calibration-adoption-2026-10-14.md
+RESULT: HOLDS — the comparator is what it was when the calibrations were last verified.
+  PASS  the gate exits 0 on the committed tree
+
+2. a MOVED input is caught, and the moved input is NAMED
+  PASS  the private copy measures EXACTLY as the tree's file does, so the comment planted below is the only thing the fingerprint can see move
+  PASS  a COMMENT INSIDE a reached definition moves the fingerprint — the guard is over-inclusive within the closure and that is the correct direction to be wrong
+          51316f79c509 -> f6d98c3cc1a1
+  PASS  EXACTLY the edited input is named — a gate that says only 'something moved' sends the next session looking at seven files
+          ['lyric_harness.py closure']
+PIN      51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4
+MEASURED f6d98c3cc1a1939e9ee9f26c087882bec745816723aaed772e0f182ddf71352b
+
+THE COMPARATOR MOVED. Inputs that differ from the pin:
+    lyric_harness.py closure
+
+This is not a lint failure. A moved comparator DISCARDS the
+predictability memo (~2.1 CPU-hours) and can move any row fitted
+against it. This pull request owns that:
+  1. Re-run the calibrations this comparator feeds, at minimum
+     `python3 quality/length_curve_calibration.py check`.
+  2. If a row MOVED, argue it and repin as a SET — never tune a
+     constant to clear this gate (doctrine 58).
+  3. Bank the receipt, then re-pin:
+       python3 quality/check_comparator_pin.py --write \
+           --verified-by <receipt path> --verdict "<what it said>"
+
+RESULT: MOVED — 1 of 7 inputs.
+  PASS  the gate exits 1, not 0 and not 2: this is a real move, not a container problem
+  PASS  the mutation is reverted, so this suite leaves no residue
+PIN      51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4
+MEASURED 51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4
+  backed by ../docs/reader-calibration-adoption-2026-10-14.md
+RESULT: HOLDS — the comparator is what it was when the calibrations were last verified.
+  PASS  and the gate is green again afterwards
+  PASS  a comment OUTSIDE every reached definition does NOT move the fingerprint — it cannot change what an item scores, and invalidating on one discarded a ~2.4-CPU-hour memo on 7 of the 10 commits that touched this file (MISSING.md M-299)
+          51316f79c509 -> 51316f79c509
+PIN      51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4
+MEASURED 51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4
+  backed by ../docs/reader-calibration-adoption-2026-10-14.md
+RESULT: HOLDS — the comparator is what it was when the calibrations were last verified.
+  PASS  and the gate still exits 0 on it
+  PASS  still no residue after the second mutation
+  PASS  and the tree's own `lyric_harness.py` was never written — a plant in the shared file moves every four-wide sibling's view of it, which is what refused `test_capacity_receipt.py`'s admission
+          /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt564/lyric-harness/quality/../lyric_harness.py
+
+3. the fold and the parts are ONE definition, not two
+  PASS  there are SEVEN inputs, which is what every doctrine sentence about this comparator claims
+          7
+  PASS  `comparator_fingerprint` IS the parts folded — recomputing the fold from the parts reproduces it exactly, so a checker reading the parts cannot disagree with the hash that guards the memo (doctrine 1)
+  PASS  the labels are NOT hashed — they are metadata for the reader, and renaming one must not throw the corpus memo away
+  PASS  every label is distinct, so a moved input cannot be reported under another input's name
+
+4. an input that is not staged CANNOT TELL, it does not read as MOVED
+  PASS  the absent input is reported as absent
+          ['no_such.dict']
+CANNOT TELL: no_such.dict not staged, so the comparator cannot be read.
+  `cmudict.dict` is fetched, not committed. Run:
+      python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+  A job without the staged inputs has no opinion about the
+  comparator and must not report one as a move.
+  PASS  the gate exits 2 (cannot tell), NOT 1 (moved) — a container without the staged inputs must not accuse a pull request
+  PASS  the real path is restored
+
+5. a pin cannot be advanced without naming the receipt
+REFUSED: --write needs --verified-by and --verdict.
+  A pin records that somebody RE-VERIFIED the calibrations
+  against this comparator. Advancing it without naming that
+  receipt would launder a drift into a number nobody checked
+  (doctrine 16). Re-run the affected cells first.
+  PASS  --write with no receipt REFUSES at 2 and writes nothing
+  PASS  the pin on disk is untouched by the refused write
+REFUSED: --verified-by quality/results/no_such.txt is not in the tree.
+  Bank the receipt beside the adoption, then re-pin.
+  PASS  --write naming a receipt that is NOT in the tree also refuses — the citation has to resolve, not merely be typed
+  PASS  still untouched
+  PASS  the committed pin is valid JSON at the version this build writes
+
+FAILURES: ["the pin names the receipt that backs it, and that receipt is IN the tree — a pin on nobody's authority is the stale number wearing a measurement's clothes (doctrine 16)"]

@@ -1,0 +1,34 @@
+FF
+======================================================================
+FAIL: test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer (__main__.ProductionDataTests.test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer)
+The model the sidecar names must be the model the tagging uses.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wtbase/lyric-harness/quality/test_production_data.py", line 436, in test_calibration_provenance_reads_the_staged_tagger_with_no_ambient_pointer
+    self.assertEqual(told.returncode, 0, told.stderr)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wtbase/lyric-harness/quality/length_curve_calibration.py", line 113, in row_provenance
+    raise ValueError("calibration provenance requires the staged English tagger; configure NLTK_DATA") from None
+ValueError: calibration provenance requires the staged English tagger; configure NLTK_DATA
+
+
+======================================================================
+FAIL: test_wordnet_uses_shared_staging_in_both_import_orders (__main__.ProductionDataTests.test_wordnet_uses_shared_staging_in_both_import_orders)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wtbase/lyric-harness/quality/test_production_data.py", line 80, in test_wordnet_uses_shared_staging_in_both_import_orders
+    self._wordnet_probe(None, source)
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wtbase/lyric-harness/quality/test_production_data.py", line 75, in _wordnet_probe
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 :   fetching package.zip ... 1,539,115 bytes
+  fetching package.zip ... 10,775,600 bytes
+Traceback (most recent call last):
+  File "<string>", line 30, in <module>
+AssertionError: ['/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wtbase/lyric-harness/data/nltk', '/home/user/CodexMusica/lyric-harness/data/nltk/absent', '/home/user/CodexMusica/lyric-harness/data/nltk', '/home/user/CodexMusica/lyric-harness/data/nltk', '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wtbase/lyric-harness/data/nltk/taggers/averaged_perceptron_tagger_eng']
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 5.787s
+
+FAILED (failures=2)

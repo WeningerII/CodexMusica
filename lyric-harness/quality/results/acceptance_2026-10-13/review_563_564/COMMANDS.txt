@@ -1,0 +1,35 @@
+# Review of PR #563 (3de4fd0ee) and PR #564 (13f889326), base b887e5eff
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; R=$S/review_563_564
+## PR #563
+git -C /home/user/CodexMusica worktree add -f $R/wt563 3de4fd0ee
+# (worktree add for wt564/wtbase full checkouts FAILED: No space left on device, ~840M free on /; partial dirs pruned)
+for py in $S/venv311/bin/python /usr/bin/python3.12 /usr/bin/python3.13: python $R/docprobe.py <integrate.py base|head> audit.json   (also with -OO)
+cp $S/wt-main2/lyric-harness/cmudict.dict $R/wt563/lyric-harness/
+cd $R/wt563/lyric-harness; LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data <py> -m unittest quality.test_gutenberg_import -v  > $R/t563_head_py{311,312,313}.log   # 14 tests OK x3
+# red check: temporarily swapped base integrate.py into wt563 (restored, git status clean):
+/usr/bin/python3.13 -m unittest quality.test_gutenberg_import > $R/t563_baseimpl_py313.log   # FAILED (failures=2)
+<py> docs/evidence/importer313-2026-10-15/importer-portability-probe.py lyric-harness/imports/gutenberg-ten/integrate.py > $R/probe563_py{311,312,313}.json  # 725 files, 0 changed, hashes == evidence
+git ls-files lyric-harness/corpus/library/gutenberg-ten | wc -l   # 724 (+audit.json = 725)
+# wt563 removed afterwards (disk pressure: / at 95-100%).
+
+## PR #564 (13f889326; current PR head feca512a6 differs only in .prettierignore + reformatted musica-m25-current-items.json; lyric-harness tree identical: git diff --stat 13f889326 feca512a6 -- lyric-harness -> empty)
+git archive 13f889326 docs/evidence/m25-unqualified-2026-10-15 | tar -x -C $R/m564ev
+$S/venv311/bin/python -I $R/verify564_rows.py $R/m564ev/docs/evidence/m25-unqualified-2026-10-15/measurement > $R/verify564_rows.out
+gh api repos/WeningerII/CodexMusica/contents/lyric-harness/quality/results/comparator_remeasurement_2026-10-14/artifact_hashes.json?ref=0c31fdbc... (raw) > $R/dl0c31/artifact_hashes.json ; sha256 of the 8 committed baseline shard/meta files all present there
+git diff --stat 55e89f28 b887e5eff -- lyric-harness/corpus   # empty: baseline corpus == base corpus
+python field-diff of sources.tsv base vs head; sha256/size of head sources.tsv == runtime_assets entry
+python prefix check over the 3 corpus files (47 changed lines, all == '# APPARATUS: ' + old line, line counts equal)
+# sparse worktrees (lyric-harness cone) at 13f889326 ($R/wt564) and b887e5eff ($R/wtbase); cmudict copied from wt-main2; LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data; python = venv311 (3.11.17)
+quality/test_production_data.py -v                      head: 42 run, 40 ok, 2 FAIL (staged-tagger, wordnet staging) -> same 2 FAIL at base (env)  [t564_production_data_py311.log, t564_base_2fails_py311.log]
+quality/corpus_manifest.py --check                       head rc=3 (3 changed; 6 populations owed)   base rc=0
+quality/section_marks.py --check                         head rc=1 (VERSE 94472 -> 94458)           base rc=0
+quality/audit_corpus.py --verify-shape                   head rc=1 (check C 3 FAIL)                  base rc=0
+quality/mark_coverage.py --check                         head rc=1 (typed 75318 -> 75304)           base rc=0
+quality/test_section_marks.py / test_corpus_taxonomy.py / test_corpus_audit.py   head rc=1 each, base rc=0
+quality/test_comparator_pin.py                           rc=1 head AND base (sparse checkout lacks ../docs receipt) - not attributable
+quality/check_data_rows.py, check_comparator_pin.py, test_data_row_claims.py, test_source_identity.py, counters.py --check   head rc=0
+quality/structure_census.py --check                      head rc=3 DRIFT (7 figures; D1 pair universe 4,315,964 -> 4,315,945)  base rc=0
+quality/chance_rate.py --check, quality/meter_bands.py --check   head rc=0
+quality/build_song_frequency.py (writes in scratch worktree, reverted)   base: no diff; head: data/song_endword_en.tsv 6+/18- (song_rhymepair_en.tsv unchanged)
+# NOT run (heavy / out of scope): calibration_rebuild, length_curve_calibration check (receipt: exit 1 MOVED), song_profile_calibration --check, expected_drift fast, capacity.py --check, search_null --check, build_library_data.py --check
+# logs: $R/gates/{head,base}_*.log ; worktrees removed afterwards

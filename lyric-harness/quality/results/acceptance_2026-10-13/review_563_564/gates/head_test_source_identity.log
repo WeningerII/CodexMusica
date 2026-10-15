@@ -1,0 +1,44 @@
+
+1. the entry set is READ off the importers, nested imports and all
+  PASS  the module-level `from lyric_harness import (...)` list is read
+          ['Declaration', 'Lexicon', 'VOWELS', '_refuse', 'admits_decl', 'anchor', 'fold_apostrophes', 'line_anchors', 'score', 'syllabify', 'vowel_sim']
+  PASS  and so are the imports INSIDE function bodies — `_refuse` and `fold_apostrophes` are two names a hand-written list omitted, and the tokeniser's own apostrophe folding rides on the second
+  PASS  `module.attr` access is read too, so a module imported WHOLE is covered by the same call
+          ['CMUDICT_PATH', 'Declaration', 'FREQ_PATH', '__file__']
+  PASS  a STAR import REFUSES rather than returning a set that looks complete: the entry set is then the whole module and this function cannot say so in names (doctrine 20)
+
+2. every entry point is in the closure, and the closure is deterministic
+  PASS  every entry point the importers name, and that the module actually defines, is in the closure — a closure missing its own entry is not a closure
+          missing=[]
+  PASS  the closure is DETERMINISTIC — a fingerprint that moved between two reads of one tree would discard the memo on every run (doctrine 66)
+  PASS  and it is a real narrowing rather than the whole file, which is the only reason this indirection exists
+          closure 133230 chars, 91 names
+  PASS  the reached NAMES ride in the fingerprint beside the text, so a definition entering or leaving the comparator's reach moves it even when every definition's own bytes are unchanged
+  PASS  every module-level NON-definition statement kind is in the closure, whatever it mentions — an edit to an import or to module-level validation moves the hash
+          module ['Expr', 'If', 'Import', 'ImportFrom'] / closure ['Expr', 'If', 'Import', 'ImportFrom']
+  PASS  and there are some, so this check examined something
+          22 non-definition statements
+
+3. the closure is TRANSITIVE — a helper five calls deep still moves the hash
+  PASS  the closure reaches definitions no entry point names — one hop would leave `reached` equal to the entry set
+          78 indirect, e.g. ['ADMITTABLE_RELATIONS', 'APOSTROPHES', 'CLICHE_PAIRS', 'CMUDICT_URL', 'CODA_EMPTY_EVIDENCE', 'CONSONANTS']
+  PASS  the private copy fingerprints EXACTLY as the tree's file does, so the planted comment is the only difference
+  PASS  editing `_download_retryable` — reached only through another definition — moves the comparator fingerprint, so the guard covers what it can reach and not merely what was declared
+          51316f79c509 -> 2b6647c84d7f
+  PASS  no residue
+  PASS  and the tree's own `lyric_harness.py` was never written — a plant in the shared file is seen by every four-wide sibling
+          /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt564/lyric-harness/quality/../lyric_harness.py
+
+4. nothing reachable dispatches on a module-level name at runtime
+  PASS  no reachable definition looks a module-level name up through getattr/globals/eval — which is the assumption the whole narrowing rests on, checked rather than asserted
+          []
+  PASS  and the population is non-empty, so this section examined something (doctrine 20: a check over nothing reads like a pass)
+          91 definitions, 133230 chars parsed
+
+5. `definition_source` still resolves by NAME, not by a live line offset
+  PASS  the returned text IS that definition and starts at its own `def`
+          def predictability_frac(qf, lines, obvio
+  PASS  and it stops at the definition's end rather than running on into the next one
+  PASS  a method REFUSES — this resolves a TOP-LEVEL declaration by name, and a qualified name has no unique top-level node to find
+
+ALL PASS

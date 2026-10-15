@@ -1,0 +1,38 @@
+hash preflight.json OK
+hash source-identity.json OK
+hash baseline-provenance-comparison.json OK
+hash current-calibration-rows.tsv OK
+hash current-calibration-rows.meta.json OK
+hash current-predictability.tsv OK
+hash current-field-cache.sqlite NOT COMMITTED
+hash rebuild.log OK
+hash row-comparison.json OK
+hash curve-check.log OK
+hash compare_rows.py OK
+shard 1 meta items 2072 rows 2072 row_sha ok True
+shard 2 meta items 2135 rows 2135 row_sha ok True
+shard 3 meta items 2202 rows 2202 row_sha ok True
+shard 4 meta items 2188 rows 2188 row_sha ok True
+current meta items 8585 rows 8585 row_sha ok True
+headers equal True 1
+raw lines: baseline 8597 current 8585 common 8585 removed 12 added 0
+dict multiset: unchanged 8585 removed 12 added 0
+row-comparison.json: unchanged 8585 removed 12 added 0
+removed set == row-comparison removed True
+baseline {'items': 8597, 'lines': 278152, 'tokens': 1827094, 'token_range': [4, 3244], 'mattr_ttr_items_at_50': 539} json {'items': 8597, 'lines': 278152, 'tokens': 1827094, 'token_range': [4, 3244], 'mattr_ttr_items_at_50': 539}
+candidate {'items': 8585, 'lines': 278126, 'tokens': 1826900, 'token_range': [9, 3244], 'mattr_ttr_items_at_50': 527} json {'items': 8585, 'lines': 278126, 'tokens': 1826900, 'token_range': [9, 3244], 'mattr_ttr_items_at_50': 527}
+removed n_lines sum 26 tokens 194
+columns ['file', 'author', 'title', 'n_lines', 'n_tokens', 'mattr', 'fwr', 'anaphora', 'cv', 'predictability'] ... 10
+REMOVED {'file': 'eng_british_robert_herrick.txt', 'author': 'Robert Herrick (1591-1674)', 'title': '_Consultation._ As noted in the text, this is from Sallust, _Cat._ i', 'n_lines': '2'} n_lines 2 n_tokens 7
+REMOVED {'file': 'eng_british_robert_browning.txt', 'author': 'Robert Browning (1812-1889)', 'title': '=clavichord=. An instrument of the type of the piano', 'n_lines': '1'} n_lines 1 n_tokens 8
+REMOVED {'file': 'eng_british_robert_browning.txt', 'author': 'Robert Browning (1812-1889)', 'title': 'With an Introduction by CHARLES G. WHITING', 'n_lines': '3'} n_lines 3 n_tokens 33
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'Reverence', 'n_lines': '2'} n_lines 2 n_tokens 16
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'Doom', 'n_lines': '1'} n_lines 1 n_tokens 6
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'Faire--Ms', 'n_lines': '3'} n_lines 3 n_tokens 22
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'Caractacus(?)', 'n_lines': '4'} n_lines 4 n_tokens 34
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'Dombe--LUCASTA', 'n_lines': '3'} n_lines 3 n_tokens 16
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'An Unanoynted--Ms', 'n_lines': '2'} n_lines 2 n_tokens 13
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'And--Ms', 'n_lines': '3'} n_lines 3 n_tokens 27
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'Lucasta', 'n_lines': '1'} n_lines 1 n_tokens 4
+REMOVED {'file': 'eng_british_richard_lovelace.txt', 'author': 'Richard Lovelace (1617-1657)', 'title': 'Blended', 'n_lines': '1'} n_lines 1 n_tokens 8
+predictability lines 8588 #version	1

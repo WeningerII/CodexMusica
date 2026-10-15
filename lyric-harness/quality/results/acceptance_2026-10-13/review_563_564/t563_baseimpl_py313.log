@@ -1,0 +1,27 @@
+.F.F..........
+======================================================================
+FAIL: test_audit_description_is_not_runtime_docstring_data (quality.test_gutenberg_import.BatchEvidenceTests.test_audit_description_is_not_runtime_docstring_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt563/lyric-harness/quality/test_gutenberg_import.py", line 210, in test_audit_description_is_not_runtime_docstring_data
+    self.assertEqual(json.loads(files[BATCH / 'audit.json']),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     read_json(BATCH / 'audit.json'))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'ver[134 chars]on': None, 'existing_sources': [{'path': 'corp[5382848 chars]d'}]} != {'ver[134 chars]on': 'Work matching: full normalized text or c[5383150 chars]d'}]}
+Diff is 9520411 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_checked_import_reproduces_committed_outputs_without_writing (quality.test_gutenberg_import.BatchEvidenceTests.test_checked_import_reproduces_committed_outputs_without_writing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_563_564/wt563/lyric-harness/quality/test_gutenberg_import.py", line 218, in test_checked_import_reproduces_committed_outputs_without_writing
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : import drift: imports/gutenberg-ten/audit.json
+
+
+----------------------------------------------------------------------
+Ran 14 tests in 26.448s
+
+FAILED (failures=2)

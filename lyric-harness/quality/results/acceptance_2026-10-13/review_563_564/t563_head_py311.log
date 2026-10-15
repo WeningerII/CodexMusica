@@ -1,0 +1,23 @@
+test_all_ten_sources_have_unique_accounted_candidate_identifiers (quality.test_gutenberg_import.BatchEvidenceTests.test_all_ten_sources_have_unique_accounted_candidate_identifiers) ... ok
+test_audit_description_is_not_runtime_docstring_data (quality.test_gutenberg_import.BatchEvidenceTests.test_audit_description_is_not_runtime_docstring_data) ... ok
+test_audit_is_complete_disjoint_and_traces_each_candidate_text (quality.test_gutenberg_import.BatchEvidenceTests.test_audit_is_complete_disjoint_and_traces_each_candidate_text) ... ok
+test_checked_import_reproduces_committed_outputs_without_writing (quality.test_gutenberg_import.BatchEvidenceTests.test_checked_import_reproduces_committed_outputs_without_writing) ... ok
+test_every_imported_lyric_line_survives_the_actual_library_reader (quality.test_gutenberg_import.BatchEvidenceTests.test_every_imported_lyric_line_survives_the_actual_library_reader) ... ok
+test_production_admission_and_derived_censuses_include_the_import (quality.test_gutenberg_import.BatchEvidenceTests.test_production_admission_and_derived_censuses_include_the_import) ... ok
+test_supplied_edition_years_are_not_original_or_ebook_release_dates (quality.test_gutenberg_import.BatchEvidenceTests.test_supplied_edition_years_are_not_original_or_ebook_release_dates) ... ok
+test_changed_opening_with_substantial_shared_verse_is_same_work (quality.test_gutenberg_import.DuplicateRegressionTests.test_changed_opening_with_substantial_shared_verse_is_same_work) ... ok
+test_generic_common_first_line_does_not_conflate_different_hymns (quality.test_gutenberg_import.DuplicateRegressionTests.test_generic_common_first_line_does_not_conflate_different_hymns) ... ok
+test_one_repeated_line_does_not_supply_false_corroboration (quality.test_gutenberg_import.DuplicateRegressionTests.test_one_repeated_line_does_not_supply_false_corroboration) ... ok
+test_punctuation_case_and_spacing_do_not_import_same_words_twice (quality.test_gutenberg_import.DuplicateRegressionTests.test_punctuation_case_and_spacing_do_not_import_same_words_twice) ... ok
+test_printed_chorus_and_refrain_remain_in_order_without_new_words (quality.test_gutenberg_import.SectionRegressionTests.test_printed_chorus_and_refrain_remain_in_order_without_new_words) ... ok
+test_stanza_labels_leave_words_and_stanza_boundaries_intact (quality.test_gutenberg_import.SectionRegressionTests.test_stanza_labels_leave_words_and_stanza_boundaries_intact) ... ok
+test_supplied_bracketed_words_are_not_mistaken_for_control_marks (quality.test_gutenberg_import.SectionRegressionTests.test_supplied_bracketed_words_are_not_mistaken_for_control_marks) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 19.040s
+
+OK
+
+real	0m19.223s
+user	0m18.187s
+sys	0m0.759s
