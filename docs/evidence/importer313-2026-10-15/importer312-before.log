@@ -1,0 +1,72 @@
+[
+  {
+    "collection": "46041",
+    "candidates": 1324,
+    "imported": 1051,
+    "duplicate": 231,
+    "excluded": 42
+  },
+  {
+    "collection": "20476",
+    "candidates": 1008,
+    "imported": 625,
+    "duplicate": 365,
+    "excluded": 18
+  },
+  {
+    "collection": "76498",
+    "candidates": 594,
+    "imported": 148,
+    "duplicate": 164,
+    "excluded": 282
+  },
+  {
+    "collection": "22223",
+    "candidates": 269,
+    "imported": 103,
+    "duplicate": 155,
+    "excluded": 11
+  },
+  {
+    "collection": "76941",
+    "candidates": 199,
+    "imported": 189,
+    "duplicate": 2,
+    "excluded": 8
+  },
+  {
+    "collection": "21300",
+    "candidates": 153,
+    "imported": 151,
+    "duplicate": 1,
+    "excluded": 1
+  },
+  {
+    "collection": "65524",
+    "candidates": 139,
+    "imported": 137,
+    "duplicate": 1,
+    "excluded": 1
+  },
+  {
+    "collection": "30418",
+    "candidates": 103,
+    "imported": 102,
+    "duplicate": 1,
+    "excluded": 0
+  },
+  {
+    "collection": "56625",
+    "candidates": 121,
+    "imported": 121,
+    "duplicate": 0,
+    "excluded": 0
+  },
+  {
+    "collection": "59263",
+    "candidates": 88,
+    "imported": 69,
+    "duplicate": 15,
+    "excluded": 4
+  }
+]

@@ -81,7 +81,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from quality.loop import (AnchorSlot, GroupBrief,  # noqa: E402
                           default_propose, default_propose_group,
-                          revise_loop, swap_end_word)
+                          revise_loop, swap_end_word, swap_at_slot)
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
 from quality import schemes as SC  # noqa: E402
@@ -731,6 +731,35 @@ def test_swap_end_word_refuses_a_disagreeing_reading():
           "line_tokens strips parentheticals before reading the end word, "
           "so the last regex match here is 'repeat', not 'fire' -- "
           "splicing there would silently corrupt an aside, not a rhyme")
+
+    from quality.slots import parse_slot
+    placed = parse_slot('1.T2')
+    lines = ('the room on fire', 'we walk in rain')
+    for scheme in ('v1', 'v2'):
+        lex = Lexicon(reader_scheme=scheme)
+        group = GroupBrief(pivot_line_no=1, pivot_text=lines[0],
+                           pivot_word='', pivot_offered=(),
+                           anchors=(AnchorSlot(2, lines[1], 'train', ('train',)),),
+                           label='A', members=(1, 2), brief=None,
+                           lines=lines, attempt=0)
+        for empty in ('', ' ', '\t\n', '\u00a0'):
+            check(f'{scheme}: empty/whitespace end replacement {empty!r} refuses',
+                  swap_end_word(lines[0], empty, scheme=scheme, lex=lex) is None)
+            check(f'{scheme}: empty/whitespace placed replacement {empty!r} refuses',
+                  swap_at_slot(lines[0], placed, empty, scheme=scheme, lex=lex) is None)
+            check(f'{scheme}: an empty group pivot {empty!r} declines the mechanical proposal',
+                  default_propose_group(_dc.replace(group, pivot_word=empty),
+                                        scheme=scheme, lex=lex) is None)
+        check(f'{scheme}: whole-line repair cannot use the mechanical word-splice stub',
+              default_propose_group(_dc.replace(group, whole_repair=True),
+                                    scheme=scheme, lex=lex) is None)
+        check(f'{scheme}: nonempty group replacements still splice both members',
+              default_propose_group(_dc.replace(group, pivot_word='attire'),
+                                    scheme=scheme, lex=lex) ==
+              ('the room on attire', 'we walk in train'))
+        check(f'{scheme}: nonempty placed replacement still splices its token',
+              swap_at_slot(lines[0], placed, 'house', scheme=scheme, lex=lex)
+              == 'the house on fire')
 
 
 def test_no_mandate_is_a_refusal_not_a_pass():
@@ -1863,6 +1892,26 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
           and all("NOT ASKED" not in a.reason
                   for r in res2.rounds for a in r.attempts
                   if a.tier == 2 and a.line_no == 3), pinned_det)
+
+    # THE MECHANICAL STUB DECLINES THE ATOMIC BACKTRACK (2026-10-15, #561).
+    # The atomic group/return repair asks for whole lines (`whole_repair`,
+    # empty pivot word). `default_propose_group` splices words, so before the
+    # blank-candidate guard it spliced '' into each member and proposed the
+    # verbatim class with its bound words deleted; now every such attempt
+    # declines (None), and a writer-backed proposer is the only route.
+    stub_out = []
+
+    def stub(pb):
+        got = default_propose_group(pb)
+        if pb.whole_repair:
+            stub_out.append(got)
+        return got
+    res3 = revise_loop(RV, PIN, mp, propose=lambda *a, **k: None,
+                       propose_group=stub)
+    check("the mechanical stub declines every atomic return backtrack "
+          "rather than proposing lines with their bound words deleted",
+          stub_out and all(g is None for g in stub_out) and res3.lines == PIN,
+          [g for g in stub_out if g is not None][:2])
 
     # THE WRITER IS TOLD. The prompt renders THE RHYME MANDATE ON THE PIVOT;
     # until this fix it rendered no block for the anchor, so the writer was
