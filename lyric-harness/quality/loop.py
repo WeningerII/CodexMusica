@@ -365,16 +365,6 @@ def _only_word_material(text, pieces):
     return True
 
 
-def _no_word_in(new_word):
-    """-> True when a replacement holds no letter and no numeral: empty,
-    whitespace, invisible format characters (U+200B, U+2060, U+FEFF, U+00AD)
-    or punctuation alone. The reader counts a token only by its letters and
-    numerals, so splicing such a candidate deletes the bound word rather than
-    replacing it; both swaps refuse it before either reader-specific splice."""
-    return not any(ch.isalpha() or unicodedata.category(ch)[0] == "N"
-                   for ch in (new_word or ""))
-
-
 def _cased(old, new_word):
     if old.isupper():
         return new_word.upper()
@@ -385,9 +375,8 @@ def _cased(old, new_word):
 
 def swap_end_word(text, new_word, scheme=None, lex=None):
     """-> `text` with its LAST token replaced by `new_word`; `None` if it
-    cannot be done without guessing. A replacement with no letter or numeral
-    (`_no_word_in`) refuses before either reader-specific splice; the v1 body
-    below is unchanged.
+    cannot be done without guessing. Empty or whitespace-only replacements
+    refuse before either reader-specific splice; the v1 body below is unchanged.
 
     "Last token" is `raw_final_token`'s reading — the ONE definition of a
     line's end word every rhyme lookup in this project has to agree with
@@ -435,7 +424,7 @@ def swap_end_word(text, new_word, scheme=None, lex=None):
     coordinate is never resolved in either direction). Under `v1` `lex` is
     not read: the pre-batch body runs verbatim.
     """
-    if _no_word_in(new_word):
+    if not new_word or not new_word.strip():
         return None
     if lex is not None and scheme is not None and (
             resolve_reader_scheme(scheme) != _scheme_of(lex)):
@@ -591,9 +580,8 @@ def _bound_index(lex, text, slot):
 
 def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=None, lex=None):
     """-> `text` with the token the SLOT names replaced; `None` if it cannot
-    be done without guessing. A replacement with no letter or numeral
-    (`_no_word_in`) refuses before either reader-specific splice, including the
-    default end slot.
+    be done without guessing. Empty or whitespace-only replacements refuse
+    before either reader-specific splice, including the default end slot.
 
     The generalisation of `swap_end_word` to the placement coordinate
     (`quality/slots.py`), and the reason it has to exist: `grade()` can flag a
@@ -646,7 +634,7 @@ def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=None, lex=None)
     (`mcp/LYRICS_RUNTIME.md`, pre-existing items); under `v2` the swap
     refuses a kept aside's run and checks the endpoint occurrence.
     """
-    if _no_word_in(new_word):
+    if not new_word or not new_word.strip():
         return None
     if lex is not None and scheme is not None and (
             resolve_reader_scheme(scheme) != _scheme_of(lex)):

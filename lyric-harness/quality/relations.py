@@ -9497,33 +9497,6 @@ def _span_binds(stream, span, line0, tok, last):
 _TOKEN_LOCI = ("line_final_token", "line_initial_token", "any_token")
 
 
-#: `pair_satisfies`' per-schema constants, keyed by the schema object's
-#: identity and holding the schema so the identity cannot be reused. A
-#: `RelationSchema` is frozen, so its capabilities and its placement-free copy
-#: never change; the revise field asks both of every registry schema for
-#: every candidate pair (~180,000 times on one request, 2026-10-15).
-_PAIR_SCHEMA_CONSTANTS = {}
-_PAIR_SCHEMA_CONSTANTS_CAP = 4096
-
-
-def _pair_schema_constants(schema):
-    hit = _PAIR_SCHEMA_CONSTANTS.get(id(schema))
-    if hit is None or hit[0] is not schema:
-        if len(_PAIR_SCHEMA_CONSTANTS) >= _PAIR_SCHEMA_CONSTANTS_CAP:
-            _PAIR_SCHEMA_CONSTANTS.clear()
-        hit = (schema, schema.capabilities(), replace(schema, placement=()))
-        _PAIR_SCHEMA_CONSTANTS[id(schema)] = hit
-    return hit
-
-
-def _pair_schema_caps(schema):
-    return _pair_schema_constants(schema)[1]
-
-
-def _pair_schema_unplaced(schema):
-    return _pair_schema_constants(schema)[2]
-
-
 def pair_satisfies(schema, stream, at_a, at_b, chans=DEFAULT_CHANNELS):
     """Does the pair of DECLARED bindings stand in this schema?  (M-148 P2.)
 
@@ -9556,9 +9529,8 @@ def pair_satisfies(schema, stream, at_a, at_b, chans=DEFAULT_CHANNELS):
         return Refusal(schema.name, "figure", "This figure requires its full "
                        "member graph; two bound tokens cannot represent it.",
                        kind="unsupported_shape")
-    caps = _pair_schema_caps(schema)
-    sup = {c: stream.supply(c) for c in caps}
-    miss = tuple(c for c in caps
+    sup = {c: stream.supply(c) for c in schema.capabilities()}
+    miss = tuple(c for c in schema.capabilities()
                  if sup[c].state != "present")
     if miss:
         return Refusal(
@@ -9609,7 +9581,7 @@ def pair_satisfies(schema, stream, at_a, at_b, chans=DEFAULT_CHANNELS):
         if not cand:
             return None
         members.append(cand)
-    sch = _pair_schema_unplaced(schema)
+    sch = replace(schema, placement=())
     saw_none = False
     for sa in members[0]:
         for sb in members[1]:
