@@ -28,6 +28,17 @@ IDS = ('46041', '20476', '76498', '22223', '76941', '21300',
 DEST = ROOT / 'corpus/library/gutenberg-ten'
 
 
+# Stable report data, not runtime docstring metadata. Preserve the historical
+# audit bytes, including indentation, across compiler/optimization versions.
+DEDUPLICATION_DESCRIPTION = (
+    'Work matching: full normalized text or corroborated same opening.\n\n'
+    '    The opening alone never decides: at least half the distinct lines of the\n'
+    '    shorter version must match, and at least two lines must match. Different\n'
+    '    texts sharing only a common title or generic opening remain distinct.\n'
+    '    '
+)
+
+
 def normalized(text):
     text = unicodedata.normalize('NFKD', text.casefold())
     return ' '.join(re.findall(r'[^\W_]+', ''.join(c for c in text if not unicodedata.combining(c))))
@@ -261,7 +272,7 @@ def build(allow_partial=False):
         summary.append({'collection': book, 'candidates': len(candidates),
                         **{k: counts[k] for k in ('imported', 'duplicate', 'excluded')}})
     report = {'version': 1, 'collection_order': list(IDS),
-              'deduplication': Duplicates.__doc__, 'existing_sources': baseline,
+              'deduplication': DEDUPLICATION_DESCRIPTION, 'existing_sources': baseline,
               'summary': summary, 'entries': records}
     files[HERE / 'audit.json'] = dump(report)
     return files, summary

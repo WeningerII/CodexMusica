@@ -1,0 +1,85 @@
+{
+  "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+  "file_count": 725,
+  "changed": [
+    {
+      "path": "imports/gutenberg-ten/audit.json",
+      "changed_keys": ["deduplication"],
+      "before_deduplication": "Work matching: full normalized text or corroborated same opening.\n\n    The opening alone never decides: at least half the distinct lines of the\n    shorter version must match, and at least two lines must match. Different\n    texts sharing only a common title or generic opening remain distinct.\n    ",
+      "after_deduplication": "Work matching: full normalized text or corroborated same opening.\n\nThe opening alone never decides: at least half the distinct lines of the\nshorter version must match, and at least two lines must match. Different\ntexts sharing only a common title or generic opening remain distinct.\n"
+    }
+  ],
+  "generated_sha256": "42eef136bf0856e6f9962be7ae6d2a8c86819f7aca8f37b1675a3db8de6b3e79",
+  "summary": [
+    {
+      "collection": "46041",
+      "candidates": 1324,
+      "imported": 1051,
+      "duplicate": 231,
+      "excluded": 42
+    },
+    {
+      "collection": "20476",
+      "candidates": 1008,
+      "imported": 625,
+      "duplicate": 365,
+      "excluded": 18
+    },
+    {
+      "collection": "76498",
+      "candidates": 594,
+      "imported": 148,
+      "duplicate": 164,
+      "excluded": 282
+    },
+    {
+      "collection": "22223",
+      "candidates": 269,
+      "imported": 103,
+      "duplicate": 155,
+      "excluded": 11
+    },
+    {
+      "collection": "76941",
+      "candidates": 199,
+      "imported": 189,
+      "duplicate": 2,
+      "excluded": 8
+    },
+    {
+      "collection": "21300",
+      "candidates": 153,
+      "imported": 151,
+      "duplicate": 1,
+      "excluded": 1
+    },
+    {
+      "collection": "65524",
+      "candidates": 139,
+      "imported": 137,
+      "duplicate": 1,
+      "excluded": 1
+    },
+    {
+      "collection": "30418",
+      "candidates": 103,
+      "imported": 102,
+      "duplicate": 1,
+      "excluded": 0
+    },
+    {
+      "collection": "56625",
+      "candidates": 121,
+      "imported": 121,
+      "duplicate": 0,
+      "excluded": 0
+    },
+    {
+      "collection": "59263",
+      "candidates": 88,
+      "imported": 69,
+      "duplicate": 15,
+      "excluded": 4
+    }
+  ]
+}

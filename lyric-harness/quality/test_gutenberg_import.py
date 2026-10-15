@@ -13,6 +13,7 @@ from pathlib import Path
 import subprocess
 import sys
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 BATCH = ROOT / 'imports' / 'gutenberg-ten'
@@ -200,6 +201,14 @@ class BatchEvidenceTests(unittest.TestCase):
                                  len(rows))
                 for kind in ('imported', 'duplicate', 'excluded'):
                     self.assertEqual(counts[kind], outcomes[(book, kind)])
+
+    def test_audit_description_is_not_runtime_docstring_data(self):
+        # Docstrings are metadata: compilers can clean their whitespace or
+        # omit them under -OO. Neither may change the serialized import audit.
+        with patch.object(IMPORT.Duplicates, '__doc__', None):
+            files, _ = IMPORT.build()
+        self.assertEqual(json.loads(files[BATCH / 'audit.json']),
+                         read_json(BATCH / 'audit.json'))
 
     def test_checked_import_reproduces_committed_outputs_without_writing(self):
         paths = [BATCH / 'audit.json', *sorted(IMPORT.DEST.rglob('*.txt'))]

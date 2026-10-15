@@ -1,0 +1,19 @@
+test_all_ten_sources_have_unique_accounted_candidate_identifiers (__main__.BatchEvidenceTests.test_all_ten_sources_have_unique_accounted_candidate_identifiers) ... ok
+test_audit_description_is_not_runtime_docstring_data (__main__.BatchEvidenceTests.test_audit_description_is_not_runtime_docstring_data) ... ok
+test_audit_is_complete_disjoint_and_traces_each_candidate_text (__main__.BatchEvidenceTests.test_audit_is_complete_disjoint_and_traces_each_candidate_text) ... ok
+test_checked_import_reproduces_committed_outputs_without_writing (__main__.BatchEvidenceTests.test_checked_import_reproduces_committed_outputs_without_writing) ... ok
+test_every_imported_lyric_line_survives_the_actual_library_reader (__main__.BatchEvidenceTests.test_every_imported_lyric_line_survives_the_actual_library_reader) ... ok
+test_production_admission_and_derived_censuses_include_the_import (__main__.BatchEvidenceTests.test_production_admission_and_derived_censuses_include_the_import) ... ok
+test_supplied_edition_years_are_not_original_or_ebook_release_dates (__main__.BatchEvidenceTests.test_supplied_edition_years_are_not_original_or_ebook_release_dates) ... ok
+test_changed_opening_with_substantial_shared_verse_is_same_work (__main__.DuplicateRegressionTests.test_changed_opening_with_substantial_shared_verse_is_same_work) ... ok
+test_generic_common_first_line_does_not_conflate_different_hymns (__main__.DuplicateRegressionTests.test_generic_common_first_line_does_not_conflate_different_hymns) ... ok
+test_one_repeated_line_does_not_supply_false_corroboration (__main__.DuplicateRegressionTests.test_one_repeated_line_does_not_supply_false_corroboration) ... ok
+test_punctuation_case_and_spacing_do_not_import_same_words_twice (__main__.DuplicateRegressionTests.test_punctuation_case_and_spacing_do_not_import_same_words_twice) ... ok
+test_printed_chorus_and_refrain_remain_in_order_without_new_words (__main__.SectionRegressionTests.test_printed_chorus_and_refrain_remain_in_order_without_new_words) ... ok
+test_stanza_labels_leave_words_and_stanza_boundaries_intact (__main__.SectionRegressionTests.test_stanza_labels_leave_words_and_stanza_boundaries_intact) ... ok
+test_supplied_bracketed_words_are_not_mistaken_for_control_marks (__main__.SectionRegressionTests.test_supplied_bracketed_words_are_not_mistaken_for_control_marks) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 26.896s
+
+OK
