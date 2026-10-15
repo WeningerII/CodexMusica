@@ -117,3 +117,13 @@ was dispatched but absent from `VERB_LAYERS` and help. Registering it as a
 connector comparison command (no grading or proposing) fixes the command
 census without exclusions. The exact failed census section passes, as do five
 normalization/frozen-v1 tests (16.899s); generated maps remain current.
+
+The next command-census check found the comparison entrance missing from the
+shared execution fixture roster. The roster now invokes `normalize-numbering`
+on a real draft with a token-position group and named-place returns. Section 7
+also checks its exact canonical result, and section 47 requires it to answer
+at exit 0 with all staged grading resources hidden. Both complete affected
+sections pass: 18 assertions, all 35 dispatched verbs exercised in each resource
+condition, no tracebacks, and the existing five-verb resource-refusal partition
+unchanged. No command is excluded from a census. The other census sites are the
+already-registered dispatch/map/help checks and `wiring`.
