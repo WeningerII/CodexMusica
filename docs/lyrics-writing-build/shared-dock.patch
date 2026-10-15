@@ -1,0 +1,86 @@
+--- a/src/pages/lyrics.js
++++ b/src/pages/lyrics.js
+@@ -4425,35 +4425,20 @@
+   const bar = $ui('ly-linebar'),
+     dock = $ui('ly-linedock');
+   if (!bar || !dock) return;
++  bar.hidden = true;
++  if ($ui('ly-doc-wrap').hidden) {
++    dock.hidden = true;
++    return;
++  }
+   const n = LY.activeLine;
+   const row = n && LY.model.sung[n - 1];
+-  const showDoc = !$ui('ly-doc-wrap').hidden;
+-  if (!row || !showDoc) {
+-    bar.hidden = dock.hidden = true;
+-    return;
+-  }
+-  const buttons = (short) =>
+-    `${lyBtn('ly-line-tool', short ? 'Rhyme' : 'Link rhyme', 'link', { id: `rhymes:${n}`, cls: 'cm-btn ly-lt' })}${lyBtn('ly-line-tool', 'Rhythm', 'music', { id: `rhythm:${n}`, cls: 'cm-btn ly-lt' })}${lyBtn('ly-line-tool', short ? 'Reading' : 'Pronunciation', 'message-circle', { id: `pronunciation:${n}`, cls: 'cm-btn ly-lt' })}`;
+-  const label = `Line ${n} tools`;
+-  const el = $ui('ly-overlay')?.querySelector(`.ly-r[data-n="${n}"]`);
+-  const text = el?.querySelector('.ly-t');
+-  bar.setAttribute('aria-label', label);
+-  dock.setAttribute('aria-label', label);
+-  if (el && text && LY.size !== 'narrow') {
+-    bar.innerHTML = buttons(false);
+-    bar.hidden = false;
+-    const editor = $ui('ly-editor').getBoundingClientRect();
+-    const t = text.getBoundingClientRect();
+-    const room = editor.right - t.right - 24;
+-    if (room >= bar.offsetWidth) {
+-      bar.style.top = `${el.offsetTop + (el.offsetHeight > 40 ? el.offsetHeight - 40 : 0)}px`;
+-      bar.style.left = `${t.right - editor.left + 16}px`;
+-      dock.hidden = true;
+-      return;
+-    }
+-    bar.hidden = true;
+-  } else bar.hidden = true;
+-  dock.innerHTML = `<span class="ly-dock-label">Line ${n}</span>${buttons(LY.size === 'narrow')}`;
++  // Keep the open menu and its focus while selection events settle.
++  const key = `${row ? n : 0}:${app.historyIndex}:${app.history.length}`;
++  if (dock.dataset.writingActions !== key) {
++    dock.innerHTML = `<span class="ly-dock-label">${row ? `Line ${n}` : 'Song'}</span>${row ? lyBtn('ly-line-tool', 'Rhyme', 'link', { id: `rhymes:${n}`, cls: 'cm-btn ly-lt' }) : ''}${lyWritingLineActions(row ? n : 0)}`;
++    dock.dataset.writingActions = key;
++  }
++  dock.setAttribute('aria-label', row ? `Line ${n} actions` : 'Song actions');
+   dock.hidden = false;
+ }
+ 
+@@ -5320,15 +5305,12 @@
+   }
+ }
+ function lyRenderHistoryButtons() {
+-  const u = $ui('ui-undo') || $ui('btn-undo'),
+-    r = $ui('ui-redo') || $ui('btn-redo');
+-  const canUndo = app.historyIndex > 0,
+-    canRedo = app.historyIndex < app.history.length - 1;
+-  document.querySelector('[data-ui="ly-undo"]')?.toggleAttribute('disabled', !canUndo && !u);
+-  const undoBtn = document.querySelector('[data-ui="ly-undo"]');
+-  const redoBtn = document.querySelector('[data-ui="ly-redo"]');
+-  if (undoBtn) undoBtn.disabled = !canUndo;
+-  if (redoBtn) redoBtn.disabled = !canRedo || !r;
++  document.querySelectorAll('[data-ui="ly-undo"]').forEach((button) => {
++    button.disabled = app.historyIndex <= 0;
++  });
++  document.querySelectorAll('[data-ui="ly-redo"]').forEach((button) => {
++    button.disabled = app.historyIndex >= app.history.length - 1;
++  });
+ }
+ function lyShowTab(tab, { focus = false } = {}) {
+   LY.tab = tab;
+--- a/src/pages/lyrics.css
++++ b/src/pages/lyrics.css
+@@ -1663,3 +1663,11 @@
+     animation: none !important;
+   }
+ }
++
++/* Writing lane integration: the dock owns one stable action row. */
++#surface-lyrics .ly-linedock .ly-menu {
++  top: auto;
++  bottom: calc(100% + 4px);
++  max-height: min(360px, 50dvh);
++  overflow-y: auto;
++}
