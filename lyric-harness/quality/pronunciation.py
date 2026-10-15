@@ -442,6 +442,16 @@ def pin_readings(lex, occurrences, source):
     occurrence reading beside the writer's own, or None if one is invalid."""
     rows = [dict(r) for r in (getattr(lex, "pronunciations", ()) or ())]
     taken = {(r["line"], r["token"]) for r in rows}
+    # THE SERVER'S OWN ROWS SAY WHICH CUT THEY WERE TAKEN UNDER (H1,
+    # 2026-10-15). `occurrences` are this lexicon's own token positions, so
+    # under the CLI's numbering guard each synthesized row carries
+    # `numbering_of(lex)`: the unmarked-caller ambiguity rule exists for
+    # rows whose cut nobody recorded, and applying it here refused a reading
+    # the server itself chose wherever the v1 and v2 cuts put different
+    # words at one index (`Read--read, read it again`, T2). Caller rows are
+    # validated exactly as before; an unguarded lexicon keeps six fields.
+    mark = ({"numbering": numbering_of(lex)}
+            if getattr(lex, "_numbering_guard", False) else {})
     for line, tok, word, phones in occurrences:
         if (line, tok) in taken:
             continue
@@ -450,7 +460,7 @@ def pin_readings(lex, occurrences, source):
                      "basis": ("dictionary" if list(phones) in
                                dictionary_readings(lex, word)
                                else "declared"),
-                     "source": source})
+                     "source": source, **mark})
         taken.add((line, tok))
     pinned = copy.copy(lex)
     for attr in ("_pronunciation_line", "_pronunciation_tokens",

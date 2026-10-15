@@ -170,9 +170,59 @@ function lyNumberingTarget(line, token, word, numbering, voices) {
     .filter(Boolean);
   return matches.length === 1 ? matches[0] : null;
 }
+// A number saved under the current reader cut with no voices setting recorded
+// -> its token now, or null. Each setting is a plausible basis unless it
+// cannot have produced the row: the line has no such token under it, or --
+// for a reading -- the saved word is not the token there. The row binds
+// only when every plausible basis names the SAME characters (identity by
+// raw pieces, never spelling), and is null when they part or none remains.
+function lyBasisFreeTarget(line, token, word, voices) {
+  const targets = [];
+  for (const sung of [false, true]) {
+    const at = CMLyricTokens.readerLine(line, { stripParens: !sung }).tokens[token - 1];
+    if (!at || (word !== null && at.text !== word)) continue;
+    targets.push(lyNumberingTarget(line, token, word, lyNumbering(sung), voices));
+  }
+  return targets.length && targets.every((t) => t && t === targets[0]) ? targets[0] : null;
+}
+// A rhyme groups / returns value with each `N.Tk` member moved to
+// `target(line, k)`, or kept under its old number and flagged undecided when
+// that is null. Separators, spacing and other members are untouched.
+function lyRetargetMembers(value, model, target, marker = LY_MEMBER_UNDECIDED) {
+  return value
+    .split(/([;,])/)
+    .map((part, i) => {
+      if (i % 2) return part;
+      const m = lyParseGroups(part)[0]?.[0];
+      if (!m || m.bad || m.undecided || !lyNumberedMember(m)) return part;
+      const line = model.sung[m.line - 1]?.text;
+      const to = line == null ? null : target(line, Number(m.place.slice(1)));
+      return to ? part.replace(/\.T\d+/i, `.T${to}`) : `${part} ${marker}`;
+    })
+    .join('');
+}
 const LY_READING_CUT = `cut ${LY_TOKEN_SCHEME}`;
 const LY_READING_UNDECIDED = 'needs a decision: numbered under the earlier word cut';
 const LY_MEMBER_UNDECIDED = '(numbered under the earlier cut)';
+// Why a saved number binds no word, kept in the row so the refusal and the
+// Review card can say the real reason (3PO #519 6196846873, Don 6196836953):
+// - 'earlier': read as the earlier cut's, and no current word is exactly it;
+// - 'voices': no sung-asides setting was saved, and the number names
+//   different words with parenthesized words sung and not sung;
+// - 'setting': counted under a saved setting, and no word under the page's
+//   setting now covers exactly those characters.
+const LY_READING_NO_VOICES = 'needs a decision: no saved setting for sung asides';
+const LY_MEMBER_NO_VOICES = '(no saved setting for sung asides)';
+const LY_MEMBER_NO_VOICES_EARLIER =
+  '(numbered under the earlier cut with no saved setting for sung asides)';
+const LY_MEMBER_SETTING = '(names no word under the current sung-asides setting)';
+// Markers sit inside one member, so none may hold `,` `;` or ` — `.
+const LY_MEMBER_MARKERS = [
+  [LY_MEMBER_UNDECIDED, 'earlier'],
+  [LY_MEMBER_NO_VOICES, 'voices'],
+  [LY_MEMBER_NO_VOICES_EARLIER, 'voices'],
+  [LY_MEMBER_SETTING, 'setting'],
+];
 const LY_MEMBER_CARRIED = '(carried across the word-cut change)';
 const LY_GROUP_KEYS = ['rhyme groups', 'returns'];
 // MIGRATION ONLY: the page's pre-release word cut, verbatim (its LY_TOKEN and
@@ -210,8 +260,37 @@ function lyRebindSpan(line, token, voices, word = null) {
     !voices
   );
 }
+// A number saved under the page's earlier cut, which recorded no voices
+// setting -> { token, word } under the current cut, or { blocked }. Each
+// setting that could have produced it (asides read or not, and -- for a
+// reading -- holding the saved word there) is a plausible basis; it rebinds
+// only when every plausible basis names the same characters, and otherwise
+// is an open decision for the writer, never a guess from the page's voices
+// setting of the moment (P-A, 2026-10-15).
+function lyRebindSpanAgreed(line, token, voices, word = null) {
+  const bases = [false, true]
+    .map((v) => lyV1MigrationSpans(line, v))
+    .filter(
+      (spans) => spans && spans[token - 1] && (word === null || spans[token - 1].text === word)
+    );
+  if (!bases.length) return lyRebindSpan(line, token, voices, word);
+  const at = bases[0][token - 1];
+  if (bases.some((spans) => spans[token - 1].from !== at.from || spans[token - 1].to !== at.to))
+    return {
+      blocked:
+        'its number names different words with asides read and without, and the row does not say which was meant',
+      voices: true,
+    };
+  return CMLyricTokens.rebindBySpan(
+    line,
+    token,
+    word,
+    bases[0].map((s) => ({ text: s.text, pieces: [[s.from, s.to]] })),
+    !voices
+  );
+}
 // One saved reading -> { token, word } under the current cut, or { blocked }.
-const lyRebindReading = (r, voices) => lyRebindSpan(r.line, r.token, voices, r.word);
+const lyRebindReading = (r, voices) => lyRebindSpanAgreed(r.line, r.token, voices, r.word);
 // The grader's earlier cut of a line (CMLyricTokens.v1GraderSpans, scheme v1)
 // and the current one, as the named places read them.
 function lyLineCuts(text, voices) {
@@ -260,17 +339,48 @@ function lyPlaceWords(text, voices, place) {
     now: pick(cur.map((t) => t.text)),
   };
 }
+// The characters an undecided saved reading could have named: [{ text,
+// pieces }] in its line. A row with no saved sung-asides setting could mean
+// the occurrence under either setting -- exactly the ones its Review card
+// offers (lyVoicesCandidates) -- and a row counted under another setting
+// names the token under that setting; any other is read under the earlier
+// cut with the page's setting. Each must hold the saved word, as binding
+// requires (lyBasisFreeTarget, lyRebindSpanAgreed): one that does not is no
+// basis, so choosing it never settles an unrelated reading (3PO #519
+// 6197775783).
+function lyUndecidedSpans(r, voices) {
+  const line = String(r.line);
+  if (r.undecidedReason === 'voices')
+    return lyVoicesCandidates(line, r.token, !r.cut, r.word).map((c) => ({
+      text: c.word,
+      pieces: c.pieces,
+    }));
+  if (r.undecidedReason === 'setting') {
+    if (!LY_NUMBERINGS.includes(r.numbering)) return [];
+    const strip = !r.numbering.endsWith('+voices');
+    const toks = r.numbering.startsWith('v1')
+      ? CMLyricTokens.v1GraderSpans(line, strip)
+      : CMLyricTokens.readerLine(line, { stripParens: strip }).tokens;
+    const at = toks?.[r.token - 1];
+    return at && at.text === r.word ? [{ text: at.text, pieces: at.pieces }] : [];
+  }
+  const src = lyV1MigrationSpans(line, voices)?.[r.token - 1];
+  return src && src.text === r.word ? [{ text: src.text, pieces: [[src.from, src.to]] }] : [];
+}
 // Whether a reading chosen for word `token` of `line` (current cut) settles
-// the undecided saved reading `r`: same line, and the characters its earlier
-// number named overlap that word's, or -- where its earlier number no longer
-// names its own word -- the word it saved is that word.
+// the undecided saved reading `r`: same line, and that word's characters
+// overlap one the saved number could have named (lyUndecidedSpans), so either
+// occurrence a Review card offers settles it; or -- where no such occurrence
+// is left -- the word it saved is that word.
 function lyReadingSuperseded(r, line, token, voices) {
   if (!r.undecided || r.line !== line) return false;
   const tok = CMLyricTokens.readerLine(String(line), { stripParens: !voices }).tokens[token - 1];
   if (!tok) return false;
-  const old = lyV1MigrationSpans(line, voices);
-  const src = old && old[r.token - 1];
-  if (src && src.text === r.word) return tok.pieces.some(([a, b]) => a < src.to && src.from < b);
+  const spans = lyUndecidedSpans(r, voices);
+  if (spans.length)
+    return spans.some((s) =>
+      s.pieces.some(([c, d]) => tok.pieces.some(([a, b]) => a < d && c < b))
+    );
   return lyTokens(String(r.word), true).some((w) => w.toLowerCase() === tok.text.toLowerCase());
 }
 // Whether a group member is a word place numbered under the current cut.
@@ -327,7 +437,10 @@ function lyMigrateSavedReadings(text, keys = null) {
     if (r.malformed || r.undecided || r.numbering || r.cut === LY_TOKEN_SCHEME) continue;
     const got = lyRebindReading(r, model.voices);
     if (got.blocked) {
-      rows[r.i] = r.raw.replace(/\]$/, `${LY_DASH}${LY_READING_UNDECIDED}]`);
+      rows[r.i] = r.raw.replace(
+        /\]$/,
+        `${LY_DASH}${got.voices ? LY_READING_NO_VOICES : LY_READING_UNDECIDED}]`
+      );
       out.blocked.push({ i: r.i, word: r.word, line: r.line, reason: got.blocked });
     } else if (got.token !== r.token || got.word !== r.word) {
       out.moved.push({ kind: 'reading', word: r.word, line: r.line, from: r.token, to: got.token });
@@ -336,7 +449,10 @@ function lyMigrateSavedReadings(text, keys = null) {
           /^(\[SETUP\s+—\s+reading\s+—\s+)token \d+ "(?:[^"\\]|\\.)*"/i,
           (_, head) => `${head}token ${got.token} ${lyQuote(got.word)}`
         )
-        .replace(/\]$/, `${LY_DASH}${LY_READING_CUT}]`);
+        .replace(
+          /\]$/,
+          `${LY_DASH}numbering ${lyNumbering(model.voices)}${LY_DASH}${LY_READING_CUT}]`
+        );
       out.rebound++;
     }
   }
@@ -364,10 +480,13 @@ function lyMigrateSavedReadings(text, keys = null) {
         }
         const from = Number(m.place.slice(1));
         const got = row
-          ? lyRebindSpan(row.text, from, model.voices)
+          ? lyRebindSpanAgreed(row.text, from, model.voices)
           : { blocked: `line ${m.line} is not in the draft` };
         if (got.blocked) {
-          respelled.set(k, `${m.line}.${m.place} ${LY_MEMBER_UNDECIDED}`);
+          respelled.set(
+            k,
+            `${m.line}.${m.place} ${got.voices ? LY_MEMBER_NO_VOICES_EARLIER : LY_MEMBER_UNDECIDED}`
+          );
           out.blocked.push({ i: d.i, word: m.raw, line: row ? row.text : '', reason: got.blocked });
         } else if (got.token !== from) {
           respelled.set(k, `${m.line}.T${got.token}`);
@@ -375,7 +494,8 @@ function lyMigrateSavedReadings(text, keys = null) {
           out.rebound++;
         }
       }
-      if (respelled.size) rows[d.i] = lyRespellGroupRow(rows[d.i], d.value, respelled);
+      if (respelled.size)
+        rows[d.i] = lyRespellGroupRow(rows[d.i], d.value, respelled, model.voices);
     }
   out.text = rows.join('\n');
   return out;
@@ -383,7 +503,7 @@ function lyMigrateSavedReadings(text, keys = null) {
 // One rhyme groups / returns row with the members `respelled` names (member
 // index, in lyParseGroups' order -> new spelling) replaced in place: every
 // other member, separator and space as the writer wrote it, then the mark.
-function lyRespellGroupRow(row, value, respelled) {
+function lyRespellGroupRow(row, value, respelled, voices = false) {
   let k = -1;
   const members = value
     .split(/([;,])/)
@@ -398,7 +518,10 @@ function lyRespellGroupRow(row, value, respelled) {
     .join('');
   const end = row.lastIndexOf(']');
   const at = row.lastIndexOf(value, end);
-  return `${row.slice(0, at)}${members}${LY_DASH}${LY_READING_CUT}${row.slice(at + value.length)}`;
+  // The row records the voices setting its word numbers were counted under
+  // (P-A, 2026-10-15), exactly as a form-written row does (lyGroupRow):
+  // `— cut v2` alone says which reader cut, not whether asides were read.
+  return `${row.slice(0, at)}${members}${lyGroupNumberingMark(members, voices)}${LY_DASH}${LY_READING_CUT}${row.slice(at + value.length)}`;
 }
 // A writer offset in `before` -> the same character in `after`, for a
 // rewrite that replaced whole rows in place (the migration never adds or
@@ -775,6 +898,53 @@ function lyFormMigrated(done, message) {
   return said ? `${message} ${said}` : message;
 }
 const lyUndecidedReadings = (model) => lySetupOf(model, 'reading').filter((r) => r.undecided);
+// The occurrences a saved number could name under each sung-asides setting,
+// each shown marked in its line: [{ sung, word, pieces, shown }], one per setting
+// that has such a token -- and, given `word` (a reading's saved word), that
+// token is that word. `earlier`: the number is the earlier cut's. Shown
+// side by side; the page never picks one for the writer.
+function lyVoicesCandidates(line, token, earlier, word = null) {
+  const out = [];
+  for (const sung of [false, true]) {
+    let at = null;
+    if (earlier) {
+      const sp = lyV1MigrationSpans(line, sung)?.[token - 1];
+      if (sp) at = { word: sp.text, from: sp.from, to: sp.to, pieces: [[sp.from, sp.to]] };
+    } else {
+      const t = CMLyricTokens.readerLine(line, { stripParens: !sung }).tokens[token - 1];
+      if (t)
+        at = {
+          word: t.text,
+          from: t.pieces[0][0],
+          to: t.pieces[t.pieces.length - 1][1],
+          pieces: t.pieces,
+        };
+    }
+    if (at && (word === null || at.word === word))
+      out.push({
+        sung,
+        word: at.word,
+        pieces: at.pieces,
+        shown: `${line.slice(0, at.from)}[${line.slice(at.from, at.to)}]${line.slice(at.to)}`,
+      });
+  }
+  return out;
+}
+// What a reading with no saved sung-asides setting could have named, for its
+// Review card: the occurrences of its saved word, or that there is none.
+function lyReadingCandidatesText(r) {
+  const cands = lyVoicesCandidates(r.line, r.token, !r.cut, r.word);
+  return cands.length
+    ? `its number names different occurrences under each (${lyCandidatesText(cands)}). It was not moved to either`
+    : `its number names “${r.word}” under neither setting. It was not moved to another word`;
+}
+const lyCandidatesText = (cands) =>
+  cands
+    .map((c) => `with parenthesized words ${c.sung ? 'sung' : 'not sung'}: “${c.shown}”`)
+    .join('; ');
+// Where a saved row sits, for the writer: its document line.
+const lySetupRowRef = (i, cap = false) =>
+  `${cap ? 'The' : 'the'} [SETUP] row on document line ${i + 1}`;
 // Word places in rhyme links and declared returns kept under their earlier
 // number, or in a row marked with a cut this page does not read:
 // -> [{ key, i, raw, unknownCut }].
@@ -789,19 +959,50 @@ const lyUndecidedMembers = (model) =>
           i: d.i,
           raw: lyMemberSpelling(m),
           unknownCut: m.unknownCut,
+          reason: m.undecidedReason || 'earlier',
+          line: m.line,
+          place: m.place,
         }))
     )
   );
 // The message every send path stops on while a saved word number is undecided.
 function lyUndecidedRefusal(model) {
   const all = lyUndecidedReadings(model);
-  const open = all.filter((r) => !r.unknownCut);
+  const unset = all.filter((r) => !r.unknownCut && r.undecidedReason === 'voices');
+  const moved = all.filter((r) => !r.unknownCut && r.undecidedReason === 'setting');
+  const open = all.filter(
+    (r) => !r.unknownCut && r.undecidedReason !== 'voices' && r.undecidedReason !== 'setting'
+  );
   const foreign = all.filter((r) => r.unknownCut);
   const members = lyUndecidedMembers(model);
-  const lost = members.filter((m) => !m.unknownCut);
+  const unsetM = members.filter((m) => !m.unknownCut && m.reason === 'voices');
+  const movedM = members.filter((m) => !m.unknownCut && m.reason === 'setting');
+  const lost = members.filter(
+    (m) => !m.unknownCut && m.reason !== 'voices' && m.reason !== 'setting'
+  );
   const alien = members.filter((m) => m.unknownCut);
   if (!all.length && !members.length) return '';
   const parts = [];
+  // No sung-asides setting was saved, and the number names different words
+  // with parenthesized words sung and not sung (P-A).
+  for (const r of unset)
+    parts.push(
+      `${lySetupRowRef(r.i, true)}, token ${r.token} “${r.word}”, has no saved setting for whether parenthesized words were sung. Its number can refer to different occurrences.`
+    );
+  for (const m of unsetM)
+    parts.push(
+      `${lySetupRowRef(m.i, true)}, ${m.line}.${m.place}, has no saved setting for whether parenthesized words were sung. Its number can refer to different occurrences.`
+    );
+  if (unset.length || unsetM.length)
+    parts.push('In Review, choose the occurrence you intended, or remove this declaration.');
+  for (const r of moved)
+    parts.push(
+      `${lySetupRowRef(r.i, true)}, token ${r.token} “${r.word}”, was counted under another setting for sung parenthesized words, and no word now covers exactly the characters it named. Choose it again, or remove it, in Review.`
+    );
+  for (const m of movedM)
+    parts.push(
+      `${lySetupRowRef(m.i, true)}, ${m.line}.${m.place}, was counted under another setting for sung parenthesized words, and no word now covers exactly the characters it named. Remove that link and declare it again, in Review.`
+    );
   if (open.length)
     parts.push(
       `${uiCount(open.length, 'reading')} saved without the current cut mark (${open.map((r) => `“${r.word}”`).join(', ')}) could not be matched to a word of the current text. Choose each reading again for the word you meant, or remove it, in Review.`
@@ -930,7 +1131,10 @@ function lyParseSetup(raw) {
       const rest = (m[4] || '').split(/\s+—\s+/).map((s) => s.trim());
       item.state = 'choice';
       for (const r of rest) {
-        if (r.toLowerCase() === LY_READING_UNDECIDED) item.undecided = true;
+        if (r.toLowerCase() === LY_READING_UNDECIDED)
+          Object.assign(item, { undecided: true, undecidedReason: 'earlier' });
+        else if (r.toLowerCase() === LY_READING_NO_VOICES)
+          Object.assign(item, { undecided: true, undecidedReason: 'voices' });
         else if (/^numbering \S+$/i.test(r)) item.numbering = r.slice(10).toLowerCase();
         else if (/^cut \S+$/i.test(r)) item.cut = r.slice(4).toLowerCase();
         else if (/^needs a (dictionary )?choice$/i.test(r)) item.state = 'choice';
@@ -1037,9 +1241,39 @@ function lyParse(text) {
   model.voices = model.setup.some(
     (s) => s.key === 'voices' && /sung/i.test(s.value) && !/unsung/i.test(s.value)
   );
+  // A `— cut v2` row that records no voices setting (as this page's
+  // migration wrote rows before 2026-10-15, P-A) names a number nobody can
+  // say was counted with asides read or not. Its bytes are kept. It binds
+  // where BOTH settings name the same characters of the line -- then which
+  // one was meant cannot matter -- and is otherwise an open decision for the
+  // writer: never read under the voices setting the page happens to have
+  // now, which silently bound `my` for `love` after a toggle.
+  for (const r of model.setup.filter(
+    (s) => s.key === 'reading' && s.cut === LY_TOKEN_SCHEME && !s.numbering && !s.undecided
+  )) {
+    const target = lyBasisFreeTarget(r.line, r.token, r.word, model.voices);
+    if (!target) Object.assign(r, { undecided: true, undecidedReason: 'voices' });
+    else {
+      r.token = target;
+      r.numbering = lyNumbering(model.voices);
+    }
+  }
+  for (const d of model.setup.filter(
+    (s) => LY_GROUP_KEYS.includes(s.key) && s.cut === LY_TOKEN_SCHEME && !s.numbering
+  )) {
+    if (!/\b\d+\.T\d+\b/i.test(d.value)) continue;
+    d.value = lyRetargetMembers(
+      d.value,
+      model,
+      (line, token) => lyBasisFreeTarget(line, token, null, model.voices),
+      LY_MEMBER_NO_VOICES
+    );
+    d.numbering = lyNumbering(model.voices);
+    d.basisFree = true;
+  }
   for (const r of model.setup.filter((s) => s.key === 'reading' && s.numbering)) {
     const target = lyNumberingTarget(r.line, r.token, r.word, r.numbering, model.voices);
-    if (!target) r.undecided = true;
+    if (!target) Object.assign(r, { undecided: true, undecidedReason: 'setting' });
     else {
       r.numberingToken = r.token;
       r.token = target;
@@ -1047,21 +1281,15 @@ function lyParse(text) {
   }
   // Read each marked row into the current page coordinate before forms or
   // send combine rows. Raw saved text retains its original source marker.
-  for (const d of model.setup.filter((s) => LY_GROUP_KEYS.includes(s.key) && s.numbering)) {
-    d.value = d.value
-      .split(/([;,])/)
-      .map((part, i) => {
-        if (i % 2) return part;
-        const m = lyParseGroups(part)[0]?.[0];
-        if (!m || m.bad || m.undecided || !lyNumberedMember(m)) return part;
-        const line = model.sung[m.line - 1]?.text;
-        const target =
-          line == null
-            ? null
-            : lyNumberingTarget(line, Number(m.place.slice(1)), null, d.numbering, model.voices);
-        return target ? part.replace(/\.T\d+/i, `.T${target}`) : `${part} ${LY_MEMBER_UNDECIDED}`;
-      })
-      .join('');
+  for (const d of model.setup.filter(
+    (s) => LY_GROUP_KEYS.includes(s.key) && s.numbering && !s.basisFree
+  )) {
+    d.value = lyRetargetMembers(
+      d.value,
+      model,
+      (line, token) => lyNumberingTarget(line, token, null, d.numbering, model.voices),
+      LY_MEMBER_SETTING
+    );
   }
   // Names: a bare repeated name is numbered (Verse 1, Verse 2) as it reads.
   const seen = {},
@@ -1219,10 +1447,25 @@ function lyParseGroups(value) {
         .map((m) => {
           const mm = /^(\d+)(?:\.(end|endword|head|headrime|line|T\d{1,3}))?$/.exec(m);
           if (mm) return { line: Number(mm[1]), place: mm[2] || 'end', explicit: !!mm[2], raw: m };
-          // A word place kept under its earlier number (lyMigrateSavedReadings).
-          const old = /^(\d+)\.(T\d{1,3})\s+\(numbered under the earlier cut\)$/.exec(m);
-          if (old)
-            return { line: Number(old[1]), place: old[2], explicit: true, raw: m, undecided: true };
+          // A word place that binds no word, with the reason it was kept
+          // under its number (lyMigrateSavedReadings, lyParse).
+          for (const [marker, reason] of LY_MEMBER_MARKERS) {
+            const at = m.lastIndexOf(` ${marker}`);
+            const old =
+              at > 0 && at + marker.length + 1 === m.length
+                ? /^(\d+)\.(T\d{1,3})$/.exec(m.slice(0, at).trim())
+                : null;
+            if (old)
+              return {
+                line: Number(old[1]),
+                place: old[2],
+                explicit: true,
+                raw: m,
+                undecided: true,
+                marker,
+                undecidedReason: reason,
+              };
+          }
           // A named place kept across the word-cut change, until the writer
           // keeps or removes it.
           const kept =
@@ -1274,7 +1517,7 @@ const lyGroupsText = (groups) =>
             : m.unknownCut
               ? `${lyMemberSpelling(m)} (marked cut ${m.unknownCut}: not read here)`
               : m.undecided
-                ? `${m.line}.${m.place} ${LY_MEMBER_UNDECIDED}`
+                ? `${m.line}.${m.place} ${m.marker || LY_MEMBER_UNDECIDED}`
                 : m.carried
                   ? `${lyMemberSpelling(m)} ${LY_MEMBER_CARRIED}`
                   : lyMemberSpelling(m)
@@ -1504,10 +1747,10 @@ function lyDeclarationsOf(model) {
       phones: r.phones,
       basis: r.basis,
       source: r.source,
-      // Older cut-v2 rows establish the reader but did not record voices.
-      ...(r.numbering || r.cut === LY_TOKEN_SCHEME
-        ? { numbering: r.numbering || lyNumbering(model.voices) }
-        : {}),
+      // A cut-v2 row with no recorded voices setting reaches here only when
+      // both settings name the same characters (lyParse); it never borrows
+      // the page's current setting for a number counted under another.
+      ...(r.numbering ? { numbering: r.numbering } : {}),
     }));
   if (chosen.length) d.pronunciations = chosen;
   const open = readings
@@ -1608,12 +1851,18 @@ function lyLocalChecks(model) {
         category: 'Pronunciation',
         title: r.unknownCut
           ? `The reading for “${r.word}” is marked with a word cut this page does not read`
-          : `The reading for “${r.word}” saved without the current cut mark needs your decision`,
+          : r.undecidedReason === 'voices'
+            ? `The reading for “${r.word}”, token ${r.token} in “${r.line}”, has no saved sung-asides setting`
+            : `The reading for “${r.word}”, token ${r.token} in “${r.line}”, needs your decision`,
         where: lines.length ? lyLineRef(lines) : 'No matching line',
         lines,
         text: r.unknownCut
           ? `It is marked “cut ${r.unknownCut}”; this page reads only “${LY_READING_CUT}”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.`
-          : 'It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.',
+          : r.undecidedReason === 'voices'
+            ? `${lySetupRowRef(r.i, true)} saved token ${r.token} for “${r.word}” in the line “${r.line}”, with no setting for whether parenthesized words were sung, and ${lyReadingCandidatesText(r)}. Choose the reading again on the occurrence you intended, or remove this declaration. Until then nothing is sent to the writer.`
+            : r.undecidedReason === 'setting'
+              ? `${lySetupRowRef(r.i, true)} saved token ${r.token} for “${r.word}” in the line “${r.line}”, counted under another setting for sung parenthesized words, and no word under the current setting covers exactly the characters it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.`
+              : `${lySetupRowRef(r.i, true)} saved token ${r.token} for “${r.word}” in the line “${r.line}”. It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.`,
         actions: [
           ['ly-tool', 'Choose again', 'message-circle', 'pronunciation'],
           ['ly-remove-setup', 'Remove it', 'trash-2', r.i],
@@ -1743,18 +1992,31 @@ function lyLocalChecks(model) {
           text: `${alien.map(lyMemberSpelling).join(', ')} ${alien.length === 1 ? 'is' : 'are'} marked “cut ${[...new Set(alien.map((m) => m.unknownCut))].join('”, “cut ')}”; this page reads only “${LY_READING_CUT}”, so ${alien.length === 1 ? 'it binds' : 'they bind'} no word. Remove the link and declare it again. Until then nothing is sent to the writer.`,
           actions: [['ly-drop-undecided', 'Remove the link', 'trash-2', key], tool],
         });
-      const kept = groups.flat().filter((m) => m.undecided && !m.unknownCut);
-      if (kept.length)
+      // One card per undecided group, each naming its own reason and
+      // removing only its own group (3PO #519 6196846873).
+      groups.forEach((g, gi) => {
+        const kept = g.filter((m) => m.undecided && !m.unknownCut);
+        if (!kept.length) return;
+        const shown = g.map((m) => (m.undecided ? `${m.line}.${m.place}` : lyMemberSpelling(m)));
+        const why = (m) => {
+          const line = model.sung[m.line - 1]?.text;
+          const k = Number(String(m.place).slice(1));
+          if (m.undecidedReason === 'voices')
+            return `${m.line}.${m.place} has no saved setting for whether parenthesized words were sung, and its number names different occurrences under each${line ? ` (${lyCandidatesText(lyVoicesCandidates(line, k, m.marker !== LY_MEMBER_NO_VOICES))})` : ''}`;
+          if (m.undecidedReason === 'setting')
+            return `${m.line}.${m.place} was counted under another setting for sung parenthesized words, and no word under the current setting covers exactly the characters it named`;
+          return `${m.line}.${m.place} was numbered under the earlier word cut, and no word of the current cut is exactly the word it named`;
+        };
         add({
-          id: `${key}:${d.i}:undecided`,
+          id: `${key}:${d.i}:undecided:${gi}`,
           tone: 'input',
           category: key === 'returns' ? 'Return' : 'Rhyme',
-          title: `${what} saved without the current cut mark needs your decision`,
+          title: `${what} ${shown.join(', ')} needs your decision`,
           where: lyLineRef([...new Set(kept.map((m) => m.line))]),
           lines: [...new Set(kept.map((m) => m.line))].filter((n) => model.sung[n - 1]),
-          text: `${kept.map((m) => `${m.line}.${m.place}`).join(', ')} ${kept.length === 1 ? 'was' : 'were'} numbered under the earlier word cut, and no word of the current cut is exactly the word ${kept.length === 1 ? 'it' : 'each'} named, so ${kept.length === 1 ? 'it was' : 'they were'} not moved to another one. Remove the link and declare it again on the word you meant. Until then nothing is sent to the writer.`,
+          text: `${lySetupRowRef(d.i, true)} links ${shown.join(', ')}. ${kept.map(why).join('; ')}. ${kept.length === 1 ? 'It was' : 'They were'} not moved to another word. Remove this link and declare it again on the word you meant. Until then nothing is sent to the writer.`,
           actions: [
-            ['ly-drop-undecided', 'Remove the link', 'trash-2', key],
+            ['ly-drop-undecided', 'Remove this link', 'trash-2', `${key}|${lyGroupsText([g])}`],
             [
               'ly-tool',
               key === 'returns' ? 'Open repeats' : 'Open rhymes',
@@ -1763,6 +2025,7 @@ function lyLocalChecks(model) {
             ],
           ],
         });
+      });
       const bad = groups
         .flat()
         .filter(
@@ -6468,17 +6731,48 @@ const LY_ACTIONS = {
   // under its earlier number, or one marked with a cut this page does not
   // read. The message says which, never when the row was written: an
   // unmarked row is legacy by compatibility policy, whatever its age.
-  'ly-drop-undecided'(key) {
+  // `key|<group text>` (a Review card's own group) removes that one group;
+  // a bare key removes every such group of the key, and says how many.
+  'ly-drop-undecided'(arg) {
+    const [key, only] = String(arg).split(/\|(.*)/s);
     if (!LY_GROUP_KEYS.includes(key)) return;
     const base = lyFormBase(key);
     const all = base.groups;
-    const groups = all.filter((g) => !g.some((m) => m.undecided));
-    const gone = all.filter((g) => g.some((m) => m.undecided));
+    let pick = -1;
+    if (only !== undefined) {
+      pick = all.findIndex((g) => g.some((m) => m.undecided) && lyGroupsText([g]) === only);
+      if (pick < 0) return;
+    }
+    const drop = (g, k) => (pick < 0 ? g.some((m) => m.undecided) : k === pick);
+    const groups = all.filter((g, k) => !drop(g, k));
+    const gone = all.filter((g, k) => drop(g, k));
     const alien = [
       ...new Set(gone.flatMap((g) => g.filter((m) => m.unknownCut).map((m) => m.unknownCut))),
     ];
     const why = [
-      ...(gone.some((g) => g.some((m) => m.undecided && !m.unknownCut))
+      ...(gone.some((g) =>
+        g.some((m) => m.undecided && !m.unknownCut && m.undecidedReason === 'voices')
+      )
+        ? [
+            'a number saved with no setting for sung parenthesized words, which names different words under each',
+          ]
+        : []),
+      ...(gone.some((g) =>
+        g.some((m) => m.undecided && !m.unknownCut && m.undecidedReason === 'setting')
+      )
+        ? [
+            'a number counted under another setting for sung parenthesized words that names no word now',
+          ]
+        : []),
+      ...(gone.some((g) =>
+        g.some(
+          (m) =>
+            m.undecided &&
+            !m.unknownCut &&
+            m.undecidedReason !== 'voices' &&
+            m.undecidedReason !== 'setting'
+        )
+      )
         ? [
             'a number read under the earlier word cut (as every row without the cut mark is, by compatibility policy) that names no word of the current text',
           ]
