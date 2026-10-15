@@ -35,7 +35,7 @@ The heads reviewed were `3de4fd0e` and `13f88932`. The findings apply unchanged 
   - `corpus_manifest.py --check` (6 populations owed);
   - `structure_census.py --check` (7 figures).
 - **Major:** `data/song_endword_en.tsv` goes stale. `build_song_frequency.py` reproduces it exactly at the base but changes it by +6/−18 lines at the head, and no CI check catches this. The same is true of `data/section_marks.tsv`.
-- **Major:** the shipped lyric floor moves. The minimum measured length becomes 9 tokens, against the pinned `lo=4` (`floor.py:1258-1259`), so re-adoption needs an explicit 4-or-9 decision.
+- **Major:** only the candidate's **measured** minimum moves, from 4 tokens to 9. The **shipped** floor stays `lo=4` (`floor.py:1258-1259`). The checker requires the pinned range to match the measured population, so keeping 4 is not a free repin choice. Re-adoption needs John's classification and coverage decision. (Corrected per 3PO, #527 6196149568. The earlier text said the shipped floor moves.)
 - **Minor:**
   - the Library source pins (`library/catalog_sources.json:5675,5685,5700`) still name the old blobs, and `build_library_data.py --check` was not run;
   - the copied `measurement/baseline/README.md` names a stale pin (`9d5d8146…`).
