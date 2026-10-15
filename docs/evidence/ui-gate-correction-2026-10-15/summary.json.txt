@@ -1,0 +1,156 @@
+{
+  "baselineBundle": "90431a928789ce879b9e719571ea450b5df21593b3f338e177be35306e99dd3f",
+  "finalBundle": "1b4f22cdf8cef0ba62c22a5dab0573a674195c7aa56ae7e1b8a349b8ced3643d",
+  "baselineCases": 19,
+  "baselineFailures": 26,
+  "finalCases": 19,
+  "finalFailures": 0,
+  "normalGeometry": [
+    {
+      "case": {
+        "width": 390,
+        "height": 844,
+        "mode": "touch",
+        "action": "close",
+        "panel": true
+      },
+      "buttonsEqual": true
+    },
+    {
+      "case": {
+        "width": 390,
+        "height": 844,
+        "mode": "keyboard",
+        "action": "close",
+        "panel": true
+      },
+      "buttonsEqual": true
+    },
+    {
+      "case": {
+        "width": 1180,
+        "height": 757,
+        "mode": "keyboard",
+        "action": "close",
+        "panel": false
+      },
+      "buttonsEqual": true
+    },
+    {
+      "case": {
+        "width": 1180,
+        "height": 757,
+        "mode": "keyboard",
+        "action": "close",
+        "panel": true
+      },
+      "buttonsEqual": true
+    },
+    {
+      "case": {
+        "width": 1180,
+        "height": 757,
+        "mode": "mouse",
+        "action": "close",
+        "panel": false
+      },
+      "buttonsEqual": true
+    },
+    {
+      "case": {
+        "width": 390,
+        "height": 844,
+        "mode": "keyboard",
+        "action": "apply",
+        "panel": true
+      },
+      "buttonsEqual": true,
+      "openedGeometryEqual": true,
+      "baselineSelection": [
+        1015,
+        1015
+      ],
+      "finalSelection": [
+        1015,
+        1015
+      ]
+    },
+    {
+      "case": {
+        "width": 1180,
+        "height": 757,
+        "mode": "keyboard",
+        "action": "apply",
+        "panel": true
+      },
+      "buttonsEqual": true,
+      "openedGeometryEqual": true,
+      "baselineSelection": [
+        1015,
+        1015
+      ],
+      "finalSelection": [
+        1015,
+        1015
+      ]
+    }
+  ],
+  "normalFullWarningGeometryEqual": [
+    {
+      "width": 390,
+      "height": 844,
+      "mode": "touch",
+      "action": "close",
+      "panel": true,
+      "equal": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mode": "keyboard",
+      "action": "close",
+      "panel": true,
+      "equal": true
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "mode": "keyboard",
+      "action": "close",
+      "panel": false,
+      "equal": true
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "mode": "keyboard",
+      "action": "close",
+      "panel": true,
+      "equal": true
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "mode": "mouse",
+      "action": "close",
+      "panel": false,
+      "equal": true
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "mode": "keyboard",
+      "action": "apply",
+      "panel": true,
+      "equal": true
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "mode": "keyboard",
+      "action": "apply",
+      "panel": true,
+      "equal": true
+    }
+  ]
+}

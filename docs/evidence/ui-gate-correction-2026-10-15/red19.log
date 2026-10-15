@@ -1,0 +1,31 @@
+{
+  "cases": 19,
+  "errors": [
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"touch\",\"action\":\"apply\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"touch\",\"action\":\"apply\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"touch\",\"action\":\"saved\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"touch\",\"action\":\"saved\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"touch\",\"action\":\"close\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"touch\",\"action\":\"close\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"apply\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"apply\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"saved\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"saved\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":600,\"mode\":\"touch\",\"action\":\"apply\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":600,\"mode\":\"touch\",\"action\":\"apply\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":600,\"mode\":\"touch\",\"action\":\"saved\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":600,\"mode\":\"touch\",\"action\":\"saved\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":600,\"mode\":\"touch\",\"action\":\"close\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":600,\"mode\":\"touch\",\"action\":\"close\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":600,\"mode\":\"keyboard\",\"action\":\"apply\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":600,\"mode\":\"keyboard\",\"action\":\"apply\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":600,\"mode\":\"keyboard\",\"action\":\"saved\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":600,\"mode\":\"keyboard\",\"action\":\"saved\",\"panel\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":600,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":600,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true}",
+    "Cancel did not restore actual visible opener {\"width\":1180,\"height\":757,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":false}",
+    "Cancel did not restore actual visible opener {\"width\":1180,\"height\":757,\"mode\":\"mouse\",\"action\":\"close\",\"panel\":false}"
+  ]
+}

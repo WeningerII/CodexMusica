@@ -1,0 +1,35 @@
+Independent bounded review: natural typing/arrow resize correction
+
+Candidate bundle SHA256: 9683457f71fb8b50498d6b99d406f8888f9bd88b790ee2a1f548f392e321d27a
+Reviewed src/pages/lyrics.js delta against e079 and scripts/check_lyrics_natural_resize.js. No source edits, commits, providers, or external writes. No concrete introduced regression found within the scoped explicit-intent contract, subject to the script-only limitation below.
+
+Causal baseline evidence
+The instrumented baseline diagnostic exercised 20 natural cases and observed THREE visibility failures; its empty errors array is not a 20-pass acceptance result because this diagnostic recorded after.ok without asserting it. Exact failed guard records in independent-guards/results.json:
+- L9 type delay0 repeat0: visible=true, inputMatches=true, arrowMatches=false, positionIntent=intendedScroll=0, selection changed=true, scroller=ly-page, currentTop361, firstTop0, inputTop0.
+- L30 type delay0 repeat0: same booleans, currentTop965, firstTop0, inputTop0.
+- L30 type delay16 repeat1: same booleans, currentTop965, firstTop0, inputTop0.
+The old exact-scroll snapshot guard rejects recognized writing after native caret scrolling. Instrumentation affects scheduling, so these are failed causal traces, not a frequency estimate. Earlier geometry-heavy independent-order traces all passed and were not used to dismiss the failure.
+
+Candidate evidence
+independent-natural-final/results.json: 20 cases, 0 errors. Actual Chromium typing delays0/16/33 and ArrowRight delays0/33 at lines9/30, twice each; no RAF wrapper, frame hold, or event instrumentation. Every case asserts final caret line visibility and hit-test. This is a finite stochastic timing sample, not exhaustive event ordering.
+independent-intent-final/results.json: 3 cases, 0 errors. Actual typing followed by real Chromium wheel, pointer click, or Control+Home while application resize frames are held. Text and selection preserved. Intended/final ly-page offsets wheel665/665, pointer965/965, keyboard481/481. These prove controls during the pending interval; they are not natural-timing trials.
+
+Source assessment
+The correction keeps exact input tuple or actual same-row collapsed horizontal-arrow eligibility, and explicit wheel/touch/pointer/navigation intent takes precedence. The generic scroll-change veto remains when neither accepted writing predicate applies. Removing unreliable input/keyup scroll snapshots is consistent with the failed native ordering and avoids requiring keyup before the correction frame. Cross-row/selection navigation logic and scale/focus/previously-visible-caret guards remain unchanged.
+
+Explicit measured limitation
+independent-script-scroll-final/results.json characterizes actual typing followed only by script-assigned scrollTop200 with no explicit intent event. Pending reveal moves ly-page to1240. This is an observed limitation, not a passing preservation assertion: arbitrary programmatic scroll after accepted writing cannot be distinguished by this guard from native caret autoscroll. Do not claim all post-input scrolling is preserved.
+
+Probe artifacts to archive
+/tmp/ui-natural-order-probe.js
+/tmp/ui-natural-guard-probe.js
+/tmp/ui-natural-final-probe.js
+/tmp/ui-natural-intent-probe.js
+/tmp/ui-natural-script-scroll-probe.js
+/tmp/ui-natural-correction/instrument_guard.py (small reproducible instrumentation generator)
+Generate with: python instrument_guard.py before.html instrumented.html
+Generated output was byte-compared equal to the diagnostic instrumented.html. Archive the generator rather than the full derived bundle.
+All evidence directories named above are under /tmp/ui-natural-correction.
+
+Limits
+Local fixture-based Chromium viewport emulation only. Actual Chromium keyboard/mouse APIs are not physical-device or native OS keyboard acceptance. No physical touch, pinch, assistive-technology, provider, or live-service acceptance claimed. Parent/test-worker full gates and natural40 are separate evidence, not independently rerun here.

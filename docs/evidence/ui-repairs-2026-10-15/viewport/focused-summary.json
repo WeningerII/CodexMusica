@@ -1,0 +1,187 @@
+{
+  "baselineBundleSha256": "37ff79578415f3a2bf2d92bc882421ecaff2bab2c8e754d4230728388e78786d",
+  "finalBundleSha256": "90431a928789ce879b9e719571ea450b5df21593b3f338e177be35306e99dd3f",
+  "scriptSha256": "d83de609a37359e00a7cec75d9bf4e6d9f52b5aa1e4ea9c674623537df3dfb6a",
+  "baselineErrors": 18,
+  "finalErrors": 0,
+  "cases": 15,
+  "initialGeometryIdentical": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "rise": [
+    {
+      "line": 1,
+      "path": "set",
+      "top": 234.796875,
+      "bottom": 263.59375,
+      "clear": true,
+      "typedClear": true
+    },
+    {
+      "line": 1,
+      "path": "touch",
+      "top": 234.796875,
+      "bottom": 263.59375,
+      "clear": true,
+      "typedClear": true
+    },
+    {
+      "line": 9,
+      "path": "set",
+      "top": 235.171875,
+      "bottom": 263.96875,
+      "clear": true,
+      "typedClear": true
+    },
+    {
+      "line": 9,
+      "path": "touch",
+      "top": 235.171875,
+      "bottom": 263.96875,
+      "clear": true,
+      "typedClear": true
+    },
+    {
+      "line": 30,
+      "path": "set",
+      "top": 208.90625,
+      "bottom": 237.703125,
+      "clear": true,
+      "typedClear": true
+    },
+    {
+      "line": 30,
+      "path": "touch",
+      "top": 208.90625,
+      "bottom": 237.703125,
+      "clear": true,
+      "typedClear": true
+    }
+  ],
+  "visualViewport": [
+    {
+      "kind": "visualViewport-rise",
+      "before": {
+        "line": 9,
+        "top": 574.171875,
+        "bottom": 602.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 270,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      },
+      "after": {
+        "line": 9,
+        "top": 406.171875,
+        "bottom": 434.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 438,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      }
+    }
+  ],
+  "gate": [
+    {
+      "width": 390,
+      "height": 508,
+      "path": "wheel",
+      "cancel": {
+        "x": 62.796875,
+        "y": 189,
+        "top": 167,
+        "bottom": 211,
+        "hit": true
+      },
+      "opener": {
+        "x": 190,
+        "y": 307.6875,
+        "top": 285.6875,
+        "bottom": 329.6875,
+        "hit": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "path": "tab",
+      "cancel": {
+        "x": 62.796875,
+        "y": 360,
+        "top": 338,
+        "bottom": 382,
+        "hit": true
+      },
+      "opener": {
+        "x": 190,
+        "y": 307.6875,
+        "top": 285.6875,
+        "bottom": 329.6875,
+        "hit": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "path": "tab",
+      "cancel": {
+        "x": 62.796875,
+        "y": 489,
+        "top": 467,
+        "bottom": 511,
+        "hit": true
+      },
+      "opener": {
+        "x": 190,
+        "y": 610.6875,
+        "top": 588.6875,
+        "bottom": 632.6875,
+        "hit": true
+      }
+    },
+    {
+      "width": 1180,
+      "height": 757,
+      "path": "tab",
+      "cancel": {
+        "x": 431.890625,
+        "y": 205,
+        "top": 185,
+        "bottom": 225,
+        "hit": true
+      },
+      "opener": {
+        "x": 998,
+        "y": 549.6875,
+        "top": 529.6875,
+        "bottom": 569.6875,
+        "hit": true
+      }
+    }
+  ]
+}

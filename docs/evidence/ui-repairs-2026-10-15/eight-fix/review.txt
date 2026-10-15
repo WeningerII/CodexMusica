@@ -1,0 +1,5 @@
+Independent reviewer /root/ui_four_review: no concrete introduced regressions in eight-fix integration.
+H1 limits whole-page scrolling to narrow layouts at heights <=600px; fixed navigation, outline positioning, bottom padding remain intact.
+H2 retains action names with existing visually-hidden pattern and native button semantics.
+JavaScript byte-identical to previously reviewed six-fix integration.
+Static review only: runtime evidence is full-gate.log. Native zoom and screen-reader behavior not independently exercised.

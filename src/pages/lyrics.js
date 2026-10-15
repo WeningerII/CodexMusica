@@ -3530,6 +3530,10 @@ function lyDraftApply(tool, target = null, { reportFailure = true } = {}) {
     if (reportFailure) showToast('Nothing was applied. Correct the marked fields.', 'error');
     return false;
   }
+  // A successful rhythm commit supersedes Save rhythm's receipt for that
+  // section, including commits made through the shared Apply strip or gate.
+  if (tool === 'rhythm' && entries.some((d) => Number(d.target) === LY.picks.rhythmSaved?.k))
+    delete LY.picks.rhythmSaved;
   for (const d of entries) delete meta.drafts[lyDraftKey(d.tool, d.target)];
   meta.notes = notes;
   lyCommit(
@@ -4436,9 +4440,67 @@ function lyRenderOutlineActive() {
     if (on) b.setAttribute('aria-current', 'true');
     else b.removeAttribute('aria-current');
   });
+  const nav = $ui('ly-section-nav');
+  if (LY.size === 'narrow' && model.sections.length && nav && !nav.hidden) {
+    const k = active ? active.index : 0;
+    // Update in place: caret navigation must not replace focused controls.
+    nav.querySelector('.ly-sec-pos strong').textContent = model.sections[k].title;
+    nav.querySelector('.ly-sec-pos > span').textContent = `· ${k + 1} of ${model.sections.length}`;
+    nav.querySelector('[data-ui="ly-sec-step"][data-id="-1"]').disabled = k === 0;
+    nav.querySelector('[data-ui="ly-sec-step"][data-id="1"]').disabled =
+      k >= model.sections.length - 1;
+  }
 }
 // The selected line's tools: beside the line when it fits, otherwise in the
 // dock under the document, so they never cover a word of the lyrics.
+// Keyboard viewport changes must keep the focused caret above the phone controls.
+function lyViewportScroller() {
+  const body = $ui('ly-body');
+  // H1 lets the entire page scroll at short heights.
+  return LY.size === 'narrow'
+    ? body && getComputedStyle(body).overflowY !== 'visible'
+      ? body
+      : $ui('ly-page')
+    : $ui('ly-main-scroll');
+}
+function lyViewportCaretRow() {
+  const draft = lyDraft();
+  if (!draft) return null;
+  const caret = draft.selectionDirection === 'forward' ? draft.selectionEnd : draft.selectionStart;
+  const index = draft.value.slice(0, caret).split('\n').length - 1;
+  return document.querySelector(`#ly-overlay .ly-r[data-i="${index}"]`);
+}
+function lyViewportBand(scroller) {
+  const viewport = window.visualViewport;
+  const bounds = scroller.getBoundingClientRect();
+  let top = Math.max(bounds.top, viewport ? viewport.offsetTop : 0);
+  let bottom = Math.min(
+    bounds.bottom,
+    viewport ? viewport.offsetTop + viewport.height : innerHeight
+  );
+  const midpoint = (top + bottom) / 2;
+  for (const id of ['ly-linedock', 'ly-mnav']) {
+    const control = $ui(id);
+    if (!control || control.hidden) continue;
+    const obstruction = control.getBoundingClientRect();
+    if (!obstruction.height || obstruction.bottom <= top || obstruction.top >= bottom) continue;
+    if (obstruction.top > midpoint) bottom = Math.min(bottom, obstruction.top);
+    else top = Math.max(top, obstruction.bottom);
+  }
+  return { top, bottom };
+}
+function lyRevealCaretAfterResize() {
+  const draft = lyDraft();
+  const viewport = window.visualViewport;
+  if (!draft || document.activeElement !== draft || (viewport && viewport.scale !== 1)) return;
+  const row = lyViewportCaretRow(),
+    scroller = lyViewportScroller();
+  if (!row || !scroller) return;
+  const { top, bottom } = lyViewportBand(scroller);
+  const rect = row.getBoundingClientRect();
+  if (bottom <= top || (rect.top >= top && rect.bottom <= bottom)) return;
+  scroller.scrollTop += rect.top - (top + Math.max(0, (bottom - top - rect.height) / 2));
+}
 function lyPlaceLineBar() {
   const bar = $ui('ly-linebar'),
     dock = $ui('ly-linedock');
@@ -4841,6 +4903,8 @@ ${lyBtn('ly-rhyme-options', 'Ask writer for rhyme options', 'pencil', { cls: 'cm
 function lyRhymeResults() {
   const r = LY.results.rhymes;
   if (!r) return '';
+  // Compare at render time so edits after the reply (and restoring its version) count.
+  const stale = !!r.baseId && r.baseId !== lyIdentity(LY.model);
   const rows = r.pairs
     .map((p) => {
       const kind = p.refused ? 'refused' : p.codes.length ? 'partial' : 'matched';
@@ -4848,7 +4912,7 @@ function lyRhymeResults() {
       return `<li data-kind="${kind}">${lyPill(kind === 'matched' ? 'success' : kind === 'partial' ? 'warning' : 'danger', word)}<span><strong>${esc(p.a)} ~ ${esc(p.b)}</strong><small>${esc(p.refused ? p.reason || 'Not judged' : p.codes.length ? `Banned: ${p.codes.join(', ')}` : p.relations.join(', ') || 'no relation')}</small></span></li>`;
     })
     .join('');
-  return `<section class="ly-result" aria-labelledby="ly-rr-h"><h4 class="ly-h4" id="ly-rr-h">Rhyme options</h4><p class="ly-help">From the writer’s screen of ${esc(uiCount(r.pairs.length, 'pair'))}${r.stale ? ' · asked about an earlier version' : ''}. Nothing was inserted or declared.</p><ul class="ly-options">${rows || '<li>No pairs returned.</li>'}</ul></section>`;
+  return `<section class="ly-result" aria-labelledby="ly-rr-h"><h4 class="ly-h4" id="ly-rr-h">Rhyme options</h4><p class="ly-help">From the writer’s screen of ${esc(uiCount(r.pairs.length, 'pair'))}${stale ? ' · asked about an earlier version' : ''}. Nothing was inserted or declared.</p><ul class="ly-options">${rows || '<li>No pairs returned.</li>'}</ul></section>`;
 }
 
 // ── Pronunciation ─────────────────────────────────────────────────────────
@@ -4942,6 +5006,7 @@ function lyToolRepeats(model) {
   const T = 'repeats-voices',
     G = 'song';
   const voices = lyVal(T, G, 'voices', model.voices ? 'sung' : 'unsung');
+  const d = lyDraftOf(T, G);
   const placed = lyVal(T, G, 'placed', []) || [];
   const declared = lySetupOf(model, 'returns').flatMap((dd) => lyRowGroups(dd));
   const secs = model.sections.filter((s) => s.returnOf);
@@ -4965,7 +5030,7 @@ function lyToolRepeats(model) {
   ];
   return `<div class="ly-tool-view"><h4 class="ly-h4">Detected repeats</h4>${cards || '<p class="ly-help">No section returns word for word.</p>'}${lines ? `<ul class="ly-plain">${lines}</ul>` : '<p class="ly-help">No line repeats word for word.</p>'}<p class="ly-help">Found on this page by exact text. A changed final chorus is not an exact return.</p>
 <h4 class="ly-h4">Declared returns</h4>${declared.length ? `<ul class="ly-plain">${declared.map((g) => `<li>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line}${m.explicit ? ` · ${esc(lyMemberLabel(m, 'returns'))}` : ''}`)).join(' = ')}</li>`).join('')}</ul>${lyBtn('ly-returns-clear', 'Clear declared returns', '', { cls: 'cm-btn ly-link-btn' })}<p class="ly-help">Clearing a return never deletes lyrics.</p>` : '<p class="ly-help">None declared.</p>'}
-<details class="ly-adv"${placed.length ? ' open' : ''}><summary>Placed returns</summary><p class="ly-help">The same words at a place in different lines, e.g. a head that returns while the tail changes.</p><div class="ly-inline-field"><label class="ly-label" for="ly-placed-place">Place in line ${line}</label><select id="ly-placed-place" class="cm-select">${lyOpts(places, LY.picks.placedPlace || 'head', null)}</select>${lyBtn('ly-placed-add', 'Add', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div>${placed.length ? `<ul class="ly-members">${placed.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-placed-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>` : ''}</details>
+<details class="ly-adv"${placed.length || d?.errors?.placed ? ' open' : ''}><summary>Placed returns</summary><p class="ly-help">The same words at a place in different lines, e.g. a head that returns while the tail changes.</p><div class="ly-inline-field"><label class="ly-label" for="ly-placed-place">Place in line ${line}</label><select id="ly-placed-place" class="cm-select"${lyErr(d, 'placed')}>${lyOpts(places, LY.picks.placedPlace || 'head', null)}</select>${lyBtn('ly-placed-add', 'Add', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div>${lyErrText(d, 'placed')}${placed.length ? `<ul class="ly-members">${placed.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-placed-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>` : ''}</details>
 <h4 class="ly-h4">Parenthesised text</h4><div class="cm-segmented ly-seg" role="group" aria-label="Parenthesised text">${lyBtn('ly-voices', 'Unsung aside', '', { id: 'unsung', cls: '', extra: `aria-pressed="${voices !== 'sung'}"` })}${lyBtn('ly-voices', 'Sung second voice', '', { id: 'sung', cls: '', extra: `aria-pressed="${voices === 'sung'}"` })}</div><p class="ly-help">Applies to the whole document. Changing it changes which words are sung, so readings and review may need renewing.</p>${parens.length ? `<ul class="ly-plain">${parens.map((r) => `<li>Line ${r.n}: ${esc(r.text.slice(0, 80))}</li>`).join('')}</ul>` : '<p class="ly-help">No line in this document has parentheses.</p>'}${lyPendingStrip(T)}</div>`;
 }
 
@@ -5548,6 +5613,17 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
     lyShowTab('writer');
     return false;
   }
+  const message = LY_ACTION_TEXT[kind](args);
+  // Named actions bypass the composer, but keep its server-pinned message
+  // ceiling. Validate before resetting the existing conversation.
+  const max = $ui('chat-input')?.maxLength;
+  if (max > 0 && message.trim().length > max) {
+    showToast(
+      `Nothing was sent: this request exceeds the ${max}-character message limit. Use Edit this draft with a shorter instruction.`,
+      'error'
+    );
+    return false;
+  }
   if (!uiSwitchChat('lyrics')) {
     showToast('Wait for the active recipe request to finish.', 'error');
     return false;
@@ -5556,7 +5632,6 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
   _chatReset();
   $ui('chat-domain').value = 'lyrics-edit';
   uiUpdatePrompt();
-  const message = LY_ACTION_TEXT[kind](args);
   const context = lyContext(model);
   const previousRun = LY.run;
   const sent = _chatSend(message, { choice: 'lyrics-edit', context });
@@ -5610,10 +5685,8 @@ async function lyStartConversation(choice, prefill = '', { force = false } = {})
   // Opening the shared dock selects the lyrics domain; retain the requested phase.
   $ui('chat-domain').value = choice;
   uiUpdatePrompt();
-  if (prefill) {
-    $ui('chat-input').value = prefill;
-    _chatSyncCount();
-  }
+  $ui('chat-input').value = prefill;
+  _chatSyncCount();
   $ui('chat-input')?.focus();
   return true;
 }
@@ -5897,11 +5970,13 @@ const LY_ACTIONS = {
       });
     }
   },
-  'ly-run-review'() {
+  'ly-run-review'(_id, button) {
     lyCloseMenus();
     if (lyPendingAll()) {
+      LY.gateOpener = button;
       LY.gate = true;
       lyRefresh(true);
+      $ui('ly-gate')?.scrollIntoView({ block: 'center' });
       uiFocus(document.querySelector('[data-ui="ly-gate-apply"]'));
       return;
     }
@@ -5920,6 +5995,18 @@ const LY_ACTIONS = {
   'ly-gate-close'() {
     LY.gate = null;
     lyRefresh(true);
+    const visible = (el) => el?.isConnected && el.getClientRects().length;
+    // The panel is rebuilt by refresh; the header opener survives it. Mouse
+    // review deliberately preserves editor focus, so remember the clicked button.
+    const opener = visible(LY.gateOpener)
+      ? LY.gateOpener
+      : [
+          document.querySelector('#ly-panel-review [data-ui="ly-run-review"]'),
+          ...document.querySelectorAll('[data-ui="ly-run-review"]'),
+        ].find(visible);
+    LY.gateOpener = null;
+    opener?.scrollIntoView({ block: 'center' });
+    uiFocus(opener);
   },
   'ly-title-edit'() {
     LY.titleEdit = true;
@@ -6857,6 +6944,158 @@ function lyWire(surface) {
         if (LY.model) lyRefresh(true);
       } else lyPlaceLineBar();
     }).observe(surface);
+  let revealPending = false,
+    viewportPosition = null,
+    positionIntent = 0;
+  for (const event of ['wheel', 'touchmove', 'pointerdown'])
+    surface.addEventListener(
+      event,
+      () => {
+        positionIntent++;
+      },
+      { passive: true, capture: true }
+    );
+  // Input and same-row horizontal caret movement still need keyboard reveal.
+  // Selections and movement to another row retain ownership of their position.
+  const selection = () =>
+    JSON.stringify([
+      draft.value,
+      draft.selectionStart,
+      draft.selectionEnd,
+      draft.selectionDirection,
+    ]);
+  const caretRow = () => draft.value.slice(0, draft.selectionStart).split('\n').length;
+  let arrowSequence = 0,
+    arrow = null;
+  const sameArrowRow = () =>
+    arrow &&
+    draft.value === arrow.text &&
+    draft.selectionStart === draft.selectionEnd &&
+    caretRow() === arrow.row;
+  const finishArrow = () => {
+    if (arrow && !sameArrowRow()) positionIntent++;
+    arrow = null;
+  };
+  draft.addEventListener('keydown', (event) => {
+    finishArrow();
+    if (
+      ['ArrowLeft', 'ArrowRight'].includes(event.key) &&
+      !event.shiftKey &&
+      !event.ctrlKey &&
+      !event.metaKey &&
+      !event.altKey &&
+      draft.selectionStart === draft.selectionEnd
+    ) {
+      arrowSequence++;
+      arrow = { text: draft.value, row: caretRow() };
+    } else if (
+      /^(Arrow(Left|Right|Up|Down)|Home|End|PageUp|PageDown|Tab)$/.test(event.key) ||
+      ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'a')
+    )
+      positionIntent++;
+  });
+  draft.addEventListener('beforeinput', finishArrow);
+  let inputSequence = 0,
+    inputSelection = null;
+  draft.addEventListener('input', () => {
+    inputSequence++;
+    inputSelection = selection();
+  });
+  const viewportGeometry = () =>
+    [innerWidth, innerHeight, window.visualViewport?.width, window.visualViewport?.height].join(
+      ':'
+    );
+  const rememberViewportPosition = (settled = false) => {
+    if (window.visualViewport && window.visualViewport.scale !== 1) return;
+    const scroller = lyViewportScroller();
+    if (!scroller || revealPending) return;
+    const geometry = viewportGeometry();
+    // Layout can emit scroll/selection events before resize. Keep the old reading position.
+    if (
+      !settled &&
+      viewportPosition &&
+      (viewportPosition.geometry !== geometry || viewportPosition.scroller !== scroller)
+    )
+      return;
+    const { top, bottom } = lyViewportBand(scroller);
+    const row = [...document.querySelectorAll('#ly-overlay .ly-r[data-n]')].find((el) => {
+      const rect = el.getBoundingClientRect();
+      return Number(el.dataset.n) > 0 && rect.bottom > top && rect.top < bottom;
+    });
+    const caret = lyViewportCaretRow()?.getBoundingClientRect();
+    viewportPosition = {
+      geometry,
+      scroller,
+      text: lyDraft()?.value,
+      row: row?.dataset.i,
+      y: row?.getBoundingClientRect().top,
+      caretVisible: !!caret && caret.bottom > top && caret.top < bottom,
+    };
+  };
+  surface.addEventListener(
+    'scroll',
+    (event) => {
+      if (['ly-body', 'ly-page', 'ly-main-scroll'].includes(event.target.id))
+        rememberViewportPosition();
+    },
+    true
+  );
+  document.addEventListener('selectionchange', () => rememberViewportPosition());
+  const viewportResize = () => {
+    if (window.visualViewport && window.visualViewport.scale !== 1) return;
+    if (revealPending) return;
+    finishArrow(); // Earlier navigation is part of the starting position, not queued intent.
+    const before = viewportPosition;
+    const selected = selection();
+    const inputAtResize = inputSequence;
+    const arrowAtResize = arrowSequence;
+    const intendedScroll = positionIntent;
+    revealPending = true;
+    requestAnimationFrame(() => {
+      const firstScroller = lyViewportScroller();
+      const firstScrollTop = firstScroller?.scrollTop;
+      requestAnimationFrame(() => {
+        revealPending = false;
+        if (window.visualViewport && window.visualViewport.scale !== 1) return;
+        const scroller = lyViewportScroller();
+        const inputMatches = inputSequence > inputAtResize && selection() === inputSelection;
+        const arrowMatches = arrowSequence > arrowAtResize && sameArrowRow();
+        // Native caret scrolling can follow input and precede this frame. Accepted writing
+        // may finish that reveal, but explicit navigation/scroll intent always takes priority.
+        if (
+          positionIntent !== intendedScroll ||
+          (selection() !== selected && !inputMatches && !arrowMatches) ||
+          (scroller === firstScroller &&
+            scroller?.scrollTop !== firstScrollTop &&
+            !inputMatches &&
+            !arrowMatches)
+        ) {
+          rememberViewportPosition(true);
+          return;
+        }
+        if (
+          before &&
+          scroller &&
+          before.scroller !== scroller &&
+          before.text === lyDraft()?.value
+        ) {
+          const row =
+            before.row != null &&
+            document.querySelector(`#ly-overlay .ly-r[data-i="${before.row}"]`);
+          if (row) {
+            // Keep the document's screen offset across H1's scroller switch.
+            // Clamping to the new header would move every later reading row.
+            scroller.scrollTop += row.getBoundingClientRect().top - before.y;
+          }
+        }
+        if (before?.caretVisible) lyRevealCaretAfterResize();
+        rememberViewportPosition(true);
+      });
+    });
+  };
+  window.addEventListener('resize', viewportResize);
+  window.visualViewport?.addEventListener('resize', viewportResize);
+  rememberViewportPosition(true);
   const shellReceive = window.uiReceiveReply;
   if (!shellReceive.lyWrapped) {
     const wrapped = function (payload, request) {

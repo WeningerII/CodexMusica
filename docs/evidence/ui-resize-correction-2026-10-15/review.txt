@@ -1,0 +1,26 @@
+Independent bounded resize review — in progress
+Reviewer: /root/ui_four_review
+Base: a68c5e88d; gate-center correction unchanged.
+
+Confirmed two queued-intent races in initial resize implementation using /tmp/ui-resize-queued-probe.js:
+1. A viewport-stub resize followed by selection change at first RAF from visible line1 to offscreen line30 causes body scroll0→1043 using stale visibility.
+2. A synthetic wheel intent plus deterministic scrollTop600 at first RAF is overwritten to208.
+Evidence: queued-wheel-independent/results.json (emulated, not native input).
+
+Subsequent selection tuple/text guard addresses (1). First-RAF scroll snapshot addresses the demonstrated between-frame version of (2), but leaves wheel input before the first RAF uncovered and cannot distinguish delayed layout scroll. Requested bounded wheel/touch input-generation guard rather than cancellation for any scroll event. Final source/test review pending that decision.
+
+Otherwise source review clear: forward selection uses active selectionEnd; band midpoint remains fixed; H1 scroller transfer preserves row screen offset without header clamping; focused caret reveal is conditional on previous visibility; pinch and delayed focus guards retained. No repository edits by reviewer.
+
+FINAL REVIEW — supersedes pending concerns above
+Reviewed final source and test delta. Bundle SHA256:
+3668086b54aad45b179aed2b50ae5a01b65291ef9bf9db88003d0941e84b81ea
+
+The final implementation adds a full-interval wheel/touchmove intent counter, checks the text/selection tuple, and retains the between-frame scroll-state guard. The two confirmed races and the early-wheel gap are resolved in independent focused probes on this exact bundle:
+- selection change at first frame: newly selected line30 remains offscreen; body scroll stays0, rather than forced1043;
+- synthetic wheel plus deterministic scroll at first frame: body stays600, rather than forced208;
+- synthetic wheel before first frame: body stays600.
+Evidence: queued-final-independent/results.json and early-wheel-final-independent/results.json. Probe scripts /tmp/ui-resize-queued-probe.js and /tmp/ui-resize-early-wheel-probe.js. Values were inspected directly; these probes record geometry, not a standalone complete acceptance suite.
+
+Reviewed expanded check_lyrics_viewport.js coverage for H1 reading transfer, settled scroll-away, forward selection, and queued intent. No additional concrete introduced bug found in the final bounded delta. Gate-center code remains unchanged.
+
+Limits: only the three queued-intent probes were independently executed. Full browser/runtime evidence belongs to root/test worker. Wheel/visualViewport inputs are explicit synthetic emulation; no native keyboard, real pinch, physical-device touch/scroll or assistive-technology acceptance claim. No repository edits or external/provider calls by reviewer.

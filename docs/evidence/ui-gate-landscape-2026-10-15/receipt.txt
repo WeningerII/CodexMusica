@@ -1,0 +1,10 @@
+Gate center correction; base 7b5b3254f808f9deac04bb9cbddf4cb112cc77e1.
+Started 2026-10-15 14:59:41 UTC; final results read 2026-10-15 15:04:09 UTC.
+Only production change: ly-run-review gate scrollIntoView block nearest -> center.
+37 final gate cases pass over six sizes:390x508,390x600,390x844,667x375,844x390,1180x757.
+Includes page-top keyboard opening with actual touch actions at844x390 and390x508. Baseline six page-top cases fail20 assertions, including Cancel switchingtabs/leavinggateopen. Final all37pass. Existingviewport15casespass. All localfixture/no provider; no realdevice claim.
+Initial natural-entry tests passed on baseline; they did not exercise the page-top startingstate and are not used as red evidence.
+Commands: NODE_PATH=/workspace/musica-repair/node_modules PLAYWRIGHT_BROWSERS_PATH=/tmp/musica-browsers TEST_EVIDENCE=<directory> node scripts/check_lyrics_gate.js
+Baseline adds TEST_HTML=/tmp/ui-gate-landscape/before.html TEST_CASE=page-top.
+Corrected bundle SHA256 4ed1c152fe7c9ac8a30730ef5dd63c1a9bf0265b0a1e33385a726b9d61bac619
+Raw JSON receipts are byte-identical copies with .txt suffix. Existing Apply-all selection behavior unchanged.

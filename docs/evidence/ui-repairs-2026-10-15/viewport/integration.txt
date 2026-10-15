@@ -1,0 +1,37 @@
+Final local integration: codex/ui-three-local-20261015
+Worktree: /workspace/musica-ui-three
+Base commit: b887e5effcea84bf11722ca69bd13fc7088755c5
+No new commit, push, PR, merge, deployment, or provider call.
+
+Final bundle SHA256: 90431a928789ce879b9e719571ea450b5df21593b3f338e177be35306e99dd3f
+Combined patch: /tmp/ui-three-combined.patch
+SHA256: 0436aaf6e669e2c25bd8c6af1fbc9a6cf84a378ac5608a6c0cdac257fe0748f2
+Incremental patch against preserved eight-fix worktree: /tmp/ui-three-delta.patch
+SHA256: 6e3c4f652f662c957785a651f981f2e675fa7b7c91274d986089aa863f9b001b
+Both patches pass git apply --check --reverse on the final worktree.
+
+Incremental changed files: src/pages/lyrics.js, codex.html, scripts/check_lyrics_viewport.js.
+Combined changes also retain scripts/check_lyrics_page.js and src/pages/lyrics.css from the eight-fix package.
+The CSS and existing page test are unchanged from that package.
+Preserved original /tmp/ui-eight-combined.patch and current original worktree diff both SHA256:
+1cf1eb648df4b35b75e9c13387e4497a106d780cb67e8b098bf03ea384fa9d77
+
+Verification on the final bundle:
+- Focused browser suite: 15 cases, zero failures (green-center.log).
+- Same focused suite against preserved eight-fix baseline: 18 failed assertions (red-final.log).
+- Full page gate: PASS 747 assertions (full-gate.log), fixture replies, no provider.
+- HTML build/check PASS (build.log).
+- ESLint PASS (lint.log); Prettier PASS (format.log); git diff --check PASS.
+- Independent source/test review: review.txt; static review, not live acceptance.
+
+Full gate command, from worktree:
+NODE_PATH=/workspace/musica-repair/node_modules PLAYWRIGHT_BROWSERS_PATH=/tmp/musica-browsers node scripts/check_lyrics_page.js
+Build command:
+NODE_PATH=/workspace/musica-repair/node_modules node scripts/build_html.js --out=codex.html --check
+Focused commands and precise limitations are in README.md.
+
+This worktree is sparse due inode pressure. Tests used temporary symlinks api, assets, and lyric-harness to corresponding directories in /workspace/musica-ui-eight; node_modules pointed to /workspace/musica-repair/node_modules. Those links were removed after testing to leave only intended changes. Recreate them before rerunning tests, or apply the patch to a complete checkout. The build's unrelated library/code pruning was restored.
+
+H1 already supplies Cancel reachability; no new scrolling CSS remains. New code handles keyboard-rise caret reveal (including H1's scroller), immediate/queued scale and focus guards, and centers/focuses the Review-panel opener after Cancel.
+All six initial viewport geometry objects equal baseline. The existing 0.703125px line30 set+focus dock overlap remains documented and unchanged.
+Physical-device keyboard, real pinch, native zoom, finger/nested scrolling and assistive technology are not verified. No live-service acceptance claim.

@@ -1,0 +1,5 @@
+Checking formatting...
+[warn] docs/evidence/ui-repairs-2026-10-15/viewport/focused-summary.json
+[warn] docs/evidence/ui-repairs-2026-10-15/viewport/green-center/results.json
+[warn] docs/evidence/ui-repairs-2026-10-15/viewport/red-final/results.json
+[warn] Code style issues found in 3 files. Run Prettier with --write to fix.
