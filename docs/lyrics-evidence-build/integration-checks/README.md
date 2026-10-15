@@ -1,5 +1,9 @@
 # Lyrics integration verification
 
+The subsequent [main reconciliation receipt](main-merge/README.md) supersedes the
+branch ancestry below and records fresh checks on the merged source. The generated
+HTML and Lyrics implementation remain byte-identical.
+
 Local checks pass for implementation/test commit
 `40284863aa3efa971ac1db5ef878fcdde15b59b7` on [PR #569](https://github.com/WeningerII/CodexMusica/pull/569).
 The tested Build 8 and committed `codex.html` have SHA-256
