@@ -1,0 +1,84 @@
+START test_swap_end_word_refuses_a_disagreeing_reading
+
+8. `swap_end_word` refuses rather than guesses when its own reading disagrees with `raw_final_token`
+  PASS  an ordinary line swaps cleanly
+  PASS  case is preserved on a capitalised end word
+  PASS  a parenthetical after the end word REFUSES rather than splicing into the parenthetical
+          line_tokens strips parentheticals before reading the end word, so the last regex match here is 'repeat', not 'fire' -- splicing there would silently corrupt an aside, not a rhyme
+  PASS  v1: empty/whitespace end replacement '' refuses
+  PASS  v1: empty/whitespace placed replacement '' refuses
+  PASS  v1: an empty group pivot '' declines the mechanical proposal
+  PASS  v1: empty/whitespace end replacement ' ' refuses
+  PASS  v1: empty/whitespace placed replacement ' ' refuses
+  PASS  v1: an empty group pivot ' ' declines the mechanical proposal
+  PASS  v1: empty/whitespace end replacement '\t\n' refuses
+  PASS  v1: empty/whitespace placed replacement '\t\n' refuses
+  PASS  v1: an empty group pivot '\t\n' declines the mechanical proposal
+  PASS  v1: empty/whitespace end replacement '\xa0' refuses
+  PASS  v1: empty/whitespace placed replacement '\xa0' refuses
+  PASS  v1: an empty group pivot '\xa0' declines the mechanical proposal
+  PASS  v1: whole-line repair cannot use the mechanical word-splice stub
+  PASS  v1: nonempty group replacements still splice both members
+  PASS  v1: nonempty placed replacement still splices its token
+  PASS  v2: empty/whitespace end replacement '' refuses
+  PASS  v2: empty/whitespace placed replacement '' refuses
+  PASS  v2: an empty group pivot '' declines the mechanical proposal
+  PASS  v2: empty/whitespace end replacement ' ' refuses
+  PASS  v2: empty/whitespace placed replacement ' ' refuses
+  PASS  v2: an empty group pivot ' ' declines the mechanical proposal
+  PASS  v2: empty/whitespace end replacement '\t\n' refuses
+  PASS  v2: empty/whitespace placed replacement '\t\n' refuses
+  PASS  v2: an empty group pivot '\t\n' declines the mechanical proposal
+  PASS  v2: empty/whitespace end replacement '\xa0' refuses
+  PASS  v2: empty/whitespace placed replacement '\xa0' refuses
+  PASS  v2: an empty group pivot '\xa0' declines the mechanical proposal
+  PASS  v2: whole-line repair cannot use the mechanical word-splice stub
+  PASS  v2: nonempty group replacements still splice both members
+  PASS  v2: nonempty placed replacement still splices its token
+FINISH test_swap_end_word_refuses_a_disagreeing_reading seconds 2.304678572996636 failures 0
+START test_tier2_does_not_offer_a_pair_its_own_grader_rejects
+
+19. tier 2 does not offer a pair its own grader would reject
+  PASS  the anchor's OWN call words are read off the mandate, and the group being backtracked is the only one dropped
+          partners(1)=[(0, [2]), (1, [3])] -> calls=['hear'] rets=[]
+  PASS  naming the rewritten group gives the same answer on the bare shape (control)
+          ['hear']
+  PASS  a group that binds the anchor at ANOTHER word (L1's T2 'keep', not the end 'near' being rewritten) is no call on the rewrite: [] where the slot-blind read gave L5's end word
+  PASS  a mate bound at its T2 word is asked for at THAT word: L5's 'studio', where the slot-blind read gave its end word 'chair'
+          ['studio']
+  PASS  the premise holds: the pivot has a field to draw its word from
+          joint_field(['wake']) offered 24 word(s)
+  PASS  the OLD anchor field offered words every one of which breaks a group nobody had mentioned; the folded one is empty, which is the true answer
+          pivot word 'like': unfolded=24 word(s) e.g. ['back', 'take', 'make', 'fuck'] :: folded=[]
+  PASS  an anchor pinned by a verbatim return is reported as PINNED, and a LICENSED repeat over the same two lines is NOT
+          verbatim -> ['A']; verbatim=False -> []
+  PASS  the premise holds: tier 2 RAN, so there is a dead-end reason to read
+          1 tier-2 attempt(s) in round 0 over 2 attempt(s) total. If this is 0 the pivot's conjunction became answerable and the section is measuring a search that no longer runs — restore the comparator, do not delete the claim
+  PASS  empty member fields disclose a bounded search, never an impossibility proof
+          tried 0 joint rewrite(s) across 2 group(s), none accepted; 1 group(s) reached an EMPTY MEMBER field — SEARCH_LIMITED, no impossibility proof: group B [1, 3]: search over 5 pivot word(s) encountered EMPTY member fields (L
+  PASS  a declared return expands every proposed edit to the full verbatim class instead of falsely pinning the pivot
+          [('B', (1, 3, 7)), ('B', (1, 3, 7)), ('B', (1, 3, 7)), ('B', (1, 3, 7)), ('B', (1, 3, 7)), ('C', (3, 4, 7)), ('C', (3, 4, 7)), ('C', (3, 4, 7)), ('C', (3, 4, 7)), ('C', (3, 4, 7)), ('E', (3, 7)), ('E', (3, 7)), ('E', (3, 7)), ('E', (3, 7)), ('E', (3, 7))]
+  PASS  declining those atomic proposals preserves the complete return and is not reported as an unasked search
+          ['tried 0 joint rewrite(s) across 3 group(s), none accepted']
+  PASS  the mechanical stub declines every atomic return backtrack rather than proposing lines with their bound words deleted
+  PASS  `AnchorSlot.calls` carries each member's own call words to the renderer, and the prompt says so in that member's own block
+          26 of 51 group brief(s) carry member calls
+  PASS  CONTROL: a member in ONE group carries no extra calls and the new block does not render — the fix is inert where the defect is not
+          50 group brief(s), member calls [((),), ((),), ((),)]
+FINISH test_tier2_does_not_offer_a_pair_its_own_grader_rejects seconds 141.07331064699974 failures 0
+START test_a_return_is_a_class_and_is_revised_together
+
+23. a RETURN class is revised together; an ordinary group is not
+  PASS  the briefed line moved
+          REVISED
+  PASS  its RETURN mate moved WITH it — the class is revised together, which is the only revision of a returning line rule 2 can accept
+          REVISED
+  PASS  both members are TARGETED, so the untargeted-line rejection admits what the loop itself asked for
+          [3, 6]
+  PASS  an ORDINARY rhyme group member is NOT propagated into — those lines are not identical by declaration and rewriting one is the untargeted change `verify()` exists to refuse
+          L4
+  PASS  line 4 is not targeted either
+          [3, 6]
+  PASS  the attempt records every line it touched, not just the briefed one
+          (3, 6)
+FINISH test_a_return_is_a_class_and_is_revised_together seconds 0.004520286005572416 failures 0

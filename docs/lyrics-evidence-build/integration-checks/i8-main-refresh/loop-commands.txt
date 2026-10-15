@@ -1,0 +1,37 @@
+Worktree /workspace/musica-lyrics-integration
+Source HEAD 0645854631ccaaff7ff6e6742a67be1d68766869
+Python /workspace/musica-ci-venv/bin/python (3.12.14)
+LYRIC_STAGED_DATA=/workspace/musica-ci/lyric-harness/data
+PYTHONPATH=lyric-harness
+
+Loop command: python -u -
+from quality import test_loop as t
+for fn in (t.test_swap_end_word_refuses_a_disagreeing_reading,
+           t.test_tier2_does_not_offer_a_pair_its_own_grader_rejects,
+           t.test_a_return_is_a_class_and_is_revised_together):
+    fn()
+raise SystemExit(bool(t.FAILURES))
+Result exit0, 33+14+6=53 assertions; full selected sections, not full test_loop suite.
+Actual runner also printed monotonic timing per section.
+Log /tmp/lyrics-i8-loop-affected.log
+
+python -m unittest quality.test_reader.V1Frozen
+Result 4 tests PASS, 39.815s. Log /tmp/lyrics-i8-loop-v1.log
+python lyric-harness/quality/test_source_identity.py
+Result 20 assertions ALL PASS. Log /tmp/lyrics-i8-loop-source-identity.log
+LYRIC_PYTHON=/workspace/musica-ci-venv/bin/python node --test mcp/test_lyrics_evidence_binding.mjs
+Result 3 tests PASS exit0, 75.222s. Log /tmp/lyrics-i8-loop-binding.log
+
+SHA256 quality/loop.py b489db34d4e8dd300501d8f8e2fbda3aa52b77b9f9aec49b78cab567fa9a5efa
+SHA256 quality/test_loop.py 0e6cd0bf1805da5592711460614e65465eda33b28ed07ae94ed155dad4c9308d
+No source edits or paid/provider calls. Browser transport awaits final I8 bundle.
+
+Completed browser transport command:
+TEST_HTML=/tmp/lyrics-i8-candidate.html TEST_EVIDENCE=/tmp/lyrics-i8-loop-transport CHROMIUM_PATH=/tmp/musica-browsers/chromium-0/chrome-linux/chrome LYRIC_PYTHON=/workspace/musica-ci-venv/bin/python LYRIC_STAGED_DATA=/workspace/musica-ci/lyric-harness/data node scripts/check_lyrics_inspection_transport.mjs
+Result 8/8 PASS exit0. Log /tmp/lyrics-i8-loop-transport.log
+Summary /tmp/lyrics-i8-loop-transport/summary.json; individual cases preserve genuine posts/replies.
+Bundle SHA256 b05b30fb5e3a75d581ae9d8b463a0819be067cdee497fc33464a10e15256d4d7
+HEAD after run 0645854631ccaaff7ff6e6742a67be1d68766869
+Unchanged sectioned repeated-cat emoji/blank case Go landed exact UTF-16 [49,52], text cat.
+Whitespace return rewrites sung-line edges: exact saved binding remains original, current text differs, correctly stale/noGo.
+Changed groups/readings, unsupported transformation and tampered projection correctly unknown/noGo.

@@ -1,0 +1,3408 @@
+{
+  "bundleSha256": "ad8332b85263638c5da92b2c0401adad09da70e529720d81b37d4b5d155f19ad",
+  "fixture": "[VERSE — 12 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12",
+  "results": [
+    {
+      "label": "light-390x844-text1",
+      "theme": "light",
+      "height": 844,
+      "scale": 1,
+      "rest": {
+        "bottom": 655,
+        "dock": {
+          "x": 0,
+          "y": 655,
+          "width": 380,
+          "height": 61,
+          "bottom": 716,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 787,
+          "width": 390,
+          "height": 57,
+          "bottom": 844,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 173,
+          "bottom": 281,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 281,
+          "width": 380,
+          "height": 563,
+          "bottom": 844,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 561.796875,
+            "bottom": 590.59375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 590.59375,
+            "bottom": 619.390625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 3,
+            "top": 619.390625,
+            "bottom": 648.1875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 4,
+            "top": 648.1875,
+            "bottom": 676.984375,
+            "height": 28.796875,
+            "hit": "ly-linedock",
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 676.984375,
+            "bottom": 705.78125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 705.78125,
+            "bottom": 734.578125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 734.578125,
+            "bottom": 763.375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 763.375,
+            "bottom": 792.171875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 792.171875,
+            "bottom": 820.96875,
+            "height": 28.796875,
+            "hit": "ly-mtab-song",
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 820.96875,
+            "bottom": 849.765625,
+            "height": 28.796875,
+            "hit": "ly-mtab-song",
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 849.765625,
+            "bottom": 878.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 878.5625,
+            "bottom": 907.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 3,
+        "overflow": false
+      },
+      "caret": {
+        "bottom": 655,
+        "dock": {
+          "x": 0,
+          "y": 655,
+          "width": 380,
+          "height": 61,
+          "bottom": 716,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 787,
+          "width": 390,
+          "height": 57,
+          "bottom": 844,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 173,
+          "bottom": 281,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 281,
+          "width": 380,
+          "height": 563,
+          "bottom": 844,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 561.796875,
+            "bottom": 590.59375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 590.59375,
+            "bottom": 619.390625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 3,
+            "top": 619.390625,
+            "bottom": 648.1875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 4,
+            "top": 648.1875,
+            "bottom": 676.984375,
+            "height": 28.796875,
+            "hit": "ly-linedock",
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 676.984375,
+            "bottom": 705.78125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 705.78125,
+            "bottom": 734.578125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 734.578125,
+            "bottom": 763.375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 763.375,
+            "bottom": 792.171875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 792.171875,
+            "bottom": 820.96875,
+            "height": 28.796875,
+            "hit": "ly-mtab-song",
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 820.96875,
+            "bottom": 849.765625,
+            "height": 28.796875,
+            "hit": "ly-mtab-song",
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 849.765625,
+            "bottom": 878.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 878.5625,
+            "bottom": 907.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 3,
+        "overflow": false
+      },
+      "opener": {
+        "label": null,
+        "title": null,
+        "description": ""
+      },
+      "keyboardItems": [
+        {
+          "index": 0,
+          "focused": true
+        },
+        {
+          "index": 1,
+          "focused": true
+        },
+        {
+          "index": 2,
+          "focused": true
+        },
+        {
+          "index": 3,
+          "focused": true
+        },
+        {
+          "index": 4,
+          "focused": true
+        },
+        {
+          "index": 5,
+          "focused": true
+        },
+        {
+          "index": 6,
+          "focused": true
+        },
+        {
+          "index": 7,
+          "focused": true
+        },
+        {
+          "index": 8,
+          "focused": true
+        },
+        {
+          "index": 9,
+          "focused": true
+        }
+      ],
+      "menuItems": [
+        {
+          "label": "Write a new song",
+          "x": 53,
+          "y": 286,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Edit this draft",
+          "x": 53,
+          "y": 326,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Use current recipe",
+          "x": 53,
+          "y": 366,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "New document",
+          "x": 53,
+          "y": 419,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Import lyrics",
+          "x": 53,
+          "y": 459,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "History",
+          "x": 53,
+          "y": 499,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy with headers",
+          "x": 53,
+          "y": 552,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy sung lines",
+          "x": 53,
+          "y": 592,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Download text",
+          "x": 53,
+          "y": 632,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Export session",
+          "x": 53,
+          "y": 672,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        }
+      ],
+      "posts": []
+    },
+    {
+      "label": "light-390x508-text1",
+      "theme": "light",
+      "height": 508,
+      "scale": 1,
+      "rest": {
+        "bottom": 391,
+        "dock": {
+          "x": 0,
+          "y": 391,
+          "width": 380,
+          "height": 61,
+          "bottom": 452,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 451,
+          "width": 390,
+          "height": 57,
+          "bottom": 508,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 173,
+          "bottom": 281,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 281,
+          "width": 380,
+          "height": 812.359375,
+          "bottom": 1093.359375,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 561.796875,
+            "bottom": 590.59375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 2,
+            "top": 590.59375,
+            "bottom": 619.390625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 3,
+            "top": 619.390625,
+            "bottom": 648.1875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 4,
+            "top": 648.1875,
+            "bottom": 676.984375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 676.984375,
+            "bottom": 705.78125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 705.78125,
+            "bottom": 734.578125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 734.578125,
+            "bottom": 763.375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 763.375,
+            "bottom": 792.171875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 792.171875,
+            "bottom": 820.96875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 820.96875,
+            "bottom": 849.765625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 849.765625,
+            "bottom": 878.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 878.5625,
+            "bottom": 907.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 0,
+        "overflow": false
+      },
+      "caret": {
+        "bottom": 391,
+        "dock": {
+          "x": 0,
+          "y": 391,
+          "width": 380,
+          "height": 61,
+          "bottom": 452,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 451,
+          "width": 390,
+          "height": 57,
+          "bottom": 508,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": -349,
+          "width": 380,
+          "height": 173,
+          "bottom": -176,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": -176,
+          "width": 380,
+          "height": 812.359375,
+          "bottom": 636.359375,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 104.796875,
+            "bottom": 133.59375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 133.59375,
+            "bottom": 162.390625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 3,
+            "top": 162.390625,
+            "bottom": 191.1875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 4,
+            "top": 191.1875,
+            "bottom": 219.984375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 5,
+            "top": 219.984375,
+            "bottom": 248.78125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 6,
+            "top": 248.78125,
+            "bottom": 277.578125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 7,
+            "top": 277.578125,
+            "bottom": 306.375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 8,
+            "top": 306.375,
+            "bottom": 335.171875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 9,
+            "top": 335.171875,
+            "bottom": 363.96875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 10,
+            "top": 363.96875,
+            "bottom": 392.765625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 392.765625,
+            "bottom": 421.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 421.5625,
+            "bottom": 450.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 9,
+        "overflow": false
+      },
+      "opener": {
+        "label": null,
+        "title": null,
+        "description": ""
+      },
+      "keyboardItems": [
+        {
+          "index": 0,
+          "focused": true
+        },
+        {
+          "index": 1,
+          "focused": true
+        },
+        {
+          "index": 2,
+          "focused": true
+        },
+        {
+          "index": 3,
+          "focused": true
+        },
+        {
+          "index": 4,
+          "focused": true
+        },
+        {
+          "index": 5,
+          "focused": true
+        },
+        {
+          "index": 6,
+          "focused": true
+        },
+        {
+          "index": 7,
+          "focused": true
+        },
+        {
+          "index": 8,
+          "focused": true
+        },
+        {
+          "index": 9,
+          "focused": true
+        }
+      ],
+      "menuItems": [
+        {
+          "label": "Write a new song",
+          "x": 53,
+          "y": 125,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Edit this draft",
+          "x": 53,
+          "y": 165,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Use current recipe",
+          "x": 53,
+          "y": 205,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "New document",
+          "x": 53,
+          "y": 257,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Import lyrics",
+          "x": 53,
+          "y": 297,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "History",
+          "x": 53,
+          "y": 337,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy with headers",
+          "x": 53,
+          "y": 389,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy sung lines",
+          "x": 53,
+          "y": 402,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Download text",
+          "x": 53,
+          "y": 354,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Export session",
+          "x": 53,
+          "y": 394,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        }
+      ],
+      "posts": []
+    },
+    {
+      "label": "light-390x600-text1",
+      "theme": "light",
+      "height": 600,
+      "scale": 1,
+      "rest": {
+        "bottom": 483,
+        "dock": {
+          "x": 0,
+          "y": 483,
+          "width": 380,
+          "height": 61,
+          "bottom": 544,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 543,
+          "width": 390,
+          "height": 57,
+          "bottom": 600,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 173,
+          "bottom": 281,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 281,
+          "width": 380,
+          "height": 812.359375,
+          "bottom": 1093.359375,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 561.796875,
+            "bottom": 590.59375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 2,
+            "top": 590.59375,
+            "bottom": 619.390625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 3,
+            "top": 619.390625,
+            "bottom": 648.1875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 4,
+            "top": 648.1875,
+            "bottom": 676.984375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 676.984375,
+            "bottom": 705.78125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 705.78125,
+            "bottom": 734.578125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 734.578125,
+            "bottom": 763.375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 763.375,
+            "bottom": 792.171875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 792.171875,
+            "bottom": 820.96875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 820.96875,
+            "bottom": 849.765625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 849.765625,
+            "bottom": 878.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 878.5625,
+            "bottom": 907.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 0,
+        "overflow": false
+      },
+      "caret": {
+        "bottom": 483,
+        "dock": {
+          "x": 0,
+          "y": 483,
+          "width": 380,
+          "height": 61,
+          "bottom": 544,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 543,
+          "width": 390,
+          "height": 57,
+          "bottom": 600,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": -349,
+          "width": 380,
+          "height": 173,
+          "bottom": -176,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": -176,
+          "width": 380,
+          "height": 812.359375,
+          "bottom": 636.359375,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 104.796875,
+            "bottom": 133.59375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 133.59375,
+            "bottom": 162.390625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 3,
+            "top": 162.390625,
+            "bottom": 191.1875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 4,
+            "top": 191.1875,
+            "bottom": 219.984375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 5,
+            "top": 219.984375,
+            "bottom": 248.78125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 6,
+            "top": 248.78125,
+            "bottom": 277.578125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 7,
+            "top": 277.578125,
+            "bottom": 306.375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 8,
+            "top": 306.375,
+            "bottom": 335.171875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 9,
+            "top": 335.171875,
+            "bottom": 363.96875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 10,
+            "top": 363.96875,
+            "bottom": 392.765625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 11,
+            "top": 392.765625,
+            "bottom": 421.5625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 12,
+            "top": 421.5625,
+            "bottom": 450.359375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          }
+        ],
+        "readable": 12,
+        "overflow": false
+      },
+      "opener": {
+        "label": null,
+        "title": null,
+        "description": ""
+      },
+      "keyboardItems": [
+        {
+          "index": 0,
+          "focused": true
+        },
+        {
+          "index": 1,
+          "focused": true
+        },
+        {
+          "index": 2,
+          "focused": true
+        },
+        {
+          "index": 3,
+          "focused": true
+        },
+        {
+          "index": 4,
+          "focused": true
+        },
+        {
+          "index": 5,
+          "focused": true
+        },
+        {
+          "index": 6,
+          "focused": true
+        },
+        {
+          "index": 7,
+          "focused": true
+        },
+        {
+          "index": 8,
+          "focused": true
+        },
+        {
+          "index": 9,
+          "focused": true
+        }
+      ],
+      "menuItems": [
+        {
+          "label": "Write a new song",
+          "x": 53,
+          "y": 117,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Edit this draft",
+          "x": 53,
+          "y": 157,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Use current recipe",
+          "x": 53,
+          "y": 197,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "New document",
+          "x": 53,
+          "y": 249,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Import lyrics",
+          "x": 53,
+          "y": 289,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "History",
+          "x": 53,
+          "y": 329,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy with headers",
+          "x": 53,
+          "y": 381,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy sung lines",
+          "x": 53,
+          "y": 421,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Download text",
+          "x": 53,
+          "y": 461,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Export session",
+          "x": 53,
+          "y": 494,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        }
+      ],
+      "posts": []
+    },
+    {
+      "label": "light-390x844-text2",
+      "theme": "light",
+      "height": 844,
+      "scale": 2,
+      "textScale": [
+        {
+          "selector": "#ly-head button",
+          "font": 24,
+          "line": 30,
+          "after": 48
+        },
+        {
+          "selector": "#ly-head button span",
+          "font": 24,
+          "line": 30,
+          "after": 48
+        },
+        {
+          "selector": "#ly-head p",
+          "font": 13,
+          "line": null,
+          "after": 26
+        },
+        {
+          "selector": "#ly-head h2",
+          "font": 24,
+          "line": 30,
+          "after": 48
+        },
+        {
+          "selector": "#ly-menu-song-actions button",
+          "font": 14,
+          "line": null,
+          "after": 28
+        },
+        {
+          "selector": "#ly-linedock button",
+          "font": 12,
+          "line": 13.8,
+          "after": 24
+        },
+        {
+          "selector": "#ly-linedock span",
+          "font": 13,
+          "line": null,
+          "after": 26
+        },
+        {
+          "selector": "#ly-mnav button",
+          "font": 14,
+          "line": null,
+          "after": 28
+        },
+        {
+          "selector": "#ly-mnav button span",
+          "font": 14,
+          "line": null,
+          "after": 28
+        },
+        {
+          "selector": "#lyrics-draft",
+          "font": 18,
+          "line": 28.8,
+          "after": 36
+        },
+        {
+          "selector": "#ly-overlay .ly-t",
+          "font": 18,
+          "line": 28.8,
+          "after": 36
+        },
+        {
+          "selector": "#ly-overlay .ly-r",
+          "font": 18,
+          "line": 28.8,
+          "after": 36
+        }
+      ],
+      "rest": {
+        "bottom": 603,
+        "dock": {
+          "x": 0,
+          "y": 603,
+          "width": 380,
+          "height": 113,
+          "bottom": 716,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 772,
+          "width": 390,
+          "height": 72,
+          "bottom": 844,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 347,
+          "bottom": 455,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 455,
+          "width": 380,
+          "height": 389,
+          "bottom": 844,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 822.1875,
+            "bottom": 937.375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 2,
+            "top": 937.375,
+            "bottom": 1052.5625,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 3,
+            "top": 1052.5625,
+            "bottom": 1167.75,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 4,
+            "top": 1167.75,
+            "bottom": 1282.9375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 1282.9375,
+            "bottom": 1398.125,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 1398.125,
+            "bottom": 1513.3125,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 1513.3125,
+            "bottom": 1628.5,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 1628.5,
+            "bottom": 1743.6875,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 1743.6875,
+            "bottom": 1858.875,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 1858.875,
+            "bottom": 1974.0625,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 1974.0625,
+            "bottom": 2089.25,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 2089.25,
+            "bottom": 2204.4375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 0,
+        "overflow": false
+      },
+      "caret": {
+        "bottom": 603,
+        "dock": {
+          "x": 0,
+          "y": 603,
+          "width": 380,
+          "height": 113,
+          "bottom": 716,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 772,
+          "width": 390,
+          "height": 72,
+          "bottom": 844,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 347,
+          "bottom": 455,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 455,
+          "width": 380,
+          "height": 389,
+          "bottom": 844,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 447.1875,
+            "bottom": 562.375,
+            "height": 115.1875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 562.375,
+            "bottom": 677.5625,
+            "height": 115.1875,
+            "hit": "ly-dock-label",
+            "readable": false
+          },
+          {
+            "line": 3,
+            "top": 677.5625,
+            "bottom": 792.75,
+            "height": 115.1875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 4,
+            "top": 792.75,
+            "bottom": 907.9375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 907.9375,
+            "bottom": 1023.125,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 1023.125,
+            "bottom": 1138.3125,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 1138.3125,
+            "bottom": 1253.5,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 1253.5,
+            "bottom": 1368.6875,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 1368.6875,
+            "bottom": 1483.875,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 1483.875,
+            "bottom": 1599.0625,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 1599.0625,
+            "bottom": 1714.25,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 1714.25,
+            "bottom": 1829.4375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 1,
+        "overflow": false
+      },
+      "opener": {
+        "label": null,
+        "title": null,
+        "description": ""
+      },
+      "keyboardItems": [
+        {
+          "index": 0,
+          "focused": true
+        },
+        {
+          "index": 1,
+          "focused": true
+        },
+        {
+          "index": 2,
+          "focused": true
+        },
+        {
+          "index": 3,
+          "focused": true
+        },
+        {
+          "index": 4,
+          "focused": true
+        },
+        {
+          "index": 5,
+          "focused": true
+        },
+        {
+          "index": 6,
+          "focused": true
+        },
+        {
+          "index": 7,
+          "focused": true
+        },
+        {
+          "index": 8,
+          "focused": true
+        },
+        {
+          "index": 9,
+          "focused": true
+        }
+      ],
+      "menuItems": [
+        {
+          "label": "Write a new song",
+          "x": 53,
+          "y": 125,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Edit this draft",
+          "x": 53,
+          "y": 185.453125,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Use current recipe",
+          "x": 53,
+          "y": 245.90625,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "New document",
+          "x": 53,
+          "y": 319.09375,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Import lyrics",
+          "x": 53,
+          "y": 379.546875,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "History",
+          "x": 53,
+          "y": 440,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Copy with headers",
+          "x": 53,
+          "y": 513.1875,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Copy sung lines",
+          "x": 53,
+          "y": 573.640625,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Download text",
+          "x": 53,
+          "y": 634.09375,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Export session",
+          "x": 53,
+          "y": 694.546875,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        }
+      ],
+      "posts": []
+    },
+    {
+      "label": "dark-390x844-text1",
+      "theme": "dark",
+      "height": 844,
+      "scale": 1,
+      "rest": {
+        "bottom": 655,
+        "dock": {
+          "x": 0,
+          "y": 655,
+          "width": 380,
+          "height": 61,
+          "bottom": 716,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 787,
+          "width": 390,
+          "height": 57,
+          "bottom": 844,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 173,
+          "bottom": 281,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 281,
+          "width": 380,
+          "height": 563,
+          "bottom": 844,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 561.796875,
+            "bottom": 590.59375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 590.59375,
+            "bottom": 619.390625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 3,
+            "top": 619.390625,
+            "bottom": 648.1875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 4,
+            "top": 648.1875,
+            "bottom": 676.984375,
+            "height": 28.796875,
+            "hit": "ly-linedock",
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 676.984375,
+            "bottom": 705.78125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 705.78125,
+            "bottom": 734.578125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 734.578125,
+            "bottom": 763.375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 763.375,
+            "bottom": 792.171875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 792.171875,
+            "bottom": 820.96875,
+            "height": 28.796875,
+            "hit": "ly-mtab-song",
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 820.96875,
+            "bottom": 849.765625,
+            "height": 28.796875,
+            "hit": "ly-mtab-song",
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 849.765625,
+            "bottom": 878.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 878.5625,
+            "bottom": 907.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 3,
+        "overflow": false
+      },
+      "caret": {
+        "bottom": 655,
+        "dock": {
+          "x": 0,
+          "y": 655,
+          "width": 380,
+          "height": 61,
+          "bottom": 716,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 787,
+          "width": 390,
+          "height": 57,
+          "bottom": 844,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 173,
+          "bottom": 281,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 281,
+          "width": 380,
+          "height": 563,
+          "bottom": 844,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 561.796875,
+            "bottom": 590.59375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 590.59375,
+            "bottom": 619.390625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 3,
+            "top": 619.390625,
+            "bottom": 648.1875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 4,
+            "top": 648.1875,
+            "bottom": 676.984375,
+            "height": 28.796875,
+            "hit": "ly-linedock",
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 676.984375,
+            "bottom": 705.78125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 705.78125,
+            "bottom": 734.578125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 734.578125,
+            "bottom": 763.375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 763.375,
+            "bottom": 792.171875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 792.171875,
+            "bottom": 820.96875,
+            "height": 28.796875,
+            "hit": "ly-mtab-song",
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 820.96875,
+            "bottom": 849.765625,
+            "height": 28.796875,
+            "hit": "ly-mtab-song",
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 849.765625,
+            "bottom": 878.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 878.5625,
+            "bottom": 907.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 3,
+        "overflow": false
+      },
+      "opener": {
+        "label": null,
+        "title": null,
+        "description": ""
+      },
+      "keyboardItems": [
+        {
+          "index": 0,
+          "focused": true
+        },
+        {
+          "index": 1,
+          "focused": true
+        },
+        {
+          "index": 2,
+          "focused": true
+        },
+        {
+          "index": 3,
+          "focused": true
+        },
+        {
+          "index": 4,
+          "focused": true
+        },
+        {
+          "index": 5,
+          "focused": true
+        },
+        {
+          "index": 6,
+          "focused": true
+        },
+        {
+          "index": 7,
+          "focused": true
+        },
+        {
+          "index": 8,
+          "focused": true
+        },
+        {
+          "index": 9,
+          "focused": true
+        }
+      ],
+      "menuItems": [
+        {
+          "label": "Write a new song",
+          "x": 53,
+          "y": 286,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Edit this draft",
+          "x": 53,
+          "y": 326,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Use current recipe",
+          "x": 53,
+          "y": 366,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "New document",
+          "x": 53,
+          "y": 419,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Import lyrics",
+          "x": 53,
+          "y": 459,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "History",
+          "x": 53,
+          "y": 499,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy with headers",
+          "x": 53,
+          "y": 552,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy sung lines",
+          "x": 53,
+          "y": 592,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Download text",
+          "x": 53,
+          "y": 632,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Export session",
+          "x": 53,
+          "y": 672,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        }
+      ],
+      "posts": []
+    },
+    {
+      "label": "dark-390x508-text1",
+      "theme": "dark",
+      "height": 508,
+      "scale": 1,
+      "rest": {
+        "bottom": 391,
+        "dock": {
+          "x": 0,
+          "y": 391,
+          "width": 380,
+          "height": 61,
+          "bottom": 452,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 451,
+          "width": 390,
+          "height": 57,
+          "bottom": 508,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 173,
+          "bottom": 281,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 281,
+          "width": 380,
+          "height": 812.359375,
+          "bottom": 1093.359375,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 561.796875,
+            "bottom": 590.59375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 2,
+            "top": 590.59375,
+            "bottom": 619.390625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 3,
+            "top": 619.390625,
+            "bottom": 648.1875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 4,
+            "top": 648.1875,
+            "bottom": 676.984375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 676.984375,
+            "bottom": 705.78125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 705.78125,
+            "bottom": 734.578125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 734.578125,
+            "bottom": 763.375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 763.375,
+            "bottom": 792.171875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 792.171875,
+            "bottom": 820.96875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 820.96875,
+            "bottom": 849.765625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 849.765625,
+            "bottom": 878.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 878.5625,
+            "bottom": 907.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 0,
+        "overflow": false
+      },
+      "caret": {
+        "bottom": 391,
+        "dock": {
+          "x": 0,
+          "y": 391,
+          "width": 380,
+          "height": 61,
+          "bottom": 452,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 451,
+          "width": 390,
+          "height": 57,
+          "bottom": 508,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": -349,
+          "width": 380,
+          "height": 173,
+          "bottom": -176,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": -176,
+          "width": 380,
+          "height": 812.359375,
+          "bottom": 636.359375,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 104.796875,
+            "bottom": 133.59375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 133.59375,
+            "bottom": 162.390625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 3,
+            "top": 162.390625,
+            "bottom": 191.1875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 4,
+            "top": 191.1875,
+            "bottom": 219.984375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 5,
+            "top": 219.984375,
+            "bottom": 248.78125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 6,
+            "top": 248.78125,
+            "bottom": 277.578125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 7,
+            "top": 277.578125,
+            "bottom": 306.375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 8,
+            "top": 306.375,
+            "bottom": 335.171875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 9,
+            "top": 335.171875,
+            "bottom": 363.96875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 10,
+            "top": 363.96875,
+            "bottom": 392.765625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 392.765625,
+            "bottom": 421.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 421.5625,
+            "bottom": 450.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 9,
+        "overflow": false
+      },
+      "opener": {
+        "label": null,
+        "title": null,
+        "description": ""
+      },
+      "keyboardItems": [
+        {
+          "index": 0,
+          "focused": true
+        },
+        {
+          "index": 1,
+          "focused": true
+        },
+        {
+          "index": 2,
+          "focused": true
+        },
+        {
+          "index": 3,
+          "focused": true
+        },
+        {
+          "index": 4,
+          "focused": true
+        },
+        {
+          "index": 5,
+          "focused": true
+        },
+        {
+          "index": 6,
+          "focused": true
+        },
+        {
+          "index": 7,
+          "focused": true
+        },
+        {
+          "index": 8,
+          "focused": true
+        },
+        {
+          "index": 9,
+          "focused": true
+        }
+      ],
+      "menuItems": [
+        {
+          "label": "Write a new song",
+          "x": 53,
+          "y": 125,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Edit this draft",
+          "x": 53,
+          "y": 165,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Use current recipe",
+          "x": 53,
+          "y": 205,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "New document",
+          "x": 53,
+          "y": 257,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Import lyrics",
+          "x": 53,
+          "y": 297,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "History",
+          "x": 53,
+          "y": 337,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy with headers",
+          "x": 53,
+          "y": 389,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy sung lines",
+          "x": 53,
+          "y": 402,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Download text",
+          "x": 53,
+          "y": 354,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Export session",
+          "x": 53,
+          "y": 394,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        }
+      ],
+      "posts": []
+    },
+    {
+      "label": "dark-390x600-text1",
+      "theme": "dark",
+      "height": 600,
+      "scale": 1,
+      "rest": {
+        "bottom": 483,
+        "dock": {
+          "x": 0,
+          "y": 483,
+          "width": 380,
+          "height": 61,
+          "bottom": 544,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 543,
+          "width": 390,
+          "height": 57,
+          "bottom": 600,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 173,
+          "bottom": 281,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 281,
+          "width": 380,
+          "height": 812.359375,
+          "bottom": 1093.359375,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 561.796875,
+            "bottom": 590.59375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 2,
+            "top": 590.59375,
+            "bottom": 619.390625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 3,
+            "top": 619.390625,
+            "bottom": 648.1875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 4,
+            "top": 648.1875,
+            "bottom": 676.984375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 676.984375,
+            "bottom": 705.78125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 705.78125,
+            "bottom": 734.578125,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 734.578125,
+            "bottom": 763.375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 763.375,
+            "bottom": 792.171875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 792.171875,
+            "bottom": 820.96875,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 820.96875,
+            "bottom": 849.765625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 849.765625,
+            "bottom": 878.5625,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 878.5625,
+            "bottom": 907.359375,
+            "height": 28.796875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 0,
+        "overflow": false
+      },
+      "caret": {
+        "bottom": 483,
+        "dock": {
+          "x": 0,
+          "y": 483,
+          "width": 380,
+          "height": 61,
+          "bottom": 544,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 543,
+          "width": 390,
+          "height": 57,
+          "bottom": 600,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": -349,
+          "width": 380,
+          "height": 173,
+          "bottom": -176,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": -176,
+          "width": 380,
+          "height": 812.359375,
+          "bottom": 636.359375,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 104.796875,
+            "bottom": 133.59375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 133.59375,
+            "bottom": 162.390625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 3,
+            "top": 162.390625,
+            "bottom": 191.1875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 4,
+            "top": 191.1875,
+            "bottom": 219.984375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 5,
+            "top": 219.984375,
+            "bottom": 248.78125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 6,
+            "top": 248.78125,
+            "bottom": 277.578125,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 7,
+            "top": 277.578125,
+            "bottom": 306.375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 8,
+            "top": 306.375,
+            "bottom": 335.171875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 9,
+            "top": 335.171875,
+            "bottom": 363.96875,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 10,
+            "top": 363.96875,
+            "bottom": 392.765625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 11,
+            "top": 392.765625,
+            "bottom": 421.5625,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 12,
+            "top": 421.5625,
+            "bottom": 450.359375,
+            "height": 28.796875,
+            "hit": "lyrics-draft",
+            "readable": true
+          }
+        ],
+        "readable": 12,
+        "overflow": false
+      },
+      "opener": {
+        "label": null,
+        "title": null,
+        "description": ""
+      },
+      "keyboardItems": [
+        {
+          "index": 0,
+          "focused": true
+        },
+        {
+          "index": 1,
+          "focused": true
+        },
+        {
+          "index": 2,
+          "focused": true
+        },
+        {
+          "index": 3,
+          "focused": true
+        },
+        {
+          "index": 4,
+          "focused": true
+        },
+        {
+          "index": 5,
+          "focused": true
+        },
+        {
+          "index": 6,
+          "focused": true
+        },
+        {
+          "index": 7,
+          "focused": true
+        },
+        {
+          "index": 8,
+          "focused": true
+        },
+        {
+          "index": 9,
+          "focused": true
+        }
+      ],
+      "menuItems": [
+        {
+          "label": "Write a new song",
+          "x": 53,
+          "y": 117,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Edit this draft",
+          "x": 53,
+          "y": 157,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Use current recipe",
+          "x": 53,
+          "y": 197,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "New document",
+          "x": 53,
+          "y": 249,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Import lyrics",
+          "x": 53,
+          "y": 289,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "History",
+          "x": 53,
+          "y": 329,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy with headers",
+          "x": 53,
+          "y": 381,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Copy sung lines",
+          "x": 53,
+          "y": 421,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Download text",
+          "x": 53,
+          "y": 461,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        },
+        {
+          "label": "Export session",
+          "x": 53,
+          "y": 494,
+          "width": 302,
+          "height": 40,
+          "reachable": true
+        }
+      ],
+      "posts": []
+    },
+    {
+      "label": "dark-390x844-text2",
+      "theme": "dark",
+      "height": 844,
+      "scale": 2,
+      "textScale": [
+        {
+          "selector": "#ly-head button",
+          "font": 24,
+          "line": 30,
+          "after": 48
+        },
+        {
+          "selector": "#ly-head button span",
+          "font": 24,
+          "line": 30,
+          "after": 48
+        },
+        {
+          "selector": "#ly-head p",
+          "font": 13,
+          "line": null,
+          "after": 26
+        },
+        {
+          "selector": "#ly-head h2",
+          "font": 24,
+          "line": 30,
+          "after": 48
+        },
+        {
+          "selector": "#ly-menu-song-actions button",
+          "font": 14,
+          "line": null,
+          "after": 28
+        },
+        {
+          "selector": "#ly-linedock button",
+          "font": 12,
+          "line": 13.8,
+          "after": 24
+        },
+        {
+          "selector": "#ly-linedock span",
+          "font": 13,
+          "line": null,
+          "after": 26
+        },
+        {
+          "selector": "#ly-mnav button",
+          "font": 14,
+          "line": null,
+          "after": 28
+        },
+        {
+          "selector": "#ly-mnav button span",
+          "font": 14,
+          "line": null,
+          "after": 28
+        },
+        {
+          "selector": "#lyrics-draft",
+          "font": 18,
+          "line": 28.8,
+          "after": 36
+        },
+        {
+          "selector": "#ly-overlay .ly-t",
+          "font": 18,
+          "line": 28.8,
+          "after": 36
+        },
+        {
+          "selector": "#ly-overlay .ly-r",
+          "font": 18,
+          "line": 28.8,
+          "after": 36
+        }
+      ],
+      "rest": {
+        "bottom": 603,
+        "dock": {
+          "x": 0,
+          "y": 603,
+          "width": 380,
+          "height": 113,
+          "bottom": 716,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 772,
+          "width": 390,
+          "height": 72,
+          "bottom": 844,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 347,
+          "bottom": 455,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 455,
+          "width": 380,
+          "height": 389,
+          "bottom": 844,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 822.1875,
+            "bottom": 937.375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 2,
+            "top": 937.375,
+            "bottom": 1052.5625,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 3,
+            "top": 1052.5625,
+            "bottom": 1167.75,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 4,
+            "top": 1167.75,
+            "bottom": 1282.9375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 1282.9375,
+            "bottom": 1398.125,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 1398.125,
+            "bottom": 1513.3125,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 1513.3125,
+            "bottom": 1628.5,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 1628.5,
+            "bottom": 1743.6875,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 1743.6875,
+            "bottom": 1858.875,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 1858.875,
+            "bottom": 1974.0625,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 1974.0625,
+            "bottom": 2089.25,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 2089.25,
+            "bottom": 2204.4375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 0,
+        "overflow": false
+      },
+      "caret": {
+        "bottom": 603,
+        "dock": {
+          "x": 0,
+          "y": 603,
+          "width": 380,
+          "height": 113,
+          "bottom": 716,
+          "right": 380
+        },
+        "nav": {
+          "x": 0,
+          "y": 772,
+          "width": 390,
+          "height": 72,
+          "bottom": 844,
+          "right": 390
+        },
+        "head": {
+          "x": 0,
+          "y": 108,
+          "width": 380,
+          "height": 347,
+          "bottom": 455,
+          "right": 380
+        },
+        "body": {
+          "x": 0,
+          "y": 455,
+          "width": 380,
+          "height": 389,
+          "bottom": 844,
+          "right": 380
+        },
+        "rows": [
+          {
+            "line": 1,
+            "top": 447.1875,
+            "bottom": 562.375,
+            "height": 115.1875,
+            "hit": "lyrics-draft",
+            "readable": true
+          },
+          {
+            "line": 2,
+            "top": 562.375,
+            "bottom": 677.5625,
+            "height": 115.1875,
+            "hit": "ly-dock-label",
+            "readable": false
+          },
+          {
+            "line": 3,
+            "top": 677.5625,
+            "bottom": 792.75,
+            "height": 115.1875,
+            "hit": "lyrics-draft",
+            "readable": false
+          },
+          {
+            "line": 4,
+            "top": 792.75,
+            "bottom": 907.9375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 5,
+            "top": 907.9375,
+            "bottom": 1023.125,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 6,
+            "top": 1023.125,
+            "bottom": 1138.3125,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 7,
+            "top": 1138.3125,
+            "bottom": 1253.5,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 8,
+            "top": 1253.5,
+            "bottom": 1368.6875,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 9,
+            "top": 1368.6875,
+            "bottom": 1483.875,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 10,
+            "top": 1483.875,
+            "bottom": 1599.0625,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 11,
+            "top": 1599.0625,
+            "bottom": 1714.25,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          },
+          {
+            "line": 12,
+            "top": 1714.25,
+            "bottom": 1829.4375,
+            "height": 115.1875,
+            "hit": null,
+            "readable": false
+          }
+        ],
+        "readable": 1,
+        "overflow": false
+      },
+      "opener": {
+        "label": null,
+        "title": null,
+        "description": ""
+      },
+      "keyboardItems": [
+        {
+          "index": 0,
+          "focused": true
+        },
+        {
+          "index": 1,
+          "focused": true
+        },
+        {
+          "index": 2,
+          "focused": true
+        },
+        {
+          "index": 3,
+          "focused": true
+        },
+        {
+          "index": 4,
+          "focused": true
+        },
+        {
+          "index": 5,
+          "focused": true
+        },
+        {
+          "index": 6,
+          "focused": true
+        },
+        {
+          "index": 7,
+          "focused": true
+        },
+        {
+          "index": 8,
+          "focused": true
+        },
+        {
+          "index": 9,
+          "focused": true
+        }
+      ],
+      "menuItems": [
+        {
+          "label": "Write a new song",
+          "x": 53,
+          "y": 125,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Edit this draft",
+          "x": 53,
+          "y": 185.453125,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Use current recipe",
+          "x": 53,
+          "y": 245.90625,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "New document",
+          "x": 53,
+          "y": 319.09375,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Import lyrics",
+          "x": 53,
+          "y": 379.546875,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "History",
+          "x": 53,
+          "y": 440,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Copy with headers",
+          "x": 53,
+          "y": 513.1875,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Copy sung lines",
+          "x": 53,
+          "y": 573.640625,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Download text",
+          "x": 53,
+          "y": 634.09375,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        },
+        {
+          "label": "Export session",
+          "x": 53,
+          "y": 694.546875,
+          "width": 302,
+          "height": 60.453125,
+          "reachable": true
+        }
+      ],
+      "posts": []
+    }
+  ],
+  "errors": [
+    "light-390x844-text1 at least4 readable lines at rest",
+    "light-390x844-text1 at least4 readable lines with caret",
+    "dark-390x844-text1 at least4 readable lines at rest",
+    "dark-390x844-text1 at least4 readable lines with caret"
+  ]
+}

@@ -4192,6 +4192,10 @@ function lyRenderHead() {
       ? app.workspaceName
       : 'Untitled workspace';
   $ui('ly-workspace').textContent = `Workspace: ${ws}`;
+  $ui('ly-menu-song-actions').setAttribute('aria-label', `Song actions · Workspace: ${ws}`);
+  document
+    .querySelector('[aria-controls="ly-menu-song-actions"]')
+    ?.setAttribute('aria-describedby', 'ly-workspace');
   const a = lyAnalysis(model);
   LY.state = a;
   $ui('ly-badge').innerHTML =

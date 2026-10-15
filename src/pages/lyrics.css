@@ -1723,7 +1723,11 @@
 @media (min-height: 601px) {
   #surface-lyrics .ly-page[data-size='narrow'] .ly-head {
     gap: 8px;
-    padding: 8px 16px;
+    row-gap: 4px;
+    padding: 6px 16px;
+  }
+  #surface-lyrics .ly-page[data-size='narrow'] .ly-workspace {
+    display: none;
   }
   #surface-lyrics .ly-page[data-size='narrow'] .ly-head-main {
     flex-basis: 100%;
