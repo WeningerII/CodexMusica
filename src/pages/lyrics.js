@@ -5694,11 +5694,13 @@ const LY_ACTIONS = {
       });
     }
   },
-  'ly-run-review'() {
+  'ly-run-review'(_id, button) {
     lyCloseMenus();
     if (lyPendingAll()) {
+      LY.gateOpener = button;
       LY.gate = true;
       lyRefresh(true);
+      $ui('ly-gate')?.scrollIntoView({ block: 'nearest' });
       uiFocus(document.querySelector('[data-ui="ly-gate-apply"]'));
       return;
     }
@@ -5717,7 +5719,16 @@ const LY_ACTIONS = {
   'ly-gate-close'() {
     LY.gate = null;
     lyRefresh(true);
-    const opener = document.querySelector('#ly-panel-review [data-ui="ly-run-review"]');
+    const visible = (el) => el?.isConnected && el.getClientRects().length;
+    // The panel is rebuilt by refresh; the header opener survives it. Mouse
+    // review deliberately preserves editor focus, so remember the clicked button.
+    const opener = visible(LY.gateOpener)
+      ? LY.gateOpener
+      : [
+          document.querySelector('#ly-panel-review [data-ui="ly-run-review"]'),
+          ...document.querySelectorAll('[data-ui="ly-run-review"]'),
+        ].find(visible);
+    LY.gateOpener = null;
     opener?.scrollIntoView({ block: 'center' });
     uiFocus(opener);
   },

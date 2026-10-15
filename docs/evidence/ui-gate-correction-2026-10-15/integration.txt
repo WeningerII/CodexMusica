@@ -1,0 +1,16 @@
+Correction to PR562 head 1b819d5875427c61b9f8da8b30101540a753d540.
+Review finding: https://github.com/WeningerII/CodexMusica/pull/562#issuecomment-6194666319
+
+The pending-change warning is revealed before Apply all receives preventScroll focus. Cancel remembers the invoking button, uses it when it survives refresh, or resolves a visible replacement. No CSS, form-commit, draft, selection, or grading behavior changed.
+
+New gate suite: identical 19-case baseline has 26 failed assertions; corrected bundle has zero. The warning is at y108..296 with Apply all at y190 at both 390x508 and390x600. All seven normal-height controls retain identical warning/button geometry. Actual Apply, saved review, and Cancel effects are tested with intercepted fixture responses. Existing Apply-all form commit selection collapse remains unchanged and is explicitly documented in README.md.txt.
+
+Related checks on the corrected bundle: viewport suite15/15; existing page browser filters tool drafts12 assertions, N2 pending-review26 assertions, real-send-selection16 assertions all pass. No unrelated full suite or expensive measurements rerun. Build/check, ESLint, Prettier and scoped diff check pass. Independent review is in review.txt.
+
+CI run38751482563, gate job116478789178 failed Prettier on exactly three archived JSON records. .prettierignore now names those three exact paths to preserve raw measurement bytes, consistent with existing generated-evidence exclusions. preserved-evidence-sha256.txt verifies each remains byte-identical to the old head. No format exclusion for production or test code was added.
+
+Raw new JSON and Markdown receipts are copied byte-for-byte with .txt suffixes in this directory. Their original names and local paths refer to the saved execution artifacts. The original UI combined/delta patches are untouched. No live-service/device/zoom/assistive-technology acceptance is claimed.
+
+Corrected codex.html SHA256: 1b4f22cdf8cef0ba62c22a5dab0573a674195c7aa56ae7e1b8a349b8ced3643d
+Original combined patch SHA256: 0436aaf6e669e2c25bd8c6af1fbc9a6cf84a378ac5608a6c0cdac257fe0748f2
+Original delta patch SHA256: 6e3c4f652f662c957785a651f981f2e675fa7b7c91274d986089aa863f9b001b

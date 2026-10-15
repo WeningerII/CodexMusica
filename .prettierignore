@@ -165,3 +165,8 @@ lyric-harness/quality/fixtures/reader_v1_checkpoint.json
 lyric-harness/quality/fixtures/reader_v1_oracle.json
 lyric-harness/quality/fixtures/reader_v1_defer_states.json
 lyric-harness/quality/fixtures/reader_v2_mirror.json
+
+# Archived UI measurement output: preserve the captured evidence bytes.
+/docs/evidence/ui-repairs-2026-10-15/viewport/focused-summary.json
+/docs/evidence/ui-repairs-2026-10-15/viewport/green-center/results.json
+/docs/evidence/ui-repairs-2026-10-15/viewport/red-final/results.json

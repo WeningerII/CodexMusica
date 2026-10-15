@@ -1,0 +1,17 @@
+Independent bounded source review: pending gate correction versus PR #562 head 1b819d5
+Reviewer: /root/ui_four_review
+
+No concrete introduced regression found in the reviewed src/pages/lyrics.js delta.
+The delegated shell dispatch passes (id, button, event), so the new ly-run-review signature receives the actual clicked/keyboard-activated button. Capturing that element does not depend on focus, which the mouse-review selection preservation handler intentionally keeps on the editor.
+Opening the pending gate refreshes, scrolls the gate into view, then applies the existing preventScroll focus. No draft, selection, history or page/tab mutation was added.
+Cancel refreshes and prefers the retained opener only while connected and rendered. A rebuilt Review-panel button falls back to the current visible panel button; absent/hidden panel buttons fall back to another rendered Run review control. The header button survives refresh. The remembered reference is cleared on Cancel. Center scrolling precedes preventScroll focus, preserving the previously tested short-height visibility behavior.
+No changes to caret-reveal, viewport-scale guards, H1 CSS, form validation or send guards are included in this delta.
+
+Limits: static source review; focused gate tests are being supplied separately by the test worker. No independent runtime claim, real-device/assistive-technology claim, or provider acceptance claim. No repository edits or external writes by reviewer.
+
+Test/evidence addendum:
+Reviewed scripts/check_lyrics_gate.js (19 cases). It checks immediate full gate geometry and hit-testing before exercising actions; failed baseline visibility is not rescued by post-open programmatic scrolling. Opening the gate and Cancel assert draft/selection preservation; Cancel also asserts tab/mobile state, pending draft and the invoking header/panel focus. Saved review asserts retained selected lyric and committed-only context; Apply checks the applied context and pending clearance.
+Read apply-baseline/results.json: 390x844 and 1180x757 keyboard Apply already collapse selection [30,35] to [1015,1015]. The corresponding green19 controls have the identical collapse. This is explicitly not accepted as newly fixed selection behavior; omitting a post-Apply preservation assertion is supported by before/after evidence. Short-height baseline Apply actions were not exercised because the gate was offscreen.
+Read green19/results.json: 19 recorded cases, errors empty. This is worker-produced runtime evidence inspected by reviewer, not an independent rerun.
+Reviewed .prettierignore additions: exactly three archived UI JSON evidence paths, with no broader wildcard. This preserves captured bytes and does not exclude new test/source code from formatting.
+No concrete source or test concern found within this bounded correction. Previous real-device and assistive-technology limits remain.
