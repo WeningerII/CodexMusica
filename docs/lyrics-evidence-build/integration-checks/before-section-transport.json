@@ -1,0 +1,118 @@
+[
+  {
+    "name": "headerless",
+    "evidence": true,
+    "requestBinding": true,
+    "binding": true,
+    "freshness": "current",
+    "canGo": true,
+    "submittedContext": {
+      "version": 1,
+      "document": "cat\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "pass": true
+  },
+  {
+    "name": "ordinary-sections",
+    "evidence": true,
+    "requestBinding": false,
+    "binding": false,
+    "freshness": "unknown",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "[VERSE]\ncat\n[CHORUS]\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "pass": false,
+    "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ 'unknown'\n- 'current'\n\n    at file:///workspace/musica-lyrics-integration/scripts/check_lyrics_inspection_transport.mjs:81:16"
+  },
+  {
+    "name": "changed-groups",
+    "evidence": true,
+    "requestBinding": false,
+    "binding": false,
+    "freshness": "unknown",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "cat\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "pass": true
+  },
+  {
+    "name": "changed-readings",
+    "evidence": true,
+    "requestBinding": false,
+    "binding": false,
+    "freshness": "unknown",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "cat\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "pass": true
+  },
+  {
+    "name": "unsupported-text-transformation",
+    "evidence": true,
+    "requestBinding": false,
+    "binding": false,
+    "freshness": "unknown",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "cat\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "pass": true
+  }
+]

@@ -1,0 +1,20 @@
+✔ actual serialized instances bind by exact source map, including repeated words (3.815297ms)
+✔ missing, mismatched request and stale declaration identities disable paint and Go (10.886895ms)
+✔ row precision, missing source maps, invalid UTF-16 boundaries and bad records fail closed (7.553093ms)
+✔ discontinuous parts require explicit part Go; Close/reopen and multi-jump retain origin (14.155106ms)
+✔ stale Go never calls editor; failed Return offers Stay without mutation; Back uses actual prior panel (3.687369ms)
+✔ candidate options and declarations do not manufacture measured pairs; partial coverage stays partial (0.863275ms)
+✔ writing hook shape isolates a selected pair and clears same-text stale marks (2.318825ms)
+✔ binding uses supplied sung-row ordinals, never searches repeated spellings (4.249919ms)
+✔ expansion survives Close/reopen and invalid selections cannot reuse an earlier target (3.411531ms)
+✔ identical lyrics cannot bind different or unproved declaration identities (9.74591ms)
+✔ actual producer declaration variants cannot acquire a binding from lyric equality (1.967418ms)
+✔ inspector uses readable labels without hiding partial scope or placement reasons (4.258185ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2439.786217

@@ -1,0 +1,768 @@
+{
+  "exit_codes": {
+    "baseline": 0,
+    "candidate": 0
+  },
+  "existing_fields_equal": true,
+  "fields": [
+    "ban_scope",
+    "command",
+    "coverage",
+    "final_draft",
+    "findings",
+    "lexicon",
+    "numbered_mandate",
+    "pronunciation_options",
+    "pronunciations",
+    "reader_scheme",
+    "status",
+    "transport_token",
+    "version"
+  ],
+  "record_count": 30,
+  "evidence_coverage": {
+    "complete": false,
+    "status": "partial",
+    "methods": [
+      {
+        "schema_name": "Kalevala alliteration (strong)",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 25,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "Kalevala alliteration (weak)",
+        "status": "answered",
+        "counts": {
+          "true": 2,
+          "false": 23,
+          "undecided": 0
+        },
+        "emitted": 2
+      },
+      {
+        "schema_name": "Middle Chinese end rhyme (\u540c\u7528 group)",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "Middle Chinese end rhyme (\u540c\u7528 group)",
+          "capability": "quotient:\u540c\u7528",
+          "detail": "Middle Chinese end rhyme (\u540c\u7528 group) needs 'quotient:\u540c\u7528'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["quotient:\u540c\u7528"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "Scots vowel-length rhyme (Aitken's Law)",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "ablaut reduplication",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "additive rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "alliteration",
+        "status": "answered",
+        "counts": {
+          "true": 2,
+          "false": 23,
+          "undecided": 0
+        },
+        "emitted": 2
+      },
+      {
+        "schema_name": "alliterative long line",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "alliterative long line",
+          "capability": "lifts",
+          "detail": "alliterative long line needs 'lifts'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["lifts"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "amphisbaenic rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 1
+        },
+        "emitted": 1
+      },
+      {
+        "schema_name": "anadiplosis",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "anaphora",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "antanaclasis",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "antanaclasis",
+          "capability": "sense",
+          "detail": "antanaclasis needs 'sense'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["sense"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "apocopated rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "assonance",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "broken rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "chain rhyme (interlocking scheme)",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "chain rhyme (interlocking scheme)",
+          "capability": "stanza",
+          "detail": "chain rhyme (interlocking scheme) needs 'stanza'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["stanza"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "cluster consonance / skothending span",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "compound / phrasal rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 17,
+          "undecided": 13
+        },
+        "emitted": 13
+      },
+      {
+        "schema_name": "consonance",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "cross rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 5,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "cynghanedd draws",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "cynghanedd draws",
+          "capability": "caesura",
+          "detail": "cynghanedd draws needs 'caesura'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["caesura"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "cynghanedd groes",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "cynghanedd groes",
+          "capability": "caesura",
+          "detail": "cynghanedd groes needs 'caesura'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["caesura"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "cynghanedd groes o gyswllt",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "cynghanedd groes o gyswllt",
+          "capability": "caesura",
+          "detail": "cynghanedd groes o gyswllt needs 'caesura'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["caesura"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "cynghanedd lusg",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 5,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "dialect rhyme",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "dialect rhyme",
+          "capability": "poet",
+          "detail": "dialect rhyme needs 'poet'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["poet"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "enjambed rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 3,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "epanalepsis",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 2,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "epistrophe / radif",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "epistrophe / radif",
+          "capability": "refrain_tail",
+          "detail": "epistrophe / radif needs 'refrain_tail'. 'refrain_tail' was DECLARED (source 'computed') and is EMPTY \u2014 0 lines carrying a refrain tail. An empty declared frame is not a capability nobody declared and it is not a null: every span rule that reads it enumerates zero loci, so this schema could only have returned an empty list. Refused rather than reported as 0 (doctrine 20). The remedy is not to declare a source \u2014 one IS declared and it came back empty; it is a text, an edition or a mark inventory that carries the thing.",
+          "missing": ["refrain_tail"],
+          "kind": "vacuous_frame",
+          "vacuous": ["refrain_tail"]
+        }
+      },
+      {
+        "schema_name": "exact reduplication",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "eye rhyme",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "eye rhyme",
+          "capability": "orthography",
+          "detail": "eye rhyme needs 'orthography'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["orthography"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "family rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "fourth lift must not alliterate",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "fourth lift must not alliterate",
+          "capability": "lifts",
+          "detail": "fourth lift must not alliterate needs 'lifts'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["lifts"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "head rhyme (positional)",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "historical rhyme",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "historical rhyme",
+          "capability": "earlier",
+          "detail": "historical rhyme needs 'earlier'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["earlier"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "holorhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "homoioteleuton",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "incremental repetition",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "interlaced rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 14,
+          "undecided": 3
+        },
+        "emitted": 3
+      },
+      {
+        "schema_name": "internal rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 40,
+          "undecided": 4
+        },
+        "emitted": 4
+      },
+      {
+        "schema_name": "leonine rhyme",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "leonine rhyme",
+          "capability": "caesura",
+          "detail": "leonine rhyme needs 'caesura'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["caesura"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "light rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "linked rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "mosaic rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 1,
+          "false": 6,
+          "undecided": 3
+        },
+        "emitted": 4
+      },
+      {
+        "schema_name": "multisyllabic rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 204,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "offbeat internal rhyme",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "offbeat internal rhyme",
+          "capability": "beat",
+          "detail": "offbeat internal rhyme needs 'beat'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["beat"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "pantun ABAB",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "pararhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "parechesis / general consonance",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 1
+        },
+        "emitted": 1
+      },
+      {
+        "schema_name": "perfect rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "polyptoton",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 55,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "proest",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "proest",
+          "capability": "quotient:vowel_class",
+          "detail": "proest needs 'quotient:vowel_class'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["quotient:vowel_class"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "qafiya (before the radif)",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "qafiya (before the radif)",
+          "capability": "refrain_tail",
+          "detail": "qafiya (before the radif) needs 'refrain_tail'. 'refrain_tail' was DECLARED (source 'computed') and is EMPTY \u2014 0 lines carrying a refrain tail. An empty declared frame is not a capability nobody declared and it is not a null: every span rule that reads it enumerates zero loci, so this schema could only have returned an empty list. Refused rather than reported as 0 (doctrine 20). The remedy is not to declare a source \u2014 one IS declared and it came back empty; it is a text, an edition or a mark inventory that carries the thing.",
+          "missing": ["refrain_tail"],
+          "kind": "vacuous_frame",
+          "vacuous": ["refrain_tail"]
+        }
+      },
+      {
+        "schema_name": "refrain by reference",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "refrain by reference",
+          "capability": "stub_resolution",
+          "detail": "refrain by reference needs 'stub_resolution' \u2014 declare it (`declare_stub_resolution`) or declare which lines are pointers (`line_status`) and it is derived.",
+          "missing": ["stub_resolution"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "repetition",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "reverse rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "rhyming reduplication",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "rhyming slang",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "rhyming slang",
+          "capability": "slang",
+          "detail": "rhyming slang needs 'slang'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["slang"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "rime riche",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "semirhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "subtractive rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "sung-delivery rhyme",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "sung-delivery rhyme",
+          "capability": "sung",
+          "detail": "sung-delivery rhyme needs 'sung'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["sung"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "syllabic rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 0,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "transformative / bent rhyme",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "transformative / bent rhyme",
+          "capability": "delivered",
+          "detail": "transformative / bent rhyme needs 'delivered'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["delivered"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      },
+      {
+        "schema_name": "trite rhyme",
+        "status": "answered",
+        "counts": {
+          "true": 0,
+          "false": 1,
+          "undecided": 0
+        },
+        "emitted": 0
+      },
+      {
+        "schema_name": "wrenched rhyme",
+        "status": "refused",
+        "counts": {},
+        "emitted": 0,
+        "refusal": {
+          "schema": "wrenched rhyme",
+          "capability": "delivered",
+          "detail": "wrenched rhyme needs 'delivered'; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` \u2014 declaring only the first would not make this schema run.",
+          "missing": ["delivered"],
+          "kind": "capability",
+          "vacuous": []
+        }
+      }
+    ],
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 30,
+    "loaded_records": 30,
+    "total_records": null
+  }
+}

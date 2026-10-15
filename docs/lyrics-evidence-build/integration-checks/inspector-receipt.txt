@@ -1,0 +1,23 @@
+Authenticated local inspection browser receipt (FINAL:16 cases PASS, zero errors)
+
+Files: scripts/check_lyrics_inspection.js; scripts/lyrics_inspection_transport_fixture.mjs.
+Command:
+PATH=/workspace/musica-ci-venv/bin:$PATH LYRIC_PYTHON=/workspace/musica-ci-venv/bin/python LYRIC_STAGED_DATA=/workspace/musica-ci/lyric-harness/data NODE_PATH=/workspace/musica-repair/node_modules TEST_HTML=/tmp/lyrics-integrated-inspector-build8.html TEST_EVIDENCE=/tmp/lyrics-inspection-evidence/auth-build8 node scripts/check_lyrics_inspection.js
+
+Provenance:
+The helper starts the actual local HTTP chat router/agent/MCP server and real local Python lyric_check. Only model tool choice is stubbed, with exact selected lines/declarations. No report metadata, invocation, request_binding, or source_projection is manufactured. The browser produces lyContext from its parsed document; that exact context is submitted to local transport. Raw context/requestId/payload receipts are saved. UI session journeys feed that actual payload into lyReceive with the same captured request/context. The separate harness worker owns actual Run review button-to-HTTP handoff tests. Browser inspection actions assert no POST; local fixture generation intentionally performs local POSTs. No provider network call occurs; stub usage/cost fields do not represent live model execution.
+
+Sixteen cases: three full UI journeys at1180x757/390x844/390x508; two nonzero-scroll origins; one keyboard staleReturn/Stay plus subsequent typing; one authenticated sectioned projection+exactGo; seven invalid/no-evidence variants; genuine multipart endpoint navigation; actual History panel restoration. Positive multipart selects a real report pair with multiple explicit source parts, with no mutation. Invalid variants deliberately mutate copies only to assert refusal.
+
+The long origins prepend35 blank physical document rows to the same sung text. lyWriterText trims those leading blanks, so submitted semantic context is identical and cached genuine receipt is reused; full-document source mapping still records changed physical offsets. Do not describe this as a second distinct transport request.
+
+Historical evidence:
+- build5 and test-receipt.txt are synthetic-component-fixture UI diagnostics, superseded for production binding acceptance.
+- auth-full exposed only a test-assumption error: first returned pair was not multipart. Final script selects genuine multipart pair and expands list.
+- auth-build7 passed16 but counted sectioned documents as unsupported under prior implementation; superseded by source projection integration in build8.
+- artificial hidden-editor stale selection resets also when Return action is blocked (no-action/results.json). Real Go→edit→reopen→Return is primary UI acceptance. No delayed repair is justified by that artificial state.
+
+ESLint and Prettier pass for both deliverable scripts. No production edits, build, commit, push, external comment, merge, or deployment by this worker. No real-device keyboard, nativezoom, live-service, or release acceptance implied.
+
+Final bundle SHA256: ad8332b85263638c5da92b2c0401adad09da70e529720d81b37d4b5d155f19ad
+Final evidence: auth-build8/results.json, transport-0.json (headerless grouped document), transport-1.json (sectioned document with actual source_projection), journey screenshots; log /tmp/inspection-auth-build8.log.
