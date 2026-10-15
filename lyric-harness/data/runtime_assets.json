@@ -275,7 +275,7 @@
         {
           "path": "data/rhyme_capacity_eng.tsv",
           "bytes": 526545,
-          "sha256": "02325c417568a9119a556d67e3ab2daea1cf502a0aa1907c79c097af9295b234"
+          "sha256": "063dc761dedc45c5183245950ac215a4398b77799eee92db2456ee5f3861ea21"
         },
         {
           "path": "data/siku_orthography.tsv",
@@ -294,8 +294,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1665627,
-          "sha256": "d02d3c00d024368c7f1fdc310373cebf3098d4786df558bec5190cb79866d0ba"
+          "bytes": 1665955,
+          "sha256": "3406c98d6f76210e447195848232b0b55564719783ae5c495e21f7468d2f77d1"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",
