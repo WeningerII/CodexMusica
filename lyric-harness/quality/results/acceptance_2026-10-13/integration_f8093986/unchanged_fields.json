@@ -1,0 +1,441 @@
+{
+ "candidate": "f8093986db0eeaf7cac6e3745f8cbd019022a846",
+ "control": "4e259883a97e9d712685531191001552d8181f1c",
+ "ok": true,
+ "rows": [
+  {
+   "case": "h1_read_dash",
+   "supplement": "none",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 84204,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 30,
+    "loaded_records": 30,
+    "total_records": null
+   },
+   "sibling_records": 30,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "h1_read_dash",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 84361,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 30,
+    "loaded_records": 30,
+    "total_records": null
+   },
+   "sibling_records": 30,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "h1_lead_dash",
+   "supplement": "none",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 83957,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 30,
+    "loaded_records": 30,
+    "total_records": null
+   },
+   "sibling_records": 30,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "h1_lead_dash",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 84114,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 30,
+    "loaded_records": 30,
+    "total_records": null
+   },
+   "sibling_records": 30,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "h4_unmarked_refuse",
+   "supplement": "none",
+   "rc": [
+    2,
+    2
+   ],
+   "status": "refused",
+   "fields_differing": [],
+   "sibling_present_v1": false,
+   "sibling_bytes": 0,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {},
+   "sibling_records": 0,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "h4_unmarked_refuse",
+   "supplement": "v2",
+   "rc": [
+    2,
+    2
+   ],
+   "status": "refused",
+   "fields_differing": [],
+   "sibling_present_v1": false,
+   "sibling_bytes": 0,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {},
+   "sibling_records": 0,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "pa_love_voices_off",
+   "supplement": "none",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 59358,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 24,
+    "loaded_records": 24,
+    "total_records": null
+   },
+   "sibling_records": 24,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "pa_love_voices_off",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 59515,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 24,
+    "loaded_records": 24,
+    "total_records": null
+   },
+   "sibling_records": 24,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "pa_love_voices_on",
+   "supplement": "none",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 71800,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 30,
+    "loaded_records": 30,
+    "total_records": null
+   },
+   "sibling_records": 30,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "pa_love_voices_on",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 71957,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 0,
+    "remaining_records_unknown": true,
+    "observed_records": 30,
+    "loaded_records": 30,
+    "total_records": null
+   },
+   "sibling_records": 30,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "fx_song",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 240609,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 588,
+    "remaining_records_unknown": true,
+    "observed_records": 752,
+    "loaded_records": 164,
+    "total_records": null
+   },
+   "sibling_records": 164,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "fx_mandate_song",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 242490,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 1073,
+    "remaining_records_unknown": true,
+    "observed_records": 1234,
+    "loaded_records": 161,
+    "total_records": null
+   },
+   "sibling_records": 161,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "fx_mandate_couplets",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 242153,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 412,
+    "remaining_records_unknown": true,
+    "observed_records": 577,
+    "loaded_records": 165,
+    "total_records": null
+   },
+   "sibling_records": 165,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "fx_anaphoric",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 241469,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 315,
+    "remaining_records_unknown": true,
+    "observed_records": 483,
+    "loaded_records": 168,
+    "total_records": null
+   },
+   "sibling_records": 168,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "fx_moonlight",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 241706,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 274,
+    "remaining_records_unknown": true,
+    "observed_records": 440,
+    "loaded_records": 166,
+    "total_records": null
+   },
+   "sibling_records": 166,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "song_carry_it_over",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 240788,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 120,
+    "remaining_records_unknown": true,
+    "observed_records": 286,
+    "loaded_records": 166,
+    "total_records": null
+   },
+   "sibling_records": 166,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "song_crooked_waltz",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 239430,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 85,
+    "remaining_records_unknown": true,
+    "observed_records": 250,
+    "loaded_records": 165,
+    "total_records": null
+   },
+   "sibling_records": 165,
+   "coverage_problems": [],
+   "pass": true
+  },
+  {
+   "case": "song_i_am_not_leaving",
+   "supplement": "v2",
+   "rc": [
+    0,
+    0
+   ],
+   "status": "graded",
+   "fields_differing": [],
+   "sibling_present_v1": true,
+   "sibling_bytes": 240054,
+   "record_pairs_refused": 0,
+   "sibling_coverage": {
+    "complete": false,
+    "status": "partial",
+    "omitted_records": 213,
+    "remaining_records_unknown": true,
+    "observed_records": 378,
+    "loaded_records": 165,
+    "total_records": null
+   },
+   "sibling_records": 165,
+   "coverage_problems": [],
+   "pass": true
+  }
+ ]
+}

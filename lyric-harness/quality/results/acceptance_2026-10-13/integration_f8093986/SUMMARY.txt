@@ -1,0 +1,14 @@
+tree f8093986db0eeaf7cac6e3745f8cbd019022a846  (2026-10-15T20:56:29Z)
+control 4e259883a97e9d712685531191001552d8181f1c
+build                      PASS  codex.html 94dbde6a41896462 = fresh build
+h1_probe                   PASS  14/14 cases
+pa_voices                  PASS  all: {"REFUSED": 69, "SAME_WORD": 93, "FAIL": 0}
+unchanged_fields           PASS  18 runs, no field moved
+page_suite                 PASS  LYRICS PAGE: PASS — 809 assertions (fixture replies, no provider): one document with fixed tabs and tools; n
+viewport                   PASS  
+gate                       PASS  
+natural_resize             PASS  
+lyrics_evidence            PASS  
+real_keys                  PASS  type 0/16/33/settle + ArrowRight visible 5/5
+lint                       PASS  28 changed files
+VERDICT PASS
