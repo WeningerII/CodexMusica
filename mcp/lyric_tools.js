@@ -1002,6 +1002,8 @@ function verdictOf(r) {
     return v;
   }
   v.measurement_status = record.status;
+  if (record.schema_instance_evidence?.version === 1)
+    v.schema_instance_evidence = record.schema_instance_evidence;
   // The supplement this verdict was read under ({supplement_id, sha256}, both
   // null for CMUdict alone), from the authenticated record only.
   const lexicon = lexiconIdentityOf(record);
