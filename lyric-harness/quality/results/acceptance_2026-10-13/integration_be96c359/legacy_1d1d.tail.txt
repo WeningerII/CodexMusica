@@ -1,0 +1,30 @@
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-red1d/lyric-harness/quality/test_reader.py", line 2575, in test_a_pre_batch_checkpoint_resumes_byte_for_byte
+    self.assertEqual(norm(r.stdout), norm(fx["resume_stdout"]))
+AssertionError: Lists differ: ['  B[30432 chars]]}, 'schema_instance_evidence': {'version': 1,[38633 chars]L2]'] != ['  B[30432 chars]]}, 'pronunciations': [], 'pronunciation_optio[4604 chars]L2]']
+
+First differing element 24:
+{'ver[1072 chars]]}, 'schema_instance_evidence': {'version': 1,[38001 chars]': 3}
+{'ver[1072 chars]]}, 'pronunciations': [], 'pronunciation_optio[3972 chars]': 3}
+
+Diff is 234809 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_pre_batch_states_resume_as_v1_through_the_cli (quality.test_reader.LegacyReplay.test_pre_batch_states_resume_as_v1_through_the_cli) (state='suspended+answer')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-red1d/lyric-harness/quality/test_reader.py", line 2316, in test_pre_batch_states_resume_as_v1_through_the_cli
+    self.assertEqual(got, norm(rec["replay_stdout"]))
+AssertionError: Lists differ: ['  M[8159 chars]]}, 'schema_instance_evidence': {'version': 1,[48006 chars]ds]'] != ['  M[8159 chars]]}, 'pronunciations': [], 'pronunciation_optio[881 chars]ds]']
+
+First differing element 22:
+('  l[1126 chars]]}, 'schema_instance_evidence': {'version': 1,[47680 chars]: 0})
+('  l[1126 chars]]}, 'pronunciations': [], 'pronunciation_optio[555 chars]: 0})
+
+Diff is 299036 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 14 tests in 248.482s
+
+FAILED (failures=3)
