@@ -1,0 +1,4 @@
+wt-f4b run1 rc=4 wall=39.1s
+wt-f4b run2 rc=4 wall=38.8s
+wt-571 run1 rc=4 wall=28.6s
+wt-571 run2 rc=4 wall=27.4s

@@ -1,0 +1,5 @@
+          {1: ['cynghanedd sain', 'cynghanedd sain gadwynog']}
+  PASS  no draw pool survives: DRAWABLE_SCHEMAS and its derivation are gone, and the feasibility traits cover every registry schema
+  PASS  audibility is read over a pair's relation SET
+==================================================================
+all relations regressions pass

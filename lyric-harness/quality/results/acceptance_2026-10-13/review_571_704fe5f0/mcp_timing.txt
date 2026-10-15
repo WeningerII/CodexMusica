@@ -1,0 +1,5 @@
+wt-f4b Node.js v22.22.0
+wt-571 {"first_request_ms":27735,"exit_code":4}
+main run1 {"first_request_ms":35792,"exit_code":4}
+main run2 {"first_request_ms":36371,"exit_code":4}
+571 run2 {"first_request_ms":27116,"exit_code":4}
