@@ -1,0 +1,40 @@
+  ...
+# Subtest: binding uses supplied sung-row ordinals, never searches repeated spellings
+ok 8 - binding uses supplied sung-row ordinals, never searches repeated spellings
+  ---
+  duration_ms: 8.772054
+  type: 'test'
+  ...
+# Subtest: expansion survives Close/reopen and invalid selections cannot reuse an earlier target
+ok 9 - expansion survives Close/reopen and invalid selections cannot reuse an earlier target
+  ---
+  duration_ms: 3.95951
+  type: 'test'
+  ...
+# Subtest: identical lyrics cannot bind different or unproved declaration identities
+ok 10 - identical lyrics cannot bind different or unproved declaration identities
+  ---
+  duration_ms: 8.552623
+  type: 'test'
+  ...
+# Subtest: actual producer declaration variants cannot acquire a binding from lyric equality
+ok 11 - actual producer declaration variants cannot acquire a binding from lyric equality
+  ---
+  duration_ms: 2.211231
+  type: 'test'
+  ...
+# Subtest: inspector uses readable labels without hiding partial scope or placement reasons
+ok 12 - inspector uses readable labels without hiding partial scope or placement reasons
+  ---
+  duration_ms: 3.527802
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 68.923034

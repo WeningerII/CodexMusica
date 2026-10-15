@@ -1,0 +1,415 @@
+{
+ "tree_commit": "1d1deff91993de7347fddebce6c18d3667c86b48",
+ "has_numbering_flag": true,
+ "ok": true,
+ "rows": [
+  {
+   "case": "read_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Read--read, read it again",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "read_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Read--read, read it again",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "lead_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Lead--lead, lead the way",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "lead_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Lead--lead, lead the way",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "wound_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Wound--wound, wound it tight",
+    "the ground is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "wound_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Wound--wound, wound it tight",
+    "the ground is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "tear_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Tear--tear, tear it down",
+    "the care is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "tear_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Tear--tear, tear it down",
+    "the care is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "live_dash",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Live--live, live it out",
+    "the give is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "live_dash",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "Live--live, live it out",
+    "the give is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "read_plain_control",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "I read, I read it again",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "read_plain_control",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T2,2.T2",
+    "--relation=perfect rhyme",
+    "--numbering=v2"
+   ],
+   "lines": [
+    "I read, I read it again",
+    "the bed is made for me"
+   ],
+   "expect": "JUDGED",
+   "got": "JUDGED",
+   "pass": true,
+   "rc": 0,
+   "rhyme_obligations": [
+    [
+     "rhyme:1:2:0",
+     "answered"
+    ]
+   ],
+   "codes": [],
+   "certified": true,
+   "refusal": null
+  },
+  {
+   "case": "unmarked_ambiguous",
+   "supplement": "none",
+   "argv": [
+    "--lexicon-supplement=none",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T3,2.end",
+    "--relation=perfect rhyme"
+   ],
+   "lines": [
+    "I 2 love you love",
+    "the dove above"
+   ],
+   "expect": "REFUSED",
+   "got": "REFUSED",
+   "pass": true,
+   "rc": 2,
+   "rhyme_obligations": [],
+   "codes": [],
+   "certified": null,
+   "refusal": "groups: ambiguous token 3 in 'I 2 love you love': v1 binds ('you', ((9, 12),)); v2 binds ('love', ((4, 8),)); declare numbering explicitly"
+  },
+  {
+   "case": "unmarked_ambiguous",
+   "supplement": "v2",
+   "argv": [
+    "--lexicon-supplement=v2",
+    "--reader-scheme=v2",
+    "brief",
+    "<draft>",
+    "--groups=1.T3,2.end",
+    "--relation=perfect rhyme"
+   ],
+   "lines": [
+    "I 2 love you love",
+    "the dove above"
+   ],
+   "expect": "REFUSED",
+   "got": "REFUSED",
+   "pass": true,
+   "rc": 2,
+   "rhyme_obligations": [],
+   "codes": [],
+   "certified": null,
+   "refusal": "groups: ambiguous token 3 in 'I 2 love you love': v1 binds ('you', ((9, 12),)); v2 binds ('love', ((4, 8),)); declare numbering explicitly"
+  }
+ ]
+}
