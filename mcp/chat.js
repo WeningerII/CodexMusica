@@ -1,3 +1,4 @@
+import { bindEvidenceContext } from './lyrics_evidence_binding.js';
 // chat.js — the public chat bar's backend: page → here → Gemini → the engine.
 //
 // WHY A BACKEND AT ALL. codex.html is served by GitHub Pages, which is static.
@@ -967,7 +968,10 @@ export async function createChatRouter({
           whole_flags: c.whole_flags ?? null,
           // The choices the lyrics page's Rhymes and Pronunciation tools offer.
           pairs: c.pairs ?? null,
-          schema_instance_evidence: c.schema_instance_evidence ?? null,
+          schema_instance_evidence: bindEvidenceContext(
+            c.schema_instance_evidence,
+            priorTask?.lyric_context
+          ),
           pronunciation_options: c.pronunciation_options ?? null,
           ...(c.numbered_mandate ? { numbered_mandate: c.numbered_mandate } : {}),
           ...(Array.isArray(c.numbering_notices) ? { numbering_notices: c.numbering_notices } : {}),

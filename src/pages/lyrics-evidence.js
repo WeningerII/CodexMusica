@@ -19,6 +19,40 @@
     );
   const range = (text, a, b) => boundary(text, a) && boundary(text, b) && a < b;
 
+  const canonical = (value) => JSON.stringify(ordered(value));
+  function ordered(value) {
+    if (Array.isArray(value)) return value.map(ordered);
+    if (value && typeof value === 'object')
+      return Object.fromEntries(
+        Object.keys(value)
+          .sort()
+          .map((key) => [key, ordered(value[key])])
+      );
+    return value;
+  }
+  function receiptFor(evidence, basis, submittedContext, model) {
+    const proof = evidence?.request_binding;
+    if (
+      proof?.version !== 1 ||
+      !submittedContext ||
+      typeof globalThis.lyDeclarationsOf !== 'function' ||
+      typeof globalThis.lyWriterText !== 'function' ||
+      canonical(proof.context) !== canonical(submittedContext) ||
+      submittedContext.binding?.document_sha256 !== basis.semanticId ||
+      submittedContext.document !== globalThis.lyWriterText(model.text) ||
+      canonical(submittedContext.declarations) !== canonical(globalThis.lyDeclarationsOf(model)) ||
+      proof.reader_scheme !== basis.readerScheme ||
+      proof.voices !== basis.voices
+    )
+      return null;
+    return {
+      version: 1,
+      ...basis,
+      reportIdentityHash: proof.report_identity_hash,
+      declarationHash: proof.declaration_hash,
+    };
+  }
+
   // This receipt must come from an independently verified, authenticated
   // request/declaration association. Never construct it by copying the report
   // being bound: matching lyric text cannot establish declaration equivalence.
@@ -42,8 +76,16 @@
   // model guessed from the report's words.
   function lyRelationBindReport(
     evidence,
-    { model, requestId, semanticId, readerScheme, voices, declarationReceipt } = {}
+    { model, requestId, semanticId, readerScheme, voices, submittedContext } = {}
   ) {
+    const declarationReceipt =
+      model &&
+      receiptFor(
+        evidence,
+        { requestId, semanticId, text: model.text, readerScheme, voices },
+        submittedContext,
+        model
+      );
     if (
       !requestId ||
       !declarationMatches(evidence, declarationReceipt, {

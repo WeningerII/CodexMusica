@@ -6,7 +6,11 @@ const vm = require('node:vm');
 const crypto = require('node:crypto');
 const { execFileSync } = require('node:child_process');
 const sha = (s) => crypto.createHash('sha256').update(s).digest('hex');
-const api = { lySha256: sha };
+const api = {
+  lySha256: sha,
+  lyDeclarationsOf: (model) => model.declarations || {},
+  lyWriterText: (text) => text,
+};
 vm.createContext(api);
 vm.runInContext(fs.readFileSync('src/pages/lyrics-evidence.js', 'utf8'), api);
 // Test fixture only: explicit fixture phonology and adjusted voices metadata.
@@ -268,9 +272,24 @@ test('binding uses supplied sung-row ordinals, never searches repeated spellings
   const raw = '[VERSE]\n  cat bat cat  \nhat';
   const rows = raw.split('\n').map((raw, i) => ({ raw, text: raw.trim(), i }));
   const model = { text: raw, rows, sung: rows.slice(1) };
+  const submittedContext = {
+    version: 1,
+    document: raw,
+    declarations: {},
+    binding: { document_sha256: 'semantic-fixture' },
+  };
+  // Synthetic source-map test receipt, not a production section mapping claim.
+  f.evidence.request_binding = {
+    version: 1,
+    context: submittedContext,
+    report_identity_hash: f.evidence.identity.hash,
+    declaration_hash: f.evidence.identity.declaration_hash,
+    reader_scheme: 'v2',
+    voices: true,
+  };
   const binding = api.lyRelationBindReport(f.evidence, {
     model,
-    declarationReceipt: { ...f.context.binding.declarationReceipt, text: raw },
+    submittedContext,
     requestId: 'request-fixture',
     semanticId: 'semantic-fixture',
     readerScheme: 'v2',
