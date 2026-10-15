@@ -115,10 +115,15 @@ const settle = async (p) => {
       };
     }, selector);
   const cases = [];
-  for (const height of [508, 600])
+  for (const [width, height] of [
+    [390, 508],
+    [390, 600],
+    [667, 375],
+    [844, 390],
+  ])
     for (const mode of ['touch', 'keyboard'])
       for (const action of ['apply', 'saved', 'close'])
-        cases.push({ width: 390, height, mode, action, panel: true });
+        cases.push({ width, height, mode, action, panel: true });
   for (const mode of ['touch', 'keyboard'])
     cases.push({ width: 390, height: 844, mode, action: 'close', panel: true });
   for (const panel of [false, true])
@@ -126,10 +131,24 @@ const settle = async (p) => {
   cases.push({ width: 1180, height: 757, mode: 'mouse', action: 'close', panel: false });
   cases.push({ width: 390, height: 844, mode: 'keyboard', action: 'apply', panel: true });
   cases.push({ width: 1180, height: 757, mode: 'keyboard', action: 'apply', panel: true });
+  for (const [width, height] of [
+    [844, 390],
+    [390, 508],
+  ])
+    for (const action of ['apply', 'saved', 'close'])
+      cases.push({
+        width,
+        height,
+        mode: 'keyboard',
+        action,
+        panel: true,
+        start: 'page-top',
+        touchAction: true,
+      });
   try {
     for (const c of cases) {
       if (process.env.TEST_CASE && !JSON.stringify(c).includes(process.env.TEST_CASE)) continue;
-      const { width, height, mode, action, panel } = c,
+      const { width, height, mode, action, panel, start, touchAction } = c,
         label = JSON.stringify(c),
         p = await open(width, height);
       await p.evaluate(() => {
@@ -170,7 +189,13 @@ const settle = async (p) => {
           else await p.mouse.click(b.x, b.y);
         }
       } else {
-        await p.locator(opener).focus();
+        if (start === 'page-top')
+          await p.evaluate((selector) => {
+            for (const id of ['ly-page', 'ly-body', 'surface-lyrics'])
+              document.getElementById(id).scrollTop = 0;
+            document.querySelector(selector).focus({ preventScroll: true });
+          }, opener);
+        else await p.locator(opener).focus();
         await p.keyboard.press('Enter');
       }
       await settle(p);
@@ -212,11 +237,13 @@ const settle = async (p) => {
       await p.screenshot({ path: path.join(out, `gate-${height}-${mode}-${action}-${panel}.png`) });
       // Do not repair failed geometry by scrolling after opening. A failing
       // baseline cannot safely exercise its action; record that explicitly.
+      // The reported landscape Cancel tap is an intentional exception: prove
+      // that touching its on-screen position closes the gate, not a tab change.
       const target = buttons[action];
       let exercised = false;
-      if (target?.hit && target.visible) {
+      if (target?.visible && (target.hit || (start === 'page-top' && action === 'close'))) {
         exercised = true;
-        if (mode === 'touch') await p.touchscreen.tap(target.x, target.y);
+        if (mode === 'touch' || touchAction) await p.touchscreen.tap(target.x, target.y);
         else if (mode === 'mouse') await p.mouse.click(target.x, target.y);
         else {
           for (

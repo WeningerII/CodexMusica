@@ -5700,7 +5700,7 @@ const LY_ACTIONS = {
       LY.gateOpener = button;
       LY.gate = true;
       lyRefresh(true);
-      $ui('ly-gate')?.scrollIntoView({ block: 'nearest' });
+      $ui('ly-gate')?.scrollIntoView({ block: 'center' });
       uiFocus(document.querySelector('[data-ui="ly-gate-apply"]'));
       return;
     }
