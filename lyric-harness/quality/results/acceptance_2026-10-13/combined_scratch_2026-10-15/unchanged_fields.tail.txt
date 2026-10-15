@@ -1,0 +1,19 @@
+h1_read_dash             sup=none rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+h1_read_dash             sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+h1_lead_dash             sup=none rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+h1_lead_dash             sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+h4_unmarked_refuse       sup=none rc=2/2 status=refused   diff=- sibling=- cov=-  PASS
+h4_unmarked_refuse       sup=v2   rc=2/2 status=refused   diff=- sibling=- cov=-  PASS
+pa_love_voices_off       sup=none rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+pa_love_voices_off       sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+pa_love_voices_on        sup=none rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+pa_love_voices_on        sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+fx_song                  sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+fx_mandate_song          sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+fx_mandate_couplets      sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+fx_anaphoric             sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+fx_moonlight             sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+song_carry_it_over       sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+song_crooked_waltz       sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+song_i_am_not_leaving    sup=v2   rc=0/0 status=graded    diff=- sibling=v1 cov=partial  PASS
+OK

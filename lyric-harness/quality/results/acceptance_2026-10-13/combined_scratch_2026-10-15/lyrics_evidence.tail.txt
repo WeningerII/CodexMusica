@@ -1,0 +1,40 @@
+  ...
+# Subtest: stale Go never calls editor; failed Return offers Stay without mutation; Back uses actual prior panel
+ok 5 - stale Go never calls editor; failed Return offers Stay without mutation; Back uses actual prior panel
+  ---
+  duration_ms: 1.910148
+  type: 'test'
+  ...
+# Subtest: candidate options and declarations do not manufacture measured pairs; partial coverage stays partial
+ok 6 - candidate options and declarations do not manufacture measured pairs; partial coverage stays partial
+  ---
+  duration_ms: 1.217528
+  type: 'test'
+  ...
+# Subtest: writing hook shape isolates a selected pair and clears same-text stale marks
+ok 7 - writing hook shape isolates a selected pair and clears same-text stale marks
+  ---
+  duration_ms: 2.154139
+  type: 'test'
+  ...
+# Subtest: binding uses supplied sung-row ordinals, never searches repeated spellings
+ok 8 - binding uses supplied sung-row ordinals, never searches repeated spellings
+  ---
+  duration_ms: 2.689776
+  type: 'test'
+  ...
+# Subtest: expansion survives Close/reopen and invalid selections cannot reuse an earlier target
+ok 9 - expansion survives Close/reopen and invalid selections cannot reuse an earlier target
+  ---
+  duration_ms: 2.094791
+  type: 'test'
+  ...
+1..9
+# tests 9
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 49.942113
