@@ -42,6 +42,7 @@ import {
 } from './lexicon_basis.js';
 import { openKitchenBudget } from './paid_budget.js';
 import { createHash } from 'node:crypto';
+import { isDeepStrictEqual } from 'node:util';
 import { AsyncLocalStorage } from 'node:async_hooks';
 import { mkdtemp, writeFile, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -1279,12 +1280,7 @@ async function restoreEquivalentNumbering(args, original, lines, readerScheme) {
     // The worker serializes commands; neither normalization performs grading.
     return [await normalize(original), await normalize(candidate)];
   });
-  if (
-    !canonical[0] ||
-    !canonical[1] ||
-    JSON.stringify(canonical[0]) !== JSON.stringify(canonical[1])
-  )
-    return;
+  if (!canonical[0] || !canonical[1] || !isDeepStrictEqual(canonical[0], canonical[1])) return;
   for (const key of fields) {
     if (original[key] === undefined) delete args[key];
     else args[key] = structuredClone(original[key]);

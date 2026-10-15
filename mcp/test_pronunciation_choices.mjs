@@ -221,7 +221,6 @@ test('native client copies an actual voices option marker and ambiguous unmarked
           phones: ['K', 'AE1', 'T'],
           basis: 'dictionary',
           source: 'test: chosen cat',
-          numbering: 'v1',
         },
       ],
       writer: 'interview',
@@ -229,8 +228,11 @@ test('native client copies an actual voices option marker and ambiguous unmarked
       max_rounds: 1,
       backtrack: 0,
     };
+    assert.equal(Object.hasOwn(start.pronunciations[0], 'numbering'), false);
     const firstRun = parsed(await client.call('lyric_revise', start));
     assert.equal(firstRun.exit_code, 4, JSON.stringify(firstRun));
+    assert.equal(firstRun.pronunciations[0].token, 4);
+    assert.equal(firstRun.pronunciations[0].numbering, 'v2');
     const nextArgs = {
       run_id: firstRun.run_id,
       run_revision: firstRun.run_revision,
@@ -443,7 +445,6 @@ test('cacheless kitchen checkpoint normalizes resends without another provider r
         phones: ['K', 'AE1', 'T'],
         basis: 'dictionary',
         source: 'test: chosen cat',
-        numbering: 'v1',
       },
     ],
     writer: 'kitchen',
@@ -452,7 +453,10 @@ test('cacheless kitchen checkpoint normalizes resends without another provider r
     max_rounds: 1,
   };
   try {
+    assert.equal(Object.hasOwn(original.pronunciations[0], 'numbering'), false);
     const first = verdict(await call(original));
+    assert.equal(first.pronunciations[0].token, 4);
+    assert.equal(first.pronunciations[0].numbering, 'v2');
     assert.equal(calls, 2);
     assert(first.checkpoint, JSON.stringify(first));
     assert.deepEqual(

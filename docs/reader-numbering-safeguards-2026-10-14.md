@@ -100,3 +100,14 @@ source SHA256 is
 `4a586d0e0d59a6c6d0c924e527520ab2e9597f86e6dff210e9294fb671243131`;
 normalized continuation took 7.749 seconds. This is local interface evidence,
 not live-service or lost-provider-response acceptance.
+
+A subsequent review found that JSON serialization order is not structural
+identity: an originally unmarked v1-only pronunciation acquired `numbering`
+at the end of its canonical Python row, while the marked resend placed that
+key first. The comparison now ignores object-key ordering while preserving
+array order and every value. The standalone-checkpoint regression starts with
+that unmarked v1-only row, verifies its migrated marker, and resends the marked
+result after cache and worker loss. No declaration or fingerprint is rewritten.
+Both real MCP cases failed before the structural-equality fix (0/2, 37.269s)
+and passed afterward (2/2, 53.522s), with changed-phone and physical-occurrence
+negative controls retained and no additional writer request during replay.
