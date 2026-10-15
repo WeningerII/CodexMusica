@@ -9,6 +9,8 @@ const sha = (s) => crypto.createHash('sha256').update(s).digest('hex');
 const api = { lySha256: sha };
 vm.createContext(api);
 vm.runInContext(fs.readFileSync('src/pages/lyrics-evidence.js', 'utf8'), api);
+// Test fixture only: explicit fixture phonology and adjusted voices metadata.
+// These serialized records are not a live grading receipt.
 const generated = JSON.parse(
   execFileSync(
     'python3',
@@ -371,4 +373,25 @@ test('actual producer declaration variants cannot acquire a binding from lyric e
     assert.equal(view.freshness, 'unknown');
     assert(view.pairs.every((p) => !p.canPaint && !p.canGo));
   }
+});
+
+test('inspector uses readable labels without hiding partial scope or placement reasons', () => {
+  const f = fixture();
+  const view = f.view();
+  let html = api.lyRelationInspectorMarkup(view, null);
+  assert.match(html, /L1/);
+  assert.doesNotMatch(html, /A · line:0/);
+  assert.match(html, /Confirmed|Cannot determine/);
+  assert.doesNotMatch(html, / · true<| · undecided</);
+  assert.match(html, /3 of \d+, in lyric order/);
+  assert.match(html, /not a complete census/);
+  assert.match(html, /Report scope and exclusions/);
+  for (const excluded of view.population.excluded_schemas) assert(html.includes(excluded));
+  delete f.context.binding.declarationReceipt;
+  html = api.lyRelationInspectorMarkup(f.view(), null);
+  assert.match(html, /Not placed in this draft/);
+  assert.match(
+    html,
+    /aria-label="Not placed in this draft\. No verified report-to-document binding\./
+  );
 });
