@@ -2814,11 +2814,15 @@ if (want('38', 'toast-action-lingers')) {
   const d = foundationEnv();
   const f = path.join(d, 'codex.html');
   const before = fs.readFileSync(f, 'utf8');
-  const removal = 't.querySelector(".toast-action")?.remove()';
-  if (!before.includes(removal))
-    throw new Error('faults: toast action removal not found in codex.html');
+  // Runtime minification preserves hideToast's public name, not its local
+  // parameter. Bind the removal to that function's actual parameter and refuse
+  // a missing/ambiguous anchor rather than accepting an unplanted mutant.
+  const removal =
+    /(function hideToast\(([$\w]+)\)\{[^{}]*?)\2\.querySelector\("\.toast-action"\)\?\.remove\(\)/g;
+  if ([...before.matchAll(removal)].length !== 1)
+    throw new Error('faults: expected exactly one toast action removal in hideToast');
   const after = before
-    .replace(removal, 'void 0 /* __TOAST_FAULT__ */')
+    .replace(removal, (_match, prefix) => prefix + 'void 0 /* __TOAST_FAULT__ */')
     .replace(
       '</body>',
       '<style>/* __TOAST_FAULT__ */ #toast .toast-action { visibility: visible !important; pointer-events: auto !important; }</style>\n</body>'
