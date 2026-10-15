@@ -19,6 +19,11 @@ import json
 from quality.test_schema_instance_evidence import EvidenceTests
 x=EvidenceTests();x.setUp()
 r=x.report();r['identity']['provenance']['voices']=True
+from quality.schema_instance_evidence import from_stream
+r['_test_declaration_variants'] = [from_stream(x.stream, x.phon,
+    declarations=d, provenance={'reader_scheme':'v2','voices':True})['identity']
+    for d in ({'voices':True,'readings':{'1.T1':'other'}},
+              {'voices':True,'groups':[[1,2]]})]
 print(json.dumps(r))
 `,
     ],
@@ -42,6 +47,15 @@ function fixture() {
       voices: true,
       sourceMap: [{ sourceStart: 0, sourceEnd: source.length, start: 8, end: text.length }],
     },
+  };
+  // Synthetic trusted request association for adapter unit tests. Production
+  // integration must obtain this independently; the report alone is insufficient.
+  context.binding.declarationReceipt = {
+    version: 1,
+    requestId: context.requestId,
+    reportIdentityHash: evidence.identity.hash,
+    declarationHash: evidence.identity.declaration_hash,
+    ...context.document,
   };
   return { evidence, context, view: () => api.lyRelationEvidenceView(evidence, context) };
 }
@@ -254,6 +268,7 @@ test('binding uses supplied sung-row ordinals, never searches repeated spellings
   const model = { text: raw, rows, sung: rows.slice(1) };
   const binding = api.lyRelationBindReport(f.evidence, {
     model,
+    declarationReceipt: { ...f.context.binding.declarationReceipt, text: raw },
     requestId: 'request-fixture',
     semanticId: 'semantic-fixture',
     readerScheme: 'v2',
@@ -303,4 +318,57 @@ test('expansion survives Close/reopen and invalid selections cannot reuse an ear
       throw Error('must not repeat invalid restore');
     },
   });
+});
+
+test('identical lyrics cannot bind different or unproved declaration identities', () => {
+  for (const mutate of [
+    (f) => {
+      delete f.context.binding.declarationReceipt;
+    },
+    (f) => {
+      f.evidence.identity.declaration_hash = 'a'.repeat(64);
+    },
+    (f) => {
+      f.context.binding.declarationReceipt.requestId = 'other-request';
+    },
+    (f) => {
+      f.context.binding.declarationReceipt.semanticId = 'different-readings';
+    },
+    (f) => {
+      f.context.binding.declarationReceipt.text = '[different groups]\n' + f.evidence.source_text;
+    },
+    (f) => {
+      f.context.binding.declarationReceipt.readerScheme = 'cut v2';
+    },
+  ]) {
+    const f = fixture();
+    mutate(f);
+    assert.equal(f.view().freshness, 'unknown');
+    assert(f.view().pairs.every((p) => !p.canGo && !p.canPaint));
+    const raw = f.context.document.text;
+    const rows = raw.split('\n').map((raw, i) => ({ raw, text: raw.trim(), i }));
+    assert.equal(
+      api.lyRelationBindReport(f.evidence, {
+        model: { text: raw, rows, sung: rows.slice(1) },
+        requestId: f.context.requestId,
+        ...f.context.document,
+        declarationReceipt: f.context.binding.declarationReceipt,
+      }),
+      null
+    );
+  }
+});
+
+test('actual producer declaration variants cannot acquire a binding from lyric equality', () => {
+  for (const identity of generated._test_declaration_variants) {
+    const f = fixture();
+    assert.equal(identity.source_sha256, f.evidence.identity.source_sha256);
+    assert.notEqual(identity.declaration_hash, f.evidence.identity.declaration_hash);
+    f.evidence.identity = structuredClone(identity);
+    // The previous adapter copied this hash and called the same lyrics current.
+    f.context.binding.identityHash = identity.hash;
+    const view = f.view();
+    assert.equal(view.freshness, 'unknown');
+    assert(view.pairs.every((p) => !p.canPaint && !p.canGo));
+  }
 });

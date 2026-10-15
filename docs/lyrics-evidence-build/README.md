@@ -13,10 +13,15 @@ const binding = lyRelationBindReport(evidence, {
   model: matchedSourceModel,
   requestId: request.request_id,
   semanticId: lyIdentity(matchedSourceModel),
-  readerScheme: LY_READING_CUT,
+  readerScheme: LY_TOKEN_SCHEME,
   voices: matchedSourceModel.voices,
+  declarationReceipt: independentlyVerifiedDeclarationReceipt,
 });
 ```
+
+**Declaration proof is required.** Matching sung lines is insufficient. The current report transport does not independently prove which frontend declaration model produced the internal mandate/comparator/phonology. Until that association is available, pass no receipt: binding returns null, freshness stays unknown, and Go/paint are disabled. Do not fabricate a receipt from the report being bound, from lyric equality, or by translating internal engine objects in the browser.
+
+A future authenticated request/declaration association may supply `declarationReceipt` with `{version:1, requestId, reportIdentityHash, declarationHash, semanticId, text, readerScheme, voices}`. Its two hashes must identify the actual report and declarations measured, and the remaining fields must independently identify the exact matched frontend baseline. The adapter compares every field, snapshots the receipt, and rechecks it on refresh. A producer report's `identity.declaration_hash` alone is not that association. No new endpoint or engine behavior is introduced here; shared integration should retain unknown until it can establish this proof. `LY_TOKEN_SCHEME` is the producer-compatible value `v2`; `LY_READING_CUT` is presentation text `cut v2` and must not be used.
 
 If neither model matches, retain the evidence with a null binding. The report has its own immutable identity. `lyRelationBindReport` uses known row ordinals and trim offsets, verifies every sung line, and returns null if the source cannot be projected. It never binds candidate options or declared groups as measurements. The result model is a basis only for the version actually measured; edits since then do not rebind it.
 
@@ -28,7 +33,7 @@ After `LY.model` updates, before rendering the inspector:
 const view = lyRelationEvidenceView(evidence, {
   requestId: storedRequestId,
   document: { semanticId: lyIdentity(LY.model), text: LY.model.text,
-    readerScheme: LY_READING_CUT, voices: LY.model.voices },
+    readerScheme: LY_TOKEN_SCHEME, voices: LY.model.voices },
   binding,
   declarations: [],       // independently labelled declaration records, if used
   candidateOptions: [],  // independently labelled candidate options, if used

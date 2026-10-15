@@ -19,15 +19,40 @@
     );
   const range = (text, a, b) => boundary(text, a) && boundary(text, b) && a < b;
 
+  // This receipt must come from an independently verified, authenticated
+  // request/declaration association. Never construct it by copying the report
+  // being bound: matching lyric text cannot establish declaration equivalence.
+  function declarationMatches(evidence, receipt, basis) {
+    return !!(
+      receipt?.version === 1 &&
+      typeof evidence?.identity?.declaration_hash === 'string' &&
+      evidence.identity.declaration_hash.length === 64 &&
+      receipt.declarationHash === evidence.identity.declaration_hash &&
+      receipt.reportIdentityHash === evidence.identity.hash &&
+      receipt.requestId === basis.requestId &&
+      receipt.semanticId === basis.semanticId &&
+      receipt.text === basis.text &&
+      receipt.readerScheme === basis.readerScheme &&
+      receipt.voices === basis.voices
+    );
+  }
+
   // Ordinal sung rows + exact trim offsets, never spelling search. The caller
   // supplies only a request-matched source/result model, not the current edited
   // model guessed from the report's words.
   function lyRelationBindReport(
     evidence,
-    { model, requestId, semanticId, readerScheme, voices } = {}
+    { model, requestId, semanticId, readerScheme, voices, declarationReceipt } = {}
   ) {
     if (
       !requestId ||
+      !declarationMatches(evidence, declarationReceipt, {
+        requestId,
+        semanticId,
+        text: model?.text,
+        readerScheme,
+        voices,
+      }) ||
       !model ||
       typeof model.text !== 'string' ||
       !Array.isArray(model.rows) ||
@@ -65,6 +90,7 @@
       readerScheme,
       voices,
       sourceMap,
+      declarationReceipt: { ...declarationReceipt },
     };
   }
 
@@ -86,6 +112,7 @@
       binding?.requestId &&
       context.requestId === binding.requestId &&
       binding.identityHash === identity.hash &&
+      declarationMatches(evidence, binding.declarationReceipt, binding) &&
       binding.sourceText === sourceText &&
       typeof binding.semanticId === 'string' &&
       typeof document.semanticId === 'string' &&
