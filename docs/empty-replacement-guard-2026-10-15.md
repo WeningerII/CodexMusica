@@ -47,26 +47,3 @@ source-identity checks reported ALL PASS. The comparator fingerprint remains
 no calibration rebuild or repin was performed. Local red/green logs are retained
 outside the repository. No provider calls or live-service acceptance claims are
 part of this evidence.
-
-## Follow-up: replacements with no letter or numeral
-
-BB8's review of `d85d2f26` (#561 comment 6193809091) found that the guard
-caught only whitespace. A replacement made of invisible format characters
-(U+200B, U+00AD, U+2060, U+FEFF, U+180E) or of punctuation alone (`-`, `'`,
-`...`) was still spliced, which deletes the bound word just as an empty string
-did. The rule is now that a replacement must contain at least one letter or
-one numeral (Unicode general category L or N). Those are the only characters
-the reader uses to count a token (`raw_final_token`, `line_tokens`), so a
-candidate without one is not a word, and both `swap_end_word` and
-`swap_at_slot` refuse it with `None` through `_no_word_in` in
-`quality/loop.py`. A numeral-only replacement still splices, because the
-reader counts numerals as words. Candidates that contain a letter or numeral
-are handled exactly as before.
-
-`test_loop.py`'s blank-candidate section now covers those invisible and
-punctuation-only candidates under both reader schemes, plus a numeral control.
-Against main's `loop.py` (`f4b84158`) it fails 60 assertions; with the change
-it passes all of them. The comparator pin holds (`51316f79…`).
-
-Out of scope and only logged: invisible characters *inside* an otherwise real
-replacement word (for example `fi​re`) are still spliced as given.
