@@ -1,0 +1,29 @@
+✔ the manifest ships v1 at the bytes #522 shipped, and the published choices are its ids (7.828109ms)
+✔ inheritance first, then the default: new work reads the default, a legacy record stays on none (0.451739ms)
+✔ an unshipped version or a saved sha256 that is not the shipped file refuses, never substitutes (2.752006ms)
+✔ every verdict names its basis from the authenticated record, null/null for CMUdict alone (2.225823ms)
+✔ new-default grade -> omitted revise inherits the graded version and its bytes (6.867951ms)
+✔ a grade read on CMUdict alone, and a receipt from before the field, revise on none (2.921637ms)
+✔ a grade verdict with no authenticated basis records no receipt (0.288591ms)
+✔ raw, cached-run and state continuations keep the recorded basis (50363.746377ms)
+✖ session: default grade, snapshot reload, omitted revise reads the graded version (32.08996ms)
+✔ lyric_types reads the basis lyric_screen reads: default, none, and refusals (M-321) (4856.596663ms)
+✔ v2 is the default for new work, and saved v1 work keeps v1 (2.999961ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 56521.380636
+
+✖ failing tests:
+
+test at ../../tmp/lexicon-profile-31b/two-lines.mjs:380:1
+✖ session: default grade, snapshot reload, omitted revise reads the graded version (32.08996ms)
+  SyntaxError: Unexpected token 'M', "MCP error "... is not valid JSON
+      at JSON.parse (<anonymous>)
+      at TestContext.<anonymous> (file:///tmp/lexicon-profile-31b/two-lines.mjs:392:26)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

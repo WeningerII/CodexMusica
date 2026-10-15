@@ -1,0 +1,19 @@
+✔ the manifest ships v1 at the bytes #522 shipped, and the published choices are its ids (3.010169ms)
+✔ inheritance first, then the default: new work reads the default, a legacy record stays on none (0.448906ms)
+✔ an unshipped version or a saved sha256 that is not the shipped file refuses, never substitutes (0.601704ms)
+✔ every verdict names its basis from the authenticated record, null/null for CMUdict alone (4.467707ms)
+✔ new-default grade -> omitted revise inherits the graded version and its bytes (1.841058ms)
+✔ a grade read on CMUdict alone, and a receipt from before the field, revise on none (0.746548ms)
+✔ a grade verdict with no authenticated basis records no receipt (0.251694ms)
+✔ raw, cached-run and state continuations keep the recorded basis (45103.511158ms)
+✔ session: default grade, snapshot reload, omitted revise reads the graded version (25366.546335ms)
+✔ lyric_types reads the basis lyric_screen reads: default, none, and refusals (M-321) (6042.833568ms)
+✔ v2 is the default for new work, and saved v1 work keeps v1 (3.080383ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 78327.047976
