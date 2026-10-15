@@ -38,6 +38,15 @@ This work does not implement the separately proposed old/new Library page,
 existing validation boundary is retained. No tokenizer, grading, fallback,
 contract-version or deployment-policy change is part of this contract.
 
+Correction, 2026-10-15 (H1): as merged in `539931f5` the guard also reached the
+server's own any-reading trial rows (`pronunciation.pin_readings`), so a
+declared relation on a repeated multi-reading word at a position the v1 and v2
+cuts number differently (`Read--read, read it again`, T2) was refused as
+`SCHEME_UNREADABLE` under the `v2` supplement: a grading change, contrary to
+the sentence above. The repair marks only those server-synthesized rows with
+the lexicon's own numbering; caller rows are validated exactly as before, and
+an unmarked caller row at a shifting position is still refused as ambiguous.
+
 The historical “at most one continuation” instruction is a separate interface
 exercise budget. It is not a production completion cap and causes no runtime
 limit change here. Merge coordination remains with the parent; deployment is

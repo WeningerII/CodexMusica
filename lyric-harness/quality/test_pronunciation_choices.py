@@ -60,6 +60,67 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(P.validate_choices([row], legacy), [row])
         self.assertEqual(P.fingerprint(P.validate_choices([row], legacy)), P.fingerprint([row]))
 
+    def test_server_pinned_readings_survive_the_numbering_guard(self):
+        # H1 (2026-10-15): the CLI guards every lexicon, and `pin_readings`
+        # (the any-reading rule's trial lexicons) handed its OWN positions to
+        # the unmarked-caller ambiguity check. `Read--read` is one v1 token and
+        # two v2 tokens, so v2 T2 names a different word than v1 T2: the
+        # server's own pin was refused and the declared relation went
+        # unjudged on main b887e5ef.
+        line = 'Read--read, read it again'
+        lex = copy.copy(self.base.with_reader_scheme('v2'))
+        lex._numbering_guard = True
+        lex._numbering_notices = []
+        unmarked = choice(line, 2, 'read', ['R', 'IY1', 'D'])
+        # The caller-side safeguard is unchanged: an unmarked caller row at
+        # a shifting position is still ambiguous.
+        with self.assertRaisesRegex(ValueError, 'ambiguous'):
+            P.validate_choices([unmarked], lex)
+        pinned = P.pin_readings(lex, [(line, 2, 'read', ['R', 'IY1', 'D'])], 'server')
+        self.assertIsNotNone(pinned)
+        self.assertEqual([(r['token'], r['word'], r['numbering'])
+                          for r in pinned.pronunciations], [(2, 'read', 'v2')])
+        # A caller's marked seven-field row survives a pin beside it.
+        marked = P.validate_choices([dict(unmarked, numbering='v2')], lex)
+        held = copy.copy(lex)
+        held.pronunciations = marked
+        both = P.pin_readings(held, [(line, 3, 'read', ['R', 'EH1', 'D'])], 'server')
+        self.assertIsNotNone(both)
+        self.assertEqual(both.pronunciations[0], marked[0])
+        self.assertEqual(both.pronunciations[1]['token'], 3)
+        # An unguarded lexicon keeps the six-field interface.
+        plain = self.base.with_reader_scheme('v2')
+        six = P.pin_readings(plain, [(line, 2, 'read', ['R', 'IY1', 'D'])], 'server')
+        self.assertIsNotNone(six)
+        self.assertNotIn('numbering', six.pronunciations[0])
+
+    def test_server_pin_judges_the_declared_relation_through_the_cli(self):
+        # The same failure end to end: with the v2 supplement the guarded
+        # CLI refused the pair as SCHEME_UNREADABLE; it is judged again.
+        import json
+        import subprocess
+        import tempfile
+        here = Path(__file__).resolve().parents[1]
+        with tempfile.TemporaryDirectory() as tmp:
+            draft = Path(tmp) / 'draft.txt'
+            draft.write_text('Read--read, read it again\nthe bed is made for me',
+                             encoding='utf-8')
+            for supplement in ('none', 'v2'):
+                with self.subTest(supplement=supplement):
+                    out = subprocess.run(
+                        [sys.executable, str(here / 'lyric_harness.py'),
+                         f'--lexicon-supplement={supplement}', '--reader-scheme=v2',
+                         '--numbering=v2', 'brief', str(draft),
+                         '--groups=1.T2,2.T2', '--relation=perfect rhyme'],
+                        capture_output=True, text=True, cwd=str(here), timeout=600)
+                    result = next(json.loads(l.split('lyric result: ', 1)[1])
+                                  for l in out.stdout.splitlines()
+                                  if 'lyric result: ' in l)
+                    self.assertTrue(result['coverage']['certified'], out.stdout[-2000:])
+                    self.assertEqual(result['coverage']['refused_obligations'], [])
+                    self.assertNotIn('SCHEME_UNREADABLE',
+                                     [f['code'] for f in result['findings']])
+
     def test_numbering_matrix_matches_independent_raw_piece_oracle(self):
         counts = {'mapped': 0, 'refused': 0, 'moved': 0}
         for separator in ('--', '—', ':', ':--', '/', ' '):
