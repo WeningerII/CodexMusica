@@ -118,6 +118,7 @@ print("WordNet staging contract holds")
         ("data/english_nonlyric_apparatus.json", (253, 9, 136)),
         ("data/english_apparatus_m25_2026-10-04.json", (1639, 0, 1642)),
         ("data/english_apparatus_labels_2026-10-04.json", (1344, 0, 323)),
+        ("data/english_apparatus_residue_2026-10-15.json", (33, 0, 14)),
     )
 
     def test_nonlyric_annotations_preserve_source_text_and_all_other_lyrics(self):
@@ -171,6 +172,49 @@ print("WordNet staging contract holds")
         self.assertEqual(len(stevenson["I Bed in Summer"]), 12)
         self.assertNotIn("To Alison Cunningham", stevenson)  # Contents-list heading.
         self.assertIn("From Her Boy", stevenson)  # The actual dedicatory verse.
+
+    def test_m25_residue_is_exact_and_keeps_the_two_verse_controls(self):
+        from quality.lyric_reader import lyric_items, normalized_rows
+        receipt = json.loads((ROOT / "data/english_apparatus_residue_2026-10-15.json").read_text())
+        item_count = line_count = mark_count = 0
+        for record in receipt["files"]:
+            path = ROOT / "corpus/song" / record["file"]
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), record["after_sha256"])
+            items = {at: (title, body) for title, at, body in lyric_items(path)}
+            rows = {row.lineno: row for row in normalized_rows(path)}
+            checked = set()
+            for item in record["items"]:
+                with self.subTest(file=record["file"], title_line=item["title_line"],
+                                  title=item["title"]):
+                    self.assertEqual(items[item["title_line"]], (item["title"], []))
+                    next_title = min((at for at in items if at > item["title_line"]),
+                                     default=max(rows) + 1)
+                    marks = [int(at) for at, edit in record["replacements"].items()
+                             if item["title_line"] < int(at) < next_title
+                             and edit["reason"] == "stanza-label-attached-only-to-apparatus"]
+                    self.assertTrue(marks)
+                    for at in item["lyric_lines"] + marks:
+                        with self.subTest(line=at):
+                            self.assertEqual(rows[at].kind, "apparatus")
+                            self.assertNotIn(at, checked)
+                            checked.add(at)
+                    item_count += 1
+                    line_count += len(item["lyric_lines"])
+                    mark_count += len(marks)
+            self.assertEqual(checked, {int(at) for at in record["replacements"]})
+        self.assertEqual((item_count, line_count, mark_count), (13, 33, 14))
+        controls = (
+            ("eng_british_richard_lovelace.txt", 3351, "In English",
+             [(3353, "Cinna seems poor in show,"), (3354, "And he is so.")]),
+            ("eng_celtic_robert_burns.txt", 10520,
+             "The Poet's Reply To The Threat Of A Censorious Critic",
+             [(10526, "With Esop's lion, Burns says: Sore I feel"),
+              (10527, "Each other's scorn, but damn that ass' heel!")]),
+        )
+        for name, at, title, lines in controls:
+            items = {n: (t, [(r.lineno, r.text) for r in body])
+                     for t, n, body in lyric_items(ROOT / "corpus/song" / name)}
+            self.assertEqual(items[at], (title, lines))
 
     def test_label_prefixes_strip_exactly_and_refuse_drift(self):
         """A label in front of sung words is declared per line and stripped by

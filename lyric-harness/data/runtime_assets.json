@@ -294,8 +294,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1663982,
-          "sha256": "d00e79c4d19d18220c422b9757fc3405878bc84b79eaeaa1a23f494ccc84ae0f"
+          "bytes": 1665415,
+          "sha256": "6e7b8f70ff96c8ac6fcd44024299764d7539e7ef1ce1e7275d715a73cbe8fa03"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",

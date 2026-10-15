@@ -1,0 +1,172 @@
+{
+  "baseline_receipt_commit": "0c31fdbc76a4077a3cdbd3d6adc93a82ff34ca4d",
+  "comparison": "multiset of every serialized TSV field; row order ignored, multiplicity retained; no field exclusions",
+  "baseline": {
+    "items": 8597,
+    "lines": 278152,
+    "tokens": 1827094,
+    "token_range": [
+      4,
+      3244
+    ],
+    "mattr_ttr_items_at_50": 539
+  },
+  "candidate": {
+    "items": 8585,
+    "lines": 278126,
+    "tokens": 1826900,
+    "token_range": [
+      9,
+      3244
+    ],
+    "mattr_ttr_items_at_50": 527
+  },
+  "unchanged_rows": 8585,
+  "removed_or_changed_before": [
+    {
+      "anaphora": "0.5",
+      "author": "Robert Herrick (1591-1674)",
+      "cv": "0.047619047619047616",
+      "file": "eng_british_robert_herrick.txt",
+      "fwr": "0.2857142857142857",
+      "mattr": "1.0",
+      "n_lines": "2",
+      "n_tokens": "7",
+      "predictability": "nan",
+      "title": "_Consultation._ As noted in the text, this is from Sallust, _Cat._ i"
+    },
+    {
+      "anaphora": "1.0",
+      "author": "Robert Browning (1812-1889)",
+      "cv": "0.0",
+      "file": "eng_british_robert_browning.txt",
+      "fwr": "0.375",
+      "mattr": "0.875",
+      "n_lines": "1",
+      "n_tokens": "8",
+      "predictability": "nan",
+      "title": "=clavichord=. An instrument of the type of the piano"
+    },
+    {
+      "anaphora": "0.3333333333333333",
+      "author": "Robert Browning (1812-1889)",
+      "cv": "0.1963860817699352",
+      "file": "eng_british_robert_browning.txt",
+      "fwr": "0.36363636363636365",
+      "mattr": "0.7878787878787878",
+      "n_lines": "3",
+      "n_tokens": "33",
+      "predictability": "1.0",
+      "title": "With an Introduction by CHARLES G. WHITING"
+    },
+    {
+      "anaphora": "0.5",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.25",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.4375",
+      "mattr": "1.0",
+      "n_lines": "2",
+      "n_tokens": "16",
+      "predictability": "0.0",
+      "title": "Reverence"
+    },
+    {
+      "anaphora": "1.0",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.0",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.5",
+      "mattr": "1.0",
+      "n_lines": "1",
+      "n_tokens": "6",
+      "predictability": "nan",
+      "title": "Doom"
+    },
+    {
+      "anaphora": "0.3333333333333333",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.51425947722658",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.45454545454545453",
+      "mattr": "0.8181818181818182",
+      "n_lines": "3",
+      "n_tokens": "22",
+      "predictability": "1.0",
+      "title": "Faire--Ms"
+    },
+    {
+      "anaphora": "0.25",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.5161743757289484",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.5",
+      "mattr": "0.8529411764705882",
+      "n_lines": "4",
+      "n_tokens": "34",
+      "predictability": "nan",
+      "title": "Caractacus(?)"
+    },
+    {
+      "anaphora": "0.3333333333333333",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.1767766952966369",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.4375",
+      "mattr": "0.9375",
+      "n_lines": "3",
+      "n_tokens": "16",
+      "predictability": "nan",
+      "title": "Dombe--LUCASTA"
+    },
+    {
+      "anaphora": "0.5",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.38461538461538464",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.46153846153846156",
+      "mattr": "0.8461538461538461",
+      "n_lines": "2",
+      "n_tokens": "13",
+      "predictability": "nan",
+      "title": "An Unanoynted--Ms"
+    },
+    {
+      "anaphora": "0.3333333333333333",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.15713484026367724",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.5185185185185185",
+      "mattr": "0.6666666666666666",
+      "n_lines": "3",
+      "n_tokens": "27",
+      "predictability": "1.0",
+      "title": "And--Ms"
+    },
+    {
+      "anaphora": "1.0",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.0",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.25",
+      "mattr": "1.0",
+      "n_lines": "1",
+      "n_tokens": "4",
+      "predictability": "nan",
+      "title": "Lucasta"
+    },
+    {
+      "anaphora": "1.0",
+      "author": "Richard Lovelace (1617-1657)",
+      "cv": "0.0",
+      "file": "eng_british_richard_lovelace.txt",
+      "fwr": "0.5",
+      "mattr": "1.0",
+      "n_lines": "1",
+      "n_tokens": "8",
+      "predictability": "nan",
+      "title": "Blended"
+    }
+  ],
+  "added_or_changed_after": []
+}

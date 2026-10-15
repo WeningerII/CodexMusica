@@ -1,0 +1,34 @@
+{
+  "base": "b887e5effcea84bf11722ca69bd13fc7088755c5",
+  "runtime_tables": "PASS",
+  "files": [
+    {
+      "file": "lyric-harness/corpus/song/eng_british_richard_lovelace.txt",
+      "annotated_rows": 30,
+      "physical_lines_before": 3698,
+      "physical_lines_after": 3698,
+      "reversal_byte_identical": true,
+      "before_sha256": "f1c5e8acbd50aae820e62664240f099d2dac7499787702d62371e78cc60a2ddb",
+      "after_sha256": "16b5eac9e91b1bd7807f44532b9db511163827994d8e634f809c901c922869fc"
+    },
+    {
+      "file": "lyric-harness/corpus/song/eng_british_robert_browning.txt",
+      "annotated_rows": 6,
+      "physical_lines_before": 3084,
+      "physical_lines_after": 3084,
+      "reversal_byte_identical": true,
+      "before_sha256": "49d4d160574bd8d98d2f55f819165752f52102c79c4665a53b4cc9333f6acca8",
+      "after_sha256": "db9448929df8de82ae75d917a2f0b828f0767a2f9713d8d52a7556e64d1b7ed6"
+    },
+    {
+      "file": "lyric-harness/corpus/song/eng_british_robert_herrick.txt",
+      "annotated_rows": 11,
+      "physical_lines_before": 9947,
+      "physical_lines_after": 9947,
+      "reversal_byte_identical": true,
+      "before_sha256": "e56736385cbffeb4956517898f754003440cb1e7fb7c4d1805356b413852e4fa",
+      "after_sha256": "2641255a735a1074879fa20e98791063458e8daf54aac6c2421df77537e63dc1"
+    }
+  ],
+  "other_tracked_corpus_files_changed": false
+}

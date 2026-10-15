@@ -1,0 +1,46 @@
+{
+  "preflight.json": {
+    "bytes": 974,
+    "sha256": "24f3fa19a7a3ddd6d9f1ab423e22244897cddd3b58edbaf60426d1fb6f04148c"
+  },
+  "source-identity.json": {
+    "bytes": 1485,
+    "sha256": "4db14a5e92f61716b32e7a4374cc0dc794b2c8dc8be9cac4d879e35661d4a7e3"
+  },
+  "baseline-provenance-comparison.json": {
+    "bytes": 1348,
+    "sha256": "fb75092dd305acd01a05b57f3a435ebc194afe4d246d30b079b57026b3e5b01b"
+  },
+  "current-calibration-rows.tsv": {
+    "bytes": 1490384,
+    "sha256": "c68d295cfe10b3fc989b1a1c30b02c77fc9f6f49f1541a22afbb6edee2a5d5f2"
+  },
+  "current-calibration-rows.meta.json": {
+    "bytes": 779,
+    "sha256": "5488e8ad15a51d6a8c40e1ac32a7a0be779284a80f8c6769ab8fcd83d9912618"
+  },
+  "current-predictability.tsv": {
+    "bytes": 389804,
+    "sha256": "67d7c4de0baea77cc63a38a5f3bbadb74e9b086d359fddee6e771681255f9a23"
+  },
+  "current-field-cache.sqlite": {
+    "bytes": 220561408,
+    "sha256": "ac8b2b12f4d4fbbe9941cfd877ff56ddf04862943be1b38af9f7fcdc65e2d2aa"
+  },
+  "rebuild.log": {
+    "bytes": 3904,
+    "sha256": "38079866e6030cc84c9bfbf32d3808ce85811da70171043b666dc0454cd310be"
+  },
+  "row-comparison.json": {
+    "bytes": 4699,
+    "sha256": "fc0953c2e4b0af822871c472679a769589154c379bd011ce4248a860b49cdb68"
+  },
+  "curve-check.log": {
+    "bytes": 215,
+    "sha256": "789bbebf04e81f84e6bd17003c84181ce7dcda3b6ce8236daebc9f05cc701c29"
+  },
+  "compare_rows.py": {
+    "bytes": 1278,
+    "sha256": "ffd0cefbe6bc0134fac46321df5fe6426fdbf9b4be50572f19b795e4cc1630bf"
+  }
+}
