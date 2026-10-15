@@ -27,6 +27,10 @@ The harness side runs the harness tree's own `normalize-numbering` verb, using t
 
 ## Pass rule: preserve or refuse
 
+**Status:** WRONG_WORD and DROPPED are the regression gate. The GUESSED rule below is a **proposed compatibility-policy target, pending team review** (3PO, #527 6194424884). It is not a settled grading requirement, and it is reported separately.
+
+**Identity is decided by spans.** A stored word may rule out a basis whose token holds another word. But agreement between bases is always decided by the character spans (`pieces`) each basis names, never by spelling, so repeated identical words at different spans count as different occurrences.
+
 The rule is 3PO's, from #527 comment 6194066262:
 
 - **Never WRONG_WORD** (and never DROPPED).

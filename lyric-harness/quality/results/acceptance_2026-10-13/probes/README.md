@@ -45,17 +45,20 @@ So H1 is not one witness: all five multi-reading words fail.
 - **Page side:** a node replica, running the tree's own `lyrics.js` with its send through `lySubmitLyricsAction('review')`. **It is not a browser run.**
 - **Harness side:** the tree's own `normalize-numbering`.
 - **Matrix:** 162 cases — 4 lines; groups, returns and readings; rows written by the migration, written by a form, or stored as `b887e5ef` writes them; voices off→sung and sung→off, plus controls.
-- **Pass rule:** 3PO's preserve-or-refuse (#527 6194066262). Never bind a different word silently. A row with no recorded basis passes only if it is refused with its bytes unchanged, or if every plausible basis binds the same occurrence.
+- **Pass rule, in two parts that are reported separately:**
+  - **Regression gate:** never bind a different word silently (WRONG_WORD). This is the no-silent-rebinding contract.
+  - **Proposed compatibility-policy target (GUESSED):** 3PO's preserve-or-refuse rule (#527 6194066262 and 6194424884). **It is pending team review, not a settled grading requirement.** A row with no recorded basis is refused, with its bytes unchanged, when its plausible bases name different occurrences.
 
 **Results** (`pa_voices/out/`):
 
-| Page tree | Harness tree | SAME_WORD | REFUSED | WRONG_WORD | Fail (incl. GUESSED) |
+| Page tree | Harness tree | SAME_WORD | REFUSED | WRONG_WORD (regression gate) | GUESSED (proposed policy) |
 |---|---|---:|---:|---:|---:|
-| `b887e5ef` | `b887e5ef` | 105 | 25 | **32** | 64 |
-| `8ea94ac9` | `b887e5ef` | 66 | 75 | 21 | 51 |
-| `5e97e06f` | `b887e5ef` | 66 | 75 | 21 | 51 |
+| `b887e5ef` | `b887e5ef` | 105 | 25 | **32** | 32 |
+| `8ea94ac9` | `b887e5ef` | 66 | 75 | 21 | 30 |
+| `5e97e06f` | `b887e5ef` | 66 | 75 | 21 | 30 |
 
 **What the results show:**
 - At `b887e5ef`, every form-written row, which records its basis, passes. All 32 WRONG_WORD cases come after a voices flip, on rows with no recorded basis. One example: `Oh--oh, (ah) oh my love`, where love becomes my.
 - The older pages' 21 WRONG_WORD cases are read by the `b887e5ef` harness, because those trees have no `normalize-numbering`. They sit on lines where the v1 and v2 cuts number the target the same, so the harness has no ambiguity to refuse. They are older than `b887e5ef`.
-- The 32 GUESSED failures at `b887e5ef` are controls (no flip) on rows with no recorded basis. 3PO's rule counts them as failures; 3PO should confirm that is intended.
+- The 32 GUESSED cases at `b887e5ef` are controls (no flip) on rows with no recorded basis, where the plausible bases name different occurrences. They are counted only against the proposed policy target, not as regressions.
+- **Spelling only rules out a basis; it never proves identity.** A reading's stored word can rule out a basis whose token holds another word. But whether two bases agree is decided by their character spans (pieces), so repeated identical words at different spans count as different occurrences (3PO, 6194424884).
