@@ -127,3 +127,36 @@ sections pass: 18 assertions, all 35 dispatched verbs exercised in each resource
 condition, no tracebacks, and the existing five-verb resource-refusal partition
 unchanged. No command is excluded from a census. The other census sites are the
 already-registered dispatch/map/help checks and `wiring`.
+
+CI run 38664097864 at `1c1e62` passed all 10 high-report cases. Its revise
+request took 16121.629805ms, leaving 43878.370195ms under the unchanged
+60000ms request limit; the full high-report file took 161088.52024ms. The
+verify job 116193948741 instead hit the separate 120000ms file limit in
+`mcp/test_pronunciation_choices.mjs` at 120052.696145ms: the native case had
+passed in 66479.970652ms and the capacity case in 2551.884998ms, while the
+checkpoint case was still running. This evidence does not establish contention
+as the cause.
+
+The native and cacheless checkpoint cases now live in
+`mcp/test_pronunciation_native.mjs` and
+`mcp/test_pronunciation_checkpoint.mjs`. Their test bodies and assertions are
+unchanged; the original file retains all seven schema/unit/capacity cases.
+Both new files are registered in `test:production:offline`,
+`test:pronunciations`, and the connector image census. No production behavior,
+timeout, concurrency setting, or coverage changed.
+
+Local sequential runs used `node --test --test-concurrency=1
+--test-timeout=120000 FILE` with the staged local Python environment. Results:
+
+| File | Passed | File duration (ms) |
+| --- | ---: | ---: |
+| `mcp/test_pronunciation_choices.mjs` | 7/7 | 1620.666404 |
+| `mcp/test_pronunciation_native.mjs` | 1/1 | 44327.383915 |
+| `mcp/test_pronunciation_checkpoint.mjs` | 1/1 | 32282.129232 |
+
+The native test itself took 44122.699461ms and the checkpoint test
+32196.263341ms. All nine original tests remain present, including changed
+phones/physical occurrence refusal and cacheless replay without an additional
+writer request. The kitchen writer is a localhost fixture, not live-service
+acceptance evidence. Prettier, targeted ESLint, and `git diff --check` pass.
+Exact-head CI after this test-only split remains pending.
