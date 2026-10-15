@@ -18,7 +18,18 @@ its valid replacement controls passed. After adding a blank-candidate
 precondition to each shared splice helper, all 33 assertions pass. A mechanical
 whole-line repair now declines with `None`. Nonempty group replacements still
 produce `the room on attire` and `we walk in train`; a placed replacement still
-produces `the house on fire`. Tokenization, grading and replacement policy for
+produces `the house on fire`.
+
+One loop path changes with it, and it is stated here because it is visible:
+the atomic group/return backtrack (`quality/loop.py`, a group with a member
+in a declared verbatim return) asks for whole lines with an empty pivot word
+(`whole_repair=True`). Under the mechanical stub (`default_propose_group`)
+that request used to splice the empty word into each member, proposing the
+verbatim class with its bound words deleted for `verify` to reject; it now
+declines every such attempt, so the stub never answers an atomic return
+repair and only a writer-backed proposer can. `test_loop.py` asserts it on
+the declared-return fixture (every atomic attempt returns `None`; the draft
+is unchanged). Tokenization, grading and replacement policy for
 nonempty candidates are unchanged. The v1 splice body is preserved, with the new
 explicit blank-candidate precondition applied before it.
 

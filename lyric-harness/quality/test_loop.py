@@ -1893,6 +1893,26 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
                   for r in res2.rounds for a in r.attempts
                   if a.tier == 2 and a.line_no == 3), pinned_det)
 
+    # THE MECHANICAL STUB DECLINES THE ATOMIC BACKTRACK (2026-10-15, #561).
+    # The atomic group/return repair asks for whole lines (`whole_repair`,
+    # empty pivot word). `default_propose_group` splices words, so before the
+    # blank-candidate guard it spliced '' into each member and proposed the
+    # verbatim class with its bound words deleted; now every such attempt
+    # declines (None), and a writer-backed proposer is the only route.
+    stub_out = []
+
+    def stub(pb):
+        got = default_propose_group(pb)
+        if pb.whole_repair:
+            stub_out.append(got)
+        return got
+    res3 = revise_loop(RV, PIN, mp, propose=lambda *a, **k: None,
+                       propose_group=stub)
+    check("the mechanical stub declines every atomic return backtrack "
+          "rather than proposing lines with their bound words deleted",
+          stub_out and all(g is None for g in stub_out) and res3.lines == PIN,
+          [g for g in stub_out if g is not None][:2])
+
     # THE WRITER IS TOLD. The prompt renders THE RHYME MANDATE ON THE PIVOT;
     # until this fix it rendered no block for the anchor, so the writer was
     # asked to move a word without being told what it owed.
