@@ -399,6 +399,7 @@ function loopFields(v) {
     status: typeof v?.status === 'string' ? v.status : null,
     certified: typeof v?.certified === 'boolean' ? v.certified : null,
     coverage: v?.coverage ?? null,
+    schema_instance_evidence: v?.schema_instance_evidence ?? null,
     banned_pairs: typeof v?.banned_pairs === 'number' ? v.banned_pairs : null,
     loop_stop_reason: typeof v?.loop_stop_reason === 'string' ? v.loop_stop_reason : null,
     loop_rounds: typeof v?.loop_rounds === 'number' ? v.loop_rounds : null,
