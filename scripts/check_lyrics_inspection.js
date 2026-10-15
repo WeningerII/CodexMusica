@@ -247,6 +247,25 @@ const settle = (p) => p.waitForTimeout(120);
           (await p.locator('[data-ui="ly-relation-source"]:visible').count()) > 1,
           label + ' source choice shown'
         );
+        const choiceLabels = await p
+          .locator('[data-ui="ly-relation-source"][data-id]:visible')
+          .evaluateAll((nodes) =>
+            nodes
+              .filter((n) => n.dataset.id)
+              .map((n) => ({ id: n.dataset.id, text: n.textContent }))
+          );
+        check(
+          choiceLabels.some((c) => / · L1(?:,|$)/.test(c.text)),
+          label + ' chooser displays line:0 as L1'
+        );
+        check(
+          choiceLabels.every((c) => !c.text.includes('line:')),
+          label + ' chooser hides raw line IDs'
+        );
+        check(
+          choiceLabels.some((c) => c.id === second.id),
+          label + ' chooser preserves raw occurrence ID'
+        );
         await click(p, 'ly-relation-source', `[data-id="${second.id}"]`);
         await p.evaluate(() => {
           window.savedInspectionOrigin = lyInspectionSession().origin;

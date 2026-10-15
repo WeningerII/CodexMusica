@@ -418,9 +418,34 @@ test('inspector uses readable labels without hiding partial scope or placement r
   assert.match(html, /These pairs can’t be shown in your lyrics yet/);
   assert.match(html, /They are separate from your declared rhyme scheme and suggested words/);
   assert.doesNotMatch(html, /Measured schema instances/);
-  assert.match(html, /title="No verified report-to-document binding\./);
+  assert.match(html, /title="We couldn’t confirm that these results match your draft\./);
   assert.match(
     html,
-    /aria-label="Not placed in this draft\. No verified report-to-document binding\./
+    /aria-label="Not placed in this draft\. We couldn’t confirm that these results match your draft\./
   );
+});
+
+test('line display labels preserve raw IDs and plain reasons preserve navigation refusals', () => {
+  const ids = ['line:0', 'line:8', 'unknown'];
+  const saved = [...ids];
+  assert.equal(api.lyRelationLineLabels(ids), 'L1, L9, Line unavailable');
+  assert.deepEqual(ids, saved);
+  for (const mode of ['unknown', 'stale']) {
+    const f = fixture();
+    if (mode === 'unknown') delete f.context.binding;
+    else f.context.document.semanticId += '-edited';
+    const view = f.view();
+    assert.equal(view.freshness, mode);
+    const reason =
+      mode === 'unknown'
+        ? 'We couldn’t confirm that these results match your draft.'
+        : 'Your lyrics or reading settings changed.';
+    assert.equal(view.reason, reason);
+    assert(view.pairs.every((p) => !p.canGo && !p.canPaint));
+    assert(Object.values(view.occurrences).every((o) => !o.canGo && !o.canPaint));
+    const html = api.lyRelationInspectorMarkup(view, null);
+    assert(html.includes(`title="${reason}"`));
+    assert(html.includes(`aria-label="Not placed in this draft. ${reason}"`));
+    assert.doesNotMatch(html, /report-to-document binding|reading declarations/);
+  }
 });

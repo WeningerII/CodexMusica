@@ -3,7 +3,7 @@
 /* global LY, LY_TOKEN_SCHEME, LY_MAIN_TOOLS, $ui, esc, lySame, lySungTexts, lyIdentity,
  lyDraft, lyRefresh, lyCaptureWritingOrigin, lyRestoreWritingOrigin, lyGoToRangeParts,
  lySetWritingRangeMarks, lyRelationBindReport, lyRelationEvidenceView,
- lyRelationWritingMarks, lyRelationDockMarkup, lyRelationInspectorMarkup,
+ lyRelationWritingMarks, lyRelationDockMarkup, lyRelationInspectorMarkup, lyRelationLineLabels,
  lyRelationOccurrenceChoices, lyRelationSessionOpen, lyRelationSessionClose,
  lyRelationSessionReopen, lyRelationSessionExpand, lyRelationSessionSelect,
  lyRelationSessionGo, lyRelationSessionReturn, lyRelationSessionStay, lyRelationSessionBack */
@@ -157,7 +157,7 @@
     let html = showing ? lyRelationInspectorMarkup(view, session) : '';
     if (showing && choices.length > 1)
       html =
-        `<section aria-label="Choose an occurrence"><h3>Choose the occurrence to inspect</h3>${choices.map((o) => `<button type="button" data-ui="ly-relation-source" data-id="${esc(o.id)}">${esc(o.text)} · lines ${esc(o.lineIds.join(', '))}</button>`).join('')}<button type="button" data-ui="ly-relation-source" data-id="">All document evidence</button></section>` +
+        `<section aria-label="Choose an occurrence"><h3>Choose the occurrence to inspect</h3>${choices.map((o) => `<button type="button" data-ui="ly-relation-source" data-id="${esc(o.id)}">${esc(o.text)} · ${esc(lyRelationLineLabels(o.lineIds))}</button>`).join('')}<button type="button" data-ui="ly-relation-source" data-id="">All document evidence</button></section>` +
         html;
     if (inline) {
       inline.hidden = !showing || narrow;

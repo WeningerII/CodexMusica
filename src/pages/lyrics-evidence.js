@@ -186,7 +186,7 @@
     const sourceText = evidence?.source_text;
     const identity = evidence?.identity;
     let freshness = 'unknown';
-    let reason = 'No verified report-to-document binding.';
+    let reason = 'We couldn’t confirm that these results match your draft.';
     if (
       evidence?.version === 1 &&
       identity?.hash &&
@@ -213,7 +213,7 @@
         binding.voices === document.voices
           ? 'current'
           : 'stale';
-      reason = freshness === 'current' ? '' : 'The document or reading declarations changed.';
+      reason = freshness === 'current' ? '' : 'Your lyrics or reading settings changed.';
     }
     const maps = Array.isArray(binding?.sourceMap) ? binding.sourceMap : [];
     const mapValid =
@@ -506,6 +506,14 @@
     const source = view.occurrences[session.sourceOccurrence]?.text || 'Selected relation';
     return `<span>${esc(source)}</span><button type="button" data-ui="ly-relation-reopen"><span aria-hidden="true">↔</span> Back to relations</button><button type="button" data-ui="ly-relation-return"${session.returnUnavailable ? ' disabled' : ''}><span aria-hidden="true">↩</span> Return to editing</button>`;
   }
+  function lyRelationLineLabels(ids) {
+    return ids
+      .map((id) => {
+        const match = /^line:(\d+)$/.exec(id);
+        return match ? `L${Number(match[1]) + 1}` : 'Line unavailable';
+      })
+      .join(', ');
+  }
   function lyRelationInspectorMarkup(view, session) {
     const status = view.coverage.status || 'unavailable';
     const summary =
@@ -526,11 +534,7 @@
         const endpoints = ['a', 'b']
           .map((side) => {
             const o = view.occurrences[pair[side]];
-            const lines = o.lineIds.map((id) => {
-              const match = /^line:(\d+)$/.exec(id);
-              return match ? `L${Number(match[1]) + 1}` : 'Line unavailable';
-            });
-            const label = `${side.toUpperCase()} · ${lines.join(', ')}`;
+            const label = `${side.toUpperCase()} · ${lyRelationLineLabels(o.lineIds)}`;
             return `<div><span>${esc(label)}</span> ${
               o.parts.length
                 ? o.parts
@@ -571,5 +575,6 @@
     lyRelationSessionStay,
     lyRelationSessionBack,
     lyRelationInspectorMarkup,
+    lyRelationLineLabels,
   });
 })();
