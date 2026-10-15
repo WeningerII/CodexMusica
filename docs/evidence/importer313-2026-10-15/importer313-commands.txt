@@ -1,0 +1,31 @@
+Worktree: /workspace/musica-importer313
+Branch: codex/importer313-local-20261015
+Base: b887e5effcea84bf11722ca69bd13fc7088755c5
+Available runtimes: python3 = Python 3.12.14; /usr/bin/python3.13 = Python 3.13.5. Python 3.11 was not found; not tested or installed.
+
+Before production fix:
+/usr/bin/python3.13 lyric-harness/imports/gutenberg-ten/integrate.py --check > /tmp/importer313-red.log 2>&1
+  exit 1: only imports/gutenberg-ten/audit.json drift
+python3 lyric-harness/imports/gutenberg-ten/integrate.py --check > /tmp/importer312-before.log 2>&1
+  exit 0
+/usr/bin/python3.13 lyric-harness/quality/test_gutenberg_import.py BatchEvidenceTests.test_audit_description_is_not_runtime_docstring_data > /tmp/importer313-test-red.log 2>&1
+  exit 1: assertion failure, audit description None versus committed string
+/usr/bin/python3.13 /tmp/importer-portability-probe.py lyric-harness/imports/gutenberg-ten/integrate.py > /tmp/importer313-before-delta.json
+python3 /tmp/importer-portability-probe.py lyric-harness/imports/gutenberg-ten/integrate.py > /tmp/importer312-before-delta.json
+  probe initially compared read_text; generated content hashes preserved in both logs
+
+After production fix:
+/usr/bin/python3.13 lyric-harness/quality/test_gutenberg_import.py > /tmp/importer313-green.log 2>&1
+  exit 0: 14 tests
+python3 lyric-harness/quality/test_gutenberg_import.py > /tmp/importer312-green.log 2>&1
+  exit 0: 14 tests
+/usr/bin/python3.13 lyric-harness/imports/gutenberg-next-ten/integrate.py --check > /tmp/importer313-next-green.log 2>&1
+  exit 0
+/usr/bin/python3.13 lyric-harness/imports/gutenberg-third-ten/integrate.py --check > /tmp/importer313-third-green.log 2>&1
+  exit 0
+/usr/bin/python3.13 /tmp/importer-portability-probe.py lyric-harness/imports/gutenberg-ten/integrate.py > /tmp/importer313-after-bytes.json
+  updated probe compares read_bytes with UTF-8 generated output and aggregates each output hash; 725 files byte-identical to committed files
+
+git diff --check
+  exit 0
+No corpus, report, manifest, runtime policy, installed dependency, or matching-rule changes. No commit/push/deploy.
