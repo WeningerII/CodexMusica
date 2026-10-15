@@ -1,0 +1,187 @@
+diff --git a/src/pages/lyrics.js b/src/pages/lyrics.js
+index 372d1fe62..f60d4d8f0 100644
+--- a/src/pages/lyrics.js
++++ b/src/pages/lyrics.js
+@@ -4191,21 +4191,24 @@ function lyRenderOutlineActive() {
+ // The selected line's tools: beside the line when it fits, otherwise in the
+ // dock under the document, so they never cover a word of the lyrics.
+ // Keyboard viewport changes must keep the focused caret above the phone controls.
+-function lyRevealCaretAfterResize() {
++function lyViewportScroller() {
++  const body = $ui('ly-body');
++  // H1 lets the entire page scroll at short heights.
++  return LY.size === 'narrow'
++    ? body && getComputedStyle(body).overflowY !== 'visible'
++      ? body
++      : $ui('ly-page')
++    : $ui('ly-main-scroll');
++}
++function lyViewportCaretRow() {
+   const draft = lyDraft();
++  if (!draft) return null;
++  const caret = draft.selectionDirection === 'forward' ? draft.selectionEnd : draft.selectionStart;
++  const index = draft.value.slice(0, caret).split('\n').length - 1;
++  return document.querySelector(`#ly-overlay .ly-r[data-i="${index}"]`);
++}
++function lyViewportBand(scroller) {
+   const viewport = window.visualViewport;
+-  if (!draft || document.activeElement !== draft || (viewport && viewport.scale !== 1)) return;
+-  const index = draft.value.slice(0, draft.selectionStart).split('\n').length - 1;
+-  const row = document.querySelector(`#ly-overlay .ly-r[data-i="${index}"]`);
+-  const body = $ui('ly-body');
+-  // H1 lets the entire page scroll at short heights; the body then has visible overflow.
+-  const scroller =
+-    LY.size === 'narrow'
+-      ? body && getComputedStyle(body).overflowY !== 'visible'
+-        ? body
+-        : $ui('ly-page')
+-      : $ui('ly-main-scroll');
+-  if (!row || !scroller) return;
+   const bounds = scroller.getBoundingClientRect();
+   let top = Math.max(bounds.top, viewport ? viewport.offsetTop : 0);
+   let bottom = Math.min(
+@@ -4221,6 +4224,16 @@ function lyRevealCaretAfterResize() {
+     if (obstruction.top > midpoint) bottom = Math.min(bottom, obstruction.top);
+     else top = Math.max(top, obstruction.bottom);
+   }
++  return { top, bottom };
++}
++function lyRevealCaretAfterResize() {
++  const draft = lyDraft();
++  const viewport = window.visualViewport;
++  if (!draft || document.activeElement !== draft || (viewport && viewport.scale !== 1)) return;
++  const row = lyViewportCaretRow(),
++    scroller = lyViewportScroller();
++  if (!row || !scroller) return;
++  const { top, bottom } = lyViewportBand(scroller);
+   const rect = row.getBoundingClientRect();
+   if (bottom <= top || (rect.top >= top && rect.bottom <= bottom)) return;
+   scroller.scrollTop += rect.top - (top + Math.max(0, (bottom - top - rect.height) / 2));
+@@ -5700,7 +5713,7 @@ const LY_ACTIONS = {
+       LY.gateOpener = button;
+       LY.gate = true;
+       lyRefresh(true);
+-      $ui('ly-gate')?.scrollIntoView({ block: 'nearest' });
++      $ui('ly-gate')?.scrollIntoView({ block: 'center' });
+       uiFocus(document.querySelector('[data-ui="ly-gate-apply"]'));
+       return;
+     }
+@@ -6637,21 +6650,112 @@ function lyWire(surface) {
+         if (LY.model) lyRefresh(true);
+       } else lyPlaceLineBar();
+     }).observe(surface);
+-  let revealPending = false;
++  let revealPending = false,
++    viewportPosition = null,
++    scrollIntent = 0;
++  for (const event of ['wheel', 'touchmove'])
++    surface.addEventListener(
++      event,
++      () => {
++        scrollIntent++;
++      },
++      { passive: true, capture: true }
++    );
++  const viewportGeometry = () =>
++    [innerWidth, innerHeight, window.visualViewport?.width, window.visualViewport?.height].join(
++      ':'
++    );
++  const rememberViewportPosition = (settled = false) => {
++    if (window.visualViewport && window.visualViewport.scale !== 1) return;
++    const scroller = lyViewportScroller();
++    if (!scroller || revealPending) return;
++    const geometry = viewportGeometry();
++    // Layout can emit scroll/selection events before resize. Keep the old reading position.
++    if (
++      !settled &&
++      viewportPosition &&
++      (viewportPosition.geometry !== geometry || viewportPosition.scroller !== scroller)
++    )
++      return;
++    const { top, bottom } = lyViewportBand(scroller);
++    const row = [...document.querySelectorAll('#ly-overlay .ly-r[data-n]')].find((el) => {
++      const rect = el.getBoundingClientRect();
++      return Number(el.dataset.n) > 0 && rect.bottom > top && rect.top < bottom;
++    });
++    const caret = lyViewportCaretRow()?.getBoundingClientRect();
++    viewportPosition = {
++      geometry,
++      scroller,
++      text: lyDraft()?.value,
++      row: row?.dataset.i,
++      y: row?.getBoundingClientRect().top,
++      caretVisible: !!caret && caret.bottom > top && caret.top < bottom,
++    };
++  };
++  surface.addEventListener(
++    'scroll',
++    (event) => {
++      if (['ly-body', 'ly-page', 'ly-main-scroll'].includes(event.target.id))
++        rememberViewportPosition();
++    },
++    true
++  );
++  document.addEventListener('selectionchange', () => rememberViewportPosition());
+   const viewportResize = () => {
+     if (window.visualViewport && window.visualViewport.scale !== 1) return;
+     if (revealPending) return;
++    const before = viewportPosition;
++    const selection = () => {
++      const draft = lyDraft();
++      return JSON.stringify([
++        draft?.value,
++        draft?.selectionStart,
++        draft?.selectionEnd,
++        draft?.selectionDirection,
++      ]);
++    };
++    const selected = selection();
++    const intendedScroll = scrollIntent;
+     revealPending = true;
+-    requestAnimationFrame(() =>
++    requestAnimationFrame(() => {
++      const firstScroller = lyViewportScroller();
++      const firstScrollTop = firstScroller?.scrollTop;
+       requestAnimationFrame(() => {
+         revealPending = false;
+-        lyRevealCaretAfterResize();
+-      })
+-    );
++        if (window.visualViewport && window.visualViewport.scale !== 1) return;
++        const scroller = lyViewportScroller();
++        // Do not undo an intervening selection or scroll while the layout settles.
++        if (
++          scrollIntent !== intendedScroll ||
++          selection() !== selected ||
++          (scroller === firstScroller && scroller?.scrollTop !== firstScrollTop)
++        ) {
++          rememberViewportPosition(true);
++          return;
++        }
++        if (
++          before &&
++          scroller &&
++          before.scroller !== scroller &&
++          before.text === lyDraft()?.value
++        ) {
++          const row =
++            before.row != null &&
++            document.querySelector(`#ly-overlay .ly-r[data-i="${before.row}"]`);
++          if (row) {
++            // Keep the document's screen offset across H1's scroller switch.
++            // Clamping to the new header would move every later reading row.
++            scroller.scrollTop += row.getBoundingClientRect().top - before.y;
++          }
++        }
++        if (before?.caretVisible) lyRevealCaretAfterResize();
++        rememberViewportPosition(true);
++      });
++    });
+   };
+   window.addEventListener('resize', viewportResize);
+   window.visualViewport?.addEventListener('resize', viewportResize);
+-  viewportResize();
++  rememberViewportPosition(true);
+   const shellReceive = window.uiReceiveReply;
+   if (!shellReceive.lyWrapped) {
+     const wrapped = function (payload, request) {

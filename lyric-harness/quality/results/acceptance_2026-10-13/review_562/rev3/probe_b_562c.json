@@ -1,0 +1,298 @@
+{
+ "r2b_row28_y": {
+  "y844": 344.31,
+  "y508": 344.31,
+  "scroll508": {
+   "surface-lyrics": 0,
+   "ly-page": 1047,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "y844back": 344.31,
+  "errs": []
+ },
+ "r4c_backward_caret_visible_before": {
+  "before": {
+   "i": 25,
+   "top": 1304.921875,
+   "bottom": 1333.71875,
+   "inView": false,
+   "over": [],
+   "focused": true,
+   "sel": [
+    610,
+    863,
+    "backward"
+   ]
+  },
+  "after": {
+   "i": 25,
+   "top": 1304.921875,
+   "bottom": 1333.71875,
+   "inView": false,
+   "over": [],
+   "focused": true,
+   "sel": [
+    610,
+    863,
+    "backward"
+   ]
+  },
+  "errs": []
+ },
+ "a2b_rapid_700_508": {
+  "before": {
+   "i": 9,
+   "top": 574.171875,
+   "bottom": 602.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "after": {
+   "i": 9,
+   "top": 235.171875,
+   "bottom": 263.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "errs": []
+ },
+ "a2b_rapid_508_844_508": {
+  "before": {
+   "i": 9,
+   "top": 574.171875,
+   "bottom": 602.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "after": {
+   "i": 9,
+   "top": 235.171875,
+   "bottom": 263.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "errs": []
+ },
+ "a2b_rapid_600_560_520_508": {
+  "before": {
+   "i": 9,
+   "top": 574.171875,
+   "bottom": 602.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "after": {
+   "i": 9,
+   "top": 235.171875,
+   "bottom": 263.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "errs": []
+ },
+ "a3b_rotate_focused": {
+  "before": {
+   "i": 9,
+   "top": 574.171875,
+   "bottom": 602.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "rotated": {
+   "i": 9,
+   "top": 174,
+   "bottom": 206,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "back": {
+   "i": 9,
+   "top": 479.171875,
+   "bottom": 507.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "errs": []
+ },
+ "a5b_type_during_queue_line9": {
+  "before": {
+   "i": 9,
+   "top": 574.171875,
+   "bottom": 602.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    211,
+    211,
+    "forward"
+   ]
+  },
+  "after": {
+   "i": 9,
+   "top": 235.171875,
+   "bottom": 263.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    213,
+    213,
+    "forward"
+   ]
+  },
+  "afterNextKey": {
+   "i": 9,
+   "top": 235.171875,
+   "bottom": 263.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    214,
+    214,
+    "forward"
+   ]
+  },
+  "line": "xyzI sing the quiet song 9",
+  "errs": []
+ },
+ "a5b_control_type_after_settle_line9": {
+  "after": {
+   "i": 9,
+   "top": 235.171875,
+   "bottom": 263.96875,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    213,
+    213,
+    "forward"
+   ]
+  },
+  "errs": []
+ },
+ "a5b_type_during_queue_line30": {
+  "before": {
+   "i": 30,
+   "top": 574.90625,
+   "bottom": 603.703125,
+   "inView": false,
+   "over": [
+    "ly-linedock"
+   ],
+   "focused": true,
+   "sel": [
+    735,
+    735,
+    "forward"
+   ]
+  },
+  "after": {
+   "i": 30,
+   "top": 483.90625,
+   "bottom": 512.703125,
+   "inView": false,
+   "over": [
+    "ly-mnav"
+   ],
+   "focused": true,
+   "sel": [
+    737,
+    737,
+    "forward"
+   ]
+  },
+  "afterNextKey": {
+   "i": 30,
+   "top": 483.90625,
+   "bottom": 512.703125,
+   "inView": false,
+   "over": [
+    "ly-mnav"
+   ],
+   "focused": true,
+   "sel": [
+    738,
+    738,
+    "forward"
+   ]
+  },
+  "line": "xyzI sing the quiet song 30",
+  "errs": []
+ },
+ "a5b_control_type_after_settle_line30": {
+  "after": {
+   "i": 30,
+   "top": 208.90625,
+   "bottom": 237.703125,
+   "inView": true,
+   "over": [],
+   "focused": true,
+   "sel": [
+    737,
+    737,
+    "forward"
+   ]
+  },
+  "errs": []
+ },
+ "label": "pr562c",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-562c"
+}

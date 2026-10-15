@@ -1,0 +1,18 @@
+# rev3 (head f25faf00). S=scratchpad R3=$S/review_562/rev3. env: NODE_PATH=/home/user/CodexMusica/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
+git -C /home/user/CodexMusica worktree remove --force $S/wt-562 ; ... --force $S/wt-562b
+git -C /home/user/CodexMusica fetch origin f25faf008c629f8776d97353945bca5718d08146
+git -C /home/user/CodexMusica worktree add -f $S/wt-562c f25faf008c629f8776d97353945bca5718d08146
+ln -s /home/user/CodexMusica/node_modules $S/wt-562c/node_modules; cp $S/wt-main2/lyric-harness/cmudict.dict $S/wt-562c/lyric-harness/
+# wt-562 was already absent; wt-562b removed
+git show <c>:codex.html > $R3/bundles/codex.<c>.html for 1b819d58 7b5b3254 a68c5e88d
+(cd $S/wt-562c && time node scripts/check_lyrics_page.js) > $R3/full_562c.log 2>&1
+# full page suite: PASS 747 exit 0
+cd $S/wt-562c
+TEST_EVIDENCE=$R3/vp_green node scripts/check_lyrics_viewport.js > $R3/vp_green.log
+TEST_HTML=$R3/bundles/codex.7b5b3254.html TEST_EVIDENCE=$R3/vp_red_7b5b node scripts/check_lyrics_viewport.js > $R3/vp_red_7b5b.log
+TEST_EVIDENCE=$R3/gate_green node scripts/check_lyrics_gate.js > $R3/gate_green.log
+TEST_HTML=$R3/bundles/codex.7b5b3254.html TEST_CASE=page-top TEST_EVIDENCE=$R3/gate_red_7b5b_pagetop node scripts/check_lyrics_gate.js > $R3/gate_red_7b5b_pagetop.log
+(cd $S/wt-562c && node scripts/build_html.js --out=$R3/codex_562c_rebuilt.html --check --quiet && cmp ...; eslint ...; prettier --check ...)
+node $R3/probe_rev3.js $S/wt-562c pr562c > $R3/probe_562c.json ; node $R3/probe_rev3.js <root w/ 7b5b bundle> pr562b > $R3/probe_562b.json  (root: $R3/root7b5b = symlinks to wt-562c entries + bundles/codex.7b5b3254.html as codex.html)
+node $R3/probe_rev3b.js $S/wt-562c > $R3/probe_b_562c.json; node $R3/probe_rev3b.js $R3/root7b5b > $R3/probe_b_562b.json   # caret-visible-before variants (set-then-focus)
+node $S/review_562/rev2/probe_tools_callout.js $S/wt-562c > $R3/probe_tools_callout_562c.json

@@ -1,0 +1,32 @@
+{
+ "390x508": {
+  "open": {
+   "gate": true,
+   "applyTop": 296,
+   "vh": 508
+  },
+  "after": {
+   "ui": "ly-run-review",
+   "inTools": false,
+   "inHead": true,
+   "top": 225,
+   "bottom": 269,
+   "vh": 508
+  }
+ },
+ "390x844": {
+  "open": {
+   "gate": true,
+   "applyTop": 415,
+   "vh": 844
+  },
+  "after": {
+   "ui": "ly-run-review",
+   "inTools": false,
+   "inHead": true,
+   "top": 225,
+   "bottom": 269,
+   "vh": 844
+  }
+ }
+}

@@ -1,0 +1,5 @@
+# BB8 2026-10-15 ~15:30 UTC. Clean worktrees: <scratch>/wt-563 = 315c2aa8b (#563 head), <scratch>/wt-main2 = b887e5eff (base). CPython 3.11.17.
+cd <scratch>/wt-main2/lyric-harness && python3 map/build.py --check   # -> "lyric map is current"
+cd <scratch>/wt-563/lyric-harness   && python3 map/build.py --check   # -> "lyric map is out of date: files ... run: python3 map/build.py"
+cd <scratch>/wt-563/lyric-harness   && python3 map/build.py && git diff -- map/files.md   # -> files_md_after_build.diff
+# The only change: imports/gutenberg-ten/integrate.py listed at 4k instead of 3.9k (and re-sorted), because #563 grows that file. Nothing else in the map moves.

@@ -1,0 +1,65 @@
+  try {
+    const setFocus = (p, a, b = a, dir = 'forward') => p.evaluate(([a, b, dir]) => { const t = lyDraft(); t.setSelectionRange(a, b, dir); t.focus(); }, [a, b, dir]);
+    const rowY = (p, i) => p.evaluate((i) => Math.round(document.querySelector(`#ly-overlay .ly-r[data-i="${i}"]`).getBoundingClientRect().top * 100) / 100, i);
+    // R2': unfocused reading row 28 screen y across 844->508->844
+    {
+      const p = await open(390, 844);
+      await p.evaluate(() => { document.getElementById('ly-body').scrollTop = 1047; });
+      await settle(p);
+      const y0 = await rowY(p, 28);
+      await p.setViewportSize({ width: 390, height: 508 }); await settle(p);
+      const y1 = await rowY(p, 28), s1 = await scrolls(p);
+      await p.setViewportSize({ width: 390, height: 844 }); await settle(p);
+      out.r2b_row28_y = { y844: y0, y508: y1, scroll508: s1, y844back: await rowY(p, 28), errs: p.errs };
+      await p.ctx.close();
+    }
+    // backward selection with caret (start, line 25) visible before
+    {
+      const p = await open(390, 844);
+      await setFocus(p, offOf(25), offOf(35) + 3, 'backward');
+      await settle(p);
+      const before = await rowInfo(p, 25);
+      await p.setViewportSize({ width: 390, height: 508 }); await settle(p);
+      out.r4c_backward_caret_visible_before = { before, after: await rowInfo(p, 25), errs: p.errs };
+      await p.ctx.close();
+    }
+    // A2': rapid resizes, caret visible before (set-then-focus line 9)
+    for (const seq of [[700, 508], [508, 844, 508], [600, 560, 520, 508]]) {
+      const p = await open(390, 844);
+      await setFocus(p, offOf(9)); await settle(p);
+      const before = await rowInfo(p, 9);
+      for (const h of seq) await p.setViewportSize({ width: 390, height: h });
+      await settle(p); await settle(p);
+      out['a2b_rapid_' + seq.join('_')] = { before, after: await rowInfo(p, 9), errs: p.errs };
+      await p.ctx.close();
+    }
+    // A3': rotation-like with caret visible before (line 9), then rotate back
+    {
+      const p = await open(390, 844);
+      await setFocus(p, offOf(9)); await settle(p);
+      const before = await rowInfo(p, 9);
+      await p.setViewportSize({ width: 844, height: 390 }); await settle(p); await settle(p);
+      const rot = await rowInfo(p, 9);
+      await p.setViewportSize({ width: 390, height: 844 }); await settle(p); await settle(p);
+      out.a3b_rotate_focused = { before, rotated: rot, back: await rowInfo(p, 9), errs: p.errs };
+      await p.ctx.close();
+    }
+    // A5': typing during the queued rise, caret visible before; then one more key after settling; control types after settle
+    for (const n of [9, 30]) {
+      const p = await open(390, 844);
+      await setFocus(p, offOf(n)); await settle(p);
+      const before = await rowInfo(p, n);
+      await Promise.all([p.setViewportSize({ width: 390, height: 508 }), p.keyboard.type('xy')]);
+      await settle(p); await settle(p);
+      const after = await rowInfo(p, n);
+      await p.keyboard.type('z'); await settle(p);
+      const afterMore = await rowInfo(p, n);
+      out['a5b_type_during_queue_line' + n] = { before, after, afterNextKey: afterMore, line: await p.evaluate((n) => lyDraft().value.split('\n')[n], n), errs: p.errs };
+      await p.ctx.close();
+      const q = await open(390, 844);
+      await setFocus(q, offOf(n)); await settle(q);
+      await q.setViewportSize({ width: 390, height: 508 }); await settle(q); await settle(q);
+      await q.keyboard.type('xy'); await settle(q);
+      out['a5b_control_type_after_settle_line' + n] = { after: await rowInfo(q, n), errs: q.errs };
+      await q.ctx.close();
+    }

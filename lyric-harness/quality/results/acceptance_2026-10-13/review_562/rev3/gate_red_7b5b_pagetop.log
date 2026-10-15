@@ -1,0 +1,26 @@
+{
+  "cases": 6,
+  "errors": [
+    "warning/Applyall not immediately visible/focused {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"apply\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "gate actions not immediately visible/hittable {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"apply\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"saved\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "gate actions not immediately visible/hittable {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"saved\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "gate actions not immediately visible/hittable {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "action did not close gate {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "Cancel changed tab {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "Cancel did not restore actual visible opener {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "restored opener obstructed {\"width\":844,\"height\":390,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"apply\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"apply\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"saved\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"saved\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "warning/Applyall not immediately visible/focused {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "gate actions not immediately visible/hittable {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "action did not close gate {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "Cancel changed tab {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "Cancel did not restore actual visible opener {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}",
+    "restored opener obstructed {\"width\":390,\"height\":508,\"mode\":\"keyboard\",\"action\":\"close\",\"panel\":true,\"start\":\"page-top\",\"touchAction\":true}"
+  ]
+}
+exit 1

@@ -1,0 +1,16 @@
+{
+  "cases": 22,
+  "errors": [
+    "unfocused scroller switch lost reading position",
+    "deliberate scroll-away snapped during resize to800",
+    "same-scroller resize changed deliberate scroll",
+    "scroll-away resize changed caret/document",
+    "deliberate scroll-away snapped during resize to508",
+    "scroll-away resize changed caret/document",
+    "forward selection active end not revealed",
+    "queued early-wheel-intent was overwritten by resize",
+    "queued wheel-intent was overwritten by resize",
+    "queued selection-intent was overwritten by resize"
+  ]
+}
+exit 1
