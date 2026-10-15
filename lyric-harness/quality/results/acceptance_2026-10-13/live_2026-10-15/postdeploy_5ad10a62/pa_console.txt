@@ -1,0 +1,11 @@
+== off-to-sung {"url":"https://codexmusica.com/codex.html","status":200,"bytes":1300863,"sha256":"fff0bf2f79a84eb36d39664b82d0c2e53d649973a93da34f0fafe2cbb3198c01","last_modified":"Thu, 15 Oct 2026 20:29:37 GMT","etag":"W/\"6ad137b1-13d97f\""}
+ send1 decl: null | rows after: ["[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2 — cut v2]"]
+ send2 decl: null | rows after: ["[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2 — cut v2]","[SETUP — voices — parentheses are sung]"]
+ intercepted: GET https://mcp.codexmusica.com/chat/status
+ completed blocked requests: 0 | page errors: 0
+== sung-to-off {"url":"https://codexmusica.com/codex.html","status":200,"bytes":1300863,"sha256":"fff0bf2f79a84eb36d39664b82d0c2e53d649973a93da34f0fafe2cbb3198c01","last_modified":"Thu, 15 Oct 2026 20:29:37 GMT","etag":"W/\"6ad137b1-13d97f\""}
+ send1 decl: null | rows after: ["[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]","[SETUP — voices — parentheses are sung]"]
+ send2 decl: null | rows after: ["[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]"]
+ intercepted: GET https://mcp.codexmusica.com/chat/status
+ completed blocked requests: 0 | page errors: 0
+zero blocked requests completed: true

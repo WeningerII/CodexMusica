@@ -1,0 +1,124 @@
+{
+ "direction": "sung-to-off",
+ "intercepted": [
+  {
+   "t": "2026-10-15T21:28:32.736Z",
+   "method": "GET",
+   "url": "https://mcp.codexmusica.com/chat/status",
+   "postData": null
+  }
+ ],
+ "completed_blocked": [],
+ "failed_blocked": [
+  {
+   "method": "GET",
+   "url": "https://mcp.codexmusica.com/chat/status",
+   "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+  }
+ ],
+ "all_requests": 7,
+ "page_errors": [],
+ "console_errors": [
+  "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector"
+ ],
+ "steps": [
+  {
+   "step": "draft typed into #lyrics-draft (fill + blur)",
+   "rows": [
+    "[SETUP — rhyme groups — 1.T4,2.end]",
+    "[SETUP — voices — parentheses are sung]"
+   ]
+  },
+  {
+   "step": "send 1: Run review clicked",
+   "chat_posts": 0,
+   "declarations": null,
+   "lyric_context_keys": null,
+   "task": null,
+   "message": null,
+   "rows_after": [
+    "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]",
+    "[SETUP — voices — parentheses are sung]"
+   ],
+   "editor_after": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]\n[SETUP — voices — parentheses are sung]\nOh--oh, (ah) oh my love\na song for us above",
+   "gate_open": false,
+   "chat_log_tail": [
+    ""
+   ]
+  },
+  {
+   "step": "NON-UI: cleared chatState.pending/disconnected left by the aborted POST",
+   "pending_before": null
+  },
+  {
+   "step": "voices set unsung via Tools > Repeats & voices > \"Unsung aside\" > apply",
+   "rows": [
+    "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]"
+   ],
+   "editor": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]\nOh--oh, (ah) oh my love\na song for us above",
+   "voices_model": false
+  },
+  {
+   "step": "send 2: Run review clicked",
+   "chat_posts": 0,
+   "declarations": null,
+   "lyric_context_keys": null,
+   "task": null,
+   "message": null,
+   "rows_after": [
+    "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]"
+   ],
+   "editor_after": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]\nOh--oh, (ah) oh my love\na song for us above",
+   "gate_open": false,
+   "chat_log_tail": [
+    ""
+   ]
+  }
+ ],
+ "document": {
+  "url": "https://codexmusica.com/codex.html",
+  "status": 200,
+  "bytes": 1300863,
+  "sha256": "fff0bf2f79a84eb36d39664b82d0c2e53d649973a93da34f0fafe2cbb3198c01",
+  "last_modified": "Thu, 15 Oct 2026 20:29:37 GMT",
+  "etag": "W/\"6ad137b1-13d97f\""
+ },
+ "build": {
+  "engine": "83ed4a2938b9c2360bf9941d81fe811f214ae94a",
+  "chat_backend": "https://mcp.codexmusica.com",
+  "location": "https://codexmusica.com/codex.html#lyrics"
+ },
+ "send1": {
+  "step": "send 1: Run review clicked",
+  "chat_posts": 0,
+  "declarations": null,
+  "lyric_context_keys": null,
+  "task": null,
+  "message": null,
+  "rows_after": [
+   "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]",
+   "[SETUP — voices — parentheses are sung]"
+  ],
+  "editor_after": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]\n[SETUP — voices — parentheses are sung]\nOh--oh, (ah) oh my love\na song for us above",
+  "gate_open": false,
+  "chat_log_tail": [
+   ""
+  ]
+ },
+ "send2": {
+  "step": "send 2: Run review clicked",
+  "chat_posts": 0,
+  "declarations": null,
+  "lyric_context_keys": null,
+  "task": null,
+  "message": null,
+  "rows_after": [
+   "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]"
+  ],
+  "editor_after": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]\nOh--oh, (ah) oh my love\na song for us above",
+  "gate_open": false,
+  "chat_log_tail": [
+   ""
+  ]
+ }
+}
