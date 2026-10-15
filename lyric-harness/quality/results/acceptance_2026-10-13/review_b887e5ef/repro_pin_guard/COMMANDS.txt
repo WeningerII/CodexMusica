@@ -1,0 +1,4 @@
+# BB8, 2026-10-15 ~13:45 UTC. Clean worktrees: <scratch>/wt-5e9 = 5e97e06fd, <scratch>/wt-main2 = b887e5eff; cmudict.dict staged in each.
+# pin.txt = "Read--read, read it again" / "the bed is made for me"
+cd <scratch>/<tree>/lyric-harness && LYRIC_STAGED_DATA=<repo>/lyric-harness/data python3 lyric_harness.py --lexicon-supplement=<none|v2> --reader-scheme=v2 brief pin.txt --groups=1.T2,2.T2 "--relation=perfect rhyme" [--numbering=v2 on b887 only]
+# outputs: <tree>_<sup>.out

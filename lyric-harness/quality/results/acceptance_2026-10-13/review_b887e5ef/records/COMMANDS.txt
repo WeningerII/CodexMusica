@@ -1,0 +1,26 @@
+# commands run
+git -C /home/user/CodexMusica log --oneline 8ea94ac9..b887e5eff
+gh api repos/WeningerII/CodexMusica/commits/{0c31fdbc..,c99aba02..} ; contents listing
+gh api commits/0c31fdbc76a4077a3cdbd3d6adc93a82ff34ca4d; contents comparator_remeasurement_2026-10-14@0c31fdbc76a4077a3cdbd3d6adc93a82ff34ca4d
+downloaded receipts via gh api raw into receipts/
+nice python3 pin_parts.py wt-main2/lyric-harness (b887 closure parts)
+python: compare doc-embedded superseded pin JSON vs f2e973db^ comparator_pin.json
+git diff 8ea94ac9 b887e5eff (excluding json/txt/tap/log) > range.diff
+python3 split/compare_tests.py before(6d5c8d8f^) vs 3 after files
+node --test --test-concurrency=1 --test-timeout=1000 nodetimeout/two.test.mjs (2x700ms tests): checks whether --test-timeout bounds each file
+python: scan range.diff for removed assertion/skip lines -> removed_asserts.txt
+per-commit assertion line add/remove counts over 8ea94ac9..b887 (per_commit.diff)
+gh api actions/jobs/116193948741/logs > verify_116193948741.log
+python: json semantic equality before/after 37f7bcb7 for boo_quote_probe.json, serialized_record_comparison.json
+python: per_k_original.py.txt verbatim-in RECEIPT.txt; sonnet artifact_hashes check
+python/diff: test 8 assertion and call-site counts across 88fa63a8^, 88fa63a8, b887
+git -C /home/user/CodexMusica show f2e973dbb / 55e89f28e / 88fa63a81 / 3870c8e7d / 68e213d0a / 6d5c8d8ff / 3fdc46797 / 44f93fcf7 / 34a944f00
+gh api repos/WeningerII/CodexMusica/compare/{0c31fdbc,c99aba02}...codex/reader-timeout-evidence-20261014 (receipt reachability)
+gh api repos/.../branches?per_page=100&page=N > branches.txt
+gh api repos/.../commits/{55e89f28,f2e973db,88fa63a8,6d5c8d8f,8ea94ac9,b887}/check-runs (record/verify/suites-result/gate/freshness conclusions)
+gh api contents of approved_record_refresh_2026-10-14, implemented_fixture_sanitized_2026-10-14, final_timeout_2026-10-14 (@07b0e35d) -> receipts/
+python3: artifact_hashes.json verification for downloaded comparator + sonnet receipt files
+python3: doc rounding vs per_k_rows.json; profile logs 'asked 21, answered 21'
+grep -oE '\[ ?[0-9]+ ?\]' on 5 corpus files in wt-main2 (footnote marker count vs 47)
+python3: wc -c BACKLOG.md / files.md at 55e89f28^, 55e89f28, b887 (CLAUDE.md token sizes)
+gh api actions/jobs/116193948741/logs -> FAILED (blob storage 403 via proxy); CI log claims in reader-numbering-safeguards doc NOT independently verified

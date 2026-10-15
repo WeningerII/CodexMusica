@@ -1,0 +1,51 @@
+THE SPAN SEARCH AGAINST A NULL UNDER THE SAME SEARCH (doctrine 56)
+  187 sonnets, 1102 mandated pairs, 10 within-sonnet line-permutation replicates
+  the search, as its two factors (doctrine 56; M-137): mean k 5.46 = 2.32 x 2.31 candidates per side, max k 36
+  arms: full k-search vs `endword_only` (k=1), on real and permuted text
+
+    theta   REAL lift   NULL lift        null range  search buys   chance
+     0.60     +13.34      +15.72  +14.34 to +17.03       -2.38   117.8%
+     0.65      +9.44      +10.82   +9.26 to +11.93       -1.39   114.7%
+     0.70      +6.62       +7.24    +6.53 to +7.93       -0.62   109.4%
+     0.75      +5.35       +4.05    +3.38 to +5.01       +1.31    75.6%  <- theta_rhyme
+     0.80      +4.17       +2.27    +1.64 to +2.55       +1.90    54.4%
+     0.85      +3.54       +1.28    +0.91 to +1.82       +2.26    36.0%
+     0.90      +2.90       +0.55    +0.36 to +1.09       +2.36    18.8%
+
+  MEASURED CROSSOVER (adopted 0.72): the theta below which the search
+  lifts the null MORE than the signal, so a looser band is loosened further
+  by a mechanism no coordinate declares.
+
+  THE SEARCH IS NEAR-DEGENERATE, AND THE MODE IS THE PROBLEM (M-135):
+    realized k over 1102 sonnet pairs — k=2: 13 (1.2%), k=4: 808 (73.3%), k=6: 33 (3.0%), k=8: 174 (15.8%), k=9: 2 (0.2%), k=10: 6 (0.5%), k=12: 25 (2.3%), k=14: 1 (0.1%), k=16: 28 (2.5%), k=18: 1 (0.1%), k=24: 7 (0.6%), k=32: 1 (0.1%), k=36: 3 (0.3%)
+    no-search (k=1) pairs: 0 — the module's own no-search arm is CONSTRUCTED, not observed
+      bucket   pairs   crossover   buys pp    clears theta
+       k=3-4     808      0.7590     -0.16     NO, 4 of 10
+       k=5-8     207      0.6424     +5.30   yes, 10 of 10
+      k=9-16      62           —         —    not measured
+       k=17+      12           —         —    not measured
+    below the first bucket: 13 pair(s), counted apart and never folded in (doctrine 79)
+    the sonnet CROSSOVERS above are a RECORD (re-banked 2026-10-14; receipt in PER_K_CROSSOVER's note); what --check
+    re-derives is the bucket POPULATIONS beside them, so a population that moves
+    says the crossovers are stale rather than letting them read as current.
+
+======================================================================
+CHECK — the shipped theta against the measured crossover, and the pins
+======================================================================
+  [ok  ] theta_rhyme 0.75 sits above the measured crossover 0.72
+         margin +0.03 — thin, and that is the finding, not a comfort
+  [ok  ] sonnet bucket k=3-4    committed 808 pairs, measured 808
+  [ok  ] sonnet bucket k=5-8    committed 207 pairs, measured 207
+  [ok  ] theta 0.60 real lift  committed +12.55 pp, measured +13.34 pp (tol 1.5)
+  [ok  ] theta 0.60 null lift  committed +15.31 pp, measured +15.72 pp (tol 1.5)
+  [ok  ] theta 0.70 real lift  committed +6.14 pp, measured +6.62 pp (tol 1.5)
+  [ok  ] theta 0.70 null lift  committed +7.06 pp, measured +7.24 pp (tol 1.5)
+  [ok  ] theta 0.75 real lift  committed +4.96 pp, measured +5.35 pp (tol 1.5)
+  [ok  ] theta 0.75 null lift  committed +3.93 pp, measured +4.05 pp (tol 1.5)
+  [ok  ] theta 0.80 real lift  committed +3.88 pp, measured +4.17 pp (tol 1.5)
+  [ok  ] theta 0.80 null lift  committed +2.12 pp, measured +2.27 pp (tol 1.5)
+  [ok  ] theta 0.90 real lift  committed +2.89 pp, measured +2.90 pp (tol 1.5)
+  [ok  ] theta 0.90 null lift  committed +0.54 pp, measured +0.55 pp (tol 1.5)
+
+RESULT: PASS — the crossover holds and the shipped band sits above it.
+exit 0

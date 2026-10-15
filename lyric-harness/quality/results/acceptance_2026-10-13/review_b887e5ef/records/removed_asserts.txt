@@ -1,0 +1,5 @@
+mcp/test_high_report.mjs: -  // exit 0 with no question. It used to suspend because L2~L4 was UNJUDGED
+mcp/test_high_report.mjs: -      assert.ok(!next.isError, next.content[0].text);
+mcp/test_high_report.mjs: -      if (v.exit_code === 4) assert.equal(v.run_revision, prior.run_revision + 1);
+mcp/test_high_report.mjs: -    assert.equal(ids.size, 1, 'one run, not one per state-carried call');
+mcp/test_high_report.mjs: -      assert.ok(!followed.isError, followed.content[0].text);

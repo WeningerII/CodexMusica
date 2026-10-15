@@ -1,0 +1,39 @@
+setup: copied wt-main2 (b887e5eff) to tree/ with symlinks for .git api assets docs library references and node_modules
+cd tree/lyric-harness; LYRIC_STAGED_DATA=... nice python -m unittest quality.test_pronunciation_choices -v > logs/py_pron.log
+probes/blank_swap.py on b887 tree
+tree_d85 = tree/lyric-harness + loop.py,test_loop.py from d85d2f26; probes/blank_swap.py on tree_d85
+cd tree; LYRIC_PYTHON=venv311 LYRIC_STAGED_DATA=... node --test --test-concurrency=1 mcp/test_pronunciation_choices.mjs
+symlinked tree/mcp/node_modules
+node --test --test-concurrency=1 mcp/test_pronunciation_checkpoint.mjs mcp/test_pronunciation_native.mjs (sequential)
+tree_pre = lyric-harness files changed 5e97e06fd..b887 reverted to 5e97e06fd
+probes/norm_matrix.py on tree (b887)
+cd tree/lyric-harness; timeout 900 nice python quality/search_null.py --check > logs/search_null_check.log
+probes/recover_v1.py on tree
+cd tree/lyric-harness; python -m unittest quality.test_reader.OneCoordinate quality.test_reader.V1Frozen
+cd tree_d85/lyric-harness; focused test_loop d85 + V1Frozen
+cd tree_d85/lyric-harness; timeout 1500 python quality/test_loop.py > logs/d85_test_loop.log
+ACCEPTANCE_ROOT=tree node probes/real_tail_b887.mjs (132cec receipt script re-run at b887; only output path changed)
+probes/pin_guard.py on tree
+probes/pin_cli.py (tree_pre vs tree)
+probes/pin_cli2.py (tree_pre vs tree, declared relation)
+probes/pin_unguard.py guarded vs unguarded pin_readings (tree)
+tree & tree_d85: python quality/check_comparator_pin.py
+tree: python quality/test_recover.py; python map/build.py --check
+ACCEPTANCE_ROOT=tree node probes/pin_mcp.mjs (emulated in-memory MCP lyric_check)
+# Environment: PY=scratchpad/venv311/bin/python (3.11), LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data, node v22.22.0, all runs under nice.
+# Results (logs/):
+#  py_pron.log            quality.test_pronunciation_choices: 43 tests OK (130.7s)
+#  mjs_choices.log        mcp/test_pronunciation_choices.mjs: 7/7 pass
+#  mjs_checkpoint.log     mcp/test_pronunciation_checkpoint.mjs: 1/1 pass (41.5s)
+#  mjs_native.log         mcp/test_pronunciation_native.mjs: 1/1 pass (58.8s)
+#  test_reader.log        OneCoordinate+V1Frozen: 11 tests OK (41.3s)
+#  test_recover.log       quality/test_recover.py: ALL PASS ; map_check.log: map current
+#  search_null_check.log  quality/search_null.py --check: PASS
+#  comparator pin (tree, tree_d85): HOLDS 51316f79...
+#  d85_focused.log        d85 focused section: 33 PASS, FAILURES []
+#  d85_test_loop.log      d85 full quality/test_loop.py: all loop regressions pass (726.8s)
+#  real_tail_b887.log     132cec receipt real_tail.mjs re-run at b887: PASS
+#  norm_matrix.log        normalize-numbering equivalence matrix (16 cases)
+#  recover_v1.log         recover old-vs-new web identity matrix
+#  probes/pin_guard.py, pin_cli.py, pin_cli2.py, pin_unguard.py, pin_mcp.mjs: pin_readings guard regression
+#  probes/blank_swap.py   blank/format-char replacement on b887 vs d85

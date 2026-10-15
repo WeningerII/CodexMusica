@@ -1,0 +1,8 @@
+Records/tests/CI reviewer (13:29 UTC): no blockers; all receipt-comparable numbers hold.
+F1 minor-major 6d5c8d8f: node --test-timeout is per file; split gives native+checkpoint own 120s budgets -> effective relaxation; doc :144-145 "No ... timeout ... changed" overstates. test:pronunciations now runs the files concurrently (not in CI).
+F2 minor (disclosed) 88fa63a8 test 8: AAAA->AA; asserts 14->19 unconditional; 60s deadline unchanged; lost the 3-member one-line-at-a-time path and the latency workload.
+F3 minor f2e973db: pin verified_by a doc; receipts (0c31fdbc, c99aba02, final_timeout, approved_record_refresh, implemented_fixture_sanitized) only reachable from branch codex/reader-timeout-evidence-20261014, not main.
+F4 minor f2e973db: search_null.py:127-132 stale struck values (813/208 read current; dict says 808/207).
+F5 minor 539931f5: BACKLOG.md:2196 row 1742 vs note :2225 1739; no note for move.
+N1 44f93fcf alias assertions removed with feature removal. N2 checkpoint test timeout 120000 per call. N3 owner-approval statements no receipt.
+Checks: pin fingerprint 51316f79 recomputed at b887 equal; prior pin preserved; sonnet rows match; thresholds unchanged; split bodies byte-identical; 55e89f28 counts hold.

@@ -1,0 +1,32 @@
+process=v1 lex=v1/plain song='I see the st' identical_to_prefix=True
+process=v1 lex=v1/plain song='Oh--oh, oh m' identical_to_prefix=True
+process=v1 lex=v1/voices song='I see the st' identical_to_prefix=True
+process=v1 lex=v1/voices song='Oh--oh, oh m' identical_to_prefix=True
+process=v1 lex=v1/supp song='I see the st' identical_to_prefix=True
+process=v1 lex=v1/supp song='Oh--oh, oh m' identical_to_prefix=True
+process=v1 lex=v1/decl song='I see the st' identical_to_prefix=True
+process=v1 lex=v1/decl song='Oh--oh, oh m' identical_to_prefix=True
+process=v1 lex=v2/plain song='I see the st' identical_to_prefix=False
+process=v1 lex=v2/plain song='Oh--oh, oh m' identical_to_prefix=False
+process=v1 lex=v2/voices song='I see the st' identical_to_prefix=True
+process=v1 lex=v2/voices song='Oh--oh, oh m' identical_to_prefix=True
+process=v1 lex=v2/supp song='I see the st' identical_to_prefix=False
+process=v1 lex=v2/supp song='Oh--oh, oh m' identical_to_prefix=False
+process=v1 lex=v2/decl song='I see the st' identical_to_prefix=False
+process=v1 lex=v2/decl song='Oh--oh, oh m' identical_to_prefix=False
+process=v2 lex=v1/plain song='I see the st' identical_to_prefix=True
+process=v2 lex=v1/plain song='Oh--oh, oh m' identical_to_prefix=True
+process=v2 lex=v1/voices song='I see the st' identical_to_prefix=True
+process=v2 lex=v1/voices song='Oh--oh, oh m' identical_to_prefix=True
+process=v2 lex=v1/supp song='I see the st' identical_to_prefix=True
+process=v2 lex=v1/supp song='Oh--oh, oh m' identical_to_prefix=True
+process=v2 lex=v1/decl song='I see the st' identical_to_prefix=True
+process=v2 lex=v1/decl song='Oh--oh, oh m' identical_to_prefix=True
+process=v2 lex=v2/plain song='I see the st' identical_to_prefix=True
+process=v2 lex=v2/plain song='Oh--oh, oh m' identical_to_prefix=True
+process=v2 lex=v2/voices song='I see the st' identical_to_prefix=False
+process=v2 lex=v2/voices song='Oh--oh, oh m' identical_to_prefix=False
+process=v2 lex=v2/supp song='I see the st' identical_to_prefix=False
+process=v2 lex=v2/supp song='Oh--oh, oh m' identical_to_prefix=True
+process=v2 lex=v2/decl song='I see the st' identical_to_prefix=True
+process=v2 lex=v2/decl song='Oh--oh, oh m' identical_to_prefix=True

@@ -1,0 +1,16 @@
+v2 P0 unmarked v1-only tok4 => {"pronunciations": [{"line": "I 2 love you love", "token": 5, "word": "love", "phones": ["L", "AH1", "V"], "basis": "dictionary", "source": "probe", "numbering": "v2"}], "numbering": "v2", "groups": "", "returns": ""}
+v2 P1 marked v2 tok5 => {"pronunciations": [{"line": "I 2 love you love", "token": 5, "word": "love", "phones": ["L", "AH1", "V"], "basis": "dictionary", "source": "probe", "numbering": "v2"}], "numbering": "v2", "groups": "", "returns": ""}
+v2 P2 marked v1 tok4 => {"pronunciations": [{"line": "I 2 love you love", "token": 5, "word": "love", "phones": ["L", "AH1", "V"], "basis": "dictionary", "source": "probe", "numbering": "v2"}], "numbering": "v2", "groups": "", "returns": ""}
+v2 P3 marked v1 tok2 (other love) => {"pronunciations": [{"line": "I 2 love you love", "token": 3, "word": "love", "phones": ["L", "AH1", "V"], "basis": "dictionary", "source": "probe", "numbering": "v2"}], "numbering": "v2", "groups": "", "returns": ""}
+v2 P4 marked v2 tok5 reversed keys => {"pronunciations": [{"numbering": "v2", "source": "probe", "basis": "dictionary", "phones": ["L", "AH1", "V"], "word": "love", "token": 5, "line": "I 2 love you love"}], "numbering": "v2", "groups": "", "returns": ""}
+v2 P5 marked v2+voices tok5 => {"pronunciations": [{"line": "I 2 love you love", "token": 5, "word": "love", "phones": ["L", "AH1", "V"], "basis": "dictionary", "source": "probe", "numbering": "v2"}], "numbering": "v2", "groups": "", "returns": ""}
+v2 P6 unmarked oh tok2 (ambiguous) => "invalid pronunciation declaration: ambiguous token 2 in 'Oh--oh, oh my love': v1 binds ('oh', ((8, 10),)); v2 binds ('oh', ((4, 6),)); declare numbering explicitly"
+v1 Q0 unmarked tok4 => {"pronunciations": [{"line": "I 2 love you love", "token": 4, "word": "love", "phones": ["L", "AH1", "V"], "basis": "dictionary", "source": "probe", "numbering": "v1"}], "numbering": "v1", "groups": "", "returns": ""}
+v1 Q1 marked v2 tok5 => {"pronunciations": [{"line": "I 2 love you love", "token": 4, "word": "love", "phones": ["L", "AH1", "V"], "basis": "dictionary", "source": "probe", "numbering": "v1"}], "numbering": "v1", "groups": "", "returns": ""}
+v1 Q2 marked v1 tok4 => {"pronunciations": [{"line": "I 2 love you love", "token": 4, "word": "love", "phones": ["L", "AH1", "V"], "basis": "dictionary", "source": "probe", "numbering": "v1"}], "numbering": "v1", "groups": "", "returns": ""}
+v2 G0 groups 1.T5 numbering v2 => {"pronunciations": [], "numbering": "v2", "groups": "1.T5,2.end", "returns": ""}
+v2 G1 groups 1.T4 numbering v1 => {"pronunciations": [], "numbering": "v2", "groups": "1.T5,2.end", "returns": ""}
+v2 G2 groups 1.T5 unmarked => {"pronunciations": [], "numbering": "v2", "groups": "1.T5,2.end", "returns": ""}
+v2 G3 groups ' 1.T5 , 2.end ;; ' numbering v2 => {"pronunciations": [], "numbering": "v2", "groups": "1.T5,2.end", "returns": ""}
+v2 G4 groups 01.T5 numbering v2 => {"pronunciations": [], "numbering": "v2", "groups": "1.T5,2.end", "returns": ""}
+v1 G5 groups 1.T9 unmarked (out of range) => "groups: cannot resolve token 9 in 'I 2 love you love' under v1: no unique token has the same word and raw pieces; declare numbering"

@@ -1,0 +1,1 @@
+PASS real MCP/Python: nonempty remaining tail [3], actual accepted L2 survives interruption/worker kill/cache loss, resumed L3 accepted; 4 calls/3 continuations.

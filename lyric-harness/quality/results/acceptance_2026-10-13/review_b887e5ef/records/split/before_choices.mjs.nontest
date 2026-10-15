@@ -1,0 +1,31 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { z } from 'zod';
+import { LYRIC_TOOL_SCHEMAS, _argvInternals, _verdictInternals } from './lyric_tools.js';
+import { declarationsOf, movedDeclarations } from './run_store.js';
+const pronunciations = [
+  {
+    line: 'Cut that record',
+    token: 3,
+    word: 'record',
+    phones: ['R', 'EH1', 'K', 'ER0', 'D'],
+    basis: 'dictionary',
+    source: 'writer: noun, the disc',
+  },
+];
+
+<<TEST>>
+<<TEST>>
+<<TEST>>
+
+<<TEST>>
+
+<<TEST>>
+
+<<TEST>>
+
+<<TEST>>
+
+<<TEST>>
+
+<<TEST>>

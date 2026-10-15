@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: connector exposes the same bounded occurrence declaration on all draft readers
+ok 1 - connector exposes the same bounded occurrence declaration on all draft readers
+  ---
+  duration_ms: 19.921734
+  type: 'test'
+  ...
+# Subtest: argv preserves exact JSON; continuation rejects altered declarations
+ok 2 - argv preserves exact JSON; continuation rejects altered declarations
+  ---
+  duration_ms: 0.460773
+  type: 'test'
+  ...
+# Subtest: choices and options come from the authenticated result
+ok 3 - choices and options come from the authenticated result
+  ---
+  duration_ms: 1.552815
+  type: 'test'
+  ...
+# Subtest: crashes retain bounded diagnostics instead of promising omitted stderr
+ok 4 - crashes retain bounded diagnostics instead of promising omitted stderr
+  ---
+  duration_ms: 0.481207
+  type: 'test'
+  ...
+# Subtest: source numbering is optional, bounded and preserved across schemas and argv
+ok 5 - source numbering is optional, bounded and preserved across schemas and argv
+  ---
+  duration_ms: 1.641128
+  type: 'test'
+  ...
+# Subtest: chat options copy actual numbering and do not label unmarked held options
+ok 6 - chat options copy actual numbering and do not label unmarked held options
+  ---
+  duration_ms: 1.051506
+  type: 'test'
+  ...
+# Subtest: normalization is independent of optional metadata capacity
+ok 7 - normalization is independent of optional metadata capacity
+  ---
+  duration_ms: 2238.310629
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2765.98132

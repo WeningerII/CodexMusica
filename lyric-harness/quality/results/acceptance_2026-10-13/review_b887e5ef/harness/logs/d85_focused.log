@@ -1,0 +1,37 @@
+
+8. `swap_end_word` refuses rather than guesses when its own reading disagrees with `raw_final_token`
+  PASS  an ordinary line swaps cleanly
+  PASS  case is preserved on a capitalised end word
+  PASS  a parenthetical after the end word REFUSES rather than splicing into the parenthetical
+          line_tokens strips parentheticals before reading the end word, so the last regex match here is 'repeat', not 'fire' -- splicing there would silently corrupt an aside, not a rhyme
+  PASS  v1: empty/whitespace end replacement '' refuses
+  PASS  v1: empty/whitespace placed replacement '' refuses
+  PASS  v1: an empty group pivot '' declines the mechanical proposal
+  PASS  v1: empty/whitespace end replacement ' ' refuses
+  PASS  v1: empty/whitespace placed replacement ' ' refuses
+  PASS  v1: an empty group pivot ' ' declines the mechanical proposal
+  PASS  v1: empty/whitespace end replacement '\t\n' refuses
+  PASS  v1: empty/whitespace placed replacement '\t\n' refuses
+  PASS  v1: an empty group pivot '\t\n' declines the mechanical proposal
+  PASS  v1: empty/whitespace end replacement '\xa0' refuses
+  PASS  v1: empty/whitespace placed replacement '\xa0' refuses
+  PASS  v1: an empty group pivot '\xa0' declines the mechanical proposal
+  PASS  v1: whole-line repair cannot use the mechanical word-splice stub
+  PASS  v1: nonempty group replacements still splice both members
+  PASS  v1: nonempty placed replacement still splices its token
+  PASS  v2: empty/whitespace end replacement '' refuses
+  PASS  v2: empty/whitespace placed replacement '' refuses
+  PASS  v2: an empty group pivot '' declines the mechanical proposal
+  PASS  v2: empty/whitespace end replacement ' ' refuses
+  PASS  v2: empty/whitespace placed replacement ' ' refuses
+  PASS  v2: an empty group pivot ' ' declines the mechanical proposal
+  PASS  v2: empty/whitespace end replacement '\t\n' refuses
+  PASS  v2: empty/whitespace placed replacement '\t\n' refuses
+  PASS  v2: an empty group pivot '\t\n' declines the mechanical proposal
+  PASS  v2: empty/whitespace end replacement '\xa0' refuses
+  PASS  v2: empty/whitespace placed replacement '\xa0' refuses
+  PASS  v2: an empty group pivot '\xa0' declines the mechanical proposal
+  PASS  v2: whole-line repair cannot use the mechanical word-splice stub
+  PASS  v2: nonempty group replacements still splice both members
+  PASS  v2: nonempty placed replacement still splices its token
+FAILURES []
