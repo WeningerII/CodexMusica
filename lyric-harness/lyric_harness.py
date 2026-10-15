@@ -7033,6 +7033,11 @@ commands (the fifteen spine verbs):
   demo                    run the acceptance suite
 
 the quality layer (each says which module answered):
+  normalize-numbering FILE [--groups=...] [--returns=...] [--numbering=...]
+                          connector comparison entrance: normalize occurrence
+                          declarations by raw pieces in the exact draft;
+                          uses the pronunciation/reader globals, emits canonical
+                          comparison data only -- no grading or proposing
   wiring                  which verb runs on which layer, which verbs are
                           dispatched and NOT on the map, and any STRANDED
                           module
@@ -7322,6 +7327,9 @@ OFFLINE_RESEARCH_TOOLS = {
 #: `wiring` prints this and then checks it against the dispatch.
 VERB_LAYERS = (
     ("declaration", "lyric_harness.py", "the declaration tuple itself"),
+    ("normalize-numbering", "quality/pronunciation.py",
+     "connector comparison -- canonical occurrence coordinates by raw pieces; "
+     "no grading or proposing"),
     ("score / candidates / graph / chains", "lyric_harness.py", "spine"),
     ("scheme (letters)", "lyric_harness.py", "spine"),
     ("meter (template)", "lyric_harness.py", "spine"),

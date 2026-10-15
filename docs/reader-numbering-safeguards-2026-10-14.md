@@ -111,3 +111,9 @@ result after cache and worker loss. No declaration or fingerprint is rewritten.
 Both real MCP cases failed before the structural-equality fix (0/2, 37.269s)
 and passed afterward (2/2, 53.522s), with changed-phone and physical-occurrence
 negative controls retained and no additional writer request during replay.
+
+Cumulative CI then caught an integration omission: the normalization entrance
+was dispatched but absent from `VERB_LAYERS` and help. Registering it as a
+connector comparison command (no grading or proposing) fixes the command
+census without exclusions. The exact failed census section passes, as do five
+normalization/frozen-v1 tests (16.899s); generated maps remain current.
