@@ -877,6 +877,34 @@ function unitVoicesBasis() {
     (wire(offside).readings_need_decision || []).length === 1,
     `choosing a word the card does not offer removed the undecided row: ${offside.split('\n').slice(0, 3).join(' | ')}`
   );
+  // 11. A saved word neither setting's count names ("love" as token 2 of
+  // the echo line) offers no occurrence: choosing either "oh" keeps it, and
+  // choosing "love" itself settles it (3PO #519 6197775783).
+  for (const voices of [false, true]) {
+    const text = `${reading(2, 'love', echo)}\n${voices ? '[SETUP — voices — sung]\n' : ''}\n[VERSE]\n${echo}`;
+    const loveCard = run('lyLocalChecks(lyParse(__t))', { __t: text }).find((c) =>
+      /^reading:/.test(c.id)
+    );
+    check(
+      loveCard &&
+        loveCard.text.includes('names “love” under neither setting') &&
+        !loveCard.text.includes('[oh]'),
+      `voices ${voices}: the card offers occurrences that are not the saved word: ${loveCard && loveCard.text}`
+    );
+    const ohs = voices ? [1, 2, 3] : [1, 2];
+    for (const k of ohs) {
+      const kept = wire(choose(text, echo, k, 'oh'));
+      check(
+        (kept.readings_need_decision || []).some((x) => x.word === 'love'),
+        `voices ${voices}: choosing "oh" (token ${k}) removed the unrelated saved "love": ${JSON.stringify(kept)}`
+      );
+    }
+    const settled = wire(choose(text, echo, voices ? 4 : 3, 'love'));
+    check(
+      !settled.readings_need_decision && (settled.pronunciations || [])[0]?.word === 'love',
+      `voices ${voices}: choosing "love" did not settle its saved reading: ${JSON.stringify(settled)}`
+    );
+  }
   // 6. The page path: an undecided row stops the send and keeps its bytes.
   const stored = song([bare], true);
   draft.value = stored;
@@ -3953,6 +3981,39 @@ async function browserChecks(chromium) {
         const calls = q.calls.length;
         await page.evaluate(async () => LY_ACTIONS['ly-run-review']());
         check(q.calls.length === calls, `${label}: the other undecided reading stopped no send`);
+        await ctx.close();
+      }
+    });
+
+    // A saved "love" neither setting's count names: choosing either "oh"
+    // through the page keeps it (3PO #519 6197775783).
+    await step('9b2. choose again keeps an unrelated reading', async () => {
+      const ECHO = 'oh (oh) oh love';
+      const text = `[SETUP — reading — token 2 "love" in ${JSON.stringify(ECHO)} — L AH1 V — declared — source: the singer — cut v2]\n[SETUP — voices — sung]\n\n[VERSE]\n${ECHO}`;
+      for (const chip of [1, 2]) {
+        const { ctx, page } = await boot();
+        await setDraft(page, text);
+        await pane(page, 'review');
+        await page
+          .locator('#ly-panel-review [data-ui="ly-tool"][data-id="pronunciation"]')
+          .first()
+          .click();
+        await page.locator('[data-ui="ly-reading-pick"]').nth(chip).click();
+        await page.locator('[data-ui="ly-reading-kind"][data-id="declared"]').click();
+        await page.fill('#ly-phones', 'OW1');
+        await page.fill('#ly-source', 'the singer');
+        await page.locator('[data-ui="ly-draft-apply"][data-id="pronunciation"]').click();
+        const st = await page.evaluate(() => {
+          const d = lyDeclarationsOf(lyParse($ui('lyrics-draft').value));
+          return {
+            pron: (d.pronunciations || []).map((x) => x.word),
+            need: (d.readings_need_decision || []).map((x) => x.word),
+          };
+        });
+        check(
+          JSON.stringify(st.pron) === '["oh"]' && JSON.stringify(st.need) === '["love"]',
+          `choosing "oh" chip ${chip} touched the unrelated saved "love": ${JSON.stringify(st)}`
+        );
         await ctx.close();
       }
     });

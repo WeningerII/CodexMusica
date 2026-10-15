@@ -344,11 +344,14 @@ function lyPlaceWords(text, voices, place) {
 // the occurrence under either setting -- exactly the ones its Review card
 // offers (lyVoicesCandidates) -- and a row counted under another setting
 // names the token under that setting; any other is read under the earlier
-// cut with the page's setting.
+// cut with the page's setting. Each must hold the saved word, as binding
+// requires (lyBasisFreeTarget, lyRebindSpanAgreed): one that does not is no
+// basis, so choosing it never settles an unrelated reading (3PO #519
+// 6197775783).
 function lyUndecidedSpans(r, voices) {
   const line = String(r.line);
   if (r.undecidedReason === 'voices')
-    return lyVoicesCandidates(line, r.token, !r.cut).map((c) => ({
+    return lyVoicesCandidates(line, r.token, !r.cut, r.word).map((c) => ({
       text: c.word,
       pieces: c.pieces,
     }));
@@ -897,9 +900,10 @@ function lyFormMigrated(done, message) {
 const lyUndecidedReadings = (model) => lySetupOf(model, 'reading').filter((r) => r.undecided);
 // The occurrences a saved number could name under each sung-asides setting,
 // each shown marked in its line: [{ sung, word, pieces, shown }], one per setting
-// that has such a token. `earlier`: the number is the earlier cut's. Shown
+// that has such a token -- and, given `word` (a reading's saved word), that
+// token is that word. `earlier`: the number is the earlier cut's. Shown
 // side by side; the page never picks one for the writer.
-function lyVoicesCandidates(line, token, earlier) {
+function lyVoicesCandidates(line, token, earlier, word = null) {
   const out = [];
   for (const sung of [false, true]) {
     let at = null;
@@ -916,7 +920,7 @@ function lyVoicesCandidates(line, token, earlier) {
           pieces: t.pieces,
         };
     }
-    if (at)
+    if (at && (word === null || at.word === word))
       out.push({
         sung,
         word: at.word,
@@ -925,6 +929,14 @@ function lyVoicesCandidates(line, token, earlier) {
       });
   }
   return out;
+}
+// What a reading with no saved sung-asides setting could have named, for its
+// Review card: the occurrences of its saved word, or that there is none.
+function lyReadingCandidatesText(r) {
+  const cands = lyVoicesCandidates(r.line, r.token, !r.cut, r.word);
+  return cands.length
+    ? `its number names different occurrences under each (${lyCandidatesText(cands)}). It was not moved to either`
+    : `its number names “${r.word}” under neither setting. It was not moved to another word`;
 }
 const lyCandidatesText = (cands) =>
   cands
@@ -1847,7 +1859,7 @@ function lyLocalChecks(model) {
         text: r.unknownCut
           ? `It is marked “cut ${r.unknownCut}”; this page reads only “${LY_READING_CUT}”, so its number binds no word. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.`
           : r.undecidedReason === 'voices'
-            ? `${lySetupRowRef(r.i, true)} saved token ${r.token} for “${r.word}” in the line “${r.line}”, with no setting for whether parenthesized words were sung, and its number names different occurrences under each (${lyCandidatesText(lyVoicesCandidates(r.line, r.token, !r.cut))}). It was not moved to either. Choose the reading again on the occurrence you intended, or remove this declaration. Until then nothing is sent to the writer.`
+            ? `${lySetupRowRef(r.i, true)} saved token ${r.token} for “${r.word}” in the line “${r.line}”, with no setting for whether parenthesized words were sung, and ${lyReadingCandidatesText(r)}. Choose the reading again on the occurrence you intended, or remove this declaration. Until then nothing is sent to the writer.`
             : r.undecidedReason === 'setting'
               ? `${lySetupRowRef(r.i, true)} saved token ${r.token} for “${r.word}” in the line “${r.line}”, counted under another setting for sung parenthesized words, and no word under the current setting covers exactly the characters it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.`
               : `${lySetupRowRef(r.i, true)} saved token ${r.token} for “${r.word}” in the line “${r.line}”. It was read as numbered under the earlier word cut, and no word of the current cut is exactly the occurrence it named, so it was not moved to another one. Choose the reading again for the word you meant, or remove it. Until then nothing is sent to the writer.`,
