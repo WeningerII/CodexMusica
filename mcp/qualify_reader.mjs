@@ -71,7 +71,7 @@ const resolver = createCatalogResolver({
   resourceFingerprint: assets.assets_sha256,
 });
 const catalog = await resolver.probe();
-const pinnedSnapshot = '1503d477274959f38fb1578fcfdcee042f931e714b6a3e7c5fbe192fef3dce1d';
+const pinnedSnapshot = 'ef7cc67b3fef549c3bb8a8565b69ddddd9a7c57293bcf3355f787653bb5f7b13';
 const retainedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
 const retainedImage =
   'ghcr.io/weningerii/codexmusica/lyrics@sha256:3a9ad3711a338653cb1dc97e81badae2ab9a330eb624ae154e0c8b33e805e7f7';

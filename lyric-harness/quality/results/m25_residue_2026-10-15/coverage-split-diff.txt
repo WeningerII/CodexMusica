@@ -1,0 +1,31 @@
+8714 8701
+REMOVED 13
+  corpus/song/eng_british_richard_lovelace.txt#132 dev
+  corpus/song/eng_british_richard_lovelace.txt#133 dev
+  corpus/song/eng_british_richard_lovelace.txt#134 validation
+  corpus/song/eng_british_richard_lovelace.txt#135 dev
+  corpus/song/eng_british_richard_lovelace.txt#136 validation
+  corpus/song/eng_british_richard_lovelace.txt#137 dev
+  corpus/song/eng_british_richard_lovelace.txt#138 dev
+  corpus/song/eng_british_richard_lovelace.txt#139 validation
+  corpus/song/eng_british_richard_lovelace.txt#140 dev
+  corpus/song/eng_british_robert_browning.txt#51 dev
+  corpus/song/eng_british_robert_browning.txt#52 validation
+  corpus/song/eng_british_robert_herrick.txt#487 dev
+  corpus/song/eng_british_robert_herrick.txt#488 dev
+GROUP CHANGED 13
+  corpus/song/eng_british_richard_lovelace.txt#131 group corpus/song/eng_british_richard_lovelace.txt#131 -> corpus/song/eng_british_richard_lovelace.txt#0
+  corpus/song/eng_british_robert_browning.txt#2 group corpus/song/eng_british_robert_browning.txt#15 -> corpus/song/eng_british_robert_browning.txt#13
+  corpus/song/eng_british_robert_browning.txt#44 group corpus/song/eng_british_robert_browning.txt#44 -> corpus/song/eng_british_robert_browning.txt#20
+  corpus/song/eng_british_robert_browning.txt#46 group corpus/song/eng_british_robert_browning.txt#22 -> corpus/song/eng_british_robert_browning.txt#46
+  corpus/song/eng_british_robert_browning.txt#47 group corpus/song/eng_british_robert_browning.txt#47 -> corpus/song/eng_british_robert_browning.txt#13
+  corpus/song/eng_british_robert_browning.txt#49 group corpus/song/eng_british_robert_browning.txt#15 -> corpus/song/eng_british_robert_browning.txt#49
+  corpus/song/eng_british_robert_browning.txt#5 group corpus/song/eng_british_edward_fitzgerald.txt#0 -> corpus/song/eng_british_robert_browning.txt#5
+  corpus/song/eng_british_robert_herrick.txt#477 group corpus/song/eng_british_robert_herrick.txt#477 -> corpus/song/eng_british_robert_herrick.txt#201
+  corpus/song/eng_british_robert_herrick.txt#479 group corpus/song/eng_british_robert_herrick.txt#201 -> corpus/song/eng_british_robert_herrick.txt#273
+  corpus/song/eng_british_robert_herrick.txt#481 group corpus/song/eng_british_robert_herrick.txt#274 -> corpus/song/eng_british_robert_herrick.txt#481
+  corpus/song/eng_british_robert_herrick.txt#484 group corpus/song/eng_british_robert_herrick.txt#484 -> corpus/song/eng_british_robert_herrick.txt#37
+  corpus/song/eng_british_robert_herrick.txt#485 group corpus/song/eng_british_robert_herrick.txt#485 -> corpus/song/eng_british_robert_herrick.txt#480
+  corpus/song/eng_british_robert_herrick.txt#486 group corpus/song/eng_british_robert_herrick.txt#37 -> corpus/song/eng_british_robert_herrick.txt#129
+SIDE CHANGED under the new salt 2756 of 8701
+v->d 1378 d->v 1378

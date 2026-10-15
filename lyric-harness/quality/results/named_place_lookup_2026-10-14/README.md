@@ -52,3 +52,8 @@ They are disclosed, not treated as noise. The notice on them is the same non-blo
   - identical-cut controls do not fire.
 
 The corpus is volatile (`quality/counters.py`). If it changes, re-run `measure.py --write` and the page check together.
+
+## Remeasured 2026-10-15 (#564/#572)
+
+The M-25 editorial residue marked editors' notes in Lovelace, Browning and Herrick as apparatus, so the population moved. `measure.py --write` was re-run on the same rule, and `result.json` now describes the current corpus. The figures above are the 2026-10-14 measurement, kept as history.
+Sung lines ~~281,399~~ 281,366; identical cut ~~271,092~~ 271,062 (~~262,604~~ 262,574 unique). The condition still fires on 24 lines, and the 8 END-binding changes are unchanged. The NFC-only label differences drop ~~7~~ to 3: four Greek lines quoted in Herrick's editorial notes are now apparatus.

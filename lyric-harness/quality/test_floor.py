@@ -1579,11 +1579,15 @@ def test_the_length_gate_is_a_gate():
     # And he is so.`), a real verse translation and not residue. This pins
     # what the adopted constants do; the residue reading in the next batch is
     # expected to move it to 691/8 (lo 9), ~~back~~ not back to 690/9.
+    # REPINNED 2026-10-15 (#564/#572), as expected: ~~696/3~~ -> 691/8. The
+    # residue is read and the `lyric` range now starts at the 9-token verse
+    # translation, so lengths 1-8 reach no profile.
     check("AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 "
-          "tokens the floor can FLAG at 99.6% of lengths and reaches no "
-          "profile at all at 0.4% — lengths 1-3 are below the adopted "
-          "lyric range, whose lower end is a residue citation (M-25)",
-          exact_n == 696 and none_n == 3,
+          "tokens the floor can FLAG at 98.9% of lengths and reaches no "
+          "profile at all at 1.1% — lengths 1-8 are below the adopted "
+          "lyric range, whose lower end is a 9-token verse translation "
+          "(M-25)",
+          exact_n == 691 and none_n == 8,
           f"flaggable {exact_n / 699:.1%}, no profile {none_n / 699:.1%}")
 
 

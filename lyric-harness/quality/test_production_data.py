@@ -362,7 +362,9 @@ print("WordNet staging contract holds")
         # 13836 / 248513 -> 13663 / 247781, literal `word` 407 -> 412
         # (+7 hymn line endings, -2 Watts lines the label and apparatus pass
         # marked).
-        self.assertEqual((len(end), sum(sum(per.values()) for per in end.values())), (13663, 247781))
+        # 2026-10-15, the M-25 editorial residue (#564/#572): 13663 / 247781
+        # -> 13660 / 247762, literal `word` unchanged at 412.
+        self.assertEqual((len(end), sum(sum(per.values()) for per in end.values())), (13660, 247762))
         self.assertEqual(sum(end["word"].values()), 412)
         self.assertEqual(set(pair["a"]), {"ca", "the"})
 

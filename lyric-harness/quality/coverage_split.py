@@ -36,7 +36,8 @@ member id, and the group is VALIDATION when the first 16 hex digits of
 sha256(SALT + ":" + key), read as an integer, are 0 mod 5 -- about a fifth of
 groups. The salt is published here and never changed for this split; a new
 split is a new salt and a new file. The frozen assignment is
-quality/results/coverage_split_2026-10-11.tsv, and its header records the
+quality/results/coverage_split_2026-10-15.tsv (earlier freezes kept as
+history), and its header records the
 population digest, a digest of the catalog work identities it read, and the
 counts.
 """
@@ -54,14 +55,22 @@ ROOT = os.path.dirname(HERE)
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-SALT = "codexmusica-coverage-split-2026-10-11"
+#: A NEW SPLIT, 2026-10-15 (#572): the M-25 editorial residue emptied 13
+#: items, so the population the 2026-10-11 split was drawn from moved (8,715
+#: -> 8,702 units, with later ordinals renumbered in three files). A moved
+#: population needs a new split, never a reused one: a new salt and a new
+#: file, agreed with the dictionary lane (R2 successor). The 2026-10-11 salt
+#: and both of its files are kept unchanged as history.
+SALT = "codexmusica-coverage-split-2026-10-15"
 MODULUS = 5
 POPULATION = "corpus/song/eng_*.txt"
 #: The second freeze. The first (coverage_split_2026-10-11.tsv) let five
 #: reworded versions of one work fall on opposite sides (R2's C2 verdict on
 #: #537); rule 5 joins them, and the same salt is re-frozen here before any
 #: batch result was read against either file.
-SPLIT_PATH = os.path.join(HERE, "results", "coverage_split_2026-10-11-r2.tsv")
+#: ~~coverage_split_2026-10-11-r2.tsv~~ superseded 2026-10-15 (moved
+#: population, above); kept as history.
+SPLIT_PATH = os.path.join(HERE, "results", "coverage_split_2026-10-15.tsv")
 EDITIONS_PATH = os.path.join(ROOT, "data", "calibration_work_editions.json")
 NEAR_DUP_SHARE = 0.5
 MIN_LINE_LETTERS = 12
