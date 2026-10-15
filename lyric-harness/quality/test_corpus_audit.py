@@ -1296,15 +1296,19 @@ def test_check_H_on_the_real_corpus():
     # mock-legal subscription. No two-reader verdict has been given on any
     # of them. The seven are the pass's own residue, recorded in MISSING.md
     # M-25 for the next batch's reading, not adjudicated here.
-    check("742 one-line `[VERSE]` blocks under corpus/song/", one == 742,
+    # REPINNED 2026-10-15, M-25 residue (#564): one ~~742~~ **741**, residue
+    # ~~433~~ **432**; matched 309 and the shape split unchanged. Marking 33
+    # editorial rows and 14 section marks as apparatus in 13 Lovelace,
+    # Browning and Herrick items removed one residue block.
+    check("741 one-line `[VERSE]` blocks under corpus/song/", one == 741,
           one)
     check("309 of them carry a declared apparatus shape", matched == 309,
           matched)
     check("the shape split reproduces",
           shapes == {"allcaps-label": 103, "numeral": 198, "ornament": 8},
           shapes)
-    check("the residue is 433 and is NOT claimed to be clean",
-          one - matched == 433, one - matched)
+    check("the residue is 432 and is NOT claimed to be clean",
+          one - matched == 432, one - matched)
     fs = AC.check_staging(files, AC.Sources())
     warn = sum(1 for f in fs if f.severity == AC.WARN)
     note = sum(1 for f in fs if f.severity == AC.NOTE)

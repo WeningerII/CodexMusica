@@ -134,16 +134,22 @@ def test_item_readers():
     # Daemon Of The World: Part 2` (an editor's note on variants -- the
     # poem itself is not in that item), two Browning notes and two Herrick
     # index entries. Each was read before this pin moved.
-    check("the shared work reader yields exactly 8,598 nonempty items "
+    # REPINNED 2026-10-15, M-25 residue (#564): ~~8598~~ **8585** nonempty,
+    # total 8610 unchanged. Marking editorial rows as apparatus emptied 13
+    # more items, all editorial matter from first line to last: nine
+    # Lovelace manuscript-variant notes, two Browning notes (a gloss and an
+    # introduction byline) and two Herrick source notes. Named below.
+    check("the shared work reader yields exactly 8,585 nonempty items "
           "over the 1344 files",
-          n_items == 8598, n_items)
+          n_items == 8585, n_items)
     from quality.lyric_reader import calibration_items
     all_items = [(os.path.basename(f), title, body) for f in files
                  if os.path.basename(f).startswith("eng_")
                  for title, _at, body in calibration_items(f)]
     # 2026-10-04: the Sawyer source plus the 11 editorial items above, named
     # one by one so that a passage of verse emptied by a later pass goes red here.
-    check("item exclusion is the note-only Sawyer source and 11 wholly "
+    # 2026-10-15: ~~11~~ **24** editorial items, the 13 added by #564 listed last.
+    check("item exclusion is the note-only Sawyer source and 24 wholly "
           "editorial items, not lost verse",
           len(all_items) == 8610
           and sorted((name, title) for name, title, body in all_items if not body)
@@ -161,7 +167,24 @@ def test_item_readers():
                "=letters=. The reference is of course to the Scriptures"),
               ("eng_british_robert_herrick.txt", "Carlisle, Countess of, I. 78"),
               ("eng_british_robert_herrick.txt",
-               "Herrick, Robert, Poem to his Nephew, I. 188")]))
+               "Herrick, Robert, Poem to his Nephew, I. 188"),
+              ("eng_british_richard_lovelace.txt", "An Unanoynted--Ms"),
+              ("eng_british_richard_lovelace.txt", "And--Ms"),
+              ("eng_british_richard_lovelace.txt", "Blended"),
+              ("eng_british_richard_lovelace.txt", "Caractacus(?)"),
+              ("eng_british_richard_lovelace.txt", "Dombe--LUCASTA"),
+              ("eng_british_richard_lovelace.txt", "Doom"),
+              ("eng_british_richard_lovelace.txt", "Faire--Ms"),
+              ("eng_british_richard_lovelace.txt", "Lucasta"),
+              ("eng_british_richard_lovelace.txt", "Reverence"),
+              ("eng_british_robert_browning.txt",
+               "=clavichord=. An instrument of the type of the piano"),
+              ("eng_british_robert_browning.txt",
+               "With an Introduction by CHARLES G. WHITING"),
+              ("eng_british_robert_herrick.txt",
+               "_Consultation._ As noted in the text, this is from Sallust, _Cat._ i"),
+              ("eng_british_robert_herrick.txt",
+               "_Upon Cupid._ Taken from Anacreon, 5 [59]")]))
     son = CEN.items_of(os.path.join(HERE, "..", "corpus", "sonnets.txt"))
     check("sonnets.txt reads through battery.parse_sonnets: 152 items "
           "of 14 lines, Gutenberg matter excluded by the oracle's reader",

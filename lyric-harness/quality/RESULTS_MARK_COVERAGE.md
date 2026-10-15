@@ -1,6 +1,15 @@
 # RESULTS — mark coverage: what the section vocabulary cannot type
 
-## Current measurement, 2026-10-04 (after the label and apparatus pass)
+## Current measurement, 2026-10-15 (after the M-25 editorial residue, #564)
+
+The census has **75,304 typed blocks**, 125,501 decided refusals, **31
+undecided marks** and one numeral-apparatus block. Typed fell from 75,318 by
+exactly the 14 wholly editorial `[VERSE]` marks in 13 Lovelace, Browning and
+Herrick items that now read as apparatus
+(`data/english_apparatus_residue_2026-10-15.json`). Decided, undecided and
+the numeral-apparatus block did not move. Chorus pointers are unmoved.
+
+## Superseded measurement, 2026-10-04 (after the label and apparatus pass)
 
 The census has **75,318 typed blocks**, 125,501 decided refusals, **31
 undecided marks** and one numeral-apparatus block. Typed fell from 75,639 by

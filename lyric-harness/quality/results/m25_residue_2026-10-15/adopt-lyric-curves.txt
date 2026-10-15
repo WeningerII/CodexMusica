@@ -1,0 +1,60 @@
+"""Adopt the re-fit `lyric` length curves after the M-25 editorial residue (#564).
+
+Kept as a receipt (.txt, as otterbein_m25/final/adopt-profiles.txt is). It was run once from lyric-harness as a .py copy.
+
+Adapted from quality/results/otterbein_m25_2026-10-04/final/adopt-profiles.txt, lyric row
+only: the `song` and `short` profiles re-derive unchanged (song-check.txt, short-check.txt),
+because all 12 removed calibration rows are 4-34 tokens, outside both bands. The rows are the
+single measurement committed under docs/evidence/m25-unqualified-2026-10-15/measurement/; the
+fit is `length_curve_calibration.py fit <rows> --seeds 200 --workers 4 --picks predictability=CK
+--report curve-adoption.json` (curves-measurement.txt). Never fits or relaxes a rule.
+"""
+import ast, dataclasses, json, pprint, sys
+from dataclasses import replace
+from pathlib import Path
+ROOT = Path.cwd(); sys.path.insert(0, str(ROOT))
+from quality import floor, length_curve_calibration as LC, song_profile_calibration as C
+out = ROOT / 'quality/results/m25_residue_2026-10-15'
+rowpath = ROOT / '../docs/evidence/m25-unqualified-2026-10-15/measurement/current-calibration-rows.tsv'
+provenance = LC.row_provenance(); LC.verify_rows(rowpath, provenance)
+r = json.loads((out / 'curve-adoption.json').read_text())
+assert r['provenance'] == provenance and r['seeds'] == 200
+assert all(not p['partial'] for p in r['picks'].values())
+rows = LC.read_rows([str(rowpath)], verify=True)
+old = next(p for p in floor.PROFILES if p.name == 'lyric')
+(out / 'profiles-before.json').write_text(json.dumps({'lyric': dataclasses.asdict(old)}, indent=2, ensure_ascii=False, default=list) + '\n')
+path = ROOT / 'quality/floor.py'; source = path.read_text(); lines = source.splitlines(keepends=True)
+def span(node):
+    # AST columns are UTF-8 byte offsets, even when the source contains Unicode.
+    start = sum(len(l.encode()) for l in lines[:node.lineno - 1]) + node.col_offset
+    end = sum(len(l.encode()) for l in lines[:node.end_lineno - 1]) + node.end_col_offset
+    return start, end
+curves = {C.FLOOR_KEY[k]: tuple(v['coef']) if 'coef' in v else {'knots': [tuple(t) for t in v['knots']]} for k, v in r['curves'].items()}
+fprkeys = {'mattr': 'mattr', 'fwr': 'function_word_ratio', 'anaphora': 'anaphora', 'cv': 'line_length_cv', 'predictability': 'predictability', 'ANY': 'ANY'}
+preview = replace(old, curves=curves, lo=r['lo'], hi=r['hi'])
+active = next(n for n in range(r['lo'], r['hi'] + 1) if preview.threshold('predictable_pair_fraction_max', n) < 1.0)
+update = {
+    'unit': f"whole lyric sheet, {r['lo']}-{r['hi']} tokens, thresholds a function of ln N",
+    'lo': r['lo'], 'hi': r['hi'], 'n_human': r['items'], 'curves': curves,
+    'mattr_ttr_population': {'window': 50, 'items': sum(row['n_tokens'] <= 50 for row in rows)},
+    'held_out_fpr': {fprkeys[k]: tuple(v) for k, v in r['held_out_fpr'].items()},
+    'held_out_scope': {'predictability': f". This rate pools all {r['lo']}-{r['hi']}-token works, including lengths through {active - 1} where the threshold equals 1.0 and cannot fire. It is not conditional on lengths where the check can fire."},
+    'source': f"Re-adopted 2026-10-15 after the M-25 editorial residue (#564: 33 lyric rows and 14 section marks in 13 Lovelace/Browning/Herrick items now apparatus, removing 12 calibration rows): {r['items']} nonempty works / {r['files']} files, {r['lo']}-{r['hi']} tokens. All five checks pass every length bin over 200 author-held-out splits. Preregistered model choices: " + ', '.join(k + ' ' + v['model'] for k, v in r['picks'].items()) + f". Predictability CK retains the existing anti-vacuity exception to C0 and first falls below 1.0 at {active} tokens. The lower bound moved 4 -> {r['lo']} because the four shortest works were editorial notes; no lyric under {r['lo']} tokens remains in the population. Full precision and input provenance in quality/results/m25_residue_2026-10-15/curve-adoption.json.",
+    'note': 'CURRENT 2026-10-15 measurements supersede the historical values below; the prior full declaration is in quality/results/m25_residue_2026-10-15/profiles-before.json. ' + old.note,
+}
+replacements = []
+for node in ast.walk(ast.parse(source)):
+    if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name) or node.func.id != 'Profile':
+        continue
+    kw = {k.arg: k.value for k in node.keywords}
+    if ast.literal_eval(kw['name']) != 'lyric':
+        continue
+    for key, value in update.items():
+        assert key in kw, key
+        a, b = span(kw[key]); replacements.append((a, b, pprint.pformat(value, width=100, sort_dicts=False).encode()))
+raw = source.encode()
+for a, b, rep in sorted(replacements, reverse=True):
+    raw = raw[:a] + rep + raw[b:]
+ast.parse(raw.decode()); path.write_bytes(raw)
+(out / 'adopted-profiles.json').write_text(json.dumps({'version': 1, 'date': '2026-10-15', 'provenance': provenance, 'updates': {'lyric': update}, 'predictability_first_informative_token': active}, indent=2, ensure_ascii=False, default=list) + '\n')
+print(json.dumps({'lyric': {n: update[n] for n in ('lo', 'hi', 'n_human', 'mattr_ttr_population')}, 'predictability_first_informative_token': active}, indent=2))

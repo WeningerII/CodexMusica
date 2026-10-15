@@ -284,8 +284,8 @@
         },
         {
           "path": "data/song_endword_en.tsv",
-          "bytes": 4747159,
-          "sha256": "7a4b8b4407697eb707e3eff32261c7064d8185cd9004f6a2236759ac87a28e48"
+          "bytes": 4746693,
+          "sha256": "01795612be22459650cc73675bf39ef14897b43cbccd45d31e0628e0fc51f7f4"
         },
         {
           "path": "data/song_rhymepair_en.tsv",
@@ -294,8 +294,8 @@
         },
         {
           "path": "data/sources.tsv",
-          "bytes": 1665415,
-          "sha256": "6e7b8f70ff96c8ac6fcd44024299764d7539e7ef1ce1e7275d715a73cbe8fa03"
+          "bytes": 1665627,
+          "sha256": "d02d3c00d024368c7f1fdc310373cebf3098d4786df558bec5190cb79866d0ba"
         },
         {
           "path": "data/LICENSE.perceptron-tagger",
@@ -342,8 +342,8 @@
         },
         {
           "path": "data/section_marks.tsv",
-          "bytes": 8632,
-          "sha256": "52666ca2071034f162eed7d0d5838ef642381b2239b4c150f5c81bfd4d006d0b"
+          "bytes": 8968,
+          "sha256": "a141e8cda89ede1c476ff8c4f4fe963004df535926b85ad11783d2fa91c921d1"
         },
         {
           "path": "data/song_functions_eng.tsv",

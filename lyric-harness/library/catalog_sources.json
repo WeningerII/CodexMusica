@@ -1,5 +1,5 @@
 {
-  "repository_commit": "97ec4b0c4f0be7ec605940dd05b663f6ffd3d182",
+  "repository_commit": "feca512a6cb3de76e2751ba7d475d50ea594e044",
   "tree": [
     {
       "path": "lyric-harness/corpus/cym_alun_strict.txt",
@@ -5673,8 +5673,8 @@
     },
     {
       "path": "lyric-harness/corpus/song/eng_british_richard_lovelace.txt",
-      "sha": "efa4395e21c609fbd5228440f720f1615bfbc91c",
-      "size": 127420
+      "sha": "0922ecc9c7e7764577346f15d29e18de4bdab003",
+      "size": 127810
     },
     {
       "path": "lyric-harness/corpus/song/eng_british_richard_monckton_milnes.txt",
@@ -5683,8 +5683,8 @@
     },
     {
       "path": "lyric-harness/corpus/song/eng_british_robert_browning.txt",
-      "sha": "15f7fbc07eb83417311e595201f64369f505031f",
-      "size": 112101
+      "sha": "b84008baa57b5bb6cdc47af51696ef58b65fd43e",
+      "size": 112179
     },
     {
       "path": "lyric-harness/corpus/song/eng_british_robert_buchanan.txt",
@@ -5698,8 +5698,8 @@
     },
     {
       "path": "lyric-harness/corpus/song/eng_british_robert_herrick.txt",
-      "sha": "ca3d36cd61793fb4083c99b70e238e14abc265ae",
-      "size": 305099
+      "sha": "bafaed913cb1888acd5be733babbccba872c4834",
+      "size": 305242
     },
     {
       "path": "lyric-harness/corpus/song/eng_british_robert_jones.txt",

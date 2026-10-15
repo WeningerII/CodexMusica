@@ -287,7 +287,12 @@ PINNED = {
     # the one that left is not a decision: `[GEORGE]` was the opening bracket
     # of a Lovelace editor's note ("[George] Sandys published, in 1615...")
     # that the census read as a mark, and the note is now apparatus.
-    "typed": 75318, "decided": 125501, "undecided": 31, "apparatus": 1,
+    # 2026-10-15 (#564, the M-25 editorial residue): typed ~~75,318~~ 75,304,
+    # exactly the 14 wholly editorial [VERSE] marks in 13 Lovelace, Browning
+    # and Herrick items now read as apparatus
+    # (`data/english_apparatus_residue_2026-10-15.json`); decided, undecided
+    # and apparatus UNMOVED.
+    "typed": 75304, "decided": 125501, "undecided": 31, "apparatus": 1,
     "declared_functions": 22, "witnessed": 5,
 }
 
