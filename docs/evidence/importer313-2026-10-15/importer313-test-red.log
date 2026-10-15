@@ -1,0 +1,18 @@
+test_audit_description_is_not_runtime_docstring_data (__main__.BatchEvidenceTests.test_audit_description_is_not_runtime_docstring_data) ... FAIL
+
+======================================================================
+FAIL: test_audit_description_is_not_runtime_docstring_data (__main__.BatchEvidenceTests.test_audit_description_is_not_runtime_docstring_data)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/musica-importer313/lyric-harness/quality/test_gutenberg_import.py", line 210, in test_audit_description_is_not_runtime_docstring_data
+    self.assertEqual(json.loads(files[BATCH / 'audit.json']),
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     read_json(BATCH / 'audit.json'))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'ver[134 chars]on': None, 'existing_sources': [{'path': 'corp[5382848 chars]d'}]} != {'ver[134 chars]on': 'Work matching: full normalized text or c[5383150 chars]d'}]}
+Diff is 9520411 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 1 test in 12.806s
+
+FAILED (failures=1)
