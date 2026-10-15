@@ -1,0 +1,172 @@
+page 5e97e06fd0fbf6c08cd2b196cb3a29f06606bf2e  harness b887e5effcea84bf11722ca69bd13fc7088755c5
+(node VM over the tree source (not a browser); classifier: the harness tree's normalize-numbering)
+verdict class      case                                            mark          sent                        want -> got
+PASS    REFUSED    ohoh.love.groups.migration.off->sung            cut v2 only   1.T5,2.end (no numbering)   love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.groups.form.off->sung                 cut v2 only   1.T5,2 (no numbering)       love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.groups.b887-stored.off->sung          cut v2 only   1.T5,2.end (no numbering)   love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.migration.off->sung           cut v2 only   1.T5,2.end (no numbering)   love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.form.off->sung                cut v2 only   1.T5,2 (no numbering)       love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.b887-stored.off->sung         cut v2 only   1.T5,2.end (no numbering)   love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.reading.migration.off->sung           cut v2 only   T5 (no numbering)           love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.off->sung                cut v2 only   T5 (no numbering)           love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.off->sung         cut v2 only   T5 (no numbering)           love@19 -> love@19
+PASS    REFUSED    ohoh.love.groups.migration.sung->off            cut v2 only   1.T6,2.end (no numbering)   love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.groups.form.sung->off                 cut v2 only   1.T6,2 (no numbering)       love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.groups.b887-stored.sung->off          cut v2 only   1.T6,2.end (no numbering)   love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.migration.sung->off           cut v2 only   1.T6,2.end (no numbering)   love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.form.sung->off                cut v2 only   1.T6,2 (no numbering)       love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.b887-stored.sung->off         cut v2 only   1.T6,2.end (no numbering)   love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.reading.migration.sung->off           cut v2 only   T6 (no numbering)           love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.reading.form.sung->off                cut v2 only   T6 (no numbering)           love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.reading.b887-stored.sung->off         cut v2 only   T6 (no numbering)           love@19 -> REFUSED
+FAIL    SAME_WORD  ohoh.love.groups.migration.off->off             cut v2 only   1.T5,2.end (no numbering)   love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  ohoh.love.groups.form.off->off                  cut v2 only   1.T5,2 (no numbering)       love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  ohoh.love.groups.b887-stored.off->off           cut v2 only   1.T5,2.end (no numbering)   love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  ohoh.love.returns.migration.off->off            cut v2 only   1.T5,2.end (no numbering)   love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  ohoh.love.returns.form.off->off                 cut v2 only   1.T5,2 (no numbering)       love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  ohoh.love.returns.b887-stored.off->off          cut v2 only   1.T5,2.end (no numbering)   love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  ohoh.love.reading.migration.off->off            cut v2 only   T5 (no numbering)           love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.off->off                 cut v2 only   T5 (no numbering)           love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.off->off          cut v2 only   T5 (no numbering)           love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.migration.sung->sung           cut v2 only   1.T6,2.end (no numbering)   love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.form.sung->sung                cut v2 only   1.T6,2 (no numbering)       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.b887-stored.sung->sung         cut v2 only   1.T6,2.end (no numbering)   love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.migration.sung->sung          cut v2 only   1.T6,2.end (no numbering)   love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.form.sung->sung               cut v2 only   1.T6,2 (no numbering)       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.b887-stored.sung->sung        cut v2 only   1.T6,2.end (no numbering)   love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.migration.sung->sung          cut v2 only   T6 (no numbering)           love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.sung->sung               cut v2 only   T6 (no numbering)           love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.sung->sung        cut v2 only   T6 (no numbering)           love@19 -> love@19
+PASS    REFUSED    ohoh.ah.groups.migration.sung->off              cut v2 only   1.T3,2.end (no numbering)   ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.groups.form.sung->off                   cut v2 only   1.T3,2 (no numbering)       ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.groups.b887-stored.sung->off            cut v2 only   1.T3,2.end (no numbering)   ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.migration.sung->off             cut v2 only   1.T3,2.end (no numbering)   ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.form.sung->off                  cut v2 only   1.T3,2 (no numbering)       ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.b887-stored.sung->off           cut v2 only   1.T3,2.end (no numbering)   ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.reading.migration.sung->off             cut v2 only   T3 (no numbering)           ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.reading.form.sung->off                  cut v2 only   T3 (no numbering)           ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.reading.b887-stored.sung->off           cut v2 only   T3 (no numbering)           ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.groups.migration.sung->sung             cut v2 only   1.T3,2.end (no numbering)   ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.groups.form.sung->sung                  cut v2 only   1.T3,2 (no numbering)       ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.groups.b887-stored.sung->sung           cut v2 only   1.T3,2.end (no numbering)   ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.migration.sung->sung            cut v2 only   1.T3,2.end (no numbering)   ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.form.sung->sung                 cut v2 only   1.T3,2 (no numbering)       ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.returns.b887-stored.sung->sung          cut v2 only   1.T3,2.end (no numbering)   ah@9 -> REFUSED
+PASS    SAME_WORD  ohoh.ah.reading.migration.sung->sung            cut v2 only   T3 (no numbering)           ah@9 -> ah@9
+PASS    SAME_WORD  ohoh.ah.reading.form.sung->sung                 cut v2 only   T3 (no numbering)           ah@9 -> ah@9
+PASS    SAME_WORD  ohoh.ah.reading.b887-stored.sung->sung          cut v2 only   T3 (no numbering)           ah@9 -> ah@9
+PASS    REFUSED    byebye.bye.groups.migration.off->sung           cut v2 only   1.T3,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.form.off->sung                cut v2 only   1.T3,2 (no numbering)       bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.b887-stored.off->sung         cut v2 only   1.T3,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.migration.off->sung          cut v2 only   1.T3,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.form.off->sung               cut v2 only   1.T3,2 (no numbering)       bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.b887-stored.off->sung        cut v2 only   1.T3,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.reading.migration.off->sung          cut v2 only   T3 (no numbering)           bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.reading.form.off->sung               cut v2 only   T3 (no numbering)           bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.reading.b887-stored.off->sung        cut v2 only   T3 (no numbering)           bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.migration.sung->off           cut v2 only   1.T4,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.form.sung->off                cut v2 only   1.T4,2 (no numbering)       bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.b887-stored.sung->off         cut v2 only   1.T4,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.migration.sung->off          cut v2 only   1.T4,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.form.sung->off               cut v2 only   1.T4,2 (no numbering)       bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.b887-stored.sung->off        cut v2 only   1.T4,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.reading.migration.sung->off          cut v2 only   T4 (no numbering)           bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.reading.form.sung->off               cut v2 only   T4 (no numbering)           bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.reading.b887-stored.sung->off        cut v2 only   T4 (no numbering)           bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.migration.off->off            cut v2 only   1.T3,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.form.off->off                 cut v2 only   1.T3,2 (no numbering)       bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.b887-stored.off->off          cut v2 only   1.T3,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.migration.off->off           cut v2 only   1.T3,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.form.off->off                cut v2 only   1.T3,2 (no numbering)       bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.b887-stored.off->off         cut v2 only   1.T3,2.end (no numbering)   bye@15 -> REFUSED
+FAIL    SAME_WORD  byebye.bye.reading.migration.off->off           cut v2 only   T3 (no numbering)           bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  byebye.bye.reading.form.off->off                cut v2 only   T3 (no numbering)           bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  byebye.bye.reading.b887-stored.off->off         cut v2 only   T3 (no numbering)           bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    REFUSED    byebye.bye.groups.migration.sung->sung          cut v2 only   1.T4,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.form.sung->sung               cut v2 only   1.T4,2 (no numbering)       bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.groups.b887-stored.sung->sung        cut v2 only   1.T4,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.migration.sung->sung         cut v2 only   1.T4,2.end (no numbering)   bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.form.sung->sung              cut v2 only   1.T4,2 (no numbering)       bye@15 -> REFUSED
+PASS    REFUSED    byebye.bye.returns.b887-stored.sung->sung       cut v2 only   1.T4,2.end (no numbering)   bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.reading.migration.sung->sung         cut v2 only   T4 (no numbering)           bye@15 -> bye@15
+PASS    SAME_WORD  byebye.bye.reading.form.sung->sung              cut v2 only   T4 (no numbering)           bye@15 -> bye@15
+PASS    SAME_WORD  byebye.bye.reading.b887-stored.sung->sung       cut v2 only   T4 (no numbering)           bye@15 -> bye@15
+FAIL    WRONG_WORD enclitic.home.groups.migration.off->sung        cut v2 only   1.T4,2.end (no numbering)   home@28 -> meow@17
+FAIL    WRONG_WORD enclitic.home.groups.form.off->sung             cut v2 only   1.T4,2 (no numbering)       home@28 -> meow@17
+FAIL    WRONG_WORD enclitic.home.groups.b887-stored.off->sung      cut v2 only   1.T4,2.end (no numbering)   home@28 -> meow@17
+FAIL    WRONG_WORD enclitic.home.returns.migration.off->sung       cut v2 only   1.T4,2.end (no numbering)   home@28 -> meow@17
+FAIL    WRONG_WORD enclitic.home.returns.form.off->sung            cut v2 only   1.T4,2 (no numbering)       home@28 -> meow@17
+FAIL    WRONG_WORD enclitic.home.returns.b887-stored.off->sung     cut v2 only   1.T4,2.end (no numbering)   home@28 -> meow@17
+PASS    REFUSED    enclitic.home.reading.migration.off->sung       cut v2 only   T4 (no numbering)           home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.reading.form.off->sung            cut v2 only   T4 (no numbering)           home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.reading.b887-stored.off->sung     cut v2 only   T4 (no numbering)           home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.groups.migration.sung->off        cut v2 only   1.T6,2.end (no numbering)   home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.groups.form.sung->off             cut v2 only   1.T6,2 (no numbering)       home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.groups.b887-stored.sung->off      cut v2 only   1.T6,2.end (no numbering)   home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.returns.migration.sung->off       cut v2 only   1.T6,2.end (no numbering)   home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.returns.form.sung->off            cut v2 only   1.T6,2 (no numbering)       home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.returns.b887-stored.sung->off     cut v2 only   1.T6,2.end (no numbering)   home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.reading.migration.sung->off       cut v2 only   T6 (no numbering)           home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.reading.form.sung->off            cut v2 only   T6 (no numbering)           home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.reading.b887-stored.sung->off     cut v2 only   T6 (no numbering)           home@28 -> REFUSED
+FAIL    SAME_WORD  enclitic.home.groups.migration.off->off         cut v2 only   1.T4,2.end (no numbering)   home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  enclitic.home.groups.form.off->off              cut v2 only   1.T4,2 (no numbering)       home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  enclitic.home.groups.b887-stored.off->off       cut v2 only   1.T4,2.end (no numbering)   home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  enclitic.home.returns.migration.off->off        cut v2 only   1.T4,2.end (no numbering)   home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  enclitic.home.returns.form.off->off             cut v2 only   1.T4,2 (no numbering)       home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  enclitic.home.returns.b887-stored.off->off      cut v2 only   1.T4,2.end (no numbering)   home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  enclitic.home.reading.migration.off->off        cut v2 only   T4 (no numbering)           home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.form.off->off             cut v2 only   T4 (no numbering)           home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.b887-stored.off->off      cut v2 only   T4 (no numbering)           home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.migration.sung->sung       cut v2 only   1.T6,2.end (no numbering)   home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.form.sung->sung            cut v2 only   1.T6,2 (no numbering)       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.b887-stored.sung->sung     cut v2 only   1.T6,2.end (no numbering)   home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.migration.sung->sung      cut v2 only   1.T6,2.end (no numbering)   home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.form.sung->sung           cut v2 only   1.T6,2 (no numbering)       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.b887-stored.sung->sung    cut v2 only   1.T6,2.end (no numbering)   home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.migration.sung->sung      cut v2 only   T6 (no numbering)           home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.form.sung->sung           cut v2 only   T6 (no numbering)           home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.b887-stored.sung->sung    cut v2 only   T6 (no numbering)           home@28 -> home@28
+FAIL    WRONG_WORD holdon.on.groups.migration.off->sung            unmarked      1.T4,2.end (no numbering)   on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.groups.form.off->sung                 cut v2 only   1.T4,2 (no numbering)       on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.groups.b887-stored.off->sung          cut v2 only   1.T4,2.end (no numbering)   on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.returns.migration.off->sung           unmarked      1.T4,2.end (no numbering)   on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.returns.form.off->sung                cut v2 only   1.T4,2 (no numbering)       on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.returns.b887-stored.off->sung         cut v2 only   1.T4,2.end (no numbering)   on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.reading.migration.off->sung           unmarked      T4 (no numbering)           on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.reading.form.off->sung                cut v2 only   T4 (no numbering)           on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.reading.b887-stored.off->sung         cut v2 only   T4 (no numbering)           on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.groups.migration.sung->off            unmarked      1.T6,2.end (no numbering)   on@23 -> me@29
+FAIL    WRONG_WORD holdon.on.groups.form.sung->off                 cut v2 only   1.T6,2 (no numbering)       on@23 -> me@29
+FAIL    WRONG_WORD holdon.on.groups.b887-stored.sung->off          cut v2 only   1.T6,2.end (no numbering)   on@23 -> me@29
+FAIL    WRONG_WORD holdon.on.returns.migration.sung->off           unmarked      1.T6,2.end (no numbering)   on@23 -> me@29
+FAIL    WRONG_WORD holdon.on.returns.form.sung->off                cut v2 only   1.T6,2 (no numbering)       on@23 -> me@29
+FAIL    WRONG_WORD holdon.on.returns.b887-stored.sung->off         cut v2 only   1.T6,2.end (no numbering)   on@23 -> me@29
+PASS    REFUSED    holdon.on.reading.migration.sung->off           unmarked      page: nothing sent          on@23 -> REFUSED
+PASS    REFUSED    holdon.on.reading.form.sung->off                cut v2 only   T6 (no numbering)           on@23 -> REFUSED
+PASS    REFUSED    holdon.on.reading.b887-stored.sung->off         cut v2 only   T6 (no numbering)           on@23 -> REFUSED
+FAIL    SAME_WORD  holdon.on.groups.migration.off->off             unmarked      1.T4,2.end (no numbering)   on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.groups.form.off->off                  cut v2 only   1.T4,2 (no numbering)       on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.groups.b887-stored.off->off           cut v2 only   1.T4,2.end (no numbering)   on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.returns.migration.off->off            unmarked      1.T4,2.end (no numbering)   on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.returns.form.off->off                 cut v2 only   1.T4,2 (no numbering)       on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.returns.b887-stored.off->off          cut v2 only   1.T4,2.end (no numbering)   on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.reading.migration.off->off            unmarked      T4 (no numbering)           on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.reading.form.off->off                 cut v2 only   T4 (no numbering)           on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.reading.b887-stored.off->off          cut v2 only   T4 (no numbering)           on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.groups.migration.sung->sung           unmarked      1.T6,2.end (no numbering)   on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.groups.form.sung->sung                cut v2 only   1.T6,2 (no numbering)       on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.groups.b887-stored.sung->sung         cut v2 only   1.T6,2.end (no numbering)   on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.returns.migration.sung->sung          unmarked      1.T6,2.end (no numbering)   on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.returns.form.sung->sung               cut v2 only   1.T6,2 (no numbering)       on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.returns.b887-stored.sung->sung        cut v2 only   1.T6,2.end (no numbering)   on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  holdon.on.reading.migration.sung->sung          unmarked      T6 (no numbering)           on@23 -> on@23
+PASS    SAME_WORD  holdon.on.reading.form.sung->sung               cut v2 only   T6 (no numbering)           on@23 -> on@23
+PASS    SAME_WORD  holdon.on.reading.b887-stored.sung->sung        cut v2 only   T6 (no numbering)           on@23 -> on@23
+all: {"REFUSED": 75, "SAME_WORD": 66, "WRONG_WORD": 21, "FAIL": 51}
+row records its basis (numbering+cut): {"FAIL": 0}
+row already migrated, no basis (cut v2 only): {"REFUSED": 74, "SAME_WORD": 60, "WRONG_WORD": 16, "FAIL": 41}
+pre-release row left unmarked (no mark): {"WRONG_WORD": 5, "REFUSED": 1, "SAME_WORD": 6, "FAIL": 10}
+voices changed: {"REFUSED": 57, "SAME_WORD": 3, "WRONG_WORD": 21, "FAIL": 21}
+controls (voices unchanged): {"SAME_WORD": 63, "REFUSED": 18, "FAIL": 30}
+FAIL (51 cases)

@@ -1,0 +1,16 @@
+{
+ "probe": "pa_voices/pa_harness.py",
+ "page_tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-5e9",
+ "page_commit": "5e97e06fd0fbf6c08cd2b196cb3a29f06606bf2e",
+ "page_features": {
+  "lyNumbering": false,
+  "lyNumberingTarget": false,
+  "lyEnsureTokenScheme": true,
+  "lySubmitLyricsAction": true,
+  "token_scheme": "v2"
+ },
+ "harness_tree": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-5e9",
+ "harness_commit": "5e97e06fd0fbf6c08cd2b196cb3a29f06606bf2e",
+ "replica": "node VM over the tree source (not a browser)",
+ "error": "HARNESS_LACKS_VERB: this lyric_harness.py has no normalize-numbering verb"
+}

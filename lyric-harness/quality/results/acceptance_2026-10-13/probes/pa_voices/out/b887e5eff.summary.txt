@@ -1,0 +1,172 @@
+page b887e5effcea84bf11722ca69bd13fc7088755c5  harness b887e5effcea84bf11722ca69bd13fc7088755c5
+(node VM over the tree source (not a browser); classifier: the harness tree's normalize-numbering)
+verdict class      case                                            mark          sent                        want -> got
+FAIL    WRONG_WORD ohoh.love.groups.migration.off->sung            cut v2 only   1.T5,2.end v2+voices        love@19 -> my@16
+PASS    SAME_WORD  ohoh.love.groups.form.off->sung                 numbering+cut 1.T6,2 v2+voices            love@19 -> love@19
+FAIL    WRONG_WORD ohoh.love.groups.b887-stored.off->sung          cut v2 only   1.T5,2.end v2+voices        love@19 -> my@16
+FAIL    WRONG_WORD ohoh.love.returns.migration.off->sung           cut v2 only   1.T5,2.end v2+voices        love@19 -> my@16
+PASS    SAME_WORD  ohoh.love.returns.form.off->sung                numbering+cut 1.T6,2 v2+voices            love@19 -> love@19
+FAIL    WRONG_WORD ohoh.love.returns.b887-stored.off->sung         cut v2 only   1.T5,2.end v2+voices        love@19 -> my@16
+PASS    REFUSED    ohoh.love.reading.migration.off->sung           cut v2 only   T5 v2+voices                love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.reading.form.off->sung                numbering+cut T5 v2                       love@19 -> love@19
+PASS    REFUSED    ohoh.love.reading.b887-stored.off->sung         cut v2 only   T5 v2+voices                love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.groups.migration.sung->off            cut v2 only   1.T6,2.end v2               love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.groups.form.sung->off                 numbering+cut 1.T5,2 v2                   love@19 -> love@19
+PASS    REFUSED    ohoh.love.groups.b887-stored.sung->off          cut v2 only   1.T6,2.end v2               love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.returns.migration.sung->off           cut v2 only   1.T6,2.end v2               love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.returns.form.sung->off                numbering+cut 1.T5,2 v2                   love@19 -> love@19
+PASS    REFUSED    ohoh.love.returns.b887-stored.sung->off         cut v2 only   1.T6,2.end v2               love@19 -> REFUSED
+PASS    REFUSED    ohoh.love.reading.migration.sung->off           cut v2 only   T6 v2                       love@19 -> REFUSED
+PASS    SAME_WORD  ohoh.love.reading.form.sung->off                numbering+cut T6 v2+voices                love@19 -> love@19
+PASS    REFUSED    ohoh.love.reading.b887-stored.sung->off         cut v2 only   T6 v2                       love@19 -> REFUSED
+FAIL    SAME_WORD  ohoh.love.groups.migration.off->off             cut v2 only   1.T5,2.end v2               love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  ohoh.love.groups.form.off->off                  numbering+cut 1.T5,2 v2                   love@19 -> love@19
+FAIL    SAME_WORD  ohoh.love.groups.b887-stored.off->off           cut v2 only   1.T5,2.end v2               love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  ohoh.love.returns.migration.off->off            cut v2 only   1.T5,2.end v2               love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  ohoh.love.returns.form.off->off                 numbering+cut 1.T5,2 v2                   love@19 -> love@19
+FAIL    SAME_WORD  ohoh.love.returns.b887-stored.off->off          cut v2 only   1.T5,2.end v2               love@19 -> love@19  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  ohoh.love.reading.migration.off->off            cut v2 only   T5 v2                       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.off->off                 numbering+cut T5 v2                       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.off->off          cut v2 only   T5 v2                       love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.migration.sung->sung           cut v2 only   1.T6,2.end v2+voices        love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.form.sung->sung                numbering+cut 1.T6,2 v2+voices            love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.groups.b887-stored.sung->sung         cut v2 only   1.T6,2.end v2+voices        love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.migration.sung->sung          cut v2 only   1.T6,2.end v2+voices        love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.form.sung->sung               numbering+cut 1.T6,2 v2+voices            love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.returns.b887-stored.sung->sung        cut v2 only   1.T6,2.end v2+voices        love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.migration.sung->sung          cut v2 only   T6 v2+voices                love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.form.sung->sung               numbering+cut T6 v2+voices                love@19 -> love@19
+PASS    SAME_WORD  ohoh.love.reading.b887-stored.sung->sung        cut v2 only   T6 v2+voices                love@19 -> love@19
+FAIL    WRONG_WORD ohoh.ah.groups.migration.sung->off              cut v2 only   1.T3,2.end v2               ah@9 -> oh@13
+PASS    REFUSED    ohoh.ah.groups.form.sung->off                   numbering+cut page: nothing sent          ah@9 -> REFUSED
+FAIL    WRONG_WORD ohoh.ah.groups.b887-stored.sung->off            cut v2 only   1.T3,2.end v2               ah@9 -> oh@13
+FAIL    WRONG_WORD ohoh.ah.returns.migration.sung->off             cut v2 only   1.T3,2.end v2               ah@9 -> oh@13
+PASS    REFUSED    ohoh.ah.returns.form.sung->off                  numbering+cut page: nothing sent          ah@9 -> REFUSED
+FAIL    WRONG_WORD ohoh.ah.returns.b887-stored.sung->off           cut v2 only   1.T3,2.end v2               ah@9 -> oh@13
+PASS    REFUSED    ohoh.ah.reading.migration.sung->off             cut v2 only   T3 v2                       ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.reading.form.sung->off                  numbering+cut page: nothing sent          ah@9 -> REFUSED
+PASS    REFUSED    ohoh.ah.reading.b887-stored.sung->off           cut v2 only   T3 v2                       ah@9 -> REFUSED
+FAIL    SAME_WORD  ohoh.ah.groups.migration.sung->sung             cut v2 only   1.T3,2.end v2+voices        ah@9 -> ah@9  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  ohoh.ah.groups.form.sung->sung                  numbering+cut 1.T3,2 v2+voices            ah@9 -> ah@9
+FAIL    SAME_WORD  ohoh.ah.groups.b887-stored.sung->sung           cut v2 only   1.T3,2.end v2+voices        ah@9 -> ah@9  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  ohoh.ah.returns.migration.sung->sung            cut v2 only   1.T3,2.end v2+voices        ah@9 -> ah@9  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  ohoh.ah.returns.form.sung->sung                 numbering+cut 1.T3,2 v2+voices            ah@9 -> ah@9
+FAIL    SAME_WORD  ohoh.ah.returns.b887-stored.sung->sung          cut v2 only   1.T3,2.end v2+voices        ah@9 -> ah@9  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  ohoh.ah.reading.migration.sung->sung            cut v2 only   T3 v2+voices                ah@9 -> ah@9
+PASS    SAME_WORD  ohoh.ah.reading.form.sung->sung                 numbering+cut T3 v2+voices                ah@9 -> ah@9
+PASS    SAME_WORD  ohoh.ah.reading.b887-stored.sung->sung          cut v2 only   T3 v2+voices                ah@9 -> ah@9
+FAIL    WRONG_WORD byebye.bye.groups.migration.off->sung           cut v2 only   1.T3,2.end v2+voices        bye@15 -> bye@10
+PASS    SAME_WORD  byebye.bye.groups.form.off->sung                numbering+cut 1.T4,2 v2+voices            bye@15 -> bye@15
+FAIL    WRONG_WORD byebye.bye.groups.b887-stored.off->sung         cut v2 only   1.T3,2.end v2+voices        bye@15 -> bye@10
+FAIL    WRONG_WORD byebye.bye.returns.migration.off->sung          cut v2 only   1.T3,2.end v2+voices        bye@15 -> bye@10
+PASS    SAME_WORD  byebye.bye.returns.form.off->sung               numbering+cut 1.T4,2 v2+voices            bye@15 -> bye@15
+FAIL    WRONG_WORD byebye.bye.returns.b887-stored.off->sung        cut v2 only   1.T3,2.end v2+voices        bye@15 -> bye@10
+FAIL    WRONG_WORD byebye.bye.reading.migration.off->sung          cut v2 only   T3 v2+voices                bye@15 -> bye@10
+PASS    SAME_WORD  byebye.bye.reading.form.off->sung               numbering+cut T3 v2                       bye@15 -> bye@15
+FAIL    WRONG_WORD byebye.bye.reading.b887-stored.off->sung        cut v2 only   T3 v2+voices                bye@15 -> bye@10
+FAIL    WRONG_WORD byebye.bye.groups.migration.sung->off           cut v2 only   1.T4,2.end v2               bye@15 -> my@20
+PASS    SAME_WORD  byebye.bye.groups.form.sung->off                numbering+cut 1.T3,2 v2                   bye@15 -> bye@15
+FAIL    WRONG_WORD byebye.bye.groups.b887-stored.sung->off         cut v2 only   1.T4,2.end v2               bye@15 -> my@20
+FAIL    WRONG_WORD byebye.bye.returns.migration.sung->off          cut v2 only   1.T4,2.end v2               bye@15 -> my@20
+PASS    SAME_WORD  byebye.bye.returns.form.sung->off               numbering+cut 1.T3,2 v2                   bye@15 -> bye@15
+FAIL    WRONG_WORD byebye.bye.returns.b887-stored.sung->off        cut v2 only   1.T4,2.end v2               bye@15 -> my@20
+PASS    REFUSED    byebye.bye.reading.migration.sung->off          cut v2 only   T4 v2                       bye@15 -> REFUSED
+PASS    SAME_WORD  byebye.bye.reading.form.sung->off               numbering+cut T4 v2+voices                bye@15 -> bye@15
+PASS    REFUSED    byebye.bye.reading.b887-stored.sung->off        cut v2 only   T4 v2                       bye@15 -> REFUSED
+FAIL    SAME_WORD  byebye.bye.groups.migration.off->off            cut v2 only   1.T3,2.end v2               bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  byebye.bye.groups.form.off->off                 numbering+cut 1.T3,2 v2                   bye@15 -> bye@15
+FAIL    SAME_WORD  byebye.bye.groups.b887-stored.off->off          cut v2 only   1.T3,2.end v2               bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  byebye.bye.returns.migration.off->off           cut v2 only   1.T3,2.end v2               bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  byebye.bye.returns.form.off->off                numbering+cut 1.T3,2 v2                   bye@15 -> bye@15
+FAIL    SAME_WORD  byebye.bye.returns.b887-stored.off->off         cut v2 only   1.T3,2.end v2               bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  byebye.bye.reading.migration.off->off           cut v2 only   T3 v2                       bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  byebye.bye.reading.form.off->off                numbering+cut T3 v2                       bye@15 -> bye@15
+FAIL    SAME_WORD  byebye.bye.reading.b887-stored.off->off         cut v2 only   T3 v2                       bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  byebye.bye.groups.migration.sung->sung          cut v2 only   1.T4,2.end v2+voices        bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  byebye.bye.groups.form.sung->sung               numbering+cut 1.T4,2 v2+voices            bye@15 -> bye@15
+FAIL    SAME_WORD  byebye.bye.groups.b887-stored.sung->sung        cut v2 only   1.T4,2.end v2+voices        bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  byebye.bye.returns.migration.sung->sung         cut v2 only   1.T4,2.end v2+voices        bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  byebye.bye.returns.form.sung->sung              numbering+cut 1.T4,2 v2+voices            bye@15 -> bye@15
+FAIL    SAME_WORD  byebye.bye.returns.b887-stored.sung->sung       cut v2 only   1.T4,2.end v2+voices        bye@15 -> bye@15  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  byebye.bye.reading.migration.sung->sung         cut v2 only   T4 v2+voices                bye@15 -> bye@15
+PASS    SAME_WORD  byebye.bye.reading.form.sung->sung              numbering+cut T4 v2+voices                bye@15 -> bye@15
+PASS    SAME_WORD  byebye.bye.reading.b887-stored.sung->sung       cut v2 only   T4 v2+voices                bye@15 -> bye@15
+FAIL    WRONG_WORD enclitic.home.groups.migration.off->sung        cut v2 only   1.T4,2.end v2+voices        home@28 -> meow@17
+PASS    SAME_WORD  enclitic.home.groups.form.off->sung             numbering+cut 1.T6,2 v2+voices            home@28 -> home@28
+FAIL    WRONG_WORD enclitic.home.groups.b887-stored.off->sung      cut v2 only   1.T4,2.end v2+voices        home@28 -> meow@17
+FAIL    WRONG_WORD enclitic.home.returns.migration.off->sung       cut v2 only   1.T4,2.end v2+voices        home@28 -> meow@17
+PASS    SAME_WORD  enclitic.home.returns.form.off->sung            numbering+cut 1.T6,2 v2+voices            home@28 -> home@28
+FAIL    WRONG_WORD enclitic.home.returns.b887-stored.off->sung     cut v2 only   1.T4,2.end v2+voices        home@28 -> meow@17
+PASS    REFUSED    enclitic.home.reading.migration.off->sung       cut v2 only   T4 v2+voices                home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.reading.form.off->sung            numbering+cut T4 v2                       home@28 -> home@28
+PASS    REFUSED    enclitic.home.reading.b887-stored.off->sung     cut v2 only   T4 v2+voices                home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.groups.migration.sung->off        cut v2 only   1.T6,2.end v2               home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.groups.form.sung->off             numbering+cut 1.T4,2 v2                   home@28 -> home@28
+PASS    REFUSED    enclitic.home.groups.b887-stored.sung->off      cut v2 only   1.T6,2.end v2               home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.returns.migration.sung->off       cut v2 only   1.T6,2.end v2               home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.returns.form.sung->off            numbering+cut 1.T4,2 v2                   home@28 -> home@28
+PASS    REFUSED    enclitic.home.returns.b887-stored.sung->off     cut v2 only   1.T6,2.end v2               home@28 -> REFUSED
+PASS    REFUSED    enclitic.home.reading.migration.sung->off       cut v2 only   T6 v2                       home@28 -> REFUSED
+PASS    SAME_WORD  enclitic.home.reading.form.sung->off            numbering+cut T6 v2+voices                home@28 -> home@28
+PASS    REFUSED    enclitic.home.reading.b887-stored.sung->off     cut v2 only   T6 v2                       home@28 -> REFUSED
+FAIL    SAME_WORD  enclitic.home.groups.migration.off->off         cut v2 only   1.T4,2.end v2               home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  enclitic.home.groups.form.off->off              numbering+cut 1.T4,2 v2                   home@28 -> home@28
+FAIL    SAME_WORD  enclitic.home.groups.b887-stored.off->off       cut v2 only   1.T4,2.end v2               home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  enclitic.home.returns.migration.off->off        cut v2 only   1.T4,2.end v2               home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  enclitic.home.returns.form.off->off             numbering+cut 1.T4,2 v2                   home@28 -> home@28
+FAIL    SAME_WORD  enclitic.home.returns.b887-stored.off->off      cut v2 only   1.T4,2.end v2               home@28 -> home@28  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  enclitic.home.reading.migration.off->off        cut v2 only   T4 v2                       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.form.off->off             numbering+cut T4 v2                       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.b887-stored.off->off      cut v2 only   T4 v2                       home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.migration.sung->sung       cut v2 only   1.T6,2.end v2+voices        home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.form.sung->sung            numbering+cut 1.T6,2 v2+voices            home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.groups.b887-stored.sung->sung     cut v2 only   1.T6,2.end v2+voices        home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.migration.sung->sung      cut v2 only   1.T6,2.end v2+voices        home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.form.sung->sung           numbering+cut 1.T6,2 v2+voices            home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.returns.b887-stored.sung->sung    cut v2 only   1.T6,2.end v2+voices        home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.migration.sung->sung      cut v2 only   T6 v2+voices                home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.form.sung->sung           numbering+cut T6 v2+voices                home@28 -> home@28
+PASS    SAME_WORD  enclitic.home.reading.b887-stored.sung->sung    cut v2 only   T6 v2+voices                home@28 -> home@28
+FAIL    WRONG_WORD holdon.on.groups.migration.off->sung            unmarked      1.T4,2.end v2+voices        on@23 -> on@14
+PASS    SAME_WORD  holdon.on.groups.form.off->sung                 numbering+cut 1.T6,2 v2+voices            on@23 -> on@23
+FAIL    WRONG_WORD holdon.on.groups.b887-stored.off->sung          cut v2 only   1.T4,2.end v2+voices        on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.returns.migration.off->sung           unmarked      1.T4,2.end v2+voices        on@23 -> on@14
+PASS    SAME_WORD  holdon.on.returns.form.off->sung                numbering+cut 1.T6,2 v2+voices            on@23 -> on@23
+FAIL    WRONG_WORD holdon.on.returns.b887-stored.off->sung         cut v2 only   1.T4,2.end v2+voices        on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.reading.migration.off->sung           unmarked      T4 (no numbering)           on@23 -> on@14
+PASS    SAME_WORD  holdon.on.reading.form.off->sung                numbering+cut T4 v2                       on@23 -> on@23
+FAIL    WRONG_WORD holdon.on.reading.b887-stored.off->sung         cut v2 only   T4 v2+voices                on@23 -> on@14
+FAIL    WRONG_WORD holdon.on.groups.migration.sung->off            unmarked      1.T6,2.end v2               on@23 -> me@29
+PASS    SAME_WORD  holdon.on.groups.form.sung->off                 numbering+cut 1.T4,2 v2                   on@23 -> on@23
+FAIL    WRONG_WORD holdon.on.groups.b887-stored.sung->off          cut v2 only   1.T6,2.end v2               on@23 -> me@29
+FAIL    WRONG_WORD holdon.on.returns.migration.sung->off           unmarked      1.T6,2.end v2               on@23 -> me@29
+PASS    SAME_WORD  holdon.on.returns.form.sung->off                numbering+cut 1.T4,2 v2                   on@23 -> on@23
+FAIL    WRONG_WORD holdon.on.returns.b887-stored.sung->off         cut v2 only   1.T6,2.end v2               on@23 -> me@29
+PASS    REFUSED    holdon.on.reading.migration.sung->off           unmarked      page: nothing sent          on@23 -> REFUSED
+PASS    SAME_WORD  holdon.on.reading.form.sung->off                numbering+cut T6 v2+voices                on@23 -> on@23
+PASS    REFUSED    holdon.on.reading.b887-stored.sung->off         cut v2 only   T6 v2                       on@23 -> REFUSED
+FAIL    SAME_WORD  holdon.on.groups.migration.off->off             unmarked      1.T4,2.end v2               on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  holdon.on.groups.form.off->off                  numbering+cut 1.T4,2 v2                   on@23 -> on@23
+FAIL    SAME_WORD  holdon.on.groups.b887-stored.off->off           cut v2 only   1.T4,2.end v2               on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.returns.migration.off->off            unmarked      1.T4,2.end v2               on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  holdon.on.returns.form.off->off                 numbering+cut 1.T4,2 v2                   on@23 -> on@23
+FAIL    SAME_WORD  holdon.on.returns.b887-stored.off->off          cut v2 only   1.T4,2.end v2               on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.reading.migration.off->off            unmarked      T4 (no numbering)           on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  holdon.on.reading.form.off->off                 numbering+cut T4 v2                       on@23 -> on@23
+FAIL    SAME_WORD  holdon.on.reading.b887-stored.off->off          cut v2 only   T4 v2                       on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.groups.migration.sung->sung           unmarked      1.T6,2.end v2+voices        on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  holdon.on.groups.form.sung->sung                numbering+cut 1.T6,2 v2+voices            on@23 -> on@23
+FAIL    SAME_WORD  holdon.on.groups.b887-stored.sung->sung         cut v2 only   1.T6,2.end v2+voices        on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+FAIL    SAME_WORD  holdon.on.returns.migration.sung->sung          unmarked      1.T6,2.end v2+voices        on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  holdon.on.returns.form.sung->sung               numbering+cut 1.T6,2 v2+voices            on@23 -> on@23
+FAIL    SAME_WORD  holdon.on.returns.b887-stored.sung->sung        cut v2 only   1.T6,2.end v2+voices        on@23 -> on@23  [GUESSED: SAME_WORD although the plausible bases name different occurrences]
+PASS    SAME_WORD  holdon.on.reading.migration.sung->sung          unmarked      T6 (no numbering)           on@23 -> on@23
+PASS    SAME_WORD  holdon.on.reading.form.sung->sung               numbering+cut T6 v2+voices                on@23 -> on@23
+PASS    SAME_WORD  holdon.on.reading.b887-stored.sung->sung        cut v2 only   T6 v2+voices                on@23 -> on@23
+all: {"WRONG_WORD": 32, "SAME_WORD": 105, "REFUSED": 25, "FAIL": 64}
+row records its basis (numbering+cut): {"SAME_WORD": 51, "REFUSED": 3, "FAIL": 0}
+row already migrated, no basis (cut v2 only): {"WRONG_WORD": 27, "REFUSED": 21, "SAME_WORD": 48, "FAIL": 54}
+pre-release row left unmarked (no mark): {"WRONG_WORD": 5, "REFUSED": 1, "SAME_WORD": 6, "FAIL": 10}
+voices changed: {"WRONG_WORD": 32, "SAME_WORD": 24, "REFUSED": 25, "FAIL": 32}
+controls (voices unchanged): {"SAME_WORD": 81, "FAIL": 32}
+FAIL (64 cases)

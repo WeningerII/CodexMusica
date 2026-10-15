@@ -4,7 +4,7 @@ BB8 owns the independent qualification of these three items (#527 6194001452). E
 
 ## `h1_pin_guard/h1_probe.py` — H1 (declared relation refused by the numbering guard)
 
-    python3 lyric-harness/quality/results/acceptance_2026-10-13/probes/h1_pin_guard/h1_probe.py <TREE> <OUT.json> [PYTHON]
+    cd lyric-harness && python3 quality/results/acceptance_2026-10-13/probes/h1_pin_guard/h1_probe.py <TREE> <OUT.json> [PYTHON]
 
 **What it runs:** `brief --reader-scheme=v2 --groups=1.T2,2.T2 --relation="perfect rhyme"` under the `none` and `v2` supplements. It adds `--numbering=v2` where the tree accepts that flag.
 
@@ -39,6 +39,23 @@ So H1 is not one witness: all five multi-reading words fail.
 | `b887e5ef` | **spliced** | spliced | spliced | spliced | FAIL |
 | `d85d2f26` | declined | spliced | spliced | spliced | PASS |
 
-## `pa_voices/` — P-A (voices toggle binds another word)
+## `pa_voices/` — P-A (a voices toggle binds another word)
 
-Being built. Its README states its pass rule: never bind a different word silently. It also covers the open decision about rows `b887e5ef` already migrated without a numbering mark.
+`pa_voices/README.md` gives the full rule and the commands. In short:
+- **Page side:** a node replica, running the tree's own `lyrics.js` with its send through `lySubmitLyricsAction('review')`. **It is not a browser run.**
+- **Harness side:** the tree's own `normalize-numbering`.
+- **Matrix:** 162 cases — 4 lines; groups, returns and readings; rows written by the migration, written by a form, or stored as `b887e5ef` writes them; voices off→sung and sung→off, plus controls.
+- **Pass rule:** 3PO's preserve-or-refuse (#527 6194066262). Never bind a different word silently. A row with no recorded basis passes only if it is refused with its bytes unchanged, or if every plausible basis binds the same occurrence.
+
+**Results** (`pa_voices/out/`):
+
+| Page tree | Harness tree | SAME_WORD | REFUSED | WRONG_WORD | Fail (incl. GUESSED) |
+|---|---|---:|---:|---:|---:|
+| `b887e5ef` | `b887e5ef` | 105 | 25 | **32** | 64 |
+| `8ea94ac9` | `b887e5ef` | 66 | 75 | 21 | 51 |
+| `5e97e06f` | `b887e5ef` | 66 | 75 | 21 | 51 |
+
+**What the results show:**
+- At `b887e5ef`, every form-written row, which records its basis, passes. All 32 WRONG_WORD cases come after a voices flip, on rows with no recorded basis. One example: `Oh--oh, (ah) oh my love`, where love becomes my.
+- The older pages' 21 WRONG_WORD cases are read by the `b887e5ef` harness, because those trees have no `normalize-numbering`. They sit on lines where the v1 and v2 cuts number the target the same, so the harness has no ambiguity to refuse. They are older than `b887e5ef`.
+- The 32 GUESSED failures at `b887e5ef` are controls (no flip) on rows with no recorded basis. 3PO's rule counts them as failures; 3PO should confirm that is intended.
