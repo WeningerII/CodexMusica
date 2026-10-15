@@ -1,0 +1,57 @@
+== b887
+mouse     S1 sung-line forward                             afterTab: {"active":"draft","start":66,"end":73} -> {"start":75,"end":82,"dir":"forward","selected":"sing it","active":"draft"} ok  
+mouse     S1b sung-line backward                           afterTab: {"active":"draft","start":66,"end":73} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"draft"} ok  
+mouse     S2 unchanged member in rewritten row (backward)  afterTab: {"active":"draft","start":29,"end":34} -> {"start":29,"end":34,"dir":"backward","selected":"2.end","active":"draft"} ok  
+mouse     S3 span over changed member                      afterTab: {"active":"draft","start":24,"end":34} -> {"start":24,"end":34,"dir":"forward","selected":"1.T3,2.end","active":"draft"} ok  
+mouse     S3b changed member only (backward)               afterTab: {"active":"draft","start":24,"end":28} -> {"start":24,"end":28,"dir":"backward","selected":"1.T3","active":"draft"} ok  
+mouse     S4 multi-row from 2.end into sung line           afterTab: {"active":"draft","start":29,"end":57} -> {"start":29,"end":66,"dir":"backward","selected":"2.end — cut v2]\n[VERSE]\nOh--oh, oh my","active":"draft"} ok  
+mouse     S5 caret inside 2.end                            afterTab: {"active":"draft","start":31,"end":31} -> {"start":31,"end":31,"dir":"forward","selected":"","active":"draft"} ok  
+mouse     S6 no migration (row already marked)             afterTab: {"active":"draft","start":75,"end":82} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"draft"} ok  
+tab-mouse S1 sung-line forward                             afterTab: {"active":"BODY","start":66,"end":73} -> {"start":75,"end":82,"dir":"forward","selected":"sing it","active":"draft"} ok  
+tab-mouse S1b sung-line backward                           afterTab: {"active":"BODY","start":66,"end":73} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"draft"} ok  
+tab-mouse S2 unchanged member in rewritten row (backward)  afterTab: {"active":"ly-tab","start":29,"end":34} -> {"start":29,"end":34,"dir":"backward","selected":"2.end","active":"draft"} ok  
+tab-mouse S3 span over changed member                      afterTab: {"active":"ly-tab","start":24,"end":34} -> {"start":24,"end":34,"dir":"forward","selected":"1.T3,2.end","active":"draft"} ok  
+tab-mouse S3b changed member only (backward)               afterTab: {"active":"ly-tab","start":24,"end":28} -> {"start":24,"end":28,"dir":"backward","selected":"1.T3","active":"draft"} ok  
+tab-mouse S4 multi-row from 2.end into sung line           afterTab: {"active":"BODY","start":29,"end":57} -> {"start":29,"end":66,"dir":"backward","selected":"2.end — cut v2]\n[VERSE]\nOh--oh, oh my","active":"draft"} ok  
+tab-mouse S5 caret inside 2.end                            afterTab: {"active":"BODY","start":31,"end":31} -> {"start":31,"end":31,"dir":"forward","selected":"","active":"draft"} ok  
+tab-mouse S6 no migration (row already marked)             afterTab: {"active":"BODY","start":75,"end":82} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"draft"} ok  
+mouse     S7 focus in other input then mouse               afterTab: {"active":"draft","scroll":0,"start":66,"end":73} -> {"active":"draft","scroll":0,"start":75,"end":82,"dir":"backward","selected":"sing it"}   
+mouse     S8 long draft scrolled, draft unfocused          afterTab: {"active":"BODY","scroll":3419,"start":5,"end":5} -> {"active":"draft","scroll":3419,"start":5,"end":5,"dir":"forward","selected":""}   
+== nohandler
+mouse     S1 sung-line forward                             afterTab: {"active":"draft","start":66,"end":73} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+mouse     S1b sung-line backward                           afterTab: {"active":"draft","start":66,"end":73} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+mouse     S2 unchanged member in rewritten row (backward)  afterTab: {"active":"draft","start":29,"end":34} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+mouse     S3 span over changed member                      afterTab: {"active":"draft","start":24,"end":34} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+mouse     S3b changed member only (backward)               afterTab: {"active":"draft","start":24,"end":28} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+mouse     S4 multi-row from 2.end into sung line           afterTab: {"active":"draft","start":29,"end":57} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+mouse     S5 caret inside 2.end                            afterTab: {"active":"draft","start":31,"end":31} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+mouse     S6 no migration (row already marked)             afterTab: {"active":"draft","start":75,"end":82} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"BODY"} ok  
+tab-mouse S1 sung-line forward                             afterTab: {"active":"BODY","start":66,"end":73} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S1b sung-line backward                           afterTab: {"active":"BODY","start":66,"end":73} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S2 unchanged member in rewritten row (backward)  afterTab: {"active":"ly-tab","start":29,"end":34} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S3 span over changed member                      afterTab: {"active":"BODY","start":24,"end":34} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S3b changed member only (backward)               afterTab: {"active":"BODY","start":24,"end":28} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S4 multi-row from 2.end into sung line           afterTab: {"active":"ly-tab","start":29,"end":57} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S5 caret inside 2.end                            afterTab: {"active":"BODY","start":31,"end":31} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S6 no migration (row already marked)             afterTab: {"active":"BODY","start":75,"end":82} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"BODY"} ok  
+mouse     S7 focus in other input then mouse               afterTab: {"active":"draft","scroll":0,"start":66,"end":73} -> {"active":"BODY","scroll":0,"start":0,"end":0,"dir":"forward","selected":""}   
+mouse     S8 long draft scrolled, draft unfocused          afterTab: {"active":"BODY","scroll":3419,"start":5,"end":5} -> {"active":"BODY","scroll":3419,"start":0,"end":0,"dir":"forward","selected":""}   
+== focusedonly
+mouse     S1 sung-line forward                             afterTab: {"active":"draft","start":66,"end":73} -> {"start":75,"end":82,"dir":"forward","selected":"sing it","active":"draft"} ok  
+mouse     S1b sung-line backward                           afterTab: {"active":"draft","start":66,"end":73} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"draft"} ok  
+mouse     S2 unchanged member in rewritten row (backward)  afterTab: {"active":"draft","start":29,"end":34} -> {"start":29,"end":34,"dir":"backward","selected":"2.end","active":"draft"} ok  
+mouse     S3 span over changed member                      afterTab: {"active":"draft","start":24,"end":34} -> {"start":24,"end":34,"dir":"forward","selected":"1.T3,2.end","active":"draft"} ok  
+mouse     S3b changed member only (backward)               afterTab: {"active":"draft","start":24,"end":28} -> {"start":24,"end":28,"dir":"backward","selected":"1.T3","active":"draft"} ok  
+mouse     S4 multi-row from 2.end into sung line           afterTab: {"active":"draft","start":29,"end":57} -> {"start":29,"end":66,"dir":"backward","selected":"2.end — cut v2]\n[VERSE]\nOh--oh, oh my","active":"draft"} ok  
+mouse     S5 caret inside 2.end                            afterTab: {"active":"draft","start":31,"end":31} -> {"start":31,"end":31,"dir":"forward","selected":"","active":"draft"} ok  
+mouse     S6 no migration (row already marked)             afterTab: {"active":"draft","start":75,"end":82} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"draft"} ok  
+tab-mouse S1 sung-line forward                             afterTab: {"active":"BODY","start":66,"end":73} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S1b sung-line backward                           afterTab: {"active":"BODY","start":66,"end":73} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S2 unchanged member in rewritten row (backward)  afterTab: {"active":"ly-tab","start":29,"end":34} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S3 span over changed member                      afterTab: {"active":"BODY","start":24,"end":34} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S3b changed member only (backward)               afterTab: {"active":"ly-tab","start":24,"end":28} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S4 multi-row from 2.end into sung line           afterTab: {"active":"ly-tab","start":29,"end":57} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S5 caret inside 2.end                            afterTab: {"active":"ly-tab","start":31,"end":31} -> {"start":0,"end":0,"dir":"forward","selected":"","active":"BODY"} FAIL  
+tab-mouse S6 no migration (row already marked)             afterTab: {"active":"BODY","start":75,"end":82} -> {"start":75,"end":82,"dir":"backward","selected":"sing it","active":"BODY"} ok  
+mouse     S7 focus in other input then mouse               afterTab: {"active":"draft","scroll":0,"start":66,"end":73} -> {"active":"draft","scroll":0,"start":75,"end":82,"dir":"backward","selected":"sing it"}   
+mouse     S8 long draft scrolled, draft unfocused          afterTab: {"active":"BODY","scroll":3419,"start":5,"end":5} -> {"active":"BODY","scroll":3419,"start":0,"end":0,"dir":"forward","selected":""}   

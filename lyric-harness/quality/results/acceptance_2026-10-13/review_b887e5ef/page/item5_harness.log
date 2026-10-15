@@ -1,0 +1,13 @@
+draft: Oh--oh, (ah) oh my love | v2+voices tokens: Oh oh ah oh my love | v1+voices: Oh--oh ah oh my love
+--- A@b887 page payload: groups 1.T5,2.end numbering v2+voices
+{"status":"normalized","exit":0,"canonical_declarations":{"pronunciations":[],"numbering":"v2+voices","groups":"1.T5,2.end","returns":""},"version":1,"transport_token":null}
+--- A@8ea page payload: groups 1.T5,2.end, no numbering
+  REFUSED — groups: ambiguous token 5 in 'Oh--oh, (ah) oh my love': v1+voices binds ('love', ((19, 23),)); v2+voices binds ('my', ((16, 18),)); declare numbering explicitly
+{"status":"refused","exit":2,"refusal":"groups: ambiguous token 5 in 'Oh--oh, (ah) oh my love': v1+voices binds ('love', ((19, 23),)); v2+voices binds ('my', ((16, 18),)); declare numbering explicitly","version":1,"transport_token":null}
+--- B (form-written row; b887 page sends 1.T6): numbering v2+voices
+{"status":"normalized","exit":0,"canonical_declarations":{"pronunciations":[],"numbering":"v2+voices","groups":"1.T6,2.end","returns":""},"version":1,"transport_token":null}
+--- C@b887 reading token 5 love numbering v2+voices
+  REFUSED — invalid pronunciation declaration: cannot resolve token 5 in 'Oh--oh, (ah) oh my love' under v2+voices: no unique token has the same word and raw pieces; declare numbering
+{"status":"refused","exit":2,"refusal":"invalid pronunciation declaration: cannot resolve token 5 in 'Oh--oh, (ah) oh my love' under v2+voices: no unique token has the same word and raw pieces; declare numbering","version":1,"transport_token":null}
+--- C@8ea reading token 5 love no numbering
+{"status":"normalized","exit":0,"canonical_declarations":{"pronunciations":[{"line":"Oh--oh, (ah) oh my love","token":6,"word":"love","phones":["L","AH1","V"],"basis":"declared","source":"the singer","numbering":"v2+voices"}],"numbering":"v2+voices","groups":"","returns":""},"version":1,"transport_token":null}

@@ -1,0 +1,5 @@
+random LCS optimality: mismatches 0 of 40
+hirschberg map 124 [ 29, 34 ] -> [ 29, 34 ] "2.end" 152ms
+hirschberg map 2000 [ 29, 34 ] -> [ 29, 34 ] "2.end" 22842ms
+hirschberg timing units 20000 pairs 14999 70509ms
+(80000-unit timing run killed by reviewer after >10 min; not completed)

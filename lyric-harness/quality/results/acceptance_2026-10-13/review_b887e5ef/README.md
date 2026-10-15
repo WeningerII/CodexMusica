@@ -6,7 +6,7 @@ The scope is `8b1d2ad2...b887e5ef`, plus the off-main commits `132cec38` and `d8
 - `harness/`: the harness and MCP reviewer's probes, logs and `COMMANDS.txt`. Copied trees are left out.
 - `records/`: the records, tests and CI reviewer's scripts and `COMMANDS.txt`. Downloaded receipts are left out; they are listed in `COMMANDS.txt`.
 - `repro_pin_guard/`: BB8's own reproduction of finding H1 on clean worktrees.
-- The page track is still running. Its folder will be added.
+- `page/`: the page reviewer's node replicas, Chromium scripts, logs and `COMMANDS.txt`.
 
 ## Harness and MCP
 
@@ -59,3 +59,36 @@ No blockers. Every number the reviewer could check against a receipt holds: the 
   - assertions were removed in `44f93fcf` together with the feature they tested;
   - the checkpoint test calls use a 120 s timeout;
   - the owner-approval statements have no receipt.
+
+## Page
+
+**P-items — all PASS at `b887e5ef`:**
+
+| Item | Verdict | Evidence |
+|---|---|---|
+| 1. 3PO's `lyAlignUnits` case (above 250,000 unit pairs) | PASS | 140 selections from 1 to 50,000 members, forward and backward: 0 fail at `b887e5ef`, 72 fail at `8ea94ac9` (124 copies: [29,34] → [1396,1396], as predicted). `page/item1_*` |
+| 2. Legacy `more` count | PASS | 7 earlier entries stay stated through an appending migration and a history round trip, until Dismiss. `8ea94ac9` lost them. `page/item2_*` |
+| 3. Tab→mouse review | PASS | Real Chromium: 16 of 16 cases keep the text and direction. Without the handler, 14 of 16 fail. `page/item3_*` |
+| 4. `check_lyrics_page.js` weakening | PASS | No `check(` was removed (376 → 400). The changed expectations are still exact. The full unit and browser run at `b887e5ef` passes 651 assertions. |
+
+**P-A — MAJOR, NEW in `539931f5`: after a voices toggle, a migrated row binds the wrong word, silently.**
+- **Mechanism:**
+  - At send time, `src/pages/lyrics.js:1483-1484` stamps `numbering = lyNumbering(model.voices)` on every `N.Tk` group or return, from the current voices setting.
+  - The migration's group rewrite (`lyRespellGroupRow`, `:386-402`) records only `— cut v2`, not the voices setting the token was numbered under.
+  - Reading rows behave the same way (`:1507-1510`).
+- **Repro:**
+  1. Line `Oh--oh, (ah) oh my love`, voices off, legacy `[SETUP — rhyme groups — 1.T4,2.end]` (v1 token 4 = love).
+  2. Migration gives `1.T5,2.end — cut v2`.
+  3. Voices are set to sung in the page's form.
+  4. The send carries `groups 1.T5,2.end`, `numbering v2+voices`, and in v2+voices token 5 is `my`.
+- **Harness `normalize-numbering` at `b887e5ef`:** `normalized`, binding `my`. On the `8ea94ac9` payload, with no numbering, the same verb **refuses**: "v1+voices binds love; v2+voices binds my; declare numbering explicitly" (`page/item5_harness.log`). Expected: `love` (1.T6), which is what a form-written row gives at `b887e5ef`.
+- **Reading variant:** the send is refused loudly at `b887e5ef` ("cannot resolve token 5 … under v2+voices"), where `8ea94ac9` resolved it to `love`.
+- **Exercised:** a node replica of the page's send, plus the harness CLI. BB8 checked the page source lines. It was not run through a live `/chat` send.
+
+**P-B — minor, NEW in `a09703a0` (`lyrics.js:6380-6392`):** clicking or tapping Run review now always focuses the draft, even when nothing was selected. Chromium with touch emulation at 1024×1366 shows focus moving from BODY to `lyrics-draft`. Whether this raises the on-screen keyboard on a real tablet is inferred, not observed.
+
+**P-C — minor (`84f7fa94`, plus the pre-existing `LY.songCaret`):** after a migration, the phone Song/Review round trip restores the selected text, but a backward selection comes back forward.
+
+**Notes:**
+- **P-D:** the Hirschberg branch of `lyAlignUnits` is correct (0 of 40 fuzz mismatches) but quadratic: about 11 s on an 8,000-unit row. It is reached only when the delimiter sequences differ, which the migration never causes in these tests.
+- **P-E (pre-existing):** `lyRenumberedCheck` does not check `draftId`.

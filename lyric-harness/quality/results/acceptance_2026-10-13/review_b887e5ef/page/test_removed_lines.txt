@@ -1,0 +1,28 @@
+9:-//      returns row a bare `N` / `N.line` is a whole-line return, never
+10:-//      carried or shown as a word place, and the harness's own return parser
+26:-/* global document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage */
+44:-// 3PO #519 6166749777 (RETURNS): in a returns row a bare `N` and `N.line` are
+45:-// WHOLE-LINE returns (the line returns; no word named), and `N.end`,
+46:-// `N.head`, `N.T<k>` are PLACED returns (the word at a place returns). A
+47:-// whole-line return is never carried across the word-cut change, never
+48:-// annotated and never labelled "last rhyme" or shown with an endpoint word;
+49:-// a placed return on a changed-cut line is carried. The classes are checked
+61:-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+70:-      .replace(/ — cut \S+\]$|\]$/, '')
+79:-  //    WHOLE-LINE `1` and `1.line` on that same line are left as written --
+88:-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+97:-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+249:-      set.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
+258:-      moved.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
+267:-// `N.line` are whole-line returns, which name no word: never carried or
+268:-// noticed, on any line (3PO #519 6166749777; unit E).
+273:-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+282:-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+337:-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
+444:-  unitWriterPayload();
+445:-  await unitSavedReadings();
+446:-  await unitPolicyA();
+447:-  await unitBoundaries();
+448:-  unitEndIdentity();
+449:-  unitFormOrder();
+450:-  unitHeadersAndIdentity();

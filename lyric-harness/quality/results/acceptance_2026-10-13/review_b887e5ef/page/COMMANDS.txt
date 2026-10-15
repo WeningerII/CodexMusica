@@ -1,0 +1,39 @@
+# All commands run by the reviewer (BB8 team) for the b887e5eff Lyrics-page review.
+# P  = /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_b887/page
+# S  = /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad
+# wt-main2 = clean worktree at b887e5eff ; wt-8ea = worktree at 8ea94ac9d
+# Browser runs: NODE_PATH=/home/user/CodexMusica/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
+
+# Diffs
+git -C /home/user/CodexMusica diff 8ea94ac9 b887e5eff -- src/pages/lyrics.js src/app.js > $P/src.diff     # src/app.js: no change in range
+git -C /home/user/CodexMusica diff 8ea94ac9 b887e5eff -- scripts/check_lyrics_page.js > $P/test.diff
+grep -n "^-" $P/test.diff | grep -v "^[0-9]*:---" > $P/test_removed_lines.txt
+git -C /home/user/CodexMusica show <c>:scripts/check_lyrics_page.js | grep -c 'check('   # 8ea: 376, b887: 400
+
+# Repo harness, unit level
+(cd $S/wt-main2 && node scripts/check_lyrics_page.js --unit-only)  > $P/unit_b887.log          # PASS 426
+(cd $S/wt-8ea   && node scripts/check_lyrics_page.js --unit-only)  > $P/unit_8ea.log           # PASS 384
+(cd $S/wt-main2 && node scripts/check_lyrics_page.js --unit-only --unit-source=$S/wt-8ea/src/pages/lyrics.js) > $P/unit_b887tests_on_8ea_src.log  # 35 fail (new tests bite on old source)
+
+# Repo harness, browser
+(cd $S/wt-main2 && node scripts/build_html.js --out=$P/codex_b887_rebuilt.html --quiet; cmp $P/codex_b887_rebuilt.html codex.html)  # IDENTICAL
+(cd $S/wt-main2 && node scripts/check_lyrics_page.js --browser-only --browser-filter="real send selection") > $P/browser_9d_b887.log   # PASS 16
+(cd $S/wt-main2 && timeout 1700 node scripts/check_lyrics_page.js) > $P/full_b887.log            # full unit+browser run
+
+# Item 1 (node replica, VM context = $P/ctx.js, same as the harness's unitBoundaries)
+node $P/item1_align.js $S/wt-main2 > $P/item1_b887.log ; node $P/item1_align.js $S/wt-8ea > $P/item1_8ea.log
+# summary -> $P/item1_summary.txt
+node $P/item1_hirschberg.js $S/wt-main2 > $P/item1_hirschberg_b887.log   # function-level; last timing case killed after >10 min
+
+# Item 2 (node replica + real lyricMetaOf/lyricMetaHistory text-extracted from src/app.js)
+node $P/item2_more.js $S/wt-main2 > $P/item2_b887.log ; node $P/item2_more.js $S/wt-8ea > $P/item2_8ea.log
+
+# Item 3 (real Chromium via Playwright; HTML served from wt-main2, optionally with the mousedown handler textually removed/narrowed)
+for v in b887 nohandler focusedonly; do node $P/item3_browser.js $S/wt-main2 $v > $P/item3_$v.log; done   # summary -> $P/item3_summary.txt
+for v in b887 nohandler; do node $P/item3_touch.js $S/wt-main2 $v > $P/item3_touch_$v.log; done
+node $P/item3_phone_dir.js $S/wt-main2 > $P/item3_phone_dir_b887.log ; node $P/item3_phone_dir.js $S/wt-8ea > $P/item3_phone_dir_8ea.log
+
+# Item 5 (numbering provenance; node replica + the harness's own normalize-numbering verb at b887)
+node $P/item5_voices.js $S/wt-main2 > $P/item5_voices_b887.log ; node $P/item5_voices.js $S/wt-8ea > $P/item5_voices_8ea.log
+printf 'Oh--oh, (ah) oh my love\nwe sing it plain tonight\n' > $P/harness_in/draft.txt
+python3 $S/wt-main2/lyric-harness/lyric_harness.py --reader-scheme=v2 --voices [--numbering=v2+voices] [--pronunciations=JSON] normalize-numbering $P/harness_in/draft.txt [--groups=1.T5,2.end]   # -> $P/item5_harness.log

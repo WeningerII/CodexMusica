@@ -1,0 +1,14 @@
+v1 tokens (stripped): ["Oh--oh","oh","my","love"]
+v2 tokens voices off: ["Oh","oh","oh","my","love"]
+v2 tokens voices on : ["Oh","oh","ah","oh","my","love"]
+
+A. migrated row: [SETUP — rhyme groups — 1.T5,2.end — cut v2]
+   before toggle wire: 1.T5,2.end v2 -> word love
+   after voices toggle wire: 1.T5,2.end v2+voices need_decision: null -> word my
+
+B. form-written row: [SETUP — rhyme groups — 1.T5,2.end — numbering v2 — cut v2]
+   after voices toggle wire: 1.T6,2.end v2+voices -> word love
+
+C. migrated reading row: [SETUP — reading — token 5 "love" in "Oh--oh, (ah) oh my love" — L AH1 V — declared — source: the singer — cut v2]
+   after voices toggle wire pronunciations: [{"line":"Oh--oh, (ah) oh my love","token":5,"word":"love","phones":["L","AH1","V"],"basis":"declared","source":"the singer","numbering":"v2+voices"}] readings_need_decision: null
+   wire token 5 numbering v2+voices -> word under that numbering my (row says "love")

@@ -1,0 +1,475 @@
+diff --git a/scripts/check_lyrics_page.js b/scripts/check_lyrics_page.js
+index 6d4fe1fae..2d000c370 100644
+--- a/scripts/check_lyrics_page.js
++++ b/scripts/check_lyrics_page.js
+@@ -23,8 +23,8 @@
+ //   E. An explicit `N.end` member and a bare `N` keep their identity through
+ //      migration, Keep, the forms, section reorder, export/import and the
+ //      wire, untouched sibling groups included; `.end` is never added. In a
+-//      returns row a bare `N` / `N.line` is a whole-line return, never
+-//      carried or shown as a word place, and the harness's own return parser
++//      returns row bare `N` and explicit `N.line` share a word-offset migration
++//      exemption but use distinct judges; the harness's own return parser
+ //      and judges read the page's payload as the classes declared (browser
+ //      9e: the same through the Library working-copy receiver).
+ //   O. A form writer applies the unmarked-row policy before it marks: a form
+@@ -61,11 +61,13 @@
+ //   7. Phone: Song / Tools / Writer / Review at the bottom, no sideways scroll.
+ //
+ // Usage: node scripts/check_lyrics_page.js [--html=codex.html] [--shots=DIR]
++// --unit-source=FILE loads historical page source for the VM unit probes.
++// --browser-only skips units; --browser-filter=TEXT selects matching browser steps.
+ // --shots writes screenshots of the states above (and light/dark, desktop/phone).
+ // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
+ 
+ 'use strict';
+-/* global document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage */
++/* global document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame */
+ const fs = require('fs');
+ const http = require('http');
+ const path = require('path');
+@@ -79,6 +81,8 @@ for (const a of process.argv.slice(2)) {
+   if (m) flags[m[1]] = m[2] === undefined ? true : m[2];
+ }
+ const HTML = flags.html || 'codex.html';
++// Optional historical source for reproducing the unit regressions without a checkout.
++const UNIT_SOURCE = flags['unit-source'] || path.join(ROOT, 'src/pages/lyrics.js');
+ const SHOTS = typeof flags.shots === 'string' ? path.resolve(flags.shots) : null;
+ if (SHOTS) fs.mkdirSync(SHOTS, { recursive: true });
+ 
+@@ -147,19 +151,18 @@ const withAvoid = (t) =>
+ // bare `4` names no place. Every path that writes a member back keeps the
+ // spelling the writer used -- untouched sibling groups included -- and the
+ // tools receive exactly that spelling; `.end` is never added.
+-// 3PO #519 6166749777 (RETURNS): in a returns row a bare `N` and `N.line` are
+-// WHOLE-LINE returns (the line returns; no word named), and `N.end`,
+-// `N.head`, `N.T<k>` are PLACED returns (the word at a place returns). A
+-// whole-line return is never carried across the word-cut change, never
+-// annotated and never labelled "last rhyme" or shown with an endpoint word;
+-// a placed return on a changed-cut line is carried. The classes are checked
++// 3PO #519 6166749777 (RETURNS): bare `N` is a whole-line return;
++// explicit `N.line` is a placed return with place `line`. They use distinct
++// harness judges, while sharing exemption from word-offset migration.
++// Other placed returns (`N.end`, `N.head`, `N.T<k>`) name word places and
++// are carried on changed-cut lines. The classes are checked
+ // where they matter -- in what the harness reads from the page's payload:
+ // its own return parser and judges (quality/schemes.py) run on exactly the
+ // `returns` value the tools would receive. Only valid classes are used (the
+ // harness refuses a class mixing the two, so `2.end,6` proves nothing).
+ // Fixture helpers shared with unit O.
+ function lyricsUnitContext() {
+-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
++  const src = fs.readFileSync(UNIT_SOURCE, 'utf8');
+   const sel = { start: 0, end: 0, dir: 'none' };
+   const draft = {
+     value: '',
+@@ -248,7 +251,7 @@ function unitEndIdentity() {
+   const members = (text, key) =>
+     row(text, key)
+       .replace(/^\[SETUP — [^—]+ — /, '')
+-      .replace(/ — cut \S+\]$|\]$/, '')
++      .replace(/(?: — numbering \S+)? — cut \S+\]$|\]$/, '')
+       .split(/[;,]/)
+       .map((m) => m.replace(/\s+\(.*\)$/, '').trim());
+   const same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+@@ -257,7 +260,7 @@ function unitEndIdentity() {
+   //    renumbered; `2.end`, the bare `4` and the untouched sibling groups
+   //    keep their spelling; the named `1.end` on the changed line is carried.
+   //    Returns: the PLACED `1.head` on the changed line is carried; the
+-  //    WHOLE-LINE `1` and `1.line` on that same line are left as written --
++  //    bare `1` and placed `1.line` on that same line are left as written --
+   //    no annotation -- and so are the classes on unchanged lines.
+   const RET = '2.end,6.end;1,5;1.line,3.line;1.head,7.head;2,4';
+   const legacy = `[SETUP — rhyme groups — 2.end,4,1.T2;3.end, 4.head;6.end,8;1.end,5]\n[SETUP — returns — ${RET}]\n\n${song}`;
+@@ -561,7 +564,7 @@ function unitFormOrder() {
+ // ── W. the writer payload, unit-level ─────────────────────────────────────
+ function unitWriterPayload() {
+   stage = 'W. writer payload';
+-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
++  const src = fs.readFileSync(UNIT_SOURCE, 'utf8');
+   const draft = { value: '' };
+   const ctx = vm.createContext({
+     console,
+@@ -649,7 +652,7 @@ print(json.dumps([n for n, _ in (_sections_from_marks(sys.stdin.read().split('\\
+ // came from, and an unmarked row is migrated wherever it came from.
+ function unitSavedReadings() {
+   stage = 'R. saved readings';
+-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
++  const src = fs.readFileSync(UNIT_SOURCE, 'utf8');
+   const draft = { value: '' };
+   const toasts = [];
+   const sends = [];
+@@ -683,6 +686,142 @@ function unitSavedReadings() {
+   ctx.lyCloseMenus = () => {};
+   const row = (token, word, line) =>
+     `[SETUP — reading — token ${token} ${JSON.stringify(word)} in ${JSON.stringify(line)} — L AO1 D IY0 — declared — source: the singer]`;
++  // Provenance survives storage as text and is sent in its original coordinate.
++  const numbered = (numbering, token, word, line, voices = false) =>
++    `${row(token, word, line).slice(0, -1)} — numbering ${numbering} — cut v2]\n${voices ? '[SETUP — voices — sung]\n' : ''}[VERSE]\n${line}`;
++  for (const [marker, token, voices, target] of [
++    ['v2', 2, true, 3],
++    ['v2+voices', 3, false, 2],
++    ['v1', 2, true, 3],
++    ['v1+voices', 3, false, 2],
++  ]) {
++    const text = numbered(marker, token, 'love', 'oh (oh) love', voices);
++    const parsed = run('lySetupOf(lyParse(__t), "reading")[0]', { __t: text });
++    check(!parsed.undecided && parsed.token === target, 'marked reading lost raw-span target');
++    const wire = run('lyDeclarationsOf(lyParse(__t)).pronunciations[0]', { __t: text });
++    check(wire.numbering === marker && wire.token === token, 'source numbering was relabelled');
++    check(
++      run('lyMigrateSavedReadings(__t).text', { __t: text }) === text,
++      'marked row was migrated twice'
++    );
++  }
++  for (const voices of [false, true]) {
++    const text = `${voices ? '[SETUP — voices — sung]\n' : ''}[VERSE]\noh (oh) love`;
++    const result = run(
++      `LY_FORMS.pronunciation.apply(lyParse(__t),
++      lyReadingKey('oh (oh) love', ${voices ? 3 : 2}, 'love'),
++      { kind: 'declared', phones: 'L AH1 V', source: 'singer' })`,
++      { __t: text }
++    );
++    const wire = run('lyDeclarationsOf(lyParse(__t)).pronunciations[0]', { __t: result.text });
++    check(
++      wire.numbering === (voices ? 'v2+voices' : 'v2'),
++      'fresh manual choice lost current numbering'
++    );
++  }
++  const dict = run(`LY_FORMS.pronunciation.apply(lyParse('[VERSE]\\noh (oh) love'),
++    lyReadingKey('oh (oh) love', 2, 'love'),
++    { kind: 'dictionary', phones: 'L AH1 V', source: 'CMUdict', numbering: 'v2+voices', numberingToken: 3 })`);
++  const dictWire = run('lyDeclarationsOf(lyParse(__t)).pronunciations[0]', { __t: dict.text });
++  check(
++    dictWire.token === 3 && dictWire.numbering === 'v2+voices',
++    'dictionary option source coordinate was not retained'
++  );
++  const picked = run(`(() => {
++    const savedSet = lyDraftSet, savedApply = lyDraftApply;
++    const fields = {};
++    try {
++      LY.model = lyParse('[VERSE]\\noh (oh) love');
++      LY.picks.reading = lyReadingKey('oh (oh) love', 2, 'love');
++      LY.results.pronunciation = { numbering: 'v1', items: [{
++        line: 'oh (oh) love', token: 3, word: 'love', numbering: 'v2+voices',
++        dictionary_readings: [{ phones: ['L', 'AH1', 'V'] }] }] };
++      lyDraftSet = (_tool, _key, field, value) => { fields[field] = value; };
++      lyDraftApply = () => true;
++      LY_ACTIONS['ly-reading-use']('0');
++      return fields;
++    } finally { lyDraftSet = savedSet; lyDraftApply = savedApply; }
++  })()`);
++  check(
++    picked.numbering === 'v2+voices' && picked.numberingToken === 3,
++    'Use reading failed to copy the selected item marker over aggregate provenance'
++  );
++  const excluded = numbered('v2+voices', 2, 'oh', 'oh (oh) love');
++  check(
++    run('!!lyDeclarationsOf(lyParse(__t)).readings_need_decision', { __t: excluded }),
++    'excluded same-spelling aside rebound to another occurrence'
++  );
++  for (const voices of [false, true]) {
++    const text = `[SETUP — rhyme groups — 1.T1,2.end — cut v2]\n[SETUP — returns — 1.T1,2.T1 — cut v2]\n${voices ? '[SETUP — voices — sung]\n' : ''}[VERSE]\nlove\nlove`;
++    const wire = run('lyDeclarationsOf(lyParse(__t))', { __t: text });
++    check(
++      wire.numbering === (voices ? 'v2+voices' : 'v2') && wire.groups === '1.T1,2.end',
++      'word-place numbering missing or named place changed'
++    );
++  }
++  for (const key of ['rhyme groups', 'returns']) {
++    const made = run('lySetSetup(__key, ["1.T1,2.end"], "[VERSE]\\n(oh) love love\\nlove")', {
++      __key: key,
++    });
++    check(made.includes('numbering v2'), 'new word-place row omitted voices provenance');
++    const voiced = '[SETUP — voices — sung]\n' + made;
++    const field = key === 'returns' ? 'returns' : 'groups';
++    let wire = run('lyDeclarationsOf(lyParse(__t))', { __t: voiced });
++    check(
++      wire[field] === '1.T2,2.end' && wire.numbering === 'v2+voices',
++      'voices toggle rebound first love to aside or second love'
++    );
++    const rewritten = run('lySetSetup(__key, [lySetupOf(lyParse(__t), __key)[0].value], __t)', {
++      __key: key,
++      __t: voiced,
++    });
++    check(
++      rewritten.includes('numbering v2+voices') && rewritten.includes('1.T2,2.end'),
++      'rewritten marked group was not normalized before restamping'
++    );
++    wire = run('lyDeclarationsOf(lyParse(__t))', {
++      __t: rewritten.replace('[SETUP — voices — sung]\n', ''),
++    });
++    check(wire[field] === '1.T1,2.end', 'reverse voices toggle lost original physical word');
++    const excluded = made.replace('numbering v2', 'numbering v2+voices');
++    check(
++      run('!!lyDeclarationsOf(lyParse(__t))[__field + "_need_decision"]', {
++        __t: excluded,
++        __field: field,
++      }),
++      'removed aside group occurrence did not block'
++    );
++    check(
++      run('!!lyDeclarationsOf(lyParse(__t))[__field + "_need_decision"]', {
++        __t: made.replace('numbering v2', 'numbering future'),
++        __field: field,
++      }),
++      'unknown group numbering was silently accepted'
++    );
++  }
++  const noCut =
++    '[SETUP — rhyme groups — 1.T2,2.end — numbering v2+voices]\n[VERSE]\n(oh) love love\nlove';
++  check(
++    run('lyMigrateSavedReadings(__t).text', { __t: noCut }) === noCut,
++    'numbering-only row was double migrated'
++  );
++  check(
++    run('!!lyDeclarationsOf(lyParse(__t)).groups_need_decision', {
++      __t: noCut.replace('1.T2', '1.end').replace('numbering v2+voices', 'numbering future'),
++    }),
++    'unknown numbering on a named-only row escaped refusal'
++  );
++  const mixed =
++    '[SETUP — rhyme groups — 1.T1,2.end — numbering v2 — cut v2]\n' +
++    '[SETUP — returns — 1.T2,2.end — numbering v2+voices — cut v2]\n' +
++    '[VERSE]\n(oh) love love\nlove';
++  const mixedWire = run('lyDeclarationsOf(lyParse(__t))', { __t: mixed });
++  check(
++    mixedWire.groups === '1.T1,2.end' &&
++      mixedWire.returns === '1.T1,2.end' &&
++      mixedWire.numbering === 'v2',
++    'mixed source group and return markers were not normalized to one wire coordinate'
++  );
+   const LAWDY = 'U--h, u--h, Lawdy,';
+   const OH = 'Oh--oh, oh my love';
+   const song = (rows) => `${rows.join('\n')}\n\n[VERSE]\n${LAWDY}\n${OH}\nWe sing it plain`;
+@@ -902,7 +1041,7 @@ function unitSavedReadings() {
+     // A row the page writes is marked; renumbering lines keeps the mark.
+     const set = run('lySetSetup("returns", ["1.T2,3.T2"], __t)', { __t: OHS });
+     check(
+-      set.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
++      set.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — numbering v2 — cut v2]',
+       'a written word place carries no cut mark'
+     );
+     // Every rhyme groups / returns row the page writes is marked, named
+@@ -914,7 +1053,7 @@ function unitSavedReadings() {
+     );
+     const moved = run('lyAssemble(lyBlocks(lyParse(__t))).text', { __t: set });
+     check(
+-      moved.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — cut v2]',
++      moved.split('\n')[0] === '[SETUP — returns — 1.T2,3.T2 — numbering v2 — cut v2]',
+       `reassembly dropped the mark: ${moved.split('\n')[0]}`
+     );
+     // 8. A word place with no current word over its characters keeps its
+@@ -1024,11 +1163,11 @@ function unitSavedReadings() {
+ // whose cut did not change nothing happens. An unknown cut mark blocks the
+ // row and names the accepted value. The states live in the text, so they
+ // survive every path the text takes. In a RETURNS row a bare `N` and
+-// `N.line` are whole-line returns, which name no word: never carried or
+-// noticed, on any line (3PO #519 6166749777; unit E).
++// `N.line` use distinct judges but share exemption from word-offset
++// migration: neither is carried or noticed on any line (3PO #519 6166749777; unit E).
+ async function unitPolicyA() {
+   stage = 'P. named places';
+-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
++  const src = fs.readFileSync(UNIT_SOURCE, 'utf8');
+   const draft = { value: '' };
+   const toasts = [];
+   const app = { lyricMeta: { version: 1 }, history: ['before'], historyIndex: 0, lyrics: '' };
+@@ -1448,7 +1587,7 @@ async function unitPolicyA() {
+ // changed line, and no other identical-cut line of the corpus is.
+ async function unitBoundaries() {
+   stage = 'B. boundaries';
+-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
++  const src = fs.readFileSync(UNIT_SOURCE, 'utf8');
+   const sel = { start: 0, end: 0, dir: 'none' };
+   const draft = {
+     value: '',
+@@ -1571,6 +1710,29 @@ async function unitBoundaries() {
+     s1.got === '1.T3' && s1.sel.dir === 'backward',
+     `a selection of the renumbered member grew or moved: “${s1.got}”`
+   );
++  // P1: both sides of the former 250,000-pair cutoff, and a longer list.
++  for (const count of [123, 124, 1000]) {
++    const row = '[SETUP — rhyme groups — ' + Array(count).fill('1.T2,2.end').join(';') + ']';
++    for (const at of [row.indexOf('2.end'), row.lastIndexOf('2.end')]) {
++      const mapped = selected(row, at, at + 5, 'backward');
++      check(
++        mapped.got === '2.end' && mapped.sel.start === at && mapped.sel.dir === 'backward',
++        `P1 ${count} groups: [${at},${at + 5}] became ${JSON.stringify(mapped.sel)}`
++      );
++    }
++  }
++  // P6: the narrow-layout Song cache must follow the same migration.
++  const mobileText = `${ONE}\n${before}`;
++  const mobileAt = mobileText.indexOf('dream');
++  run('LY.songCaret = [__at, __at + 8, 73]', { __at: mobileAt });
++  draft.value = mobileText;
++  run('lyEnsureTokenScheme()');
++  const mobileCaret = run('LY.songCaret');
++  check(
++    draft.value.slice(mobileCaret[0], mobileCaret[1]) === 'dream of' && mobileCaret[2] === 73,
++    `P6 cached song selection became ${JSON.stringify(mobileCaret)}`
++  );
++  run('delete LY.songCaret');
+   // The multi-member variant: two renumbered members, a carried one and
+   // three unchanged ones, with the writer's own spaces, in one row.
+   const MANY = '[SETUP — rhyme groups — 1.T2,2.end;3.T2, 4.head ,2;1.end,4]';
+@@ -1730,6 +1892,15 @@ async function unitBoundaries() {
+       !app.lyricMeta.ui.renumbered,
+     `an earlier record was not carried over: ${c && c.text}`
+   );
++  draft.value = `${LEGACY}\n${body}`;
++  run('lyEnsureTokenScheme("open")');
++  c = card(draft.value);
++  check(
++    app.lyricMeta.renumbered.more === 7 &&
++      app.lyricMeta.renumbered.items.length === 3 &&
++      /7 earlier entries were dropped by an earlier version of this page/.test(c.text),
++    `P2 appending migration lost legacy missing-entry warning: ${c && c.text}`
++  );
+   run('LY_ACTIONS["ly-renumbered-dismiss"]()');
+ 
+   // 5. F5: removing a link that binds no word claims nothing about when the
+@@ -1859,7 +2030,7 @@ async function unitBoundaries() {
+ // nothing a display preference or a run stamp changes.
+ function unitHeadersAndIdentity() {
+   stage = 'H. headers and identity';
+-  const src = fs.readFileSync(path.join(ROOT, 'src/pages/lyrics.js'), 'utf8');
++  const src = fs.readFileSync(UNIT_SOURCE, 'utf8');
+   const draft = { value: '' };
+   const ctx = vm.createContext({
+     console,
+@@ -2213,6 +2384,7 @@ async function browserChecks(chromium) {
+ 
+   // Each state is its own step: one that throws is reported and the rest run.
+   const step = async (name, fn) => {
++    if (flags['browser-filter'] && !name.includes(flags['browser-filter'])) return;
+     stage = name;
+     try {
+       await fn();
+@@ -3585,6 +3757,89 @@ async function browserChecks(chromium) {
+       await ctx.close();
+     });
+ 
++    await step('9d. real send selection', async () => {
++      for (const mode of ['mouse', 'tab-mouse', 'tab-caret-mouse', 'keyboard', 'dock', 'phone']) {
++        const { ctx, page, q } = await boot({ phone: mode === 'phone' });
++        const text =
++          '[SETUP — rhyme groups — 1.T2,2.end]\n[VERSE]\nOh--oh, oh my love\nwe sing it plain tonight';
++        await setDraft(page, text);
++        const collapsed = mode === 'tab-caret-mouse';
++        await page.evaluate((caret) => {
++          const d = $ui('lyrics-draft');
++          d.focus();
++          const at = d.value.indexOf('sing it');
++          d.setSelectionRange(caret ? at + 2 : at, caret ? at + 2 : at + 7, 'backward');
++        }, collapsed);
++        if (mode.startsWith('tab-')) {
++          await page.keyboard.press('Tab');
++          const retained = await page.evaluate((caret) => {
++            const d = $ui('lyrics-draft');
++            return (
++              document.activeElement !== d &&
++              (caret
++                ? d.selectionStart === d.value.indexOf('sing it') + 2 &&
++                  d.selectionEnd === d.selectionStart
++                : d.value.slice(d.selectionStart, d.selectionEnd) === 'sing it')
++            );
++          }, collapsed);
++          check(retained, 'P5 Tab moved focus away while retaining the textarea selection');
++        }
++        q.replies.push({ reply: 'Fixture review only', history: [], sig: 'fixture' });
++        if (mode === 'phone') await page.locator('#ly-mtab-review').click();
++        if (mode === 'dock') {
++          await page.evaluate(() => {
++            LY_ACTIONS['ly-tab']('writer');
++            uiChatOpen();
++            $ui('chat-domain').value = 'lyrics-edit';
++          });
++          await page.fill('#chat-input', 'Review the committed document');
++          await page.locator('#chat-send').click();
++        } else {
++          const button = page.locator('[data-ui="ly-run-review"]:visible').first();
++          if (mode === 'keyboard') {
++            await button.focus();
++            await page.keyboard.press('Enter');
++          } else await button.click();
++        }
++        await page.waitForFunction(() => !chatState.busy && chatState.sig === 'fixture', null, {
++          timeout: 20000,
++        });
++        if (mode === 'phone') {
++          await page.locator('#ly-mtab-song').click();
++          await page.evaluate(() => new Promise(requestAnimationFrame));
++        }
++        const got = await page.evaluate(() => {
++          const d = $ui('lyrics-draft');
++          return {
++            text: d.value,
++            start: d.selectionStart,
++            end: d.selectionEnd,
++            selected: d.value.slice(d.selectionStart, d.selectionEnd),
++          };
++        });
++        check(
++          q.calls.length === 1 &&
++            (collapsed
++              ? got.start === got.text.indexOf('sing it') + 2 && got.end === got.start
++              : got.selected === 'sing it'),
++          `P5/P6 ${mode} selection: ${JSON.stringify(got)}; calls ${q.calls.length}`
++        );
++        check(
++          got.text.endsWith('Oh--oh, oh my love\nwe sing it plain tonight'),
++          `P6 ${mode} merged sung lines`
++        );
++        if (mode === 'phone') {
++          await page.locator('#lyrics-draft').focus();
++          await page.keyboard.insertText('sing it');
++          check(
++            (await page.inputValue('#lyrics-draft')) === got.text,
++            'P6 typing over the restored selection changed or merged sung lines'
++          );
++        }
++        await ctx.close();
++      }
++    });
++
+     // ── 9d. the migration runs at a boundary, never while the writer types
+     // (BB8 #519 6161601064 F1); Undo/Redo across an open and an import that
+     // migrated; the renumbered card outlives the toast and a reload (F4) ──
+@@ -4005,13 +4260,15 @@ async function browserChecks(chromium) {
+ }
+ 
+ (async () => {
+-  unitWriterPayload();
+-  await unitSavedReadings();
+-  await unitPolicyA();
+-  await unitBoundaries();
+-  unitEndIdentity();
+-  unitFormOrder();
+-  unitHeadersAndIdentity();
++  if (!flags['browser-only']) {
++    unitWriterPayload();
++    await unitSavedReadings();
++    await unitPolicyA();
++    await unitBoundaries();
++    unitEndIdentity();
++    unitFormOrder();
++    unitHeadersAndIdentity();
++  }
+   if (flags['unit-only']) {
+     if (failures.length) {
+       console.error(`LYRICS PAGE (unit): FAIL — ${failures.length} problem(s):`);
+@@ -4038,6 +4295,12 @@ async function browserChecks(chromium) {
+     for (const f of failures) console.error('  ✗ ' + f);
+     process.exit(1);
+   }
++  if (flags['browser-only'] || flags['browser-filter']) {
++    console.log(
++      `LYRICS PAGE: PASS — ${checks} assertions (fixture replies, no provider; browser filter: ${flags['browser-filter'] || 'all'}; units ${flags['browser-only'] ? 'skipped' : 'included'})`
++    );
++    process.exit(0);
++  }
+   console.log(
+     `LYRICS PAGE: PASS — ${checks} assertions (fixture replies, no provider): one document with ` +
+       'fixed tabs and tools; no [SETUP] row reaches the writer (unit, harness reader and /chat); ' +

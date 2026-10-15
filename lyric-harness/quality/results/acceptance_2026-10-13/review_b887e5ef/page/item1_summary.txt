@@ -1,0 +1,82 @@
+== item1_b887.log
+1 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 1ms
+1 last_2end [29,34] -> [29,34,"backward"] "2.end" ok 1ms
+1 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 1ms
+1 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 0ms
+2 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 1ms
+2 last_2end [40,45] -> [40,45,"backward"] "2.end" ok 1ms
+2 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 1ms
+2 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 0ms
+50 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 18ms
+50 last_2end [568,573] -> [568,573,"backward"] "2.end" ok 17ms
+50 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 15ms
+50 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 15ms
+123 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 69ms
+123 last_2end [1371,1376] -> [1371,1376,"backward"] "2.end" ok 68ms
+123 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 74ms
+123 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 75ms
+124 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 13ms
+124 last_2end [1382,1387] -> [1382,1387,"backward"] "2.end" ok 12ms
+124 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 11ms
+124 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 10ms
+125 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 11ms
+125 last_2end [1393,1398] -> [1393,1398,"backward"] "2.end" ok 8ms
+125 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 7ms
+125 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 7ms
+500 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 37ms
+500 last_2end [5518,5523] -> [5518,5523,"backward"] "2.end" ok 33ms
+500 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 85ms
+500 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 34ms
+2000 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 271ms
+2000 last_2end [22018,22023] -> [22018,22023,"backward"] "2.end" ok 139ms
+2000 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 128ms
+2000 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 137ms
+10000 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 771ms
+10000 last_2end [110018,110023] -> [110018,110023,"backward"] "2.end" ok 920ms
+10000 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 787ms
+10000 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 643ms
+50000 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 3974ms
+50000 last_2end [550018,550023] -> [550018,550023,"backward"] "2.end" ok 5267ms
+50000 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 4498ms
+50000 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 4228ms
+== item1_8ea.log
+1 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 1ms
+1 last_2end [29,34] -> [29,34,"backward"] "2.end" ok 0ms
+1 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 0ms
+1 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 0ms
+2 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 1ms
+2 last_2end [40,45] -> [40,45,"backward"] "2.end" ok 1ms
+2 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 1ms
+2 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 0ms
+50 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 30ms
+50 last_2end [568,573] -> [568,573,"backward"] "2.end" ok 19ms
+50 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 24ms
+50 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 24ms
+123 first_2end [29,34] -> [29,34,"backward"] "2.end" ok 115ms
+123 last_2end [1371,1376] -> [1371,1376,"backward"] "2.end" ok 87ms
+123 caret_in_first_2end [31,31] -> [31,31,"backward"] "" ok 81ms
+123 span_T2_to_2end [24,34] -> [24,34,"backward"] "1.T3,2.end" ok 71ms
+124 first_2end [29,34] -> [1396,1396,"backward"] "" FAIL 11ms
+124 last_2end [1382,1387] -> [1396,1396,"backward"] "" FAIL 12ms
+124 caret_in_first_2end [31,31] -> [1396,1396,"backward"] "" FAIL 16ms
+124 span_T2_to_2end [24,34] -> [24,1396,"backward"] "1.T3,2.end;1.T3,2.en…(1372 chars)" FAIL 13ms
+125 first_2end [29,34] -> [1407,1407,"backward"] "" FAIL 8ms
+125 last_2end [1393,1398] -> [1407,1407,"backward"] "" FAIL 13ms
+125 caret_in_first_2end [31,31] -> [1407,1407,"backward"] "" FAIL 8ms
+125 span_T2_to_2end [24,34] -> [24,1407,"backward"] "1.T3,2.end;1.T3,2.en…(1383 chars)" FAIL 10ms
+500 first_2end [29,34] -> [5532,5532,"backward"] "" FAIL 37ms
+500 last_2end [5518,5523] -> [5532,5532,"backward"] "" FAIL 38ms
+500 caret_in_first_2end [31,31] -> [5532,5532,"backward"] "" FAIL 35ms
+500 span_T2_to_2end [24,34] -> [24,5532,"backward"] "1.T3,2.end;1.T3,2.en…(5508 chars)" FAIL 40ms
+2000 first_2end [29,34] -> [22032,22032,"backward"] "" FAIL 136ms
+2000 last_2end [22018,22023] -> [22032,22032,"backward"] "" FAIL 156ms
+2000 caret_in_first_2end [31,31] -> [22032,22032,"backward"] "" FAIL 151ms
+2000 span_T2_to_2end [24,34] -> [24,22032,"backward"] "1.T3,2.end;1.T3,2.en…(22008 chars)" FAIL 173ms
+10000 first_2end [29,34] -> [110032,110032,"backward"] "" FAIL 758ms
+10000 last_2end [110018,110023] -> [110032,110032,"backward"] "" FAIL 634ms
+10000 caret_in_first_2end [31,31] -> [110032,110032,"backward"] "" FAIL 593ms
+10000 span_T2_to_2end [24,34] -> [24,110032,"backward"] "1.T3,2.end;1.T3,2.en…(110008 chars)" FAIL 677ms
+50000 first_2end [29,34] -> [550032,550032,"backward"] "" FAIL 3712ms
+50000 last_2end [550018,550023] -> [550032,550032,"backward"] "" FAIL 4423ms
+50000 caret_in_first_2end [31,31] -> [550032,550032,"backward"] "" FAIL 4457ms
+50000 span_T2_to_2end [24,34] -> [24,550032,"backward"] "1.T3,2.end;1.T3,2.en…(550008 chars)" FAIL 3977ms

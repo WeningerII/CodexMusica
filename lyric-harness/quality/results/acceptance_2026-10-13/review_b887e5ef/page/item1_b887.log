@@ -1,0 +1,141 @@
+{"count":1,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":6}
+{"count":1,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":1,"name":"middle_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":1,"name":"middle_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":1,"name":"last_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":2}
+{"count":1,"name":"last_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":1,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":1}
+{"count":1,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":0}
+{"count":1,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":1}
+{"count":1,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":1}
+{"count":1,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":1}
+{"count":1,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":0}
+{"count":1,"name":"song_word","dir":"forward","before":[66,73],"after":[75,82,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":0}
+{"count":1,"name":"song_word","dir":"backward","before":[66,73],"after":[75,82,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":0}
+{"count":2,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":2,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":2,"name":"middle_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":2,"name":"middle_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":2,"name":"last_2end","dir":"forward","before":[40,45],"after":[40,45,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":0}
+{"count":2,"name":"last_2end","dir":"backward","before":[40,45],"after":[40,45,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":1}
+{"count":2,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":0}
+{"count":2,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":0}
+{"count":2,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":0}
+{"count":2,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":1}
+{"count":2,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":1}
+{"count":2,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":0}
+{"count":2,"name":"song_word","dir":"forward","before":[77,84],"after":[86,93,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":1}
+{"count":2,"name":"song_word","dir":"backward","before":[77,84],"after":[86,93,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":0}
+{"count":50,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":46}
+{"count":50,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":18}
+{"count":50,"name":"middle_2end","dir":"forward","before":[293,298],"after":[293,298,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":24}
+{"count":50,"name":"middle_2end","dir":"backward","before":[293,298],"after":[293,298,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":16}
+{"count":50,"name":"last_2end","dir":"forward","before":[568,573],"after":[568,573,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":15}
+{"count":50,"name":"last_2end","dir":"backward","before":[568,573],"after":[568,573,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":17}
+{"count":50,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":16}
+{"count":50,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":15}
+{"count":50,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":15}
+{"count":50,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":15}
+{"count":50,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":15}
+{"count":50,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":15}
+{"count":50,"name":"song_word","dir":"forward","before":[605,612],"after":[614,621,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":5}
+{"count":50,"name":"song_word","dir":"backward","before":[605,612],"after":[614,621,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":5}
+{"count":123,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":74}
+{"count":123,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":69}
+{"count":123,"name":"middle_2end","dir":"forward","before":[689,694],"after":[689,694,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":71}
+{"count":123,"name":"middle_2end","dir":"backward","before":[689,694],"after":[689,694,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":68}
+{"count":123,"name":"last_2end","dir":"forward","before":[1371,1376],"after":[1371,1376,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":68}
+{"count":123,"name":"last_2end","dir":"backward","before":[1371,1376],"after":[1371,1376,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":68}
+{"count":123,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":68}
+{"count":123,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":71}
+{"count":123,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":72}
+{"count":123,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":74}
+{"count":123,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":83}
+{"count":123,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":75}
+{"count":123,"name":"song_word","dir":"forward","before":[1408,1415],"after":[1417,1424,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":12}
+{"count":123,"name":"song_word","dir":"backward","before":[1408,1415],"after":[1417,1424,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":10}
+{"count":124,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":11}
+{"count":124,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":13}
+{"count":124,"name":"middle_2end","dir":"forward","before":[700,705],"after":[700,705,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":13}
+{"count":124,"name":"middle_2end","dir":"backward","before":[700,705],"after":[700,705,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":9}
+{"count":124,"name":"last_2end","dir":"forward","before":[1382,1387],"after":[1382,1387,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":20}
+{"count":124,"name":"last_2end","dir":"backward","before":[1382,1387],"after":[1382,1387,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":12}
+{"count":124,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":13}
+{"count":124,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":12}
+{"count":124,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":11}
+{"count":124,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":11}
+{"count":124,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":20}
+{"count":124,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":10}
+{"count":124,"name":"song_word","dir":"forward","before":[1419,1426],"after":[1428,1435,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":10}
+{"count":124,"name":"song_word","dir":"backward","before":[1419,1426],"after":[1428,1435,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":18}
+{"count":125,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":9}
+{"count":125,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":11}
+{"count":125,"name":"middle_2end","dir":"forward","before":[700,705],"after":[700,705,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":8}
+{"count":125,"name":"middle_2end","dir":"backward","before":[700,705],"after":[700,705,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":13}
+{"count":125,"name":"last_2end","dir":"forward","before":[1393,1398],"after":[1393,1398,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":9}
+{"count":125,"name":"last_2end","dir":"backward","before":[1393,1398],"after":[1393,1398,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":8}
+{"count":125,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":9}
+{"count":125,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":7}
+{"count":125,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":6}
+{"count":125,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":7}
+{"count":125,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":6}
+{"count":125,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":7}
+{"count":125,"name":"song_word","dir":"forward","before":[1430,1437],"after":[1439,1446,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":7}
+{"count":125,"name":"song_word","dir":"backward","before":[1430,1437],"after":[1439,1446,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":8}
+{"count":500,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":34}
+{"count":500,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":37}
+{"count":500,"name":"middle_2end","dir":"forward","before":[2768,2773],"after":[2768,2773,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":44}
+{"count":500,"name":"middle_2end","dir":"backward","before":[2768,2773],"after":[2768,2773,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":33}
+{"count":500,"name":"last_2end","dir":"forward","before":[5518,5523],"after":[5518,5523,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":31}
+{"count":500,"name":"last_2end","dir":"backward","before":[5518,5523],"after":[5518,5523,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":33}
+{"count":500,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":54}
+{"count":500,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":99}
+{"count":500,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":55}
+{"count":500,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":85}
+{"count":500,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":43}
+{"count":500,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":34}
+{"count":500,"name":"song_word","dir":"forward","before":[5555,5562],"after":[5564,5571,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":43}
+{"count":500,"name":"song_word","dir":"backward","before":[5555,5562],"after":[5564,5571,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":58}
+{"count":2000,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":168}
+{"count":2000,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":271}
+{"count":2000,"name":"middle_2end","dir":"forward","before":[11018,11023],"after":[11018,11023,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":155}
+{"count":2000,"name":"middle_2end","dir":"backward","before":[11018,11023],"after":[11018,11023,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":163}
+{"count":2000,"name":"last_2end","dir":"forward","before":[22018,22023],"after":[22018,22023,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":162}
+{"count":2000,"name":"last_2end","dir":"backward","before":[22018,22023],"after":[22018,22023,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":139}
+{"count":2000,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":149}
+{"count":2000,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":154}
+{"count":2000,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":137}
+{"count":2000,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":128}
+{"count":2000,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":129}
+{"count":2000,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":137}
+{"count":2000,"name":"song_word","dir":"forward","before":[22055,22062],"after":[22064,22071,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":176}
+{"count":2000,"name":"song_word","dir":"backward","before":[22055,22062],"after":[22064,22071,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":169}
+{"count":10000,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":897}
+{"count":10000,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":771}
+{"count":10000,"name":"middle_2end","dir":"forward","before":[55018,55023],"after":[55018,55023,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":747}
+{"count":10000,"name":"middle_2end","dir":"backward","before":[55018,55023],"after":[55018,55023,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":713}
+{"count":10000,"name":"last_2end","dir":"forward","before":[110018,110023],"after":[110018,110023,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":1112}
+{"count":10000,"name":"last_2end","dir":"backward","before":[110018,110023],"after":[110018,110023,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":920}
+{"count":10000,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":1017}
+{"count":10000,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":1466}
+{"count":10000,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":878}
+{"count":10000,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":787}
+{"count":10000,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":730}
+{"count":10000,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":643}
+{"count":10000,"name":"song_word","dir":"forward","before":[110055,110062],"after":[110064,110071,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":786}
+{"count":10000,"name":"song_word","dir":"backward","before":[110055,110062],"after":[110064,110071,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":666}
+{"count":50000,"name":"first_2end","dir":"forward","before":[29,34],"after":[29,34,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":3762}
+{"count":50000,"name":"first_2end","dir":"backward","before":[29,34],"after":[29,34,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":3974}
+{"count":50000,"name":"middle_2end","dir":"forward","before":[275018,275023],"after":[275018,275023,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":4017}
+{"count":50000,"name":"middle_2end","dir":"backward","before":[275018,275023],"after":[275018,275023,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":4052}
+{"count":50000,"name":"last_2end","dir":"forward","before":[550018,550023],"after":[550018,550023,"forward"],"selected":"2.end","want":"2.end","ok":true,"ms":5486}
+{"count":50000,"name":"last_2end","dir":"backward","before":[550018,550023],"after":[550018,550023,"backward"],"selected":"2.end","want":"2.end","ok":true,"ms":5267}
+{"count":50000,"name":"first_T2","dir":"forward","before":[24,28],"after":[24,28,"forward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":4426}
+{"count":50000,"name":"first_T2","dir":"backward","before":[24,28],"after":[24,28,"backward"],"selected":"1.T3","want":"1.T3","ok":true,"ms":4434}
+{"count":50000,"name":"caret_in_first_2end","dir":"forward","before":[31,31],"after":[31,31,"forward"],"selected":"","want":"","ok":true,"ms":3507}
+{"count":50000,"name":"caret_in_first_2end","dir":"backward","before":[31,31],"after":[31,31,"backward"],"selected":"","want":"","ok":true,"ms":4498}
+{"count":50000,"name":"span_T2_to_2end","dir":"forward","before":[24,34],"after":[24,34,"forward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":4737}
+{"count":50000,"name":"span_T2_to_2end","dir":"backward","before":[24,34],"after":[24,34,"backward"],"selected":"1.T3,2.end","want":"1.T3,2.end","ok":true,"ms":4228}
+{"count":50000,"name":"song_word","dir":"forward","before":[550055,550062],"after":[550064,550071,"forward"],"selected":"sing it","want":"sing it","ok":true,"ms":4083}
+{"count":50000,"name":"song_word","dir":"backward","before":[550055,550062],"after":[550064,550071,"backward"],"selected":"sing it","want":"sing it","ok":true,"ms":4260}
+FAILED 0 of 140

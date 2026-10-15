@@ -1,0 +1,494 @@
+diff --git a/src/pages/lyrics.js b/src/pages/lyrics.js
+index 99586aeab..770c42aa7 100644
+--- a/src/pages/lyrics.js
++++ b/src/pages/lyrics.js
+@@ -135,10 +135,11 @@ function lyWordSpans(text, voices) {
+ //   preserved". On a line whose cut did not change the member is carried
+ //   silently. A member the grader cannot judge under the current cut (a
+ //   numeral end, say) stays a visible refusal in the grader's own verdict.
+-// - In a RETURNS row a bare `N` (and `N.line`) is a whole-line return, not a
+-//   word place: it says the lines are the same line, names no word, and so
+-//   is never carried, annotated or shown with a word. Only placed returns
+-//   (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) name a word.
++// - In a RETURNS row bare `N` uses the harness's whole-line returns_check;
++//   explicit `N.line` uses placed_returns_check with place `line`. Their
++//   grading semantics differ, but neither needs word-offset migration.
++//   Other placed returns (`N.end`, `N.endword`, `N.head`, `N.headrime`,
++//   `N.T<k>`) name a word.
+ //   "Differ" means the token texts, their characters, their number -- or
+ //   the words the grader LOOKS UP for the line (lyLineCutChanged): the
+ //   earlier cut's end anchor re-cut its own tokens joined by spaces, so an
+@@ -149,6 +150,26 @@ function lyWordSpans(text, voices) {
+ // its members; lyParseSetup keeps the mark and the member states out of the
+ // value the tools receive.
+ const LY_TOKEN_SCHEME = CMLyricTokens.SCHEME;
++const lyNumbering = (voices = false) => `v2${voices ? '+voices' : ''}`;
++const LY_NUMBERINGS = ['v1', 'v1+voices', 'v2', 'v2+voices'];
++// A saved coordinate must still name the identical raw occurrence. Equal
++// spelling alone cannot establish that after a reader or voices change.
++function lyNumberingTarget(line, token, word, numbering, voices) {
++  if (!LY_NUMBERINGS.includes(numbering)) return null;
++  const strip = !numbering.endsWith('+voices');
++  const old = numbering.startsWith('v1')
++    ? CMLyricTokens.v1GraderSpans(line, strip)
++    : CMLyricTokens.readerLine(line, { stripParens: strip }).tokens;
++  const current = CMLyricTokens.readerLine(line, { stripParens: !voices }).tokens;
++  const a = old?.[token - 1];
++  if (!a || (word !== null && a.text !== word)) return null;
++  const matches = current
++    .map((b, i) =>
++      b.text === a.text && JSON.stringify(a.pieces) === JSON.stringify(b.pieces) ? i + 1 : null
++    )
++    .filter(Boolean);
++  return matches.length === 1 ? matches[0] : null;
++}
+ const LY_READING_CUT = `cut ${LY_TOKEN_SCHEME}`;
+ const LY_READING_UNDECIDED = 'needs a decision: numbered under the earlier word cut';
+ const LY_MEMBER_UNDECIDED = '(numbered under the earlier cut)';
+@@ -254,9 +275,8 @@ function lyReadingSuperseded(r, line, token, voices) {
+ }
+ // Whether a group member is a word place numbered under the current cut.
+ const lyNumberedMember = (m) => !m.bad && !m.undecided && /^T\d+$/.test(m.place || '');
+-// Whether a member of a `key` row is a whole-line return (a bare `N`, or
+-// `N.line`, in a returns row): a different class from a placed return, which
+-// names the word at a place (see lyMigrateSavedReadings).
++// Members exempt from word-offset migration: bare `N` and explicit `N.line`
++// in returns rows. The harness grades these with distinct return judges.
+ const lyWholeLineReturn = (key, m) =>
+   key === 'returns' && !m.bad && (!m.explicit || m.place === 'line');
+ // A text's unmarked (legacy by compatibility policy) readings and word places
+@@ -289,14 +309,11 @@ const lyWholeLineReturn = (key, m) =>
+ // again and renumbers it -- right for a row saved under the earlier cut,
+ // wrong for one typed today without the mark -- and says so.
+ //
+-// RETURNS HAVE TWO CLASSES, and only one of them names a word. A bare `N`
+-// in a returns row (and `N.line`) is a WHOLE-LINE return: the harness reads
+-// it as "these lines are the same line" (quality/schemes.py, a return class
+-// of line numbers; `N.line` the placed class whose place is the whole
+-// line), which names no word, so no word cut can move what it names and it
+-// is never carried, annotated or labelled as a word place. `N.end`,
+-// `N.endword`, `N.head`, `N.headrime` and `N.T<k>` are PLACED returns: the
+-// word at that place returns, so they follow the rhyme-group rules above.
++// RETURNS HAVE TWO CLASSES: bare `N` is a whole-line return handled by
++// returns_check; explicit `N.line` is a placed return handled by
++// placed_returns_check. These have distinct grading semantics. Both are
++// exempt from word-offset migration. Other placed returns (`N.end`,
++// `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) follow the word-place rules.
+ // In a rhyme groups row a bare `N` is the default end -- a word place.
+ //
+ // `keys`, when given, limits the pass to the rhyme groups / returns rows of
+@@ -307,7 +324,7 @@ function lyMigrateSavedReadings(text, keys = null) {
+   const rows = model.text.split('\n');
+   const out = { text: model.text, rebound: 0, blocked: [], moved: [], carried: [] };
+   for (const r of keys ? [] : lySetupOf(model, 'reading')) {
+-    if (r.malformed || r.undecided || r.cut === LY_TOKEN_SCHEME) continue;
++    if (r.malformed || r.undecided || r.numbering || r.cut === LY_TOKEN_SCHEME) continue;
+     const got = lyRebindReading(r, model.voices);
+     if (got.blocked) {
+       rows[r.i] = r.raw.replace(/\]$/, `${LY_DASH}${LY_READING_UNDECIDED}]`);
+@@ -325,7 +342,7 @@ function lyMigrateSavedReadings(text, keys = null) {
+   }
+   for (const key of keys || LY_GROUP_KEYS)
+     for (const d of lySetupOf(model, key)) {
+-      if (d.cut) continue;
++      if (d.cut || d.numbering) continue;
+       // The members in the order lyParseGroups reads them, each with its new
+       // spelling where it changes.
+       const respelled = new Map();
+@@ -425,23 +442,56 @@ function lyRowUnits(row) {
+   }
+   return out;
+ }
+-// Longest common subsequence of two unit lists -> matched index pairs, in
+-// order. Rows are short; a pathological one falls back to the common head
+-// and tail of units.
++// Match members independently when the migration preserves their comma/semicolon
++// boundaries. This keeps repeated members anchored and makes long declaration
++// lists linear in the number of members, rather than allocating a row-wide matrix.
++// Other large stretches use a linear-space LCS, never a lossy head/tail fallback.
+ function lyAlignUnits(u, v) {
+   const n = u.length,
+     m = v.length;
+   const pairs = [];
++  if (n === 1) {
++    const q = v.findIndex((x) => x.text === u[0].text);
++    return q < 0 ? [] : [[0, q]];
++  }
+   if (n * m > 250000) {
+-    let h = 0;
+-    while (h < n && h < m && u[h].text === v[h].text) pairs.push([h, h++]);
+-    let t = 0;
+-    const tail = [];
+-    while (t < n - h && t < m - h && u[n - 1 - t].text === v[m - 1 - t].text) {
+-      tail.unshift([n - 1 - t, m - 1 - t]);
+-      t++;
++    const cuts = (units) => units.flatMap((x, i) => (/^[;,]$/.test(x.text) ? [i] : []));
++    const a = cuts(u),
++      b = cuts(v);
++    if (a.length && a.length === b.length && a.every((p, i) => u[p].text === v[b[i]].text)) {
++      let p = 0,
++        q = 0;
++      for (let i = 0; i <= a.length; i++) {
++        const pe = a[i] ?? n,
++          qe = b[i] ?? m;
++        for (const [x, y] of lyAlignUnits(u.slice(p, pe), v.slice(q, qe)))
++          pairs.push([p + x, q + y]);
++        if (i < a.length) pairs.push([pe, qe]);
++        p = pe + 1;
++        q = qe + 1;
++      }
++      return pairs;
+     }
+-    return pairs.concat(tail);
++    // Hirschberg's split: only two score rows are resident at a time.
++    const scores = (left, right) => {
++      let prev = new Int32Array(right.length + 1);
++      for (const x of left) {
++        const next = new Int32Array(right.length + 1);
++        for (let j = 0; j < right.length; j++)
++          next[j + 1] = x.text === right[j].text ? prev[j] + 1 : Math.max(prev[j + 1], next[j]);
++        prev = next;
++      }
++      return prev;
++    };
++    const mid = Math.floor(n / 2);
++    const left = scores(u.slice(0, mid), v);
++    const right = scores(u.slice(mid).reverse(), v.slice().reverse());
++    let split = 0;
++    for (let j = 1; j <= m; j++)
++      if (left[j] + right[m - j] > left[split] + right[m - split]) split = j;
++    return lyAlignUnits(u.slice(0, mid), v.slice(0, split)).concat(
++      lyAlignUnits(u.slice(mid), v.slice(split)).map(([p, q]) => [p + mid, q + split])
++    );
+   }
+   const L = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
+   for (let p = n - 1; p >= 0; p--)
+@@ -550,6 +600,15 @@ function lyEnsureTokenScheme(how = 'page') {
+       lyMapOffset(before, done.text, sel[1], 'end'),
+       sel[2] || 'none'
+     );
++  if (LY.songCaret) {
++    const [start, end, scroll] = LY.songCaret;
++    LY.songCaretMapped = true;
++    LY.songCaret = [
++      lyMapOffset(before, done.text, start, start === end ? 'end' : 'start'),
++      lyMapOffset(before, done.text, end, 'end'),
++      scroll,
++    ];
++  }
+   lyRecordRenumbered(done);
+   uiSaveLyrics();
+   if (how === 'page' && Array.isArray(app.history) && app.history[app.historyIndex] !== undefined)
+@@ -606,7 +665,8 @@ function lyRecordRenumbered(done) {
+   const prior = lyRenumbered(meta);
+   // Another draft's record is never extended into this one (a record made
+   // before this draft had an id is this draft's).
+-  const kept = prior && (!prior.draftId || prior.draftId === draftId) ? prior.items : [];
++  const sameDraft = prior && (!prior.draftId || prior.draftId === draftId);
++  const kept = sameDraft ? prior.items : [];
+   const items = [
+     ...kept,
+     ...done.moved.map((m) => ({
+@@ -618,7 +678,11 @@ function lyRecordRenumbered(done) {
+       to: m.to,
+     })),
+   ];
+-  meta.renumbered = { ...(draftId ? { draftId } : {}), items };
++  meta.renumbered = {
++    ...(draftId ? { draftId } : {}),
++    items,
++    ...(sameDraft && prior.more ? { more: prior.more } : {}),
++  };
+ }
+ // The migration's summary in words, for a toast or a commit message:
+ // -> { text, blocked } ('' when it moved, carried and blocked nothing).
+@@ -867,6 +931,7 @@ function lyParseSetup(raw) {
+       item.state = 'choice';
+       for (const r of rest) {
+         if (r.toLowerCase() === LY_READING_UNDECIDED) item.undecided = true;
++        else if (/^numbering \S+$/i.test(r)) item.numbering = r.slice(10).toLowerCase();
+         else if (/^cut \S+$/i.test(r)) item.cut = r.slice(4).toLowerCase();
+         else if (/^needs a (dictionary )?choice$/i.test(r)) item.state = 'choice';
+         else if (/^uncertain$/i.test(r)) item.state = 'uncertain';
+@@ -892,6 +957,14 @@ function lyParseSetup(raw) {
+       if (item.cut !== LY_TOKEN_SCHEME) item.unknownCut = item.cut;
+     }
+   }
++  if (LY_GROUP_KEYS.includes(key)) {
++    const m = /^(.*?)\s+—\s+numbering (\S+)$/i.exec(item.value);
++    if (m) {
++      item.value = m[1].trim();
++      item.numbering = m[2].toLowerCase();
++      if (!LY_NUMBERINGS.includes(item.numbering)) item.unknownCut = item.numbering;
++    }
++  }
+   if (key === 'hook') item.line = lyUnquote(value);
+   return item;
+ }
+@@ -964,6 +1037,32 @@ function lyParse(text) {
+   model.voices = model.setup.some(
+     (s) => s.key === 'voices' && /sung/i.test(s.value) && !/unsung/i.test(s.value)
+   );
++  for (const r of model.setup.filter((s) => s.key === 'reading' && s.numbering)) {
++    const target = lyNumberingTarget(r.line, r.token, r.word, r.numbering, model.voices);
++    if (!target) r.undecided = true;
++    else {
++      r.numberingToken = r.token;
++      r.token = target;
++    }
++  }
++  // Read each marked row into the current page coordinate before forms or
++  // send combine rows. Raw saved text retains its original source marker.
++  for (const d of model.setup.filter((s) => LY_GROUP_KEYS.includes(s.key) && s.numbering)) {
++    d.value = d.value
++      .split(/([;,])/)
++      .map((part, i) => {
++        if (i % 2) return part;
++        const m = lyParseGroups(part)[0]?.[0];
++        if (!m || m.bad || m.undecided || !lyNumberedMember(m)) return part;
++        const line = model.sung[m.line - 1]?.text;
++        const target =
++          line == null
++            ? null
++            : lyNumberingTarget(line, Number(m.place.slice(1)), null, d.numbering, model.voices);
++        return target ? part.replace(/\.T\d+/i, `.T${target}`) : `${part} ${LY_MEMBER_UNDECIDED}`;
++      })
++      .join('');
++  }
+   // Names: a bare repeated name is numbered (Verse 1, Verse 2) as it reads.
+   const seen = {},
+     totals = {};
+@@ -1187,8 +1286,10 @@ const lyGroupsText = (groups) =>
+ const lyGroupsWire = (groups) =>
+   groups.map((g) => g.map((m) => (m.bad ? m.raw : lyMemberSpelling(m))).join(',')).join(';');
+ // One rhyme groups / returns row as this page writes it: always marked.
+-const lyGroupRow = (key, groups) =>
+-  `[SETUP${LY_DASH}${key}${LY_DASH}${lyGroupsText(groups)}${LY_DASH}${LY_READING_CUT}]`;
++const lyGroupNumberingMark = (value, voices) =>
++  /\b\d+\.T\d+\b/i.test(value) ? `${LY_DASH}numbering ${lyNumbering(voices)}` : '';
++const lyGroupRow = (key, groups, voices = false) =>
++  `[SETUP${LY_DASH}${key}${LY_DASH}${lyGroupsText(groups)}${lyGroupNumberingMark(lyGroupsText(groups), voices)}${LY_DASH}${LY_READING_CUT}]`;
+ // A row's groups; a row marked with a cut this page does not read holds
+ // members that bind nothing (each says the cut it was marked with), so a
+ // form that merges rows never launders them into the current cut.
+@@ -1379,6 +1480,8 @@ function lyDeclarationsOf(model) {
+       if (open.length) d[`${field}_need_decision`] = open.map((g) => lyGroupsText([g]));
+     }
+   }
++  if ([d.groups, d.returns].some((value) => /\b\d+\.T\d+\b/i.test(value || '')))
++    d.numbering = lyNumbering(model.voices);
+   if (model.voices) d.voices = true;
+   const placed = lySetupOf(model, 'placement')
+     .flatMap((x) => lyParsePlacement(x.value))
+@@ -1396,11 +1499,15 @@ function lyDeclarationsOf(model) {
+     .filter((r) => r.state === 'declared')
+     .map((r) => ({
+       line: r.line,
+-      token: r.token,
++      token: r.numberingToken || r.token,
+       word: r.word,
+       phones: r.phones,
+       basis: r.basis,
+       source: r.source,
++      // Older cut-v2 rows establish the reader but did not record voices.
++      ...(r.numbering || r.cut === LY_TOKEN_SCHEME
++        ? { numbering: r.numbering || lyNumbering(model.voices) }
++        : {}),
+     }));
+   if (chosen.length) d.pronunciations = chosen;
+   const open = readings
+@@ -2621,7 +2728,7 @@ function lyAssemble({ prefix, blocks, suffix }) {
+     // The row keeps the cut it was numbered under (renumbering lines moves no
+     // word place); an unmarked row is left for the migration to read.
+     return groups.length
+-      ? `[SETUP${LY_DASH}${item.key}${LY_DASH}${lyGroupsText(groups)}${item.cut ? `${LY_DASH}cut ${item.cut}` : ''}]`
++      ? `[SETUP${LY_DASH}${item.key}${LY_DASH}${lyGroupsText(groups)}${item.numbering ? `${LY_DASH}numbering ${item.numbering}` : ''}${item.cut ? `${LY_DASH}cut ${item.cut}` : ''}]`
+       : null;
+   });
+   return { text: rows.filter((r) => r !== null).join('\n'), dropped };
+@@ -2643,7 +2750,7 @@ function lyCarriedDecide(id, keep) {
+     if (g.length < 2) groups.splice(Number(gi), 1);
+   }
+   const rows = model.text.split('\n');
+-  if (groups.length) rows[d.i] = lyGroupRow(key, groups);
++  if (groups.length) rows[d.i] = lyGroupRow(key, groups, model.voices);
+   else rows.splice(d.i, 1);
+   const what = key === 'returns' ? 'declared return' : 'rhyme link';
+   lyCommit(
+@@ -2682,8 +2789,13 @@ function lySetSetup(key, values, text = lyDraft().value) {
+       : 0;
+   // Every rhyme groups / returns row this page writes carries the cut it is
+   // read under (lyMigrateSavedReadings): an unmarked one is legacy by policy.
+-  const mark = () => (LY_GROUP_KEYS.includes(key) ? `${LY_DASH}${LY_READING_CUT}` : '');
+-  const fresh = values.map((v) => `[SETUP${LY_DASH}${key}${v === '' ? '' : LY_DASH + v + mark()}]`);
++  const mark = (value) =>
++    LY_GROUP_KEYS.includes(key)
++      ? `${lyGroupNumberingMark(value, model.voices)}${LY_DASH}${LY_READING_CUT}`
++      : '';
++  const fresh = values.map(
++    (v) => `[SETUP${LY_DASH}${key}${v === '' ? '' : LY_DASH + v + mark(v)}]`
++  );
+   const kept = rows.filter((_, i) => !own.includes(i));
+   const at = anchor - own.filter((i) => i < anchor).length;
+   kept.splice(at, 0, ...fresh);
+@@ -3505,7 +3617,20 @@ const LY_FORMS = {
+       const kind = v.kind;
+       if (!['dictionary', 'declared', 'uncertain', 'choice'].includes(kind))
+         errors.kind = 'Choose a reading, declare your own, or mark it uncertain.';
+-      const data = { token, word, line, kind: kind === 'dictionary' ? 'declared' : kind };
++      const data = {
++        token,
++        word,
++        line,
++        kind: kind === 'dictionary' ? 'declared' : kind,
++        numbering: kind === 'dictionary' ? v.numbering : lyNumbering(model.voices),
++      };
++      if (kind === 'dictionary') data.token = v.numberingToken || token;
++      if (
++        kind === 'dictionary' &&
++        lyNumberingTarget(line, data.token, word, data.numbering, model.voices) !== token
++      )
++        errors.kind =
++          'Fetch dictionary options for the current word numbering before choosing a reading.';
+       if (kind === 'dictionary' || kind === 'declared') {
+         data.phones = String(v.phones || '')
+           .trim()
+@@ -4487,7 +4612,16 @@ function lyToolPronunciation(model) {
+     const kind = lyVal(T, key, 'kind', '');
+     const committed = readings.find((r) => r.line === tl && r.token === tt);
+     const options = (LY.results.pronunciation?.items || []).filter(
+-      (o) => o.line === tl && o.token === tt && o.word === tw
++      (o) =>
++        o.line === tl &&
++        o.word === tw &&
++        lyNumberingTarget(
++          tl,
++          o.token,
++          tw,
++          o.numbering || LY.results.pronunciation.numbering,
++          model.voices
++        ) === tt
+     );
+     const readingOf = (phones) => {
+       const syl = phones.filter((p) => /\d$/.test(p));
+@@ -5034,7 +5168,15 @@ function lyReceive(payload, request) {
+   const screen = [...tools].reverse().find((t) => Array.isArray(t?.pairs));
+   if (screen) LY.results.rhymes = { pairs: screen.pairs, baseId: LY.run.baseId };
+   const pron = [...tools].reverse().find((t) => t?.pronunciation_options?.items);
+-  if (pron) LY.results.pronunciation = { ...pron.pronunciation_options, baseId: LY.run.baseId };
++  if (pron)
++    LY.results.pronunciation = {
++      ...pron.pronunciation_options,
++      // Old servers omitted the marker: only a matched request supplies the
++      // historical voices mode; an unattached reply cannot establish it.
++      numbering:
++        pron.pronunciation_options.numbering || (asked ? `v1${asked.voices ? '+voices' : ''}` : ''),
++      baseId: LY.run.baseId,
++    };
+   LY.progress = null;
+   lyRefresh(true);
+ }
+@@ -5291,8 +5433,8 @@ function lySyncDisplayMenu() {
+ const lyItem = (id) => (LY.items || []).find((i) => i.id === id);
+ // Every reading row names the cut its number was read under (see
+ // lyEnsureTokenScheme), so the text alone says how to read it.
+-const lyReadingValue = ({ token, word, line, kind, phones, basis, source }) =>
+-  `token ${token} ${lyQuote(word)} in ${lyQuote(line)}${LY_DASH}${kind === 'declared' ? `${phones.join(' ')}${LY_DASH}${basis}${LY_DASH}source: ${source.replace(/[\]\n—]/g, ' ')}` : kind === 'uncertain' ? 'uncertain' : 'needs a choice'}${LY_DASH}${LY_READING_CUT}`;
++const lyReadingValue = ({ token, word, line, kind, phones, basis, source, numbering }) =>
++  `token ${token} ${lyQuote(word)} in ${lyQuote(line)}${LY_DASH}${kind === 'declared' ? `${phones.join(' ')}${LY_DASH}${basis}${LY_DASH}source: ${source.replace(/[\]\n—]/g, ' ')}` : kind === 'uncertain' ? 'uncertain' : 'needs a choice'}${numbering ? `${LY_DASH}numbering ${numbering}` : ''}${LY_DASH}${LY_READING_CUT}`;
+ function lyValidPhones(phones) {
+   if (!phones.length || phones.length > 128) return 'Enter at least one ARPABET phone.';
+   const bad = phones.find(
+@@ -5462,6 +5604,7 @@ const LY_ACTIONS = {
+     if (LY.mobile === 'song') {
+       const d = lyDraft();
+       LY.songCaret = [d.selectionStart, d.selectionEnd, $ui('ly-main-scroll').scrollTop];
++      LY.songCaretMapped = false;
+     }
+     LY.mobile = id;
+     if (id !== 'song') LY.tab = id;
+@@ -5471,7 +5614,25 @@ const LY_ACTIONS = {
+       draft.setSelectionRange(LY.songCaret[0], LY.songCaret[1]);
+       $ui('ly-main-scroll').scrollTop = LY.songCaret[2];
+     }
+-    uiFocus($ui(`ly-mtab-${id}`));
++    const tab = $ui(`ly-mtab-${id}`);
++    uiFocus(tab);
++    if (id === 'song' && LY.songCaretMapped) {
++      // Showing the textarea can make the browser clear its selection after
++      // this click returns. Reapply only this migration's cached offsets once
++      // that native update has finished, without overriding a new user focus.
++      const caret = LY.songCaret,
++        text = lyDraft().value;
++      LY.songCaretMapped = false;
++      requestAnimationFrame(() => {
++        if (
++          LY.mobile === 'song' &&
++          LY.songCaret === caret &&
++          document.activeElement === tab &&
++          lyDraft().value === text
++        )
++          lyDraft().setSelectionRange(caret[0], caret[1]);
++      });
++    }
+   },
+   'ly-run-review'() {
+     lyCloseMenus();
+@@ -5756,10 +5917,29 @@ const LY_ACTIONS = {
+     if (!key) return;
+     const [line, token, word] = lyReadingTarget(key);
+     const opts = (LY.results.pronunciation?.items || [])
+-      .filter((o) => o.line === line && o.token === token && o.word === word)
+-      .flatMap((o) => o.dictionary_readings);
++      .filter(
++        (o) =>
++          o.line === line &&
++          o.word === word &&
++          lyNumberingTarget(
++            line,
++            o.token,
++            word,
++            o.numbering || LY.results.pronunciation.numbering,
++            LY.model.voices
++          ) === token
++      )
++      .flatMap((o) =>
++        o.dictionary_readings.map((r) => ({
++          ...r,
++          numberingToken: o.token,
++          numbering: o.numbering || LY.results.pronunciation.numbering,
++        }))
++      );
+     const r = opts[Number(i)];
+     if (!r) return;
++    lyDraftSet('pronunciation', key, 'numbering', r.numbering);
++    lyDraftSet('pronunciation', key, 'numberingToken', r.numberingToken);
+     lyDraftSet('pronunciation', key, 'kind', 'dictionary');
+     lyDraftSet('pronunciation', key, 'phones', r.phones.join(' '));
+     lyDraftSet('pronunciation', key, 'source', 'CMUdict (dictionary option)');
+@@ -6192,6 +6372,25 @@ function lyWire(surface) {
+     lyRenderEditor();
+     lyRefresh();
+   });
++  // Keep an editor selection attached to its textarea on a mouse review,
++  // including a collapsed caret retained after Tab has moved focus elsewhere.
++  // Disabling the clicked Run button during send otherwise lets the browser
++  // reset the just-mapped selection after the click handler returns.
++  // Keyboard activation still follows its normal focus path.
++  surface.addEventListener('mousedown', (e) => {
++    if (e.button === 0 && e.target.closest('[data-ui="ly-run-review"]')) {
++      e.preventDefault();
++      if (document.activeElement === draft)
++        pushHistory(); // replace the prevented blur boundary
++      else {
++        // Tab may already have focused Run review. Move focus off the button
++        // before send disables it, preserving the selection across focus.
++        const selection = [draft.selectionStart, draft.selectionEnd, draft.selectionDirection];
++        draft.focus({ preventScroll: true });
++        draft.setSelectionRange(...selection);
++      }
++    }
++  });
+   draft.addEventListener('blur', () => {
+     pushHistory();
+     lyRenderEditor();
