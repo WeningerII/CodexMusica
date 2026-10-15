@@ -11,6 +11,10 @@ const api = {
   lyDeclarationsOf: (model) => model.declarations || {},
   lyWriterText: (text) => text,
 };
+const parser = vm.createContext({ uiRegisterPage() {}, TextEncoder });
+for (const file of ['src/lyric-tokens.js', 'src/pages/lyrics.js'])
+  vm.runInContext(fs.readFileSync(file, 'utf8'), parser);
+api.lyParse = parser.lyParse;
 vm.createContext(api);
 vm.runInContext(fs.readFileSync('src/pages/lyrics-evidence.js', 'utf8'), api);
 // Test fixture only: explicit fixture phonology and adjusted voices metadata.
@@ -267,7 +271,8 @@ test('writing hook shape isolates a selected pair and clears same-text stale mar
   assert.equal(api.lyRelationWritingMarks(f.view(), session), null);
 });
 
-test('binding uses supplied sung-row ordinals, never searches repeated spellings', () => {
+test('binding uses supplied sung-row ordinals, never searches repeated spellings', async () => {
+  const { projectDraftText } = await import('../mcp/lyric_text.js');
   const f = fixture();
   const raw = '[VERSE]\n  cat bat cat  \nhat';
   const rows = raw.split('\n').map((raw, i) => ({ raw, text: raw.trim(), i }));
@@ -282,6 +287,7 @@ test('binding uses supplied sung-row ordinals, never searches repeated spellings
   f.evidence.request_binding = {
     version: 1,
     context: submittedContext,
+    source_projection: { ...projectDraftText(raw), document_sha256: sha(raw) },
     report_identity_hash: f.evidence.identity.hash,
     declaration_hash: f.evidence.identity.declaration_hash,
     reader_scheme: 'v2',
@@ -409,6 +415,10 @@ test('inspector uses readable labels without hiding partial scope or placement r
   delete f.context.binding.declarationReceipt;
   html = api.lyRelationInspectorMarkup(f.view(), null);
   assert.match(html, /Not placed in this draft/);
+  assert.match(html, /These pairs can’t be shown in your lyrics yet/);
+  assert.match(html, /They are separate from your declared rhyme scheme and suggested words/);
+  assert.doesNotMatch(html, /Measured schema instances/);
+  assert.match(html, /title="No verified report-to-document binding\./);
   assert.match(
     html,
     /aria-label="Not placed in this draft\. No verified report-to-document binding\./

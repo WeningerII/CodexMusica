@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto';
+import { projectDraftText } from './lyric_text.js';
 // Report-only association. No declaration translation or engine decisions.
 const canonical = (v) => JSON.stringify(sort(v));
 function sort(v) {
@@ -48,14 +50,16 @@ export function bindEvidenceContext(evidence, context) {
   if (!evidence) return null;
   const { request_binding: _untrusted, ...report } = evidence;
   const invocation = report.invocation;
+  const projection = projectDraftText(context?.document);
   if (
     !context ||
     context.version !== 1 ||
     !context.binding?.document_sha256 ||
     invocation?.version !== 1 ||
     invocation.tool !== 'lyric_check' ||
-    invocation.source_text !== context.document ||
-    context.document !== report.source_text ||
+    !projection ||
+    invocation.source_text !== projection.source_text ||
+    projection.source_text !== report.source_text ||
     invocation.report_identity_hash !== report.identity?.hash ||
     invocation.declaration_hash !== report.identity?.declaration_hash ||
     invocation.reader_scheme !== report.identity?.provenance?.reader_scheme ||
@@ -70,6 +74,10 @@ export function bindEvidenceContext(evidence, context) {
     request_binding: {
       version: 1,
       context: structuredClone(context),
+      source_projection: {
+        ...projection,
+        document_sha256: createHash('sha256').update(context.document).digest('hex'),
+      },
       report_identity_hash: invocation.report_identity_hash,
       declaration_hash: invocation.declaration_hash,
       reader_scheme: invocation.reader_scheme,

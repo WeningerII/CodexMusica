@@ -30,11 +30,52 @@
       );
     return value;
   }
+  function projectionMatches(projection, document, sourceText) {
+    if (!projection || typeof document !== 'string' || typeof globalThis.lyParse !== 'function')
+      return false;
+    // Re-read every context row with the page's existing parser. No word search.
+    const parsed = globalThis.lyParse(document);
+    let start = 0,
+      sourceStart = 0;
+    const rows = parsed.rows.map((row, i) => {
+      const kind = row.kind === 'sung' ? 'sung' : row.kind === 'blank' ? 'blank' : 'section';
+      const item = { row: i, kind, start, end: start + row.raw.length };
+      if (kind === 'sung') {
+        const textStart = start + row.raw.length - row.raw.trimStart().length;
+        Object.assign(item, {
+          source_start: sourceStart,
+          source_end: sourceStart + row.text.length,
+          text_start: textStart,
+          text_end: textStart + row.text.length,
+        });
+        sourceStart += row.text.length + 1;
+      }
+      start += row.raw.length + 1;
+      return item;
+    });
+    return (
+      parsed.sung.map((row) => row.text).join('\n') === sourceText &&
+      canonical(projection) ===
+        canonical({
+          version: 1,
+          convention: 'lyric_text/sung-rows-v1',
+          document_sha256: hash(document),
+          source_text: sourceText,
+          rows,
+        })
+    );
+  }
+
   function receiptFor(evidence, basis, submittedContext, model) {
     const proof = evidence?.request_binding;
     if (
       proof?.version !== 1 ||
       !submittedContext ||
+      !projectionMatches(
+        proof.source_projection,
+        submittedContext.document,
+        evidence.source_text
+      ) ||
       typeof globalThis.lyDeclarationsOf !== 'function' ||
       typeof globalThis.lyWriterText !== 'function' ||
       canonical(proof.context) !== canonical(submittedContext) ||
@@ -512,7 +553,7 @@
     const scopeDetails = view.population
       ? `<details><summary>Report scope and exclusions</summary><pre>${esc(JSON.stringify(view.population, null, 2))}</pre><p>Coverage by check</p><pre>${esc(JSON.stringify(view.coverage.methods || [], null, 2))}</pre></details>`
       : '';
-    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${esc(view.reason)}</p><p>Measured schema instances; candidate options and declared Scheme are separate.</p><p>${esc(scope)}</p>${scopeDetails}${!session?.expanded && listed.length ? `<p>${visible.length} of ${listed.length}, in lyric order</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return"${session?.returnUnavailable ? ' disabled' : ''}>Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
+    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${view.reason ? `<span title="${esc(view.reason)}" aria-label="${esc(`These pairs can’t be shown in your lyrics yet. ${view.reason}`)}">These pairs can’t be shown in your lyrics yet.</span>` : ''}</p><p>These results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.</p><p>${esc(scope)}</p>${scopeDetails}${!session?.expanded && listed.length ? `<p>${visible.length} of ${listed.length}, in lyric order</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return"${session?.returnUnavailable ? ' disabled' : ''}>Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
   }
   Object.assign(globalThis, {
     lyRelationBindReport,
