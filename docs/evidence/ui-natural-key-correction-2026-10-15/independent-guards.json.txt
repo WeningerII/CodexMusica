@@ -1,0 +1,893 @@
+{
+  "root": "/workspace/musica-ui-three",
+  "bundleSha256": "e365618179735e639d8f074619778d6eb6df49d73bc66c59ec9c6396c0063444",
+  "results": [
+    {
+      "line": 9,
+      "kind": "type",
+      "delay": 0,
+      "repeat": 0,
+      "after": {
+        "line": 9,
+        "top": 483.171875,
+        "bottom": 511.96875,
+        "over": [
+          "ly-mnav"
+        ],
+        "hit": "ly-mtab-song",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 361,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 1034.7999999970198,
+          "visible": true,
+          "inputMatches": true,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": true,
+          "scroller": "ly-page",
+          "top": 361,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 1,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "type",
+      "delay": 0,
+      "repeat": 1,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 900.8999999910593,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "type",
+      "delay": 16,
+      "repeat": 0,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 923.2999999970198,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "type",
+      "delay": 16,
+      "repeat": 1,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 1273.9000000059605,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "arrow",
+      "delay": 0,
+      "repeat": 0,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 1026.699999988079,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "arrow",
+      "delay": 0,
+      "repeat": 1,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 1212.3999999910593,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "type",
+      "delay": 33,
+      "repeat": 0,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 1144.2000000029802,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "type",
+      "delay": 33,
+      "repeat": 1,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 1030.0999999940395,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "arrow",
+      "delay": 33,
+      "repeat": 0,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 1068.7000000029802,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 9,
+      "kind": "arrow",
+      "delay": 33,
+      "repeat": 1,
+      "after": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 966,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "type",
+      "delay": 0,
+      "repeat": 0,
+      "after": {
+        "line": 30,
+        "top": 483.90625,
+        "bottom": 512.703125,
+        "over": [
+          "ly-mnav"
+        ],
+        "hit": "ly-mtab-song",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 965,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 980.8999999910593,
+          "visible": true,
+          "inputMatches": true,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": true,
+          "scroller": "ly-page",
+          "top": 965,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 1,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "type",
+      "delay": 0,
+      "repeat": 1,
+      "after": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 906.5,
+          "visible": true,
+          "inputMatches": true,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": true,
+          "scroller": "ly-page",
+          "top": 965,
+          "first": 965,
+          "input": 965,
+          "inputSequence": 2,
+          "inputAtResize": 1,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "type",
+      "delay": 16,
+      "repeat": 0,
+      "after": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 987.4000000059605,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "type",
+      "delay": 16,
+      "repeat": 1,
+      "after": {
+        "line": 30,
+        "top": 483.90625,
+        "bottom": 512.703125,
+        "over": [
+          "ly-mnav"
+        ],
+        "hit": "ly-mtab-song",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 965,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 1038.5,
+          "visible": true,
+          "inputMatches": true,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": true,
+          "scroller": "ly-page",
+          "top": 965,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 1,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "arrow",
+      "delay": 0,
+      "repeat": 0,
+      "after": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 923.2999999970198,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 965,
+          "first": 965,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 1,
+          "arrowAtResize": 1
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "arrow",
+      "delay": 0,
+      "repeat": 1,
+      "after": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 955.7999999970198,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 965,
+          "first": 965,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 1,
+          "arrowAtResize": 1
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "type",
+      "delay": 33,
+      "repeat": 0,
+      "after": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 988.7999999970198,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "type",
+      "delay": 33,
+      "repeat": 1,
+      "after": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 941.7999999970198,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "arrow",
+      "delay": 33,
+      "repeat": 0,
+      "after": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 943.4000000059605,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    },
+    {
+      "line": 30,
+      "kind": "arrow",
+      "delay": 33,
+      "repeat": 1,
+      "after": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "guards": [
+        {
+          "ms": 977.5,
+          "visible": true,
+          "inputMatches": false,
+          "arrowMatches": false,
+          "positionIntent": 0,
+          "intendedScroll": 0,
+          "changed": false,
+          "scroller": "ly-page",
+          "top": 0,
+          "first": 0,
+          "input": 0,
+          "inputSequence": 0,
+          "inputAtResize": 0,
+          "arrowSequence": 0,
+          "arrowAtResize": 0
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,10 @@
+"""Usage: python instrument_guard.py BASELINE_HTML OUTPUT_HTML
+Adds a read-only guard trace to the e079 baseline bundle; no repository edits.
+"""
+import sys
+from pathlib import Path
+source = Path(sys.argv[1]).read_text()
+anchor = 'const arrowMatches=arrowSequence>arrowAtResize&&sameArrowRow();'
+trace = '(window.__guards||=[]).push({ms:performance.now(),visible:before?.caretVisible,inputMatches,arrowMatches,positionIntent,intendedScroll,changed:selection()!==selected,scroller:scroller?.id,top:scroller?.scrollTop,first:firstScrollTop,input:inputScrollTop,arrow:arrow?.scrollTop,inputSequence,inputAtResize,arrowSequence,arrowAtResize});'
+assert source.count(anchor) == 1, 'Expected unique e079 guard anchor'
+Path(sys.argv[2]).write_text(source.replace(anchor, anchor + trace))

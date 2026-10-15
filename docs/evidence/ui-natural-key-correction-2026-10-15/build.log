@@ -1,0 +1,14 @@
+Built codex.html (1,286,736 bytes)
+  data block:
+    02_instruments.js                  558   0.6%
+    03_rooms_chains_tunings.js       1,246   1.2%
+    04_tree.js                      30,859  30.9%
+    08_asset_manifest.js            37,137  37.2%
+    09_nav_glyphs.js                29,992  30.1%
+    (data total)                    99,792
+check: PASS — data block parses cleanly
+    mode:              lazy shell (traditions/extras, the instrument engine and nav glyph art via api/)
+    INSTRUMENT_INDEX:  1671
+    page gzip-6:       372480 B
+    page-only strip:   3 tables, 9 tables' unread fields
+check: PASS — largest <script> 419 KiB [runtime: src/app.js] of 22 blocks (ceiling 1024 KiB)
