@@ -27,5 +27,15 @@
   },
   "comparison_method": "Same pinned assets and identical inputs; remove only schema_instance_evidence, compare every remaining machine field and exit code. H1 compared repaired baseline against same H1 plus report addition. P-A reference has no Python engine changes; combined P-A frontend validation remains integration-owned.",
   "scratch_build_sha256": "e406f311ca38a7f12136347bec06782cb6b9d30d6408bb50e1dc3abc82036d98",
-  "build_scope": "Two byte-identical scratch builds; standalone inspector not mounted. Committed codex.html remains integration-owned; no integrated page acceptance claimed."
+  "build_scope": "Two byte-identical scratch builds; standalone inspector not mounted. Committed codex.html remains integration-owned; no integrated page acceptance claimed.",
+  "declaration_binding_followup": {
+    "adapter_session_markup_tests": 12,
+    "chat_production_tests": 28,
+    "real_python_mcp_agent_http_frontend_tests": 1,
+    "command": "PYTHONPATH=/tmp/lyrics-evidence-python LYRIC_STAGED_DATA=/workspace/CodexMusica-evidence/lyric-harness/data node --test --test-force-exit mcp/test_lyrics_evidence_binding.mjs",
+    "positive": "Unchanged lyric_check, exact actual invocation/context declarations and source; real Python metadata unmodified; actual frontend parser returns current and enables Go. Only model tool selection is stubbed.",
+    "negative": "Identical lyrics with different groups/readings; changed frontend model; absent submitted context; transformed sections/source; missing invocation; lyric_revise final report.",
+    "limits": "No section/blueprint equivalence or final-draft mapping inferred. Such reports stay unknown. Existing 754 gate and scratch parity entries above predate this transport followup; no integrated committed HTML qualification.",
+    "lint_format_diff": "pass"
+  }
 }

@@ -19,15 +19,82 @@
     );
   const range = (text, a, b) => boundary(text, a) && boundary(text, b) && a < b;
 
+  const canonical = (value) => JSON.stringify(ordered(value));
+  function ordered(value) {
+    if (Array.isArray(value)) return value.map(ordered);
+    if (value && typeof value === 'object')
+      return Object.fromEntries(
+        Object.keys(value)
+          .sort()
+          .map((key) => [key, ordered(value[key])])
+      );
+    return value;
+  }
+  function receiptFor(evidence, basis, submittedContext, model) {
+    const proof = evidence?.request_binding;
+    if (
+      proof?.version !== 1 ||
+      !submittedContext ||
+      typeof globalThis.lyDeclarationsOf !== 'function' ||
+      typeof globalThis.lyWriterText !== 'function' ||
+      canonical(proof.context) !== canonical(submittedContext) ||
+      submittedContext.binding?.document_sha256 !== basis.semanticId ||
+      submittedContext.document !== globalThis.lyWriterText(model.text) ||
+      canonical(submittedContext.declarations) !== canonical(globalThis.lyDeclarationsOf(model)) ||
+      proof.reader_scheme !== basis.readerScheme ||
+      proof.voices !== basis.voices
+    )
+      return null;
+    return {
+      version: 1,
+      ...basis,
+      reportIdentityHash: proof.report_identity_hash,
+      declarationHash: proof.declaration_hash,
+    };
+  }
+
+  // This receipt must come from an independently verified, authenticated
+  // request/declaration association. Never construct it by copying the report
+  // being bound: matching lyric text cannot establish declaration equivalence.
+  function declarationMatches(evidence, receipt, basis) {
+    return !!(
+      receipt?.version === 1 &&
+      typeof evidence?.identity?.declaration_hash === 'string' &&
+      evidence.identity.declaration_hash.length === 64 &&
+      receipt.declarationHash === evidence.identity.declaration_hash &&
+      receipt.reportIdentityHash === evidence.identity.hash &&
+      receipt.requestId === basis.requestId &&
+      receipt.semanticId === basis.semanticId &&
+      receipt.text === basis.text &&
+      receipt.readerScheme === basis.readerScheme &&
+      receipt.voices === basis.voices
+    );
+  }
+
   // Ordinal sung rows + exact trim offsets, never spelling search. The caller
   // supplies only a request-matched source/result model, not the current edited
   // model guessed from the report's words.
   function lyRelationBindReport(
     evidence,
-    { model, requestId, semanticId, readerScheme, voices } = {}
+    { model, requestId, semanticId, readerScheme, voices, submittedContext } = {}
   ) {
+    const declarationReceipt =
+      model &&
+      receiptFor(
+        evidence,
+        { requestId, semanticId, text: model.text, readerScheme, voices },
+        submittedContext,
+        model
+      );
     if (
       !requestId ||
+      !declarationMatches(evidence, declarationReceipt, {
+        requestId,
+        semanticId,
+        text: model?.text,
+        readerScheme,
+        voices,
+      }) ||
       !model ||
       typeof model.text !== 'string' ||
       !Array.isArray(model.rows) ||
@@ -65,6 +132,7 @@
       readerScheme,
       voices,
       sourceMap,
+      declarationReceipt: { ...declarationReceipt },
     };
   }
 
@@ -86,6 +154,7 @@
       binding?.requestId &&
       context.requestId === binding.requestId &&
       binding.identityHash === identity.hash &&
+      declarationMatches(evidence, binding.declarationReceipt, binding) &&
       binding.sourceText === sourceText &&
       typeof binding.semanticId === 'string' &&
       typeof document.semanticId === 'string' &&
@@ -416,7 +485,11 @@
         const endpoints = ['a', 'b']
           .map((side) => {
             const o = view.occurrences[pair[side]];
-            const label = `${side.toUpperCase()} · ${o.lineIds.join(', ')}`;
+            const lines = o.lineIds.map((id) => {
+              const match = /^line:(\d+)$/.exec(id);
+              return match ? `L${Number(match[1]) + 1}` : 'Line unavailable';
+            });
+            const label = `${side.toUpperCase()} · ${lines.join(', ')}`;
             return `<div><span>${esc(label)}</span> ${
               o.parts.length
                 ? o.parts
@@ -425,14 +498,21 @@
                         `<button type="button" data-ui="ly-relation-go" data-pair="${esc(pair.id)}" data-side="${side}" data-part="${i}"${o.canGo ? '' : ' disabled'}>Go to ${side.toUpperCase()}${o.parts.length > 1 ? ` part ${i + 1}` : ''}: ${esc(p.text)}</button>`
                     )
                     .join(' ')
-                : `<span>${esc(o.text)} ${esc(o.reason)}</span>`
+                : `<span>${esc(o.text)}</span> <span title="${esc(o.reason)}" aria-label="${esc(`Not placed in this draft. ${o.reason}`)}">Not placed in this draft</span>`
             }</div>`;
           })
           .join('');
-        return `<li data-relation-id="${esc(pair.id)}"${session?.selected?.pairId === pair.id ? ' aria-current="true"' : ''}><p>${pair.types.map((t) => `${esc(t.schema)} · ${esc(t.verdict)}`).join('; ')}</p>${endpoints}</li>`;
+        return `<li data-relation-id="${esc(pair.id)}"${session?.selected?.pairId === pair.id ? ' aria-current="true"' : ''}><p>${pair.types.map((t) => `${esc(t.schema)} · ${esc({ true: 'Confirmed', false: 'Not confirmed', undecided: 'Cannot determine' }[String(t.verdict)] || 'Verdict unavailable')}`).join('; ')}</p>${endpoints}</li>`;
       })
       .join('');
-    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${esc(view.reason)}</p><p>Measured schema instances; candidate options and declared Scheme are separate.</p>${view.population ? `<p>Population: ${esc(view.population.scope)}. Whole figures and alternative-reading witness searches are not included.</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return"${session?.returnUnavailable ? ' disabled' : ''}>Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
+    const scope =
+      view.population?.scope === 'pair_local_registry_instances'
+        ? 'Reported relations between pairs of lyric spans, using the readings graded. Whole-song patterns and other possible readings were not searched.'
+        : 'The scope of this report is unavailable.';
+    const scopeDetails = view.population
+      ? `<details><summary>Report scope and exclusions</summary><pre>${esc(JSON.stringify(view.population, null, 2))}</pre><p>Coverage by check</p><pre>${esc(JSON.stringify(view.coverage.methods || [], null, 2))}</pre></details>`
+      : '';
+    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${esc(view.reason)}</p><p>Measured schema instances; candidate options and declared Scheme are separate.</p><p>${esc(scope)}</p>${scopeDetails}${!session?.expanded && listed.length ? `<p>${visible.length} of ${listed.length}, in lyric order</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return"${session?.returnUnavailable ? ' disabled' : ''}>Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
   }
   Object.assign(globalThis, {
     lyRelationBindReport,

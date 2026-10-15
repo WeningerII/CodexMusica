@@ -13,10 +13,23 @@ const binding = lyRelationBindReport(evidence, {
   model: matchedSourceModel,
   requestId: request.request_id,
   semanticId: lyIdentity(matchedSourceModel),
-  readerScheme: LY_READING_CUT,
+  readerScheme: LY_TOKEN_SCHEME,
   voices: matchedSourceModel.voices,
+  submittedContext: request.submittedContext,
 });
 ```
+
+**Declaration proof is required and now produced on the existing authenticated path.** Keep an immutable JSON snapshot of the exact submitted `lyric_context` beside `UI.lyricRequest` as `submittedContext` (with the existing ID, revision and raw text). Pass that snapshot to `lyRelationBindReport`; do not manufacture a receipt or copy report hashes. A continuation without a provable retained submitted context stays unknown.
+
+For `lyric_check`, after normalizing its input and applying the existing lexicon basis, the tool wrapper associates the actual invocation arguments with the authenticated Python `graded/brief` result only if its final sung lines equal the invocation lines and the evidence source exactly. The new nested `invocation` records those lines, every declaration argument (voices explicitly boolean), the separate engine lexicon basis, reader scheme and report/declaration hashes. No internal mandate/comparator/phonology translation occurs.
+
+The existing `/chat` projection compares that invocation with the authenticated task's `lyric_context`: exact document bytes must equal the source, and all declaration fields must match (only omitted voices maps to the tool's existing false default). It also verifies report hashes, reader/voices and lexicon provenance. Only then does it emit `request_binding` containing the exact task context and the measured identities. It discards any pre-existing request binding before this check.
+
+The adapter independently compares the server binding's context with `submittedContext`, then verifies its document against `lyWriterText(model.text)`, declarations against `lyDeclarationsOf(model)`, and `binding.document_sha256` against the matched model's semantic ID. Equality sorts object keys recursively; array order, string bytes, numbers and embedded JSON strings are preserved. There is no equivalence inference. Server context normalization that differs from the submitted snapshot fails closed.
+
+**Positive scope:** unchanged `lyric_check` source and exact tool declarations representable by the existing frontend declaration serializer. A real local Python → authenticated MCP → agent → `/chat` → actual frontend-parser test proves this path without modified report metadata. **Unknown scope:** section/blueprint transformations, extra/missing declarations, tool-edited or final `lyric_revise` drafts, or unproved continuation context. These require an additional exact mapping and are not certified by sung-text equality. Their evidence remains inspectable; Go/paint stay disabled. No new endpoint, checkpoint field, grading semantics or dictionary change is introduced.
+
+`LY_TOKEN_SCHEME` is the producer-compatible value `v2`; `LY_READING_CUT` is presentation text `cut v2` and must not be used.
 
 If neither model matches, retain the evidence with a null binding. The report has its own immutable identity. `lyRelationBindReport` uses known row ordinals and trim offsets, verifies every sung line, and returns null if the source cannot be projected. It never binds candidate options or declared groups as measurements. The result model is a basis only for the version actually measured; edits since then do not rebind it.
 
@@ -28,7 +41,7 @@ After `LY.model` updates, before rendering the inspector:
 const view = lyRelationEvidenceView(evidence, {
   requestId: storedRequestId,
   document: { semanticId: lyIdentity(LY.model), text: LY.model.text,
-    readerScheme: LY_READING_CUT, voices: LY.model.voices },
+    readerScheme: LY_TOKEN_SCHEME, voices: LY.model.voices },
   binding,
   declarations: [],       // independently labelled declaration records, if used
   candidateOptions: [],  // independently labelled candidate options, if used
