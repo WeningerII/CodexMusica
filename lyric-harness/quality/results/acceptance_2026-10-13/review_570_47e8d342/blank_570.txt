@@ -1,0 +1,35 @@
+v1 ""         blank     {'end': 'declined', 'T2': 'declined'} PASS
+v1 " "        blank     {'end': 'declined', 'T2': 'declined'} PASS
+v1 "\t"       blank     {'end': 'declined', 'T2': 'declined'} PASS
+v1 "\u00a0"   blank     {'end': 'declined', 'T2': 'declined'} PASS
+v1 "\u3000"   blank     {'end': 'declined', 'T2': 'declined'} PASS
+v1 "\u200b"   invisible {'end': 'declined', 'T2': 'declined'} 
+v1 "\u00ad"   invisible {'end': 'declined', 'T2': 'declined'} 
+v1 "\u2060"   invisible {'end': 'declined', 'T2': 'declined'} 
+v1 "\ufeff"   invisible {'end': 'declined', 'T2': 'declined'} 
+v1 "\u180e"   invisible {'end': 'declined', 'T2': 'declined'} 
+v1 "\u200d"   invisible {'end': 'declined', 'T2': 'declined'} 
+v1 "-"        punct     {'end': 'declined', 'T2': 'declined'} 
+v1 "'"        punct     {'end': 'declined', 'T2': 'declined'} 
+v1 "..."      punct     {'end': 'declined', 'T2': 'declined'} 
+v1 "\u2014"   punct     {'end': 'declined', 'T2': 'declined'} 
+v1 "blaze"    word      {'end': 'spliced', 'T2': 'spliced'} PASS
+v1 "x"        word      {'end': 'spliced', 'T2': 'spliced'} PASS
+v2 ""         blank     {'end': 'declined', 'T2': 'declined'} PASS
+v2 " "        blank     {'end': 'declined', 'T2': 'declined'} PASS
+v2 "\t"       blank     {'end': 'declined', 'T2': 'declined'} PASS
+v2 "\u00a0"   blank     {'end': 'declined', 'T2': 'declined'} PASS
+v2 "\u3000"   blank     {'end': 'declined', 'T2': 'declined'} PASS
+v2 "\u200b"   invisible {'end': 'declined', 'T2': 'declined'} 
+v2 "\u00ad"   invisible {'end': 'declined', 'T2': 'declined'} 
+v2 "\u2060"   invisible {'end': 'declined', 'T2': 'declined'} 
+v2 "\ufeff"   invisible {'end': 'declined', 'T2': 'declined'} 
+v2 "\u180e"   invisible {'end': 'declined', 'T2': 'declined'} 
+v2 "\u200d"   invisible {'end': 'declined', 'T2': 'declined'} 
+v2 "-"        punct     {'end': 'declined', 'T2': 'declined'} 
+v2 "'"        punct     {'end': 'declined', 'T2': 'declined'} 
+v2 "..."      punct     {'end': 'declined', 'T2': 'declined'} 
+v2 "\u2014"   punct     {'end': 'declined', 'T2': 'declined'} 
+v2 "blaze"    word      {'end': 'spliced', 'T2': 'spliced'} PASS
+v2 "x"        word      {'end': 'spliced', 'T2': 'spliced'} PASS
+OK

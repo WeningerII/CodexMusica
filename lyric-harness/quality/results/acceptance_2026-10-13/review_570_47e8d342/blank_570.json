@@ -1,0 +1,524 @@
+{
+ "ok": true,
+ "line": "the room on fire",
+ "rows": [
+  {
+   "scheme": "v1",
+   "word": "",
+   "codepoints": [],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v1",
+   "word": " ",
+   "codepoints": [
+    "U+0020"
+   ],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v1",
+   "word": "\t",
+   "codepoints": [
+    "U+0009"
+   ],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v1",
+   "word": " ",
+   "codepoints": [
+    "U+00A0"
+   ],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v1",
+   "word": "　",
+   "codepoints": [
+    "U+3000"
+   ],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v1",
+   "word": "​",
+   "codepoints": [
+    "U+200B"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "­",
+   "codepoints": [
+    "U+00AD"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "⁠",
+   "codepoints": [
+    "U+2060"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "﻿",
+   "codepoints": [
+    "U+FEFF"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "᠎",
+   "codepoints": [
+    "U+180E"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "‍",
+   "codepoints": [
+    "U+200D"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "-",
+   "codepoints": [
+    "U+002D"
+   ],
+   "kind": "punct",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "'",
+   "codepoints": [
+    "U+0027"
+   ],
+   "kind": "punct",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "...",
+   "codepoints": [
+    "U+002E",
+    "U+002E",
+    "U+002E"
+   ],
+   "kind": "punct",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "—",
+   "codepoints": [
+    "U+2014"
+   ],
+   "kind": "punct",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v1",
+   "word": "blaze",
+   "codepoints": [
+    "U+0062",
+    "U+006C",
+    "U+0061",
+    "U+007A",
+    "U+0065"
+   ],
+   "kind": "word",
+   "end": "the room on blaze",
+   "T2": "the blaze on fire",
+   "result": {
+    "end": "spliced",
+    "T2": "spliced"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v1",
+   "word": "x",
+   "codepoints": [
+    "U+0078"
+   ],
+   "kind": "word",
+   "end": "the room on x",
+   "T2": "the x on fire",
+   "result": {
+    "end": "spliced",
+    "T2": "spliced"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v2",
+   "word": "",
+   "codepoints": [],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v2",
+   "word": " ",
+   "codepoints": [
+    "U+0020"
+   ],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v2",
+   "word": "\t",
+   "codepoints": [
+    "U+0009"
+   ],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v2",
+   "word": " ",
+   "codepoints": [
+    "U+00A0"
+   ],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v2",
+   "word": "　",
+   "codepoints": [
+    "U+3000"
+   ],
+   "kind": "blank",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v2",
+   "word": "​",
+   "codepoints": [
+    "U+200B"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "­",
+   "codepoints": [
+    "U+00AD"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "⁠",
+   "codepoints": [
+    "U+2060"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "﻿",
+   "codepoints": [
+    "U+FEFF"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "᠎",
+   "codepoints": [
+    "U+180E"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "‍",
+   "codepoints": [
+    "U+200D"
+   ],
+   "kind": "invisible",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "-",
+   "codepoints": [
+    "U+002D"
+   ],
+   "kind": "punct",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "'",
+   "codepoints": [
+    "U+0027"
+   ],
+   "kind": "punct",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "...",
+   "codepoints": [
+    "U+002E",
+    "U+002E",
+    "U+002E"
+   ],
+   "kind": "punct",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "—",
+   "codepoints": [
+    "U+2014"
+   ],
+   "kind": "punct",
+   "end": null,
+   "T2": null,
+   "result": {
+    "end": "declined",
+    "T2": "declined"
+   },
+   "gated_pass": null
+  },
+  {
+   "scheme": "v2",
+   "word": "blaze",
+   "codepoints": [
+    "U+0062",
+    "U+006C",
+    "U+0061",
+    "U+007A",
+    "U+0065"
+   ],
+   "kind": "word",
+   "end": "the room on blaze",
+   "T2": "the blaze on fire",
+   "result": {
+    "end": "spliced",
+    "T2": "spliced"
+   },
+   "gated_pass": true
+  },
+  {
+   "scheme": "v2",
+   "word": "x",
+   "codepoints": [
+    "U+0078"
+   ],
+   "kind": "word",
+   "end": "the room on x",
+   "T2": "the x on fire",
+   "result": {
+    "end": "spliced",
+    "T2": "spliced"
+   },
+   "gated_pass": true
+  }
+ ]
+}
