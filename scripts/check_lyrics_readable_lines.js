@@ -21,11 +21,21 @@ const check = (ok, label) => {
   if (!ok) errors.push(label);
 };
 const settle = (p) => p.waitForTimeout(150);
+function chromiumPath() {
+  if (process.env.CHROMIUM_PATH) return process.env.CHROMIUM_PATH;
+  const base = process.env.PLAYWRIGHT_BROWSERS_PATH;
+  if (!base || !fs.existsSync(base)) return undefined;
+  for (const directory of fs.readdirSync(base)) {
+    if (!/^chromium-\d+$/.test(directory)) continue;
+    const executable = path.join(base, directory, 'chrome-linux', 'chrome');
+    if (fs.existsSync(executable)) return executable;
+  }
+  return undefined;
+}
 (async () => {
   const browser = await chromium.launch({
     headless: true,
-    executablePath:
-      process.env.CHROMIUM_PATH || '/tmp/musica-browsers/chromium-0/chrome-linux/chrome',
+    executablePath: chromiumPath(),
     args: ['--no-sandbox', '--disable-dev-shm-usage'],
   });
   try {

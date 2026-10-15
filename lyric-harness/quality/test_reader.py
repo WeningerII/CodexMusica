@@ -2620,6 +2620,8 @@ class LegacyReplay(unittest.TestCase):
         def scheme_of(r):
             row = json.loads([l for l in r.stdout.splitlines()
                               if l.startswith("  lyric result: ")][-1][len("  lyric result: "):])
+            # Modern replay keeps evidence; legacy replay keeps its frozen shape.
+            self.assertEqual("schema_instance_evidence" in row, row["reader_scheme"] == "v2")
             return row["reader_scheme"]
         ck = work / "fresh.json"
         run("--propose=call:stubwriter:factory", checkpoint=ck)
