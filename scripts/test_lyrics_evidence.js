@@ -415,6 +415,10 @@ test('inspector uses readable labels without hiding partial scope or placement r
   delete f.context.binding.declarationReceipt;
   html = api.lyRelationInspectorMarkup(f.view(), null);
   assert.match(html, /Not placed in this draft/);
+  assert.match(html, /These pairs can’t be shown in your lyrics yet/);
+  assert.match(html, /They are separate from your declared rhyme scheme and suggested words/);
+  assert.doesNotMatch(html, /Measured schema instances/);
+  assert.match(html, /title="No verified report-to-document binding\./);
   assert.match(
     html,
     /aria-label="Not placed in this draft\. No verified report-to-document binding\./
