@@ -375,7 +375,8 @@ def _cased(old, new_word):
 
 def swap_end_word(text, new_word, scheme=None, lex=None):
     """-> `text` with its LAST token replaced by `new_word`; `None` if it
-    cannot be done without guessing.
+    cannot be done without guessing. Empty or whitespace-only replacements
+    refuse before either reader-specific splice; the v1 body below is unchanged.
 
     "Last token" is `raw_final_token`'s reading — the ONE definition of a
     line's end word every rhyme lookup in this project has to agree with
@@ -423,6 +424,8 @@ def swap_end_word(text, new_word, scheme=None, lex=None):
     coordinate is never resolved in either direction). Under `v1` `lex` is
     not read: the pre-batch body runs verbatim.
     """
+    if not new_word or not new_word.strip():
+        return None
     if lex is not None and scheme is not None and (
             resolve_reader_scheme(scheme) != _scheme_of(lex)):
         return None
@@ -577,7 +580,8 @@ def _bound_index(lex, text, slot):
 
 def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=None, lex=None):
     """-> `text` with the token the SLOT names replaced; `None` if it cannot
-    be done without guessing.
+    be done without guessing. Empty or whitespace-only replacements refuse
+    before either reader-specific splice, including the default end slot.
 
     The generalisation of `swap_end_word` to the placement coordinate
     (`quality/slots.py`), and the reason it has to exist: `grade()` can flag a
@@ -630,6 +634,8 @@ def swap_at_slot(text, slot, new_word, scheme=None, strip_parens=None, lex=None)
     (`mcp/LYRICS_RUNTIME.md`, pre-existing items); under `v2` the swap
     refuses a kept aside's run and checks the endpoint occurrence.
     """
+    if not new_word or not new_word.strip():
+        return None
     if lex is not None and scheme is not None and (
             resolve_reader_scheme(scheme) != _scheme_of(lex)):
         return None
