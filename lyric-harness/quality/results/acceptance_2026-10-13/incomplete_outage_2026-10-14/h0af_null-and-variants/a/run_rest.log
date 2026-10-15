@@ -1,0 +1,6 @@
+L2_prev_rp_v1_f1 prev rc 3 finished v1 state_unchanged True changed [] 
+L5_prev_t5_answered_nullscheme_f2 prev rc 4 suspended v2 state_unchanged False changed ['d6.txt.briefed.json', 'state.json'] 
+L5_prev_t5_answered_f2 prev rc 2 refused None state_unchanged True changed ['d6.txt.briefed.json'] READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader
+L2_prev_rp_null_f2 prev rc 2 refused None state_unchanged True changed [] --propose=replay:<WK>/rp.json — recorded reader scheme None is not one this build reads (v1, v2)
+L2_prev_rp_v1_f2 prev rc 2 refused None state_unchanged True changed [] READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v1, and this call declares v2. Replay it under --reader-scheme=v1 (or with no --reader
+L2_prev_rp_v2_f2 prev rc 0 finished v2 state_unchanged True changed [] 

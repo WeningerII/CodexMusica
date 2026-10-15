@@ -1,0 +1,71 @@
+
+1. spelled_rime — the declared orthographic rime, by table
+  PASS  all 19 declared cases — silent-e folds (stove->ove, bone->one), y is a vowel letter (day/way->ay), w is not (sown->own)
+          every case as declared
+  PASS  punctuation and case are stripped before the letters are read
+  PASS  a wordless token answers the empty string, never a crash
+
+2. the two tiers compose in the field (joint_field)
+  PASS  TIER 1: every same-spelled partner in the field is forbidden — chair, stair, despair, the whole -air family, whatever its rank
+          ['adair', 'affair', 'air', 'blair', 'chair', 'clair', 'debonair', 'despair']
+  PASS  TIER 2 digs into the DIFFERENTLY-spelled remainder — prayer (rank 7 under the old cliff, the word the gap let through) is now forbidden
+  PASS  ...and the ban is deeper than the old six
+          25 forbidden
+  PASS  the OFFERS exclude both tiers — no same-spelled word, nothing forbidden: the menu and the verdict cannot disagree
+          ['share', 'dare', 'compare', 'beware', 'their', 'anywhere']; same-spelled -air: []; forbidden offered: []
+
+3. the pair verdicts — each tier catches its own class
+  PASS  hair/chair is HOMEOTELEUTON — same spelled -air, caught by the pair's own spellings with no field consulted
+          {(1, 2): 'MODAL_RHYME', (1, 3): 'HOMEOTELEUTON', (4, 5): 'HOMEOTELEUTON'}
+  PASS  cove/wove is HOMEOTELEUTON — the -ove class the old cliff let through at rank 7
+  PASS  hair/prayer is judged under one of prayer's own readings, and is MODAL_RHYME — the differently-spelled tier catches it
+          {(1, 2): 'MODAL_RHYME', (1, 3): 'HOMEOTELEUTON', (4, 5): 'HOMEOTELEUTON'}
+  PASS  obey/away is MODAL_RHYME — a determinate differently-spelled tier2 contrast
+  PASS  bone/sown carries NEITHER — different spelling ('one'/'own') and below the frequency tier: silence still means clean
+          {(1, 2): 'MODAL_RHYME', (1, 3): 'HOMEOTELEUTON', (4, 5): 'HOMEOTELEUTON'}
+  PASS  HOMEOTELEUTON is a RHYME_FINDING, so a briefed line gets a candidate field to fix it with
+  PASS  the rime anchors at the STRESSED syllable — silver/deliver are DISTINCT ('ilver'/'iver'), not one banned -er class
+          ('ilver', 'iver')
+  PASS  ...and the anchor does not weaken the ban where the stress IS the last group: singing/ringing share 'inging', still banned
+
+4. ~~the pursuit is mandatory — the class ban cannot be waited out~~ ENDED 2026-10-04 (owner's ruling): the ban is reported, not pursued
+  PASS  HOMEOTELEUTON holds no line open: MANDATORY_PURSUE is empty
+
+5. the admit coordinate — ~~widening is BY DECLARATION, never by default~~ the default admits all four; NARROWING is the declared move (2026-08-22)
+  PASS  DEFAULT now SATISFIES sun/much — the band typed it ASSONANCE and the door no longer contradicts the band (~~violates as ASSONANCE, refusal naming the declared door~~)
+  PASS  DECLARED admit=ASSONANCE: sun/much (0.772) SATISFIES at the re-priced ASSONANCE cut 0.75 (~~REFUSED at 0.82~~, #375 re-adoption 2026-09-23)
+  PASS  ...and under a DECLARED 0.82 ASSONANCE cut the same pair is REFUSED and the refusal names it — the declared door is not a licence to skip the calibration (M-138)
+          [(1, 2, 0.772, "ASSONANCE: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.82, 'CONSONANCE': 0.75}) — below the cut of every admitted relation it stands in: ASSONANCE 0.772 < 0.82")]
+  PASS  DECLARED admit=ASSONANCE: chores/norm (0.932 ASSONANCE, above the 0.82 cut and the 0.75 one) SATISFIES — the near relation is STILL a first-class declared move
+  PASS  theta_by_relation={} restores the pre-pricing scalar exactly — sun/much satisfies again, so the cut is a DECLARED coordinate and not a new law
+  PASS  an unknown relation refuses AT DECLARATION time
+          admit=('RHYME', 'PROEST') names ['PROEST'] — not admittable.
+  PASS  near-only refuses — that is not a rhyme mandate
+          admit=('ASSONANCE',) contains no rhyme relation — a mandate 
+  PASS  the admittable vocabulary is the taxonomy's named pair set, REPEAT deliberately absent (identity has its own licence)
+
+   the DEFAULT admit set
+  PASS  the default admits EVERY admittable relation — a near relation the band has already TYPED is a sonic event this project exists to represent, and a default that charged it as a violation was one repository giving two opposite answers about one pair
+          ('ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE')
+  PASS  ...and it DERIVES from `ADMITTABLE_RELATIONS` rather than restating it, so the default and the validator cannot drift (doctrine 1) — they were 2,000 lines apart and hand-typed until 2026-08-22
+  PASS  NARROWING is still available and is the useful direction — a cell that genuinely wants perfect rhyme only declares it and gets exactly the old behaviour BY SAYING SO
+  PASS  REPEAT is still REFUSED — identity has its own licence machinery and admitting it here would let a copied word satisfy a rhyme
+
+6. tier 2 is EVIDENCE-GATED (M-310) — the head holds only partners the song table has seen answer the call
+  PASS  no tier-2 head holds a word the song table has never seen answer its call, and none is longer than `modal_exclusion`
+          thing: tier2 [('plaything', 2), ('everything', 1)], tier1 30; spring: tier2 [('everything', 9), ('anything', 7)], tier1 30; way: tier2 [('obey', 50), ('they', 47), ('prey', 39), ('yesterday', 29), ('shea', 27), ('grey', 15)], tier1 58; sane: tier2 [], tier1 30; varnish: tier2 [], tier1 2
+  PASS  `thing`'s head no longer bans it/is/in/this — the four function words the global-frequency backoff put there
+  PASS  TIER 1 IS UNTOUCHED: `sane` has no realised partner at all, and its same-spelled -ane class is still banned outright
+          30 tier-1 words, e.g. ['plane', 'jane', 'insane', 'lane']
+  PASS  the SATISFIED pair thing/it files no MODAL_RHYME — at f58ecf59 it read "'it' is one of the 6 most-predictable answers to 'thing'" on zero observations
+          satisfied as ['ASSONANCE', 'assonance', 'chain rhyme (rap)']; MODAL_RHYME []
+  PASS  every MODAL_RHYME names the realised count behind it, and every count is above zero (obey/away, a determinate tier-2 pair)
+          [("L1/L2 rhyme, but the pair is one this word's own forbidden-modal set would exclude if either line were being revised", [63, 63])]
+  PASS  a brief whose call (`window`) the song table has never seen comes back with an EMPTY head, a FULL offer and the cause UNEVIDENCED — one cause, stated, not a list (doctrine 28)
+          head [], offer 24, cause 'UNEVIDENCED'
+
+7. the evidenced head IS modal_head's tier 2, word for word
+  PASS  `modal_head_evidenced` == `modal_head` minus tier 1, in order, over 14 calls
+          14 calls agree
+==============================================================
+the lazy class is banned, the taxonomy is the palette

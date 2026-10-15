@@ -1,0 +1,482 @@
+[
+ {
+  "id": "c0af.PRmy.review.O1",
+  "case": "PRmy.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"
+    ],
+    "toasts": []
+   },
+   {
+    "step": "2 pronunciation form: \"my\" Mark uncertain",
+    "readings": [
+     "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "Reading for “my” saved for line 1.\nUndo"
+    ]
+   },
+   {
+    "step": "3 after send",
+    "readings": [
+     "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "Reading for “my” saved for line 1.\nUndo"
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Oh|[\"Oh--oh, oh my love\",1,\"Oh\"]",
+    "oh|[\"Oh--oh, oh my love\",2,\"oh\"]",
+    "oh|[\"Oh--oh, oh my love\",3,\"oh\"]",
+    "my|[\"Oh--oh, oh my love\",4,\"my\"]",
+    "love|[\"Oh--oh, oh my love\",5,\"love\"]"
+   ],
+   "card": "my\n\nWord 4 of line 1\n\nL AH1 V · 1 syllable · stress on first · Declared · source: the writer\n\nNo dictionary options fetched for this word.\n\nDeclare my own\nMark uncertain\nGet dictionary options\nRemove reading"
+  },
+  "sends": [
+   [
+    {
+     "readings_not_chosen": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 4,
+       "word": "my",
+       "state": "uncertain"
+      }
+     ]
+    }
+   ]
+  ],
+  "finalText": "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above",
+  "errors": []
+ },
+ {
+  "id": "c0af.PRmy.review.O2",
+  "case": "PRmy.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"
+    ],
+    "toasts": []
+   },
+   {
+    "step": "2 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ]
+   },
+   {
+    "step": "3 pronunciation form: \"my\" Mark uncertain",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]",
+     "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.",
+     "Reading for “my” saved for line 1.\nUndo"
+    ]
+   },
+   {
+    "step": "4 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]",
+     "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "Reading for “my” saved for line 1.\nUndo"
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Oh|[\"Oh--oh, oh my love\",1,\"Oh\"]",
+    "oh|[\"Oh--oh, oh my love\",2,\"oh\"]",
+    "oh|[\"Oh--oh, oh my love\",3,\"oh\"]",
+    "my|[\"Oh--oh, oh my love\",4,\"my\"]",
+    "love|[\"Oh--oh, oh my love\",5,\"love\"]"
+   ],
+   "card": "my\n\nWord 4 of line 1\n\nNo reading declared.\n\nNo dictionary options fetched for this word.\n\nDeclare my own\nMark uncertain\nGet dictionary options"
+  },
+  "sends": [
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ],
+     "readings_not_chosen": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 4,
+       "word": "my",
+       "state": "uncertain"
+      }
+     ]
+    }
+   ]
+  ],
+  "finalText": "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]\n[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above",
+  "errors": []
+ },
+ {
+  "id": "c0af.PRlove.review.O1",
+  "case": "PRlove.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"
+    ],
+    "toasts": []
+   },
+   {
+    "step": "2 pronunciation form: \"love\" Mark uncertain",
+    "readings": [
+     "[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]",
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "Reading for “love” saved for line 1.\nUndo"
+    ]
+   },
+   {
+    "step": "3 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]",
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Oh|[\"Oh--oh, oh my love\",1,\"Oh\"]",
+    "oh|[\"Oh--oh, oh my love\",2,\"oh\"]",
+    "oh|[\"Oh--oh, oh my love\",3,\"oh\"]",
+    "my|[\"Oh--oh, oh my love\",4,\"my\"]",
+    "love|[\"Oh--oh, oh my love\",5,\"love\"]"
+   ],
+   "card": "love\n\nWord 5 of line 1\n\nNo reading declared.\n\nNo dictionary options fetched for this word.\n\nDeclare my own\nMark uncertain\nGet dictionary options"
+  },
+  "sends": [
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ],
+     "readings_not_chosen": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "state": "uncertain"
+      }
+     ]
+    }
+   ]
+  ],
+  "finalText": "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]\n[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above",
+  "errors": []
+ },
+ {
+  "id": "c0af.PRlove.review.O2",
+  "case": "PRlove.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"
+    ],
+    "toasts": []
+   },
+   {
+    "step": "2 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ]
+   },
+   {
+    "step": "3 pronunciation form: \"love\" Mark uncertain",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.",
+     "Reading for “love” saved for line 1.\nUndo"
+    ]
+   },
+   {
+    "step": "4 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "Reading for “love” saved for line 1.\nUndo"
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Oh|[\"Oh--oh, oh my love\",1,\"Oh\"]",
+    "oh|[\"Oh--oh, oh my love\",2,\"oh\"]",
+    "oh|[\"Oh--oh, oh my love\",3,\"oh\"]",
+    "my|[\"Oh--oh, oh my love\",4,\"my\"]",
+    "love|[\"Oh--oh, oh my love\",5,\"love\"]"
+   ],
+   "card": "love\n\nWord 5 of line 1\n\nL AH1 V · 1 syllable · stress on first · Declared · source: the writer\n\nNo dictionary options fetched for this word.\n\nDeclare my own\nMark uncertain\nGet dictionary options\nRemove reading"
+  },
+  "sends": [
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "readings_not_chosen": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "state": "uncertain"
+      }
+     ]
+    }
+   ]
+  ],
+  "finalText": "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — uncertain — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above",
+  "errors": []
+ },
+ {
+  "id": "c0af.PRmy.dock.O1",
+  "case": "PRmy.dock",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"
+    ],
+    "toasts": []
+   },
+   {
+    "step": "2 pronunciation form: \"my\" Mark uncertain",
+    "readings": [
+     "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "Reading for “my” saved for line 1.\nUndo"
+    ]
+   },
+   {
+    "step": "3 after send",
+    "readings": [
+     "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "Reading for “my” saved for line 1.\nUndo"
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Oh|[\"Oh--oh, oh my love\",1,\"Oh\"]",
+    "oh|[\"Oh--oh, oh my love\",2,\"oh\"]",
+    "oh|[\"Oh--oh, oh my love\",3,\"oh\"]",
+    "my|[\"Oh--oh, oh my love\",4,\"my\"]",
+    "love|[\"Oh--oh, oh my love\",5,\"love\"]"
+   ],
+   "card": "my\n\nWord 4 of line 1\n\nL AH1 V · 1 syllable · stress on first · Declared · source: the writer\n\nNo dictionary options fetched for this word.\n\nDeclare my own\nMark uncertain\nGet dictionary options\nRemove reading"
+  },
+  "sends": [
+   [
+    {
+     "readings_not_chosen": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 4,
+       "word": "my",
+       "state": "uncertain"
+      }
+     ]
+    }
+   ]
+  ],
+  "finalText": "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above",
+  "errors": []
+ },
+ {
+  "id": "c0af.PRmy.dock.O2",
+  "case": "PRmy.dock",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"
+    ],
+    "toasts": []
+   },
+   {
+    "step": "2 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ]
+   },
+   {
+    "step": "3 pronunciation form: \"my\" Mark uncertain",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]",
+     "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it.",
+     "Reading for “my” saved for line 1.\nUndo"
+    ]
+   },
+   {
+    "step": "4 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]",
+     "[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]"
+    ],
+    "toasts": [
+     "Reading for “my” saved for line 1.\nUndo"
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Oh|[\"Oh--oh, oh my love\",1,\"Oh\"]",
+    "oh|[\"Oh--oh, oh my love\",2,\"oh\"]",
+    "oh|[\"Oh--oh, oh my love\",3,\"oh\"]",
+    "my|[\"Oh--oh, oh my love\",4,\"my\"]",
+    "love|[\"Oh--oh, oh my love\",5,\"love\"]"
+   ],
+   "card": "my\n\nWord 4 of line 1\n\nNo reading declared.\n\nNo dictionary options fetched for this word.\n\nDeclare my own\nMark uncertain\nGet dictionary options"
+  },
+  "sends": [
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ]
+    }
+   ],
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ],
+     "readings_not_chosen": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 4,
+       "word": "my",
+       "state": "uncertain"
+      }
+     ]
+    }
+   ]
+  ],
+  "finalText": "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]\n[SETUP — reading — token 4 \"my\" in \"Oh--oh, oh my love\" — uncertain — cut v2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above",
+  "errors": []
+ }
+]

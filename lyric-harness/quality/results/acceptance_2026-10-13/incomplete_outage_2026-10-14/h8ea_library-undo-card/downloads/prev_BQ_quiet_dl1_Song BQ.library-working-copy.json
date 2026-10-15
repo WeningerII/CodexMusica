@@ -1,0 +1,71 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:593d7d91-4ef3-4a7b-a0c8-628e15980030",
+  "draftId": "draft:9069ec6c-e630-48a9-8cfb-aacf4658b829",
+  "createdAt": "2026-10-14T13:16:45.628Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song BQ\"]\n[SETUP — returns — 1,2]\n\n[VERSE]\nwe sing it plain tonight\nwe bring it home tonight",
+    "title": "BQ_quiet",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:r1",
+      "unitId": "unit:r1",
+      "workId": "work:r1",
+      "editionId": "ed:r1",
+      "revisionId": "rev:r1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:41ddaf8e-ff43-4a41-9924-46a694ec34ec",
+        "sourceDigest": "1c5b8eb6e46b05d58077d544d1911090fe1222d00724b841f1e6504646e52533",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh sweet love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "the singer"
+              }
+            ]
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {
+            "tab": "tools",
+            "tool": "",
+            "outline": true
+          }
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": [
+      {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh sweet love",
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      }
+    ]
+  },
+  "digest": "e2939f2ef06df84b88aabb84d20c56b61fed93bfb2351f145ced909ad3c1d635"
+}

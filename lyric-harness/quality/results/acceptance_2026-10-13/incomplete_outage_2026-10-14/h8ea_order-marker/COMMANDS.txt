@@ -1,0 +1,33 @@
+# order-marker (BB8 team) at candidate 8ea94ac9 -- every command run, in order.
+# S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad  O=$S/h8ea/order-marker
+# Trees (detached, untouched): wt-8ea @8ea94ac9 (cand), wt-0af @0af39c6f, wt-695 @6955e342 (blocker head), wt-61b @61b6618a, wt-main @8b1d2ad2.
+# Writes only under $O. No push/commit. No tracked file edited (checked at the end).
+
+# 1. Build pages (CODEX_LIBRARY=1) and cmp against each tree's committed codex.html
+for t in wt-8ea; do (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build/built-$t.html --quiet); cmp $O/build/built-$t.html $S/$t/codex.html; done
+for t in wt-0af; do (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build/built-$t.html --quiet); cmp $O/build/built-$t.html $S/$t/codex.html; done
+for t in wt-695; do (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build/built-$t.html --quiet); cmp $O/build/built-$t.html $S/$t/codex.html; done
+for t in wt-61b; do (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build/built-$t.html --quiet); cmp $O/build/built-$t.html $S/$t/codex.html; done
+for t in wt-main; do (cd $S/$t && CODEX_LIBRARY=1 node scripts/build_html.js --out=$O/build/built-$t.html --quiet); cmp $O/build/built-$t.html $S/$t/codex.html; done
+# smoke (deleted output): cd $O/p2 && node orders.js cand RG4.remove.review.paste
+
+# 2. p1 = BB8's order-marker driver (lib.js/orders.js/extras.js/bind.py/summary.py) copied from
+#    findings_6955e342/repro/order-marker, ONLY changed: OUT=$O/p1, pages from $O/build, playwright from wt-8ea, TREES {cand,c0af,c695,c61b,main}, summary tree list.
+#    p2 = the independent re-run (check-order-marker: com.js/orders.js/extras.js/prep.js/bind.py/summ.py), same changes only.
+cd $O/p1 && node orders.js cand > orders_cand.log 2>&1
+cd $O/p2 && node orders.js cand > orders_cand.log 2>&1
+# p3/explore.js (display only, candidate): node p3/explore.js cand  -> earlier/current cuts of the body lines, lyMigrateSavedReadings on candidate rows
+# smoke runs (outputs deleted): cd $O/p3 && node run.js cand KC1.keep.review ; cd $O/p4 && node extras.js cand
+# queues (scripts in $O): q1.sh = p1 orders on c695 main c0af c61b, then p1 extras on all five; q3.sh = p3 run.js + p4 extras.js on all five
+bash $O/q1.sh &   bash $O/q3.sh &
+bash $O/q2.sh &   # q2.sh = p2 orders on c695 main c0af c61b, then p2 extras on all five
+# p3/run.js edited before the full runs: every step also records the full draft text; every call its document (the first cand run was stopped and its log deleted)
+
+# 3. Harness binding (receiving tree's own harness; PYTHONDONTWRITEBYTECODE=1 so nothing is written into the trees)
+#    p1: cd $S/<tree>/lyric-harness && PYTHONDONTWRITEBYTECODE=1 LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data $S/venv311/bin/python $O/p1/bind.py <label> $O/p1/orders_<label>.json $O/p1/bind_<label>.json > $O/p1/bind_<label>.log 2> $O/p1/bind_<label>.err
+#        (label->tree: cand wt-8ea, c0af wt-0af, c695 wt-695, c61b wt-61b, main wt-main; same for extras_<label>.json -> bind_extras_<label>.json)
+#    p2: cd $O/p2 && node prep.js <label> && PYTHONDONTWRITEBYTECODE=1 LYRIC_STAGED_DATA=... $S/venv311/bin/python bind.py $S/<tree> items_<label>.json bind_<label>.json > bind_<label>.log 2> bind_<label>.err
+#    p3/p4: cd $O/p3 && node prep.js <label> && (same python) $O/p2/bind.py $S/<tree> items_<label>.json bind_<label>.json
+#    (first done for cand and c695 while the other queues ran; all redone at the end once every run had finished)
+# 4. Pairing: cd $O/p1 && python3 summary.py > summary.txt && python3 cmp_docs.py > cmp_docs.txt ; cd $O/p2 && python3 summ.py > summary.txt ; cd $O/p3 && python3 summ3.py > summary3.txt
+# 5. p5 (outside the contracted writers): cd $O/p5 && node readings.js <label> > readings_<label>.log 2>&1   (cand run first, then the controls)

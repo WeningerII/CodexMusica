@@ -1,0 +1,14 @@
+test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is) ... FAIL
+
+======================================================================
+FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/c/mut/lyric-harness/quality/test_reader.py", line 513, in test_bare_word_variants_are_normalised_as_a_token_is
+    self.assertEqual(sv2.reading_source(spelling, row), source, spelling)
+AssertionError: None != 'moby:3205:attested' : street­light
+
+----------------------------------------------------------------------
+Ran 1 test in 5.087s
+
+FAILED (failures=1)

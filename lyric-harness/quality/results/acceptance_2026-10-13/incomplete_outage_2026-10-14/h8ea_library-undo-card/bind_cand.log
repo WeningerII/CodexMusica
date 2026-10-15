@@ -1,0 +1,7 @@
+P1_A groups 1.T5 -> 'heart' [[14, 19]] 'heart' label 'heart' | card at send: ['rhyme groups:heart@L[1]', 'rhyme groups:part@L[2]']
+P1_A groups 2.T5 -> 'part' [[14, 18]] 'part' label 'part' | card at send: ['rhyme groups:heart@L[1]', 'rhyme groups:part@L[2]']
+P2_after_B returns 1.T5 -> 'love' [[17, 21]] 'love' label 'love' | card at send: ['returns:love@L[1]', 'returns:dove@L[2]']
+P2_after_B returns 2.T5 -> 'dove' [[17, 21]] 'dove' label 'dove' | card at send: ['returns:love@L[1]', 'returns:dove@L[2]']
+P3_after_undo groups 1.T5 -> 'heart' [[14, 19]] 'heart' label 'heart' | card at send: ['rhyme groups:heart@L[1]', 'rhyme groups:part@L[2]']
+P3_after_undo groups 2.T5 -> 'part' [[14, 18]] 'part' label 'part' | card at send: ['rhyme groups:heart@L[1]', 'rhyme groups:part@L[2]']
+scheme v2

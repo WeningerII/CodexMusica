@@ -1,0 +1,14 @@
+test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch) ... FAIL
+
+======================================================================
+FAIL: test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/c/mut/lyric-harness/quality/test_reader.py", line 2213, in test_a_present_null_scheme_is_malformed_not_pre_batch
+    self.assertIsNone(LH._record_scheme({"reader_scheme": None}))
+AssertionError: 'v1' is not None
+
+----------------------------------------------------------------------
+Ran 1 test in 0.029s
+
+FAILED (failures=1)

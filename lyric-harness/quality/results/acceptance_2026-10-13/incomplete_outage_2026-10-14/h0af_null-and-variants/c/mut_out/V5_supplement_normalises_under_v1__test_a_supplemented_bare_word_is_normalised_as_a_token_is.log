@@ -1,0 +1,14 @@
+test_a_supplemented_bare_word_is_normalised_as_a_token_is (quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is) ... FAIL
+
+======================================================================
+FAIL: test_a_supplemented_bare_word_is_normalised_as_a_token_is (quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/c/mut/lyric-harness/quality/test_reader.py", line 475, in test_a_supplemented_bare_word_is_normalised_as_a_token_is
+    self.assertNotEqual(v1.transcribe_word("street\u00adlight"), (want, False))
+AssertionError: (['S', 'T', 'R', 'IY1', 'T', 'L', 'AY2', 'T'], False) == (['S', 'T', 'R', 'IY1', 'T', 'L', 'AY2', 'T'], False)
+
+----------------------------------------------------------------------
+Ran 1 test in 3.033s
+
+FAILED (failures=1)

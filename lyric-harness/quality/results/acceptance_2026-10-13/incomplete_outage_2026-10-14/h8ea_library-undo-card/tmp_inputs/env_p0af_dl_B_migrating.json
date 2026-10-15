@@ -1,0 +1,67 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:fdad76a0-02b1-490a-9088-3afa3eca7d79",
+  "draftId": "draft:547d0a61-26c2-4eb9-9a35-c5a2ab85611d",
+  "createdAt": "2026-10-14T13:21:57.775Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song B\"]\n[SETUP — returns — 1.T4,2.T4]\n\n[VERSE]\nOh--oh, oh sweet love\nOh--oh, oh sweet dove",
+    "title": "B_migrating",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:r1",
+      "unitId": "unit:r1",
+      "workId": "work:r1",
+      "editionId": "ed:r1",
+      "revisionId": "rev:r1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:0fe24546-46af-47b4-9ae0-625879cb15b1",
+        "sourceDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh sweet love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "the singer"
+              }
+            ]
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": [
+      {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh sweet love",
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      }
+    ]
+  },
+  "digest": "c4fad41ef23e51bc283a7562f1f05c9743c59b2e2cd217a36c51323b1b6f2f77"
+}

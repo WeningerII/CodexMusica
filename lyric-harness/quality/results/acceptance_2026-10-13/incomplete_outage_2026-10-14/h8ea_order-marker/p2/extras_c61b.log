@@ -1,0 +1,46 @@
+c61b.X1_appUndo_toastButton
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after Remove link: [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.","Rhyme link removed. Undo restores it.\nUndo"]
+   after APP Undo (toast Undo button): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/2] toasts=["Rhyme link removed. Undo restores it."]
+   after Run review: [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/2] toasts=["Rhyme link removed. Undo restores it."]
+   payload=[{"groups":"1.T5,8;2,3"}] errs=0
+c61b.X1k_appUndo_globalCtrlZ
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after Remove link: [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.","Rhyme link removed. Undo restores it.\nUndo"]
+   after APP Undo (Ctrl+Z, focus off textarea): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/2] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/2] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   payload=[{"groups":"1.T5,8;2,3"}] errs=0
+c61b.X2_appRedo
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after Remove link: [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.","Rhyme link removed. Undo restores it.\nUndo"]
+   after APP Undo (toast): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/2] toasts=["Rhyme link removed. Undo restores it."]
+   after APP Redo (Ctrl+Shift+Z, focus off textarea): [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["Rhyme link removed. Undo restores it."]
+   after Run review: [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["Rhyme link removed. Undo restores it."]
+   payload=[{"groups":"1.T5,8"}] errs=0
+c61b.X3_nativeUndo_afterForm
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after Remove link: [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.","Rhyme link removed. Undo restores it.\nUndo"]
+   after BROWSER-NATIVE Ctrl+Z #1 (in textarea): [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after BROWSER-NATIVE Ctrl+Z #2 (in textarea): [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T5,8 — cut v2]  [hist 1/2] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   payload=[{"groups":"1.T5,8"}] errs=0
+c61b.X3s_nativeUndo_sanity_noForm
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after BROWSER-NATIVE Ctrl+Z #1, no form commit (sanity: does native undo work here?): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after Run review: [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   payload=[{"groups":"1.T5,8;2,3"}] errs=0
+c61b.X4_wordRules
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after Word rules Apply (require "rain"): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2] | [SETUP — require — rain]  [hist 1/2] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.","Word rules applied.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2] | [SETUP — require — rain]  [hist 1/2] toasts=["Word rules applied.\nUndo"]
+   payload=[{"groups":"1.T5,8;2,3","must_include":["rain"]}] errs=0
+c61b.X5_relationOnly
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after Rhymes relation-only Apply (class:RHYME): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2] | [SETUP — relation — class:RHYME]  [hist 1/2] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.","Relation declared: class:RHYME.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2] | [SETUP — relation — class:RHYME]  [hist 1/2] toasts=["Relation declared: class:RHYME.\nUndo"]
+   payload=[{"relation":"class:RHYME","groups":"1.T5,8;2,3"}] errs=0
+c61b.X9_sectionMove
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T5,8;2,3 — cut v2]  [hist 0/1] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."]
+   after Form & story: Verse Move down: [SETUP — rhyme groups — 3.T5,10;4,5 — cut v2]  [hist 1/2] toasts=["1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5.","Moved section down.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 3.T5,10;4,5 — cut v2]  [hist 1/2] toasts=["Moved section down.\nUndo"]
+   payload=[{"groups":"3.T5,10;4,5"}] errs=0

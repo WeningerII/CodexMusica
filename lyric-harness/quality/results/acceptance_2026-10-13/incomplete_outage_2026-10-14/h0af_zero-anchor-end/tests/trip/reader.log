@@ -1,0 +1,17 @@
+.....................................................................................
+    [test-process isolation] test_a_legacy_lyrics_request_then_a_library_analysis: child peak RSS (VmHWM) 481,226,752 bytes (459 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+.
+    [test-process isolation] test_a_new_lyrics_request_then_a_legacy_one: child peak RSS (VmHWM) 567,898,112 bytes (542 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+.
+    [test-process isolation] test_a_new_lyrics_request_then_a_library_analysis: child peak RSS (VmHWM) 485,158,912 bytes (463 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+.
+    [test-process isolation] test_cold_a_legacy_lyrics_request_then_a_new_one: child peak RSS (VmHWM) 565,706,752 bytes (540 MiB) against the unchanged 1024 MiB guard; guard checks passed 0; CPython 3.11.17
+.
+    [test-process isolation] test_cold_a_library_analysis_then_a_legacy_lyrics_request: child peak RSS (VmHWM) 496,226,304 bytes (473 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+.
+    [test-process isolation] test_cold_a_library_analysis_then_a_new_lyrics_request: child peak RSS (VmHWM) 496,349,184 bytes (473 MiB) against the unchanged 1024 MiB guard; guard checks passed 1692; CPython 3.11.17
+..ssssss
+----------------------------------------------------------------------
+Ran 98 tests in 1861.657s
+
+OK (skipped=6)

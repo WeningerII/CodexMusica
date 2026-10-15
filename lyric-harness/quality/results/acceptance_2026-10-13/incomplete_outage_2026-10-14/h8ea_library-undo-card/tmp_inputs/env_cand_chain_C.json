@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:370a55bd-35fb-47ab-a7ee-9f3b4055e15f",
+  "draftId": "draft:db36bb33-d375-463f-90f9-7b497bb619d7",
+  "createdAt": "2026-10-14T13:13:04.847Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song Z\"]\n[SETUP — rhyme groups — 1.T4,2.T4]\n\n[VERSE]\nEe--ee, ee the moon\nEe--ee, ee the tune",
+    "title": "Song C",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:r1",
+      "unitId": "unit:r1",
+      "workId": "work:r1",
+      "editionId": "ed:r1",
+      "revisionId": "rev:r1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:22143a2e-1bdb-42b3-bec2-e6c6285151a9",
+        "sourceDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "d8f0a0a7672af4862f9e11a656a880aed6e1693242993200296a5c68563d8f32"
+}

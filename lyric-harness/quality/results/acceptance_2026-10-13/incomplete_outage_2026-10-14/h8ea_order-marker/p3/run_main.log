@@ -1,0 +1,269 @@
+### main DU1.drop.review
+  O1 rows: [SETUP — rhyme groups — 2,3 — cut v9] {cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O2 rows: [SETUP — rhyme groups — 2,3 — cut v9] {cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+  O2 final {"groups":"1.T4,8"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main DU1.drop.dock
+  O1 rows: [SETUP — rhyme groups — 2,3 — cut v9] {cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O2 rows: [SETUP — rhyme groups — 2,3 — cut v9] {cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — rhyme groups — 1.T4,8] | [SETUP — rhyme groups — 2,3 — cut v9] {UNMARKED,cut v9}
+  O2 final {"groups":"1.T4,8"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main DUR.drop.review
+  O1 rows: [SETUP — returns — 9,11 — cut v9] {cut v9}
+      => [SETUP — returns — 1.T4,8.T1] | [SETUP — returns — 9,11 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — returns — 1.T4,8.T1] | [SETUP — returns — 9,11 — cut v9] {UNMARKED,cut v9}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O2 rows: [SETUP — returns — 9,11 — cut v9] {cut v9}
+      => [SETUP — returns — 1.T4,8.T1] | [SETUP — returns — 9,11 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — returns — 1.T4,8.T1] | [SETUP — returns — 9,11 — cut v9] {UNMARKED,cut v9}
+      => [SETUP — returns — 1.T4,8.T1] | [SETUP — returns — 9,11 — cut v9] {UNMARKED,cut v9}
+  O2 final {"returns":"1.T4,8.T1"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main DU2.drop.review
+  O1 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3] {UNMARKED}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O2 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3] {UNMARKED}
+  O2 final {"groups":"1.T4,8; 2.T9 (numbered under the earlier cut),3"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main KC1.keep.review
+  O1 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O2 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+  O2 final {"groups":"1.T4,8; 1.head (carried across the word-cut change),4.head"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main KC1.keep.dock
+  O1 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O2 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+  O2 final {"groups":"1.T4,8; 1.head (carried across the word-cut change),4.head"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main KC1.remove.review
+  O1 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-carried-remove button in Review
+  O2 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head] {UNMARKED}
+  O2 final {"groups":"1.T4,8; 1.head (carried across the word-cut change),4.head"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-carried-remove button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main KCB.keep.review
+  O1 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4] {UNMARKED}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O2 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4] {UNMARKED}
+  O2 final {"groups":"1.T4,8; 1 (carried across the word-cut change),4"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main KCR.keep.review
+  O1 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head] {UNMARKED}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O2 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head] {UNMARKED}
+  O2 final {"returns":"1.T4,8.T1; 2.head (carried across the word-cut change),6.head"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main KCW.keep.review
+  O1 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O2 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+  O2 final {"returns":"1.T4,8.T1; 9 (carried across the word-cut change),11"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-carried-keep button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main KCW.remove.review
+  O1 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+  O1 final null refused=[] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-carried-remove button in Review
+  O2 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11] {UNMARKED}
+  O2 final {"returns":"1.T4,8.T1; 9 (carried across the word-cut change),11"} refused=[false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-carried-remove button in Review
+  O1 toasts [[],[],[]]
+  O2 toasts [[],[],[],[]]
+  review O1 undefined | O2 undefined  errs=0
+### main RW.placed.review
+  O1 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head] {UNMARKED}
+  O1 final {"returns":"1.T4,8.T1;1,13;2.head,6.head"} refused=[false] record=null
+  O2 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head] {UNMARKED}
+  O2 final {"returns":"1.T4,8.T1;1,13;2.head,6.head"} refused=[false,false] record=null
+  O1 toasts [[],[],[],["Placed return declared.\nUndo"],["Placed return declared.\nUndo"]]
+  O2 toasts [[],[],[],[],["Placed return declared.\nUndo"],["Placed return declared.\nUndo"]]
+  review O1 false | O2 false  errs=0
+### main RW.declare.review
+  O1 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12] {UNMARKED}
+  O1 final {"returns":"1.T4,8.T1;1,13;9,11;10,12"} refused=[false] record=null
+  O2 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1; 1,13] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12] {UNMARKED}
+  O2 final {"returns":"1.T4,8.T1;1,13;9,11;10,12"} refused=[false,false] record=null
+  O1 toasts [[],[],[],["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"],["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]]
+  O2 toasts [[],[],[],[],["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"],["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]]
+  review O1 false | O2 false  errs=0
+### main RGW.add.review
+  O1 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1,13] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1,13] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8;1,13;5,7] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8;1,13;5,7] {UNMARKED}
+  O1 final {"groups":"1.T4,8;1,13;5,7"} refused=[false] record=null
+  O2 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T4,8; 1,13] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1,13] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8; 1,13] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8;1,13;5,7] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T4,8;1,13;5,7] {UNMARKED}
+  O2 final {"groups":"1.T4,8;1,13;5,7"} refused=[false,false] record=null
+  O1 toasts [[],[],[],["Rhyme link saved.\nUndo"],["Rhyme link saved.\nUndo"]]
+  O2 toasts [[],[],[],[],["Rhyme link saved.\nUndo"],["Rhyme link saved.\nUndo"]]
+  review O1 false | O2 false  errs=0
+### main BL.removeLink.review
+  O1 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T1,8; 2,3] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T1,8; 2,3] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T1,8] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T1,8] {UNMARKED}
+  O1 final {"groups":"1.T1,8"} refused=[false] record=null
+  O1 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O2 rows: (none) {}
+      => [SETUP — rhyme groups — 1.T1,8; 2,3] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T1,8; 2,3] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T1,8; 2,3] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T1,8] {UNMARKED}
+      => [SETUP — rhyme groups — 1.T1,8] {UNMARKED}
+  O2 final {"groups":"1.T1,8"} refused=[false,false] record=null
+  O2 THREW Error: NOT REACHABLE: no visible ly-drop-undecided button in Review
+  O1 toasts [[],[],[],["Rhyme link removed. Undo restores it.\nUndo"],["Rhyme link removed. Undo restores it.\nUndo"]]
+  O2 toasts [[],[],[],[],["Rhyme link removed. Undo restores it.\nUndo"],["Rhyme link removed. Undo restores it.\nUndo"]]
+  review O1 undefined | O2 undefined  errs=0
+### main X7v.placed.dock
+  O1 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2;2.head,6.head] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2;2.head,6.head] {UNMARKED}
+  O1 final {"returns":"1.T4,8.T2;2.head,6.head"} refused=[false] record=null
+  O2 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2;2.head,6.head] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2;2.head,6.head] {UNMARKED}
+  O2 final {"returns":"1.T4,8.T2;2.head,6.head"} refused=[false,false] record=null
+  O1 toasts [[],[],[],["Placed return declared.\nUndo"],["Placed return declared.\nUndo"]]
+  O2 toasts [[],[],[],[],["Placed return declared.\nUndo"],["Placed return declared.\nUndo"]]
+  review O1 false | O2 false  errs=0
+### main X7v.declare.review
+  O1 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2;9,11;10,12] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2;9,11;10,12] {UNMARKED}
+  O1 final {"returns":"1.T4,8.T2;9,11;10,12"} refused=[false] record=null
+  O2 rows: (none) {}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2;9,11;10,12] {UNMARKED}
+      => [SETUP — returns — 1.T4,8.T2;9,11;10,12] {UNMARKED}
+  O2 final {"returns":"1.T4,8.T2;9,11;10,12"} refused=[false,false] record=null
+  O1 toasts [[],[],[],["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"],["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]]
+  O2 toasts [[],[],[],[],["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"],["Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"]]
+  review O1 false | O2 false  errs=0

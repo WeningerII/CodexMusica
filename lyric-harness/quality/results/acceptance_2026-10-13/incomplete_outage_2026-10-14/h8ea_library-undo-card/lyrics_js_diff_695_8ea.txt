@@ -1,0 +1,823 @@
+diff --git a/src/pages/lyrics.js b/src/pages/lyrics.js
+index 1413830ba..99586aeab 100644
+--- a/src/pages/lyrics.js
++++ b/src/pages/lyrics.js
+@@ -135,6 +135,10 @@ function lyWordSpans(text, voices) {
+ //   preserved". On a line whose cut did not change the member is carried
+ //   silently. A member the grader cannot judge under the current cut (a
+ //   numeral end, say) stays a visible refusal in the grader's own verdict.
++// - In a RETURNS row a bare `N` (and `N.line`) is a whole-line return, not a
++//   word place: it says the lines are the same line, names no word, and so
++//   is never carried, annotated or shown with a word. Only placed returns
++//   (`N.end`, `N.endword`, `N.head`, `N.headrime`, `N.T<k>`) name a word.
+ //   "Differ" means the token texts, their characters, their number -- or
+ //   the words the grader LOOKS UP for the line (lyLineCutChanged): the
+ //   earlier cut's end anchor re-cut its own tokens joined by spaces, so an
+@@ -250,6 +254,11 @@ function lyReadingSuperseded(r, line, token, voices) {
+ }
+ // Whether a group member is a word place numbered under the current cut.
+ const lyNumberedMember = (m) => !m.bad && !m.undecided && /^T\d+$/.test(m.place || '');
++// Whether a member of a `key` row is a whole-line return (a bare `N`, or
++// `N.line`, in a returns row): a different class from a placed return, which
++// names the word at a place (see lyMigrateSavedReadings).
++const lyWholeLineReturn = (key, m) =>
++  key === 'returns' && !m.bad && (!m.explicit || m.place === 'line');
+ // A text's unmarked (legacy by compatibility policy) readings and word places
+ // rebound or flagged: -> { text, rebound, blocked: [{ i, word, line, reason }],
+ // moved: [{ kind, word, line, n, from, to }], carried: [{ key, n, place }] }
+@@ -279,11 +288,25 @@ const lyNumberedMember = (m) => !m.bad && !m.undecided && /^T\d+$/.test(m.place
+ // next boundary (lyEnsureTokenScheme) reads that row under the earlier cut
+ // again and renumbers it -- right for a row saved under the earlier cut,
+ // wrong for one typed today without the mark -- and says so.
+-function lyMigrateSavedReadings(text) {
++//
++// RETURNS HAVE TWO CLASSES, and only one of them names a word. A bare `N`
++// in a returns row (and `N.line`) is a WHOLE-LINE return: the harness reads
++// it as "these lines are the same line" (quality/schemes.py, a return class
++// of line numbers; `N.line` the placed class whose place is the whole
++// line), which names no word, so no word cut can move what it names and it
++// is never carried, annotated or labelled as a word place. `N.end`,
++// `N.endword`, `N.head`, `N.headrime` and `N.T<k>` are PLACED returns: the
++// word at that place returns, so they follow the rhyme-group rules above.
++// In a rhyme groups row a bare `N` is the default end -- a word place.
++//
++// `keys`, when given, limits the pass to the rhyme groups / returns rows of
++// those keys (a form writer applying the policy to the rows it rewrites,
++// lyFormBase); readings are then left alone.
++function lyMigrateSavedReadings(text, keys = null) {
+   const model = lyParse(text);
+   const rows = model.text.split('\n');
+   const out = { text: model.text, rebound: 0, blocked: [], moved: [], carried: [] };
+-  for (const r of lySetupOf(model, 'reading')) {
++  for (const r of keys ? [] : lySetupOf(model, 'reading')) {
+     if (r.malformed || r.undecided || r.cut === LY_TOKEN_SCHEME) continue;
+     const got = lyRebindReading(r, model.voices);
+     if (got.blocked) {
+@@ -300,7 +323,7 @@ function lyMigrateSavedReadings(text) {
+       out.rebound++;
+     }
+   }
+-  for (const key of LY_GROUP_KEYS)
++  for (const key of keys || LY_GROUP_KEYS)
+     for (const d of lySetupOf(model, key)) {
+       if (d.cut) continue;
+       // The members in the order lyParseGroups reads them, each with its new
+@@ -310,6 +333,8 @@ function lyMigrateSavedReadings(text) {
+       for (const m of lyParseGroups(d.value).flat()) {
+         k++;
+         if (m.bad || m.undecided || m.unknownCut) continue;
++        // A whole-line return names no word: nothing to rebind or carry.
++        if (lyWholeLineReturn(key, m)) continue;
+         const row = model.sung[m.line - 1];
+         if (!lyNumberedMember(m)) {
+           // A named place is a definition: kept named, and flagged where the
+@@ -360,9 +385,21 @@ function lyRespellGroupRow(row, value, respelled) {
+ }
+ // A writer offset in `before` -> the same character in `after`, for a
+ // rewrite that replaced whole rows in place (the migration never adds or
+-// removes a row). Within a rewritten row the shared start and end keep their
+-// characters; an offset inside the replaced middle goes to its end.
+-function lyMapOffset(before, after, pos) {
++// removes a row). A rewritten row is aligned MEMBER BY MEMBER (3PO #519
++// 6164274432, BB8 66cef416): both spellings are cut into units at the
++// separators the rows use (`;`, `,`, ` — `, `]`), the longest common run of
++// units is kept (lyAlignUnits), and every character of a unit present in
++// both maps onto itself, so a selection inside an unchanged member -- the
++// `2.end` after a renumbered `1.T2`, before an appended `— cut v2` -- keeps
++// its exact characters. Inside a changed stretch the shared start and end
++// of that stretch keep theirs; an offset in its replaced middle goes to the
++// stretch's end. An offset between two kept characters that the rewrite
++// pulled apart follows its side of the selection: a selection's END stays
++// with the character before it (one ending on `2.end` does not grow over
++// the inserted mark) and its START with the character after it (one
++// starting at `,4` does not grow over a note appended to the member before);
++// a caret is an end.
++function lyMapOffset(before, after, pos, side = 'end') {
+   const a = before.split('\n'),
+     b = after.split('\n');
+   if (a.length !== b.length) return Math.min(pos, after.length);
+@@ -371,23 +408,100 @@ function lyMapOffset(before, after, pos) {
+   for (let i = 0; i < a.length; i++) {
+     const x = a[i],
+       y = b[i];
+-    if (pos <= oa + x.length) {
+-      const col = pos - oa;
+-      if (x === y) return ob + col;
+-      let p = 0;
+-      while (p < x.length && p < y.length && x[p] === y[p]) p++;
+-      let s = 0;
+-      while (s < x.length - p && s < y.length - p && x[x.length - 1 - s] === y[y.length - 1 - s])
+-        s++;
+-      if (col <= p) return ob + col;
+-      if (col >= x.length - s) return ob + y.length - (x.length - col);
+-      return ob + y.length - s;
+-    }
++    if (pos <= oa + x.length) return ob + (x === y ? pos - oa : lyMapInRow(x, y, pos - oa, side));
+     oa += x.length + 1;
+     ob += y.length + 1;
+   }
+   return after.length;
+ }
++const LY_UNIT_CUT = /([;,\]]| — )/;
++// The units of a row, with their offsets: [{ text, at }].
++function lyRowUnits(row) {
++  const out = [];
++  let at = 0;
++  for (const text of row.split(LY_UNIT_CUT)) {
++    if (text) out.push({ text, at });
++    at += text.length;
++  }
++  return out;
++}
++// Longest common subsequence of two unit lists -> matched index pairs, in
++// order. Rows are short; a pathological one falls back to the common head
++// and tail of units.
++function lyAlignUnits(u, v) {
++  const n = u.length,
++    m = v.length;
++  const pairs = [];
++  if (n * m > 250000) {
++    let h = 0;
++    while (h < n && h < m && u[h].text === v[h].text) pairs.push([h, h++]);
++    let t = 0;
++    const tail = [];
++    while (t < n - h && t < m - h && u[n - 1 - t].text === v[m - 1 - t].text) {
++      tail.unshift([n - 1 - t, m - 1 - t]);
++      t++;
++    }
++    return pairs.concat(tail);
++  }
++  const L = Array.from({ length: n + 1 }, () => new Int32Array(m + 1));
++  for (let p = n - 1; p >= 0; p--)
++    for (let q = m - 1; q >= 0; q--)
++      L[p][q] = u[p].text === v[q].text ? L[p + 1][q + 1] + 1 : Math.max(L[p + 1][q], L[p][q + 1]);
++  let p = 0,
++    q = 0;
++  while (p < n && q < m) {
++    if (u[p].text === v[q].text && L[p][q] === L[p + 1][q + 1] + 1) pairs.push([p++, q++]);
++    else if (L[p + 1][q] >= L[p][q + 1]) p++;
++    else q++;
++  }
++  return pairs;
++}
++// One rewritten row: offset `col` in `x` -> offset in `y`.
++function lyMapInRow(x, y, col, side = 'end') {
++  const u = lyRowUnits(x),
++    v = lyRowUnits(y);
++  // Kept characters: where[c] = the offset in y of x's character c, or -1.
++  const where = new Int32Array(x.length).fill(-1);
++  // Each stretch between kept units is aligned by its own shared start and
++  // end; `ends` records, for each character in a replaced middle, where its
++  // stretch ends in y.
++  const ends = new Int32Array(x.length).fill(-1);
++  const gap = (xa, xb, ya, yb) => {
++    let s = 0;
++    while (xa + s < xb && ya + s < yb && x[xa + s] === y[ya + s]) {
++      where[xa + s] = ya + s;
++      s++;
++    }
++    let e = 0;
++    while (xb - 1 - e >= xa + s && yb - 1 - e >= ya + s && x[xb - 1 - e] === y[yb - 1 - e]) {
++      where[xb - 1 - e] = yb - 1 - e;
++      e++;
++    }
++    for (let c = xa + s; c < xb - e; c++) ends[c] = yb - e;
++    return yb - e;
++  };
++  let xa = 0,
++    ya = 0;
++  const stretchEnd = [];
++  for (const [p, q] of [...lyAlignUnits(u, v), [u.length, v.length]]) {
++    const xb = p < u.length ? u[p].at : x.length,
++      yb = q < v.length ? v[q].at : y.length;
++    stretchEnd.push([xa, xb, gap(xa, xb, ya, yb)]);
++    if (p < u.length) {
++      for (let c = 0; c < u[p].text.length; c++) where[u[p].at + c] = v[q].at + c;
++      xa = u[p].at + u[p].text.length;
++      ya = v[q].at + v[q].text.length;
++    }
++  }
++  const left = col > 0 && where[col - 1] >= 0 ? where[col - 1] + 1 : -1;
++  const right = col < x.length && where[col] >= 0 ? where[col] : -1;
++  if (left >= 0 && (side !== 'start' || right < 0)) return left;
++  if (right >= 0) return right;
++  if (col < x.length && ends[col] >= 0) return ends[col];
++  // Between two replaced characters at the very end of a stretch.
++  for (const [s0, s1, end] of stretchEnd) if (col >= s0 && col <= s1) return end;
++  return y.length;
++}
+ // THE MIGRATION RUNS AT A BOUNDARY, NEVER WHILE THE WRITER TYPES. The typing
+ // refresh (lyRefresh, 120 ms after a keystroke) reads the draft and never
+ // rewrites it: rewriting the textarea under a writer moved the caret, so the
+@@ -432,8 +546,8 @@ function lyEnsureTokenScheme(how = 'page') {
+   draft.value = done.text;
+   if (Number.isInteger(sel[0]) && Number.isInteger(sel[1]) && draft.setSelectionRange)
+     draft.setSelectionRange(
+-      lyMapOffset(before, done.text, sel[0]),
+-      lyMapOffset(before, done.text, sel[1]),
++      lyMapOffset(before, done.text, sel[0], sel[0] === sel[1] ? 'end' : 'start'),
++      lyMapOffset(before, done.text, sel[1], 'end'),
+       sel[2] || 'none'
+     );
+   lyRecordRenumbered(done);
+@@ -458,48 +572,57 @@ function lyImportText(text, message) {
+ }
+ // What a migration did, said twice: a toast now (lyMigrationToast), and --
+ // for every number it changed -- the Review card listing each one, which
+-// stays until the writer dismisses it (lyRenumberedCheck). The card's list is
+-// kept in the page context's display state (app.lyricMeta.ui.renumbered,
+-// recorded before the draft is saved), so it outlives the toast, a later
+-// import and a reload, and never enters the song or its identity.
+-// Bounded: the page context's display state is kept only while it stays
+-// under 4,000 characters (src/app.js lyricMetaOf drops it whole beyond), so
+-// the oldest entries give way first and are counted, never silently lost.
+-const LY_RENUMBERED_ROOM = 3200;
++// stays until the writer dismisses it (lyRenumberedCheck).
++//
++// EVERY MOVED NUMBER STAYS REVIEWABLE (3PO #519 6164274432). The record keeps
++// each entry whole -- the word as saved, every sung line it names, the old
++// and new number -- with no cap on words, lines or entries: the list is no
++// longer than the draft's own [SETUP] rows make it, and nothing is evicted.
++// The card shows the first LY_RENUMBERED_PAGE entries and a "Show all" that
++// lists every one; Dismiss is the only thing that removes them.
++//
++// THE RECORD BELONGS TO ITS DRAFT. It is kept in the page context
++// (app.lyricMeta.renumbered: { draftId, items }), never in the song or its
++// identity, and travels with that draft: in each Undo/Redo step
++// (src/app.js lyricMetaHistory restores the step's own record with its
++// text and draftId, so Undo never shows one draft's evidence over another),
++// in the session's saves and exports, and in the draft's Library record
++// (lyLibraryCapture saves it only under the draftId it was recorded for).
++// A later import of ANOTHER draft (a Library working copy, a saved draft
++// opened from History) shows that draft's own record instead: this draft's
++// stays with this draft -- reachable through Undo and by reopening it --
++// and is never carried into, or saved under, the other one. A .txt import
++// replaces the text of the same draft, so its entries join the same list.
++const LY_RENUMBERED_PAGE = 20;
++function lyRenumbered(meta = lyMeta()) {
++  const r = meta.renumbered;
++  return r && Array.isArray(r.items) ? r : null;
++}
+ function lyRecordRenumbered(done) {
+   if (!done.moved.length) return;
+   const meta = lyMeta();
+-  const ui = meta.ui || (meta.ui = {});
+   const model = lyParse(done.text);
++  const draftId = meta.draftId || null;
++  const prior = lyRenumbered(meta);
++  // Another draft's record is never extended into this one (a record made
++  // before this draft had an id is this draft's).
++  const kept = prior && (!prior.draftId || prior.draftId === draftId) ? prior.items : [];
+   const items = [
+-    ...(Array.isArray(ui.renumbered?.items) ? ui.renumbered.items : []),
++    ...kept,
+     ...done.moved.map((m) => ({
+       kind: m.kind,
+-      word: String(m.word).slice(0, 40),
++      word: String(m.word),
+       // A reading names its line by text; the card names the sung lines.
+-      n:
+-        m.kind === 'reading'
+-          ? model.sung
+-              .filter((x) => x.text === m.line)
+-              .map((x) => x.n)
+-              .slice(0, 4)
+-          : [m.n],
++      n: m.kind === 'reading' ? model.sung.filter((x) => x.text === m.line).map((x) => x.n) : [m.n],
+       from: m.from,
+       to: m.to,
+     })),
+   ];
+-  let more = Number(ui.renumbered?.more) || 0;
+-  const { renumbered: _old, ...rest } = ui;
+-  while (
+-    items.length > 1 &&
+-    JSON.stringify({ ...rest, renumbered: { items, more } }).length > LY_RENUMBERED_ROOM
+-  ) {
+-    items.shift();
+-    more++;
+-  }
+-  ui.renumbered = { items, more };
++  meta.renumbered = { ...(draftId ? { draftId } : {}), items };
+ }
+-function lyMigrationToast(done) {
++// The migration's summary in words, for a toast or a commit message:
++// -> { text, blocked } ('' when it moved, carried and blocked nothing).
++function lyMigrationText(done) {
+   const moved = done.moved.length
+     ? ` ${uiCount(done.moved.length, 'saved word number')} without the current cut mark ${done.moved.length === 1 ? 'was' : 'were'} renumbered to the current word cut, on the same characters: ${done.moved
+         .slice(0, 3)
+@@ -513,32 +636,80 @@ function lyMigrationToast(done) {
+     ? ` ${uiCount(done.carried.length, 'rhyme or return place')} ${done.carried.length === 1 ? 'sits' : 'sit'} on a line whose word cut changed and ${done.carried.length === 1 ? 'was' : 'were'} kept as declared: check ${done.carried.length === 1 ? 'it' : 'each'} in Review.`
+     : '';
+   if (done.blocked.length)
+-    showToast(
+-      `${uiCount(done.blocked.length, 'saved word number')} without the current cut mark ${done.blocked.length === 1 ? 'needs' : 'need'} your decision before the writer can be asked.${moved}${carried}`,
+-      'error'
+-    );
+-  else if (moved || carried) showToast((moved + carried).trim());
++    return {
++      text: `${uiCount(done.blocked.length, 'saved word number')} without the current cut mark ${done.blocked.length === 1 ? 'needs' : 'need'} your decision before the writer can be asked.${moved}${carried}`,
++      blocked: true,
++    };
++  return { text: (moved + carried).trim(), blocked: false };
++}
++function lyMigrationToast(done) {
++  const said = lyMigrationText(done);
++  if (said.text) showToast(said.text, said.blocked ? 'error' : undefined);
+ }
+-// The Review card listing every renumbered word number, or null.
++// The Review card listing every renumbered word number, or null: the first
++// page of entries, or every one after "Show all" (LY.renumberedAll).
+ function lyRenumberedCheck() {
+-  const r = lyMeta().ui?.renumbered;
+-  const items = Array.isArray(r?.items) ? r.items : [];
+-  if (!items.length) return null;
++  const r = lyRenumbered();
++  const items = r ? r.items : [];
++  const lost = Number(r?.more) || 0; // counted by an earlier version of this page
++  if (!items.length && !lost) return null;
+   const at = (m) => (Array.isArray(m.n) && m.n.length ? `, ${lyLineRef(m.n)}` : '');
+   const what = (m) =>
+     `${m.kind === 'reading' ? 'the reading for' : m.kind === 'returns' ? 'a declared return on' : 'a rhyme link on'} “${m.word}”${at(m)}: word ${m.from} → ${m.to}`;
+-  const more = Number(r.more) || 0;
++  const all = !!LY.renumberedAll || items.length <= LY_RENUMBERED_PAGE;
++  const shown = all ? items : items.slice(0, LY_RENUMBERED_PAGE);
++  const rest = items.length - shown.length;
+   return {
+     id: 'renumbered',
+     tone: 'note',
+     category: 'Pronunciation',
+-    title: `${uiCount(items.length + more, 'saved word number')} renumbered to the current word cut`,
++    title: `${uiCount(items.length + lost, 'saved word number')} renumbered to the current word cut`,
+     where: 'Setup',
+     lines: [],
+-    text: `Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: ${items.map(what).join('; ')}${more ? `; and ${uiCount(more, 'earlier one')} no longer listed` : ''}. Nothing else about them changed. Dismiss this when you have checked them.`,
+-    actions: [['ly-renumbered-dismiss', 'Dismiss', 'x', '']],
++    text: `Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: ${shown.map(what).join('; ')}${rest ? `; and ${rest} more (Show all lists every one)` : ''}${lost ? `. ${lost} earlier ${lost === 1 ? 'entry was' : 'entries were'} dropped by an earlier version of this page before this list kept every entry` : ''}. Nothing else about them changed. Dismiss this when you have checked them.`,
++    actions: [
++      ...(items.length > LY_RENUMBERED_PAGE
++        ? [
++            [
++              'ly-renumbered-all',
++              all ? 'Show fewer' : `Show all ${items.length}`,
++              all ? 'chevron-up' : 'chevron-down',
++              '',
++            ],
++          ]
++        : []),
++      ['ly-renumbered-dismiss', 'Dismiss', 'x', ''],
++    ],
+   };
+ }
++// THE FORM WRITERS APPLY THE SAME POLICY BEFORE THEY MARK (BB8 66cef416,
++// 3PO #519 6166169619). The rhymes and repeats forms (link, remove link,
++// placed return, declare exact repeat, remove undecided links) and Keep /
++// Remove on a carried member rewrite a rhyme groups / returns row and write
++// it back marked `— cut v2` (lyGroupRow, lySetSetup). An unmarked row is
++// legacy by compatibility policy and is read under the earlier cut at every
++// boundary; marking it without that reading made the binding depend on
++// whether a form or a send came first (`1.T4` -> `my` against `1.T5` ->
++// `love`). So a writer reads `key`'s rows through this: every unmarked row of
++// that key rebound by span or kept undecided, and its named places carried,
++// exactly as lyMigrateSavedReadings does at a boundary -- and only then are
++// the groups taken and the row marked. The typing refresh still never
++// rewrites the draft; this runs only inside a form's own commit, which is
++// already one Undo step. -> { text, groups, done }; `done` is recorded on the
++// Review card by the caller when it commits (lyFormMigrated).
++function lyFormBase(key, text = lyDraft().value) {
++  const done = lyMigrateSavedReadings(text, [key]);
++  const groups = lySetupOf(lyParse(done.text), key).flatMap((d) => lyRowGroups(d));
++  return { text: done.text, groups, done };
++}
++// A form's commit message with what its policy pass did, recorded first on
++// the Review card (so the history step the commit records holds it).
++function lyFormMigrated(done, message) {
++  if (!done || done.text === undefined) return message;
++  lyRecordRenumbered(done);
++  const said = lyMigrationText(done).text;
++  return said ? `${message} ${said}` : message;
++}
+ const lyUndecidedReadings = (model) => lySetupOf(model, 'reading').filter((r) => r.undecided);
+ // Word places in rhyme links and declared returns kept under their earlier
+ // number, or in a row marked with a cut this page does not read:
+@@ -552,7 +723,7 @@ const lyUndecidedMembers = (model) =>
+         .map((m) => ({
+           key,
+           i: d.i,
+-          raw: m.place && m.place !== 'end' ? `${m.line}.${m.place}` : `${m.line}`,
++          raw: lyMemberSpelling(m),
+           unknownCut: m.unknownCut,
+         }))
+     )
+@@ -929,6 +1100,15 @@ const lyLineRef = (ns) =>
+ const lySectionOfLine = (model, n) => model.sung[n - 1]?.section || null;
+ 
+ // A rhyme-group or returns spelling ('1,3.head;2,4') → groups of members.
++// Each member remembers whether its place was WRITTEN (`explicit`): `2.end`
++// names the end explicitly, a bare `2` names none. They are different
++// declarations, and they do not always bind alike: in a rhyme groups row
++// the grader reads a bare `2` at the default end, as it reads `2.end`; in a
++// returns row a bare `2` is a WHOLE-LINE return (the line returns, no word
++// named) while `2.end` is a PLACED return (the word at the end returns), and
++// the harness refuses one class holding both (lyWholeLineReturn). So every
++// path that writes a member back (the row text, the wire, Keep, the forms,
++// section reorder and assembly) keeps the one the writer used.
+ function lyParseGroups(value) {
+   return String(value || '')
+     .split(';')
+@@ -939,10 +1119,11 @@ function lyParseGroups(value) {
+         .filter(Boolean)
+         .map((m) => {
+           const mm = /^(\d+)(?:\.(end|endword|head|headrime|line|T\d{1,3}))?$/.exec(m);
+-          if (mm) return { line: Number(mm[1]), place: mm[2] || 'end', raw: m };
++          if (mm) return { line: Number(mm[1]), place: mm[2] || 'end', explicit: !!mm[2], raw: m };
+           // A word place kept under its earlier number (lyMigrateSavedReadings).
+           const old = /^(\d+)\.(T\d{1,3})\s+\(numbered under the earlier cut\)$/.exec(m);
+-          if (old) return { line: Number(old[1]), place: old[2], raw: m, undecided: true };
++          if (old)
++            return { line: Number(old[1]), place: old[2], explicit: true, raw: m, undecided: true };
+           // A named place kept across the word-cut change, until the writer
+           // keeps or removes it.
+           const kept =
+@@ -953,6 +1134,7 @@ function lyParseGroups(value) {
+             return {
+               line: Number(kept[1]),
+               place: kept[2] || 'end',
++              explicit: !!kept[2],
+               raw: m.replace(/\s+\(.*$/, ''),
+               carried: true,
+             };
+@@ -965,6 +1147,7 @@ function lyParseGroups(value) {
+             return {
+               line: Number(alien[1]),
+               place: alien[2] || 'end',
++              explicit: !!alien[2],
+               raw: m,
+               undecided: true,
+               unknownCut: alien[3].toLowerCase(),
+@@ -974,17 +1157,13 @@ function lyParseGroups(value) {
+     )
+     .filter((g) => g.length);
+ }
+-const lyMemberPlain = (m) => (m.place && m.place !== 'end' ? `${m.line}.${m.place}` : `${m.line}`);
+ // A member as the writer spelled its place (`2.end` stays `2.end`, `2` stays
+-// `2`), on the line it is on now; a member the page made, or whose place
+-// moved, in the page's own spelling. Members are never respelled for show.
+-function lyMemberSpelling(m) {
+-  const mm = /^\d+((?:\.(?:end|endword|head|headrime|line|T\d{1,3}))?)$/.exec(
+-    String(m.raw || '').trim()
+-  );
+-  if (!mm || (mm[1] ? mm[1].slice(1) : 'end') !== m.place) return lyMemberPlain(m);
+-  return `${m.line}${mm[1]}`;
+-}
++// `2`), on the line it is on now. A member the page made has no written
++// place where it is the end (`explicit` unset): the page's own spelling is
++// the bare line. Members are never respelled for show, and `.end` is never
++// added to a bare member or dropped from an explicit one.
++const lyMemberSpelling = (m) =>
++  m.place && (m.place !== 'end' || m.explicit) ? `${m.line}.${m.place}` : `${m.line}`;
+ // Groups -> the row's text, each member's state included.
+ const lyGroupsText = (groups) =>
+   groups
+@@ -994,7 +1173,7 @@ const lyGroupsText = (groups) =>
+           m.bad
+             ? m.raw
+             : m.unknownCut
+-              ? `${lyMemberPlain(m)} (marked cut ${m.unknownCut}: not read here)`
++              ? `${lyMemberSpelling(m)} (marked cut ${m.unknownCut}: not read here)`
+               : m.undecided
+                 ? `${m.line}.${m.place} ${LY_MEMBER_UNDECIDED}`
+                 : m.carried
+@@ -1031,8 +1210,14 @@ function lyMemberWord(model, m) {
+   if (m.place === 'line') return row.text;
+   return toks[toks.length - 1] || null;
+ }
+-const lyMemberLabel = (m) =>
+-  /^T\d+$/.test(m.place) ? `word ${m.place.slice(1)}` : LY_PLACES[m.place] || m.place;
++// A member's place in words. In a returns row a bare `N` is a whole-line
++// return, never "last rhyme" (lyWholeLineReturn).
++const lyMemberLabel = (m, key = 'rhyme groups') =>
++  lyWholeLineReturn(key, m)
++    ? LY_PLACES.line
++    : /^T\d+$/.test(m.place)
++      ? `word ${m.place.slice(1)}`
++      : LY_PLACES[m.place] || m.place;
+ 
+ // A declared melody (lyric-harness/MELODY.md), written in the draft without
+ // brackets inside the line: '4/4 — groups 2+2 — 2 bars — subdivision 2 —
+@@ -1400,8 +1585,28 @@ function lyLocalChecks(model) {
+         g.forEach((m, mi) => {
+           if (!m.carried) return;
+           const row = model.sung[m.line - 1];
++          const ids = `${key}|${d.i}|${gi}|${mi}`;
++          if (lyWholeLineReturn(key, m)) {
++            // A whole-line return names no word, so the word cut cannot move
++            // what it names; the note was written by an earlier version of
++            // this page. No word is shown and no place is claimed for it.
++            add({
++              id: `${key}:${d.i}:carried:${gi}:${mi}`,
++              tone: 'note',
++              category: 'Return',
++              title: `${what} member, line ${m.line} · whole line, carries a word-cut note it does not need`,
++              where: `Line ${m.line}`,
++              lines: row ? [m.line] : [],
++              text: `Line ${m.line} is declared to return as a whole line. A whole-line return names no word, so the word-cut change does not move what it names. Keep the link to drop the note, or remove it.`,
++              actions: [
++                ['ly-carried-keep', 'Keep the link', 'check', ids],
++                ['ly-carried-remove', 'Remove it', 'trash-2', ids],
++              ],
++            });
++            return;
++          }
+           const shown = row ? lyPlaceWords(row.text, model.voices, m.place) : null;
+-          const place = LY_PLACES[m.place] || m.place;
++          const place = lyMemberLabel(m, key);
+           add({
+             id: `${key}:${d.i}:carried:${gi}:${mi}`,
+             tone: 'note',
+@@ -1413,8 +1618,8 @@ function lyLocalChecks(model) {
+               ? `Line ${m.line}'s word cut changed in this release, so what its ${place} reads may have changed, even where the word shown is the same (a rhyme can start in an earlier word). On this page it shows “${shown.before}” under the earlier cut and “${shown.now}” under the current one. That is the page's display, not the grader's evidence: the grader decides what the place binds. Keep the link if it still means what you declared, or remove it.`
+               : `Line ${m.line} is not in the draft.`,
+             actions: [
+-              ['ly-carried-keep', 'Keep the link', 'check', `${key}|${d.i}|${gi}|${mi}`],
+-              ['ly-carried-remove', 'Remove it', 'trash-2', `${key}|${d.i}|${gi}|${mi}`],
++              ['ly-carried-keep', 'Keep the link', 'check', ids],
++              ['ly-carried-remove', 'Remove it', 'trash-2', ids],
+             ],
+           });
+         })
+@@ -1428,7 +1633,7 @@ function lyLocalChecks(model) {
+           title: `${what} is marked with a word cut this page does not read`,
+           where: lyLineRef([...new Set(alien.map((m) => m.line))]),
+           lines: [...new Set(alien.map((m) => m.line))].filter((n) => model.sung[n - 1]),
+-          text: `${alien.map(lyMemberPlain).join(', ')} ${alien.length === 1 ? 'is' : 'are'} marked “cut ${[...new Set(alien.map((m) => m.unknownCut))].join('”, “cut ')}”; this page reads only “${LY_READING_CUT}”, so ${alien.length === 1 ? 'it binds' : 'they bind'} no word. Remove the link and declare it again. Until then nothing is sent to the writer.`,
++          text: `${alien.map(lyMemberSpelling).join(', ')} ${alien.length === 1 ? 'is' : 'are'} marked “cut ${[...new Set(alien.map((m) => m.unknownCut))].join('”, “cut ')}”; this page reads only “${LY_READING_CUT}”, so ${alien.length === 1 ? 'it binds' : 'they bind'} no word. Remove the link and declare it again. Until then nothing is sent to the writer.`,
+           actions: [['ly-drop-undecided', 'Remove the link', 'trash-2', key], tool],
+         });
+       const kept = groups.flat().filter((m) => m.undecided && !m.unknownCut);
+@@ -2424,7 +2629,8 @@ function lyAssemble({ prefix, blocks, suffix }) {
+ function lyCarriedDecide(id, keep) {
+   const [key, i, gi, mi] = String(id).split('|');
+   if (!LY_GROUP_KEYS.includes(key)) return;
+-  const model = lyParse(lyDraft().value);
++  const base = lyFormBase(key);
++  const model = lyParse(base.text);
+   const d = lySetupOf(model, key).find((x) => x.i === Number(i));
+   if (!d) return;
+   const groups = lyRowGroups(d);
+@@ -2442,9 +2648,12 @@ function lyCarriedDecide(id, keep) {
+   const what = key === 'returns' ? 'declared return' : 'rhyme link';
+   lyCommit(
+     rows.join('\n'),
+-    keep
+-      ? `The ${what} on line ${m.line} is kept as declared. Undo restores the notice.`
+-      : `Line ${m.line} was removed from the ${what}. Undo restores it.`
++    lyFormMigrated(
++      base.done,
++      keep
++        ? `The ${what} on line ${m.line} is kept as declared. Undo restores the notice.`
++        : `Line ${m.line} was removed from the ${what}. Undo restores it.`
++    )
+   );
+ }
+ function lyEditSections(mutate, message) {
+@@ -2490,8 +2699,8 @@ function lySetSetup(key, values, text = lyDraft().value) {
+   if (!fresh.length && at === 0) while (kept.length && !kept[0].trim()) kept.shift();
+   return kept.join('\n');
+ }
+-function lySetupCommit(key, values, message) {
+-  lyCommit(lySetSetup(key, values), message);
++function lySetupCommit(key, values, message, text = lyDraft().value) {
++  lyCommit(lySetSetup(key, values, text), message);
+ }
+ function lyRewriteHeader(sectionIndex, change, message) {
+   const model = lyParse(lyDraft().value);
+@@ -2544,6 +2753,17 @@ function lyMeta() {
+   if (!app.lyricMeta || app.lyricMeta !== LY.metaRef) {
+     app.lyricMeta = lyricMetaOf(app.lyricMeta);
+     LY.metaRef = app.lyricMeta;
++    // An earlier version of this page kept the renumbering record in the
++    // display state (ui.renumbered, with a count of entries it evicted);
++    // it moves to the draft's own record, its count still said.
++    const old = app.lyricMeta.ui?.renumbered;
++    if (old && !app.lyricMeta.renumbered && Array.isArray(old.items))
++      app.lyricMeta.renumbered = {
++        ...(app.lyricMeta.draftId ? { draftId: app.lyricMeta.draftId } : {}),
++        items: old.items,
++        ...(Number(old.more) > 0 ? { more: Number(old.more) } : {}),
++      };
++    if (old) delete app.lyricMeta.ui.renumbered;
+   }
+   return app.lyricMeta;
+ }
+@@ -2566,6 +2786,13 @@ const lyLibraryCopy = (value) => JSON.parse(JSON.stringify(value));
+ function lyLibraryCapture() {
+   const meta = lyricMetaOf(app.lyricMeta);
+   const draftId = meta.draftId || 'draft:' + crypto.randomUUID();
++  // The renumbering record is saved only under the draft it was recorded
++  // for (one recorded before this draft had an id is this draft's): never
++  // another draft's record under this draftId.
++  if (meta.renumbered) {
++    if (meta.renumbered.draftId && meta.renumbered.draftId !== draftId) delete meta.renumbered;
++    else meta.renumbered = { ...meta.renumbered, draftId };
++  }
+   const currentDomain =
+     chatState.task?.domain ||
+     ($ui('chat-domain')?.value.startsWith('lyrics') ? 'lyrics' : 'recipe');
+@@ -2647,8 +2874,14 @@ function lyLibraryDetachWriter() {
+ }
+ async function lyLibraryActivate(record, { restored = false, preservedDraftId } = {}) {
+   lyLibraryDetachWriter();
+-  if (preservedDraftId)
+-    app.lyricMeta = { ...lyricMetaOf(app.lyricMeta), draftId: preservedDraftId };
++  if (preservedDraftId) {
++    const kept = lyricMetaOf(app.lyricMeta);
++    app.lyricMeta = { ...kept, draftId: preservedDraftId };
++    // The step recorded next is this draft's: its renumbering record (made
++    // before it had an id) is named for it.
++    if (kept.renumbered && !kept.renumbered.draftId)
++      app.lyricMeta.renumbered = { ...kept.renumbered, draftId: preservedDraftId };
++  }
+   pushHistory();
+   app.lyrics = record.text;
+   app.lyricMeta = lyricMetaOf(record.meta);
+@@ -2666,6 +2899,7 @@ async function lyLibraryActivate(record, { restored = false, preservedDraftId }
+     text: null,
+     tab: 'tools',
+     tool: '',
++    renumberedAll: false,
+   });
+   if (restored && record.writer) {
+     // Restoring a saved draft restores its private continuation, never sends
+@@ -2896,6 +3130,7 @@ function lyDraftApply(tool, target = null, { reportFailure = true } = {}) {
+   let text = model.text;
+   let bad = false;
+   const messages = [];
++  const migrated = [];
+   const meta = lyMeta();
+   const notes = { ...meta.notes };
+   for (const d of entries) {
+@@ -2909,6 +3144,7 @@ function lyDraftApply(tool, target = null, { reportFailure = true } = {}) {
+     }
+     text = out.text ?? text;
+     if (out.message) messages.push(out.message);
++    if (out.migrated) migrated.push(out.migrated);
+   }
+   if (bad) {
+     lyMetaSaved();
+@@ -2921,7 +3157,13 @@ function lyDraftApply(tool, target = null, { reportFailure = true } = {}) {
+   }
+   for (const d of entries) delete meta.drafts[lyDraftKey(d.tool, d.target)];
+   meta.notes = notes;
+-  lyCommit(text, messages.join(' ') || 'Changes applied. Undo reverses them.');
++  lyCommit(
++    text,
++    migrated.reduce(
++      (msg, done) => lyFormMigrated(done, msg),
++      messages.join(' ') || 'Changes applied. Undo reverses them.'
++    )
++  );
+   return true;
+ }
+ // Each form keeps its own validation and Undo boundary. Report the combined
+@@ -3232,13 +3474,18 @@ const LY_FORMS = {
+         text = lySetSetup('relation', rel ? [rel] : [], text);
+         out.push(rel ? `Relation declared: ${rel}.` : 'Relation no longer declared.');
+       }
++      let migrated = null;
+       if (dirty.includes('members')) {
+-        const groups = lySetupOf(lyParse(text), 'rhyme groups').flatMap((d) => lyRowGroups(d));
++        // The existing rows read under the unmarked-row policy first
++        // (lyFormBase), then marked.
++        const base = lyFormBase('rhyme groups', text);
++        const groups = base.groups;
+         groups.push(members.map((m) => ({ line: m.line, place: m.place })));
+-        text = lySetSetup('rhyme groups', [lyGroupsText(groups)], text);
++        text = lySetSetup('rhyme groups', [lyGroupsText(groups)], base.text);
++        migrated = base.done;
+         out.push('Rhyme link saved.');
+       }
+-      return { text, message: out.join(' ') };
++      return { text, message: out.join(' '), migrated };
+     },
+   },
+   pronunciation: {
+@@ -3310,16 +3557,19 @@ const LY_FORMS = {
+             : 'Parentheses are unsung asides.'
+         );
+       }
++      let migrated = null;
+       if (dirty.includes('placed')) {
+         const members = v.placed || [];
+         if (members.length < 2)
+           return { errors: { placed: 'A placed return needs at least two members.' } };
+-        const groups = lySetupOf(lyParse(text), 'returns').flatMap((d) => lyRowGroups(d));
++        const base = lyFormBase('returns', text);
++        const groups = base.groups;
+         groups.push(members.map((m) => ({ line: m.line, place: m.place })));
+-        text = lySetSetup('returns', [lyGroupsText(groups)], text);
++        text = lySetSetup('returns', [lyGroupsText(groups)], base.text);
++        migrated = base.done;
+         out.push('Placed return declared.');
+       }
+-      return { text, message: out.join(' ') };
++      return { text, message: out.join(' '), migrated };
+     },
+   },
+   'word-rules': {
+@@ -4317,7 +4567,7 @@ function lyToolRepeats(model) {
+     ...toks.map((t, i) => [`T${i + 1}`, `Word ${i + 1} · ${t}`]),
+   ];
+   return `<div class="ly-tool-view"><h4 class="ly-h4">Detected repeats</h4>${cards || '<p class="ly-help">No section returns word for word.</p>'}${lines ? `<ul class="ly-plain">${lines}</ul>` : '<p class="ly-help">No line repeats word for word.</p>'}<p class="ly-help">Found on this page by exact text. A changed final chorus is not an exact return.</p>
+-<h4 class="ly-h4">Declared returns</h4>${declared.length ? `<ul class="ly-plain">${declared.map((g) => `<li>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line}${m.place && m.place !== 'end' ? ` · ${esc(lyMemberLabel(m))}` : ''}`)).join(' = ')}</li>`).join('')}</ul>${lyBtn('ly-returns-clear', 'Clear declared returns', '', { cls: 'cm-btn ly-link-btn' })}<p class="ly-help">Clearing a return never deletes lyrics.</p>` : '<p class="ly-help">None declared.</p>'}
++<h4 class="ly-h4">Declared returns</h4>${declared.length ? `<ul class="ly-plain">${declared.map((g) => `<li>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line}${m.explicit ? ` · ${esc(lyMemberLabel(m, 'returns'))}` : ''}`)).join(' = ')}</li>`).join('')}</ul>${lyBtn('ly-returns-clear', 'Clear declared returns', '', { cls: 'cm-btn ly-link-btn' })}<p class="ly-help">Clearing a return never deletes lyrics.</p>` : '<p class="ly-help">None declared.</p>'}
+ <details class="ly-adv"${placed.length ? ' open' : ''}><summary>Placed returns</summary><p class="ly-help">The same words at a place in different lines, e.g. a head that returns while the tail changes.</p><div class="ly-inline-field"><label class="ly-label" for="ly-placed-place">Place in line ${line}</label><select id="ly-placed-place" class="cm-select">${lyOpts(places, LY.picks.placedPlace || 'head', null)}</select>${lyBtn('ly-placed-add', 'Add', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div>${placed.length ? `<ul class="ly-members">${placed.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-placed-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>` : ''}</details>
+ <h4 class="ly-h4">Parenthesised text</h4><div class="cm-segmented ly-seg" role="group" aria-label="Parenthesised text">${lyBtn('ly-voices', 'Unsung aside', '', { id: 'unsung', cls: '', extra: `aria-pressed="${voices !== 'sung'}"` })}${lyBtn('ly-voices', 'Sung second voice', '', { id: 'sung', cls: '', extra: `aria-pressed="${voices === 'sung'}"` })}</div><p class="ly-help">Applies to the whole document. Changing it changes which words are sung, so readings and review may need renewing.</p>${parens.length ? `<ul class="ly-plain">${parens.map((r) => `<li>Line ${r.n}: ${esc(r.text.slice(0, 80))}</li>`).join('')}</ul>` : '<p class="ly-help">No line in this document has parentheses.</p>'}${lyPendingStrip(T)}</div>`;
+ }
+@@ -5468,7 +5718,10 @@ const LY_ACTIONS = {
+     lyRefresh(true);
+   },
+   'ly-link-remove'() {
+-    const groups = lySetupOf(LY.model, 'rhyme groups').flatMap((d) => lyRowGroups(d));
++    // The policy pass respells members in place and never adds or removes
++    // one, so the picked index names the same link.
++    const base = lyFormBase('rhyme groups');
++    const groups = base.groups;
+     const k = LY.picks.linkGroup;
+     if (!groups[k]) return;
+     groups.splice(k, 1);
+@@ -5476,7 +5729,8 @@ const LY_ACTIONS = {
+     lySetupCommit(
+       'rhyme groups',
+       groups.length ? [lyGroupsText(groups)] : [],
+-      'Rhyme link removed. Undo restores it.'
++      lyFormMigrated(base.done, 'Rhyme link removed. Undo restores it.'),
++      base.text
+     );
+   },
+   'ly-rhyme-options'() {
+@@ -5561,7 +5815,8 @@ const LY_ACTIONS = {
+     const A = model.sections[a],
+       B = model.sections[b];
+     if (!A || !B || A.sung.length !== B.sung.length) return;
+-    const groups = lySetupOf(model, 'returns').flatMap((d) => lyRowGroups(d));
++    const base = lyFormBase('returns');
++    const groups = base.groups;
+     const have = new Set(groups.map((g) => lyGroupsText([g])));
+     A.sung.forEach((r, j) => {
+       const g = [
+@@ -5573,7 +5828,8 @@ const LY_ACTIONS = {
+     lySetupCommit(
+       'returns',
+       [lyGroupsText(groups)],
+-      `${B.title} is declared an exact repeat of ${A.title}.`
++      lyFormMigrated(base.done, `${B.title} is declared an exact repeat of ${A.title}.`),
++      base.text
+     );
+   },
+   'ly-returns-clear'() {
+@@ -5624,7 +5880,8 @@ const LY_ACTIONS = {
+   // unmarked row is legacy by compatibility policy, whatever its age.
+   'ly-drop-undecided'(key) {
+     if (!LY_GROUP_KEYS.includes(key)) return;
+-    const all = lySetupOf(LY.model, key).flatMap((d) => lyRowGroups(d));
++    const base = lyFormBase(key);
++    const all = base.groups;
+     const groups = all.filter((g) => !g.some((m) => m.undecided));
+     const gone = all.filter((g) => g.some((m) => m.undecided));
+     const alien = [
+@@ -5644,16 +5901,31 @@ const LY_ACTIONS = {
+     lySetupCommit(
+       key,
+       groups.length ? [lyGroupsText(groups)] : [],
+-      `Removed ${uiCount(gone.length, noun)} whose word place binds no word: ${why.join('; and ')}. Undo restores ${gone.length === 1 ? 'it' : 'them'}.`
++      lyFormMigrated(
++        base.done,
++        `Removed ${uiCount(gone.length, noun)} whose word place binds no word: ${why.join('; and ')}. Undo restores ${gone.length === 1 ? 'it' : 'them'}.`
++      ),
++      base.text
+     );
+   },
+   // The renumbering card is a record for the writer: dismissing it changes
+   // nothing in the song.
++  // Dismissing is recorded in the current history step (pushHistory merges
++  // a step whose text did not change), so Undo/Redo of a LATER step never
++  // brings the dismissed card back; Undo past this step restores that
++  // step's own record, as it was.
+   'ly-renumbered-dismiss'() {
+-    if (lyMeta().ui) delete lyMeta().ui.renumbered;
++    delete lyMeta().renumbered;
++    LY.renumberedAll = false;
++    uiSaveLyrics();
++    pushHistory();
+     lyMetaSaved();
+     lyRefresh(true);
+   },
++  'ly-renumbered-all'() {
++    LY.renumberedAll = !LY.renumberedAll;
++    lyRefresh(true);
++  },
+   // A named place carried across the word-cut change: the writer keeps the
+   // link as declared, or removes that member (a link left with one member is
+   // removed whole). One Undo step either way.

@@ -1,0 +1,32 @@
+test_a_dash_fragment_head (__main__.SlotBinding.test_a_dash_fragment_head) ... ok
+test_a_default_end_binding_zero_syllables_refuses (__main__.SlotBinding.test_a_default_end_binding_zero_syllables_refuses) ... ok
+test_a_numeral_head_edits_the_word_the_grader_binds (__main__.SlotBinding.test_a_numeral_head_edits_the_word_the_grader_binds) ... ok
+test_a_token_slot_after_a_numeral (__main__.SlotBinding.test_a_token_slot_after_a_numeral) ... ok
+test_a_trailing_margin_numeral (__main__.SlotBinding.test_a_trailing_margin_numeral) ... ok
+test_an_aside_line_the_base_refused (__main__.SlotBinding.test_an_aside_line_the_base_refused) ... ok
+test_aside_modes_normalisation_and_enclitic_pieces (__main__.SlotBinding.test_aside_modes_normalisation_and_enclitic_pieces) ... ok
+test_empty_unread_and_unplaceable_bindings_refuse (__main__.SlotBinding.test_empty_unread_and_unplaceable_bindings_refuse) ... ok
+test_every_v2_edit_lands_on_the_bound_token (__main__.SlotBinding.test_every_v2_edit_lands_on_the_bound_token) ... ok
+test_repeated_words_bind_by_position_not_spelling (__main__.SlotBinding.test_repeated_words_bind_by_position_not_spelling) ... ok
+test_the_cases_wrong_before_the_batch (__main__.SlotBinding.test_the_cases_wrong_before_the_batch) ... ok
+test_the_default_end_checks_its_endpoint_occurrence (__main__.SlotBinding.test_the_default_end_checks_its_endpoint_occurrence) ... ok
+test_the_direct_helper_line_and_group_paths (__main__.SlotBinding.test_the_direct_helper_line_and_group_paths) ... ok
+test_the_revisers_own_lexicon_decides_the_occurrence (__main__.SlotBinding.test_the_revisers_own_lexicon_decides_the_occurrence) ... ok
+test_v1_is_unchanged_whatever_lexicon_is_passed (__main__.SlotBinding.test_v1_is_unchanged_whatever_lexicon_is_passed) ... ok
+test_a_slot_swap_counts_asides_as_the_lexicon_does (__main__.LoopSwaps.test_a_slot_swap_counts_asides_as_the_lexicon_does) ... ok
+test_a_slot_swap_never_fuses_onto_the_next_token (__main__.LoopSwaps.test_a_slot_swap_never_fuses_onto_the_next_token) ... ok
+test_an_end_word_swap_keeps_a_space_or_mark_nfc_replaces (__main__.LoopSwaps.test_an_end_word_swap_keeps_a_space_or_mark_nfc_replaces) ... ok
+test_an_end_word_swap_never_fuses_or_deletes_a_symbol (__main__.LoopSwaps.test_an_end_word_swap_never_fuses_or_deletes_a_symbol) ... ok
+test_an_end_word_swap_never_misses_the_printed_end (__main__.LoopSwaps.test_an_end_word_swap_never_misses_the_printed_end) ... ok
+test_an_end_word_swap_refuses_a_span_holding_a_printed_symbol (__main__.LoopSwaps.test_an_end_word_swap_refuses_a_span_holding_a_printed_symbol) ... ok
+test_the_loops_stock_stubs_splice_under_the_revisers_cut (__main__.LoopSwaps.test_the_loops_stock_stubs_splice_under_the_revisers_cut) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 389.488s
+
+OK
+
+real	6m37.284s
+user	2m42.544s
+sys	0m3.044s
+rc=0

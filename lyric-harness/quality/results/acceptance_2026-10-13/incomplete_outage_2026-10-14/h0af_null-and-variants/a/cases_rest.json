@@ -1,0 +1,106 @@
+[
+ {
+  "name": "L2_prev_rp_v1_f1",
+  "tree": "prev",
+  "state": "rp.json",
+  "files": {
+   "d2.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/t2/d2.txt",
+   "d2.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/t2/d2.txt.briefed.json",
+   "rp.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/rp_v1.json"
+  },
+  "args": [
+   "--reader-scheme=v1",
+   "revise",
+   "{WK}/d2.txt",
+   "AA",
+   "--propose=replay:{WK}/rp.json"
+  ]
+ },
+ {
+  "name": "L5_prev_t5_answered_nullscheme_f2",
+  "tree": "prev",
+  "state": "state.json",
+  "files": {
+   "d6.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/t5_d6.txt",
+   "d6.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/t5_ledger.json",
+   "state.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/t5_answered_nullscheme.json"
+  },
+  "args": [
+   "--reader-scheme=v2",
+   "revise",
+   "{WK}/d6.txt",
+   "--groups=1.T4,4;2.endword,5.endword;3.endword,6.endword;1.head,6.head;2.headrime,4.headrime;3.line,5.line",
+   "--attempts=1",
+   "--propose=defer:{WK}/state.json"
+  ]
+ },
+ {
+  "name": "L5_prev_t5_answered_f2",
+  "tree": "prev",
+  "state": "state.json",
+  "files": {
+   "d6.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/t5_d6.txt",
+   "d6.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/t5_ledger.json",
+   "state.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/t5_answered.json"
+  },
+  "args": [
+   "--reader-scheme=v2",
+   "revise",
+   "{WK}/d6.txt",
+   "--groups=1.T4,4;2.endword,5.endword;3.endword,6.endword;1.head,6.head;2.headrime,4.headrime;3.line,5.line",
+   "--attempts=1",
+   "--propose=defer:{WK}/state.json"
+  ]
+ },
+ {
+  "name": "L2_prev_rp_null_f2",
+  "tree": "prev",
+  "state": "rp.json",
+  "files": {
+   "d2.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/t2/d2.txt",
+   "d2.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/t2/d2.txt.briefed.json",
+   "rp.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/rp_null.json"
+  },
+  "args": [
+   "--reader-scheme=v2",
+   "revise",
+   "{WK}/d2.txt",
+   "AA",
+   "--propose=replay:{WK}/rp.json"
+  ]
+ },
+ {
+  "name": "L2_prev_rp_v1_f2",
+  "tree": "prev",
+  "state": "rp.json",
+  "files": {
+   "d2.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/t2/d2.txt",
+   "d2.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/t2/d2.txt.briefed.json",
+   "rp.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/rp_v1.json"
+  },
+  "args": [
+   "--reader-scheme=v2",
+   "revise",
+   "{WK}/d2.txt",
+   "AA",
+   "--propose=replay:{WK}/rp.json"
+  ]
+ },
+ {
+  "name": "L2_prev_rp_v2_f2",
+  "tree": "prev",
+  "state": "rp.json",
+  "files": {
+   "d2.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/t2/d2.txt",
+   "d2.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/t2/d2.txt.briefed.json",
+   "rp.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/legacy/fx/rp_v2.json"
+  },
+  "args": [
+   "--reader-scheme=v2",
+   "revise",
+   "{WK}/d2.txt",
+   "AA",
+   "--propose=replay:{WK}/rp.json"
+  ]
+ }
+]

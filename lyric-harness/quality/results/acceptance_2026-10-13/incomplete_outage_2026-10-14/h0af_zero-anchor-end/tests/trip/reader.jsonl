@@ -1,0 +1,85 @@
+{"tag": "a3e", "text": "we sing 𝅗𝅥night", "tests": ["test_reader.py:<module>", "test_reader.py:test_an_end_word_swap_refuses_a_span_holding_a_printed_symbol"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the night was zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "I gave the rent of Exmoor", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "and so we sang it 45", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "the bells were ringing a-heavèn", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:test_a_default_end_binding_zero_syllables_refuses", "test_reader.py:swap"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "a song of brook-zzqx", "tests": ["test_reader.py:<module>", "test_reader.py:test_a_default_end_binding_zero_syllables_refuses"]}
+{"tag": "z1", "text": "'Till the Canon atoned the deed,              _110", "tests": ["test_reader.py:test_a_trailing_margin_numeral", "test_reader.py:swap"]}
+{"tag": "z1", "text": "'Till the Canon atoned the deed,              _110", "tests": ["test_reader.py:test_a_trailing_margin_numeral", "test_reader.py:swap"]}
+{"tag": "z1", "text": "With our proud battle-flag o'erhead.", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "With our proud battle-flag o'erhead.", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Scurry, Randall, Riley, Buchel,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Scurry, Randall, Riley, Buchel,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "By the veteran dead, with their banners now furl'd--", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "By the veteran dead, with their banners now furl'd--", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "War's trumpet unblown, and his lances unhurl'd--", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "War's trumpet unblown, and his lances unhurl'd--", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Refus'd then the long-baited lion unchain'd--", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Refus'd then the long-baited lion unchain'd--", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "I watch, but not in gladness,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "I watch, but not in gladness,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Who, when the war-cloud’s thunder pealed,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Who, when the war-cloud’s thunder pealed,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "One honest John Tomkins, a hedger and ditcher,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "One honest John Tomkins, a hedger and ditcher,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "In space's far infinitude!", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "In space's far infinitude!", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Ben, the sunburnt fisher, gaily wooes;", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Ben, the sunburnt fisher, gaily wooes;", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "'Mid the apple-boughs a pigeon cooes:", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "'Mid the apple-boughs a pigeon cooes:", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Now no tear her wasted cheek bedews,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Now no tear her wasted cheek bedews,", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "A glimpse of blue immensity,--", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "A glimpse of blue immensity,--", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Great fleets and argosies;", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Great fleets and argosies;", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Is that clear band of chrysoprase;", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "Is that clear band of chrysoprase;", "tests": ["test_reader.py:test_every_v2_edit_lands_on_the_bound_token", "test_reader.py:swap"]}
+{"tag": "z1", "text": "I want to hold it", "tests": ["test_reader.py:<module>", "test_reader.py:test_the_default_end_checks_its_endpoint_occurrence"]}
+{"tag": "z1", "text": "I want to hold it", "tests": ["test_reader.py:<module>", "test_reader.py:test_the_default_end_checks_its_endpoint_occurrence"]}

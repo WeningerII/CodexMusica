@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "answered": {
+    "propose": [],
+    "propose_group": []
+  },
+  "pending": null,
+  "lexicon": {
+    "supplement_id": null,
+    "sha256": null
+  },
+  "input_draft": [
+    "Hold the lantern high tonight",
+    "Nothing stays the same",
+    "Hold the lantern high tonight",
+    "Every road returns",
+    "I gave my heart away in 1999",
+    "the river ran so fine",
+    "and nobody came",
+    "Oh--oh, oh my sweet design",
+    "the salt is on the sea",
+    "we sang it by the sea--",
+    "the morning took the rain",
+    "and so the night was free"
+  ],
+  "accepted_lines": [
+    "Hold the lantern high tonight",
+    "Nothing stays the same",
+    "Hold the lantern high tonight",
+    "Every road returns",
+    "I gave my heart away in 1999",
+    "the river ran so fine",
+    "and nobody came",
+    "Oh--oh, oh my sweet design",
+    "the salt is on the sea",
+    "we sang it by the sea--",
+    "the morning took the rain",
+    "and so the night was free"
+  ],
+  "outcomes": [],
+  "group_outcomes": [],
+  "dispositions": [],
+  "round": 1,
+  "status": "stopped",
+  "cursor": {
+    "version": 1,
+    "loop": {
+      "phase": "round_open",
+      "round": 1,
+      "draft": [
+        "Hold the lantern high tonight",
+        "Nothing stays the same",
+        "Hold the lantern high tonight",
+        "Every road returns",
+        "I gave my heart away in 1999",
+        "the river ran so fine",
+        "and nobody came",
+        "Oh--oh, oh my sweet design",
+        "the salt is on the sea",
+        "we sang it by the sea--",
+        "the morning took the rain",
+        "and so the night was free"
+      ],
+      "rounds": [],
+      "barren": 0,
+      "menus": []
+    },
+    "tally_hit": 0,
+    "stale": [],
+    "batch_stale": [],
+    "rej": [],
+    "grej": [],
+    "k1": 0,
+    "k2": 0,
+    "digest": "5c213edadb8e4402b5ea8a9344e4090e1c9d5c1c43eb08bf2b3a11629d93b008",
+    "run_key": "3c9728f327835fc2e404b01348156f4a78b26a648b3309b4178e8fa731e4071e",
+    "scorer": "7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a"
+  }
+}

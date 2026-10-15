@@ -1,0 +1,293 @@
+== records differing between 0af (cand) and 695 (prev):
+v2|'twenty\u2010two' :: lex.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twenty\u2010two' :: sup.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twenty\u2010two' :: sup.whole_reading
+    695: null
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], "cmudict"]
+v2|'twenty\u2010two' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|'twen\xadty-two' :: lex.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twen\xadty-two' :: sup.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twen\xadty-two' :: sup.whole_reading
+    695: null
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], "cmudict"]
+v2|'twen\xadty-two' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|'twenty-two\xad' :: lex.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twenty-two\xad' :: sup.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twenty-two\xad' :: sup.whole_reading
+    695: null
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], "cmudict"]
+v2|'twenty-two\xad' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|'street\xadlight' :: sup.pronunciation_variants
+    695: []
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY2", "T"]]
+v2|'street\xadlight' :: sup.whole_reading
+    695: null
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY2", "T"], "moby:3205:attested"]
+v2|'street\xadlight' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "moby:3205:attested"
+v2|'hel\xadlo' :: lex.pronunciation_variants
+    695: []
+    0af: [["HH", "AH0", "L", "OW1"], ["HH", "EH0", "L", "OW1"]]
+v2|'hel\xadlo' :: English(lex).parses#
+    695: 1
+    0af: 2
+v2|'hel\xadlo' :: sup.pronunciation_variants
+    695: []
+    0af: [["HH", "AH0", "L", "OW1"], ["HH", "EH0", "L", "OW1"]]
+v2|'hel\xadlo' :: sup.whole_reading
+    695: null
+    0af: [["HH", "AH0", "L", "OW1"], "cmudict"]
+v2|'hel\xadlo' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|'hel\xadlo' :: English(sup).parses#
+    695: 1
+    0af: 2
+v2|'twenty\u2011two' :: lex.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'eighty\u2010two' :: sup.pronunciation_variants
+    695: []
+    0af: [["EY1", "T", "IY0", "T", "UW2"]]
+v2|'eighty\u2010two' :: sup.whole_reading
+    695: null
+    0af: [["EY1", "T", "IY0", "T", "UW2"], "rule:number-compound"]
+v2|'eighty\u2010two' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "rule:number-compound"
+v2|'eigh\xadty-two' :: sup.pronunciation_variants
+    695: []
+    0af: [["EY1", "T", "IY0", "T", "UW2"]]
+v2|'eigh\xadty-two' :: sup.whole_reading
+    695: null
+    0af: [["EY1", "T", "IY0", "T", "UW2"], "rule:number-compound"]
+v2|'eigh\xadty-two' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "rule:number-compound"
+v2|'eighty-two\xad' :: sup.pronunciation_variants
+    695: []
+    0af: [["EY1", "T", "IY0", "T", "UW2"]]
+v2|'eighty-two\xad' :: sup.whole_reading
+    695: null
+    0af: [["EY1", "T", "IY0", "T", "UW2"], "rule:number-compound"]
+v2|'eighty-two\xad' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "rule:number-compound"
+v2|'re\xadad' :: lex.pronunciation_variants
+    695: []
+    0af: [["R", "EH1", "D"], ["R", "IY1", "D"]]
+v2|'re\xadad' :: English(lex).parses#
+    695: 1
+    0af: 2
+v2|'re\xadad' :: sup.pronunciation_variants
+    695: []
+    0af: [["R", "EH1", "D"], ["R", "IY1", "D"]]
+v2|'re\xadad' :: sup.whole_reading
+    695: null
+    0af: [["R", "EH1", "D"], "cmudict"]
+v2|'re\xadad' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|'re\xadad' :: English(sup).parses#
+    695: 1
+    0af: 2
+v2|'li\xadve' :: lex.pronunciation_variants
+    695: []
+    0af: [["L", "AY1", "V"], ["L", "IH1", "V"]]
+v2|'li\xadve' :: English(lex).parses#
+    695: 1
+    0af: 2
+v2|'li\xadve' :: sup.pronunciation_variants
+    695: []
+    0af: [["L", "AY1", "V"], ["L", "IH1", "V"]]
+v2|'li\xadve' :: sup.whole_reading
+    695: null
+    0af: [["L", "AY1", "V"], "cmudict"]
+v2|'li\xadve' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|'li\xadve' :: English(sup).parses#
+    695: 1
+    0af: 2
+v2|'street\xadli\xadght' :: sup.pronunciation_variants
+    695: []
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY2", "T"]]
+v2|'street\xadli\xadght' :: sup.whole_reading
+    695: null
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY2", "T"], "moby:3205:attested"]
+v2|'street\xadli\xadght' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "moby:3205:attested"
+v2|'Hel\xadlo' :: lex.pronunciation_variants
+    695: []
+    0af: [["HH", "AH0", "L", "OW1"], ["HH", "EH0", "L", "OW1"]]
+v2|'Hel\xadlo' :: English(lex).parses#
+    695: 1
+    0af: 2
+v2|'Hel\xadlo' :: sup.pronunciation_variants
+    695: []
+    0af: [["HH", "AH0", "L", "OW1"], ["HH", "EH0", "L", "OW1"]]
+v2|'Hel\xadlo' :: sup.whole_reading
+    695: null
+    0af: [["HH", "AH0", "L", "OW1"], "cmudict"]
+v2|'Hel\xadlo' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|'Hel\xadlo' :: English(sup).parses#
+    695: 1
+    0af: 2
+v2|'twenty\xad-two' :: lex.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twenty\xad-two' :: sup.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twenty\xad-two' :: sup.whole_reading
+    695: null
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], "cmudict"]
+v2|'twenty\xad-two' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|'twenty-\xadtwo' :: lex.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twenty-\xadtwo' :: sup.pronunciation_variants
+    695: []
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"]]
+v2|'twenty-\xadtwo' :: sup.whole_reading
+    695: null
+    0af: [["T", "W", "EH1", "N", "T", "IY0", "T", "UW2"], "cmudict"]
+v2|'twenty-\xadtwo' :: sup.reading_source(w, pv[0])
+    695: null
+    0af: "cmudict"
+v2|DECLARED|lex|read :: pv 're\xadad'
+    695: []
+    0af: [["R", "EH1", "D"]]
+v2|DECLARED|sup|read :: pv 're\xadad'
+    695: []
+    0af: [["R", "EH1", "D"]]
+v2|DECLARED|sup|read :: whole 're\xadad'
+    695: null
+    0af: [["R", "EH1", "D"], "cmudict"]
+v2|DECLARED|lex|live :: pv 'li\xadve'
+    695: []
+    0af: [["L", "IH1", "V"]]
+v2|DECLARED|sup|live :: pv 'li\xadve'
+    695: []
+    0af: [["L", "IH1", "V"]]
+v2|DECLARED|sup|live :: whole 'li\xadve'
+    695: null
+    0af: [["L", "IH1", "V"], "cmudict"]
+v2|DECLARED|lex|hello :: pv 'hel\xadlo'
+    695: []
+    0af: [["HH", "EH0", "L", "OW1"]]
+v2|DECLARED|lex|hello :: pv 'Hel\xadlo'
+    695: []
+    0af: [["HH", "EH0", "L", "OW1"]]
+v2|DECLARED|sup|hello :: pv 'hel\xadlo'
+    695: []
+    0af: [["HH", "EH0", "L", "OW1"]]
+v2|DECLARED|sup|hello :: whole 'hel\xadlo'
+    695: null
+    0af: [["HH", "EH0", "L", "OW1"], "cmudict"]
+v2|DECLARED|sup|hello :: pv 'Hel\xadlo'
+    695: []
+    0af: [["HH", "EH0", "L", "OW1"]]
+v2|DECLARED|sup|hello :: whole 'Hel\xadlo'
+    695: null
+    0af: [["HH", "EH0", "L", "OW1"], "cmudict"]
+v2|DECLARED|lex|twenty-two :: pv 'twenty\u2010two'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|lex|twenty-two :: pv 'twen\xadty-two'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|lex|twenty-two :: pv 'twenty-two\xad'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|lex|twenty-two :: pv 'twenty\u2011two'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|lex|twenty-two :: pv 'twenty\xad-two'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|lex|twenty-two :: pv 'twenty-\xadtwo'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|sup|twenty-two :: pv 'twenty\u2010two'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|sup|twenty-two :: whole 'twenty\u2010two'
+    695: null
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"], "cmudict"]
+v2|DECLARED|sup|twenty-two :: pv 'twen\xadty-two'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|sup|twenty-two :: whole 'twen\xadty-two'
+    695: null
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"], "cmudict"]
+v2|DECLARED|sup|twenty-two :: pv 'twenty-two\xad'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|sup|twenty-two :: whole 'twenty-two\xad'
+    695: null
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"], "cmudict"]
+v2|DECLARED|sup|twenty-two :: pv 'twenty\u2011two'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|sup|twenty-two :: whole 'twenty\u2011two'
+    695: null
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"], "cmudict"]
+v2|DECLARED|sup|twenty-two :: pv 'twenty\xad-two'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|sup|twenty-two :: whole 'twenty\xad-two'
+    695: null
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"], "cmudict"]
+v2|DECLARED|sup|twenty-two :: pv 'twenty-\xadtwo'
+    695: []
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"]]
+v2|DECLARED|sup|twenty-two :: whole 'twenty-\xadtwo'
+    695: null
+    0af: [["T", "W", "EH1", "N", "IY0", "T", "UW1"], "cmudict"]
+v2|DECLARED|lex|streetlight :: pv 'street\xadlight'
+    695: []
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY0", "T"]]
+v2|DECLARED|lex|streetlight :: pv 'street\xadli\xadght'
+    695: []
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY0", "T"]]
+v2|DECLARED|sup|streetlight :: pv 'street\xadlight'
+    695: []
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY0", "T"]]
+v2|DECLARED|sup|streetlight :: whole 'street\xadlight'
+    695: null
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY0", "T"], "cmudict"]
+v2|DECLARED|sup|streetlight :: pv 'street\xadli\xadght'
+    695: []
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY0", "T"]]
+v2|DECLARED|sup|streetlight :: whole 'street\xadli\xadght'
+    695: null
+    0af: [["S", "T", "R", "IY1", "T", "L", "AY0", "T"], "cmudict"]
+
+== identical records: 39 of 64
+v1 records differing: []
+DECLARED records differing: ['v2|DECLARED|lex|read', 'v2|DECLARED|sup|read', 'v2|DECLARED|lex|live', 'v2|DECLARED|sup|live', 'v2|DECLARED|lex|hello', 'v2|DECLARED|sup|hello', 'v2|DECLARED|lex|twenty-two', 'v2|DECLARED|sup|twenty-two', 'v2|DECLARED|lex|streetlight', 'v2|DECLARED|sup|streetlight']

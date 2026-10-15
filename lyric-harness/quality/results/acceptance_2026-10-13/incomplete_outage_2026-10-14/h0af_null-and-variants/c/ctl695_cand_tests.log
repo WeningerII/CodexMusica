@@ -1,0 +1,32 @@
+test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch) ... ERROR
+test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is) ... FAIL
+test_a_supplemented_bare_word_is_normalised_as_a_token_is (quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is) ... ok
+
+======================================================================
+ERROR: test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/c/ctl695/lyric-harness/quality/test_reader.py", line 2212, in test_a_present_null_scheme_is_malformed_not_pre_batch
+    self.assertEqual(LH._record_scheme({}), "v1")
+                     ^^^^^^^^^^^^^^^^^
+AttributeError: module 'lyric_harness' has no attribute '_record_scheme'
+
+======================================================================
+FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/c/ctl695/lyric-harness/quality/test_reader.py", line 494, in test_bare_word_variants_are_normalised_as_a_token_is
+    self.assertEqual(v2.pronunciation_variants(spelling), want, spelling)
+AssertionError: Lists differ: [] != [['R', 'EH1', 'D'], ['R', 'IY1', 'D']]
+
+Second list contains 2 additional elements.
+First extra element 0:
+['R', 'EH1', 'D']
+
+- []
++ [['R', 'EH1', 'D'], ['R', 'IY1', 'D']] : re­ad
+
+----------------------------------------------------------------------
+Ran 3 tests in 5.022s
+
+FAILED (failures=1, errors=1)

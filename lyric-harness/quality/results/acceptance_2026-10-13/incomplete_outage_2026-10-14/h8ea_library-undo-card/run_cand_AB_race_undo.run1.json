@@ -1,0 +1,742 @@
+{
+ "tree": "cand",
+ "dir": "wt-8ea",
+ "fixture": "AB",
+ "built": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/library-undo-card/build-wt-8ea/built-wt-8ea.html",
+ "race_undo": {
+  "st": [
+   {
+    "tag": "1 APP Undo: #btn-undo, mouse click clicked 253 ms after B went live, +3s",
+    "t": 1791984479836,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+    "libraryOrigin": null,
+    "renumbered": {
+     "at": "renumbered",
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "part",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "renumbered": null,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ]
+      },
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+      "adapted": null,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+      },
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:76d609ef-443e-41ec-bc54-fff1acb21d09",
+      "adapted": false,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "returns",
+         "word": "love",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "dove",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "draftId": "draft:76d609ef-443e-41ec-bc54-fff1acb21d09"
+      },
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+     "renumbered": {
+      "at": "renumbered",
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "heart",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "part",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+     "renumbered": {
+      "at": "renumbered",
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "heart",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "part",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "rows": [
+       "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+      ],
+      "savedAt": 1791984479754,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+      },
+      "adapted": null,
+      "origTextHead": null
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:76d609ef-443e-41ec-bc54-fff1acb21d09",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "rows": [
+       "[SETUP — returns — 1.T4,2.T4]"
+      ],
+      "savedAt": 1791984476061,
+      "renumbered": null,
+      "adapted": false,
+      "origTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.",
+     "2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.",
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "2 APP Redo: #btn-redo, mouse click then APP Undo: #btn-undo, mouse click 40 ms apart, +3s (expect A)",
+    "t": 1791984483429,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+    "libraryOrigin": null,
+    "renumbered": {
+     "at": "renumbered",
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "part",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "",
+      "draftId": null,
+      "adapted": null,
+      "renumbered": null,
+      "cur": false
+     },
+     {
+      "i": 1,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": null,
+      "adapted": null,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ]
+      },
+      "cur": false
+     },
+     {
+      "i": 2,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+      "adapted": null,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+      },
+      "cur": true
+     },
+     {
+      "i": 3,
+      "head": "[SETUP — title — \"Song B\"]",
+      "draftId": "draft:76d609ef-443e-41ec-bc54-fff1acb21d09",
+      "adapted": false,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "returns",
+         "word": "love",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "returns",
+         "word": "dove",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "draftId": "draft:76d609ef-443e-41ec-bc54-fff1acb21d09"
+      },
+      "cur": false
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+     "renumbered": {
+      "at": "renumbered",
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "heart",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "part",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+     "renumbered": {
+      "at": "renumbered",
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "heart",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "part",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "rows": [
+       "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+      ],
+      "savedAt": 1791984483326,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+      },
+      "adapted": null,
+      "origTextHead": null
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:76d609ef-443e-41ec-bc54-fff1acb21d09",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "rows": [
+       "[SETUP — returns — 1.T4,2.T4]"
+      ],
+      "savedAt": 1791984476061,
+      "renumbered": null,
+      "adapted": false,
+      "origTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": [
+     "Library working copy imported. Your previous draft is under History."
+    ]
+   },
+   {
+    "tag": "3 after reload",
+    "t": 1791984486914,
+    "text": "[SETUP — title — \"Song A\"]\n[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]\n\n[VERSE]\nAh--ah, ah my heart is burning\nAh--ah, ah my part is turning",
+    "head": "[SETUP — title — \"Song A\"]",
+    "setupRows": [
+     "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+    ],
+    "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+    "libraryOrigin": null,
+    "renumbered": {
+     "at": "renumbered",
+     "items": [
+      {
+       "kind": "rhyme groups",
+       "word": "heart",
+       "n": [
+        1
+       ],
+       "from": 4,
+       "to": 5
+      },
+      {
+       "kind": "rhyme groups",
+       "word": "part",
+       "n": [
+        2
+       ],
+       "from": 4,
+       "to": 5
+      }
+     ],
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+    },
+    "lyTab": "review",
+    "reviewPanelVisible": true,
+    "reviewCardLines": [
+     "2 saved word numbers renumbered to the current word cut",
+     "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    ],
+    "lyItemCard": {
+     "title": "2 saved word numbers renumbered to the current word cut",
+     "text": "Each was saved without the current cut mark, so it was read as numbered under the earlier word cut and moved to the word of the current cut on exactly the same characters: a rhyme link on “heart”, line 1: word 4 → 5; a rhyme link on “part”, line 2: word 4 → 5. Nothing else about them changed. Dismiss this when you have checked them."
+    },
+    "history": [
+     {
+      "i": 0,
+      "head": "[SETUP — title — \"Song A\"]",
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+      "adapted": null,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+      },
+      "cur": true
+     }
+    ],
+    "localStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+     "renumbered": {
+      "at": "renumbered",
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "heart",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "part",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+     }
+    },
+    "sessionStorage": {
+     "head": "[SETUP — title — \"Song A\"]",
+     "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+     "renumbered": {
+      "at": "renumbered",
+      "items": [
+       {
+        "kind": "rhyme groups",
+        "word": "heart",
+        "n": [
+         1
+        ],
+        "from": 4,
+        "to": 5
+       },
+       {
+        "kind": "rhyme groups",
+        "word": "part",
+        "n": [
+         2
+        ],
+        "from": 4,
+        "to": 5
+       }
+      ],
+      "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+     }
+    },
+    "idb": [
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:169dac81-eec9-442f-a279-ba0c40344367",
+      "title": "Song A",
+      "head": "[SETUP — title — \"Song A\"]",
+      "rows": [
+       "[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"
+      ],
+      "savedAt": 1791984486828,
+      "renumbered": {
+       "at": "renumbered",
+       "items": [
+        {
+         "kind": "rhyme groups",
+         "word": "heart",
+         "n": [
+          1
+         ],
+         "from": 4,
+         "to": 5
+        },
+        {
+         "kind": "rhyme groups",
+         "word": "part",
+         "n": [
+          2
+         ],
+         "from": 4,
+         "to": 5
+        }
+       ],
+       "draftId": "draft:169dac81-eec9-442f-a279-ba0c40344367"
+      },
+      "adapted": null,
+      "origTextHead": null
+     },
+     {
+      "db": "codex-musica-library-drafts",
+      "store": "drafts",
+      "key": "draft:76d609ef-443e-41ec-bc54-fff1acb21d09",
+      "title": "Song B",
+      "head": "[SETUP — title — \"Song B\"]",
+      "rows": [
+       "[SETUP — returns — 1.T4,2.T4]"
+      ],
+      "savedAt": 1791984476061,
+      "renumbered": null,
+      "adapted": false,
+      "origTextHead": "[SETUP — title — \"Song B\"]"
+     }
+    ],
+    "toasts": []
+   }
+  ],
+  "s3": {
+   "hits": {
+    "heart": [
+     "localStorage:codex-workbench-v1",
+     "sessionStorage:codex-workbench-recovery",
+     "idb:codex-musica-library-drafts/drafts/draft:169dac81-eec9-442f-a279-ba0c40344367",
+     "history[0]*"
+    ],
+    "part": [
+     "localStorage:codex-workbench-v1",
+     "sessionStorage:codex-workbench-recovery",
+     "idb:codex-musica-library-drafts/drafts/draft:169dac81-eec9-442f-a279-ba0c40344367",
+     "history[0]*"
+    ],
+    "love": [],
+    "dove": [],
+    "night": [],
+    "light": [],
+    "gold": [],
+    "road": []
+   }
+  },
+  "errors": [],
+  "idB": "draft:76d609ef-443e-41ec-bc54-fff1acb21d09"
+ }
+}

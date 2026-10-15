@@ -1,0 +1,3612 @@
+{
+ "R_cand_absent_nf": {
+  "name": "R_cand_absent_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "d1bbbb8340ab29f9f6456b939cb1f72f42c41b5caffe5b39df516088f6a705ea",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "2bb3ffe6d6233619d870635cbf7eb72fc90ce96ebe6e7ec93fc475b68a64ff82"
+ },
+ "R_cand_null_nf": {
+  "name": "R_cand_null_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "839c319fb6e9abb99054cbd298ffdc31616177c54b20d7de26a359e11352a62d",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "5946eede7127a5d6e257ea557240e7e77435cd48ee8cebcdf5c66d206b756541"
+ },
+ "R_cand_v1_nf": {
+  "name": "R_cand_v1_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "d1bbbb8340ab29f9f6456b939cb1f72f42c41b5caffe5b39df516088f6a705ea",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "2bb3ffe6d6233619d870635cbf7eb72fc90ce96ebe6e7ec93fc475b68a64ff82"
+ },
+ "R_cand_v2_nf": {
+  "name": "R_cand_v2_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "c758b914c7621749e6eeb23f61e17128e61a2f036a6ac317698e540b2a58a901",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "0b4b6542690161fcc3be0f4c77c424cec38ff112a780bccd4ef0a2b919a8c47a"
+ },
+ "R_cand_v9_nf": {
+  "name": "R_cand_v9_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "34119675ba44a62dfd3e55e1fb79b67bab263da44f489b1dcfbecee3b358ed3a",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "78e2a86d529bad86cbdd4ffc2f3ae1e11d7667a6bb540da8e99720bb00a0f8c0"
+ },
+ "R_cand_empty_nf": {
+  "name": "R_cand_empty_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "9f474564bb5ffe2c9698f699e6e2fa45b92d8b87fbb6c6b6af1128a6a90909de",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73b61819cedea0e3979e928a04efd290921a665f8a75f8a6661bd4e2d5cc9c13"
+ },
+ "R_cand_upper_nf": {
+  "name": "R_cand_upper_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "2da3826248a565f31139a361faa3504511af9e89c6606574b5734e3268151911",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8a86054dbb4705812b4f03517af3da5c4561cfad168cc2b734847152f60035bd"
+ },
+ "R_cand_v2_answerednull_nf": {
+  "name": "R_cand_v2_answerednull_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "c758b914c7621749e6eeb23f61e17128e61a2f036a6ac317698e540b2a58a901",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "0b4b6542690161fcc3be0f4c77c424cec38ff112a780bccd4ef0a2b919a8c47a"
+ },
+ "R_cand_absent_answerednull_nf": {
+  "name": "R_cand_absent_answerednull_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "d1bbbb8340ab29f9f6456b939cb1f72f42c41b5caffe5b39df516088f6a705ea",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "2bb3ffe6d6233619d870635cbf7eb72fc90ce96ebe6e7ec93fc475b68a64ff82"
+ },
+ "T_cand_absent_nf": {
+  "name": "T_cand_absent_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "774c2deabfe163f52d43d21d7701aa435691537723ff88feb1195194688caf46",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_cand_null_nf": {
+  "name": "T_cand_null_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "19fb12c711aedbbebbb5067e30d99c8338fb9285b1bb7bdc7bc93bfc531afad3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "5946eede7127a5d6e257ea557240e7e77435cd48ee8cebcdf5c66d206b756541"
+ },
+ "T_cand_v1_nf": {
+  "name": "T_cand_v1_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "58a17705424d37d873039ab18e4acb97a9eb08667a754f5f53ae9b4e380577b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_cand_v2_nf": {
+  "name": "T_cand_v2_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "bf9a762c60434223693523ecc43a1f9e82ea5eb01264c0cbde5cd2859d11cfb3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fe61efe0eb7c1ab59bb7d79aecd953cfbca44503a2df36b8cc7e3a492ae4c11d"
+ },
+ "T_cand_v9_nf": {
+  "name": "T_cand_v9_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "57ba56bf1e5722245f2058cf3c41fa29af35256ea08626c32fa40a72fa62aeb8",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "78e2a86d529bad86cbdd4ffc2f3ae1e11d7667a6bb540da8e99720bb00a0f8c0"
+ },
+ "T_cand_empty_nf": {
+  "name": "T_cand_empty_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "74d62bbe8f51dfd774f5344a032f0d8bbfd2872c5b209696d99cad17703e78b5",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73b61819cedea0e3979e928a04efd290921a665f8a75f8a6661bd4e2d5cc9c13"
+ },
+ "T_cand_upper_nf": {
+  "name": "T_cand_upper_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "8e7c6966f0a5d588047037249a87bdbbe9eee7322e59bf58d32ea8eefe172dd6",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8a86054dbb4705812b4f03517af3da5c4561cfad168cc2b734847152f60035bd"
+ },
+ "P_cand_absent_nf": {
+  "name": "P_cand_absent_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "2043eb13315b7741c3b75499f814a5179f8e98121429e19cc88edd75efd78810",
+  "other_changed": [],
+  "stdout_norm_sha": "c72082a93cc63d63001827121fb8239c5eb9147008b17e47ba20c5153775b3dc"
+ },
+ "P_cand_null_nf": {
+  "name": "P_cand_null_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a26d2a3f046f62cbee5e820446168366b8b19d416f439845679e4ab10d67dfd0",
+  "other_changed": [],
+  "stdout_norm_sha": "68d51005f2dfcbd029068dba66f0569f6b197e057b21e0b0bf6f336068195b01"
+ },
+ "P_cand_v1_nf": {
+  "name": "P_cand_v1_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "5c17bb885588a1d4a2971aeec12f36833fc110c55a6d847d8ddf14b40f8e0395",
+  "other_changed": [],
+  "stdout_norm_sha": "c72082a93cc63d63001827121fb8239c5eb9147008b17e47ba20c5153775b3dc"
+ },
+ "P_cand_v2_nf": {
+  "name": "P_cand_v2_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "324f55fee48aa57fcee0266b457bd8e2a6bdf97200718c18baeb846c2f1717e7",
+  "other_changed": [],
+  "stdout_norm_sha": "587fc6ac333bf71fecab9b8a734994d8dc355f332d70dbd2ecb531911b0b8b9f"
+ },
+ "P_cand_v9_nf": {
+  "name": "P_cand_v9_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "90e99352e8a55284cc0a4de125c00de1eaae024fc77df7ff5de7db3310b1ccb9",
+  "other_changed": [],
+  "stdout_norm_sha": "7dff040ba4132b87bcc32363147f9515aadadfdecba6f79ce2fd162fde1d77e7"
+ },
+ "P_cand_empty_nf": {
+  "name": "P_cand_empty_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "1188c781e7616f21ea60400a58c136ed4a1b5a0fa48b63a820888ca360c0ba85",
+  "other_changed": [],
+  "stdout_norm_sha": "0dd15bf860d131f84344914d9fcfd601b7e969ef17eb90017660feb1d990c8f9"
+ },
+ "P_cand_upper_nf": {
+  "name": "P_cand_upper_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a49269c0753346bc132c5a1ebbca2275b4cdd5000d0f383c8e6c67ec3acd827a",
+  "other_changed": [],
+  "stdout_norm_sha": "83b16f223e855469f299ed66e7817d69baf71c0d65f70167cabcb169b287adb4"
+ },
+ "K_cand_absent_nf": {
+  "name": "K_cand_absent_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: input, declaration, proposer or version differs",
+  "state_unchanged": true,
+  "state_sha_after": "146be8022665c4b438911a1a702cde7d408e7a981de91a5018488c26fb22eade",
+  "other_changed": [],
+  "stdout_norm_sha": "3d2521a294083585512e98bd594785b7444335d6f25e906b6802554c0b412aa1"
+ },
+ "K_cand_null_nf": {
+  "name": "K_cand_null_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "5b1723486dfbb6335a0bc1c12552da66b1817dfaceba3c82d8a42d86317a026c",
+  "other_changed": [],
+  "stdout_norm_sha": "b3883d14840ec6eccfdb2949ce1aef64933bd63ea20437881d8219a88c777fb3"
+ },
+ "K_cand_v1_nf": {
+  "name": "K_cand_v1_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: input, declaration, proposer or version differs",
+  "state_unchanged": true,
+  "state_sha_after": "50caf0df77e5495f4848218a497bccc435d81b0949750f40b83ed7585af2b0dc",
+  "other_changed": [],
+  "stdout_norm_sha": "3d2521a294083585512e98bd594785b7444335d6f25e906b6802554c0b412aa1"
+ },
+ "K_cand_v2_nf": {
+  "name": "K_cand_v2_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "8effcc3a2a31e0c0a4ab44245fbe5bb171d90aa6e339680ffd9d6efef33c8737",
+  "other_changed": [],
+  "stdout_norm_sha": "14d9aaca0384ddc18f20a4bc490dd282bab4cfc53ccdd193d6f7df73d2a9cfc6"
+ },
+ "K_cand_v9_nf": {
+  "name": "K_cand_v9_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "70149293c63dd54667979f9fef9f481d87b612dcac1eb1b038809cb2dfa631d9",
+  "other_changed": [],
+  "stdout_norm_sha": "f941cd8df7f1b51e129ad4981f3163432cdbeb9aeaaec98668573d09711d3787"
+ },
+ "K_cand_empty_nf": {
+  "name": "K_cand_empty_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "b22ea383deb3c2741453e324c9fa64e5678f7350cf11dc390c7b0e60adc8d5bf",
+  "other_changed": [],
+  "stdout_norm_sha": "fbfaac91f74e3caf3c00f43b22283481fd7513baa3a405b61a17f8a587bf9057"
+ },
+ "K_cand_upper_nf": {
+  "name": "K_cand_upper_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "750c8a809b6dcfd37bceaaf21f849ec49859a67b6f842d2ada9f1c4bc44f5ae3",
+  "other_changed": [],
+  "stdout_norm_sha": "8e1a1b7282bd3f7492446b0ca8f227f82923ea3aea79151b5583303b0a144f18"
+ },
+ "Nr_cand_new_nf": {
+  "name": "Nr_cand_new_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "draft.txt.briefed.json",
+   "state_new.json"
+  ],
+  "stdout_norm_sha": "034cacd546a25644058c24091ac30e791b721673421aeb9353a457dc553fa980"
+ },
+ "Nk_cand_new_nf": {
+  "name": "Nk_cand_new_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "ck_new.json"
+  ],
+  "stdout_norm_sha": "add474e142be333dbfaefcb142d8c5338e58ec2c57b91538a30a005ef3b9fb15"
+ },
+ "R_cand_absent_f1": {
+  "name": "R_cand_absent_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "d1bbbb8340ab29f9f6456b939cb1f72f42c41b5caffe5b39df516088f6a705ea",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "2bb3ffe6d6233619d870635cbf7eb72fc90ce96ebe6e7ec93fc475b68a64ff82"
+ },
+ "R_cand_null_f1": {
+  "name": "R_cand_null_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "839c319fb6e9abb99054cbd298ffdc31616177c54b20d7de26a359e11352a62d",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "5946eede7127a5d6e257ea557240e7e77435cd48ee8cebcdf5c66d206b756541"
+ },
+ "R_cand_v1_f1": {
+  "name": "R_cand_v1_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "d1bbbb8340ab29f9f6456b939cb1f72f42c41b5caffe5b39df516088f6a705ea",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "2bb3ffe6d6233619d870635cbf7eb72fc90ce96ebe6e7ec93fc475b68a64ff82"
+ },
+ "R_cand_v2_f1": {
+  "name": "R_cand_v2_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v2, and this call declares v1. Resume it under --reader-scheme=v2 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "cfc88effc5deac17a8c3e5a125301f026540603ecc8bd610a7e4bd866b4a1cee",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73a987c68406a216b7240cdbd99134f83b37039e83e75d5a30c44d938ef75bab"
+ },
+ "R_cand_v9_f1": {
+  "name": "R_cand_v9_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "34119675ba44a62dfd3e55e1fb79b67bab263da44f489b1dcfbecee3b358ed3a",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "78e2a86d529bad86cbdd4ffc2f3ae1e11d7667a6bb540da8e99720bb00a0f8c0"
+ },
+ "R_cand_empty_f1": {
+  "name": "R_cand_empty_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "9f474564bb5ffe2c9698f699e6e2fa45b92d8b87fbb6c6b6af1128a6a90909de",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73b61819cedea0e3979e928a04efd290921a665f8a75f8a6661bd4e2d5cc9c13"
+ },
+ "R_cand_upper_f1": {
+  "name": "R_cand_upper_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "2da3826248a565f31139a361faa3504511af9e89c6606574b5734e3268151911",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8a86054dbb4705812b4f03517af3da5c4561cfad168cc2b734847152f60035bd"
+ },
+ "R_cand_v2_answerednull_f1": {
+  "name": "R_cand_v2_answerednull_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v2, and this call declares v1. Resume it under --reader-scheme=v2 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "ce958bd3c57e7c0109f10e4c1f4832838556cc28b4d25ca33b37e7836c2dbba8",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73a987c68406a216b7240cdbd99134f83b37039e83e75d5a30c44d938ef75bab"
+ },
+ "R_cand_absent_answerednull_f1": {
+  "name": "R_cand_absent_answerednull_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "d1bbbb8340ab29f9f6456b939cb1f72f42c41b5caffe5b39df516088f6a705ea",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "2bb3ffe6d6233619d870635cbf7eb72fc90ce96ebe6e7ec93fc475b68a64ff82"
+ },
+ "T_cand_absent_f1": {
+  "name": "T_cand_absent_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "774c2deabfe163f52d43d21d7701aa435691537723ff88feb1195194688caf46",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_cand_null_f1": {
+  "name": "T_cand_null_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "19fb12c711aedbbebbb5067e30d99c8338fb9285b1bb7bdc7bc93bfc531afad3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "5946eede7127a5d6e257ea557240e7e77435cd48ee8cebcdf5c66d206b756541"
+ },
+ "T_cand_v1_f1": {
+  "name": "T_cand_v1_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "58a17705424d37d873039ab18e4acb97a9eb08667a754f5f53ae9b4e380577b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_cand_v2_f1": {
+  "name": "T_cand_v2_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v2, and this call declares v1. Resume it under --reader-scheme=v2 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "bf9a762c60434223693523ecc43a1f9e82ea5eb01264c0cbde5cd2859d11cfb3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73a987c68406a216b7240cdbd99134f83b37039e83e75d5a30c44d938ef75bab"
+ },
+ "T_cand_v9_f1": {
+  "name": "T_cand_v9_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "57ba56bf1e5722245f2058cf3c41fa29af35256ea08626c32fa40a72fa62aeb8",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "78e2a86d529bad86cbdd4ffc2f3ae1e11d7667a6bb540da8e99720bb00a0f8c0"
+ },
+ "T_cand_empty_f1": {
+  "name": "T_cand_empty_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "74d62bbe8f51dfd774f5344a032f0d8bbfd2872c5b209696d99cad17703e78b5",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73b61819cedea0e3979e928a04efd290921a665f8a75f8a6661bd4e2d5cc9c13"
+ },
+ "T_cand_upper_f1": {
+  "name": "T_cand_upper_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "8e7c6966f0a5d588047037249a87bdbbe9eee7322e59bf58d32ea8eefe172dd6",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8a86054dbb4705812b4f03517af3da5c4561cfad168cc2b734847152f60035bd"
+ },
+ "P_cand_absent_f1": {
+  "name": "P_cand_absent_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "2043eb13315b7741c3b75499f814a5179f8e98121429e19cc88edd75efd78810",
+  "other_changed": [],
+  "stdout_norm_sha": "c72082a93cc63d63001827121fb8239c5eb9147008b17e47ba20c5153775b3dc"
+ },
+ "P_cand_null_f1": {
+  "name": "P_cand_null_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a26d2a3f046f62cbee5e820446168366b8b19d416f439845679e4ab10d67dfd0",
+  "other_changed": [],
+  "stdout_norm_sha": "68d51005f2dfcbd029068dba66f0569f6b197e057b21e0b0bf6f336068195b01"
+ },
+ "P_cand_v1_f1": {
+  "name": "P_cand_v1_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "5c17bb885588a1d4a2971aeec12f36833fc110c55a6d847d8ddf14b40f8e0395",
+  "other_changed": [],
+  "stdout_norm_sha": "c72082a93cc63d63001827121fb8239c5eb9147008b17e47ba20c5153775b3dc"
+ },
+ "P_cand_v2_f1": {
+  "name": "P_cand_v2_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v2, and this call declares v1. Replay it under --reader-scheme=v2 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "324f55fee48aa57fcee0266b457bd8e2a6bdf97200718c18baeb846c2f1717e7",
+  "other_changed": [],
+  "stdout_norm_sha": "9e915cbbd101bdf28b68d194b8fa67944171092ad499817f54f2223001561eb8"
+ },
+ "P_cand_v9_f1": {
+  "name": "P_cand_v9_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "90e99352e8a55284cc0a4de125c00de1eaae024fc77df7ff5de7db3310b1ccb9",
+  "other_changed": [],
+  "stdout_norm_sha": "7dff040ba4132b87bcc32363147f9515aadadfdecba6f79ce2fd162fde1d77e7"
+ },
+ "P_cand_empty_f1": {
+  "name": "P_cand_empty_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "1188c781e7616f21ea60400a58c136ed4a1b5a0fa48b63a820888ca360c0ba85",
+  "other_changed": [],
+  "stdout_norm_sha": "0dd15bf860d131f84344914d9fcfd601b7e969ef17eb90017660feb1d990c8f9"
+ },
+ "P_cand_upper_f1": {
+  "name": "P_cand_upper_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a49269c0753346bc132c5a1ebbca2275b4cdd5000d0f383c8e6c67ec3acd827a",
+  "other_changed": [],
+  "stdout_norm_sha": "83b16f223e855469f299ed66e7817d69baf71c0d65f70167cabcb169b287adb4"
+ },
+ "K_cand_absent_f1": {
+  "name": "K_cand_absent_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: input, declaration, proposer or version differs",
+  "state_unchanged": true,
+  "state_sha_after": "146be8022665c4b438911a1a702cde7d408e7a981de91a5018488c26fb22eade",
+  "other_changed": [],
+  "stdout_norm_sha": "3d2521a294083585512e98bd594785b7444335d6f25e906b6802554c0b412aa1"
+ },
+ "K_cand_null_f1": {
+  "name": "K_cand_null_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "5b1723486dfbb6335a0bc1c12552da66b1817dfaceba3c82d8a42d86317a026c",
+  "other_changed": [],
+  "stdout_norm_sha": "b3883d14840ec6eccfdb2949ce1aef64933bd63ea20437881d8219a88c777fb3"
+ },
+ "K_cand_v1_f1": {
+  "name": "K_cand_v1_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: input, declaration, proposer or version differs",
+  "state_unchanged": true,
+  "state_sha_after": "50caf0df77e5495f4848218a497bccc435d81b0949750f40b83ed7585af2b0dc",
+  "other_changed": [],
+  "stdout_norm_sha": "3d2521a294083585512e98bd594785b7444335d6f25e906b6802554c0b412aa1"
+ },
+ "K_cand_v2_f1": {
+  "name": "K_cand_v2_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v2', and this call reads v1; resume it with no --reader-scheme (or --reader-scheme=v2), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "c13cf2dedaebc94d6ee4e8945228358f2118ad93e94c5f6770c50325a7a04fb6",
+  "other_changed": [],
+  "stdout_norm_sha": "b8364630555799e0de220dfa5819663acba5728ce0ac928767f88a7860089b21"
+ },
+ "K_cand_v9_f1": {
+  "name": "K_cand_v9_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "70149293c63dd54667979f9fef9f481d87b612dcac1eb1b038809cb2dfa631d9",
+  "other_changed": [],
+  "stdout_norm_sha": "f941cd8df7f1b51e129ad4981f3163432cdbeb9aeaaec98668573d09711d3787"
+ },
+ "K_cand_empty_f1": {
+  "name": "K_cand_empty_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "b22ea383deb3c2741453e324c9fa64e5678f7350cf11dc390c7b0e60adc8d5bf",
+  "other_changed": [],
+  "stdout_norm_sha": "fbfaac91f74e3caf3c00f43b22283481fd7513baa3a405b61a17f8a587bf9057"
+ },
+ "K_cand_upper_f1": {
+  "name": "K_cand_upper_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "750c8a809b6dcfd37bceaaf21f849ec49859a67b6f842d2ada9f1c4bc44f5ae3",
+  "other_changed": [],
+  "stdout_norm_sha": "8e1a1b7282bd3f7492446b0ca8f227f82923ea3aea79151b5583303b0a144f18"
+ },
+ "Nr_cand_new_f1": {
+  "name": "Nr_cand_new_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "draft.txt.briefed.json",
+   "state_new.json"
+  ],
+  "stdout_norm_sha": "60a97b9816029f6308e112906d128bb8e7e1a5d3c2685dff1dd9625e24cba887"
+ },
+ "Nk_cand_new_f1": {
+  "name": "Nk_cand_new_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "ck_new.json"
+  ],
+  "stdout_norm_sha": "3363a7f7d0c45af9e1afd7c02d9dcec2eefca2bc846138c3833ad5d68bace972"
+ },
+ "R_cand_absent_f2": {
+  "name": "R_cand_absent_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "0c294ea799669100050f9e023e34da790e7a68245e9002adab23a55d4993657e",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "R_cand_null_f2": {
+  "name": "R_cand_null_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "839c319fb6e9abb99054cbd298ffdc31616177c54b20d7de26a359e11352a62d",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "5946eede7127a5d6e257ea557240e7e77435cd48ee8cebcdf5c66d206b756541"
+ },
+ "R_cand_v1_f2": {
+  "name": "R_cand_v1_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "2e2a1a34bee2c168e9729cd9a38dab893c14fa45598c3091a31b618dd6567300",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "R_cand_v2_f2": {
+  "name": "R_cand_v2_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "c758b914c7621749e6eeb23f61e17128e61a2f036a6ac317698e540b2a58a901",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "0b4b6542690161fcc3be0f4c77c424cec38ff112a780bccd4ef0a2b919a8c47a"
+ },
+ "R_cand_v9_f2": {
+  "name": "R_cand_v9_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "34119675ba44a62dfd3e55e1fb79b67bab263da44f489b1dcfbecee3b358ed3a",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "78e2a86d529bad86cbdd4ffc2f3ae1e11d7667a6bb540da8e99720bb00a0f8c0"
+ },
+ "R_cand_empty_f2": {
+  "name": "R_cand_empty_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "9f474564bb5ffe2c9698f699e6e2fa45b92d8b87fbb6c6b6af1128a6a90909de",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73b61819cedea0e3979e928a04efd290921a665f8a75f8a6661bd4e2d5cc9c13"
+ },
+ "R_cand_upper_f2": {
+  "name": "R_cand_upper_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "2da3826248a565f31139a361faa3504511af9e89c6606574b5734e3268151911",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8a86054dbb4705812b4f03517af3da5c4561cfad168cc2b734847152f60035bd"
+ },
+ "R_cand_v2_answerednull_f2": {
+  "name": "R_cand_v2_answerednull_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "c758b914c7621749e6eeb23f61e17128e61a2f036a6ac317698e540b2a58a901",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "0b4b6542690161fcc3be0f4c77c424cec38ff112a780bccd4ef0a2b919a8c47a"
+ },
+ "R_cand_absent_answerednull_f2": {
+  "name": "R_cand_absent_answerednull_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "890e4ca56e2ab8f5a533d65e5198f8b028350b5a86535d0cd3c5131808401c48",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "T_cand_absent_f2": {
+  "name": "T_cand_absent_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "774c2deabfe163f52d43d21d7701aa435691537723ff88feb1195194688caf46",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "T_cand_null_f2": {
+  "name": "T_cand_null_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "19fb12c711aedbbebbb5067e30d99c8338fb9285b1bb7bdc7bc93bfc531afad3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "5946eede7127a5d6e257ea557240e7e77435cd48ee8cebcdf5c66d206b756541"
+ },
+ "T_cand_v1_f2": {
+  "name": "T_cand_v1_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "58a17705424d37d873039ab18e4acb97a9eb08667a754f5f53ae9b4e380577b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "T_cand_v2_f2": {
+  "name": "T_cand_v2_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "bf9a762c60434223693523ecc43a1f9e82ea5eb01264c0cbde5cd2859d11cfb3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fe61efe0eb7c1ab59bb7d79aecd953cfbca44503a2df36b8cc7e3a492ae4c11d"
+ },
+ "T_cand_v9_f2": {
+  "name": "T_cand_v9_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "57ba56bf1e5722245f2058cf3c41fa29af35256ea08626c32fa40a72fa62aeb8",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "78e2a86d529bad86cbdd4ffc2f3ae1e11d7667a6bb540da8e99720bb00a0f8c0"
+ },
+ "T_cand_empty_f2": {
+  "name": "T_cand_empty_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "74d62bbe8f51dfd774f5344a032f0d8bbfd2872c5b209696d99cad17703e78b5",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73b61819cedea0e3979e928a04efd290921a665f8a75f8a6661bd4e2d5cc9c13"
+ },
+ "T_cand_upper_f2": {
+  "name": "T_cand_upper_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "8e7c6966f0a5d588047037249a87bdbbe9eee7322e59bf58d32ea8eefe172dd6",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8a86054dbb4705812b4f03517af3da5c4561cfad168cc2b734847152f60035bd"
+ },
+ "P_cand_absent_f2": {
+  "name": "P_cand_absent_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v1, and this call declares v2. Replay it under --reader-scheme=v1 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "2043eb13315b7741c3b75499f814a5179f8e98121429e19cc88edd75efd78810",
+  "other_changed": [],
+  "stdout_norm_sha": "3bde981c03342087ede27b228eb464e33994810ffb0b7f7f981e63e6f439bc4a"
+ },
+ "P_cand_null_f2": {
+  "name": "P_cand_null_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a26d2a3f046f62cbee5e820446168366b8b19d416f439845679e4ab10d67dfd0",
+  "other_changed": [],
+  "stdout_norm_sha": "68d51005f2dfcbd029068dba66f0569f6b197e057b21e0b0bf6f336068195b01"
+ },
+ "P_cand_v1_f2": {
+  "name": "P_cand_v1_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v1, and this call declares v2. Replay it under --reader-scheme=v1 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "5c17bb885588a1d4a2971aeec12f36833fc110c55a6d847d8ddf14b40f8e0395",
+  "other_changed": [],
+  "stdout_norm_sha": "3bde981c03342087ede27b228eb464e33994810ffb0b7f7f981e63e6f439bc4a"
+ },
+ "P_cand_v2_f2": {
+  "name": "P_cand_v2_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "324f55fee48aa57fcee0266b457bd8e2a6bdf97200718c18baeb846c2f1717e7",
+  "other_changed": [],
+  "stdout_norm_sha": "587fc6ac333bf71fecab9b8a734994d8dc355f332d70dbd2ecb531911b0b8b9f"
+ },
+ "P_cand_v9_f2": {
+  "name": "P_cand_v9_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "90e99352e8a55284cc0a4de125c00de1eaae024fc77df7ff5de7db3310b1ccb9",
+  "other_changed": [],
+  "stdout_norm_sha": "7dff040ba4132b87bcc32363147f9515aadadfdecba6f79ce2fd162fde1d77e7"
+ },
+ "P_cand_empty_f2": {
+  "name": "P_cand_empty_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "1188c781e7616f21ea60400a58c136ed4a1b5a0fa48b63a820888ca360c0ba85",
+  "other_changed": [],
+  "stdout_norm_sha": "0dd15bf860d131f84344914d9fcfd601b7e969ef17eb90017660feb1d990c8f9"
+ },
+ "P_cand_upper_f2": {
+  "name": "P_cand_upper_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a49269c0753346bc132c5a1ebbca2275b4cdd5000d0f383c8e6c67ec3acd827a",
+  "other_changed": [],
+  "stdout_norm_sha": "83b16f223e855469f299ed66e7817d69baf71c0d65f70167cabcb169b287adb4"
+ },
+ "K_cand_absent_f2": {
+  "name": "K_cand_absent_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v1', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=v1), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "146be8022665c4b438911a1a702cde7d408e7a981de91a5018488c26fb22eade",
+  "other_changed": [],
+  "stdout_norm_sha": "cbb10106478b4a80b0340a2133221027476937a4478bb3817303bc49325bbdaa"
+ },
+ "K_cand_null_f2": {
+  "name": "K_cand_null_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "5b1723486dfbb6335a0bc1c12552da66b1817dfaceba3c82d8a42d86317a026c",
+  "other_changed": [],
+  "stdout_norm_sha": "b3883d14840ec6eccfdb2949ce1aef64933bd63ea20437881d8219a88c777fb3"
+ },
+ "K_cand_v1_f2": {
+  "name": "K_cand_v1_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v1', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=v1), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "50caf0df77e5495f4848218a497bccc435d81b0949750f40b83ed7585af2b0dc",
+  "other_changed": [],
+  "stdout_norm_sha": "cbb10106478b4a80b0340a2133221027476937a4478bb3817303bc49325bbdaa"
+ },
+ "K_cand_v2_f2": {
+  "name": "K_cand_v2_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "8effcc3a2a31e0c0a4ab44245fbe5bb171d90aa6e339680ffd9d6efef33c8737",
+  "other_changed": [],
+  "stdout_norm_sha": "14d9aaca0384ddc18f20a4bc490dd282bab4cfc53ccdd193d6f7df73d2a9cfc6"
+ },
+ "K_cand_v9_f2": {
+  "name": "K_cand_v9_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "70149293c63dd54667979f9fef9f481d87b612dcac1eb1b038809cb2dfa631d9",
+  "other_changed": [],
+  "stdout_norm_sha": "f941cd8df7f1b51e129ad4981f3163432cdbeb9aeaaec98668573d09711d3787"
+ },
+ "K_cand_empty_f2": {
+  "name": "K_cand_empty_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "b22ea383deb3c2741453e324c9fa64e5678f7350cf11dc390c7b0e60adc8d5bf",
+  "other_changed": [],
+  "stdout_norm_sha": "fbfaac91f74e3caf3c00f43b22283481fd7513baa3a405b61a17f8a587bf9057"
+ },
+ "K_cand_upper_f2": {
+  "name": "K_cand_upper_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: LYRIC_CHECKPOINT_PATH \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "750c8a809b6dcfd37bceaaf21f849ec49859a67b6f842d2ada9f1c4bc44f5ae3",
+  "other_changed": [],
+  "stdout_norm_sha": "8e1a1b7282bd3f7492446b0ca8f227f82923ea3aea79151b5583303b0a144f18"
+ },
+ "Nr_cand_new_f2": {
+  "name": "Nr_cand_new_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "draft.txt.briefed.json",
+   "state_new.json"
+  ],
+  "stdout_norm_sha": "034cacd546a25644058c24091ac30e791b721673421aeb9353a457dc553fa980"
+ },
+ "Nk_cand_new_f2": {
+  "name": "Nk_cand_new_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "ck_new.json"
+  ],
+  "stdout_norm_sha": "cdd387adab629c2a6187a7d8b0899343ab90a5fa4205ef74c04782b5f5b70084"
+ },
+ "L1c_cand_null_nf": {
+  "name": "L1c_cand_null_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "45fcedbb7e784542f59920f1c18a9a541b60b32c66698cc8f626485bb87ab6e8",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "5946eede7127a5d6e257ea557240e7e77435cd48ee8cebcdf5c66d206b756541"
+ },
+ "L1c_cand_empty_nf": {
+  "name": "L1c_cand_empty_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "372289036b589456ae10e492385680bdd902408549493bfe46b530bb97cf907b",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73b61819cedea0e3979e928a04efd290921a665f8a75f8a6661bd4e2d5cc9c13"
+ },
+ "L1c_cand_upper_nf": {
+  "name": "L1c_cand_upper_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "84c59ff9c59b499620443bcf8de171bd795db7a68b98ffdd71449f663c483f63",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8a86054dbb4705812b4f03517af3da5c4561cfad168cc2b734847152f60035bd"
+ },
+ "L1c_cand_v9_nf": {
+  "name": "L1c_cand_v9_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "68da69de7584a676666ea69c8ea531c3dca4f5708cbf14162af87dcc2f64d61c",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "78e2a86d529bad86cbdd4ffc2f3ae1e11d7667a6bb540da8e99720bb00a0f8c0"
+ },
+ "L1c_cand_v2_nf": {
+  "name": "L1c_cand_v2_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "e1ccfb71440ab671d61732b0546f7f68806f360c597a32ec128d6ff811d9cf88",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "4e356cd2e64ad0bdce64ee6fb465a4cd2d5150f198e5e40605d567cfd978c3ee"
+ },
+ "L5_cand_t5_answered_nullscheme_nf": {
+  "name": "L5_cand_t5_answered_nullscheme_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a7fb6d68c6f6e85e61775a8111e24ea2fa4c01af38192bd5daa2781d29832a3d",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "e1f2dee5d4462d9c64d4b72f44875c1c1df02575eba0671290d3c34a73a8fe31"
+ },
+ "L5_cand_t5_answered_nf": {
+  "name": "L5_cand_t5_answered_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "62fc5f9a66a0ea443be462416a37e22ef6bf4f43ea69e3e18d31def7cdccc894",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "d27018c53546f8e5daf028687487129140e4b43ee4e3132e6ff21634a1ed8a4c"
+ },
+ "L2_cand_rp_null_nf": {
+  "name": "L2_cand_rp_null_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/rp.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "f4da7d6f7b8d9c6dd5671130be4d53501b0230ca568bb989717079ce8945cb18",
+  "other_changed": [],
+  "stdout_norm_sha": "ea538da4c729a0de103c9401acbbb77979a75c8b09b568f8bd2aa274802dcb3a"
+ },
+ "L2_cand_rp_v1_nf": {
+  "name": "L2_cand_rp_v1_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "c501a92d0b110e5604f27bb452bcac23ce5800768721150e1168877ed800baac",
+  "other_changed": [],
+  "stdout_norm_sha": "6307a1db083e6c90a999a57d5486f10cb204c9250b02aea09565ca11f9ae6891"
+ },
+ "L2_cand_rp_v2_nf": {
+  "name": "L2_cand_rp_v2_nf",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 0,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "19c31270b03f670bbf1fe7cbb771086bb5e526578ba60fd0fdc7d8230d96ee4a",
+  "other_changed": [],
+  "stdout_norm_sha": "d48840782dd597795ec2793b3f0e4defbe408347455481f23fb5195430c64e27"
+ },
+ "L5_cand_t5_answered_nullscheme_f1": {
+  "name": "L5_cand_t5_answered_nullscheme_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a7fb6d68c6f6e85e61775a8111e24ea2fa4c01af38192bd5daa2781d29832a3d",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "e1f2dee5d4462d9c64d4b72f44875c1c1df02575eba0671290d3c34a73a8fe31"
+ },
+ "L5_cand_t5_answered_f1": {
+  "name": "L5_cand_t5_answered_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "62fc5f9a66a0ea443be462416a37e22ef6bf4f43ea69e3e18d31def7cdccc894",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "d27018c53546f8e5daf028687487129140e4b43ee4e3132e6ff21634a1ed8a4c"
+ },
+ "L2_cand_rp_null_f1": {
+  "name": "L2_cand_rp_null_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/rp.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "f4da7d6f7b8d9c6dd5671130be4d53501b0230ca568bb989717079ce8945cb18",
+  "other_changed": [],
+  "stdout_norm_sha": "ea538da4c729a0de103c9401acbbb77979a75c8b09b568f8bd2aa274802dcb3a"
+ },
+ "L2_cand_rp_v1_f1": {
+  "name": "L2_cand_rp_v1_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "c501a92d0b110e5604f27bb452bcac23ce5800768721150e1168877ed800baac",
+  "other_changed": [],
+  "stdout_norm_sha": "6307a1db083e6c90a999a57d5486f10cb204c9250b02aea09565ca11f9ae6891"
+ },
+ "L2_cand_rp_v2_f1": {
+  "name": "L2_cand_rp_v2_f1",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v2, and this call declares v1. Replay it under --reader-scheme=v2 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "19c31270b03f670bbf1fe7cbb771086bb5e526578ba60fd0fdc7d8230d96ee4a",
+  "other_changed": [],
+  "stdout_norm_sha": "a5e19020a3bf35ef596bfc245337de5b029ee277c7972df8444923fc1dfd300b"
+ },
+ "L5_cand_t5_answered_nullscheme_f2": {
+  "name": "L5_cand_t5_answered_nullscheme_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "a7fb6d68c6f6e85e61775a8111e24ea2fa4c01af38192bd5daa2781d29832a3d",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "e1f2dee5d4462d9c64d4b72f44875c1c1df02575eba0671290d3c34a73a8fe31"
+ },
+ "L5_cand_t5_answered_f2": {
+  "name": "L5_cand_t5_answered_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "7dccc274dd9ba14604ce6c3c72b8a6b4413294e5fc70ebd5fe8e9cdee760fc2c",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "a08d2d2ca96e4bf64a0ccf411a6d70fc73fc6eee3d9f5bcb419bd185db43fc41"
+ },
+ "L2_cand_rp_null_f2": {
+  "name": "L2_cand_rp_null_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/rp.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "f4da7d6f7b8d9c6dd5671130be4d53501b0230ca568bb989717079ce8945cb18",
+  "other_changed": [],
+  "stdout_norm_sha": "ea538da4c729a0de103c9401acbbb77979a75c8b09b568f8bd2aa274802dcb3a"
+ },
+ "L2_cand_rp_v1_f2": {
+  "name": "L2_cand_rp_v1_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v1, and this call declares v2. Replay it under --reader-scheme=v1 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "c501a92d0b110e5604f27bb452bcac23ce5800768721150e1168877ed800baac",
+  "other_changed": [],
+  "stdout_norm_sha": "d92dd5878be79cdf3586f808c1e12da3b4fcf24a864a64305bbaee8a46d3aa4b"
+ },
+ "L2_cand_rp_v2_f2": {
+  "name": "L2_cand_rp_v2_f2",
+  "tree": "cand",
+  "run": "run_full",
+  "exit": 0,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "19c31270b03f670bbf1fe7cbb771086bb5e526578ba60fd0fdc7d8230d96ee4a",
+  "other_changed": [],
+  "stdout_norm_sha": "d48840782dd597795ec2793b3f0e4defbe408347455481f23fb5195430c64e27"
+ },
+ "R_prev_absent_nf": {
+  "name": "R_prev_absent_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "456c82c9b9ad482ae1cb8071ab2d218f92515a9a3af8cc531089a27c2c29f2b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "54bcc9b77985941340202e0fff04806619c3df34cd339f6738d5c9d73a806ec4"
+ },
+ "R_prev_null_nf": {
+  "name": "R_prev_null_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "4565108fae53d8130f63cb432c51971c477596acfd44dc96d51b6ff689e2f1c4",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6699036c133cf3168c7ff7d95b622c4a7455f9c3c250c614cab54830c1668a7d"
+ },
+ "R_prev_v1_nf": {
+  "name": "R_prev_v1_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "456c82c9b9ad482ae1cb8071ab2d218f92515a9a3af8cc531089a27c2c29f2b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "54bcc9b77985941340202e0fff04806619c3df34cd339f6738d5c9d73a806ec4"
+ },
+ "R_prev_v2_nf": {
+  "name": "R_prev_v2_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "4565108fae53d8130f63cb432c51971c477596acfd44dc96d51b6ff689e2f1c4",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6699036c133cf3168c7ff7d95b622c4a7455f9c3c250c614cab54830c1668a7d"
+ },
+ "R_prev_v9_nf": {
+  "name": "R_prev_v9_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "34119675ba44a62dfd3e55e1fb79b67bab263da44f489b1dcfbecee3b358ed3a",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6f08174c9d0ccf5c72ea331b7a0d776db52d0955c94f3ce025ea82dd9b483d6d"
+ },
+ "R_prev_empty_nf": {
+  "name": "R_prev_empty_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "9f474564bb5ffe2c9698f699e6e2fa45b92d8b87fbb6c6b6af1128a6a90909de",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cb377af9fa66c22152d8af1fee86b6541981f8a9d3bc2d4855887d7733834c00"
+ },
+ "R_prev_upper_nf": {
+  "name": "R_prev_upper_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "2da3826248a565f31139a361faa3504511af9e89c6606574b5734e3268151911",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cfbc62bda5e7885caf515c4fed8abf04d11b39bd14191975cde3899e88857860"
+ },
+ "R_prev_v2_answerednull_nf": {
+  "name": "R_prev_v2_answerednull_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "4565108fae53d8130f63cb432c51971c477596acfd44dc96d51b6ff689e2f1c4",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6699036c133cf3168c7ff7d95b622c4a7455f9c3c250c614cab54830c1668a7d"
+ },
+ "R_prev_absent_answerednull_nf": {
+  "name": "R_prev_absent_answerednull_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "456c82c9b9ad482ae1cb8071ab2d218f92515a9a3af8cc531089a27c2c29f2b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "54bcc9b77985941340202e0fff04806619c3df34cd339f6738d5c9d73a806ec4"
+ },
+ "T_prev_absent_nf": {
+  "name": "T_prev_absent_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "774c2deabfe163f52d43d21d7701aa435691537723ff88feb1195194688caf46",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_prev_null_nf": {
+  "name": "T_prev_null_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "19fb12c711aedbbebbb5067e30d99c8338fb9285b1bb7bdc7bc93bfc531afad3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fe61efe0eb7c1ab59bb7d79aecd953cfbca44503a2df36b8cc7e3a492ae4c11d"
+ },
+ "T_prev_v1_nf": {
+  "name": "T_prev_v1_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "58a17705424d37d873039ab18e4acb97a9eb08667a754f5f53ae9b4e380577b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_prev_v2_nf": {
+  "name": "T_prev_v2_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "bf9a762c60434223693523ecc43a1f9e82ea5eb01264c0cbde5cd2859d11cfb3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fe61efe0eb7c1ab59bb7d79aecd953cfbca44503a2df36b8cc7e3a492ae4c11d"
+ },
+ "T_prev_v9_nf": {
+  "name": "T_prev_v9_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "57ba56bf1e5722245f2058cf3c41fa29af35256ea08626c32fa40a72fa62aeb8",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6f08174c9d0ccf5c72ea331b7a0d776db52d0955c94f3ce025ea82dd9b483d6d"
+ },
+ "T_prev_empty_nf": {
+  "name": "T_prev_empty_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "74d62bbe8f51dfd774f5344a032f0d8bbfd2872c5b209696d99cad17703e78b5",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cb377af9fa66c22152d8af1fee86b6541981f8a9d3bc2d4855887d7733834c00"
+ },
+ "T_prev_upper_nf": {
+  "name": "T_prev_upper_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "8e7c6966f0a5d588047037249a87bdbbe9eee7322e59bf58d32ea8eefe172dd6",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cfbc62bda5e7885caf515c4fed8abf04d11b39bd14191975cde3899e88857860"
+ },
+ "P_prev_absent_nf": {
+  "name": "P_prev_absent_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "2043eb13315b7741c3b75499f814a5179f8e98121429e19cc88edd75efd78810",
+  "other_changed": [],
+  "stdout_norm_sha": "c72082a93cc63d63001827121fb8239c5eb9147008b17e47ba20c5153775b3dc"
+ },
+ "P_prev_null_nf": {
+  "name": "P_prev_null_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme None is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "a26d2a3f046f62cbee5e820446168366b8b19d416f439845679e4ab10d67dfd0",
+  "other_changed": [],
+  "stdout_norm_sha": "0a3cafb2ce4609e96494b7c5c480b918bb685f4f242762cd470ca32cfb7dfe82"
+ },
+ "P_prev_v1_nf": {
+  "name": "P_prev_v1_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "5c17bb885588a1d4a2971aeec12f36833fc110c55a6d847d8ddf14b40f8e0395",
+  "other_changed": [],
+  "stdout_norm_sha": "c72082a93cc63d63001827121fb8239c5eb9147008b17e47ba20c5153775b3dc"
+ },
+ "P_prev_v2_nf": {
+  "name": "P_prev_v2_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "324f55fee48aa57fcee0266b457bd8e2a6bdf97200718c18baeb846c2f1717e7",
+  "other_changed": [],
+  "stdout_norm_sha": "587fc6ac333bf71fecab9b8a734994d8dc355f332d70dbd2ecb531911b0b8b9f"
+ },
+ "P_prev_v9_nf": {
+  "name": "P_prev_v9_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "90e99352e8a55284cc0a4de125c00de1eaae024fc77df7ff5de7db3310b1ccb9",
+  "other_changed": [],
+  "stdout_norm_sha": "cf5a89fbaa85a61a1898d7b0b4796bcae6063a0d9380abae251cad8d70755c93"
+ },
+ "P_prev_empty_nf": {
+  "name": "P_prev_empty_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "1188c781e7616f21ea60400a58c136ed4a1b5a0fa48b63a820888ca360c0ba85",
+  "other_changed": [],
+  "stdout_norm_sha": "2d524afd187135e86880e9e35b6c843985f9a6ce25fe47e6e525d73de01d1f5d"
+ },
+ "P_prev_upper_nf": {
+  "name": "P_prev_upper_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "a49269c0753346bc132c5a1ebbca2275b4cdd5000d0f383c8e6c67ec3acd827a",
+  "other_changed": [],
+  "stdout_norm_sha": "179af68482006c65a403ed5cbf25a5f88a6ac4be8212add95b357a4daec928a4"
+ },
+ "K_prev_absent_nf": {
+  "name": "K_prev_absent_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: input, declaration, proposer or version differs",
+  "state_unchanged": true,
+  "state_sha_after": "146be8022665c4b438911a1a702cde7d408e7a981de91a5018488c26fb22eade",
+  "other_changed": [],
+  "stdout_norm_sha": "3d2521a294083585512e98bd594785b7444335d6f25e906b6802554c0b412aa1"
+ },
+ "K_prev_null_nf": {
+  "name": "K_prev_null_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme None, and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=None), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "5b1723486dfbb6335a0bc1c12552da66b1817dfaceba3c82d8a42d86317a026c",
+  "other_changed": [],
+  "stdout_norm_sha": "a6ae30ab11b028249ec6c186a8149ec657c015754cad4294d407c40a43d8c5e1"
+ },
+ "K_prev_v1_nf": {
+  "name": "K_prev_v1_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: input, declaration, proposer or version differs",
+  "state_unchanged": true,
+  "state_sha_after": "50caf0df77e5495f4848218a497bccc435d81b0949750f40b83ed7585af2b0dc",
+  "other_changed": [],
+  "stdout_norm_sha": "3d2521a294083585512e98bd594785b7444335d6f25e906b6802554c0b412aa1"
+ },
+ "K_prev_v2_nf": {
+  "name": "K_prev_v2_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "8effcc3a2a31e0c0a4ab44245fbe5bb171d90aa6e339680ffd9d6efef33c8737",
+  "other_changed": [],
+  "stdout_norm_sha": "14d9aaca0384ddc18f20a4bc490dd282bab4cfc53ccdd193d6f7df73d2a9cfc6"
+ },
+ "K_prev_v9_nf": {
+  "name": "K_prev_v9_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v9', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=v9), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "70149293c63dd54667979f9fef9f481d87b612dcac1eb1b038809cb2dfa631d9",
+  "other_changed": [],
+  "stdout_norm_sha": "5ec7d25b4654de9c3c343619044d993df99d11767d2405ec078e5cbe4982341d"
+ },
+ "K_prev_empty_nf": {
+  "name": "K_prev_empty_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme '', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "b22ea383deb3c2741453e324c9fa64e5678f7350cf11dc390c7b0e60adc8d5bf",
+  "other_changed": [],
+  "stdout_norm_sha": "c64086febee76fcfa31a7072098d5e577b5935c285cda03198b9be35e4653b8d"
+ },
+ "K_prev_upper_nf": {
+  "name": "K_prev_upper_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'V2', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=V2), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "750c8a809b6dcfd37bceaaf21f849ec49859a67b6f842d2ada9f1c4bc44f5ae3",
+  "other_changed": [],
+  "stdout_norm_sha": "1de560e366d9f6ab436b9cdf6d32efcc302b49b84307f7966e0f9f5d2cf49f3d"
+ },
+ "Nr_prev_new_nf": {
+  "name": "Nr_prev_new_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "draft.txt.briefed.json",
+   "state_new.json"
+  ],
+  "stdout_norm_sha": "7f2f23e34adb6e19a264a554e5c4a1cbae129157f78b5e9cf473a4b9cac5dc6d"
+ },
+ "Nk_prev_new_nf": {
+  "name": "Nk_prev_new_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "ck_new.json"
+  ],
+  "stdout_norm_sha": "ac9b3995acc0d9180d1c39ec88953ad8196e19b347c6321ce4aaec25c272d10c"
+ },
+ "R_prev_absent_f1": {
+  "name": "R_prev_absent_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "456c82c9b9ad482ae1cb8071ab2d218f92515a9a3af8cc531089a27c2c29f2b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "54bcc9b77985941340202e0fff04806619c3df34cd339f6738d5c9d73a806ec4"
+ },
+ "R_prev_null_f1": {
+  "name": "R_prev_null_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "456c82c9b9ad482ae1cb8071ab2d218f92515a9a3af8cc531089a27c2c29f2b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "54bcc9b77985941340202e0fff04806619c3df34cd339f6738d5c9d73a806ec4"
+ },
+ "R_prev_v1_f1": {
+  "name": "R_prev_v1_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "456c82c9b9ad482ae1cb8071ab2d218f92515a9a3af8cc531089a27c2c29f2b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "54bcc9b77985941340202e0fff04806619c3df34cd339f6738d5c9d73a806ec4"
+ },
+ "R_prev_v2_f1": {
+  "name": "R_prev_v2_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v2, and this call declares v1. Resume it under --reader-scheme=v2 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "cfc88effc5deac17a8c3e5a125301f026540603ecc8bd610a7e4bd866b4a1cee",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73a987c68406a216b7240cdbd99134f83b37039e83e75d5a30c44d938ef75bab"
+ },
+ "R_prev_v9_f1": {
+  "name": "R_prev_v9_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "34119675ba44a62dfd3e55e1fb79b67bab263da44f489b1dcfbecee3b358ed3a",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6f08174c9d0ccf5c72ea331b7a0d776db52d0955c94f3ce025ea82dd9b483d6d"
+ },
+ "R_prev_empty_f1": {
+  "name": "R_prev_empty_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "9f474564bb5ffe2c9698f699e6e2fa45b92d8b87fbb6c6b6af1128a6a90909de",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cb377af9fa66c22152d8af1fee86b6541981f8a9d3bc2d4855887d7733834c00"
+ },
+ "R_prev_upper_f1": {
+  "name": "R_prev_upper_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "2da3826248a565f31139a361faa3504511af9e89c6606574b5734e3268151911",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cfbc62bda5e7885caf515c4fed8abf04d11b39bd14191975cde3899e88857860"
+ },
+ "R_prev_v2_answerednull_f1": {
+  "name": "R_prev_v2_answerednull_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v2, and this call declares v1. Resume it under --reader-scheme=v2 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "ce958bd3c57e7c0109f10e4c1f4832838556cc28b4d25ca33b37e7836c2dbba8",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73a987c68406a216b7240cdbd99134f83b37039e83e75d5a30c44d938ef75bab"
+ },
+ "R_prev_absent_answerednull_f1": {
+  "name": "R_prev_absent_answerednull_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "456c82c9b9ad482ae1cb8071ab2d218f92515a9a3af8cc531089a27c2c29f2b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "54bcc9b77985941340202e0fff04806619c3df34cd339f6738d5c9d73a806ec4"
+ },
+ "T_prev_absent_f1": {
+  "name": "T_prev_absent_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "774c2deabfe163f52d43d21d7701aa435691537723ff88feb1195194688caf46",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_prev_null_f1": {
+  "name": "T_prev_null_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "19fb12c711aedbbebbb5067e30d99c8338fb9285b1bb7bdc7bc93bfc531afad3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_prev_v1_f1": {
+  "name": "T_prev_v1_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v1",
+  "accepted": false,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "58a17705424d37d873039ab18e4acb97a9eb08667a754f5f53ae9b4e380577b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "441b4321ea04341292539edc1e3091dd8126bf22486a41440d53e87da1d7d708"
+ },
+ "T_prev_v2_f1": {
+  "name": "T_prev_v2_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v2, and this call declares v1. Resume it under --reader-scheme=v2 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "bf9a762c60434223693523ecc43a1f9e82ea5eb01264c0cbde5cd2859d11cfb3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "73a987c68406a216b7240cdbd99134f83b37039e83e75d5a30c44d938ef75bab"
+ },
+ "T_prev_v9_f1": {
+  "name": "T_prev_v9_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "57ba56bf1e5722245f2058cf3c41fa29af35256ea08626c32fa40a72fa62aeb8",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6f08174c9d0ccf5c72ea331b7a0d776db52d0955c94f3ce025ea82dd9b483d6d"
+ },
+ "T_prev_empty_f1": {
+  "name": "T_prev_empty_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "74d62bbe8f51dfd774f5344a032f0d8bbfd2872c5b209696d99cad17703e78b5",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cb377af9fa66c22152d8af1fee86b6541981f8a9d3bc2d4855887d7733834c00"
+ },
+ "T_prev_upper_f1": {
+  "name": "T_prev_upper_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "8e7c6966f0a5d588047037249a87bdbbe9eee7322e59bf58d32ea8eefe172dd6",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cfbc62bda5e7885caf515c4fed8abf04d11b39bd14191975cde3899e88857860"
+ },
+ "P_prev_absent_f1": {
+  "name": "P_prev_absent_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "2043eb13315b7741c3b75499f814a5179f8e98121429e19cc88edd75efd78810",
+  "other_changed": [],
+  "stdout_norm_sha": "c72082a93cc63d63001827121fb8239c5eb9147008b17e47ba20c5153775b3dc"
+ },
+ "P_prev_null_f1": {
+  "name": "P_prev_null_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme None is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "a26d2a3f046f62cbee5e820446168366b8b19d416f439845679e4ab10d67dfd0",
+  "other_changed": [],
+  "stdout_norm_sha": "0a3cafb2ce4609e96494b7c5c480b918bb685f4f242762cd470ca32cfb7dfe82"
+ },
+ "P_prev_v1_f1": {
+  "name": "P_prev_v1_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "5c17bb885588a1d4a2971aeec12f36833fc110c55a6d847d8ddf14b40f8e0395",
+  "other_changed": [],
+  "stdout_norm_sha": "c72082a93cc63d63001827121fb8239c5eb9147008b17e47ba20c5153775b3dc"
+ },
+ "P_prev_v2_f1": {
+  "name": "P_prev_v2_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v2, and this call declares v1. Replay it under --reader-scheme=v2 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "324f55fee48aa57fcee0266b457bd8e2a6bdf97200718c18baeb846c2f1717e7",
+  "other_changed": [],
+  "stdout_norm_sha": "9e915cbbd101bdf28b68d194b8fa67944171092ad499817f54f2223001561eb8"
+ },
+ "P_prev_v9_f1": {
+  "name": "P_prev_v9_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "90e99352e8a55284cc0a4de125c00de1eaae024fc77df7ff5de7db3310b1ccb9",
+  "other_changed": [],
+  "stdout_norm_sha": "cf5a89fbaa85a61a1898d7b0b4796bcae6063a0d9380abae251cad8d70755c93"
+ },
+ "P_prev_empty_f1": {
+  "name": "P_prev_empty_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "1188c781e7616f21ea60400a58c136ed4a1b5a0fa48b63a820888ca360c0ba85",
+  "other_changed": [],
+  "stdout_norm_sha": "2d524afd187135e86880e9e35b6c843985f9a6ce25fe47e6e525d73de01d1f5d"
+ },
+ "P_prev_upper_f1": {
+  "name": "P_prev_upper_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "a49269c0753346bc132c5a1ebbca2275b4cdd5000d0f383c8e6c67ec3acd827a",
+  "other_changed": [],
+  "stdout_norm_sha": "179af68482006c65a403ed5cbf25a5f88a6ac4be8212add95b357a4daec928a4"
+ },
+ "K_prev_absent_f1": {
+  "name": "K_prev_absent_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: input, declaration, proposer or version differs",
+  "state_unchanged": true,
+  "state_sha_after": "146be8022665c4b438911a1a702cde7d408e7a981de91a5018488c26fb22eade",
+  "other_changed": [],
+  "stdout_norm_sha": "3d2521a294083585512e98bd594785b7444335d6f25e906b6802554c0b412aa1"
+ },
+ "K_prev_null_f1": {
+  "name": "K_prev_null_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme None, and this call reads v1; resume it with no --reader-scheme (or --reader-scheme=None), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "5b1723486dfbb6335a0bc1c12552da66b1817dfaceba3c82d8a42d86317a026c",
+  "other_changed": [],
+  "stdout_norm_sha": "69bc2a06316409d260469ce4bcff405f04acd7ee952cbe6997cf79a8b03523cb"
+ },
+ "K_prev_v1_f1": {
+  "name": "K_prev_v1_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: input, declaration, proposer or version differs",
+  "state_unchanged": true,
+  "state_sha_after": "50caf0df77e5495f4848218a497bccc435d81b0949750f40b83ed7585af2b0dc",
+  "other_changed": [],
+  "stdout_norm_sha": "3d2521a294083585512e98bd594785b7444335d6f25e906b6802554c0b412aa1"
+ },
+ "K_prev_v2_f1": {
+  "name": "K_prev_v2_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v2', and this call reads v1; resume it with no --reader-scheme (or --reader-scheme=v2), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "c13cf2dedaebc94d6ee4e8945228358f2118ad93e94c5f6770c50325a7a04fb6",
+  "other_changed": [],
+  "stdout_norm_sha": "b8364630555799e0de220dfa5819663acba5728ce0ac928767f88a7860089b21"
+ },
+ "K_prev_v9_f1": {
+  "name": "K_prev_v9_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v9', and this call reads v1; resume it with no --reader-scheme (or --reader-scheme=v9), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "70149293c63dd54667979f9fef9f481d87b612dcac1eb1b038809cb2dfa631d9",
+  "other_changed": [],
+  "stdout_norm_sha": "6300d85124090d4b4e79edf8150eca8a0938f608b6caa9d53492434aaed8e41d"
+ },
+ "K_prev_empty_f1": {
+  "name": "K_prev_empty_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme '', and this call reads v1; resume it with no --reader-scheme (or --reader-scheme=), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "b22ea383deb3c2741453e324c9fa64e5678f7350cf11dc390c7b0e60adc8d5bf",
+  "other_changed": [],
+  "stdout_norm_sha": "97922e717d668b3565b170748a580c0fe9ad34f0ef445bd2b2d303e55233f755"
+ },
+ "K_prev_upper_f1": {
+  "name": "K_prev_upper_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'V2', and this call reads v1; resume it with no --reader-scheme (or --reader-scheme=V2), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "750c8a809b6dcfd37bceaaf21f849ec49859a67b6f842d2ada9f1c4bc44f5ae3",
+  "other_changed": [],
+  "stdout_norm_sha": "7f15ce92ae61f06ffa6330e96ff0b9563987266940692e52d8dcb68e00735881"
+ },
+ "Nr_prev_new_f1": {
+  "name": "Nr_prev_new_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "draft.txt.briefed.json",
+   "state_new.json"
+  ],
+  "stdout_norm_sha": "c203fa0784101d05f6b38118efcbdd5b06461a2a83c0118c224afd05e5892b76"
+ },
+ "Nk_prev_new_f1": {
+  "name": "Nk_prev_new_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "ck_new.json"
+  ],
+  "stdout_norm_sha": "a6647897327a44d1767c9f4bcbe15c10aad25f390925049e9bbf9c5f7b816c3f"
+ },
+ "R_prev_absent_f2": {
+  "name": "R_prev_absent_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "0c294ea799669100050f9e023e34da790e7a68245e9002adab23a55d4993657e",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "R_prev_null_f2": {
+  "name": "R_prev_null_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "4565108fae53d8130f63cb432c51971c477596acfd44dc96d51b6ff689e2f1c4",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6699036c133cf3168c7ff7d95b622c4a7455f9c3c250c614cab54830c1668a7d"
+ },
+ "R_prev_v1_f2": {
+  "name": "R_prev_v1_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "2e2a1a34bee2c168e9729cd9a38dab893c14fa45598c3091a31b618dd6567300",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "R_prev_v2_f2": {
+  "name": "R_prev_v2_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "4565108fae53d8130f63cb432c51971c477596acfd44dc96d51b6ff689e2f1c4",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6699036c133cf3168c7ff7d95b622c4a7455f9c3c250c614cab54830c1668a7d"
+ },
+ "R_prev_v9_f2": {
+  "name": "R_prev_v9_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "34119675ba44a62dfd3e55e1fb79b67bab263da44f489b1dcfbecee3b358ed3a",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6f08174c9d0ccf5c72ea331b7a0d776db52d0955c94f3ce025ea82dd9b483d6d"
+ },
+ "R_prev_empty_f2": {
+  "name": "R_prev_empty_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "9f474564bb5ffe2c9698f699e6e2fa45b92d8b87fbb6c6b6af1128a6a90909de",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cb377af9fa66c22152d8af1fee86b6541981f8a9d3bc2d4855887d7733834c00"
+ },
+ "R_prev_upper_f2": {
+  "name": "R_prev_upper_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "2da3826248a565f31139a361faa3504511af9e89c6606574b5734e3268151911",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cfbc62bda5e7885caf515c4fed8abf04d11b39bd14191975cde3899e88857860"
+ },
+ "R_prev_v2_answerednull_f2": {
+  "name": "R_prev_v2_answerednull_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "4565108fae53d8130f63cb432c51971c477596acfd44dc96d51b6ff689e2f1c4",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6699036c133cf3168c7ff7d95b622c4a7455f9c3c250c614cab54830c1668a7d"
+ },
+ "R_prev_absent_answerednull_f2": {
+  "name": "R_prev_absent_answerednull_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "890e4ca56e2ab8f5a533d65e5198f8b028350b5a86535d0cd3c5131808401c48",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "T_prev_absent_f2": {
+  "name": "T_prev_absent_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "774c2deabfe163f52d43d21d7701aa435691537723ff88feb1195194688caf46",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "T_prev_null_f2": {
+  "name": "T_prev_null_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "19fb12c711aedbbebbb5067e30d99c8338fb9285b1bb7bdc7bc93bfc531afad3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fe61efe0eb7c1ab59bb7d79aecd953cfbca44503a2df36b8cc7e3a492ae4c11d"
+ },
+ "T_prev_v1_f2": {
+  "name": "T_prev_v1_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "58a17705424d37d873039ab18e4acb97a9eb08667a754f5f53ae9b4e380577b1",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fa830281cc628c83b5a63d2a6cfd21f32fd8652dc3f2abdc04af69c99361340d"
+ },
+ "T_prev_v2_f2": {
+  "name": "T_prev_v2_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "bf9a762c60434223693523ecc43a1f9e82ea5eb01264c0cbde5cd2859d11cfb3",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "fe61efe0eb7c1ab59bb7d79aecd953cfbca44503a2df36b8cc7e3a492ae4c11d"
+ },
+ "T_prev_v9_f2": {
+  "name": "T_prev_v9_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "57ba56bf1e5722245f2058cf3c41fa29af35256ea08626c32fa40a72fa62aeb8",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6f08174c9d0ccf5c72ea331b7a0d776db52d0955c94f3ce025ea82dd9b483d6d"
+ },
+ "T_prev_empty_f2": {
+  "name": "T_prev_empty_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "74d62bbe8f51dfd774f5344a032f0d8bbfd2872c5b209696d99cad17703e78b5",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cb377af9fa66c22152d8af1fee86b6541981f8a9d3bc2d4855887d7733834c00"
+ },
+ "T_prev_upper_f2": {
+  "name": "T_prev_upper_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "8e7c6966f0a5d588047037249a87bdbbe9eee7322e59bf58d32ea8eefe172dd6",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cfbc62bda5e7885caf515c4fed8abf04d11b39bd14191975cde3899e88857860"
+ },
+ "P_prev_absent_f2": {
+  "name": "P_prev_absent_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v1, and this call declares v2. Replay it under --reader-scheme=v1 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "2043eb13315b7741c3b75499f814a5179f8e98121429e19cc88edd75efd78810",
+  "other_changed": [],
+  "stdout_norm_sha": "3bde981c03342087ede27b228eb464e33994810ffb0b7f7f981e63e6f439bc4a"
+ },
+ "P_prev_null_f2": {
+  "name": "P_prev_null_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme None is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "a26d2a3f046f62cbee5e820446168366b8b19d416f439845679e4ab10d67dfd0",
+  "other_changed": [],
+  "stdout_norm_sha": "0a3cafb2ce4609e96494b7c5c480b918bb685f4f242762cd470ca32cfb7dfe82"
+ },
+ "P_prev_v1_f2": {
+  "name": "P_prev_v1_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v1, and this call declares v2. Replay it under --reader-scheme=v1 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "5c17bb885588a1d4a2971aeec12f36833fc110c55a6d847d8ddf14b40f8e0395",
+  "other_changed": [],
+  "stdout_norm_sha": "3bde981c03342087ede27b228eb464e33994810ffb0b7f7f981e63e6f439bc4a"
+ },
+ "P_prev_v2_f2": {
+  "name": "P_prev_v2_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "324f55fee48aa57fcee0266b457bd8e2a6bdf97200718c18baeb846c2f1717e7",
+  "other_changed": [],
+  "stdout_norm_sha": "587fc6ac333bf71fecab9b8a734994d8dc355f332d70dbd2ecb531911b0b8b9f"
+ },
+ "P_prev_v9_f2": {
+  "name": "P_prev_v9_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "90e99352e8a55284cc0a4de125c00de1eaae024fc77df7ff5de7db3310b1ccb9",
+  "other_changed": [],
+  "stdout_norm_sha": "cf5a89fbaa85a61a1898d7b0b4796bcae6063a0d9380abae251cad8d70755c93"
+ },
+ "P_prev_empty_f2": {
+  "name": "P_prev_empty_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "1188c781e7616f21ea60400a58c136ed4a1b5a0fa48b63a820888ca360c0ba85",
+  "other_changed": [],
+  "stdout_norm_sha": "2d524afd187135e86880e9e35b6c843985f9a6ce25fe47e6e525d73de01d1f5d"
+ },
+ "P_prev_upper_f2": {
+  "name": "P_prev_upper_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/replay.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "a49269c0753346bc132c5a1ebbca2275b4cdd5000d0f383c8e6c67ec3acd827a",
+  "other_changed": [],
+  "stdout_norm_sha": "179af68482006c65a403ed5cbf25a5f88a6ac4be8212add95b357a4daec928a4"
+ },
+ "K_prev_absent_f2": {
+  "name": "K_prev_absent_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v1', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=v1), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "146be8022665c4b438911a1a702cde7d408e7a981de91a5018488c26fb22eade",
+  "other_changed": [],
+  "stdout_norm_sha": "cbb10106478b4a80b0340a2133221027476937a4478bb3817303bc49325bbdaa"
+ },
+ "K_prev_null_f2": {
+  "name": "K_prev_null_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme None, and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=None), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "5b1723486dfbb6335a0bc1c12552da66b1817dfaceba3c82d8a42d86317a026c",
+  "other_changed": [],
+  "stdout_norm_sha": "a6ae30ab11b028249ec6c186a8149ec657c015754cad4294d407c40a43d8c5e1"
+ },
+ "K_prev_v1_f2": {
+  "name": "K_prev_v1_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v1', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=v1), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "50caf0df77e5495f4848218a497bccc435d81b0949750f40b83ed7585af2b0dc",
+  "other_changed": [],
+  "stdout_norm_sha": "cbb10106478b4a80b0340a2133221027476937a4478bb3817303bc49325bbdaa"
+ },
+ "K_prev_v2_f2": {
+  "name": "K_prev_v2_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "8effcc3a2a31e0c0a4ab44245fbe5bb171d90aa6e339680ffd9d6efef33c8737",
+  "other_changed": [],
+  "stdout_norm_sha": "14d9aaca0384ddc18f20a4bc490dd282bab4cfc53ccdd193d6f7df73d2a9cfc6"
+ },
+ "K_prev_v9_f2": {
+  "name": "K_prev_v9_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'v9', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=v9), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "70149293c63dd54667979f9fef9f481d87b612dcac1eb1b038809cb2dfa631d9",
+  "other_changed": [],
+  "stdout_norm_sha": "5ec7d25b4654de9c3c343619044d993df99d11767d2405ec078e5cbe4982341d"
+ },
+ "K_prev_empty_f2": {
+  "name": "K_prev_empty_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme '', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "b22ea383deb3c2741453e324c9fa64e5678f7350cf11dc390c7b0e60adc8d5bf",
+  "other_changed": [],
+  "stdout_norm_sha": "c64086febee76fcfa31a7072098d5e577b5935c285cda03198b9be35e4653b8d"
+ },
+ "K_prev_upper_f2": {
+  "name": "K_prev_upper_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "the declared proposer cannot resume: checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme 'V2', and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=V2), or start a new run",
+  "state_unchanged": true,
+  "state_sha_after": "750c8a809b6dcfd37bceaaf21f849ec49859a67b6f842d2ada9f1c4bc44f5ae3",
+  "other_changed": [],
+  "stdout_norm_sha": "1de560e366d9f6ab436b9cdf6d32efcc302b49b84307f7966e0f9f5d2cf49f3d"
+ },
+ "Nr_prev_new_f2": {
+  "name": "Nr_prev_new_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "draft.txt.briefed.json",
+   "state_new.json"
+  ],
+  "stdout_norm_sha": "7f2f23e34adb6e19a264a554e5c4a1cbae129157f78b5e9cf473a4b9cac5dc6d"
+ },
+ "Nk_prev_new_f2": {
+  "name": "Nk_prev_new_f2",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": null,
+  "other_changed": [
+   "ck_new.json"
+  ],
+  "stdout_norm_sha": "b926c9e601f17f36882dc1a7246573acc4131a706d9282520c7951db2549bca2"
+ },
+ "L1c_prev_null_nf": {
+  "name": "L1c_prev_null_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "45fcedbb7e784542f59920f1c18a9a541b60b32c66698cc8f626485bb87ab6e8",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "4e356cd2e64ad0bdce64ee6fb465a4cd2d5150f198e5e40605d567cfd978c3ee"
+ },
+ "L1c_prev_empty_nf": {
+  "name": "L1c_prev_empty_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme '' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "372289036b589456ae10e492385680bdd902408549493bfe46b530bb97cf907b",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cb377af9fa66c22152d8af1fee86b6541981f8a9d3bc2d4855887d7733834c00"
+ },
+ "L1c_prev_upper_nf": {
+  "name": "L1c_prev_upper_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "84c59ff9c59b499620443bcf8de171bd795db7a68b98ffdd71449f663c483f63",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "cfbc62bda5e7885caf515c4fed8abf04d11b39bd14191975cde3899e88857860"
+ },
+ "L1c_prev_v9_nf": {
+  "name": "L1c_prev_v9_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "68da69de7584a676666ea69c8ea531c3dca4f5708cbf14162af87dcc2f64d61c",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "6f08174c9d0ccf5c72ea331b7a0d776db52d0955c94f3ce025ea82dd9b483d6d"
+ },
+ "L1c_prev_v2_nf": {
+  "name": "L1c_prev_v2_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": null,
+  "status": "tryline",
+  "reader_scheme": "v2",
+  "accepted": true,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "e1ccfb71440ab671d61732b0546f7f68806f360c597a32ec128d6ff811d9cf88",
+  "other_changed": [
+   "d12.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "4e356cd2e64ad0bdce64ee6fb465a4cd2d5150f198e5e40605d567cfd978c3ee"
+ },
+ "L5_prev_t5_answered_nullscheme_nf": {
+  "name": "L5_prev_t5_answered_nullscheme_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "65f417f6c5d292898db043df41c48f64d33cdca24f92fc32597fd83334bf3a72",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "06e1af736251a25022da5d1bf3f97039e8ef7e1117d1962864f7957c20c7deda"
+ },
+ "L5_prev_t5_answered_nf": {
+  "name": "L5_prev_t5_answered_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "c35c9150ed9b206130ef2b18cad84cb71a3c1beeeef1cd9cf25ebdc7617bff51",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8947396251a88b33977bbfc460eb6c5ad1adbc6e94b1c4f44e933bdaa2dd2c8c"
+ },
+ "L2_prev_rp_null_nf": {
+  "name": "L2_prev_rp_null_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/rp.json \u2014 recorded reader scheme None is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "f4da7d6f7b8d9c6dd5671130be4d53501b0230ca568bb989717079ce8945cb18",
+  "other_changed": [],
+  "stdout_norm_sha": "59a3dc768c6eb45a6606c208efd7538462da90fd7afa5a47dc868bee9c7fa4da"
+ },
+ "L2_prev_rp_v1_nf": {
+  "name": "L2_prev_rp_v1_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "c501a92d0b110e5604f27bb452bcac23ce5800768721150e1168877ed800baac",
+  "other_changed": [],
+  "stdout_norm_sha": "6307a1db083e6c90a999a57d5486f10cb204c9250b02aea09565ca11f9ae6891"
+ },
+ "L2_prev_rp_v2_nf": {
+  "name": "L2_prev_rp_v2_nf",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 0,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "19c31270b03f670bbf1fe7cbb771086bb5e526578ba60fd0fdc7d8230d96ee4a",
+  "other_changed": [],
+  "stdout_norm_sha": "d48840782dd597795ec2793b3f0e4defbe408347455481f23fb5195430c64e27"
+ },
+ "L5_prev_t5_answered_nullscheme_f1": {
+  "name": "L5_prev_t5_answered_nullscheme_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "c35c9150ed9b206130ef2b18cad84cb71a3c1beeeef1cd9cf25ebdc7617bff51",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8947396251a88b33977bbfc460eb6c5ad1adbc6e94b1c4f44e933bdaa2dd2c8c"
+ },
+ "L5_prev_t5_answered_f1": {
+  "name": "L5_prev_t5_answered_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "c35c9150ed9b206130ef2b18cad84cb71a3c1beeeef1cd9cf25ebdc7617bff51",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "8947396251a88b33977bbfc460eb6c5ad1adbc6e94b1c4f44e933bdaa2dd2c8c"
+ },
+ "L2_prev_rp_null_f1": {
+  "name": "L2_prev_rp_null_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/rp.json \u2014 recorded reader scheme None is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "f4da7d6f7b8d9c6dd5671130be4d53501b0230ca568bb989717079ce8945cb18",
+  "other_changed": [],
+  "stdout_norm_sha": "59a3dc768c6eb45a6606c208efd7538462da90fd7afa5a47dc868bee9c7fa4da"
+ },
+ "L2_prev_rp_v1_f1": {
+  "name": "L2_prev_rp_v1_f1",
+  "tree": "prev",
+  "run": "run_rest",
+  "exit": 3,
+  "status": "finished",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "c501a92d0b110e5604f27bb452bcac23ce5800768721150e1168877ed800baac",
+  "other_changed": [],
+  "stdout_norm_sha": "6307a1db083e6c90a999a57d5486f10cb204c9250b02aea09565ca11f9ae6891"
+ },
+ "L2_prev_rp_v2_f1": {
+  "name": "L2_prev_rp_v2_f1",
+  "tree": "prev",
+  "run": "run_full",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v2, and this call declares v1. Replay it under --reader-scheme=v2 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "19c31270b03f670bbf1fe7cbb771086bb5e526578ba60fd0fdc7d8230d96ee4a",
+  "other_changed": [],
+  "stdout_norm_sha": "a5e19020a3bf35ef596bfc245337de5b029ee277c7972df8444923fc1dfd300b"
+ },
+ "L5_prev_t5_answered_nullscheme_f2": {
+  "name": "L5_prev_t5_answered_nullscheme_f2",
+  "tree": "prev",
+  "run": "run_rest",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": false,
+  "state_sha_after": "65f417f6c5d292898db043df41c48f64d33cdca24f92fc32597fd83334bf3a72",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "06e1af736251a25022da5d1bf3f97039e8ef7e1117d1962864f7957c20c7deda"
+ },
+ "L5_prev_t5_answered_f2": {
+  "name": "L5_prev_t5_answered_f2",
+  "tree": "prev",
+  "run": "run_rest",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "7dccc274dd9ba14604ce6c3c72b8a6b4413294e5fc70ebd5fe8e9cdee760fc2c",
+  "other_changed": [
+   "d6.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "a08d2d2ca96e4bf64a0ccf411a6d70fc73fc6eee3d9f5bcb419bd185db43fc41"
+ },
+ "L2_prev_rp_null_f2": {
+  "name": "L2_prev_rp_null_f2",
+  "tree": "prev",
+  "run": "run_rest",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=replay:<WK>/rp.json \u2014 recorded reader scheme None is not one this build reads (v1, v2)",
+  "state_unchanged": true,
+  "state_sha_after": "f4da7d6f7b8d9c6dd5671130be4d53501b0230ca568bb989717079ce8945cb18",
+  "other_changed": [],
+  "stdout_norm_sha": "59a3dc768c6eb45a6606c208efd7538462da90fd7afa5a47dc868bee9c7fa4da"
+ },
+ "L2_prev_rp_v1_f2": {
+  "name": "L2_prev_rp_v1_f2",
+  "tree": "prev",
+  "run": "run_rest",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "READER_SCHEME_MISMATCH: this replay file was recorded under reader scheme v1, and this call declares v2. Replay it under --reader-scheme=v1 (or with no --reader-scheme).",
+  "state_unchanged": true,
+  "state_sha_after": "c501a92d0b110e5604f27bb452bcac23ce5800768721150e1168877ed800baac",
+  "other_changed": [],
+  "stdout_norm_sha": "d92dd5878be79cdf3586f808c1e12da3b4fcf24a864a64305bbaee8a46d3aa4b"
+ },
+ "L2_prev_rp_v2_f2": {
+  "name": "L2_prev_rp_v2_f2",
+  "tree": "prev",
+  "run": "run_rest",
+  "exit": 0,
+  "status": "finished",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "19c31270b03f670bbf1fe7cbb771086bb5e526578ba60fd0fdc7d8230d96ee4a",
+  "other_changed": [],
+  "stdout_norm_sha": "d48840782dd597795ec2793b3f0e4defbe408347455481f23fb5195430c64e27"
+ },
+ "X_cand_cand_written_v2_state_nf": {
+  "name": "X_cand_cand_written_v2_state_nf",
+  "tree": "cand",
+  "run": "run_x",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "a973c9887286f7817fe5c61e3c9bed08a2836d092e628a1a5423f83fd80223eb",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "f2464bc32c57c500de6869898cf9f6b57d17dd064f96d013094e5c47073792bc"
+ },
+ "X_cand_cand_written_v2_state_topremoved_nf": {
+  "name": "X_cand_cand_written_v2_state_topremoved_nf",
+  "tree": "cand",
+  "run": "run_x",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "efbf15695c43c41fcf42f2fab1a5385b3ee1322c914af82fb796da71b77f0e42",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "4753bdfd54c327f7082a95fe82780b849926fc12eb0cacd50180e2a3ea6664bc"
+ },
+ "X_cand_cand_written_v2_state_null_nf": {
+  "name": "X_cand_cand_written_v2_state_null_nf",
+  "tree": "cand",
+  "run": "run_x",
+  "exit": 2,
+  "status": "refused",
+  "reader_scheme": null,
+  "accepted": null,
+  "refusal": "--propose=defer:<WK>/state.json \u2014 recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "state_unchanged": true,
+  "state_sha_after": "0c72a6729e4fac903f66e8baa8a9efd6973b79e2a1a7f18f85d245f0b4f96147",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "5946eede7127a5d6e257ea557240e7e77435cd48ee8cebcdf5c66d206b756541"
+ },
+ "X_prev_cand_written_v2_state_nf": {
+  "name": "X_prev_cand_written_v2_state_nf",
+  "tree": "prev",
+  "run": "run_x",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "a973c9887286f7817fe5c61e3c9bed08a2836d092e628a1a5423f83fd80223eb",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "f2464bc32c57c500de6869898cf9f6b57d17dd064f96d013094e5c47073792bc"
+ },
+ "X_prev_cand_written_v2_state_topremoved_nf": {
+  "name": "X_prev_cand_written_v2_state_topremoved_nf",
+  "tree": "prev",
+  "run": "run_x",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "efbf15695c43c41fcf42f2fab1a5385b3ee1322c914af82fb796da71b77f0e42",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "4753bdfd54c327f7082a95fe82780b849926fc12eb0cacd50180e2a3ea6664bc"
+ },
+ "X_prev_cand_written_v2_state_null_nf": {
+  "name": "X_prev_cand_written_v2_state_null_nf",
+  "tree": "prev",
+  "run": "run_x",
+  "exit": 4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "accepted": null,
+  "refusal": "",
+  "state_unchanged": true,
+  "state_sha_after": "0c72a6729e4fac903f66e8baa8a9efd6973b79e2a1a7f18f85d245f0b4f96147",
+  "other_changed": [
+   "draft.txt.briefed.json"
+  ],
+  "stdout_norm_sha": "f2464bc32c57c500de6869898cf9f6b57d17dd064f96d013094e5c47073792bc"
+ }
+}

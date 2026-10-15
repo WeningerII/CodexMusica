@@ -1,0 +1,46 @@
+main.X1_appUndo_toastButton
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 0/1] toasts=[]
+   after Remove link: [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after APP Undo (toast Undo button): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 1/3] toasts=["Rhyme link removed. Undo restores it."]
+   after Run review: [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 1/3] toasts=["Rhyme link removed. Undo restores it."]
+   payload=[{"groups":"1.T4,8; 2,3"}] errs=0
+main.X1k_appUndo_globalCtrlZ
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 0/1] toasts=[]
+   after Remove link: [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after APP Undo (Ctrl+Z, focus off textarea): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 1/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 1/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   payload=[{"groups":"1.T4,8; 2,3"}] errs=0
+main.X2_appRedo
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 0/1] toasts=[]
+   after Remove link: [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after APP Undo (toast): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 1/3] toasts=["Rhyme link removed. Undo restores it."]
+   after APP Redo (Ctrl+Shift+Z, focus off textarea): [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it."]
+   after Run review: [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it."]
+   payload=[{"groups":"1.T4,8"}] errs=0
+main.X3_nativeUndo_afterForm
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 0/1] toasts=[]
+   after Remove link: [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after BROWSER-NATIVE Ctrl+Z #1 (in textarea): [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after BROWSER-NATIVE Ctrl+Z #2 (in textarea): [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T4,8]  [hist 2/3] toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   payload=[{"groups":"1.T4,8"}] errs=0
+main.X3s_nativeUndo_sanity_noForm
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 0/1] toasts=[]
+   after BROWSER-NATIVE Ctrl+Z #1, no form commit (sanity: does native undo work here?): (no SETUP row)  [hist 0/1] toasts=[]
+   after Run review: (no SETUP row)  [hist 1/2] toasts=[]
+   payload=[{}] errs=0
+main.X4_wordRules
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 0/1] toasts=[]
+   after Word rules Apply (require "rain"): [SETUP — rhyme groups — 1.T4,8; 2,3] | [SETUP — require — rain]  [hist 2/3] toasts=["Word rules applied.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T4,8; 2,3] | [SETUP — require — rain]  [hist 2/3] toasts=["Word rules applied.\nUndo"]
+   payload=[{"groups":"1.T4,8; 2,3","must_include":["rain"]}] errs=0
+main.X5_relationOnly
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 0/1] toasts=[]
+   after Rhymes relation-only Apply (class:RHYME): [SETUP — rhyme groups — 1.T4,8; 2,3] | [SETUP — relation — class:RHYME]  [hist 2/3] toasts=["Relation declared: class:RHYME.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T4,8; 2,3] | [SETUP — relation — class:RHYME]  [hist 2/3] toasts=["Relation declared: class:RHYME.\nUndo"]
+   payload=[{"relation":"class:RHYME","groups":"1.T4,8; 2,3"}] errs=0
+main.X9_sectionMove
+   after paste (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3]  [hist 0/1] toasts=[]
+   after Form & story: Verse Move down: [SETUP — rhyme groups — 3.T4,10;4,5]  [hist 2/3] toasts=["Moved section down.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 3.T4,10;4,5]  [hist 2/3] toasts=["Moved section down.\nUndo"]
+   payload=[{"groups":"3.T4,10;4,5"}] errs=0

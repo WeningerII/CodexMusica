@@ -1,0 +1,76 @@
+
+1. verify builds no offer it does not read (LOOP_REDESIGN.md §2.6, T8)
+  PASS  inside verify, every per-line brief asks for the verify fields only (`_verify_fields_only=True`) — before the redesign it asked for the full offer, so this fails there
+  PASS  PREMISE: the old full brief, on the same pairs, DOES run the offer searches (whole-lexicon widening, a limited declared_offer)
+  PASS  ...and no offer-building search runs inside verify: zero calls to `_widen_pool`, `schema_widened_field`, or `declared_offer` with a `limit`
+  PASS  the new verify returns the old verify's dict on all 18 pairs, key for key and `reasons` byte for byte
+  PASS  PREMISE: the corpus reaches both rule-3 outcomes — a modal word TAKEN and an incumbent KEPT — so (b) examined rule 3 and not only its absence
+  PASS  MUTANT 'drop rule 3' in the verify mode is caught by the equality half (it changes at least one fixture's verdict)
+  PASS  MUTANT 'skip the filter' in the verify mode is caught by the equality half (it changes at least one fixture's verdict)
+
+2. every batch answer has a standing (§2.2 option B, T3, C2)
+  PASS  PREMISE: L2 and L4 are asked as one batch
+  PASS  after the batch answer L2 is judged (rejected) and L4 holds no record yet: the connector renders it `pending`, waiting on the question asked now
+  PASS  a later call judges L4's batch answer exactly once, and accepts the offered rhyme it was given
+  PASS  PREMISE: the four 'and' lines are asked as one batch
+  PASS  L1's accepted rewrite closed the anaphora on L3, L5 and L7: each gets a `not_applied` disposition naming L1 — before the redesign nothing was written, so this fails there
+  PASS  ...and those answers are NOT in `outcomes`: the rejection history and the questions it feeds are exactly as before
+  PASS  THE COUPLING TEST: with the pass-by hook and without it, the walk asks the same questions in the same order and reaches the same draft, stop and round history — option B changes nothing about acceptance
+  PASS  PREMISE: that walk really passed lines by (resolved_elsewhere is non-empty), so the hook was exercised
+
+3. group questions offer words (§2.4, §2.8 G, T6)
+  PASS  PREMISE: the rejected line answer escalated to a group question on L1+L2
+  PASS  L1 (no per-line finding) is shown its one-move menu, and the printed words are exactly `member_place_field`'s — before the redesign the prompt said `(none offered)`, so this fails there
+  PASS  ...and L2's own line-question lists are reprinted, citing the question that was really asked on this draft
+  PASS  on a line brief() does brief, `member_place_field` returns the brief's own offer, forbidden head, calls and incumbent
+  PASS  PREMISE: SILVER's empty field sends it to tier 2 group-first
+  PASS  on the group-first path no one-move menu is computed and the member's empty menu says why; the pivot's line-question block is absent
+
+4. resume from the saved position equals replay (§2.0, T1, T2)
+  PASS  AABB: resuming from the saved position asks exactly the questions replay asks, byte for byte (3 questions)
+  PASS  AABB: ...and reaches the same draft, stop and round history
+  PASS  AABB: T2 — resuming verifies each answer once (3 verifies for 3 answers), where replay re-verified (6)
+  PASS  COUPLET: resuming from the saved position asks exactly the questions replay asks, byte for byte (2 questions)
+  PASS  COUPLET: ...and reaches the same draft, stop and round history
+  PASS  COUPLET: T2 — resuming verifies each answer once (2 verifies for 2 answers), where replay re-verified (3)
+  PASS  ANAPHORA: resuming from the saved position asks exactly the questions replay asks, byte for byte (3 questions)
+  PASS  ANAPHORA: ...and reaches the same draft, stop and round history
+  PASS  ANAPHORA: T2 — resuming verifies each answer once (3 verifies for 3 answers), where replay re-verified (6)
+  PASS  LIVE: resuming from the saved position asks exactly the questions replay asks, byte for byte (4 questions)
+  PASS  LIVE: ...and reaches the same draft, stop and round history
+  PASS  LIVE: T2 — resuming verifies each answer once (4 verifies for 4 answers), where replay re-verified (10)
+
+5. resume equals replay through the real verb (§2.0, T1, T2, T7)
+  PASS  AABB: every question, outcome, disposition, stale count and disclosure line is the same resuming and replaying (8 calls)
+  PASS  AABB: the resuming arm re-verified nothing on any call (`replayed_answers` 0, resumed from the cursor after the first) — the run record has no such field before the redesign, so this fails there
+  PASS  AABB: POSITIVE CONTROL — the replay arm did replay (`replayed_answers` > 0 on some call, `cursor_stripped` 'missing')
+  PASS  ANAPHORA: every question, outcome, disposition, stale count and disclosure line is the same resuming and replaying (3 calls)
+  PASS  ANAPHORA: the resuming arm re-verified nothing on any call (`replayed_answers` 0, resumed from the cursor after the first) — the run record has no such field before the redesign, so this fails there
+  PASS  ANAPHORA: POSITIVE CONTROL — the replay arm did replay (`replayed_answers` > 0 on some call, `cursor_stripped` 'missing')
+  PASS  T7: an edited earlier answer drops the cursor — the run replays and says `cursor_stripped: digest`
+  PASS  T7: the same state under another argv drops the cursor — `cursor_stripped: run_key`
+
+6. a call that nears its deadline stops at a safe point and the next call finishes the same run (§2.3b, §2.8 E; T4)
+  PASS  ANAPHORA batch: the uninterrupted run builds a batch's menus member by member ('menu' twice in a row), so a stop between them can be placed
+  PASS  ANAPHORA batch: a stop before the call's first grade (call 1, step 1) exits stopped, and the stopped state holds a saved position
+  PASS  ANAPHORA batch: ...the next call, with no answer, resumes from it and re-verifies nothing
+  PASS  ANAPHORA batch: ...and every question is byte-identical to the uninterrupted run's, with the same draft, stop and rounds (2 questions)
+  PASS  ANAPHORA batch: a stop between two members' menus (call 0, step 4) exits stopped, and the stopped state holds a saved position
+  PASS  ANAPHORA batch: ...the next call, with no answer, resumes from it and re-verifies nothing
+  PASS  ANAPHORA batch: ...and every question is byte-identical to the uninterrupted run's, with the same draft, stop and rounds (2 questions)
+  PASS  ANAPHORA batch: ...the stopped state keeps the menu already built for the first member (1 saved)
+  PASS  ANAPHORA batch: a stop between an answer and its verdict (call 1, step 3) exits stopped, and the stopped state holds a saved position
+  PASS  ANAPHORA batch: ...the next call, with no answer, resumes from it and re-verifies nothing
+  PASS  ANAPHORA batch: ...and every question is byte-identical to the uninterrupted run's, with the same draft, stop and rounds (2 questions)
+  PASS  ANAPHORA batch: a stop before a menu (call 0, step 3) exits stopped, and the stopped state holds a saved position
+  PASS  ANAPHORA batch: ...the next call, with no answer, resumes from it and re-verifies nothing
+  PASS  ANAPHORA batch: ...and every question is byte-identical to the uninterrupted run's, with the same draft, stop and rounds (2 questions)
+  PASS  COUPLET group: a stop before the call's first grade (call 1, step 1) exits stopped, and the stopped state holds a saved position
+  PASS  COUPLET group: ...the next call, with no answer, resumes from it and re-verifies nothing
+  PASS  COUPLET group: ...and every question is byte-identical to the uninterrupted run's, with the same draft, stop and rounds (4 questions)
+  PASS  COUPLET group: a stop between an answer and its verdict (call 1, step 3) exits stopped, and the stopped state holds a saved position
+  PASS  COUPLET group: ...the next call, with no answer, resumes from it and re-verifies nothing
+  PASS  COUPLET group: ...and every question is byte-identical to the uninterrupted run's, with the same draft, stop and rounds (4 questions)
+  PASS  COUPLET group: a stop before a menu (call 0, step 3) exits stopped, and the stopped state holds a saved position
+  PASS  COUPLET group: ...the next call, with no answer, resumes from it and re-verifies nothing
+  PASS  COUPLET group: ...and every question is byte-identical to the uninterrupted run's, with the same draft, stop and rounds (4 questions)

@@ -1,0 +1,20 @@
+{
+ "res": {
+  "synthetic": {
+   "lines": 27,
+   "cases": 216,
+   "differ": 0
+  },
+  "population": {
+   "lines": 3990,
+   "cases": 31920,
+   "differ": 0
+  },
+  "crafted+fuzz": {
+   "lines": 6677,
+   "cases": 53416,
+   "differ": 0
+  }
+ },
+ "examples": []
+}

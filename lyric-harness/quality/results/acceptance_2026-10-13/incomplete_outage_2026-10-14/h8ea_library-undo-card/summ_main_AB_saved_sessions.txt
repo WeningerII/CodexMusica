@@ -1,0 +1,79 @@
+
+# main AB saved_sessions
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song A id= rec=- | SS: Song A rec=-
+    IDB: -
+    hist: (empty){} > Song S{} > Song Quiet{} > *Song A{}
+    toasts: ["Workspace copy saved: Saved S1\nOpen copy","Workspace copy saved: Saved S0\nOpen copy","Imported a.txt. Undo restores the previous draft.\nUndo"]
+- 2 after Saved sessions > Load "Saved S1" (migrating)
+    draft=Song S rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song S id= rec=- | SS: Song S rec=-
+    IDB: -
+    hist: (empty){} > Song S{} > Song Quiet{} > Song A{} > *Song S{}
+    toasts: ["Imported a.txt. Undo restores the previous draft.\nUndo","Loaded \"Saved S1\""]
+- 3 APP Undo: #btn-undo, mouse click +3s (expect A)
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song A id= rec=- | SS: Song A rec=-
+    IDB: -
+    hist: (empty){} > Song S{} > Song Quiet{} > *Song A{} > Song S{}
+    toasts: ["Loaded \"Saved S1\""]
+- 4 APP Redo: #btn-redo, mouse click +3s (expect S1)
+    draft=Song S rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song S id= rec=- | SS: Song S rec=-
+    IDB: -
+    hist: (empty){} > Song S{} > Song Quiet{} > Song A{} > *Song S{}
+    toasts: ["Loaded \"Saved S1\""]
+- 5 APP Undo: #btn-undo, mouse click again +3s (expect A)
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song A id= rec=- | SS: Song A rec=-
+    IDB: -
+    hist: (empty){} > Song S{} > Song Quiet{} > *Song A{} > Song S{}
+    toasts: ["Loaded \"Saved S1\""]
+- 6 after Saved sessions > Load "Saved S0" (quiet)
+    draft=Song Quiet rows=["[SETUP — rhyme groups — 1,2]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song Quiet id= rec=- | SS: Song Quiet rec=-
+    IDB: -
+    hist: (empty){} > Song S{} > Song Quiet{} > Song A{} > *Song Quiet{}
+    toasts: ["Loaded \"Saved S1\"","Loaded \"Saved S0\""]
+- 7 APP Undo: #btn-undo, mouse click +3s (expect A)
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song A id= rec=- | SS: Song A rec=-
+    IDB: -
+    hist: (empty){} > Song S{} > Song Quiet{} > *Song A{} > Song Quiet{}
+    toasts: ["Loaded \"Saved S0\""]
+- 8 after Library import B
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:42b57462 live=-
+    review card: NO CARD
+    LS: Song B id=draft:42b57462 rec=- | SS: Song B rec=-
+    IDB: draft:04a42b24=Song A savedAt=1791984433182 rec=- ; draft:42b57462=Song B savedAt=1791984435072 rec=- ad=false
+    hist: (empty){} > Song S{} > Song Quiet{} > Song A{} > Song A@04a42b24{} > *Song B@42b57462[ad=false]{}
+    toasts: ["Loaded \"Saved S0\"","Library working copy imported. Your previous draft is under History."]
+- 9 after Saved sessions > Fork "Saved S1" over B
+    draft=Song S rows=["[SETUP — rhyme groups — 1.T4,2.T4]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song S id= rec=- | SS: Song S rec=-
+    IDB: draft:04a42b24=Song A savedAt=1791984433182 rec=- ; draft:42b57462=Song B savedAt=1791984435072 rec=- ad=false
+    hist: (empty){} > Song S{} > Song Quiet{} > Song A{} > Song A@04a42b24{} > Song B@42b57462[ad=false]{} > *Song S{}
+    toasts: ["Library working copy imported. Your previous draft is under History.","Copied \"Saved S1\""]
+- 10 APP Undo: #btn-undo, mouse click +3s (expect B)
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:42b57462 live=-
+    review card: NO CARD
+    LS: Song B id=draft:42b57462 rec=- | SS: Song B rec=-
+    IDB: draft:04a42b24=Song A savedAt=1791984433182 rec=- ; draft:42b57462=Song B savedAt=1791984437726 rec=- ad=false
+    hist: (empty){} > Song S{} > Song Quiet{} > Song A{} > Song A@04a42b24{} > *Song B@42b57462[ad=false]{} > Song S{}
+    toasts: ["Copied \"Saved S1\""]
+- 11 after reload
+    draft=Song B rows=["[SETUP — returns — 1.T4,2.T4]"] draftId=draft:42b57462 live=-
+    review card: NO CARD
+    LS: Song B id=draft:42b57462 rec=- | SS: Song B rec=-
+    IDB: draft:04a42b24=Song A savedAt=1791984433182 rec=- ; draft:42b57462=Song B savedAt=1791984443676 rec=- ad=false
+    hist: *Song B@42b57462[ad=false]{}
+  search s6: {"heart":[],"part":[],"love":[],"dove":[],"night":[],"light":[],"gold":[],"road":[]}

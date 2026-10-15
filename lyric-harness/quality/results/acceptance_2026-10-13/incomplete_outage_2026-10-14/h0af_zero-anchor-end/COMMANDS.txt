@@ -1,0 +1,28 @@
+# zero-anchor-end acceptance (commit 3e77a5d9 at head 0af39c6f). All paths absolute.
+S=/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad ; F=$S/h0af/zero-anchor-end
+PY=$S/venv311/bin/python ; export LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data
+POP=/home/user/CodexMusica/lyric-harness/quality/results/acceptance_2026-10-13/slot_match_67889851/population.txt
+CR=$S/so3/skeptic-counterexamples/lines.json   # crafted 3167 + fuzz 3510 lines (counterexample skeptic)
+# trees (untracked extractions, no tracked file touched):
+cd $S/wt-0af && git archive 3e77a5d9 lyric-harness | tar -x -C $F/trees/ && mv $F/trees/lyric-harness $F/trees/t3e77 && cp lyric-harness/cmudict.dict $F/trees/t3e77/
+cd $S/wt-0af && git archive 0af39c6f lyric-harness | tar -x -C $F/trees/ && mv $F/trees/lyric-harness $F/trees/trev && cp lyric-harness/cmudict.dict $F/trees/trev/
+git -C $S/wt-0af diff 6955e3429 3e77a5d9 -- lyric-harness/quality/loop.py > $F/out/3e77_loop.patch
+cd $F/trees/trev && patch -R -p2 < $F/out/3e77_loop.patch   # trev = 0af with ONLY 3e77's loop.py change reversed (== 6955 loop.py, verified with diff)
+bash $F/scripts/run_matrix.sh   # endmatrix.py on 0af, 695, trev, t3e77, 61b, 678 -> out/em_<tag>.jsonl.gz
+# pristine 0af copies for test runs / ablations (git archive 0af39c6f lyric-harness -> trees/{t0af,tA,tB,ttrip}; cmudict.dict copied from wt-0af)
+$PY -I $F/scripts/ablate0af.py $S/wt-0af/lyric-harness/quality/loop.py $F/variants   # single-guard ablations z1, a1, a3, a3e, a7
+$PY -I $F/scripts/tripwire0af.py $S/wt-0af/lyric-harness/quality/loop.py $F/trees/ttrip/quality/loop.py   # tripwire copy (behaviour unchanged)
+bash $F/scripts/run_tests_slot.sh   # SlotBinding+LoopSwaps: t0af, trev, t3e77, ablations -> tests/slot_*.log
+P=3 bash $F/scripts/run_trip.sh   # 15 loop-touching test files on ttrip (tripwire logs per job in tests/trip/)
+$PY -I $F/scripts/analyse.py $F   # joins em_*.jsonl.gz -> out/analysis.json
+$PY -I $F/scripts/reason.py <tree> $F/out/analysis.json $F/out/reason_c_<tag>.json   # tag 0af, 61b (cwd <tree>)
+$PY -I $F/scripts/prop_cover.py $S/wt-0af/lyric-harness $F/out/analysis.json > $F/out/prop_cover_0af.txt   # (cwd wt-0af/lyric-harness)
+$PY -I $F/scripts/probe_a7_0af.py $S/wt-0af/lyric-harness $F/variants/a7_endpoint_pieces_check_off.py $POP $CR $F/out/probe_a7_0af.json   # (cwd wt-0af/lyric-harness)
+$PY -I $F/scripts/e2e_unbound.py <tree> $F/out/e2e_unbound_<tag>.json   # tag 0af, 695 (cwd <tree>): real revise_loop
+$PY -I $F/scripts/ablate_z3.py $S/wt-0af/lyric-harness/quality/loop.py $F/variants/z3_zero_anchor_only_when_run_is_token.py; $PY -I $F/scripts/probe_variant_end.py $S/wt-0af/lyric-harness $F/variants/z3_zero_anchor_only_when_run_is_token.py $POP $CR $F/out/probe_z3.json
+(cd $F/trees/tA: cp variant z3 -> quality/loop.py; test_reader.py -v SlotBinding LoopSwaps > $F/tests/slot_abl_z3_zero_anchor_only_when_run_is_token.log; loop.py restored)
+# repo-shaped trees (tests read ../mcp, ../scripts, ../.claude): R_trip = {lyric-harness: tripwire 0af copy, everything else: symlinks to wt-0af}; R_clean = {lyric-harness: pristine 0af copy, rest symlinked}
+# (first tripwire attempt in a lyric-harness-only tree: tests/trip_old/ -- WarmWorker x6 failed only because ../mcp/worker.py was absent; reader trip log kept there)
+# R_trip / R_clean rebuilt WITHOUT links into wt-0af: (cd $S/wt-0af && git archive 0af39c6f -- . ':!api' ':!assets' ':!docs' ':!library' ':!lyric-harness') | tar -x -C $F/trees/<R>; node_modules -> symlink to the shared node_modules (untracked)
+$PY -I $F/scripts/c_lastword.py $S/wt-0af/lyric-harness $F/out/reason_c_0af.json > $F/out/c_lastword.txt
+# tA/tB deleted after ablations; analysis.json gzipped (out/analysis.json.gz)

@@ -1,0 +1,173 @@
+.....................................................................................FFFFFF.ssssss
+======================================================================
+FAIL: test_a_legacy_lyrics_request_then_a_library_analysis (__main__.WarmWorker.test_a_legacy_lyrics_request_then_a_library_analysis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2624, in test_a_legacy_lyrics_request_then_a_library_analysis
+    self._child("test_a_legacy_lyrics_request_then_a_library_analysis")
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2589, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : setUpClass (quality.test_reader.WarmWorkerBody) ... ERROR
+
+======================================================================
+ERROR: setUpClass (quality.test_reader.WarmWorkerBody)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2669, in setUpClass
+    spec.loader.exec_module(cls.W)          # chdirs to lyric-harness
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/mcp/worker.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.032s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_a_new_lyrics_request_then_a_legacy_one (__main__.WarmWorker.test_a_new_lyrics_request_then_a_legacy_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2636, in test_a_new_lyrics_request_then_a_legacy_one
+    self._child("test_a_new_lyrics_request_then_a_legacy_one")
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2589, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : setUpClass (quality.test_reader.WarmWorkerBody) ... ERROR
+
+======================================================================
+ERROR: setUpClass (quality.test_reader.WarmWorkerBody)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2669, in setUpClass
+    spec.loader.exec_module(cls.W)          # chdirs to lyric-harness
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/mcp/worker.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.026s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_a_new_lyrics_request_then_a_library_analysis (__main__.WarmWorker.test_a_new_lyrics_request_then_a_library_analysis)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2639, in test_a_new_lyrics_request_then_a_library_analysis
+    self._child("test_a_new_lyrics_request_then_a_library_analysis")
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2589, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : setUpClass (quality.test_reader.WarmWorkerBody) ... ERROR
+
+======================================================================
+ERROR: setUpClass (quality.test_reader.WarmWorkerBody)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2669, in setUpClass
+    spec.loader.exec_module(cls.W)          # chdirs to lyric-harness
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/mcp/worker.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.016s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_cold_a_legacy_lyrics_request_then_a_new_one (__main__.WarmWorker.test_cold_a_legacy_lyrics_request_then_a_new_one)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2627, in test_cold_a_legacy_lyrics_request_then_a_new_one
+    self._child("test_cold_a_legacy_lyrics_request_then_a_new_one")
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2589, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : setUpClass (quality.test_reader.WarmWorkerBody) ... ERROR
+
+======================================================================
+ERROR: setUpClass (quality.test_reader.WarmWorkerBody)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2669, in setUpClass
+    spec.loader.exec_module(cls.W)          # chdirs to lyric-harness
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/mcp/worker.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.022s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_cold_a_library_analysis_then_a_legacy_lyrics_request (__main__.WarmWorker.test_cold_a_library_analysis_then_a_legacy_lyrics_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2633, in test_cold_a_library_analysis_then_a_legacy_lyrics_request
+    self._child("test_cold_a_library_analysis_then_a_legacy_lyrics_request")
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2589, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : setUpClass (quality.test_reader.WarmWorkerBody) ... ERROR
+
+======================================================================
+ERROR: setUpClass (quality.test_reader.WarmWorkerBody)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2669, in setUpClass
+    spec.loader.exec_module(cls.W)          # chdirs to lyric-harness
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/mcp/worker.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.010s
+
+FAILED (errors=1)
+
+
+======================================================================
+FAIL: test_cold_a_library_analysis_then_a_new_lyrics_request (__main__.WarmWorker.test_cold_a_library_analysis_then_a_new_lyrics_request)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2630, in test_cold_a_library_analysis_then_a_new_lyrics_request
+    self._child("test_cold_a_library_analysis_then_a_new_lyrics_request")
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2589, in _child
+    self.assertEqual(r.returncode, 0, r.stdout[-2000:] + r.stderr[-4000:])
+AssertionError: 1 != 0 : setUpClass (quality.test_reader.WarmWorkerBody) ... ERROR
+
+======================================================================
+ERROR: setUpClass (quality.test_reader.WarmWorkerBody)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/ttrip/quality/test_reader.py", line 2669, in setUpClass
+    spec.loader.exec_module(cls.W)          # chdirs to lyric-harness
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1073, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1130, in get_data
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/trees/mcp/worker.py'
+
+----------------------------------------------------------------------
+Ran 0 tests in 0.014s
+
+FAILED (errors=1)
+
+
+----------------------------------------------------------------------
+Ran 98 tests in 1738.015s
+
+FAILED (failures=6, skipped=6)

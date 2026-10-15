@@ -1,0 +1,67 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:a203d324-1e84-49c1-8436-62eede7a5d5a",
+  "draftId": "draft:afdeb4fc-08de-414c-a130-fade88b373a8",
+  "createdAt": "2026-10-14T13:22:07.612Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song BQ\"]\n[SETUP — returns — 1,2]\n\n[VERSE]\nwe sing it plain tonight\nwe bring it home tonight",
+    "title": "BQ_quiet",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:r1",
+      "unitId": "unit:r1",
+      "workId": "work:r1",
+      "editionId": "ed:r1",
+      "revisionId": "rev:r1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:f514eaf4-64ac-40e1-8399-7011ccf4b5fd",
+        "sourceDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [
+          {
+            "pronunciations": [
+              {
+                "line": "Oh--oh, oh sweet love",
+                "token": 2,
+                "word": "oh",
+                "phones": [
+                  "OW1"
+                ],
+                "basis": "declared",
+                "source": "the singer"
+              }
+            ]
+          }
+        ],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": [
+      {
+        "pronunciations": [
+          {
+            "line": "Oh--oh, oh sweet love",
+            "token": 2,
+            "word": "oh",
+            "phones": [
+              "OW1"
+            ],
+            "basis": "declared",
+            "source": "the singer"
+          }
+        ]
+      }
+    ]
+  },
+  "digest": "6721c16ca670f4aea4e42a403d7b91d28c7701c994b17f6e8176122b9d57f673"
+}

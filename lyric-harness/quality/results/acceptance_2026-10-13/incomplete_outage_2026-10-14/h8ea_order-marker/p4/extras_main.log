@@ -1,0 +1,34 @@
+### main.T1_typing_never_migrates
+   body entered: (no SETUP row) {} [hist 0/1] record=null card=null toasts=[]
+   typed row (keyboard.type, 15 ms/char) + Enter Enter: [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 0/1] record=null card=null toasts=[]
+   +1.5 s idle (typing refresh 120 ms): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 0/1] record=null card=null toasts=[]
+   typed ",5" inside the row: [SETUP — rhyme groups — 1.T4,8; 2,3,5] {UNMARKED} [hist 0/1] record=null card=null toasts=[]
+   Backspace x2 inside the row: [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 0/1] record=null card=null toasts=[]
+   opened Rhymes tool (display): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 1/2] record=null card=null toasts=[]
+   opened Repeats tool (display): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 1/2] record=null card=null toasts=[]
+   opened Review tab (display): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 1/2] record=null card=null toasts=[]
+   after Run review: [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 1/2] record=null card=null toasts=[]
+   payload=[{"groups":"1.T4,8; 2,3"}] errs=0
+### main.U1_appUndo_toast_then_appRedo
+   body entered: (no SETUP row) {} [hist 0/1] record=null card=null toasts=[]
+   pasted (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 0/1] record=null card=null toasts=[]
+   Remove link (form; policy pass): [SETUP — rhyme groups — 1.T4,8] {UNMARKED} [hist 2/3] record=null card=null toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   APP Undo (the commit toast's Undo button): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 1/3] record=null card=null toasts=["Rhyme link removed. Undo restores it."]
+   APP Redo (Ctrl+Shift+Z, focus off the textarea): [SETUP — rhyme groups — 1.T4,8] {UNMARKED} [hist 2/3] record=null card=null toasts=["Rhyme link removed. Undo restores it."]
+   after Run review: [SETUP — rhyme groups — 1.T4,8] {UNMARKED} [hist 2/3] record=null card=null toasts=["Rhyme link removed. Undo restores it."]
+   payload=[{"groups":"1.T4,8"}] errs=0
+### main.U2_appUndo_then_send
+   body entered: (no SETUP row) {} [hist 0/1] record=null card=null toasts=[]
+   pasted (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 0/1] record=null card=null toasts=[]
+   Remove link (form; policy pass): [SETUP — rhyme groups — 1.T4,8] {UNMARKED} [hist 2/3] record=null card=null toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   APP Undo (Ctrl+Z, focus off the textarea): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 1/3] record=null card=null toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 1/3] record=null card=null toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   payload=[{"groups":"1.T4,8; 2,3"}] errs=0
+### main.U3_nativeUndo_in_textarea
+   body entered: (no SETUP row) {} [hist 0/1] record=null card=null toasts=[]
+   pasted (real Ctrl+V): [SETUP — rhyme groups — 1.T4,8; 2,3] {UNMARKED} [hist 0/1] record=null card=null toasts=[]
+   Remove link (form; policy pass): [SETUP — rhyme groups — 1.T4,8] {UNMARKED} [hist 2/3] record=null card=null toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   BROWSER-NATIVE Ctrl+Z #1 (caret in textarea): [SETUP — rhyme groups — 1.T4,8] {UNMARKED} [hist 2/3] record=null card=null toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   BROWSER-NATIVE Ctrl+Z #2 (caret in textarea): [SETUP — rhyme groups — 1.T4,8] {UNMARKED} [hist 2/3] record=null card=null toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   after Run review: [SETUP — rhyme groups — 1.T4,8] {UNMARKED} [hist 2/3] record=null card=null toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+   payload=[{"groups":"1.T4,8"}] errs=0

@@ -1,0 +1,810 @@
+{
+ "version": 1,
+ "answered": {
+  "propose": [],
+  "propose_group": []
+ },
+ "pending": {
+  "kind": "propose_batch",
+  "record": {
+   "records": [
+    {
+     "line": 6,
+     "attempt": 0,
+     "round": 1,
+     "draft": "cb5fd71acd12",
+     "text": null
+    },
+    {
+     "line": 9,
+     "attempt": 0,
+     "round": 1,
+     "draft": "cb5fd71acd12",
+     "text": null
+    }
+   ],
+   "round": 1
+  },
+  "prompt": "REVISE 2 LINES AT ONCE \u2014 L6, L9 of a 12-line draft.\n\nEach of these lines was flagged by the grader, and none of them rhymes with, returns to, or\ncalls any of the others \u2014 so each can be rewritten on its own without moving the rest. Below is\none brief per line: everything the grader measured on it and the rules it will apply. The\nwhole draft and the whole-draft findings are printed ONCE, here, and hold for every line.\n\nANSWER SHAPE \u2014 enforced, not advisory:\n  one row per line, in this exact form, and NOTHING else (no commentary, no fence, no blank rows):\n  L6: <the whole new line 6>\n  L9: <the whole new line 9>\n  every one of L6, L9 is required; a missing, repeated or extra marker REFUSES the whole answer and asks again.\n\nTHE WHOLE DRAFT (context \u2014 only L6, L9 may change)\n     L 1  Carry the ember home tonight\n     L 2  nothing waits for me\n     L 3  Carry the ember home tonight\n     L 4  every bell is free\n     L 5  I lost my way in 1987\n  >> L 6  the water ran so slow\n     L 7  and nobody knew\n     L 8  Oh--oh, my lonely road\n  >> L 9  the stone is in the field\n     L10  we ran it through the field--\n     L11  the evening took the snow\n     L12  and so the dark would yield\n\nWHOLE-DRAFT FINDINGS \u2014 PRESERVE THESE CONSTRAINTS (6)\n  These are measured over the WHOLE DRAFT. Preserve their constraints while changing only the permitted lines.\n  A permitted rewrite may improve or clear a whole-draft finding; it is not required to clear every one in this single edit.\n  The grader reads them too: a revision that makes one WORSE is rejected.\n  [note] NO_SETTING: meter: which syllable sits on which pulse \u2014 not answered on 12 of 12 line(s) (lines 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12)\n      evidence: a syllable-to-beat map: (line, unit) -> pulse. MISSING.md G-1. `declared_inputs.BeatGrid` is the object that accepts one, and R5 is PERMANENT: there is no audio here, so the map arrives from a score, an arrangement or a decision and never from the text. `Isochrony(source=)` declares the even-division ASSUMPTION instead, and every verdict through it is stamped conditional (doctrine 4). Said once, about the SETTING, not once per line it happens to fall on (the same move COLLISION_CUT_IS_SCALAR_ONLY makes).\n  [note] COUNT_IS_A_LOWER_BOUND: meter: the exact number of units this line asks the bar to hold \u2014 not answered on 1 of 12 line(s) (lines 5)\n      evidence: 1 token(s) contributed nothing: 1987 (NUMERAL). the count and every density derived from it are LOWER BOUNDS. Reporting them as measurements would charge the ingestion layer's gap to the fit (doctrine 79). a numeral is sung as a word and `lyric_harness.line_tokens` matches LATIN_SCRIPT letters plus `'` and `-` (it was [A-Za-z'-] until 2026-08-21), so it contributes no syllables and raises no refusal. The count without it is a LOWER BOUND. Said once, about the SETTING, not once per line it happens to fall on (the same move COLLISION_CUT_IS_SCALAR_ONLY makes).\n  [note] RETURN_LOCKED: every chorus return is verbatim in an identical slot\n      evidence: 1 return(s), all VERBATIM. This is the strophic default and it is not a defect -- it is the majority of the corpus. It is reported because the OTHER answers exist and were unsayable: Hanby rewrites the words and keeps the rhyme, Russell holds the first and last lines and rewrites the interior, the Gitagovinda holds a head and a tail and varies the middle. Variation-on-return is a channel this song does not use.\n  [note] SINGLE_INSTANCE: 'verse' occurs once, so 'does it land in the same place each time' has no second time\n      evidence: bars 37-72. This is CANNOT TELL, not clean (doctrine 28).\n  [note] FUNCTION_UNDECLARED: no section declares 'bridge'\n      evidence: declared functions present: ['chorus', 'coda', 'postchorus', 'verse']\n  [note] TITLE_UNDECLARED: 'is the title in the hook?' was not asked: Song.title is empty\n      evidence: The question needs a declared title; guessing one from the first line is inference, which is the error this cell exists to avoid.\n\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 L6 \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE LINE TO REVISE\n  L6: the water ran so slow\n\nWHAT THE GRADER FOUND ON L6 (4)\n  [flag] SCHEME_VIOLATION: L5 and L6 are both in group A [5, 6, 8] but do not stand in the relation it requires (lines 5, 6)\n      evidence: NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) \u2014 none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.564; 'in' ~ 'slow') \u2014 NAMED PAIR IS NOT THE EVIDENCE: scored on: in  ~  ran so slow   (best of k=8)   MOSAIC (right): the winning span reaches back past the end word\n  [note] SPARSE: fewer syllables than pulses \u2014 pulses with nothing declared on them (lines 6)\n      evidence: 6 syllables over 13 pulses leaves 110.25 pulses unaccounted for. Where they fall is a setting question and is refused below.\n  [note] ANACRUSIS: the declared start is a pickup across the next barline (lines 6)\n      evidence: 12.25 pulses before the barline, 104 after. The start sits on a a 1/4 of a pulse, which in 13/8 is a thirty-second-note position.\n  [note] HEADS_EXCEED_UNITS: more group heads than syllables \u2014 at least 38 head carries nothing at all (lines 6)\n      evidence: 6 syllables against 44 heads at pulses ('b46.4', 'b46.6', 'b46.8', 'b46.11', 'b47.1', 'b47.4', 'b47.6', 'b47.8', 'b47.11', 'b48.1', 'b48.4', 'b48.6', 'b48.8', 'b48.11', 'b49.1', 'b49.4', 'b49.6', 'b49.8', 'b49.11', 'b50.1', 'b50.4', 'b50.6', 'b50.8', 'b50.11', 'b51.1', 'b51.4', 'b51.6', 'b51.8', 'b51.11', 'b52.1', 'b52.4', 'b52.6', 'b52.8', 'b52.11', 'b53.1', 'b53.4', 'b53.6', 'b53.8', 'b53.11', 'b54.1', 'b54.4', 'b54.6', 'b54.8', 'b54.11'). The line drags across the grouping rather than crowding it.\n\nTHE RHYME MANDATE ON L6\n  group A [5, 6, 8] at its end word \u2014 this line must stand in at least one relation with: L5 ('in'), L8 ('road') \u2014 VIOLATED, this is the word to change\n\nOFFERED \u2014 words for the end word that answer every group bound there\n  24 word(s); field read at field_depth=complete pool, field_band='grader'\n    did, own, alone, phone, kid, known, rid, stone, telephone, grown, bone, considered, zone, thrown, loan, tone, unknown, shown, blown, hid, joan, throne, bid, colin\n  Offered, NOT required. The grader re-grades the rhyme itself; it never checks whether\n  your end word came off this list. A word that is not here and rhymes is accepted, and\n  a word that is here is not accepted for being here.\n\nFORBIDDEN \u2014 do not MOVE L6 TO any of these (0)\n  (none \u2014 the modal head was COMPUTED for this line and came back EMPTY, which is not\n  the same as it not having been asked.\n  No word in this field has been seen realised as these calls' rhyme partner in the\n  song corpus, and none shares a call word's spelled ending. The head holds only\n  partners the song table has evidence for, so it has nothing to hold.\n  Doctrine 9 is not being applied to you here; it found nothing to apply.)\n\nTHE WORD ALREADY THERE \u2014 a DIFFERENT rule from the one above (1)\n  slow\n  This is the end word L6 already has. Re-proposing it is not a revision \u2014 but it\n  is NOT rejected outright the way the list above is: the grader asks whether a modal\n  candidate was TAKEN, and keeping the word you were given takes nothing. A line that\n  keeps it is refused by rule 4 below ('nothing was fixed') UNLESS the rewrite repaired\n  something else \u2014 a meter finding, say \u2014 in which case keeping it is accepted.\n\nLINES THAT MUST NOT CHANGE\n  (the grader found something on every line; you are still only asked for this one)\n  The tool applies your one answer to L6. Every other line stays byte-identical. Changing one is rejected\n  outright even if the change is an improvement.\n\nWHAT THE GRADER ENFORCES ON YOUR ANSWER\n  1. ONE line back, and it replaces L6. The draft stays 12 lines \u2014 a different\n     line count is rejected outright: this loop revises lines, it does not restructure\n     the draft.\n  2. ONLY L6 changes (declared returns are mirrored). Any other line that comes back different is rejected\n     outright, whatever else the revision achieved.\n  3. The end word L6 MOVES TO is not one of the FORBIDDEN words above. That is\n     checked before anything else about the line and rejects on its own. KEEPING the\n     word already there is not a move and is not rejected here \u2014 see item 4.\n  4. The line must FIX at least one finding. A rewrite that is differently defective\n     is rejected as 'nothing was fixed'.\n  5. It may not trade one defect for another: new FLAG findings anywhere in the draft\n     \u2014 including on lines you did not touch \u2014 reject it once they exceed the declared\n     `allow_net_new` (0 by default). New NOTES do not reject.\n\n\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 L9 \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE LINE TO REVISE\n  L9: the stone is in the field\n\nWHAT THE GRADER FOUND ON L9 (4)\n  [flag] REPEAT_IN_VERSE: 1 pair(s) rhyme a word with itself (lines 9)\n      evidence: 'the field' \u2014 carried by 1 of 4 pairs \u2014 it recurs NOWHERE, so no refrain reading is available and the fraction never enters. A one-off self-rhyme in an item with 4 pairs to contrast it against\n  [note] SPARSE: fewer syllables than pulses \u2014 pulses with nothing declared on them (lines 9)\n      evidence: 6 syllables over 13 pulses leaves 110.5 pulses unaccounted for. Where they fall is a setting question and is refused below.\n  [note] ANACRUSIS: the declared start is a pickup across the next barline (lines 9)\n      evidence: 12.5 pulses before the barline, 104 after. The start sits on a a half-pulse, which in 13/8 is a sixteenth-note position.\n  [note] HEADS_EXCEED_UNITS: more group heads than syllables \u2014 at least 38 head carries nothing at all (lines 9)\n      evidence: 6 syllables against 44 heads at pulses ('b73.4', 'b73.6', 'b73.8', 'b73.11', 'b74.1', 'b74.4', 'b74.6', 'b74.8', 'b74.11', 'b75.1', 'b75.4', 'b75.6', 'b75.8', 'b75.11', 'b76.1', 'b76.4', 'b76.6', 'b76.8', 'b76.11', 'b77.1', 'b77.4', 'b77.6', 'b77.8', 'b77.11', 'b78.1', 'b78.4', 'b78.6', 'b78.8', 'b78.11', 'b79.1', 'b79.4', 'b79.6', 'b79.8', 'b79.11', 'b80.1', 'b80.4', 'b80.6', 'b80.8', 'b80.11', 'b81.1', 'b81.4', 'b81.6', 'b81.8', 'b81.11'). The line drags across the grouping rather than crowding it.\n\nTHE RHYME MANDATE ON L9\n  group B [9, 10] at its end word \u2014 this line must stand in at least one relation with: L10 ('field--') \u2014 VIOLATED, this is the word to change\n\nOFFERED \u2014 words for the end word that answer every group bound there\n  24 word(s); field read at field_depth=complete pool, field_band='grader'\n    sealed, revealed, healed, battlefield, yield, springfield, concealed, windshield, garfield, peeled, airfield, mansfield, appealed, minefield, scofield, mayfield, wakefield, bakersfield, wheeled, copperfield, hatfield, cornfield, winfield, caulfield\n  Offered, NOT required. The grader re-grades the rhyme itself; it never checks whether\n  your end word came off this list. A word that is not here and rhymes is accepted, and\n  a word that is here is not accepted for being here.\n\nFORBIDDEN \u2014 do not MOVE L9 TO any of these (4)\n  field, shield, wield, afield\n  These are the most predictable answers in this field. MOVING to one of them is\n  REJECTED OUTRIGHT \u2014 before the grader looks at whether the line fixed anything at\n  all. Passing the rhyme band by reaching for the most predictable word in it is the\n  slop direction, and it is the one move this loop refuses mechanically rather than\n  merely discouraging (doctrine 9).\n\nTHE WORD ALREADY THERE \u2014 a DIFFERENT rule from the one above (1)\n  field\n  This is the end word L9 already has. Re-proposing it is not a revision \u2014 but it\n  is NOT rejected outright the way the list above is: the grader asks whether a modal\n  candidate was TAKEN, and keeping the word you were given takes nothing. A line that\n  keeps it is refused by rule 4 below ('nothing was fixed') UNLESS the rewrite repaired\n  something else \u2014 a meter finding, say \u2014 in which case keeping it is accepted.\n\nLINES THAT MUST NOT CHANGE\n  (the grader found something on every line; you are still only asked for this one)\n  The tool applies your one answer to L9. Every other line stays byte-identical. Changing one is rejected\n  outright even if the change is an improvement.\n\nWHAT THE GRADER ENFORCES ON YOUR ANSWER\n  1. ONE line back, and it replaces L9. The draft stays 12 lines \u2014 a different\n     line count is rejected outright: this loop revises lines, it does not restructure\n     the draft.\n  2. ONLY L9 changes (declared returns are mirrored). Any other line that comes back different is rejected\n     outright, whatever else the revision achieved.\n  3. The end word L9 MOVES TO is not one of the FORBIDDEN words above. That is\n     checked before anything else about the line and rejects on its own. KEEPING the\n     word already there is not a move and is not rejected here \u2014 see item 4.\n  4. The line must FIX at least one finding. A rewrite that is differently defective\n     is rejected as 'nothing was fixed'.\n  5. It may not trade one defect for another: new FLAG findings anywhere in the draft\n     \u2014 including on lines you did not touch \u2014 reject it once they exceed the declared\n     `allow_net_new` (0 by default). New NOTES do not reject.\n",
+  "answer": null
+ },
+ "lexicon": {
+  "supplement_id": null,
+  "sha256": null
+ },
+ "input_draft": [
+  "Carry the ember home tonight",
+  "nothing waits for me",
+  "Carry the ember home tonight",
+  "every bell is free",
+  "I lost my way in 1987",
+  "the water ran so slow",
+  "and nobody knew",
+  "Oh--oh, my lonely road",
+  "the stone is in the field",
+  "we ran it through the field--",
+  "the evening took the snow",
+  "and so the dark would yield"
+ ],
+ "accepted_lines": [
+  "Carry the ember home tonight",
+  "nothing waits for me",
+  "Carry the ember home tonight",
+  "every bell is free",
+  "I lost my way in 1987",
+  "the water ran so slow",
+  "and nobody knew",
+  "Oh--oh, my lonely road",
+  "the stone is in the field",
+  "we ran it through the field--",
+  "the evening took the snow",
+  "and so the dark would yield"
+ ],
+ "outcomes": [],
+ "group_outcomes": [],
+ "dispositions": [],
+ "round": 1,
+ "status": "grading",
+ "cursor": {
+  "version": 1,
+  "loop": {
+   "phase": "pass",
+   "round": 1,
+   "at": 0,
+   "pass": [
+    6,
+    8,
+    9
+   ],
+   "judged_open": true,
+   "draft": [
+    "Carry the ember home tonight",
+    "nothing waits for me",
+    "Carry the ember home tonight",
+    "every bell is free",
+    "I lost my way in 1987",
+    "the water ran so slow",
+    "and nobody knew",
+    "Oh--oh, my lonely road",
+    "the stone is in the field",
+    "we ran it through the field--",
+    "the evening took the snow",
+    "and so the dark would yield"
+   ],
+   "round_draft": null,
+   "touched": [],
+   "fixed": [],
+   "resolved": [],
+   "attempts": [],
+   "rounds": [],
+   "barren": 0,
+   "touched_by": {},
+   "last_accept": [],
+   "unit_verdicts": [],
+   "menus": [
+    [
+     "('place', 'a434da870a195ed741b2dd8f7720facbce437b2ecb14136af84700cc20fb6927', 6, 'None')",
+     {
+      "$dc": "quality.revise:SlotField",
+      "a": {
+       "slot": null,
+       "labels": {
+        "$t": [
+         "A"
+        ]
+       },
+       "calls": {
+        "$t": [
+         "in",
+         "road"
+        ]
+       },
+       "incumbent": "slow",
+       "offered": [
+        "did",
+        "own",
+        "alone",
+        "phone",
+        "kid",
+        "known",
+        "rid",
+        "stone",
+        "telephone",
+        "grown",
+        "bone",
+        "considered",
+        "zone",
+        "thrown",
+        "loan",
+        "tone",
+        "unknown",
+        "shown",
+        "blown",
+        "hid",
+        "joan",
+        "throne",
+        "bid",
+        "colin"
+       ],
+       "forbidden": [],
+       "violated": true,
+       "joint_conflict": false,
+       "dropped": {
+        "$t": []
+       },
+       "by_call": {
+        "$t": []
+       },
+       "schema_refused": {
+        "$t": []
+       },
+       "grader_refused": {
+        "$t": []
+       },
+       "widened": 0
+      }
+     }
+    ],
+    [
+     "('brief', 'a434da870a195ed741b2dd8f7720facbce437b2ecb14136af84700cc20fb6927', [6])",
+     [
+      {
+       "$dc": "quality.revise:Brief",
+       "a": {
+        "line_no": 6,
+        "text": "the water ran so slow",
+        "findings": [
+         {
+          "$dc": "quality.floor:Finding",
+          "a": {
+           "code": "SCHEME_VIOLATION",
+           "severity": "flag",
+           "message": "L5 and L6 are both in group A [5, 6, 8] but do not stand in the relation it requires",
+           "evidence": "NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75, 'CONSONANCE': 0.75}) \u2014 none of the relations it stands in is in the declared admit set ['ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'] (score 0.564; 'in' ~ 'slow') \u2014 NAMED PAIR IS NOT THE EVIDENCE: scored on: in  ~  ran so slow   (best of k=8)   MOSAIC (right): the winning span reaches back past the end word",
+           "locations": [
+            5,
+            6
+           ],
+           "groups": {
+            "$t": [
+             "A"
+            ]
+           },
+           "obligations": {
+            "$t": []
+           },
+           "subject": {
+            "$t": []
+           }
+          }
+         },
+         {
+          "$dc": "quality.floor:Finding",
+          "a": {
+           "code": "SPARSE",
+           "severity": "note",
+           "message": "fewer syllables than pulses \u2014 pulses with nothing declared on them",
+           "evidence": "6 syllables over 13 pulses leaves 110.25 pulses unaccounted for. Where they fall is a setting question and is refused below.",
+           "locations": [
+            6
+           ],
+           "groups": {
+            "$t": []
+           },
+           "obligations": {
+            "$t": []
+           },
+           "subject": {
+            "$t": []
+           }
+          }
+         },
+         {
+          "$dc": "quality.floor:Finding",
+          "a": {
+           "code": "ANACRUSIS",
+           "severity": "note",
+           "message": "the declared start is a pickup across the next barline",
+           "evidence": "12.25 pulses before the barline, 104 after. The start sits on a a 1/4 of a pulse, which in 13/8 is a thirty-second-note position.",
+           "locations": [
+            6
+           ],
+           "groups": {
+            "$t": []
+           },
+           "obligations": {
+            "$t": []
+           },
+           "subject": {
+            "$t": []
+           }
+          }
+         },
+         {
+          "$dc": "quality.floor:Finding",
+          "a": {
+           "code": "HEADS_EXCEED_UNITS",
+           "severity": "note",
+           "message": "more group heads than syllables \u2014 at least 38 head carries nothing at all",
+           "evidence": "6 syllables against 44 heads at pulses ('b46.4', 'b46.6', 'b46.8', 'b46.11', 'b47.1', 'b47.4', 'b47.6', 'b47.8', 'b47.11', 'b48.1', 'b48.4', 'b48.6', 'b48.8', 'b48.11', 'b49.1', 'b49.4', 'b49.6', 'b49.8', 'b49.11', 'b50.1', 'b50.4', 'b50.6', 'b50.8', 'b50.11', 'b51.1', 'b51.4', 'b51.6', 'b51.8', 'b51.11', 'b52.1', 'b52.4', 'b52.6', 'b52.8', 'b52.11', 'b53.1', 'b53.4', 'b53.6', 'b53.8', 'b53.11', 'b54.1', 'b54.4', 'b54.6', 'b54.8', 'b54.11'). The line drags across the grouping rather than crowding it.",
+           "locations": [
+            6
+           ],
+           "groups": {
+            "$t": []
+           },
+           "obligations": {
+            "$t": []
+           },
+           "subject": {
+            "$t": []
+           }
+          }
+         }
+        ],
+        "slot": null,
+        "slot_conflict": false,
+        "fields_by_slot": {
+         "$d": [
+          [
+           null,
+           {
+            "$dc": "quality.revise:SlotField",
+            "a": {
+             "slot": null,
+             "labels": {
+              "$t": [
+               "A"
+              ]
+             },
+             "calls": {
+              "$t": [
+               "in",
+               "road"
+              ]
+             },
+             "incumbent": "slow",
+             "offered": [
+              "did",
+              "own",
+              "alone",
+              "phone",
+              "kid",
+              "known",
+              "rid",
+              "stone",
+              "telephone",
+              "grown",
+              "bone",
+              "considered",
+              "zone",
+              "thrown",
+              "loan",
+              "tone",
+              "unknown",
+              "shown",
+              "blown",
+              "hid",
+              "joan",
+              "throne",
+              "bid",
+              "colin"
+             ],
+             "forbidden": [],
+             "violated": true,
+             "joint_conflict": false,
+             "dropped": {
+              "$t": []
+             },
+             "by_call": {
+              "$t": []
+             },
+             "schema_refused": {
+              "$t": []
+             },
+             "grader_refused": {
+              "$t": []
+             },
+             "widened": 0
+            }
+           }
+          ]
+         ]
+        },
+        "group_slots": {
+         "$d": [
+          [
+           "A",
+           null
+          ]
+         ]
+        },
+        "violated_groups": {
+         "$t": [
+          "A"
+         ]
+        },
+        "noted_groups": {
+         "$d": []
+        },
+        "slot_groups": {
+         "$t": [
+          "A"
+         ]
+        },
+        "screened_out": {
+         "$t": []
+        },
+        "round_no": 0,
+        "must_rhyme_with": {
+         "$t": [
+          5,
+          "in"
+         ]
+        },
+        "candidates": [
+         "did",
+         "own",
+         "alone",
+         "phone",
+         "kid",
+         "known",
+         "rid",
+         "stone",
+         "telephone",
+         "grown",
+         "bone",
+         "considered",
+         "zone",
+         "thrown",
+         "loan",
+         "tone",
+         "unknown",
+         "shown",
+         "blown",
+         "hid",
+         "joan",
+         "throne",
+         "bid",
+         "colin"
+        ],
+        "forbidden_modal": [],
+        "forbidden_incumbent": "slow",
+        "return_groups": {
+         "$t": []
+        },
+        "return_members": {
+         "$t": []
+        },
+        "field_computed": true,
+        "empty_head_cause": "UNEVIDENCED",
+        "keep": [],
+        "must_answer": [
+         {
+          "$t": [
+           "A",
+           [
+            5,
+            6,
+            8
+           ],
+           [
+            {
+             "$t": [
+              5,
+              "in"
+             ]
+            },
+            {
+             "$t": [
+              8,
+              "road"
+             ]
+            }
+           ]
+          ]
+         }
+        ],
+        "joint_conflict": false,
+        "partial_by_call": {
+         "$t": []
+        },
+        "schema_refused": {
+         "$t": []
+        },
+        "grader_refused": {
+         "$t": []
+        },
+        "field_widened": 0,
+        "offer_emptied_by_ban": "",
+        "field_declaration": "field_depth=complete pool, field_band='grader'",
+        "offers_requested": true
+       }
+      }
+     ]
+    ],
+    [
+     "('place', 'a434da870a195ed741b2dd8f7720facbce437b2ecb14136af84700cc20fb6927', 9, 'None')",
+     {
+      "$dc": "quality.revise:SlotField",
+      "a": {
+       "slot": null,
+       "labels": {
+        "$t": [
+         "B"
+        ]
+       },
+       "calls": {
+        "$t": [
+         "field--"
+        ]
+       },
+       "incumbent": "field",
+       "offered": [
+        "sealed",
+        "revealed",
+        "healed",
+        "battlefield",
+        "yield",
+        "springfield",
+        "concealed",
+        "windshield",
+        "garfield",
+        "peeled",
+        "airfield",
+        "mansfield",
+        "appealed",
+        "minefield",
+        "scofield",
+        "mayfield",
+        "wakefield",
+        "bakersfield",
+        "wheeled",
+        "copperfield",
+        "hatfield",
+        "cornfield",
+        "winfield",
+        "caulfield"
+       ],
+       "forbidden": [
+        "field",
+        "shield",
+        "wield",
+        "afield"
+       ],
+       "violated": true,
+       "joint_conflict": false,
+       "dropped": {
+        "$t": []
+       },
+       "by_call": {
+        "$t": []
+       },
+       "schema_refused": {
+        "$t": []
+       },
+       "grader_refused": {
+        "$t": []
+       },
+       "widened": 0
+      }
+     }
+    ],
+    [
+     "('brief', 'a434da870a195ed741b2dd8f7720facbce437b2ecb14136af84700cc20fb6927', [9])",
+     [
+      {
+       "$dc": "quality.revise:Brief",
+       "a": {
+        "line_no": 9,
+        "text": "the stone is in the field",
+        "findings": [
+         {
+          "$dc": "quality.floor:Finding",
+          "a": {
+           "code": "REPEAT_IN_VERSE",
+           "severity": "flag",
+           "message": "1 pair(s) rhyme a word with itself",
+           "evidence": "'the field' \u2014 carried by 1 of 4 pairs \u2014 it recurs NOWHERE, so no refrain reading is available and the fraction never enters. A one-off self-rhyme in an item with 4 pairs to contrast it against",
+           "locations": [
+            9
+           ],
+           "groups": {
+            "$t": []
+           },
+           "obligations": {
+            "$t": [
+             {
+              "$t": [
+               9,
+               10
+              ]
+             }
+            ]
+           },
+           "subject": {
+            "$t": []
+           }
+          }
+         },
+         {
+          "$dc": "quality.floor:Finding",
+          "a": {
+           "code": "SPARSE",
+           "severity": "note",
+           "message": "fewer syllables than pulses \u2014 pulses with nothing declared on them",
+           "evidence": "6 syllables over 13 pulses leaves 110.5 pulses unaccounted for. Where they fall is a setting question and is refused below.",
+           "locations": [
+            9
+           ],
+           "groups": {
+            "$t": []
+           },
+           "obligations": {
+            "$t": []
+           },
+           "subject": {
+            "$t": []
+           }
+          }
+         },
+         {
+          "$dc": "quality.floor:Finding",
+          "a": {
+           "code": "ANACRUSIS",
+           "severity": "note",
+           "message": "the declared start is a pickup across the next barline",
+           "evidence": "12.5 pulses before the barline, 104 after. The start sits on a a half-pulse, which in 13/8 is a sixteenth-note position.",
+           "locations": [
+            9
+           ],
+           "groups": {
+            "$t": []
+           },
+           "obligations": {
+            "$t": []
+           },
+           "subject": {
+            "$t": []
+           }
+          }
+         },
+         {
+          "$dc": "quality.floor:Finding",
+          "a": {
+           "code": "HEADS_EXCEED_UNITS",
+           "severity": "note",
+           "message": "more group heads than syllables \u2014 at least 38 head carries nothing at all",
+           "evidence": "6 syllables against 44 heads at pulses ('b73.4', 'b73.6', 'b73.8', 'b73.11', 'b74.1', 'b74.4', 'b74.6', 'b74.8', 'b74.11', 'b75.1', 'b75.4', 'b75.6', 'b75.8', 'b75.11', 'b76.1', 'b76.4', 'b76.6', 'b76.8', 'b76.11', 'b77.1', 'b77.4', 'b77.6', 'b77.8', 'b77.11', 'b78.1', 'b78.4', 'b78.6', 'b78.8', 'b78.11', 'b79.1', 'b79.4', 'b79.6', 'b79.8', 'b79.11', 'b80.1', 'b80.4', 'b80.6', 'b80.8', 'b80.11', 'b81.1', 'b81.4', 'b81.6', 'b81.8', 'b81.11'). The line drags across the grouping rather than crowding it.",
+           "locations": [
+            9
+           ],
+           "groups": {
+            "$t": []
+           },
+           "obligations": {
+            "$t": []
+           },
+           "subject": {
+            "$t": []
+           }
+          }
+         }
+        ],
+        "slot": null,
+        "slot_conflict": false,
+        "fields_by_slot": {
+         "$d": [
+          [
+           null,
+           {
+            "$dc": "quality.revise:SlotField",
+            "a": {
+             "slot": null,
+             "labels": {
+              "$t": [
+               "B"
+              ]
+             },
+             "calls": {
+              "$t": [
+               "field--"
+              ]
+             },
+             "incumbent": "field",
+             "offered": [
+              "sealed",
+              "revealed",
+              "healed",
+              "battlefield",
+              "yield",
+              "springfield",
+              "concealed",
+              "windshield",
+              "garfield",
+              "peeled",
+              "airfield",
+              "mansfield",
+              "appealed",
+              "minefield",
+              "scofield",
+              "mayfield",
+              "wakefield",
+              "bakersfield",
+              "wheeled",
+              "copperfield",
+              "hatfield",
+              "cornfield",
+              "winfield",
+              "caulfield"
+             ],
+             "forbidden": [
+              "field",
+              "shield",
+              "wield",
+              "afield"
+             ],
+             "violated": true,
+             "joint_conflict": false,
+             "dropped": {
+              "$t": []
+             },
+             "by_call": {
+              "$t": []
+             },
+             "schema_refused": {
+              "$t": []
+             },
+             "grader_refused": {
+              "$t": []
+             },
+             "widened": 0
+            }
+           }
+          ]
+         ]
+        },
+        "group_slots": {
+         "$d": [
+          [
+           "B",
+           null
+          ]
+         ]
+        },
+        "violated_groups": {
+         "$t": [
+          "B"
+         ]
+        },
+        "noted_groups": {
+         "$d": []
+        },
+        "slot_groups": {
+         "$t": [
+          "B"
+         ]
+        },
+        "screened_out": {
+         "$t": []
+        },
+        "round_no": 0,
+        "must_rhyme_with": {
+         "$t": [
+          10,
+          "field--"
+         ]
+        },
+        "candidates": [
+         "sealed",
+         "revealed",
+         "healed",
+         "battlefield",
+         "yield",
+         "springfield",
+         "concealed",
+         "windshield",
+         "garfield",
+         "peeled",
+         "airfield",
+         "mansfield",
+         "appealed",
+         "minefield",
+         "scofield",
+         "mayfield",
+         "wakefield",
+         "bakersfield",
+         "wheeled",
+         "copperfield",
+         "hatfield",
+         "cornfield",
+         "winfield",
+         "caulfield"
+        ],
+        "forbidden_modal": [
+         "field",
+         "shield",
+         "wield",
+         "afield"
+        ],
+        "forbidden_incumbent": "field",
+        "return_groups": {
+         "$t": []
+        },
+        "return_members": {
+         "$t": []
+        },
+        "field_computed": true,
+        "empty_head_cause": "",
+        "keep": [],
+        "must_answer": [
+         {
+          "$t": [
+           "B",
+           [
+            9,
+            10
+           ],
+           [
+            {
+             "$t": [
+              10,
+              "field--"
+             ]
+            }
+           ]
+          ]
+         }
+        ],
+        "joint_conflict": false,
+        "partial_by_call": {
+         "$t": []
+        },
+        "schema_refused": {
+         "$t": []
+        },
+        "grader_refused": {
+         "$t": []
+        },
+        "field_widened": 0,
+        "offer_emptied_by_ban": "",
+        "field_declaration": "field_depth=complete pool, field_band='grader'",
+        "offers_requested": true
+       }
+      }
+     ]
+    ]
+   ]
+  },
+  "tally_hit": 0,
+  "stale": [],
+  "batch_stale": [],
+  "rej": [],
+  "grej": [],
+  "k1": 0,
+  "k2": 0,
+  "digest": "0d582686770c97d066bcd80e08de748e7b139dbbbbb5e9b42052690ee7511723",
+  "run_key": "a3e74d7508ba267e81c969bc207b3bb70dc7107e474e0594b1274c463baa65a2",
+  "scorer": "7f458a3b4febfa2cacc27a952a5084fed4a409c45d8edfd94f8b9c2a57a01e4a"
+ }
+}

@@ -1,0 +1,152 @@
+SHARD 1/3: 20 of 60 sections (dealt by index residue over the cost-ordered tuple)
+
+40. THE SEED SWEEP is a VERB, not a scratch script (`MISSING.md` M-82)
+  PASS  the sweep RUNS from the command line and comes back with seeds — and visible seeds plus the explicitly stated remainder match its accepted count
+          31 accepted :: ['    swept 1600  planned 1599  REFUSED by the planner 1  accepted 31 (1.9% of the planned)']
+  PASS  ...and it ECHOES every predicate with the coordinate's own gloss, so a caller can see which declaration was applied rather than inferring it from the answer — one echoed line per DECLARED predicate, counted off the declaration and not off a remembered integer
+          3 echoed for 3 declared :: ["WANT lines<=60 — the song's total line count", 'WANT sections<=6 — how many sections the patte', 'WANT uses=verse,chorus — the functions the pat']
+  PASS  ...and prints THREE COUNTS, never summed (doctrine 79)
+          ['    swept 1600  planned 1599  REFUSED by the planner 1  accepted 31 (1.9% of the planned)']
+  PASS  ...and says OUT LOUD that it does not rank, which is the whole refusal: doctrine 7 enforces a floor and does not order the permitted region
+  PASS  ...and hands over the NEXT command rather than a plan, naming the FIRST accepted seed, because a plan is a pure function of its seed and nothing should carry over from the search
+          first accepted '139' :: ['    NEXT: python3 lyric_harness.py plan --seed=139']
+  PASS  a sweep with NO predicate accepts everything and SAYS it is deciding nothing — a default here would be the instrument choosing what the caller wants
+  PASS  `--sweep=0-20 --want=sections<=1` REFUSES at exit 2, naming the cause
+          no seed in 0..19
+  PASS  `--sweep=0-20 --seed=3` REFUSES at exit 2, naming the cause
+          --seed OR --sweep
+  PASS  `--sweep=0-20 --want=vibes<=3` REFUSES at exit 2, naming the cause
+          not a coordinate
+  PASS  `--sweep=0-20 --want=sections<3` REFUSES at exit 2, naming the cause
+          carries none of
+  PASS  `--sweep=0-20 --fill=x.txt` REFUSES at exit 2, naming the cause
+          does not take --fill
+  PASS  `--sweep=nope` REFUSES at exit 2, naming the cause
+          is not a range
+  PASS  ...and the empty accepted set REFUSES with the acceptance rate beside it, so unreachable and merely rare stay distinguishable
+          ['    swept 20  planned 20  REFUSED by the planner 0  accepted 0 (0.0% of the planned)']
+
+6. `brief` / `verify` — the refusal, and the two spellings a letter string cannot express
+  PASS  no mandate REFUSES rather than reporting nothing flagged (doctrine 20)
+          REFUSED — this verb was given nothing to check against.
+  PASS  the refusal exits 2 — a pipeline must tell it from a pass
+          rc=2
+  PASS  and it is a printed refusal, not six frames of traceback
+  PASS  --groups= mandates a group the song has no letter for
+            MANDATE: 1 group(s) over 16 lines, 1 mandated pair(s), source=declared (--groups=)
+           group A = lines 2,4 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean g
+  PASS  and a SECOND declared group is labelled and graded too
+          one group cannot demonstrate that the labels track the declaration
+  PASS  the premise — both routes print a MANDATE line at all, so this check cannot pass by comparing two empty strings
+          bare='MANDATE: 2 group(s) over 16 lines, 2 mandated pair(s), source=declared (--groups=)' decorated='MANDATE: 2 group(s) over 16 lines, 2 mandated pair(s), source=declared (declared line groups)'
+  PASS  `--groups=` ALONE discloses its own mandated PAIR COUNT — the plainest call is not the silent one (doctrine 20/79, M-108)
+          MANDATE: 2 group(s) over 16 lines, 2 mandated pair(s), source=declared (--groups=)
+  PASS  and the cover's counts are BRANCH-INVARIANT: one cover read two ways states the same groups, lines and pairs, differing only in the `source=` that names the route
+          bare      MANDATE: 2 group(s) over 16 lines, 2 mandated pair(s), source=declared (--groups=)
+          decorated MANDATE: 2 group(s) over 16 lines, 2 mandated pair(s), source=declared (declared line groups)
+  PASS  --cliques grades the song's OWN structure
+  PASS  and says out loud that it is NOT INDEPENDENT of the grader (doctrine 14)
+  PASS  the overlap is reported as having no letter scheme (doctrine 2)
+            MANDATE: 2 group(s) over 3 lines, 2 mandated pair(s), source=derived (maximal cliques of the rhyme graph at theta=0.75, promote=True)
+           group A = lines 1,2, group B = lines 2,3 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked questio
+  PASS  a pivot is briefed on EVERY group it is in, which is the thing a letter scheme cannot say
+            MANDATE: 2 group(s) over 3 lines, 2 mandated pair(s), source=derived (maximal cliques of the rhyme graph at theta=0.75, promote=True)
+           group A = lines 1,2, group B = lines 2,3 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked questio
+  PASS  the old `must rhyme with L(5, 'mailboxes')` tuple-print is gone
+  PASS  the broad default JUDGES both pairs at their end words: dawn/silt and again/rebuilt are both judged violations
+          (True, [])
+  PASS  CONTROL: an unresolved default pair cannot stand in for a judged violation
+          ['rhyme:1:3:0']
+  PASS  the modal exclusion is still printed for an explicitly judged rhyme violation
+            MANDATE: 2 group(s) over 4 lines, 2 mandated pair(s), source=declared (letter scheme 'ABAB')
+           group A = lines 1,3, group B = lines 2,4 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM B
+  PASS  --groups= on an IDENTICAL pair charges it a violation -- identity is FORBIDDEN under the default REQUIRE_RHYME
+            MANDATE: 1 group(s) over 5 lines, 1 mandated pair(s), source=declared (--groups=)
+           group A = lines 3,5 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean gr
+  PASS  --returns= on the SAME pair judges the full-line return without inventing a rhyme group
+            MANDATE: 0 group(s) over 5 lines, 0 mandated pair(s), source=declared (declared line groups)
+           no groups — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean g
+  PASS  CONTROL: changing the returned words while keeping the end word flags the full-line violation
+  PASS  `verify` takes the same refusal, and the same exit code
+
+30. a `--- TITLE:` line in the LYRIC is not dropped in silence (FIXED 2026-08-15)
+  PASS  a lyric with no `--- TITLE:` line reaches a graded report
+          rc 2
+  PASS  a title the lyric declares and the blueprint does not REFUSES rather than being dropped — MEASURED byte-identical before this (md5 d3ca7fb536), which is what a silent drop looks like
+          ['REFUSED — song grades the title the BLUEPRINT declares, and the lyric declares a different one']
+  PASS  and it names BOTH spellings, so the caller can see which one the grader actually reads
+          a coordinate declared twice and read once is doctrine 1's case
+  PASS  and a lyric title that AGREES with the blueprint's grades normally
+          rc 2
+  PASS  case alone is not a disagreement — a title is a name, not a token
+          rc 2
+
+53. finish distinguishes certified whole flags, clean success, and uncertainty
+  PASS  the current seed plan is filled and every requested obligation is judged
+  PASS  the whole-draft flag alone drives exit3, with no unresolved line
+          [FINISHED — seed 176 — exit 3 — WHOLE_DRAFT_UNRESOLVED after 0 round(s) — no line flag stands — WHOLE-DRAFT FLAG: TITLE_NOT_IN_HOOK]
+  PASS  the stamp distinguishes line flags from the standing whole-draft flag
+  PASS  the standing report prints the actual whole-draft flag
+  PASS  CONTROL: matching the actual hook clears the sole flag and certifies exit0
+          (0, 'SUCCESS', [])
+  PASS  overwriting the completed workflow's file without a brief refuses the unbriefed edit
+  PASS  ANY READING: the formerly disputed readings are judged and the draft certifies exit0
+          (0, 'SUCCESS', [])
+  PASS  CONTROL: an unreadable word stays uncertified despite zero flags
+          ['meter:COUNT_IS_A_LOWER_BOUND:L10']
+
+19. a SECOND mandate spelling is READ, not dropped in silence (FIXED 2026-08-15)
+  PASS  `song` with --groups= AND --returns= is not the --groups= run
+          byte-identical is exactly what the defect looked like
+  PASS  the two declared returns are independently graded and absent when unrequested
+          [{'id': 'return:5:15', 'layer': 'return', 'status': 'answered'}, {'id': 'return:6:16', 'layer': 'return', 'status': 'answered'}]
+  PASS  the explicitly judged rhyme half still fails on the same run (both kinds held at once)
+          rc 3
+  PASS  `verify` takes both spellings instead of meeting one at int()
+          rc 0
+  PASS  verify's TARGETED line list still parses behind two flags
+          pulling a flag moves every positional behind it
+  PASS  the fixture for it really is a one-line difference
+          a no-op diff is how this assertion was vacuous in the first place
+  PASS  with NO targeted list the untargeted rejection cannot fire — both runs reach a verdict, and only the one declaring `1,3` names the untargeted rule
+          ['VERDICT: ACCEPTED']
+  PASS  declaring `1,3` REJECTS the same diff and NAMES the line it touched — the trailing list is READ, not merely parsed
+          ['    lines [4] were changed but not targeted; revise flagged lines only']
+  PASS  and the two runs are not byte-identical
+          identical output is what `targeted = None` produces
+  PASS  REFUSES --cliques with another
+          rc 2
+  PASS  REFUSES a letter string with a flag
+          rc 2
+  PASS  REFUSES the same spelling twice
+          rc 2
+
+27. the NAMED PAIR IS NOT THE EVIDENCE banner reaches the verbs that score through quality/ (FIXED 2026-08-15)
+          (rc 2, expected 3)
+  PASS  the fixture still carries a mosaic span to disclose
+          a check with nothing to examine passes for the wrong reason (doctrine 48) — this one names its own population
+  PASS  every one of the 7 mosaic spans carries the banner, on its own line or the one above it
+  PASS  `brief` discloses it too
+          rc 0
+  PASS  the verdict beside it is unchanged — 1.0, REPEAT among the named pair's relations
+          the alias fixed a report, and a verdict moving would say otherwise
+
+54. the BATCH DOOR under `--propose=defer:` — independent lines are asked together, folded apart, judged on the record, and the rejection reaches the next round (M-236)
+  PASS  the first suspension is ONE batch of the four independent open lines, not four questions
+          rc 4 kind propose_batch lines [2, 4, 6, 8]
+  PASS  the prompt says how many lines, names the answer shape, and carries one full brief per member
+          REVISE 4 LINES AT ONCE — L2, L4, L6, L8 of a 8-line draft.
+
+Each of these lines was flagged by the grader, and none of t
+  PASS  every batch member records its round and the draft it was asked against, like a single question does (M-183)
+          [{'line': 2, 'attempt': 0, 'round': 1, 'draft': 'd8662424cf86', 'text': None}, {'line': 4, 'attempt': 0, 'round': 1, 'draft': 'd8662424cf86', 'text': None}, {'line': 6, 'attempt': 0, 'round': 1, 'draft': 'd8662424cf86', 'text': None}, {'line': 8, 'attempt': 0, 'round': 1, 'draft': 'd8662424cf86', 'text': None}]
+  PASS  a batch answer missing a member REFUSES rather than folding the rows it did get
+          rc 2
+  PASS  the batch answer folded as FOUR per-line records, the replay file's own shape
+          [(2, 0, 1), (4, 0, 1), (6, 0, 1), (8, 0, 1)]
+  PASS  what verify made of each answer is ON THE RECORD, with the grader's reasons
+          {(2, 0, 1): (False, ["L2 took the modal candidate 'hard' — it passes the band and it is the most predictable word in the field, which is the slop direction (doctrine 9)"]), (4, 0, 1): (False, ["L4 took the modal candidate 'door' — it passes the band and it is the most predictable word in the field, which is the slop direction (doctrine 9)"]), (6, 0, 1): (False, ['nothing was fixed']), (8, 0, 1): (False, ["L8 took the modal candidate 'light' — it passes the band and it is the most predictable word in the field, which is the slop direction (doctrine 9)"])}
+  PASS  under attempts=1 a barren round is not yet NO_PROGRESS: round 2 asks the same four lines again, as one batch
+          rc 4 pending propose_batch round 2
+  PASS  ...and each member's brief quotes its ROUND-1 rejection, verbatim, since no re-ask inside the round could
+          4

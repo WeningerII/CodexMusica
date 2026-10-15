@@ -1,0 +1,470 @@
+### v1|'twenty\u2010two'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "twenty", "two"]                           0af=["I", "twenty", "two"]
+   lex.pv(token)                    695=T UW1                                            0af=T UW1
+   sup.pronunciation_variants       695=[]                                               0af=[]
+   sup.transcribe_word              695= /True                                           0af= /True
+   sup.whole_reading                695=-                                                0af=-
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af=-
+   sup.pv(token)                    695=T UW1                                            0af=T UW1
+   English(lex).parses#             695=1                                                0af=1
+### v2|'twenty\u2010two'
+   lex.pronunciation_variants       695=[]                                               0af=T W EH1 N T IY0 T UW2   <-- CHANGED
+   lex.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "twenty-two"]                              0af=["I", "twenty-two"]
+   lex.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.pronunciation_variants       695=[]                                               0af=T W EH1 N T IY0 T UW2   <-- CHANGED
+   sup.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   sup.whole_reading                695=-                                                0af=T W EH1 N T IY0 T UW2 /cmudict   <-- CHANGED
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af="cmudict"   <-- CHANGED
+   sup.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   English(lex).parses#             695=1                                                0af=1
+### v1|'twen\xadty-two'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "twen", "ty-two"]                          0af=["I", "twen", "ty-two"]
+   lex.pv(token)                    695=[]                                               0af=[]
+   sup.pronunciation_variants       695=[]                                               0af=[]
+   sup.transcribe_word              695= /True                                           0af= /True
+   sup.whole_reading                695=-                                                0af=-
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af=-
+   sup.pv(token)                    695=[]                                               0af=[]
+   English(lex).parses#             695=1                                                0af=1
+### v2|'twen\xadty-two'
+   lex.pronunciation_variants       695=[]                                               0af=T W EH1 N T IY0 T UW2   <-- CHANGED
+   lex.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "twenty-two"]                              0af=["I", "twenty-two"]
+   lex.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.pronunciation_variants       695=[]                                               0af=T W EH1 N T IY0 T UW2   <-- CHANGED
+   sup.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   sup.whole_reading                695=-                                                0af=T W EH1 N T IY0 T UW2 /cmudict   <-- CHANGED
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af="cmudict"   <-- CHANGED
+   sup.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   English(lex).parses#             695=1                                                0af=1
+### v1|'twenty-two\xad'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "twenty-two"]                              0af=["I", "twenty-two"]
+   lex.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.pronunciation_variants       695=[]                                               0af=[]
+   sup.transcribe_word              695= /True                                           0af= /True
+   sup.whole_reading                695=-                                                0af=-
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af=-
+   sup.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   English(lex).parses#             695=1                                                0af=1
+### v2|'twenty-two\xad'
+   lex.pronunciation_variants       695=[]                                               0af=T W EH1 N T IY0 T UW2   <-- CHANGED
+   lex.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "twenty-two"]                              0af=["I", "twenty-two"]
+   lex.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.pronunciation_variants       695=[]                                               0af=T W EH1 N T IY0 T UW2   <-- CHANGED
+   sup.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   sup.whole_reading                695=-                                                0af=T W EH1 N T IY0 T UW2 /cmudict   <-- CHANGED
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af="cmudict"   <-- CHANGED
+   sup.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   English(lex).parses#             695=1                                                0af=1
+### v1|'street\xadlight'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "street", "light"]                         0af=["I", "street", "light"]
+   lex.pv(token)                    695=L AY1 T                                          0af=L AY1 T
+   sup.pronunciation_variants       695=[]                                               0af=[]
+   sup.transcribe_word              695= /True                                           0af= /True
+   sup.whole_reading                695=-                                                0af=-
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af=-
+   sup.pv(token)                    695=L AY1 T                                          0af=L AY1 T
+   English(lex).parses#             695=1                                                0af=1
+### v2|'street\xadlight'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "streetlight"]                             0af=["I", "streetlight"]
+   lex.pv(token)                    695=[]                                               0af=[]
+   sup.pronunciation_variants       695=[]                                               0af=S T R IY1 T L AY2 T   <-- CHANGED
+   sup.transcribe_word              695=S T R IY1 T L AY2 T /False                       0af=S T R IY1 T L AY2 T /False
+   sup.whole_reading                695=-                                                0af=S T R IY1 T L AY2 T /moby:3205:attested   <-- CHANGED
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af="moby:3205:attested"   <-- CHANGED
+   sup.pv(token)                    695=S T R IY1 T L AY2 T                              0af=S T R IY1 T L AY2 T
+   English(lex).parses#             695=1                                                0af=1
+### v1|'hel\xadlo'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "hel", "lo"]                               0af=["I", "hel", "lo"]
+   lex.pv(token)                    695=L OW1                                            0af=L OW1
+   sup.pronunciation_variants       695=[]                                               0af=[]
+   sup.transcribe_word              695= /True                                           0af= /True
+   sup.whole_reading                695=-                                                0af=-
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af=-
+   sup.pv(token)                    695=L OW1                                            0af=L OW1
+   English(lex).parses#             695=1                                                0af=1
+### v2|'hel\xadlo'
+   lex.pronunciation_variants       695=[]                                               0af=HH AH0 L OW1|HH EH0 L OW1   <-- CHANGED
+   lex.transcribe_word              695=HH AH0 L OW1 /False                              0af=HH AH0 L OW1 /False
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "hello"]                                   0af=["I", "hello"]
+   lex.pv(token)                    695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   sup.pronunciation_variants       695=[]                                               0af=HH AH0 L OW1|HH EH0 L OW1   <-- CHANGED
+   sup.transcribe_word              695=HH AH0 L OW1 /False                              0af=HH AH0 L OW1 /False
+   sup.whole_reading                695=-                                                0af=HH AH0 L OW1 /cmudict   <-- CHANGED
+   sup.dictionary_readings          695=[]                                               0af=[]
+   sup.reading_source(w, pv[0])     695=-                                                0af="cmudict"   <-- CHANGED
+   sup.pv(token)                    695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   English(lex).parses#             695=1                                                0af=2   <-- CHANGED
+### v1|'twenty\u2011two'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "twenty", "two"]                           0af=["I", "twenty", "two"]
+   lex.pv(token)                    695=T UW1                                            0af=T UW1
+   sup.pronunciation_variants       695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   sup.whole_reading                695=T W EH1 N T IY0 T UW2 /cmudict                   0af=T W EH1 N T IY0 T UW2 /cmudict
+   sup.dictionary_readings          695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.reading_source(w, pv[0])     695="cmudict"                                        0af="cmudict"
+   sup.pv(token)                    695=T UW1                                            0af=T UW1
+   English(lex).parses#             695=1                                                0af=1
+### v2|'twenty\u2011two'
+   lex.pronunciation_variants       695=[]                                               0af=T W EH1 N T IY0 T UW2   <-- CHANGED
+   lex.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "twenty-two"]                              0af=["I", "twenty-two"]
+   lex.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.pronunciation_variants       695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   sup.whole_reading                695=T W EH1 N T IY0 T UW2 /cmudict                   0af=T W EH1 N T IY0 T UW2 /cmudict
+   sup.dictionary_readings          695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.reading_source(w, pv[0])     695="cmudict"                                        0af="cmudict"
+   sup.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   English(lex).parses#             695=1                                                0af=1
+### v1|'twenty-two'
+   lex.pronunciation_variants       695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   lex.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   PRON.dictionary_readings(lex)    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   line_tokens('I '+w)              695=["I", "twenty-two"]                              0af=["I", "twenty-two"]
+   lex.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.pronunciation_variants       695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   sup.whole_reading                695=T W EH1 N T IY0 T UW2 /cmudict                   0af=T W EH1 N T IY0 T UW2 /cmudict
+   sup.dictionary_readings          695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.reading_source(w, pv[0])     695="cmudict"                                        0af="cmudict"
+   sup.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   English(lex).parses#             695=1                                                0af=1
+### v2|'twenty-two'
+   lex.pronunciation_variants       695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   lex.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   PRON.dictionary_readings(lex)    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   line_tokens('I '+w)              695=["I", "twenty-two"]                              0af=["I", "twenty-two"]
+   lex.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.pronunciation_variants       695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.transcribe_word              695=T W EH1 N T IY0 T UW2 /False                     0af=T W EH1 N T IY0 T UW2 /False
+   sup.whole_reading                695=T W EH1 N T IY0 T UW2 /cmudict                   0af=T W EH1 N T IY0 T UW2 /cmudict
+   sup.dictionary_readings          695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   sup.reading_source(w, pv[0])     695="cmudict"                                        0af="cmudict"
+   sup.pv(token)                    695=T W EH1 N T IY0 T UW2                            0af=T W EH1 N T IY0 T UW2
+   English(lex).parses#             695=1                                                0af=1
+### v1|'streetlight'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "streetlight"]                             0af=["I", "streetlight"]
+   lex.pv(token)                    695=[]                                               0af=[]
+   sup.pronunciation_variants       695=S T R IY1 T L AY2 T                              0af=S T R IY1 T L AY2 T
+   sup.transcribe_word              695=S T R IY1 T L AY2 T /False                       0af=S T R IY1 T L AY2 T /False
+   sup.whole_reading                695=S T R IY1 T L AY2 T /moby:3205:attested          0af=S T R IY1 T L AY2 T /moby:3205:attested
+   sup.dictionary_readings          695=S T R IY1 T L AY2 T                              0af=S T R IY1 T L AY2 T
+   sup.reading_source(w, pv[0])     695="moby:3205:attested"                             0af="moby:3205:attested"
+   sup.pv(token)                    695=S T R IY1 T L AY2 T                              0af=S T R IY1 T L AY2 T
+   English(lex).parses#             695=1                                                0af=1
+### v2|'streetlight'
+   lex.pronunciation_variants       695=[]                                               0af=[]
+   lex.transcribe_word              695= /True                                           0af= /True
+   PRON.dictionary_readings(lex)    695=[]                                               0af=[]
+   line_tokens('I '+w)              695=["I", "streetlight"]                             0af=["I", "streetlight"]
+   lex.pv(token)                    695=[]                                               0af=[]
+   sup.pronunciation_variants       695=S T R IY1 T L AY2 T                              0af=S T R IY1 T L AY2 T
+   sup.transcribe_word              695=S T R IY1 T L AY2 T /False                       0af=S T R IY1 T L AY2 T /False
+   sup.whole_reading                695=S T R IY1 T L AY2 T /moby:3205:attested          0af=S T R IY1 T L AY2 T /moby:3205:attested
+   sup.dictionary_readings          695=S T R IY1 T L AY2 T                              0af=S T R IY1 T L AY2 T
+   sup.reading_source(w, pv[0])     695="moby:3205:attested"                             0af="moby:3205:attested"
+   sup.pv(token)                    695=S T R IY1 T L AY2 T                              0af=S T R IY1 T L AY2 T
+   English(lex).parses#             695=1                                                0af=1
+### v1|'hello'
+   lex.pronunciation_variants       695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   lex.transcribe_word              695=HH AH0 L OW1 /False                              0af=HH AH0 L OW1 /False
+   PRON.dictionary_readings(lex)    695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   line_tokens('I '+w)              695=["I", "hello"]                                   0af=["I", "hello"]
+   lex.pv(token)                    695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   sup.pronunciation_variants       695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   sup.transcribe_word              695=HH AH0 L OW1 /False                              0af=HH AH0 L OW1 /False
+   sup.whole_reading                695=HH AH0 L OW1 /cmudict                            0af=HH AH0 L OW1 /cmudict
+   sup.dictionary_readings          695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   sup.reading_source(w, pv[0])     695="cmudict"                                        0af="cmudict"
+   sup.pv(token)                    695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   English(lex).parses#             695=2                                                0af=2
+### v2|'hello'
+   lex.pronunciation_variants       695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   lex.transcribe_word              695=HH AH0 L OW1 /False                              0af=HH AH0 L OW1 /False
+   PRON.dictionary_readings(lex)    695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   line_tokens('I '+w)              695=["I", "hello"]                                   0af=["I", "hello"]
+   lex.pv(token)                    695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   sup.pronunciation_variants       695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   sup.transcribe_word              695=HH AH0 L OW1 /False                              0af=HH AH0 L OW1 /False
+   sup.whole_reading                695=HH AH0 L OW1 /cmudict                            0af=HH AH0 L OW1 /cmudict
+   sup.dictionary_readings          695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   sup.reading_source(w, pv[0])     695="cmudict"                                        0af="cmudict"
+   sup.pv(token)                    695=HH AH0 L OW1|HH EH0 L OW1                        0af=HH AH0 L OW1|HH EH0 L OW1
+   English(lex).parses#             695=2                                                0af=2
+
+== v2 agreement at 0af (cand)
+v2|'twenty\u2010two'         lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'twen\xadty-two'          lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'twenty-two\xad'          lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'street\xadlight'         lex: pv0==tw oov   pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup False
+v2|'hel\xadlo'               lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'twenty\u2011two'         lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup True 
+v2|'eighty\u2010two'         lex: pv0==tw oov   pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup False
+v2|'eighty\u2011two'         lex: pv0==tw oov   pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup True 
+v2|'eigh\xadty-two'          lex: pv0==tw oov   pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup False
+v2|'eighty-two\xad'          lex: pv0==tw oov   pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup False
+v2|'re\xadad'                lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'li\xadve'                lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'street\xadli\xadght'     lex: pv0==tw oov   pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup False
+v2|'Hel\xadlo'               lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'twenty\xad-two'          lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'twenty-\xadtwo'          lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex False sup False
+v2|'twenty-two'              lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup True 
+v2|'streetlight'             lex: pv0==tw oov   pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup True 
+v2|'hello'                   lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup True 
+v2|'read'                    lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup True 
+v2|'live'                    lex: pv0==tw True  pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup True 
+v2|'eighty-two'              lex: pv0==tw oov   pv==pv(tok) True  | sup: pv0==tw True  pv==pv(tok) True  whole==pv0 True  | dict_readings==pv lex True  sup True 
+
+== DECLARED (production path Lexicon(pronunciations=rows) -> for_line -> for_token), 0af vs 695
+v1|DECLARED|lex|read               choice_set                 695=true                                         0af=true
+v1|DECLARED|lex|read               pv 'read'                  695=R EH1 D                                      0af=R EH1 D
+v1|DECLARED|lex|read               tw 'read'                  695=R EH1 D /False                               0af=R EH1 D /False
+v1|DECLARED|lex|read               pv 're\xadad'              695=[]                                           0af=[]
+v1|DECLARED|lex|read               tw 're\xadad'              695= /True                                       0af= /True
+v1|DECLARED|lex|read               line_anchors               695=[[[{"onset": ["R"], "nucleus": "EH", "stress": 1, "coda": ["D"], "widx": 1, "word": "read", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["R"]}]], ["'", "r", "e", "a", "d", "'"], []] 0af=[[[{"onset": ["R"], "nucleus": "EH", "stress": 1, "coda": ["D"], "widx": 1, "word": "read", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["R"]}]], ["'", "r", "e", "a", "d", "'"], []]
+v1|DECLARED|sup|read               choice_set                 695=true                                         0af=true
+v1|DECLARED|sup|read               pv 'read'                  695=R EH1 D                                      0af=R EH1 D
+v1|DECLARED|sup|read               tw 'read'                  695=R EH1 D /False                               0af=R EH1 D /False
+v1|DECLARED|sup|read               whole 'read'               695=R EH1 D /cmudict                             0af=R EH1 D /cmudict
+v1|DECLARED|sup|read               pv 're\xadad'              695=[]                                           0af=[]
+v1|DECLARED|sup|read               tw 're\xadad'              695= /True                                       0af= /True
+v1|DECLARED|sup|read               whole 're\xadad'           695=-                                            0af=-
+v1|DECLARED|sup|read               line_anchors               695=[[[{"onset": ["R"], "nucleus": "EH", "stress": 1, "coda": ["D"], "widx": 1, "word": "read", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["R"]}]], ["'", "r", "e", "a", "d", "'"], []] 0af=[[[{"onset": ["R"], "nucleus": "EH", "stress": 1, "coda": ["D"], "widx": 1, "word": "read", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["R"]}]], ["'", "r", "e", "a", "d", "'"], []]
+v1|DECLARED|lex|live               choice_set                 695=true                                         0af=true
+v1|DECLARED|lex|live               pv 'live'                  695=L IH1 V                                      0af=L IH1 V
+v1|DECLARED|lex|live               tw 'live'                  695=L IH1 V /False                               0af=L IH1 V /False
+v1|DECLARED|lex|live               pv 'li\xadve'              695=[]                                           0af=[]
+v1|DECLARED|lex|live               tw 'li\xadve'              695= /True                                       0af= /True
+v1|DECLARED|lex|live               line_anchors               695=[[[{"onset": ["L"], "nucleus": "IH", "stress": 1, "coda": ["V"], "widx": 1, "word": "live", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "l", "i", "v", "e", "'"], []] 0af=[[[{"onset": ["L"], "nucleus": "IH", "stress": 1, "coda": ["V"], "widx": 1, "word": "live", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "l", "i", "v", "e", "'"], []]
+v1|DECLARED|sup|live               choice_set                 695=true                                         0af=true
+v1|DECLARED|sup|live               pv 'live'                  695=L IH1 V                                      0af=L IH1 V
+v1|DECLARED|sup|live               tw 'live'                  695=L IH1 V /False                               0af=L IH1 V /False
+v1|DECLARED|sup|live               whole 'live'               695=L IH1 V /cmudict                             0af=L IH1 V /cmudict
+v1|DECLARED|sup|live               pv 'li\xadve'              695=[]                                           0af=[]
+v1|DECLARED|sup|live               tw 'li\xadve'              695= /True                                       0af= /True
+v1|DECLARED|sup|live               whole 'li\xadve'           695=-                                            0af=-
+v1|DECLARED|sup|live               line_anchors               695=[[[{"onset": ["L"], "nucleus": "IH", "stress": 1, "coda": ["V"], "widx": 1, "word": "live", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "l", "i", "v", "e", "'"], []] 0af=[[[{"onset": ["L"], "nucleus": "IH", "stress": 1, "coda": ["V"], "widx": 1, "word": "live", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "l", "i", "v", "e", "'"], []]
+v1|DECLARED|lex|hello              choice_set                 695=true                                         0af=true
+v1|DECLARED|lex|hello              pv 'hello'                 695=HH EH0 L OW1                                 0af=HH EH0 L OW1
+v1|DECLARED|lex|hello              tw 'hello'                 695=HH EH0 L OW1 /False                          0af=HH EH0 L OW1 /False
+v1|DECLARED|lex|hello              pv 'hel\xadlo'             695=[]                                           0af=[]
+v1|DECLARED|lex|hello              tw 'hel\xadlo'             695= /True                                       0af= /True
+v1|DECLARED|lex|hello              pv 'Hel\xadlo'             695=[]                                           0af=[]
+v1|DECLARED|lex|hello              tw 'Hel\xadlo'             695= /True                                       0af= /True
+v1|DECLARED|lex|hello              line_anchors               695=[[[{"onset": ["L"], "nucleus": "OW", "stress": 1, "coda": [], "widx": 1, "word": "hello", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "h", "e", "l", "l", "o", "'"], []] 0af=[[[{"onset": ["L"], "nucleus": "OW", "stress": 1, "coda": [], "widx": 1, "word": "hello", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "h", "e", "l", "l", "o", "'"], []]
+v1|DECLARED|sup|hello              choice_set                 695=true                                         0af=true
+v1|DECLARED|sup|hello              pv 'hello'                 695=HH EH0 L OW1                                 0af=HH EH0 L OW1
+v1|DECLARED|sup|hello              tw 'hello'                 695=HH EH0 L OW1 /False                          0af=HH EH0 L OW1 /False
+v1|DECLARED|sup|hello              whole 'hello'              695=HH EH0 L OW1 /cmudict                        0af=HH EH0 L OW1 /cmudict
+v1|DECLARED|sup|hello              pv 'hel\xadlo'             695=[]                                           0af=[]
+v1|DECLARED|sup|hello              tw 'hel\xadlo'             695= /True                                       0af= /True
+v1|DECLARED|sup|hello              whole 'hel\xadlo'          695=-                                            0af=-
+v1|DECLARED|sup|hello              pv 'Hel\xadlo'             695=[]                                           0af=[]
+v1|DECLARED|sup|hello              tw 'Hel\xadlo'             695= /True                                       0af= /True
+v1|DECLARED|sup|hello              whole 'Hel\xadlo'          695=-                                            0af=-
+v1|DECLARED|sup|hello              line_anchors               695=[[[{"onset": ["L"], "nucleus": "OW", "stress": 1, "coda": [], "widx": 1, "word": "hello", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "h", "e", "l", "l", "o", "'"], []] 0af=[[[{"onset": ["L"], "nucleus": "OW", "stress": 1, "coda": [], "widx": 1, "word": "hello", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "h", "e", "l", "l", "o", "'"], []]
+v1|DECLARED|lex|twenty-two         choice_set                 695=true                                         0af=true
+v1|DECLARED|lex|twenty-two         pv 'twenty-two'            695=T W EH1 N IY0 T UW1                          0af=T W EH1 N IY0 T UW1
+v1|DECLARED|lex|twenty-two         tw 'twenty-two'            695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v1|DECLARED|lex|twenty-two         pv 'twenty\u2010two'       695=[]                                           0af=[]
+v1|DECLARED|lex|twenty-two         tw 'twenty\u2010two'       695= /True                                       0af= /True
+v1|DECLARED|lex|twenty-two         pv 'twen\xadty-two'        695=[]                                           0af=[]
+v1|DECLARED|lex|twenty-two         tw 'twen\xadty-two'        695= /True                                       0af= /True
+v1|DECLARED|lex|twenty-two         pv 'twenty-two\xad'        695=[]                                           0af=[]
+v1|DECLARED|lex|twenty-two         tw 'twenty-two\xad'        695= /True                                       0af= /True
+v1|DECLARED|lex|twenty-two         pv 'twenty\u2011two'       695=[]                                           0af=[]
+v1|DECLARED|lex|twenty-two         tw 'twenty\u2011two'       695= /True                                       0af= /True
+v1|DECLARED|lex|twenty-two         pv 'twenty\xad-two'        695=[]                                           0af=[]
+v1|DECLARED|lex|twenty-two         tw 'twenty\xad-two'        695= /True                                       0af= /True
+v1|DECLARED|lex|twenty-two         pv 'twenty-\xadtwo'        695=[]                                           0af=[]
+v1|DECLARED|lex|twenty-two         tw 'twenty-\xadtwo'        695= /True                                       0af= /True
+v1|DECLARED|lex|twenty-two         line_anchors               695=[[[{"onset": ["T", "W"], "nucleus": "EH", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 1, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T", "W"]}, {"onset": ["N"], "nucleus": "IY", "stress": 0, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 2, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["N"]}, {"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}], [{"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}]], ["'", "t", "w", "e", "n", "t", "y", "-", "t", "w", "o", "'"], []] 0af=[[[{"onset": ["T", "W"], "nucleus": "EH", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 1, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T", "W"]}, {"onset": ["N"], "nucleus": "IY", "stress": 0, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 2, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["N"]}, {"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}], [{"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}]], ["'", "t", "w", "e", "n", "t", "y", "-", "t", "w", "o", "'"], []]
+v1|DECLARED|sup|twenty-two         choice_set                 695=true                                         0af=true
+v1|DECLARED|sup|twenty-two         pv 'twenty-two'            695=T W EH1 N IY0 T UW1                          0af=T W EH1 N IY0 T UW1
+v1|DECLARED|sup|twenty-two         tw 'twenty-two'            695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v1|DECLARED|sup|twenty-two         whole 'twenty-two'         695=T W EH1 N IY0 T UW1 /cmudict                 0af=T W EH1 N IY0 T UW1 /cmudict
+v1|DECLARED|sup|twenty-two         pv 'twenty\u2010two'       695=[]                                           0af=[]
+v1|DECLARED|sup|twenty-two         tw 'twenty\u2010two'       695= /True                                       0af= /True
+v1|DECLARED|sup|twenty-two         whole 'twenty\u2010two'    695=-                                            0af=-
+v1|DECLARED|sup|twenty-two         pv 'twen\xadty-two'        695=[]                                           0af=[]
+v1|DECLARED|sup|twenty-two         tw 'twen\xadty-two'        695= /True                                       0af= /True
+v1|DECLARED|sup|twenty-two         whole 'twen\xadty-two'     695=-                                            0af=-
+v1|DECLARED|sup|twenty-two         pv 'twenty-two\xad'        695=[]                                           0af=[]
+v1|DECLARED|sup|twenty-two         tw 'twenty-two\xad'        695= /True                                       0af= /True
+v1|DECLARED|sup|twenty-two         whole 'twenty-two\xad'     695=-                                            0af=-
+v1|DECLARED|sup|twenty-two         pv 'twenty\u2011two'       695=[]                                           0af=[]
+v1|DECLARED|sup|twenty-two         tw 'twenty\u2011two'       695= /True                                       0af= /True
+v1|DECLARED|sup|twenty-two         whole 'twenty\u2011two'    695=-                                            0af=-
+v1|DECLARED|sup|twenty-two         pv 'twenty\xad-two'        695=[]                                           0af=[]
+v1|DECLARED|sup|twenty-two         tw 'twenty\xad-two'        695= /True                                       0af= /True
+v1|DECLARED|sup|twenty-two         whole 'twenty\xad-two'     695=-                                            0af=-
+v1|DECLARED|sup|twenty-two         pv 'twenty-\xadtwo'        695=[]                                           0af=[]
+v1|DECLARED|sup|twenty-two         tw 'twenty-\xadtwo'        695= /True                                       0af= /True
+v1|DECLARED|sup|twenty-two         whole 'twenty-\xadtwo'     695=-                                            0af=-
+v1|DECLARED|sup|twenty-two         line_anchors               695=[[[{"onset": ["T", "W"], "nucleus": "EH", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 1, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T", "W"]}, {"onset": ["N"], "nucleus": "IY", "stress": 0, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 2, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["N"]}, {"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}], [{"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}]], ["'", "t", "w", "e", "n", "t", "y", "-", "t", "w", "o", "'"], []] 0af=[[[{"onset": ["T", "W"], "nucleus": "EH", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 1, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T", "W"]}, {"onset": ["N"], "nucleus": "IY", "stress": 0, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 2, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["N"]}, {"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}], [{"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}]], ["'", "t", "w", "e", "n", "t", "y", "-", "t", "w", "o", "'"], []]
+v1|DECLARED|lex|streetlight        choice_set                 695=true                                         0af=true
+v1|DECLARED|lex|streetlight        pv 'streetlight'           695=S T R IY1 T L AY0 T                          0af=S T R IY1 T L AY0 T
+v1|DECLARED|lex|streetlight        tw 'streetlight'           695=S T R IY1 T L AY0 T /False                   0af=S T R IY1 T L AY0 T /False
+v1|DECLARED|lex|streetlight        pv 'street\xadlight'       695=[]                                           0af=[]
+v1|DECLARED|lex|streetlight        tw 'street\xadlight'       695= /True                                       0af= /True
+v1|DECLARED|lex|streetlight        pv 'street\xadli\xadght'   695=[]                                           0af=[]
+v1|DECLARED|lex|streetlight        tw 'street\xadli\xadght'   695= /True                                       0af= /True
+v1|DECLARED|lex|streetlight        line_anchors               695=[[[{"onset": ["S", "T", "R"], "nucleus": "IY", "stress": 1, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 1, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["S", "T", "R"]}, {"onset": ["L"], "nucleus": "AY", "stress": 0, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "s", "t", "r", "e", "e", "t", "l", "i", "g", "h", "t", "'"], []] 0af=[[[{"onset": ["S", "T", "R"], "nucleus": "IY", "stress": 1, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 1, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["S", "T", "R"]}, {"onset": ["L"], "nucleus": "AY", "stress": 0, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "s", "t", "r", "e", "e", "t", "l", "i", "g", "h", "t", "'"], []]
+v1|DECLARED|sup|streetlight        choice_set                 695=true                                         0af=true
+v1|DECLARED|sup|streetlight        pv 'streetlight'           695=S T R IY1 T L AY0 T                          0af=S T R IY1 T L AY0 T
+v1|DECLARED|sup|streetlight        tw 'streetlight'           695=S T R IY1 T L AY0 T /False                   0af=S T R IY1 T L AY0 T /False
+v1|DECLARED|sup|streetlight        whole 'streetlight'        695=S T R IY1 T L AY0 T /cmudict                 0af=S T R IY1 T L AY0 T /cmudict
+v1|DECLARED|sup|streetlight        pv 'street\xadlight'       695=[]                                           0af=[]
+v1|DECLARED|sup|streetlight        tw 'street\xadlight'       695= /True                                       0af= /True
+v1|DECLARED|sup|streetlight        whole 'street\xadlight'    695=-                                            0af=-
+v1|DECLARED|sup|streetlight        pv 'street\xadli\xadght'   695=[]                                           0af=[]
+v1|DECLARED|sup|streetlight        tw 'street\xadli\xadght'   695= /True                                       0af= /True
+v1|DECLARED|sup|streetlight        whole 'street\xadli\xadght' 695=-                                            0af=-
+v1|DECLARED|sup|streetlight        line_anchors               695=[[[{"onset": ["S", "T", "R"], "nucleus": "IY", "stress": 1, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 1, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["S", "T", "R"]}, {"onset": ["L"], "nucleus": "AY", "stress": 0, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "s", "t", "r", "e", "e", "t", "l", "i", "g", "h", "t", "'"], []] 0af=[[[{"onset": ["S", "T", "R"], "nucleus": "IY", "stress": 1, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 1, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["S", "T", "R"]}, {"onset": ["L"], "nucleus": "AY", "stress": 0, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "s", "t", "r", "e", "e", "t", "l", "i", "g", "h", "t", "'"], []]
+v2|DECLARED|lex|read               choice_set                 695=true                                         0af=true
+v2|DECLARED|lex|read               pv 'read'                  695=R EH1 D                                      0af=R EH1 D
+v2|DECLARED|lex|read               tw 'read'                  695=R EH1 D /False                               0af=R EH1 D /False
+v2|DECLARED|lex|read               pv 're\xadad'              695=[]                                           0af=R EH1 D  <-- CHANGED
+v2|DECLARED|lex|read               tw 're\xadad'              695=R EH1 D /False                               0af=R EH1 D /False
+v2|DECLARED|lex|read               line_anchors               695=[[[{"onset": ["R"], "nucleus": "EH", "stress": 1, "coda": ["D"], "widx": 1, "word": "read", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["R"]}]], ["'", "r", "e", "a", "d", "'"], []] 0af=[[[{"onset": ["R"], "nucleus": "EH", "stress": 1, "coda": ["D"], "widx": 1, "word": "read", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["R"]}]], ["'", "r", "e", "a", "d", "'"], []]
+v2|DECLARED|sup|read               choice_set                 695=true                                         0af=true
+v2|DECLARED|sup|read               pv 'read'                  695=R EH1 D                                      0af=R EH1 D
+v2|DECLARED|sup|read               tw 'read'                  695=R EH1 D /False                               0af=R EH1 D /False
+v2|DECLARED|sup|read               whole 'read'               695=R EH1 D /cmudict                             0af=R EH1 D /cmudict
+v2|DECLARED|sup|read               pv 're\xadad'              695=[]                                           0af=R EH1 D  <-- CHANGED
+v2|DECLARED|sup|read               tw 're\xadad'              695=R EH1 D /False                               0af=R EH1 D /False
+v2|DECLARED|sup|read               whole 're\xadad'           695=-                                            0af=R EH1 D /cmudict  <-- CHANGED
+v2|DECLARED|sup|read               line_anchors               695=[[[{"onset": ["R"], "nucleus": "EH", "stress": 1, "coda": ["D"], "widx": 1, "word": "read", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["R"]}]], ["'", "r", "e", "a", "d", "'"], []] 0af=[[[{"onset": ["R"], "nucleus": "EH", "stress": 1, "coda": ["D"], "widx": 1, "word": "read", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["R"]}]], ["'", "r", "e", "a", "d", "'"], []]
+v2|DECLARED|lex|live               choice_set                 695=true                                         0af=true
+v2|DECLARED|lex|live               pv 'live'                  695=L IH1 V                                      0af=L IH1 V
+v2|DECLARED|lex|live               tw 'live'                  695=L IH1 V /False                               0af=L IH1 V /False
+v2|DECLARED|lex|live               pv 'li\xadve'              695=[]                                           0af=L IH1 V  <-- CHANGED
+v2|DECLARED|lex|live               tw 'li\xadve'              695=L IH1 V /False                               0af=L IH1 V /False
+v2|DECLARED|lex|live               line_anchors               695=[[[{"onset": ["L"], "nucleus": "IH", "stress": 1, "coda": ["V"], "widx": 1, "word": "live", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "l", "i", "v", "e", "'"], []] 0af=[[[{"onset": ["L"], "nucleus": "IH", "stress": 1, "coda": ["V"], "widx": 1, "word": "live", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "l", "i", "v", "e", "'"], []]
+v2|DECLARED|sup|live               choice_set                 695=true                                         0af=true
+v2|DECLARED|sup|live               pv 'live'                  695=L IH1 V                                      0af=L IH1 V
+v2|DECLARED|sup|live               tw 'live'                  695=L IH1 V /False                               0af=L IH1 V /False
+v2|DECLARED|sup|live               whole 'live'               695=L IH1 V /cmudict                             0af=L IH1 V /cmudict
+v2|DECLARED|sup|live               pv 'li\xadve'              695=[]                                           0af=L IH1 V  <-- CHANGED
+v2|DECLARED|sup|live               tw 'li\xadve'              695=L IH1 V /False                               0af=L IH1 V /False
+v2|DECLARED|sup|live               whole 'li\xadve'           695=-                                            0af=L IH1 V /cmudict  <-- CHANGED
+v2|DECLARED|sup|live               line_anchors               695=[[[{"onset": ["L"], "nucleus": "IH", "stress": 1, "coda": ["V"], "widx": 1, "word": "live", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "l", "i", "v", "e", "'"], []] 0af=[[[{"onset": ["L"], "nucleus": "IH", "stress": 1, "coda": ["V"], "widx": 1, "word": "live", "syl_in_word": 1, "word_syllables": 1, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "l", "i", "v", "e", "'"], []]
+v2|DECLARED|lex|hello              choice_set                 695=true                                         0af=true
+v2|DECLARED|lex|hello              pv 'hello'                 695=HH EH0 L OW1                                 0af=HH EH0 L OW1
+v2|DECLARED|lex|hello              tw 'hello'                 695=HH EH0 L OW1 /False                          0af=HH EH0 L OW1 /False
+v2|DECLARED|lex|hello              pv 'hel\xadlo'             695=[]                                           0af=HH EH0 L OW1  <-- CHANGED
+v2|DECLARED|lex|hello              tw 'hel\xadlo'             695=HH EH0 L OW1 /False                          0af=HH EH0 L OW1 /False
+v2|DECLARED|lex|hello              pv 'Hel\xadlo'             695=[]                                           0af=HH EH0 L OW1  <-- CHANGED
+v2|DECLARED|lex|hello              tw 'Hel\xadlo'             695=HH EH0 L OW1 /False                          0af=HH EH0 L OW1 /False
+v2|DECLARED|lex|hello              line_anchors               695=[[[{"onset": ["L"], "nucleus": "OW", "stress": 1, "coda": [], "widx": 1, "word": "hello", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "h", "e", "l", "l", "o", "'"], []] 0af=[[[{"onset": ["L"], "nucleus": "OW", "stress": 1, "coda": [], "widx": 1, "word": "hello", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "h", "e", "l", "l", "o", "'"], []]
+v2|DECLARED|sup|hello              choice_set                 695=true                                         0af=true
+v2|DECLARED|sup|hello              pv 'hello'                 695=HH EH0 L OW1                                 0af=HH EH0 L OW1
+v2|DECLARED|sup|hello              tw 'hello'                 695=HH EH0 L OW1 /False                          0af=HH EH0 L OW1 /False
+v2|DECLARED|sup|hello              whole 'hello'              695=HH EH0 L OW1 /cmudict                        0af=HH EH0 L OW1 /cmudict
+v2|DECLARED|sup|hello              pv 'hel\xadlo'             695=[]                                           0af=HH EH0 L OW1  <-- CHANGED
+v2|DECLARED|sup|hello              tw 'hel\xadlo'             695=HH EH0 L OW1 /False                          0af=HH EH0 L OW1 /False
+v2|DECLARED|sup|hello              whole 'hel\xadlo'          695=-                                            0af=HH EH0 L OW1 /cmudict  <-- CHANGED
+v2|DECLARED|sup|hello              pv 'Hel\xadlo'             695=[]                                           0af=HH EH0 L OW1  <-- CHANGED
+v2|DECLARED|sup|hello              tw 'Hel\xadlo'             695=HH EH0 L OW1 /False                          0af=HH EH0 L OW1 /False
+v2|DECLARED|sup|hello              whole 'Hel\xadlo'          695=-                                            0af=HH EH0 L OW1 /cmudict  <-- CHANGED
+v2|DECLARED|sup|hello              line_anchors               695=[[[{"onset": ["L"], "nucleus": "OW", "stress": 1, "coda": [], "widx": 1, "word": "hello", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "h", "e", "l", "l", "o", "'"], []] 0af=[[[{"onset": ["L"], "nucleus": "OW", "stress": 1, "coda": [], "widx": 1, "word": "hello", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "h", "e", "l", "l", "o", "'"], []]
+v2|DECLARED|lex|twenty-two         choice_set                 695=true                                         0af=true
+v2|DECLARED|lex|twenty-two         pv 'twenty-two'            695=T W EH1 N IY0 T UW1                          0af=T W EH1 N IY0 T UW1
+v2|DECLARED|lex|twenty-two         tw 'twenty-two'            695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|lex|twenty-two         pv 'twenty\u2010two'       695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|lex|twenty-two         tw 'twenty\u2010two'       695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|lex|twenty-two         pv 'twen\xadty-two'        695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|lex|twenty-two         tw 'twen\xadty-two'        695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|lex|twenty-two         pv 'twenty-two\xad'        695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|lex|twenty-two         tw 'twenty-two\xad'        695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|lex|twenty-two         pv 'twenty\u2011two'       695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|lex|twenty-two         tw 'twenty\u2011two'       695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|lex|twenty-two         pv 'twenty\xad-two'        695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|lex|twenty-two         tw 'twenty\xad-two'        695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|lex|twenty-two         pv 'twenty-\xadtwo'        695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|lex|twenty-two         tw 'twenty-\xadtwo'        695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|lex|twenty-two         line_anchors               695=[[[{"onset": ["T", "W"], "nucleus": "EH", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 1, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T", "W"]}, {"onset": ["N"], "nucleus": "IY", "stress": 0, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 2, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["N"]}, {"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}], [{"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}]], ["'", "t", "w", "e", "n", "t", "y", "-", "t", "w", "o", "'"], []] 0af=[[[{"onset": ["T", "W"], "nucleus": "EH", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 1, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T", "W"]}, {"onset": ["N"], "nucleus": "IY", "stress": 0, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 2, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["N"]}, {"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}], [{"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}]], ["'", "t", "w", "e", "n", "t", "y", "-", "t", "w", "o", "'"], []]
+v2|DECLARED|sup|twenty-two         choice_set                 695=true                                         0af=true
+v2|DECLARED|sup|twenty-two         pv 'twenty-two'            695=T W EH1 N IY0 T UW1                          0af=T W EH1 N IY0 T UW1
+v2|DECLARED|sup|twenty-two         tw 'twenty-two'            695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|sup|twenty-two         whole 'twenty-two'         695=T W EH1 N IY0 T UW1 /cmudict                 0af=T W EH1 N IY0 T UW1 /cmudict
+v2|DECLARED|sup|twenty-two         pv 'twenty\u2010two'       695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|sup|twenty-two         tw 'twenty\u2010two'       695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|sup|twenty-two         whole 'twenty\u2010two'    695=-                                            0af=T W EH1 N IY0 T UW1 /cmudict  <-- CHANGED
+v2|DECLARED|sup|twenty-two         pv 'twen\xadty-two'        695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|sup|twenty-two         tw 'twen\xadty-two'        695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|sup|twenty-two         whole 'twen\xadty-two'     695=-                                            0af=T W EH1 N IY0 T UW1 /cmudict  <-- CHANGED
+v2|DECLARED|sup|twenty-two         pv 'twenty-two\xad'        695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|sup|twenty-two         tw 'twenty-two\xad'        695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|sup|twenty-two         whole 'twenty-two\xad'     695=-                                            0af=T W EH1 N IY0 T UW1 /cmudict  <-- CHANGED
+v2|DECLARED|sup|twenty-two         pv 'twenty\u2011two'       695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|sup|twenty-two         tw 'twenty\u2011two'       695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|sup|twenty-two         whole 'twenty\u2011two'    695=-                                            0af=T W EH1 N IY0 T UW1 /cmudict  <-- CHANGED
+v2|DECLARED|sup|twenty-two         pv 'twenty\xad-two'        695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|sup|twenty-two         tw 'twenty\xad-two'        695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|sup|twenty-two         whole 'twenty\xad-two'     695=-                                            0af=T W EH1 N IY0 T UW1 /cmudict  <-- CHANGED
+v2|DECLARED|sup|twenty-two         pv 'twenty-\xadtwo'        695=[]                                           0af=T W EH1 N IY0 T UW1  <-- CHANGED
+v2|DECLARED|sup|twenty-two         tw 'twenty-\xadtwo'        695=T W EH1 N IY0 T UW1 /False                   0af=T W EH1 N IY0 T UW1 /False
+v2|DECLARED|sup|twenty-two         whole 'twenty-\xadtwo'     695=-                                            0af=T W EH1 N IY0 T UW1 /cmudict  <-- CHANGED
+v2|DECLARED|sup|twenty-two         line_anchors               695=[[[{"onset": ["T", "W"], "nucleus": "EH", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 1, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T", "W"]}, {"onset": ["N"], "nucleus": "IY", "stress": 0, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 2, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["N"]}, {"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}], [{"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}]], ["'", "t", "w", "e", "n", "t", "y", "-", "t", "w", "o", "'"], []] 0af=[[[{"onset": ["T", "W"], "nucleus": "EH", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 1, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T", "W"]}, {"onset": ["N"], "nucleus": "IY", "stress": 0, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 2, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["N"]}, {"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}], [{"onset": ["T"], "nucleus": "UW", "stress": 1, "coda": [], "widx": 1, "word": "twenty-two", "syl_in_word": 3, "word_syllables": 3, "word_read": ["twenty-two"], "word_unread": [], "onset_own": ["T"]}]], ["'", "t", "w", "e", "n", "t", "y", "-", "t", "w", "o", "'"], []]
+v2|DECLARED|lex|streetlight        choice_set                 695=true                                         0af=true
+v2|DECLARED|lex|streetlight        pv 'streetlight'           695=S T R IY1 T L AY0 T                          0af=S T R IY1 T L AY0 T
+v2|DECLARED|lex|streetlight        tw 'streetlight'           695=S T R IY1 T L AY0 T /False                   0af=S T R IY1 T L AY0 T /False
+v2|DECLARED|lex|streetlight        pv 'street\xadlight'       695=[]                                           0af=S T R IY1 T L AY0 T  <-- CHANGED
+v2|DECLARED|lex|streetlight        tw 'street\xadlight'       695=S T R IY1 T L AY0 T /False                   0af=S T R IY1 T L AY0 T /False
+v2|DECLARED|lex|streetlight        pv 'street\xadli\xadght'   695=[]                                           0af=S T R IY1 T L AY0 T  <-- CHANGED
+v2|DECLARED|lex|streetlight        tw 'street\xadli\xadght'   695=S T R IY1 T L AY0 T /False                   0af=S T R IY1 T L AY0 T /False
+v2|DECLARED|lex|streetlight        line_anchors               695=[[[{"onset": ["S", "T", "R"], "nucleus": "IY", "stress": 1, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 1, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["S", "T", "R"]}, {"onset": ["L"], "nucleus": "AY", "stress": 0, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "s", "t", "r", "e", "e", "t", "l", "i", "g", "h", "t", "'"], []] 0af=[[[{"onset": ["S", "T", "R"], "nucleus": "IY", "stress": 1, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 1, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["S", "T", "R"]}, {"onset": ["L"], "nucleus": "AY", "stress": 0, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "s", "t", "r", "e", "e", "t", "l", "i", "g", "h", "t", "'"], []]
+v2|DECLARED|sup|streetlight        choice_set                 695=true                                         0af=true
+v2|DECLARED|sup|streetlight        pv 'streetlight'           695=S T R IY1 T L AY0 T                          0af=S T R IY1 T L AY0 T
+v2|DECLARED|sup|streetlight        tw 'streetlight'           695=S T R IY1 T L AY0 T /False                   0af=S T R IY1 T L AY0 T /False
+v2|DECLARED|sup|streetlight        whole 'streetlight'        695=S T R IY1 T L AY0 T /cmudict                 0af=S T R IY1 T L AY0 T /cmudict
+v2|DECLARED|sup|streetlight        pv 'street\xadlight'       695=[]                                           0af=S T R IY1 T L AY0 T  <-- CHANGED
+v2|DECLARED|sup|streetlight        tw 'street\xadlight'       695=S T R IY1 T L AY0 T /False                   0af=S T R IY1 T L AY0 T /False
+v2|DECLARED|sup|streetlight        whole 'street\xadlight'    695=-                                            0af=S T R IY1 T L AY0 T /cmudict  <-- CHANGED
+v2|DECLARED|sup|streetlight        pv 'street\xadli\xadght'   695=[]                                           0af=S T R IY1 T L AY0 T  <-- CHANGED
+v2|DECLARED|sup|streetlight        tw 'street\xadli\xadght'   695=S T R IY1 T L AY0 T /False                   0af=S T R IY1 T L AY0 T /False
+v2|DECLARED|sup|streetlight        whole 'street\xadli\xadght' 695=-                                            0af=S T R IY1 T L AY0 T /cmudict  <-- CHANGED
+v2|DECLARED|sup|streetlight        line_anchors               695=[[[{"onset": ["S", "T", "R"], "nucleus": "IY", "stress": 1, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 1, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["S", "T", "R"]}, {"onset": ["L"], "nucleus": "AY", "stress": 0, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "s", "t", "r", "e", "e", "t", "l", "i", "g", "h", "t", "'"], []] 0af=[[[{"onset": ["S", "T", "R"], "nucleus": "IY", "stress": 1, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 1, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["S", "T", "R"]}, {"onset": ["L"], "nucleus": "AY", "stress": 0, "coda": ["T"], "widx": 1, "word": "streetlight", "syl_in_word": 2, "word_syllables": 2, "word_read": [], "word_unread": [], "onset_own": ["L"]}]], ["'", "s", "t", "r", "e", "e", "t", "l", "i", "g", "h", "t", "'"], []]

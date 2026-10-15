@@ -1,0 +1,23 @@
+
+# cand AB race_undo
+- 1 APP Undo: #btn-undo, mouse click clicked 178 ms after B went live, +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:4936655f live=heart@L1,part@L2<4936655f>
+    review card: heart@line 1:4->5, part@line 2:4->5
+    LS: Song A id=draft:4936655f rec=heart@L1,part@L2<4936655f> | SS: Song A rec=heart@L1,part@L2<4936655f>
+    IDB: draft:4936655f=Song A savedAt=1791984495290 rec=heart@L1,part@L2<4936655f> ; draft:d423b323=Song B savedAt=1791984491728 rec=- ad=false
+    hist: (empty){} > Song A{heart,part} > *Song A@4936655f{heart,part} > Song B@d423b323[ad=false]{love,dove}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 2 APP Redo: #btn-redo, mouse click then APP Undo: #btn-undo, mouse click 40 ms apart, +3s (expect A)
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:4936655f live=heart@L1,part@L2<4936655f>
+    review card: heart@line 1:4->5, part@line 2:4->5
+    LS: Song A id=draft:4936655f rec=heart@L1,part@L2<4936655f> | SS: Song A rec=heart@L1,part@L2<4936655f>
+    IDB: draft:4936655f=Song A savedAt=1791984499283 rec=heart@L1,part@L2<4936655f> ; draft:d423b323=Song B savedAt=1791984491728 rec=- ad=false
+    hist: (empty){} > Song A{heart,part} > *Song A@4936655f{heart,part} > Song B@d423b323[ad=false]{love,dove}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:4936655f live=heart@L1,part@L2<4936655f>
+    review card: heart@line 1:4->5, part@line 2:4->5
+    LS: Song A id=draft:4936655f rec=heart@L1,part@L2<4936655f> | SS: Song A rec=heart@L1,part@L2<4936655f>
+    IDB: draft:4936655f=Song A savedAt=1791984503157 rec=heart@L1,part@L2<4936655f> ; draft:d423b323=Song B savedAt=1791984491728 rec=- ad=false
+    hist: *Song A@4936655f{heart,part}
+  search s3: {"heart":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:4936655f-a5be-4a8e-a99a-324d7a7cbb68","history[0]*"],"part":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:4936655f-a5be-4a8e-a99a-324d7a7cbb68","history[0]*"],"love":[],"dove":[],"night":[],"light":[],"gold":[],"road":[]}

@@ -1,0 +1,179 @@
+{
+ "seconds": 188,
+ "tally": {
+  "sup:stripped|readable_control|_splice|end|bound|edit": 144,
+  "sup:stripped|readable_control|default_propose_group|end|bound|edit": 6,
+  "sup:voices|readable_control|_splice|end|bound|edit": 144,
+  "sup:voices|readable_control|default_propose_group|end|bound|edit": 6
+ },
+ "runs": [
+  {
+   "mode": "sup:stripped",
+   "draft": "unread_end",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "the night was zzqx",
+    "I hold you tight",
+    "we sail by light"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:stripped",
+   "draft": "enclitic_witness_ain",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "An' Charlie he 's our ain.",
+    "the night is long and plain",
+    "we walk again"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:stripped",
+   "draft": "enclitic_witness_auch",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "My wrath I 'll vent forth upon old Auchtertool.",
+    "the bells ring out at school",
+    "he was a fool"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:stripped",
+   "draft": "margin_numeral",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "'Till the Canon atoned the deed,              _110",
+    "the night is dark",
+    "we walk the park"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:stripped",
+   "draft": "numeral_end",
+   "stop": "whole_draft_unresolved",
+   "error": null,
+   "final": [
+    "and so we sang it 45",
+    "the night is alive",
+    "we strive"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:stripped",
+   "draft": "readable_control",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "the night was cold",
+    "I hold you tight",
+    "we sail by light"
+   ],
+   "n_calls": 150,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:voices",
+   "draft": "unread_end",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "the night was zzqx",
+    "I hold you tight",
+    "we sail by light"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:voices",
+   "draft": "enclitic_witness_ain",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "An' Charlie he 's our ain.",
+    "the night is long and plain",
+    "we walk again"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:voices",
+   "draft": "enclitic_witness_auch",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "My wrath I 'll vent forth upon old Auchtertool.",
+    "the bells ring out at school",
+    "he was a fool"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:voices",
+   "draft": "margin_numeral",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "'Till the Canon atoned the deed,              _110",
+    "the night is dark",
+    "we walk the park"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:voices",
+   "draft": "numeral_end",
+   "stop": "whole_draft_unresolved",
+   "error": null,
+   "final": [
+    "and so we sang it 45",
+    "the night is alive",
+    "we strive"
+   ],
+   "n_calls": 0,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  },
+  {
+   "mode": "sup:voices",
+   "draft": "readable_control",
+   "stop": "no_progress",
+   "error": null,
+   "final": [
+    "the night was cold",
+    "I hold you tight",
+    "we sail by light"
+   ],
+   "n_calls": 150,
+   "unbound_end_edits": [],
+   "unbound_end_calls": 0
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+  MANDATE: 6 group(s) over 6 lines, 6 mandated pair(s), source=declared (--groups=)
+           group A = lines 1.T4,4, group B = lines 2.endword,5.endword, group C = lines 3.endword,6.endword, group D = lines 1.head,6.head, group E = lines 2.headrime,4.headrime, group F = lines 3.line,5.line — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  REFUSED — READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.
+  lyric result: {"status":"refused","exit":2,"refusal":"READER_SCHEME_MISMATCH: this deferred run was started under reader scheme v1, and this call declares v2. Resume it under --reader-scheme=v1 (or with no --reader-scheme), or start a new run.","version":1,"transport_token":null}

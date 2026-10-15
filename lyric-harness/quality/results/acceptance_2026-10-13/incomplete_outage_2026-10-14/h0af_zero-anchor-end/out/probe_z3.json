@@ -1,0 +1,115 @@
+{
+ "variant": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/zero-anchor-end/variants/z3_zero_anchor_only_when_run_is_token.py",
+ "res": {
+  "population": {
+   "lines": 3990,
+   "cases": 15960,
+   "differ": 0,
+   "differ_lines": 0
+  },
+  "crafted+fuzz": {
+   "lines": 6677,
+   "cases": 26708,
+   "differ": 748,
+   "differ_lines": 187
+  }
+ },
+ "examples": [
+  [
+   "crafted+fuzz",
+   "sup:stripped",
+   "go кот5",
+   "zqxj",
+   null,
+   "go zqxj"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:stripped",
+   "go кот5",
+   "night",
+   null,
+   "go night"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:voices",
+   "go кот5",
+   "zqxj",
+   null,
+   "go zqxj"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:voices",
+   "go кот5",
+   "night",
+   null,
+   "go night"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:stripped",
+   "1́",
+   "zqxj",
+   null,
+   "zqxj"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:stripped",
+   "1́",
+   "night",
+   null,
+   "night"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:voices",
+   "1́",
+   "zqxj",
+   null,
+   "zqxj"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:voices",
+   "1́",
+   "night",
+   null,
+   "night"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:stripped",
+   "love 1́",
+   "zqxj",
+   null,
+   "love zqxj"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:stripped",
+   "love 1́",
+   "night",
+   null,
+   "love night"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:voices",
+   "love 1́",
+   "zqxj",
+   null,
+   "love zqxj"
+  ],
+  [
+   "crafted+fuzz",
+   "sup:voices",
+   "love 1́",
+   "night",
+   null,
+   "love night"
+  ]
+ ]
+}

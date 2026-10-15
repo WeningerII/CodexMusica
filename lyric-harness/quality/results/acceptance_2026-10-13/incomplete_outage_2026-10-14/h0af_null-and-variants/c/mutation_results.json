@@ -1,0 +1,298 @@
+{
+ "none": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 1.7,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 12.0,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 6.7,
+   "fail_lines": []
+  }
+ },
+ "N1_defer_null_admitted": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 1.3,
+   "fail_lines": [
+    "FAIL: test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch)",
+    "AssertionError: SystemExit not raised"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 12.1,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 8.9,
+   "fail_lines": []
+  }
+ },
+ "N2_check_after_lexicon_block": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 1.5,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 8.6,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 4.1,
+   "fail_lines": []
+  }
+ },
+ "N3_checkpoint_check_removed": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 0.9,
+   "fail_lines": [
+    "FAIL: test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch)",
+    "AssertionError: 'recorded reader scheme null is malformed' not found in 'checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme None, and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=None), or start a new run'"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 6.4,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 3.4,
+   "fail_lines": []
+  }
+ },
+ "N4_replay_old_get": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 0.7,
+   "fail_lines": [
+    "FAIL: test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch)",
+    "AssertionError: 'recorded reader scheme null is malformed' not found in '  REFUSED \u2014 --propose=replay:/tmp/tmpddsd0de9.json \u2014 recorded reader scheme None is not one this build reads (v1, v2)\\n  lyric result: {\"status\":\"refused\",\"exit\":2,\"refusal\":\"--propose=replay:/tmp/tmpddsd0de9.json \u2014 recorded reader scheme None is not one this build reads (v1, v2)\",\"version\":1,\"transport_token\":null}\\n'"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 6.1,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 3.7,
+   "fail_lines": []
+  }
+ },
+ "N5_null_read_as_v1": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 0.6,
+   "fail_lines": [
+    "FAIL: test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch)",
+    "AssertionError: 'v1' is not None"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 5.6,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 4.4,
+   "fail_lines": []
+  }
+ },
+ "N6_message_shows_None": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 0.7,
+   "fail_lines": [
+    "FAIL: test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch)",
+    "AssertionError: 'recorded reader scheme null is malformed' not found in '  REFUSED \u2014 --propose=defer:/tmp/tmpil_18lt9.json \u2014 recorded reader scheme None is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.\\n  lyric result: {\"status\":\"refused\",\"exit\":2,\"refusal\":\"--propose=defer:/tmp/tmpil_18lt9.json \u2014 recorded reader scheme None is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.\",\"version\":1,\"transport_token\":null}\\n'"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 5.7,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 4.2,
+   "fail_lines": []
+  }
+ },
+ "V1_lexicon_lookup_raw": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 0.5,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 2.0,
+   "fail_lines": [
+    "FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)",
+    "AssertionError: Lists differ: [] != [['R', 'EH1', 'D'], ['R', 'IY1', 'D']]"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 3.7,
+   "fail_lines": []
+  }
+ },
+ "V2_supplement_lookup_raw": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 1.0,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 5.5,
+   "fail_lines": [
+    "FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)",
+    "AssertionError: Lists differ: [] != [['S', 'T', 'R', 'IY1', 'T', 'L', 'AY2', 'T']]"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 5.0,
+   "fail_lines": []
+  }
+ },
+ "V3_provenance_key_raw": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 0.6,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 5.8,
+   "fail_lines": [
+    "FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)",
+    "AssertionError: None != 'moby:3205:attested' : street\u00adlight"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 4.3,
+   "fail_lines": []
+  }
+ },
+ "V4_lexicon_normalises_under_v1": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 0.6,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 2.3,
+   "fail_lines": [
+    "FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)",
+    "AssertionError: Lists differ: [['R', 'EH1', 'D'], ['R', 'IY1', 'D']] != []"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 3.5,
+   "fail_lines": []
+  }
+ },
+ "V5_supplement_normalises_under_v1": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 0.5,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 5.7,
+   "fail_lines": [
+    "FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)",
+    "AssertionError: Lists differ: [['S', 'T', 'R', 'IY1', 'T', 'L', 'AY2', 'T']] != []"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 3.7,
+   "fail_lines": [
+    "FAIL: test_a_supplemented_bare_word_is_normalised_as_a_token_is (quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is)",
+    "AssertionError: (['S', 'T', 'R', 'IY1', 'T', 'L', 'AY2', 'T'], False) == (['S', 'T', 'R', 'IY1', 'T', 'L', 'AY2', 'T'], False)"
+   ]
+  }
+ },
+ "V6_declared_match_on_normalised": {
+  "quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 0.6,
+   "fail_lines": []
+  },
+  "quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is": {
+   "rc": 1,
+   "summary": "FAILED (failures=1)",
+   "secs": 2.2,
+   "fail_lines": [
+    "FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)",
+    "AssertionError: Lists differ: [['R', 'IY1', 'D']] != [['R', 'EH1', 'D'], ['R', 'IY1', 'D']]"
+   ]
+  },
+  "quality.test_reader.Normalisation.test_a_supplemented_bare_word_is_normalised_as_a_token_is": {
+   "rc": 0,
+   "summary": "OK",
+   "secs": 3.7,
+   "fail_lines": []
+  }
+ }
+}

@@ -1,0 +1,25 @@
+  phonology: eng — English (General American)
+  agreement (onset,nucleus,coda) per syllable: ((True, True, True),)
+  cells: [('alliteration', 'head rhyme', 'initial rhyme', 'assonance', 'vowel rhyme', 'consonance', 'identical sound', 'rime riche')]
+  anchor A: last-prominent / rule-fixed / span to-end
+  anchor B: last-prominent / rule-fixed / span to-end
+  identity: rich
+  stress: aligned
+  position: end (DECLARED by `--position=`, as a mandate declares it for a line-final group — asserted, not measured from a line)
+  boundary: simple
+  length: equal
+  realisation: phonetic
+  not asked at this length: apocopated rhyme (penultimate stressed syllable), apocopated rime riche (a registered anchor has no referent in one member — a refusal, not a no)
+  NAMES: assonance, slant rhyme (vowel), consonance, slant rhyme (consonant), alliteration, head rhyme, rime riche, rich rhyme, homophone rhyme, rime riche (last stressed syllable), dvitiyakshara-prasa, anuprasa (second-aksara), dvitiyakshara-prasa (full aksara), skothending, cynghanedd lusg (identical onsets)
+  TRADITION (7 of 15 name(s) come from outside 'eng'):
+    - 'rich rhyme' is UNSOURCED: the 601 records no entry under this spelling, so no tradition is attached to it — see `quality/type_canon.py` UNSOURCED for why (doctrine 20: a refusal is not an absence).
+    - 'homophone rhyme' is UNSOURCED: the 601 records no entry under this spelling, so no tradition is attached to it — see `quality/type_canon.py` UNSOURCED for why (doctrine 20: a refusal is not an absence).
+    - 'dvitiyakshara-prasa' comes from kan, tel, san (I8) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+    - 'anuprasa (second-aksara)' comes from san, hin (I1) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+    - 'dvitiyakshara-prasa (full aksara)' is UNSOURCED: the 601 records no entry under this spelling, so no tradition is attached to it — see `quality/type_canon.py` UNSOURCED for why (doctrine 20: a refusal is not an absence).
+    - 'skothending' comes from non (G1) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+    - 'cynghanedd lusg (identical onsets)' comes from cym (C13) and is being fired on a 'eng' draft: the RULE SHAPE matched, the tradition did not (doctrine 43).
+  relations: rhyme (channels)=True, alliteration (channels)=True
+  as two line-final words — coarse relations: ASSONANCE, RHYME, RIME_RICHE; registry schemas: Scots vowel-length rhyme (Aitken's Law), assonance, consonance, family rhyme, pantun ABAB, reverse rhyme, rime riche; undecided: 13
+  route: {'rhyme': 'channels', 'alliteration': 'channels'}   (doctrine 84 — 'declared_relation' means the phonology answered, not the channels)
+  lyric result: {"lexicon":{"supplement_id":null,"sha256":null},"reader_scheme":"v1","status":"typed","exit":0,"version":1,"transport_token":null}

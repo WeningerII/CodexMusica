@@ -1,0 +1,14 @@
+test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch) ... FAIL
+
+======================================================================
+FAIL: test_a_present_null_scheme_is_malformed_not_pre_batch (quality.test_reader.LegacyReplay.test_a_present_null_scheme_is_malformed_not_pre_batch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/c/mut/lyric-harness/quality/test_reader.py", line 2261, in test_a_present_null_scheme_is_malformed_not_pre_batch
+    self.assertIn("recorded reader scheme null is malformed", str(caught.exception))
+AssertionError: 'recorded reader scheme null is malformed' not found in 'checkpoint cannot resume: READER_SCHEME_MISMATCH: this run was started under reader scheme None, and this call reads v2; resume it with no --reader-scheme (or --reader-scheme=None), or start a new run'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.134s
+
+FAILED (failures=1)

@@ -1,0 +1,134 @@
+[
+ {
+  "name": "X_cand_cand_written_v2_state_nf",
+  "tree": "cand",
+  "rc": 4,
+  "secs": 30.8,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "refusal": null,
+  "accepted": null,
+  "changed_files": [
+   "draft.txt.briefed.json"
+  ],
+  "state_unchanged": true,
+  "state_sha_before": "a973c9887286f7817fe5c61e3c9bed08a2836d092e628a1a5423f83fd80223eb",
+  "state_sha_after": "a973c9887286f7817fe5c61e3c9bed08a2836d092e628a1a5423f83fd80223eb",
+  "cmd": "cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-0af/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data  /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py finish /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_cand_cand_written_v2_state_nf/draft.txt --seed=23 --lines=12 --propose=defer:/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_cand_cand_written_v2_state_nf/state.json",
+  "fixture": {
+   "draft.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt",
+   "draft.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt.briefed.json",
+   "state.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/fx/cand_written_v2_state.json"
+  }
+ },
+ {
+  "name": "X_cand_cand_written_v2_state_topremoved_nf",
+  "tree": "cand",
+  "rc": 4,
+  "secs": 29.0,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "refusal": null,
+  "accepted": null,
+  "changed_files": [
+   "draft.txt.briefed.json"
+  ],
+  "state_unchanged": true,
+  "state_sha_before": "efbf15695c43c41fcf42f2fab1a5385b3ee1322c914af82fb796da71b77f0e42",
+  "state_sha_after": "efbf15695c43c41fcf42f2fab1a5385b3ee1322c914af82fb796da71b77f0e42",
+  "cmd": "cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-0af/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data  /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py finish /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_cand_cand_written_v2_state_topremoved_nf/draft.txt --seed=23 --lines=12 --propose=defer:/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_cand_cand_written_v2_state_topremoved_nf/state.json",
+  "fixture": {
+   "draft.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt",
+   "draft.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt.briefed.json",
+   "state.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/fx/cand_written_v2_state_topremoved.json"
+  }
+ },
+ {
+  "name": "X_cand_cand_written_v2_state_null_nf",
+  "tree": "cand",
+  "rc": 2,
+  "secs": 28.2,
+  "status": "refused",
+  "reader_scheme": null,
+  "refusal": "--propose=defer:<WK>/state.json — recorded reader scheme null is malformed: a record either names one this build reads (v1, v2) or omits the field (a pre-batch record, read as v1). Restore the field the run wrote, or start a new run.",
+  "accepted": null,
+  "changed_files": [
+   "draft.txt.briefed.json"
+  ],
+  "state_unchanged": true,
+  "state_sha_before": "0c72a6729e4fac903f66e8baa8a9efd6973b79e2a1a7f18f85d245f0b4f96147",
+  "state_sha_after": "0c72a6729e4fac903f66e8baa8a9efd6973b79e2a1a7f18f85d245f0b4f96147",
+  "cmd": "cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-0af/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data  /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py finish /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_cand_cand_written_v2_state_null_nf/draft.txt --seed=23 --lines=12 --propose=defer:/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_cand_cand_written_v2_state_null_nf/state.json",
+  "fixture": {
+   "draft.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt",
+   "draft.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt.briefed.json",
+   "state.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/fx/cand_written_v2_state_null.json"
+  }
+ },
+ {
+  "name": "X_prev_cand_written_v2_state_nf",
+  "tree": "prev",
+  "rc": 4,
+  "secs": 27.5,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "refusal": null,
+  "accepted": null,
+  "changed_files": [
+   "draft.txt.briefed.json"
+  ],
+  "state_unchanged": true,
+  "state_sha_before": "a973c9887286f7817fe5c61e3c9bed08a2836d092e628a1a5423f83fd80223eb",
+  "state_sha_after": "a973c9887286f7817fe5c61e3c9bed08a2836d092e628a1a5423f83fd80223eb",
+  "cmd": "cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data  /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py finish /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_prev_cand_written_v2_state_nf/draft.txt --seed=23 --lines=12 --propose=defer:/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_prev_cand_written_v2_state_nf/state.json",
+  "fixture": {
+   "draft.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt",
+   "draft.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt.briefed.json",
+   "state.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/fx/cand_written_v2_state.json"
+  }
+ },
+ {
+  "name": "X_prev_cand_written_v2_state_topremoved_nf",
+  "tree": "prev",
+  "rc": 4,
+  "secs": 26.9,
+  "status": "suspended",
+  "reader_scheme": "v1",
+  "refusal": null,
+  "accepted": null,
+  "changed_files": [
+   "draft.txt.briefed.json"
+  ],
+  "state_unchanged": true,
+  "state_sha_before": "efbf15695c43c41fcf42f2fab1a5385b3ee1322c914af82fb796da71b77f0e42",
+  "state_sha_after": "efbf15695c43c41fcf42f2fab1a5385b3ee1322c914af82fb796da71b77f0e42",
+  "cmd": "cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data  /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py finish /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_prev_cand_written_v2_state_topremoved_nf/draft.txt --seed=23 --lines=12 --propose=defer:/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_prev_cand_written_v2_state_topremoved_nf/state.json",
+  "fixture": {
+   "draft.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt",
+   "draft.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt.briefed.json",
+   "state.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/fx/cand_written_v2_state_topremoved.json"
+  }
+ },
+ {
+  "name": "X_prev_cand_written_v2_state_null_nf",
+  "tree": "prev",
+  "rc": 4,
+  "secs": 26.4,
+  "status": "suspended",
+  "reader_scheme": "v2",
+  "refusal": null,
+  "accepted": null,
+  "changed_files": [
+   "draft.txt.briefed.json"
+  ],
+  "state_unchanged": true,
+  "state_sha_before": "0c72a6729e4fac903f66e8baa8a9efd6973b79e2a1a7f18f85d245f0b4f96147",
+  "state_sha_after": "0c72a6729e4fac903f66e8baa8a9efd6973b79e2a1a7f18f85d245f0b4f96147",
+  "cmd": "cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-695/lyric-harness && env -u LYRIC_CONTROL_TOKEN -u LYRIC_REQUEST_DEADLINE_MS -u LYRIC_CHECKPOINT_PATH LYRIC_STAGED_DATA=/home/user/CodexMusica/lyric-harness/data  /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/venv311/bin/python lyric_harness.py finish /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_prev_cand_written_v2_state_null_nf/draft.txt --seed=23 --lines=12 --propose=defer:/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/run_x/wk/X_prev_cand_written_v2_state_null_nf/state.json",
+  "fixture": {
+   "draft.txt": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt",
+   "draft.txt.briefed.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/src/draft.txt.briefed.json",
+   "state.json": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/a/fx/cand_written_v2_state_null.json"
+  }
+ }
+]

@@ -1,0 +1,19 @@
+SHARD 2/3: 20 of 60 sections (dealt by index residue over the cost-ordered tuple)
+
+29. `--profile` reaches the four verbs that grade a draft, and a coordinate with nothing to bind to REFUSES (FIXED 2026-08-15)
+  PASS  `--profile` REACHES `brief` — both runs report, and the report is not the one produced without it
+          rc 0/0; byte-identical is what an unreachable comparator looks like
+  PASS  and an unrecognised profile REFUSES by name rather than falling through to the default weights
+          a silent comparator substitution is doctrine 1's own case
+  PASS  `revise` now REPORTS the profile it was handed, not a default it could not be given
+          ["  COMPARATOR: profile='assonance'"]
+  PASS  `verify` takes it too
+          rc 0
+  PASS  `song` takes it too
+          rc 2
+  PASS  `--subdivision` with no --blueprint REFUSES instead of being dropped
+          rc 2
+  PASS  `--isochronous` with no --blueprint REFUSES instead of being dropped
+          rc 2
+  PASS  and WITH a blueprint the same flag is read, not refused for itself
+          ['MANDATE: 2 group(s) over 4 lines, 2 mandated pair(s), source=declared (--groups=)']

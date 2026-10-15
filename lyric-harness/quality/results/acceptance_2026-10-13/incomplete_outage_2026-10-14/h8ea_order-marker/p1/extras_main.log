@@ -1,0 +1,83 @@
+
+### main X1_appUndo
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 APP Undo (#btn-undo)] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":2,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 4 Run review: [{"groups":"1.T4,8; 2,3"}]
+  [4 after review] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":2,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### main X2_appUndoRedo
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 APP Undo] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":2,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [4 APP Redo (#btn-redo)] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 5 Run review: [{"groups":"1.T4,8"}]
+  [5 after review] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### main X3_nativeUndo
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3 BROWSER-NATIVE Ctrl+Z #1 in textarea] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  [3b BROWSER-NATIVE Ctrl+Z #2 in textarea] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 4 Run review: [{"groups":"1.T4,8"}]
+  [4 after review] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### main X4_wordRules
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Word rules apply (require)] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — require — love]"] cut=["UNMARKED","UNMARKED"] hist={"idx":3,"n":4} toasts=["Word rules applied.\nUndo"]
+  SEND 3 Run review: [{"groups":"1.T4,8; 2,3","must_include":["love"]}]
+  [3 after review] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — require — love]"] cut=["UNMARKED","UNMARKED"] hist={"idx":3,"n":4} toasts=["Word rules applied.\nUndo"]
+
+### main X5_relationOnly
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Rhymes relation only apply] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — relation — class:RHYME]"] cut=["UNMARKED","UNMARKED"] hist={"idx":3,"n":4} toasts=["Relation declared: class:RHYME.\nUndo"]
+  SEND 3 Run review: [{"relation":"class:RHYME","groups":"1.T4,8; 2,3"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]","[SETUP — relation — class:RHYME]"] cut=["UNMARKED","UNMARKED"] hist={"idx":3,"n":4} toasts=["Relation declared: class:RHYME.\nUndo"]
+
+### main X6_markedTyped_O1
+  [1 typed into a MARKED row] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"] cut=["cut v2"] hist={"idx":1,"n":2}
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 3 Run review: [{"groups":"1.T4,8"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### main X6_markedTyped_O2
+  [1 typed into a MARKED row] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"] cut=["cut v2"] hist={"idx":1,"n":2}
+  SEND 2 Run review: [{"groups":"1.T4,8; 2,3 — cut v2"}]
+  [2 after review] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3 — cut v2]"] cut=["cut v2"] hist={"idx":2,"n":3}
+  [3 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+  SEND 4 Run review: [{"groups":"1.T4,8"}]
+  [4 after review] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"]
+
+### main X7_verdict_O1
+  [1 pasted] rows=["[SETUP — returns — 1.T4,8.T2]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 placed return form apply] rows=["[SETUP — returns — 1.T4,8.T2;2.head,6.head]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Placed return declared.\nUndo"]
+  SEND 3 Run review: [{"returns":"1.T4,8.T2;2.head,6.head"}]
+  [3 after review] rows=["[SETUP — returns — 1.T4,8.T2;2.head,6.head]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Placed return declared.\nUndo"]
+
+### main X7_verdict_O2
+  [1 pasted] rows=["[SETUP — returns — 1.T4,8.T2]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  SEND 2 Run review: [{"returns":"1.T4,8.T2"}]
+  [2 after review] rows=["[SETUP — returns — 1.T4,8.T2]"] cut=["UNMARKED"] hist={"idx":2,"n":3}
+  [3 placed return form apply] rows=["[SETUP — returns — 1.T4,8.T2;2.head,6.head]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Placed return declared.\nUndo"]
+  SEND 4 Run review: [{"returns":"1.T4,8.T2;2.head,6.head"}]
+  [4 after review] rows=["[SETUP — returns — 1.T4,8.T2;2.head,6.head]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Placed return declared.\nUndo"]
+
+### main X9_sectionMove
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2}
+  [2 Form & story: VERSE Move down] rows=["[SETUP — rhyme groups — 5.T4,4;6,7]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Moved section down.\nUndo"]
+  SEND 3 Run review: [{"groups":"5.T4,4;6,7"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 5.T4,4;6,7]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Moved section down.\nUndo"]
+
+### main X8_reviewCard_O1
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2} reviewMentionsCut=false ""
+  [2 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"] reviewMentionsCut=false ""
+  SEND 3 Run review: [{"groups":"1.T4,8"}]
+  [3 after review] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"] reviewMentionsCut=false ""
+
+### main X8_reviewCard_O2
+  [1 pasted] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":1,"n":2} reviewMentionsCut=false ""
+  SEND 2 Run review: [{"groups":"1.T4,8; 2,3"}]
+  [2 after review] rows=["[SETUP — rhyme groups — 1.T4,8; 2,3]"] cut=["UNMARKED"] hist={"idx":2,"n":3} reviewMentionsCut=false ""
+  [3 Remove link (form)] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"] reviewMentionsCut=false ""
+  SEND 4 Run review: [{"groups":"1.T4,8"}]
+  [4 after review] rows=["[SETUP — rhyme groups — 1.T4,8]"] cut=["UNMARKED"] hist={"idx":3,"n":4} toasts=["Rhyme link removed. Undo restores it.\nUndo"] reviewMentionsCut=false ""

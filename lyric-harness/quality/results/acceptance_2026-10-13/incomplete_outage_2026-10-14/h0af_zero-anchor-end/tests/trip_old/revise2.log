@@ -1,0 +1,55 @@
+SHARD 2/4: 16 of 62 sections (dealt by index residue over the cost-ordered tuple)
+
+1. the loop grades, it never generates
+  PASS  Reviser has no 'generate' method
+  PASS  Reviser has no 'write' method
+  PASS  Reviser has no 'compose' method
+  PASS  Reviser has no 'rewrite' method
+  PASS  Reviser has no 'draft_line' method
+  PASS  brief() returns instructions, not text
+  PASS  every brief is line-scoped
+          the loop revises flagged lines only, never the whole draft
+
+5. REJECT — revising more than was asked
+  PASS  touching an untargeted line is rejected
+          lines [4] were changed but not targeted; revise flagged lines only
+
+9. doctrine 6 — verification is a verdict, not a number
+  PASS  no 'score' key
+  PASS  no 'quality' key
+  PASS  no 'rating' key
+  PASS  no 'grade' key
+  PASS  no 'total' key
+  PASS  it reports reasons a caller can act on
+
+13. the generalisation did not become a second comparator
+  PASS  mandated / judged / refused / violations are identical
+          check_scheme [1064, 1012, 52, 40]  grade [1064, 1012, 52, 40]
+  PASS  the sonnet battery's own numbers are unmoved
+          battery.EXPECTED (1064, 1012, 52, 40), measured (1064, 1012, 52, 40) — the pin lives in battery.py and is repinned there, with the layer that moved named
+  PASS  not one sonnet's violation SET differs
+          152 sonnets compared pair for pair
+
+17. the fourth site of the X-is-a-class defect
+  PASS  the floor is handed the MANDATE's pairs, not the letters
+          8 pairs — the 8 the mandate declares
+  PASS  the unowned site still has the defect, and is named not hidden
+          features.pairs_from_scheme groups by CHARACTER, so it reads the 24 X lines as one class and returns 308 pairs for a mandate of 8. Not fixed here (quality/features.py is not this cell's file); routed around, and reported.
+  PASS  so nothing is briefed to rhyme 'mailboxes' with 'does'
+          L5 is declared free; it answers nothing
+
+20. doctrine 47/94 — the four rejections, on 41 real lines
+  PASS  RESTRUCTURE — 41 lines in, 40 out, rejected
+          line count changed 41 -> 40; the loop revises lines, it does not restructure the draft
+  PASS  STRAY — L41 rewritten while only L33 was targeted, rejected
+          lines [41] were changed but not targeted; revise flagged lines only
+  PASS  L33 has a modal word to take
+          ['away', 'say', 'lay', 'play', 'may', 'bay', 'gray', 'pray', 'gay', 'stay', 'ray', 'clay', 'fray', 'stray', 'array', 'hay', 'delay', 'pay', 'spray', 'astray', 'sway', 'dismay', 'decay', 'display', 'betray', 'nay', 'slay', 'shay', 'repay', 'fay', 'essay', 'tray', 'jay', 'tay', 'portray', 'bray', 'ay', 'disarray', 'hurray', 'mackay', 'okay', 'today', 'everyday', 'halfway', 'kay', 'hooray', 'bombay', 'mckay', 'underway', "'kay", 'faraway', 'replay', 'moray', 'cray', 'flay', 'wray', 'kray', 'they', 'obey', 'prey', 'yesterday', 'grey', 'shea']
+  PASS  MODAL — L33 takes the first word of its field's forbidden head, rejected
+          L3 took the modal candidate 'away' — it passes the band and it is the most predictable word in the field, which is the s
+  PASS  NET-NEGATIVE — L33 fixes its REPEAT and breaks its own rhyme group, rejected
+          fixed 5, new_flags [(3, 'SCHEME_VIOLATION'), (4, 'SCHEME_VIOLATION')]: introduced 2 new flagged finding(s) [(3, 'SCHEME_VIOLATION', 'flag', (2, 3), ('A',), ()), (4, 'SCHEME_VIOLATIO
+  PASS  ACCEPT — an offered candidate is accepted, so the loop is not an always-reject
+          'hey': fixed 6, introduced 0, changed only [3]
+
+24. the decision: a collision earns no candidate field

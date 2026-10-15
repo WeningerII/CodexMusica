@@ -1,0 +1,64 @@
+SHARD 3/4: 15 of 62 sections (dealt by index residue over the cost-ordered tuple)
+
+2. doctrine 9 — the brief pushes AWAY from the optimum
+  PASS  a rhyme finding earns a candidate field
+          24 offered, 6 forbidden
+  PASS  the forbidden words are the MOST PREDICTABLE ones under that key — or same-spelled with a call, which tier 1 bans at ANY rank
+          forbidden ['fire', 'higher', 'tire', 'conspire', 'require'] — each same-rime with a call or ranked ahead of offered ['our', 'matter', 'power', 'hour', 'master']
+  PASS  the current end word is carried as the INCUMBENT, on its own field — re-proposing what is already there is not a revision
+          forbidden_incumbent='fire'
+  PASS  ...and this fixture cannot prove that rule ALONE, which is why the field is asserted rather than list membership: 'fire' is ALSO head[0] of its own modal field, so it would sit on the modal list under doctrine 9 with the incumbent clause deleted
+          overlap is real and deliberate; head=['fire', 'higher', 'tire']
+  PASS  nothing forbidden leaks into the offered list — neither rule
+  PASS  with the rule disabled the DIFFERENTLY-SPELLED modal words come back — the same-spelled class stays banned at any setting
+          modal_exclusion=0 is reachable so the frequency tier's defect is demonstrable; tier 1 deliberately has no such switch
+
+6. REJECT — changing the shape of the draft
+  PASS  dropping a line is rejected
+          line count changed 4 -> 3; the loop revises lines, it does not restructure the draft
+
+10. doctrine 20 — handed nothing, the loop REFUSES
+  PASS  brief() with no mandate refuses
+          no mandate was declared, so there is NOTHING to check this draft against
+  PASS  inspect() with no mandate refuses
+          no mandate was declared, so there is NOTHING to check this draft against
+  PASS  grade() with no mandate refuses
+          no mandate was declared, so there is NOTHING to check this draft against
+  PASS  verify() with no mandate refuses
+          no mandate was declared, so there is NOTHING to check this draft against
+  PASS  an all-free scheme refuses too
+          'XXXX' mandates no pair, so grading against it passes vacuously; the mandate declares no group of two or 
+  PASS  a length mismatch refuses instead of being ignored
+
+14. the song with no letter scheme — both paths
+  PASS  41 lines
+          41
+  PASS  the declared letter mandate still passes 8/8, 0 violations
+          8/8 judged, 0 violations, 57 collisions
+  PASS  the partition reproduces mandated verdicts and confirmed collisions
+          (8, 57, 57)
+  PASS  its maximal cliques OVERLAP, so no letter scheme exists (constructed fixture)
+          2 cliques, overlapping node(s) [2, 4]
+  PASS  the fixture's own clique cover is a mandate with no letter scheme
+          2 groups, pivots [2, 4]
+  PASS  and it declares itself NOT INDEPENDENT of the grader
+          doctrine 14 — every clique band-passes by construction, so a clean rhyme result against it is an identity, not a verdict
+  PASS  grading it is not vacuous: the graph admits REPEAT edges that a mandate rejects
+          2 violation(s), all REPEAT: L2/L4 'gates', L2/L4 'gates'
+  PASS  the brief carries the non-independence as a whole-draft finding
+
+17b. a declared RETURN is the requirement, not the slop
+  PASS  the villanelle's refrain pairs are IN pairs0 — this is the leak
+          93 rhyme pairs, 12 of them declared returns
+  PASS  and the floor is handed pairs0 MINUS them
+          93 - 12 = 81. Both the numerator and the denominator: the returns were also inflating `npairs`, which is what every real radif is licensed against.
+  PASS  a formally PERFECT villanelle draws no REPEAT_IN_VERSE
+          0 — it was 1, reading the refrain as slop
+  PASS  the layer that DOES understand identity agreed all along
+          returns_check() is empty on this draft: the returns are perfect. Two layers, one draft, opposite verdicts — and the one that was wrong is the one that does not know what a refrain is.
+  PASS  a DRIFTED return is still caught, by the layer that owns it
+          ['LEXICAL_VARIATION'] — one interior word changed and the refrain requirement fails, so the subtraction removed a false charge without removing a true one.
+
+21. the mandate the song was WRITTEN to — what comes out
+  PASS  the song passes its declared mandate outright
+          mandated 8, judged 8, refused 0, 0 violation(s)

@@ -1,0 +1,645 @@
+[
+ {
+  "id": "c695.X1_appUndo_toastButton",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Remove link",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after APP Undo (toast Undo button)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it."
+    ],
+    "histIdx": 1,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ],
+    "histIdx": 1,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "groups": "1.T5,8; 2,3"
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "c695.X1k_appUndo_globalCtrlZ",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Remove link",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after APP Undo (Ctrl+Z, focus off textarea)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "histIdx": 1,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ],
+    "histIdx": 1,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "groups": "1.T5,8; 2,3"
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "c695.X2_appRedo",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Remove link",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after APP Undo (toast)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it."
+    ],
+    "histIdx": 1,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after APP Redo (Ctrl+Shift+Z, focus off textarea)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it."
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it."
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "groups": "1.T4,8"
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "c695.X3_nativeUndo_afterForm",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Remove link",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after BROWSER-NATIVE Ctrl+Z #1 (in textarea)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after BROWSER-NATIVE Ctrl+Z #2 (in textarea)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "groups": "1.T4,8"
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "c695.X3s_nativeUndo_sanity_noForm",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after BROWSER-NATIVE Ctrl+Z #1, no form commit (sanity: does native undo work here?)",
+    "setup": [],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [],
+    "toasts": [],
+    "histIdx": 1,
+    "histN": 2,
+    "histSetup": [
+     "",
+     ""
+    ]
+   }
+  ],
+  "payload": [
+   {}
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "c695.X4_wordRules",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Word rules Apply (require \"rain\")",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — require — rain]"
+    ],
+    "toasts": [
+     "Word rules applied.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3] | [SETUP — require — rain]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]",
+     "[SETUP — require — rain]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2] | [SETUP — require — rain]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "groups": "1.T5,8; 2,3",
+    "must_include": [
+     "rain"
+    ]
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "c695.X5_relationOnly",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Rhymes relation-only Apply (class:RHYME)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — relation — class:RHYME]"
+    ],
+    "toasts": [
+     "Relation declared: class:RHYME.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3] | [SETUP — relation — class:RHYME]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]",
+     "[SETUP — relation — class:RHYME]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2] | [SETUP — relation — class:RHYME]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "relation": "class:RHYME",
+    "groups": "1.T5,8; 2,3"
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "c695.X9_sectionMove",
+  "steps": [
+   {
+    "step": "after paste (real Ctrl+V)",
+    "setup": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "toasts": [],
+    "histIdx": 0,
+    "histN": 1,
+    "histSetup": [
+     ""
+    ]
+   },
+   {
+    "step": "after Form & story: Verse Move down",
+    "setup": [
+     "[SETUP — rhyme groups — 3.T4,10;4,5]"
+    ],
+    "toasts": [
+     "Moved section down.\nUndo"
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 3.T4,10;4,5]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "setup": [
+     "[SETUP — rhyme groups — 3.T5,10;4,5 — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5. Review lists it until you dismiss it."
+    ],
+    "histIdx": 2,
+    "histN": 3,
+    "histSetup": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 3.T5,10;4,5 — cut v2]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "groups": "3.T5,10;4,5"
+   }
+  ],
+  "sung": [
+   "Go slow",
+   "Hold on",
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ }
+]

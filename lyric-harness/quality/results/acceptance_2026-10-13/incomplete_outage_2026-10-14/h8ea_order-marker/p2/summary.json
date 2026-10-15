@@ -1,0 +1,4336 @@
+[
+ {
+  "tree": "cand",
+  "case": "RG4.remove.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG4.remove.dock.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG4.remove.review.type",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG4.add.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG4.add.dock.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG4.add.review.type",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG2.remove.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG2.remove.dock.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG2.remove.review.type",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG2.add.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG2.add.dock.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RG2.add.review.type",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT4.placed.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT4.placed.dock.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT4.placed.review.type",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT4.declare.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT4.declare.dock.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT4.declare.review.type",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT2.placed.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT2.placed.dock.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT2.placed.review.type",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT2.declare.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT2.declare.dock.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "RT2.declare.review.type",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "cand",
+  "case": "X7.RT4v.placed.review.paste",
+  "same": true,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T2 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T5,8.T2;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8.T2;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": true,
+  "O2_renumber_toast": true,
+  "O1_review_cut": true,
+  "O1_review_renum": true,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T2=love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T2=love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG4.remove.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG4.remove.dock.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG4.remove.review.type",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG4.add.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8;2,3;5,7",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG4.add.dock.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8;2,3;5,7",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG4.add.review.type",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T4,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T5,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8;2,3;5,7",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T5,8;2,3;5,7",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T4=my ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T5=love ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG2.remove.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG2.remove.dock.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG2.remove.review.type",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG2.add.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8;2,3;5,7",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG2.add.dock.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8;2,3;5,7",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RG2.add.review.type",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T2,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — rhyme groups — 1.T2,8; 2,3]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8; 2,3 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ],
+   [
+    "[SETUP — rhyme groups — 1.T3,8;2,3;5,7 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8;2,3;5,7",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O2": {
+   "wire": "1.T3,8;2,3;5,7",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [
+    "1.T2=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight"
+   ],
+   "returns": []
+  },
+  "O2_display_final": {
+   "rhyme groups": [
+    "1.T3=oh ~ 8.end=above",
+    "2.end=tonight ~ 3.end=tight",
+    "5.end=down ~ 7.end=cold"
+   ],
+   "returns": []
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT4.placed.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8.T1;2.head,6.head",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT4.placed.dock.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8.T1;2.head,6.head",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT4.placed.review.type",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8.T1;2.head,6.head",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT4.declare.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8.T1;9,11;10,12",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT4.declare.dock.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8.T1;9,11;10,12",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT4.declare.review.type",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8.T1;9,11;10,12",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T1;9,11;10,12",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT2.placed.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8.T1;2.head,6.head",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT2.placed.dock.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8.T1;2.head,6.head",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT2.placed.review.type",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8.T1;2.head,6.head",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;2.head,6.head",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT2.declare.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8.T1;9,11;10,12",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT2.declare.dock.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8.T1;9,11;10,12",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "RT2.declare.review.type",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T2,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T2,8.T1]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T3,8.T1;9,11;10,12 — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T2,8.T1;9,11;10,12",
+   "slot": "1.T2",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       4,
+       6
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T3,8.T1;9,11;10,12",
+   "slot": "1.T3",
+   "word": "oh",
+   "raw": [
+    [
+     "oh",
+     [
+      [
+       8,
+       10
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T2=oh ~ 8.T1=Love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T3=oh ~ 8.T1=Love",
+    "9.end=slow ~ 11.end=slow",
+    "10.end=on ~ 12.end=on"
+   ]
+  },
+  "threw": false
+ },
+ {
+  "tree": "c695",
+  "case": "X7.RT4v.placed.review.paste",
+  "same": false,
+  "O1_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T2]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T2;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T4,8.T2;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O2_rows": [
+   [
+    "[SETUP — returns — 1.T4,8.T2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T2 — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]"
+   ],
+   [
+    "[SETUP — returns — 1.T5,8.T2;2.head,6.head — cut v2]"
+   ]
+  ],
+  "O1": {
+   "wire": "1.T4,8.T2;2.head,6.head",
+   "slot": "1.T4",
+   "word": "my",
+   "raw": [
+    [
+     "my",
+     [
+      [
+       11,
+       13
+      ]
+     ]
+    ]
+   ],
+   "prc": [
+    "NOT_RETURNED_AT"
+   ]
+  },
+  "O2": {
+   "wire": "1.T5,8.T2;2.head,6.head",
+   "slot": "1.T5",
+   "word": "love",
+   "raw": [
+    [
+     "love",
+     [
+      [
+       14,
+       18
+      ]
+     ]
+    ]
+   ],
+   "prc": []
+  },
+  "O1_renumber_toast": false,
+  "O2_renumber_toast": true,
+  "O1_review_cut": false,
+  "O1_review_renum": false,
+  "O2_review_cut": true,
+  "O2_review_renum": true,
+  "O1_display_after_insert": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T4=my ~ 8.T2=love"
+   ]
+  },
+  "O2_display_final": {
+   "rhyme groups": [],
+   "returns": [
+    "1.T5=love ~ 8.T2=love",
+    "2.head=I ~ 6.head=I"
+   ]
+  },
+  "threw": false
+ }
+]

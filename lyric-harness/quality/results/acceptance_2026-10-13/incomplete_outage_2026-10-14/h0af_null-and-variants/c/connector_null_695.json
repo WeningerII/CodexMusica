@@ -1,0 +1,54 @@
+{
+ "first": {
+  "isError": false,
+  "exit_code": 4,
+  "status": "awaiting_proposal",
+  "state_reader_scheme": "v2",
+  "answered_reader_scheme": "v2"
+ },
+ "null": {
+  "isError": false,
+  "exit_code": 4,
+  "status": "awaiting_proposal",
+  "refusal": null,
+  "malformed_msg": false,
+  "text_head": "[AWAITING PROPOSAL — declared mandate — 1 answer(s) on record — NO SONG YET]\n\nREVISE ONE LINE — L3 of a 3-line draft.\n\nYou are given a draft, one line of it a grader has flagged, everything that grader\nmeasured, and the rules it will apply to what you send back. Rewrite that ONE line.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE LINE TO REVISE\n  L3: Sun\n\nTHE WHOLE DRAFT (context — only L3 may change)\n     L1  Cat\n     L2  I watched the window like a diplomat\n  >> L3  Sun\n\nWHAT THE GRADER FOUND ON L3 (2)\n  [flag] SCHEME_VIOLATION: L1 and L3 are both in group A [1, 2, 3] but do not stand in the relation it requires (lines 1, 3)\n      evidence: does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score"
+ },
+ "empty": {
+  "isError": false,
+  "exit_code": 2,
+  "refusal": "--propose=defer:/tmp/lyric-8gGjoS/state.json — recorded reader scheme '' is not one this build reads (v1, v2)",
+  "malformed_msg": false,
+  "text_head": "{\"exit_code\":2,\"meaning\":\"REFUSED — the harness did not answer; the report names why\",\"report\":\"  MANDATE: 1 group(s) over 3 lines, 3 mandated pair(s), source=declared (letter scheme 'AAA')\\n           group A = lines 1,2,3 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  RELATION: every group is judged under 'class:RHYME' unless it declares its own — the named relation's own judge, which narrows the default of every relation.\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  REFUSED — --propose=[server temporary file] — recorded reader scheme '' is not one this build reads (v1, v2)\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome i"
+ },
+ "upper": {
+  "isError": false,
+  "exit_code": 2,
+  "refusal": "--propose=defer:/tmp/lyric-e9PlXB/state.json — recorded reader scheme 'V2' is not one this build reads (v1, v2)",
+  "malformed_msg": false,
+  "text_head": "{\"exit_code\":2,\"meaning\":\"REFUSED — the harness did not answer; the report names why\",\"report\":\"  MANDATE: 1 group(s) over 3 lines, 3 mandated pair(s), source=declared (letter scheme 'AAA')\\n           group A = lines 1,2,3 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  RELATION: every group is judged under 'class:RHYME' unless it declares its own — the named relation's own judge, which narrows the default of every relation.\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  REFUSED — --propose=[server temporary file] — recorded reader scheme 'V2' is not one this build reads (v1, v2)\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome"
+ },
+ "v9": {
+  "isError": false,
+  "exit_code": 2,
+  "refusal": "--propose=defer:/tmp/lyric-Ouf5OU/state.json — recorded reader scheme 'v9' is not one this build reads (v1, v2)",
+  "malformed_msg": false,
+  "text_head": "{\"exit_code\":2,\"meaning\":\"REFUSED — the harness did not answer; the report names why\",\"report\":\"  MANDATE: 1 group(s) over 3 lines, 3 mandated pair(s), source=declared (letter scheme 'AAA')\\n           group A = lines 1,2,3 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)\\n  RELATION: every group is judged under 'class:RHYME' unless it declares its own — the named relation's own judge, which narrows the default of every relation.\\n  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)\\n  REFUSED — --propose=[server temporary file] — recorded reader scheme 'v9' is not one this build reads (v1, v2)\\n\",\"verified_outcomes\":null,\"verified_outcomes_error\":\"No authenticated verifier outcome"
+ },
+ "absent": {
+  "isError": false,
+  "exit_code": 4,
+  "status": "awaiting_proposal",
+  "refusal": null,
+  "malformed_msg": false,
+  "text_head": "[AWAITING PROPOSAL — declared mandate — 1 answer(s) on record — NO SONG YET]\n\nREVISE ONE LINE — L3 of a 3-line draft.\n\nYou are given a draft, one line of it a grader has flagged, everything that grader\nmeasured, and the rules it will apply to what you send back. Rewrite that ONE line.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE LINE TO REVISE\n  L3: Sun\n\nTHE WHOLE DRAFT (context — only L3 may change)\n     L1  Cat\n     L2  I watched the window like a diplomat\n  >> L3  Sun\n\nWHAT THE GRADER FOUND ON L3 (2)\n  [flag] SCHEME_VIOLATION: L1 and L3 are both in group A [1, 2, 3] but do not stand in the relation it requires (lines 1, 3)\n      evidence: does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score"
+ },
+ "v2": {
+  "isError": false,
+  "exit_code": 4,
+  "status": "awaiting_proposal",
+  "refusal": null,
+  "malformed_msg": false,
+  "text_head": "[AWAITING PROPOSAL — declared mandate — 1 answer(s) on record — NO SONG YET]\n\nREVISE ONE LINE — L3 of a 3-line draft.\n\nYou are given a draft, one line of it a grader has flagged, everything that grader\nmeasured, and the rules it will apply to what you send back. Rewrite that ONE line.\n\nATTEMPT\n  This is ATTEMPT 1 of this line's retry budget.\n  No previous attempt was rejected on this line in this round.\n\nTHE LINE TO REVISE\n  L3: Sun\n\nTHE WHOLE DRAFT (context — only L3 may change)\n     L1  Cat\n     L2  I watched the window like a diplomat\n  >> L3  Sun\n\nWHAT THE GRADER FOUND ON L3 (2)\n  [flag] SCHEME_VIOLATION: L1 and L3 are both in group A [1, 2, 3] but do not stand in the relation it requires (lines 1, 3)\n      evidence: does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score"
+ }
+}

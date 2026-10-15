@@ -1,0 +1,30 @@
+{
+ "propose": [
+  {
+   "line": 6,
+   "attempt": 0,
+   "round": 1,
+   "draft": "cb5fd71acd12",
+   "text": "the water ran so cold",
+   "batch": [
+    6,
+    0,
+    1
+   ]
+  },
+  {
+   "line": 9,
+   "attempt": 0,
+   "round": 1,
+   "draft": "cb5fd71acd12",
+   "text": "the stone is in the yard",
+   "batch": [
+    6,
+    0,
+    1
+   ]
+  }
+ ],
+ "propose_group": [],
+ "reader_scheme": null
+}

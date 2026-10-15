@@ -1,0 +1,4650 @@
+[
+ {
+  "id": "main.DU1.drop.review.O1",
+  "tree": "main",
+  "case": "DU1.drop.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.DU1.drop.review.O2",
+  "tree": "main",
+  "case": "DU1.drop.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.DU1.drop.dock.O1",
+  "tree": "main",
+  "case": "DU1.drop.dock",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.DU1.drop.dock.O2",
+  "tree": "main",
+  "case": "DU1.drop.dock",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (dock)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]",
+     "[SETUP — rhyme groups — 2,3 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3 — cut v9"
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T4,8]\n[SETUP — rhyme groups — 2,3 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input",
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (dock)",
+    "kind": "dock",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.DUR.drop.review.O1",
+  "tree": "main",
+  "case": "DUR.drop.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [
+     "[SETUP — returns — 9,11 — cut v9]"
+    ],
+    "cut": [
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "9=\"slow\" ~ 11 — cut v9"
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 9,11 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1]",
+     "[SETUP — returns — 9,11 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9=\"slow\" ~ 11 — cut v9"
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1]\n[SETUP — returns — 9,11 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1]",
+     "[SETUP — returns — 9,11 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9=\"slow\" ~ 11 — cut v9"
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1]\n[SETUP — returns — 9,11 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.DUR.drop.review.O2",
+  "tree": "main",
+  "case": "DUR.drop.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [
+     "[SETUP — returns — 9,11 — cut v9]"
+    ],
+    "cut": [
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "9=\"slow\" ~ 11 — cut v9"
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 9,11 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1]",
+     "[SETUP — returns — 9,11 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9=\"slow\" ~ 11 — cut v9"
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1]\n[SETUP — returns — 9,11 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1]",
+     "[SETUP — returns — 9,11 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9=\"slow\" ~ 11 — cut v9"
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1]\n[SETUP — returns — 9,11 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1]",
+     "[SETUP — returns — 9,11 — cut v9]"
+    ],
+    "cut": [
+     "UNMARKED",
+     "cut v9"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9=\"slow\" ~ 11 — cut v9"
+     ]
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — returns — 1.T4,8.T1]\n[SETUP — returns — 9,11 — cut v9]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.DU2.drop.review.O1",
+  "tree": "main",
+  "case": "DU2.drop.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2.T9 (numbered under the earlier cut) ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2.T9 (numbered under the earlier cut) ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.DU2.drop.review.O2",
+  "tree": "main",
+  "case": "DU2.drop.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2.T9 (numbered under the earlier cut) ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2.T9 (numbered under the earlier cut) ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "2.T9 (numbered under the earlier cut) ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 2.T9 (numbered under the earlier cut),3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 2.T9 (numbered under the earlier cut),3"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.KC1.keep.review.O1",
+  "tree": "main",
+  "case": "KC1.keep.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.KC1.keep.review.O2",
+  "tree": "main",
+  "case": "KC1.keep.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 1.head (carried across the word-cut change),4.head"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.KC1.keep.dock.O1",
+  "tree": "main",
+  "case": "KC1.keep.dock",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.KC1.keep.dock.O2",
+  "tree": "main",
+  "case": "KC1.keep.dock",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (dock)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input",
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (dock)",
+    "kind": "dock",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 1.head (carried across the word-cut change),4.head"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.KC1.remove.review.O1",
+  "tree": "main",
+  "case": "KC1.remove.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-remove_buttons": 0,
+   "ly-carried-remove_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-remove button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.KC1.remove.review.O2",
+  "tree": "main",
+  "case": "KC1.remove.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1.head (carried across the word-cut change) ~ 4.head=\"Well-worn\""
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1.head (carried across the word-cut change),4.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-remove_buttons": 0,
+   "ly-carried-remove_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 1.head (carried across the word-cut change),4.head"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-remove button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.KCB.keep.review.O1",
+  "tree": "main",
+  "case": "KCB.keep.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1 (carried across the word-cut change) ~ 4=\"floor\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1 (carried across the word-cut change) ~ 4=\"floor\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.KCB.keep.review.O2",
+  "tree": "main",
+  "case": "KCB.keep.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1 (carried across the word-cut change) ~ 4=\"floor\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1 (carried across the word-cut change) ~ 4=\"floor\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1 (carried across the word-cut change) ~ 4=\"floor\""
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1 (carried across the word-cut change),4]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 1 (carried across the word-cut change),4"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.KCR.keep.review.O1",
+  "tree": "main",
+  "case": "KCR.keep.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "2.head (carried across the word-cut change) ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "2.head (carried across the word-cut change) ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.KCR.keep.review.O2",
+  "tree": "main",
+  "case": "KCR.keep.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "2.head (carried across the word-cut change) ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "2.head (carried across the word-cut change) ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "2.head (carried across the word-cut change) ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — returns — 1.T4,8.T1; 2.head (carried across the word-cut change),6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1; 2.head (carried across the word-cut change),6.head"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.KCW.keep.review.O1",
+  "tree": "main",
+  "case": "KCW.keep.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.KCW.keep.review.O2",
+  "tree": "main",
+  "case": "KCW.keep.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-keep_buttons": 0,
+   "ly-carried-keep_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1; 9 (carried across the word-cut change),11"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-keep button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.KCW.remove.review.O1",
+  "tree": "main",
+  "case": "KCW.remove.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-remove_buttons": 0,
+   "ly-carried-remove_ids": []
+  },
+  "sends": [],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-remove button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.KCW.remove.review.O2",
+  "tree": "main",
+  "case": "KCW.remove.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "9 (carried across the word-cut change) ~ 11=\"slow\""
+     ]
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — returns — 1.T4,8.T1; 9 (carried across the word-cut change),11]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-carried-remove_buttons": 0,
+   "ly-carried-remove_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1; 9 (carried across the word-cut change),11"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-carried-remove button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:190:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.RW.placed.review.O1",
+  "tree": "main",
+  "case": "RW.placed.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "2 form commit (placed)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "2.head=\"I\" ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "3 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "2.head=\"I\" ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   }
+  ],
+  "how": {},
+  "sends": [
+   {
+    "at": "3 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;1,13;2.head,6.head"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on",
+   "Oh--oh, oh my love"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RW.placed.review.O2",
+  "tree": "main",
+  "case": "RW.placed.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "3 form commit (placed)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "2.head=\"I\" ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "4 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "2.head=\"I\" ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T1;1,13;2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   }
+  ],
+  "how": {},
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1; 1,13"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   },
+   {
+    "at": "4 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;1,13;2.head,6.head"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on",
+   "Oh--oh, oh my love"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RW.declare.review.O1",
+  "tree": "main",
+  "case": "RW.declare.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "2 form commit (declare)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "9=\"slow\" ~ 11=\"slow\"",
+      "10=\"on\" ~ 12=\"on\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "3 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "9=\"slow\" ~ 11=\"slow\"",
+      "10=\"on\" ~ 12=\"on\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   }
+  ],
+  "how": {},
+  "sends": [
+   {
+    "at": "3 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;1,13;9,11;10,12"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on",
+   "Oh--oh, oh my love"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RW.declare.review.O2",
+  "tree": "main",
+  "case": "RW.declare.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\""
+     ]
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — returns — 1.T4,8.T1; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "3 form commit (declare)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "9=\"slow\" ~ 11=\"slow\"",
+      "10=\"on\" ~ 12=\"on\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "4 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T1=\"Love\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "9=\"slow\" ~ 11=\"slow\"",
+      "10=\"on\" ~ 12=\"on\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T1;1,13;9,11;10,12]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   }
+  ],
+  "how": {},
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1; 1,13"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   },
+   {
+    "at": "4 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T1;1,13;9,11;10,12"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on",
+   "Oh--oh, oh my love"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RGW.add.review.O1",
+  "tree": "main",
+  "case": "RGW.add.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "2 form commit (add)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8;1,13;5,7]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "5=\"down\" ~ 7=\"cold\""
+     ],
+     "returns": []
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — rhyme groups — 1.T4,8;1,13;5,7]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "3 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8;1,13;5,7]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "5=\"down\" ~ 7=\"cold\""
+     ],
+     "returns": []
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — rhyme groups — 1.T4,8;1,13;5,7]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   }
+  ],
+  "how": {},
+  "sends": [
+   {
+    "at": "3 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8;1,13;5,7"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on",
+   "Oh--oh, oh my love"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.RGW.add.review.O2",
+  "tree": "main",
+  "case": "RGW.add.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 1,13]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\""
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T4,8; 1,13]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "3 form commit (add)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8;1,13;5,7]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "5=\"down\" ~ 7=\"cold\""
+     ],
+     "returns": []
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — rhyme groups — 1.T4,8;1,13;5,7]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   },
+   {
+    "step": "4 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8;1,13;5,7]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link saved.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T4=\"love\" ~ 8=\"above\"",
+      "1=\"love\" ~ 13=\"love\"",
+      "5=\"down\" ~ 7=\"cold\""
+     ],
+     "returns": []
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — rhyme groups — 1.T4,8;1,13;5,7]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love"
+   }
+  ],
+  "how": {},
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8; 1,13"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   },
+   {
+    "at": "4 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T4,8;1,13;5,7"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on\n\n[OUTRO]\nOh--oh, oh my love",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on",
+       "Oh--oh, oh my love"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on",
+   "Oh--oh, oh my love"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.BL.removeLink.review.O1",
+  "tree": "main",
+  "case": "BL.removeLink.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T1,8; 2,3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T1,8; 2,3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 form commit (removeLink)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\""
+     ],
+     "returns": []
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — rhyme groups — 1.T1,8]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "3 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\""
+     ],
+     "returns": []
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — rhyme groups — 1.T1,8]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [
+   {
+    "at": "3 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T1,8"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:196:7)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:218:18",
+  "errors": []
+ },
+ {
+  "id": "main.BL.removeLink.review.O2",
+  "tree": "main",
+  "case": "BL.removeLink.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T1,8; 2,3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — rhyme groups — 1.T1,8; 2,3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\"",
+      "2=\"tonight\" ~ 3=\"tight\""
+     ],
+     "returns": []
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — rhyme groups — 1.T1,8; 2,3]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "3 form commit (removeLink)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\""
+     ],
+     "returns": []
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — rhyme groups — 1.T1,8]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "4 after send (review)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T1,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [
+      "1.T1=\"Oh--oh\" ~ 8=\"above\""
+     ],
+     "returns": []
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — rhyme groups — 1.T1,8]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "ly-drop-undecided_buttons": 0,
+   "ly-drop-undecided_ids": []
+  },
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T1,8; 2,3"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   },
+   {
+    "at": "4 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "groups": "1.T1,8"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nLove above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "Love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "threw": "Error: NOT REACHABLE: no visible ly-drop-undecided button in Review\n    at reviewClick (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:38:33)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:196:7)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p3/run.js:219:18",
+  "errors": []
+ },
+ {
+  "id": "main.X7v.placed.dock.O1",
+  "tree": "main",
+  "case": "X7v.placed.dock",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 form commit (placed)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\"",
+      "2.head=\"I\" ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T2;2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "3 after send (dock)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\"",
+      "2.head=\"I\" ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T2;2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   {
+    "at": "3 send (dock)",
+    "kind": "dock",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2;2.head,6.head"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "And love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "And love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.X7v.placed.dock.O2",
+  "tree": "main",
+  "case": "X7v.placed.dock",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (dock)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "3 form commit (placed)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\"",
+      "2.head=\"I\" ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T2;2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "4 after send (dock)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2;2.head,6.head]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Placed return declared.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\"",
+      "2.head=\"I\" ~ 6.head=\"I\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T2;2.head,6.head]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {
+   "dockFocus": "chat-input"
+  },
+  "sends": [
+   {
+    "at": "2 send first (dock)",
+    "kind": "dock",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "And love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   },
+   {
+    "at": "4 send (dock)",
+    "kind": "dock",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2;2.head,6.head"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "And love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "And love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.X7v.declare.review.O1",
+  "tree": "main",
+  "case": "X7v.declare.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 form commit (declare)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2;9,11;10,12]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\"",
+      "9=\"slow\" ~ 11=\"slow\"",
+      "10=\"on\" ~ 12=\"on\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T2;9,11;10,12]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "3 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2;9,11;10,12]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\"",
+      "9=\"slow\" ~ 11=\"slow\"",
+      "10=\"on\" ~ 12=\"on\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T2;9,11;10,12]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {},
+  "sends": [
+   {
+    "at": "3 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2;9,11;10,12"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "And love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "And love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ },
+ {
+  "id": "main.X7v.declare.review.O2",
+  "tree": "main",
+  "case": "X7v.declare.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "0 start text entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": []
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1 row pasted (real Ctrl+V at offset 0)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "1b +1.2 s (typing refresh only)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 0,
+    "histN": 1,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "2 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\""
+     ]
+    },
+    "histIdx": 1,
+    "histN": 2,
+    "text": "[SETUP — returns — 1.T4,8.T2]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "3 form commit (declare)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2;9,11;10,12]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\"",
+      "9=\"slow\" ~ 11=\"slow\"",
+      "10=\"on\" ~ 12=\"on\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T2;9,11;10,12]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   },
+   {
+    "step": "4 after send (review)",
+    "rows": [
+     "[SETUP — returns — 1.T4,8.T2;9,11;10,12]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Bridge 2 is declared an exact repeat of Bridge 1.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "draftId": null,
+    "display": {
+     "rhyme groups": [],
+     "returns": [
+      "1.T4=\"love\" ~ 8.T2=\"love\"",
+      "9=\"slow\" ~ 11=\"slow\"",
+      "10=\"on\" ~ 12=\"on\""
+     ]
+    },
+    "histIdx": 2,
+    "histN": 3,
+    "text": "[SETUP — returns — 1.T4,8.T2;9,11;10,12]\n\n[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on"
+   }
+  ],
+  "how": {},
+  "sends": [
+   {
+    "at": "2 send first (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "And love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   },
+   {
+    "at": "4 send (review)",
+    "kind": "review",
+    "calls": [
+     {
+      "declarations": {
+       "returns": "1.T4,8.T2;9,11;10,12"
+      },
+      "document": "[VERSE]\nOh--oh, oh my love\nI walk the line tonight\nI hold you tight\nWell-worn shoes upon the floor\nThe rain comes down\nI hear the sound\nThe night is cold\nAnd love above\n\n[BRIDGE]\nGo slow\nHold on\n\n[BRIDGE]\nGo slow\nHold on",
+      "sung": [
+       "Oh--oh, oh my love",
+       "I walk the line tonight",
+       "I hold you tight",
+       "Well-worn shoes upon the floor",
+       "The rain comes down",
+       "I hear the sound",
+       "The night is cold",
+       "And love above",
+       "Go slow",
+       "Hold on",
+       "Go slow",
+       "Hold on"
+      ]
+     }
+    ],
+    "refused": false
+   }
+  ],
+  "sungAtFinal": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "And love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "review": {
+   "mentionsRenumbered": false,
+   "excerpt": ""
+  },
+  "errors": []
+ }
+]

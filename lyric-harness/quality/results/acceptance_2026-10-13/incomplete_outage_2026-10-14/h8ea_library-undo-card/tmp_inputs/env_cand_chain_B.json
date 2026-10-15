@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:2ee2db22-8a78-400b-9ef9-6963333eda6d",
+  "draftId": "draft:532152f4-7bf8-4d64-af58-31f5ed988ce0",
+  "createdAt": "2026-10-14T13:13:03.203Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song Y\"]\n[SETUP — returns — 1.T4,2.T4]\n\n[VERSE]\nOo--oo, oo the rain\nOo--oo, oo the pain",
+    "title": "Song B",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:r1",
+      "unitId": "unit:r1",
+      "workId": "work:r1",
+      "editionId": "ed:r1",
+      "revisionId": "rev:r1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:b2ee893f-f09a-437f-bd84-0d5d6d1c9421",
+        "sourceDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "5a5257d70cac670bc80d665b76362157b1ba886dd73e4d4da03e5b7ded84d036"
+}

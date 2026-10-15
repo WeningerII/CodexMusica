@@ -1,0 +1,21 @@
+test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is) ... FAIL
+
+======================================================================
+FAIL: test_bare_word_variants_are_normalised_as_a_token_is (quality.test_reader.Normalisation.test_bare_word_variants_are_normalised_as_a_token_is)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h0af/null-and-variants/c/mut/lyric-harness/quality/test_reader.py", line 498, in test_bare_word_variants_are_normalised_as_a_token_is
+    self.assertEqual(v1.pronunciation_variants(spelling), [], spelling)
+AssertionError: Lists differ: [['R', 'EH1', 'D'], ['R', 'IY1', 'D']] != []
+
+First list contains 2 additional elements.
+First extra element 0:
+['R', 'EH1', 'D']
+
+- [['R', 'EH1', 'D'], ['R', 'IY1', 'D']]
++ [] : re­ad
+
+----------------------------------------------------------------------
+Ran 1 test in 1.840s
+
+FAILED (failures=1)

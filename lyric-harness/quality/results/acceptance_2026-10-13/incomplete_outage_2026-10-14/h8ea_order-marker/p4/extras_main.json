@@ -1,0 +1,640 @@
+[
+ {
+  "id": "main.T1_typing_never_migrates",
+  "steps": [
+   {
+    "step": "body entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "typed row (keyboard.type, 15 ms/char) + Enter Enter",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "+1.5 s idle (typing refresh 120 ms)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "typed \",5\" inside the row",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3,5]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "Backspace x2 inside the row",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "opened Rhymes tool (display)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 1,
+    "histN": 2,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ]
+   },
+   {
+    "step": "opened Repeats tool (display)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 1,
+    "histN": 2,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ]
+   },
+   {
+    "step": "opened Review tab (display)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 1,
+    "histN": 2,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 1,
+    "histN": 2,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "declarations": {
+     "groups": "1.T4,8; 2,3"
+    },
+    "sung": [
+     "Oh--oh, oh my love",
+     "I walk the line tonight",
+     "I hold you tight",
+     "Well-worn shoes upon the floor",
+     "The rain comes down",
+     "I hear the sound",
+     "The night is cold",
+     "Love above",
+     "Go slow",
+     "Hold on",
+     "Go slow",
+     "Hold on"
+    ]
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "main.U1_appUndo_toast_then_appRedo",
+  "steps": [
+   {
+    "step": "body entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "pasted (real Ctrl+V)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "Remove link (form; policy pass)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 2,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   },
+   {
+    "step": "APP Undo (the commit toast's Undo button)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it."
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 1,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   },
+   {
+    "step": "APP Redo (Ctrl+Shift+Z, focus off the textarea)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it."
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 2,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it."
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 2,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "declarations": {
+     "groups": "1.T4,8"
+    },
+    "sung": [
+     "Oh--oh, oh my love",
+     "I walk the line tonight",
+     "I hold you tight",
+     "Well-worn shoes upon the floor",
+     "The rain comes down",
+     "I hear the sound",
+     "The night is cold",
+     "Love above",
+     "Go slow",
+     "Hold on",
+     "Go slow",
+     "Hold on"
+    ]
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "main.U2_appUndo_then_send",
+  "steps": [
+   {
+    "step": "body entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "pasted (real Ctrl+V)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "Remove link (form; policy pass)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 2,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   },
+   {
+    "step": "APP Undo (Ctrl+Z, focus off the textarea)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 1,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 1,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "declarations": {
+     "groups": "1.T4,8; 2,3"
+    },
+    "sung": [
+     "Oh--oh, oh my love",
+     "I walk the line tonight",
+     "I hold you tight",
+     "Well-worn shoes upon the floor",
+     "The rain comes down",
+     "I hear the sound",
+     "The night is cold",
+     "Love above",
+     "Go slow",
+     "Hold on",
+     "Go slow",
+     "Hold on"
+    ]
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ },
+ {
+  "id": "main.U3_nativeUndo_in_textarea",
+  "steps": [
+   {
+    "step": "body entered",
+    "rows": [],
+    "cut": [],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "pasted (real Ctrl+V)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [],
+    "record": null,
+    "card": null,
+    "histIdx": 0,
+    "histN": 1,
+    "histRows": [
+     ""
+    ]
+   },
+   {
+    "step": "Remove link (form; policy pass)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 2,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   },
+   {
+    "step": "BROWSER-NATIVE Ctrl+Z #1 (caret in textarea)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 2,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   },
+   {
+    "step": "BROWSER-NATIVE Ctrl+Z #2 (caret in textarea)",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 2,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   },
+   {
+    "step": "after Run review",
+    "rows": [
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ],
+    "cut": [
+     "UNMARKED"
+    ],
+    "toasts": [
+     "Rhyme link removed. Undo restores it.\nUndo"
+    ],
+    "record": null,
+    "card": null,
+    "histIdx": 2,
+    "histN": 3,
+    "histRows": [
+     "",
+     "[SETUP — rhyme groups — 1.T4,8; 2,3]",
+     "[SETUP — rhyme groups — 1.T4,8]"
+    ]
+   }
+  ],
+  "payload": [
+   {
+    "declarations": {
+     "groups": "1.T4,8"
+    },
+    "sung": [
+     "Oh--oh, oh my love",
+     "I walk the line tonight",
+     "I hold you tight",
+     "Well-worn shoes upon the floor",
+     "The rain comes down",
+     "I hear the sound",
+     "The night is cold",
+     "Love above",
+     "Go slow",
+     "Hold on",
+     "Go slow",
+     "Hold on"
+    ]
+   }
+  ],
+  "sung": [
+   "Oh--oh, oh my love",
+   "I walk the line tonight",
+   "I hold you tight",
+   "Well-worn shoes upon the floor",
+   "The rain comes down",
+   "I hear the sound",
+   "The night is cold",
+   "Love above",
+   "Go slow",
+   "Hold on",
+   "Go slow",
+   "Hold on"
+  ],
+  "errors": []
+ }
+]

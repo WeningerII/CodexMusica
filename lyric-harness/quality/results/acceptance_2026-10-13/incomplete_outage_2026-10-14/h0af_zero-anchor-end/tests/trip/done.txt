@@ -1,0 +1,16 @@
+revise1 rc=0 secs=1181
+revise2 rc=0 secs=1210
+revise3 rc=0 secs=472
+revise4 rc=0 secs=489
+reader rc=0 secs=1878
+loop1 rc=0 secs=778
+loop2 rc=0 secs=789
+propose rc=0 secs=188
+pronunciation_choices rc=0 secs=422
+audit_regressions rc=0 secs=411
+floor_window rc=0 secs=195
+gate_census rc=0 secs=839
+homeoteleuton rc=0 secs=629
+production_journal rc=0 secs=170
+songs_log rc=0 secs=176
+production_revision rc=0 secs=4180

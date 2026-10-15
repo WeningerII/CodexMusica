@@ -1,0 +1,62 @@
+{
+ "test stand-in | 'read'": {
+  "pronunciation_variants": [
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "transcribe_word": [
+   [
+    "R",
+    "IY1",
+    "D"
+   ],
+   false
+  ],
+  "English.read": "Reading(phones=('R', 'IY1', 'D'), layer='declared', rule='me', basis=('read',))"
+ },
+ "test stand-in | 're\\xadad'": {
+  "pronunciation_variants": [],
+  "transcribe_word": [
+   [
+    "R",
+    "IY1",
+    "D"
+   ],
+   false
+  ],
+  "English.read": "Reading(phones=('R', 'IY1', 'D'), layer='dictionary', rule='CMUdict', basis=('re\\xadad',))"
+ },
+ "production for_token | 'read'": {
+  "pronunciation_variants": [
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "transcribe_word": [
+   [
+    "R",
+    "IY1",
+    "D"
+   ],
+   false
+  ],
+  "English.read": "Reading(phones=('R', 'IY1', 'D'), layer='declared', rule='me', basis=('read',))"
+ },
+ "production for_token | 're\\xadad'": {
+  "pronunciation_variants": [],
+  "transcribe_word": [
+   [
+    "R",
+    "IY1",
+    "D"
+   ],
+   false
+  ],
+  "English.read": "Reading(phones=('R', 'IY1', 'D'), layer='dictionary', rule='CMUdict', basis=('re\\xadad',))"
+ }
+}

@@ -1,0 +1,39 @@
+
+# cand AB native_typed
+- 1 B with typed text, textarea focused
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:14374c0e live=love@L1,dove@L2<14374c0e>
+    review card: (review panel hidden)
+    LS: Song B id=draft:14374c0e rec=love@L1,dove@L2<14374c0e> | SS: Song B rec=love@L1,dove@L2<14374c0e>
+    IDB: draft:14374c0e=Song B savedAt=1791984672674 rec=love@L1,dove@L2<14374c0e> ad=true ; draft:d41ac9bd=Song A savedAt=1791984672320 rec=heart@L1,part@L2<d41ac9bd>
+    hist: (empty){} > Song A{heart,part} > Song A@d41ac9bd{heart,part} > *Song B@14374c0e[ad=false]{love,dove}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 2 BROWSER-NATIVE Ctrl+Z in textarea (still focused)
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:14374c0e live=love@L1,dove@L2<14374c0e>
+    review card: (review panel hidden)
+    LS: Song B id=draft:14374c0e rec=love@L1,dove@L2<14374c0e> | SS: Song B rec=love@L1,dove@L2<14374c0e>
+    IDB: draft:14374c0e=Song B savedAt=1791984674847 rec=love@L1,dove@L2<14374c0e> ad=true ; draft:d41ac9bd=Song A savedAt=1791984672320 rec=heart@L1,part@L2<d41ac9bd>
+    hist: (empty){} > Song A{heart,part} > Song A@d41ac9bd{heart,part} > *Song B@14374c0e[ad=false]{love,dove}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3 blur +1.2s
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:14374c0e live=love@L1,dove@L2<14374c0e>
+    review card: (review panel hidden)
+    LS: Song B id=draft:14374c0e rec=love@L1,dove@L2<14374c0e> | SS: Song B rec=love@L1,dove@L2<14374c0e>
+    IDB: draft:14374c0e=Song B savedAt=1791984674847 rec=love@L1,dove@L2<14374c0e> ad=true ; draft:d41ac9bd=Song A savedAt=1791984672320 rec=heart@L1,part@L2<d41ac9bd>
+    hist: (empty){} > Song A{heart,part} > Song A@d41ac9bd{heart,part} > Song B@14374c0e[ad=false]{love,dove} > *Song B@14374c0e[ad=true]{love,dove}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 4 APP Undo: #btn-undo, mouse click +2.5s
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:14374c0e live=love@L1,dove@L2<14374c0e>
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:14374c0e rec=love@L1,dove@L2<14374c0e> | SS: Song B rec=love@L1,dove@L2<14374c0e>
+    IDB: draft:14374c0e=Song B savedAt=1791984679116 rec=love@L1,dove@L2<14374c0e> ad=true ; draft:d41ac9bd=Song A savedAt=1791984672320 rec=heart@L1,part@L2<d41ac9bd>
+    hist: (empty){} > Song A{heart,part} > Song A@d41ac9bd{heart,part} > *Song B@14374c0e[ad=false]{love,dove} > Song B@14374c0e[ad=true]{love,dove}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 5 BROWSER-NATIVE Ctrl+Z in textarea {"focused":"lyrics-draft","changed":false,"inputEvents":1,"histBefore":"5:3","histAfterKeyStillFocused":"5:3"}, blur +1.5s
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:14374c0e live=love@L1,dove@L2<14374c0e>
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:14374c0e rec=love@L1,dove@L2<14374c0e> | SS: Song B rec=love@L1,dove@L2<14374c0e>
+    IDB: draft:14374c0e=Song B savedAt=1791984681550 rec=love@L1,dove@L2<14374c0e> ad=true ; draft:d41ac9bd=Song A savedAt=1791984672320 rec=heart@L1,part@L2<d41ac9bd>
+    hist: (empty){} > Song A{heart,part} > Song A@d41ac9bd{heart,part} > Song B@14374c0e[ad=false]{love,dove} > *Song B@14374c0e[ad=true]{love,dove}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+  search s4: {"heart":["idb:codex-musica-library-drafts/drafts/draft:d41ac9bd-0665-44ea-a0f1-2abaaaa73936","history[1]","history[2]"],"part":["idb:codex-musica-library-drafts/drafts/draft:d41ac9bd-0665-44ea-a0f1-2abaaaa73936","history[1]","history[2]"],"love":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:14374c0e-1cd0-4076-936c-56382e4c2478","history[3]","history[4]*"],"dove":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:14374c0e-1cd0-4076-936c-56382e4c2478","history[3]","history[4]*"],"night":[],"light":[],"gold":[],"road":[]}
+  native: [{"focused":"lyrics-draft","changed":false,"inputEvents":1,"histBefore":"5:3","histAfterKeyStillFocused":"5:3"}]

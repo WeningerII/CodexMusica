@@ -1,0 +1,42 @@
+### main.PRmy.review.O1
+   1 pasted unmarked reading: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   2 pronunciation form: "my" Mark uncertain: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]","[SETUP — reading — token 3 \"my\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “my” saved for line 1.\nUndo"]
+   3 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]","[SETUP — reading — token 3 \"my\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “my” saved for line 1.\nUndo"]
+   final readings payload={"pronunciations":[{"line":"Oh--oh, oh my love","token":4,"word":"love","phones":["L","AH1","V"],"basis":"declared","source":"the writer"}],"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":3,"word":"my","state":"uncertain"}]}
+   chips=["Oh--oh|[\"Oh--oh, oh my love\",1,\"Oh--oh\"]","oh|[\"Oh--oh, oh my love\",2,\"oh\"]","my|[\"Oh--oh, oh my love\",3,\"my\"]","love|[\"Oh--oh, oh my love\",4,\"love\"]"] errs=0
+### main.PRmy.review.O2
+   1 pasted unmarked reading: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   2 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   3 pronunciation form: "my" Mark uncertain: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]","[SETUP — reading — token 3 \"my\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “my” saved for line 1.\nUndo"]
+   4 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]","[SETUP — reading — token 3 \"my\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “my” saved for line 1.\nUndo"]
+   final readings payload={"pronunciations":[{"line":"Oh--oh, oh my love","token":4,"word":"love","phones":["L","AH1","V"],"basis":"declared","source":"the writer"}],"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":3,"word":"my","state":"uncertain"}]}
+   chips=["Oh--oh|[\"Oh--oh, oh my love\",1,\"Oh--oh\"]","oh|[\"Oh--oh, oh my love\",2,\"oh\"]","my|[\"Oh--oh, oh my love\",3,\"my\"]","love|[\"Oh--oh, oh my love\",4,\"love\"]"] errs=0
+   SAME final text: true; SAME final readings payload: true
+### main.PRlove.review.O1
+   1 pasted unmarked reading: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   2 pronunciation form: "love" Mark uncertain: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “love” saved for line 1.\nUndo"]
+   3 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “love” saved for line 1.\nUndo"]
+   final readings payload={"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":4,"word":"love","state":"uncertain"}]}
+   chips=["Oh--oh|[\"Oh--oh, oh my love\",1,\"Oh--oh\"]","oh|[\"Oh--oh, oh my love\",2,\"oh\"]","my|[\"Oh--oh, oh my love\",3,\"my\"]","love|[\"Oh--oh, oh my love\",4,\"love\"]"] errs=0
+### main.PRlove.review.O2
+   1 pasted unmarked reading: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   2 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   3 pronunciation form: "love" Mark uncertain: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “love” saved for line 1.\nUndo"]
+   4 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “love” saved for line 1.\nUndo"]
+   final readings payload={"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":4,"word":"love","state":"uncertain"}]}
+   chips=["Oh--oh|[\"Oh--oh, oh my love\",1,\"Oh--oh\"]","oh|[\"Oh--oh, oh my love\",2,\"oh\"]","my|[\"Oh--oh, oh my love\",3,\"my\"]","love|[\"Oh--oh, oh my love\",4,\"love\"]"] errs=0
+   SAME final text: true; SAME final readings payload: true
+### main.PRmy.dock.O1
+   1 pasted unmarked reading: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   2 pronunciation form: "my" Mark uncertain: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]","[SETUP — reading — token 3 \"my\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “my” saved for line 1.\nUndo"]
+   3 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]","[SETUP — reading — token 3 \"my\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “my” saved for line 1.\nUndo"]
+   final readings payload={"pronunciations":[{"line":"Oh--oh, oh my love","token":4,"word":"love","phones":["L","AH1","V"],"basis":"declared","source":"the writer"}],"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":3,"word":"my","state":"uncertain"}]}
+   chips=["Oh--oh|[\"Oh--oh, oh my love\",1,\"Oh--oh\"]","oh|[\"Oh--oh, oh my love\",2,\"oh\"]","my|[\"Oh--oh, oh my love\",3,\"my\"]","love|[\"Oh--oh, oh my love\",4,\"love\"]"] errs=0
+### main.PRmy.dock.O2
+   1 pasted unmarked reading: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   2 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]"] toasts=[]
+   3 pronunciation form: "my" Mark uncertain: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]","[SETUP — reading — token 3 \"my\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “my” saved for line 1.\nUndo"]
+   4 after send: ["[SETUP — reading — token 4 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer]","[SETUP — reading — token 3 \"my\" in \"Oh--oh, oh my love\" — uncertain]"] toasts=["Reading for “my” saved for line 1.\nUndo"]
+   final readings payload={"pronunciations":[{"line":"Oh--oh, oh my love","token":4,"word":"love","phones":["L","AH1","V"],"basis":"declared","source":"the writer"}],"readings_not_chosen":[{"line":"Oh--oh, oh my love","token":3,"word":"my","state":"uncertain"}]}
+   chips=["Oh--oh|[\"Oh--oh, oh my love\",1,\"Oh--oh\"]","oh|[\"Oh--oh, oh my love\",2,\"oh\"]","my|[\"Oh--oh, oh my love\",3,\"my\"]","love|[\"Oh--oh, oh my love\",4,\"love\"]"] errs=0
+   SAME final text: true; SAME final readings payload: true

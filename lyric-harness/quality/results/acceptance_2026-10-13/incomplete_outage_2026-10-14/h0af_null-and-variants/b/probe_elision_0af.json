@@ -1,0 +1,684 @@
+{
+"v1|\"feelin'\"": {
+"pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+]
+],
+"tw": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+],
+false
+],
+"sup.pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+]
+],
+"sup.whole": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"feelin'"
+]
+},
+"v1|\"feel\\xadin'\"": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"feel",
+"in'"
+]
+},
+"v1|\"feelin\\xad'\"": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"feelin"
+]
+},
+"v1|\"rockin'\"": {
+"pv": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+]
+],
+"tw": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+],
+false
+],
+"sup.pv": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+]
+],
+"sup.whole": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"rockin'"
+]
+},
+"v1|\"rock\\xadin'\"": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"rock",
+"in'"
+]
+},
+"v1|'feeling'": {
+"pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+]
+],
+"tw": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+],
+false
+],
+"sup.pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+]
+],
+"sup.whole": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"feeling"
+]
+},
+"v1|'feel\\xading'": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"feel",
+"ing"
+]
+},
+"v1|\"'twas\"": {
+"pv": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+]
+],
+"tw": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+],
+false
+],
+"sup.pv": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+]
+],
+"sup.whole": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"'twas"
+]
+},
+"v1|\"'t\\xadwas\"": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"'t",
+"was"
+]
+},
+"v1|\"o'er\"": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"o'er"
+]
+},
+"v1|\"o\\xad'er\"": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"o",
+"'er"
+]
+},
+"v2|\"feelin'\"": {
+"pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+]
+],
+"tw": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+],
+false
+],
+"sup.pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+]
+],
+"sup.whole": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"feelin'"
+]
+},
+"v2|\"feel\\xadin'\"": {
+"pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+]
+],
+"tw": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+],
+false
+],
+"sup.pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+]
+],
+"sup.whole": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"feelin'"
+]
+},
+"v2|\"feelin\\xad'\"": {
+"pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+]
+],
+"tw": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+],
+false
+],
+"sup.pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+]
+],
+"sup.whole": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"N"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"feelin'"
+]
+},
+"v2|\"rockin'\"": {
+"pv": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+]
+],
+"tw": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+],
+false
+],
+"sup.pv": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+]
+],
+"sup.whole": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"rockin'"
+]
+},
+"v2|\"rock\\xadin'\"": {
+"pv": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+]
+],
+"tw": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+],
+false
+],
+"sup.pv": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+]
+],
+"sup.whole": [
+[
+"R",
+"AA1",
+"K",
+"IH0",
+"N"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"rockin'"
+]
+},
+"v2|'feeling'": {
+"pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+]
+],
+"tw": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+],
+false
+],
+"sup.pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+]
+],
+"sup.whole": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"feeling"
+]
+},
+"v2|'feel\\xading'": {
+"pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+]
+],
+"tw": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+],
+false
+],
+"sup.pv": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+]
+],
+"sup.whole": [
+[
+"F",
+"IY1",
+"L",
+"IH0",
+"NG"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"feeling"
+]
+},
+"v2|\"'twas\"": {
+"pv": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+]
+],
+"tw": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+],
+false
+],
+"sup.pv": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+]
+],
+"sup.whole": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"'twas"
+]
+},
+"v2|\"'t\\xadwas\"": {
+"pv": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+]
+],
+"tw": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+],
+false
+],
+"sup.pv": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+]
+],
+"sup.whole": [
+[
+"T",
+"W",
+"AH1",
+"Z"
+],
+"cmudict"
+],
+"tok": [
+"I",
+"'twas"
+]
+},
+"v2|\"o'er\"": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"o'er"
+]
+},
+"v2|\"o\\xad'er\"": {
+"pv": [],
+"tw": [
+[],
+true
+],
+"sup.pv": [],
+"sup.whole": null,
+"tok": [
+"I",
+"o'er"
+]
+}
+}

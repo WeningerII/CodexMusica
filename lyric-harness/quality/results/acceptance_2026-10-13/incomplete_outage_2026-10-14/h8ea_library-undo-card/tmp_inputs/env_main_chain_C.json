@@ -1,0 +1,37 @@
+{
+  "protocol": "codex-musica.library-import",
+  "version": 1,
+  "handoffId": "handoff:be1755d0-d24e-4cbd-a83a-c4d6478e6cfd",
+  "draftId": "draft:a0310705-6dce-4192-947b-7159fdda78c2",
+  "createdAt": "2026-10-14T13:19:30.623Z",
+  "payload": {
+    "text": "[SETUP — title — \"Song C\"]\n[SETUP — rhyme groups — 1.T4,2.T4]\n\n[VERSE]\nUh--uh, uh the night\nUh--uh, uh the light",
+    "title": "Song C",
+    "language": "eng",
+    "scope": "whole",
+    "provenance": {
+      "snapshotId": "snap:r1",
+      "unitId": "unit:r1",
+      "workId": "work:r1",
+      "editionId": "ed:r1",
+      "revisionId": "rev:r1",
+      "workingCopy": {
+        "version": 1,
+        "adapted": false,
+        "importedFromHandoffId": "handoff:81ab56ad-c63a-4ec2-8ed4-ce6e1f32a6eb",
+        "sourceDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "lineageBasis": "Imported reading before edits",
+        "declarations": [],
+        "metadata": {
+          "brief": "",
+          "notes": {},
+          "drafts": {},
+          "ui": {}
+        }
+      }
+    },
+    "lineage": [],
+    "declarations": []
+  },
+  "digest": "9457a376fcbfbbca9c57a6c534c425c2b03011fa43208cbeeef21a5eadede4cb"
+}

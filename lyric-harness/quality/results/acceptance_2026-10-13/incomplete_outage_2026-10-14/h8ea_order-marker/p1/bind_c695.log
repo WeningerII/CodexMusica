@@ -1,0 +1,60 @@
+RG4.remove.review.paste.O1               3 send (review)    1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+RG4.remove.review.paste.O2               2 send (review)    1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.remove.review.paste.O2               4 send (review)    1.T5,8|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.remove.review.type.O1                3 send (review)    1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+RG4.remove.review.type.O2                2 send (review)    1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.remove.review.type.O2                4 send (review)    1.T5,8|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.remove.dock.paste.O1                 3 send (dock)      1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+RG4.remove.dock.paste.O2                 2 send (dock)      1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.remove.dock.paste.O2                 4 send (dock)      1.T5,8|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.remove.dock.type.O1                  3 send (dock)      1.T4,8|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+RG4.remove.dock.type.O2                  2 send (dock)      1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.remove.dock.type.O2                  4 send (dock)      1.T5,8|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.add.review.paste.O1                  3 send (review)    1.T4,8;2,3;5,7|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+RG4.add.review.paste.O2                  2 send (review)    1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.add.review.paste.O2                  4 send (review)    1.T5,8;2,3;5,7|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.add.review.type.O1                   3 send (review)    1.T4,8;2,3;5,7|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+RG4.add.review.type.O2                   2 send (review)    1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.add.review.type.O2                   4 send (review)    1.T5,8;2,3;5,7|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.add.dock.paste.O1                    3 send (dock)      1.T4,8;2,3;5,7|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+RG4.add.dock.paste.O2                    2 send (dock)      1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.add.dock.paste.O2                    4 send (dock)      1.T5,8;2,3;5,7|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.add.dock.type.O1                     3 send (dock)      1.T4,8;2,3;5,7|  groups 1.T4 -> 'my' raw[[[11, 13]]]='my' (T4)
+RG4.add.dock.type.O2                     2 send (dock)      1.T5,8; 2,3|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG4.add.dock.type.O2                     4 send (dock)      1.T5,8;2,3;5,7|  groups 1.T5 -> 'love' raw[[[14, 18]]]='love' (T5)
+RG2.remove.review.paste.O1               3 send (review)    1.T2,8|  groups 1.T2 -> 'oh' raw[[[4, 6]]]='oh' (T2)
+RG2.remove.review.paste.O2               2 send (review)    1.T3,8; 2,3|  groups 1.T3 -> 'oh' raw[[[8, 10]]]='oh' (T3)
+RG2.remove.review.paste.O2               4 send (review)    1.T3,8|  groups 1.T3 -> 'oh' raw[[[8, 10]]]='oh' (T3)
+RG2.remove.dock.paste.O1                 3 send (dock)      1.T2,8|  groups 1.T2 -> 'oh' raw[[[4, 6]]]='oh' (T2)
+RG2.remove.dock.paste.O2                 2 send (dock)      1.T3,8; 2,3|  groups 1.T3 -> 'oh' raw[[[8, 10]]]='oh' (T3)
+RG2.remove.dock.paste.O2                 4 send (dock)      1.T3,8|  groups 1.T3 -> 'oh' raw[[[8, 10]]]='oh' (T3)
+RG2.add.review.paste.O1                  3 send (review)    1.T2,8;2,3;5,7|  groups 1.T2 -> 'oh' raw[[[4, 6]]]='oh' (T2)
+RG2.add.review.paste.O2                  2 send (review)    1.T3,8; 2,3|  groups 1.T3 -> 'oh' raw[[[8, 10]]]='oh' (T3)
+RG2.add.review.paste.O2                  4 send (review)    1.T3,8;2,3;5,7|  groups 1.T3 -> 'oh' raw[[[8, 10]]]='oh' (T3)
+RG2.add.dock.paste.O1                    3 send (dock)      1.T2,8;2,3;5,7|  groups 1.T2 -> 'oh' raw[[[4, 6]]]='oh' (T2)
+RG2.add.dock.paste.O2                    2 send (dock)      1.T3,8; 2,3|  groups 1.T3 -> 'oh' raw[[[8, 10]]]='oh' (T3)
+RG2.add.dock.paste.O2                    4 send (dock)      1.T3,8;2,3;5,7|  groups 1.T3 -> 'oh' raw[[[8, 10]]]='oh' (T3)
+RT4.placed.review.paste.O1               3 send (review)    |1.T4,8.T1;2.head,6.head  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.review.paste.O2               2 send (review)    |1.T5,8.T1  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.review.paste.O2               4 send (review)    |1.T5,8.T1;2.head,6.head  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.review.type.O1                3 send (review)    |1.T4,8.T1;2.head,6.head  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.review.type.O2                2 send (review)    |1.T5,8.T1  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.review.type.O2                4 send (review)    |1.T5,8.T1;2.head,6.head  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.dock.paste.O1                 3 send (dock)      |1.T4,8.T1;2.head,6.head  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.dock.paste.O2                 2 send (dock)      |1.T5,8.T1  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.dock.paste.O2                 4 send (dock)      |1.T5,8.T1;2.head,6.head  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.dock.type.O1                  3 send (dock)      |1.T4,8.T1;2.head,6.head  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.dock.type.O2                  2 send (dock)      |1.T5,8.T1  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.placed.dock.type.O2                  4 send (dock)      |1.T5,8.T1;2.head,6.head  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.review.paste.O1              3 send (review)    |1.T4,8.T1;9,11;10,12  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.review.paste.O2              2 send (review)    |1.T5,8.T1  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.review.paste.O2              4 send (review)    |1.T5,8.T1;9,11;10,12  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.review.type.O1               3 send (review)    |1.T4,8.T1;9,11;10,12  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.review.type.O2               2 send (review)    |1.T5,8.T1  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.review.type.O2               4 send (review)    |1.T5,8.T1;9,11;10,12  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.dock.paste.O1                3 send (dock)      |1.T4,8.T1;9,11;10,12  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.dock.paste.O2                2 send (dock)      |1.T5,8.T1  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.dock.paste.O2                4 send (dock)      |1.T5,8.T1;9,11;10,12  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.dock.type.O1                 3 send (dock)      |1.T4,8.T1;9,11;10,12  returns 1.T4 -> 'my' raw[[[11, 13]]]='my'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.dock.type.O2                 2 send (dock)      |1.T5,8.T1  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']
+RT4.declare.dock.type.O2                 4 send (dock)      |1.T5,8.T1;9,11;10,12  returns 1.T5 -> 'love' raw[[[14, 18]]]='love'; placed_returns_check=['NOT_RETURNED_AT']

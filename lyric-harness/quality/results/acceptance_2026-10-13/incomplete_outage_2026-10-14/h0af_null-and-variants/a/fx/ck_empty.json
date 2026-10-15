@@ -1,0 +1,228 @@
+{
+ "version": 1,
+ "input_draft": [
+  "the lamps were lit at 9 tonight",
+  "we said we would not part tonight"
+ ],
+ "journal_id": "f4e924bebdfb43528cd08db456ca3ae9",
+ "input_fingerprint": "a7ab60a52593",
+ "config_key": "3e6f076386f356f25d967a9b34e4ae7c876e17e77327c6192860fb86948bbbab",
+ "proposer": "call:skepwriter:factory",
+ "accepted_lines": [
+  "the lamps were lit at 9 tonight",
+  "and the morning would not come"
+ ],
+ "round": 2,
+ "status": "finished",
+ "proposals": [
+  {
+   "kind": "propose",
+   "question_sha256": "1b99993d3446b34f3dc4d133b09a9e1c1bcb2449a40324a9bcf0f85c4a5d2a29",
+   "answer": "and the morning would not come"
+  },
+  {
+   "kind": "propose",
+   "question_sha256": "3202556ab198c88065ceddf555cdc452d1bddacab32b680709b23599cd3f05f4",
+   "answer": "and the morning would not come"
+  },
+  {
+   "kind": "propose",
+   "question_sha256": "00caac9bb3e045c6afd149b7f66570c90f0d832a323c87074e510c121f16d499",
+   "answer": "and the morning would not come"
+  },
+  {
+   "kind": "propose",
+   "question_sha256": "da5e7ddcf92e7836f700504787634636268e759231bb037991b390d078619d4b",
+   "answer": "and the morning would not come"
+  },
+  {
+   "kind": "propose_group",
+   "question_sha256": "ac0020728ba2455339a813ef72e1e824a31f36261eeaddd295a06f67ff03b28f",
+   "answer": null
+  }
+ ],
+ "answered": {
+  "propose": [
+   {
+    "line": 2,
+    "attempt": 0,
+    "round": 1,
+    "draft": "a7ab60a52593",
+    "batch": null,
+    "text": "and the morning would not come"
+   },
+   {
+    "line": 2,
+    "attempt": 0,
+    "round": 2,
+    "draft": "99473ea133ac",
+    "batch": null,
+    "text": "and the morning would not come"
+   },
+   {
+    "line": 2,
+    "attempt": 1,
+    "round": 2,
+    "draft": "99473ea133ac",
+    "batch": null,
+    "text": "and the morning would not come"
+   },
+   {
+    "line": 2,
+    "attempt": 2,
+    "round": 2,
+    "draft": "99473ea133ac",
+    "batch": null,
+    "text": "and the morning would not come"
+   }
+  ],
+  "propose_group": [],
+  "reader_scheme": "v2"
+ },
+ "reader_scheme": "",
+ "verified_outcomes": [
+  {
+   "kind": "propose",
+   "proposal_index": 0,
+   "question_sha256": "1b99993d3446b34f3dc4d133b09a9e1c1bcb2449a40324a9bcf0f85c4a5d2a29",
+   "round": 1,
+   "attempt": 0,
+   "members": [
+    2
+   ],
+   "accepted": true,
+   "applied": true,
+   "reasons": [
+    "fixed 2, introduced 0, changed only [2]"
+   ],
+   "before_draft_sha256": "da866ada27337a79c737f99cbe2d76a743eb73af75b6c428946c0570e2961d98",
+   "after_draft_sha256": "55e7b7148ed37fcbe32c371b433e7a9a6ad70774d18f5d64773c06f3a65ef46f",
+   "outcome_id": "c90f7b33ce9ad03166aaaae7e8b07c9e4a2d4a38f9e0c3ab5f78d3b92d190874",
+   "applied_draft_sha256": "55e7b7148ed37fcbe32c371b433e7a9a6ad70774d18f5d64773c06f3a65ef46f"
+  },
+  {
+   "kind": "propose",
+   "proposal_index": 1,
+   "question_sha256": "3202556ab198c88065ceddf555cdc452d1bddacab32b680709b23599cd3f05f4",
+   "round": 2,
+   "attempt": 0,
+   "members": [
+    2
+   ],
+   "accepted": false,
+   "applied": false,
+   "reasons": [
+    "nothing was fixed"
+   ],
+   "before_draft_sha256": "55e7b7148ed37fcbe32c371b433e7a9a6ad70774d18f5d64773c06f3a65ef46f",
+   "after_draft_sha256": "55e7b7148ed37fcbe32c371b433e7a9a6ad70774d18f5d64773c06f3a65ef46f",
+   "outcome_id": "0ca1a939fa4bd878fddd4a150d10566cc5603ae612051fc28fd19e86612ad862"
+  },
+  {
+   "kind": "propose",
+   "proposal_index": 2,
+   "question_sha256": "00caac9bb3e045c6afd149b7f66570c90f0d832a323c87074e510c121f16d499",
+   "round": 2,
+   "attempt": 1,
+   "members": [
+    2
+   ],
+   "accepted": false,
+   "applied": false,
+   "reasons": [
+    "nothing was fixed"
+   ],
+   "before_draft_sha256": "55e7b7148ed37fcbe32c371b433e7a9a6ad70774d18f5d64773c06f3a65ef46f",
+   "after_draft_sha256": "55e7b7148ed37fcbe32c371b433e7a9a6ad70774d18f5d64773c06f3a65ef46f",
+   "outcome_id": "57d6fe5160b1ad67ea5e278c285a2fd0017a9789d7388169c8c02422a3f62ddc"
+  },
+  {
+   "kind": "propose",
+   "proposal_index": 3,
+   "question_sha256": "da5e7ddcf92e7836f700504787634636268e759231bb037991b390d078619d4b",
+   "round": 2,
+   "attempt": 2,
+   "members": [
+    2
+   ],
+   "accepted": false,
+   "applied": false,
+   "reasons": [
+    "nothing was fixed"
+   ],
+   "before_draft_sha256": "55e7b7148ed37fcbe32c371b433e7a9a6ad70774d18f5d64773c06f3a65ef46f",
+   "after_draft_sha256": "55e7b7148ed37fcbe32c371b433e7a9a6ad70774d18f5d64773c06f3a65ef46f",
+   "outcome_id": "725f3fc95a24ba5e32ee4b5451919ac4f5b80300f940887558474ab864903ba8"
+  }
+ ],
+ "resume_proof": {
+  "version": 1,
+  "journal_id": "f4e924bebdfb43528cd08db456ca3ae9",
+  "checkpoint_loaded": false,
+  "input_checkpoint_sha256": null,
+  "input_draft_sha256": "da866ada27337a79c737f99cbe2d76a743eb73af75b6c428946c0570e2961d98",
+  "accepted_draft_sha256_at_start": "da866ada27337a79c737f99cbe2d76a743eb73af75b6c428946c0570e2961d98",
+  "applied_outcome_ids_at_start": [],
+  "completed_proposals_at_start": 0,
+  "completed_proposals_replayed": 0,
+  "new_proposer_dispatches": 5,
+  "completed_proposal_redispatches": 0,
+  "replay_prefix_consumed": true
+ },
+ "final_draft": [
+  "the lamps were lit at 9 tonight",
+  "and the morning would not come"
+ ],
+ "coverage": {
+  "pairs_mandated": 1,
+  "pairs_judged": 1,
+  "pairs_refused": 0,
+  "scope": "requested_layers",
+  "certified": true,
+  "obligations": [
+   {
+    "id": "function:draft",
+    "layer": "function",
+    "status": "not_requested"
+   },
+   {
+    "id": "shape:draft",
+    "layer": "shape",
+    "status": "not_requested"
+   },
+   {
+    "id": "sentencehood:draft",
+    "layer": "sentencehood",
+    "status": "answered"
+   },
+   {
+    "id": "floor:draft",
+    "layer": "floor",
+    "status": "answered"
+   },
+   {
+    "id": "meter:draft",
+    "layer": "meter",
+    "status": "not_requested"
+   },
+   {
+    "id": "slot_grid:draft",
+    "layer": "slot_grid",
+    "status": "not_requested"
+   },
+   {
+    "id": "setting:draft",
+    "layer": "setting",
+    "status": "not_requested"
+   },
+   {
+    "id": "rhyme:1:2:0",
+    "layer": "rhyme",
+    "status": "answered"
+   }
+  ],
+  "refused_obligations": []
+ },
+ "stop": "no_progress",
+ "exit": 3
+}

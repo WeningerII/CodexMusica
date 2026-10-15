@@ -1,0 +1,243 @@
+
+# prev AB undo_mouse
+- 1 after .txt import A (Review tab open)
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=heart@L1,part@L2<no id>[ui]
+    review card: heart@line 1:4->5, part@line 2:4->5
+    LS: Song A id= rec=heart@L1,part@L2<no id>[ui] | SS: Song A rec=heart@L1,part@L2<no id>[ui]
+    IDB: -
+    hist: (empty){} > *Song A{}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2a after Library import B (passive)
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:aed25b09 live=love@L1,dove@L2<no id>[ui]
+    review card: (review panel hidden)
+    LS: Song B id=draft:aed25b09 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:2ccd5e2d=Song A savedAt=1791983634966 rec=heart@L1,part@L2<no id>[ui] ; draft:aed25b09=Song B savedAt=1791983635320 rec=love@L1,dove@L2<no id>[ui] ad=true
+    hist: (empty){} > Song A{} > Song A@2ccd5e2d{} > *Song B@aed25b09[ad=false]{}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 2b after Library import B, Review tab clicked
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:aed25b09 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:aed25b09 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:2ccd5e2d=Song A savedAt=1791983634966 rec=heart@L1,part@L2<no id>[ui] ; draft:aed25b09=Song B savedAt=1791983636870 rec=love@L1,dove@L2<no id>[ui] ad=true
+    hist: (empty){} > Song A{} > Song A@2ccd5e2d{} > *Song B@aed25b09[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3a APP Undo: #btn-undo, mouse click +60ms
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:2ccd5e2d live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:2ccd5e2d rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:2ccd5e2d=Song A savedAt=1791983634966 rec=heart@L1,part@L2<no id>[ui] ; draft:aed25b09=Song B savedAt=1791983636870 rec=love@L1,dove@L2<no id>[ui] ad=true
+    hist: (empty){} > Song A{} > *Song A@2ccd5e2d{} > Song B@aed25b09[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3b APP Undo: #btn-undo, mouse click +700ms
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:2ccd5e2d live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:2ccd5e2d rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:2ccd5e2d=Song A savedAt=1791983637911 rec=love@L1,dove@L2<no id>[ui] ; draft:aed25b09=Song B savedAt=1791983636870 rec=love@L1,dove@L2<no id>[ui] ad=true
+    hist: (empty){} > Song A{} > *Song A@2ccd5e2d{} > Song B@aed25b09[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3c APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:2ccd5e2d live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:2ccd5e2d rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:2ccd5e2d=Song A savedAt=1791983637911 rec=love@L1,dove@L2<no id>[ui] ; draft:aed25b09=Song B savedAt=1791983636870 rec=love@L1,dove@L2<no id>[ui] ad=true
+    hist: (empty){} > Song A{} > *Song A@2ccd5e2d{} > Song B@aed25b09[ad=false]{}
+- 4 after reload, Review tab clicked
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:2ccd5e2d live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:2ccd5e2d rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:2ccd5e2d=Song A savedAt=1791983643824 rec=love@L1,dove@L2<no id>[ui] ; draft:aed25b09=Song B savedAt=1791983636870 rec=love@L1,dove@L2<no id>[ui] ad=true
+    hist: *Song A@2ccd5e2d{}
+- 5 History tab: Open draft B (true), Review tab clicked
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:aed25b09 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:aed25b09 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:2ccd5e2d=Song A savedAt=1791983644517 rec=love@L1,dove@L2<no id>[ui] ; draft:aed25b09=Song B savedAt=1791983646764 rec=love@L1,dove@L2<no id>[ui] ad=true
+    hist: Song A@2ccd5e2d{} > *Song B@aed25b09[ad=true]{}
+    toasts: ["Saved draft restored. No writing request was sent."]
+- 6 History tab: Open draft A (true), Review tab clicked
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:2ccd5e2d live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:2ccd5e2d rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:2ccd5e2d=Song A savedAt=1791983649535 rec=love@L1,dove@L2<no id>[ui] ; draft:aed25b09=Song B savedAt=1791983647298 rec=love@L1,dove@L2<no id>[ui] ad=true
+    hist: Song A@2ccd5e2d{} > Song B@aed25b09[ad=true]{} > *Song A@2ccd5e2d{}
+    toasts: ["Saved draft restored. No writing request was sent."]
+  search s3: {"heart":[],"part":[],"love":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:2ccd5e2d-e7af-49fd-8c66-b18d9cb0dab4","idb:codex-musica-library-drafts/drafts/draft:aed25b09-83cf-4844-8f78-54bf8878fa41"],"dove":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:2ccd5e2d-e7af-49fd-8c66-b18d9cb0dab4","idb:codex-musica-library-drafts/drafts/draft:aed25b09-83cf-4844-8f78-54bf8878fa41"],"night":[],"light":[],"gold":[],"road":[]}
+  search s4: {"heart":[],"part":[],"love":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:2ccd5e2d-e7af-49fd-8c66-b18d9cb0dab4","idb:codex-musica-library-drafts/drafts/draft:aed25b09-83cf-4844-8f78-54bf8878fa41"],"dove":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:2ccd5e2d-e7af-49fd-8c66-b18d9cb0dab4","idb:codex-musica-library-drafts/drafts/draft:aed25b09-83cf-4844-8f78-54bf8878fa41"],"night":[],"light":[],"gold":[],"road":[]}
+  search s6: {"heart":[],"part":[],"love":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:2ccd5e2d-e7af-49fd-8c66-b18d9cb0dab4","idb:codex-musica-library-drafts/drafts/draft:aed25b09-83cf-4844-8f78-54bf8878fa41"],"dove":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:2ccd5e2d-e7af-49fd-8c66-b18d9cb0dab4","idb:codex-musica-library-drafts/drafts/draft:aed25b09-83cf-4844-8f78-54bf8878fa41"],"night":[],"light":[],"gold":[],"road":[]}
+
+# prev AB undo_redo_mouse
+- 1 after .txt A then Library B, Review tab clicked
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:c50b3f75 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:c50b3f75 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:c50b3f75=Song B savedAt=1791983655623 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:f1ba4a48=Song A savedAt=1791983653669 rec=heart@L1,part@L2<no id>[ui]
+    hist: (empty){} > Song A{} > Song A@f1ba4a48{} > *Song B@c50b3f75[ad=false]{}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it.","2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 2 APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:f1ba4a48 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:f1ba4a48 rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:c50b3f75=Song B savedAt=1791983655623 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:f1ba4a48=Song A savedAt=1791983656192 rec=love@L1,dove@L2<no id>[ui]
+    hist: (empty){} > Song A{} > *Song A@f1ba4a48{} > Song B@c50b3f75[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 3 APP Redo: #btn-redo, mouse click +3s
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:c50b3f75 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:c50b3f75 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:c50b3f75=Song B savedAt=1791983659302 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:f1ba4a48=Song A savedAt=1791983656192 rec=love@L1,dove@L2<no id>[ui]
+    hist: (empty){} > Song A{} > Song A@f1ba4a48{} > *Song B@c50b3f75[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 4 APP Undo: #btn-undo, mouse click again +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:f1ba4a48 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:f1ba4a48 rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:c50b3f75=Song B savedAt=1791983659302 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:f1ba4a48=Song A savedAt=1791983662415 rec=love@L1,dove@L2<no id>[ui]
+    hist: (empty){} > Song A{} > *Song A@f1ba4a48{} > Song B@c50b3f75[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 5 APP Redo: #btn-redo, mouse click again +3s (B live)
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:c50b3f75 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:c50b3f75 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:c50b3f75=Song B savedAt=1791983665506 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:f1ba4a48=Song A savedAt=1791983662415 rec=love@L1,dove@L2<no id>[ui]
+    hist: (empty){} > Song A{} > Song A@f1ba4a48{} > *Song B@c50b3f75[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 6 after reload (B live)
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:c50b3f75 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:c50b3f75 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:c50b3f75=Song B savedAt=1791983671512 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:f1ba4a48=Song A savedAt=1791983662415 rec=love@L1,dove@L2<no id>[ui]
+    hist: *Song B@c50b3f75[ad=true]{}
+- 7 History tab: Open draft A (true), Review tab clicked
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:f1ba4a48 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:f1ba4a48 rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:c50b3f75=Song B savedAt=1791983672156 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:f1ba4a48=Song A savedAt=1791983674336 rec=love@L1,dove@L2<no id>[ui]
+    hist: Song B@c50b3f75[ad=true]{} > *Song A@f1ba4a48{}
+    toasts: ["Saved draft restored. No writing request was sent."]
+- 8 History tab: Open draft B (true), Review tab clicked
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:c50b3f75 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:c50b3f75 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:c50b3f75=Song B savedAt=1791983677039 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:f1ba4a48=Song A savedAt=1791983674860 rec=love@L1,dove@L2<no id>[ui]
+    hist: Song B@c50b3f75[ad=true]{} > Song A@f1ba4a48{} > *Song B@c50b3f75[ad=true]{}
+    toasts: ["Saved draft restored. No writing request was sent."]
+  search s3: {"heart":[],"part":[],"love":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:c50b3f75-9073-47e3-96bc-bdfa73fda89f","idb:codex-musica-library-drafts/drafts/draft:f1ba4a48-8bde-4be1-b12b-5e713f56e275"],"dove":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:c50b3f75-9073-47e3-96bc-bdfa73fda89f","idb:codex-musica-library-drafts/drafts/draft:f1ba4a48-8bde-4be1-b12b-5e713f56e275"],"night":[],"light":[],"gold":[],"road":[]}
+  search s8: {"heart":[],"part":[],"love":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:c50b3f75-9073-47e3-96bc-bdfa73fda89f","idb:codex-musica-library-drafts/drafts/draft:f1ba4a48-8bde-4be1-b12b-5e713f56e275"],"dove":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:c50b3f75-9073-47e3-96bc-bdfa73fda89f","idb:codex-musica-library-drafts/drafts/draft:f1ba4a48-8bde-4be1-b12b-5e713f56e275"],"night":[],"light":[],"gold":[],"road":[]}
+
+# prev AB undo_key
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=heart@L1,part@L2<no id>[ui]
+    review card: heart@line 1:4->5, part@line 2:4->5
+    LS: Song A id= rec=heart@L1,part@L2<no id>[ui] | SS: Song A rec=heart@L1,part@L2<no id>[ui]
+    IDB: -
+    hist: (empty){} > *Song A{}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 after Library import B
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:7c2c6543 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:7c2c6543 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:7c2c6543=Song B savedAt=1791983682808 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:7db453e6=Song A savedAt=1791983680807 rec=heart@L1,part@L2<no id>[ui]
+    hist: (empty){} > Song A{} > Song A@7db453e6{} > *Song B@7c2c6543[ad=false]{}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “love” word 4 → 5, “dove” word 4 → 5. Review lists each one until you dismiss it.","Library working copy imported. Your previous draft is under History."]
+- 3 APP Undo: Ctrl+Z, activeElement=BODY +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:7db453e6 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:7db453e6 rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:7c2c6543=Song B savedAt=1791983682808 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:7db453e6=Song A savedAt=1791983683358 rec=love@L1,dove@L2<no id>[ui]
+    hist: (empty){} > Song A{} > *Song A@7db453e6{} > Song B@7c2c6543[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 4 APP Redo: Ctrl+Shift+Z, activeElement=BODY +3s
+    draft=Song B rows=["[SETUP — returns — 1.T5,2.T5 — cut v2]"] draftId=draft:7c2c6543 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song B id=draft:7c2c6543 rec=love@L1,dove@L2<no id>[ui] | SS: Song B rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:7c2c6543=Song B savedAt=1791983686388 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:7db453e6=Song A savedAt=1791983683358 rec=love@L1,dove@L2<no id>[ui]
+    hist: (empty){} > Song A{} > Song A@7db453e6{} > *Song B@7c2c6543[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 5 APP Undo: Ctrl+Z, activeElement=BODY again +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:7db453e6 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:7db453e6 rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:7c2c6543=Song B savedAt=1791983686388 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:7db453e6=Song A savedAt=1791983689620 rec=love@L1,dove@L2<no id>[ui]
+    hist: (empty){} > Song A{} > *Song A@7db453e6{} > Song B@7c2c6543[ad=false]{}
+    toasts: ["Library working copy imported. Your previous draft is under History."]
+- 6 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=draft:7db453e6 live=love@L1,dove@L2<no id>[ui]
+    review card: love@line 1:4->5, dove@line 2:4->5
+    LS: Song A id=draft:7db453e6 rec=love@L1,dove@L2<no id>[ui] | SS: Song A rec=love@L1,dove@L2<no id>[ui]
+    IDB: draft:7c2c6543=Song B savedAt=1791983686388 rec=love@L1,dove@L2<no id>[ui] ad=true ; draft:7db453e6=Song A savedAt=1791983695910 rec=love@L1,dove@L2<no id>[ui]
+    hist: *Song A@7db453e6{}
+  search s6: {"heart":[],"part":[],"love":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:7c2c6543-07fa-4824-ba5d-be439325cead","idb:codex-musica-library-drafts/drafts/draft:7db453e6-5a8b-4d64-bfa1-c691c51435f0"],"dove":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery","idb:codex-musica-library-drafts/drafts/draft:7c2c6543-07fa-4824-ba5d-be439325cead","idb:codex-musica-library-drafts/drafts/draft:7db453e6-5a8b-4d64-bfa1-c691c51435f0"],"night":[],"light":[],"gold":[],"road":[]}
+
+# prev AB session_quiet
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=heart@L1,part@L2<no id>[ui]
+    review card: heart@line 1:4->5, part@line 2:4->5
+    LS: Song A id= rec=heart@L1,part@L2<no id>[ui] | SS: Song A rec=heart@L1,part@L2<no id>[ui]
+    IDB: -
+    hist: (empty){} > *Song A{}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 after session import S0 (#ui-file), Review clicked
+    draft=Song Quiet rows=["[SETUP — rhyme groups — 1,2]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song Quiet id= rec=- | SS: Song Quiet rec=-
+    IDB: -
+    hist: (empty){} > Song A{} > *Song Quiet{}
+    toasts: ["Session imported"]
+- 3 APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song A id= rec=- | SS: Song A rec=-
+    IDB: -
+    hist: (empty){} > *Song A{} > Song Quiet{}
+    toasts: ["Session imported"]
+- 4 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=-
+    review card: NO CARD
+    LS: Song A id= rec=- | SS: Song A rec=-
+    IDB: -
+    hist: *Song A{}
+  search s4: {"heart":[],"part":[],"love":[],"dove":[],"night":[],"light":[],"gold":[],"road":[]}
+
+# prev AB session_mig
+- 1 after .txt import A
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=heart@L1,part@L2<no id>[ui]
+    review card: heart@line 1:4->5, part@line 2:4->5
+    LS: Song A id= rec=heart@L1,part@L2<no id>[ui] | SS: Song A rec=heart@L1,part@L2<no id>[ui]
+    IDB: -
+    hist: (empty){} > *Song A{}
+    toasts: ["2 saved word numbers without the current cut mark were renumbered to the current word cut, on the same characters: “heart” word 4 → 5, “part” word 4 → 5. Review lists each one until you dismiss it."]
+- 2 after session import S1 (#ui-file), Review clicked
+    draft=Song S rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=gold@L1,road@L2<no id>[ui]
+    review card: gold@line 1:4->5, road@line 2:4->5
+    LS: Song S id= rec=gold@L1,road@L2<no id>[ui] | SS: Song S rec=gold@L1,road@L2<no id>[ui]
+    IDB: -
+    hist: (empty){} > Song A{} > *Song S{}
+    toasts: ["Session imported"]
+- 3 APP Undo: #btn-undo, mouse click +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=gold@L1,road@L2<no id>[ui]
+    review card: gold@line 1:4->5, road@line 2:4->5
+    LS: Song A id= rec=gold@L1,road@L2<no id>[ui] | SS: Song A rec=gold@L1,road@L2<no id>[ui]
+    IDB: -
+    hist: (empty){} > *Song A{} > Song S{}
+    toasts: ["Session imported"]
+- 4 APP Redo: #btn-redo, mouse click +3s
+    draft=Song S rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=gold@L1,road@L2<no id>[ui]
+    review card: gold@line 1:4->5, road@line 2:4->5
+    LS: Song S id= rec=gold@L1,road@L2<no id>[ui] | SS: Song S rec=gold@L1,road@L2<no id>[ui]
+    IDB: -
+    hist: (empty){} > Song A{} > *Song S{}
+    toasts: ["Session imported"]
+- 5 APP Undo: #btn-undo, mouse click again +3s
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=gold@L1,road@L2<no id>[ui]
+    review card: gold@line 1:4->5, road@line 2:4->5
+    LS: Song A id= rec=gold@L1,road@L2<no id>[ui] | SS: Song A rec=gold@L1,road@L2<no id>[ui]
+    IDB: -
+    hist: (empty){} > *Song A{} > Song S{}
+    toasts: ["Session imported"]
+- 6 after reload
+    draft=Song A rows=["[SETUP — rhyme groups — 1.T5,2.T5 — cut v2]"] draftId=null live=gold@L1,road@L2<no id>[ui]
+    review card: gold@line 1:4->5, road@line 2:4->5
+    LS: Song A id= rec=gold@L1,road@L2<no id>[ui] | SS: Song A rec=gold@L1,road@L2<no id>[ui]
+    IDB: -
+    hist: *Song A{}
+  search s6: {"heart":[],"part":[],"love":[],"dove":[],"night":[],"light":[],"gold":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery"],"road":["localStorage:codex-workbench-v1","sessionStorage:codex-workbench-recovery"]}

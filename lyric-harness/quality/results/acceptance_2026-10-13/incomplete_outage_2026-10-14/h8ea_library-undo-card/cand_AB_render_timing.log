@@ -1,0 +1,89 @@
+
+## cand render_timing fixture=AB
+{
+ "undo_how": "APP Undo: #btn-undo, mouse click",
+ "undo": [
+  {
+   "dt": 1,
+   "why": "click-capture",
+   "head": "[SETUP — title — \"Song B\"]",
+   "cardWords": [
+    "love",
+    "dove"
+   ],
+   "liveWords": [
+    "love",
+    "dove"
+   ]
+  },
+  {
+   "dt": 7,
+   "why": "raf",
+   "head": "[SETUP — title — \"Song A\"]",
+   "cardWords": [
+    "love",
+    "dove"
+   ],
+   "liveWords": [
+    "heart",
+    "part"
+   ]
+  },
+  {
+   "dt": 130,
+   "why": "mutation",
+   "head": "[SETUP — title — \"Song A\"]",
+   "cardWords": [
+    "heart",
+    "part"
+   ],
+   "liveWords": [
+    "heart",
+    "part"
+   ]
+  }
+ ],
+ "redo_how": "APP Redo: #btn-redo, mouse click",
+ "redo": [
+  {
+   "dt": 0,
+   "why": "click-capture",
+   "head": "[SETUP — title — \"Song A\"]",
+   "cardWords": [
+    "heart",
+    "part"
+   ],
+   "liveWords": [
+    "heart",
+    "part"
+   ]
+  },
+  {
+   "dt": 20,
+   "why": "raf",
+   "head": "[SETUP — title — \"Song B\"]",
+   "cardWords": [
+    "heart",
+    "part"
+   ],
+   "liveWords": [
+    "love",
+    "dove"
+   ]
+  },
+  {
+   "dt": 135,
+   "why": "mutation",
+   "head": "[SETUP — title — \"Song B\"]",
+   "cardWords": [
+    "love",
+    "dove"
+   ],
+   "liveWords": [
+    "love",
+    "dove"
+   ]
+  }
+ ],
+ "errors": []
+}

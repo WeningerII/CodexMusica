@@ -1,0 +1,5688 @@
+{
+ "v1|'twenty\\u2010two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty",
+   "two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'twen\\xadty-two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twen",
+   "ty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [],
+  "sup.whole_reading(token)": null,
+  "English(sup).parses#": 1
+ },
+ "v1|'twenty-two\\xad'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'street\\xadlight'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "street",
+   "light"
+  ],
+  "lex.pv(token)": [
+   [
+    "L",
+    "AY1",
+    "T"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "L",
+    "AY1",
+    "T"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "L",
+    "AY1",
+    "T"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "L",
+    "AY1",
+    "T"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'hel\\xadlo'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "hel",
+   "lo"
+  ],
+  "lex.pv(token)": [
+   [
+    "L",
+    "OW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'twenty\\u2011two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty",
+   "two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'eighty\\u2010two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty",
+   "two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'eighty\\u2011two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty",
+   "two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "rule:number-compound",
+  "sup.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'eigh\\xadty-two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eigh",
+   "ty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [],
+  "sup.whole_reading(token)": null,
+  "English(sup).parses#": 1
+ },
+ "v1|'eighty-two\\xad'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'re\\xadad'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "re",
+   "ad"
+  ],
+  "lex.pv(token)": [
+   [
+    "AE1",
+    "D"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "AE1",
+    "D"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "AE1",
+    "D"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "AE1",
+    "D"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'li\\xadve'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "li",
+   "ve"
+  ],
+  "lex.pv(token)": [
+   [
+    "V",
+    "IY1"
+   ],
+   [
+    "V",
+    "IY1",
+    "IY1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "V",
+    "IY1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "V",
+    "IY1"
+   ],
+   [
+    "V",
+    "IY1",
+    "IY1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "V",
+    "IY1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'street\\xadli\\xadght'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "street",
+   "li",
+   "ght"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [],
+  "sup.whole_reading(token)": null,
+  "English(sup).parses#": 1
+ },
+ "v1|'Hel\\xadlo'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "Hel",
+   "lo"
+  ],
+  "lex.pv(token)": [
+   [
+    "L",
+    "OW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'twenty\\xad-two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty",
+   "-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [],
+  "sup.whole_reading(token)": null,
+  "English(sup).parses#": 1
+ },
+ "v1|'twenty-\\xadtwo'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-",
+   "two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [],
+   true
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "UW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "UW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'twenty-two'": {
+  "lex.pronunciation_variants": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'streetlight'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "streetlight"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   "moby:3205:attested"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "moby:3205:attested",
+  "sup.pv(token)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   "moby:3205:attested"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|'hello'": {
+  "lex.pronunciation_variants": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "lex.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "English(lex).parses#": 2,
+  "line_tokens('I '+w)": [
+   "I",
+   "hello"
+  ],
+  "lex.pv(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 2
+ },
+ "v1|'read'": {
+  "lex.pronunciation_variants": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "lex.transcribe_word": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "English(lex).parses#": 2,
+  "line_tokens('I '+w)": [
+   "I",
+   "read"
+  ],
+  "lex.pv(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 2
+ },
+ "v1|'live'": {
+  "lex.pronunciation_variants": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "lex.transcribe_word": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "English(lex).parses#": 2,
+  "line_tokens('I '+w)": [
+   "I",
+   "live"
+  ],
+  "lex.pv(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 2
+ },
+ "v1|'eighty-two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "rule:number-compound",
+  "sup.pv(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v1|DECLARED|lex|read": {
+  "choice_set": true,
+  "pv 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ]
+  ],
+  "tw 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "pv 're\\xadad'": [],
+  "tw 're\\xadad'": [
+   [],
+   true
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "R"
+      ],
+      "nucleus": "EH",
+      "stress": 1,
+      "coda": [
+       "D"
+      ],
+      "widx": 1,
+      "word": "read",
+      "syl_in_word": 1,
+      "word_syllables": 1,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "R"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "r",
+    "e",
+    "a",
+    "d",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|sup|read": {
+  "choice_set": true,
+  "pv 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ]
+  ],
+  "tw 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "whole 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   "cmudict"
+  ],
+  "pv 're\\xadad'": [],
+  "tw 're\\xadad'": [
+   [],
+   true
+  ],
+  "whole 're\\xadad'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "R"
+      ],
+      "nucleus": "EH",
+      "stress": 1,
+      "coda": [
+       "D"
+      ],
+      "widx": 1,
+      "word": "read",
+      "syl_in_word": 1,
+      "word_syllables": 1,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "R"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "r",
+    "e",
+    "a",
+    "d",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|lex|live": {
+  "choice_set": true,
+  "pv 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "tw 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ],
+   false
+  ],
+  "pv 'li\\xadve'": [],
+  "tw 'li\\xadve'": [
+   [],
+   true
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "IH",
+      "stress": 1,
+      "coda": [
+       "V"
+      ],
+      "widx": 1,
+      "word": "live",
+      "syl_in_word": 1,
+      "word_syllables": 1,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "l",
+    "i",
+    "v",
+    "e",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|sup|live": {
+  "choice_set": true,
+  "pv 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "tw 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ],
+   false
+  ],
+  "whole 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ],
+   "cmudict"
+  ],
+  "pv 'li\\xadve'": [],
+  "tw 'li\\xadve'": [
+   [],
+   true
+  ],
+  "whole 'li\\xadve'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "IH",
+      "stress": 1,
+      "coda": [
+       "V"
+      ],
+      "widx": 1,
+      "word": "live",
+      "syl_in_word": 1,
+      "word_syllables": 1,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "l",
+    "i",
+    "v",
+    "e",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|lex|hello": {
+  "choice_set": true,
+  "pv 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "tw 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "pv 'hel\\xadlo'": [],
+  "tw 'hel\\xadlo'": [
+   [],
+   true
+  ],
+  "pv 'Hel\\xadlo'": [],
+  "tw 'Hel\\xadlo'": [
+   [],
+   true
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "OW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "hello",
+      "syl_in_word": 2,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "h",
+    "e",
+    "l",
+    "l",
+    "o",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|sup|hello": {
+  "choice_set": true,
+  "pv 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "tw 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "whole 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "pv 'hel\\xadlo'": [],
+  "tw 'hel\\xadlo'": [
+   [],
+   true
+  ],
+  "whole 'hel\\xadlo'": null,
+  "pv 'Hel\\xadlo'": [],
+  "tw 'Hel\\xadlo'": [
+   [],
+   true
+  ],
+  "whole 'Hel\\xadlo'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "OW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "hello",
+      "syl_in_word": 2,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "h",
+    "e",
+    "l",
+    "l",
+    "o",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|lex|twenty-two": {
+  "choice_set": true,
+  "pv 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ]
+  ],
+  "tw 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "pv 'twenty\\u2010two'": [],
+  "tw 'twenty\\u2010two'": [
+   [],
+   true
+  ],
+  "pv 'twen\\xadty-two'": [],
+  "tw 'twen\\xadty-two'": [
+   [],
+   true
+  ],
+  "pv 'twenty-two\\xad'": [],
+  "tw 'twenty-two\\xad'": [
+   [],
+   true
+  ],
+  "pv 'twenty\\u2011two'": [],
+  "tw 'twenty\\u2011two'": [
+   [],
+   true
+  ],
+  "pv 'twenty\\xad-two'": [],
+  "tw 'twenty\\xad-two'": [
+   [],
+   true
+  ],
+  "pv 'twenty-\\xadtwo'": [],
+  "tw 'twenty-\\xadtwo'": [
+   [],
+   true
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "T",
+       "W"
+      ],
+      "nucleus": "EH",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 1,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T",
+       "W"
+      ]
+     },
+     {
+      "onset": [
+       "N"
+      ],
+      "nucleus": "IY",
+      "stress": 0,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 2,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "N"
+      ]
+     },
+     {
+      "onset": [
+       "T"
+      ],
+      "nucleus": "UW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 3,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T"
+      ]
+     }
+    ],
+    [
+     {
+      "onset": [
+       "T"
+      ],
+      "nucleus": "UW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 3,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "t",
+    "w",
+    "e",
+    "n",
+    "t",
+    "y",
+    "-",
+    "t",
+    "w",
+    "o",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|sup|twenty-two": {
+  "choice_set": true,
+  "pv 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ]
+  ],
+  "tw 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "whole 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   "cmudict"
+  ],
+  "pv 'twenty\\u2010two'": [],
+  "tw 'twenty\\u2010two'": [
+   [],
+   true
+  ],
+  "whole 'twenty\\u2010two'": null,
+  "pv 'twen\\xadty-two'": [],
+  "tw 'twen\\xadty-two'": [
+   [],
+   true
+  ],
+  "whole 'twen\\xadty-two'": null,
+  "pv 'twenty-two\\xad'": [],
+  "tw 'twenty-two\\xad'": [
+   [],
+   true
+  ],
+  "whole 'twenty-two\\xad'": null,
+  "pv 'twenty\\u2011two'": [],
+  "tw 'twenty\\u2011two'": [
+   [],
+   true
+  ],
+  "whole 'twenty\\u2011two'": null,
+  "pv 'twenty\\xad-two'": [],
+  "tw 'twenty\\xad-two'": [
+   [],
+   true
+  ],
+  "whole 'twenty\\xad-two'": null,
+  "pv 'twenty-\\xadtwo'": [],
+  "tw 'twenty-\\xadtwo'": [
+   [],
+   true
+  ],
+  "whole 'twenty-\\xadtwo'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "T",
+       "W"
+      ],
+      "nucleus": "EH",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 1,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T",
+       "W"
+      ]
+     },
+     {
+      "onset": [
+       "N"
+      ],
+      "nucleus": "IY",
+      "stress": 0,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 2,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "N"
+      ]
+     },
+     {
+      "onset": [
+       "T"
+      ],
+      "nucleus": "UW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 3,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T"
+      ]
+     }
+    ],
+    [
+     {
+      "onset": [
+       "T"
+      ],
+      "nucleus": "UW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 3,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "t",
+    "w",
+    "e",
+    "n",
+    "t",
+    "y",
+    "-",
+    "t",
+    "w",
+    "o",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|lex|streetlight": {
+  "choice_set": true,
+  "pv 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ]
+  ],
+  "tw 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   false
+  ],
+  "pv 'street\\xadlight'": [],
+  "tw 'street\\xadlight'": [
+   [],
+   true
+  ],
+  "pv 'street\\xadli\\xadght'": [],
+  "tw 'street\\xadli\\xadght'": [
+   [],
+   true
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "S",
+       "T",
+       "R"
+      ],
+      "nucleus": "IY",
+      "stress": 1,
+      "coda": [
+       "T"
+      ],
+      "widx": 1,
+      "word": "streetlight",
+      "syl_in_word": 1,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "S",
+       "T",
+       "R"
+      ]
+     },
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "AY",
+      "stress": 0,
+      "coda": [
+       "T"
+      ],
+      "widx": 1,
+      "word": "streetlight",
+      "syl_in_word": 2,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "s",
+    "t",
+    "r",
+    "e",
+    "e",
+    "t",
+    "l",
+    "i",
+    "g",
+    "h",
+    "t",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v1|DECLARED|sup|streetlight": {
+  "choice_set": true,
+  "pv 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ]
+  ],
+  "tw 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   false
+  ],
+  "whole 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   "cmudict"
+  ],
+  "pv 'street\\xadlight'": [],
+  "tw 'street\\xadlight'": [
+   [],
+   true
+  ],
+  "whole 'street\\xadlight'": null,
+  "pv 'street\\xadli\\xadght'": [],
+  "tw 'street\\xadli\\xadght'": [
+   [],
+   true
+  ],
+  "whole 'street\\xadli\\xadght'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "S",
+       "T",
+       "R"
+      ],
+      "nucleus": "IY",
+      "stress": 1,
+      "coda": [
+       "T"
+      ],
+      "widx": 1,
+      "word": "streetlight",
+      "syl_in_word": 1,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "S",
+       "T",
+       "R"
+      ]
+     },
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "AY",
+      "stress": 0,
+      "coda": [
+       "T"
+      ],
+      "widx": 1,
+      "word": "streetlight",
+      "syl_in_word": 2,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "s",
+    "t",
+    "r",
+    "e",
+    "e",
+    "t",
+    "l",
+    "i",
+    "g",
+    "h",
+    "t",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|'twenty\\u2010two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'twen\\xadty-two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'twenty-two\\xad'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'street\\xadlight'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "streetlight"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   "moby:3205:attested"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'hel\\xadlo'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "hello"
+  ],
+  "lex.pv(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'twenty\\u2011two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'eighty\\u2010two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'eighty\\u2011two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "rule:number-compound",
+  "sup.pv(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'eigh\\xadty-two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'eighty-two\\xad'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'re\\xadad'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "read"
+  ],
+  "lex.pv(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'li\\xadve'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "live"
+  ],
+  "lex.pv(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'street\\xadli\\xadght'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "streetlight"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   "moby:3205:attested"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'Hel\\xadlo'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "Hello"
+  ],
+  "lex.pv(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'twenty\\xad-two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'twenty-\\xadtwo'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": null,
+  "sup.dictionary_readings": [],
+  "PRON.dictionary_readings(sup)": [],
+  "sup.reading_source(w, pv[0])": null,
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'twenty-two'": {
+  "lex.pronunciation_variants": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "twenty-two"
+  ],
+  "lex.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'streetlight'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "streetlight"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   "moby:3205:attested"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "moby:3205:attested",
+  "sup.pv(token)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY2",
+    "T"
+   ],
+   "moby:3205:attested"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|'hello'": {
+  "lex.pronunciation_variants": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "lex.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "English(lex).parses#": 2,
+  "line_tokens('I '+w)": [
+   "I",
+   "hello"
+  ],
+  "lex.pv(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "HH",
+    "AH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 2
+ },
+ "v2|'read'": {
+  "lex.pronunciation_variants": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "lex.transcribe_word": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "English(lex).parses#": 2,
+  "line_tokens('I '+w)": [
+   "I",
+   "read"
+  ],
+  "lex.pv(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   [
+    "R",
+    "IY1",
+    "D"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 2
+ },
+ "v2|'live'": {
+  "lex.pronunciation_variants": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "lex.transcribe_word": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "PRON.dictionary_readings(lex)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "English(lex).parses#": 2,
+  "line_tokens('I '+w)": [
+   "I",
+   "live"
+  ],
+  "lex.pv(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "lex.transcribe_word(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   "cmudict"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "cmudict",
+  "sup.pv(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "L",
+    "AY1",
+    "V"
+   ],
+   "cmudict"
+  ],
+  "English(sup).parses#": 2
+ },
+ "v2|'eighty-two'": {
+  "lex.pronunciation_variants": [],
+  "lex.transcribe_word": [
+   [],
+   true
+  ],
+  "PRON.dictionary_readings(lex)": [],
+  "English(lex).parses#": 1,
+  "line_tokens('I '+w)": [
+   "I",
+   "eighty-two"
+  ],
+  "lex.pv(token)": [],
+  "lex.transcribe_word(token)": [
+   [],
+   true
+  ],
+  "sup.pronunciation_variants": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.transcribe_word": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   false
+  ],
+  "sup.whole_reading": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "sup.dictionary_readings": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "PRON.dictionary_readings(sup)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.reading_source(w, pv[0])": "rule:number-compound",
+  "sup.pv(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ]
+  ],
+  "sup.whole_reading(token)": [
+   [
+    "EY1",
+    "T",
+    "IY0",
+    "T",
+    "UW2"
+   ],
+   "rule:number-compound"
+  ],
+  "English(sup).parses#": 1
+ },
+ "v2|DECLARED|lex|read": {
+  "choice_set": true,
+  "pv 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ]
+  ],
+  "tw 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "pv 're\\xadad'": [],
+  "tw 're\\xadad'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "R"
+      ],
+      "nucleus": "EH",
+      "stress": 1,
+      "coda": [
+       "D"
+      ],
+      "widx": 1,
+      "word": "read",
+      "syl_in_word": 1,
+      "word_syllables": 1,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "R"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "r",
+    "e",
+    "a",
+    "d",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|sup|read": {
+  "choice_set": true,
+  "pv 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ]
+  ],
+  "tw 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "whole 'read'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   "cmudict"
+  ],
+  "pv 're\\xadad'": [],
+  "tw 're\\xadad'": [
+   [
+    "R",
+    "EH1",
+    "D"
+   ],
+   false
+  ],
+  "whole 're\\xadad'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "R"
+      ],
+      "nucleus": "EH",
+      "stress": 1,
+      "coda": [
+       "D"
+      ],
+      "widx": 1,
+      "word": "read",
+      "syl_in_word": 1,
+      "word_syllables": 1,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "R"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "r",
+    "e",
+    "a",
+    "d",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|lex|live": {
+  "choice_set": true,
+  "pv 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "tw 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ],
+   false
+  ],
+  "pv 'li\\xadve'": [],
+  "tw 'li\\xadve'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ],
+   false
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "IH",
+      "stress": 1,
+      "coda": [
+       "V"
+      ],
+      "widx": 1,
+      "word": "live",
+      "syl_in_word": 1,
+      "word_syllables": 1,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "l",
+    "i",
+    "v",
+    "e",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|sup|live": {
+  "choice_set": true,
+  "pv 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ]
+  ],
+  "tw 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ],
+   false
+  ],
+  "whole 'live'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ],
+   "cmudict"
+  ],
+  "pv 'li\\xadve'": [],
+  "tw 'li\\xadve'": [
+   [
+    "L",
+    "IH1",
+    "V"
+   ],
+   false
+  ],
+  "whole 'li\\xadve'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "IH",
+      "stress": 1,
+      "coda": [
+       "V"
+      ],
+      "widx": 1,
+      "word": "live",
+      "syl_in_word": 1,
+      "word_syllables": 1,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "l",
+    "i",
+    "v",
+    "e",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|lex|hello": {
+  "choice_set": true,
+  "pv 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "tw 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "pv 'hel\\xadlo'": [],
+  "tw 'hel\\xadlo'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "pv 'Hel\\xadlo'": [],
+  "tw 'Hel\\xadlo'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "OW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "hello",
+      "syl_in_word": 2,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "h",
+    "e",
+    "l",
+    "l",
+    "o",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|sup|hello": {
+  "choice_set": true,
+  "pv 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ]
+  ],
+  "tw 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "whole 'hello'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   "cmudict"
+  ],
+  "pv 'hel\\xadlo'": [],
+  "tw 'hel\\xadlo'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "whole 'hel\\xadlo'": null,
+  "pv 'Hel\\xadlo'": [],
+  "tw 'Hel\\xadlo'": [
+   [
+    "HH",
+    "EH0",
+    "L",
+    "OW1"
+   ],
+   false
+  ],
+  "whole 'Hel\\xadlo'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "OW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "hello",
+      "syl_in_word": 2,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "h",
+    "e",
+    "l",
+    "l",
+    "o",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|lex|twenty-two": {
+  "choice_set": true,
+  "pv 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ]
+  ],
+  "tw 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "pv 'twenty\\u2010two'": [],
+  "tw 'twenty\\u2010two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "pv 'twen\\xadty-two'": [],
+  "tw 'twen\\xadty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "pv 'twenty-two\\xad'": [],
+  "tw 'twenty-two\\xad'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "pv 'twenty\\u2011two'": [],
+  "tw 'twenty\\u2011two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "pv 'twenty\\xad-two'": [],
+  "tw 'twenty\\xad-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "pv 'twenty-\\xadtwo'": [],
+  "tw 'twenty-\\xadtwo'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "T",
+       "W"
+      ],
+      "nucleus": "EH",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 1,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T",
+       "W"
+      ]
+     },
+     {
+      "onset": [
+       "N"
+      ],
+      "nucleus": "IY",
+      "stress": 0,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 2,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "N"
+      ]
+     },
+     {
+      "onset": [
+       "T"
+      ],
+      "nucleus": "UW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 3,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T"
+      ]
+     }
+    ],
+    [
+     {
+      "onset": [
+       "T"
+      ],
+      "nucleus": "UW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 3,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "t",
+    "w",
+    "e",
+    "n",
+    "t",
+    "y",
+    "-",
+    "t",
+    "w",
+    "o",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|sup|twenty-two": {
+  "choice_set": true,
+  "pv 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ]
+  ],
+  "tw 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "whole 'twenty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   "cmudict"
+  ],
+  "pv 'twenty\\u2010two'": [],
+  "tw 'twenty\\u2010two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "whole 'twenty\\u2010two'": null,
+  "pv 'twen\\xadty-two'": [],
+  "tw 'twen\\xadty-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "whole 'twen\\xadty-two'": null,
+  "pv 'twenty-two\\xad'": [],
+  "tw 'twenty-two\\xad'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "whole 'twenty-two\\xad'": null,
+  "pv 'twenty\\u2011two'": [],
+  "tw 'twenty\\u2011two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "whole 'twenty\\u2011two'": null,
+  "pv 'twenty\\xad-two'": [],
+  "tw 'twenty\\xad-two'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "whole 'twenty\\xad-two'": null,
+  "pv 'twenty-\\xadtwo'": [],
+  "tw 'twenty-\\xadtwo'": [
+   [
+    "T",
+    "W",
+    "EH1",
+    "N",
+    "IY0",
+    "T",
+    "UW1"
+   ],
+   false
+  ],
+  "whole 'twenty-\\xadtwo'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "T",
+       "W"
+      ],
+      "nucleus": "EH",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 1,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T",
+       "W"
+      ]
+     },
+     {
+      "onset": [
+       "N"
+      ],
+      "nucleus": "IY",
+      "stress": 0,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 2,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "N"
+      ]
+     },
+     {
+      "onset": [
+       "T"
+      ],
+      "nucleus": "UW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 3,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T"
+      ]
+     }
+    ],
+    [
+     {
+      "onset": [
+       "T"
+      ],
+      "nucleus": "UW",
+      "stress": 1,
+      "coda": [],
+      "widx": 1,
+      "word": "twenty-two",
+      "syl_in_word": 3,
+      "word_syllables": 3,
+      "word_read": [
+       "twenty-two"
+      ],
+      "word_unread": [],
+      "onset_own": [
+       "T"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "t",
+    "w",
+    "e",
+    "n",
+    "t",
+    "y",
+    "-",
+    "t",
+    "w",
+    "o",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|lex|streetlight": {
+  "choice_set": true,
+  "pv 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ]
+  ],
+  "tw 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   false
+  ],
+  "pv 'street\\xadlight'": [],
+  "tw 'street\\xadlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   false
+  ],
+  "pv 'street\\xadli\\xadght'": [],
+  "tw 'street\\xadli\\xadght'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   false
+  ],
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "S",
+       "T",
+       "R"
+      ],
+      "nucleus": "IY",
+      "stress": 1,
+      "coda": [
+       "T"
+      ],
+      "widx": 1,
+      "word": "streetlight",
+      "syl_in_word": 1,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "S",
+       "T",
+       "R"
+      ]
+     },
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "AY",
+      "stress": 0,
+      "coda": [
+       "T"
+      ],
+      "widx": 1,
+      "word": "streetlight",
+      "syl_in_word": 2,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "s",
+    "t",
+    "r",
+    "e",
+    "e",
+    "t",
+    "l",
+    "i",
+    "g",
+    "h",
+    "t",
+    "'"
+   ],
+   []
+  ]
+ },
+ "v2|DECLARED|sup|streetlight": {
+  "choice_set": true,
+  "pv 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ]
+  ],
+  "tw 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   false
+  ],
+  "whole 'streetlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   "cmudict"
+  ],
+  "pv 'street\\xadlight'": [],
+  "tw 'street\\xadlight'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   false
+  ],
+  "whole 'street\\xadlight'": null,
+  "pv 'street\\xadli\\xadght'": [],
+  "tw 'street\\xadli\\xadght'": [
+   [
+    "S",
+    "T",
+    "R",
+    "IY1",
+    "T",
+    "L",
+    "AY0",
+    "T"
+   ],
+   false
+  ],
+  "whole 'street\\xadli\\xadght'": null,
+  "line_anchors": [
+   [
+    [
+     {
+      "onset": [
+       "S",
+       "T",
+       "R"
+      ],
+      "nucleus": "IY",
+      "stress": 1,
+      "coda": [
+       "T"
+      ],
+      "widx": 1,
+      "word": "streetlight",
+      "syl_in_word": 1,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "S",
+       "T",
+       "R"
+      ]
+     },
+     {
+      "onset": [
+       "L"
+      ],
+      "nucleus": "AY",
+      "stress": 0,
+      "coda": [
+       "T"
+      ],
+      "widx": 1,
+      "word": "streetlight",
+      "syl_in_word": 2,
+      "word_syllables": 2,
+      "word_read": [],
+      "word_unread": [],
+      "onset_own": [
+       "L"
+      ]
+     }
+    ]
+   ],
+   [
+    "'",
+    "s",
+    "t",
+    "r",
+    "e",
+    "e",
+    "t",
+    "l",
+    "i",
+    "g",
+    "h",
+    "t",
+    "'"
+   ],
+   []
+  ]
+ }
+}

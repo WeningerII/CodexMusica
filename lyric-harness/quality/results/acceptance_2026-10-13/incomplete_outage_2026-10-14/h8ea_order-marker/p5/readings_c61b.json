@@ -1,0 +1,236 @@
+[
+ {
+  "id": "c61b.PRmy.review.O1",
+  "case": "PRmy.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Love|[\"Love above\",1,\"Love\"]",
+    "above|[\"Love above\",2,\"above\"]"
+   ]
+  },
+  "sends": [],
+  "threw": "Error: no chip my\n    at pronounce (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:30:20)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:70:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:89:18",
+  "errors": []
+ },
+ {
+  "id": "c61b.PRmy.review.O2",
+  "case": "PRmy.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   },
+   {
+    "step": "2 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Love|[\"Love above\",1,\"Love\"]",
+    "above|[\"Love above\",2,\"above\"]"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ]
+    }
+   ]
+  ],
+  "threw": "Error: no chip my\n    at pronounce (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:30:20)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)\n    at process.callbackTrampoline (node:internal/async_hooks:130:17)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:70:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:90:18",
+  "errors": []
+ },
+ {
+  "id": "c61b.PRlove.review.O1",
+  "case": "PRlove.review",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Love|[\"Love above\",1,\"Love\"]",
+    "above|[\"Love above\",2,\"above\"]"
+   ]
+  },
+  "sends": [],
+  "threw": "Error: no chip love\n    at pronounce (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:30:20)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)\n    at process.callbackTrampoline (node:internal/async_hooks:130:17)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:70:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:89:18",
+  "errors": []
+ },
+ {
+  "id": "c61b.PRlove.review.O2",
+  "case": "PRlove.review",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   },
+   {
+    "step": "2 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Love|[\"Love above\",1,\"Love\"]",
+    "above|[\"Love above\",2,\"above\"]"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ]
+    }
+   ]
+  ],
+  "threw": "Error: no chip love\n    at pronounce (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:30:20)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:70:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:90:18",
+  "errors": []
+ },
+ {
+  "id": "c61b.PRmy.dock.O1",
+  "case": "PRmy.dock",
+  "order": 1,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Love|[\"Love above\",1,\"Love\"]",
+    "above|[\"Love above\",2,\"above\"]"
+   ]
+  },
+  "sends": [],
+  "threw": "Error: no chip my\n    at pronounce (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:30:20)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:70:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:89:18",
+  "errors": []
+ },
+ {
+  "id": "c61b.PRmy.dock.O2",
+  "case": "PRmy.dock",
+  "order": 2,
+  "steps": [
+   {
+    "step": "1 pasted unmarked reading",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   },
+   {
+    "step": "2 after send",
+    "readings": [
+     "[SETUP — reading — token 5 \"love\" in \"Oh--oh, oh my love\" — L AH1 V — declared — source: the writer — cut v2]"
+    ],
+    "toasts": [
+     "1 saved word number without the current cut mark was renumbered to the current word cut, on the same characters: “love” word 4 → 5."
+    ]
+   }
+  ],
+  "how": {
+   "chips": [
+    "Love|[\"Love above\",1,\"Love\"]",
+    "above|[\"Love above\",2,\"above\"]"
+   ]
+  },
+  "sends": [
+   [
+    {
+     "pronunciations": [
+      {
+       "line": "Oh--oh, oh my love",
+       "token": 5,
+       "word": "love",
+       "phones": [
+        "L",
+        "AH1",
+        "V"
+       ],
+       "basis": "declared",
+       "source": "the writer"
+      }
+     ]
+    }
+   ]
+  ],
+  "threw": "Error: no chip my\n    at pronounce (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:30:20)\n    at runNextTicks (node:internal/process/task_queues:65:5)\n    at process.processImmediate (node:internal/timers:453:9)\n    at process.callbackTrampoline (node:internal/async_hooks:130:17)\n    at async runOne (/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:70:5)\n    at async /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/h8ea/order-marker/p5/readings.js:90:18",
+  "errors": []
+ }
+]

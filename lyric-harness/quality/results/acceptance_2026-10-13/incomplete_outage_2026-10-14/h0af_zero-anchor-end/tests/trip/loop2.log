@@ -1,0 +1,168 @@
+SHARD 2/2: 13 of 27 sections (dealt by index residue over the cost-ordered tuple)
+
+2. NO_PROGRESS — a proposer that refuses everything
+  PASS  stops on NO_PROGRESS, not ROUND_LIMIT
+          no_progress
+  PASS  stops after ONE round, not burning the full max_rounds
+          1 round(s) -- an identical round would fail identically, so a second one is not run
+  PASS  the draft is untouched
+          no proposal was ever accepted
+  PASS  every attempt says WHY: no candidates offered
+
+4. TIER 2 — backtracking an anchor actually clears joint_conflict
+  PASS  the fixture is a REAL joint_conflict before the loop runs
+          L3 answers two groups whose call words share no rhyme
+  PASS  the backtrack closes pursued findings and the run certifies
+          success pursued=[]
+  PASS  exactly one tier-2 attempt ran, and it was accepted
+          LineAttempt(line_no=3, tier=2, accepted=True, tried=1, reason="joint backtrack over group A [1, 3] (2 members): L1 -> 'find' so L3 could take 'signed'; fixed 2, introduced 0, disclosing 1 new note(s) [(2, 'SCHEME_COLLISION')], changed only [1, 3]", touched=(1, 3), asked=True)
+  PASS  it touched BOTH the pivot and the anchor, never a third line
+          (1, 3)
+  PASS  L2 (the untouched anchor) is byte-identical
+  PASS  re-briefed independently, L3 carries no FLAG -- the pivot is genuinely resolved at the mandate level, not merely accepted on a stale finding set
+  PASS  ...and MODAL_RHYME has NOTHING to catch: the menu no longer offers a word whose own head holds the call, so the pair the backtrack landed on is not one the grader charges (M-185)
+
+6. TIER 2 — a pivot whose groups are BOTH 3+ members is REWRITTEN JOINTLY, and the whole group moves together
+  PASS  the fixture has two coupled 3-member groups with an actual unsatisfied obligation
+          [('A', [1, 2, 5]), ('B', [3, 4, 5])]
+  PASS  tier 2 ran AND tried something — the count that was pinned at 0
+          3 tier-2 attempt(s), tried [1, 1, 2]
+  PASS  it ACCEPTED a joint rewrite, and the reason names the group and its size
+          joint backtrack over group B [3, 4, 5] with NO ranked pivot field (the pivot is unconstrained): fixed 2, introduced 0, changed only [3, 4, 5]
+  PASS  EVERY member of the group moved in that one attempt — 3 lines, not one
+          touched (3, 4, 5)
+  PASS  the draft is NOT untouched — the assertion this section used to make in the other direction
+          changed: [3, 4, 5]
+  PASS  and the run does not certify a draft with unresolved whole-draft flags
+          success
+  PASS  a 3+ group that is searched and NOT accepted says it was searched — the old sentence said the opposite
+          1 attempt(s) carry the size census
+  PASS  the words 'were NOT attempted' appear NOWHERE in any tier-2 reason on this draft
+          ['joint backtrack over group B [3, 4, 5] with NO ranked pivot field (the pivot is ', 'tried 1 joint rewrite(s) across 1 group(s), none accepted; 1 group(s) have an UN', "joint backtrack over group B [3, 4, 5] (3 members): L3 -> 'they', L4 -> 'yesterd"]
+  PASS  a fresh grader judges all six declared obligations without violations or refusals
+          ([], 6, 0)
+
+8. `swap_end_word` refuses rather than guesses when its own reading disagrees with `raw_final_token`
+  PASS  an ordinary line swaps cleanly
+  PASS  case is preserved on a capitalised end word
+  PASS  a parenthetical after the end word REFUSES rather than splicing into the parenthetical
+          line_tokens strips parentheticals before reading the end word, so the last regex match here is 'repeat', not 'fire' -- splicing there would silently corrupt an aside, not a rhyme
+
+10. `strip_parens` (line_tokens/raw_final_token/Lexicon.transcribe) is declared, not assumed -- the same `(repeat)` line test 8 refuses on reads the OPPOSITE way once a caller declares the parenthetical is a second voice, not a stage direction
+  PASS  default (omitted): unchanged from every reading this project has ever produced -- 'repeat' is not read as a word at all
+  PASS  strip_parens=False: the same text keeps 'repeat' as a real word
+  PASS  a WHOLE line in parens -- the backup-vocal notation this was built for -- anchors on its own last word once declared, instead of vanishing to NO_ANCHOR
+  PASS  the same whole-line parenthetical is still unreadable by default, which is the bug this coordinate exists to make OPT-IN rather than silently fixed for everyone
+  PASS  *asterisk*-wrapped text was never special either way -- it reads as real words with or without strip_parens
+  PASS  Lexicon() defaults to strip_parens=True, unchanged
+  PASS  Lexicon.transcribe reads its OWN self.strip_parens, matching line_tokens exactly rather than carrying a second, separate paren rule
+          default=['the', 'room', 'on', 'fire'] voiced=['the', 'room', 'on', 'fire', 'repeat']
+
+12. the DECLARED-RETURNS layer is asked with no opt-in at all, and the loop reports having no move for it rather than passing
+  PASS  L3's broken return reaches the loop as a FLAG -- `returns_check` is consulted on every run, not behind a parameter; a letter scheme simply declares no returns for it to check
+          unresolved [3], codes ['REFRAIN_REPEAT', 'RETURN_NOT_VERBATIM']
+  PASS  and the loop offers ZERO candidates for it -- a return is not repaired by swapping an end word, so `RETURN_NOT_VERBATIM` earns no candidate field and the attempt says WHICH rule that is
+          no candidate field was offered — the harness had nothing for the proposer to choose from, so this is a fact about the MANDATE and the lexicon, not about the proposer; tier 2 was NOT entered — no group proposer was DECLARED, and the backtrack rewrites several lines at once, so it is not run against a writer the caller did not name (pass `propose_group=` to reach it)
+  PASS  L2's rhyme WAS fixed in the same round -- one unsolvable line is never a stop condition, which is the invariant this fixture exercises against a real second layer rather than a stub
+          ([2], [], [3])
+  PASS  and L1 is NOT touched, though it ends on the same word as L3 -- the mandate REQUIRES that identity, so it is the requirement and not a self-rhyme, and the floor is no longer handed the pair
+          L1 'we counted every reason we were given'; before the returns were subtracted the floor charged L1 with REPEAT_IN_VERSE and the loop 'repaired' it by swapping the end word of a line declared verbatim-identical to L3
+  PASS  L3 is byte-identical: a line the loop had no move for is left exactly as written
+
+14. `propose` is handed the WHOLE-DRAFT findings it is being graded against -- HOOK_ABSENT among them, on a draft carrying one
+  PASS  the proposer was called at all
+          2
+  PASS  every call carried a non-empty whole-draft half
+          [10, 10]
+  PASS  HOOK_ABSENT reaches the writer
+          ['FUNCTION_UNDECLARED', 'HOOK_ABSENT', 'LEXICAL_MONOTONY', 'NO_SETTING', 'NO_SUBDIVISION', 'RETURN_NEVER_RETURNS', 'SINGLE_INSTANCE', 'TITLE_NOT_IN_HOOK', 'UNIFORM_LINE_LENGTH']
+  PASS  so does LEXICAL_MONOTONY -- the floor's whole-draft flag, and the other half of the pair this loop can never ask for
+  PASS  what the writer was shown is EXACTLY what the result discloses: one source (`inspect()['whole']`), not two derivations of it (doctrine 1)
+          result ['HOOK_ABSENT', 'LEXICAL_MONOTONY', 'TITLE_NOT_IN_HOOK'] vs shown ['HOOK_ABSENT', 'LEXICAL_MONOTONY', 'TITLE_NOT_IN_HOOK']
+  PASS  none of these codes is in ANY `Brief` -- widening `Brief` was never the move, which is why `whole` is its own argument
+          ['CLICHE_PAIR', 'CROWDED', 'PROMINENCE_EXCEEDS_HEADS']
+  PASS  whole-draft flags prevent success after the line repairs close, and no line check is left open
+          ('whole_draft_unresolved', [])
+
+16. `backtrack_width` still bounds tier 2's search to the same count it did before the `GroupBrief` -- width^2 per two-line group, and the JOINT widening did not move it
+  PASS  50 pairs proposed = 2 two-line group(s) x width 5 x width 5 -- the number this fixture's own comment recorded before the contract changed, unmoved
+          50
+  PASS  and the loop COUNTS what it proposed: `tried` on the attempt is the same 50, so the result does not overstate the search
+          50
+  PASS  the bound is the DECLARED coordinate and not a constant: the same fixture at `backtrack_width=2` proposes 8 (test 13's run, re-made here), which is 2 x 2^2 against this run's 2 x 5^2
+          width 2 -> 8 pair(s) against width 5 -> 50
+  PASS  every one of the 50 was rejected and the draft is untouched, which is test 5's claim re-measured through the new contract
+
+18. a line is briefed against the draft AS IT NOW STANDS, not against the round's opening snapshot
+  PASS  the loop converges on this pair
+          success -> ['the kitchen light was never theirs', 'and no one came back up the stairs']
+  PASS  L2 is told to rhyme with the word L1 ACTUALLY ENDS ON after L1 was fixed -- not the word L1 had when the round opened
+          ["group A [1, 2] at its end word — this line must stand in at least one relation with: L1 ('theirs')"]
+  PASS  ...and its SCHEME_VIOLATION evidence no longer quotes the deleted word either -- the whole brief moved, not one line of it
+  PASS  the fix changes GUIDANCE and not ACCEPTANCE: the stub-driven run is unchanged in stop reason, rounds and emitted draft
+          whole_draft_unresolved/1 rounds
+  PASS  L3 opened the round and was NEVER ASKED ABOUT, because fixing L2 closed it -- the stale snapshot would have spent an attempt on a finding that was already gone
+          asked=[2] resolved_elsewhere=[3]
+  PASS  ...and it is NOT a `LineAttempt`: no attempt was made, so a record with accepted=False would be a failure that never happened, and len(attempts) would stop counting attempts (doctrine 79)
+          1 attempt(s): [2]
+  PASS  ...and the report SAYS so, under its own marker rather than the dead-end one
+          ['[==] L3 — opened this round and NOT asked about: an earlier ']
+  PASS  a barren round performs one assessment; lazy per-line menus are not re-assessments
+          1 assessments, 1 targeted menus
+
+20. ~~pursuit is MANDATORY, and success below it is unreportable~~ ENDED 2026-10-04: pursuit is opt-in, and a declared pursue still holds its lines open
+  PASS  the mandatory set is EMPTY (owner's ruling 2026-10-04)
+  PASS  the fixture carries MODAL_RHYME and NO flag, so nothing but pursuit can open it
+  PASS  an EMPTY declaration pursues nothing — the note is reported and the run succeeds
+          stop=success pursued=[]
+  PASS  a declared pursue still opens the lines and refuses success while the note stands
+          stop=no_progress pursued=[3, 4]
+  PASS  with a proposer that answers, a declared pursue revises to success with zero declared findings standing
+          stop=success
+
+22. M-256 — an unsuccessful backtrack leaves the line attempt reachable
+  PASS  the fixture is a real joint_conflict at L3 with NO field and no ban head — the conjunction is empty, not eaten
+          ([], [])
+  PASS  tier 2 now ASKS about the group instead of walking nothing — an empty pivot field is a question, not a turn consumed in silence
+          [(2, 0, True, 'tried 0 joint rewrite(s) across 3 group(s), none accepted'), (1, 0, True, 'after tier 2 unaccepted, fell through to tier 1: no candidate field wa'), ['A', 'B', 'C', 'C']]
+  PASS  declined tier 2 retains its record and falls through to tier 1
+          [(2, 0, True), (1, 0, True), [(3, 1), (4, 1)]]
+  PASS  the stop is NO_PROGRESS on the proposer's refusal, not on a search nobody ran
+  PASS  a declined tier 2 and the subsequent tier 1 are recorded separately
+          [(2, 0, True), (1, 0, True), 76]
+
+24. M-208 — the escalation reads `backtrack_width` before it escalates, and DISCLOSES when it declines
+  PASS  with `backtrack_width=0` tier 2 is NEVER asked
+  PASS  ...and the decline is DISCLOSED on the attempt, not silent — the fourth silent skip is exactly what M-205 closed
+          ['NOT ASKED — attempts_per_line=0, so tier 1 never called the proposer for this line. This is inconclusive by construction, not a line the loop could not fix (doctrine 20); tier 2 was NOT entered — `backtrack_width` is 0, so the caller declared no backtrack and the escalation may not substitute one']
+  PASS  CONTROL: with the width declared, the escalation still runs — M-205's repair is intact and only its missing guard was added
+          2
+
+26. the BATCH DOOR: `prefetch` sees the open lines ahead, `record` hears every verdict, and attempts=1 waits one barren round for the reasons (M-236)
+  PASS  prefetch is called before each open line's first question, with the open lines still AHEAD of it in the pass
+          [(1, (2,)), (2, ()), (1, (2,)), (2, ())]
+  PASS  a declining proposer is told nothing by `record` — no candidate was ever verified
+  PASS  under attempts=1 a barren round is NOT yet NO_PROGRESS: the stop reads TWO barren rounds
+          ('no_progress', 2)
+  PASS  CONTROL: under the default budget ONE barren round is NO_PROGRESS, exactly as before
+          ('no_progress', 1)
+  PASS  `record` hears every verified candidate with its verdict and the grader's reasons
+          [(1, 0, 1, False, True), (2, 0, 1, False, True)]
+==============================================================
+SECTION COST, slowest first — the top line is the floor a shard count cannot beat:
+     190.9s  test_tier2_rewrites_a_group_of_three_or_more
+     160.9s  test_tier2_that_walks_nothing_falls_through_to_tier1
+      91.1s  test_tier2_backtrack_resolves_a_joint_conflict
+      67.8s  test_the_batch_door_and_the_recorded_verdict
+      67.2s  test_a_line_is_briefed_against_the_draft_as_it_now_stands
+      63.2s  test_backtrack_width_still_bounds_the_search
+      41.3s  test_pursuit_is_mandatory_and_success_below_it_unreportable
+      39.3s  test_the_escalation_reads_the_declared_backtrack_width
+      25.9s  test_no_progress_stop
+      12.1s  test_declared_returns_are_asked_and_have_no_move
+      10.0s  test_propose_sees_the_whole_draft_rubric
+       3.4s  test_strip_parens_is_a_declared_coordinate
+       0.0s  test_swap_end_word_refuses_a_disagreeing_reading
+     773.0s  TOTAL, this shard (13 of 27 sections)
+==============================================================
+all loop regressions pass
