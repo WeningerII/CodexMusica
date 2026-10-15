@@ -1,0 +1,403 @@
+{
+ "sel_forward": {
+  "caretLine": 30,
+  "caret": {
+   "i": 30,
+   "top": 1448.90625,
+   "bottom": 1477.703125,
+   "inView": false,
+   "over": [],
+   "focused": true,
+   "sel": [
+    115,
+    740,
+    "forward"
+   ]
+  },
+  "other": {
+   "i": 5,
+   "top": 728.984375,
+   "bottom": 757.78125,
+   "inView": false,
+   "over": [],
+   "focused": true,
+   "sel": [
+    115,
+    740,
+    "forward"
+   ]
+  },
+  "scroll": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "errs": []
+ },
+ "sel_backward": {
+  "caretLine": 5,
+  "caret": {
+   "i": 5,
+   "top": 728.984375,
+   "bottom": 757.78125,
+   "inView": false,
+   "over": [],
+   "focused": true,
+   "sel": [
+    115,
+    740,
+    "backward"
+   ]
+  },
+  "other": {
+   "i": 30,
+   "top": 1448.90625,
+   "bottom": 1477.703125,
+   "inView": false,
+   "over": [],
+   "focused": true,
+   "sel": [
+    115,
+    740,
+    "backward"
+   ]
+  },
+  "scroll": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "errs": []
+ },
+ "desktop_scroll_away_resize": {
+  "afterWheel": {
+   "scroll": {
+    "surface-lyrics": 0,
+    "ly-page": 0,
+    "ly-body": 0,
+    "ly-main-scroll": 906
+   },
+   "row1": {
+    "i": 1,
+    "top": -588,
+    "bottom": -556,
+    "inView": false,
+    "over": [],
+    "focused": true,
+    "sel": [
+     19,
+     19,
+     "forward"
+    ]
+   }
+  },
+  "afterResize": {
+   "scroll": {
+    "surface-lyrics": 0,
+    "ly-page": 0,
+    "ly-body": 0,
+    "ly-main-scroll": 906
+   },
+   "row1": {
+    "i": 1,
+    "top": -588,
+    "bottom": -556,
+    "inView": false,
+    "over": [],
+    "focused": true,
+    "sel": [
+     19,
+     19,
+     "forward"
+    ]
+   }
+  },
+  "errs": []
+ },
+ "phone_scroll_away_small_resize": {
+  "afterWheel": {
+   "scroll": {
+    "surface-lyrics": 0,
+    "ly-page": 1250,
+    "ly-body": 0,
+    "ly-main-scroll": 0
+   },
+   "row1": {
+    "i": 1,
+    "top": -636.203125,
+    "bottom": -607.40625,
+    "inView": false,
+    "over": [],
+    "focused": true,
+    "sel": [
+     19,
+     19,
+     "forward"
+    ]
+   }
+  },
+  "afterResize": {
+   "scroll": {
+    "surface-lyrics": 0,
+    "ly-page": 1250,
+    "ly-body": 0,
+    "ly-main-scroll": 0
+   },
+   "row1": {
+    "i": 1,
+    "top": -636.203125,
+    "bottom": -607.40625,
+    "inView": false,
+    "over": [],
+    "focused": true,
+    "sel": [
+     19,
+     19,
+     "forward"
+    ]
+   }
+  },
+  "errs": []
+ },
+ "ime": {
+  "beforeRise": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 1047,
+   "ly-main-scroll": 0
+  },
+  "during": {
+   "scroll": {
+    "surface-lyrics": 0,
+    "ly-page": 0,
+    "ly-body": 0,
+    "ly-main-scroll": 0
+   },
+   "row": {
+    "i": 30,
+    "top": 1448.90625,
+    "bottom": 1477.703125,
+    "inView": false,
+    "over": [],
+    "focused": true,
+    "sel": [
+     761,
+     761,
+     "forward"
+    ]
+   }
+  },
+  "line30": "I sing the quiet song 30愛",
+  "events": [
+   "compositionstart:",
+   "compositionupdate:あい",
+   "compositionupdate:愛",
+   "compositionend:愛"
+  ],
+  "afterCommit": {
+   "i": 30,
+   "top": 1448.90625,
+   "bottom": 1477.703125,
+   "inView": false,
+   "over": [],
+   "focused": true,
+   "sel": [
+    760,
+    760,
+    "forward"
+   ]
+  },
+  "errs": []
+ },
+ "gate_from_header_review": {
+  "gateOpen": true,
+  "scrollBeforeCancel": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "scrollAfterCancel": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "active": {
+   "tag": "BODY",
+   "inHead": false,
+   "inReviewPanel": false
+  },
+  "errs": []
+ },
+ "gate_from_header_tools": {
+  "gateOpen": true,
+  "scrollBeforeCancel": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "scrollAfterCancel": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "active": {
+   "tag": "BODY",
+   "inHead": false,
+   "inReviewPanel": false
+  },
+  "errs": []
+ },
+ "new_song_user_text": {
+  "input": "",
+  "posts": 0,
+  "errs": []
+ },
+ "unfocused_resize": {
+  "before": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 1047,
+   "ly-main-scroll": 0
+  },
+  "after": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "errs": []
+ },
+ "j1_next_until_end": {
+  "steps": [
+   {
+    "label": "Chorus· 2 of 3",
+    "active": "lyrics-draft",
+    "nextDisabled": false
+   },
+   {
+    "label": "Bridge· 3 of 3",
+    "active": "lyrics-draft",
+    "nextDisabled": true
+   }
+  ],
+  "errs": []
+ },
+ "reload_short": {
+  "scroll": {
+   "surface-lyrics": 0,
+   "ly-page": 0,
+   "ly-body": 0,
+   "ly-main-scroll": 0
+  },
+  "active": "BODY",
+  "errs": []
+ },
+ "gate_open_390x508": {
+  "gate": true,
+  "vh": 508,
+  "warning": {
+   "top": -235,
+   "bottom": -47,
+   "hit": false
+  },
+  "apply": {
+   "top": -153,
+   "bottom": -109,
+   "hit": false
+  },
+  "cancel": {
+   "top": -101,
+   "bottom": -57,
+   "hit": false
+  },
+  "active": "ly-gate-apply"
+ },
+ "gate_open_390x600": {
+  "gate": true,
+  "vh": 600,
+  "warning": {
+   "top": -176,
+   "bottom": 12,
+   "hit": false
+  },
+  "apply": {
+   "top": -94,
+   "bottom": -50,
+   "hit": false
+  },
+  "cancel": {
+   "top": -42,
+   "bottom": 2,
+   "hit": false
+  },
+  "active": "ly-gate-apply"
+ },
+ "gate_open_844x390": {
+  "gate": true,
+  "vh": 390,
+  "warning": {
+   "top": -178,
+   "bottom": -74,
+   "hit": false
+  },
+  "apply": {
+   "top": -128,
+   "bottom": -84,
+   "hit": false
+  },
+  "cancel": {
+   "top": -128,
+   "bottom": -84,
+   "hit": false
+  },
+  "active": "ly-gate-apply"
+ },
+ "gate_open_667x375": {
+  "gate": true,
+  "vh": 375,
+  "warning": {
+   "top": -186,
+   "bottom": -82,
+   "hit": false
+  },
+  "apply": {
+   "top": -136,
+   "bottom": -92,
+   "hit": false
+  },
+  "cancel": {
+   "top": -136,
+   "bottom": -92,
+   "hit": false
+  },
+  "active": "ly-gate-apply"
+ },
+ "gate_open_390x844": {
+  "gate": true,
+  "vh": 844,
+  "warning": {
+   "top": 333,
+   "bottom": 521,
+   "hit": true
+  },
+  "apply": {
+   "top": 415,
+   "bottom": 459,
+   "hit": true
+  },
+  "cancel": {
+   "top": 467,
+   "bottom": 511,
+   "hit": true
+  },
+  "active": "ly-gate-apply"
+ },
+ "label": "eightfix",
+ "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/review_562/eight/root"
+}

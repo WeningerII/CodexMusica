@@ -1,0 +1,25 @@
+# COMMANDS for PR #562 review
+git -C /home/user/CodexMusica worktree add -f /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-562 1b819d5875427c61b9f8da8b30101540a753d540
+ln -s /home/user/CodexMusica/node_modules $S/wt-562/node_modules
+cp $S/wt-main2/lyric-harness/cmudict.dict $S/wt-562/lyric-harness/cmudict.dict   # gitignored asset, same as base worktree
+# env for all browser runs: NODE_PATH=/home/user/CodexMusica/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
+(cd $S/wt-562 && time node scripts/check_lyrics_page.js) > $R/full_562.log 2>&1
+# result: PASS 747, exit 0, real 1m41.9s. Side effect: wrote /tmp/ui-eight-evidence/h1/*.png (hard-coded path in check_lyrics_page.js:2453,2472)
+(cd $S/wt-562 && TEST_EVIDENCE=$R/vp_green node scripts/check_lyrics_viewport.js) > $R/vp_green.log 2>&1
+(cd $S/wt-562 && TEST_ROOT=$S/wt-main2 TEST_EVIDENCE=$R/vp_red_b887 node scripts/check_lyrics_viewport.js) > $R/vp_red_b887.log 2>&1   # red control on base b887 bundle (not the eight-fix intermediate, which is not a commit)
+# note: first green run accidentally omitted TEST_EVIDENCE -> wrote default /tmp/ui-three-evidence (15 cases, 0 errors); rerun below
+(cd $S/wt-main2 && time node scripts/check_lyrics_page.js) > $R/full_b887.log 2>&1
+# combined patch hash reproduction (matches claimed 0436aaf6...0748f2):
+{ git -c core.abbrev=9 diff b887e5eff 1b819d58 -- codex.html scripts/check_lyrics_page.js src/pages/lyrics.css src/pages/lyrics.js; git -c core.abbrev=9 diff --no-index /dev/null scripts/check_lyrics_viewport.js; } > $R/patches/combined_recomputed.patch
+(cd $S/wt-562 && node scripts/build_html.js --out=$R/codex_562_rebuilt.html --check --quiet; cmp $R/codex_562_rebuilt.html codex.html; git status --porcelain)
+# eight-fix intermediate reconstruction: final lyrics.js minus 3 hunks (lyRevealCaretAfterResize+comment, ly-gate-close opener 3 lines, lyWire resize listener block) -> $R/eight/lyrics.eight.js
+# built with it temporarily swapped into wt-562 (restored after; git status clean): node scripts/build_html.js --out=$R/eight/codex.eight.html --quiet  -> sha256 37ff7957...786d == claimed eight-fix bundle
+# scratch repo $R/eight/deltarepo: commit eight versions, overwrite with final; then
+{ git -c core.abbrev=9 diff -- codex.html src/pages/lyrics.js; git -c core.abbrev=9 diff --no-index /dev/null scripts/check_lyrics_viewport.js; } > $R/patches/delta_recomputed.patch   # sha256 6e3c4f65...b001b == claimed
+# b887 run1: FAIL 1 problem: gate threw during "3. waiting run, independent work": waitForFunction Timeout 60000ms (likely load flake; rerun)  -> full_b887_run1.log
+(cd $S/wt-main2 && time node scripts/check_lyrics_page.js) > $R/full_b887_run2.log 2>&1
+# b887 run2: PASS 651, exit 0
+(cd $S/wt-562 && node scripts/check_lyrics_page.js --unit-only) > $R/unit_562.log ; (cd $S/wt-main2 && node scripts/check_lyrics_page.js --unit-only) > $R/unit_b887.log
+(cd $S/wt-562 && TEST_ROOT=$R/eight/root TEST_EVIDENCE=$R/vp_red_eight node scripts/check_lyrics_viewport.js) > $R/vp_red_eight.log 2>&1   # $R/eight/root = symlinks to wt-562 entries + reconstructed eight-fix codex.html (37ff7957)
+node $R/probes/probe.js $S/wt-562 pr562 > $R/probes/probe_562.json ; node $R/probes/probe.js $R/eight/root eightfix > $R/probes/probe_eight.json
+(cd $S/wt-562 && node_modules/.bin/eslint src/pages/lyrics.js scripts/check_lyrics_page.js scripts/check_lyrics_viewport.js; node_modules/.bin/prettier --check src/pages/lyrics.js src/pages/lyrics.css scripts/check_lyrics_page.js scripts/check_lyrics_viewport.js) > $R/lint.log

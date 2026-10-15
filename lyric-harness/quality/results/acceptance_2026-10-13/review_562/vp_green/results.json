@@ -1,0 +1,746 @@
+{
+  "root": "/tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-562",
+  "bundleSha256": "90431a928789ce879b9e719571ea450b5df21593b3f338e177be35306e99dd3f",
+  "results": [
+    {
+      "kind": "rise",
+      "n": 1,
+      "how": "set",
+      "before": {
+        "line": 1,
+        "top": 613.796875,
+        "bottom": 642.59375,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      },
+      "rise": {
+        "line": 1,
+        "top": 234.796875,
+        "bottom": 263.59375,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 379,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "typed": {
+        "line": 1,
+        "top": 234.796875,
+        "bottom": 263.59375,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 379,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      }
+    },
+    {
+      "kind": "rise",
+      "n": 1,
+      "how": "touch",
+      "before": {
+        "line": 1,
+        "top": 573.796875,
+        "bottom": 602.59375,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 40,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      },
+      "rise": {
+        "line": 1,
+        "top": 234.796875,
+        "bottom": 263.59375,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 379,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "typed": {
+        "line": 1,
+        "top": 234.796875,
+        "bottom": 263.59375,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 379,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      }
+    },
+    {
+      "kind": "rise",
+      "n": 9,
+      "how": "set",
+      "before": {
+        "line": 9,
+        "top": 574.171875,
+        "bottom": 602.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 270,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      },
+      "rise": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "typed": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      }
+    },
+    {
+      "kind": "rise",
+      "n": 9,
+      "how": "touch",
+      "before": {
+        "line": 9,
+        "top": 574.171875,
+        "bottom": 602.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 270,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      },
+      "rise": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      },
+      "typed": {
+        "line": 9,
+        "top": 235.171875,
+        "bottom": 263.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 609,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 391,
+          "bottom": 452
+        }
+      }
+    },
+    {
+      "kind": "rise",
+      "n": 30,
+      "how": "set",
+      "before": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      },
+      "rise": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "typed": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      }
+    },
+    {
+      "kind": "rise",
+      "n": 30,
+      "how": "touch",
+      "before": {
+        "line": 30,
+        "top": 573.90625,
+        "bottom": 602.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 875,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      },
+      "rise": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      },
+      "typed": {
+        "line": 30,
+        "top": 208.90625,
+        "bottom": 237.703125,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 1240,
+          "ly-body": 0,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 339,
+          "bottom": 452
+        }
+      }
+    },
+    {
+      "kind": "visualViewport-rise",
+      "before": {
+        "line": 9,
+        "top": 574.171875,
+        "bottom": 602.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 270,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      },
+      "after": {
+        "line": 9,
+        "top": 406.171875,
+        "bottom": 434.96875,
+        "over": [],
+        "hit": "lyrics-draft",
+        "ok": true,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 438,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 655,
+          "bottom": 716
+        }
+      }
+    },
+    {
+      "kind": "guard",
+      "mode": "pinch",
+      "before": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      },
+      "after": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      }
+    },
+    {
+      "kind": "guard",
+      "mode": "queued-pinch",
+      "before": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      },
+      "after": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      }
+    },
+    {
+      "kind": "guard",
+      "mode": "unfocused",
+      "before": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      },
+      "after": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": false,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      }
+    },
+    {
+      "kind": "guard",
+      "mode": "queued-blur",
+      "before": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": true,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      },
+      "after": {
+        "line": 30,
+        "top": 574.90625,
+        "bottom": 603.703125,
+        "over": [
+          "ly-linedock"
+        ],
+        "hit": "lyrics-draft",
+        "ok": false,
+        "scroll": {
+          "surface-lyrics": 0,
+          "ly-page": 0,
+          "ly-body": 874,
+          "ly-main-scroll": 0
+        },
+        "focused": false,
+        "dock": {
+          "top": 603,
+          "bottom": 716
+        }
+      }
+    },
+    {
+      "kind": "gate",
+      "width": 390,
+      "height": 508,
+      "mode": "wheel",
+      "before": {
+        "x": 62.796875,
+        "y": -11,
+        "top": -33,
+        "bottom": 11,
+        "hit": false
+      },
+      "after": {
+        "x": 62.796875,
+        "y": 189,
+        "top": 167,
+        "bottom": 211,
+        "hit": true
+      },
+      "done": {
+        "gate": false,
+        "panel": "ly-panel-review",
+        "action": "ly-run-review",
+        "review": "review",
+        "pending": 1,
+        "draft": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "opener": {
+          "x": 190,
+          "y": 307.6875,
+          "top": 285.6875,
+          "bottom": 329.6875,
+          "hit": true
+        }
+      }
+    },
+    {
+      "kind": "gate",
+      "width": 390,
+      "height": 508,
+      "mode": "tab",
+      "before": {
+        "x": 62.796875,
+        "y": -79,
+        "top": -101,
+        "bottom": -57,
+        "hit": false
+      },
+      "after": {
+        "x": 62.796875,
+        "y": 360,
+        "top": 338,
+        "bottom": 382,
+        "hit": true
+      },
+      "done": {
+        "gate": false,
+        "panel": "ly-panel-review",
+        "action": "ly-run-review",
+        "review": "review",
+        "pending": 1,
+        "draft": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "opener": {
+          "x": 190,
+          "y": 307.6875,
+          "top": 285.6875,
+          "bottom": 329.6875,
+          "hit": true
+        }
+      }
+    },
+    {
+      "kind": "gate",
+      "width": 390,
+      "height": 844,
+      "mode": "tab",
+      "before": {
+        "x": 62.796875,
+        "y": 489,
+        "top": 467,
+        "bottom": 511,
+        "hit": true
+      },
+      "after": {
+        "x": 62.796875,
+        "y": 489,
+        "top": 467,
+        "bottom": 511,
+        "hit": true
+      },
+      "done": {
+        "gate": false,
+        "panel": "ly-panel-review",
+        "action": "ly-run-review",
+        "review": "review",
+        "pending": 1,
+        "draft": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "opener": {
+          "x": 190,
+          "y": 610.6875,
+          "top": 588.6875,
+          "bottom": 632.6875,
+          "hit": true
+        }
+      }
+    },
+    {
+      "kind": "gate",
+      "width": 1180,
+      "height": 757,
+      "mode": "tab",
+      "before": {
+        "x": 431.890625,
+        "y": 205,
+        "top": 185,
+        "bottom": 225,
+        "hit": true
+      },
+      "after": {
+        "x": 431.890625,
+        "y": 205,
+        "top": 185,
+        "bottom": 225,
+        "hit": true
+      },
+      "done": {
+        "gate": false,
+        "panel": "ly-panel-review",
+        "action": "ly-run-review",
+        "review": "review",
+        "pending": 1,
+        "draft": "[VERSE — 40 lines]\nI sing the quiet song 1\nI sing the quiet song 2\nI sing the quiet song 3\nI sing the quiet song 4\nI sing the quiet song 5\nI sing the quiet song 6\nI sing the quiet song 7\nI sing the quiet song 8\nI sing the quiet song 9\nI sing the quiet song 10\nI sing the quiet song 11\nI sing the quiet song 12\nI sing the quiet song 13\nI sing the quiet song 14\nI sing the quiet song 15\nI sing the quiet song 16\nI sing the quiet song 17\nI sing the quiet song 18\nI sing the quiet song 19\nI sing the quiet song 20\nI sing the quiet song 21\nI sing the quiet song 22\nI sing the quiet song 23\nI sing the quiet song 24\nI sing the quiet song 25\nI sing the quiet song 26\nI sing the quiet song 27\nI sing the quiet song 28\nI sing the quiet song 29\nI sing the quiet song 30\nI sing the quiet song 31\nI sing the quiet song 32\nI sing the quiet song 33\nI sing the quiet song 34\nI sing the quiet song 35\nI sing the quiet song 36\nI sing the quiet song 37\nI sing the quiet song 38\nI sing the quiet song 39\nI sing the quiet song 40",
+        "opener": {
+          "x": 998,
+          "y": 549.6875,
+          "top": 529.6875,
+          "bottom": 569.6875,
+          "hit": true
+        }
+      }
+    }
+  ],
+  "errors": []
+}

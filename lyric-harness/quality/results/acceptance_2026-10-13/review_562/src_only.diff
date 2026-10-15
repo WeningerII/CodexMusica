@@ -1,0 +1,212 @@
+diff --git a/src/pages/lyrics.css b/src/pages/lyrics.css
+index 227e33ae6..e69ecbaaa 100644
+--- a/src/pages/lyrics.css
++++ b/src/pages/lyrics.css
+@@ -1621,6 +1621,17 @@
+ #surface-lyrics .ly-page[data-size='narrow'] .ly-ipanel {
+   padding: 16px;
+ }
++/* At short heights the fixed song header can consume the entire work area.
++   Let the narrow page scroll as one document, including that header. */
++@media (max-height: 600px) {
++  #surface-lyrics .ly-page[data-size='narrow'] {
++    overflow-y: auto;
++  }
++  #surface-lyrics .ly-page[data-size='narrow'] .ly-body {
++    flex: none;
++    overflow: visible;
++  }
++}
+ @container lyrics (max-width: 767px) {
+   #surface-lyrics .ly-page[data-size='narrow'] {
+     --ly-lyric-size: 18px;
+@@ -1633,7 +1644,12 @@
+     font-size: 13px;
+   }
+   #surface-lyrics .ly-page[data-size='narrow'] .ly-table .ly-row-actions .cm-btn span {
+-    display: none;
++    position: absolute;
++    width: 1px;
++    height: 1px;
++    overflow: hidden;
++    clip: rect(0 0 0 0);
++    white-space: nowrap;
+   }
+ }
+ @container lyrics (max-width: 359px) {
+diff --git a/src/pages/lyrics.js b/src/pages/lyrics.js
+index 770c42aa7..c925205eb 100644
+--- a/src/pages/lyrics.js
++++ b/src/pages/lyrics.js
+@@ -3267,6 +3267,10 @@ function lyDraftApply(tool, target = null, { reportFailure = true } = {}) {
+     if (reportFailure) showToast('Nothing was applied. Correct the marked fields.', 'error');
+     return false;
+   }
++  // A successful rhythm commit supersedes Save rhythm's receipt for that
++  // section, including commits made through the shared Apply strip or gate.
++  if (tool === 'rhythm' && entries.some((d) => Number(d.target) === LY.picks.rhythmSaved?.k))
++    delete LY.picks.rhythmSaved;
+   for (const d of entries) delete meta.drafts[lyDraftKey(d.tool, d.target)];
+   meta.notes = notes;
+   lyCommit(
+@@ -4173,9 +4177,54 @@ function lyRenderOutlineActive() {
+     if (on) b.setAttribute('aria-current', 'true');
+     else b.removeAttribute('aria-current');
+   });
++  const nav = $ui('ly-section-nav');
++  if (LY.size === 'narrow' && model.sections.length && nav && !nav.hidden) {
++    const k = active ? active.index : 0;
++    // Update in place: caret navigation must not replace focused controls.
++    nav.querySelector('.ly-sec-pos strong').textContent = model.sections[k].title;
++    nav.querySelector('.ly-sec-pos > span').textContent = `· ${k + 1} of ${model.sections.length}`;
++    nav.querySelector('[data-ui="ly-sec-step"][data-id="-1"]').disabled = k === 0;
++    nav.querySelector('[data-ui="ly-sec-step"][data-id="1"]').disabled =
++      k >= model.sections.length - 1;
++  }
+ }
+ // The selected line's tools: beside the line when it fits, otherwise in the
+ // dock under the document, so they never cover a word of the lyrics.
++// Keyboard viewport changes must keep the focused caret above the phone controls.
++function lyRevealCaretAfterResize() {
++  const draft = lyDraft();
++  const viewport = window.visualViewport;
++  if (!draft || document.activeElement !== draft || (viewport && viewport.scale !== 1)) return;
++  const index = draft.value.slice(0, draft.selectionStart).split('\n').length - 1;
++  const row = document.querySelector(`#ly-overlay .ly-r[data-i="${index}"]`);
++  const body = $ui('ly-body');
++  // H1 lets the entire page scroll at short heights; the body then has visible overflow.
++  const scroller =
++    LY.size === 'narrow'
++      ? body && getComputedStyle(body).overflowY !== 'visible'
++        ? body
++        : $ui('ly-page')
++      : $ui('ly-main-scroll');
++  if (!row || !scroller) return;
++  const bounds = scroller.getBoundingClientRect();
++  let top = Math.max(bounds.top, viewport ? viewport.offsetTop : 0);
++  let bottom = Math.min(
++    bounds.bottom,
++    viewport ? viewport.offsetTop + viewport.height : innerHeight
++  );
++  const midpoint = (top + bottom) / 2;
++  for (const id of ['ly-linedock', 'ly-mnav']) {
++    const control = $ui(id);
++    if (!control || control.hidden) continue;
++    const obstruction = control.getBoundingClientRect();
++    if (!obstruction.height || obstruction.bottom <= top || obstruction.top >= bottom) continue;
++    if (obstruction.top > midpoint) bottom = Math.min(bottom, obstruction.top);
++    else top = Math.max(top, obstruction.bottom);
++  }
++  const rect = row.getBoundingClientRect();
++  if (bottom <= top || (rect.top >= top && rect.bottom <= bottom)) return;
++  scroller.scrollTop += rect.top - (top + Math.max(0, (bottom - top - rect.height) / 2));
++}
+ function lyPlaceLineBar() {
+   const bar = $ui('ly-linebar'),
+     dock = $ui('ly-linedock');
+@@ -4578,6 +4627,8 @@ ${lyBtn('ly-rhyme-options', 'Ask writer for rhyme options', 'pencil', { cls: 'cm
+ function lyRhymeResults() {
+   const r = LY.results.rhymes;
+   if (!r) return '';
++  // Compare at render time so edits after the reply (and restoring its version) count.
++  const stale = !!r.baseId && r.baseId !== lyIdentity(LY.model);
+   const rows = r.pairs
+     .map((p) => {
+       const kind = p.refused ? 'refused' : p.codes.length ? 'partial' : 'matched';
+@@ -4585,7 +4636,7 @@ function lyRhymeResults() {
+       return `<li data-kind="${kind}">${lyPill(kind === 'matched' ? 'success' : kind === 'partial' ? 'warning' : 'danger', word)}<span><strong>${esc(p.a)} ~ ${esc(p.b)}</strong><small>${esc(p.refused ? p.reason || 'Not judged' : p.codes.length ? `Banned: ${p.codes.join(', ')}` : p.relations.join(', ') || 'no relation')}</small></span></li>`;
+     })
+     .join('');
+-  return `<section class="ly-result" aria-labelledby="ly-rr-h"><h4 class="ly-h4" id="ly-rr-h">Rhyme options</h4><p class="ly-help">From the writer’s screen of ${esc(uiCount(r.pairs.length, 'pair'))}${r.stale ? ' · asked about an earlier version' : ''}. Nothing was inserted or declared.</p><ul class="ly-options">${rows || '<li>No pairs returned.</li>'}</ul></section>`;
++  return `<section class="ly-result" aria-labelledby="ly-rr-h"><h4 class="ly-h4" id="ly-rr-h">Rhyme options</h4><p class="ly-help">From the writer’s screen of ${esc(uiCount(r.pairs.length, 'pair'))}${stale ? ' · asked about an earlier version' : ''}. Nothing was inserted or declared.</p><ul class="ly-options">${rows || '<li>No pairs returned.</li>'}</ul></section>`;
+ }
+ 
+ // ── Pronunciation ─────────────────────────────────────────────────────────
+@@ -4679,6 +4730,7 @@ function lyToolRepeats(model) {
+   const T = 'repeats-voices',
+     G = 'song';
+   const voices = lyVal(T, G, 'voices', model.voices ? 'sung' : 'unsung');
++  const d = lyDraftOf(T, G);
+   const placed = lyVal(T, G, 'placed', []) || [];
+   const declared = lySetupOf(model, 'returns').flatMap((dd) => lyRowGroups(dd));
+   const secs = model.sections.filter((s) => s.returnOf);
+@@ -4702,7 +4754,7 @@ function lyToolRepeats(model) {
+   ];
+   return `<div class="ly-tool-view"><h4 class="ly-h4">Detected repeats</h4>${cards || '<p class="ly-help">No section returns word for word.</p>'}${lines ? `<ul class="ly-plain">${lines}</ul>` : '<p class="ly-help">No line repeats word for word.</p>'}<p class="ly-help">Found on this page by exact text. A changed final chorus is not an exact return.</p>
+ <h4 class="ly-h4">Declared returns</h4>${declared.length ? `<ul class="ly-plain">${declared.map((g) => `<li>${g.map((m) => (m.bad || m.undecided ? esc(m.raw) : `Line ${m.line}${m.explicit ? ` · ${esc(lyMemberLabel(m, 'returns'))}` : ''}`)).join(' = ')}</li>`).join('')}</ul>${lyBtn('ly-returns-clear', 'Clear declared returns', '', { cls: 'cm-btn ly-link-btn' })}<p class="ly-help">Clearing a return never deletes lyrics.</p>` : '<p class="ly-help">None declared.</p>'}
+-<details class="ly-adv"${placed.length ? ' open' : ''}><summary>Placed returns</summary><p class="ly-help">The same words at a place in different lines, e.g. a head that returns while the tail changes.</p><div class="ly-inline-field"><label class="ly-label" for="ly-placed-place">Place in line ${line}</label><select id="ly-placed-place" class="cm-select">${lyOpts(places, LY.picks.placedPlace || 'head', null)}</select>${lyBtn('ly-placed-add', 'Add', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div>${placed.length ? `<ul class="ly-members">${placed.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-placed-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>` : ''}</details>
++<details class="ly-adv"${placed.length || d?.errors?.placed ? ' open' : ''}><summary>Placed returns</summary><p class="ly-help">The same words at a place in different lines, e.g. a head that returns while the tail changes.</p><div class="ly-inline-field"><label class="ly-label" for="ly-placed-place">Place in line ${line}</label><select id="ly-placed-place" class="cm-select"${lyErr(d, 'placed')}>${lyOpts(places, LY.picks.placedPlace || 'head', null)}</select>${lyBtn('ly-placed-add', 'Add', 'plus', { cls: 'cm-btn cm-btn-outline', extra: line ? '' : 'disabled' })}</div>${lyErrText(d, 'placed')}${placed.length ? `<ul class="ly-members">${placed.map((m, i) => `<li><span>Line ${m.line}</span><span>${esc(lyMemberLabel(m))}</span><strong>“${esc(String(lyMemberWord(model, m) ?? '').slice(0, 40))}”</strong>${lyBtn('ly-placed-remove', `Remove line ${m.line}`, 'x', { id: i, cls: 'cm-btn cm-btn-icon', hideLabel: true })}</li>`).join('')}</ul>` : ''}</details>
+ <h4 class="ly-h4">Parenthesised text</h4><div class="cm-segmented ly-seg" role="group" aria-label="Parenthesised text">${lyBtn('ly-voices', 'Unsung aside', '', { id: 'unsung', cls: '', extra: `aria-pressed="${voices !== 'sung'}"` })}${lyBtn('ly-voices', 'Sung second voice', '', { id: 'sung', cls: '', extra: `aria-pressed="${voices === 'sung'}"` })}</div><p class="ly-help">Applies to the whole document. Changing it changes which words are sung, so readings and review may need renewing.</p>${parens.length ? `<ul class="ly-plain">${parens.map((r) => `<li>Line ${r.n}: ${esc(r.text.slice(0, 80))}</li>`).join('')}</ul>` : '<p class="ly-help">No line in this document has parentheses.</p>'}${lyPendingStrip(T)}</div>`;
+ }
+ 
+@@ -5285,6 +5337,17 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
+     lyShowTab('writer');
+     return false;
+   }
++  const message = LY_ACTION_TEXT[kind](args);
++  // Named actions bypass the composer, but keep its server-pinned message
++  // ceiling. Validate before resetting the existing conversation.
++  const max = $ui('chat-input')?.maxLength;
++  if (max > 0 && message.trim().length > max) {
++    showToast(
++      `Nothing was sent: this request exceeds the ${max}-character message limit. Use Edit this draft with a shorter instruction.`,
++      'error'
++    );
++    return false;
++  }
+   if (!uiSwitchChat('lyrics')) {
+     showToast('Wait for the active recipe request to finish.', 'error');
+     return false;
+@@ -5293,7 +5356,6 @@ async function lySubmitLyricsAction(kind, args = {}, { force = false } = {}) {
+   _chatReset();
+   $ui('chat-domain').value = 'lyrics-edit';
+   uiUpdatePrompt();
+-  const message = LY_ACTION_TEXT[kind](args);
+   const context = lyContext(model);
+   const previousRun = LY.run;
+   const sent = _chatSend(message, { choice: 'lyrics-edit', context });
+@@ -5347,10 +5409,8 @@ async function lyStartConversation(choice, prefill = '', { force = false } = {})
+   // Opening the shared dock selects the lyrics domain; retain the requested phase.
+   $ui('chat-domain').value = choice;
+   uiUpdatePrompt();
+-  if (prefill) {
+-    $ui('chat-input').value = prefill;
+-    _chatSyncCount();
+-  }
++  $ui('chat-input').value = prefill;
++  _chatSyncCount();
+   $ui('chat-input')?.focus();
+   return true;
+ }
+@@ -5657,6 +5717,9 @@ const LY_ACTIONS = {
+   'ly-gate-close'() {
+     LY.gate = null;
+     lyRefresh(true);
++    const opener = document.querySelector('#ly-panel-review [data-ui="ly-run-review"]');
++    opener?.scrollIntoView({ block: 'center' });
++    uiFocus(opener);
+   },
+   'ly-title-edit'() {
+     LY.titleEdit = true;
+@@ -6563,6 +6626,21 @@ function lyWire(surface) {
+         if (LY.model) lyRefresh(true);
+       } else lyPlaceLineBar();
+     }).observe(surface);
++  let revealPending = false;
++  const viewportResize = () => {
++    if (window.visualViewport && window.visualViewport.scale !== 1) return;
++    if (revealPending) return;
++    revealPending = true;
++    requestAnimationFrame(() =>
++      requestAnimationFrame(() => {
++        revealPending = false;
++        lyRevealCaretAfterResize();
++      })
++    );
++  };
++  window.addEventListener('resize', viewportResize);
++  window.visualViewport?.addEventListener('resize', viewportResize);
++  viewportResize();
+   const shellReceive = window.uiReceiveReply;
+   if (!shellReceive.lyWrapped) {
+     const wrapped = function (payload, request) {

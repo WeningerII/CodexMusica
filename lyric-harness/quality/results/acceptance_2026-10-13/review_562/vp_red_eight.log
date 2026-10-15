@@ -1,0 +1,24 @@
+{
+  "cases": 15,
+  "errors": [
+    "after rise line 1/set is obstructed",
+    "after typing line 1/set is obstructed",
+    "after rise line 1/touch is obstructed",
+    "after typing line 1/touch is obstructed",
+    "after rise line 9/set is obstructed",
+    "after typing line 9/set is obstructed",
+    "after rise line 9/touch is obstructed",
+    "after typing line 9/touch is obstructed",
+    "after rise line 30/set is obstructed",
+    "after typing line 30/set is obstructed",
+    "after rise line 30/touch is obstructed",
+    "after typing line 30/touch is obstructed",
+    "visualViewport-only keyboard rise did not reveal caret",
+    "Cancel lost panel opener 390/508/wheel",
+    "Cancel lost panel opener 390/508/tab",
+    "restored panel opener obstructed 390/508/tab",
+    "Cancel lost panel opener 390/844/tab",
+    "Cancel lost panel opener 1180/757/tab"
+  ]
+}
+exit 1

@@ -1,0 +1,7 @@
+LYRICS PAGE: FAIL — 1 problem(s):
+  ✗ gate threw during "3. waiting run, independent work": page.waitForFunction: Timeout 60000ms exceeded.
+
+real	2m32.788s
+user	0m51.483s
+sys	0m6.431s
+exit 1
