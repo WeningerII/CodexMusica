@@ -339,17 +339,45 @@ function lyPlaceWords(text, voices, place) {
     now: pick(cur.map((t) => t.text)),
   };
 }
+// The characters an undecided saved reading could have named: [{ text,
+// pieces }] in its line. A row with no saved sung-asides setting could mean
+// the occurrence under either setting -- exactly the ones its Review card
+// offers (lyVoicesCandidates) -- and a row counted under another setting
+// names the token under that setting; any other is read under the earlier
+// cut with the page's setting.
+function lyUndecidedSpans(r, voices) {
+  const line = String(r.line);
+  if (r.undecidedReason === 'voices')
+    return lyVoicesCandidates(line, r.token, !r.cut).map((c) => ({
+      text: c.word,
+      pieces: c.pieces,
+    }));
+  if (r.undecidedReason === 'setting') {
+    if (!LY_NUMBERINGS.includes(r.numbering)) return [];
+    const strip = !r.numbering.endsWith('+voices');
+    const toks = r.numbering.startsWith('v1')
+      ? CMLyricTokens.v1GraderSpans(line, strip)
+      : CMLyricTokens.readerLine(line, { stripParens: strip }).tokens;
+    const at = toks?.[r.token - 1];
+    return at && at.text === r.word ? [{ text: at.text, pieces: at.pieces }] : [];
+  }
+  const src = lyV1MigrationSpans(line, voices)?.[r.token - 1];
+  return src && src.text === r.word ? [{ text: src.text, pieces: [[src.from, src.to]] }] : [];
+}
 // Whether a reading chosen for word `token` of `line` (current cut) settles
-// the undecided saved reading `r`: same line, and the characters its earlier
-// number named overlap that word's, or -- where its earlier number no longer
-// names its own word -- the word it saved is that word.
+// the undecided saved reading `r`: same line, and that word's characters
+// overlap one the saved number could have named (lyUndecidedSpans), so either
+// occurrence a Review card offers settles it; or -- where no such occurrence
+// is left -- the word it saved is that word.
 function lyReadingSuperseded(r, line, token, voices) {
   if (!r.undecided || r.line !== line) return false;
   const tok = CMLyricTokens.readerLine(String(line), { stripParens: !voices }).tokens[token - 1];
   if (!tok) return false;
-  const old = lyV1MigrationSpans(line, voices);
-  const src = old && old[r.token - 1];
-  if (src && src.text === r.word) return tok.pieces.some(([a, b]) => a < src.to && src.from < b);
+  const spans = lyUndecidedSpans(r, voices);
+  if (spans.length)
+    return spans.some((s) =>
+      s.pieces.some(([c, d]) => tok.pieces.some(([a, b]) => a < d && c < b))
+    );
   return lyTokens(String(r.word), true).some((w) => w.toLowerCase() === tok.text.toLowerCase());
 }
 // Whether a group member is a word place numbered under the current cut.
@@ -868,7 +896,7 @@ function lyFormMigrated(done, message) {
 }
 const lyUndecidedReadings = (model) => lySetupOf(model, 'reading').filter((r) => r.undecided);
 // The occurrences a saved number could name under each sung-asides setting,
-// each shown marked in its line: [{ sung, word, shown }], one per setting
+// each shown marked in its line: [{ sung, word, pieces, shown }], one per setting
 // that has such a token. `earlier`: the number is the earlier cut's. Shown
 // side by side; the page never picks one for the writer.
 function lyVoicesCandidates(line, token, earlier) {
@@ -877,15 +905,22 @@ function lyVoicesCandidates(line, token, earlier) {
     let at = null;
     if (earlier) {
       const sp = lyV1MigrationSpans(line, sung)?.[token - 1];
-      if (sp) at = { word: sp.text, from: sp.from, to: sp.to };
+      if (sp) at = { word: sp.text, from: sp.from, to: sp.to, pieces: [[sp.from, sp.to]] };
     } else {
       const t = CMLyricTokens.readerLine(line, { stripParens: !sung }).tokens[token - 1];
-      if (t) at = { word: t.text, from: t.pieces[0][0], to: t.pieces[t.pieces.length - 1][1] };
+      if (t)
+        at = {
+          word: t.text,
+          from: t.pieces[0][0],
+          to: t.pieces[t.pieces.length - 1][1],
+          pieces: t.pieces,
+        };
     }
     if (at)
       out.push({
         sung,
         word: at.word,
+        pieces: at.pieces,
         shown: `${line.slice(0, at.from)}[${line.slice(at.from, at.to)}]${line.slice(at.to)}`,
       });
   }

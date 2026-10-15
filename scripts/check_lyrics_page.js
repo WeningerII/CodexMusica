@@ -827,6 +827,56 @@ function unitVoicesBasis() {
     run('LY_MEMBER_MARKERS.every(([m]) => !/[,;]|—/.test(m))'),
     'a member marker holds a separator'
   );
+  // 10. Choose again settles the row on either occurrence its card offers,
+  // and nothing else: a word it does not offer leaves it standing, and an
+  // undecided row on another line stays (3PO #519 6197433772).
+  const other = 'ah (ah) ah';
+  const choose = (text, line, token, w) =>
+    run(
+      `LY_FORMS.pronunciation.apply(lyParse(__t), lyReadingKey(__l, __k, __w),
+        { kind: 'declared', phones: 'OW1', source: 'the singer' }).text`,
+      { __t: text, __l: line, __k: token, __w: w }
+    );
+  const legacyEcho = run('lyMigrateSavedReadings(__t).text', {
+    __t: `[SETUP — reading — token 2 "oh" in ${JSON.stringify(echo)} — OW1 — declared — source: the singer]\n[SETUP — voices — sung]\n\n[VERSE]\n${echo}`,
+  });
+  check(
+    legacyEcho.split('\n')[0].includes('no saved setting for sung asides'),
+    `the legacy echo row was not blocked for the sung-asides reason: ${legacyEcho.split('\n')[0]}`
+  );
+  for (const [label, row, voices, token] of [
+    ['cut v2, sung, outside oh', reading(2, 'oh', echo), true, 3],
+    ['cut v2, sung, parenthesized oh', reading(2, 'oh', echo), true, 2],
+    ['cut v2, not sung, outside oh', reading(2, 'oh', echo), false, 2],
+    ['earlier cut, sung, outside oh', legacyEcho.split('\n')[0], true, 3],
+    ['earlier cut, sung, parenthesized oh', legacyEcho.split('\n')[0], true, 2],
+  ]) {
+    const text = `${row}\n${reading(2, 'ah', other)}\n${voices ? '[SETUP — voices — sung]\n' : ''}\n[VERSE]\n${echo}\n${other}`;
+    const before = wire(text);
+    check(
+      (before.readings_need_decision || []).length === 2,
+      `${label}: expected two undecided readings before choosing: ${JSON.stringify(before)}`
+    );
+    const out = choose(text, echo, token, 'oh');
+    const w = wire(out);
+    const need = (w.readings_need_decision || []).map((x) => x.line);
+    check(
+      JSON.stringify(need) === JSON.stringify([other]) &&
+        (w.pronunciations || []).length === 1 &&
+        w.pronunciations[0].line === echo,
+      `${label}: Choose again did not settle exactly its row: ${JSON.stringify(w)}`
+    );
+  }
+  const offside = choose(
+    `${reading(2, 'oh', echo)}\n[SETUP — voices — sung]\n\n[VERSE]\n${echo}`,
+    echo,
+    1,
+    'oh'
+  );
+  check(
+    (wire(offside).readings_need_decision || []).length === 1,
+    `choosing a word the card does not offer removed the undecided row: ${offside.split('\n').slice(0, 3).join(' | ')}`
+  );
   // 6. The page path: an undecided row stops the send and keeps its bytes.
   const stored = song([bare], true);
   draft.value = stored;
@@ -3846,6 +3896,63 @@ async function browserChecks(chromium) {
           r.text.includes(r.row) && r.decl?.[0]?.token === 2,
           `the re-imported reading moved: ${JSON.stringify(r.decl)}`
         );
+        await ctx.close();
+      }
+    });
+
+    // ── 9b2. Choose again on a reading with no saved sung-asides setting,
+    // clicked through the shipped page: either occurrence its Review card
+    // offers settles that row, and only that row (3PO #519 6197433772) ─────
+    await step('9b2. choose again on an undecided reading', async () => {
+      const ECHO = 'oh (oh) oh love';
+      const OTHER = 'ah (ah) ah';
+      const row = (word, line) =>
+        `[SETUP — reading — token 2 ${JSON.stringify(word)} in ${JSON.stringify(line)} — OW1 — declared — source: the singer — cut v2]`;
+      const text = `${row('oh', ECHO)}\n${row('ah', OTHER)}\n[SETUP — voices — sung]\n\n[VERSE]\n${ECHO}\n${OTHER}`;
+      // Chip k of line 1 is token k+1 with asides sung: 1 is the
+      // parenthesized "oh", 2 the outside third one.
+      for (const [label, chip, token] of [
+        ['parenthesized oh', 1, 2],
+        ['outside oh', 2, 3],
+      ]) {
+        const { ctx, page, q } = await boot();
+        await setDraft(page, text);
+        const review = await pane(page, 'review');
+        check(
+          review.includes('oh ([oh]) oh love') && review.includes('oh (oh) [oh] love'),
+          `${label}: the Review card does not offer both occurrences`
+        );
+        await page
+          .locator('#ly-panel-review [data-ui="ly-tool"][data-id="pronunciation"]')
+          .first()
+          .click();
+        await page.locator('[data-ui="ly-reading-pick"]').nth(chip).click();
+        await page.locator('[data-ui="ly-reading-kind"][data-id="declared"]').click();
+        await page.fill('#ly-phones', 'OW1');
+        await page.fill('#ly-source', 'the singer');
+        await page.locator('[data-ui="ly-draft-apply"][data-id="pronunciation"]').click();
+        const st = await page.evaluate(() => {
+          const d = lyDeclarationsOf(lyParse($ui('lyrics-draft').value));
+          return {
+            pron: d.pronunciations || [],
+            need: (d.readings_need_decision || []).map((x) => x.line),
+            cards: LY.items.filter((i) => /^reading:/.test(i.id)).map((i) => i.title),
+          };
+        });
+        check(
+          st.pron.length === 1 &&
+            st.pron[0].line === ECHO &&
+            st.pron[0].token === token &&
+            JSON.stringify(st.need) === JSON.stringify([OTHER]),
+          `${label}: Choose again left ${JSON.stringify(st)}`
+        );
+        check(
+          st.cards.length === 1 && st.cards[0].includes(OTHER),
+          `${label}: Review still shows ${JSON.stringify(st.cards)}`
+        );
+        const calls = q.calls.length;
+        await page.evaluate(async () => LY_ACTIONS['ly-run-review']());
+        check(q.calls.length === calls, `${label}: the other undecided reading stopped no send`);
         await ctx.close();
       }
     });
