@@ -110,6 +110,7 @@
       maps.length > 0 &&
       maps.every(
         (m, i) =>
+          m &&
           range(sourceText || '', m.sourceStart, m.sourceEnd) &&
           range(text, m.start, m.end) &&
           m.sourceEnd - m.sourceStart === m.end - m.start &&
@@ -186,7 +187,7 @@
       ) {
         const parts = [];
         for (const r of ranges) {
-          const [a, b] = r?.utf16_range || [];
+          const [a, b] = Array.isArray(r?.utf16_range) ? r.utf16_range : [];
           if (r?.precision !== 'exact' || !range(sourceText, a, b)) break;
           const m = maps.find((m) => m.sourceStart <= a && b <= m.sourceEnd);
           if (!m) break;
@@ -291,6 +292,18 @@
       }),
     };
   }
+  const navigationReason = (reason) =>
+    ({
+      'document-mismatch': 'Your draft changed; your edits are kept. Stay here to end inspection.',
+      'invalid-origin':
+        'The original selection can no longer be restored. Stay here to end inspection.',
+      'editor-not-available': 'Open Song and close the dialog before navigating.',
+      'split-grapheme': 'This range cannot be selected exactly.',
+      'choose-part': 'Choose an explicit endpoint part.',
+    })[reason] || reason;
+  function lyRelationSessionExpand(session) {
+    return { ...session, expanded: true };
+  }
   function lyRelationSessionOpen(view, origin, previousPanel = null, sourceOccurrence = null) {
     return {
       armed: true,
@@ -313,10 +326,10 @@
   function lyRelationSessionSelect(session, view, pairId, side, partIndex) {
     const pair = view.pairs.find((p) => p.id === pairId);
     if (!session?.armed || !pair || !['a', 'b'].includes(side))
-      return { ...session, reason: 'Pair is unavailable.' };
+      return { ...session, selected: null, reason: 'Pair is unavailable.' };
     const occurrence = view.occurrences[pair[side]];
     if (!Number.isInteger(partIndex) || partIndex < 0 || partIndex >= occurrence.parts.length)
-      return { ...session, reason: 'Choose an explicit endpoint part.' };
+      return { ...session, selected: null, reason: 'Choose an explicit endpoint part.' };
     return { ...session, selected: { pairId, side, partIndex }, reason: '' };
   }
   function lyRelationSessionGo(session, view, hooks) {
@@ -343,10 +356,11 @@
       reason:
         result === true || result?.ok === true
           ? ''
-          : result?.reason || 'The editor could not reveal this part.',
+          : navigationReason(result?.reason) || 'The editor could not reveal this part.',
     };
   }
   function lyRelationSessionReturn(session, hooks) {
+    if (session?.returnUnavailable) return session;
     if (!session?.armed || !session.origin)
       return {
         ...session,
@@ -356,8 +370,11 @@
     if (result !== true && result?.ok !== true)
       return {
         ...session,
+        returnUnavailable:
+          ['document-mismatch', 'invalid-origin'].includes(result?.reason) ||
+          /changed/i.test(result?.reason || ''),
         reason:
-          result?.reason ||
+          navigationReason(result?.reason) ||
           'The origin changed. Stay here to keep your current edits and position.',
       };
     return { ...session, armed: false, listOpen: false, origin: null, selected: null, reason: '' };
@@ -377,7 +394,7 @@
     if (!session?.armed)
       return '<button type="button" data-ui="ly-relations"><span aria-hidden="true">↔</span> Relations</button>';
     const source = view.occurrences[session.sourceOccurrence]?.text || 'Selected relation';
-    return `<span>${esc(source)}</span><button type="button" data-ui="ly-relation-reopen"><span aria-hidden="true">↔</span> Back to relations</button><button type="button" data-ui="ly-relation-return"><span aria-hidden="true">↩</span> Return to editing</button>`;
+    return `<span>${esc(source)}</span><button type="button" data-ui="ly-relation-reopen"><span aria-hidden="true">↔</span> Back to relations</button><button type="button" data-ui="ly-relation-return"${session.returnUnavailable ? ' disabled' : ''}><span aria-hidden="true">↩</span> Return to editing</button>`;
   }
   function lyRelationInspectorMarkup(view, session) {
     const status = view.coverage.status || 'unavailable';
@@ -393,7 +410,8 @@
     const partners = new Set(
       listed.flatMap((p) => [p.a, p.b]).filter((id) => id !== session?.sourceOccurrence)
     );
-    const rows = listed
+    const visible = session?.expanded ? listed : listed.slice(0, 3);
+    const rows = visible
       .map((pair) => {
         const endpoints = ['a', 'b']
           .map((side) => {
@@ -414,7 +432,7 @@
         return `<li data-relation-id="${esc(pair.id)}"${session?.selected?.pairId === pair.id ? ' aria-current="true"' : ''}><p>${pair.types.map((t) => `${esc(t.schema)} · ${esc(t.verdict)}`).join('; ')}</p>${endpoints}</li>`;
       })
       .join('');
-    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${esc(view.reason)}</p><p>Measured schema instances; candidate options and declared Scheme are separate.</p>${view.population ? `<p>Population: ${esc(view.population.scope)}. Whole figures and alternative-reading witness searches are not included.</p>` : ''}<ol>${rows}</ol><p role="status">${esc(session?.reason)}</p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return">Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
+    return `<section aria-label="Relations"><h3>Relations</h3>${session?.sourceOccurrence ? `<p>Source: ${esc(view.occurrences[session.sourceOccurrence]?.text || 'unplaced occurrence')} · ${listed.length} reported pairs · ${partners.size} partner occurrences</p>` : ''}<p role="status">${esc(summary)} ${esc(view.reason)}</p><p>Measured schema instances; candidate options and declared Scheme are separate.</p>${view.population ? `<p>Population: ${esc(view.population.scope)}. Whole figures and alternative-reading witness searches are not included.</p>` : ''}<ol>${rows}</ol>${visible.length < listed.length ? `<button type="button" data-ui="ly-relation-expand">Show all ${listed.length} pairs</button>` : ''}<p role="status">${esc(session?.reason)}</p><button type="button" data-ui="ly-relation-close">Close</button><button type="button" data-ui="ly-relation-return"${session?.returnUnavailable ? ' disabled' : ''}>Return to editing origin</button>${session?.previousPanel ? '<button type="button" data-ui="ly-relation-back">Back to previous panel</button>' : ''}<button type="button" data-ui="ly-relation-stay">Stay here and end inspection</button></section>`;
   }
   Object.assign(globalThis, {
     lyRelationBindReport,
@@ -423,6 +441,7 @@
     lyRelationOccurrenceChoices,
     lyRelationWritingMarks,
     lyRelationSessionOpen,
+    lyRelationSessionExpand,
     lyRelationSessionClose,
     lyRelationSessionReopen,
     lyRelationSessionSelect,

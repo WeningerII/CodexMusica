@@ -53,6 +53,7 @@ session = lyRelationSessionOpen(view, origin, actualPreviousPanel, sourceOccurre
 | `data-ui` | Action |
 | --- | --- |
 | `ly-relation-go` | Read `data-pair`, `data-side`, integer `data-part`; call `lyRelationSessionSelect`, close modal/reveal Song, then `lyRelationSessionGo(session, freshView, {go: lyGoToRangeParts})`. |
+| `ly-relation-expand` | `lyRelationSessionExpand(session)`; show every delivered pair in the selected population; preserve this expansion across jumps and Close/reopen. |
 | `ly-relation-close` / Escape | `lyRelationSessionClose(session)`; dismiss list, retain armed session and current location. |
 | `ly-relation-reopen` | `lyRelationSessionReopen(session)`; reopen the same source/list without recapturing origin. |
 | `ly-relation-return` | Close modal/reveal Song, then `lyRelationSessionReturn(session, {restore: lyRestoreWritingOrigin})`. On refusal show `session.reason` and Stay here, retaining current edits/selection/scroll. |

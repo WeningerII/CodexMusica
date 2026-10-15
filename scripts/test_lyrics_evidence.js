@@ -246,3 +246,61 @@ test('writing hook shape isolates a selected pair and clears same-text stale mar
   f.context.document.semanticId = 'declaration-only-change';
   assert.equal(api.lyRelationWritingMarks(f.view(), session), null);
 });
+
+test('binding uses supplied sung-row ordinals, never searches repeated spellings', () => {
+  const f = fixture();
+  const raw = '[VERSE]\n  cat bat cat  \nhat';
+  const rows = raw.split('\n').map((raw, i) => ({ raw, text: raw.trim(), i }));
+  const model = { text: raw, rows, sung: rows.slice(1) };
+  const binding = api.lyRelationBindReport(f.evidence, {
+    model,
+    requestId: 'request-fixture',
+    semanticId: 'semantic-fixture',
+    readerScheme: 'v2',
+    voices: true,
+  });
+  assert(binding);
+  assert.equal(binding.sourceMap[0].start, 10);
+  f.context.binding = binding;
+  f.context.document.text = raw;
+  assert(f.view().pairs.some((p) => p.canGo));
+  model.sung = [rows[2], rows[1]];
+  assert.equal(api.lyRelationBindReport(f.evidence, { model, requestId: 'request-fixture' }), null);
+});
+
+test('expansion survives Close/reopen and invalid selections cannot reuse an earlier target', () => {
+  const f = fixture(),
+    view = f.view(),
+    pair = view.pairs.find((p) => p.canGo);
+  let session = api.lyRelationSessionOpen(view, { text: view.document.text });
+  assert.match(api.lyRelationInspectorMarkup(view, session), /Show all/);
+  session = api.lyRelationSessionExpand(session);
+  session = api.lyRelationSessionReopen(api.lyRelationSessionClose(session));
+  const html = api.lyRelationInspectorMarkup(view, session);
+  assert.equal((html.match(/data-relation-id=/g) || []).length, view.pairs.length);
+  session = api.lyRelationSessionSelect(session, view, pair.id, 'a', 0);
+  session = api.lyRelationSessionSelect(session, view, 'missing', 'a', 0);
+  assert.equal(session.selected, null);
+  api.lyRelationSessionGo(session, view, {
+    go: () => {
+      throw Error('must not reuse prior selection');
+    },
+  });
+  session = api.lyRelationSessionReturn(session, {
+    restore: () => ({ ok: false, reason: 'document-mismatch' }),
+  });
+  assert(session.returnUnavailable);
+  assert.match(
+    api.lyRelationInspectorMarkup(view, session),
+    /Your draft changed; your edits are kept/
+  );
+  assert.match(
+    api.lyRelationInspectorMarkup(view, session),
+    /data-ui="ly-relation-return" disabled/
+  );
+  api.lyRelationSessionReturn(session, {
+    restore: () => {
+      throw Error('must not repeat invalid restore');
+    },
+  });
+});
