@@ -1,0 +1,33 @@
+# P-A live acceptance probe -- live deployed page, headless Chromium, requests intercepted
+# Folder: /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/live_pa
+# Date: 2026-10-15. Node v22, playwright 1.60.0 from /home/user/CodexMusica/node_modules,
+# Chromium /opt/pw-browsers/chromium-1194/chrome-linux/chrome, proxy = $HTTPS_PROXY.
+
+cd /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/live_pa
+
+# 1. Live codex.html vs b887e5eff
+curl -sS -D live_codex.headers -o live_codex.html https://codexmusica.com/codex.html
+sha256sum live_codex.html                                   # 9b7630908b750eab4dcf1ee29fe708a8ca71957f4e9dce5d33b79318989e4ec4
+git -C /home/user/CodexMusica show b887e5eff:codex.html | sha256sum   # 9b7630908b750eab4dcf1ee29fe708a8ca71957f4e9dce5d33b79318989e4ec4
+# (the browser run also hashes the document it actually loaded: run_*.json .document.sha256)
+
+# 2. Live browser probe (both directions). Every URL containing '/chat' or on mcp.codexmusica.com
+#    is recorded then route.abort()'d; nothing continued/fulfilled. Service workers blocked.
+NODE_EXTRA_CA_CERTS=/root/.ccr/ca-bundle.crt node live_pa.js out off-to-sung sung-to-off | tee out_console.log
+#   -> out/run_off-to-sung.json, out/run_sung-to-off.json, out/live_pa_all.json
+
+# 3. Offline token table for the line (b887e5eff's own src/lyric-tokens.js + src/pages/lyrics.js in a node VM)
+mkdir -p b887tree/src/pages
+git -C /home/user/CodexMusica show b887e5eff:src/lyric-tokens.js > b887tree/src/lyric-tokens.js
+git -C /home/user/CodexMusica show b887e5eff:src/pages/lyrics.js > b887tree/src/pages/lyrics.js
+node tokens_b887.js b887tree | tee tokens_b887.txt
+
+# Steps inside live_pa.js, per direction (fresh browser context each):
+#  a. goto https://codexmusica.com/codex.html#lyrics, wait for UI.ready && LY.model
+#  b. UI: locator('#lyrics-draft').fill(draft) + blur   (draft = legacy row [+ voices row for sung-to-off] + 2 lines)
+#  c. UI: click '.ly-head [data-ui="ly-run-review"]'  -> POST /chat captured and aborted (send 1)
+#  d. NON-UI: page.evaluate: chatState.pending = null; chatState.disconnected = null; _chatSave(); lyRefresh(true)
+#     (the aborted POST leaves an unknown-outcome pending request; the page refuses a new request over it)
+#  e. UI: click Tools tab [data-ui=ly-tab][data-id=tools] -> tool row [data-ui=ly-tool][data-id=repeats-voices]
+#        -> [data-ui=ly-voices][data-id=sung|unsung] -> [data-ui=ly-draft-apply][data-id=repeats-voices]
+#  f. UI: click Run review again -> POST /chat captured and aborted (send 2)

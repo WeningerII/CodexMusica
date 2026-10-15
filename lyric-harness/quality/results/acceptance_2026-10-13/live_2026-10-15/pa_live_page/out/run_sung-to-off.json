@@ -1,0 +1,231 @@
+{
+ "direction": "sung-to-off",
+ "intercepted": [
+  {
+   "t": "2026-10-15T15:59:47.382Z",
+   "method": "GET",
+   "url": "https://mcp.codexmusica.com/chat/status",
+   "postData": null
+  },
+  {
+   "t": "2026-10-15T15:59:47.793Z",
+   "method": "POST",
+   "url": "https://mcp.codexmusica.com/chat",
+   "postData": "{\"message\":\"Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.\",\"request_id\":\"124f715bba0e44fef533e71c56c35679846278840bb07e66b3839e2d8aac23bd\",\"task\":{\"domain\":\"lyrics\",\"phase\":\"edit\"},\"lyric_context\":{\"version\":1,\"document\":\"Oh--oh, (ah) oh my love\\na song for us above\",\"declarations\":{\"groups\":\"1.T5,2.end\",\"numbering\":\"v2+voices\",\"voices\":true},\"brief\":\"\",\"notes\":[],\"binding\":{\"document_sha256\":\"9a238cc7439195c29ad49b42f7c34e9d6fad989eff4f3688a083abda7a54c55b\",\"context_sha256\":\"bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20\"}}}"
+  },
+  {
+   "t": "2026-10-15T15:59:47.815Z",
+   "method": "GET",
+   "url": "https://mcp.codexmusica.com/chat/jobs/124f715bba0e44fef533e71c56c35679846278840bb07e66b3839e2d8aac23bd",
+   "postData": null
+  },
+  {
+   "t": "2026-10-15T15:59:49.457Z",
+   "method": "POST",
+   "url": "https://mcp.codexmusica.com/chat",
+   "postData": "{\"message\":\"Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.\",\"request_id\":\"af0698d0ffe01b4b51c9e939a1aa4722ec625c4246280c55c766d3b11352d61f\",\"task\":{\"domain\":\"lyrics\",\"phase\":\"edit\"},\"lyric_context\":{\"version\":1,\"document\":\"Oh--oh, (ah) oh my love\\na song for us above\",\"declarations\":{\"groups\":\"1.T5,2.end\",\"numbering\":\"v2\"},\"brief\":\"\",\"notes\":[],\"binding\":{\"document_sha256\":\"19036e93deccaaabff03896be6fc3c25d4fabe876544201fb40f4831c6ee5d3d\",\"context_sha256\":\"bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20\"}}}"
+  },
+  {
+   "t": "2026-10-15T15:59:49.466Z",
+   "method": "GET",
+   "url": "https://mcp.codexmusica.com/chat/jobs/af0698d0ffe01b4b51c9e939a1aa4722ec625c4246280c55c766d3b11352d61f",
+   "postData": null
+  }
+ ],
+ "completed_blocked": [],
+ "failed_blocked": [
+  {
+   "method": "GET",
+   "url": "https://mcp.codexmusica.com/chat/status",
+   "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+  },
+  {
+   "method": "POST",
+   "url": "https://mcp.codexmusica.com/chat",
+   "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+  },
+  {
+   "method": "GET",
+   "url": "https://mcp.codexmusica.com/chat/jobs/124f715bba0e44fef533e71c56c35679846278840bb07e66b3839e2d8aac23bd",
+   "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+  },
+  {
+   "method": "POST",
+   "url": "https://mcp.codexmusica.com/chat",
+   "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+  },
+  {
+   "method": "GET",
+   "url": "https://mcp.codexmusica.com/chat/jobs/af0698d0ffe01b4b51c9e939a1aa4722ec625c4246280c55c766d3b11352d61f",
+   "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+  }
+ ],
+ "all_requests": 11,
+ "page_errors": [],
+ "console_errors": [
+  "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+  "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+  "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+  "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+  "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector"
+ ],
+ "steps": [
+  {
+   "step": "draft typed into #lyrics-draft (fill + blur)",
+   "rows": [
+    "[SETUP — rhyme groups — 1.T4,2.end]",
+    "[SETUP — voices — parentheses are sung]"
+   ]
+  },
+  {
+   "step": "send 1: Run review clicked",
+   "chat_posts": 1,
+   "declarations": {
+    "groups": "1.T5,2.end",
+    "numbering": "v2+voices",
+    "voices": true
+   },
+   "lyric_context_keys": [
+    "version",
+    "document",
+    "declarations",
+    "brief",
+    "notes",
+    "binding"
+   ],
+   "task": {
+    "domain": "lyrics",
+    "phase": "edit"
+   },
+   "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+   "rows_after": [
+    "[SETUP — rhyme groups — 1.T5,2.end — cut v2]",
+    "[SETUP — voices — parentheses are sung]"
+   ],
+   "editor_after": "[SETUP — rhyme groups — 1.T5,2.end — cut v2]\n[SETUP — voices — parentheses are sung]\nOh--oh, (ah) oh my love\na song for us above",
+   "gate_open": false,
+   "chat_log_tail": [
+    "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.The response was interrupted. Checking the saved request before continuing…Failed to fetch"
+   ]
+  },
+  {
+   "step": "NON-UI: cleared chatState.pending/disconnected left by the aborted POST",
+   "pending_before": {
+    "request_id": "124f715bba0e44fef533e71c56c35679846278840bb07e66b3839e2d8aac23bd",
+    "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+    "domain": "lyrics",
+    "created_at": 1792079987779
+   }
+  },
+  {
+   "step": "voices set unsung via Tools > Repeats & voices > \"Unsung aside\" > apply",
+   "rows": [
+    "[SETUP — rhyme groups — 1.T5,2.end — cut v2]"
+   ],
+   "editor": "[SETUP — rhyme groups — 1.T5,2.end — cut v2]\nOh--oh, (ah) oh my love\na song for us above",
+   "voices_model": false
+  },
+  {
+   "step": "send 2: Run review clicked",
+   "chat_posts": 1,
+   "declarations": {
+    "groups": "1.T5,2.end",
+    "numbering": "v2"
+   },
+   "lyric_context_keys": [
+    "version",
+    "document",
+    "declarations",
+    "brief",
+    "notes",
+    "binding"
+   ],
+   "task": {
+    "domain": "lyrics",
+    "phase": "edit"
+   },
+   "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+   "rows_after": [
+    "[SETUP — rhyme groups — 1.T5,2.end — cut v2]"
+   ],
+   "editor_after": "[SETUP — rhyme groups — 1.T5,2.end — cut v2]\nOh--oh, (ah) oh my love\na song for us above",
+   "gate_open": false,
+   "chat_log_tail": [
+    "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.The response was interrupted. Checking the saved request before continuing…Failed to fetch"
+   ]
+  }
+ ],
+ "document": {
+  "url": "https://codexmusica.com/codex.html",
+  "status": 200,
+  "bytes": 1285474,
+  "sha256": "9b7630908b750eab4dcf1ee29fe708a8ca71957f4e9dce5d33b79318989e4ec4",
+  "last_modified": "Thu, 15 Oct 2026 02:33:24 GMT",
+  "etag": "W/\"6ad03b74-139d62\""
+ },
+ "build": {
+  "engine": "83ed4a2938b9c2360bf9941d81fe811f214ae94a",
+  "chat_backend": "https://mcp.codexmusica.com",
+  "location": "https://codexmusica.com/codex.html#lyrics"
+ },
+ "send1": {
+  "step": "send 1: Run review clicked",
+  "chat_posts": 1,
+  "declarations": {
+   "groups": "1.T5,2.end",
+   "numbering": "v2+voices",
+   "voices": true
+  },
+  "lyric_context_keys": [
+   "version",
+   "document",
+   "declarations",
+   "brief",
+   "notes",
+   "binding"
+  ],
+  "task": {
+   "domain": "lyrics",
+   "phase": "edit"
+  },
+  "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+  "rows_after": [
+   "[SETUP — rhyme groups — 1.T5,2.end — cut v2]",
+   "[SETUP — voices — parentheses are sung]"
+  ],
+  "editor_after": "[SETUP — rhyme groups — 1.T5,2.end — cut v2]\n[SETUP — voices — parentheses are sung]\nOh--oh, (ah) oh my love\na song for us above",
+  "gate_open": false,
+  "chat_log_tail": [
+   "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.The response was interrupted. Checking the saved request before continuing…Failed to fetch"
+  ]
+ },
+ "send2": {
+  "step": "send 2: Run review clicked",
+  "chat_posts": 1,
+  "declarations": {
+   "groups": "1.T5,2.end",
+   "numbering": "v2"
+  },
+  "lyric_context_keys": [
+   "version",
+   "document",
+   "declarations",
+   "brief",
+   "notes",
+   "binding"
+  ],
+  "task": {
+   "domain": "lyrics",
+   "phase": "edit"
+  },
+  "message": "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.",
+  "rows_after": [
+   "[SETUP — rhyme groups — 1.T5,2.end — cut v2]"
+  ],
+  "editor_after": "[SETUP — rhyme groups — 1.T5,2.end — cut v2]\nOh--oh, (ah) oh my love\na song for us above",
+  "gate_open": false,
+  "chat_log_tail": [
+   "Review the committed document in the page context against its section headers and exact declarations: recover it, check it, and report every finding, what could not be judged and what input is missing. Do not rewrite anything.The response was interrupted. Checking the saved request before continuing…Failed to fetch"
+  ]
+ }
+}
