@@ -1,0 +1,32 @@
+{
+ "390x508": {
+  "open": {
+   "gate": true,
+   "applyTop": -316,
+   "vh": 508
+  },
+  "after": {
+   "ui": "BODY",
+   "inTools": false,
+   "inHead": false,
+   "top": 0,
+   "bottom": 508,
+   "vh": 508
+  }
+ },
+ "390x844": {
+  "open": {
+   "gate": true,
+   "applyTop": 415,
+   "vh": 844
+  },
+  "after": {
+   "ui": "BODY",
+   "inTools": false,
+   "inHead": false,
+   "top": 0,
+   "bottom": 844,
+   "vh": 844
+  }
+ }
+}

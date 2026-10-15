@@ -1,0 +1,12 @@
+# rev2 commands (PR #562 head 7b5b3254). S=scratchpad, R2=$S/review_562/rev2
+git -C /home/user/CodexMusica fetch origin 7b5b3254f808f9deac04bb9cbddf4cb112cc77e1
+git -C /home/user/CodexMusica worktree add -f $S/wt-562b 7b5b3254f808f9deac04bb9cbddf4cb112cc77e1
+ln -s /home/user/CodexMusica/node_modules $S/wt-562b/node_modules; cp $S/wt-main2/lyric-harness/cmudict.dict $S/wt-562b/lyric-harness/
+(cd $S/wt-562b && time node scripts/check_lyrics_page.js) > $R2/full_562b.log 2>&1   # NODE_PATH=/home/user/CodexMusica/node_modules PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
+(cd $S/wt-562b && TEST_EVIDENCE=$R2/gate_green node scripts/check_lyrics_gate.js) > $R2/gate_green.log 2>&1
+(cd $S/wt-562b && TEST_HTML=$S/wt-562/codex.html TEST_EVIDENCE=$R2/gate_red_1b819 node scripts/check_lyrics_gate.js) > $R2/gate_red_1b819.log 2>&1   # red control: 1b819d58 bundle (90431a92)
+(cd $S/wt-562b && TEST_EVIDENCE=$R2/vp_green node scripts/check_lyrics_viewport.js) > $R2/vp_green.log 2>&1
+(cd $S/wt-562b && node scripts/build_html.js --out=$R2/codex_562b_rebuilt.html --check --quiet; cmp $R2/codex_562b_rebuilt.html codex.html)
+(cd $S/wt-562b && node_modules/.bin/eslint src/pages/lyrics.js scripts/check_lyrics_page.js scripts/check_lyrics_viewport.js scripts/check_lyrics_gate.js; node_modules/.bin/prettier --check src/pages/lyrics.js src/pages/lyrics.css scripts/*.js docs/evidence ...) > $R2/lint.log
+node $R/probes/probe.js $S/wt-562b pr562b > $R2/probe_562b.json   # same probe script as rev1
+node $R2/probe_tools_callout.js $S/wt-562b > $R2/probe_tools_callout_562b.json; node $R2/probe_tools_callout.js $S/wt-562 > $R2/probe_tools_callout_1b819.json
