@@ -1,0 +1,48 @@
+{
+  "run": 38781035572,
+  "component_head": "9ab789f0b854675f4b99ce6898d7bd63b9c5506b",
+  "ci_merge_commit": "ffd0dd41009c32b92dcc785f7dde3ce885f1d47c",
+  "jobs": {
+    "verbs5": {
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/38781035572/job/116584653688",
+      "failure": "test_every_test_file_is_accounted_for_by_ci: 125 on disk, 124 accounted for; ORPHANS: [schema_instance_evidence]",
+      "other_assertions": "No other failures in this job; 1 FAILING rollup."
+    },
+    "record": {
+      "url": "https://github.com/WeningerII/CodexMusica/actions/runs/38781035572/job/116584652668",
+      "failures": [
+        "public symbols: committed1742/production436/tests511 versus measured1744/production437/tests512",
+        "lyric map is out of date: files"
+      ]
+    }
+  },
+  "same_assets_reproduction": {
+    "base_3ff4aff7": {
+      "census": "PASS124/124",
+      "symbol_table_matches_measurement": true
+    },
+    "head_9ab789": {
+      "census": "FAIL125/124; schema_instance_evidence orphan",
+      "symbol_table_matches_measurement": false
+    },
+    "integration_61b84515ec93a6ecc86f7740cc797d70a40e4eca": {
+      "census": "FAIL125/124; same orphan",
+      "symbol_table_matches_measurement": false,
+      "map": "Regenerated; committed final-map-check.txt says lyric map is current. No new local full-map run claimed."
+    },
+    "assets": "Same pinned runtime/staged assets. Failing census and symbol-reference checks are static; no lexicon or grading comparison is involved."
+  },
+  "symbol_delta": {
+    "quality.schema_instance_evidence.for_grade": "PRODUCTION",
+    "quality.schema_instance_evidence.from_stream": "TESTS"
+  },
+  "fix": {
+    "ci": "Add schema_instance_evidence to existing runnable Python suite list; label109->110",
+    "census_after": "PASS125/125; label110/list110; adversarial census controls pass",
+    "producer_suite": "9 tests PASS, invoked directly as CI does",
+    "counter": "Repository counters.measure/write_table/check; generated public-symbol row only",
+    "map": "Keep integration-owned combined map; component map remains stale until regenerated for its own tree.",
+    "counter_validation": "Full counters.py --check reproduced exactly one stale public-symbol row. Repository measure/write_table/check regenerated only that row; post-write check returned no findings using the same complete measured results."
+  },
+  "conclusion": "No producer/transport behavioral failure in these logs; real CI-registration and generated-record omissions, not superseded by integration61."
+}

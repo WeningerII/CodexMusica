@@ -1,0 +1,16 @@
+check_payload_budget — bytes after gzip -6 (Node zlib level 6)
+  budget              gzip      limit
+  page             368,083    389,120  95%                /tmp/musica-payload/codex.html
+  critical         658,568    710,656  93%                /tmp/musica-payload/codex.html + /workspace/musica-ui-eight/api/browse_boot.json
+  inline-data       74,525     86,016  87%                6 labelled data <script> blocks, concatenated
+  engine           712,192    778,240  92%                /workspace/musica-ui-eight/api/engine.json
+  add-path       1,370,760  1,399,808  98%                /tmp/musica-payload/codex.html + /workspace/musica-ui-eight/api/browse_boot.json + /workspace/musica-ui-eight/api/engine.json
+  library-stub       2,709      4,096  66%                src/pages/library.js + 1 head preload + 265 B of #surface-library CSS
+  library-analysis      19,630     24,576  80%                /tmp/musica-payload/library/code/analysis.9ebd86e5f8.js
+  library-compare       6,053      6,144  99%                /tmp/musica-payload/library/code/compare.e48e7feb47.js
+  library-core      11,570     20,480  56%                /tmp/musica-payload/library/code/core.0dcc6ec3f7.js
+  library-reader      14,672     20,480  72%                /tmp/musica-payload/library/code/reader.4d0287465c.js
+  library-rights       9,490     12,288  77%                /tmp/musica-payload/library/code/rights.8a94ca24b7.js
+  library-works       9,187     12,288  75%                /tmp/musica-payload/library/code/works.fd3dfc5815.js
+  library-shelves-path     383,453    393,216  98%                /tmp/musica-payload/codex.html + core + /tmp/musica-payload/library/data/catalog.json
+check_payload_budget: PASS — all 13 budgets hold

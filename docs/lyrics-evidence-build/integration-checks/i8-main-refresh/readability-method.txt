@@ -1,0 +1,18 @@
+I8 readability regression receipt
+
+Test file:scripts/check_lyrics_readable_lines.js (new test only).
+Baseline HTML SHA256:ad8332b85263638c5da92b2c0401adad09da70e529720d81b37d4b5d155f19ad
+Candidate HTML SHA256:b05b30fb5e3a75d581ae9d8b463a0819be067cdee497fc33464a10e15256d4d7
+Baseline command:NODE_PATH=/workspace/musica-repair/node_modules TEST_HTML=/tmp/lyrics-i8-before/baseline.html TEST_EVIDENCE=/tmp/lyrics-i8-before/final node scripts/check_lyrics_readable_lines.js
+Candidate command:NODE_PATH=/workspace/musica-repair/node_modules TEST_HTML=/tmp/lyrics-i8-candidate.html TEST_BASELINE=/tmp/lyrics-i8-before/final/results.json TEST_EVIDENCE=/tmp/lyrics-i8-after/final node scripts/check_lyrics_readable_lines.js
+
+Baseline8cases:4 expected readability assertion failures, no other failures.
+Candidate final8cases:zero errors, including added Escape opener-focus assertion.
+Both light/dark390x844: rest3→4; actual touchscreen L1 caret3→4. Same12-line fixture before/after. Fully readable means entire sung-row rect above minimum visible dock/nav top and >=0; hit at text.left+8,rowcenter must hit textarea/overlay. No manual scroll or programmatic focus rescue in these tall caret witnesses.
+Short508/600 both themes: head/body/dock/nav geometry exactly equal at rest and after caret setup: True.
+200% text: captured computed font-size and numeric line-height doubled via explicit CSS for Lyrics header/workspace/menu/dock/nav/editor/overlay selectors; measured font after values asserted2x. No native browserzoom or rootfont-only claim. No minimum4-lines claim at200%; keyboard/menu/Review control access and no horizontal overflow are asserted.
+All10 Song actions items present, nativeTab traversal succeeds, each item reachable after normal menu scrolling, Escape closes. Review navigation sends no POST. Workspace remains available via visible text or Song actions accessible description; Song actions name retained.
+Both scripts snapshots/logs under /tmp/lyrics-i8-before/final and /tmp/lyrics-i8-after. Initial /tmp/lyrics-i8-before/results.json used programmatic focus/rootfont-only and is superseded by final baseline.
+ESLint and Prettier --check new script PASS. No production changes, builds, commits, provider or external calls by this worker.
+
+Final candidate evidence:/tmp/lyrics-i8-after/final/results.json and screenshots; log /tmp/lyrics-i8-after/final.log. Final script adds Escape focus assertion after baseline capture; readability fixture/metric, short geometry, text enlargement, and other checks are unchanged.

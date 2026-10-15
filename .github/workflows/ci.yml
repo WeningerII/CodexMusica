@@ -2746,7 +2746,7 @@ jobs:
       #   against the oracle captured on the pre-batch tree, the v2 reader's properties over
       #   generated lines, legacy replay of a pre-batch checkpoint, and the website mirror's
       #   fixture freshness; about 80 s; label 108 to 109
-      - name: The 109 cheap suites (their history is the comment above)
+      - name: The 110 cheap suites (their history is the comment above)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -2841,7 +2841,7 @@ jobs:
                    controls data_row_claims english_text stub_resolution melody meter tempo verify_figures expected_drift \
                    songs ban_convergence cross_song brief_provenance shard \
                    battery_rounds comparator_pin audit_regressions production_harness production_relations high_report \
-                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader moby_convert coverage_split coverage_queue pilot_frame; do
+                   production_revision production_data production_journal candidate_pair_projection capacity_receipt floor_window within_item computational_audit interlocking_chain field_store type_canon song_shape backlog_status source_identity figure_exhibits relation_index lexicon_supplement reader moby_convert coverage_split coverage_queue pilot_frame schema_instance_evidence; do
             # SHARDED ACROSS RUNNERS, 2026-09-01. The list above is already
             # run FOUR-WIDE on one runner (below), so this job was 5,612
             # CPU-s packed into 4 lanes = 1,403s wall — the measured

@@ -1,0 +1,30 @@
+#!/workspace/musica-ci-venv/bin/python
+import os, sys, time, json, importlib.util, cProfile
+start_wall, start_cpu = time.monotonic(), time.process_time()
+target = sys.argv[1]
+prefix = os.environ.get('MUSICA_PROFILE_PREFIX', '/tmp/musica-profile')
+def emit(event, **kw):
+    with open(prefix + '.events.jsonl', 'a') as f:
+        f.write(json.dumps(dict(event=event, pid=os.getpid(), wall=time.monotonic(), cpu=time.process_time(), **kw))+'\n')
+if not target.endswith('/worker.py'):
+    os.execv('/workspace/musica-ci-venv/bin/python', ['python']+sys.argv[1:])
+emit('start', target=target)
+spec = importlib.util.spec_from_file_location('instrumented_worker', target)
+worker = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(worker)
+emit('ready', elapsed_wall=time.monotonic()-start_wall, elapsed_cpu=time.process_time()-start_cpu)
+original = worker.run_one
+def measured(argv, request_id=None, request_env=None):
+    emit('request_start', request_id=request_id, argv=argv)
+    wall, cpu = time.monotonic(), time.process_time()
+    profiler = cProfile.Profile(timer=time.process_time) if os.environ.get('MUSICA_CPROFILE') == '1' else None
+    if profiler: profiler.enable()
+    try:
+        return original(argv, request_id, request_env)
+    finally:
+        if profiler:
+            profiler.disable()
+            profiler.dump_stats(prefix + '.' + str(os.getpid()) + '.' + str(request_id) + '.prof')
+        emit('request_end', request_id=request_id, elapsed_wall=time.monotonic()-wall, elapsed_cpu=time.process_time()-cpu)
+worker.run_one = measured
+worker.main()

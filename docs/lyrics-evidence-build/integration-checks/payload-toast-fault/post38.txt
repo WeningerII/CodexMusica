@@ -1,0 +1,161 @@
+Injecting one defect per gate-class (isolated temp copies; real tree untouched)…
+=== Library regression (id by id) ===
+current: planted.tsv.gz (snapshot 317c5afa, 36879 units)
+
+units-5226b4fb.tsv.gz (snapshot 5226b4fb, 32220 units)
+  unchanged                20864
+  unchanged-non-readable   11355
+  missing                  1
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    4660
+  ✗ missing: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 (readable) is absent and not id-mapped
+
+units-317c5afa.tsv.gz (snapshot 317c5afa, 36880 units)
+  unchanged                25524
+  unchanged-non-readable   11355
+  missing                  1
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    0
+  ✗ missing: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 (readable) is absent and not id-mapped
+
+FAIL — a baseline unit regressed (see above).
+  ✓ caught       library-readable-regression -> check_library_regression.js  (39, exit 1)
+=== Library regression (id by id) ===
+current: planted.tsv.gz (snapshot 317c5afa, 36879 units)
+
+units-5226b4fb.tsv.gz (snapshot 5226b4fb, 32220 units)
+  unchanged                20864
+  unchanged-non-readable   11355
+  missing                  1
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    4660
+  ✗ id-map: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 -> reading_000be032-2646-599d-a049-48d87fec2517, but reading_000be032-2646-599d-a049-48d87fec2517 is itself a baseline unit
+  ✗ missing: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 (readable) is absent and not id-mapped
+
+units-317c5afa.tsv.gz (snapshot 317c5afa, 36880 units)
+  unchanged                25524
+  unchanged-non-readable   11355
+  missing                  1
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    0
+  ✗ id-map: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 -> reading_000be032-2646-599d-a049-48d87fec2517, but reading_000be032-2646-599d-a049-48d87fec2517 is itself a baseline unit
+  ✗ missing: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 (readable) is absent and not id-mapped
+
+FAIL — a baseline unit regressed (see above).
+  ✓ caught       library-idmap-collision -> check_library_regression.js  (39b, exit 1)
+=== Library regression (id by id) ===
+current: planted.tsv.gz (snapshot 317c5afa, 36880 units)
+
+units-5226b4fb.tsv.gz (snapshot 5226b4fb, 32220 units)
+  unchanged                20864
+  unchanged-non-readable   11355
+  missing                  1
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    4661
+  ✗ id-map: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 -> reading_00000000-0000-5000-8000-000000000000 declares a text hash neither row confirms
+  ✗ missing: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 (readable) is absent and not id-mapped
+
+units-317c5afa.tsv.gz (snapshot 317c5afa, 36880 units)
+  unchanged                25524
+  unchanged-non-readable   11355
+  missing                  1
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    1
+  ✗ id-map: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 -> reading_00000000-0000-5000-8000-000000000000 declares a text hash neither row confirms
+  ✗ missing: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 (readable) is absent and not id-mapped
+
+FAIL — a baseline unit regressed (see above).
+  ✓ caught       library-idmap-wrong-hash -> check_library_regression.js  (39c, exit 1)
+/tmp/codex-fault-gOoqqX/scripts/check_library_regression.js:108
+    throw new Error(`${where}: readable without an admitting verdict`);
+    ^
+
+Error: planted.tsv.gz: reading_0001edb1-d226-5022-b466-2cb8d9fe4763: readable without an admitting verdict
+    at validateRow (/tmp/codex-fault-gOoqqX/scripts/check_library_regression.js:108:11)
+    at parse (/tmp/codex-fault-gOoqqX/scripts/check_library_regression.js:132:5)
+    at main (/tmp/codex-fault-gOoqqX/scripts/check_library_regression.js:310:19)
+    at Object.<anonymous> (/tmp/codex-fault-gOoqqX/scripts/check_library_regression.js:359:1)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+
+Node.js v24.19.0
+  ✓ caught       library-readable-unadmitted -> check_library_regression.js  (39d, exit 1)
+=== Library regression (id by id) ===
+current: planted.tsv.gz (snapshot 317c5afa, 36880 units)
+
+units-5226b4fb.tsv.gz (snapshot 5226b4fb, 32220 units)
+  unchanged                20865
+  unchanged-non-readable   11355
+  missing                  0
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    4660
+  ✗ inconsistent: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 keeps revision d38dc7bb5f07 with different content hashes
+
+units-317c5afa.tsv.gz (snapshot 317c5afa, 36880 units)
+  unchanged                25525
+  unchanged-non-readable   11355
+  missing                  0
+  demoted                  0
+  promoted                 0
+  transition               0
+  revised                  0
+  added                    0
+  ✗ inconsistent: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 keeps revision d38dc7bb5f07 with different content hashes
+
+FAIL — a baseline unit regressed (see above).
+  ✓ caught       library-revision-content-mismatch -> check_library_regression.js  (39e, exit 1)
+/tmp/codex-fault-QpdovY/scripts/check_library_regression.js:180
+    if (!filled(e.reason)) throw new Error(`revisions.json: ${e.id} gives no reason`);
+                           ^
+
+Error: revisions.json: reading_0003c2e4-49aa-50c2-9a01-ca1201375e62 gives no reason
+    at validateLedgers (/tmp/codex-fault-QpdovY/scripts/check_library_regression.js:180:34)
+    at main (/tmp/codex-fault-QpdovY/scripts/check_library_regression.js:295:3)
+    at Object.<anonymous> (/tmp/codex-fault-QpdovY/scripts/check_library_regression.js:359:1)
+    at Module._compile (node:internal/modules/cjs/loader:1872:14)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.19.0
+  ✓ caught       library-ledger-unreasoned -> check_library_regression.js  (39f, exit 1)
+AssertionError [ERR_ASSERTION]: acousmatic: resolver
++ actual - expected
+
++ 'acousmatic'
+- 'acousmatic_music'
+             ^
+
+    at main (/tmp/codex-fault-HbjYOd/scripts/check_aliases.js:54:12)
+  ✓ caught       retired-id-unresolved -> check_aliases.js  (exit 1)
+
+=== Fault injection: 7 gate-class(es) tested, 0 escape(s) ===
+PASS — every injected defect was caught (partial run: --only=39,39b,39c,39d,39e,39f,retired-id-unresolved).

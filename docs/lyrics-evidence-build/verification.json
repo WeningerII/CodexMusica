@@ -1,0 +1,51 @@
+{
+  "base": "3ff4aff7eed653d62d346ecfca186c5899f8cd78",
+  "h1_baseline": "b5a274ad1ab385bcb0fb0bba0df84ccad1679e1b",
+  "pa_reference": "d1961461547b4477f588779e7ca81317c44fe36d",
+  "comparator_fingerprints": {
+    "base": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
+    "head": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
+    "h1_base": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
+    "h1_head": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4"
+  },
+  "tests": {
+    "producer": 9,
+    "inspector_adapter_session": 9,
+    "chat_production": 28,
+    "lyrics_gate_rebuilt_fixture_html": 754,
+    "eslint_changed_js": "pass",
+    "prettier_changed_js": "pass",
+    "diff_check": "pass"
+  },
+  "existing_fields_and_exit_parity": {
+    "repeated": 21,
+    "parts": 25,
+    "voices": 34,
+    "unreadable": 0,
+    "h1_supplement_none": 30,
+    "h1_supplement_v2": 30
+  },
+  "comparison_method": "Same pinned assets and identical inputs; remove only schema_instance_evidence, compare every remaining machine field and exit code. H1 compared repaired baseline against same H1 plus report addition. P-A reference has no Python engine changes; combined P-A frontend validation remains integration-owned.",
+  "scratch_build_sha256": "e406f311ca38a7f12136347bec06782cb6b9d30d6408bb50e1dc3abc82036d98",
+  "build_scope": "Two byte-identical scratch builds; standalone inspector not mounted. Committed codex.html remains integration-owned; no integrated page acceptance claimed.",
+  "declaration_binding_followup": {
+    "adapter_session_markup_tests": 12,
+    "chat_production_tests": 28,
+    "real_python_mcp_agent_http_frontend_tests": 1,
+    "command": "PYTHONPATH=/tmp/lyrics-evidence-python LYRIC_STAGED_DATA=/workspace/CodexMusica-evidence/lyric-harness/data node --test --test-force-exit mcp/test_lyrics_evidence_binding.mjs",
+    "positive": "Unchanged lyric_check, exact actual invocation/context declarations and source; real Python metadata unmodified; actual frontend parser returns current and enables Go. Only model tool selection is stubbed.",
+    "negative": "Identical lyrics with different groups/readings; changed frontend model; absent submitted context; transformed sections/source; missing invocation; lyric_revise final report.",
+    "limits": "No section/blueprint equivalence or final-draft mapping inferred. Such reports stay unknown. Existing 754 gate and scratch parity entries above predate this transport followup; no integrated committed HTML qualification.",
+    "lint_format_diff": "pass"
+  },
+  "sectioned_binding_followup": {
+    "real_pipeline_and_projection_tests": 3,
+    "adapter_tests": 12,
+    "chat_tests": 28,
+    "positive": "Plain and sectioned pages through real Python/MCP/agent/HTTP/frontend; headers, blank rows, repeated words and emoji; exact UTF-16 occurrence offsets; unmodified producer metadata.",
+    "negative": "Actual HTTP changed-reading/group context with unchanged tool declarations; frontend changed model/snapshot; missing or tampered row projection; added/missing sung content; malformed/inline brackets retained as sung.",
+    "projection": "Every context row accounted for with half-open UTF-16 bounds and SHA256 of complete submitted context document; existing sung-row predicate; frontend independent parser verification; existing ordinal map into full editor text.",
+    "limits": "Excluded structural rows are not claimed as graded obligations. Blueprint/declaration transformations and revised final drafts without exact associations remain unknown. No combined HTML qualification.",
+    "lint_format_diff": "pass"
+  }
+}

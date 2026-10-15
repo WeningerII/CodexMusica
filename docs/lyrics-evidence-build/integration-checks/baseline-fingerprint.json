@@ -1,0 +1,30 @@
+{
+  "fingerprint": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
+  "parts": [
+    [
+      "lyric_harness.py closure",
+      "lyric_harness.py:ADMITTABLE_RELATIONS,APOSTROPHES,CLICHE_PAIRS,CMUDICT_PATH,CMUDICT_URL,CODA_EMPTY_EVIDENCE,CONSONANTS,DECLARATION_CHANNELS,DOWNLOAD_ATTEMPTS,DOWNLOAD_BACKOFF_S,DOWNLOAD_TIMEOUT_S,Declaration,DownloadFailed,ENCLITICS,FREQ_PATH,HERE,HYPHEN_SPLIT,LATIN_SCRIPT,LEGAL_ONSETS,LexicalAssetUnavailable,Lexicon,MANNER_DIST,NEAR_RELATIONS,NO_ANCHOR,PLURAL_S_SIBILANT,PLURAL_S_VOICELESS,PROFILES,READER_SCHEME,READER_SCHEMES,RHYME_RELATIONS,ReaderLine,ReaderToken,SPELLING_ALIASES,SUFFIXES,UnknownProfile,VOWELS,WEAK_ALWAYS,WEAK_NONFINAL,_ACTIVE_READER_SCHEME,_ASIDE,_DeclarationChannels,_DictionaryOnlyLexicon,_KNOWN_WORDS,_SHY,_SPACED_ENCLITIC,_TOKEN_RUN,_download_retryable,_is_hangul,_is_numeral,_line_tokens_v1,_lyric_result,_own_onset,_phone_owners,_raw_final_token_v1,_reader_fold,_reader_line_v2,_reader_stream,_refuse,_scheme_of,_tag_span_words,admits,admits_decl,admitted_relations,anchor,channel_agreement,channel_profile,cluster_sim,coda_agrees,cons_sim,download_to,fetch_data,fold_apostrophes,has_numeral,join_spaced_enclitics,line_anchors,line_tokens,normalise_word,nucleus_agrees,plural_s_tail,raw_final_token,reader_line,relation_totals,resolve_reader_scheme,score,shared_ending,split_phone,syllabify,token_pieces,unread_final_piece,vowel_sim,weak_token:d56e3c31fea2cf35fe7daa929961a774572530ac50cd1c875b6c792fd1ac9379"
+    ],
+    ["features.py", "features.py:de8f73d9ec3247b52ab40caedf6619f4c6c08b95014728053c19a4536f6de341"],
+    [
+      "cmudict.dict",
+      "cmudict.dict:81917843c7f44ce2b094ac63873c2c7a4cf802040792c455ba3ca406891c3d22"
+    ],
+    [
+      "opensubtitles_en_50k.tsv",
+      "opensubtitles_en_50k.tsv:c0519dbd5b0fc30e192ea323faf946d05c658f7f647c8490278594fbf490b008"
+    ],
+    [
+      "Declaration()",
+      "Declaration(dialect='cmudict (General American citation forms)', anchor='last primary stress to end of unit', admit=('ASSONANCE', 'CONSONANCE', 'PROMOTED_RHYME', 'RHYME', 'RIME_RICHE'), channel_weights={'nucleus': 0.5, 'coda': 0.35, 'stress': 0.15}, channel_weights_interior={'nucleus': 0.4, 'coda': 0.25, 'onset': 0.2, 'stress': 0.15}, trailing_syllable_penalty=0.15, theta_rhyme=0.75, theta_by_relation={'ASSONANCE': 0.75, 'CONSONANCE': 0.75}, conjunctive_band=True, theta_coda=0.8, coda_empty_evidence='cannot_tell', coda_agreement='identity', coda_licence=(), coda_licence_final_only=True, theta_nucleus=0.6, nucleus_agreement='licensed', nucleus_licence=(('AH', 'IH'),), nucleus_licence_unstressed_only=True, nucleus_licence_before_r=(('IH', 'IY'),), scalar_alignment='head', final_promotion=True, fitted=False, search='max over every pronunciation span pair; k = candidates_a x candidates_b, recorded per pair as spans.search_k; uncorrected')"
+    ],
+    [
+      "predictability_frac",
+      "def predictability_frac(qf, lines, obvious_cutoff=0.90):\n    \"\"\"floor.py's own PREDICTABLE_RHYME computation, verbatim: the fraction\n    of an item's pairs whose answer sits above `obvious_cutoff` in its own\n    frequency-ranked candidate field.\n\n    Returns NaN, not 0.0, when no pair resolves (every end word OOV, or the\n    item is one line). NaN is the honest value: 0.0 would claim \"this item's\n    rhyme was measured and found unpredictable,\" when what actually happened\n    is nothing here could be scored at all. `thresholds()` filters NaN out of\n    the percentile it computes FROM (a non-measurement cannot inform what a\n    normal value looks like); `fpr()` needs no filter at all, because a NaN\n    comparison is False either direction in Python, which is exactly \"this\n    check does not fire on an item it cannot read\" -- the same behaviour\n    `floor.py`'s live `if preds:` guard gives a real draft.\n    \"\"\"\n    preds = [v for _i, _j, v\n             in qf._predictability(lines, _couplet_pairs(lines))]\n    if not preds:\n        return float(\"nan\")\n    obvious = [p for p in preds if p > obvious_cutoff]\n    return len(obvious) / len(preds)\n"
+    ],
+    [
+      "_couplet_pairs",
+      "def _couplet_pairs(lines):\n    return [(i, i + 1) for i in range(0, len(lines) - 1, 2)]\n"
+    ]
+  ]
+}

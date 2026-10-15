@@ -1,0 +1,17 @@
+test_actual_instances_and_same_line_population (test_schema_instance_evidence.EvidenceTests.test_actual_instances_and_same_line_population) ... ok
+test_byte_accounting_does_not_reserialize_admitted_records (test_schema_instance_evidence.EvidenceTests.test_byte_accounting_does_not_reserialize_admitted_records) ... ok
+test_byte_accounting_matches_previous_full_serialization (test_schema_instance_evidence.EvidenceTests.test_byte_accounting_matches_previous_full_serialization) ... ok
+test_cache_hits_do_not_supply_or_mutate_report_endpoints (test_schema_instance_evidence.EvidenceTests.test_cache_hits_do_not_supply_or_mutate_report_endpoints) ... ok
+test_discontinuous_parts_and_utf16 (test_schema_instance_evidence.EvidenceTests.test_discontinuous_parts_and_utf16) ... ok
+test_identity_changes_with_text_and_reading_declaration (test_schema_instance_evidence.EvidenceTests.test_identity_changes_with_text_and_reading_declaration) ... ok
+test_limits_are_honest (test_schema_instance_evidence.EvidenceTests.test_limits_are_honest) ... ok
+test_refused_and_unrequested_populations_never_claim_known_zero (test_schema_instance_evidence.EvidenceTests.test_refused_and_unrequested_populations_never_claim_known_zero) ... ok
+test_rejected_record_bytes_do_not_accumulate (test_schema_instance_evidence.EvidenceTests.test_rejected_record_bytes_do_not_accumulate) ... ok
+test_repeated_words_keep_occurrence_coordinates (test_schema_instance_evidence.EvidenceTests.test_repeated_words_keep_occurrence_coordinates) ... ok
+test_report_failure_does_not_replace_grade (test_schema_instance_evidence.EvidenceTests.test_report_failure_does_not_replace_grade) ... ok
+test_report_rebuild_uses_grade_basis_without_checkpoint_mutation (test_schema_instance_evidence.EvidenceTests.test_report_rebuild_uses_grade_basis_without_checkpoint_mutation) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 1.993s
+
+OK

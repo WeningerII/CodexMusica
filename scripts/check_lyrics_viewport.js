@@ -250,9 +250,11 @@ const settle = async (p) => {
         t.focus();
       });
       await settle(p);
-      // Establish a genuinely visible active endpoint before keyboard rise.
+      // Establish the same visible endpoint using current geometry: focus may
+      // already have revealed it, so a fixed wheel delta can hide it again.
+      const focusedEnd = await caret(p);
       await p.mouse.move(195, 500);
-      await p.mouse.wheel(0, 250);
+      await p.mouse.wheel(0, focusedEnd.top - 550);
       await settle(p);
       const before = await caret(p),
         saved = await reading(p, 9);
@@ -434,16 +436,20 @@ const settle = async (p) => {
       const p = await open(390, 844, true);
       await select(p, 9);
       const before = await caret(p);
-      await p.evaluate(() => {
-        window.visualViewport.height = 508;
+      // The focus path may already put this row inside 508px. Shrink below
+      // its measured position to retain a real, independently checked obstruction.
+      const viewportHeight = Math.floor(before.top - 16);
+      await p.evaluate((height) => {
+        window.visualViewport.height = height;
         window.visualViewport.dispatchEvent(new Event('resize'));
-      });
+      }, viewportHeight);
       await settle(p);
       const after = await caret(p);
       check(
-        before.bottom > 508 &&
+        before.ok &&
+          before.bottom > viewportHeight &&
           after.ok &&
-          after.bottom <= 508 &&
+          after.bottom <= viewportHeight &&
           after.focused &&
           JSON.stringify(before.scroll) !== JSON.stringify(after.scroll),
         'visualViewport-only keyboard rise did not reveal caret'
@@ -452,7 +458,7 @@ const settle = async (p) => {
         (await p.evaluate(() => lyDraft().value)) === text,
         'visualViewport-only rise changed draft'
       );
-      results.push({ kind: 'visualViewport-rise', before, after });
+      results.push({ kind: 'visualViewport-rise', viewportHeight, before, after });
       await p.finish();
     }
     for (const mode of ['pinch', 'queued-pinch', 'unfocused', 'queued-blur']) {

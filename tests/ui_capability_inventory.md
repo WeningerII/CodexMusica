@@ -38,6 +38,8 @@ The reachability check supports these standardized preconditions. The check grou
 | Precondition | Setup |
 |---|---|
 | `empty` | No setup. Workspace has 0 cards. |
+| `lyrics draft review` | Open Lyrics, save a nonempty local draft, then click the header Review button. No review request is sent. |
+| `lyrics song actions` | Open Lyrics, close menus, then click Song actions. |
 | `1+ cards` | `addCard('electric_guitar_single_coil', { traditionId: 'outlaw_country' })` then select that card. |
 | `2+ cards` | Add `electric_guitar_single_coil` (outlaw_country) and `acoustic_guitar_dread` (bluegrass), select the first. |
 | `editing part` | 1+ cards, then `card._uiTab = 'parts'` and `card.editingPart = 'electric_technique'` to expand the variant picker. |
@@ -1709,11 +1711,11 @@ precondition: empty
 ```yaml
 name: lyrics-review-draft
 kind: data-action
-selector: '[data-ui="ly-run-review"]'
-surface: Lyrics — Run review (the header's one primary action): one direct edit-phase request with the committed document, declarations, brief and notes; with pending tool changes it first offers Apply all / Review saved version
+selector: '#ly-panel-review:not([hidden]) [data-ui="ly-run-review"]:not(:disabled)'
+surface: Lyrics — Review → Run review (with a nonempty draft): one direct edit-phase request with the committed document, declarations, brief and notes; with pending tool changes it first offers Apply all / Review saved version
 implementation: ly-run-review → lySubmitLyricsAction('review') in src/pages/lyrics.js
 status: reachable
-precondition: empty
+precondition: lyrics draft review
 notes: No hidden prefill and no Ask step. Gated with fixture replies by scripts/check_lyrics_page.js (npm run test:app).
 ```
 
@@ -1764,11 +1766,11 @@ notes: Retrieve reads the saved outcome and never re-sends; an uncertain or capa
 ```yaml
 name: lyrics-export
 kind: data-action
-selector: '[data-ui="ly-menu"][data-id="export"]'
-surface: Lyrics — Export: Copy with headers (exact document), Copy sung lines, Download text, Export session
+selector: '#ly-menu-song-actions:not([hidden]):has([data-ui="copy-lyrics"]:not(:disabled)):has([data-ui="ly-copy-sung"]:not(:disabled)):has([data-ui="ly-download"]:not(:disabled)):has([data-ui="ly-export-session"]:not(:disabled))'
+surface: Lyrics — Song actions: Copy with headers (exact document), Copy sung lines, Download text, Export session
 implementation: copy-lyrics / ly-copy-sung / ly-download / ly-export-session in src/pages/lyrics.js
 status: reachable
-precondition: empty
+precondition: lyrics song actions
 notes: A failed copy leaves the exact text selectable on the page with Copy failed; Download says Text download started. Export session carries the lyric metadata (brief, notes, pending entries).
 ```
 

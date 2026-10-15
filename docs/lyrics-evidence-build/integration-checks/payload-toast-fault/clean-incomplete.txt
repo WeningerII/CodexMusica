@@ -1,0 +1,2 @@
+UI FOUNDATION: FAIL — 1 problem(s):
+  ✗ gate threw during "N. desktop: map key at atlas.html": page.waitForFunction: Timeout 60000ms exceeded.

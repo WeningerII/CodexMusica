@@ -1,0 +1,333 @@
+✔ actual serialized instances bind by exact source map, including repeated words (4.238387ms)
+✔ missing, mismatched request and stale declaration identities disable paint and Go (15.056091ms)
+✔ row precision, missing source maps, invalid UTF-16 boundaries and bad records fail closed (8.393374ms)
+✔ discontinuous parts require explicit part Go; Close/reopen and multi-jump retain origin (2.902045ms)
+✔ stale Go never calls editor; failed Return offers Stay without mutation; Back uses actual prior panel (1.59136ms)
+✔ candidate options and declarations do not manufacture measured pairs; partial coverage stays partial (0.708071ms)
+✔ writing hook shape isolates a selected pair and clears same-text stale marks (2.101802ms)
+✔ binding uses supplied sung-row ordinals, never searches repeated spellings (4.425492ms)
+✔ expansion survives Close/reopen and invalid selections cannot reuse an earlier target (3.785894ms)
+✔ identical lyrics cannot bind different or unproved declaration identities (12.344757ms)
+✔ actual producer declaration variants cannot acquire a binding from lyric equality (2.025076ms)
+✖ inspector uses readable labels without hiding partial scope or placement reasons (7.612482ms)
+✖ line display labels preserve raw IDs and plain reasons preserve navigation refusals (0.335349ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 653.120805
+
+✖ failing tests:
+
+test at scripts/test_lyrics_evidence.js:403:1
+✖ inspector uses readable labels without hiding partial scope or placement reasons (7.612482ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /title="We couldn’t confirm that these results match your draft\./. Input:
+  
+  '<section aria-label="Relations"><h3>Relations</h3><p role="status">19 reported pairs. Coverage partial; this is not a complete census. <span title="No verified report-to-document binding." aria-label="These pairs can’t be shown in your lyrics yet. No verified report-to-document binding.">These pairs can’t be shown in your lyrics yet.</span></p><p>These results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.</p><p>Reported relations between pairs of lyric spans, using the readings graded. Whole-song patterns and other possible readings were not searched.</p><details><summary>Report scope and exclusions</summary><pre>{\n' +
+    '  &quot;scope&quot;: &quot;pair_local_registry_instances&quot;,\n' +
+    '  &quot;requested_schemas&quot;: [\n' +
+    '    &quot;Kalevala alliteration (strong)&quot;,\n' +
+    '    &quot;Kalevala alliteration (weak)&quot;,\n' +
+    '    &quot;Middle Chinese end rhyme (同用 group)&quot;,\n' +
+    '    &quot;Scots vowel-length rhyme (Aitken&#39;s Law)&quot;,\n' +
+    '    &quot;ablaut reduplication&quot;,\n' +
+    '    &quot;additive rhyme&quot;,\n' +
+    '    &quot;alliteration&quot;,\n' +
+    '    &quot;alliterative long line&quot;,\n' +
+    '    &quot;amphisbaenic rhyme&quot;,\n' +
+    '    &quot;anadiplosis&quot;,\n' +
+    '    &quot;anaphora&quot;,\n' +
+    '    &quot;antanaclasis&quot;,\n' +
+    '    &quot;apocopated rhyme&quot;,\n' +
+    '    &quot;assonance&quot;,\n' +
+    '    &quot;broken rhyme&quot;,\n' +
+    '    &quot;chain rhyme (interlocking scheme)&quot;,\n' +
+    '    &quot;cluster consonance / skothending span&quot;,\n' +
+    '    &quot;compound / phrasal rhyme&quot;,\n' +
+    '    &quot;consonance&quot;,\n' +
+    '    &quot;cross rhyme&quot;,\n' +
+    '    &quot;cynghanedd draws&quot;,\n' +
+    '    &quot;cynghanedd groes&quot;,\n' +
+    '    &quot;cynghanedd groes o gyswllt&quot;,\n' +
+    '    &quot;cynghanedd lusg&quot;,\n' +
+    '    &quot;dialect rhyme&quot;,\n' +
+    '    &quot;enjambed rhyme&quot;,\n' +
+    '    &quot;epanalepsis&quot;,\n' +
+    '    &quot;epistrophe / radif&quot;,\n' +
+    '    &quot;exact reduplication&quot;,\n' +
+    '    &quot;eye rhyme&quot;,\n' +
+    '    &quot;family rhyme&quot;,\n' +
+    '    &quot;fourth lift must not alliterate&quot;,\n' +
+    '    &quot;head rhyme (positional)&quot;,\n' +
+    '    &quot;historical rhyme&quot;,\n' +
+    '    &quot;holorhyme&quot;,\n' +
+    '    &quot;homoioteleuton&quot;,\n' +
+    '    &quot;incremental repetition&quot;,\n' +
+    '    &quot;interlaced rhyme&quot;,\n' +
+    '    &quot;internal rhyme&quot;,\n' +
+    '    &quot;leonine rhyme&quot;,\n' +
+    '    &quot;light rhyme&quot;,\n' +
+    '    &quot;linked rhyme&quot;,\n' +
+    '    &quot;mosaic rhyme&quot;,\n' +
+    '    &quot;multisyllabic rhyme&quot;,\n' +
+    '    &quot;offbeat internal rhyme&quot;,\n' +
+    '    &quot;pantun ABAB&quot;,\n' +
+    '    &quot;pararhyme&quot;,\n' +
+    '    &quot;parechesis / general consonance&quot;,\n' +
+    '    &quot;perfect rhyme&quot;,\n' +
+    '    &quot;polyptoton&quot;,\n' +
+    '    &quot;proest&quot;,\n' +
+    '    &quot;qafiya (before the radif)&quot;,\n' +
+    '    &quot;refrain by reference&quot;,\n' +
+    '    &quot;repetition&quot;,\n' +
+    '    &quot;reverse rhyme&quot;,\n' +
+    '    &quot;rhyming reduplication&quot;,\n' +
+    '    &quot;rhyming slang&quot;,\n' +
+    '    &quot;rime riche&quot;,\n' +
+    '    &quot;semirhyme&quot;,\n' +
+    '    &quot;subtractive rhyme&quot;,\n' +
+    '    &quot;sung-delivery rhyme&quot;,\n' +
+    '    &quot;syllabic rhyme&quot;,\n' +
+    '    &quot;transformative / bent rhyme&quot;,\n' +
+    '    &quot;trite rhyme&quot;,\n' +
+    '    &quot;wrenched rhyme&quot;\n' +
+    '  ],\n' +
+    '  &quot;excluded_schemas&quot;: [\n' +
+    '    &quot;analysed rhyme&quot;,\n' +
+    '    &quot;blues AAB stanza&quot;,\n' +
+    '    &quot;chain rhyme (rap)&quot;,\n' +
+    '    &quot;cynghanedd sain&quot;,\n' +
+    '    &quot;cynghanedd sain drosgl&quot;,\n' +
+    '    &quot;cynghanedd sain gadwynog&quot;,\n' +
+    '    &quot;cynghanedd sain lafarog&quot;,\n' +
+    '    &quot;dvitiyakshara-prasa&quot;,\n' +
+    '    &quot;monai&quot;,\n' +
+    '    &quot;monorhyme / leash&quot;,\n' +
+    '    &quot;paroemion&quot;,\n' +
+    '    &quot;symploce&quot;,\n' +
+    '    &quot;平仄 tonal template&quot;\n' +
+    '  ],\n' +
+    '  &quot;excluded_reason&quot;: &quot;whole_figure_requires_assembly&quot;,\n' +
+    '  &quot;not_requested_schemas&quot;: [],\n' +
+    '  &quot;emitted_verdicts&quot;: [\n' +
+    '    &quot;true&quot;,\n' +
+    '    &quot;undecided&quot;\n' +
+    '  ],\n' +
+    '  &quot;reading_scope&quot;: &quot;graded_stream_readings_without_alternative_witness_search&quot;,\n' +
+    '  &quot;mandate_satisfaction&quot;: false\n' +
+    '}</pre><p>Coverage by check</p><pre>[\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;Kalevala alliteration (strong)&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 3,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;Kalevala alliteration (weak)&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 3,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;Middle Chinese end rhyme (同用 group)&quot;,\n' +
+    '    &quot;status&quot;: &quot;refused&quot;,\n' +
+    '    &quot;counts&quot;: {},\n' +
+    '    &quot;emitted&quot;: 0,\n' +
+    '    &quot;refusal&quot;: {\n' +
+    '      &quot;schema&quot;: &quot;Middle Chinese end rhyme (同用 group)&quot;,\n' +
+    '      &quot;capability&quot;: &quot;quotient:同用&quot;,\n' +
+    '      &quot;detail&quot;: &quot;Middle Chinese end rhyme (同用 group) needs &#39;quotient:同用&#39;; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.&quot;,\n' +
+    '      &quot;missing&quot;: [\n' +
+    '        &quot;quotient:同用&quot;\n' +
+    '      ],\n' +
+    '      &quot;kind&quot;: &quot;capability&quot;,\n' +
+    '      &quot;vacuous&quot;: []\n' +
+    '    }\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;Scots vowel-length rhyme (Aitken&#39;s Law)&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 1,\n' +
+    '      &quot;false&quot;: 0,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 1\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;ablaut reduplication&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 0,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;additive rhyme&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 1,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;alliteration&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 3,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;alliterative long line&quot;,\n' +
+    '    &quot;status&quot;: &quot;refused&quot;,\n' +
+    '    &quot;counts&quot;: {},\n' +
+    '    &quot;emitted&quot;: 0,\n' +
+    '    &quot;refusal&quot;: {\n' +
+    '      &quot;schema&quot;: &quot;alliterative long line&quot;,\n' +
+    '      &quot;capability&quot;: &quot;lifts&quot;,\n' +
+    '      &quot;detail&quot;: &quot;alliterative long line needs &#39;lifts&#39;; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.&quot;,\n' +
+    '      &quot;missing&quot;: [\n' +
+    '        &quot;lifts&quot;\n' +
+    '      ],\n' +
+    '      &quot;kind&quot;: &quot;capability&quot;,\n' +
+    '      &quot;vacuous&quot;: []\n' +
+    '    }\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;amphisbaenic rhyme&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 1,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;anadiplosis&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 1,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;anaphora&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 1,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;antanaclasis&quot;,\n' +
+    '    &quot;status&quot;: &quot;refused&quot;,\n' +
+    '    &quot;counts&quot;: {},\n' +
+    '    &quot;emitted&quot;: 0,\n' +
+    '    &quot;refusal&quot;: {\n' +
+    '      &quot;schema&quot;: &quot;antanaclasis&quot;,\n' +
+    '      &quot;capability&quot;: &quot;sense&quot;,\n' +
+    '      &quot;detail&quot;: &quot;antanaclasis needs &#39;sense&#39;; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.&quot;,\n' +
+    '      &quot;missing&quot;: [\n' +
+    '        &quot;sense&quot;\n' +
+    '      ],\n' +
+    '      &quot;kind&quot;: &quot;capability&quot;,\n' +
+    '      &quot;vacuous&quot;: []\n' +
+    '    }\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;apocopated rhyme&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 1,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;assonance&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 1,\n' +
+    '      &quot;false&quot;: 0,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 1\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;broken rhyme&quot;,\n' +
+    '    &quot;status&quot;: &quot;answered&quot;,\n' +
+    '    &quot;counts&quot;: {\n' +
+    '      &quot;true&quot;: 0,\n' +
+    '      &quot;false&quot;: 0,\n' +
+    '      &quot;undecided&quot;: 0\n' +
+    '    },\n' +
+    '    &quot;emitted&quot;: 0\n' +
+    '  },\n' +
+    '  {\n' +
+    '    &quot;schema_name&quot;: &quot;chain rhyme (interlocking scheme)&quot;,\n' +
+    '    &quot;status&quot;: &quot;refused&quot;,\n' +
+    '    &quot;counts&quot;: {},\n' +
+    '    &quot;emitted&quot;: 0,\n' +
+    '    &quot;refusal&quot;: {\n' +
+    '      &quot;schema&quot;: &quot;chain rhyme (interlocking scheme)&quot;,\n' +
+    '      &quot;capability&quot;: &quot;stanza&quot;,\n' +
+    '      &quot;detail&quot;: &quot;chain rhyme (interlocking scheme) needs &#39;stanza&#39;; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.&quot;,\n' +
+    '      &quot;missing&quot;: [\n' +
+    '        &quot;stanza&quot;\n' +
+    '      ],\n' +
+    '      &quot;kind&quot;: &quot;capability&quot;,\n' +
+    '      &quot;vacuous&quot;: []\n' +
+    '    }\n' +
+    '  },\n' +
+    '  {\n' +
+    '  '... 25690 more characters
+  
+      at TestContext.<anonymous> (/workspace/musica-lyrics-integration/scripts/test_lyrics_evidence.js:421:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '<section aria-label="Relations"><h3>Relations</h3><p role="status">19 reported pairs. Coverage partial; this is not a complete census. <span title="No verified report-to-document binding." aria-label="These pairs can’t be shown in your lyrics yet. No verified report-to-document binding.">These pairs can’t be shown in your lyrics yet.</span></p><p>These results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.</p><p>Reported relations between pairs of lyric spans, using the readings graded. Whole-song patterns and other possible readings were not searched.</p><details><summary>Report scope and exclusions</summary><pre>{\n  &quot;scope&quot;: &quot;pair_local_registry_instances&quot;,\n  &quot;requested_schemas&quot;: [\n    &quot;Kalevala alliteration (strong)&quot;,\n    &quot;Kalevala alliteration (weak)&quot;,\n    &quot;Middle Chinese end rhyme (同用 group)&quot;,\n    &quot;Scots vowel-length rhyme (Aitken&#39;s Law)&quot;,\n    &quot;ablaut reduplication&quot;,\n    &quot;additive rhyme&quot;,\n    &quot;alliteration&quot;,\n    &quot;alliterative long line&quot;,\n    &quot;amphisbaenic rhyme&quot;,\n    &quot;anadiplosis&quot;,\n    &quot;anaphora&quot;,\n    &quot;antanaclasis&quot;,\n    &quot;apocopated rhyme&quot;,\n    &quot;assonance&quot;,\n    &quot;broken rhyme&quot;,\n    &quot;chain rhyme (interlocking scheme)&quot;,\n    &quot;cluster consonance / skothending span&quot;,\n    &quot;compound / phrasal rhyme&quot;,\n    &quot;consonance&quot;,\n    &quot;cross rhyme&quot;,\n    &quot;cynghanedd draws&quot;,\n    &quot;cynghanedd groes&quot;,\n    &quot;cynghanedd groes o gyswllt&quot;,\n    &quot;cynghanedd lusg&quot;,\n    &quot;dialect rhyme&quot;,\n    &quot;enjambed rhyme&quot;,\n    &quot;epanalepsis&quot;,\n    &quot;epistrophe / radif&quot;,\n    &quot;exact reduplication&quot;,\n    &quot;eye rhyme&quot;,\n    &quot;family rhyme&quot;,\n    &quot;fourth lift must not alliterate&quot;,\n    &quot;head rhyme (positional)&quot;,\n    &quot;historical rhyme&quot;,\n    &quot;holorhyme&quot;,\n    &quot;homoioteleuton&quot;,\n    &quot;incremental repetition&quot;,\n    &quot;interlaced rhyme&quot;,\n    &quot;internal rhyme&quot;,\n    &quot;leonine rhyme&quot;,\n    &quot;light rhyme&quot;,\n    &quot;linked rhyme&quot;,\n    &quot;mosaic rhyme&quot;,\n    &quot;multisyllabic rhyme&quot;,\n    &quot;offbeat internal rhyme&quot;,\n    &quot;pantun ABAB&quot;,\n    &quot;pararhyme&quot;,\n    &quot;parechesis / general consonance&quot;,\n    &quot;perfect rhyme&quot;,\n    &quot;polyptoton&quot;,\n    &quot;proest&quot;,\n    &quot;qafiya (before the radif)&quot;,\n    &quot;refrain by reference&quot;,\n    &quot;repetition&quot;,\n    &quot;reverse rhyme&quot;,\n    &quot;rhyming reduplication&quot;,\n    &quot;rhyming slang&quot;,\n    &quot;rime riche&quot;,\n    &quot;semirhyme&quot;,\n    &quot;subtractive rhyme&quot;,\n    &quot;sung-delivery rhyme&quot;,\n    &quot;syllabic rhyme&quot;,\n    &quot;transformative / bent rhyme&quot;,\n    &quot;trite rhyme&quot;,\n    &quot;wrenched rhyme&quot;\n  ],\n  &quot;excluded_schemas&quot;: [\n    &quot;analysed rhyme&quot;,\n    &quot;blues AAB stanza&quot;,\n    &quot;chain rhyme (rap)&quot;,\n    &quot;cynghanedd sain&quot;,\n    &quot;cynghanedd sain drosgl&quot;,\n    &quot;cynghanedd sain gadwynog&quot;,\n    &quot;cynghanedd sain lafarog&quot;,\n    &quot;dvitiyakshara-prasa&quot;,\n    &quot;monai&quot;,\n    &quot;monorhyme / leash&quot;,\n    &quot;paroemion&quot;,\n    &quot;symploce&quot;,\n    &quot;平仄 tonal template&quot;\n  ],\n  &quot;excluded_reason&quot;: &quot;whole_figure_requires_assembly&quot;,\n  &quot;not_requested_schemas&quot;: [],\n  &quot;emitted_verdicts&quot;: [\n    &quot;true&quot;,\n    &quot;undecided&quot;\n  ],\n  &quot;reading_scope&quot;: &quot;graded_stream_readings_without_alternative_witness_search&quot;,\n  &quot;mandate_satisfaction&quot;: false\n}</pre><p>Coverage by check</p><pre>[\n  {\n    &quot;schema_name&quot;: &quot;Kalevala alliteration (strong)&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 3,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;Kalevala alliteration (weak)&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 3,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;Middle Chinese end rhyme (同用 group)&quot;,\n    &quot;status&quot;: &quot;refused&quot;,\n    &quot;counts&quot;: {},\n    &quot;emitted&quot;: 0,\n    &quot;refusal&quot;: {\n      &quot;schema&quot;: &quot;Middle Chinese end rhyme (同用 group)&quot;,\n      &quot;capability&quot;: &quot;quotient:同用&quot;,\n      &quot;detail&quot;: &quot;Middle Chinese end rhyme (同用 group) needs &#39;quotient:同用&#39;; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.&quot;,\n      &quot;missing&quot;: [\n        &quot;quotient:同用&quot;\n      ],\n      &quot;kind&quot;: &quot;capability&quot;,\n      &quot;vacuous&quot;: []\n    }\n  },\n  {\n    &quot;schema_name&quot;: &quot;Scots vowel-length rhyme (Aitken&#39;s Law)&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 1,\n      &quot;false&quot;: 0,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 1\n  },\n  {\n    &quot;schema_name&quot;: &quot;ablaut reduplication&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 0,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;additive rhyme&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 1,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;alliteration&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 3,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;alliterative long line&quot;,\n    &quot;status&quot;: &quot;refused&quot;,\n    &quot;counts&quot;: {},\n    &quot;emitted&quot;: 0,\n    &quot;refusal&quot;: {\n      &quot;schema&quot;: &quot;alliterative long line&quot;,\n      &quot;capability&quot;: &quot;lifts&quot;,\n      &quot;detail&quot;: &quot;alliterative long line needs &#39;lifts&#39;; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.&quot;,\n      &quot;missing&quot;: [\n        &quot;lifts&quot;\n      ],\n      &quot;kind&quot;: &quot;capability&quot;,\n      &quot;vacuous&quot;: []\n    }\n  },\n  {\n    &quot;schema_name&quot;: &quot;amphisbaenic rhyme&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 1,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;anadiplosis&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 1,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;anaphora&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 1,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;antanaclasis&quot;,\n    &quot;status&quot;: &quot;refused&quot;,\n    &quot;counts&quot;: {},\n    &quot;emitted&quot;: 0,\n    &quot;refusal&quot;: {\n      &quot;schema&quot;: &quot;antanaclasis&quot;,\n      &quot;capability&quot;: &quot;sense&quot;,\n      &quot;detail&quot;: &quot;antanaclasis needs &#39;sense&#39;; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.&quot;,\n      &quot;missing&quot;: [\n        &quot;sense&quot;\n      ],\n      &quot;kind&quot;: &quot;capability&quot;,\n      &quot;vacuous&quot;: []\n    }\n  },\n  {\n    &quot;schema_name&quot;: &quot;apocopated rhyme&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 1,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;assonance&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 1,\n      &quot;false&quot;: 0,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 1\n  },\n  {\n    &quot;schema_name&quot;: &quot;broken rhyme&quot;,\n    &quot;status&quot;: &quot;answered&quot;,\n    &quot;counts&quot;: {\n      &quot;true&quot;: 0,\n      &quot;false&quot;: 0,\n      &quot;undecided&quot;: 0\n    },\n    &quot;emitted&quot;: 0\n  },\n  {\n    &quot;schema_name&quot;: &quot;chain rhyme (interlocking scheme)&quot;,\n    &quot;status&quot;: &quot;refused&quot;,\n    &quot;counts&quot;: {},\n    &quot;emitted&quot;: 0,\n    &quot;refusal&quot;: {\n      &quot;schema&quot;: &quot;chain rhyme (interlocking scheme)&quot;,\n      &quot;capability&quot;: &quot;stanza&quot;,\n      &quot;detail&quot;: &quot;chain rhyme (interlocking scheme) needs &#39;stanza&#39;; this declaration (eng) does not supply it. Refused rather than asserted. Every missing name is on `.missing` — declaring only the first would not make this schema run.&quot;,\n      &quot;missing&quot;: [\n        &quot;stanza&quot;\n      ],\n      &quot;kind&quot;: &quot;capability&quot;,\n      &quot;vacuous&quot;: []\n    }\n  },\n  {\n  '... 25690 more characters,
+    expected: /title="We couldn’t confirm that these results match your draft\./,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at scripts/test_lyrics_evidence.js:428:1
+✖ line display labels preserve raw IDs and plain reasons preserve navigation refusals (0.335349ms)
+  TypeError: api.lyRelationLineLabels is not a function
+      at TestContext.<anonymous> (/workspace/musica-lyrics-integration/scripts/test_lyrics_evidence.js:431:20)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

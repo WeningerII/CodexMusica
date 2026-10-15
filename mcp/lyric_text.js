@@ -18,3 +18,32 @@ export const normalizeDraftLines = (lines) =>
   lines
     .map((line) => (typeof line === 'string' ? line.trim() : line))
     .filter((line) => typeof line !== 'string' || sungRow(line));
+
+// Ordinal source projection using exactly the tool's sung-row convention.
+// Every full input row remains accounted for, including structural exclusions.
+// Offsets are half-open UTF-16; no spelling search or lyric omission is allowed.
+export function projectDraftText(text) {
+  if (typeof text !== 'string') return null;
+  let start = 0,
+    sourceStart = 0;
+  const lines = [];
+  const rows = text.split('\n').map((raw, row) => {
+    const trimmed = raw.trim();
+    const kind = !trimmed ? 'blank' : sungRow(trimmed) ? 'sung' : 'section';
+    const item = { row, kind, start, end: start + raw.length };
+    if (kind === 'sung') {
+      const textStart = start + raw.length - raw.trimStart().length;
+      Object.assign(item, {
+        source_start: sourceStart,
+        source_end: sourceStart + trimmed.length,
+        text_start: textStart,
+        text_end: textStart + trimmed.length,
+      });
+      lines.push(trimmed);
+      sourceStart += trimmed.length + 1;
+    }
+    start += raw.length + 1;
+    return item;
+  });
+  return { version: 1, convention: 'lyric_text/sung-rows-v1', source_text: lines.join('\n'), rows };
+}

@@ -1,0 +1,19 @@
+Working directory: /workspace/musica-lyrics-integration
+Merged main source: ae349d7f; importer description portability change present.
+
+/workspace/musica-ci-venv/bin/python lyric-harness/quality/test_gutenberg_import.py
+  Python 3.12.14: exit 0, 14 tests, 54.596s.
+  Log: /tmp/lyrics-main-merge-importer312-tests.log
+/usr/bin/python3.13 lyric-harness/quality/test_gutenberg_import.py
+  Python 3.13.5: exit 0, 14 tests, 48.054s.
+  Log: /tmp/lyrics-main-merge-importer313-tests.log
+/usr/bin/python3.13 /tmp/lyrics-main-merge-importer-probe.py lyric-harness/imports/gutenberg-ten/integrate.py
+  exit 0; 725 files byte-identical, changed=[].
+  JSON: /tmp/lyrics-main-merge-importer313-bytes.json
+  Probe copied unchanged from main docs/evidence/importer313-2026-10-15/importer-portability-probe.py.
+/usr/bin/python3.13 lyric-harness/imports/gutenberg-next-ten/integrate.py --check
+  Successful summary, no drift; log /tmp/lyrics-main-merge-importer313-next.log
+/usr/bin/python3.13 lyric-harness/imports/gutenberg-third-ten/integrate.py --check
+  exit 0; log /tmp/lyrics-main-merge-importer313-third.log
+
+No source/data edits, downloads, provider calls, or writes by importers. All importer invocation paths used --check or in-memory build.

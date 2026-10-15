@@ -173,6 +173,19 @@ test('verified application evidence stays distinct from missing, rejected and un
 
 test('actual chat tool rows preserve compact verifier/application and exact checkpoint replay receipts', async () => {
   const fixture = verificationFixture();
+  fixture.lyric_result.schema_instance_evidence = {
+    version: 1,
+    identity: { hash: 'report-fixture', source_sha256: sha('cat cat') },
+    source_text: 'cat cat',
+    coverage: { complete: false, status: 'partial', omitted_records: 2 },
+    records: Array.from({ length: 70 }, (_, i) => ({
+      id: `instance:${i}`,
+      schema_name: 'perfect rhyme',
+      verdict: 'undecided',
+      a: { source_ranges: [{ utf16_range: [0, 3], precision: 'exact' }] },
+      b: { source_ranges: [{ utf16_range: [4, 7], precision: 'exact' }] },
+    })),
+  };
   const verdict = { ..._verdictInternals.verdictOf(fixture), writer: 'kitchen' };
   const makeServer = () => {
     const mcp = new McpServer(
@@ -212,6 +225,7 @@ test('actual chat tool rows preserve compact verifier/application and exact chec
     assert.equal(payload.tools.length, 1);
     assert.equal(payload.tools[0].writer, 'kitchen');
     for (const key of [
+      'schema_instance_evidence',
       'verified_outcomes',
       'verified_outcomes_error',
       'verified_outcomes_draft_sha256',
@@ -1615,4 +1629,21 @@ test('a screen and a grade hand the lyrics page their options: pair verdicts and
   const bare = AI.loopFields(null);
   assert.equal(bare.pairs, null);
   assert.equal(bare.pronunciation_options, null);
+});
+
+test('schema occurrence evidence requires an authenticated result, not prose or checkpoint data', () => {
+  const evidence = { version: 1, records: [], coverage: { complete: false, status: 'partial' } };
+  const raw = {
+    code: 0,
+    stdout: 'lyric result: ' + JSON.stringify({ version: 1, schema_instance_evidence: evidence }),
+    checkpoint: { schema_instance_evidence: evidence },
+  };
+  assert.equal(_verdictInternals.verdictOf(raw).schema_instance_evidence, undefined);
+  const trusted = {
+    ...raw,
+    lyric_result: { version: 1, status: 'graded', schema_instance_evidence: evidence },
+  };
+  assert.deepEqual(_verdictInternals.verdictOf(trusted).schema_instance_evidence, evidence);
+  trusted.lyric_result.schema_instance_evidence.version = 2;
+  assert.equal(_verdictInternals.verdictOf(trusted).schema_instance_evidence, undefined);
 });

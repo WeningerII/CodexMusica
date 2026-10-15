@@ -1,0 +1,70 @@
+Thu Oct 15 22:34:53 2026    /tmp/lexicon-profile-31b/session-profile.249043.6.prof
+
+         104809996 function calls (97646143 primitive calls) in 35.622 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1359 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.097    0.097   35.749   35.749 worker.py:156(run_one)
+        1    0.000    0.000   35.652   35.652 lyric_harness.py:15025(cli)
+        1    0.000    0.000   35.652   35.652 lyric_harness.py:9840(wrapper)
+        1    0.002    0.002   35.652   35.652 lyric_harness.py:9850(main)
+        1    0.001    0.001   29.680   29.680 lyric_harness.py:13217(_print_brief_report)
+        1    0.000    0.000   25.260   25.260 schema_instance_evidence.py:167(for_grade)
+        1    0.000    0.000   25.260   25.260 schema_instance_evidence.py:131(_for_grade)
+        1    0.011    0.011   25.010   25.010 schema_instance_evidence.py:37(from_stream)
+      766    0.109    0.000   23.552    0.031 contracts.py:84(canonical_json)
+6658828/3455   10.250    0.000   22.949    0.007 contracts.py:61(json_safe)
+ 49809529    6.295    0.000    9.770    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    4.881    4.881 revise.py:1160(__init__)
+        1    0.000    0.000    4.881    4.881 floor.py:1740(__init__)
+        1    0.000    0.000    4.220    4.220 features.py:431(__init__)
+  6658830    2.460    0.000    3.769    0.000 dataclasses.py:1301(is_dataclass)
+  6679274    2.430    0.000    3.475    0.000 <frozen abc>:117(__instancecheck__)
+        2    0.001    0.001    3.324    1.662 revise.py:3724(inspect)
+        1    0.000    0.000    3.153    3.153 revise.py:6201(brief)
+        1    0.142    0.142    2.854    2.854 features.py:263(__init__)
+      205    0.067    0.000    2.683    0.013 relations.py:3112(realise)
+    41406    0.416    0.000    2.494    0.000 relations.py:2596(evaluate)
+    41710    0.506    0.000    2.436    0.000 lyric_harness.py:1309(syllabify)
+        2    1.474    0.737    2.429    1.214 lyric_harness.py:995(__init__)
+        5    0.002    0.000    2.137    0.427 revise.py:1658(grade)
+        5    0.001    0.000    2.103    0.421 relations.py:7562(whole_vocabulary_pairs)
+
+
+Thu Oct 15 22:35:10 2026    /tmp/lexicon-profile-31b/session-profile.249043.7.prof
+
+         32834565 function calls (32449204 primitive calls) in 17.070 seconds
+
+   Ordered by: cumulative time
+   List reduced from 1180 to 25 due to restriction <25>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   17.091   17.091 worker.py:156(run_one)
+        1    0.000    0.000   17.091   17.091 lyric_harness.py:15025(cli)
+        1    0.000    0.000   17.091   17.091 lyric_harness.py:9840(wrapper)
+        1    0.001    0.001   17.091   17.091 lyric_harness.py:9850(main)
+        1    0.000    0.000   12.162   12.162 loop.py:2462(revise_loop)
+     13/8    0.000    0.000   12.122    1.515 loop.py:2195(_gate)
+     13/8    0.000    0.000   12.122    1.515 loop.py:2340(step)
+        8    0.000    0.000   12.122    1.515 replay_memo.py:181(_memo)
+        7    0.000    0.000   11.975    1.711 loop.py:2262(brief)
+        7    0.000    0.000   11.944    1.706 replay_memo.py:204(brief)
+        7    0.001    0.000   11.936    1.705 replay_memo.py:211(<lambda>)
+        7    0.001    0.000   11.935    1.705 revise.py:6201(brief)
+        6    0.000    0.000    9.052    1.509 loop.py:2908(_materialize)
+     11/6    0.000    0.000    9.052    1.509 loop.py:2242(_menu)
+        5    0.000    0.000    7.779    1.556 loop.py:2231(_place)
+        5    0.000    0.000    7.760    1.552 revise.py:6438(_build)
+        5    0.004    0.001    7.760    1.552 revise.py:5943(_place_field)
+        5    0.032    0.006    7.748    1.550 revise.py:5732(joint_field_screened)
+        5    0.002    0.000    6.978    1.396 revise.py:5413(_rank_field)
+        1    0.026    0.026    6.976    6.976 revise.py:5448(_rank_field_compute)
+        6    0.093    0.015    5.533    0.922 revise.py:5044(_field_split)
+    87774    1.541    0.000    5.190    0.000 lyric_harness.py:4316(score)
+    88757    0.852    0.000    4.866    0.000 lyric_harness.py:1309(syllabify)
+        8    0.005    0.001    4.320    0.540 revise.py:3724(inspect)
+        1    0.000    0.000    4.151    4.151 revise.py:1160(__init__)
+
+

@@ -1,0 +1,8 @@
+Checking 220 reachable entries against /tmp/reachability-repair/codex.html
+✗ Reachability check crashed: page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///tmp/reachability-repair/codex.html
+Call log:
+[2m  - navigating to "file:///tmp/reachability-repair/codex.html", waiting until "load"[22m
+
+    at main (/workspace/musica-lyrics-integration/scripts/ui_reachability_check.js:443:16) {
+  name: 'Error'
+}

@@ -1,0 +1,5 @@
+{"label": "before", "wall": 7.471044880003319, "cpu": 7.471111935000001, "bytes": 233914, "sha256": "578f62608d091f150c5778953bd7b82b3d3ff434dafa9136dde170c92a9e2ce6", "records": 103}
+{"label": "after", "wall": 0.4705541860021185, "cpu": 0.47057359199999915, "bytes": 233914, "sha256": "578f62608d091f150c5778953bd7b82b3d3ff434dafa9136dde170c92a9e2ce6", "records": 103}
+{"label": "before-repeat", "wall": 7.19440322999435, "cpu": 7.186700229000001, "bytes": 233914, "sha256": "578f62608d091f150c5778953bd7b82b3d3ff434dafa9136dde170c92a9e2ce6", "records": 103}
+{"label": "after-repeat", "wall": 1.180028205999406, "cpu": 1.1794892919999995, "bytes": 233914, "sha256": "578f62608d091f150c5778953bd7b82b3d3ff434dafa9136dde170c92a9e2ce6", "records": 103}
+Exact old/new canonical UTF-8 bytes equal for all four reports

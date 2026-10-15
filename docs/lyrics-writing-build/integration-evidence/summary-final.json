@@ -1,0 +1,17 @@
+{
+  "bundleSha256": "30f877d4899d9b228ceb31a4864321e5100f13abb6d24ccae80656ef6c923368",
+  "integrationCases": 13,
+  "viewportCases": 30,
+  "naturalCases": 40,
+  "naturalActualPhases": {
+    "after-second": 28,
+    "between-frames": 11,
+    "before-first": 1
+  },
+  "writingChecks": 90,
+  "testHashes": {
+    "check_lyrics_integration.js": "b7b5cfde41f51ea05037a9ebda7acc03d48ed23a18b6a188dd00dff712cae707",
+    "check_lyrics_writing.js": "12ea331f5d3b73ff6d9a067d15ef2796132cb686d1226a99ec7874c7e55896cc",
+    "check_lyrics_viewport.js": "593ac0eb9ef426c49e611be61616bf0c7e1f84e4da736f6ac328d9b26ae102b1"
+  }
+}

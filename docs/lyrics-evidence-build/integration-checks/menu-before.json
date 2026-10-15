@@ -1,0 +1,245 @@
+{
+  "root": "/workspace/musica-lyrics-integration",
+  "bundleSha256": "7cbfb6b73e64a48a8524fc59e19cbcdac1dbdb4987839751bc84edc3b3d7fe50",
+  "results": [
+    {
+      "width": 844,
+      "height": 390,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": true
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": true
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": true
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions menu is within viewport and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable after menu scrolling",
+          "ok": true
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Undo is visible and hit-testable in its viewport control",
+          "ok": false
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 24,
+        "y": 176.34375,
+        "width": 786,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "sendOnEntry": {
+        "x": 738.625,
+        "y": 278.34375,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "composer": {
+        "x": 24,
+        "y": 176.34375,
+        "width": 786,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "send": {
+        "x": 738.625,
+        "y": 278.34375,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "songMenu": {
+        "x": 498,
+        "y": 116,
+        "width": 320,
+        "height": 209,
+        "hit": "",
+        "reachable": true
+      },
+      "downloadInitial": {
+        "x": 507,
+        "y": 469,
+        "width": 302,
+        "height": 40,
+        "reachable": false
+      },
+      "download": {
+        "x": 507,
+        "y": 236,
+        "width": 302,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      },
+      "menuDebug": {
+        "nodes": [
+          {
+            "id": "ly-menu-line-actions",
+            "x": 12,
+            "y": 116,
+            "width": 360,
+            "height": 153,
+            "maxHeight": "153px",
+            "scroll": 0,
+            "scrollHeight": 186
+          },
+          {
+            "id": "ly-linedock",
+            "x": 0,
+            "y": 273,
+            "width": 834,
+            "height": 61,
+            "maxHeight": "",
+            "scroll": 0,
+            "scrollHeight": 60
+          },
+          {
+            "id": "ly-mnav",
+            "x": 0,
+            "y": 333,
+            "width": 844,
+            "height": 57,
+            "maxHeight": "",
+            "scroll": 0,
+            "scrollHeight": 56
+          },
+          {
+            "id": "ly-page",
+            "x": 0,
+            "y": 108,
+            "width": 834,
+            "height": 282,
+            "maxHeight": "",
+            "scroll": 738,
+            "scrollHeight": 1059
+          }
+        ],
+        "items": [
+          {
+            "label": "This view is too short to show the line and all actions together. Close Line actions or press Escape to see the line again.",
+            "x": 29,
+            "y": 129,
+            "width": 326,
+            "height": 56.53125
+          },
+          {
+            "label": "Rhyme",
+            "x": 21,
+            "y": 193.53125,
+            "width": 114,
+            "height": 48
+          },
+          {
+            "label": "Rhythm",
+            "x": 135,
+            "y": 193.53125,
+            "width": 114,
+            "height": 48
+          },
+          {
+            "label": "Pronunciation",
+            "x": 249,
+            "y": 193.53125,
+            "width": 114,
+            "height": 48
+          },
+          {
+            "label": "",
+            "x": 25,
+            "y": 247.53125,
+            "width": 334,
+            "height": 1
+          },
+          {
+            "label": "Undo",
+            "x": 21,
+            "y": 254.53125,
+            "width": 114,
+            "height": 40
+          },
+          {
+            "label": "Redo",
+            "x": 135,
+            "y": 254.53125,
+            "width": 114,
+            "height": 40
+          }
+        ],
+        "caret": {
+          "x": 72,
+          "y": 211,
+          "width": 730,
+          "height": 32
+        }
+      },
+      "undo": {
+        "x": 21,
+        "y": 254.53125,
+        "width": 114,
+        "height": 40,
+        "hit": "ly-linedock",
+        "reachable": false
+      }
+    }
+  ],
+  "errors": ["844x390: Undo is visible and hit-testable in its viewport control"]
+}

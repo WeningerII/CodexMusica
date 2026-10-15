@@ -1,0 +1,2 @@
+REPRODUCED exact f809 artifact: old literal absent; original injector throws faults: toast action removal not found in codex.html
+function hideToast(e){e.classList.remove("show","has-action");e.querySelector(".toast-action")?.remove()}

@@ -1,0 +1,26 @@
+test_byte_accounting_does_not_reserialize_admitted_records (quality.test_schema_instance_evidence.EvidenceTests.test_byte_accounting_does_not_reserialize_admitted_records) ... FAIL
+
+======================================================================
+FAIL: test_byte_accounting_does_not_reserialize_admitted_records (quality.test_schema_instance_evidence.EvidenceTests.test_byte_accounting_does_not_reserialize_admitted_records)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/musica-lyrics-integration/lyric-harness/quality/test_schema_instance_evidence.py", line 193, in test_byte_accounting_does_not_reserialize_admitted_records
+    self.assertEqual(full_calls, [len(got['records'])],
+AssertionError: Lists differ: [1, 2, 3, 4, 4] != [4]
+
+First differing element 0:
+1
+4
+
+First list contains 4 additional elements.
+First extra element 1:
+2
+
+- [1, 2, 3, 4, 4]
++ [4] : only the unchanged final full-size guard walks admitted records
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+FAILED (failures=1)
+EXPECTED: regression rejects old repeated full-result serialization

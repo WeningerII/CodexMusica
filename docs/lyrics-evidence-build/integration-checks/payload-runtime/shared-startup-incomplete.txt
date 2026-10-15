@@ -1,0 +1,5 @@
+page.waitForFunction: Timeout 30000ms exceeded.
+    at open (/workspace/musica-lyrics-integration/scripts/check_lyrics_integration.js:77:13)
+    at async /workspace/musica-lyrics-integration/scripts/check_lyrics_integration.js:124:19 {
+  name: 'TimeoutError'
+}

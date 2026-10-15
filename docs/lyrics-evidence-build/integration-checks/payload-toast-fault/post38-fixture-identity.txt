@@ -1,0 +1,11 @@
+tests/library/eligibility-changes.json REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/goldens/317c/capture.json REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/goldens/317c/exports.json REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/goldens/317c/metadata.jsonl.gz REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/goldens/317c/queries.json REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/goldens/317c/readings.jsonl.gz REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/goldens/317c/search.jsonl.gz REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/id-map.json REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/revisions.json REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/units-317c5afa.tsv.gz REAL_FILE_HEAD_MATCH_AFTER_RUN
+tests/library/units-5226b4fb.tsv.gz REAL_FILE_HEAD_MATCH_AFTER_RUN

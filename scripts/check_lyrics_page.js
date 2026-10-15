@@ -37,7 +37,7 @@
 //
 //   BROWSER (the shipped codex.html in Chromium)
 //   0. One document: inspector tabs exactly Tools / Writer / Review / History,
-//      the six tools with their fixed help, Run review the one header primary,
+//      the six tools with their fixed help, Review navigation and Song actions in the header,
 //      no Read/Edit switch, the textarea authoritative; the title commits on
 //      Enter, restores on Escape and a blank title removes its declaration;
 //      the brief saves to the page context and Undo restores it.
@@ -2770,7 +2770,7 @@ async function browserChecks(chromium) {
           (await page.inputValue('#lyrics-draft')) === DRAFT,
           'H1 navigation changed draft text'
         );
-        const review = page.locator('.ly-head [data-ui="ly-run-review"]').first();
+        const review = page.locator('.ly-head [data-ui="ly-tab"][data-id="review"]').first();
         check((await review.count()) === 1, 'H1 header review button missing');
         if (await review.count()) {
           await review.scrollIntoViewIfNeeded();
@@ -2828,6 +2828,63 @@ async function browserChecks(chromium) {
     });
 
     // ── 0. the shape: one document, fixed tabs and tools, no mode switch ──
+    await step(
+      'Evidence. Review navigation preserves pending edits and sends nothing',
+      async () => {
+        const { ctx, page, q } = await boot({ theme: 'light' });
+        await setDraft(page, DRAFT);
+        const before = await page.evaluate(() => {
+          lyDraftSet('rhythm', '0', 'bars', '9');
+          LY.tool = '';
+          LY_ACTIONS['ly-tab']('tools');
+          lyRefresh(true);
+          return { draft: $ui('lyrics-draft').value, pending: JSON.stringify(lyMeta().drafts) };
+        });
+        const callout = page.locator(
+          '#ly-panel-tools .ly-callout [data-ui="ly-tab"][data-id="review"]'
+        );
+        check((await callout.count()) === 1, 'Tools has no explicit Review navigation action');
+        await callout.click();
+        const after = await page.evaluate(() => ({
+          draft: $ui('lyrics-draft').value,
+          pending: JSON.stringify(lyMeta().drafts),
+          actions: $ui('ly-panel-review').querySelectorAll('[data-ui="ly-run-review"]').length,
+          toolSends: $ui('ly-panel-tools').querySelectorAll('[data-ui="ly-run-review"]').length,
+        }));
+        check(
+          after.draft === before.draft && after.pending === before.pending,
+          'opening Review changed pending or committed work'
+        );
+        check(
+          after.actions === 1 && after.toolSends === 0,
+          'Review action is missing or Tools still sends'
+        );
+        check(q.calls.length === 0, 'opening Review sent a request');
+        const unknown = await page.evaluate(() => {
+          chatState.task = { domain: 'lyrics', phase: 'edit' };
+          chatState.pending = { request_id: 'fixture-unknown-outcome' };
+          chatState.busy = false;
+          lyRefresh(true);
+          return {
+            reviewDisabled: $ui('ly-panel-review').querySelector('[data-ui="ly-run-review"]')
+              .disabled,
+            retrieve: $ui('ly-panel-review').querySelectorAll('[data-ui="ly-retrieve"]').length,
+            options: globalThis.lyToolRequestAction('ly-rhyme-options', 'Options', 'pencil'),
+          };
+        });
+        check(
+          unknown.reviewDisabled && unknown.retrieve === 1,
+          'unknown outcome did not make Review retrieval primary'
+        );
+        check(
+          /ly-retrieve/.test(unknown.options) && !/ly-rhyme-options/.test(unknown.options),
+          'unknown outcome still advertises a new tool request'
+        );
+        check(q.calls.length === 0, 'rendering unknown recovery dispatched a request');
+        await ctx.close();
+      }
+    );
+
     await step('0. structure', async () => {
       const { ctx, page } = await boot({ theme: 'light' });
       await setDraft(page, DRAFT);
@@ -2866,15 +2923,12 @@ async function browserChecks(chromium) {
       );
       check(
         /Not reviewed/.test(s.head[0]) &&
-          s.head[1] === 'Run review' &&
-          s.head[2] === 'Write with AI' &&
-          s.head[3] === 'Export',
+          s.head[1] === 'Review' &&
+          s.head[2] === 'Song actions' &&
+          s.head.length === 3,
         `header actions are ${JSON.stringify(s.head)}`
       );
-      check(
-        JSON.stringify(s.primary) === '["Run review"]',
-        `header primaries: ${JSON.stringify(s.primary)}`
-      );
+      check(s.primary.length === 0, `header primaries: ${JSON.stringify(s.primary)}`);
       check(s.modes === 0, 'a Read/Edit mode switch is still on the page');
       check(s.textarea, 'the document is not one textarea in the editor');
       check(
@@ -3348,8 +3402,8 @@ async function browserChecks(chromium) {
       const { ctx, page, q } = await boot();
       await setDraft(page, DRAFT);
       const choose = async (action) => {
-        await page.locator('[data-ui="ly-menu"][data-id="ai"]').click();
-        await page.locator(`#ly-menu-ai [data-ui="${action}"]`).click();
+        await page.locator('[data-ui="ly-menu"][data-id="song-actions"]').click();
+        await page.locator(`#ly-menu-song-actions [data-ui="${action}"]`).click();
       };
       await choose('edit-lyrics');
       check(
@@ -3781,17 +3835,23 @@ async function browserChecks(chromium) {
         /1:0\d/.test(w) && /ago/.test(w),
         `elapsed and last update are not read from the receipt's times: ${w}`
       );
+      const callsWhileBusy = q.calls.length;
+      await page.locator('.ly-head [data-ui="ly-tab"][data-id="review"]').click();
       check(
-        await page.evaluate(() => {
-          const b = document.querySelector('[data-ui="ly-run-review"]');
-          return (
-            b.disabled &&
-            getComputedStyle(b).opacity !== '0' &&
-            getComputedStyle(b).visibility !== 'hidden'
-          );
-        }),
-        'Run review is not shown disabled while the writer works'
+        await page.evaluate(() => LY.tab === 'review'),
+        'header Review did not navigate while the writer works'
       );
+      check(q.calls.length === callsWhileBusy, 'header Review sent a second request');
+      check(
+        (await page.locator('#ly-panel-review [data-ui="ly-run-review"]:enabled').count()) === 0,
+        'Review offers an enabled send while the writer works'
+      );
+      const refusedWhileBusy = await page.evaluate(() => LY_ACTIONS['ly-run-review']());
+      check(
+        refusedWhileBusy === false && q.calls.length === callsWhileBusy,
+        'Run review did not refuse a second request while the writer works'
+      );
+      await page.evaluate(() => LY_ACTIONS['ly-tab']('writer'));
       check(
         /Reviewing this version/.test(await page.evaluate(() => $ui('ly-badge').innerText)),
         'the badge does not say the review is running'
@@ -4805,6 +4865,14 @@ async function browserChecks(chromium) {
         }
         q.replies.push({ reply: 'Fixture review only', history: [], sig: 'fixture' });
         if (mode === 'phone') await page.locator('#ly-mtab-review').click();
+        else if (mode !== 'dock') {
+          const callsBeforeNavigation = q.calls.length;
+          await page.locator('.ly-head [data-ui="ly-tab"][data-id="review"]').click();
+          check(
+            q.calls.length === callsBeforeNavigation,
+            'P5 header Review navigation sent a request'
+          );
+        }
         if (mode === 'dock') {
           await page.evaluate(() => {
             LY_ACTIONS['ly-tab']('writer');
@@ -4814,7 +4882,7 @@ async function browserChecks(chromium) {
           await page.fill('#chat-input', 'Review the committed document');
           await page.locator('#chat-send').click();
         } else {
-          const button = page.locator('[data-ui="ly-run-review"]:visible').first();
+          const button = page.locator('#ly-panel-review [data-ui="ly-run-review"]:visible').first();
           if (mode === 'keyboard') {
             await button.focus();
             await page.keyboard.press('Enter');

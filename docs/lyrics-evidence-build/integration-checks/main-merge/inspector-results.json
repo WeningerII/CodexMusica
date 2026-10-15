@@ -1,0 +1,719 @@
+{
+  "bundleSha256": "ad8332b85263638c5da92b2c0401adad09da70e529720d81b37d4b5d155f19ad",
+  "results": [
+    {
+      "kind": "journey",
+      "width": 1180,
+      "height": 757,
+      "initialDock": {
+        "x": 337.296875,
+        "y": 318,
+        "width": 334.484375,
+        "height": 34
+      },
+      "original": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat",
+        "start": 29,
+        "end": 40,
+        "direction": "backward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "returned": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat",
+        "start": 29,
+        "end": 40,
+        "direction": "backward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "stale": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "refused": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "staleEvents": [
+        {
+          "type": "pointerdown",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "mousedown",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "focus",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "click",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "blur",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "pointerdown",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "mousedown",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "focus",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "click",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "blur",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        }
+      ],
+      "beforeStay": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "afterStay": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "dock": null
+    },
+    {
+      "kind": "journey",
+      "width": 390,
+      "height": 844,
+      "initialDock": {
+        "x": 0,
+        "y": 655,
+        "width": 380,
+        "height": 61
+      },
+      "original": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat",
+        "start": 29,
+        "end": 40,
+        "direction": "backward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "returned": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat",
+        "start": 29,
+        "end": 40,
+        "direction": "backward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "stale": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "refused": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "staleEvents": [
+        {
+          "type": "pointerdown",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "mousedown",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "focus",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "click",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "blur",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "focus",
+          "target": "ly-relation-source",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "pointerdown",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "mousedown",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "blur",
+          "target": "ly-relation-source",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "focus",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "click",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "selectionchange",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "blur",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        }
+      ],
+      "beforeStay": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "afterStay": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "dock": {
+        "x": 0,
+        "y": 655,
+        "width": 380,
+        "height": 61
+      }
+    },
+    {
+      "kind": "journey",
+      "width": 390,
+      "height": 508,
+      "initialDock": {
+        "x": 0,
+        "y": 391,
+        "width": 380,
+        "height": 61
+      },
+      "original": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat",
+        "start": 29,
+        "end": 40,
+        "direction": "backward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 297],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "returned": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat",
+        "start": 29,
+        "end": 40,
+        "direction": "backward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 297],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "stale": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 297],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "refused": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 297],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "staleEvents": [
+        {
+          "type": "pointerdown",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "mousedown",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "focus",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "click",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "blur",
+          "target": "ly-relation-return",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "focus",
+          "target": "ly-relation-source",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "pointerdown",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "mousedown",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "blur",
+          "target": "ly-relation-source",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "focus",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "click",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "selectionchange",
+          "start": 2,
+          "end": 5
+        },
+        {
+          "type": "blur",
+          "target": "ly-relation-stay",
+          "start": 2,
+          "end": 5
+        }
+      ],
+      "beforeStay": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 297],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "afterStay": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 297],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "dock": {
+        "x": 0,
+        "y": 391,
+        "width": 380,
+        "height": 61
+      }
+    },
+    {
+      "kind": "long-origin",
+      "width": 1180,
+      "height": 757,
+      "before": {
+        "text": "[SETUP — rhyme groups — 1,2]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncat bat cat\nhat",
+        "start": 67,
+        "end": 67,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 871],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "after": {
+        "text": "[SETUP — rhyme groups — 1,2]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncat bat cat\nhat",
+        "start": 67,
+        "end": 67,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 871],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "sessionOrigin": {
+        "start": 67,
+        "end": 67,
+        "scroll": [
+          ["lyrics-draft", 0],
+          ["ly-editor", 0],
+          ["ly-doc-wrap", 0],
+          ["ly-main-scroll", 871],
+          ["ly-main", 0],
+          ["ly-body", 0],
+          ["ly-page", 0],
+          ["surface-lyrics", 0],
+          ["discovery", 0],
+          ["", 0],
+          ["", 0],
+          ["", 0]
+        ]
+      }
+    },
+    {
+      "kind": "long-origin",
+      "width": 390,
+      "height": 508,
+      "before": {
+        "text": "[SETUP — rhyme groups — 1,2]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncat bat cat\nhat",
+        "start": 67,
+        "end": 67,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 1305],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "after": {
+        "text": "[SETUP — rhyme groups — 1,2]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncat bat cat\nhat",
+        "start": 67,
+        "end": 67,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 1305],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "sessionOrigin": {
+        "start": 67,
+        "end": 67,
+        "scroll": [
+          ["lyrics-draft", 0],
+          ["ly-editor", 0],
+          ["ly-doc-wrap", 0],
+          ["ly-main-scroll", 0],
+          ["ly-main", 0],
+          ["ly-body", 0],
+          ["ly-page", 1305],
+          ["surface-lyrics", 0],
+          ["discovery", 0],
+          ["", 0],
+          ["", 0],
+          ["", 0]
+        ]
+      }
+    },
+    {
+      "kind": "keyboard-stale",
+      "before": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      },
+      "after": {
+        "text": "[SETUP — rhyme groups — 1,2]\ncat bat cat\nhat!",
+        "start": 2,
+        "end": 5,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 0],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      }
+    },
+    {
+      "kind": "sectioned-projected",
+      "expected": {
+        "start": 37,
+        "end": 40,
+        "text": "cat"
+      },
+      "actual": {
+        "text": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat bat cat\nhat",
+        "start": 37,
+        "end": 40,
+        "direction": "forward",
+        "windowScroll": [0, 0],
+        "scroll": [
+          ["surface-lyrics", 0],
+          ["ly-page", 355],
+          ["ly-body", 0],
+          ["ly-main-scroll", 0],
+          ["lyrics-draft", 0]
+        ]
+      }
+    },
+    {
+      "kind": "none"
+    },
+    {
+      "kind": "unmatched"
+    },
+    {
+      "kind": "hash"
+    },
+    {
+      "kind": "row"
+    },
+    {
+      "kind": "range"
+    },
+    {
+      "kind": "reader"
+    },
+    {
+      "kind": "voices"
+    },
+    {
+      "kind": "multipart"
+    },
+    {
+      "kind": "history",
+      "before": {
+        "tab": "history",
+        "mobile": "writer",
+        "active": "ly-history-relations",
+        "scroll": 0
+      },
+      "after": {
+        "tab": "history",
+        "mobile": "writer",
+        "active": "ly-history-relations",
+        "scroll": 0,
+        "dialog": false
+      }
+    }
+  ],
+  "errors": []
+}

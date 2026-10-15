@@ -1,0 +1,35 @@
+Workdir /workspace/musica-lyrics-integration
+Runtime /workspace/musica-ci-venv/bin/python
+LYRIC_STAGED_DATA=/workspace/musica-ci/lyric-harness/data
+
+Baseline and after command:
+LYRIC_STAGED_DATA=/workspace/musica-ci/lyric-harness/data /workspace/musica-ci-venv/bin/python lyric-harness/quality/test_reader.py LegacyReplay
+Baseline:14 tests,3 failures,189.326s,exit1. /tmp/lyrics-legacy-replay-before.log
+After: /tmp/lyrics-legacy-replay-after.log
+
+LYRIC_STAGED_DATA=/workspace/musica-ci/lyric-harness/data /workspace/musica-ci-venv/bin/python lyric-harness/quality/test_reader.py V1Frozen
+Log /tmp/lyrics-legacy-v1-frozen.log
+/workspace/musica-ci-venv/bin/python lyric-harness/quality/test_schema_instance_evidence.py
+Log /tmp/lyrics-legacy-producer.log
+
+LYRIC_PYTHON=/workspace/musica-ci-venv/bin/python LYRIC_STAGED_DATA=/workspace/musica-ci/lyric-harness/data node --test mcp/test_lyrics_evidence_binding.mjs
+PASS3,exit0 natural completion,26.806s /tmp/lyrics-legacy-binding-after.log
+Initial missing-express environment failure preserved /tmp/lyrics-legacy-binding.log; corrected by restoring parent-authorized ignored mcp/node_modules symlink.
+
+TEST_HTML=/workspace/musica-lyrics-integration/codex.html TEST_EVIDENCE=/tmp/lyrics-release-transport CHROMIUM_PATH=/tmp/musica-browsers/chromium-0/chrome-linux/chrome LYRIC_PYTHON=/workspace/musica-ci-venv/bin/python LYRIC_STAGED_DATA=/workspace/musica-ci/lyric-harness/data node scripts/check_lyrics_inspection_transport.mjs
+Log /tmp/lyrics-release-transport.log
+Bundle SHA256 b05b30fb5e3a75d581ae9d8b463a0819be067cdee497fc33464a10e15256d4d7
+
+Changed paths: lyric-harness/lyric_harness.py, lyric-harness/quality/test_reader.py
+Post-fix source SHA256:
+d0484a93a0948a6476867541c244e1f24ecef3ee4a21234ec491804add6c6c09 lyric-harness/lyric_harness.py
+81376827e310228d2d38638ad6408ead73b72a93d49cd927414a458a99751a9b lyric-harness/quality/test_reader.py
+No frozen fixture changes, no provider calls, no commit or push.
+
+FINAL RESULTS:
+LegacyReplay14 PASS216.604s exit0 (baseline14/3fail189.326s).
+V1Frozen4 PASS12.719s exit0.
+Producer9 PASS0.388s exit0.
+Authenticated binding3 PASS26.806s exit0 natural completion.
+Actual browser transport8 PASS exit0.
+Source SHA256 unchanged after all tests; git diff --check clean.

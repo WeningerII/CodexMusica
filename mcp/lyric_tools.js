@@ -1,3 +1,4 @@
+import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 // lyric_tools.js — the lyric harness as MCP tools: a DISJOINT family.
 //
 // STANDING RULE 1 OF lyric-harness/CLAUDE.md, HONORED IN THE ARCHITECTURE:
@@ -1002,6 +1003,8 @@ function verdictOf(r) {
     return v;
   }
   v.measurement_status = record.status;
+  if (record.schema_instance_evidence?.version === 1)
+    v.schema_instance_evidence = record.schema_instance_evidence;
   // The supplement this verdict was read under ({supplement_id, sha256}, both
   // null for CMUdict alone), from the authenticated record only.
   const lexicon = lexiconIdentityOf(record);
@@ -3573,6 +3576,11 @@ export function registerLyricTools(server, tool) {
         }
         const r = await runVerb(args);
         const v = verdictOf(r);
+        if (v.schema_instance_evidence) {
+          const invocation = checkEvidenceInvocation(r, a);
+          if (invocation)
+            v.schema_instance_evidence = { ...v.schema_instance_evidence, invocation };
+        }
         v.blueprint_declared = a.blueprint != null;
         return v;
       })

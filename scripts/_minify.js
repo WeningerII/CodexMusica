@@ -24,21 +24,14 @@
 // single monolithic parse). Minifying makes every one of those chunks smaller
 // than the ceiling that exists to keep that from happening again.
 //
-// WHY NOTHING IS RENAMED OR REWRITTEN, which is the decision this file exists to
-// record. The same measurement, run at three settings:
-//
-//   whitespace only        gzip 1,415,498
-//   + compress             gzip 1,414,263   (1,235 bytes better)
-//   + compress + mangle    gzip 1,407,495   (8,003 bytes better)
-//
-// Full compression and mangling buy 0.6% more of an already-compressed page.
-// Against that: this page's nineteen <script> tags share one global scope on
-// purpose, so a mangler is being asked to rename cross-block globals it cannot
-// see all uses of; the catalog is data whose keys are reached dynamically; and
-// `compress` merges adjacent declarations, which would delete the literal
-// `const CODEX_LAZY_API` that ui_reachability_check.js reads to tell the two
-// build variants apart. Eight kilobytes is not worth one of those, let alone
-// three. So: parse, reprint without whitespace or comments, change nothing else.
+// Data and non-runtime snippets only lose whitespace. Runtime blocks additionally
+// shorten function-local bindings: never top-level globals (shared by classic
+// scripts), property names (also read dynamically), or function/class names.
+// Compression stays off, preserving declarations such as CODEX_LAZY_API and
+// avoiding expression rewrites. This reduces the growing UI shell without new
+// network dependencies or changes to page loading. The equivalence gate compares
+// an independently built --no-minify page; check_runtime_minify.js also exercises
+// cross-script globals, dynamic keys, callbacks, reflected names and direct eval.
 //
 // DETERMINISM IS A HARD REQUIREMENT, not a nicety. check_artifact_fresh.js
 // byte-compares the committed codex.html against a fresh build, so a minifier
@@ -62,12 +55,16 @@
 'use strict';
 const { minify_sync } = require('terser');
 
-// Fixed, and fixed deliberately: see the three-row table above. `compress` and
-// `mangle` are OFF because they buy 0.6% and cost invariants.
+// Default: data and snippets retain every identifier.
 const OPTIONS = {
   compress: false,
   mangle: false,
   format: { comments: false },
+};
+
+const RUNTIME_OPTIONS = {
+  ...OPTIONS,
+  mangle: { toplevel: false, keep_fnames: true, keep_classnames: true },
 };
 
 // Minify one classic-script source. `label` names the file or chunk it came
@@ -77,7 +74,7 @@ function minifyJs(code, label) {
   if (!code.trim()) return code;
   let result;
   try {
-    result = minify_sync(code, OPTIONS);
+    result = minify_sync(code, label.startsWith('runtime: ') ? RUNTIME_OPTIONS : OPTIONS);
   } catch (e) {
     const where = e.line != null ? ` at line ${e.line}, col ${e.col}` : '';
     throw new Error(`minify failed for ${label}${where}: ${e.message}`);

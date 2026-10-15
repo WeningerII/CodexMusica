@@ -1,0 +1,15 @@
+# Shared writing integration checkpoint
+
+Base: `3ff4aff7eed653d62d346ecfca186c5899f8cd78`; writing component `bd0c589cf7deff6919809dce830a1f6fecb4cad4` is carried as `819a3f308f37b6c16c8da88d89e85345b22f2838`. This checkpoint integrates its separate dock patch with shared shell, Writer composer and menu positioning. It is not complete inspector or combined P-A acceptance.
+
+Current bundle SHA256: `30f877d4899d9b228ceb31a4864321e5100f13abb6d24ccae80656ef6c923368`.
+
+Fixture Chromium results on that bundle: 13 integration/menu journeys, 90 writing checks, 30 viewport cases, 40 natural resize/input cases and 37 pending-review cases pass. The 754-assertion full page gate passed the preceding build6 bundle `8c2ed3864f888ee9ff8ebeb404d7c641acd0d050ba323a05f7932de411fc7eee`; build7 changes only the pointer-focus guard, covered by the actual-touch viewport cases. Do not attribute 754 to build7. Full combined-source acceptance remains required after inspector/P-A integration.
+
+Before/after evidence is retained here. First journeys exposed short-screen Send occlusion and Song actions clipping. Original Line actions covered the active line; the bounded two-column menu now avoids the caret where room permits and explains the cramped-view fallback. At 260px enlarged-text height it is a small scrollable region with Escape exit, not simultaneous visibility of every item. Open-menu resize preserves both visible caret and menu focus. Header Review navigates without sending; Review's guarded action retains real mouse/keyboard and pending-edit tests. Song actions downloads are verified through the bounded scrollable menu.
+
+Compact-header geometry changed native focus scrolling: build4's L9 began hidden. Synchronous explicit-focus reveal corrected it but build5/6 revealed the old caret before native touch selection. Build7 keeps the suppression through compatibility click (after pointerup), with keyboard/cancel/outside-pointer resets. The unchanged natural runner passes all40; actual touch L30 passes all before/rise/type checks. Two viewport fixture setups now derive their scroll/shrink from measured geometry: a fixed250px wheel hid an already revealed forward endpoint, and a fixed508px viewport already contained the revealed caret. Assertions still require a clear initial endpoint, real shrink obstruction, movement and a clear final endpoint.
+
+Reproduction from repository root (installed Playwright required): `node scripts/check_lyrics_integration.js`, `TEST_SHARED_DOCK=1 node scripts/check_lyrics_writing.js`, `node scripts/check_lyrics_viewport.js`, `node scripts/check_lyrics_natural_resize.js`, `node scripts/check_lyrics_gate.js`. These route local assets and fixture replies; they make no provider calls. Browser viewport/large-text emulation does not establish native keyboard, IME, pinch zoom, assistive technology or live-service acceptance.
+
+Build parity used an explicit independent output path: `node scripts/build_html.js --out=/tmp/lyrics-integration-evidence/rebuilt7.html --check`, then byte comparison with committed `codex.html`. No bare-build self-comparison is claimed.
