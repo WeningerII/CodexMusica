@@ -83,6 +83,8 @@ def _triggered(text):
     folded = text.replace("‐", "-").replace("‑", "-").replace("­", "")
     return (LH.has_numeral(text) or "--" in folded or "­" in text
             or "‐" in text or "‑" in text
+            # an opening quotation mark leaves its word (2026-10-16)
+            or "\u2018" in text or "\u201b" in text
             or not unicodedata.is_normalized("NFC", text))
 
 
@@ -2765,14 +2767,19 @@ class LegacyReplay(unittest.TestCase):
             rebind_occurrences([dict(rows[0], line="thee--Arise", token=1, word="thee--Arise")],
                                "v1", "v2")
         # On generated lines every v1 token whose raw span survives moves to
-        # the v2 token with that span, and only there.
+        # the v2 token with that span, and only there -- or to the token that
+        # is that span less an opening quotation mark v2 leaves out of the
+        # word (2026-10-16, `pronunciation.declared_spelling`).
+        from quality.pronunciation import declared_spelling
         for text in GENERATED[:400]:
             src = LH.reader_token_spans(text, True, "v1") or []
             dst = LH.reader_token_spans(text, True, "v2")
             for k, (word, pieces) in enumerate(src):
                 row = dict(line=text, token=k + 1, word=word, phones=["AH1"],
                            basis="declared", source="x")
-                hits = [j for j, (w, p) in enumerate(dst) if p == pieces and w == word]
+                less = ((pieces[0][0] + 1, pieces[0][1]),) + tuple(pieces[1:])
+                hits = [j for j, (w, p) in enumerate(dst) if p == pieces and w == word
+                        or p == less and declared_spelling(word, w)]
                 if len(hits) == 1:
                     self.assertEqual(rebind_occurrences([row], "v1", "v2")[0]["token"], hits[0] + 1)
                 else:

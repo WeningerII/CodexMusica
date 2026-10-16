@@ -41,6 +41,18 @@ def numbering_of(lex):
     return _scheme(lex) + ('' if lex.strip_parens else '+voices')
 
 
+def declared_spelling(word, token_text):
+    """-> True when the declared `word` is the token `token_text` as printed,
+    with the opening quotation mark the reader leaves out of the word
+    (`lyric_harness._opening_quotes`): a declaration that names `\u2018This`
+    binds the token `This`, and its reading is the one read there."""
+    from lyric_harness import fold_apostrophes
+    if not isinstance(word, str) or not isinstance(token_text, str):
+        return False
+    w = fold_apostrophes(word)
+    return w != token_text and w[:1] == "'" and w.lstrip("'") == token_text
+
+
 def numbered_token(line, token, lex, numbering=None, word=None):
     """Resolve a caller coordinate by identical server-derived raw pieces."""
     from lyric_harness import reader_token_spans
@@ -55,7 +67,7 @@ def numbered_token(line, token, lex, numbering=None, word=None):
         rows = tokens(mark)
         if type(token) is int and 1 <= token <= len(rows):
             value = rows[token - 1]
-            if word is None or value[0] == word:
+            if word is None or value[0] == word or declared_spelling(word, value[0]):
                 return value
         return None
 
@@ -133,6 +145,12 @@ def validate_choices(rows, lex):
             if 'numbering' in row or token != original_token:
                 row['numbering'] = numbering_of(lex)
         words = line_tokens(line, strip_parens=lex.strip_parens, scheme=scheme)
+        if (type(token) is int and 1 <= token <= len(words)
+                and declared_spelling(word, words[token-1])):
+            # The declaration names the word with its opening quotation mark;
+            # it binds the token, and the row records the token's own text.
+            row = copy.deepcopy(row)
+            row['word'] = word = words[token-1]
         if type(token) is not int or not 1 <= token <= len(words) or words[token-1] != word:
             # Under v2 the refusal names what the position holds, because the
             # numbering moved for some lines; v1 keeps the pre-batch text.
@@ -185,8 +203,13 @@ def rebind_occurrences(rows, from_scheme, to_scheme, strip_parens=True):
             raise ValueError(f'cannot rebind {word!r} at token {token} of {line!r}: '
                              f'it is not that token under scheme {from_scheme}')
         dst = reader_token_spans(line, strip_parens, to_scheme)
+        span = src[token-1][1]
+        # The same raw occurrence, or it less the opening quotation mark the
+        # reader now leaves out of the word (`declared_spelling`).
+        unquoted = ((span[0][0] + 1, span[0][1]),) + tuple(span[1:]) if span else span
         hits = [k for k, (text, pieces) in enumerate(dst or ())
-                if pieces == src[token-1][1] and text == word]
+                if (pieces == span and text == word)
+                or (pieces == unquoted and declared_spelling(word, text))]
         if len(hits) != 1:
             raise ValueError(f'cannot rebind {word!r} at token {token} of {line!r}: '
                              f'no token under scheme {to_scheme} has the same raw span')
