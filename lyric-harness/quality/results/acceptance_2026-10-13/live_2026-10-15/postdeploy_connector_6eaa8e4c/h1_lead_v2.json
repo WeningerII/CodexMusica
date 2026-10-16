@@ -1,0 +1,176 @@
+{
+ "exit_code": 0,
+ "meaning": "answered \u2014 no flag stands",
+ "verified_outcomes": null,
+ "verified_outcomes_error": "No authenticated verifier outcome inventory is available.",
+ "verified_outcomes_draft_sha256": null,
+ "journal_id": null,
+ "resume_proof": null,
+ "resume_proof_error": "No authenticated checkpoint replay receipt is available.",
+ "path": "warm",
+ "ms": 11083,
+ "tool_deadline": {
+  "tool_budget_ms": 600000,
+  "caller_deadline_ms": 599998,
+  "reserve_ms": 1000,
+  "cap_ms": 598998,
+  "bound_by": "caller_deadline",
+  "elapsed_ms": 11083
+ },
+ "retained": {
+  "stage": "result_recorded",
+  "phase": null,
+  "round": null,
+  "completed_proposals": null,
+  "accepted_lines": null,
+  "proposer_calls": null,
+  "proposer_in_flight": null
+ },
+ "coverage": {
+  "pairs_mandated": 1,
+  "pairs_judged": 1,
+  "pairs_refused": 0,
+  "scope": "requested_layers",
+  "certified": true,
+  "obligations": [
+   {
+    "id": "function:draft",
+    "layer": "function",
+    "status": "not_requested"
+   },
+   {
+    "id": "shape:draft",
+    "layer": "shape",
+    "status": "not_requested"
+   },
+   {
+    "id": "sentencehood:draft",
+    "layer": "sentencehood",
+    "status": "answered"
+   },
+   {
+    "id": "floor:draft",
+    "layer": "floor",
+    "status": "answered"
+   },
+   {
+    "id": "meter:draft",
+    "layer": "meter",
+    "status": "not_requested"
+   },
+   {
+    "id": "slot_grid:draft",
+    "layer": "slot_grid",
+    "status": "not_requested"
+   },
+   {
+    "id": "setting:draft",
+    "layer": "setting",
+    "status": "not_requested"
+   },
+   {
+    "id": "rhyme:1:2:0",
+    "layer": "rhyme",
+    "status": "answered"
+   }
+  ],
+  "refused_obligations": []
+ },
+ "certified": true,
+ "measurement_status": "graded",
+ "lexicon": {
+  "supplement_id": "v2",
+  "sha256": "bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"
+ },
+ "pronunciations": [],
+ "pronunciation_options": {
+  "items": [],
+  "total": 7,
+  "truncated": false,
+  "scope": "no_refused_obligation",
+  "eligible": 0
+ },
+ "numbered_mandate": {
+  "groups": "1.T2,2.T2",
+  "numbering": "v2"
+ },
+ "findings_measured": true,
+ "findings": [
+  {
+   "code": "MODAL_RHYME",
+   "severity": "note",
+   "message": "L1/L2 rhyme, but the pair is one this word's own forbidden-modal set would exclude if either line were being revised",
+   "evidence": "'bed' is one of the 6 most-predictable answers to 'lead' \u2014 realised as its rhyme partner 8 time(s) in the song corpus. modal_exclusion=6 over the differently-spelled remainder, at most, and only partners the song corpus has seen answer the call (the same-spelled class is banned outright as HOMEOTELEUTON); set it to 0 to silence this the same way it silences the reactive check. Doctrine 9's exclusion is otherwise only consulted when fixing an already-flagged line; this asks the same question of a pair that never failed anything, because a first draft can reach for the predictable rhyme exactly as easily as a revision can.",
+   "locations": [
+    1,
+    2
+   ],
+   "groups": [
+    "A"
+   ],
+   "obligations": [],
+   "subject": [],
+   "binding": [
+    {
+     "line": 1,
+     "word": "lead",
+     "place": "1.T2",
+     "what": "word 2"
+    },
+    {
+     "line": 2,
+     "word": "bed",
+     "place": "2.T2",
+     "what": "word 2"
+    }
+   ]
+  },
+  {
+   "code": "FLOOR_LOCUS_SCOPE",
+   "severity": "note",
+   "message": "end-rhyme floor checks exclude pairs declared only at other anchors",
+   "evidence": "1 line pair(s) bind internal, head, token or other non-default anchors or structures. Their declared relations are graded at those anchors; no line-end predictability, suffix or stock-pair finding stands in for that measurement. Lexical and other whole-draft checks still run on the complete draft.",
+   "locations": [],
+   "groups": [],
+   "obligations": [],
+   "subject": []
+  }
+ ],
+ "flags": 0,
+ "whole_flags": 0,
+ "notes": 2,
+ "banned_pairs": 1,
+ "banned": [
+  {
+   "code": "MODAL_RHYME",
+   "lines": [
+    1,
+    2
+   ],
+   "finding": "L1/L2 rhyme, but the pair is one this word's own forbidden-modal set would exclude if either line were being revised",
+   "binding": [
+    {
+     "line": 1,
+     "word": "lead",
+     "place": "1.T2",
+     "what": "word 2"
+    },
+    {
+     "line": 2,
+     "word": "bed",
+     "place": "2.T2",
+     "what": "word 2"
+    }
+   ]
+  }
+ ],
+ "unreadable_findings": [],
+ "unreadable": 0,
+ "standing": [],
+ "final_draft": [
+  "Lead--lead, lead the way",
+  "the bed is made for me"
+ ],
+ "final_draft_sha256": "e363977ee8e27eb6f15e306deecf2bffb9e96acc0080e43c06102344d68acd84",
+ "blueprint_declared": false
+}
