@@ -1,0 +1,25 @@
+  Only the exact sidecar suffix declares a document; words do not.
+  ok    fas_license_song.txt still receives the Persian language check
+  ok    fas_song.LICENSE.txt.poem.txt still receives the Persian language check
+
+test_no_recorded_hash_has_drifted
+  ok    no file has drifted from its recorded hash
+  ok    at least 40 files have a recorded hash to drift FROM
+
+test_prose_is_not_a_declared_count
+  `cym_song_alun.txt` says "(3 hymns + 3 songs; the free-metre half of
+  ok    the `# songs: 2` field is checked and passes
+  ok    the prose `3 songs`, `852 ghazals` and `50 songs` are NOT read as claims about this file
+
+test_the_walk_reports_what_it_did_not_walk
+  Doctrine 34 can only be asked of a file the WALK HANDED OVER.
+  ok    the walk reads exactly the declared extensions
+  ok    and everything else is REPORTED as unwalked rather than dropped in silence — the population doctrine 34 was never asked of
+  ok    the two sets partition the tree: nothing is in both, nothing is in neither (doctrine 79 — two counts, and they must add up)
+  ok    the exclusion is a NAMED constant, not a literal inside the walk
+  ok    the AUDIT reports every skipped file — not just the helper that can find them
+  ok    ...and it reports the tree it was HANDED, not the shipped one — the first implementation called `unwalked()` with no root
+  ok    the shipped corpus/ has NOTHING the walk skips today, so this check is latent by measurement and not by construction
+
+--------------------------------------------------------------------------
+all pins hold

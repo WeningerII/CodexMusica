@@ -1,0 +1,25 @@
+          fin._tokens ['pää'] vs ASCII ['p']
+  PASS  san reads its own words
+          3 words vs 5 ASCII fragments
+  PASS  pair_counters TOKENISES with the language's own reader
+          2486 endwords carry ä/ö under fin, 0 under ASCII
+  PASS  ltc refuses rather than shredding, and says why
+          ltc: PERMANENT. One character is one syllable, so WORD is not a unit of 
+  PASS  cym refuses rather than shredding, and says why
+          cym: BUILDABLE, and not built. `cym.py` CONSUMES tokens (`readability_ce
+  PASS  msa refuses rather than shredding, and says why
+          msa: BUILDABLE, and not built. `msa.py` takes tokens as an argument and 
+  PASS  an undeclared language refuses and says nobody has looked
+  PASS  no language is both declared and refused
+
+8. the population is a language parameter (M-22's renames)
+  PASS  the eng default reproduces the declared run-1 population byte-identically — no recorded figure moves under a rename
+          1346 vs 1346
+  PASS  another language globs its own prefix and gets NO English controls (doctrine 13/14)
+          ['cym_cynghanedd_llywelyn_goch_cywydd.txt', 'cym_song_alun.txt', 'cym_song_hwiangerddi.txt']
+  PASS  its song files key their own family, which has NO RHYME_CONSTRAINED row — M-23's three-state table reports that as `undeclared` rather than a measured negative
+          cym_song
+  PASS  the artifact path derives per language and the eng spelling IS the committed table
+  PASS  the two controls keep their own families either way
+==============================================================
+the census instrument: one judge, three counts, declared populations, and its readers are the repo's own

@@ -1,0 +1,25 @@
+
+5. the backfilled corpus
+  PASS  all 1344 eng files are seen
+  PASS  every assignment in the corpus names a declared value
+  PASS  620 files declare a region and 724 declare a stated blank — every file answers the axis, none is silently empty
+  PASS  THE TAYLOR PIN: eng_american_ann_taylor resolves english — the filename is the acquisition batch, not an analytic claim
+  PASS  the hymn seed: Watts carries function hymn (hymnal-attested), and Addison carries NONE — his staged source is a Poetical Works, and evidence-or-blank means blank
+  PASS  the hymn group crosses regions — Crosby american, Borthwick scottish, Alexander irish — which is the axis split working
+  PASS  the report counts the corpus: 8,725 songs, 1,609 honestly undeclared regions, undeclared functions counted APART (evidence-or-blank leaves most songs untagged)
+  PASS  region totals plus the undeclared partition the corpus — the axis is single-valued, and a blank is counted, never dropped
+
+6. the calibration manifest
+  PASS  at HEAD the live corpus IS the declared calibration set (exit 0)
+  PASS  the manifest covers the audit's own population (2328 files)
+  PASS  manifest files and live files are the same set
+
+6b. the re-adoption verdict
+  PASS  every named adoption declares a population that can be ASKED — a re-typed glob here would be doctrine 1's second definition
+  PASS  an English song file is OWED by all four adoptions — the map can say OWED, not only NOT-OWED
+  PASS  a staged Old Norse file is owed by NONE — every calibrated glob is eng_-scoped, so no adopted constant can have moved
+  PASS  ...and that verdict is a fact about the POPULATIONS, not about the file's content: the same file is owed by a population that does read it
+  PASS  a module that declares neither is UNASKABLE, never a silent clean
+  PASS  a module that does not exist is UNASKABLE, never a silent clean
+==============================================================
+the taxonomy is a closed, declared, invisible coordinate — and the calibration set is a snapshot, not an implication

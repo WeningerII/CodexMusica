@@ -1,0 +1,25 @@
+         mechanism: classify each span (anchor / ligature / supplied / diacritic markup) and declare it in lyric_harness's bracket tables — an undeclared span tokenises, and 68 of the 93 sized markers were END WORDS
+         doctrine:  20
+  [NOTE] L  corpus/song/fin_julius_krohn.txt
+         2 token-yielding bracketed span(s) in sung lines are covered by NO declared class
+         measured:  first: "Omat lapset laulattele!'[5]"
+         mechanism: classify each span (anchor / ligature / supplied / diacritic markup) and declare it in lyric_harness's bracket tables — an undeclared span tokenises, and 68 of the 93 sized markers were END WORDS
+         doctrine:  20
+  [NOTE] L  corpus/song/fin_kanteletar.txt
+         31 token-yielding bracketed span(s) in sung lines are covered by NO declared class
+         measured:  first: '"Onpa meillä vanha akka [14],'
+         mechanism: classify each span (anchor / ligature / supplied / diacritic markup) and declare it in lyric_harness's bracket tables — an undeclared span tokenises, and 68 of the 93 sized markers were END WORDS
+         doctrine:  20
+
+------------------------------------------------------------------------------
+  2328 files, 1899 findings: 0 FAIL, 38 WARN, 1861 NOTE
+
+==============================================================================
+CHECK -- RESULTS_CORPUS_AUDIT.md's committed shape against this run
+==============================================================================
+  [ok  ] files  committed 2328
+  [ok  ] FAIL   committed 0
+  [ok  ] WARN   committed 38
+  [ok  ] NOTE   committed 1861
+
+RESULT: PASS

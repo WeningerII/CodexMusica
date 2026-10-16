@@ -1,0 +1,4 @@
+== wt-fcefloor vs fixture_new (journal id pinned)
+{'checkpoint': True, 'resume_stdout': True, 'resume_exit': True, 'resumed_checkpoint': True} ['a5c91ffe8a8e4d8c9709307e74546d01']
+== wt-fce vs fixture_old (journal id pinned)
+{'checkpoint': True, 'resume_stdout': True, 'resume_exit': True, 'resumed_checkpoint': True} ['d360985bd3304b20ac9eb2fc877abd2e']

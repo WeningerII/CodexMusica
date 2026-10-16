@@ -1,0 +1,20 @@
+audit_verify_shape           rc=0      80s  RESULT: PASS
+mark_coverage                rc=0      40s  RESULT: PASS
+section_marks                rc=0       1s  PASS — every printed mark has a row, every count re-derives, and the reader agrees with the table
+corpus_manifest              rc=0       1s  MANIFEST: the live corpus IS the calibration set — 2328 files, byte-identical
+structure_census             rc=0      27s  RESULT: PASS — every recorded figure re-derives.
+length_curves                rc=124  2400s         fingerprint 51316f79c509 | new (no file yet) | hits 0, misses 0
+comparator_pin               rc=0       0s  RESULT: HOLDS — the comparator is what it was when the calibrations were last verified.
+search_null                  rc=0       6s  RESULT: PASS — the crossover holds and the shipped band sits above it.
+capacity                     rc=1      44s  CAPACITY CHECK: FAIL — tier 1 re-derived over 12387 families, ADOPTED constants compared, 6 witnesses re-gra
+t_corpus_taxonomy            rc=0       1s  the taxonomy is a closed, declared, invisible coordinate — and the calibration set is a snapshot, not an imp
+t_corpus_audit               rc=0      41s  all pins hold
+t_structure_census           rc=0      25s  the census instrument: one judge, three counts, declared populations, and its readers are the repo's own
+t_section_marks              rc=0       2s  every bracketed mark this corpus prints is classified, and the four kinds are kept apart
+t_floor                      rc=0      64s  all slop-floor regressions pass
+t_readability                rc=0     289s  all readability / recorded-refusal regressions pass
+t_production_data            rc=1      24s  FAILED (failures=2)
+t_relations                  rc=0      30s  all relations regressions pass
+t_reader_legacy              rc=0     225s  OK
+map_check                    rc=1       6s  run: python3 map/build.py
+DONE

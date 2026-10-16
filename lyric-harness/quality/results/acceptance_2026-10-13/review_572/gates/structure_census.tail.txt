@@ -1,0 +1,25 @@
+  masculine-rhyme=   true  admits()=rejects     2  e.g. 'sentinels'/'men'
+  agreement over judged: 684/687 (99.6%); refusals apart (doctrine 79)
+
+  HOLDS 16
+    artifact cells          16530
+    artifact corpus_files   145
+    artifact md5            7d4daf7928cf7c973fdea04e17d06088
+    artifact n_false        233898661
+    artifact n_pairs        417020664
+    artifact n_refused      175411006
+    artifact n_true         7710997
+    artifact rows           57
+    D1 pool           4,315,945
+    D1 false/admits        1
+    D1 false/rejects       679
+    D1 refused/admits      4
+    D1 refused/rejects     309
+    D1 true/admits         5
+    D1 true/rejects        2
+    D1 agreement      684/687
+  MOVED 0
+  CANNOT RUN 0
+
+  THREE VERDICTS, NEVER SUMMED (doctrine 79). The run-1 D1 table is HISTORICAL and is not checked: it cannot be re-derived at head at any population — 3 of the 143 files were deleted at 76f978f and 140 changed content; reproduce with `git archive 2ff4e51 lyric-harness`.
+RESULT: PASS — every recorded figure re-derives.

@@ -1,0 +1,11 @@
+assets: ['cmudict', 'tagger_eng', 'wordnet', 'concreteness', 'moby_mpron', 'runtime_tables', 'historical_research_tables', 'research_tables', 'canon_index', 'gutenberg_next_ten_pronunciations']
+cmudict OK {'id': 'cmudict', 'base': 'root', 'runtime': True, 'decision': 'approved', 'reason': 'CMU authored dictionary; BSD-2 dis
+tagger_eng OK {'id': 'tagger_eng', 'base': 'staged', 'runtime': True, 'decision': 'approved', 'reason': 'Official nltk_data package me
+wordnet OK {'id': 'wordnet', 'base': 'staged', 'runtime': True, 'decision': 'approved', 'reason': 'WordNet3.0 unrestricted distribu
+concreteness OK {'id': 'concreteness', 'base': 'staged', 'runtime': False, 'decision': 'unresolved', 'reason': 'Repository source record
+moby_mpron FAIL ValueError moby_mpron: missing moby/mpron.txt
+runtime_tables OK {'id': 'runtime_tables', 'base': 'root', 'runtime': True, 'decision': 'approved', 'reason': 'Declared compiled rules/cou
+historical_research_tables OK {'id': 'historical_research_tables', 'base': 'root', 'runtime': False, 'decision': 'approved', 'licence': 'Repository-au
+research_tables OK {'id': 'research_tables', 'base': 'root', 'runtime': False, 'decision': 'approved', 'licence': "Repository research tabl
+canon_index OK {'id': 'canon_index', 'base': 'root', 'runtime': True, 'decision': 'approved', 'reason': "The 601-entry rhyme-type canon
+gutenberg_next_ten_pronunciations OK {'id': 'gutenberg_next_ten_pronunciations', 'base': 'root', 'runtime': True, 'decision': 'approved', 'reason': 'User-app

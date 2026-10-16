@@ -1,0 +1,10 @@
+$ /usr/bin/python3 -m library.catalog build --output library/snapshot --repo-sha feca512a6cb3de76e2751ba7d475d50ea594e044 --source-manifest library/catalog_sources.json
+{"snapshot_id": "ef7cc67b3fef549c3bb8a8565b69ddddd9a7c57293bcf3355f787653bb5f7b13", "counts": {"source_files": 2327, "collections": 2327, "works": 36758, "editions": 7198, "reading_units": 36867, "readable_collections": 2279, "readable_works": 25404, "readable_editions": 6653, "readable_reading_units": 25512, "availability": {"readable": 25512, "research_only": 1, "held": 11354}}, "output": "library/snapshot"}
+$ /usr/bin/python3 -m library.catalog_site_export --source library/snapshot --output /tmp/library-data-bw9g7s1k/export
+{"snapshot_id": "ef7cc67b3fef549c3bb8a8565b69ddddd9a7c57293bcf3355f787653bb5f7b13", "counts": {"availability": {"held": 11354, "readable": 25512, "research_only": 1}, "collections": 2327, "editions": 7198, "readable_collections": 2279, "readable_editions": 6653, "readable_reading_units": 25512, "readable_works": 25404, "reading_units": 36867, "source_files": 2327, "works": 36758}, "installed_files": 27794, "installed_bytes": 1751634318, "compressed_bytes": 338530908, "packs": 2340, "omitted_files": 11403, "output": "/tmp/library-data-bw9g7s1k/export"}
+$ /usr/bin/python3 -m library.catalog_static_export /tmp/library-data-bw9g7s1k/export /tmp/library-data-bw9g7s1k/static --reuse /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-572/library/data
+{"data_id": "a41613b1da29cce295a4e39dbe395d5cb036fcf273dc16bbf8ee6573b763c809", "readable": 25512, "files": 28906, "bytes": 90784064}
+retained 670 superseded reading directories (built_on 2026-10-15)
+$ /usr/bin/python3 /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-572/scripts/check_library_data.py /tmp/library-data-bw9g7s1k/static --snapshot /tmp/claude-0/-home-user-CodexMusica/29b3134b-089b-5de1-9704-33ac556c7f6b/scratchpad/wt-572/lyric-harness/library/snapshot
+check_library_data: PASS — 25512 readable units, 29577 files, data_id a41613b1da29
+library/data is current

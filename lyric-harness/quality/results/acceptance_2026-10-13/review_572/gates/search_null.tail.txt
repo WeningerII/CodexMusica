@@ -1,0 +1,25 @@
+       k=17+      12           —         —    not measured
+    below the first bucket: 13 pair(s), counted apart and never folded in (doctrine 79)
+    the sonnet CROSSOVERS above are a RECORD (re-banked 2026-10-14; receipt in PER_K_CROSSOVER's note); what --check
+    re-derives is the bucket POPULATIONS beside them, so a population that moves
+    says the crossovers are stale rather than letting them read as current.
+
+======================================================================
+CHECK — the shipped theta against the measured crossover, and the pins
+======================================================================
+  [ok  ] theta_rhyme 0.75 sits above the measured crossover 0.72
+         margin +0.03 — thin, and that is the finding, not a comfort
+  [ok  ] sonnet bucket k=3-4    committed 808 pairs, measured 808
+  [ok  ] sonnet bucket k=5-8    committed 207 pairs, measured 207
+  [ok  ] theta 0.60 real lift  committed +12.55 pp, measured +13.34 pp (tol 1.5)
+  [ok  ] theta 0.60 null lift  committed +15.31 pp, measured +15.72 pp (tol 1.5)
+  [ok  ] theta 0.70 real lift  committed +6.14 pp, measured +6.62 pp (tol 1.5)
+  [ok  ] theta 0.70 null lift  committed +7.06 pp, measured +7.24 pp (tol 1.5)
+  [ok  ] theta 0.75 real lift  committed +4.96 pp, measured +5.35 pp (tol 1.5)
+  [ok  ] theta 0.75 null lift  committed +3.93 pp, measured +4.05 pp (tol 1.5)
+  [ok  ] theta 0.80 real lift  committed +3.88 pp, measured +4.17 pp (tol 1.5)
+  [ok  ] theta 0.80 null lift  committed +2.12 pp, measured +2.27 pp (tol 1.5)
+  [ok  ] theta 0.90 real lift  committed +2.89 pp, measured +2.90 pp (tol 1.5)
+  [ok  ] theta 0.90 null lift  committed +0.54 pp, measured +0.55 pp (tol 1.5)
+
+RESULT: PASS — the crossover holds and the shipped band sits above it.

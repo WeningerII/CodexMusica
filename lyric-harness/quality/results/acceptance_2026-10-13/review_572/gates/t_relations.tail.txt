@@ -1,0 +1,25 @@
+          Refusal(schema='平仄 tonal template', capability='tonal_template', detail='平仄 tonal template needs tonal_template; this declaration does not supply it.', missing=('tonal_template',), kind='capability', vacuous=())
+  PASS  ...and JUDGES once declared: lines 1-2 match, line 3 (欲窮千里目 is 仄平平仄仄) fails, line 4 matches with 更 (a 多音字) left free by 中
+          held [1, 2, 4], undecided []
+  PASS  ...and a slot on a 多音字 whose readings split 平/仄 is UNDECIDED, never a guess
+          held [], undecided [4]
+  PASS  ...and an English stream's STRESS is never read as tone
+          Refusal(schema='平仄 tonal template', capability='tone', detail='平仄 tonal template needs tone; this declaration does not supply it.', missing=('tone',), kind='capability', vacuous=())
+  PASS  analysed rhyme's crossing is definitional: four lines that all fully rhyme do NOT stand in it
+          LinePairResults()
+  PASS  exclusion-only Differs are gone: assonance, consonance, cluster consonance, reverse rhyme and multisyllabic rhyme require nothing of the other channel
+          {'reverse rhyme': [], 'multisyllabic rhyme': []}
+  PASS  ...while definitional Differs stay: perfect rhyme's onset, pararhyme's vowel, light/wrenched rhyme's stress, eye/historical/dialect rhyme's sound, rhyming reduplication's onset, proest's vowel
+  PASS  reverse rhyme now holds of a pair that is ALSO rime riche (sea/see), and pararhyme still does not (the vowels agree)
+  PASS  whole_vocabulary_pairs answers or reports EVERY schema — a refusal is listed by name, never dropped
+          29 refused by name
+  PASS  ...and a pair stands in several schemas at once (night/light: perfect rhyme, assonance, consonance)
+          ["Scots vowel-length rhyme (Aitken's Law)", 'anaphora', 'assonance', 'cluster consonance / skothending span', 'consonance', 'family rhyme', 'homoioteleuton', 'interlaced rhyme', 'internal rhyme', 'mosaic rhyme', 'pantun ABAB', 'perfect rhyme']
+  PASS  ...including a forbidden or deprecated one — banning is a separate layer from standing in a relation
+          ["Scots vowel-length rhyme (Aitken's Law)", 'anaphora', 'assonance', 'cluster consonance / skothending span', 'consonance', 'family rhyme', 'homoioteleuton', 'interlaced rhyme', 'internal rhyme', 'mosaic rhyme', 'pantun ABAB', 'perfect rhyme']
+  PASS  ...under the PHONOLOGY'S OWN language (cym here, never a hard-coded eng), with line-level figures on `.lines`
+          {1: ['cynghanedd sain', 'cynghanedd sain gadwynog']}
+  PASS  no draw pool survives: DRAWABLE_SCHEMAS and its derivation are gone, and the feasibility traits cover every registry schema
+  PASS  audibility is read over a pair's relation SET
+==================================================================
+all relations regressions pass

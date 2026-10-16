@@ -1,0 +1,25 @@
+ "dev_groups": 6846,
+ "dev_items": 6982,
+ "evidence": {
+  "catalog_work_map_sha256": "633385a42bb04867f96c165c7baa9a36f895669990b87bd4a099cef9fd26ca6f",
+  "items mapped to a catalog work": 8700,
+  "reviewed editions not matched to an item": 0
+ },
+ "files": 1344,
+ "files_with_validation_items": 528,
+ "groups": 8534,
+ "inputs_sha256": "12905b610a3ecf32f057bf05967e740ea76a4498cf843055eaaa8b5299fa3258",
+ "items": 8701,
+ "joins": {
+  "catalog work_id": 109,
+  "near-duplicate lines": 23,
+  "shared word 5-grams": 29,
+  "title and first line": 6
+ },
+ "modulus": 5,
+ "population": "corpus/song/eng_*.txt",
+ "salt": "codexmusica-coverage-split-2026-10-15",
+ "validation_groups": 1688,
+ "validation_items": 1719
+}
+RESULT: PASS -- the frozen split re-derives byte for byte

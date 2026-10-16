@@ -1,0 +1,40 @@
+===== recap_untouched vs fixture_old | journal ids: recapture ['fd5698c801de4643bc50a0fae9df47ac'] fixture ['d360985bd3304b20ac9eb2fc877abd2e']
+  checkpoint DIFFERS
+     insert 'f05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326' -> 'bca315813b808030d3128ca8f8d3005516bef72e42988e2c3227e9b1eaca6'
+     delete '5aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326b88047d17466' -> ''
+     delete '20fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326b88047d17466dca90ec57ba6f6526b6eec4a978cdf754ba3e592b01d4c9","ap' -> ''
+     insert 'f05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"fcdf4' -> '7eda9e483c408ea9749'
+     insert '05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"fcdf4d' -> '6cf3f8d90b4'
+  resume_stdout DIFFERS
+     insert 'f05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326' -> 'bca315813b808030d3128ca8f8d3005516bef72e42988e2c3227e9b1eaca6'
+     delete '5aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326b88047d17466' -> ''
+     delete '20fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326b88047d17466dca90ec57ba6f6526b6eec4a978cdf754ba3e592b01d4c9"}],"' -> ''
+     insert 'RNAL>","checkpoint_loaded":true,"input_checkpoint_sha256":"374ac4' -> '506e4fbb2'
+     insert 'NAL>","checkpoint_loaded":true,"input_checkpoint_sha256":"374ac42' -> '32'
+  resumed_checkpoint DIFFERS
+     insert 'f05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326' -> 'bca315813b808030d3128ca8f8d3005516bef72e42988e2c3227e9b1eaca6'
+     delete '5aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326b88047d17466' -> ''
+     delete '20fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"a7326b88047d17466dca90ec57ba6f6526b6eec4a978cdf754ba3e592b01d4c9","ap' -> ''
+     insert 'f05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"fcdf4' -> '7eda9e483c408ea9749'
+     insert '05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"fcdf4d' -> '6cf3f8d90b4'
+  resume_exit 3 3
+===== recap_patched vs fixture_new | journal ids: recapture ['7f3a0df8ea29454faaedd4ff9c2c389f'] fixture ['a5c91ffe8a8e4d8c9709307e74546d01']
+  checkpoint DIFFERS
+     insert 'f05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc6' -> 'e'
+     insert '05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc60' -> 'bad75e1d128a6'
+     replace 'ba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5' -> 'd5a'
+     replace '79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5e51' -> 'c'
+     insert '6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5e513' -> '1b'
+  resume_stdout DIFFERS
+     insert 'f05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc6' -> 'e'
+     insert '05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc60' -> 'bad75e1d128a6'
+     replace 'ba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5' -> 'd5a'
+     replace '79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5e51' -> 'c'
+     insert '6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5e513' -> '1b'
+  resumed_checkpoint DIFFERS
+     insert 'f05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc6' -> 'e'
+     insert '05aba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc60' -> 'bad75e1d128a6'
+     replace 'ba79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5' -> 'd5a'
+     replace '79d6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5e51' -> 'c'
+     insert '6df320fd3a908f4539dd40ad5d798a6cc9e","outcome_id":"50cc609de5e513' -> '1b'
+  resume_exit 3 3
