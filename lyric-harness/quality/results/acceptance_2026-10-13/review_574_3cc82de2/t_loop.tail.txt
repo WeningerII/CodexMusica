@@ -1,0 +1,6 @@
+       2.1s  test_swap_end_word_refuses_a_disagreeing_reading
+       1.7s  test_strip_parens_is_a_declared_coordinate
+       0.0s  test_a_return_is_a_class_and_is_revised_together
+     611.3s  TOTAL, this shard (27 of 27 sections)
+==============================================================
+all loop regressions pass

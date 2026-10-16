@@ -1,0 +1,6 @@
+       0.0s  test_no_mandate_is_a_refusal_not_a_pass
+       0.0s  test_reject_restructuring
+       0.0s  test_reject_a_no_op
+     818.8s  TOTAL, this shard (62 of 62 sections)
+==============================================================
+all revision-loop regressions pass

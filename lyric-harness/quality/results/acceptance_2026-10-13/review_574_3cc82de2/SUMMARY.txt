@@ -1,0 +1,11 @@
+map_check              rc=0       7s  lyric map is current
+comparator_pin         rc=0       1s  RESULT: HOLDS — the comparator is what it was when the calibrations were last verified.
+blank_probe            rc=0       1s  OK
+edge_probe             rc=0       1s  OK
+revise_cli_574         rc=4      31s    lyric result: {"lexicon":{"supplement_id":"v2","sha256":"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2
+revise_cli_6eaa        rc=4      41s    lyric result: {"lexicon":{"supplement_id":"v2","sha256":"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2
+t_relations            rc=0      31s  all relations regressions pass
+t_reader_legacy        rc=0     251s  OK
+t_revise               rc=0     829s  all revision-loop regressions pass
+t_loop                 rc=0     614s  all loop regressions pass
+DONE

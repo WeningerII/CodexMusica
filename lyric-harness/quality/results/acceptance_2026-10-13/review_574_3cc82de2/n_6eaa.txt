@@ -1,0 +1,100 @@
+  MANDATE: 1 group(s) over 4 lines, 6 mandated pair(s), source=declared (letter scheme 'AAAA')
+           group A = lines 1,2,3,4 — GRADED WHETHER OR NOT ANYTHING IS SAID ABOUT THEM BELOW; silence here is a clean group, not an unasked question (doctrine 20)
+  RELATION: every group is judged under 'class:RHYME' unless it declares its own — the named relation's own judge, which narrows the default of every relation.
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  PROPOSER: defer:<STATE> — 0 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; nothing outside this process is reached, and the loop SUSPENDS at the first unanswered request rather than guessing
+  lyric checkpoint: {"version":1,"answered":{"propose":[],"propose_group":[],"reader_scheme":"v2"},"pending":null,"lexicon":{"supplement_id":"v2","sha256":"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"},"reader_scheme":"v2","input_draft":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"accepted_lines":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"outcomes":[],"group_outcomes":[],"dispositions":[],"round":0,"status":"started","transport_token":null}
+  lyric checkpoint: {"version":1,"answered":{"propose":[],"propose_group":[],"reader_scheme":"v2"},"pending":null,"lexicon":{"supplement_id":"v2","sha256":"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"},"reader_scheme":"v2","input_draft":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"accepted_lines":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"outcomes":[],"group_outcomes":[],"dispositions":[],"round":1,"status":"grading","cursor":{"version":1,"loop":{"phase":"round_open","round":1,"draft":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"rounds":[],"barren":0,"menus":[]},"tally_hit":0,"stale":[],"batch_stale":[],"rej":[],"grej":[],"k1":0,"k2":0,"digest":"7758dcb3390712bc1fefd054b62522b65e3df76969e4911fe7304ae434e79d38","run_key":"66fff28c1819dae9bb2064b0ebb10fbd2aa1853121254b544da43efdf3ca321f","scorer":"<S>"},"transport_token":null}
+  lyric checkpoint: {"version":1,"answered":{"propose":[],"propose_group":[],"reader_scheme":"v2"},"pending":null,"lexicon":{"supplement_id":"v2","sha256":"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"},"reader_scheme":"v2","input_draft":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"accepted_lines":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"outcomes":[],"group_outcomes":[],"dispositions":[],"round":1,"status":"grading","cursor":{"version":1,"loop":{"phase":"pass","round":1,"at":0,"pass":[2,3,4],"judged_open":true,"draft":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"round_draft":null,"touched":[],"fixed":[],"resolved":[],"attempts":[],"rounds":[],"barren":0,"touched_by":{},"last_accept":[],"unit_verdicts":[],"menus":[["('place', '9b840adf480d980155eb434967bc98c1f97c41eabfb3ed3cddf71121e64e93e6', 2, 'None')",{"$dc":"quality.revise:SlotField","a":{"slot":null,"labels":{"$t":["A"]},"calls":{"$t":["tonight","rain","us"]},"incumbent":"sea","offered":[],"forbidden":[],"violated":true,"joint_conflict":true,"dropped":{"$t":[]},"by_call":{"$t":[{"$t":["tonight",{"$t":["quite","white","write","bite","invite","site","midnight","despite","goodnight","satellite","height","polite","appetite","daylight","website","spite","dynamite","moonlight","twilight","sunlight","unite","insight","flashlight","spotlight"]}]},{"$t":["rain",{"$t":["vein","reign","bane","rein","feign","fane","insane","champagne","campaign","ln","crane","shane","cocaine","airplane","elaine","kane","hurricane","sane","dwayne","lorraine","caine","dane","blaine","ukraine"]}]},{"$t":["us",{"$t":["yes","guess","less","unless","dress","mess","address","press","discuss","process","access","success","bless","ls","progress","confess","express","stress","jess","impress","chess","pos"]}]}]},"schema_refused":{"$t":["greatness","spineless","weightless","lateness"]},"grader_refused":{"$t":[]},"widened":0}}]]},"tally_hit":0,"stale":[],"batch_stale":[],"rej":[],"grej":[],"k1":0,"k2":0,"digest":"7758dcb3390712bc1fefd054b62522b65e3df76969e4911fe7304ae434e79d38","run_key":"66fff28c1819dae9bb2064b0ebb10fbd2aa1853121254b544da43efdf3ca321f","scorer":"<S>"},"transport_token":null}
+  lyric checkpoint: {"version":1,"answered":{"propose":[],"propose_group":[],"reader_scheme":"v2"},"pending":null,"lexicon":{"supplement_id":"v2","sha256":"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"},"reader_scheme":"v2","input_draft":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"accepted_lines":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"outcomes":[],"group_outcomes":[],"dispositions":[],"round":1,"status":"grading","cursor":{"version":1,"loop":{"phase":"pass","round":1,"at":0,"pass":[2,3,4],"judged_open":true,"draft":["I walked along the road tonight","The stars were cold above the sea","I held your hand and felt the rain","And nothing else was left for us"],"round_draft":null,"touched":[],"fixed":[],"resolved":[],"attempts":[],"rounds":[],"barren":0,"touched_by":{},"last_accept":[],"unit_verdicts":[],"menus":[["('place', '9b840adf480d980155eb434967bc98c1f97c41eabfb3ed3cddf71121e64e93e6', 2, 'None')",{"$dc":"quality.revise:SlotField","a":{"slot":null,"labels":{"$t":["A"]},"calls":{"$t":["tonight","rain","us"]},"incumbent":"sea","offered":[],"forbidden":[],"violated":true,"joint_conflict":true,"dropped":{"$t":[]},"by_call":{"$t":[{"$t":["tonight",{"$t":["quite","white","write","bite","invite","site","midnight","despite","goodnight","satellite","height","polite","appetite","daylight","website","spite","dynamite","moonlight","twilight","sunlight","unite","insight","flashlight","spotlight"]}]},{"$t":["rain",{"$t":["vein","reign","bane","rein","feign","fane","insane","champagne","campaign","ln","crane","shane","cocaine","airplane","elaine","kane","hurricane","sane","dwayne","lorraine","caine","dane","blaine","ukraine"]}]},{"$t":["us",{"$t":["yes","guess","less","unless","dress","mess","address","press","discuss","process","access","success","bless","ls","progress","confess","express","stress","jess","impress","chess","pos"]}]}]},"schema_refused":{"$t":["greatness","spineless","weightless","lateness"]},"grader_refused":{"$t":[]},"widened":0}}],["('brief', '9b840adf480d980155eb434967bc98c1f97c41eabfb3ed3cddf71121e64e93e6', [2])",[{"$dc":"quality.revise:Brief","a":{"line_no":2,"text":"The stars were cold above the sea","findings":[{"$dc":"quality.floor:Finding","a":{"code":"SCHEME_VIOLATION","severity":"flag","message":"L1 and L2 are both in group A [1, 2, 3, 4] but do not stand in the relation it requires","evidence":"does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.631; 'tonight' ~ 'sea') — NAMED PAIR IS NOT THE EVIDENCE: scored on: road tonight  ~  -above the sea [last 1 of 2 syllables of 'above']   (best of k=6)   MOSAIC (both sides): the winning span reaches back past the end word","locations":[1,2],"groups":{"$t":["A"]},"obligations":{"$t":[]},"subject":{"$t":[]}}}],"slot":null,"slot_conflict":false,"fields_by_slot":{"$d":[[null,{"$dc":"quality.revise:SlotField","a":{"slot":null,"labels":{"$t":["A"]},"calls":{"$t":["tonight","rain","us"]},"incumbent":"sea","offered":[],"forbidden":[],"violated":true,"joint_conflict":true,"dropped":{"$t":[]},"by_call":{"$t":[{"$t":["tonight",{"$t":["quite","white","write","bite","invite","site","midnight","despite","goodnight","satellite","height","polite","appetite","daylight","website","spite","dynamite","moonlight","twilight","sunlight","unite","insight","flashlight","spotlight"]}]},{"$t":["rain",{"$t":["vein","reign","bane","rein","feign","fane","insane","champagne","campaign","ln","crane","shane","cocaine","airplane","elaine","kane","hurricane","sane","dwayne","lorraine","caine","dane","blaine","ukraine"]}]},{"$t":["us",{"$t":["yes","guess","less","unless","dress","mess","address","press","discuss","process","access","success","bless","ls","progress","confess","express","stress","jess","impress","chess","pos"]}]}]},"schema_refused":{"$t":["greatness","spineless","weightless","lateness"]},"grader_refused":{"$t":[]},"widened":0}}]]},"group_slots":{"$d":[["A",null]]},"violated_groups":{"$t":["A"]},"noted_groups":{"$d":[]},"slot_groups":{"$t":["A"]},"screened_out":{"$t":[]},"round_no":0,"must_rhyme_with":{"$t":[1,"tonight"]},"candidates":[],"forbidden_modal":[],"forbidden_incumbent":"sea","return_groups":{"$t":[]},"return_members":{"$t":[]},"field_computed":true,"empty_head_cause":"NO_ANSWER","keep":[1],"must_answer":[{"$t":["A",[1,2,3,4],[{"$t":[1,"tonight"]},{"$t":[3,"rain"]},{"$t":[4,"us"]}]]}],"joint_conflict":true,"partial_by_call":{"$t":[{"$t":["tonight",{"$t":["quite","white","write","bite","invite","site","midnight","despite","goodnight","satellite","height","polite","appetite","daylight","website","spite","dynamite","moonlight","twilight","sunlight","unite","insight","flashlight","spotlight"]}]},{"$t":["rain",{"$t":["vein","reign","bane","rein","feign","fane","insane","champagne","campaign","ln","crane","shane","cocaine","airplane","elaine","kane","hurricane","sane","dwayne","lorraine","caine","dane","blaine","ukraine"]}]},{"$t":["us",{"$t":["yes","guess","less","unless","dress","mess","address","press","discuss","process","access","success","bless","ls","progress","confess","express","stress","jess","impress","chess","pos"]}]}]},"schema_refused":{"$t":["greatness","spineless","weightless","lateness"]},"grader_refused":{"$t":[]},"field_widened":0,"offer_emptied_by_ban":"","field_declaration":"field_depth=complete pool, field_band='grader'","offers_requested":true}}]]]},"tally_hit":0,"stale":[],"batch_stale":[],"rej":[],"grej":[],"k1":0,"k2":0,"digest":"7758dcb3390712bc1fefd054b62522b65e3df76969e4911fe7304ae434e79d38","run_key":"66fff28c1819dae9bb2064b0ebb10fbd2aa1853121254b544da43efdf3ca321f","scorer":"<S>"},"transport_token":null}
+
+  SUSPENDED — the loop asked for a propose it has no answer for, and will not guess one.
+  REPLAY MEMO: cold — 0 of 3 grading call(s) answered from the process memo (runs held: 1 of 4)
+  PAIR MEMO: cold — 0 line pair(s) served from the process memo, 896 judged and recorded (78 schema slot(s), 896 row(s) held)
+  SCORE MEMO: pair scores 237 served / 231 scored; RANK MEMO: field rankings 1 served / 4 ranked
+  Written to <STATE>. Fill `pending.answer`, then run the SAME command again.
+
+REVISE ONE LINE — L2 of a 4-line draft.
+
+You are given a draft, one line of it a grader has flagged, everything that grader
+measured, and the rules it will apply to what you send back. Rewrite that ONE line.
+
+ATTEMPT
+  This is ATTEMPT 1 of this line's retry budget.
+  No previous attempt was rejected on this line in this round.
+
+THE LINE TO REVISE
+  L2: The stars were cold above the sea
+
+THE WHOLE DRAFT (context — only L2 may change)
+     L1  I walked along the road tonight
+  >> L2  The stars were cold above the sea
+     L3  I held your hand and felt the rain
+     L4  And nothing else was left for us
+
+WHAT THE GRADER FOUND ON L2 (1)
+  [flag] SCHEME_VIOLATION: L1 and L2 are both in group A [1, 2, 3, 4] but do not stand in the relation it requires (lines 1, 2)
+      evidence: does not satisfy the declared relation 'class:RHYME' — judged by the named-type engine at that relation's own coordinate, not by the scalar comparator's admit set (score 0.631; 'tonight' ~ 'sea') — NAMED PAIR IS NOT THE EVIDENCE: scored on: road tonight  ~  -above the sea [last 1 of 2 syllables of 'above']   (best of k=6)   MOSAIC (both sides): the winning span reaches back past the end word
+
+THE RHYME MANDATE ON L2
+  group A [1, 2, 3, 4] at its end word — this line must stand in at least one relation with: L1 ('tonight'), L3 ('rain'), L4 ('us') — VIOLATED, this is the word to change
+  NO JOINT CANDIDATE at field_depth=complete pool, field_band='grader': this bounded search found no word that answers all of those groups at once; no impossibility is proved.
+    ~~The MANDATE, not the line, is what needs revising — a one-line rewrite here is re-running a search that has already come back empty.~~ STRUCK 2026-09-03 (M-202): the grader flags PAIRS, not the conjunction, so a word that answers the VIOLATED call and leaves the others standing is accepted — measured, first try.
+    WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN (3 of 3 call(s) here answerable):
+      tonight — 24 word(s): quite, white, write, bite, invite, site, midnight, despite, goodnight, satellite, height, polite, appetite, daylight, website, spite, dynamite, moonlight, twilight, sunlight, unite, insight, flashlight, spotlight
+      rain — 24 word(s): vein, reign, bane, rein, feign, fane, insane, champagne, campaign, ln, crane, shane, cocaine, airplane, elaine, kane, hurricane, sane, dwayne, lorraine, caine, dane, blaine, ukraine
+      us — 22 word(s): yes, guess, less, unless, dress, mess, address, press, discuss, process, access, success, bless, ls, progress, confess, express, stress, jess, impress, chess, pos
+    Read the mandate above for WHICH call is VIOLATED and which HOLDS. Answering a violated call
+    trades nothing; answering one that holds breaks the other pair and is rejected as a new flag.
+
+OFFERED — words for the end word that answer every group bound there
+  4 word(s) the band admitted are NOT offered: this place is judged by its group's declared
+  relation, and it did not certify them (greatness, spineless, weightless, lateness).
+  The list below is what that relation accepts — the same judge the verdict uses.
+  (no JOINT candidate field was offered — and that is NOT 'nothing answers this line'. The
+  searched fields yielded no joint offer. WHAT EACH CALL CAN BE ANSWERED BY ON ITS OWN is listed
+  above as suggestions; a rewrite must fix a finding without breaking or losing coverage of another obligation.)
+
+FORBIDDEN — do not MOVE L2 TO any of these (0)
+  (none — the modal head was COMPUTED for this line and came back EMPTY, which is not
+  the same as it not having been asked.
+  This bounded search reached no word that answers every call at this place and can
+  be offered — see the mandate block above — so there is no field for a head to lead.
+  Doctrine 9 is not being applied to you here; it found nothing to apply.)
+
+THE WORD ALREADY THERE — a DIFFERENT rule from the one above (1)
+  sea
+  This is the end word L2 already has. Re-proposing it is not a revision — but it
+  is NOT rejected outright the way the list above is: the grader asks whether a modal
+  candidate was TAKEN, and keeping the word you were given takes nothing. A line that
+  keeps it is refused by rule 4 below ('nothing was fixed') UNLESS the rewrite repaired
+  something else — a meter finding, say — in which case keeping it is accepted.
+
+LINES THAT MUST NOT CHANGE
+  L1 — the grader found nothing on them.
+  The tool applies your one answer to L2. Every other line stays byte-identical. Changing one is rejected
+  outright even if the change is an improvement.
+
+WHAT THE GRADER ENFORCES ON YOUR ANSWER
+  1. ONE line back, and it replaces L2. The draft stays 4 lines — a different
+     line count is rejected outright: this loop revises lines, it does not restructure
+     the draft.
+  2. ONLY L2 changes (declared returns are mirrored). Any other line that comes back different is rejected
+     outright, whatever else the revision achieved.
+  3. The end word L2 MOVES TO is not one of the FORBIDDEN words above. That is
+     checked before anything else about the line and rejects on its own. KEEPING the
+     word already there is not a move and is not rejected here — see item 4.
+  4. The line must FIX at least one finding. A rewrite that is differently defective
+     is rejected as 'nothing was fixed'.
+  5. It may not trade one defect for another: new FLAG findings anywhere in the draft
+     — including on lines you did not touch — reject it once they exceed the declared
+     `allow_net_new` (0 by default). New NOTES do not reject.
+
+HOW TO ANSWER
+  Send the line and nothing else: one line, no quotation marks around it, no line
+  number, no commentary, no code fence. If you must explain yourself first, put the
+  line LAST, alone on its own line, beginning with `LINE: `. Anything ambiguous —
+  two candidate lines, a quoted line, an explanation with no marker — is discarded
+  unread and costs you this attempt.
+  The line is at most 200 characters; a longer one is not accepted.
+  lyric result: {"lexicon":{"supplement_id":"v2","sha256":"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51"},"reader_scheme":"v2","status":"suspended","exit":4,"memo_state":"cold","memo_hit":0,"memo_asked":3,"stale_answers":0,"replayed_answers":0,"cursor_resumed":false,"cursor_stripped":null,"version":1,"transport_token":null}
