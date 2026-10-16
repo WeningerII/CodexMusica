@@ -417,7 +417,8 @@ export class JobStore {
       created_at: this.now(),
       updated_at: this.now(),
       intent: copy(body),
-      build: copy(build),
+      // A live identity (liveBuildIdentity) is read when the job begins.
+      build: copy(typeof build === 'function' ? build() : build),
       checkpoint: null,
       progress: null,
       proposer_usage: null,
@@ -788,7 +789,28 @@ export function createJobRouter({
 
 export { runtimeSourceFingerprint } from './build_identity.js';
 
-export function runtimeBuildIdentity(env = process.env) {
+// A running service's identity, read again on each use until the asset check
+// has passed and frozen from then on, exactly as one read at boot used to be.
+// An identity taken from a check that timed out (or failed and was later
+// repaired) would otherwise report its null asset fields for the life of the
+// process. The configuration is the one at creation (boot): modules set
+// defaults in the environment after boot (LYRIC_PROPOSER_MODEL, in chat.js),
+// and a recovered identity must equal the one a clean boot froze.
+export function liveBuildIdentity(env = process.env, assets = runtimeAssets) {
+  let identity, from;
+  env = { ...env };
+  return () => {
+    if (identity && from.ok) return identity;
+    const current = assets();
+    if (current !== from) {
+      from = current;
+      identity = runtimeBuildIdentity(env, current);
+    }
+    return identity;
+  };
+}
+
+export function runtimeBuildIdentity(env = process.env, assets = runtimeAssets()) {
   const release = releaseIdentity(env);
   const config = {};
   for (const key of Object.keys(env).sort()) {
@@ -798,7 +820,6 @@ export function runtimeBuildIdentity(env = process.env) {
     )
       config[key] = env[key];
   }
-  const assets = runtimeAssets();
   return Object.freeze({
     ...release,
     source_sha256: runtimeSourceFingerprint(),
