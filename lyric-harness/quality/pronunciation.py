@@ -223,7 +223,9 @@ def rebind_occurrences(rows, from_scheme, to_scheme, strip_parens=True):
     the one token whose pieces are the same codepoints and whose text is the
     declared word. When no such token exists the row cannot be carried and
     this raises ValueError naming it -- a declaration is never re-attached to
-    a nearby word. Nothing but `token` changes; rows are copied.
+    a nearby word. Nothing but `token` changes, and `word` only where the
+    target token is the declared word less an opening quotation mark the v2
+    reader leaves out of it (`declared_spelling`); rows are copied.
     """
     from lyric_harness import reader_token_spans, resolve_reader_scheme
     out = []
@@ -248,6 +250,9 @@ def rebind_occurrences(rows, from_scheme, to_scheme, strip_parens=True):
             raise ValueError(f'cannot rebind {word!r} at token {token} of {line!r}: '
                              f'no token under scheme {to_scheme} has the same raw span')
         row['token'] = hits[0] + 1
+        # A row bound by its span less a dropped opening quote names the v2
+        # token's own text, as `validate_choices` records it there.
+        row['word'] = dst[hits[0]][0]
         out.append(row)
     return out
 
