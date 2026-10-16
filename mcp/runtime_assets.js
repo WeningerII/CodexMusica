@@ -1,4 +1,4 @@
-import { spawnSync } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -88,15 +88,95 @@ function assetEpoch(env) {
   );
 }
 
+// The asynchronous twin of spawnSync's result: { status, signal, stdout,
+// stderr, error }, with the same timeout and output bound. A timed-out child
+// is killed and reported as status null with an ETIMEDOUT error, as spawnSync
+// reports it.
+export function spawnAsync(command, args, { timeout, maxBuffer, env, windowsHide } = {}) {
+  return new Promise((resolve) => {
+    let child;
+    try {
+      child = spawn(command, args, { env, windowsHide });
+    } catch (error) {
+      resolve({ status: null, signal: null, stdout: '', stderr: '', error });
+      return;
+    }
+    let stdout = '',
+      stderr = '',
+      size = 0,
+      error;
+    const stop = (code, message) => {
+      error ||= Object.assign(new Error(message), { code });
+      child.kill('SIGTERM');
+    };
+    const timer = timeout
+      ? setTimeout(() => stop('ETIMEDOUT', `spawn ${command} ETIMEDOUT`), timeout)
+      : null;
+    const take = (append) => (chunk) => {
+      size += chunk.length;
+      if (maxBuffer && size > maxBuffer) stop('ENOBUFS', `spawn ${command} ENOBUFS`);
+      else append(chunk);
+    };
+    child.stdout.setEncoding('utf8');
+    child.stderr.setEncoding('utf8');
+    child.stdout.on(
+      'data',
+      take((chunk) => (stdout += chunk))
+    );
+    child.stderr.on(
+      'data',
+      take((chunk) => (stderr += chunk))
+    );
+    child.once('error', (failure) => {
+      clearTimeout(timer);
+      resolve({ status: null, signal: null, stdout, stderr, error: error || failure });
+    });
+    child.once('close', (code, signal) => {
+      clearTimeout(timer);
+      resolve({ status: error ? null : code, signal, stdout, stderr, error });
+    });
+  });
+}
+
 // The production reader is cached only while its source, consumed asset file
 // identities, interpreter selection and exact proof bytes remain unchanged.
+//
+// A check that did not run to completion (a timeout, a child killed by a
+// signal or one that could not be spawned) is not a verdict on the assets, so
+// it is never cached as one: the 2026-10-16 release booted on a slow instance,
+// the 30 s inventory timed out, and the cached failure held Lyrics down until
+// the service was restarted. Its result says `incomplete: true` and, in
+// `retry_at`, when it will be checked again. The first read after that time
+// (or the timer set for it) starts one asynchronous check, and every read until
+// it finishes returns the same incomplete result, so the retry neither blocks
+// this thread nor runs twice at once. The first check, at boot, stays
+// synchronous so a new instance answers only once it has a verdict. The backoff doubles from `retryMs` up to `maxRetryMs` while
+// the epoch is unchanged. A check that completed, passing or failing, is cached
+// exactly as before; a read whose epoch differs still checks synchronously.
 export function createRuntimeAssetReader({
   env = process.env,
   run = spawnSync,
+  runAsync = spawnAsync,
   source = runtimeSourceFingerprint,
+  now = Date.now,
+  retryMs = 60_000,
+  maxRetryMs = 30 * 60_000,
+  // Starts the retry when it falls due, so recovery needs no traffic.
+  schedule = (start, ms) => setTimeout(start, ms).unref(),
+  // A background retry blocks nothing, so its bound is its own: 120 s, enough
+  // for a cold check on one CPU (estimated 22-28 s on Render) several times
+  // over. The boot check before listen keeps its 30 s.
+  retryTimeoutMs = 120_000,
 } = {}) {
-  let cached, previous;
-  return function read() {
+  let cached, previous, failed, pending;
+  const options = {
+    encoding: 'utf8',
+    timeout: 30_000,
+    maxBuffer: 4 * 1024 * 1024,
+    windowsHide: true,
+    env,
+  };
+  function context() {
     const required = env.LYRIC_RELEASE_ASSETS_REQUIRED === '1';
     // This must name the same interpreter as lyric_tools.js's worker bridge.
     const python = env.LYRIC_PYTHON || 'python3';
@@ -121,26 +201,31 @@ export function createRuntimeAssetReader({
         source(),
         assetEpoch(env),
       ]);
-    const key = epoch();
-    if (cached && key === previous) return cached;
-    const options = {
-      encoding: 'utf8',
-      timeout: 30_000,
-      maxBuffer: 4 * 1024 * 1024,
-      windowsHide: true,
-      env,
-    };
-    const result = run(
+    return { required, python, proofFile, proofBytes, proof, proofHash, epoch, key: epoch() };
+  }
+  // One validation, as the commands it runs (yielded) and the verdict they
+  // give (returned); read() drives it synchronously, a retry asynchronously.
+  function* validate({ required, python, proofFile, proofBytes, proof, proofHash, epoch, key }) {
+    const result = yield [
       python,
       [path.join(root, 'quality/release_assets.py'), required ? '--check' : '--integrity'],
-      options
-    );
+    ];
     let inventory;
     try {
       inventory = JSON.parse(result.stdout);
     } catch {
       inventory = null;
     }
+    // Only a verdict is kept: the inventory's own JSON (ok true with exit 0, or
+    // ok false), or verify_capacity's exit 0 or 2. A timeout, a signal, a
+    // child that could not start, unparseable output or any other exit is a
+    // check that did not finish, and it is retried.
+    const ran = (child) => !child.error && child.status !== null;
+    let incomplete = !(
+      ran(result) &&
+      typeof inventory?.ok === 'boolean' &&
+      (inventory.ok === false || result.status === 0)
+    );
     const inventoryOK = result.status === 0 && inventory?.ok === true;
     const approvedTagger = path.join(env.LYRIC_STAGED_DATA || path.join(root, 'data'), 'nltk');
     const taggerOK =
@@ -162,12 +247,12 @@ export function createRuntimeAssetReader({
           'CAPACITY_UNVERIFIED: actual-runtime all-family receipt is missing or unreadable.'
         );
       else {
-        const checked = run(
+        const checked = yield [
           python,
           [path.join(root, 'quality/verify_capacity.py'), '--output', proofFile, '--check'],
-          options
-        );
+        ];
         capacityOK = checked.status === 0;
+        incomplete ||= !(ran(checked) && (checked.status === 0 || checked.status === 2));
         if (!capacityOK)
           errors.push(
             'CAPACITY_UNVERIFIED: ' +
@@ -191,8 +276,8 @@ export function createRuntimeAssetReader({
       capacityOK = false;
       errors.push('CAPACITY_UNVERIFIED: source or assets changed during validation.');
     }
-    previous = key;
-    cached = Object.freeze({
+    return {
+      incomplete,
       ok: assetOK && capacityOK,
       releaseRequired: required,
       errors,
@@ -204,8 +289,76 @@ export function createRuntimeAssetReader({
       python: inventory?.python || null,
       nltk: inventory?.nltk || null,
       ...(inventory?.reader ? { reader: inventory.reader } : {}),
+    };
+  }
+  function settle(key, { incomplete, ...verdict }) {
+    if (!incomplete) {
+      failed = undefined;
+      previous = key;
+      cached = Object.freeze(verdict);
+      return cached;
+    }
+    const at = now();
+    const delay = Math.min(failed?.key === key ? failed.delay * 2 : retryMs, maxRetryMs);
+    const value = Object.freeze({
+      ...verdict,
+      incomplete: true,
+      retry_at: new Date(at + delay).toISOString(),
     });
-    return cached;
-  };
+    failed = { key, delay, retryAt: at + delay, value };
+    cached = previous = undefined;
+    schedule(() => {
+      try {
+        read();
+      } catch {}
+    }, delay);
+    return value;
+  }
+  function retry(current) {
+    pending = (async () => {
+      const steps = validate(current);
+      let step = steps.next();
+      while (!step.done)
+        step = steps.next(await runAsync(...step.value, { ...options, timeout: retryTimeoutMs }));
+      return step.value;
+    })()
+      .catch((error) => ({
+        incomplete: true,
+        ok: false,
+        releaseRequired: current.required,
+        errors: [error?.message || 'Asset inventory did not complete.'],
+        capacity: { required: current.required, ok: false, receipt_sha256: current.proofHash },
+        manifest_sha256: null,
+        assets_sha256: null,
+        python: null,
+        nltk: null,
+      }))
+      .then((verdict) => {
+        // Kept only if nothing moved while it ran: the same epoch (source,
+        // assets, interpreter and receipt) at the start and at the end, and no
+        // synchronous check by a read with a different epoch since.
+        if (failed?.key === current.key && current.epoch() === current.key)
+          settle(current.key, verdict);
+        else if (failed?.key === current.key) failed = { ...failed, retryAt: 0 };
+      })
+      .finally(() => {
+        pending = undefined;
+      });
+  }
+  function read() {
+    const current = context();
+    if (cached && current.key === previous) return cached;
+    if (failed && current.key === failed.key) {
+      if (!pending && now() >= failed.retryAt) retry(current);
+      return failed.value;
+    }
+    const steps = validate(current);
+    let step = steps.next();
+    while (!step.done) step = steps.next(run(...step.value, options));
+    return settle(current.key, step.value);
+  }
+  // Resolves when the asynchronous retry in flight (if any) has settled.
+  read.settled = () => pending || Promise.resolve();
+  return read;
 }
 export const runtimeAssets = createRuntimeAssetReader();

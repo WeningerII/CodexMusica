@@ -12,6 +12,7 @@ import express from 'express';
 import {
   JobStore,
   createJobRouter,
+  liveBuildIdentity,
   loadChatSecret,
   runtimeBuildIdentity,
   redactJobCapability,
@@ -19,6 +20,7 @@ import {
 } from './job_store.js';
 import { SpendStore } from './spend_store.js';
 import { requestContext } from './execution_context.js';
+import { createContinuationIdentity } from './state_codec.js';
 
 const id = () => crypto.randomBytes(32).toString('hex');
 const temp = () => fs.mkdtempSync(path.join(os.tmpdir(), 'lyrics-job-'));
@@ -584,4 +586,48 @@ test('SIGKILL after a budgeted provider dispatch retains uncertainty and cannot 
     await host.close();
     fs.rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test('after a timed-out, then a failed, then a passing asset check, identities match a healthy boot', () => {
+  // 3PO's sequence: a check that did not complete, a completed failure, then an
+  // epoch/proof change and a check that passes, all in one process.
+  const blank = { assets_sha256: null, manifest_sha256: null, python: null, nltk: null };
+  const healthy = {
+    ok: true,
+    assets_sha256: 'a'.repeat(64),
+    manifest_sha256: 'b'.repeat(64),
+    python: '3.11.2',
+    nltk: '3.10.3',
+  };
+  const sequence = [
+    { ok: false, incomplete: true, ...blank },
+    { ok: false, ...blank, errors: ['digest mismatch'] },
+    healthy,
+  ];
+  let reads = 0;
+  const assets = () => sequence[Math.min(reads++, sequence.length - 1)];
+  const env = { RENDER_GIT_COMMIT: 'test-commit' };
+  const identity = liveBuildIdentity(env, assets);
+  assert.equal(identity().assets_sha256, null);
+  assert.equal(identity().assets_sha256, null); // a completed failure is not kept either
+  const later = identity();
+  assert.equal(later.assets_sha256, 'a'.repeat(64));
+  assert.equal(identity(), later);
+  assert.equal(reads, 3); // kept once the check passed
+  assert.deepEqual(later, runtimeBuildIdentity(env, healthy));
+  // The reader fingerprint is this identity's assets_sha256 (server_http.js).
+  assert.equal(later.assets_sha256, healthy.assets_sha256);
+  reads = 0;
+  const continuation = createContinuationIdentity(assets);
+  const early = continuation();
+  continuation();
+  const recovered = continuation();
+  assert.notEqual(early, recovered);
+  assert.equal(recovered, createContinuationIdentity(() => healthy)());
+  assert.equal(continuation(), recovered);
+  assert.equal(reads, 3);
+  const store = new JobStore(null);
+  const request_id = crypto.randomBytes(32).toString('hex');
+  const { record } = store.begin(request_id, { request_id, action: 'x' }, identity);
+  assert.equal(record.build.assets_sha256, 'a'.repeat(64));
 });

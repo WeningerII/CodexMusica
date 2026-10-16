@@ -29,12 +29,7 @@ import { buildServer } from './tools.js';
 import { counts } from './engine.js';
 import { createChatRouter } from './chat.js';
 import { Windows, clientIp } from './ratelimit.js';
-import {
-  JobStore,
-  createJobRouter,
-  runtimeBuildIdentity,
-  redactJobCapability,
-} from './job_store.js';
+import { JobStore, createJobRouter, liveBuildIdentity, redactJobCapability } from './job_store.js';
 import { withExecutionContext } from './execution_context.js';
 import { HTTP_REQUEST_BYTES } from './payload_limits.js';
 import { lyricCapacity, lyricWorkerState, readerPythonBridge } from './lyric_tools.js';
@@ -280,14 +275,20 @@ const startupTrace = (phase) => {
     console.error(`[startup] ${phase} +${Math.round(performance.now())}ms`);
 };
 startupTrace('modules loaded');
-const buildIdentity = runtimeBuildIdentity();
+// Read once here, before listen, as before; if that asset check does not
+// complete (a slow boot timed out on 2026-10-16), the identity and the reader
+// fingerprint below are read again on use until it does, rather than serving
+// null asset fields until a restart.
+const buildIdentity = liveBuildIdentity();
+buildIdentity();
 const runtimeDir = (name) =>
   process.env.LYRIC_RUNTIME_DIR ? path.join(process.env.LYRIC_RUNTIME_DIR, name) : null;
 // The resources every new job is pinned to (its identity's resource_fingerprint).
-const readerResourceFingerprint =
+// The build identity carries the same assets_sha256 the asset check reports.
+const readerResourceFingerprint = () =>
   process.env.READER_RESOURCE_FINGERPRINT ||
-  runtimeAssets().assets_sha256 ||
-  buildIdentity.commit ||
+  buildIdentity().assets_sha256 ||
+  buildIdentity().commit ||
   'unidentified';
 startupTrace('runtime assets read');
 let readerScheduler;
@@ -324,7 +325,7 @@ try {
     throw new Error('Reader requires a pinned catalog and a durable directory.');
   readerResolver = createCatalogResolver({
     directory: process.env.READER_CATALOG_DIR,
-    engineCommit: buildIdentity.commit,
+    engineCommit: buildIdentity().commit,
     resourceFingerprint: readerResourceFingerprint,
   });
   const readerCatalog = await readerResolver.probe();
@@ -511,7 +512,7 @@ function buildLibraryRouter() {
           exports: libraryExports,
           streams: libraryStreams,
           definitions: () => libraryDefinitions,
-          resourceFingerprint: () => readerResourceFingerprint,
+          resourceFingerprint: readerResourceFingerprint,
         })
       );
     } else {
@@ -595,7 +596,8 @@ app.use(chatRouter);
 // deployment on the spot. RENDER_GIT_COMMIT is the sha Render built (set by
 // Render in every service's runtime env); null means a runtime that does not
 // say, which the probe treats as "not this tree", never as a match.
-app.get('/health', (_req, res) =>
+app.get('/health', (_req, res) => {
+  const build = buildIdentity();
   res.json({
     ok: true,
     service: 'codex-musica-mcp',
@@ -635,8 +637,8 @@ app.get('/health', (_req, res) =>
     // very field through `check_live.mjs --print-commit`. Nothing was added
     // for it.
     worker: lyricWorkerState(),
-    commit: buildIdentity.commit,
-    build: buildIdentity,
+    commit: build.commit,
+    build,
     recovery: {
       durable: jobStore.durable,
       retention_ms: jobStore.ttlMs,
@@ -652,8 +654,8 @@ app.get('/health', (_req, res) =>
         healthy: !sessionStore.failure,
       },
     },
-  })
-);
+  });
+});
 
 app.get('/ready', (_req, res) => {
   const lyrics = chatRouter.readiness();
@@ -676,7 +678,7 @@ app.get('/ready', (_req, res) => {
       sessions: { durable: sessionStore.durable, healthy: !sessionStore.failure },
     },
     queue: lyricCapacity(),
-    build: buildIdentity,
+    build: buildIdentity(),
     assets,
     configuration: effectiveConfiguration(),
   });
