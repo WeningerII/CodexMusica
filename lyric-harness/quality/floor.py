@@ -1266,10 +1266,10 @@ PROFILES.append(
         name="lyric", unit='whole lyric sheet, 9-3244 tokens, thresholds a function of ln N',
         mattr_ttr_population={'window': 50, 'items': 527},
         lo=9, hi=3244, n_lines=0, n_human=8585, n_generated=0,
-        tolerance=1.0,
         # The owner's call (2026-10-16): keep 4-8 token lyrics graded. No human
         # item under 9 tokens remains, so 4-8 is reached, not measured (notes only).
         reach_lo=4,
+        tolerance=1.0,
         percentiles={},
         curves={'anaphora_max': (1.159351078159644, -0.24565802370055595, 0.0162678855573942),
  'line_length_cv_min': (-0.09554810132361943, 0.059242040873681165, -0.003946093229030391),
