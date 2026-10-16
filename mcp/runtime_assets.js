@@ -169,6 +169,32 @@ export function createRuntimeAssetReader({
   retryTimeoutMs = 120_000,
 } = {}) {
   let cached, previous, failed, pending;
+  // Every check this process ran, newest last (at most 16): how it ran, when
+  // it started, how long it took against its limit, and how it ended. Nobody
+  // has measured a cold check on the service, because the boot limit killed
+  // it first; this records the time of each, finished or not.
+  const attempts = [];
+  function record(mode, started, children, verdict, kept = true) {
+    const outcome = !kept
+      ? 'discarded'
+      : children.some((child) => child?.error?.code === 'ETIMEDOUT')
+        ? 'timed_out'
+        : verdict.incomplete
+          ? 'incomplete'
+          : verdict.ok
+            ? 'passed'
+            : 'failed';
+    attempts.push(
+      Object.freeze({
+        mode,
+        started_at: new Date(started).toISOString(),
+        elapsed_ms: Math.max(0, now() - started),
+        limit_ms: mode === 'background' ? retryTimeoutMs : options.timeout,
+        outcome,
+      })
+    );
+    if (attempts.length > 16) attempts.shift();
+  }
   const options = {
     encoding: 'utf8',
     timeout: 30_000,
@@ -315,11 +341,16 @@ export function createRuntimeAssetReader({
     return value;
   }
   function retry(current) {
+    const started = now();
+    const children = [];
     pending = (async () => {
       const steps = validate(current);
       let step = steps.next();
-      while (!step.done)
-        step = steps.next(await runAsync(...step.value, { ...options, timeout: retryTimeoutMs }));
+      while (!step.done) {
+        const child = await runAsync(...step.value, { ...options, timeout: retryTimeoutMs });
+        children.push(child);
+        step = steps.next(child);
+      }
       return step.value;
     })()
       .catch((error) => ({
@@ -337,8 +368,9 @@ export function createRuntimeAssetReader({
         // Kept only if nothing moved while it ran: the same epoch (source,
         // assets, interpreter and receipt) at the start and at the end, and no
         // synchronous check by a read with a different epoch since.
-        if (failed?.key === current.key && current.epoch() === current.key)
-          settle(current.key, verdict);
+        const kept = failed?.key === current.key && current.epoch() === current.key;
+        record('background', started, children, verdict, kept);
+        if (kept) settle(current.key, verdict);
         else if (failed?.key === current.key) failed = { ...failed, retryAt: 0 };
       })
       .finally(() => {
@@ -352,13 +384,22 @@ export function createRuntimeAssetReader({
       if (!pending && now() >= failed.retryAt) retry(current);
       return failed.value;
     }
+    const started = now();
+    const children = [];
     const steps = validate(current);
     let step = steps.next();
-    while (!step.done) step = steps.next(run(...step.value, options));
+    while (!step.done) {
+      const child = run(...step.value, options);
+      children.push(child);
+      step = steps.next(child);
+    }
+    record('sync', started, children, step.value);
     return settle(current.key, step.value);
   }
   // Resolves when the asynchronous retry in flight (if any) has settled.
   read.settled = () => pending || Promise.resolve();
+  // The checks run so far, oldest first; timings and outcomes only.
+  read.attempts = () => attempts.slice();
   return read;
 }
 export const runtimeAssets = createRuntimeAssetReader();

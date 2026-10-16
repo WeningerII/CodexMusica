@@ -679,7 +679,7 @@ app.get('/ready', (_req, res) => {
     },
     queue: lyricCapacity(),
     build: buildIdentity(),
-    assets,
+    assets: { ...assets, attempts: runtimeAssets.attempts() },
     configuration: effectiveConfiguration(),
   });
 });

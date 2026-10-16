@@ -349,7 +349,7 @@ test('required production mode exports exact recovery without Python or assets w
 const timedOut = () => ({
   status: null,
   signal: 'SIGTERM',
-  error: new Error('spawnSync python3 ETIMEDOUT'),
+  error: Object.assign(new Error('spawnSync python3 ETIMEDOUT'), { code: 'ETIMEDOUT' }),
 });
 
 test('an asset check that did not complete is retried off-thread after a backoff, never cached', async () => {
@@ -616,4 +616,55 @@ test('a retry whose epoch moved while it ran is not kept', async () => {
   await reader.settled();
   source = 'a';
   assert.equal(reader().incomplete, true); // the moved result was discarded
+});
+
+test('every check is recorded with its mode, elapsed time, limit and outcome', async () => {
+  let clock = 0,
+    slow = true;
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    schedule: () => {},
+    run: () => ((clock += 30_000), timedOut()),
+    runAsync: async () => {
+      clock += slow ? 120_000 : 27_000;
+      return slow ? timedOut() : assetInventory;
+    },
+  });
+  reader();
+  clock += 1000;
+  reader();
+  await reader.settled();
+  slow = false;
+  clock += 2000;
+  reader();
+  await reader.settled();
+  assert.equal(reader().ok, true);
+  assert.deepEqual(reader.attempts(), [
+    {
+      mode: 'sync',
+      started_at: new Date(0).toISOString(),
+      elapsed_ms: 30_000,
+      limit_ms: 30_000,
+      outcome: 'timed_out',
+    },
+    {
+      mode: 'background',
+      started_at: new Date(31_000).toISOString(),
+      elapsed_ms: 120_000,
+      limit_ms: 120_000,
+      outcome: 'timed_out',
+    },
+    {
+      mode: 'background',
+      started_at: new Date(153_000).toISOString(),
+      elapsed_ms: 27_000,
+      limit_ms: 120_000,
+      outcome: 'passed',
+    },
+  ]);
+  reader.attempts().push('x'); // a copy
+  assert.equal(reader.attempts().length, 3);
 });
