@@ -2865,14 +2865,16 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # the check above discriminating rather than a restatement of
     # `line_count_gaps`. The perturbation is restored.
     _sheet = [p for p in FL.PROFILES if not p.n_lines and not p.superseded_by][0]
-    _old_lo, _old_hi = _sheet.lo, _sheet.hi
+    _old_lo, _old_hi, _old_reach = _sheet.lo, _sheet.hi, _sheet.reach_lo
     try:
-        _sheet.lo, _sheet.hi = 200, 400
+        # `reach_lo` cleared too (2026-10-16), or the declared 4-token reach
+        # would hold the narrowed band open below 160.
+        _sheet.lo, _sheet.hi, _sheet.reach_lo = 200, 400, 0
         _PL.gradeable_line_counts.cache_clear()
         _narrow_union = set(_PL.gradeable_line_counts())
         _narrow_holes = _PL.line_count_gaps(_narrow_union)
     finally:
-        _sheet.lo, _sheet.hi = _old_lo, _old_hi
+        _sheet.lo, _sheet.hi, _sheet.reach_lo = _old_lo, _old_hi, _old_reach
         _PL.gradeable_line_counts.cache_clear()
     check("MUTATION — narrow the live sheet row back to a 200-400-token "
           "BAND and the containment breaks: its reach no longer covers "

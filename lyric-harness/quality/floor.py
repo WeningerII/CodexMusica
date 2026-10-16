@@ -675,9 +675,18 @@ class Profile:
     #: is not deleted (doctrine 17) — but `declaration_for` never picks it
     #: and the planner never reads its band.
     superseded_by: str = ""
+    #: A DECLARED LOWER REACH below `lo`, or 0 for the tolerance's own
+    #: `lo / tolerance`. Lengths in [reach_lo, lo) are reached but not
+    #: measured: the profile's curves are extrapolated there, so every
+    #: length-sensitive finding is downgraded to a note
+    #: (`EXTRAPOLATED_LENGTH`) and none can reject. Added 2026-10-16 (#572)
+    #: for the owner's call to keep grading 4-8 token lyrics after the M-25
+    #: residue left no human item under 9 tokens.
+    reach_lo: int = 0
 
     def band(self):
-        return int(self.lo / self.tolerance), int(self.hi * self.tolerance)
+        return (self.reach_lo or int(self.lo / self.tolerance),
+                int(self.hi * self.tolerance))
 
     def threshold(self, key, n_tokens=None):
         """The threshold for `key` AT THIS LENGTH: the curve evaluated at
@@ -1258,6 +1267,9 @@ PROFILES.append(
         mattr_ttr_population={'window': 50, 'items': 527},
         lo=9, hi=3244, n_lines=0, n_human=8585, n_generated=0,
         tolerance=1.0,
+        # The owner's call (2026-10-16): keep 4-8 token lyrics graded. No human
+        # item under 9 tokens remains, so 4-8 is reached, not measured (notes only).
+        reach_lo=4,
         percentiles={},
         curves={'anaphora_max': (1.159351078159644, -0.24565802370055595, 0.0162678855573942),
  'line_length_cv_min': (-0.09554810132361943, 0.059242040873681165, -0.003946093229030391),
