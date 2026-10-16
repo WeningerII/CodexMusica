@@ -429,6 +429,26 @@ class CapacityOracle(unittest.TestCase):
         self.assertTrue(validate_measurement(value))
 
 
+class CapacitySourceIdentity(unittest.TestCase):
+    """The warm worker runs every worker-mode cell, so capacity evidence taken
+    before a worker-only change must not stand for the code after it."""
+
+    def test_a_worker_only_change_changes_the_capacity_identity(self):
+        from check_lyrics_capacity import source_identity
+        before = source_identity()
+        self.assertIn('mcp/worker.py', before)
+        real = Path.read_bytes
+        def edited(path):
+            data = real(path)
+            return data + b'\n# edited\n' if path.as_posix().endswith('mcp/worker.py') else data
+        with patch.object(Path, 'read_bytes', edited):
+            after = source_identity()
+        self.assertNotEqual(before['mcp/worker.py'], after['mcp/worker.py'])
+        self.assertEqual({k: v for k, v in before.items() if k != 'mcp/worker.py'},
+                         {k: v for k, v in after.items() if k != 'mcp/worker.py'})
+        self.assertNotEqual(before, after)
+
+
 class ResidentMemoryReading(unittest.TestCase):
     """The envelope is gated on what it has to HOLD, not on what the kernel
     happens to be caching (M-269). The arithmetic is small and the failure
