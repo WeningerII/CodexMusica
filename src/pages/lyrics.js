@@ -7339,6 +7339,10 @@ function lyWire(surface) {
     if (p?.stage && p.stage !== was) LY.stageSaid = `Writer: ${lyStageName(p.stage)}`;
     if (LY.tab === 'writer' && !$ui('surface-lyrics')?.hidden) lyRenderWriter();
   });
+  // New conversation clears the writer's state without a busy flip.
+  document.addEventListener('chat-reset', () => {
+    if (LY.model) lyRefresh(true);
+  });
   // The shell's busy state flips around a reply; re-render when it does.
   const dock = $ui('chat-dock');
   let busy = chatState.busy;

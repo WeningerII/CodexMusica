@@ -67,7 +67,7 @@
 // Exit 0 if every assertion passes, 1 otherwise, 2 if playwright is missing.
 
 'use strict';
-/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction */
+/* global devicePixelRatio, visualViewport, innerHeight, document, localStorage, lyLibraryStore, lyLocalChecks, lyMeta, getComputedStyle, innerWidth, $ui, LY, LY_ACTIONS, UI, _chatSend, app, chatState, lyCheckApply, lyItem, lyReceive, lyRefresh, lyRunStatus, lyScrollToLine, lySyncCaret, lyDraftSet, lyDrafts, lyPendingAll, lyStartConversation, pushHistory, uiNewTask, uiSaveLyrics, lyParse, CMLyricTokens, lyDeclarationsOf, lyReadingValue, lyLibraryImport, CMLibraryImport, uiLyricsOpened, lyEnsureTokenScheme, showToast, HTMLTextAreaElement, sessionStorage, uiChatOpen, requestAnimationFrame, LY_ACTION_TEXT, lySubmitLyricsAction, lyWriterState, lyToolRequestAction */
 const fs = require('fs');
 const http = require('http');
 const path = require('path');
@@ -5318,6 +5318,132 @@ async function browserChecks(chromium) {
         `reopened draft B shows: ${c}`
       );
       await ctx.close();
+    });
+
+    // 10. A saved request the server no longer keeps never strands the page.
+    // The page re-arms the last exchange's receipt on every load; receipts
+    // expire, and a 404 used to leave "outcome unknown" forever, hiding
+    // "Get dictionary options". A 503 (persistence down) still holds the ticket.
+    // New conversation also drops the copy kept when switching writers, and the
+    // panel redraws at once.
+    await step('10. expired saved request and New conversation', async () => {
+      const KEY = 'codex-musica-chat-v2:https://mcp.codexmusica.com';
+      const stuck = async ({ status, backup = false }) => {
+        const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+        const id = (status === 404 ? 'e' : 'f').repeat(64);
+        await ctx.route(/mcp\.codexmusica\.com/, (r) => {
+          if (/\/chat\/jobs\//.test(r.request().url()))
+            return r.fulfill({
+              status,
+              contentType: 'application/json',
+              body: JSON.stringify({
+                error: status === 404 ? 'No retained receipt.' : 'Unavailable.',
+              }),
+            });
+          return r.fulfill({ contentType: 'application/json', body: '{"ok":true,"enabled":true}' });
+        });
+        await ctx.addInitScript(
+          ([key, id, backup]) => {
+            if (sessionStorage.getItem('seeded')) return;
+            sessionStorage.setItem('seeded', '1');
+            const v = JSON.stringify({
+              task: { domain: 'lyrics', phase: 'edit' },
+              continuationId: id,
+            });
+            localStorage.setItem(key, v);
+            if (backup) localStorage.setItem(key + ':lyrics', v);
+          },
+          [KEY, id, backup]
+        );
+        const page = await ctx.newPage();
+        page.on('pageerror', (e) => pageErrors.push(e.message));
+        await page.goto(url);
+        await page.waitForFunction(
+          () => typeof UI !== 'undefined' && UI.ready && !!LY.model,
+          null,
+          {
+            timeout: 60000,
+          }
+        );
+        await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+        return { ctx, page, id };
+      };
+      const state = (page) =>
+        page.evaluate((key) => {
+          LY_ACTIONS['ly-tab']('writer');
+          return {
+            unknown: lyWriterState().unknown,
+            pending: chatState.pending?.request_id || null,
+            archived: chatState.archives.map((a) => a.request_id),
+            options: lyToolRequestAction('ly-pron-options', 'Get dictionary options', 'search'),
+            writer: $ui('ly-writer-status')?.innerText || '',
+            backup: localStorage.getItem(key + ':lyrics'),
+          };
+        }, KEY);
+      const reload = async (page) => {
+        await page.reload();
+        await page.waitForFunction(
+          () => typeof UI !== 'undefined' && UI.ready && !!LY.model,
+          null,
+          {
+            timeout: 60000,
+          }
+        );
+        await page.waitForFunction(() => !chatState.busy, null, { timeout: 20000 });
+      };
+
+      {
+        const { ctx, page, id } = await stuck({ status: 404 });
+        let s = await state(page);
+        check(
+          !s.unknown && !s.pending,
+          'an expired receipt (404) still leaves the outcome unknown'
+        );
+        check(s.archived.includes(id), 'an expired receipt was dropped instead of set aside');
+        check(
+          /Get dictionary options/.test(s.options),
+          'pronunciation options stay hidden after a 404'
+        );
+        await reload(page);
+        s = await state(page);
+        check(!s.unknown && !s.pending, 'an expired receipt re-arms on the next load');
+        await ctx.close();
+      }
+      {
+        const { ctx, page, id } = await stuck({ status: 503 });
+        const s = await state(page);
+        check(
+          s.unknown && s.pending === id,
+          'a 503 (persistence down) dropped an unsettled ticket'
+        );
+        await ctx.close();
+      }
+      {
+        const { ctx, page } = await stuck({ status: 503, backup: true });
+        let s = await state(page);
+        check(
+          s.unknown && /Outcome unknown/.test(s.writer),
+          'the stuck fixture did not start stuck'
+        );
+        await page.locator('#chat-reset').click();
+        // Read the open Writer panel before anything else renders it.
+        const shown = await page.evaluate(() => $ui('ly-writer-status')?.innerText || '');
+        check(!/Outcome unknown/.test(shown), 'New conversation left the panel unredrawn');
+        s = await state(page);
+        check(!s.unknown, 'New conversation left the outcome unknown');
+        check(s.backup === null, 'New conversation kept the writer-switch copy');
+        await reload(page);
+        s = await state(page);
+        check(
+          !s.unknown && !s.pending,
+          'the old request came back after New conversation and a reload'
+        );
+        check(
+          /Get dictionary options/.test(s.options),
+          'pronunciation options hidden after New conversation'
+        );
+        await ctx.close();
+      }
     });
 
     // ── screenshots: a suggestion, light and dark, desktop and phone ─────
