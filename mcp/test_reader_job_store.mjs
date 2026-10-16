@@ -603,9 +603,10 @@ function pronunciationCatalogFixture(t, options = {}) {
   const resolver = createCatalogResolver({
     directory: catalog,
     engineCommit: 'fixture',
+    readerScheme: 'v2',
     pronunciationRoot,
   });
-  return { directory, store, resolver, request, pronunciations };
+  return { directory, store, resolver, request, pronunciations, catalog, pronunciationRoot };
 }
 
 test('source-bound defaults attach before identity, preserve other declarations, and do not mutate input', async (t) => {
@@ -803,4 +804,49 @@ test('reader route prepares after validation, hashes and stores defaults, and re
   assert.equal(resumed.status, 202, JSON.stringify(resumed.body));
   assert.equal(prepareCalls, 1);
   assert.deepEqual(calls[1], record.request);
+});
+
+// B2: a checkpoint is bound to its job's identity_hash, and the identity now
+// records the reader's word-cut scheme. A paused job whose checkpoint was
+// committed under one scheme cannot be resumed from it under another, nor
+// from an identity that predates the field; under its own scheme it can.
+test('a committed checkpoint is refused after the reader scheme changes', async (t) => {
+  const { store, resolver, request, catalog, pronunciationRoot } = pronunciationCatalogFixture(t);
+  const prepared = await resolver.prepareRequest(request);
+  const v2 = await resolver.resolveIdentity(prepared);
+  assert.equal(v2.reader_scheme, 'v2');
+  const v1 = await createCatalogResolver({
+    directory: catalog,
+    engineCommit: 'fixture',
+    readerScheme: 'v1',
+    pronunciationRoot,
+  }).resolveIdentity(prepared);
+  assert.deepEqual({ ...v1, reader_scheme: 'v2' }, v2, 'only the scheme differs');
+  const { reader_scheme: _dropped, ...unrecorded } = v2;
+  const job = store.create({
+    viewer: 'viewer-a',
+    idempotency_key: 'scheme-a',
+    identity: v2,
+    request: prepared,
+  });
+  const lease = store.lease(job.record.id);
+  const saved = commit(store, lease, [{ id: 'counted-under-v2' }], { phase: 'pairs', index: 3 });
+  store.pause(lease.id, lease.attempt, lease.fence, {
+    code: 'INTERRUPTED',
+    message: 'fixture',
+    requeue: false,
+  });
+  const checkpoint = store.inspect(job.record.id).checkpoint_hash;
+  assert.ok(checkpoint);
+  for (const changed of [v1, unrecorded])
+    refused(
+      () => store.resume(job.record.id, job.capability, 'viewer-a', changed),
+      'STALE_READING'
+    );
+  const paused = store.inspect(job.record.id);
+  assert.equal(paused.state, 'paused');
+  assert.equal(paused.checkpoint_hash, checkpoint, 'the refused resume leaves the checkpoint');
+  store.resume(job.record.id, job.capability, 'viewer-a', v2);
+  const next = store.lease(job.record.id);
+  assert.deepEqual(next.cursor, saved.cursor);
 });

@@ -8,7 +8,11 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { ReaderJobStore } from './reader_job_store.js';
 import { createCatalogResolver, packReaderPages } from './reader_scheduler.js';
-import { readerPythonBridge, registerLyricTools } from './lyric_tools.js';
+import {
+  probeReaderSchemeOfWorker,
+  readerPythonBridge,
+  registerLyricTools,
+} from './lyric_tools.js';
 import { buildServer } from './tools.js';
 import { runtimeBuildIdentity } from './job_store.js';
 import { runtimeAssets } from './runtime_assets.js';
@@ -69,6 +73,7 @@ const resolver = createCatalogResolver({
   directory,
   engineCommit: build.commit,
   resourceFingerprint: assets.assets_sha256,
+  readerScheme: await probeReaderSchemeOfWorker(),
 });
 const catalog = await resolver.probe();
 const pinnedSnapshot = 'ef7cc67b3fef549c3bb8a8565b69ddddd9a7c57293bcf3355f787653bb5f7b13';

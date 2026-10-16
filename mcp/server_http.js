@@ -37,7 +37,12 @@ import {
 } from './job_store.js';
 import { withExecutionContext } from './execution_context.js';
 import { HTTP_REQUEST_BYTES } from './payload_limits.js';
-import { lyricCapacity, lyricWorkerState, readerPythonBridge } from './lyric_tools.js';
+import {
+  lyricCapacity,
+  lyricWorkerState,
+  probeReaderSchemeOfWorker,
+  readerPythonBridge,
+} from './lyric_tools.js';
 import { ReaderJobStore } from './reader_job_store.js';
 import { ReaderScheduler, createCatalogResolver } from './reader_scheduler.js';
 import { createReaderRouter } from './reader_routes.js';
@@ -326,6 +331,7 @@ try {
     directory: process.env.READER_CATALOG_DIR,
     engineCommit: buildIdentity.commit,
     resourceFingerprint: readerResourceFingerprint,
+    readerScheme: await probeReaderSchemeOfWorker(),
   });
   const readerCatalog = await readerResolver.probe();
   readerScheduler = new ReaderScheduler({

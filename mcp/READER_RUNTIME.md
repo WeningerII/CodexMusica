@@ -70,7 +70,9 @@ server's own snapshot (the client never sends one):
 - `GET /library/v1/health`: passive (no cookie, no writes). Reports the
   snapshot, `readable_ids_sha256`, unit counts, `search_ready`, and
   `analysis_available` (true only with public analysis on and a ready reader),
-  and `corpus`: each installed package's `bytes`, `sha256` and `url`.
+  `capabilities` (`pronunciation_numbering`: the numbering markers a
+  pronunciation row in a declaration set may carry, see "Word-cut numbering"
+  below), and `corpus`: each installed package's `bytes`, `sha256` and `url`.
 - `GET /library/v1/search?q&language&availability&completeness&work&collection&contributor&sort&offset&limit<=100`:
   a line-for-line port of the approved Worker's search over the store at
   `LIBRARY_SEARCH_DIR`. It reproduces SQLite's `instr`, `substr`, ASCII
@@ -176,7 +178,9 @@ public analysis on (`LIBRARY_PUBLIC` not `0`), the search store installed and th
 - **Analysis exports.** `HEAD`/`GET /jobs/:id/exports/:manifest_sha.zip`
   (`codex-musica-library-analysis-<sha12>.zip`): the reading's own entries,
   byte-identical to a JSON selection of that unit, then `PROVENANCE.json`
-  (scope `whole_reading_unit_analysis`, the job's snapshot and manifest hash),
+  (scope `whole_reading_unit_analysis`, the job's snapshot and manifest hash,
+  and `reader_scheme`: the word cut its token numbers were counted under, or
+  `"unrecorded"` for a job whose identity predates the field),
   `ATTRIBUTION.txt` and `ANALYSIS/` (`MANIFEST.json`, `REQUEST.json`,
   `METHODS.json`, `RESULT_SCHEMA.json` and every evidence page, each
   re-hashed). The methods and result schema are the ones the job ran with: a
@@ -187,6 +191,29 @@ public analysis on (`LIBRARY_PUBLIC` not `0`), the search store installed and th
   export-store revision differs from the job's is 409 `EXPORT_READING_CHANGED`.
   Errors are attachments, and the stream shares the selection exports' limiter
   (2 per address, 4 service-wide) and the stall and crawl guard.
+
+## Word-cut numbering
+
+A pronunciation row names a word of an exact line by token number, and the
+reader's word cut changed with reader scheme v2. The Library analysis session
+guards its lexicon as the lyric CLI does (`lyric-harness/library/analysis.py`):
+a row may carry `numbering` (`v1`, `v1+voices`, `v2` or `v2+voices`) and binds
+the identical raw occurrence it names; an unmarked row is read under both
+cuts and refused `INVALID_DECLARATION`, naming both, where they bind different
+characters; an unmarked row that matches only under the earlier cut is
+rebound by raw span. A pinned Gutenberg set is rebound from v1 once and then
+bound exactly there. Token evidence's `reading_choices.numbering` names the
+cut and voices setting its `token` was counted under (`v2+voices`: the
+Library reads asides as sung).
+
+Every job identity records `reader_scheme`, read at startup from the Python
+reader itself (`probeReaderScheme` in `reader_scheduler.js` runs
+`library.analysis.reader_scheme()` with the worker's interpreter, directory and
+environment); a reader that does not answer with a known scheme is not
+mounted. A job queued or paused under another scheme, or under an identity
+that predates the field, no longer matches the identity the service computes,
+so its lease and its resume refuse `STALE_READING` and its checkpoints are not
+reused, also where neither side has an engine commit.
 
 ## Private pull API
 

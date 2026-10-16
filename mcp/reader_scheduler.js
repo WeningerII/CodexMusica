@@ -1,4 +1,5 @@
 // Durable ingress is separate from the bridge's bounded in-memory admissions.
+import { execFile } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { readFile, realpath } from 'node:fs/promises';
 import { createReadStream } from 'node:fs';
@@ -16,6 +17,39 @@ export function canonicalJSON(value) {
       .map((key) => `${JSON.stringify(key)}:${canonicalJSON(value[key])}`)
       .join(',')}}`;
   return JSON.stringify(value);
+}
+
+// The reader schemes a job identity may record (lyric_harness READER_SCHEMES).
+export const READER_SCHEMES = Object.freeze(['v1', 'v2']);
+
+/**
+ * The word-cut scheme the Python reader cuts lines under, asked of the
+ * reader itself (library.analysis.reader_scheme) with the interpreter,
+ * directory and environment the reader worker runs with, never read from a
+ * literal here. Resolves 'v1' or 'v2'; anything else refuses
+ * READER_UNAVAILABLE, and the service then mounts no reader.
+ */
+export function probeReaderScheme({
+  python = 'python3',
+  harnessDir = fileURLToPath(new URL('../lyric-harness/', import.meta.url)),
+  env = process.env,
+  timeoutMs = 60000,
+} = {}) {
+  return new Promise((resolve, reject) =>
+    execFile(
+      python,
+      ['-c', 'from library.analysis import reader_scheme; print(reader_scheme())'],
+      { cwd: harnessDir, env, timeout: timeoutMs, maxBuffer: 64 * 1024 },
+      (failure, stdout) => {
+        const scheme = String(stdout || '').trim();
+        if (failure || !READER_SCHEMES.includes(scheme))
+          return reject(
+            error('READER_UNAVAILABLE', 'The reader did not report a known word-cut scheme.')
+          );
+        resolve(scheme);
+      }
+    )
+  );
 }
 
 const GUTENBERG_COLLECTION = /^corpus\/library\/gutenberg-next-ten\/(\d+)\//;
@@ -96,6 +130,11 @@ export function createCatalogResolver({
   directory,
   engineCommit,
   resourceFingerprint = 'reader-v1',
+  // The running reader's word-cut scheme (probeReaderScheme). Every identity
+  // records it, so a job whose stored identity names another scheme, or
+  // none (a job queued before identities carried it), is refused
+  // STALE_READING at its lease even where both sides have no engine commit.
+  readerScheme,
   pronunciationRoot = fileURLToPath(new URL('../lyric-harness/', import.meta.url)),
   methodsPath = fileURLToPath(new URL('../lyric-harness/library/methods.json', import.meta.url)),
   // The create path verifies and parses a canonical reading in a worker
@@ -103,6 +142,8 @@ export function createCatalogResolver({
   // `summaryWorkers` at a time, so it never blocks /mcp or /chat.
   summaryWorkers = 2,
 }) {
+  if (!READER_SCHEMES.includes(readerScheme))
+    throw new TypeError('The catalog resolver requires the reader scheme (probeReaderScheme).');
   const snapshots = new Map();
   const waiting = [];
   let running = 0;
@@ -374,6 +415,7 @@ export function createCatalogResolver({
       parser_version: manifest.parser_version,
       normalizer_version: manifest.normalizer_version,
       resource_fingerprint: resourceFingerprint,
+      reader_scheme: readerScheme,
       declaration_hash: sha256(canonicalJSON(semanticDeclarations(request.declaration_set || {}))),
       requested_layers: request.requested_layers,
       requested_methods: request.requested_methods ?? null,

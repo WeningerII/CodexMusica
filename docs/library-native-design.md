@@ -289,7 +289,7 @@ Sizes are measured on 317c by scratchpad r1design/measure_e.py and measure_f.py,
 Mounted by a new mcp/library_routes.js; the CHAT_BACKEND override is reused.
 - The client never sends a snapshot. Every response names the server's snapshot_id and readable_ids_sha256.
 - Public, uncredentialed GETs (CORS simple requests):
-  - `GET /library/v1/health`: passive, no cookie, no writes. Returns `{contract:1, snapshot_id, readable_ids_sha256, counts, search_ready, analysis_available, corpus:{format:{bytes, sha256, url}}}`. Each corpus `url` is the package-hash URL (see "Exports and downloads").
+  - `GET /library/v1/health`: passive, no cookie, no writes. Returns `{contract:1, snapshot_id, readable_ids_sha256, counts, search_ready, analysis_available, capabilities:{pronunciation_numbering}, corpus:{format:{bytes, sha256, url}}}`. Each corpus `url` is the package-hash URL (see "Exports and downloads").
   - `GET /library/v1/search?q&language&availability&completeness&work&collection&contributor&sort&offset&limit<=100`.
     - Returns `{snapshot_id, items:[compact_summary + source_basis + snippet + search_hit, each with reading_revision and its rev16-proj12 path key], total, next_offset}`.
     - Cache-Control: public, max-age=300, with an ETag. The app logger redacts the query string. That does not keep search terms out of Render's platform logs, and PRIVACY.md says exactly that. Search stays a cacheable GET for performance.

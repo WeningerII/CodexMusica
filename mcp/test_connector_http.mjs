@@ -423,12 +423,17 @@ for (const blocked of [false, true])
         pidFile = join(root, 'worker-pid'),
         ackFile = join(root, 'worker-acks.jsonl');
       // An actual subprocess and reader protocol, without loading native assets
-      // or making provider calls. An asset probe is honestly unavailable here.
+      // or making provider calls. An asset probe is honestly unavailable here;
+      // the startup reader-scheme probe (reader_scheduler.js) is answered.
       writeFileSync(
         worker,
         `#!${process.execPath}
 import fs from 'node:fs';
 import readline from 'node:readline';
+if (process.argv.some(a => a.includes('import reader_scheme'))) {
+  console.log('v2');
+  process.exit(0);
+}
 if (!process.argv.some(a => a.endsWith('/worker.py'))) {
   console.log(JSON.stringify({ok:false,errors:['Shutdown fixture has no native asset inventory.']}));
   process.exit(0);

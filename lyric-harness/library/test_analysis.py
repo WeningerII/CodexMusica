@@ -118,6 +118,73 @@ class ReaderAcceptance(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "pronunciation source"):
             AnalysisSession(reading, declaration)
 
+    def test_reading_choices_name_their_numbering(self):
+        # Evidence says which cut and voices setting counted `token`: the
+        # Library reads every line with its asides sung, under v2.
+        _, rows, _ = complete(source("wind\nfind"), schemas=[])
+        choices = [r["reading_choices"] for r in rows
+                   if r["kind"] == "token" and "reading_choices" in r]
+        self.assertTrue(choices)
+        self.assertEqual({c["numbering"] for c in choices}, {"v2+voices"})
+
+    def test_library_pronunciations_follow_the_numbering_rule(self):
+        # B1: the session's lexicon is guarded. An unmarked row that names
+        # its word on different characters under the two cuts is refused
+        # naming both; a marked row binds the identical raw occurrence; an
+        # unmarked row that matches only under the earlier cut is rebound.
+        oh, lawdy = "Oh--oh, oh my love", "U--h, Lawdy"
+        reading = source(oh + "\n" + lawdy)
+        requested = {"layers": ["sound"], "schemas": []}
+
+        def row(line, token, word, **extra):
+            return {"line": line, "token": token, "word": word, "phones": ["OW1"],
+                    "basis": "declared", "source": "the singer", **extra}
+
+        with self.assertRaisesRegex(ValueError, r"^INVALID_DECLARATION: ambiguous token 2 "
+                                    r".*v1\+voices binds \('oh', \(\(8, 10\),\)\); "
+                                    r"v2\+voices binds \('oh', \(\(4, 6\),\)\)"):
+            AnalysisSession(reading, {"pronunciations": [row(oh, 2, "oh")]}, requested)
+        for numbering, token in (("v1+voices", 2), ("v2+voices", 3), ("v1", 2), ("v2", 3)):
+            with self.subTest(numbering=numbering):
+                session = AnalysisSession(
+                    reading, {"pronunciations": [row(oh, token, "oh", numbering=numbering)]},
+                    requested)
+                bound = session.phon.lexicon.pronunciations
+                self.assertEqual([(b["token"], b["numbering"]) for b in bound], [(3, "v2+voices")])
+        session = AnalysisSession(reading, {"pronunciations": [row(lawdy, 2, "Lawdy")]}, requested)
+        self.assertEqual([b["token"] for b in session.phon.lexicon.pronunciations], [3])
+        self.assertEqual(session.declarations["pronunciations"][0]["token"], 3)
+        with self.assertRaisesRegex(ValueError, "^INVALID_DECLARATION: numbering must be"):
+            AnalysisSession(reading, {"pronunciations": [row(lawdy, 3, "Lawdy", numbering="v3")]},
+                            requested)
+        # An unmarked row whose number names the same characters under both
+        # cuts keeps the six fields it was sent with.
+        plain = AnalysisSession(source("wind\nfind"), {"pronunciations": [
+            row("wind", 1, "wind")]}, requested)
+        self.assertNotIn("numbering", plain.phon.lexicon.pronunciations[0])
+
+    def test_pinned_gutenberg_set_is_migrated_once(self):
+        # The scheduler injects a pinned v1-bound set; it is rebound by raw
+        # span once and then binds exactly there under the guard.
+        import json
+        from pathlib import Path
+        import lyric_harness as LH
+        from quality.pronunciation import rebind_occurrences
+        asset = Path(LH.__file__).resolve().parent / "imports/gutenberg-next-ten/pronunciations/69378.json"
+        payloads = json.loads(asset.read_text(encoding="utf-8"))
+        rows = next(p["pronunciations"] for p in payloads.values()
+                    if any(r["line"].startswith("U--h") for r in p["pronunciations"]))
+        lines = list(dict.fromkeys(r["line"] for r in rows))
+        once = rebind_occurrences(rows, "v1", "v2", strip_parens=False)
+        self.assertTrue(any(a["token"] != b["token"] for a, b in zip(rows, once)))
+        session = AnalysisSession(source("\n".join(lines)), {"pronunciations": rows},
+                                  {"layers": ["sound"], "schemas": []})
+        bound = session.phon.lexicon.pronunciations
+        self.assertEqual([(b["line"], b["token"], b["word"]) for b in bound],
+                         [(b["line"], b["token"], b["word"]) for b in once])
+        self.assertEqual({b["numbering"] for b in bound}, {"v2+voices"})
+        self.assertEqual(session.phon.lexicon._numbering_notices, [])
+
     def test_unknown_endpoint_is_not_previous_readable_word(self):
         _, rows, result = complete(source("cat qzxqzx\nhat qzxqzx"), schemas=["perfect rhyme"])
         pair = next(r for r in rows if r["kind"] == "native_pair")

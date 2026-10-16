@@ -352,7 +352,11 @@ test('local catalog resolution verifies snapshot, registered paths, full revisio
     };
     manifest.snapshot_id = sha(canonicalJSON(manifest));
     await writeFile(path.join(directory, 'manifest.json'), JSON.stringify(manifest));
-    const resolver = createCatalogResolver({ directory, engineCommit: 'fixture' });
+    const resolver = createCatalogResolver({
+      directory,
+      engineCommit: 'fixture',
+      readerScheme: 'v2',
+    });
     const input = {
       ...request,
       snapshot_id: manifest.snapshot_id,
@@ -412,7 +416,11 @@ test('the create path verifies a large reading off the event loop, with the same
     };
     manifest.snapshot_id = sha(canonicalJSON(manifest));
     await writeFile(path.join(directory, 'manifest.json'), JSON.stringify(manifest));
-    const resolver = createCatalogResolver({ directory, engineCommit: 'fixture' });
+    const resolver = createCatalogResolver({
+      directory,
+      engineCommit: 'fixture',
+      readerScheme: 'v2',
+    });
     const input = {
       contract_version: 1,
       snapshot_id: manifest.snapshot_id,

@@ -9,7 +9,13 @@ import os from 'node:os';
 import path from 'node:path';
 import { test } from 'node:test';
 import express from 'express';
-import { ExportStore, buildExportStore, contentId, zipChunks } from './library_exports.js';
+import {
+  ExportStore,
+  analysisLayout,
+  buildExportStore,
+  contentId,
+  zipChunks,
+} from './library_exports.js';
 import { libraryExportRouter } from './library_export_routes.js';
 
 import { sha, NOTICE, SOURCE_SHA, reading, writeExport } from './test_library_fixtures.mjs';
@@ -258,4 +264,36 @@ test('an export store whose tables differ from their recorded sha256 refuses to 
   delete record.files['sources.bin'];
   fs.writeFileSync(meta, JSON.stringify(record));
   assert.throws(() => new ExportStore(dir), /records no sha256 for sources\.bin/);
+});
+
+// An analysis export names the word cut its token numbers were counted under
+// (the job identity's reader_scheme); a job whose identity predates the
+// field says "unrecorded" rather than guessing.
+test('analysis export provenance records the reader scheme, or unrecorded for an old identity', (t) => {
+  const store = storeOf(t, [reading('reading_a')]);
+  const identity = {
+    snapshot_id: store.snapshotId,
+    engine_commit: 'a'.repeat(40),
+    resource_fingerprint: 'fp-1',
+    reader_scheme: 'v2',
+  };
+  const provenanceOf = (id) => {
+    const layout = analysisLayout(store, {
+      unitId: 'reading_a',
+      identity: id,
+      manifestHash: 'b'.repeat(64),
+      partial: false,
+      extras: [],
+      pageSizes: [],
+    });
+    const entry = layout.analysis.find((e) => e.name === 'PROVENANCE.json');
+    return JSON.parse(entry.bytes.toString('utf8'));
+  };
+  const current = provenanceOf(identity);
+  assert.equal(current.reader_scheme, 'v2');
+  assert.equal(current.engine_commit, identity.engine_commit);
+  assert.equal(current.resource_fingerprint, 'fp-1');
+  const { reader_scheme: _dropped, ...old } = identity;
+  assert.equal(provenanceOf(old).reader_scheme, 'unrecorded');
+  assert.equal(provenanceOf({ ...old, engine_commit: null }).reader_scheme, 'unrecorded');
 });

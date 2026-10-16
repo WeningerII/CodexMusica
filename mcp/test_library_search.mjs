@@ -304,6 +304,10 @@ test('routes: health, cacheable search and metadata, refusals', async (t) => {
   assert.equal(health.search_ready, true);
   assert.equal(health.analysis_available, false);
   assert.deepEqual(health.counts, { units: 1, readable: 1 });
+  // The numbering capability the page reads before it sends a marker.
+  assert.deepEqual(health.capabilities, {
+    pronunciation_numbering: ['v1', 'v1+voices', 'v2', 'v2+voices'],
+  });
 
   const res = await get('/search?q=sea');
   assert.equal(res.status, 200);
