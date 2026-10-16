@@ -1,0 +1,15 @@
+  PASS  `for 't` stays TWO words — `'t` is the elided pronoun, never `for't`
+          ["Tak'", 'my', 'word', 'for', "'t", 'my', 'friend']
+  PASS  the split `'tis` is not glued to the word before it
+          ['now', "'t", 'is', 'done']
+  PASS  `'n` (than / and) is a word too
+          ['More', "'n", 'it', 'would']
+  PASS  ENCLITICS is the closed six, the set Check J and the joiner share
+          ("'s", "'ll", "'re", "'ve", "'d", "'m")
+  PASS  raw_final_token agrees with line_tokens on a line ENDING in `'t`
+          ("'t", ["'t"])
+  PASS  Watts's backtick folds in line_tokens as raw_final_token folds it
+          ['Nor', 'do', 'I', 'know', 'how', 'soon', "'twill", 'come']
+  PASS  every `test_*` in this file is in the runner's list — an explicit list that silently drops a section prints the same `all pass` as one that ran it
+====================================================================
+all readability / recorded-refusal regressions pass

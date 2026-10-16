@@ -1,0 +1,15 @@
+          {'reverse rhyme': [], 'multisyllabic rhyme': []}
+  PASS  ...while definitional Differs stay: perfect rhyme's onset, pararhyme's vowel, light/wrenched rhyme's stress, eye/historical/dialect rhyme's sound, rhyming reduplication's onset, proest's vowel
+  PASS  reverse rhyme now holds of a pair that is ALSO rime riche (sea/see), and pararhyme still does not (the vowels agree)
+  PASS  whole_vocabulary_pairs answers or reports EVERY schema — a refusal is listed by name, never dropped
+          29 refused by name
+  PASS  ...and a pair stands in several schemas at once (night/light: perfect rhyme, assonance, consonance)
+          ["Scots vowel-length rhyme (Aitken's Law)", 'anaphora', 'assonance', 'cluster consonance / skothending span', 'consonance', 'family rhyme', 'homoioteleuton', 'interlaced rhyme', 'internal rhyme', 'mosaic rhyme', 'pantun ABAB', 'perfect rhyme']
+  PASS  ...including a forbidden or deprecated one — banning is a separate layer from standing in a relation
+          ["Scots vowel-length rhyme (Aitken's Law)", 'anaphora', 'assonance', 'cluster consonance / skothending span', 'consonance', 'family rhyme', 'homoioteleuton', 'interlaced rhyme', 'internal rhyme', 'mosaic rhyme', 'pantun ABAB', 'perfect rhyme']
+  PASS  ...under the PHONOLOGY'S OWN language (cym here, never a hard-coded eng), with line-level figures on `.lines`
+          {1: ['cynghanedd sain', 'cynghanedd sain gadwynog']}
+  PASS  no draw pool survives: DRAWABLE_SCHEMAS and its derivation are gone, and the feasibility traits cover every registry schema
+  PASS  audibility is read over a pair's relation SET
+==================================================================
+all relations regressions pass

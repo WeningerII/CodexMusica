@@ -1,0 +1,8 @@
+map_check              rc=1       7s  run: python3 map/build.py
+comparator_pin         rc=0       0s  RESULT: HOLDS — the comparator is what it was when the calibrations were last verified.
+t_floor                rc=0      81s  all slop-floor regressions pass
+t_reader_legacy        rc=0     258s  OK
+t_readability          rc=0     300s  all readability / recorded-refusal regressions pass
+t_relations            rc=0      32s  all relations regressions pass
+t_loop                 rc=0     681s  all loop regressions pass
+DONE

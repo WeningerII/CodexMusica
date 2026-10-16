@@ -1,0 +1,15 @@
+      13.5s  test_the_escalation_reads_the_declared_backtrack_width
+      12.0s  test_optin_layers_are_disclosed_and_success_is_per_line
+       8.6s  test_declared_returns_are_asked_and_have_no_move
+       7.9s  test_propose_sees_the_whole_draft_rubric
+       6.5s  test_the_rebrief_carries_to_the_rest_of_the_round
+       6.4s  test_the_loop_never_touches_an_unreported_line
+       5.3s  test_round_limit_stop
+       4.1s  test_no_progress_stop
+       3.2s  test_no_mandate_is_a_refusal_not_a_pass
+       2.7s  test_strip_parens_is_a_declared_coordinate
+       1.4s  test_swap_end_word_refuses_a_disagreeing_reading
+       0.0s  test_a_return_is_a_class_and_is_revised_together
+     679.2s  TOTAL, this shard (27 of 27 sections)
+==============================================================
+all loop regressions pass

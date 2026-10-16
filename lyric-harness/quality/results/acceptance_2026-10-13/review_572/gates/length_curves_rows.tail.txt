@@ -1,0 +1,8 @@
+ROWS  from 1 file(s): 8585 items
+MATTR/TTR  527 of 8585 items degenerate at calibration window 50 -> HOLDS
+  mattr          C1  shipped [0.48319711244849844, 0.040082486571361216]  re-derived [0.48319711244849844, 0.040082486571361216]  -> HOLDS
+  fwr            C1  shipped [0.5645396935593514, -0.01483956064252975]  re-derived [0.5645396935593514, -0.01483956064252975]  -> HOLDS
+  anaphora       C2  shipped [1.159351078159644, -0.24565802370055595, 0.0162678855573942]  re-derived [1.159351078159644, -0.24565802370055595, 0.0162678855573942]  -> HOLDS
+  cv             C2  shipped [-0.09554810132361943, 0.059242040873681165, -0.003946093229030391]  re-derived [-0.09554807636375169, 0.059242030382539924, -0.003946092142341309]  -> HOLDS
+  predictability CK  shipped 21 knots, re-derived 21  -> HOLDS
+RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus

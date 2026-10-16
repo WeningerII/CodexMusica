@@ -1,0 +1,15 @@
+  PASS  the stanza fixture lands in `section`, exactly — a profile with NO curves, where the struck helper contributed nothing
+          32 tokens -> section, curves []
+  PASS  PREMISE: LEXICAL_MONOTONY fires on it under both declarations
+          1 / 1
+  PASS  CONTROL: the section profile's own cut is still reported as its 5th percentile
+  PASS  ...and an override under a FIXED-percentile profile is not — the defect `at_len` could not reach
+  PASS  ...and the section profile's AUC is withdrawn with it: 0.776 was measured at 0.7568 and prices nothing at 0.9111
+  PASS  PREMISE: `section` declares no `predictable_pair_fraction_max`, so §11's own fixture can only run this check on a declaration
+          section declares ['anaphora_max', 'function_word_ratio_max', 'line_length_cv_min', 'mattr_min']
+  PASS  PREMISE: it fires, as §11 requires
+  PASS  a cut the profile never measured is not reported as that profile's 95th percentile
+  PASS  ...and the finding says the profile measured NONE, rather than implying a threshold was overridden that never existed
+          100% of pairs above 0.90 predictability > 0.8333 (DECLARED by the caller: FloorDeclaration.predictable_pair_fraction_max
+==============================================================
+all slop-floor regressions pass
