@@ -57,3 +57,7 @@ The corpus is volatile (`quality/counters.py`). If it changes, re-run `measure.p
 
 The M-25 editorial residue marked editors' notes in Lovelace, Browning and Herrick as apparatus, so the population moved. `measure.py --write` was re-run on the same rule, and `result.json` now describes the current corpus. The figures above are the 2026-10-14 measurement, kept as history.
 Sung lines ~~281,399~~ 281,366; identical cut ~~271,092~~ 271,062 (~~262,604~~ 262,574 unique). The condition still fires on 24 lines, and the 8 END-binding changes are unchanged. The NFC-only label differences drop ~~7~~ to 3: four Greek lines quoted in Herrick's editorial notes are now apparatus.
+
+## Remeasured 2026-10-16 (#577)
+
+#577's reader rule (scheme v2 no longer keeps an opening quotation mark on a word) changes which lines read identically under v1 and v2, so `measure.py --write` was re-run on the same rule and corpus. Identical cut ~~271,062~~ 270,633 (~~262,574~~ 262,167 unique); sung lines unchanged at 281,366. The 24 lines the condition fires on, the 8 END-binding changes and the 3 NFC-only label differences are unchanged item for item. The run was local (CPython 3.13); the exact-head CI verify job on 98945c9dc0 (Python 3.11) measured the same two counts.

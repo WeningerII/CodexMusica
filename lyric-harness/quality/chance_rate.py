@@ -480,8 +480,14 @@ NULL_LINES = 14
 # +36.31 pp over the MAX. That the polyptoton gain is intended v2 behaviour
 # is inferred, not established. The miss is the M-177/M-288 one again: #559
 # ran `--check` and not `--null --check` before merging.
+# REPINNED AGAIN 2026-10-16 from ~~all r_obs 0.5105, max 0.5453~~: #577 is that
+# reader fix -- v2 no longer keeps an opening quotation mark on a word -- and it
+# moved only these two figures (`--null --check` in the nightly of dispatch
+# 38953456008 on aca29aa6e3: MOVED 2, every other figure HOLDS, mandated
+# r_obs 0.9107 unchanged). That the 4 quote-kept pairs are what left `all` is
+# inferred from the fix, not measured pair by pair.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.5105, "median": 0.5254, "max": 0.5453},
+    "all": {"r_obs": 0.5087, "median": 0.5254, "max": 0.5444},
     "mandated": {"r_obs": 0.9107, "median": 0.5298, "max": 0.5476},
 }
 

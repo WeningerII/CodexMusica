@@ -702,6 +702,20 @@ def test_end_to_end():
 #     nucleus       35024           0            0     340871  (was right)
 #     prominence    32435           0            0     340871  (was right)
 #   Still every move a confident verdict onto a refusal, none the other way.
+#   SUPERSEDED 2026-10-16 (later the same day) by the table below.
+#   REPINNED AGAIN 2026-10-16, a reader change: #577's opening-quote rule (v2
+#   no longer keeps an opening quotation mark on a word) took 340,871 ->
+#   340,870 pairs (-1), with the verdict-count tuples unchanged; the exposed
+#   counts rise because quoted words now read. Corpus unchanged.
+#   1,344 files, 340,870 pairs (`--eng` on aca29aa6e3, dispatch 38953456008):
+#     channel      exposed  True->None  False->None  untouched
+#     onset          6721         105          390     340375
+#     coda           6643          72         1536     339262
+#     consonants    12883         113          168     340589
+#     phones        44327         446          277     340147
+#     nucleus       35028           0            0     340870  (was right)
+#     prominence    32441           0            0     340870  (was right)
+#   Still every move a confident verdict onto a refusal, none the other way.
 #
 #   corpus/song/ltc_huajianji.txt  花間集, 3,732 adjacent line-final pairs
 #     onset            517           1           14       3717
@@ -849,8 +863,10 @@ def test_corpus_counts():
 #: the v2 cut's intended behaviour is INFERRED from its commit message, not
 #: established; the bisect establishes only that it is the cause. #559 merged
 #: without `--eng` being run, so this sat red from the 2026-10-15 nightly.
+#: REPINNED AGAIN 2026-10-16, a reader change (§8's table): #577's
+#: opening-quote rule, ~~340871 pairs~~, -1; the moves are unchanged.
 ENG_CORPUS_FILES = 1344
-ENG_CORPUS_PAIRS = 340871
+ENG_CORPUS_PAIRS = 340870
 ENG_CORPUS_MOVES = {"onset": (105, 390), "coda": (72, 1536),
                     "consonants": (113, 168), "phones": (446, 277),
                     "nucleus": (0, 0), "prominence": (0, 0)}
