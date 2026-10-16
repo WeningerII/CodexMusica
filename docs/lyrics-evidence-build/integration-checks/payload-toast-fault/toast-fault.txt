@@ -1,0 +1,8 @@
+Injecting one defect per gate-class (isolated temp copies; real tree untouched)…
+UI FOUNDATION: FAIL — 2 problem(s):
+  ✗ L. the Undo of a faded toast still takes a click at its place
+  ✗ L. a used Undo still takes a click at its place
+  ✓ caught       toast-action-lingers -> check_ui_foundation.js  (38, exit 1)
+
+=== Fault injection: 1 gate-class(es) tested, 0 escape(s) ===
+PASS — every injected defect was caught (partial run: --only=38).

@@ -677,6 +677,10 @@ const RUNTIME_MODULES = [
     label: `runtime: src/pages/${p}.js`,
     code: p === 'library' ? libraryStub : pageFile(p, '.js'),
   })),
+  ...['lyrics-evidence', 'lyrics-inspection'].map((p) => ({
+    label: `runtime: src/pages/${p}.js`,
+    code: pageFile(p, '.js'),
+  })),
 ];
 
 // EVERY RUNTIME BLOCK RUNS AS SLOPPY-MODE CODE, exactly as the single block did.

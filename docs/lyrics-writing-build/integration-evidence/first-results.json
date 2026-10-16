@@ -1,0 +1,482 @@
+{
+  "root": "/workspace/musica-lyrics-integration",
+  "bundleSha256": "10d1f3e8a90a654b24806c532d75c81f86ef4fd04538559972dcff942fca5729",
+  "results": [
+    {
+      "width": 1180,
+      "height": 757,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": true
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": true
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": true
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable",
+          "ok": true
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo is visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 867,
+        "y": 310.1875,
+        "width": 262,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "sendOnEntry": {
+        "x": 1057.625,
+        "y": 412.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "composer": {
+        "x": 867,
+        "y": 310.1875,
+        "width": 262,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "send": {
+        "x": 1057.625,
+        "y": 412.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "download": {
+        "x": 959,
+        "y": 487,
+        "width": 182,
+        "height": 40,
+        "hit": "",
+        "reachable": true
+      },
+      "undo": {
+        "x": 219.234375,
+        "y": 609,
+        "width": 182,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": true
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": true
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": true
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable",
+          "ok": true
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo is visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 24,
+        "y": 378.1875,
+        "width": 332,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "sendOnEntry": {
+        "x": 284.625,
+        "y": 480.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "composer": {
+        "x": 24,
+        "y": 378.1875,
+        "width": 332,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "send": {
+        "x": 284.625,
+        "y": 480.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "btn-label",
+        "reachable": true
+      },
+      "download": {
+        "x": -26.046875,
+        "y": 632,
+        "width": 182,
+        "height": 40,
+        "hit": "",
+        "reachable": true
+      },
+      "undo": {
+        "x": 94.234375,
+        "y": 571,
+        "width": 182,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      }
+    },
+    {
+      "width": 390,
+      "height": 508,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": true
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": false
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": true
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": false
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable",
+          "ok": false
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo is visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 24,
+        "y": 378.1875,
+        "width": 332,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "sendOnEntry": {
+        "x": 284.625,
+        "y": 480.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "ly-mtab-review",
+        "reachable": false
+      },
+      "composer": {
+        "x": 24,
+        "y": 378.1875,
+        "width": 332,
+        "height": 94,
+        "hit": "chat-input",
+        "reachable": true
+      },
+      "send": {
+        "x": 284.625,
+        "y": 480.1875,
+        "width": 71.375,
+        "height": 44,
+        "hit": "ly-mtab-review",
+        "reachable": false
+      },
+      "download": {
+        "x": 173,
+        "y": 626,
+        "width": 182,
+        "height": 40,
+        "reachable": false
+      },
+      "undo": {
+        "x": 94.234375,
+        "y": 307,
+        "width": 182,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      }
+    },
+    {
+      "width": 844,
+      "height": 390,
+      "checks": [
+        {
+          "label": "composer reachable on Writer entry",
+          "ok": false
+        },
+        {
+          "label": "Send reachable on Writer entry before fill",
+          "ok": false
+        },
+        {
+          "label": "composer immediately reachable",
+          "ok": false
+        },
+        {
+          "label": "Send immediately visible and hit-testable",
+          "ok": false
+        },
+        {
+          "label": "Send enabled for unsent text",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives Tools roundtrip",
+          "ok": true
+        },
+        {
+          "label": "History opens",
+          "ok": true
+        },
+        {
+          "label": "unsent text survives History roundtrip",
+          "ok": true
+        },
+        {
+          "label": "exactly one visible Run review in Review",
+          "ok": true
+        },
+        {
+          "label": "Song actions download is reachable",
+          "ok": false
+        },
+        {
+          "label": "Song actions downloads current song",
+          "ok": true
+        },
+        {
+          "label": "song action preserves unsent composer",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo is visible and hit-testable",
+          "ok": true
+        },
+        {
+          "label": "Line actions Undo changes draft",
+          "ok": true
+        },
+        {
+          "label": "Line actions Redo restores edit",
+          "ok": true
+        },
+        {
+          "label": "Undo/Redo preserve unsent composer",
+          "ok": true
+        }
+      ],
+      "composerOnEntry": {
+        "x": 24,
+        "y": 359.34375,
+        "width": 786,
+        "height": 94,
+        "reachable": false
+      },
+      "sendOnEntry": {
+        "x": 738.625,
+        "y": 461.34375,
+        "width": 71.375,
+        "height": 44,
+        "reachable": false
+      },
+      "composer": {
+        "x": 24,
+        "y": 358.34375,
+        "width": 786,
+        "height": 94,
+        "reachable": false
+      },
+      "send": {
+        "x": 738.625,
+        "y": 460.34375,
+        "width": 71.375,
+        "height": 44,
+        "reachable": false
+      },
+      "download": {
+        "x": 627,
+        "y": 626,
+        "width": 182,
+        "height": 40,
+        "reachable": false
+      },
+      "undo": {
+        "x": 94.234375,
+        "y": 189,
+        "width": 182,
+        "height": 40,
+        "hit": "ly-menu-item",
+        "reachable": true
+      }
+    }
+  ],
+  "errors": [
+    "390x508: Send reachable on Writer entry before fill",
+    "390x508: Send immediately visible and hit-testable",
+    "390x508: Song actions download is reachable",
+    "844x390: composer reachable on Writer entry",
+    "844x390: Send reachable on Writer entry before fill",
+    "844x390: composer immediately reachable",
+    "844x390: Send immediately visible and hit-testable",
+    "844x390: Song actions download is reachable"
+  ]
+}

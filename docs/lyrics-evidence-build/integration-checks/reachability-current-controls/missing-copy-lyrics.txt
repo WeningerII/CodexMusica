@@ -1,0 +1,13 @@
+Checking 220 reachable entries against /tmp/reachability-repair/missing-copy-lyrics.html
+  ✗ lyrics-export — selector resolved to 0 elements
+      selector: #ly-menu-song-actions:not([hidden]):has([data-ui="copy-lyrics"]:not(:disabled)):has([data-ui="ly-copy-sung"]:not(:disabled)):has([data-ui="ly-download"]:not(:disabled)):has([data-ui="ly-export-session"]:not(:disabled))
+      surface:  Lyrics — Song actions: Copy with headers (exact document), Copy sung lines, Download text, Export session
+      impl:     copy-lyrics / ly-copy-sung / ly-download / ly-export-session in src/pages/lyrics.js
+
+Reachability: 219 pass / 1 fail (out of 220 checked)
+
+FAILURES:
+  lyrics-export: selector resolved to 0 elements
+
+Fix the missing surfaces or flip the affected entries to `status: pending`
+in tests/ui_capability_inventory.md if the drop is intentional.

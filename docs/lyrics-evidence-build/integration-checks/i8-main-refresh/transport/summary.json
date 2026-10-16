@@ -1,0 +1,416 @@
+[
+  {
+    "name": "headerless",
+    "beforeClick": {
+      "text": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "draft": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "appLyrics": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "semanticId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20"
+    },
+    "evidence": true,
+    "requestBinding": true,
+    "binding": true,
+    "freshness": "current",
+    "canGo": true,
+    "submittedContext": {
+      "version": 1,
+      "document": "cat\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "currentText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "currentId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+    "requestText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "draftText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "savedBinding": {
+      "requestId": "6037d972e286c391c3f6dc8fb7a4b114b10bb5ba8720c19611029a201d8acf62",
+      "identityHash": "ab9d17b55987a558444cdf5a8180c9921336f86b336d3de479bdf2a8a902b7df",
+      "sourceText": "cat\nhat",
+      "semanticId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+      "text": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "readerScheme": "v2",
+      "voices": false,
+      "sourceMap": [
+        {
+          "sourceStart": 0,
+          "sourceEnd": 3,
+          "start": 29,
+          "end": 32
+        },
+        {
+          "sourceStart": 4,
+          "sourceEnd": 7,
+          "start": 33,
+          "end": 36
+        }
+      ],
+      "declarationReceipt": {
+        "version": 1,
+        "requestId": "6037d972e286c391c3f6dc8fb7a4b114b10bb5ba8720c19611029a201d8acf62",
+        "semanticId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "text": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+        "readerScheme": "v2",
+        "voices": false,
+        "reportIdentityHash": "ab9d17b55987a558444cdf5a8180c9921336f86b336d3de479bdf2a8a902b7df",
+        "declarationHash": "b65d63ef1ef0549d994d6f33e4a984375e63702292c9e1e8d83f82ae6a2b58a6"
+      }
+    },
+    "pass": true
+  },
+  {
+    "name": "ordinary-sections",
+    "beforeClick": {
+      "text": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+      "draft": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+      "appLyrics": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+      "semanticId": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb"
+    },
+    "evidence": true,
+    "requestBinding": true,
+    "binding": true,
+    "freshness": "current",
+    "canGo": true,
+    "submittedContext": {
+      "version": 1,
+      "document": "[VERSE]\ncat\n[CHORUS]\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "currentText": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+    "currentId": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb",
+    "requestText": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+    "draftText": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+    "savedBinding": {
+      "requestId": "0ac60565fdac414105688b9f320d1ce1a7cb0399ab1eb42a189893bc244f8d93",
+      "identityHash": "ab9d17b55987a558444cdf5a8180c9921336f86b336d3de479bdf2a8a902b7df",
+      "sourceText": "cat\nhat",
+      "semanticId": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb",
+      "text": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+      "readerScheme": "v2",
+      "voices": false,
+      "sourceMap": [
+        {
+          "sourceStart": 0,
+          "sourceEnd": 3,
+          "start": 37,
+          "end": 40
+        },
+        {
+          "sourceStart": 4,
+          "sourceEnd": 7,
+          "start": 50,
+          "end": 53
+        }
+      ],
+      "declarationReceipt": {
+        "version": 1,
+        "requestId": "0ac60565fdac414105688b9f320d1ce1a7cb0399ab1eb42a189893bc244f8d93",
+        "semanticId": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb",
+        "text": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+        "readerScheme": "v2",
+        "voices": false,
+        "reportIdentityHash": "ab9d17b55987a558444cdf5a8180c9921336f86b336d3de479bdf2a8a902b7df",
+        "declarationHash": "b65d63ef1ef0549d994d6f33e4a984375e63702292c9e1e8d83f82ae6a2b58a6"
+      }
+    },
+    "pass": true
+  },
+  {
+    "name": "sections-whitespace-repeated-utf16",
+    "beforeClick": {
+      "text": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\n \tcat bat cat  \n\n[CHORUS]\n  hat\t ",
+      "draft": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\n \tcat bat cat  \n\n[CHORUS]\n  hat\t ",
+      "appLyrics": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\n \tcat bat cat  \n\n[CHORUS]\n  hat\t ",
+      "semanticId": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8"
+    },
+    "evidence": true,
+    "requestBinding": true,
+    "binding": true,
+    "freshness": "stale",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "[VERSE 😀]\n\n \tcat bat cat  \n\n[CHORUS]\n  hat\t ",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "currentText": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+    "currentId": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8",
+    "requestText": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\n \tcat bat cat  \n\n[CHORUS]\n  hat\t ",
+    "draftText": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+    "savedBinding": {
+      "requestId": "479502e0699a957deec49bff43b86ea6fb840239045645f4003fad4f832642a9",
+      "identityHash": "f7908f558594af5a80b24efd0c04132680160ee121e9a183d317d32ce02b30ff",
+      "sourceText": "cat bat cat\nhat",
+      "semanticId": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8",
+      "text": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\n \tcat bat cat  \n\n[CHORUS]\n  hat\t ",
+      "readerScheme": "v2",
+      "voices": false,
+      "sourceMap": [
+        {
+          "sourceStart": 0,
+          "sourceEnd": 11,
+          "start": 43,
+          "end": 54
+        },
+        {
+          "sourceStart": 12,
+          "sourceEnd": 15,
+          "start": 69,
+          "end": 72
+        }
+      ],
+      "declarationReceipt": {
+        "version": 1,
+        "requestId": "479502e0699a957deec49bff43b86ea6fb840239045645f4003fad4f832642a9",
+        "semanticId": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8",
+        "text": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\n \tcat bat cat  \n\n[CHORUS]\n  hat\t ",
+        "readerScheme": "v2",
+        "voices": false,
+        "reportIdentityHash": "f7908f558594af5a80b24efd0c04132680160ee121e9a183d317d32ce02b30ff",
+        "declarationHash": "b65d63ef1ef0549d994d6f33e4a984375e63702292c9e1e8d83f82ae6a2b58a6"
+      }
+    },
+    "pass": true
+  },
+  {
+    "name": "sections-blanks-repeated-utf16-go",
+    "beforeClick": {
+      "text": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+      "draft": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+      "appLyrics": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+      "semanticId": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8"
+    },
+    "evidence": true,
+    "requestBinding": true,
+    "binding": true,
+    "freshness": "current",
+    "canGo": true,
+    "submittedContext": {
+      "version": 1,
+      "document": "[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "currentText": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+    "currentId": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8",
+    "requestText": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+    "draftText": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+    "savedBinding": {
+      "requestId": "808c16d08f490f475e06523c671db7e48e950d0b9fad353593863bc2ec71afe7",
+      "identityHash": "f7908f558594af5a80b24efd0c04132680160ee121e9a183d317d32ce02b30ff",
+      "sourceText": "cat bat cat\nhat",
+      "semanticId": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8",
+      "text": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+      "readerScheme": "v2",
+      "voices": false,
+      "sourceMap": [
+        {
+          "sourceStart": 0,
+          "sourceEnd": 11,
+          "start": 41,
+          "end": 52
+        },
+        {
+          "sourceStart": 12,
+          "sourceEnd": 15,
+          "start": 63,
+          "end": 66
+        }
+      ],
+      "declarationReceipt": {
+        "version": 1,
+        "requestId": "808c16d08f490f475e06523c671db7e48e950d0b9fad353593863bc2ec71afe7",
+        "semanticId": "9863b4ef79a0c952b21dfde6de19bebca3955bba267dae1121d6bf9f945660d8",
+        "text": "[SETUP — rhyme groups — 1,2]\n[VERSE 😀]\n\ncat bat cat\n\n[CHORUS]\nhat",
+        "readerScheme": "v2",
+        "voices": false,
+        "reportIdentityHash": "f7908f558594af5a80b24efd0c04132680160ee121e9a183d317d32ce02b30ff",
+        "declarationHash": "b65d63ef1ef0549d994d6f33e4a984375e63702292c9e1e8d83f82ae6a2b58a6"
+      }
+    },
+    "exactGo": {
+      "target": {
+        "pair": "relation_instance:498ac16b30c29c1e344666842c3bd2ac",
+        "side": "a",
+        "part": 2,
+        "start": 49,
+        "end": 52
+      },
+      "landed": {
+        "start": 49,
+        "end": 52,
+        "text": "cat"
+      }
+    },
+    "pass": true
+  },
+  {
+    "name": "tampered-projection",
+    "beforeClick": {
+      "text": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+      "draft": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+      "appLyrics": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+      "semanticId": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb"
+    },
+    "evidence": true,
+    "requestBinding": true,
+    "binding": false,
+    "freshness": "unknown",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "[VERSE]\ncat\n[CHORUS]\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "currentText": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+    "currentId": "0b69407fcab96b02137ecb9dfe656dce4e89ccbcdcfa776b53f847a728becccb",
+    "requestText": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+    "draftText": "[SETUP — rhyme groups — 1,2]\n[VERSE]\ncat\n[CHORUS]\nhat",
+    "savedBinding": null,
+    "pass": true
+  },
+  {
+    "name": "changed-groups",
+    "beforeClick": {
+      "text": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "draft": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "appLyrics": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "semanticId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20"
+    },
+    "evidence": true,
+    "requestBinding": false,
+    "binding": false,
+    "freshness": "unknown",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "cat\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "currentText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "currentId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+    "requestText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "draftText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "savedBinding": null,
+    "pass": true
+  },
+  {
+    "name": "changed-readings",
+    "beforeClick": {
+      "text": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "draft": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "appLyrics": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "semanticId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20"
+    },
+    "evidence": true,
+    "requestBinding": false,
+    "binding": false,
+    "freshness": "unknown",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "cat\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "currentText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "currentId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+    "requestText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "draftText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "savedBinding": null,
+    "pass": true
+  },
+  {
+    "name": "unsupported-text-transformation",
+    "beforeClick": {
+      "text": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "draft": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "appLyrics": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+      "semanticId": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20"
+    },
+    "evidence": true,
+    "requestBinding": false,
+    "binding": false,
+    "freshness": "unknown",
+    "canGo": false,
+    "submittedContext": {
+      "version": 1,
+      "document": "cat\nhat",
+      "declarations": {
+        "groups": "1,2"
+      },
+      "brief": "",
+      "notes": [],
+      "binding": {
+        "document_sha256": "803c68baccbc6dbee0ae931c10d539369d3fe18e6c76fac1e7dfee3d21a20c20",
+        "context_sha256": "bc9d8ef2852c005e74813e16a936d5b21ca63532a2c5a95d8e1f3197aa999f20"
+      }
+    },
+    "run": 1,
+    "currentText": "[SETUP — rhyme groups — 1,2]\nbat\nhat",
+    "currentId": "2d32379bfdb1fbf8edf56f1fc71dbce395d780d5b01cb4a37385ce1024debf2d",
+    "requestText": "[SETUP — rhyme groups — 1,2]\ncat\nhat",
+    "draftText": "[SETUP — rhyme groups — 1,2]\nbat\nhat",
+    "savedBinding": null,
+    "pass": true
+  }
+]

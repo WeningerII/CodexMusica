@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/workspace/musica-lyrics-integration/lyric-harness/quality/test_schema_instance_evidence.py", line 9, in <module>
+    import lyric_harness as LH
+ModuleNotFoundError: No module named 'lyric_harness'

@@ -13302,9 +13302,15 @@ def main():
                                  for fs in found["per_line"].values() for f in fs]
             _machine_findings.extend(_finding_dict(f) for f in whole)
             _ban_scope = _ban_bindings(found, _machine_findings)
+            # Keep legacy v1 machine records frozen; instance evidence is v2-only.
+            from quality.schema_instance_evidence import for_grade as _report_instances
             _machine = {"version": 1, "status": "graded", "command": cmd,
                         "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
                         "final_draft": list(lines), "coverage": found["coverage"],
+                        **({"schema_instance_evidence": _report_instances(
+                            rv, lines, found["mandate"], blueprint=blueprint,
+                            provenance={**_lexicon_kw(), "voices": not lex.strip_parens})}
+                           if resolve_reader_scheme(None) == "v2" else {}),
                         "pronunciations": lex.pronunciations,
                         **_numbering_kw(),
                         "pronunciation_options": reading_options(lex, lines, found["coverage"]),
@@ -14690,6 +14696,8 @@ def main():
                         _journal_stop(e, machine=_lyric_run_record(say_memo, say_proposer,
                                       finish_plan if cmd == "finish" else None),
                                       plan=finish_plan if cmd == "finish" else None)
+                # A legacy resume must not gain fields absent from its frozen record.
+                from quality.schema_instance_evidence import for_grade as _finished_instances
                 print("  lyric result: " + json.dumps({
                     "version": 1, "status": "finished", "input_draft": list(lines),
                     "transport_token": os.environ.get("LYRIC_CONTROL_TOKEN"),
@@ -14697,6 +14705,10 @@ def main():
                     "reader_scheme": resolve_reader_scheme(None),
                     "accepted_lines": list(result.lines),
                     "final_draft": list(result.lines), "coverage": _coverage,
+                    **({"schema_instance_evidence": _finished_instances(
+                        rv, result.lines, rv.mandate(result.lines, scheme),
+                        blueprint=bp_path, provenance={**_lexicon_kw(), "voices": not lex.strip_parens})}
+                       if resolve_reader_scheme(None) == "v2" else {}),
                     "pronunciations": lex.pronunciations,
                     **_numbering_kw(),
                     "pronunciation_options": reading_options(lex, result.lines, _coverage),

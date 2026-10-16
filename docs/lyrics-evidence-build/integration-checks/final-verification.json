@@ -1,0 +1,21 @@
+{
+  "implementation_sha": "40284863aa3efa971ac1db5ef878fcdde15b59b7",
+  "html_sha256": "ad8332b85263638c5da92b2c0401adad09da70e529720d81b37d4b5d155f19ad",
+  "counts": {
+    "page": 809,
+    "writing": 90,
+    "shared": 13,
+    "inspector": 16,
+    "transport": 8,
+    "viewport": 30,
+    "natural_resize": 40,
+    "pending_gate": 37,
+    "adapter": 12,
+    "pipeline": 3
+  },
+  "provider_calls": 0,
+  "independent_build_byte_equal": true,
+  "map_regenerated_and_check_passed": true,
+  "live_service_acceptance": false,
+  "scope": "pair-local instances; unproved continuations and transformed sources remain unknown/stale"
+}

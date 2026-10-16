@@ -57,6 +57,7 @@ const path = require('path');
 const os = require('os');
 const { execFileSync } = require('child_process');
 const { JSDOM } = require('jsdom');
+require('./check_runtime_minify.js')();
 
 const VERBOSE = process.argv.includes('--verbose');
 const problems = [];

@@ -1,0 +1,16 @@
+
+24. every quality/test_*.py is RUN, REFUSED BY NAME, or the census fails (FIXED 2026-08-15)
+  PASS  no test file is executed and named by NOTHING in ci.yml
+          125 on disk, 125 accounted for; ORPHANS: none
+  PASS  and ci.yml names no suite that does not exist on disk
+          named-but-missing: none
+  PASS  CONTROL: a suite named only in a ci.yml comment, a `- name:` label and an npm script nothing runs is reported as an ORPHAN
+          test_zz_planted_orphan.py planted in all three places: orphan
+  PASS  CONTROL: ...and the same npm script, once a runnable ci.yml line calls it, accounts for the suite (the npm route is READ)
+          `run: npm run zz:planted` added: accounted for
+  PASS  every .py under data/ -- the offline label builders and their verify.py -- is DECLARED with how it is run, and no declared tool is missing
+          7 on disk, 7 declared; undeclared: none; ghosts: none
+  PASS  the suites only `npm test` runs are accounted for THROUGH package.json, not through the ci.yml comment that names them
+          accounted only via npm: ['gutenberg_import', 'gutenberg_next_import', 'gutenberg_third_import', 'pronunciation_choices', 'retained_reader_catalog', 'session_repairs']
+  PASS  the cheap step's LABEL equals the length of its own list
+          label 110, list 110

@@ -1,0 +1,9 @@
+Merged source qualification: inspector16 PASS; actual page-to-HTTP transport8 PASS.
+HEAD at launch:61b84515ec93a6ecc86f7740cc797d70a40e4eca
+MERGE_HEAD at launch:ae349d7f8dab5a687408baa6b171134b5283c0d4
+Bundle SHA256:ad8332b85263638c5da92b2c0401adad09da70e529720d81b37d4b5d155f19ad
+Build log:/tmp/lyrics-main-merge-build.log PASS
+Inspector results:/tmp/lyrics-main-merge-inspector/results.json
+Transport results:/tmp/lyrics-main-merge-transport/summary.json
+Logs:/tmp/lyrics-main-merge-inspector.log and /tmp/lyrics-main-merge-transport.log
+No repository files changed by this worker; only local test fixture generation and test outputs. No provider calls; model tool choice is stubbed, local Python and authenticated transport execute. No live-service acceptance claim.

@@ -1,0 +1,29 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: tracked under mcp/, in no COPY and not in NOT_SHIPPED: mcp/test_lyrics_evidence_binding.mjs — COPY it in mcp/Dockerfile or declare why the image omits it
++ actual - expected
+
++ [
++   'mcp/test_lyrics_evidence_binding.mjs'
++ ]
+- []
+
+    at eval (eval at <anonymous> (file:///tmp/musica-focused-manifest.mjs:12:7), <anonymous>:185:12)
+    at check (file:///tmp/musica-focused-manifest.mjs:11:43)
+    at eval (eval at <anonymous> (file:///tmp/musica-focused-manifest.mjs:12:7), <anonymous>:1:23)
+    at eval (eval at <anonymous> (file:///tmp/musica-focused-manifest.mjs:12:7), <anonymous>:218:3)
+    at file:///tmp/musica-focused-manifest.mjs:12:7
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: [ 'mcp/test_lyrics_evidence_binding.mjs' ],
+  expected: [],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

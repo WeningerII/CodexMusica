@@ -1,0 +1,24 @@
+{
+  "merge_commit": "77a17625952946a801cbe61023f7115e268a4c17",
+  "main_parent": "ae349d7f8dab5a687408baa6b171134b5283c0d4",
+  "prior_integration_parent": "61b84515ec93a6ecc86f7740cc797d70a40e4eca",
+  "ci_patch_source": "cdcd76e2879ca7f5df2c474185dc66e588a098da",
+  "html_sha256": "ad8332b85263638c5da92b2c0401adad09da70e529720d81b37d4b5d155f19ad",
+  "unchanged_from_prior": ["src", "scripts", "mcp", "codex.html"],
+  "checks": {
+    "page_assertions": 809,
+    "inspector": 16,
+    "transport": 8,
+    "importer_python312": 14,
+    "importer_python313": 14,
+    "importer_files_identical": 725,
+    "ci_registered": 125,
+    "ci_orphans": 0,
+    "producer": 9,
+    "full_counters": "PASS",
+    "resolved_index_map": "PASS",
+    "independent_html_bytes_equal": true
+  },
+  "provider_calls": 0,
+  "remote_ci": "not yet qualified"
+}
