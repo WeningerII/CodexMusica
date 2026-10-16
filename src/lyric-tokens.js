@@ -34,10 +34,34 @@
   // lyric_harness.LEADING_ELISIONS and _OPENING_QUOTES (the opening-quote rule).
   const OPENING_QUOTES = '\u2018\u201b';
   const LEADING_ELISIONS = new Set([
-    "'bout", "'cause", "'course", "'cuse", "'em", "'frisco", "'gain",
-    "'kay", "'round", "'til", "'tis", "'twas",
-    "'gainst", "'mong", "'mongst", "'neath", "'twere", "'twixt", "'twould",
-    "'d", "'ll", "'m", "'n", "'n'", "'re", "'s", "'t", "'ve",
+    "'bout",
+    "'cause",
+    "'course",
+    "'cuse",
+    "'em",
+    "'frisco",
+    "'gain",
+    "'kay",
+    "'round",
+    "'til",
+    "'tis",
+    "'twas",
+    "'gainst",
+    "'mong",
+    "'mongst",
+    "'neath",
+    "'twere",
+    "'twixt",
+    "'twould",
+    "'d",
+    "'ll",
+    "'m",
+    "'n",
+    "'n'",
+    "'re",
+    "'s",
+    "'t",
+    "'ve",
   ]);
   const WS =
     '\\t-\\r\\x1c-\\x20\\x85\\xa0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000';
@@ -260,7 +284,12 @@
         st[g[0]][0] === "'" &&
         st[g[1]][0] !== "'" &&
         OPENING_QUOTES.includes(cps[st[g[0]][1]]) &&
-        !LEADING_ELISIONS.has(g.map((i) => st[i][0]).join('').toLowerCase())
+        !LEADING_ELISIONS.has(
+          g
+            .map((i) => st[i][0])
+            .join('')
+            .toLowerCase()
+        )
       )
         drop.add(g[0]);
     }
