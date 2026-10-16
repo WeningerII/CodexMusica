@@ -742,10 +742,12 @@ def test_swap_end_word_refuses_a_disagreeing_reading():
                            anchors=(AnchorSlot(2, lines[1], 'train', ('train',)),),
                            label='A', members=(1, 2), brief=None,
                            lines=lines, attempt=0)
-        for empty in ('', ' ', '\t\n', '\u00a0'):
-            check(f'{scheme}: empty/whitespace end replacement {empty!r} refuses',
+        for empty in ('', ' ', '\t\n', '\u00a0',
+                      '\u200b', '\u00ad', '\u2060', '\ufeff', '\u180e',
+                      '-', "'", '...', '\u2014', ' , '):
+            check(f'{scheme}: a replacement with no letter or numeral {empty!r} refuses at the end',
                   swap_end_word(lines[0], empty, scheme=scheme, lex=lex) is None)
-            check(f'{scheme}: empty/whitespace placed replacement {empty!r} refuses',
+            check(f'{scheme}: a replacement with no letter or numeral {empty!r} refuses at a slot',
                   swap_at_slot(lines[0], placed, empty, scheme=scheme, lex=lex) is None)
             check(f'{scheme}: an empty group pivot {empty!r} declines the mechanical proposal',
                   default_propose_group(_dc.replace(group, pivot_word=empty),
@@ -757,6 +759,8 @@ def test_swap_end_word_refuses_a_disagreeing_reading():
               default_propose_group(_dc.replace(group, pivot_word='attire'),
                                     scheme=scheme, lex=lex) ==
               ('the room on attire', 'we walk in train'))
+        check(f'{scheme}: a numeral still counts as a word and is not refused',
+              swap_at_slot(lines[0], placed, '9', scheme=scheme, lex=lex) is not None)
         check(f'{scheme}: nonempty placed replacement still splices its token',
               swap_at_slot(lines[0], placed, 'house', scheme=scheme, lex=lex)
               == 'the house on fire')
