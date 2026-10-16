@@ -609,11 +609,15 @@ test('after a timed-out, then a failed, then a passing asset check, identities m
   const env = { RENDER_GIT_COMMIT: 'test-commit' };
   const identity = liveBuildIdentity(env, assets);
   assert.equal(identity().assets_sha256, null);
+  // A default set in the environment after boot (chat.js sets
+  // LYRIC_PROPOSER_MODEL) is not in the boot identity, so not in this one.
+  env.LYRIC_PROPOSER_MODEL = 'set-after-boot';
   assert.equal(identity().assets_sha256, null); // a completed failure is not kept either
   const later = identity();
   assert.equal(later.assets_sha256, 'a'.repeat(64));
   assert.equal(identity(), later);
   assert.equal(reads, 3); // kept once the check passed
+  delete env.LYRIC_PROPOSER_MODEL;
   assert.deepEqual(later, runtimeBuildIdentity(env, healthy));
   // The reader fingerprint is this identity's assets_sha256 (server_http.js).
   assert.equal(later.assets_sha256, healthy.assets_sha256);

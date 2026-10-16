@@ -793,9 +793,12 @@ export { runtimeSourceFingerprint } from './build_identity.js';
 // has passed and frozen from then on, exactly as one read at boot used to be.
 // An identity taken from a check that timed out (or failed and was later
 // repaired) would otherwise report its null asset fields for the life of the
-// process.
+// process. The configuration is the one at creation (boot): modules set
+// defaults in the environment after boot (LYRIC_PROPOSER_MODEL, in chat.js),
+// and a recovered identity must equal the one a clean boot froze.
 export function liveBuildIdentity(env = process.env, assets = runtimeAssets) {
   let identity, from;
+  env = { ...env };
   return () => {
     if (identity && from.ok) return identity;
     const current = assets();
