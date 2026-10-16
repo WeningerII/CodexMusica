@@ -118,10 +118,20 @@ P2_INVARIANT_RETURNS = ("burden", "chorus", "hook", "refrain", "tag")
 #:                          denominator moved)
 #: The excess over the null median goes 0.0046 -> 0.0071; P1 still sits above
 #: every null draw (0.6126-0.6198), and no threshold is adopted.
+#:
+#: REPINNED 2026-10-16 for PR #572's footnote exclusion (merged as 34dd4c1f),
+#: found by the nightly of that day; held at 4ff72001, its first parent.
+#: The CODE is unchanged. #572 marked 13 wholly editorial items (Lovelace 9,
+#: Browning 2, Herrick 2) as apparatus, so they now carry no blocks and are
+#: counted as refused, like the eleven above:
+#:   songs_measured         ~~8714~~ 8701  (-13, the footnote items)
+#:   songs_refused_unmarked ~~11~~ 24      (+13, the same items)
+#:   seams                  ~~39161~~ 39160 (Dombe--LUCASTA's one block seam)
+#: The other four figures do not move.
 PINNED = {
-    "songs_measured": 8714,
-    "songs_refused_unmarked": 11,
-    "seams": 39161,
+    "songs_measured": 8701,
+    "songs_refused_unmarked": 24,
+    "seams": 39160,
     "p1_nonzero_rate": 0.6213,
     "p1_null_median_rate": 0.6142,
     "p2_pairs": 1617,
