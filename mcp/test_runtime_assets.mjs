@@ -668,3 +668,121 @@ test('every check is recorded with its mode, elapsed time, limit and outcome', a
   reader.attempts().push('x'); // a copy
   assert.equal(reader.attempts().length, 3);
 });
+
+test('a read with a changed epoch while a check is in flight starts nothing beside it', async () => {
+  let clock = 0,
+    source = 'a',
+    running = 0,
+    most = 0,
+    sync = 0,
+    release;
+  const timers = [];
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => source,
+    now: () => clock,
+    retryMs: 1000,
+    schedule: (start, ms) => timers.push([start, ms]),
+    run: () => (sync++, timedOut()),
+    runAsync: async () => {
+      most = Math.max(most, ++running);
+      await new Promise((done) => (release = done));
+      running--;
+      return assetInventory;
+    },
+  });
+  reader(); // the boot check times out
+  clock = 1000;
+  reader(); // the background check starts and hangs
+  source = 'b'; // the source moves while it runs
+  const during = reader();
+  assert.equal(during.incomplete, true);
+  assert.equal(during.ok, false);
+  assert.equal(sync, 1, 'no synchronous check beside the one in flight');
+  assert.equal(most, 1);
+  release();
+  await reader.settled();
+  assert.deepEqual(
+    reader.attempts().map((a) => a.outcome),
+    ['timed_out', 'discarded']
+  );
+  // The changed epoch is checked in the background as soon as the slot frees.
+  timers.at(-1)[0]();
+  release();
+  await reader.settled();
+  assert.equal(reader().ok, true);
+  assert.equal(sync, 1);
+  assert.equal(most, 1);
+});
+
+test('a check whose child has not exited holds the slot, visibly, and nothing else is spawned', async () => {
+  let clock = 0,
+    spawned = 0,
+    exit;
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    schedule: () => {},
+    run: () => timedOut(),
+    runAsync: async () => {
+      spawned++;
+      // Its result arrives on time, but the child survived SIGKILL.
+      return { ...timedOut(), unconfirmed: true, exited: new Promise((done) => (exit = done)) };
+    },
+  });
+  reader();
+  clock = 1000;
+  reader();
+  await new Promise((done) => setImmediate(done));
+  const stuck = reader();
+  assert.equal(stuck.incomplete, true);
+  assert.equal(reader.inFlight().awaiting_exit, true);
+  clock = 1e9; // long past the next retry time
+  reader();
+  reader();
+  assert.equal(spawned, 1, 'no second check while the first child may be alive');
+  exit();
+  await reader.settled();
+  assert.equal(reader.inFlight(), undefined);
+  reader();
+  assert.equal(spawned, 2);
+});
+
+test('a timer that fires early waits out the remainder', () => {
+  let clock = 0,
+    spawned = 0;
+  const timers = [];
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    schedule: (start, ms) => timers.push([start, ms]),
+    run: () => timedOut(),
+    runAsync: async () => (spawned++, timedOut()),
+  });
+  reader();
+  clock = 999; // a timer may fire a millisecond before Date.now reaches it
+  timers.at(-1)[0]();
+  assert.equal(spawned, 0);
+  assert.equal(timers.at(-1)[1], 1);
+  clock = 1000;
+  timers.at(-1)[0]();
+  assert.equal(spawned, 1);
+});
+
+test('a child that ignores SIGTERM is killed with its group, and its exit is confirmed', async () => {
+  const started = Date.now();
+  // The shell ignores SIGTERM (inherited by its children) and leaves a
+  // grandchild holding the output pipes.
+  const result = await spawnAsync('sh', ['-c', 'trap "" TERM; sleep 30 & sleep 30'], {
+    timeout: 200,
+    killGraceMs: 300,
+  });
+  assert.equal(result.status, null);
+  assert.equal(result.error.code, 'ETIMEDOUT');
+  await result.exited; // the group, grandchild included, is gone
+  assert(Date.now() - started < 5000, 'SIGKILL ended it inside the grace');
+});

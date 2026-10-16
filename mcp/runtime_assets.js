@@ -90,28 +90,76 @@ function assetEpoch(env) {
 
 // The asynchronous twin of spawnSync's result: { status, signal, stdout,
 // stderr, error }, with the same timeout and output bound. A timed-out child
-// is killed and reported as status null with an ETIMEDOUT error, as spawnSync
-// reports it.
-export function spawnAsync(command, args, { timeout, maxBuffer, env, windowsHide } = {}) {
+// is reported as status null with an ETIMEDOUT error, as spawnSync reports
+// it, and is stopped with its whole process group (grandchildren included):
+// SIGTERM, then SIGKILL after `killGraceMs`. The result is delivered on time
+// even if the child will not die, but its `exited` promise settles only once
+// the child and everything holding its output have gone ('close'), so a
+// caller can refuse to start another check until termination is confirmed.
+export function spawnAsync(
+  command,
+  args,
+  { timeout, maxBuffer, env, windowsHide, killGraceMs = 5_000 } = {}
+) {
+  const group = process.platform !== 'win32';
+  let child;
+  try {
+    child = spawn(command, args, { env, windowsHide, detached: group });
+  } catch (error) {
+    return Promise.resolve({
+      status: null,
+      signal: null,
+      stdout: '',
+      stderr: '',
+      error,
+      exited: Promise.resolve(),
+    });
+  }
+  const exited = new Promise((done) => {
+    child.once('close', () => done());
+    child.once('error', () => done());
+  });
   return new Promise((resolve) => {
-    let child;
-    try {
-      child = spawn(command, args, { env, windowsHide });
-    } catch (error) {
-      resolve({ status: null, signal: null, stdout: '', stderr: '', error });
-      return;
-    }
     let stdout = '',
       stderr = '',
       size = 0,
-      error;
+      error,
+      stopping = false,
+      settled = false;
+    const timers = [];
+    const finish = (result) => {
+      if (settled) return;
+      settled = true;
+      timers.forEach(clearTimeout);
+      resolve({ ...result, exited });
+    };
+    const signal = (name) => {
+      try {
+        if (group) process.kill(-child.pid, name);
+        else child.kill(name);
+      } catch {}
+    };
     const stop = (code, message) => {
       error ||= Object.assign(new Error(message), { code });
-      child.kill('SIGTERM');
+      if (stopping) return;
+      stopping = true;
+      signal('SIGTERM');
+      timers.push(
+        setTimeout(() => {
+          signal('SIGKILL');
+          // Answer on time; `exited` still waits for the real end.
+          timers.push(
+            setTimeout(
+              () =>
+                finish({ status: null, signal: null, stdout, stderr, error, unconfirmed: true }),
+              killGraceMs
+            )
+          );
+        }, killGraceMs)
+      );
     };
-    const timer = timeout
-      ? setTimeout(() => stop('ETIMEDOUT', `spawn ${command} ETIMEDOUT`), timeout)
-      : null;
+    if (timeout)
+      timers.push(setTimeout(() => stop('ETIMEDOUT', `spawn ${command} ETIMEDOUT`), timeout));
     const take = (append) => (chunk) => {
       size += chunk.length;
       if (maxBuffer && size > maxBuffer) stop('ENOBUFS', `spawn ${command} ENOBUFS`);
@@ -127,14 +175,12 @@ export function spawnAsync(command, args, { timeout, maxBuffer, env, windowsHide
       'data',
       take((chunk) => (stderr += chunk))
     );
-    child.once('error', (failure) => {
-      clearTimeout(timer);
-      resolve({ status: null, signal: null, stdout, stderr, error: error || failure });
-    });
-    child.once('close', (code, signal) => {
-      clearTimeout(timer);
-      resolve({ status: error ? null : code, signal, stdout, stderr, error });
-    });
+    child.once('error', (failure) =>
+      finish({ status: null, signal: null, stdout, stderr, error: error || failure })
+    );
+    child.once('close', (code, closeSignal) =>
+      finish({ status: error ? null : code, signal: closeSignal, stdout, stderr, error })
+    );
   });
 }
 
@@ -150,9 +196,15 @@ export function spawnAsync(command, args, { timeout, maxBuffer, env, windowsHide
 // (or the timer set for it) starts one asynchronous check, and every read until
 // it finishes returns the same incomplete result, so the retry neither blocks
 // this thread nor runs twice at once. The first check, at boot, stays
-// synchronous so a new instance answers only once it has a verdict. The backoff doubles from `retryMs` up to `maxRetryMs` while
-// the epoch is unchanged. A check that completed, passing or failing, is cached
-// exactly as before; a read whose epoch differs still checks synchronously.
+// synchronous so a new instance answers only once it has a verdict. The
+// backoff doubles from `retryMs` up to `maxRetryMs` while the epoch is
+// unchanged. A check that completed, passing or failing, is cached exactly as
+// before, and a read whose epoch differs from a passing verdict checks
+// synchronously as before. While a check is in flight, or the last one did not
+// finish, no read ever starts a synchronous one beside it: a changed epoch is
+// checked in the background instead. The slot is freed only when every child
+// the check started has exited; one that survives SIGKILL holds it, visibly
+// (`in_flight` in /ready), and nothing is spawned again.
 export function createRuntimeAssetReader({
   env = process.env,
   run = spawnSync,
@@ -168,7 +220,7 @@ export function createRuntimeAssetReader({
   // over. The boot check before listen keeps its 30 s.
   retryTimeoutMs = 120_000,
 } = {}) {
-  let cached, previous, failed, pending;
+  let cached, previous, failed, pending, inFlight;
   // Every check this process ran, newest last (at most 16): how it ran, when
   // it started, how long it took against its limit, and how it ended. Nobody
   // has measured a cold check on the service, because the boot limit killed
@@ -198,6 +250,8 @@ export function createRuntimeAssetReader({
   const options = {
     encoding: 'utf8',
     timeout: 30_000,
+    // A boot check that ignores SIGTERM would hold the boot forever.
+    killSignal: 'SIGKILL',
     maxBuffer: 4 * 1024 * 1024,
     windowsHide: true,
     env,
@@ -325,7 +379,10 @@ export function createRuntimeAssetReader({
       return cached;
     }
     const at = now();
-    const delay = Math.min(failed?.key === key ? failed.delay * 2 : retryMs, maxRetryMs);
+    const delay = Math.min(
+      failed?.key === key && failed.delay ? failed.delay * 2 : retryMs,
+      maxRetryMs
+    );
     const value = Object.freeze({
       ...verdict,
       incomplete: true,
@@ -333,16 +390,36 @@ export function createRuntimeAssetReader({
     });
     failed = { key, delay, retryAt: at + delay, value };
     cached = previous = undefined;
-    schedule(() => {
-      try {
-        read();
-      } catch {}
-    }, delay);
+    schedule(wake, delay);
     return value;
+  }
+  // The timer's start: a timer that fires early waits out the remainder, and
+  // one that finds a check in flight leaves it to that check's end.
+  function wake() {
+    try {
+      if (pending || !failed) return;
+      if (now() < failed.retryAt) schedule(wake, failed.retryAt - now());
+      else read();
+    } catch {}
+  }
+  function unfinished(current, message) {
+    return Object.freeze({
+      ok: false,
+      releaseRequired: current.required,
+      errors: [message],
+      capacity: { required: current.required, ok: false, receipt_sha256: current.proofHash },
+      manifest_sha256: null,
+      assets_sha256: null,
+      python: null,
+      nltk: null,
+      incomplete: true,
+      retry_at: new Date(now()).toISOString(),
+    });
   }
   function retry(current) {
     const started = now();
     const children = [];
+    inFlight = { started, awaiting_exit: false };
     pending = (async () => {
       const steps = validate(current);
       let step = steps.next();
@@ -355,14 +432,7 @@ export function createRuntimeAssetReader({
     })()
       .catch((error) => ({
         incomplete: true,
-        ok: false,
-        releaseRequired: current.required,
-        errors: [error?.message || 'Asset inventory did not complete.'],
-        capacity: { required: current.required, ok: false, receipt_sha256: current.proofHash },
-        manifest_sha256: null,
-        assets_sha256: null,
-        python: null,
-        nltk: null,
+        ...unfinished(current, error?.message || 'Asset inventory did not complete.'),
       }))
       .then((verdict) => {
         // Kept only if nothing moved while it ran: the same epoch (source,
@@ -372,15 +442,30 @@ export function createRuntimeAssetReader({
         record('background', started, children, verdict, kept);
         if (kept) settle(current.key, verdict);
         else if (failed?.key === current.key) failed = { ...failed, retryAt: 0 };
+        // The slot is held until every child has exited, so a child that
+        // outlives its result can never run beside the next one.
+        inFlight.awaiting_exit = true;
+        return Promise.all(children.map((child) => child?.exited));
       })
       .finally(() => {
-        pending = undefined;
+        pending = inFlight = undefined;
+        if (failed && now() >= failed.retryAt) schedule(wake, 0);
       });
   }
   function read() {
     const current = context();
     if (cached && current.key === previous) return cached;
-    if (failed && current.key === failed.key) {
+    if (failed || pending) {
+      // A check is in flight or the last one did not finish: never start a
+      // synchronous one beside it. A changed epoch is checked in the
+      // background as soon as the slot is free, from the first delay.
+      if (failed?.key !== current.key)
+        failed = {
+          key: current.key,
+          delay: 0,
+          retryAt: 0,
+          value: failed?.value ?? unfinished(current, 'A changed asset check is in flight.'),
+        };
       if (!pending && now() >= failed.retryAt) retry(current);
       return failed.value;
     }
@@ -400,6 +485,14 @@ export function createRuntimeAssetReader({
   read.settled = () => pending || Promise.resolve();
   // The checks run so far, oldest first; timings and outcomes only.
   read.attempts = () => attempts.slice();
+  // The background check holding the slot, if any; awaiting_exit means its
+  // result is in but a child it started has not been seen to exit.
+  read.inFlight = () =>
+    inFlight && {
+      started_at: new Date(inFlight.started).toISOString(),
+      elapsed_ms: Math.max(0, now() - inFlight.started),
+      awaiting_exit: inFlight.awaiting_exit,
+    };
   return read;
 }
 export const runtimeAssets = createRuntimeAssetReader();
