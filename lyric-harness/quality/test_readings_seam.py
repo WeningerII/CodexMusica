@@ -685,6 +685,23 @@ def test_end_to_end():
 #     nucleus       36200           0            0     341454  (was right)
 #     prominence    33556           0            0     341454  (was right)
 #   Still every move a confident verdict onto a refusal, none the other way.
+#   SUPERSEDED 2026-10-16 by the table below.
+#   REPINNED 2026-10-16, two movers named separately: (a) #559's reader
+#   scheme v2 cut (382c36438) took 341,454 -> 340,910 pairs (-544: 545 lines
+#   now yield no readable unit -- 509 of them whole-line `( ... )` asides, 8
+#   `Bob-o'-link` -- and 1 line gains one), with the corpus unchanged; bisected
+#   against its parent fce4bf0f1, which reproduces the 2026-10-08 table.
+#   (b) #572's corpus pass (Lovelace, Browning, Herrick apparatus) took
+#   340,910 -> 340,871 (-39), verdict-count tuples unchanged.
+#   1,344 files, 340,871 pairs (`--eng` on 34dd4c1f, nightly 38871949578):
+#     channel      exposed  True->None  False->None  untouched
+#     onset          6719         105          390     340376
+#     coda           6643          72         1536     339263
+#     consonants    12881         113          168     340590
+#     phones        44321         446          277     340148
+#     nucleus       35024           0            0     340871  (was right)
+#     prominence    32435           0            0     340871  (was right)
+#   Still every move a confident verdict onto a refusal, none the other way.
 #
 #   corpus/song/ltc_huajianji.txt  花間集, 3,732 adjacent line-final pairs
 #     onset            517           1           14       3717
@@ -824,10 +841,18 @@ def test_corpus_counts():
 #: existing ones. ~~1297 files, 343892 pairs: onset (104, 387), coda (72,
 #: 1536), consonants (112, 169), phones (499, 274)~~. Every move is still a
 #: confident verdict onto a refusal (§8b's own two invariants hold).
+#: REPINNED 2026-10-16, a reader change and a corpus change, named apart (§8's
+#: table): #559's reader scheme v2 cut (382c36438) stopped the relation
+#: stream reading whole-line parenthetical asides, -544 pairs; #572's corpus
+#: pass, -39 more. ~~1344 files, 341454 pairs: onset (106, 390), coda (73,
+#: 1536), consonants (115, 167), phones (500, 275)~~. That the aside drop is
+#: the v2 cut's intended behaviour is INFERRED from its commit message, not
+#: established; the bisect establishes only that it is the cause. #559 merged
+#: without `--eng` being run, so this sat red from the 2026-10-15 nightly.
 ENG_CORPUS_FILES = 1344
-ENG_CORPUS_PAIRS = 341454
-ENG_CORPUS_MOVES = {"onset": (106, 390), "coda": (73, 1536),
-                    "consonants": (115, 167), "phones": (500, 275),
+ENG_CORPUS_PAIRS = 340871
+ENG_CORPUS_MOVES = {"onset": (105, 390), "coda": (72, 1536),
+                    "consonants": (113, 168), "phones": (446, 277),
                     "nucleus": (0, 0), "prominence": (0, 0)}
 
 
