@@ -89,7 +89,9 @@ if (assets.releaseRequired) {
     pinnedSnapshot,
     'The image must contain admitted reader assets.'
   );
-  assert.equal(assets.reader?.counts?.readable_reading_units, 25525);
+  // 25525 before the M-25 residue (#564/#572, 2026-10-15): its 13 editorial
+  // items became apparatus, so 13 fewer units are readable.
+  assert.equal(assets.reader?.counts?.readable_reading_units, 25512);
   assert.ok(retainedCatalog, 'The approved Library Site snapshot must remain installed.');
   assert.equal(retainedCatalog.source_image, retainedImage);
   assert.equal(retainedCatalog.counts.reading_units, 32220);
