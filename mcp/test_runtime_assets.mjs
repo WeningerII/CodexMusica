@@ -450,6 +450,22 @@ test('an unfinished capacity verification is retried like an unfinished inventor
     reader();
     await reader.settled();
     assert.equal(reader().ok, true);
+    // Each child is recorded with its own outcome against its own limit.
+    assert.deepEqual(
+      reader
+        .attempts()
+        .map((attempt) => attempt.children.map((c) => [c.step, c.outcome, c.limit_ms])),
+      [
+        [
+          ['inventory', 'exit_0', 30_000],
+          ['capacity', 'timed_out', 30_000],
+        ],
+        [
+          ['inventory', 'exit_0', 120_000],
+          ['capacity', 'exit_0', 120_000],
+        ],
+      ]
+    );
   } finally {
     rmSync(directory, { recursive: true, force: true });
   }
@@ -642,27 +658,33 @@ test('every check is recorded with its mode, elapsed time, limit and outcome', a
   reader();
   await reader.settled();
   assert.equal(reader().ok, true);
+  const child = (elapsed_ms, limit_ms, outcome) => [
+    { step: 'inventory', elapsed_ms, limit_ms, outcome },
+  ];
   assert.deepEqual(reader.attempts(), [
     {
       mode: 'sync',
       started_at: new Date(0).toISOString(),
       elapsed_ms: 30_000,
-      limit_ms: 30_000,
+      per_child_limit_ms: 30_000,
       outcome: 'timed_out',
+      children: child(30_000, 30_000, 'timed_out'),
     },
     {
       mode: 'background',
       started_at: new Date(31_000).toISOString(),
       elapsed_ms: 120_000,
-      limit_ms: 120_000,
+      per_child_limit_ms: 120_000,
       outcome: 'timed_out',
+      children: child(120_000, 120_000, 'timed_out'),
     },
     {
       mode: 'background',
       started_at: new Date(153_000).toISOString(),
       elapsed_ms: 27_000,
-      limit_ms: 120_000,
+      per_child_limit_ms: 120_000,
       outcome: 'passed',
+      children: child(27_000, 120_000, 'exit_0'),
     },
   ]);
   reader.attempts().push('x'); // a copy

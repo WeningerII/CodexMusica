@@ -222,14 +222,18 @@ export function createRuntimeAssetReader({
 } = {}) {
   let cached, previous, failed, pending, inFlight;
   // Every check this process ran, newest last (at most 16): how it ran, when
-  // it started, how long it took against its limit, and how it ended. Nobody
-  // has measured a cold check on the service, because the boot limit killed
-  // it first; this records the time of each, finished or not.
+  // it started, how long it took in total, how it ended, and each child it ran
+  // (the inventory, then the capacity verification) with its own time against
+  // its own limit; the limit is per child, not per attempt. Nobody has measured
+  // a cold check on the service, because the boot limit killed it first; this
+  // records the time of each, finished or not.
   const attempts = [];
+  const STEPS = ['inventory', 'capacity'];
   function record(mode, started, children, verdict, kept = true) {
+    const limit = mode === 'background' ? retryTimeoutMs : options.timeout;
     const outcome = !kept
       ? 'discarded'
-      : children.some((child) => child?.error?.code === 'ETIMEDOUT')
+      : children.some(({ child }) => child?.error?.code === 'ETIMEDOUT')
         ? 'timed_out'
         : verdict.incomplete
           ? 'incomplete'
@@ -241,8 +245,23 @@ export function createRuntimeAssetReader({
         mode,
         started_at: new Date(started).toISOString(),
         elapsed_ms: Math.max(0, now() - started),
-        limit_ms: mode === 'background' ? retryTimeoutMs : options.timeout,
+        per_child_limit_ms: limit,
         outcome,
+        children: children.map(({ child, elapsed }, index) =>
+          Object.freeze({
+            step: STEPS[index],
+            elapsed_ms: elapsed,
+            limit_ms: limit,
+            outcome:
+              child?.error?.code === 'ETIMEDOUT'
+                ? 'timed_out'
+                : child?.error
+                  ? 'error'
+                  : child?.status === null || child?.status === undefined
+                    ? 'killed'
+                    : `exit_${child.status}`,
+          })
+        ),
       })
     );
     if (attempts.length > 16) attempts.shift();
@@ -424,8 +443,9 @@ export function createRuntimeAssetReader({
       const steps = validate(current);
       let step = steps.next();
       while (!step.done) {
+        const at = now();
         const child = await runAsync(...step.value, { ...options, timeout: retryTimeoutMs });
-        children.push(child);
+        children.push({ child, elapsed: Math.max(0, now() - at) });
         step = steps.next(child);
       }
       return step.value;
@@ -445,7 +465,7 @@ export function createRuntimeAssetReader({
         // The slot is held until every child has exited, so a child that
         // outlives its result can never run beside the next one.
         inFlight.awaiting_exit = true;
-        return Promise.all(children.map((child) => child?.exited));
+        return Promise.all(children.map(({ child }) => child?.exited));
       })
       .finally(() => {
         pending = inFlight = undefined;
@@ -474,8 +494,9 @@ export function createRuntimeAssetReader({
     const steps = validate(current);
     let step = steps.next();
     while (!step.done) {
+      const at = now();
       const child = run(...step.value, options);
-      children.push(child);
+      children.push({ child, elapsed: Math.max(0, now() - at) });
       step = steps.next(child);
     }
     record('sync', started, children, step.value);
