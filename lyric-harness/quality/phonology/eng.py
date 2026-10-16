@@ -108,6 +108,7 @@ alliteration as a per-member locator, so a hard-coded English predicate here
 would compete with a coordinate that can already say it.
 """
 
+import contextlib
 import re
 
 from quality.phonology import Phonology, Syllable, merge_readings, register
@@ -117,6 +118,21 @@ from quality import morphology as _MORPH  # noqa: E402
 _LEX = {}
 #: `English.cut_lexicon`'s plain lexicons, keyed (reader scheme, strip_parens).
 _CUT_LEX = {}
+#: The open `_reading_scope()` memos, innermost last.
+_READING_SCOPE = []
+
+
+@contextlib.contextmanager
+def _reading_scope():
+    """While open, `English.syllabify` remembers each word it reads, for the
+    phonology and lexicon that read it. Nested scopes share the outer memo;
+    the memo is dropped when the outermost scope closes. Module-level, so it
+    assumes serialized, synchronous callers, as the harness runs."""
+    _READING_SCOPE.append(_READING_SCOPE[-1] if _READING_SCOPE else {})
+    try:
+        yield
+    finally:
+        _READING_SCOPE.pop()
 
 
 def _lexicon():
@@ -572,7 +588,27 @@ class English(Phonology):
                  for s in lh.syllabify(p)] for p in prons]
 
     def syllabify(self, word):
-        return merge_readings(self.parses(word))[0]
+        # MEMOISED INSIDE A READING SCOPE ONLY (2026-10-15). The revise field
+        # builds a two-line stream per candidate pair and read the same
+        # carrier words ~80,000 times on one request. Within one
+        # `_reading_scope()` the answer is a function of this phonology, the
+        # word and the lexicon `_lexicon()` returns; outside a scope nothing
+        # is remembered, so a reading changed between two calls (a patched
+        # transcriber, `test_relations.py`) is always read afresh. Every call
+        # returns fresh Syllable objects, because Syllable is mutable.
+        memo = _READING_SCOPE[-1] if _READING_SCOPE else None
+        if memo is None:
+            return merge_readings(self.parses(word))[0]
+        lex = self._lexicon()
+        key = (id(self), id(lex), word, self.readings, self.fallback)
+        hit = memo.get(key)
+        if hit is None:
+            hit = memo[key] = merge_readings(self.parses(word))[0]
+            # The scope holds both objects, so neither id can be reused
+            # while their answers are remembered.
+            memo.setdefault(("held", id(self), id(lex)), (self, lex))
+        return [Syllable(s.text, s.onset, s.nucleus, s.coda, s.prominence,
+                         s.moras) for s in hit]
 
     def readable(self, word):
         """-> bool. Separates 'no syllables' from 'could not read', which

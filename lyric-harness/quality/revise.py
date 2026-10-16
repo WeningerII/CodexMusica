@@ -82,6 +82,7 @@ about.
 """
 
 import collections
+import contextlib
 import copy
 import hashlib
 import os
@@ -1143,6 +1144,59 @@ def field_memo_clear():
     _END_PAIR_MEMO.clear()
     for k in _FIELD_MEMO_TALLY:
         _FIELD_MEMO_TALLY[k] = 0
+
+
+#: The open `_field_scope()` memos for `_engine_candidates`, innermost last.
+_FIELD_SCOPE = []
+
+
+@contextlib.contextmanager
+def _field_scope():
+    """One slot's field computation (`_place_field`): while open,
+    `_engine_candidates` and `English.syllabify` (`_reading_scope`) remember
+    what they compute. Both memos are dropped when the outermost scope
+    closes, so nothing read inside one is served to a call after it.
+
+    The stack is module-level: the guarantee assumes serialized, synchronous
+    callers (the CLI's one command, `mcp/worker.py`'s one request at a time).
+    Overlapping callers on two threads would share the outer memo."""
+    from quality.phonology.eng import _reading_scope
+    _FIELD_SCOPE.append(_FIELD_SCOPE[-1] if _FIELD_SCOPE else {})
+    try:
+        with _reading_scope():
+            yield
+    finally:
+        _FIELD_SCOPE.pop()
+
+
+def _engine_candidates(engine, word, n):
+    """-> `engine.candidates(word, n=n)`; inside a `_field_scope()`, computed
+    once per word per engine.
+
+    The field (`_field_split`) and the declared-relation widening in
+    `_place_field` each ask the same engine for the same call word's whole
+    ranking, a full scan of the index; on a four-line draft with three
+    violating members that was three repeated scans (2026-10-15). The ranking
+    is sorted and then cut at `n`, and each row is built from its own score
+    alone, so the first `n` rows of a deeper answer ARE the shallower answer:
+    a request at or below the depth held is served by slicing, and a deeper
+    one recomputes. Every call returns fresh dicts and lists."""
+    memo = _FIELD_SCOPE[-1] if _FIELD_SCOPE else None
+    if memo is None:
+        return engine.candidates(word, n=n)
+    key = (id(engine), word)
+    hit = memo.get(key)
+    if hit is None or hit[0] < n:
+        hit = memo[key] = (n, engine.candidates(word, n=n), engine)
+    res = dict(hit[1])
+    if "candidates" in res:
+        res["candidates"] = [
+            dict(row, relations=list(row["relations"]),
+                 flags=copy.copy(row["flags"]))
+            for row in hit[1]["candidates"][:n]]
+    if "oov" in res and isinstance(res["oov"], list):
+        res["oov"] = list(res["oov"])
+    return res
 
 
 #: `Reviser._bound_token_schemas`' answers, keyed on the pair's own two lines
@@ -5080,7 +5134,7 @@ class Reviser:
         depth = rd.field_depth
         if depth is None:                 # the COMPLETE pool, not a literal
             depth = len(self.engine.index) + 1
-        res = self.engine.candidates(word, n=depth)
+        res = _engine_candidates(self.engine, word, depth)
         rows = res.get("candidates", [])
         if rd.field_band == "scalar":
             coarse = tuple(c["word"] for c in rows
@@ -5146,6 +5200,29 @@ class Reviser:
             while len(_FIELD_MEMO) > FIELD_MEMO_CAP:
                 _FIELD_MEMO.popitem(last=False)
                 _FIELD_MEMO_TALLY["evicted"] += 1
+        return out
+
+    def _spelled_rimes(self, words):
+        """-> {word: `_spelled_rime(word)`} for every word in `words`.
+
+        The same answers, read through the same memo, with the memo's key
+        (`_decl_lex_key`, a sort of the whole declaration) built once for the
+        batch instead of once per word: a three-call ranking asked it about
+        100,000 times on one request (2026-10-15)."""
+        dl = self._decl_lex_key() if _rank_memo_enabled() else None
+        out = {}
+        for word in words:
+            if word in out:
+                continue
+            rk = None if dl is None else (word, dl[1])
+            hit = None if rk is None else _RIME_MEMO.get(rk)
+            if hit is None:
+                hit = self._spelled_rime_compute(word)
+                if rk is not None:
+                    _RIME_MEMO[rk] = hit
+                    while len(_RIME_MEMO) > RIME_MEMO_CAP:
+                        _RIME_MEMO.popitem(last=False)
+            out[word] = hit
         return out
 
     def _spelled_rime(self, word):
@@ -5494,10 +5571,11 @@ class Reviser:
         # disagreed in the OTHER direction, the call sitting in the offered
         # word's own head, and `joint_field_screened` closes that side.
         call_rimes = {self._spelled_rime(c) for c in calls}
-        homeo = [w for w in ranked if self._spelled_rime(w) in call_rimes
+        rimes = self._spelled_rimes(ranked)
+        homeo = [w for w in ranked if rimes[w] in call_rimes
                  and member(w)]
         rest_ranked = [w for w in ranked
-                       if self._spelled_rime(w) not in call_rimes]
+                       if rimes[w] not in call_rimes]
         k = self.rdecl.modal_exclusion
         # The head: the first k MEMBERS of the remainder in rank order.
         # -- AND, SINCE 2026-09-24, ONLY MEMBERS THE CONDITIONAL RANKED
@@ -5940,9 +6018,16 @@ class Reviser:
         """
         return self.joint_field([call_word], exclude=exclude, profile=profile)
 
-    def _place_field(self, lines, m, ln, sk, ks, groups, endwords, viol_slots,
-                     sl, profile=None, blueprint=None,
-                     _verify_fields_only=False):
+    def _place_field(self, *args, **kwargs):
+        """`_place_field_compute` inside one `_field_scope()`: the slot's
+        joint field, its per-call fields and the declared-relation widening
+        read the same words and rankings, and are computed once each."""
+        with _field_scope():
+            return self._place_field_compute(*args, **kwargs)
+
+    def _place_field_compute(self, lines, m, ln, sk, ks, groups, endwords,
+                             viol_slots, sl, profile=None, blueprint=None,
+                             _verify_fields_only=False):
         """-> `SlotField`: the offer, the forbidden head and everything the
         brief records about line `ln` at ONE place (`sk`, slot `sl`), bound
         there by the groups `ks`, against the draft as it stands.
@@ -6052,8 +6137,8 @@ class Reviser:
                     if any(str(_w).startswith("schema:") for k in ks
                            for _w in _relations_of(m, k)):
                         _pool.extend(self._widen_pool(_call, profile=profile))
-                    _raw = self.engine.candidates(
-                        _call, n=len(self.engine.index))
+                    _raw = _engine_candidates(
+                        self.engine, _call, len(self.engine.index))
                     _pool.extend(row["word"] for row in _raw.get("candidates", ())
                                  if row["word"] not in {_cur, *_forb})
                 _cand = [w for w in dict.fromkeys(_pool)
