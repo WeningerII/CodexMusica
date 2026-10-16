@@ -970,6 +970,11 @@ def cmd_fit(a):
 # works, 21 bins): fwr ~~C2~~ -> C1, because C1 now passes all 21 bins and the
 # rule takes the fewest parameters; cv stays C2 (C1 fails 2 of 21). Measurement:
 # quality/results/otterbein_m25_2026-10-04/final/curves-measurement.txt.
+# RE-FIT 2026-10-15 over the M-25 editorial residue's population (#564: 12
+# editorial rows left; 8,585 works, 9-3,244 tokens, 21 bins): every registered
+# pick holds and passes every bin, so the models are unchanged and only the
+# coefficients, knots, range and held-out rates were re-adopted as a set.
+# Measurement: quality/results/m25_residue_2026-10-15/curves-measurement.txt.
 SHIPPED_MODEL = {"mattr": "C1", "fwr": "C1", "anaphora": "C2", "cv": "C2",
                  "predictability": "CK"}
 KEY_OF = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",

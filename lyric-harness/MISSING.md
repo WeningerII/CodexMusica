@@ -8298,6 +8298,15 @@ and leftover note lines also continue past the first row the rule finds (for
 example Lovelace 1052–1055, 2455–2457 and 2635, Herrick 9583–9585, Burns
 9146–9148). So the 819 is ~~an upper bound~~ neither a count nor an upper bound.
 It is where the next reading starts, following each note to its end.
+**Residue applied 2026-10-15 (#564):** the 13 items' 33 note lines and 14
+section marks are now `# APPARATUS:`. The calibration population moved
+8,597 -> 8,585 items and the `lyric` curves were re-fit and re-adopted as a set
+(doctrine 58): calibrated range 9–3,244 tokens, MATTR/TTR items at or under
+50 tokens 539 -> 527. The `song` and `short` profiles reproduce unchanged (all
+12 removed rows were 4–34 tokens). One-line `[VERSE]` blocks 742 -> 741,
+residue 433 -> 432. Receipts: `quality/results/m25_residue_2026-10-15/`. The
+819 adjacent-row reading above and the seven candidate one-line blocks are
+NOT part of that pass and stay open here.
 **Ordering (this sitting's call, under the owner's "finish closing the batch
 first"; the owner has not ruled on it):** the closing sitting finishes as it
 stands. Read these lines with the same two-blind-reader protocol at the start of

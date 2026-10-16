@@ -944,12 +944,16 @@ class _narrowed_lyric:
 
     def __enter__(self):
         self.p = [x for x in FL.PROFILES if x.name == "lyric"][0]
-        self.keep = (self.p.lo, self.p.hi, self.p.tolerance)
+        # `reach_lo` too (2026-10-16): the shipped declared reach would hold
+        # the narrowed band's lower end at 4 and hide the branches below it.
+        self.keep = (self.p.lo, self.p.hi, self.p.tolerance, self.p.reach_lo)
         self.p.lo, self.p.hi, self.p.tolerance = self.lo, self.hi, self.tol
+        self.p.reach_lo = 0
         return self.p
 
     def __exit__(self, *a):
-        self.p.lo, self.p.hi, self.p.tolerance = self.keep
+        (self.p.lo, self.p.hi, self.p.tolerance,
+         self.p.reach_lo) = self.keep
 
 
 def _sheet_that_trips_every_length_check(n_pairs=9):
@@ -1579,12 +1583,23 @@ def test_the_length_gate_is_a_gate():
     # And he is so.`), a real verse translation and not residue. This pins
     # what the adopted constants do; the residue reading in the next batch is
     # expected to move it to 691/8 (lo 9), ~~back~~ not back to 690/9.
+    # REPINNED 2026-10-15 (#564/#572), as expected: ~~696/3~~ -> 691/8. The
+    # residue is read and the `lyric` range now starts at the 9-token verse
+    # translation, so lengths 1-8 reach no profile.
+    # REPINNED 2026-10-16 (#572, the owner's call to keep 4-8 token lyrics
+    # graded): 691/8 -> 691 flaggable, 5 extrapolated, 3 none. The measured
+    # range is UNMOVED at 9 -- no human item under 9 tokens is left, so 4-8
+    # is a declared reach (`reach_lo=4`) where every length-sensitive check
+    # runs and reports as a note, and none can reject. Only 1-3 reach nothing.
+    ext_n = 699 - exact_n - none_n
     check("AND THE SIZE OF THE HOLE IS MEASURED, not asserted: over 1-699 "
-          "tokens the floor can FLAG at 99.6% of lengths and reaches no "
-          "profile at all at 0.4% — lengths 1-3 are below the adopted "
-          "lyric range, whose lower end is a residue citation (M-25)",
-          exact_n == 696 and none_n == 3,
-          f"flaggable {exact_n / 699:.1%}, no profile {none_n / 699:.1%}")
+          "tokens the floor can FLAG at 98.9% of lengths, NOTES ONLY at 0.7% "
+          "(4-8, a declared reach below the 9-token verse translation that "
+          "starts the measured lyric range, M-25) and reaches no profile at "
+          "all at 0.4% (1-3)",
+          exact_n == 691 and ext_n == 5 and none_n == 3,
+          f"flaggable {exact_n / 699:.1%}, notes {ext_n / 699:.1%}, "
+          f"no profile {none_n / 699:.1%}")
 
 
 def test_the_profile_pick_reads_the_line_count():

@@ -300,7 +300,7 @@ D1_2026_10_04_M25 = {
 # data/english_apparatus_labels_2026-10-04.json): the pool fell 4,351,811 ->
 # 4,315,964 and the seeded 1,000-pair draw is a re-draw again. Agreement over
 # judged 672/677 (99.3%), refusals apart. D1_2026_10_04_M25 kept above.
-D1_RECORDED = {
+D1_2026_10_04_LABELS = {
     "pool": 4315964,
     "measured": "2026-10-04",
     "population": "1344 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated (2026-09-15, M-25(a) and the label pass 2026-10-04); declared label prefixes stripped",
@@ -308,6 +308,23 @@ D1_RECORDED = {
               ("false", "admits"): 1, ("false", "rejects"): 668,
               ("refused", "admits"): 2, ("refused", "rejects"): 321},
     "agree": (672, 677),
+}
+
+# REPINNED 2026-10-15 — THE POPULATION MOVED, not the judge. The M-25
+# editorial residue (#564; data/english_apparatus_residue_2026-10-15.json)
+# annotated 33 lyric rows and 14 section marks in 13 Lovelace, Browning and
+# Herrick items as `# APPARATUS:`, so the pool fell 4,315,964 -> 4,315,945
+# and the seeded 1,000-pair draw is a re-draw. The artifact arm HOLDS in all
+# nine figures. Agreement over judged 684/687 (99.6%), refusals apart.
+# D1_2026_10_04_LABELS kept above.
+D1_RECORDED = {
+    "pool": 4315945,
+    "measured": "2026-10-15",
+    "population": "1344 English files; normalized-lyrics-v1, 106 explicit work groups; nonlyric apparatus annotated (2026-09-15, M-25(a) and the label pass 2026-10-04, the M-25 residue 2026-10-15); declared label prefixes stripped",
+    "table": {("true", "admits"): 5, ("true", "rejects"): 2,
+              ("false", "admits"): 1, ("false", "rejects"): 679,
+              ("refused", "admits"): 4, ("refused", "rejects"): 309},
+    "agree": (684, 687),
 }
 
 #: HISTORICAL, and unreachable from this tree by any population.

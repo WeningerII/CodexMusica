@@ -1097,10 +1097,12 @@ def test_group_brief_carries_the_situation():
     _sheet = [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]
     _sec = [x for x in FL.PROFILES if x.n_lines == len(SILVER_NIGHT_LOCKED) - 1
             and not x.superseded_by][0]
-    _keep = (_sheet.lo, _sheet.hi, _sheet.tolerance, _sec.lo)
+    _keep = (_sheet.lo, _sheet.hi, _sheet.tolerance, _sheet.reach_lo, _sec.lo)
     narrowed = []
     try:
+        # `reach_lo` cleared too (2026-10-16): the band it superseded had none.
         _sheet.lo, _sheet.hi, _sheet.tolerance = 200, 400, 1.25
+        _sheet.reach_lo = 0
         _sec.lo = 29
         R2 = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
                      rdecl=ReviseDeclaration(backtrack_width=2))
@@ -1109,7 +1111,8 @@ def test_group_brief_carries_the_situation():
                     propose_group=lambda gb: (narrowed.append(gb),
                                               _no_op_group(gb))[1])
     finally:
-        _sheet.lo, _sheet.hi, _sheet.tolerance, _sec.lo = _keep
+        (_sheet.lo, _sheet.hi, _sheet.tolerance, _sheet.reach_lo,
+         _sec.lo) = _keep
     check("MUTATION -- narrow the sheet row to the band it superseded and "
           "this same draft is extrapolated again: the whole-draft finding "
           "comes back AND tier 2 carries it, so the check above is an "
@@ -1129,6 +1132,11 @@ def test_group_brief_carries_the_situation():
     # (`MISSING.md` M-25, residue paragraph; `test_floor.py` pins the same
     # fact on the coverage side). Once the residue is read the low end is
     # expected at 9 tokens (a real verse translation), not 10.
+    # 2026-10-15: (4, 3244) -> (9, 3244), the residue read and re-adopted
+    # (#564/#572); the 9-token item is that verse translation.
+    # 2026-10-16: band (9, 3244) -> (4, 3244) with `lo` still 9 -- the
+    # owner's call to keep 4-8 token lyrics graded is a declared reach
+    # (`reach_lo`), extrapolated and notes-only, not a measured range.
     check("...and the perturbation is restored, so no later section "
           "inherits a narrowed floor",
           [x for x in FL.PROFILES if not x.n_lines and not x.superseded_by][0]

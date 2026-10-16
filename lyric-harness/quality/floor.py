@@ -675,9 +675,18 @@ class Profile:
     #: is not deleted (doctrine 17) — but `declaration_for` never picks it
     #: and the planner never reads its band.
     superseded_by: str = ""
+    #: A DECLARED LOWER REACH below `lo`, or 0 for the tolerance's own
+    #: `lo / tolerance`. Lengths in [reach_lo, lo) are reached but not
+    #: measured: the profile's curves are extrapolated there, so every
+    #: length-sensitive finding is downgraded to a note
+    #: (`EXTRAPOLATED_LENGTH`) and none can reject. Added 2026-10-16 (#572)
+    #: for the owner's call to keep grading 4-8 token lyrics after the M-25
+    #: residue left no human item under 9 tokens.
+    reach_lo: int = 0
 
     def band(self):
-        return int(self.lo / self.tolerance), int(self.hi * self.tolerance)
+        return (self.reach_lo or int(self.lo / self.tolerance),
+                int(self.hi * self.tolerance))
 
     def threshold(self, key, n_tokens=None):
         """The threshold for `key` AT THIS LENGTH: the curve evaluated at
@@ -1254,54 +1263,61 @@ PROFILES.append(
 #: precision and input provenance in that directory's curve-adoption.json.
 PROFILES.append(
     Profile(
-        name="lyric", unit='whole lyric sheet, 4-3244 tokens, thresholds a function of ln N',
-        mattr_ttr_population={'window': 50, 'items': 539},
-        lo=4, hi=3244, n_lines=0, n_human=8597, n_generated=0,
+        name="lyric", unit='whole lyric sheet, 9-3244 tokens, thresholds a function of ln N',
+        mattr_ttr_population={'window': 50, 'items': 527},
+        lo=9, hi=3244, n_lines=0, n_human=8585, n_generated=0,
+        # The owner's call (2026-10-16): keep 4-8 token lyrics graded. No human
+        # item under 9 tokens remains, so 4-8 is reached, not measured (notes only).
+        reach_lo=4,
         tolerance=1.0,
         percentiles={},
-        curves={'anaphora_max': (1.358532082896845, -0.3231885305783643, 0.02371141257915031),
- 'line_length_cv_min': (-0.12582974859921897, 0.07110897812570145, -0.005096247133600222),
- 'function_word_ratio_max': (0.5660254841469382, -0.015085723609257548),
- 'mattr_min': (0.484557154852502, 0.039839813654046846),
- 'predictable_pair_fraction_max': {'knots': [(3.5263605246161616, 1.0),
-                                             (3.9512437185814275, 1.0),
+        curves={'anaphora_max': (1.159351078159644, -0.24565802370055595, 0.0162678855573942),
+ 'line_length_cv_min': (-0.09554810132361943, 0.059242040873681165, -0.003946093229030391),
+ 'function_word_ratio_max': (0.5645396935593514, -0.01483956064252975),
+ 'mattr_min': (0.48319711244849844, 0.040082486571361216),
+ 'predictable_pair_fraction_max': {'knots': [(3.5553480614894135, 1.0),
+                                             (3.970291913552122, 1.0),
                                              (4.23410650459726, 1.0),
                                              (4.418840607796598, 1.0),
                                              (4.543294782270004, 1.0),
-                                             (4.624972813284271, 1.0),
+                                             (4.634728988229636, 1.0),
                                              (4.709530201312334, 1.0),
                                              (4.77912349311153, 1.0),
-                                             (4.867534450455582, 1.0),
+                                             (4.875197323201151, 1.0),
                                              (4.941642422609304, 1.0),
                                              (5.0106352940962555, 0.9526315789473666),
-                                             (5.087596335232384, 1.0),
-                                             (5.181783550292085, 0.9285714285714286),
-                                             (5.272999558563747, 0.9285714285714286),
-                                             (5.365976015021851, 0.9337254901960781),
-                                             (5.472270673671475, 0.9333333333333333),
-                                             (5.575949103146316, 0.9375),
-                                             (5.697093486505405, 0.9002380952380951),
-                                             (5.84354441703136, 0.9090909090909091),
-                                             (6.035481432524756, 0.8823529411764706),
-                                             (6.478509642208569, 0.8423116615067079)]}},
+                                             (5.093750200806762, 1.0),
+                                             (5.187385805840755, 0.9233516483516482),
+                                             (5.278114659230517, 0.9285714285714286),
+                                             (5.3706380281276624, 0.9337254901960781),
+                                             (5.476463551931511, 0.9333333333333333),
+                                             (5.579729825986222, 0.9375),
+                                             (5.703782474656201, 0.9049783549783548),
+                                             (5.847882818629958, 0.9090909090909091),
+                                             (6.041444479413003, 0.8826797385620911),
+                                             (6.48768401848461, 0.8385353095030514)]}},
         measured_auc={},
-        held_out_fpr={'ANY': (18.479217655987522, 14.836167144867982, 23.56125835301972),
- 'anaphora': (5.03259072303235, 3.3962509887775196, 7.041826119326515),
- 'line_length_cv': (5.087740410380935, 4.118108482976245, 6.394407928791444),
- 'function_word_ratio': (5.104582050495526, 3.294456133173587, 7.541136424581787),
- 'mattr': (4.903104833274753, 3.0501483994064023, 7.891632239832963),
- 'predictability': (3.0307797768213334, 1.5722451916263709, 4.611518217867837)},
-        held_out_scope={'predictability': '. This rate pools all 4-3244-token works, including lengths through 140 where '
+        held_out_fpr={'ANY': (18.482889484760534, 14.692748156567239, 23.30859742432087),
+ 'anaphora': (5.033664977759858, 3.4134536505332242, 6.948981880542939),
+ 'line_length_cv': (5.10604146491997, 4.107251938609697, 6.357106489142334),
+ 'function_word_ratio': (5.093638271362783, 3.3001132452702655, 7.6197913767614835),
+ 'mattr': (4.882628110290107, 3.0918370790757983, 7.864804397778608),
+ 'predictability': (2.9796249517221014, 1.5315827572323166, 4.672125941447628)},
+        held_out_scope={'predictability': '. This rate pools all 9-3244-token works, including lengths through 140 where '
                    'the threshold equals 1.0 and cannot fire. It is not conditional on lengths '
                    'where the check can fire.'},
-        source=((((('Re-adopted 2026-10-04 after the Otterbein refrain hymns and the M-25(a) apparatus annotations: '
- '8597 nonempty works / 1343 files, 4-3244 tokens. All five checks pass every length bin over 200 '
+        source=(((((('Re-adopted 2026-10-15 after the M-25 editorial residue (#564: 33 lyric rows and 14 section marks '
+ 'in 13 Lovelace/Browning/Herrick items now apparatus, removing 12 calibration rows): 8585 '
+ 'nonempty works / 1343 files, 9-3244 tokens. All five checks pass every length bin over 200 '
  'author-held-out splits. Preregistered model choices: anaphora C2, cv C2, fwr C1, mattr C1, '
  'predictability CK. Predictability CK retains the existing anti-vacuity exception to C0 and first '
- 'falls below 1.0 at 141 tokens. Full precision and input provenance in '
- 'quality/results/otterbein_m25_2026-10-04/curve-adoption.json.'))))),
-        note=((((('CURRENT 2026-10-04 measurements supersede the historical values below; prior full declarations '
- 'are in quality/results/otterbein_m25_2026-10-04/final/profiles-before.json. CURRENT 2026-10-04 '
+ 'falls below 1.0 at 141 tokens. The lower bound moved 4 -> 9 because the four shortest works were '
+ 'editorial notes; no lyric under 9 tokens remains in the population. Full precision and input '
+ 'provenance in quality/results/m25_residue_2026-10-15/curve-adoption.json.')))))),
+        note=(((((('CURRENT 2026-10-15 measurements supersede the historical values below; the prior full '
+ 'declaration is in quality/results/m25_residue_2026-10-15/profiles-before.json. CURRENT '
+ '2026-10-04 measurements supersede the historical values below; prior full declarations are in '
+ 'quality/results/otterbein_m25_2026-10-04/final/profiles-before.json. CURRENT 2026-10-04 '
  'measurements supersede the historical values below; prior full declarations are in '
  'quality/results/otterbein_m25_2026-10-04/profiles-before.json. CURRENT 2026-09-15 measurements '
  'supersede the historical values below; prior full declarations are in '
@@ -1318,7 +1334,7 @@ PROFILES.append(
  "profile's stage B refusal, carried as a disclosed under-resolved run rather than as an absent "
  'threshold. Historical note: Supersedes `song` (200-400) and `short` (50-150), which stay above '
  'for their own drift checks. A finding under this row names the threshold EVALUATED AT THIS '
- "TEXT'S LENGTH beside the formula, because the number differs at every N."))))),
+ "TEXT'S LENGTH beside the formula, because the number differs at every N.")))))),
     ))
 
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}

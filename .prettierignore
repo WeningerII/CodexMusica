@@ -166,6 +166,10 @@ lyric-harness/quality/fixtures/reader_v1_oracle.json
 lyric-harness/quality/fixtures/reader_v1_defer_states.json
 lyric-harness/quality/fixtures/reader_v2_mirror.json
 
+# Raw M25 measurement receipts: artifact-hashes.json indexes their exact bytes.
+/docs/evidence/m25-unqualified-2026-10-15/measurement/baseline-provenance-comparison.json
+/docs/evidence/m25-unqualified-2026-10-15/measurement/row-comparison.json
+
 # Archived UI measurement output: preserve the captured evidence bytes.
 /docs/evidence/ui-repairs-2026-10-15/viewport/focused-summary.json
 /docs/evidence/ui-repairs-2026-10-15/viewport/green-center/results.json

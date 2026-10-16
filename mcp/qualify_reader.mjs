@@ -71,7 +71,7 @@ const resolver = createCatalogResolver({
   resourceFingerprint: assets.assets_sha256,
 });
 const catalog = await resolver.probe();
-const pinnedSnapshot = '1503d477274959f38fb1578fcfdcee042f931e714b6a3e7c5fbe192fef3dce1d';
+const pinnedSnapshot = 'ef7cc67b3fef549c3bb8a8565b69ddddd9a7c57293bcf3355f787653bb5f7b13';
 const retainedSnapshot = '5226b4fbe427848759a626560b18b361990ef8c80debece031d770e363febc9e';
 const retainedImage =
   'ghcr.io/weningerii/codexmusica/lyrics@sha256:3a9ad3711a338653cb1dc97e81badae2ab9a330eb624ae154e0c8b33e805e7f7';
@@ -89,7 +89,9 @@ if (assets.releaseRequired) {
     pinnedSnapshot,
     'The image must contain admitted reader assets.'
   );
-  assert.equal(assets.reader?.counts?.readable_reading_units, 25525);
+  // 25525 before the M-25 residue (#564/#572, 2026-10-15): its 13 editorial
+  // items became apparatus, so 13 fewer units are readable.
+  assert.equal(assets.reader?.counts?.readable_reading_units, 25512);
   assert.ok(retainedCatalog, 'The approved Library Site snapshot must remain installed.');
   assert.equal(retainedCatalog.source_image, retainedImage);
   assert.equal(retainedCatalog.counts.reading_units, 32220);

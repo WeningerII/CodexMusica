@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "date": "2026-10-15",
+  "provenance": {
+    "version": 1,
+    "with_predictability": true,
+    "comparator_fingerprint": "51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4",
+    "population_fingerprint": "73efe9cd7528670b3802c97c24c38376f49d584fedf47efca5e382af09568c8d",
+    "corpus_sha256": "90a8b88df7b3690c8899b54d860c9c400d1ef6cc88482c80408f1bcdd1b60a70",
+    "question_sha256": "d53e59446e1a8ac79e0fbacce1d57c090dd77ba3013ec280a33143c5e159af7f",
+    "tagger_sha256": "0189b5b3824b9c61b131d017c86749201a8e3962e089a67a811548aefcd195a3",
+    "nltk": "3.10.3"
+  },
+  "updates": {
+    "lyric": {
+      "unit": "whole lyric sheet, 9-3244 tokens, thresholds a function of ln N",
+      "lo": 9,
+      "hi": 3244,
+      "n_human": 8585,
+      "curves": {
+        "anaphora_max": [1.159351078159644, -0.24565802370055595, 0.0162678855573942],
+        "line_length_cv_min": [-0.09554810132361943, 0.059242040873681165, -0.003946093229030391],
+        "function_word_ratio_max": [0.5645396935593514, -0.01483956064252975],
+        "mattr_min": [0.48319711244849844, 0.040082486571361216],
+        "predictable_pair_fraction_max": {
+          "knots": [
+            [3.5553480614894135, 1.0],
+            [3.970291913552122, 1.0],
+            [4.23410650459726, 1.0],
+            [4.418840607796598, 1.0],
+            [4.543294782270004, 1.0],
+            [4.634728988229636, 1.0],
+            [4.709530201312334, 1.0],
+            [4.77912349311153, 1.0],
+            [4.875197323201151, 1.0],
+            [4.941642422609304, 1.0],
+            [5.0106352940962555, 0.9526315789473666],
+            [5.093750200806762, 1.0],
+            [5.187385805840755, 0.9233516483516482],
+            [5.278114659230517, 0.9285714285714286],
+            [5.3706380281276624, 0.9337254901960781],
+            [5.476463551931511, 0.9333333333333333],
+            [5.579729825986222, 0.9375],
+            [5.703782474656201, 0.9049783549783548],
+            [5.847882818629958, 0.9090909090909091],
+            [6.041444479413003, 0.8826797385620911],
+            [6.48768401848461, 0.8385353095030514]
+          ]
+        }
+      },
+      "mattr_ttr_population": {
+        "window": 50,
+        "items": 527
+      },
+      "held_out_fpr": {
+        "ANY": [18.482889484760534, 14.692748156567239, 23.30859742432087],
+        "anaphora": [5.033664977759858, 3.4134536505332242, 6.948981880542939],
+        "line_length_cv": [5.10604146491997, 4.107251938609697, 6.357106489142334],
+        "function_word_ratio": [5.093638271362783, 3.3001132452702655, 7.6197913767614835],
+        "mattr": [4.882628110290107, 3.0918370790757983, 7.864804397778608],
+        "predictability": [2.9796249517221014, 1.5315827572323166, 4.672125941447628]
+      },
+      "held_out_scope": {
+        "predictability": ". This rate pools all 9-3244-token works, including lengths through 140 where the threshold equals 1.0 and cannot fire. It is not conditional on lengths where the check can fire."
+      },
+      "source": "Re-adopted 2026-10-15 after the M-25 editorial residue (#564: 33 lyric rows and 14 section marks in 13 Lovelace/Browning/Herrick items now apparatus, removing 12 calibration rows): 8585 nonempty works / 1343 files, 9-3244 tokens. All five checks pass every length bin over 200 author-held-out splits. Preregistered model choices: anaphora C2, cv C2, fwr C1, mattr C1, predictability CK. Predictability CK retains the existing anti-vacuity exception to C0 and first falls below 1.0 at 141 tokens. The lower bound moved 4 -> 9 because the four shortest works were editorial notes; no lyric under 9 tokens remains in the population. Full precision and input provenance in quality/results/m25_residue_2026-10-15/curve-adoption.json.",
+      "note": "CURRENT 2026-10-15 measurements supersede the historical values below; the prior full declaration is in quality/results/m25_residue_2026-10-15/profiles-before.json. CURRENT 2026-10-04 measurements supersede the historical values below; prior full declarations are in quality/results/otterbein_m25_2026-10-04/final/profiles-before.json. CURRENT 2026-10-04 measurements supersede the historical values below; prior full declarations are in quality/results/otterbein_m25_2026-10-04/profiles-before.json. CURRENT 2026-09-15 measurements supersede the historical values below; prior full declarations are in quality/results/english_nonlyric_2026-09-15/profiles-before.json. CURRENT 2026-09-14 adoption supersedes every older value in the following historical note. CURRENT 2026-09-08 adoption above supersedes the 2026-09-04 coefficients and denominators. The generic knot evaluator serves CV and predictability identically. Historical source registration: corpus/song/eng_*.txt, every `--- TITLE:` item (8,667 over 1,297 files, 4-3,245 tokens), no sample; thresholds fit by the pinball loss in ln N over the whole corpus and held out AUTHOR-wise on 200 file-level 50/50 splits, the rate tested in 22 fixed bins of ~400 items, the last 267 (RESULTS_LENGTH_CURVE.md §5). predictable_pair_fraction_max is a knot table (§9) that fires only from 164 tokens: through 163 a one- or two-pair song makes the fraction 0/1-valued and the human 95th percentile IS the ceiling, so PREDICTABLE_RHYME is silent there by resolution, not by choice — the `short` profile's stage B refusal, carried as a disclosed under-resolved run rather than as an absent threshold. Historical note: Supersedes `song` (200-400) and `short` (50-150), which stay above for their own drift checks. A finding under this row names the threshold EVALUATED AT THIS TEXT'S LENGTH beside the formula, because the number differs at every N."
+    }
+  },
+  "predictability_first_informative_token": 141
+}

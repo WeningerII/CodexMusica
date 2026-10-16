@@ -678,21 +678,26 @@ def test_corpus_song_rate_is_pinned():
     #                                       two whose end word is now a margin
     #                                       number) end on a different word
     # Silent substitutions stay at zero.
-    check("countable lines 280511 — VERSE ONLY, now that apparatus lines "
+    # REPINNED 2026-10-15, THE M-25 EDITORIAL RESIDUE (#564/#572): 13 items of
+    # editors' notes in Lovelace, Browning and Herrick are now apparatus.
+    #   countable 280511 -> 280486, token 16745 -> 16742, numeral 558 -> 557,
+    #   piece 407 unchanged, total 17710 -> 17706, substitutions 17066 ->
+    #   17062 (all flagged); silent substitutions stay at zero.
+    check("countable lines 280486 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 280511,
-          f"{r['lines_countable']}  (280510 before the reader batch; "
+          r["lines_countable"] == 280486,
+          f"{r['lines_countable']}  (280511 before the M-25 residue; 280510 before the reader batch; "
           f"281764 before the Otterbein / M-25 "
           f"batch; 282402 before the bracketed-verse "
           f"repin; 282731 before the bracket-apparatus "
           f"repin; 282745 before the LATIN_SCRIPT repin; 179193 before the Tier-1 load; 153224 "
           f"before the mass load; 151894 before Pass-1)")
-    check("unreadable end word, cause TOKEN, 16745 — the follow rule took "
+    check("unreadable end word, cause TOKEN, 16742 — the follow rule took "
           "editorial-prose end words out of the population",
-          r["unreadable_final_token"] == 16745,
+          r["unreadable_final_token"] == 16742,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
-          f"(16748 before the reader batch; "
+          f"(16745 before the M-25 residue; 16748 before the reader batch; "
           f"17202 before the Otterbein / M-25 batch; "
           f"17274 before the bracket-apparatus repin; "
           f"15958 before the LATIN_SCRIPT repin; 11658 before the Tier-1 load)")
@@ -700,15 +705,15 @@ def test_corpus_song_rate_is_pinned():
           "was the harness reading the whole word instead of an ASCII "
           "fragment; this batch then took it down from 6.11% (the hymns to "
           "6.08%, the apparatus passes from there to 5.97%)",
-          abs(r["rate_token"] - 16745 / 280511) < 1e-12,
-          f"{r['rate_token']:.4%}  (5.9705% before the reader batch; "
+          abs(r["rate_token"] - 16742 / 280486) < 1e-12,
+          f"{r['rate_token']:.4%}  (5.9694% before the M-25 residue; 5.9705% before the reader batch; "
           f"6.1051% before the Otterbein / M-25 "
           f"batch; 5.6440% before the LATIN_SCRIPT repin; "
           f"6.5065% before the Tier-1 load)")
-    check("unreadable end word, cause NUMERAL, 558 — a numeral end word with "
+    check("unreadable end word, cause NUMERAL, 557 — a numeral end word with "
           "no declared reading, refused instead of read past",
-          r["unreadable_final_numeral"] == 558,
-          f"{r['unreadable_final_numeral']}  (0 before the reader batch, "
+          r["unreadable_final_numeral"] == 557,
+          f"{r['unreadable_final_numeral']}  (558 before the M-25 residue; 0 before the reader batch, "
           f"whose v1 cut dropped the digits)")
     check("unreadable end word, cause PIECE, 407 — the price of the hyphen "
           "refusal on VERSE lines alone",
@@ -716,16 +721,16 @@ def test_corpus_song_rate_is_pinned():
           f"{r['unreadable_final_piece']}  (422 before the reader batch; "
           f"428 before the Otterbein / M-25 "
           f"batch; 260 before the LATIN_SCRIPT repin)")
-    check("so the end-word refusal rate is 6.12% AFTER the rule and 5.97% "
+    check("so the end-word refusal rate is 6.31% AFTER the rule and 5.97% "
           "before it, and both are printed",
-          r["unreadable_final"] == 17710 and abs(r["rate"] - 17710 / 280511) < 1e-12,
-          f"{r['unreadable_final']} ({r['rate']:.4%})  (17170 / 6.1210% before "
+          r["unreadable_final"] == 17706 and abs(r["rate"] - 17706 / 280486) < 1e-12,
+          f"{r['unreadable_final']} ({r['rate']:.4%})  (17710 / 6.3134% before the M-25 residue; 17170 / 6.1210% before "
           f"the reader batch; 17630 / 6.2570% "
           f"before the Otterbein / M-25 batch; 17702 / 6.2611% "
           f"before the bracket-apparatus repin)")
-    check("17066 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 17066,
-          f"{r['substituted_end_word']}  (16512 before the reader batch; "
+    check("17062 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 17062,
+          f"{r['substituted_end_word']}  (17066 before the M-25 residue; 16512 before the reader batch; "
           f"16650 before the Otterbein / M-25 "
           f"batch; 16712 before the "
           f"bracket-apparatus repin; 15405 before the LATIN_SCRIPT repin)")
@@ -751,8 +756,8 @@ def test_corpus_song_rate_is_pinned():
     # class DROPS it and the line's end word IS `turf` now — the exact
     # exemplar CLAUDE.md known gap 8 filed as a `word_syllable_map` edge
     # case, closed by reading the page's own apparatus correctly instead.
-    check("17066 flagged substitutions and zero silent substitutions after unanchored readings are refused",
-          r["substituted_flagged"] == 17066 and r["substituted_silent"] == 0,
+    check("17062 flagged substitutions and zero silent substitutions after unanchored readings are refused",
+          r["substituted_flagged"] == 17062 and r["substituted_silent"] == 0,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "

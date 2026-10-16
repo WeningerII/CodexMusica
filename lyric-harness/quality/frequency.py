@@ -605,8 +605,9 @@ LAYER.declare(FrequencySource(
     # 2026-10-04 Otterbein refrain hymns (+73) and M-25(a) apparatus
     # annotations (1,639 rows out): 13836 -> ~~13787~~ measured endword types;
     # then the same day's label and apparatus pass (1,344 rows out, 348 label
-    # prefixes stripped): 13787 -> 13663.
-    n_types=13663,
+    # prefixes stripped): 13787 -> ~~13663~~.
+    # 2026-10-15 M-25 editorial residue (#564/#572, 33 rows out): 13663 -> 13660.
+    n_types=13660,
     n_types_from="distinct0:data/song_endword_en.tsv",
     pool="corpus/song/eng_*",
     loo_unit="author",

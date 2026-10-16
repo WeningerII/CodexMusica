@@ -3087,9 +3087,11 @@ def test_frequency_refusal_is_measured_against_the_shipped_tables():
     # Baltzell 2, David Nelson 1, Hankey 1, Stockton 1, Whittle 1) and -2 in
     # Watts: two lines the label and apparatus pass (5b3ba18c) marked
     # `# APPARATUS:`, not M-25(a). Still all counted.
+    # 2026-10-15 (the M-25 editorial residue, #564/#572): 13663 / 247781
+    # -> 13660 types / 247762 tokens; literal `word` unchanged at 412.
     check("the exact TSV header does not consume literal `word` entries",
-          tot["word"] == 412 and len(tot) == 13663
-          and sum(tot.values()) == 247781,
+          tot["word"] == 412 and len(tot) == 13660
+          and sum(tot.values()) == 247762,
           f"literal word={tot['word']}; {len(tot)} types / {sum(tot.values())} tokens")
     check("the ONLY line-final source is pre-1931 and its head is `me` and "
           "`thee`",

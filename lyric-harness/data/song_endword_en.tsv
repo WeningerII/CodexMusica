@@ -3470,7 +3470,6 @@ o	eng_british_charles_kingsley	8
 o	eng_celtic_msm_mrs_agnes_lyon	8
 o	eng_celtic_msm_william_nicholson	8
 obscure	eng_oxford_george_meredith	8
-of	eng_british_richard_lovelace	8
 oh	eng_celtic_robert_burns	8
 old	eng_british_william_wordsworth	8
 old	eng_celtic_msm_william_m_laren	8
@@ -4156,7 +4155,6 @@ mother	eng_hbv_henry_duff_traill	7
 mouth	eng_british_elizabeth_barrett_browning	7
 move	eng_celtic_robert_burns	7
 name	eng_american_philip_freneau	7
-name	eng_british_richard_lovelace	7
 name	eng_hymn_charles_wesley	7
 name	eng_hymn_hoffman	7
 nation	eng_celtic_robert_burns	7
@@ -5164,6 +5162,7 @@ mow	eng_hall_william_barnes	6
 muse	eng_celtic_robert_burns	6
 music	eng_british_adelaide_anne_procter	6
 mute	eng_british_robert_herrick	6
+name	eng_british_richard_lovelace	6
 name	eng_pah_oliver_wendell_holmes	6
 near	eng_british_lewis_carroll	6
 near	eng_hall_john_clare	6
@@ -5195,6 +5194,7 @@ o	eng_oxford_sir_samuel_ferguson	6
 obtain	eng_hall_thomas_durfey	6
 obtain	eng_hymn_watts	6
 ocean	eng_celtic_msm_james_manson	6
+of	eng_british_richard_lovelace	6
 offering	eng_british_robert_herrick	6
 old	eng_british_charles_kingsley	6
 old	eng_oxford_william_stevenson	6
@@ -6747,7 +6747,6 @@ request	eng_celtic_robert_burns	5
 request	eng_hymn_watts	5
 rest	eng_american_henry_wadsworth_longfellow	5
 rest	eng_british_elizabeth_barrett_browning	5
-rest	eng_british_robert_browning	5
 rest	eng_british_thomas_campion	5
 rest	eng_hymn_charles_wesley	5
 restore	eng_british_felicia_hemans	5
@@ -9287,6 +9286,7 @@ respect	eng_celtic_robert_burns	4
 rest	eng_british_edward_fitzgerald	4
 rest	eng_british_lord_byron	4
 rest	eng_british_matthew_arnold	4
+rest	eng_british_robert_browning	4
 rest	eng_celtic_carolina_oliphant_lady_nairne	4
 rest	eng_celtic_msm_horatius_bonar_d_d	4
 rest	eng_hall_edwin_waugh	4
@@ -13192,7 +13192,6 @@ love	eng_oxford_sir_samuel_ferguson	3
 love	eng_oxford_sir_walter_raleigh	3
 love	eng_oxford_william_drummond_of_hawthornden	3
 love	eng_oxford_william_shakespeare	3
-lovelace	eng_british_richard_lovelace	3
 lover	eng_american_thomas_bailey_aldrich	3
 lover	eng_british_robert_herrick	3
 lover	eng_celtic_james_hogg	3
@@ -14145,7 +14144,6 @@ rest	eng_pah_edward_everett_hale	3
 retire	eng_british_robert_herrick	3
 retire	eng_hall_thomas_durfey	3
 retreat	eng_american_philip_freneau	3
-retreat	eng_british_richard_lovelace	3
 retreat	eng_hall_john_clare	3
 retreat	eng_hall_thomas_durfey	3
 return	eng_british_matthew_arnold	3
@@ -24478,6 +24476,7 @@ loved	eng_celtic_msm_daniel_weir	2
 loved	eng_celtic_thomas_moore	2
 loved	eng_hbv_edward_robert_bulwer_lytton	2
 loved	eng_hbv_langdon_smith	2
+lovelace	eng_british_richard_lovelace	2
 lover	eng_american_james_russell_lowell	2
 lover	eng_american_richard_watson_gilder	2
 lover	eng_british_christina_rossetti	2
@@ -26938,6 +26937,7 @@ retire	eng_pah_stephen_tilden	2
 retires	eng_british_edward_fitzgerald	2
 retiring	eng_pah_thomas_dunn_english	2
 retreat	eng_british_felicia_hemans	2
+retreat	eng_british_richard_lovelace	2
 retreat	eng_celtic_robert_burns	2
 retreat	eng_celtic_thomas_moore	2
 retreat	eng_hall_john_gay	2
@@ -29804,7 +29804,6 @@ that	eng_pah_oliver_wendell_holmes	2
 thatch	eng_british_alfred_tennyson	2
 thaw	eng_hall_john_clare	2
 the	eng_british_jean_ingelow	2
-the	eng_british_robert_browning	2
 the	eng_british_william_wordsworth	2
 the	eng_celtic_msm_evan_maclachlan	2
 the	eng_celtic_msm_lachlan_macvurich	2
@@ -34183,7 +34182,6 @@ alloy	eng_celtic_msm_mrs_dugald_stewart	1
 alloy	eng_celtic_msm_robert_allan	1
 alloy	eng_celtic_robert_burns	1
 alls	eng_hall_thomas_durfey	1
-alludes	eng_british_richard_lovelace	1
 allure	eng_british_robert_jones	1
 allure	eng_british_thomas_campion	1
 allure	eng_british_william_wordsworth	1
@@ -35225,7 +35223,6 @@ apples	eng_british_william_allingham	1
 apples	eng_celtic_robert_burns	1
 apples	eng_pah_william_harrison_safford	1
 appleseed	eng_pah_william_henry_venable	1
-application	eng_british_richard_lovelace	1
 application	eng_british_robert_browning	1
 applied	eng_american_hannah_flagg_gould	1
 applied	eng_celtic_msm_duncan_macintyre	1
@@ -46038,7 +46035,6 @@ caresses	eng_american_c_g_forshey	1
 caresses	eng_american_thomas_bailey_aldrich	1
 caresses	eng_british_algernon_charles_swinburne	1
 caresses	eng_british_lord_byron	1
-caresses	eng_british_richard_lovelace	1
 caresses	eng_hbv_ernest_dowson	1
 caressing	eng_british_emily_bronte	1
 caressing	eng_celtic_msm_allan_m_dougall	1
@@ -49317,7 +49313,6 @@ compose	eng_british_robert_herrick	1
 composed	eng_american_john_r_thompson	1
 composed	eng_oxford_alexander_pope	1
 composed	eng_oxford_william_collins	1
-composition	eng_british_richard_lovelace	1
 composure	eng_british_austin_dobson	1
 compound	eng_oxford_andrew_marvell	1
 compounded	eng_oxford_william_shakespeare	1
@@ -55341,7 +55336,6 @@ dip	eng_american_thomas_buchanan_read	1
 dip	eng_celtic_msm_thomas_aird	1
 dip	eng_celtic_thomas_moore	1
 dip	eng_pah_oliver_wendell_holmes	1
-diploma	eng_british_robert_browning	1
 dipping	eng_british_elizabeth_barrett_browning	1
 dips	eng_american_george_edward_woodberry	1
 dips	eng_british_elizabeth_barrett_browning	1
@@ -58720,7 +58714,6 @@ eight	eng_pah_clinton_scollard	1
 eighty	eng_british_william_wordsworth	1
 either	eng_british_adelaide_anne_procter	1
 either	eng_british_percy_bysshe_shelley	1
-either	eng_british_richard_lovelace	1
 either	eng_british_robert_herrick	1
 either	eng_celtic_robert_burns	1
 either	eng_hall_john_gay	1
@@ -60050,7 +60043,6 @@ expended	eng_pah_thomas_dunn_english	1
 expense	eng_british_elizabeth_barrett_browning	1
 expense	eng_british_lewis_carroll	1
 expense	eng_british_matthew_arnold	1
-expense	eng_british_richard_lovelace	1
 expense	eng_british_robert_herrick	1
 expense	eng_british_william_wordsworth	1
 expense	eng_hbv_philip_sidney	1
@@ -66450,7 +66442,6 @@ four	eng_american_william_tuckey_meredith	1
 four	eng_british_austin_dobson	1
 four	eng_british_john_keats	1
 four	eng_british_matthew_arnold	1
-four	eng_british_robert_browning	1
 four	eng_british_william_bell_scott	1
 four	eng_celtic_msm_lady_anne_barnard	1
 four	eng_hall_john_clare	1
@@ -77463,7 +77454,6 @@ instead	eng_british_algernon_charles_swinburne	1
 instead	eng_british_arthur_hugh_clough	1
 instead	eng_british_jean_ingelow	1
 instead	eng_british_percy_bysshe_shelley	1
-instead	eng_british_richard_lovelace	1
 instead	eng_british_william_byrd	1
 instead	eng_hbv_nora_hopper	1
 instead	eng_hymn_cowper	1
@@ -77874,7 +77864,6 @@ italy	eng_british_matthew_arnold	1
 italy	eng_hbv_edward_robert_bulwer_lytton	1
 itch	eng_hall_ws_gilbert	1
 its	eng_american_henry_wadsworth_longfellow	1
-its	eng_british_richard_lovelace	1
 its	eng_hbv_julia_c_r_dorr	1
 itself	eng_american_harriet_prescott_spofford	1
 itself	eng_american_ralph_waldo_emerson	1
@@ -92293,7 +92282,6 @@ papas	eng_british_christina_rossetti	1
 paper	eng_american_bret_harte	1
 paper	eng_american_james_russell_lowell	1
 paper	eng_british_ben_jonson	1
-paper	eng_british_richard_lovelace	1
 paper	eng_pah_john_andr	1
 papers	eng_american_henry_cuyler_bunner	1
 papers	eng_oxford_winthrop_mackworth_praed	1
@@ -104833,7 +104821,6 @@ sentinels	eng_pah_hezekiah_butterworth	1
 sentinels	eng_pah_richard_realf	1
 sentry	eng_hall_ws_gilbert	1
 sentry	eng_oxford_henry_vaughan	1
-separate	eng_british_richard_lovelace	1
 separate	eng_pah_jacob_steendam	1
 separated	eng_british_elizabeth_barrett_browning	1
 separations	eng_hbv_george_gordon_byron	1
@@ -117911,6 +117898,7 @@ the	eng_american_thomas_buchanan_read	1
 the	eng_british_felicia_hemans	1
 the	eng_british_john_keats	1
 the	eng_british_lord_byron	1
+the	eng_british_robert_browning	1
 the	eng_celtic_msm_robert_mackay_rob_donn	1
 the	eng_hall_ws_gilbert	1
 the	eng_hbv_julia_c_r_dorr	1
