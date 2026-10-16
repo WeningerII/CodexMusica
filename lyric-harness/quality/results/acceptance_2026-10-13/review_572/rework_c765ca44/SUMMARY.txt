@@ -1,0 +1,9 @@
+recapture              rc=0      24s  }
+map_check              rc=0       8s  lyric map is current
+comparator_pin         rc=0       0s  RESULT: HOLDS — the comparator is what it was when the calibrations were last verified.
+curves_rows            rc=0      29s  RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
+t_floor                rc=0      46s  all slop-floor regressions pass
+t_plan                 rc=0     473s  the planning phase plans, the graders accept what it plans, and the dice are uniform over derived spaces
+t_reader_legacy        rc=0     256s  OK
+t_loop                 rc=0     649s  all loop regressions pass
+DONE

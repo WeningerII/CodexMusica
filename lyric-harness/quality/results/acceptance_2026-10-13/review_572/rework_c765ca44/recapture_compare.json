@@ -1,0 +1,22 @@
+{
+ "checkpoint": {
+  "raw_equal": true,
+  "equal_modulo_journal_id": true
+ },
+ "resume_stdout": {
+  "raw_equal": true,
+  "equal_modulo_journal_id": true
+ },
+ "resume_exit": {
+  "raw_equal": true,
+  "equal_modulo_journal_id": true
+ },
+ "resumed_checkpoint": {
+  "raw_equal": true,
+  "equal_modulo_journal_id": true
+ },
+ "_journal_ids_seen": [
+  "a5c91ffe8a8e4d8c9709307e74546d01"
+ ],
+ "_first_exit": 3
+}

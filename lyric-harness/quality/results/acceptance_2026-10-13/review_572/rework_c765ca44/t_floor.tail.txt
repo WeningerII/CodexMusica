@@ -1,0 +1,6 @@
+  PASS  PREMISE: it fires, as §11 requires
+  PASS  a cut the profile never measured is not reported as that profile's 95th percentile
+  PASS  ...and the finding says the profile measured NONE, rather than implying a threshold was overridden that never existed
+          100% of pairs above 0.90 predictability > 0.8333 (DECLARED by the caller: FloorDeclaration.predictable_pair_fraction_max
+==============================================================
+all slop-floor regressions pass

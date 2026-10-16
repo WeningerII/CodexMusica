@@ -1,0 +1,336 @@
+{
+ "t4b.txt": {
+  "base_5ad10a62": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "ANAPHORA_OVERLOAD",
+     "flag"
+    ],
+    [
+     "LEXICAL_MONOTONY",
+     "flag"
+    ],
+    [
+     "REPEAT_IN_VERSE",
+     "note"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ]
+   ]
+  },
+  "old_1dbc75cf": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "OUT_OF_CALIBRATED_LENGTH",
+     "note"
+    ],
+    [
+     "REPEAT_IN_VERSE",
+     "note"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ]
+   ]
+  },
+  "rework_c765ca44": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "ANAPHORA_OVERLOAD",
+     "note"
+    ],
+    [
+     "EXTRAPOLATED_LENGTH",
+     "note"
+    ],
+    [
+     "LEXICAL_MONOTONY",
+     "note"
+    ],
+    [
+     "REPEAT_IN_VERSE",
+     "note"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ]
+   ]
+  }
+ },
+ "t6.txt": {
+  "base_5ad10a62": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "FUNCTION_WORD_HEAVY",
+     "flag"
+    ]
+   ]
+  },
+  "old_1dbc75cf": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "OUT_OF_CALIBRATED_LENGTH",
+     "note"
+    ]
+   ]
+  },
+  "rework_c765ca44": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "EXTRAPOLATED_LENGTH",
+     "note"
+    ],
+    [
+     "FUNCTION_WORD_HEAVY",
+     "note"
+    ]
+   ]
+  }
+ },
+ "t8.txt": {
+  "base_5ad10a62": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "FUNCTION_WORD_HEAVY",
+     "flag"
+    ],
+    [
+     "REPEAT_IN_VERSE",
+     "note"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ],
+    [
+     "UNIFORM_LINE_LENGTH",
+     "note"
+    ]
+   ]
+  },
+  "old_1dbc75cf": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "OUT_OF_CALIBRATED_LENGTH",
+     "note"
+    ],
+    [
+     "REPEAT_IN_VERSE",
+     "note"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ]
+   ]
+  },
+  "rework_c765ca44": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "EXTRAPOLATED_LENGTH",
+     "note"
+    ],
+    [
+     "FUNCTION_WORD_HEAVY",
+     "note"
+    ],
+    [
+     "REPEAT_IN_VERSE",
+     "note"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ],
+    [
+     "UNIFORM_LINE_LENGTH",
+     "note"
+    ]
+   ]
+  }
+ },
+ "t9.txt": {
+  "base_5ad10a62": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "FUNCTION_WORD_HEAVY",
+     "flag"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ]
+   ]
+  },
+  "old_1dbc75cf": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "FUNCTION_WORD_HEAVY",
+     "flag"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ]
+   ]
+  },
+  "rework_c765ca44": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "FUNCTION_WORD_HEAVY",
+     "flag"
+    ],
+    [
+     "SCHEME_VIOLATION",
+     "flag"
+    ]
+   ]
+  }
+ },
+ "t12.txt": {
+  "base_5ad10a62": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "HOMEOTELEUTON",
+     "note"
+    ]
+   ]
+  },
+  "old_1dbc75cf": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "HOMEOTELEUTON",
+     "note"
+    ]
+   ]
+  },
+  "rework_c765ca44": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "HOMEOTELEUTON",
+     "note"
+    ]
+   ]
+  }
+ },
+ "t36.txt": {
+  "base_5ad10a62": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "CLICHE_PAIR",
+     "flag"
+    ],
+    [
+     "HOMEOTELEUTON",
+     "note"
+    ],
+    [
+     "LEXICAL_MONOTONY",
+     "flag"
+    ],
+    [
+     "MODAL_RHYME",
+     "note"
+    ]
+   ]
+  },
+  "old_1dbc75cf": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "CLICHE_PAIR",
+     "flag"
+    ],
+    [
+     "HOMEOTELEUTON",
+     "note"
+    ],
+    [
+     "LEXICAL_MONOTONY",
+     "flag"
+    ],
+    [
+     "MODAL_RHYME",
+     "note"
+    ]
+   ]
+  },
+  "rework_c765ca44": {
+   "rc": 0,
+   "status": "graded",
+   "flags": null,
+   "findings": [
+    [
+     "CLICHE_PAIR",
+     "flag"
+    ],
+    [
+     "HOMEOTELEUTON",
+     "note"
+    ],
+    [
+     "LEXICAL_MONOTONY",
+     "flag"
+    ],
+    [
+     "MODAL_RHYME",
+     "note"
+    ]
+   ]
+  }
+ }
+}
