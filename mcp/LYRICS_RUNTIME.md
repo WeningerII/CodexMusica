@@ -298,15 +298,29 @@ pre-batch v1 state rows or their fingerprints.
       only; nothing is sent from it).
   - The Library tab: every pronunciation choice it saves on a device carries
     `token_cut: "v2"` on the saved record (the page's own storage; the rows
-    sent keep their six fields). A record without it is legacy by
-    compatibility policy and is rebound once, by exact raw-span identity from
-    the server's earlier cut (the cut its `reading_choices` were numbered
-    under) to the current one, with the moved numbers shown; a choice no
-    current word covers exactly is set aside as needing the reader's decision,
-    is not sent, and no new analysis starts until it is removed
-    (`src/library/analysis.js`, `savedInterpretation`). A server job queued
-    across the release is refused `STALE_READING` by the scheduler's identity
-    recheck, and its stored request and `declaration_hash` are not rewritten; a
+    sent keep their six fields). A record without it says nothing certain
+    about which cut counted it (the retained chunk of the previous page
+    version still saves records unmarked), so each of its rows is read under
+    both cuts (`src/library/analysis.js`, `twoCutBinding`): a number that
+    names its word on the same characters under both, or only under the
+    current cut, is kept; one that names it only under the server's earlier
+    cut (the cut its `reading_choices` were numbered under) is rebound once,
+    by exact raw-span identity, with the moved numbers shown; one that names
+    it on different characters under the two cuts, or under neither, is set
+    aside naming both readings. A set-aside choice needs the reader's
+    decision, is not sent, and no new analysis starts until it is removed
+    (`savedInterpretation`). A reading picked from analysis evidence goes
+    through the same rule, and evidence from a job whose identity records no
+    `reader_scheme` is labelled "earlier word cut" and cannot be picked from
+    (`pickedChoice`). A server job queued across the release is refused
+    `STALE_READING` by the scheduler's identity recheck only when its stored
+    identity differs from the one the running service computes (across a
+    release: a different `engine_commit` or `resource_fingerprint`). The
+    identity records no reader scheme, so where both sides have no commit
+    identity (`engine_commit` null: a build with no baked or reported commit,
+    which a production image never is) and the same resources, a job
+    queued before the release passes the recheck and runs under the current
+    cut. Its stored request and `declaration_hash` are not rewritten; a
     new job from rebound choices has a new `declaration_hash`, as any changed
     declaration set does. Choices carried into Lyrics by a handoff or a
     downloaded import bundle are source history only: kept verbatim (the
