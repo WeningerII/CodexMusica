@@ -22,6 +22,9 @@ admission deadline. Uncaught CLI exceptions remain code 1 plus traceback,
 matching the cold entrance.
 """
 
+import ctypes
+import ctypes.util
+import gc
 import hashlib
 import io
 import json
@@ -37,6 +40,23 @@ os.chdir(HARNESS)
 sys.path.insert(0, HARNESS)
 
 import lyric_harness  # noqa: E402
+
+try:
+    _malloc_trim = ctypes.CDLL(ctypes.util.find_library("c") or "libc.so.6").malloc_trim
+except (OSError, AttributeError):  # non-glibc image: collection alone still runs
+    _malloc_trim = None
+
+
+def release_heap():
+    """Return memory freed by the finished request to the OS.
+
+    A revise frees large scoped memos; without a trim glibc keeps those arenas,
+    and the next request's allocations land on top of them, raising the
+    container's peak. Memos meant to survive between requests are untouched.
+    """
+    gc.collect()
+    if _malloc_trim is not None:
+        _malloc_trim(0)
 
 
 class ProtocolStream(io.TextIOBase):
@@ -236,11 +256,13 @@ def main():
                                   "error_code": reason,
                                   "reader_result": {"status": "paused", "reason": reason,
                                                     "provider_calls": 0}}), flush=True)
+            release_heap()
             continue
         code, so, se = run_one(argv, req.get("id"), req.get("env"))
         print(json.dumps({"id": req.get("id"), "code": code,
                           "stdout": so, "stderr": se}, ensure_ascii=False),
               flush=True)
+        release_heap()
 
 
 if __name__ == "__main__":
