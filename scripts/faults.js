@@ -147,6 +147,40 @@ function dropEnvs() {
   while (ENVS.length) fs.rmSync(ENVS.pop(), { recursive: true, force: true });
 }
 process.on('exit', dropEnvs);
+// `cp -a` copies a symlink as a symlink, so a source tree whose fixtures are
+// linked to another checkout would hand every env that checkout to write in.
+// Each copied item is walked: a link resolving outside the env is refused
+// before any defect is planted. The links mkenv and foundationEnv make on
+// purpose come after this walk, so none of them is excused here.
+function assertContained(d, top) {
+  const root = fs.realpathSync(d) + path.sep;
+  const walk = (p) => {
+    const st = fs.lstatSync(p);
+    if (st.isSymbolicLink()) {
+      let to;
+      try {
+        to = fs.realpathSync(p);
+      } catch {
+        to = path.resolve(path.dirname(p), fs.readlinkSync(p));
+      }
+      if (!(to + path.sep).startsWith(root))
+        throw new Error(
+          `faults: ${path.relative(d, p)} in the temp copy links to ${to}, outside the env; ` +
+            'copy real files, not links, so a planted defect cannot write into another tree'
+        );
+    } else if (st.isDirectory()) for (const f of fs.readdirSync(p)) walk(path.join(p, f));
+  };
+  walk(top);
+}
+// A plant writes only to a file inside its own env, never through a link.
+function plantWrite(d, f, data) {
+  const dir = fs.realpathSync(path.dirname(f));
+  if (!(dir + path.sep).startsWith(fs.realpathSync(d) + path.sep))
+    throw new Error(`faults: refusing to plant ${f}: it resolves to ${dir}, outside the env`);
+  if (fs.existsSync(f) && fs.lstatSync(f).isSymbolicLink())
+    throw new Error(`faults: refusing to plant ${f}: it is a link`);
+  fs.writeFileSync(f, data);
+}
 function mkenv(items) {
   const d = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-'));
   ENVS.push(d);
@@ -159,6 +193,7 @@ function mkenv(items) {
       for (const f of fs.readdirSync(path.join(ROOT, 'mcp'))) {
         if (f === 'node_modules') continue;
         execSync(`cp -a ${q(path.join(ROOT, 'mcp', f))} ${q(path.join(d, 'mcp', f))}`);
+        assertContained(d, path.join(d, 'mcp', f));
       }
       fs.symlinkSync(path.join(ROOT, 'mcp', 'node_modules'), path.join(d, 'mcp', 'node_modules'));
       // The one file outside mcp/ the connector reads at import: the lexicon
@@ -173,10 +208,48 @@ function mkenv(items) {
     // An item may be a nested path (api/engine.json): its parent is made first.
     fs.mkdirSync(path.dirname(path.join(d, it)), { recursive: true });
     execSync(`cp -a ${q(path.join(ROOT, it))} ${q(path.join(d, it))}`);
+    assertContained(d, path.join(d, it));
   }
   fs.symlinkSync(path.join(ROOT, 'node_modules'), path.join(d, 'node_modules'));
   return d;
 }
+// Self-test of the two guards above, before any class runs: a source whose
+// fixture dir is a link to another tree must be refused at copy time, and a
+// plant through that link must be refused at write time, leaving it untouched.
+{
+  const t = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-fault-selftest-'));
+  const fail = [];
+  try {
+    for (const x of ['other', 'src', 'env']) fs.mkdirSync(path.join(t, x));
+    fs.writeFileSync(path.join(t, 'other', 'id-map.json'), '[]\n');
+    fs.symlinkSync(path.join(t, 'other'), path.join(t, 'src', 'library'));
+    const env = path.join(t, 'env');
+    execSync(`cp -a ${q(path.join(t, 'src', 'library'))} ${q(path.join(env, 'library'))}`);
+    let refused = false;
+    try {
+      assertContained(env, path.join(env, 'library'));
+    } catch {
+      refused = true;
+    }
+    if (!refused) fail.push('a linked fixture dir was copied into an env unrefused');
+    refused = false;
+    try {
+      plantWrite(env, path.join(env, 'library', 'id-map.json'), '[{"planted":1}]');
+    } catch {
+      refused = true;
+    }
+    if (!refused) fail.push('a plant was written through a link');
+    if (fs.readFileSync(path.join(t, 'other', 'id-map.json'), 'utf8') !== '[]\n')
+      fail.push('the linked tree was modified');
+  } finally {
+    fs.rmSync(t, { recursive: true, force: true });
+  }
+  if (fail.length) {
+    console.error(`FAIL — env isolation self-test: ${fail.join('; ')}`);
+    process.exit(1);
+  }
+}
+
 // Run a gate; capture combined output + exit code (never throws). 0 = passed
 // (BAD here). A non-zero exit is only a real CATCH if its output also names the
 // planted defect (see record) — a timeout is surfaced separately so a gate that
@@ -2850,10 +2923,10 @@ function libraryRegressionEnv() {
   const write = (lines) => {
     const units = lines.filter((l) => /^reading_[0-9a-f-]{36}\t/.test(l)).length;
     const out = lines.join('\n').replace(/^# units: \d+$/m, `# units: ${units}`);
-    fs.writeFileSync(path.join(d, 'planted.tsv.gz'), zlib.gzipSync(out));
+    plantWrite(d, path.join(d, 'planted.tsv.gz'), zlib.gzipSync(out));
   };
   const ledger = (name, value) =>
-    fs.writeFileSync(path.join(d, 'tests/library', name), JSON.stringify(value));
+    plantWrite(d, path.join(d, 'tests/library', name), JSON.stringify(value));
   const at = (id) => cur.findIndex((l) => l.startsWith(id + '\t'));
   return { d, cur, oldReadable, write, ledger, at };
 }
