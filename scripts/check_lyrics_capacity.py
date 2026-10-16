@@ -343,7 +343,7 @@ def source_identity():
     return {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in (
         'lyric-harness/lyric_harness.py', 'lyric-harness/quality/plan.py', 'lyric-harness/quality/revise.py',
         'lyric-harness/quality/relations.py', 'mcp/server_http.js', 'mcp/job_store.js',
-        'mcp/run_store.js', 'mcp/state_codec.js', 'mcp/python_bridge.js',
+        'mcp/run_store.js', 'mcp/state_codec.js', 'mcp/python_bridge.js', 'mcp/worker.py',
         'scripts/measure_verb_memory.py', 'scripts/check_lyrics_capacity.py',
         'scripts/lyrics_capacity_runtime.py', 'scripts/seed_lyrics_capacity_receipts.mjs',
         'scripts/lyrics_capacity_server.mjs', 'scripts/lyrics_capacity_queue.mjs')}

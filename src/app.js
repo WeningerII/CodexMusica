@@ -1,4 +1,4 @@
-/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
+/* global CODEX_DEFER_BOOT, UI, UI_ICONS, UI_PAGES, UILayout, uiAddGenre, uiAfterPaint, uiChatSessions, uiLyricsOpened, uiOpenSurface, uiReceiveReply, uiStart, uiSync */
 /* exported INSTRUMENT_FILTER_PILLS, RECIPE_FORMATS, STARTER_TRADITIONS, addInstrumentFromPicker, familyImage, findSimilarInstruments, getMatchingInstrumentAxes, passesInstrumentFilter, surpriseTradition, lyricMetaOf, _chatSend, uiEnsureWorkspace, _whenWorkspace, _releaseEngine */
 
 
@@ -18913,6 +18913,18 @@ async function _chatRecover(generation = chatState.generation) {
       const res = await fetch(`${CHAT_BACKEND}/chat/jobs/${job.request_id}`, {cache:'no-store'});
       const record = await res.json();
       if (generation !== chatState.generation) return;
+      // 404: the server no longer retains this receipt (receipts expire), so
+      // asking again can never settle it. Set the ticket aside in the archive
+      // instead of blocking every new request on it; nothing is replayed.
+      if (res.status === 404) {
+        chatState.archives = [...chatState.archives, job].slice(-8);
+        if (chatState.continuationId === job.request_id) chatState.continuationId = null;
+        chatState.pending = null;
+        chatState.disconnected = null;
+        _chatSave();
+        _chatAppend('<div class="chat-msg chat-msg-note">The saved request is no longer kept on the server, so it was set aside. Nothing was repeated; you can start a new request.</div>');
+        return;
+      }
       if (!res.ok) throw new Error(record.error || 'The request outcome is unknown. The saved request will not be repeated.');
       if (record.successor_id && record.successor_id !== job.request_id) {
         if (!/^[a-f0-9]{64}$/.test(record.successor_id) || visited.has(record.successor_id) || visited.size >= 512)
@@ -19222,6 +19234,12 @@ function _chatSyncCount() {
 function _chatReset() {
   const previous = chatState.pending || (chatState.continuationId ? {request_id:chatState.continuationId,domain:chatState.task?.domain,message:'Saved conversation'} : null);
   if (previous) chatState.archives = [...chatState.archives, previous].slice(-8);
+  // Switching writers keeps a copy of this writer's conversation (uiSwitchChat
+  // in src/workbench.js) that would bring the old request back on the next
+  // load or switch. A new conversation discards that copy too.
+  const domain = chatState.task?.domain || (_chatEl('chat-domain')?.value.startsWith('lyrics') ? 'lyrics' : 'recipe');
+  if (typeof uiChatSessions !== 'undefined') uiChatSessions.delete(domain);
+  try { localStorage.removeItem(`${CHAT_STORAGE_KEY}:${domain}`); } catch { /* storage unavailable: nothing was kept */ }
   chatState.generation++;
   chatState.controller?.abort();
   _chatPollStop();
@@ -19466,5 +19484,9 @@ function initChatDock() {
     _chatSyncCount();
   }
   const reset = _chatEl('chat-reset');
-  if (reset) reset.addEventListener('click', _chatReset);
+  if (reset) reset.addEventListener('click', () => {
+    _chatReset();
+    // Pages that show the writer's state (the Lyrics page) redraw from it.
+    document.dispatchEvent(new CustomEvent('chat-reset'));
+  });
 }
