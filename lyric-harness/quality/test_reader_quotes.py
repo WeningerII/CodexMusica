@@ -148,6 +148,67 @@ class DeclaredPronunciations(unittest.TestCase):
         reader = lex.for_line(SONNET_2_L10).for_token(4)
         self.assertEqual(reader.entries["this"], [["DH", "IH1", "S"]])
 
+    def test_the_exception_needs_the_dropped_mark_in_the_source(self):
+        # Only the occurrence the reader took a printed opening quote off:
+        # the source's own mark or its fold, once. An unquoted token, another
+        # leading mark, a doubled one, or a mark the source does not print
+        # there is an ordinary spelling, refused as one -- under v2 and v1.
+        # U+201B is never word material (the reader does not fold it), so no
+        # mark was taken off a word it opens.
+        from quality.pronunciation import validate_choices
+        refused = [
+            ("If thou couldst answer This fair child of mine", 5, w)
+            for w in ("\u2018This", "'This", "\u2019This", "''This", "\u2018\u2018This", "\u201bThis")
+        ] + [
+            (SONNET_2_L10, 5, w) for w in ("\u2019This", "''This", "\u2018'This", "\u201bThis", "`This")
+        ] + [
+            ("Sings this to thee: \u201bThou single wilt prove none.", 5, w)
+            for w in ("\u2018Thou", "\u201bThou", "'Thou")
+        ] + [
+            ("\u2018\u2018This fair child", 1, "'This"),
+            ("\u2018\u2018This fair child", 1, "\u2018This"),
+        ]
+        for scheme in ("v2", "v1"):
+            lex = LH.Lexicon(strip_parens=True, pronunciations=None, reader_scheme=scheme)
+            for line, token, word in refused:
+                with self.subTest(scheme=scheme, line=line, word=word):
+                    with self.assertRaisesRegex(ValueError, "exact sung token"):
+                        validate_choices([self.row(line, token, word)], lex)
+        lex = LH.Lexicon(strip_parens=True, pronunciations=None, reader_scheme="v2")
+        for line, token, word, bound in [
+                (SONNET_8_L14, 5, "\u2018Thou", "Thou"),
+                ("Roden, the Irishman, is \u2018sieven past,\u2019", 5, "\u2018sieven", "sieven"),
+                ("Roden, the Irishman, is \u2018sieven past,\u2019", 5, "'sieven", "sieven"),
+                ("Roden, the Irishman, is \u2018sieven past,\u2019", 5, "sieven", "sieven")]:
+            with self.subTest(line=line, word=word):
+                got = validate_choices([self.row(line, token, word)], lex)
+                self.assertEqual([(b["token"], b["word"]) for b in got], [(token, bound)])
+
+    def test_v1_validation_is_unchanged(self):
+        # Under v1 the mark is part of the word: the quoted spelling binds as
+        # written and the bare word is refused, exactly as before the rule.
+        from quality.pronunciation import validate_choices
+        lex = LH.Lexicon(strip_parens=True, pronunciations=None, reader_scheme="v1")
+        got = validate_choices([self.row(SONNET_2_L10, 5, "'This")], lex)
+        self.assertEqual([(b["token"], b["word"]) for b in got], [(5, "'This")])
+        with self.assertRaisesRegex(ValueError, "exact sung token"):
+            validate_choices([self.row(SONNET_2_L10, 5, "This")], lex)
+
+    def test_a_rebind_off_an_unquoted_token_is_refused(self):
+        from quality.pronunciation import rebind_occurrences
+        row = dict(self.row("If thou couldst answer This fair child", 5, "This"))
+        self.assertEqual(rebind_occurrences([row], "v1", "v2")[0]["token"], 5)
+        for line in ("If thou couldst answer \u2019This fair child",
+                     "If thou couldst answer ''This fair child"):
+            with self.subTest(line=line):
+                w = LH.reader_token_spans(line, True, "v1")[4][0]
+                bad = dict(self.row(line, 5, w))
+                try:
+                    out = rebind_occurrences([bad], "v1", "v2")
+                except ValueError:
+                    continue
+                self.assertEqual(LH.reader_token_spans(line, True, "v2")[out[0]["token"] - 1][0], w)
+
     def test_a_declaration_on_a_kept_mark_binds_as_before(self):
         from quality.pronunciation import validate_choices
         lex = LH.Lexicon(strip_parens=True, pronunciations=None)
@@ -177,10 +238,12 @@ class DeclaredPronunciations(unittest.TestCase):
                 if r["word"] not in old:
                     continue
                 j = old.index(r["word"])
-                now = [t.text for t in LH.reader_line(r["line"], strip_parens=sp).tokens]
+                toks = LH.reader_line(r["line"], strip_parens=sp).tokens
+                now = [t.text for t in toks]
                 with self.subTest(line=r["line"], word=r["word"], strip_parens=sp):
                     self.assertEqual(len(now), len(old))
-                    self.assertTrue(now[j] == r["word"] or declared_spelling(r["word"], now[j]))
+                    self.assertTrue(now[j] == r["word"] or declared_spelling(
+                        r["word"], now[j], r["line"], toks[j].pieces))
                 if now[j] != r["word"]:
                     quoted.append((r["line"], r["word"], now[j]))
         # The one stored declaration on a quotation mark: `\u2018sieven past,\u2019`.

@@ -41,16 +41,45 @@ def numbering_of(lex):
     return _scheme(lex) + ('' if lex.strip_parens else '+voices')
 
 
-def declared_spelling(word, token_text):
-    """-> True when the declared `word` is the token `token_text` as printed,
-    with the opening quotation mark the reader leaves out of the word
-    (`lyric_harness._opening_quotes`): a declaration that names `\u2018This`
-    binds the token `This`, and its reading is the one read there."""
-    from lyric_harness import fold_apostrophes
-    if not isinstance(word, str) or not isinstance(token_text, str):
+def declared_spelling(word, token_text, line, pieces):
+    """-> True when the declared `word` is the scheme-v2 token `token_text`,
+    at raw `pieces` of `line`, with the printed opening quotation mark the
+    reader left out of that word (`lyric_harness._opening_quotes`): for the
+    token `This` of `\u2018This fair child`, a declaration naming `\u2018This`,
+    or `'This` as the reader folds it, binds the token and its reading is the
+    one read there.
+
+    The source decides, not the spelling: the character just before the
+    token must be an opening quotation mark the reader dropped (one mark,
+    not one of a run), and `word` must be that occurrence -- the token less
+    nothing but that mark. An unquoted token, another leading mark, or a doubled one is
+    an ordinary spelling and is refused as one. Scheme v1 never drops a mark,
+    so its callers never ask."""
+    from lyric_harness import _OPENING_QUOTES, fold_apostrophes
+    if not (isinstance(word, str) and isinstance(token_text, str)
+            and isinstance(line, str) and pieces):
         return False
-    w = fold_apostrophes(word)
-    return w != token_text and w[:1] == "'" and w.lstrip("'") == token_text
+    start = pieces[0][0]
+    if not 1 <= start <= len(line):
+        return False
+    mark = line[start - 1]
+    # A mark the reader never folds to `'` (U+201B today) was never word
+    # material under either scheme, so no mark was taken off this word.
+    if mark not in _OPENING_QUOTES or fold_apostrophes(mark) != "'":
+        return False
+    if start >= 2 and fold_apostrophes(line[start - 2]) == "'":
+        return False
+    return word in (mark + token_text, "'" + token_text)
+
+
+def _quoted_here(line, token, word, strip_parens):
+    # `declared_spelling` at the v2 token `token` of `line`, read off its span.
+    from lyric_harness import reader_token_spans
+    spans = reader_token_spans(line, strip_parens, 'v2') or []
+    if not 1 <= token <= len(spans):
+        return False
+    text, pieces = spans[token - 1]
+    return declared_spelling(word, text, line, pieces)
 
 
 def numbered_token(line, token, lex, numbering=None, word=None):
@@ -67,7 +96,11 @@ def numbered_token(line, token, lex, numbering=None, word=None):
         rows = tokens(mark)
         if type(token) is int and 1 <= token <= len(rows):
             value = rows[token - 1]
-            if word is None or value[0] == word or declared_spelling(word, value[0]):
+            # Quote removal is a v2 reading: under a v1 reader, or at v1
+            # coordinates, the word must be exactly as written, as before.
+            if (word is None or value[0] == word
+                    or current.split('+')[0] == mark.split('+')[0] == 'v2'
+                    and declared_spelling(word, value[0], line, value[1])):
                 return value
         return None
 
@@ -145,8 +178,8 @@ def validate_choices(rows, lex):
             if 'numbering' in row or token != original_token:
                 row['numbering'] = numbering_of(lex)
         words = line_tokens(line, strip_parens=lex.strip_parens, scheme=scheme)
-        if (type(token) is int and 1 <= token <= len(words)
-                and declared_spelling(word, words[token-1])):
+        if (scheme == 'v2' and type(token) is int and 1 <= token <= len(words)
+                and word != words[token-1] and _quoted_here(line, token, word, lex.strip_parens)):
             # The declaration names the word with its opening quotation mark;
             # it binds the token, and the row records the token's own text.
             row = copy.deepcopy(row)
@@ -192,7 +225,7 @@ def rebind_occurrences(rows, from_scheme, to_scheme, strip_parens=True):
     this raises ValueError naming it -- a declaration is never re-attached to
     a nearby word. Nothing but `token` changes; rows are copied.
     """
-    from lyric_harness import reader_token_spans
+    from lyric_harness import reader_token_spans, resolve_reader_scheme
     out = []
     for row in rows:
         row = copy.deepcopy(row)
@@ -207,9 +240,10 @@ def rebind_occurrences(rows, from_scheme, to_scheme, strip_parens=True):
         # The same raw occurrence, or it less the opening quotation mark the
         # reader now leaves out of the word (`declared_spelling`).
         unquoted = ((span[0][0] + 1, span[0][1]),) + tuple(span[1:]) if span else span
+        to_v2 = resolve_reader_scheme(to_scheme) == 'v2'
         hits = [k for k, (text, pieces) in enumerate(dst or ())
                 if (pieces == span and text == word)
-                or (pieces == unquoted and declared_spelling(word, text))]
+                or (to_v2 and pieces == unquoted and declared_spelling(word, text, line, pieces))]
         if len(hits) != 1:
             raise ValueError(f'cannot rebind {word!r} at token {token} of {line!r}: '
                              f'no token under scheme {to_scheme} has the same raw span')

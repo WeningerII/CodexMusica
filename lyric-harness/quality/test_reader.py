@@ -2779,7 +2779,7 @@ class LegacyReplay(unittest.TestCase):
                            basis="declared", source="x")
                 less = ((pieces[0][0] + 1, pieces[0][1]),) + tuple(pieces[1:])
                 hits = [j for j, (w, p) in enumerate(dst) if p == pieces and w == word
-                        or p == less and declared_spelling(word, w)]
+                        or p == less and declared_spelling(word, w, text, p)]
                 if len(hits) == 1:
                     self.assertEqual(rebind_occurrences([row], "v1", "v2")[0]["token"], hits[0] + 1)
                 else:
