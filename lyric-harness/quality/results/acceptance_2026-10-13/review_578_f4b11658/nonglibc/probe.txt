@@ -1,0 +1,6 @@
+glibc import: 0 malloc_trim <_FuncPtr object at 0x7fda6c5d68d0> | gc_collect_runs 1 
+glibc worker: exit 0 results [(1, 0, 0), (2, 0, 0)] same_stdout True stderr_tail 
+nolibc(macOS/musl-like) import: 0 malloc_trim None | gc_collect_runs 1 
+nolibc(macOS/musl-like) worker: exit 0 results [(1, 0, 0), (2, 0, 0)] same_stdout True stderr_tail 
+windows-like import: 0 malloc_trim None | gc_collect_runs 1 
+windows-like worker: exit 0 results [(1, 0, 0), (2, 0, 0)] same_stdout True stderr_tail 
