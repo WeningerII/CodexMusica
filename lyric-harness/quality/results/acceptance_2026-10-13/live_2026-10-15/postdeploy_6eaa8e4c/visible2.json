@@ -1,0 +1,30 @@
+{
+ "voices_off": {
+  "sha256": "94dbde6a41896462fc82beeeb52213e26dea6b15bee03e4b11e2656878e3879e",
+  "requests": [
+   "GET https://mcp.codexmusica.com/chat/status"
+  ],
+  "chat_posts": 0,
+  "declarations": [],
+  "live": [
+   "Autosaved",
+   "Not reviewed",
+   "Nothing was sent. The [SETUP] row on document line 1, 1.T4, has no saved setting for whether parenthesized words were sung. Its number can refer to different occurrences. In Review, choose the occurrence you intended, or remove this declaration."
+  ],
+  "editor": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2 — cut v2]\nOh--oh, (ah) oh my love\na song for us above"
+ },
+ "voices_sung": {
+  "sha256": "94dbde6a41896462fc82beeeb52213e26dea6b15bee03e4b11e2656878e3879e",
+  "requests": [
+   "GET https://mcp.codexmusica.com/chat/status"
+  ],
+  "chat_posts": 0,
+  "declarations": [],
+  "live": [
+   "Autosaved",
+   "Not reviewed",
+   "Nothing was sent. The [SETUP] row on document line 1, 1.T4, has no saved setting for whether parenthesized words were sung. Its number can refer to different occurrences. In Review, choose the occurrence you intended, or remove this declaration."
+  ],
+  "editor": "[SETUP — rhyme groups — 1.T4 (numbered under the earlier cut with no saved setting for sung asides),2.end — numbering v2+voices — cut v2]\n[SETUP — voices — parentheses are sung]\nOh--oh, (ah) oh my love\na song for us above"
+ }
+}
