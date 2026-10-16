@@ -328,13 +328,21 @@ class AnalysisSession:
                     raise ValueError(f"INVALID_DECLARATION: {exc}") from None
                 # Every bound row keeps its caller's order; its public copy
                 # is the one the reader reads, with provenance redacted.
-                self.declarations["pronunciations"] = _public_declarations(lex.pronunciations)
+                bound = _public_declarations(lex.pronunciations)
+                # The public rows keep the historical six fields: their tokens
+                # are already in this process's numbering, the one the form
+                # and language layers' own unguarded lexicons read them under,
+                # and those lexicons refuse a seventh key.
+                self.declarations["pronunciations"] = [
+                    {k: v for k, v in row.items() if k != "numbering"} for row in bound]
+            else:
+                bound = copy.deepcopy(self.declarations.get("pronunciations") or [])
             lines = {r.get("analysis_text", r.get("text", "")) for r in self.rows if r.get("kind", "lyric") == "lyric"}
             if any(choice["line"] not in lines for choice in lex.pronunciations):
                 raise ValueError("STALE_READING: an exact pronunciation line is absent from this registered reading")
             # Validation reads the original provenance before it is redacted.
             # It cannot convert a blank/oversized source into a valid one.
-            lex.pronunciations = copy.deepcopy(self.declarations.get("pronunciations") or [])
+            lex.pronunciations = bound
             self.phon = English(fallback=settings.get("fallback"), readings=settings.get("readings", "all"), lexicon=lex)
         elif self.language == "ltc":
             from quality.phonology.ltc import MiddleChinese

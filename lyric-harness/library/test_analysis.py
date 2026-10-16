@@ -185,6 +185,40 @@ class ReaderAcceptance(unittest.TestCase):
         self.assertEqual({b["numbering"] for b in bound}, {"v2+voices"})
         self.assertEqual(session.phon.lexicon._numbering_notices, [])
 
+    def test_bound_pronunciations_reach_form_and_language(self):
+        # The form and language layers re-read the public declaration rows
+        # with their own lexicons: a marked, a rebound and a pinned row reach
+        # them in six fields, bound where the sound layer bound them.
+        import json
+        from pathlib import Path
+        import lyric_harness as LH
+        oh, lawdy = "Oh--oh, oh my love", "U--h, Lawdy"
+
+        def row(line, token, word, **extra):
+            return {"line": line, "token": token, "word": word, "phones": ["OW1"],
+                    "basis": "declared", "source": "the singer", **extra}
+
+        asset = Path(LH.__file__).resolve().parent / "imports/gutenberg-next-ten/pronunciations/69378.json"
+        payloads = json.loads(asset.read_text(encoding="utf-8"))
+        pinned = next(p["pronunciations"] for p in payloads.values()
+                      if any(r["line"].startswith("U--h") for r in p["pronunciations"]))
+        cases = {
+            "marked": (oh + "\n" + lawdy, [row(oh, 3, "oh", numbering="v2+voices")]),
+            "rebound": (oh + "\n" + lawdy, [row(lawdy, 2, "Lawdy")]),
+            "pinned": ("\n".join(dict.fromkeys(r["line"] for r in pinned)), pinned),
+        }
+        for name, (text, rows) in cases.items():
+            for layers in (["form"], ["language"]):
+                with self.subTest(case=name, layers=layers):
+                    session, records, last = complete(source(text), {"pronunciations": rows},
+                                                      schemas=[], layers=layers)
+                    self.assertTrue(last["done"])
+                    self.assertTrue(records)
+                    public = session.declarations["pronunciations"]
+                    self.assertTrue(all("numbering" not in r for r in public))
+                    self.assertEqual([(r["line"], r["token"]) for r in public],
+                                     [(r["line"], r["token"]) for r in session.phon.lexicon.pronunciations])
+
     def test_unknown_endpoint_is_not_previous_readable_word(self):
         _, rows, result = complete(source("cat qzxqzx\nhat qzxqzx"), schemas=["perfect rhyme"])
         pair = next(r for r in rows if r["kind"] == "native_pair")
