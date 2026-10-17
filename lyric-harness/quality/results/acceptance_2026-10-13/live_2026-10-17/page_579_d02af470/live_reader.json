@@ -1,0 +1,18 @@
+{
+ "at": "2026-10-17T21:28:14.044Z",
+ "reader_lines": 232,
+ "analyze_button": true,
+ "declarations_button": true,
+ "chunks_loaded": [
+  "core.0dcc6ec3f7.js",
+  "reader.4d0287465c.js",
+  "analysis.444aa6b634.js"
+ ],
+ "library_api_gets": [],
+ "blocked": [
+  "GET /chat/status"
+ ],
+ "errors": [
+  "console: Failed to load resource: net::ERR_FAILED"
+ ]
+}
