@@ -5,11 +5,15 @@
 // src/lyric-tokens.js v1GraderSpans / rebindBySpan).
 //
 // A choice saved on a device names a word of an exact line by token number.
-// Records written now carry `token_cut`; a record without it is legacy by
-// compatibility policy and is rebound once, by exact raw-span identity, from
-// the grader's earlier cut (scheme v1) to the current one (v2), or set aside
-// as needing the reader's decision. The harness is the oracle for both cuts:
-// lyric_harness._v1_token_spans and reader_token_spans(..., 'v2').
+// Records written now carry `token_cut`; a record without it is read under
+// both cuts (the two-cut rule): the same characters under both, or a match
+// only under the current cut (v2), keeps its number; a match only under the
+// earlier cut (v1) is rebound once, by exact raw-span identity; different
+// characters under the two, or neither, is set aside naming both. A reading
+// picked from analysis evidence goes through the same rule, and evidence from
+// a job that records no word cut is not picked from at all. The harness is
+// the oracle for both cuts: lyric_harness._v1_token_spans and
+// reader_token_spans(..., 'v2').
 const assert = require('node:assert/strict');
 const test = require('node:test');
 const fs = require('node:fs');
@@ -85,6 +89,8 @@ const OH = 'Oh--oh, oh my love';
 const LOVE = 'love 4 love, love me true';
 const PLAIN = 'the night is long above';
 const SPLIT = 'ways:--and the road';
+const LAWDY = 'U--h, Lawdy';
+const OHS = 'Oh--oh, oh, oh my love';
 const row = (line, token, word, extra = {}) => ({
   line,
   token,
@@ -143,44 +149,130 @@ test('the v1 migration cut is the harness’s _v1_token_spans on every fixture l
   }
 });
 
-test('an unmarked choice is rebound to the same characters, with a notice (R3 repro)', () => {
-  const [oh, love] = harnessCuts([OH, LOVE]);
-  // The pre-release choice for the standalone "oh" is token 2 under v1, at
-  // codepoints 8-10; under v2 token 2 is the "oh" inside "Oh--oh" (4-6).
-  same(oh.v1[1], ['oh', [[8, 10]]]);
-  same(oh.v2[1], ['oh', [[4, 6]]]);
-  same(love.v1[2], ['love', [[13, 17]]]);
-  same(love.v2[2], ['love', [[7, 11]]]);
-  const stored = { declarations: { pronunciations: [row(OH, 2, 'oh'), row(LOVE, 3, 'love')] } };
+test('the two-cut rule table for an unmarked choice (harness spans as oracle)', () => {
+  const lines = [OH, OHS, LOVE, LAWDY, SPLIT, PLAIN];
+  const cuts = Object.fromEntries(harnessCuts(lines).map((c, i) => [lines[i], c]));
+  // The oracle: which cut names `word` at `token`, and on which characters.
+  const oracle = (line, token, word) => {
+    const at = (cut) => {
+      const t = cuts[line][cut]?.[token - 1];
+      return t && t[0] === word ? JSON.stringify(t[1]) : null;
+    };
+    return { v1: at('v1'), v2: at('v2') };
+  };
+  const table = [
+    // [line, token, word, expected: kept | rebound N | aside]
+    [PLAIN, 5, 'above', 'kept'], // same characters under both
+    [OH, 3, 'oh', 'kept'], // v1's word 3 is "my": v2 only
+    [LAWDY, 3, 'Lawdy', 'kept'], // v1 has two words: v2 only
+    [LAWDY, 2, 'Lawdy', 3], // v1 only: rebound to the same characters
+    [OH, 3, 'my', 4], // v1 only
+    [LOVE, 2, 'love', 3], // v1 only (v2's word 2 is the numeral)
+    [OH, 2, 'oh', 'aside'], // both, on different characters
+    [OHS, 3, 'oh', 'aside'], // both, on different characters
+    [LOVE, 3, 'love', 'aside'], // both, on different characters
+    [LOVE, 2, 'oh', 'aside'], // neither
+    [SPLIT, 2, '--and', 'aside'], // v1 only, and no current word is exactly it
+  ];
+  for (const [line, token, word, want] of table) {
+    const o = oracle(line, token, word);
+    const s = A.savedInterpretation({ declarations: { pronunciations: [row(line, token, word)] } });
+    const sent = s.declarations.pronunciations;
+    const label = `${line} #${token} ${word}`;
+    if (want === 'kept') {
+      assert.ok(o.v2 && (!o.v1 || o.v1 === o.v2), `${label}: oracle says kept`);
+      same(sent, [row(line, token, word)], label);
+      same(s.undecided, [], label);
+    } else if (typeof want === 'number') {
+      assert.ok(o.v1 && !o.v2, `${label}: oracle says v1 only`);
+      same(
+        sent.map((r) => r.token),
+        [want],
+        label
+      );
+      same(cuts[line].v2[want - 1][1], JSON.parse(o.v1), `${label}: same characters`);
+      same(s.renumbered, [{ word, line, from: token, to: want }], label);
+    } else {
+      same(sent, [], label);
+      assert.equal(s.undecided.length, 1, label);
+    }
+  }
+});
+
+test('a choice valid under both cuts on different characters is set aside naming both', () => {
+  for (const [line, token, earlier, current] of [
+    [OH, 2, 'characters 9–10', 'characters 5–6'],
+    [OHS, 3, 'characters 13–14', 'characters 9–10'],
+  ]) {
+    const s = A.savedInterpretation({ declarations: { pronunciations: [row(line, token, 'oh')] } });
+    same(s.declarations.pronunciations, []);
+    const reason = s.undecided[0].reason;
+    assert.ok(reason.includes(`“oh” at ${earlier} under the earlier word cut`), reason);
+    assert.ok(reason.includes(`“oh” at ${current} under the current one`), reason);
+    assert.match(reason, /does not say which cut counted it/);
+    assert.ok(A.analysisRequest(READING, s, null, 'k').refused);
+  }
+  const neither = A.savedInterpretation({ declarations: { pronunciations: [row(LOVE, 2, 'oh')] } });
+  assert.match(
+    neither.undecided[0].reason,
+    /not “oh” under either word cut: the earlier word cut has “love” at characters 8–11 there and the current one has “4” at characters 6–6/
+  );
+});
+
+test('an unmarked v1-only choice is rebound to the same characters, with a notice', () => {
+  const [lawdy] = harnessCuts([LAWDY]);
+  same(lawdy.v1[1], ['Lawdy', [[6, 11]]]);
+  same(lawdy.v2[2], ['Lawdy', [[6, 11]]]);
+  const stored = { declarations: { pronunciations: [row(LAWDY, 2, 'Lawdy'), row(OH, 3, 'my')] } };
   const s = A.savedInterpretation(stored);
   const sent = s.declarations.pronunciations;
   same(
     sent.map((r) => [r.token, r.word]),
     [
-      [3, 'oh'],
-      [4, 'love'],
+      [3, 'Lawdy'],
+      [4, 'my'],
     ]
   );
-  // The token sent now names exactly the characters the old number named.
-  same(oh.v2[sent[0].token - 1][1], [[8, 10]]);
-  same(love.v2[sent[1].token - 1][1], [[13, 17]]);
   // Nothing but `token` moves: the row keeps the connector's six keys.
-  same(Object.keys(sent[0]), Object.keys(row(OH, 2, 'oh')));
+  same(Object.keys(sent[0]), Object.keys(row(LAWDY, 2, 'Lawdy')));
   same(s.undecided, []);
-  same(
-    s.renumbered.map((m) => [m.word, m.from, m.to]),
-    [
-      ['oh', 2, 3],
-      ['love', 3, 4],
-    ]
-  );
   const notice = A.renumberedNotice(s.renumbered);
-  assert.match(notice, /“oh” token 2 → 3/);
-  assert.match(notice, /“love” token 3 → 4/);
+  assert.match(notice, /“Lawdy” token 2 → 3/);
+  assert.match(notice, /“my” token 3 → 4/);
   assert.match(notice, /no word-cut mark/);
   const body = A.analysisRequest(READING, s, null, 'k');
   same(body.declaration_set.pronunciations, sent);
   assert.equal(body.idempotency_key, 'k');
+});
+
+// The retained chunk of the previous version saves `{ declarations }` with no
+// mark, so a record this page wrote under the current cut comes back
+// unmarked. Its v2-only and same-character rows survive as they were; a row
+// that names different words under the two cuts is not guessed at.
+test('a current-cut record re-saved without its mark keeps every row it can prove', () => {
+  const marked = {
+    declarations: {
+      pronunciations: [row(LAWDY, 3, 'Lawdy'), row(PLAIN, 5, 'above'), row(OHS, 3, 'oh')],
+    },
+    token_cut: LT.SCHEME,
+  };
+  same(
+    A.savedInterpretation(marked).declarations.pronunciations.map((r) => r.token),
+    [3, 5, 3]
+  );
+  const s = A.savedInterpretation({ declarations: marked.declarations });
+  same(
+    s.declarations.pronunciations.map((r) => [r.word, r.token]),
+    [
+      ['Lawdy', 3],
+      ['above', 5],
+    ]
+  );
+  same(s.renumbered, []);
+  same(
+    s.undecided.map((u) => [u.row.word, u.row.token]),
+    [['oh', 3]]
+  );
 });
 
 test('a line whose cut did not change binds byte-identically', () => {
@@ -230,7 +322,7 @@ test('a choice no current word covers exactly is set aside, never sent', () => {
     ]
   );
   assert.match(s.undecided[0].reason, /no word of the current cut covers exactly/);
-  assert.match(s.undecided[1].reason, /no longer names “oh”/);
+  assert.match(s.undecided[1].reason, /not “oh” under either word cut/);
   same(s.legacy, stored.declarations, 'the original rows are kept beside');
   const body = A.analysisRequest(READING, s, null, 'k');
   assert.ok(body.refused, 'no analysis starts while a choice awaits a decision');
@@ -284,7 +376,7 @@ test('an unknown cut mark refuses, naming the accepted value', async () => {
 test('the rebinding is written back once, marked, and survives a reload', async () => {
   const original = {
     declarations: {
-      pronunciations: [row(OH, 2, 'oh'), row(SPLIT, 2, '--and'), row(PLAIN, 1, 'the')],
+      pronunciations: [row(LAWDY, 2, 'Lawdy'), row(SPLIT, 2, '--and'), row(PLAIN, 1, 'the')],
     },
   };
   const dev = memoryDevice({ [KEY]: original });
@@ -297,7 +389,7 @@ test('the rebinding is written back once, marked, and survives a reload', async 
   same(
     saved.declarations.pronunciations.map((r) => [r.word, r.token]),
     [
-      ['oh', 3],
+      ['Lawdy', 3],
       ['the', 1],
     ]
   );
@@ -312,21 +404,69 @@ test('the rebinding is written back once, marked, and survives a reload', async 
     second.undecided.map((u) => u.row.word),
     ['--and']
   );
-  assert.match(A.renumberedNotice(second.renumbered), /“oh” token 2 → 3/);
+  assert.match(A.renumberedNotice(second.renumbered), /“Lawdy” token 2 → 3/);
   assert.ok(A.analysisRequest(READING, second, null, 'k').refused);
 });
 
 test('the Lyrics handoff carries the current cut’s rows only (route 3)', async () => {
   const dev = memoryDevice({
     'interpretation:unit:rev': {
-      declarations: { pronunciations: [row(OH, 2, 'oh'), row(SPLIT, 2, '--and')] },
+      declarations: { pronunciations: [row(LAWDY, 2, 'Lawdy'), row(SPLIT, 2, '--and')] },
     },
   });
   const lib = { device: { read: (k, f) => dev.get(k, f), write: (k, v) => dev.set(k, v) } };
   const handed = await A.declarations(READING, lib);
   same(
     handed.pronunciations.map((r) => [r.word, r.token]),
-    [['oh', 3]]
+    [['Lawdy', 3]]
   );
   assert.equal(dev.writes, 0, 'reading for a handoff never rewrites the device record');
+});
+
+// ── Picks from analysis evidence (F2-5, no marker) ────────────────────────
+const LABELLED = { identity: { reader_scheme: 'v2' } };
+const choiceOf = (line, token, word) => ({
+  line,
+  token,
+  word,
+  dictionary_readings: [{ phones: ['AA1'], syllables: 1, stress: [1] }],
+  matching_line_ids: [],
+});
+
+test('a pick from unmarked evidence goes through the two-cut rule', () => {
+  const oh = A.pickedChoice(choiceOf(OH, 2, 'oh'), LABELLED, ['OW1'], 'the singer');
+  assert.equal(oh.row, undefined, 'the ambiguous “oh” is not added');
+  assert.match(oh.refused, /^Not added: “oh” token 2 names two different words/);
+  assert.match(oh.refused, /characters 9–10 under the earlier word cut/);
+  assert.match(oh.refused, /characters 5–6 under the current one/);
+  const lawdy = A.pickedChoice(choiceOf(LAWDY, 2, 'Lawdy'), LABELLED, ['L', 'AO1'], 'me');
+  same(lawdy.row, {
+    line: LAWDY,
+    token: 3,
+    word: 'Lawdy',
+    phones: ['L', 'AO1'],
+    basis: 'dictionary',
+    source: 'me',
+  });
+  same(lawdy.moved, { from: 2, to: 3 });
+  const plain = A.pickedChoice(choiceOf(PLAIN, 5, 'above'), LABELLED, ['AH0'], 'me');
+  assert.equal(plain.row.token, 5);
+  assert.equal(plain.moved, null);
+});
+
+test('picks are disabled on evidence whose job records no word cut', () => {
+  for (const job of [{ identity: {} }, { identity: { engine_commit: null } }, null]) {
+    const got = A.pickedChoice(choiceOf(PLAIN, 5, 'above'), job, ['AH0'], 'me');
+    assert.equal(got.row, undefined);
+    assert.match(got.refused, /labelled earlier word cut/);
+    same(A.evidenceCut(job), { cut: null, label: 'earlier word cut', ok: false });
+  }
+  const other = A.pickedChoice(
+    choiceOf(PLAIN, 5, 'above'),
+    { identity: { reader_scheme: 'v1' } },
+    ['AH0'],
+    'me'
+  );
+  assert.match(other.refused, /labelled word cut “v1”: this page reads only word cut “v2”/);
+  assert.equal(A.evidenceCut(LABELLED).ok, true);
 });
