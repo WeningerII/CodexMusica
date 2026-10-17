@@ -8,7 +8,8 @@
 // of mcp/library_routes.js, library_viewer_routes.js, library_export_routes.js
 // and library_corpus_routes.js; search answers from the static w/title rows.
 //
-// Sections: explore, works, rights, reader, compare, analysis. A section whose
+// Sections: explore, works, rights, reader, compare, analysis,
+// declarations, retained. A section whose
 // chunk is not in the build prints SKIP (not a failure). Every section runs in
 // both themes at 1280 and 390 wide; any console error, uncaught exception,
 // failed same-origin request or horizontal page overflow fails the run.
@@ -714,42 +715,55 @@ const SECTIONS = {
 // carries token_cut; an unmarked one is rebound once on the same characters
 // with a visible notice, and a choice no current word covers is shown as
 // needing a decision, is not sent, and stops a new analysis until removed.
+// The inspector on a reader page, opened to its analysis status.
+async function inspectorOpen(page) {
+  await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
+  if (await page.isVisible('#surface-library [data-rd="sheet"]').catch(() => false))
+    await page.click('#surface-library [data-rd="sheet"]');
+  return page
+    .waitForSelector('#surface-library [data-act="analyze"]', { timeout: 15000 })
+    .catch(() => null);
+}
+// The Library's device store (core's IndexedDB): 'put' a record, or 'list'
+// every record whose key starts with `key`.
+const idbOp = (page, op, key, value) =>
+  page.evaluate(
+    ([op, key, value]) =>
+      new Promise((resolve, reject) => {
+        const r = indexedDB.open('codex-musica-library-v1', 1);
+        r.onupgradeneeded = () => r.result.createObjectStore('state');
+        r.onerror = () => reject(r.error);
+        r.onsuccess = () => {
+          const t = r.result.transaction('state', op === 'put' ? 'readwrite' : 'readonly');
+          const s = t.objectStore('state');
+          const out = {};
+          if (op === 'put') s.put(value, key);
+          else {
+            const c = s.openCursor();
+            c.onsuccess = () => {
+              const cur = c.result;
+              if (!cur) return;
+              if (String(cur.key).startsWith(key)) out[cur.key] = cur.value;
+              cur.continue();
+            };
+          }
+          t.oncomplete = () => (r.result.close(), resolve(out));
+          t.onerror = () => reject(t.error);
+        };
+      }),
+    [op, key, value]
+  );
+const savedChoice = (line, token, word) => ({
+  line,
+  token,
+  word,
+  phones: ['AA1'],
+  basis: 'declared',
+  source: 'the singer',
+});
 SECTIONS.declarations = async function ({ page, base, tag, log }) {
-  const open = async () => {
-    await settled(page, 'reader', '#surface-library .rd-paper .rd-line');
-    if (await page.isVisible('#surface-library [data-rd="sheet"]').catch(() => false))
-      await page.click('#surface-library [data-rd="sheet"]');
-    return page
-      .waitForSelector('#surface-library [data-act="analyze"]', { timeout: 15000 })
-      .catch(() => null);
-  };
-  const idb = (op, key, value) =>
-    page.evaluate(
-      ([op, key, value]) =>
-        new Promise((resolve, reject) => {
-          const r = indexedDB.open('codex-musica-library-v1', 1);
-          r.onupgradeneeded = () => r.result.createObjectStore('state');
-          r.onerror = () => reject(r.error);
-          r.onsuccess = () => {
-            const t = r.result.transaction('state', op === 'put' ? 'readwrite' : 'readonly');
-            const s = t.objectStore('state');
-            const out = {};
-            if (op === 'put') s.put(value, key);
-            else {
-              const c = s.openCursor();
-              c.onsuccess = () => {
-                const cur = c.result;
-                if (!cur) return;
-                if (String(cur.key).startsWith(key)) out[cur.key] = cur.value;
-                cur.continue();
-              };
-            }
-            t.oncomplete = () => (r.result.close(), resolve(out));
-            t.onerror = () => reject(t.error);
-          };
-        }),
-      [op, key, value]
-    );
+  const open = () => inspectorOpen(page);
+  const idb = (op, key, value) => idbOp(page, op, key, value);
   await go(page, base, `/read/${EPI_A}?lens=sound`);
   if (!check(`${tag} declarations: inspector mounted`, !!(await open()))) return;
   // An interpretation applied now is written with the current cut's mark.
@@ -765,19 +779,12 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
     written[key].token_cut === 'v2',
     JSON.stringify(written[key])
   );
-  const choice = (line, token, word) => ({
-    line,
-    token,
-    word,
-    phones: ['AA1'],
-    basis: 'declared',
-    source: 'the singer',
-  });
   await idb('put', key, {
     declarations: {
       pronunciations: [
-        choice('Oh--oh, oh my love', 2, 'oh'),
-        choice('ways:--and the road', 2, '--and'),
+        savedChoice('U--h, Lawdy', 2, 'Lawdy'),
+        savedChoice('ways:--and the road', 2, '--and'),
+        savedChoice('Oh--oh, oh my love', 2, 'oh'),
       ],
     },
   });
@@ -791,12 +798,19 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
     page.evaluate((s) => document.querySelector(s)?.innerText || '', `#surface-library ${sel}`);
   check(
     `${tag} declarations: the renumbering is said`,
-    /“oh” token 2 → 3/.test(await text('[data-cut="renumbered"]')),
+    /“Lawdy” token 2 → 3/.test(await text('[data-cut="renumbered"]')),
     await text('[data-cut="renumbered"]')
   );
   check(
     `${tag} declarations: the uncovered choice needs a decision`,
     /--and/.test(await text('[data-cut="undecided"]')),
+    await text('[data-cut="undecided"]')
+  );
+  check(
+    `${tag} declarations: a number naming different words under the two cuts is set aside naming both`,
+    /“oh” at characters 9–10 under the earlier word cut and “oh” at characters 5–6 under the current one/.test(
+      await text('[data-cut="undecided"]')
+    ),
     await text('[data-cut="undecided"]')
   );
   await page.click('#surface-library [data-act="analyze"]');
@@ -807,8 +821,10 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
       /Nothing was sent/.test(await text('.la-section[aria-live]')),
     log.slice(-4).join(' | ')
   );
-  await page.click('#surface-library [data-act="drop-undecided"]');
-  await page.waitForTimeout(300);
+  for (let i = 0; i < 2; i++) {
+    await page.click('#surface-library [data-act="drop-undecided"]');
+    await page.waitForTimeout(300);
+  }
   await page.click('#surface-library [data-act="analyze"]');
   await page
     .waitForFunction(
@@ -822,7 +838,7 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
   const body = log.find((l) => l.startsWith('BODY ')) || '';
   check(
     `${tag} declarations: the rebound choice is sent on its new number, the removed one never`,
-    /"token":3/.test(body) && !/--and/.test(body) && !/"token":2/.test(body),
+    /"token":3/.test(body) && !/--and/.test(body) && !/"token":2/.test(body) && !/"oh"/.test(body),
     body
   );
   const after = (await idb('list', key))[key] || {};
@@ -830,6 +846,119 @@ SECTIONS.declarations = async function ({ page, base, tag, log }) {
     `${tag} declarations: the saved record is marked, keeps the original, has no undecided`,
     after.token_cut === 'v2' && !!after.legacy_declarations && !after.undecided,
     JSON.stringify(after).slice(0, 300)
+  );
+};
+// A tab opened before this release still runs the previous generation's
+// analysis chunk (library/code/generations.json keeps it 30 days), and that
+// chunk saves `{ declarations }` with no word-cut mark. A record the current
+// page wrote under the current cut, re-saved there, comes back unmarked: the
+// current page keeps the rows it can prove (same characters under both cuts,
+// or a match only under the current cut) and sets aside, naming both
+// readings, a number that names different words under the two cuts, instead
+// of moving it to whichever word the earlier cut would give.
+const RETAINED_ANALYSIS = 'analysis.71b110b249.js';
+SECTIONS.retained = async function ({ page, base, tag }) {
+  const file = path.join(ROOT, 'library', 'code', RETAINED_ANALYSIS);
+  if (!fs.existsSync(file)) {
+    results.push(`SKIP ${tag} retained — ${RETAINED_ANALYSIS} is no longer kept`);
+    return;
+  }
+  const bytes = fs.readFileSync(file);
+  const integrity = `sha384-${require('crypto').createHash('sha384').update(bytes).digest('base64')}`;
+  const idb = (op, key, value) => idbOp(page, op, key, value);
+  const text = (sel) =>
+    page.evaluate((q) => document.querySelector(q)?.innerText || '', `#surface-library ${sel}`);
+  await go(page, base, `/read/${EPI_A}?lens=sound`);
+  if (!check(`${tag} retained: current inspector mounted`, !!(await inspectorOpen(page)))) return;
+  const key = `interpretation:${EPI_A}:`;
+  const rows = [
+    savedChoice('U--h, Lawdy', 3, 'Lawdy'), // a match only under the current cut
+    savedChoice('the night is long above', 5, 'above'), // same characters under both
+    savedChoice('Oh--oh, oh, oh my love', 3, 'oh'), // different characters under each
+  ];
+  // The current page saves an interpretation (marked), and holds these rows
+  // as a record it wrote under the current cut.
+  await page.click('#surface-library [data-act="decl"]');
+  await page.waitForSelector('#surface-library .la-decl [data-act="save"]', { timeout: 10000 });
+  await page.click('#surface-library .la-decl [data-act="save"]');
+  await page.waitForTimeout(300);
+  let saved = await idb('list', key);
+  const full = Object.keys(saved)[0];
+  if (
+    !check(
+      `${tag} retained: the current page saved a marked record`,
+      saved[full]?.token_cut === 'v2',
+      JSON.stringify(saved)
+    )
+  )
+    return;
+  await idb('put', full, { declarations: { pronunciations: rows }, token_cut: 'v2' });
+  // An old tab: codex.html as the previous build wrote it, naming the
+  // retained analysis chunk.
+  await page.route(`${base}/codex.html`, async (route) => {
+    const res = await route.fetch();
+    const html = (await res.text()).replace(
+      /analysis:\["library\/code\/analysis\.[0-9a-f]{10}\.js","sha384-[^"]+"\]/,
+      `analysis:["library/code/${RETAINED_ANALYSIS}","${integrity}"]`
+    );
+    await route.fulfill({ response: res, body: html });
+  });
+  await page.route(`${base}/library/code/${RETAINED_ANALYSIS}`, (route) =>
+    route.fulfill({ status: 200, contentType: 'text/javascript', body: bytes })
+  );
+  await page.reload();
+  await page.waitForSelector('#surface-library', { state: 'attached', timeout: 20000 });
+  if (!check(`${tag} retained: the retained chunk mounted`, !!(await inspectorOpen(page)))) return;
+  check(
+    `${tag} retained: the old tab runs the retained chunk`,
+    await page.evaluate(
+      (name) => [...document.scripts].some((s) => s.src.endsWith(name)),
+      RETAINED_ANALYSIS
+    )
+  );
+  await page.click('#surface-library [data-act="decl"]');
+  await page.waitForSelector('#surface-library .la-decl [data-act="save"]', { timeout: 10000 });
+  await page.click('#surface-library .la-decl [data-act="save"]');
+  await page.waitForTimeout(300);
+  saved = (await idb('list', key))[full] || {};
+  check(
+    `${tag} retained: the retained chunk's save drops the word-cut mark`,
+    saved.token_cut === undefined && saved.declarations?.pronunciations?.length === 3,
+    JSON.stringify(saved).slice(0, 300)
+  );
+  // The same tab reloaded after the release: the current chunk again.
+  await page.unroute(`${base}/codex.html`);
+  await page.unroute(`${base}/library/code/${RETAINED_ANALYSIS}`);
+  await page.reload();
+  await page.waitForSelector('#surface-library', { state: 'attached', timeout: 20000 });
+  if (!check(`${tag} retained: the current chunk remounted`, !!(await inspectorOpen(page)))) return;
+  await page
+    .waitForSelector('#surface-library [data-cut="undecided"]', { timeout: 10000 })
+    .catch(() => {});
+  const undecided = await text('[data-cut="undecided"]');
+  check(
+    `${tag} retained: the number that names different words is set aside, naming both`,
+    /“oh” at characters 13–14 under the earlier word cut and “oh” at characters 9–10 under the current one/.test(
+      undecided
+    ),
+    undecided
+  );
+  check(
+    `${tag} retained: no row was moved to another word`,
+    !(await page.$('#surface-library [data-cut="renumbered"]')),
+    await text('[data-cut="renumbered"]')
+  );
+  const after = (await idb('list', key))[full] || {};
+  check(
+    `${tag} retained: the provable rows are kept on their numbers, and the record is marked again`,
+    after.token_cut === 'v2' &&
+      JSON.stringify(after.declarations?.pronunciations?.map((r) => [r.word, r.token])) ===
+        JSON.stringify([
+          ['Lawdy', 3],
+          ['above', 5],
+        ]) &&
+      after.undecided?.length === 1,
+    JSON.stringify(after).slice(0, 400)
   );
 };
 const NEEDS = {
@@ -840,6 +969,7 @@ const NEEDS = {
   compare: 'compare',
   analysis: 'analysis',
   declarations: 'analysis',
+  retained: 'analysis',
 };
 
 (async () => {
@@ -861,7 +991,7 @@ const NEEDS = {
       if (ONLY && !ONLY.has(name)) continue;
       const need = [
         NEEDS[name],
-        ...(['compare', 'analysis', 'declarations'].includes(name) ? ['reader'] : []),
+        ...(['compare', 'analysis', 'declarations', 'retained'].includes(name) ? ['reader'] : []),
       ];
       const missing = need.filter((c) => !chunks.has(c));
       if (missing.length) {
