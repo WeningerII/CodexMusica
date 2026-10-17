@@ -1,0 +1,75 @@
+{
+  "label": "G4 controlled disagreement — synthetic, not engine evidence",
+  "results": [
+    {
+      "viewport": "1440x900",
+      "swapped": {
+        "real_records_replaced": true,
+        "endpoints_from": "relation_instance:f63036a1472b5d2257eaa0c0ed19bff0",
+        "records": [
+          "rhyme=false",
+          "assonance=true"
+        ]
+      },
+      "freshness": "current",
+      "rhymes_row_text": "Rhymes Declared rhyme links",
+      "relation_rows": [
+        {
+          "id": "g4-synthetic-rhyme-false",
+          "text": "rhyme · Not confirmed"
+        },
+        {
+          "id": "g4-synthetic-assonance-true",
+          "text": "assonance · Confirmed"
+        }
+      ],
+      "relations_text": "Relations\n2 reported pairs. Coverage partial; this is not a complete census.\nThese results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.\nReported relations between pairs of lyric spans, using the readings graded. Whole-song patterns and other possible readings were not searched.\nReport scope and exclusions\n2 of 2, in lyric order\nrhyme · Not confirmed\nA · L1 Go to A: cat\nB · L2 Go to B: bad\nassonance · Confirmed\nA · L1 Go to A: cat\nB · L2 Go to B: bad\nCloseReturn to editing originBack to previous panelStay here and end inspection",
+      "horizontal_overflow": false,
+      "checks": {
+        "rhymes_says_declared_rhyme_links": true,
+        "rhyme_not_confirmed_row": true,
+        "assonance_confirmed_row": true,
+        "both_on_one_row": false,
+        "evidence_still_current": true,
+        "no_page_errors": true,
+        "no_horizontal_overflow": true
+      },
+      "pageErrors": []
+    },
+    {
+      "viewport": "390x844",
+      "swapped": {
+        "real_records_replaced": true,
+        "endpoints_from": "relation_instance:f63036a1472b5d2257eaa0c0ed19bff0",
+        "records": [
+          "rhyme=false",
+          "assonance=true"
+        ]
+      },
+      "freshness": "current",
+      "rhymes_row_text": "Rhymes Declared rhyme links",
+      "relation_rows": [
+        {
+          "id": "g4-synthetic-rhyme-false",
+          "text": "rhyme · Not confirmed"
+        },
+        {
+          "id": "g4-synthetic-assonance-true",
+          "text": "assonance · Confirmed"
+        }
+      ],
+      "relations_text": "Relations\n2 reported pairs. Coverage partial; this is not a complete census.\nThese results come from checks of your lyrics. They are separate from your declared rhyme scheme and suggested words.\nReported relations between pairs of lyric spans, using the readings graded. Whole-song patterns and other possible readings were not searched.\nReport scope and exclusions\n2 of 2, in lyric order\nrhyme · Not confirmed\nA · L1 Go to A: cat\nB · L2 Go to B: bad\nassonance · Confirmed\nA · L1 Go to A: cat\nB · L2 Go to B: bad\nCloseReturn to editing originStay here and end inspection",
+      "horizontal_overflow": false,
+      "checks": {
+        "rhymes_says_declared_rhyme_links": true,
+        "rhyme_not_confirmed_row": true,
+        "assonance_confirmed_row": true,
+        "both_on_one_row": false,
+        "evidence_still_current": true,
+        "no_page_errors": true,
+        "no_horizontal_overflow": true
+      },
+      "pageErrors": []
+    }
+  ]
+}
