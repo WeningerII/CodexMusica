@@ -31,6 +31,38 @@
   const SCHEME = 'v2';
   const APOSTROPHES = '’‘ʼʻ՚＇`´';
   const SHY = '­';
+  // lyric_harness.LEADING_ELISIONS and _OPENING_QUOTES (the opening-quote rule).
+  const OPENING_QUOTES = '\u2018\u201b';
+  const LEADING_ELISIONS = new Set([
+    "'bout",
+    "'cause",
+    "'course",
+    "'cuse",
+    "'em",
+    "'frisco",
+    "'gain",
+    "'kay",
+    "'round",
+    "'til",
+    "'tis",
+    "'twas",
+    "'gainst",
+    "'mong",
+    "'mongst",
+    "'neath",
+    "'twere",
+    "'twixt",
+    "'twould",
+    "'d",
+    "'ll",
+    "'m",
+    "'n",
+    "'n'",
+    "'re",
+    "'s",
+    "'t",
+    "'ve",
+  ]);
   const WS =
     '\\t-\\r\\x1c-\\x20\\x85\\xa0\\u1680\\u2000-\\u200a\\u2028\\u2029\\u202f\\u205f\\u3000';
   const WS_ONE = new RegExp(`^[${WS}]$`);
@@ -163,6 +195,10 @@
       while (lo < hi && st[idx[lo]][0] === SHY) lo++;
       while (hi > lo && st[idx[hi - 1]][0] === SHY) hi--;
       idx = idx.slice(lo, hi);
+      // A mark openingQuotes judged an opening quotation leaves the token.
+      let k = 0;
+      while (k < idx.length && (drop.has(idx[k]) || st[idx[k]][0] === SHY)) k++;
+      idx = idx.slice(k);
       if (!idx.length) return null;
       const chars = idx
         .map((i) => st[i][0])
@@ -184,11 +220,13 @@
       };
     };
 
-    const cut = (member, keep) => {
+    const drop = new Set();
+    const cut = (member, keep, groups) => {
       const out = [];
       let cur = [];
       const close = () => {
         if (cur.length) {
+          if (groups) groups.push(cur.slice());
           const tok = make(cur);
           if (tok && keep(tok)) out.push(tok);
           cur = [];
@@ -233,10 +271,29 @@
       return out;
     };
 
-    const tokens = cut(
-      (c) => LATIN_ONE.test(c) || c === "'" || c === SHY || N_ONE.test(c),
-      (t) => LATIN_ANY.test(t.text) || t.numeral
-    );
+    const tokenMember = (c) => LATIN_ONE.test(c) || c === "'" || c === SHY || N_ONE.test(c);
+    const tokenKeep = (t) => LATIN_ANY.test(t.text) || t.numeral;
+    // lyric_harness._opening_quotes: a token-initial ' whose raw character is
+    // U+2018/U+201B, on a word that is not a listed leading elision.
+    const groups = [];
+    cut(tokenMember, tokenKeep, groups);
+    for (const g0 of groups) {
+      const g = g0.filter((i) => st[i][0] !== SHY);
+      if (
+        g.length >= 2 &&
+        st[g[0]][0] === "'" &&
+        st[g[1]][0] !== "'" &&
+        OPENING_QUOTES.includes(cps[st[g[0]][1]]) &&
+        !LEADING_ELISIONS.has(
+          g
+            .map((i) => st[i][0])
+            .join('')
+            .toLowerCase()
+        )
+      )
+        drop.add(g[0]);
+    }
+    const tokens = cut(tokenMember, tokenKeep);
     const runs = cut(
       (c) => L_ONE.test(c) || c === "'" || c === SHY || M_ONE.test(c) || N_ONE.test(c),
       (t) => Array.from(t.text).some((c) => L_ONE.test(c)) || t.numeral
@@ -357,6 +414,8 @@
 
   const api = {
     SCHEME,
+    LEADING_ELISIONS,
+    OPENING_QUOTES,
     readerLine,
     lineTokens,
     v1GraderSpans,

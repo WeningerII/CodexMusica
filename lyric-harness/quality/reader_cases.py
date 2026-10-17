@@ -162,6 +162,31 @@ V2_REGRESSIONS = [
 ]
 
 
+#: An opening quotation mark leaves the word; a leading elision keeps its
+#: apostrophe (2026-10-16, `lyric_harness.LEADING_ELISIONS`). The four sonnet
+#: lines whose quoted `‘This`/`‘Thou` read as words of their own, and the
+#: elisions and apostrophes that must not move.
+QUOTE_REGRESSIONS = [
+    # the four sonnet pairs' lines (Sonnets 2 and 8) and the seam's one gain
+    "If thou couldst answer \u2018This fair child of mine",
+    "Sings this to thee: \u2018Thou single wilt prove none.\u2019",
+    "\u2018Margaret! Margaret!\u2019",
+    # paired and standalone quotation marks, single and double
+    "\u2018Margaret\u2019 and \u201bOdd, \u201cThis\u201d and \"This\" and x \u2018 y",
+    "'Our Father' and `quoted` and \u00b4tick\u00b4 and \uff07wide\uff07",
+    # leading elisions, listed, in each typography
+    "\u2019Tis late, \u2018tis late, 'Twas so, 'twere, 'twould, 'twixt",
+    "'gainst 'neath 'mong 'mongst 'em 'bout 'cause 'round 'til 'kay 'course",
+    # unlisted dialect forms and names keep their mark
+    "'lasses an' 'ead, 'Arry's boys' 'ats, \u2019ould \u2019spects 'Nudder",
+    # internal and trailing apostrophes
+    "o'er the ne'er th' sea, e'en so; the world\u2019s end, hours' toil, ca' canny, goin\u2019",
+    "rock 'n' roll, I 'm, ye 're, 've, 'd, 'll, 's, 't",
+    # soft hyphens and doubled marks at the edge
+    "\u2018\u00adThis and \u00ad\u2018tis and \u2018\u2018Twice and \u20182nd",
+]
+
+
 #: The non-letter starters whose normal form carries a combining mark:
 #: U+2ADC FORKING and the musical note symbols U+1D15E-U+1D164 and
 #: U+1D1BB-U+1D1C0 -- every codepoint that is not a letter, a mark or a
@@ -230,13 +255,16 @@ def mirror_fixture():
         return [[t.text, [list(p) for p in t.pieces], t.numeral, t.aside] for t in seq]
     out = []
     for text in (generated_lines(1000, seed=7) + REGRESSIONS + V2_REGRESSIONS
-                 + class_boundary_lines() + nfc_mark_symbol_lines()):
+                 + class_boundary_lines() + nfc_mark_symbol_lines()
+                 + QUOTE_REGRESSIONS):
         row = {"text": text}
         for sp, key in ((True, "strip"), (False, "keep")):
             rl = LH.reader_line(text, strip_parens=sp, scheme="v2")
             row[key] = {"tokens": rows(rl.tokens), "runs": rows(rl.runs)}
         out.append(row)
     return {"scheme": "v2", "generator": "quality/reader_cases.py mirror_fixture()",
+            "leading_elisions": sorted(LH.LEADING_ELISIONS),
+            "opening_quotes": LH._OPENING_QUOTES,
             "cases": out}
 
 

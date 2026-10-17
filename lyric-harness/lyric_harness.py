@@ -2529,6 +2529,42 @@ def reader_line(text, strip_parens=True, scheme=None):
     return _reader_line_v2(str(text), bool(strip_parens))
 
 
+#: The raw characters that only ever OPEN a quotation. A printer sets an
+#: elided letter as U+2019 (`\u2019Tis`, `o\u2019er`) and an opening quotation
+#: as U+2018 (or its reversed form U+201B), so a word-initial U+2018/U+201B is
+#: a quotation mark by the printer's own convention.
+_OPENING_QUOTES = "\u2018\u201b"
+
+
+def _opening_quotes(text, stream, groups):
+    """-> the stream indices of the opening quotation marks among `groups`
+    (the reader's token cuts, before any is dropped).
+
+    The fold makes every apostrophe `'`, so a quoted `\u2018This` read as the
+    word `'This`, a different word from `This`, and the two counted as an
+    internal rhyme (2026-10-16, four sonnet pairs). A token's initial `'`
+    leaves the word when its RAW character is U+2018 or U+201B and the word
+    is not a listed leading elision (`LEADING_ELISIONS`, which keeps a
+    mis-set `\u2018tis`). Nothing else is judged a quotation mark:
+      - U+2019 and the modifier letters print elisions (`\u2019Tis`);
+      - a straight `'`, a backtick, U+00B4 and U+FF07 print an elision, a
+        name and a quotation alike (`'lasses`, `'Arry`, `'Our Father'`),
+        and a dialect line closes elisions as often as quotations (`an'`,
+        `goin'`), so no pairing tells them apart: they read as written;
+      - a token-final mark prints a possessive (`hours'`) or an elision
+        (`goin\u2019`) as often as a close, and is never dropped.
+    A declared pronunciation still binds its word (`quality.pronunciation`
+    `validate_choices` accepts the declared spelling with its mark)."""
+    out = set()
+    for g in groups:
+        g = [i for i in g if stream[i][0] != _SHY]
+        if (len(g) >= 2 and stream[g[0]][0] == "'" and stream[g[1]][0] != "'"
+                and text[stream[g[0]][1]] in _OPENING_QUOTES
+                and "".join(stream[i][0] for i in g).lower() not in LEADING_ELISIONS):
+            out.add(g[0])
+    return out
+
+
 @functools.lru_cache(maxsize=1 << 16)
 def _reader_line_v2(text, strip_parens):
     stream = _reader_stream(text)
@@ -2565,6 +2601,10 @@ def _reader_line_v2(text, strip_parens):
             idx = idx[1:]
         while idx and stream[idx[-1]][0] == _SHY:
             idx = idx[:-1]
+        # A mark `quote_marks` judged an opening quotation is not word
+        # material: it leaves the token's text and its pieces.
+        while idx and (idx[0] in drop or stream[idx[0]][0] == _SHY):
+            idx = idx[1:]
         if not idx:
             return None
         chars = "".join(stream[i][0] for i in idx if stream[i][0] != _SHY)
@@ -2580,11 +2620,15 @@ def _reader_line_v2(text, strip_parens):
         return ReaderToken(chars, tuple((a, b) for a, b in pieces),
                            has_numeral(chars), any(i in aside for i in idx))
 
-    def cut(member, keep):
+    drop = set()
+
+    def cut(member, keep, groups=None):
         out, cur = [], []
 
         def close():
             if cur:
+                if groups is not None:
+                    groups.append(list(cur))
                 tok = make(list(cur))
                 if tok is not None and keep(tok):
                     out.append(tok)
@@ -2624,9 +2668,16 @@ def _reader_line_v2(text, strip_parens):
         close()
         return tuple(out)
 
-    tokens = cut(lambda c: bool(LATIN_SCRIPT.match(c)) or c == "'" or c == _SHY
-                 or _is_numeral(c),
-                 lambda t: bool(LATIN_SCRIPT.search(t.text)) or t.numeral)
+    def token_member(c):
+        return bool(LATIN_SCRIPT.match(c)) or c == "'" or c == _SHY or _is_numeral(c)
+
+    def token_keep(t):
+        return bool(LATIN_SCRIPT.search(t.text)) or t.numeral
+
+    groups = []
+    cut(token_member, token_keep, groups)
+    drop.update(_opening_quotes(text, stream, groups))
+    tokens = cut(token_member, token_keep)
     runs = cut(lambda c: c.isalpha() or c == "'" or c == _SHY
                or unicodedata.category(c)[0] in "MN",
                lambda t: any(c.isalpha() for c in t.text) or t.numeral)
@@ -5669,6 +5720,19 @@ def consonant_skeleton(sylls):
 #: files, against 41,925 straight ones, so the SAME WORD arrives in two
 #: typographies from two printers and produced two different end words.
 APOSTROPHES = "\u2019\u2018\u02bc\u02bb\u055a\uff07`\u00b4"
+
+#: The words whose leading apostrophe IS the word (folded, lower case):
+#: every CMUdict headword that opens with one, every such row of
+#: `data/eng_elision.tsv`, and the bare enclitics and `'n'`. Any other
+#: token-initial `'` is an opening quotation mark and the reader drops it
+#: (`_reader_line_v2`). `quality/test_reader_quotes.py` holds this list to
+#: the two data files, and `src/lyric-tokens.js` mirrors it.
+LEADING_ELISIONS = frozenset((
+    "'bout", "'cause", "'course", "'cuse", "'em", "'frisco", "'gain",
+    "'kay", "'round", "'til", "'tis", "'twas",
+    "'gainst", "'mong", "'mongst", "'neath", "'twere", "'twixt", "'twould",
+    "'d", "'ll", "'m", "'n", "'n'", "'re", "'s", "'t", "'ve",
+))
 
 
 def fold_apostrophes(text):
