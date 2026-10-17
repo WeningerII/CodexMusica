@@ -677,19 +677,68 @@ function deviceStore(lib) {
 // warning. So every record this page writes names the cut its numbers were
 // counted under, in one field of the saved record (`token_cut`, this page's
 // own storage; the rows sent to the analysis are unchanged in shape). A
-// record WITHOUT it is legacy by compatibility policy, which says nothing
-// certain about when it was written: its numbers are read as the server's
-// earlier cut (CMLyricTokens.v1GraderSpans, the cut its reading_choices were
-// numbered under) and each row is rebound ONCE, by exact raw-span identity,
-// to the current word covering exactly the same characters. A number that
-// changes is said, in the status area, until the reader saves again. A row
-// with no such word -- or whose old number no longer names its own word -- is
-// never dropped and never re-attached to a nearby word: it is set aside as
-// needing the reader's decision, is not sent, and no new analysis starts
-// until it is removed (and chosen again). A record naming a cut this page
-// does not know refuses the same way, naming the accepted value. The
-// original rows of a rebound record are kept beside it (legacy_declarations).
+// record WITHOUT it says nothing certain about when it was written or which
+// cut its numbers were counted under: an earlier version of this page wrote
+// every record unmarked, and the retained chunk of that version (served to
+// tabs opened before this release) still drops the mark when it saves. So
+// each unmarked row is read under BOTH cuts (the two-cut rule, twoCutBinding):
+// a number that names the saved word on the same characters under both, or
+// only under the current cut, is kept; one that names it only under the
+// earlier cut (CMLyricTokens.v1GraderSpans, the cut the server's
+// reading_choices were numbered under) is rebound once, by exact raw-span
+// identity, to the current word covering exactly the same characters. A
+// number that names the word on DIFFERENT characters under the two cuts, or
+// under neither, cannot be read without a guess: it is set aside, naming
+// both readings. A number that changes is said, in the status area, until
+// the reader saves again. A set-aside row is never dropped and never
+// re-attached to a nearby word: it needs the reader's decision, is not sent,
+// and no new analysis starts until it is removed (and chosen again). A
+// record naming a cut this page does not know refuses the same way, naming
+// the accepted value. The original rows of a rebound record are kept beside
+// it (legacy_declarations).
 const DECL_CUT = CMLyricTokens.SCHEME;
+// 1-based codepoint positions of a token's characters in its line, for a
+// reason the reader can check against the text.
+function charactersOf(line, t) {
+  const cp = (u) => Array.from(line.slice(0, u)).length;
+  const first = t.pieces[0][0];
+  const last = t.pieces[t.pieces.length - 1][1];
+  return `“${t.text}” at characters ${cp(first) + 1}–${cp(last)}`;
+}
+// The two-cut rule for a word number that does not say which cut counted it
+// (an unmarked saved row, or a reading picked from evidence that carries no
+// numbering marker): word `token` of `line` (asides sung, as the Library
+// reads every line) -> { token } under the current cut, or { blocked }.
+//   names `word` on the same characters under both cuts, or only under the
+//     current cut                       -> kept as it is;
+//   names it only under the earlier cut -> rebound by exact raw span
+//     (CMLyricTokens.rebindBySpan), or blocked when no current word covers
+//     exactly those characters;
+//   names it on different characters under the two cuts, or under neither
+//                                       -> blocked, naming both readings.
+function twoCutBinding(line, token, word) {
+  const old = CMLyricTokens.v1GraderSpans(line, false);
+  const cur = CMLyricTokens.readerLine(line, { stripParens: false }).tokens;
+  const a = token >= 1 ? old?.[token - 1] : undefined;
+  const b = token >= 1 ? cur[token - 1] : undefined;
+  const v1 = a && a.text === word ? a : null;
+  const v2 = b && b.text === word ? b : null;
+  const samePieces =
+    v1 &&
+    v2 &&
+    v1.pieces.length === v2.pieces.length &&
+    v1.pieces.every(([x, y], k) => x === v2.pieces[k][0] && y === v2.pieces[k][1]);
+  if (v2 && (!v1 || samePieces)) return { token };
+  if (v1 && v2)
+    return {
+      blocked: `token ${token} names two different words: ${charactersOf(line, v1)} under the earlier word cut and ${charactersOf(line, v2)} under the current one, and the record does not say which cut counted it`,
+    };
+  if (v1) return CMLyricTokens.rebindBySpan(line, token, word, old, false);
+  const at = (t) => (t ? charactersOf(line, t) : 'no word');
+  return {
+    blocked: `token ${token} is not “${word}” under either word cut: the earlier word cut has ${at(a)} there and the current one has ${at(b)}`,
+  };
+}
 const listOf = (x) => (Array.isArray(x) ? x : []);
 // A stored record -> { declarations, undecided:[{row, reason}],
 // renumbered:[{word, line, from, to}], legacy, cut, changed }. Pure.
@@ -730,13 +779,7 @@ function savedInterpretation(stored) {
       typeof row.word === 'string' &&
       Number.isInteger(row.token);
     const got = shaped
-      ? CMLyricTokens.rebindBySpan(
-          row.line,
-          row.token,
-          row.word,
-          CMLyricTokens.v1GraderSpans(row.line, false),
-          false
-        )
+      ? twoCutBinding(row.line, row.token, row.word)
       : { blocked: 'it does not name a line, a word number and its word' };
     if (got.blocked) undecided.push({ row, reason: got.blocked });
     else if (got.token === row.token) kept.push(row);
@@ -762,6 +805,56 @@ const interpretationRecord = (s) => ({
   ...(s.renumbered.length ? { renumbered: s.renumbered } : {}),
   ...(s.legacy !== undefined ? { legacy_declarations: s.legacy } : {}),
 });
+// ── Choices picked from analysis evidence ──────────────────────────────────
+// A token's reading_choices carry the number the analysis counted it under.
+// Only a job whose identity records the word cut (`reader_scheme`) says which
+// cut that was; evidence from a job that does not is labelled "earlier word
+// cut" and nothing is picked from it. This page reads no numbering marker on
+// the evidence itself, so every pick from labelled evidence goes through the
+// two-cut rule, as an unmarked saved row does. -> { cut, label, ok }.
+function evidenceCut(job) {
+  const cut = job?.identity?.reader_scheme;
+  if (cut === DECL_CUT) return { cut, label: '', ok: true };
+  return {
+    cut: cut ?? null,
+    label: cut === undefined || cut === null ? 'earlier word cut' : `word cut “${String(cut)}”`,
+    ok: false,
+  };
+}
+function evidenceCutNote(e) {
+  return `This evidence is labelled ${e.label}: ${
+    e.cut === null
+      ? 'its analysis does not record which word cut numbered its words'
+      : `this page reads only word cut “${DECL_CUT}”`
+  }, so a pronunciation cannot be chosen from it. Run a new whole-work analysis to choose from current evidence.`;
+}
+// A dictionary reading picked from one token's reading_choices -> { row,
+// moved } to add to the declarations, or { refused } naming why.
+function pickedChoice(choice, job, phones, source) {
+  const e = evidenceCut(job);
+  if (!e.ok) return { refused: evidenceCutNote(e) };
+  const got =
+    choice && typeof choice.line === 'string' && typeof choice.word === 'string'
+      ? Number.isInteger(choice.token)
+        ? twoCutBinding(choice.line, choice.token, choice.word)
+        : { blocked: 'it names no word number' }
+      : { blocked: 'it does not name a line and a word' };
+  if (got.blocked)
+    return {
+      refused: `Not added: “${String(choice?.word ?? '?')}” ${got.blocked}. Declare it in Advanced sourced declarations with the number of the word you mean.`,
+    };
+  return {
+    row: {
+      line: choice.line,
+      token: got.token,
+      word: choice.word,
+      phones,
+      basis: 'dictionary',
+      source,
+    },
+    moved: got.token !== choice.token ? { from: choice.token, to: got.token } : null,
+  };
+}
 // Reads the saved interpretation; an unmarked record is rebound and written
 // back once, marked. A record naming an unknown cut is left exactly as
 // stored until the reader acts. -> state + { migrated, persisted }.
@@ -792,7 +885,7 @@ function undecidedRefusal(list) {
     .map((u) => `“${String(u.row?.word ?? '?')}”`)
     .join(
       ', '
-    )}) could not be matched to a word of the current reading. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.`;
+    )}) could not be placed on one word of the current reading without a guess. Remove each in the list of saved choices awaiting a decision, then choose it again for the word you meant.`;
 }
 // The new analysis request for an interpretation state, or { refused } while
 // a saved choice awaits the reader's decision. Only rebound or current-cut
@@ -884,7 +977,7 @@ function ensureStyles() {
 // ── Declarations (port of components/library/declarations.tsx) ─────────────
 function declarationsView(
   root,
-  { reading, lines, value, sections, choices, methods, unsaved, onSave, annotate = [] }
+  { reading, lines, value, sections, choices, job, methods, unsaved, onSave, annotate = [] }
 ) {
   const analysisLines = lines.filter((l) => l.analysis_line != null);
   const picked = analysisLines.filter((l) => annotate.includes(l.id)).map((l) => l.analysis_line);
@@ -940,6 +1033,7 @@ function declarationsView(
       <label>Declaration bundle <textarea class="cm-input" data-f="raw" aria-label="Reading declaration bundle" rows="14" spellcheck="false"></textarea></label>
     </details>
     <p class="la-error" role="alert" data-f="error" hidden></p>
+    <p class="la-note" role="status" data-f="picked" hidden></p>
     ${unsaved ? '<p class="la-error">Storage unavailable. These interpretations are unsaved; download them before leaving.</p>' : ''}
     <div class="la-row">
       <button type="button" class="cm-btn cm-btn-primary" data-act="save">${icon('check', 16)}<span>Apply interpretation</span></button>
@@ -1030,7 +1124,7 @@ function declarationsView(
     f('end').value = Math.max(...numbers);
   });
   if (f('pron'))
-    pronunciationChoices(f('pron'), choices, (row) => {
+    pronunciationChoices(f('pron'), choices, job, (row, moved) => {
       try {
         const v = parsed();
         const existing = Array.isArray(v.pronunciations) ? v.pronunciations : [];
@@ -1042,6 +1136,10 @@ function declarationsView(
           ],
         });
         error();
+        f('picked').textContent = moved
+          ? `“${row.word}” was numbered ${moved.from} under the earlier word cut; it is saved as token ${moved.to}, the same characters under the current one.`
+          : '';
+        f('picked').hidden = !moved;
       } catch (e) {
         error(e.message);
       }
@@ -1131,13 +1229,18 @@ function declarationsView(
 }
 
 // ── Pronunciation choices (port of pronunciation-choices.tsx) ──────────────
-function pronunciationChoices(root, choices, onAdd) {
+function pronunciationChoices(root, choices, job, onAdd) {
   let limit = 20;
   const chosen = {};
+  const cut = evidenceCut(job);
+  const blocked = choices.length && !cut.ok;
   root.innerHTML = `<p class="la-note">Choices come from the installed dictionary. A choice binds every verbatim occurrence of its exact lyric line. Further evidence pages may contain additional words.</p>
-    <label>Source / basis <input class="cm-input" data-p="basis"></label><div data-p="list"></div>`;
+    ${blocked ? `<p class="la-note" data-p="cut"><span class="la-badge">${esc(cut.label)}</span> ${esc(evidenceCutNote(cut))}</p>` : ''}
+    <label>Source / basis <input class="cm-input" data-p="basis"></label><p class="la-error" role="alert" data-p="refused" hidden></p><div data-p="list"></div>`;
   const basis = root.querySelector('[data-p="basis"]');
   const list = root.querySelector('[data-p="list"]');
+  const refused = root.querySelector('[data-p="refused"]');
+  const usable = (key) => !blocked && !!basis.value.trim() && !!chosen[key];
   const draw = () => {
     list.innerHTML =
       choices
@@ -1151,7 +1254,7 @@ function pronunciationChoices(root, choices, onAdd) {
                 `<option value="${j}"${chosen[key] === String(j) ? ' selected' : ''}>${esc(r.phones.join(' '))} · ${esc(r.syllables)} syllables</option>`
             )
             .join('')}</select></label>
-          <button type="button" class="cm-btn cm-btn-outline" data-use="${i}" ${!basis.value.trim() || !chosen[key] ? 'disabled' : ''}>Use this reading</button>
+          <button type="button" class="cm-btn cm-btn-outline" data-use="${i}" ${usable(key) ? '' : 'disabled'}>Use this reading</button>
           <p class="la-note">Applies to ${c.matching_line_ids.length} identical source lines.</p></div>`;
         })
         .join('') +
@@ -1166,7 +1269,7 @@ function pronunciationChoices(root, choices, onAdd) {
   basis.addEventListener('input', () =>
     list.querySelectorAll('[data-use]').forEach((b) => {
       const c = choices[Number(b.dataset.use)];
-      b.disabled = !basis.value.trim() || !chosen[c.line + ':' + c.token];
+      b.disabled = !usable(c.line + ':' + c.token);
     })
   );
   list.addEventListener('change', (e) => {
@@ -1174,7 +1277,7 @@ function pronunciationChoices(root, choices, onAdd) {
     if (!c) return;
     chosen[c.line + ':' + c.token] = e.target.value;
     const b = list.querySelector(`[data-use="${e.target.dataset.choice}"]`);
-    b.disabled = !basis.value.trim() || !e.target.value;
+    b.disabled = !usable(c.line + ':' + c.token);
   });
   list.addEventListener('click', (e) => {
     if (e.target.closest('[data-p="more"]')) {
@@ -1184,14 +1287,15 @@ function pronunciationChoices(root, choices, onAdd) {
     const b = e.target.closest('[data-use]');
     if (!b) return;
     const c = choices[Number(b.dataset.use)];
-    onAdd({
-      line: c.line,
-      token: c.token,
-      word: c.word,
-      phones: c.dictionary_readings[Number(chosen[c.line + ':' + c.token])].phones,
-      basis: 'dictionary',
-      source: basis.value,
-    });
+    const picked = pickedChoice(
+      c,
+      job,
+      c.dictionary_readings[Number(chosen[c.line + ':' + c.token])].phones,
+      basis.value
+    );
+    refused.textContent = picked.refused || '';
+    refused.hidden = !picked.refused;
+    if (picked.row) onAdd(picked.row, picked.moved);
   });
 }
 
@@ -1593,6 +1697,7 @@ function mount(container, input) {
       }
       ${st.notice ? `<p class="la-note" role="status">${esc(st.notice)}</p>` : ''}
       ${cutHTML()}
+      ${evidenceVisible() && mem.report && !evidenceCut(j).ok ? `<p class="la-note" data-cut="evidence"><span class="la-badge">${esc(evidenceCut(j).label)}</span> ${esc(evidenceCutNote(evidenceCut(j)))}</p>` : ''}
       ${st.error ? `<p class="la-error" role="alert">${esc(st.error)}</p>` : ''}
       <button type="button" class="la-link" data-act="decl" aria-expanded="${st.declOpen}">${icon('sliders-horizontal', 15)}<span>Reading interpretations</span></button>
     </section>`;
@@ -1797,6 +1902,7 @@ function mount(container, input) {
       value: st.declarations,
       sections: Array.isArray(form.sections) ? form.sections : [],
       choices,
+      job: evidenceVisible() ? mem.job : null,
       methods: st.registry?.methods || [],
       unsaved: st.unsaved,
       annotate: ctx.annotate,
@@ -1984,4 +2090,7 @@ return {
   analysisRequest,
   renumberedNotice,
   undecidedRefusal,
+  twoCutBinding,
+  evidenceCut,
+  pickedChoice,
 };

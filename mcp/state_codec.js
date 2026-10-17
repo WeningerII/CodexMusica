@@ -31,26 +31,35 @@ export class StateCodecError extends Error {
 const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
 const invalid = (message) => new StateCodecError('CONTINUATION_INVALID', message);
 const object = (x) => x !== null && typeof x === 'object' && !Array.isArray(x);
-let cachedSemanticIdentity;
-
-export function continuationSemanticIdentity() {
-  if (cachedSemanticIdentity) return cachedSemanticIdentity;
-  const assets = runtimeAssets();
-  // Image sources and dependencies are immutable for a running service.
-  // The release label is deliberately absent: identical rebuilt bytes have
-  // identical semantics, while source, scoring data or runtime changes do not.
-  cachedSemanticIdentity = digest(
-    JSON.stringify({
-      source_sha256: runtimeSourceFingerprint(),
-      assets_sha256: assets.assets_sha256,
-      manifest_sha256: assets.manifest_sha256,
-      python: assets.python,
-      nltk: assets.nltk,
-      node: process.version,
-    })
-  );
-  return cachedSemanticIdentity;
+// The identity of what a continuation means here, read again on each call
+// until the asset check has passed and kept from then on. An identity built
+// from a check that timed out or failed (null asset fields) is never kept, so
+// a process that recovers without a restart signs and accepts exactly what a
+// process that booted healthy does.
+export function createContinuationIdentity(assets = runtimeAssets) {
+  let identity, from;
+  return function continuationSemanticIdentity() {
+    if (identity && from.ok) return identity;
+    const current = assets();
+    if (current === from) return identity;
+    from = current;
+    // Image sources and dependencies are immutable for a running service.
+    // The release label is deliberately absent: identical rebuilt bytes have
+    // identical semantics, while source, scoring data or runtime changes do not.
+    identity = digest(
+      JSON.stringify({
+        source_sha256: runtimeSourceFingerprint(),
+        assets_sha256: current.assets_sha256,
+        manifest_sha256: current.manifest_sha256,
+        python: current.python,
+        nltk: current.nltk,
+        node: process.version,
+      })
+    );
+    return identity;
+  };
 }
+export const continuationSemanticIdentity = createContinuationIdentity();
 
 export function assertContinuationSemantics(identity) {
   if (identity !== continuationSemanticIdentity())

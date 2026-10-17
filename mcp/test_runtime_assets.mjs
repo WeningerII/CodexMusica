@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
-import { createRuntimeAssetReader } from './runtime_assets.js';
+import { createRuntimeAssetReader, spawnAsync } from './runtime_assets.js';
 
 const assetInventory = {
   status: 0,
@@ -302,6 +302,21 @@ test('required production mode exports exact recovery without Python or assets w
       assert.equal(_workerInternals.pid(),null);
       const ordinary=await client.callTool({name:'lyric_sweep',arguments:{seed_from:1,count:1}});
       assert.equal(ordinary.isError,true); assert.match(ordinary.content[0].text,/LYRIC_ASSETS_UNAVAILABLE/);
+      // A lyrics session is refused too: opened now it would record an
+      // identity without the assets and be refused once they are read.
+      const {buildWorkflowServer}=await import('./workflow_tools.js');
+      const {WorkflowSessions}=await import('./workflow_sessions.js');
+      const {JobStore}=await import('./job_store.js');
+      const sessions=new WorkflowSessions({store:new JobStore(null)});
+      const shared=await buildWorkflowServer({sessions});
+      const user=new Client({name:'required-session',version:'1'},{capabilities:{}});
+      const [c,d]=InMemoryTransport.createLinkedPair();
+      await Promise.all([shared.connect(c),user.connect(d)]);
+      const begun=await user.callTool({name:'begin_lyrics',arguments:{}});
+      assert.equal(begun.isError,true); assert.match(begun.content[0].text,/LYRIC_ASSETS_UNAVAILABLE/);
+      const recipe=await user.callTool({name:'start_recipe',arguments:{traditions:['bluegrass']}});
+      assert.notEqual(recipe.isError,true,JSON.stringify(recipe).slice(0,400));
+      await user.close(); await shared.close();
       for(const patch of [{answer:'change'},{state:checkpoint}]) {
         const bad=await client.callTool({name:'lyric_revise',arguments:{recover_only:true,checkpoint,...patch}});
         assert.equal(bad.isError,true);assert.match(bad.content[0].text,/Recovery requires/);
@@ -329,4 +344,467 @@ test('required production mode exports exact recovery without Python or assets w
     },
   });
   assert.match(result, /required-mode recovery/);
+});
+
+const timedOut = () => ({
+  status: null,
+  signal: 'SIGTERM',
+  error: Object.assign(new Error('spawnSync python3 ETIMEDOUT'), { code: 'ETIMEDOUT' }),
+});
+
+test('an asset check that did not complete is retried off-thread after a backoff, never cached', async () => {
+  let clock = 0,
+    slow = true,
+    sync = 0,
+    async_ = 0;
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    maxRetryMs: 4000,
+    schedule: () => {},
+    run: () => (sync++, timedOut()),
+    runAsync: async () => (async_++, slow ? timedOut() : assetInventory),
+  });
+  const first = reader();
+  assert.equal(first.ok, false);
+  assert.equal(first.incomplete, true);
+  assert.deepEqual(first.errors, ['spawnSync python3 ETIMEDOUT']);
+  assert.equal(first.retry_at, new Date(1000).toISOString());
+  assert.equal(reader(), first); // inside the backoff: nothing runs
+  assert.equal(sync + async_, 1);
+  clock = 1000;
+  // Due: the read answers at once with the standing result and starts one
+  // asynchronous check; reads while it runs start nothing more.
+  assert.equal(reader(), first);
+  assert.equal(reader(), first);
+  await reader.settled();
+  assert.equal(async_, 1);
+  const second = reader();
+  assert.equal(second.retry_at, new Date(3000).toISOString()); // the backoff doubles
+  clock = 3000;
+  reader();
+  await reader.settled();
+  clock = 7000;
+  reader();
+  await reader.settled();
+  assert.equal(reader().retry_at, new Date(11000).toISOString()); // capped at maxRetryMs
+  assert.equal(async_, 3);
+  slow = false;
+  clock = 11000;
+  reader();
+  await reader.settled();
+  const recovered = reader();
+  assert.equal(recovered.ok, true);
+  assert.equal(recovered.incomplete, undefined);
+  assert.equal(recovered.retry_at, undefined);
+  assert.equal(recovered.python, '3.11');
+  clock = 1e9;
+  assert.equal(reader(), recovered); // a completed check is cached as before
+  assert.equal(sync, 1);
+  assert.equal(async_, 4);
+});
+
+test('a check that completed and failed stays cached; only an unfinished one is retried', () => {
+  let checks = 0;
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => 1e12,
+    run: () => {
+      checks++;
+      return { status: 2, stdout: JSON.stringify({ ok: false, errors: ['digest mismatch'] }) };
+    },
+    runAsync: () => assert.fail('a completed failure is not retried'),
+  });
+  const failed = reader();
+  assert.equal(failed.ok, false);
+  assert.equal(failed.incomplete, undefined);
+  assert.equal(reader(), failed);
+  assert.equal(checks, 1);
+});
+
+test('an unfinished capacity verification is retried like an unfinished inventory', async () => {
+  const directory = mkdtempSync(join(tmpdir(), 'runtime-proof-retry-'));
+  const receipt = join(directory, 'proof.json');
+  writeFileSync(receipt, JSON.stringify({ version: 1, status: 'verified' }));
+  let clock = 0;
+  const answer = (stalled) => (_python, args) =>
+    args[0].endsWith('release_assets.py') ? assetInventory : stalled ? timedOut() : { status: 0 };
+  const reader = createRuntimeAssetReader({
+    env: { LYRIC_RELEASE_ASSETS_REQUIRED: '1', LYRIC_CAPACITY_ATTESTATION: receipt },
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    schedule: () => {},
+    run: answer(true),
+    runAsync: async (...args) => answer(false)(...args),
+  });
+  try {
+    const first = reader();
+    assert.equal(first.ok, false);
+    assert.equal(first.incomplete, true);
+    assert.equal(reader().ok, false); // still inside the backoff
+    clock = 1000;
+    reader();
+    await reader.settled();
+    assert.equal(reader().ok, true);
+    // Each child is recorded with its own outcome against its own limit.
+    assert.deepEqual(
+      reader
+        .attempts()
+        .map((attempt) => attempt.children.map((c) => [c.step, c.outcome, c.limit_ms])),
+      [
+        [
+          ['inventory', 'exit_0', 30_000],
+          ['capacity', 'timed_out', 30_000],
+        ],
+        [
+          ['inventory', 'exit_0', 120_000],
+          ['capacity', 'exit_0', 120_000],
+        ],
+      ]
+    );
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('the asynchronous runner reports a timeout as spawnSync does, and does not block', async () => {
+  const started = Date.now();
+  let ticks = 0;
+  const timer = setInterval(() => ticks++, 10);
+  const result = await spawnAsync(process.execPath, ['-e', 'setTimeout(() => {}, 5000)'], {
+    timeout: 300,
+  });
+  clearInterval(timer);
+  assert.equal(result.status, null);
+  assert.equal(result.error.code, 'ETIMEDOUT');
+  assert(Date.now() - started < 4000);
+  assert(ticks > 5, 'the event loop kept running while the child ran');
+  const ok = await spawnAsync(process.execPath, ['-e', 'process.stdout.write("{}")'], {
+    timeout: 10_000,
+  });
+  assert.equal(ok.status, 0);
+  assert.equal(ok.stdout, '{}');
+  const missing = await spawnAsync('/nonexistent/python', [], { timeout: 1000 });
+  assert.equal(missing.status, null);
+  assert.equal(missing.error.code, 'ENOENT');
+});
+
+test('many reads during one check start one check, and the race refusals still refuse', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'runtime-proof-race-'));
+  const receipt = join(directory, 'proof.json');
+  writeFileSync(receipt, JSON.stringify({ version: 1, status: 'verified' }));
+  let checks = 0,
+    swap = 'none',
+    source = 'a';
+  const reader = createRuntimeAssetReader({
+    env: { LYRIC_RELEASE_ASSETS_REQUIRED: '1', LYRIC_CAPACITY_ATTESTATION: receipt },
+    source: () => source,
+    run: (_python, args) => {
+      if (args[0].endsWith('release_assets.py')) {
+        checks++;
+        return assetInventory;
+      }
+      if (swap === 'receipt') writeFileSync(receipt, JSON.stringify({ version: 2 }));
+      if (swap === 'source') source += '+';
+      return { status: 0 };
+    },
+  });
+  try {
+    // The check is synchronous, so reads that arrive while it runs wait for it
+    // and then share its cached result: one check, not one per request.
+    const results = Array.from({ length: 8 }, () => reader());
+    assert.equal(checks, 1);
+    assert(results.every((r) => r === results[0] && r.ok));
+    swap = 'receipt';
+    writeFileSync(receipt, JSON.stringify({ version: 1, status: 'verified', n: 1 }));
+    const moved = reader();
+    assert.equal(moved.ok, false);
+    assert.equal(moved.incomplete, undefined);
+    assert.match(moved.errors.join(' '), /receipt changed during validation/);
+    swap = 'source';
+    writeFileSync(receipt, JSON.stringify({ version: 1, status: 'verified', n: 2 }));
+    const changed = reader();
+    assert.equal(changed.ok, false);
+    assert.equal(changed.incomplete, undefined);
+    assert.match(changed.errors.join(' '), /source or assets changed during validation/);
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('a due retry starts once however many reads arrive, by timer or by read, and readers never spawn', async () => {
+  let clock = 0,
+    sync = 0,
+    started = 0,
+    release;
+  const timers = [];
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    schedule: (start, ms) => timers.push({ start, ms }),
+    run: () => (sync++, timedOut()),
+    runAsync: () => {
+      started++;
+      return new Promise((resolve) => (release = resolve));
+    },
+  });
+  const first = reader();
+  assert.equal(first.incomplete, true);
+  assert.equal(timers.length, 1);
+  assert.equal(timers[0].ms, 1000);
+  clock = 1000;
+  timers[0].start(); // the timer falls due with no traffic
+  for (let i = 0; i < 10; i++) assert.equal(reader(), first); // reads during the check
+  assert.equal(started, 1);
+  assert.equal(sync, 1);
+  release(assetInventory);
+  await reader.settled();
+  assert.equal(reader().ok, true);
+  assert.equal(started, 1);
+});
+
+test('only a verdict is kept: a crash, unparseable output or an unexpected exit is retried', () => {
+  for (const [label, result, kept] of [
+    ['JSON ok:false, exit 2', { status: 2, stdout: '{"ok":false,"errors":["bad"]}' }, true],
+    ['JSON ok:true, exit 0', assetInventory, true],
+    ['JSON ok:true, exit 1', { status: 1, stdout: '{"ok":true}' }, false],
+    ['traceback, exit 1', { status: 1, stdout: '', stderr: 'Traceback' }, false],
+    ['killed', { status: null, signal: 'SIGKILL', stdout: '' }, false],
+    ['no interpreter', { status: null, error: new Error('spawnSync python3 ENOENT') }, false],
+  ]) {
+    const reader = createRuntimeAssetReader({
+      env: {},
+      source: () => 'fixed',
+      now: () => 0,
+      schedule: () => {},
+      run: () => result,
+    });
+    assert.equal(reader().incomplete === undefined, kept, label);
+  }
+  const directory = mkdtempSync(join(tmpdir(), 'runtime-proof-verdict-'));
+  const receipt = join(directory, 'proof.json');
+  writeFileSync(receipt, JSON.stringify({ version: 1, status: 'verified' }));
+  try {
+    for (const [status, kept] of [
+      [0, true],
+      [2, true],
+      [1, false],
+    ]) {
+      const reader = createRuntimeAssetReader({
+        env: { LYRIC_RELEASE_ASSETS_REQUIRED: '1', LYRIC_CAPACITY_ATTESTATION: receipt },
+        source: () => 'fixed',
+        now: () => 0,
+        schedule: () => {},
+        run: (_python, args) =>
+          args[0].endsWith('release_assets.py') ? assetInventory : { status, stderr: 'refused' },
+      });
+      assert.equal(reader().incomplete === undefined, kept, `verify_capacity exit ${status}`);
+    }
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+
+test('a retry whose epoch moved while it ran is not kept', async () => {
+  let clock = 0,
+    source = 'a';
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => source,
+    now: () => clock,
+    retryMs: 1000,
+    schedule: () => {},
+    run: () => timedOut(),
+    runAsync: async () => {
+      source = 'b'; // the source changes while the check runs
+      return assetInventory;
+    },
+  });
+  reader();
+  clock = 1000;
+  reader();
+  await reader.settled();
+  source = 'a';
+  assert.equal(reader().incomplete, true); // the moved result was discarded
+});
+
+test('every check is recorded with its mode, elapsed time, limit and outcome', async () => {
+  let clock = 0,
+    slow = true;
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    schedule: () => {},
+    run: () => ((clock += 30_000), timedOut()),
+    runAsync: async () => {
+      clock += slow ? 120_000 : 27_000;
+      return slow ? timedOut() : assetInventory;
+    },
+  });
+  reader();
+  clock += 1000;
+  reader();
+  await reader.settled();
+  slow = false;
+  clock += 2000;
+  reader();
+  await reader.settled();
+  assert.equal(reader().ok, true);
+  const child = (elapsed_ms, limit_ms, outcome) => [
+    { step: 'inventory', elapsed_ms, limit_ms, outcome },
+  ];
+  assert.deepEqual(reader.attempts(), [
+    {
+      mode: 'sync',
+      started_at: new Date(0).toISOString(),
+      elapsed_ms: 30_000,
+      per_child_limit_ms: 30_000,
+      outcome: 'timed_out',
+      children: child(30_000, 30_000, 'timed_out'),
+    },
+    {
+      mode: 'background',
+      started_at: new Date(31_000).toISOString(),
+      elapsed_ms: 120_000,
+      per_child_limit_ms: 120_000,
+      outcome: 'timed_out',
+      children: child(120_000, 120_000, 'timed_out'),
+    },
+    {
+      mode: 'background',
+      started_at: new Date(153_000).toISOString(),
+      elapsed_ms: 27_000,
+      per_child_limit_ms: 120_000,
+      outcome: 'passed',
+      children: child(27_000, 120_000, 'exit_0'),
+    },
+  ]);
+  reader.attempts().push('x'); // a copy
+  assert.equal(reader.attempts().length, 3);
+});
+
+test('a read with a changed epoch while a check is in flight starts nothing beside it', async () => {
+  let clock = 0,
+    source = 'a',
+    running = 0,
+    most = 0,
+    sync = 0,
+    release;
+  const timers = [];
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => source,
+    now: () => clock,
+    retryMs: 1000,
+    schedule: (start, ms) => timers.push([start, ms]),
+    run: () => (sync++, timedOut()),
+    runAsync: async () => {
+      most = Math.max(most, ++running);
+      await new Promise((done) => (release = done));
+      running--;
+      return assetInventory;
+    },
+  });
+  reader(); // the boot check times out
+  clock = 1000;
+  reader(); // the background check starts and hangs
+  source = 'b'; // the source moves while it runs
+  const during = reader();
+  assert.equal(during.incomplete, true);
+  assert.equal(during.ok, false);
+  assert.equal(sync, 1, 'no synchronous check beside the one in flight');
+  assert.equal(most, 1);
+  release();
+  await reader.settled();
+  assert.deepEqual(
+    reader.attempts().map((a) => a.outcome),
+    ['timed_out', 'discarded']
+  );
+  // The changed epoch is checked in the background as soon as the slot frees.
+  timers.at(-1)[0]();
+  release();
+  await reader.settled();
+  assert.equal(reader().ok, true);
+  assert.equal(sync, 1);
+  assert.equal(most, 1);
+});
+
+test('a check whose child has not exited holds the slot, visibly, and nothing else is spawned', async () => {
+  let clock = 0,
+    spawned = 0,
+    exit;
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    schedule: () => {},
+    run: () => timedOut(),
+    runAsync: async () => {
+      spawned++;
+      // Its result arrives on time, but the child survived SIGKILL.
+      return { ...timedOut(), unconfirmed: true, exited: new Promise((done) => (exit = done)) };
+    },
+  });
+  reader();
+  clock = 1000;
+  reader();
+  await new Promise((done) => setImmediate(done));
+  const stuck = reader();
+  assert.equal(stuck.incomplete, true);
+  assert.equal(reader.inFlight().awaiting_exit, true);
+  clock = 1e9; // long past the next retry time
+  reader();
+  reader();
+  assert.equal(spawned, 1, 'no second check while the first child may be alive');
+  exit();
+  await reader.settled();
+  assert.equal(reader.inFlight(), undefined);
+  reader();
+  assert.equal(spawned, 2);
+});
+
+test('a timer that fires early waits out the remainder', () => {
+  let clock = 0,
+    spawned = 0;
+  const timers = [];
+  const reader = createRuntimeAssetReader({
+    env: {},
+    source: () => 'fixed',
+    now: () => clock,
+    retryMs: 1000,
+    schedule: (start, ms) => timers.push([start, ms]),
+    run: () => timedOut(),
+    runAsync: async () => (spawned++, timedOut()),
+  });
+  reader();
+  clock = 999; // a timer may fire a millisecond before Date.now reaches it
+  timers.at(-1)[0]();
+  assert.equal(spawned, 0);
+  assert.equal(timers.at(-1)[1], 1);
+  clock = 1000;
+  timers.at(-1)[0]();
+  assert.equal(spawned, 1);
+});
+
+test('a child that ignores SIGTERM is killed with its group, and its exit is confirmed', async () => {
+  const started = Date.now();
+  // The shell ignores SIGTERM (inherited by its children) and leaves a
+  // grandchild holding the output pipes.
+  const result = await spawnAsync('sh', ['-c', 'trap "" TERM; sleep 30 & sleep 30'], {
+    timeout: 200,
+    killGraceMs: 300,
+  });
+  assert.equal(result.status, null);
+  assert.equal(result.error.code, 'ETIMEDOUT');
+  await result.exited; // the group, grandchild included, is gone
+  assert(Date.now() - started < 5000, 'SIGKILL ended it inside the grace');
 });

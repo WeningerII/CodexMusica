@@ -9,6 +9,7 @@
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { buildServer, guardEditKeys } from './tools.js';
+import { runtimeAssets } from './runtime_assets.js';
 import { requestContext } from './execution_context.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { z } from 'zod';
@@ -296,7 +297,17 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
         outputSchema: resultShape,
         annotations: { ...stateful, idempotentHint: false },
       },
-      (args) => response(sessions.open('lyrics', args))
+      (args) => {
+        // A session records the scorer's identity when it opens. Opened while
+        // the release check has not passed, it would record an identity built
+        // without the assets and be refused once they are read, so it is
+        // refused now, exactly as the lyric_ tools are (tools.js).
+        if (process.env.LYRIC_RELEASE_ASSETS_REQUIRED === '1' && !runtimeAssets().ok)
+          throw new Error(
+            'LYRIC_ASSETS_UNAVAILABLE: the installed grading assets failed the release check.'
+          );
+        return response(sessions.open('lyrics', args));
+      }
     );
   }
 

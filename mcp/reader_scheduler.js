@@ -373,7 +373,8 @@ export function createCatalogResolver({
       engine_commit: engineCommit,
       parser_version: manifest.parser_version,
       normalizer_version: manifest.normalizer_version,
-      resource_fingerprint: resourceFingerprint,
+      resource_fingerprint:
+        typeof resourceFingerprint === 'function' ? resourceFingerprint() : resourceFingerprint,
       declaration_hash: sha256(canonicalJSON(semanticDeclarations(request.declaration_set || {}))),
       requested_layers: request.requested_layers,
       requested_methods: request.requested_methods ?? null,
