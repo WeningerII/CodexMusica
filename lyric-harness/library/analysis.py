@@ -117,6 +117,18 @@ def _normal_request(requested):
     return {"layers": sorted(set(layers)), "schemas": sorted(set(schemas)) if schemas is not None else None}
 
 
+def reader_scheme() -> str:
+    """-> the reader scheme an analysis session in this process cuts English
+    lines under: the one its Lexicon resolves (`reader_scheme=None`), and the
+    one the pinned Gutenberg sets are rebound to. The connector asks for it
+    at startup (`mcp/reader_scheduler.js` probeReaderScheme) and records it in
+    every new job's identity, so a job queued under another scheme is refused
+    `STALE_READING` at its lease rather than read under a cut it was not
+    counted under."""
+    import lyric_harness as LH
+    return LH.resolve_reader_scheme(None)
+
+
 def _reader_scheme_of(phon):
     """-> the reader scheme an English phonology cuts lines under."""
     import lyric_harness as LH
@@ -269,6 +281,7 @@ class AnalysisSession:
             if any(catalog[m].get("language", self.language) != self.language for m in requested_methods):
                 raise ValueError("UNSUPPORTED_METHOD: native method belongs to another phonology")
         clear_reader_resources_if_language_changed(self.language)
+        pinned_set = False
         if self.language == "eng" and private_declarations.get("pronunciations"):
             # A declaration set from the v1-bound Gutenberg asset, read by a
             # v2 reader, moves to the same physical tokens (raw-span identity;
@@ -281,10 +294,9 @@ class AnalysisSession:
                 try:
                     private_declarations["pronunciations"] = rebind_occurrences(
                         rows, "v1", "v2", strip_parens=False)
-                    self.declarations["pronunciations"] = rebind_occurrences(
-                        self.declarations["pronunciations"], "v1", "v2", strip_parens=False)
                 except ValueError as exc:
                     raise ValueError(f"STALE_READING: {exc}") from None
+                pinned_set = True
         settings = self.declarations.get("phonology", {})
         if not isinstance(settings, dict):
             raise ValueError("INVALID_DECLARATION: phonology settings must be an object")
@@ -292,15 +304,45 @@ class AnalysisSession:
             self.phon = phon
         elif self.language == "eng":
             from quality.phonology.eng import English
+            from quality.pronunciation import numbering_of, validate_choices
             import lyric_harness as LH
             lex = LH.Lexicon(strip_parens=False, fallback=settings.get("fallback"),
-                             pronunciations=private_declarations.get("pronunciations"))
+                             pronunciations=None)
+            # The session's lexicon is guarded as the CLI guards its own: a
+            # row may carry `numbering` (v1, v1+voices, v2 or v2+voices) and
+            # binds the identical raw occurrence it names; an unmarked row is
+            # read under both cuts (`quality.pronunciation.numbered_token`) and
+            # refused, naming both, where they bind different characters. A
+            # pinned Gutenberg set was rebound by raw span just above, so its
+            # rows are validated as marked with the current numbering: they
+            # bind where that rebinding put them and are not migrated twice.
+            lex._numbering_guard = True
+            lex._numbering_notices = []
+            rows = private_declarations.get("pronunciations")
+            if rows is not None:
+                if pinned_set:
+                    rows = [dict(row, numbering=numbering_of(lex)) for row in rows]
+                try:
+                    lex.pronunciations = validate_choices(rows, lex)
+                except (ValueError, TypeError) as exc:
+                    raise ValueError(f"INVALID_DECLARATION: {exc}") from None
+                # Every bound row keeps its caller's order; its public copy
+                # is the one the reader reads, with provenance redacted.
+                bound = _public_declarations(lex.pronunciations)
+                # The public rows keep the historical six fields: their tokens
+                # are already in this process's numbering, the one the form
+                # and language layers' own unguarded lexicons read them under,
+                # and those lexicons refuse a seventh key.
+                self.declarations["pronunciations"] = [
+                    {k: v for k, v in row.items() if k != "numbering"} for row in bound]
+            else:
+                bound = copy.deepcopy(self.declarations.get("pronunciations") or [])
             lines = {r.get("analysis_text", r.get("text", "")) for r in self.rows if r.get("kind", "lyric") == "lyric"}
             if any(choice["line"] not in lines for choice in lex.pronunciations):
                 raise ValueError("STALE_READING: an exact pronunciation line is absent from this registered reading")
             # Validation reads the original provenance before it is redacted.
             # It cannot convert a blank/oversized source into a valid one.
-            lex.pronunciations = copy.deepcopy(self.declarations.get("pronunciations") or [])
+            lex.pronunciations = bound
             self.phon = English(fallback=settings.get("fallback"), readings=settings.get("readings", "all"), lexicon=lex)
         elif self.language == "ltc":
             from quality.phonology.ltc import MiddleChinese
@@ -844,8 +886,11 @@ class AnalysisSession:
                 import lyric_harness as LH
                 lex = self.phon._lexicon()
                 options = sorted({tuple(p) for p in lex.entries.get(word.lower(), ())})
+                from quality.pronunciation import numbering_of
+                # `numbering` names the cut and voices setting `token` was
+                # counted under, as a pronunciation row's own marker does.
                 out["reading_choices"] = {"line": raw_line if (raw_line := self.stream.text_lines[li]) else "",
-                    "token": ti + 1, "word": word,
+                    "token": ti + 1, "word": word, "numbering": numbering_of(lex),
                     "dictionary_readings": [{"phones": list(p), "syllables": len(LH.syllabify(p)),
                                               "stress": [s["stress"] for s in LH.syllabify(p)]} for p in options],
                     "requires_source": True, "supplied_reading_requires_source": not bool(options),

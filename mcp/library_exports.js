@@ -607,6 +607,10 @@ export function analysisLayout(
       partial,
       engine_commit: identity.engine_commit,
       resource_fingerprint: identity.resource_fingerprint,
+      // The word cut the exported token numbers were counted under; a job
+      // whose identity predates the field says so rather than guessing.
+      reader_scheme:
+        typeof identity.reader_scheme === 'string' ? identity.reader_scheme : 'unrecorded',
       provenance_directory: 'PROVENANCE/',
       required_credits_directory: 'ATTRIBUTIONS/',
       notices_directory: 'NOTICES/',

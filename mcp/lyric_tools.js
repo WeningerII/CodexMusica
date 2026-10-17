@@ -28,6 +28,7 @@ import { checkEvidenceInvocation } from './lyrics_evidence_binding.js';
 // finally.
 
 import { createPythonBridge } from './python_bridge.js';
+import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 export { draftFromText } from './lyric_text.js';
@@ -299,6 +300,10 @@ export const lyricWorkerState = () => bridge.workerState();
 // Private reader jobs share this worker; this is not a connector tool or a
 // provider entrance. The lookup bridge retains its existing separate contract.
 export const readerPythonBridge = bridge;
+// The reader worker's word-cut scheme, asked of the same interpreter,
+// directory and environment the worker runs with (reader_scheduler.js).
+export const probeReaderSchemeOfWorker = () =>
+  probeReaderScheme({ python: PYTHON, harnessDir: HARNESS_DIR, env: harnessEnv() });
 export const _workerInternals = bridge.internals;
 
 const EXIT_MEANING = {

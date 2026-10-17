@@ -42,6 +42,8 @@ function fail(res, error) {
  * @param {(req) => string} [options.ipOf] the caller's address (ratelimit.clientIp)
  * @param {() => number} [options.now]
  */
+const PRONUNCIATION_NUMBERINGS = Object.freeze(['v1', 'v1+voices', 'v2', 'v2+voices']);
+
 export function libraryPublicRouter({
   search,
   analysisAvailable = () => false,
@@ -102,6 +104,12 @@ export function libraryPublicRouter({
         : null,
       search_ready: Boolean(search),
       analysis_available: Boolean(analysisAvailable()),
+      // What this service's analysis accepts beyond the original contract,
+      // so a page can tell it from an older one without probing with a
+      // refusal: a pronunciation row in a declaration set may carry
+      // `numbering` (one of these; quality/pronunciation.py NUMBERINGS), and
+      // an unmarked row is read under both word cuts.
+      capabilities: { pronunciation_numbering: PRONUNCIATION_NUMBERINGS },
       corpus: corpus ? corpus.health() : {},
     });
   });
