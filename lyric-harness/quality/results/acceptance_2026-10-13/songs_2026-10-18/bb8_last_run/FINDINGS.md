@@ -105,3 +105,19 @@ against. Fixing the draw alone won't fix F1.
   ChatGPT surface. This is the pasted-lyrics (edit) journey.
 - **Optional wording (Jony):** "(no relation, so no cut applies — not a rhyme score)". It rides
   #584's next push if there is one.
+- **Batch-member wording (found verifying #585, logged at R2's request).** In a batch question
+  (L5 and L7 asked together), each member's brief still says "The tool applies your one answer to
+  L5" and "1. ONE line back, and it replaces L5", although the batch is answered with `answers`
+  for both lines.
+  - **Why it happens:** the per-member render only learns that it's part of a batch through
+    `question`, which #585 now passes, so a fix has a handle.
+  - **Status:** a separate guidance change.
+
+## Verification status (19:05 UTC)
+
+- **Returns fix** (`claude/collision-reads-returns` @ 1082175d2): verified twice, independently.
+  - BB8: the real "Last Run" draft plus an adversarial variant (`../verify_returns_1082175d/`).
+  - Don: Don's own "Last Run". 8 REPEAT_ACROSS_GROUPS and 6 SCHEME_COLLISION go to 0, there are 14
+    required echoes, and the real lap/map HOMEOTELEUTON still stands.
+- **#585, edit-boundary brief** (@ 6a969eff1): verified by BB8 on the straddle draft
+  (`../verify_585_6a969eff/`).
