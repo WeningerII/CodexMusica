@@ -1,0 +1,74 @@
+RECEIPT — comparator re-pin for PR #577, 2026-10-18. One fingerprint move, one
+cold memo rebuilt in CI over two runs on the same head, and every calibration
+HOLDS. Nothing re-adopted, no constant moved.
+
+WHAT MOVED THE COMPARATOR.  Commit 14bfe12f ("Reader: an opening quotation mark
+leaves its word") changes lyric-harness/lyric_harness.py. At head
+00a47e55c81f01e7bfeeeb40b53ea4bf6f09d4ea, `check_comparator_pin.py` reports
+"THE COMPARATOR MOVED", with exactly one of seven inputs moved:
+`lyric_harness.py closure`. `Declaration()`, `_couplet_pairs`, `cmudict.dict`,
+`features.py`, `opensubtitles_en_50k.tsv` and `predictability_frac` are
+byte-identical to the 2026-10-14 pin. Fingerprint
+  51316f79c5093fa1750fbcde04975ddf8444407e38d8d929d73dc0086ddac2f4  (2026-10-14 pin,
+      ../docs/reader-calibration-adoption-2026-10-14.md)
+  -> 62551b50acf64223adedfe0531951f20d138595bfbaba9b22e3150a39cd69dc4
+
+HOW THE MEMO WAS REBUILT — FROM NOTHING, IN CI, ON THIS HEAD.  Both runs are
+ci.yml workflow_dispatch runs on claude/project-thread-1b7ril at 00a47e55.
+  Run 39070679674, nightly job 117509887255, step 22 (song-profile
+  calibration, full):
+    memo: 8597 -> 8000 items (MEMO SHRANK BY 597 THIS RUN)
+    INCOMPLETE — bounded memo progress is retained but cannot qualify calibration.
+  The memo under 51316f79 was discarded whole, as the fingerprint guard
+  requires, and rebuilt from nothing to 8,000 items before the 200m bound
+  (exit 124, MISSING.md M-299). It was banked as cache key
+  lyric-harness-predictability-v1-39070679674.
+  Run 39091378704, nightly job 117569376559, restored that memo warm:
+    CACHE  fingerprint 62551b50acf6 | read 8000 entries, written 2026-10-18T02:45:43
+    POPULATION  1343 files, 1340 distinct authors, 8585 items, 278126 sung lines
+    CACHE  after population: hits 8000, misses 585
+  So every one of the 8,585 items was computed under 62551b50, and none was
+  read from a memo written under another fingerprint.
+
+WHAT THE CALIBRATIONS SAID (run 39091378704, nightly job 117569376559).
+  Step 22, quality/song_profile_calibration.py --check (profile `song`):
+    asked 21, answered 21, refused 0 (doctrine 79)
+    every shipped constant reproduces.
+    memo: 8000 -> 8585 items (+585 banked this run)
+    COMPLETE — the shipped constants re-derive over the whole corpus.
+  Step 23, quality/length_curve_calibration.py check:
+    ROWS  computed: 8585 items (memo hits 8585, misses 0)
+    mattr C1, fwr C1, anaphora C2, cv C2, predictability CK (21 knots) -> HOLDS
+    RESULT: HOLDS — the lyric row's 5 curves re-derive from the corpus
+  The same job's earlier steps (AUC pins, rhyme and alliteration adoption,
+  structure census, default door, banked song verdicts, readings seam,
+  narrative pins, G2P slow) are green in both runs. Deployment freshness
+  reported MATCH against the live connector (21 tools).
+
+THE `short` PROFILE, AND AN INDEPENDENT LOCAL REBUILD (asked for in review).
+The nightly runs the `song` profile only, so the memo was rebuilt a second time
+from nothing, locally, at fb323c08 (whose comparator is the one at 00a47e55):
+    python3 quality/length_curve_calibration.py compute --shard I/4 \
+        --out rows-I-of-4.tsv --cache-path memo-I-of-4.tsv      (I = 1..4)
+Every shard log opens `fingerprint 62551b50acf6 | new (no file yet) | hits 0,
+misses 0`. Shards: 2071 + 2133 + 2202 + 2179 = 8585 items, 23,558 CPU-s, no
+memo read or merged from anywhere else. The four memos were then joined with the
+module's own `merge-cache` (8,585 entries, every one under 62551b50acf6). On
+that memo:
+  * `song_profile_calibration.py --check --profile short`: "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces." 5,507 hits, 0 misses,
+    exit 0.
+  * `song_profile_calibration.py --check` (profile `song`): "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces." 8,585 hits, 0 misses,
+    exit 0. This agrees with the CI run above.
+  * `length_curve_calibration.py check --rows rows-{1..4}-of-4.tsv`: "ROWS
+    from 4 file(s): 8585 items" and "RESULT: HOLDS — the lyric row's 5 curves
+    re-derive from the corpus", exit 0. This agrees with the CI run above.
+The rows and memos are not banked; the commands above regenerate them.
+
+WHAT THIS DOES NOT CLAIM.  The comparator pin says only that the comparator in
+the tree is the one these calibrations ran against. It does not make any row
+correct, and it moves no constant. None of the checks above is the held-out E2
+comparison on `short` (quality/RESULTS_LENGTH_CURVE.md §9); this receipt says
+nothing about it. Merging this pull request still needs the owner's explicit
+approval of the comparator change.

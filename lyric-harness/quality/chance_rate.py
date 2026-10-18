@@ -466,9 +466,29 @@ NULL_LINES = 14
 # and so did both verdicts (`all` -2.11 pp under its null median, p 0.8571;
 # `mandated` +38.69 pp over the median, +36.31 pp over the MAX). Not
 # bisected: the commit range 2026-09-23..10-02 carries no nightly between.
+# REPINNED 2026-10-16 from ~~all 0.5027/0.5238/0.5421, mandated median
+# 0.5238~~: the 2026-10-15 nightly (38704679630, b887e5ef) went red on these
+# four figures and #572 moved none of them (all 20 draws byte-identical on
+# 34dd4c1f). Bisected to #559's reader scheme v2 cut (382c36438; its parent
+# fce4bf0f1 reproduces the old pin): 17 more pairs answered, none of them a
+# mandated pair -- 13 possessive/base polyptoton pairs (`world's`/`world`,
+# U+2019 now folded) and 4 internal-rhyme pairs where v2 keeps a leading
+# U+2018 on the token (`'Thou`/`thou`). THOSE 4 ARE PINNED AS THEY STAND and
+# are a SUSPECTED READER DEFECT, referred to the reader owner; a fix lands
+# with its own re-measurement of this pin. BOTH VERDICTS HELD: `all` -1.49 pp
+# under its null median (p 0.7619), `mandated` +38.10 pp over the median and
+# +36.31 pp over the MAX. That the polyptoton gain is intended v2 behaviour
+# is inferred, not established. The miss is the M-177/M-288 one again: #559
+# ran `--check` and not `--null --check` before merging.
+# REPINNED AGAIN 2026-10-16 from ~~all r_obs 0.5105, max 0.5453~~: #577 is that
+# reader fix -- v2 no longer keeps an opening quotation mark on a word -- and it
+# moved only these two figures (`--null --check` in the nightly of dispatch
+# 38953456008 on aca29aa6e3: MOVED 2, every other figure HOLDS, mandated
+# r_obs 0.9107 unchanged). That the 4 quote-kept pairs are what left `all` is
+# inferred from the fix, not measured pair by pair.
 ADOPTED_SEPARATION = {
-    "all": {"r_obs": 0.5027, "median": 0.5238, "max": 0.5421},
-    "mandated": {"r_obs": 0.9107, "median": 0.5238, "max": 0.5476},
+    "all": {"r_obs": 0.5087, "median": 0.5254, "max": 0.5444},
+    "mandated": {"r_obs": 0.9107, "median": 0.5298, "max": 0.5476},
 }
 
 #: How far a re-derivation may sit from the pin before it is DRIFT. The figures

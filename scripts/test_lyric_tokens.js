@@ -72,6 +72,11 @@ test('the mirror agrees with the harness on every fixture case', () => {
   assert.equal(disagreements, 0);
 });
 
+test('the mirror holds the harness opening-quote rule: same allowlist, same openers', () => {
+  assert.deepEqual([...LT.LEADING_ELISIONS].sort(), FIXTURE.leading_elisions);
+  assert.equal(LT.OPENING_QUOTES, FIXTURE.opening_quotes);
+});
+
 test('pieces slice the source line', () => {
   for (const c of FIXTURE.cases) {
     for (const t of LT.readerLine(c.text, { stripParens: false }).tokens) {
