@@ -4014,19 +4014,24 @@ def test_the_delegated_rulings(FAILURES=None):
           _pp["writer_brief"][:400])
     # plan.py may not import fit (move-37), so it does fit's arithmetic
     # itself; this holds the two equal on every line of two shapes.
-    _same, _seen = True, 0
+    _same, _seen, _uniform = True, 0, True
     for _plan in (_pp, _PL.make_plan(4, form="verse-chorus", lines=16,
                                      functions=["verse", "chorus"])):
         _pl = _FT.from_blueprint(_PL.fill_plan(_plan, ["x"] * 16))[1]
         _secs = {sec["name"]: sec for sec in _plan["sections"]}
+        _per = {}
         for s in _plan["line_slots"]:
             got = _PL.line_pulses_and_heads(_secs[s["section"]], s)
             want = (_pl[s["line"] - 1].duration, len(_pl[s["line"] - 1].heads()))
             _same = _same and got == want
+            _per.setdefault(s["section"], set()).add(got)
             _seen += 1
+        _uniform = _uniform and all(len(v) == 1 for v in _per.values())
     check("...and plan.py's pulses and heads equal fit.Placement's own on "
           "every line of seed 23 and seed 4, so the brief cannot drift from "
           "the grade", _same and _seen == 32, f"{_seen} lines")
+    check("...and every line of a section shares them, since the brief "
+          "prints one row per section for all of its lines", _uniform)
     _chorus = _places[6]
     _sub = _FT.Subdivision(_pp["subdivision"], source="test_plan brief row")
     _codes = {f.code for f in _FT.fit_line(
