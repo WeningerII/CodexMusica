@@ -1536,6 +1536,47 @@ def test_the_offer_carries_no_schema_gap_disclosure():
           and "must rhyme with" not in out, out)
 
 
+def test_the_protected_lines_are_every_line_outside_the_question():
+    """7f — "LINES THAT MUST NOT CHANGE" names EVERY line the answer may not
+    touch, not the lines the grader found nothing on (2026-10-18, BB8's
+    straddle run on live `df11e3b7`). An 8-line draft with a NOTE on every
+    line but L3, asked a batch question for L5 and L7, printed "L3 — the
+    grader found nothing on them" while rule 2 enforced that only the
+    batch's lines change: the stored `keep` is "lines with no findings",
+    and a line carrying a note is still not this question's to change."""
+    print("\n7f. the protected set is every line outside the question")
+    from quality.propose import render_batch
+    lines = [f"line number {n} of the draft" for n in range(1, 9)]
+    # The stored field exactly as that run held it: only L3 had no finding.
+    b5 = B(line_no=5, text=lines[4], keep=[3])
+    b7 = B(line_no=7, text=lines[6], keep=[3])
+
+    def protected(text):
+        # The comma-joined L<n> list on the line under each heading.
+        rows = text.split("\n")
+        out = []
+        for i, row in enumerate(rows):
+            if row.strip() == "LINES THAT MUST NOT CHANGE":
+                out.append(re.findall(r"L(\d+)", rows[i + 1].split("—")[0]))
+        return out
+
+    batch = protected(render_batch([b5, b7], lines))
+    check("a batch brief protects L1-L4, L6 and L8 under every member",
+          batch == [["1", "2", "3", "4", "6", "8"]] * 2, f"{batch}")
+    single = protected(render_line(b5, lines))
+    check("a single-line brief protects every line but its own",
+          single == [["1", "2", "3", "4", "6", "7", "8"]], f"{single}")
+    text = render_batch([b5, b7], lines)
+    check("the stated reason is the question, not the grader's silence",
+          "the grader found nothing on them" not in text, "")
+    # A return group's members are all this answer's targets: none of them
+    # is listed as protected, every other line is.
+    br = B(line_no=2, text=lines[1], keep=[], return_members=(2, 6))
+    ret = protected(render_line(br, lines))
+    check("a return group's members are targets, every other line protected",
+          ret == [["1", "3", "4", "5", "7", "8"]], f"{ret}")
+
+
 if __name__ == "__main__":
     for fn in (test_render_is_deterministic,
                test_forbidden_words_are_present_and_labelled,
@@ -1547,6 +1588,7 @@ if __name__ == "__main__":
                test_group_prompt_states_the_tier2_situation,
                test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for,
                test_the_offer_carries_no_schema_gap_disclosure,
+               test_the_protected_lines_are_every_line_outside_the_question,
                test_model_proposer_surface,
                test_model_proposer_serves_a_real_tier_2,
                test_model_proposer_drives_a_real_loop_to_success,

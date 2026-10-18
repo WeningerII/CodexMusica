@@ -870,8 +870,11 @@ class Brief:
         if self.candidates:
             out.append(f"    offered: {', '.join(self.candidates[:12])}"
                        + (" ..." if len(self.candidates) > 12 else ""))
+        # `keep` is the lines the grader found NOTHING on, which is not the
+        # set a question protects (every line outside it; `propose.py`
+        # derives that). Labelled for what it holds (2026-10-18).
         if self.keep:
-            out.append(f"    keep unchanged: {', '.join(map(str, self.keep))}")
+            out.append(f"    no findings on: {', '.join(map(str, self.keep))}")
         return "\n".join(out)
 
 

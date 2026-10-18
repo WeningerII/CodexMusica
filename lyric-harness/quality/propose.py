@@ -633,16 +633,19 @@ _EMPTY_HEAD_UNSTATED = (
 
 
 def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
-                heading=True, shared=False):
+                heading=True, shared=False, question=()):
     """-> str, the tier-1 prompt: rewrite ONE flagged line.
 
     `prior` (M-236) is the previous round's rejection of this line, rendered
     in the ATTEMPT block when `reasons` is empty; `heading=False` drops the
     three-line banner so `render_batch` can stack several lines' briefs
-    under one banner of its own. `shared=True` drops the whole draft and the
-    whole-draft findings, which `render_batch` prints ONCE above every
-    member (2026-09-30: a 15-line batch on a 40-line song was 265 KB,
-    because each member repeated both). All default to the prompt as it
+    under one banner of its own; `question` is every line the whole
+    question may change (a batch's members), which the protected-lines
+    block leaves out alongside this brief's own targets. `shared=True`
+    drops the whole draft and the whole-draft findings, which
+    `render_batch` prints ONCE above every member (2026-09-30: a 15-line
+    batch on a 40-line song was 265 KB, because each member repeated
+    both). All default to the prompt as it
     was.
 
     PURE and DETERMINISTIC — same inputs, byte-identical output, in any
@@ -667,8 +670,14 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     forbidden = _ordered(getattr(brief, "forbidden_modal", ()) or ())
     incumbent = getattr(brief, "forbidden_incumbent", "") or ""
     targets = tuple(getattr(brief, "return_members", ()) or (line_no,))
-    keep = [n for n in _ordered(getattr(brief, "keep", ()) or ())
-            if n not in targets]
+    # THE PROTECTED SET IS EVERY LINE OUTSIDE THE QUESTION (2026-10-18). It
+    # was `brief.keep`, the lines the grader found NOTHING on, so a line
+    # carrying only a note dropped out of the list while rule 2 below still
+    # refused any change to it: an 8-line batch question for L5 and L7 told
+    # the writer "L3" alone. Derived here from the draft and the question,
+    # not from the stored field, so a held run's old `keep` renders right.
+    asked = set(targets) | set(question or ())
+    keep = [n for n in range(1, len(lines) + 1) if n not in asked]
     findings = _ordered(getattr(brief, "findings", ()) or ())
     whole = _ordered(whole or ())
     decl = getattr(brief, "field_declaration", "field_depth=?, field_band=?")
@@ -970,10 +979,10 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     out.append("LINES THAT MUST NOT CHANGE")
     if keep:
         out.append("  " + ", ".join(f"L{n}" for n in keep)
-                   + " — the grader found nothing on them.")
+                   + " — outside this question, whatever the grader found "
+                   "on them.")
     else:
-        out.append("  (the grader found something on every line; you are "
-                   "still only asked for this one)")
+        out.append("  (every line of the draft is part of this question)")
     out.append(f"  The tool applies your one answer to "
                f"{', '.join('L%d' % n for n in targets)}. "
                f"Every other line stays byte-identical. Changing one is rejected")
@@ -1512,7 +1521,7 @@ def render_batch(briefs, lines, whole=(), priors=None):
         out.append("═" * 8 + f" L{n} " + "═" * 8)
         out.append(render_line(b, lines, whole=whole, attempt=0,
                                reasons=None, prior=priors.get(n),
-                               heading=False, shared=True))
+                               heading=False, shared=True, question=nos))
         out.append("")
     return "\n".join(out)
 
