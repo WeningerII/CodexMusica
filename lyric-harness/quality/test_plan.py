@@ -3972,7 +3972,11 @@ def test_the_delegated_rulings(FAILURES=None):
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
             exp = f"      up to {capn} syllables a line after the pickup"
-            cap_ok = cap_ok and lines_b[i + 1] == exp
+            # REPINNED 2026-10-18 from ~~lines_b[i + 1]~~: the beat and
+            # strong-beat rows lead and the ceiling follows them (Jony's
+            # review of #587), so the ceiling is the row after those.
+            cap_ok = cap_ok and lines_b[
+                i + 1 + len(_PL._pulse_rows(sec, slots[0]))] == exp
     check("...the brief carries a LEGEND: every place a group names and "
           "every relation it draws is glossed, derived from the slot "
           "vocabulary and the registry, with an inaudible relation saying "
@@ -4003,15 +4007,40 @@ def test_the_delegated_rulings(FAILURES=None):
     for i, sec in zip(_hdr, _pp["sections"]):
         s0 = next(s for s in _pp["line_slots"] if s["section"] == sec["name"])
         d, h = _PL.line_pulses_and_heads(sec, s0)
-        pulses = str(d.numerator) if d.denominator == 1 else f"{float(d):g}"
-        _rows_ok = _rows_ok and _bl[i + 2].startswith(
-            f"      {pulses} pulses and {h} group heads a line")
-    check("...and UNDER the ceiling, the pulses and group heads the density "
-          "and prominence notes count against (seed 23: 7.5 pulses and 2 "
-          "heads in the verse, 8 and 3 in the chorus)", _rows_ok and
-          "7.5 pulses and 2 group heads" in _pp["writer_brief"] and
-          "8 pulses and 3 group heads" in _pp["writer_brief"],
-          _pp["writer_brief"][:400])
+        rows = _PL._pulse_rows(sec, s0)
+        _rows_ok = (_rows_ok and len(rows) == 3
+                    and _bl[i + 1:i + 4] == rows
+                    and _bl[i + 4].startswith("      up to ")
+                    and f"{h} of them strong" in rows[0]
+                    and rows[1].endswith("the ceiling below is room, not a "
+                                         "target"))
+    check("...and UNDER the bracket, BEFORE the ceiling, the beats (pulses) "
+          "and strong beats (group heads) the density and prominence notes "
+          "count against, in a writer's words (seed 23: 7½ beats and 2 "
+          "strong in the verse, 8 and 3 in the chorus), with the ceiling "
+          "named room, not a target", _rows_ok and
+          "each line: 7½ beats (pulses), 2 of them strong (group heads)"
+          in _pp["writer_brief"] and
+          "each line: 8 beats (pulses), 3 of them strong (group heads)"
+          in _pp["writer_brief"] and
+          "every count is a note about the setting, not a fault"
+          in _pp["writer_brief"], _pp["writer_brief"][:600])
+    # The rows disclose the grid; they never prescribe the stresses.
+    _rw = [_PL._pulse_rows(*args) for args in (
+        ({"meter": {"beats": 4, "unit": 4, "groups": [4]}, "name": "x",
+          "start_bar": 1},
+         {"bar": 1, "beat": 2, "duration": 2}),
+        ({"meter": {"beats": 4, "unit": 4, "groups": [4]}, "name": "x",
+          "start_bar": 1},
+         {"bar": 1, "beat": 1, "duration": 1}))]
+    check("...and a line no strong beat falls inside says so and calls a "
+          "stress off it a setting choice; a one-beat line says 'beat "
+          "(pulse)'",
+          len(_rw) == 2 and all(_rw)
+          and "none of them strong" in _rw[0][0]
+          and "a setting choice, not a fault" in _rw[0][2]
+          and _rw[1][0] == "      each line: 1 beat (pulse), 1 of them "
+                           "strong (a group head)", f"{_rw}")
     # plan.py may not import fit (move-37), so it does fit's arithmetic
     # itself; this holds the two equal on every line of two shapes.
     _same, _seen, _uniform = True, 0, True
