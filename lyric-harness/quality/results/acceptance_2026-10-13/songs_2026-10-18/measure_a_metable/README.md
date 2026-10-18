@@ -34,3 +34,15 @@ A plan is metable when every one of its lines is.
    lines it's rare (about 1%).
 4. **The choice of default measure is still John's.** This table says it should be made apart
    from the two instrument faults above.
+
+## Correction (19:55 UTC), following 3PO's caution on #519 (6254354023)
+
+"Metable" here means **no unavoidable informational note**. It doesn't mean an obligation can be
+met or failed: every code counted (SPARSE, CROWDED, HEADS_EXCEED_UNITS,
+PROMINENCE_EXCEEDS_HEADS) has severity *note*, and none of the counted cases is a standing flag or
+a refused obligation. So the columns are:
+- **today:** plans with no unavoidable informational note;
+- **with R2's gate:** satisfiable at the plan's declared subdivision.
+
+"Nothing can satisfy" above overstates it. Group heads are grid landmarks, not a required stress
+count. Log-uniform here means discrete weights of 1/n over the integer beat values 2–200.
