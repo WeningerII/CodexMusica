@@ -2745,6 +2745,25 @@ class Reviser:
         # re-declared (that is the 2026-08-16 fix), so the two cannot drift
         # on the NUMBER while staying free to differ on the QUESTION.
         collisions = []
+        # A PAIR THE MANDATE REQUIRES IS NOT A COLLISION, AND IT IS NOT
+        # DELETED EITHER (2026-10-18, song "Last Run"). The group test below
+        # reads the RAW groups, and a line declared as a return is in none of
+        # them, so a verbatim chorus came back as 8 REPEAT_ACROSS_GROUPS and 6
+        # SCHEME_COLLISION against itself -- on a mandate whose own
+        # `requirement()` answered REQUIRE_RETURN or REQUIRE_RHYME for every
+        # one. Those pairs are asked of `requirement()`, the answer the repeat
+        # licence above already reads, and filed here instead of in
+        # `collisions`. KEPT, because `group_merges` condition (a) needs every
+        # cross edge: dropping them would silently end the DECLARED merge on
+        # a return given letters of its own (the 2026-08-16 lesson above).
+        #
+        # A pair that must RHYME through a return is an echo when it rhymes,
+        # or when both ends still carry their originals' end words -- then it
+        # IS the mandated pair of the originals, which the loop above judges.
+        # Otherwise (a copy that changed the word the original rhymed on, and
+        # now repeats or misses) nothing else judges it, so it stays a
+        # collision and carries `carried` so the finding can say why.
+        required_echoes = []
         n = len(lines)
         scoped = bool(getattr(m, "scope", ()))
         for i in range(n):
@@ -2754,6 +2773,25 @@ class Reviser:
                 s = matrix[i][j]
                 if s["total"] >= THETA_COLLISION and self._collides_however_sung(
                         lines, i, j, s, profile):
+                    req = m.requirement(i + 1, j + 1) if m.returns else None
+                    carried = None
+                    if req is SC.REQUIRE_RHYME:
+                        carried = (m._rep(i + 1), m._rep(j + 1))
+                        rels = set(s["relations"])
+                    if (req is SC.REQUIRE_RETURN or req is SC.LICENSE_REPEAT
+                            or (carried is not None
+                                and (("REPEAT" not in rels
+                                      and rels & RHYME_RELATIONS)
+                                     or (endwords[carried[0] - 1] == endwords[i]
+                                         and endwords[carried[1] - 1]
+                                         == endwords[j])))):
+                        required_echoes.append({
+                            "lines": (i + 1, j + 1),
+                            "endwords": (endwords[i], endwords[j]),
+                            "score": s["total"],
+                            "relations": sorted(s["relations"]),
+                            "requirement": req.name})
+                        continue
                     # The CLASSIFICATION comes from `requirement()` — the
                     # mandate's own five-value answer, so this loop and the
                     # grader cannot drift about what UNDECLARED means. The
@@ -2776,6 +2814,7 @@ class Reviser:
                         "attribution": self._attribution(
                             s, endwords[i], endwords[j]),
                         "undeclared": bool(und),
+                        "carried": carried,
                         "undeclared_lines": (
                             [ln for ln in (i + 1, j + 1)
                              if not m.in_scope(ln)] if und else [])})
@@ -2783,6 +2822,7 @@ class Reviser:
                 "verdicts": verdicts, "violations": violations,
                 "repeats": repeats, "excused": excused,
                 "refusals": refusals, "collisions": collisions,
+                "required_echoes": required_echoes,
                 # M-149(b): THE COUNTS READ THE TRIPLE SET, NOT THE RECORD
                 # LIST. A record exists for rendering and can cover several
                 # groups (the scalar end-word case) or share a triple with a
@@ -2910,7 +2950,10 @@ class Reviser:
         # measured 34 s of a 24-line revise's first 71).
         rep = self.grade(lines, m, profile=profile, sections=sections)
         _, endwords, _, matrix = self._matrix(lines, profile=profile)
-        edges = {tuple(c["lines"]) for c in rep["collisions"]}
+        # A required echo is still an edge: a declared return's cross pairs
+        # are what make its merge DECLARED (see `grade()`'s collision loop).
+        edges = {tuple(c["lines"])
+                 for c in rep["collisions"] + rep.get("required_echoes", [])}
         th = self.decl.theta_rhyme
         # TWO PASSES (2026-09-30). The first finds every group pair that
         # clears (a) and the cross pairs (b) leaves unresolved; the second
@@ -4394,6 +4437,24 @@ class Reviser:
                          f"would call the pair a VIOLATION if L{i} and "
                          f"L{j} were mandated together")
                       + ". See the whole-draft note below")
+            if c.get("carried") and code != "COLLISION_UNDECLARED":
+                # The group tags above read the RAW groups, where a returned
+                # line is in none, so "share no mandated group" would be
+                # false here: `requirement()` says these two must RHYME.
+                ri, rj = c["carried"]
+                via = "; ".join(f"L{x} returns L{r}" for x, r in
+                                ((i, ri), (j, rj)) if x != r)
+                what = ("END ON THE SAME WORD"
+                        if "REPEAT" in c["relations"]
+                        else f"collide as {_crel}, WHICH IS NOT A RHYME")
+                msg = (f"L{i} and L{j} must RHYME through a declared return "
+                       f"({via}; L{min(ri, rj)}/L{max(ri, rj)} is a mandated rhyme) "
+                       f"and they "
+                       f"{what} — {pair}")
+                ev = (f"the mandate requires a rhyme here, carried through "
+                      f"the return, and this copy no longer ends on its "
+                      f"original's word, so the judged pair L{ri}/L{rj} does "
+                      f"not speak for it. Identity is not rhyme (doctrine 3)")
             add(j, Finding(code, "note", msg, ev, [i, j]))
         if near:
             # Said ONCE. The argument is a property of the cut, not of any
@@ -4535,6 +4596,11 @@ class Reviser:
             original_lines=self._pronunciation_origin))
         _refused_ids = [row["id"] for row in _coverage_rows if row["status"] == "refused"]
         _coverage = {k: rep[k] for k in ("pairs_mandated", "pairs_judged", "pairs_refused")}
+        # The pairs a declared return excused from the collision set, listed
+        # so a reader can audit them rather than find them simply gone.
+        _coverage["required_echoes"] = [
+            {"lines": list(e["lines"]), "requirement": e["requirement"]}
+            for e in rep.get("required_echoes", ())]
         _coverage.update(scope="requested_layers", certified=not _refused_ids,
                          obligations=_coverage_rows, refused_obligations=_refused_ids)
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
