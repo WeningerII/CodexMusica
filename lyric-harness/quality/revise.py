@@ -2757,12 +2757,16 @@ class Reviser:
         # cross edge: dropping them would silently end the DECLARED merge on
         # a return given letters of its own (the 2026-08-16 lesson above).
         #
-        # A pair that must RHYME through a return is an echo when it rhymes,
-        # or when both ends still carry their originals' end words -- then it
-        # IS the mandated pair of the originals, which the loop above judges.
-        # Otherwise (a copy that changed the word the original rhymed on, and
-        # now repeats or misses) nothing else judges it, so it stays a
-        # collision and carries `carried` so the finding can say why.
+        # A pair that must RHYME through a return stays a collision in ONE
+        # case: it ends on the SAME WORD and a copy no longer carries its
+        # original's end word. Identity is not rhyme (doctrine 3), and no
+        # judged pair speaks for it, so it carries `carried` and the finding
+        # says why. When both ends still carry their originals' words it IS
+        # the originals' mandated pair, judged above; any other relation it
+        # stands in is a sound the mandate asked for. No rhyme-family test is
+        # made here: a pair stands in every relation its sound supports (the
+        # N-relation default), and whether a COPY satisfies the declared
+        # relation is a question `grade()` asks of raw pairs only.
         required_echoes = []
         n = len(lines)
         scoped = bool(getattr(m, "scope", ()))
@@ -2777,11 +2781,9 @@ class Reviser:
                     carried = None
                     if req is SC.REQUIRE_RHYME:
                         carried = (m._rep(i + 1), m._rep(j + 1))
-                        rels = set(s["relations"])
                     if (req is SC.REQUIRE_RETURN or req is SC.LICENSE_REPEAT
                             or (carried is not None
-                                and (("REPEAT" not in rels
-                                      and rels & RHYME_RELATIONS)
+                                and ("REPEAT" not in s["relations"]
                                      or (endwords[carried[0] - 1] == endwords[i]
                                          and endwords[carried[1] - 1]
                                          == endwords[j])))):
@@ -4444,13 +4446,9 @@ class Reviser:
                 ri, rj = c["carried"]
                 via = "; ".join(f"L{x} returns L{r}" for x, r in
                                 ((i, ri), (j, rj)) if x != r)
-                what = ("END ON THE SAME WORD"
-                        if "REPEAT" in c["relations"]
-                        else f"collide as {_crel}, WHICH IS NOT A RHYME")
                 msg = (f"L{i} and L{j} must RHYME through a declared return "
-                       f"({via}; L{min(ri, rj)}/L{max(ri, rj)} is a mandated rhyme) "
-                       f"and they "
-                       f"{what} — {pair}")
+                       f"({via}; L{min(ri, rj)}/L{max(ri, rj)} is a mandated "
+                       f"rhyme) and they END ON THE SAME WORD — {pair}")
                 ev = (f"the mandate requires a rhyme here, carried through "
                       f"the return, and this copy no longer ends on its "
                       f"original's word, so the judged pair L{ri}/L{rj} does "
@@ -4598,9 +4596,12 @@ class Reviser:
         _coverage = {k: rep[k] for k in ("pairs_mandated", "pairs_judged", "pairs_refused")}
         # The pairs a declared return excused from the collision set, listed
         # so a reader can audit them rather than find them simply gone.
-        _coverage["required_echoes"] = [
-            {"lines": list(e["lines"]), "requirement": e["requirement"]}
-            for e in rep.get("required_echoes", ())]
+        # Only when there is one: a run with none prints the coverage line
+        # byte-identical to before, which recorded replays compare exactly.
+        if rep.get("required_echoes"):
+            _coverage["required_echoes"] = [
+                {"lines": list(e["lines"]), "requirement": e["requirement"]}
+                for e in rep["required_echoes"]]
         _coverage.update(scope="requested_layers", certified=not _refused_ids,
                          obligations=_coverage_rows, refused_obligations=_refused_ids)
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
