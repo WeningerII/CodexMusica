@@ -1,0 +1,25 @@
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  PROPOSER: defer:<STATE> — 0 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; nothing outside this process is reached, and the loop SUSPENDS at the first unanswered request rather than guessing
+revise_loop: SUCCESS after 0 round(s)
+  DRAFT: handed in 8 line(s), md5 918722af2355 — emitted 8 line(s), md5 918722af2355 (UNCHANGED)
+  LAYERS: rhyme, slop floor and declared returns ONLY. NO BLUEPRINT — meter and song-function were NOT ASKED, which is not the same as their being clean (doctrine 20: a refusal is not a pass)
+  COMPARATOR: profile=declared default
+  PAIRS: mandated 4, judged 4, refused 0 — three counts, never summed (doctrine 79)
+  REPLAY MEMO: warm — 1 of 3 grading call(s) answered from the process memo (runs held: 1 of 4)
+  PAIR MEMO: cold — 0 line pair(s) served from the process memo, 176 judged and recorded (70 schema slot(s), 176 row(s) held)
+  SCORE MEMO: pair scores 0 served / 28 scored; RANK MEMO: field rankings 0 served / 0 ranked
+  PROPOSER: defer:<STATE> — 0 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; 0 consulted and answered. The loop ran to a stop condition, so this state is COMPLETE and its `answered` block is a valid --propose=replay: file
+  COVERAGE: {"certified": true, "obligations": [{"id": "function:draft", "layer": "function", "status": "not_requested"}, {"id": "shape:draft", "layer": "shape", "status": "not_requested"}, {"id": "sentencehood:draft", "layer": "sentencehood", "status": "answered"}, {"id": "floor:draft", "layer": "floor", "status": "answered"}, {"id": "meter:draft", "layer": "meter", "status": "not_requested"}, {"id": "slot_grid:draft", "layer": "slot_grid", "status": "not_requested"}, {"id": "setting:draft", "layer": "setting", "status": "not_requested"}, {"id": "rhyme:1:2:0", "layer": "rhyme", "status": "answered"}, {"id": "rhyme:3:4:1", "layer": "rhyme", "status": "answered"}, {"id": "rhyme:5:6:2", "layer": "rhyme", "status": "answered"}, {"id": "rhyme:7:8:3", "layer": "rhyme", "status": "answered"}], "pairs_judged": 4, "pairs_mandated": 4, "pairs_refused": 0, "refused_obligations": [], "scope": "requested_layers"}
+
+  THE SONG, PERFORMANCE ORDER:
+
+The kettle hums a tune it never learned
+The window holds the light the morning earned
+You left your coat across the kitchen chair
+As if the cold could never find you there
+I trace the roads you pencilled on a chart
+But every map I fold just falls apart
+I keep the porch screen latched, but not too tight
+I'll find my way by what's left of the light
+
+[FINISHED — declared mandate — exit 0 — SUCCESS after 0 round(s) — no line flag stands]

@@ -1,0 +1,14 @@
+a single, all protected clean
+      L1, L2, L3, L4, L6, L7, L8 — the grader found nothing on them.
+b single, some protected noted
+      L1, L2, L3, L4, L6, L7, L8 — outside this question, whatever the grader found on them.
+c single, none clean
+      (the grader found something on every line; you are still only asked for this one)
+d batch, all others clean
+      L1, L2, L3, L4, L6, L8 — the grader found nothing on them.
+e return group, none clean
+      (the grader found something on every line; you are still only asked for this one)
+f return group, all others clean
+      L1, L3, L4, L5, L7, L8 — the grader found nothing on them.
+g batch covering all 8 lines
+      (the grader found something on every line; you are still only asked for this one)

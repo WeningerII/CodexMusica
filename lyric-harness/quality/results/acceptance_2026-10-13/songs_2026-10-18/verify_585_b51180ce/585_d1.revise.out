@@ -1,0 +1,97 @@
+  BLUEPRINT: none declared — meter and song-function are NOT asked; only rhyme and the slop floor are (doctrine 20: this is a refusal on those two layers, not evidence they are clean)
+  PROPOSER: defer:<STATE> — 0 answer(s) already given; the run resumes from its saved position, or replays its journal in order when that position cannot be trusted; nothing outside this process is reached, and the loop SUSPENDS at the first unanswered request rather than guessing
+
+  SUSPENDED — the loop asked for a propose it has no answer for, and will not guess one.
+  REPLAY MEMO: cold — 0 of 3 grading call(s) answered from the process memo (runs held: 1 of 4)
+  PAIR MEMO: cold — 0 line pair(s) served from the process memo, 176 judged and recorded (70 schema slot(s), 176 row(s) held)
+  SCORE MEMO: pair scores 0 served / 28 scored; RANK MEMO: field rankings 0 served / 1 ranked
+  Written to <STATE>. Fill `pending.answer`, then run the SAME command again.
+
+REVISE ONE LINE — L7 of a 8-line draft.
+
+You are given a draft, one line of it a grader has flagged, everything that grader
+measured, and the rules it will apply to what you send back. Rewrite that ONE line.
+
+ATTEMPT
+  This is ATTEMPT 1 of this line's retry budget.
+  No previous attempt was rejected on this line in this round.
+
+THE LINE TO REVISE
+  L7: So leave the porch light on another night
+
+THE WHOLE DRAFT (context — only L7 may change)
+     L1  The kettle hums a tune it never learned
+     L2  The window holds the light the morning earned
+     L3  You left your coat across the kitchen chair
+     L4  As if the cold could never find you there
+     L5  I trace the roads you pencilled on a chart
+     L6  But every map I fold just falls apart
+  >> L7  So leave the porch light on another night
+     L8  I'll find my way by what's left of the light
+
+WHAT THE GRADER FOUND ON L7 (1)
+  [flag] CLICHE_PAIR: 1 rhyme pair(s) on the stock list (lines 7)
+      evidence: night/light. WHAT THIS IS: membership in a hand-typed list of 30 pairs (`FloorDeclaration.cliche_pairs`), nothing more. It fires as a FLAG because the shipped list has a measured interruption rate on held-out human song: author-held out, 200 seeds, 50/50 — the same protocol that gives LEXICAL_MONOTONY 5.43% and FUNCTION_WORD_HEAVY 5.23%. WHERE THAT RATE WAS TAKEN, REPINNED 2026-09-05 (M-239): only in the two band rows, 7.33% at 150-350 tokens (`song`, seed 5th-95th 5.69-8.71%) and 4.51% at 50-150 tokens (`short`, seed 5th-95th 3.96-5.08%) — rows SUPERSEDED on 2026-09-04 for their percentiles, kept for their own drift checks, and still the only measured cliche rates the floor has. This text sits inside `short`, so the rate is quoted from a reading taken at this length. What is known about the two stanza lengths: over the 4,930 corpus items bucketed on 2026-08-14 the check fired on 0.00% of the 86 that landed in `section` exactly and 5.49% of the 437 that landed in `sonnet` exactly — at or under the band rate, which is why the carry-over is not what `sev()` is guarding against. Measuring the rate per length bin over the current lyric range is owed (M-239). WHAT IT IS NOT: a cliche detector, and it does not measure over-familiarity to a living listener. Against this repo's own pair table (`data/song_rhymepair_en.tsv`, 15,409 distinct pairs by author dispersion) the shipped list has low SENSITIVITY: only 4 of the table's top 30 pairs are on it (13.3%; 3 of 10 at the top ten), its own median dispersion rank is #254 of 15,409, and 9 of its 30 pairs never fire anywhere in corpus/song/eng_*. The table's most dispersed rhymes are away/day, be/me, me/thee — none a cliche to anyone now, and none on the list. `quality/relations.py`'s `frequency` Unprovidable and `quality/phrase_commonplace.py` both REFUSE the over-familiarity claim at their own levels, because every admissible English source here is pre-1931; a shorter list does not earn the claim they declined. So this finding says 'this pair is on a named list that interrupts a human songwriter about 6% of the time', and it does not say the rhyme is tired. PRECISION DEFECT, RECORDED NOT FIXED: there is no rhyme test in front of the membership test — it is raw string-set membership on the two end words. `tears`/`years` fires 21 times over the corpus, 5 in band, on couplets the same pair table records as NOT rhyming (count zero), because cmudict's first pronunciation of `tears` is the rips sense and the table reads `prons[0]`. Neither layer read which sense is on the page. Both fixes were priced in band: a `prons[0]` gate takes 118 to 114 by asserting one convention over another, and an any-pronunciation gate changes nothing at all (136 of 136 listed pairs pass it)
+
+WHOLE-DRAFT FINDINGS — PRESERVE THESE CONSTRAINTS (1)
+  These are measured over the WHOLE DRAFT. Preserve their constraints while changing only the permitted lines.
+  A permitted rewrite may improve or clear a whole-draft finding; it is not required to clear every one in this single edit.
+  The grader reads them too: a revision that makes one WORSE is rejected.
+  [note] UNIFORM_LINE_LENGTH: every line is close to the same length
+      evidence: line-length CV 0.083 < 0.0842 (human 5th percentile, lyric profile, evaluated at N=68 tokens from -0.0955481 +0.059242·ln N -0.00394609·(ln N)^2). NOT slop evidence: this check was built expecting metronomic lines to be a generated-text tell and the measurement came out BACKWARDS — Shakespeare is more uniform than the model. NO generated class exists at this length, so there is no AUC and no separation claim; the evidence is a false-positive rate of 5.11% on HELD-OUT human song (5th-95th percentile of seeds 4.11-6.36%). It says how often this fires on a human songwriter, not whether it catches a machine. In a fixed form uniformity is the form. Retained only as 'outside the human range', and meaningful, if at all, in free verse
+
+THE RHYME MANDATE ON L7
+  group D [7, 8] at its end word — this line must stand in at least one relation with: L8 ('light') — VIOLATED, this is the word to change
+
+OFFERED — words for the end word that answer every group bound there
+  14 rhyming word(s) are NOT offered: the call word sits in their own modal head, so taking one
+  files MODAL_RHYME from that side and re-opens this line (spite, twilight, invite, despite, bite, daylight, …).
+  24 word(s); field read at field_depth=complete pool, field_band='grader'
+    site, goodnight, satellite, website, dynamite, insight, flashlight, spotlight, kite, cartwright, parasite, rewrite, highlight, rite, fortnight, oversight, downright, meteorite, excite, copyright, ignite, kryptonite, starlight, impolite
+  Offered, NOT required. The grader re-grades the rhyme itself; it never checks whether
+  your end word came off this list. A word that is not here and rhymes is accepted, and
+  a word that is here is not accepted for being here.
+
+FORBIDDEN — do not MOVE L7 TO any of these (33)
+  night, bright, sight, right, flight, delight, might, fight, fright, knight, plight, slight, upright, wight, tight, outright, alight, blight, tonight, alright, overnight, dwight, wright, uptight, allright, forthright, enright, white, height, sprite, write, quite, unite
+  These are the most predictable answers in this field. MOVING to one of them is
+  REJECTED OUTRIGHT — before the grader looks at whether the line fixed anything at
+  all. Passing the rhyme band by reaching for the most predictable word in it is the
+  slop direction, and it is the one move this loop refuses mechanically rather than
+  merely discouraging (doctrine 9).
+
+THE WORD ALREADY THERE — a DIFFERENT rule from the one above (1)
+  night
+  This is the end word L7 already has. Re-proposing it is not a revision — but it
+  is NOT rejected outright the way the list above is: the grader asks whether a modal
+  candidate was TAKEN, and keeping the word you were given takes nothing. A line that
+  keeps it is refused by rule 4 below ('nothing was fixed') UNLESS the rewrite repaired
+  something else — a meter finding, say — in which case keeping it is accepted.
+
+LINES THAT MUST NOT CHANGE
+  L1, L2, L3, L4, L5, L6, L8 — outside this question, whatever the grader found on them.
+  The tool applies your one answer to L7. Every other line stays byte-identical. Changing one is rejected
+  outright even if the change is an improvement.
+
+WHAT THE GRADER ENFORCES ON YOUR ANSWER
+  1. ONE line back, and it replaces L7. The draft stays 8 lines — a different
+     line count is rejected outright: this loop revises lines, it does not restructure
+     the draft.
+  2. ONLY L7 changes (declared returns are mirrored). Any other line that comes back different is rejected
+     outright, whatever else the revision achieved.
+  3. The end word L7 MOVES TO is not one of the FORBIDDEN words above. That is
+     checked before anything else about the line and rejects on its own. KEEPING the
+     word already there is not a move and is not rejected here — see item 4.
+  4. The line must FIX at least one finding. A rewrite that is differently defective
+     is rejected as 'nothing was fixed'.
+  5. It may not trade one defect for another: new FLAG findings anywhere in the draft
+     — including on lines you did not touch — reject it once they exceed the declared
+     `allow_net_new` (0 by default). New NOTES do not reject.
+
+HOW TO ANSWER
+  Send the line and nothing else: one line, no quotation marks around it, no line
+  number, no commentary, no code fence. If you must explain yourself first, put the
+  line LAST, alone on its own line, beginning with `LINE: `. Anything ambiguous —
+  two candidate lines, a quoted line, an explanation with no marker — is discarded
+  unread and costs you this attempt.
+  The line is at most 200 characters; a longer one is not accepted.
