@@ -648,3 +648,57 @@ test('grade and revise publish the same notes_by_code and not_checked through th
       'the kinds add up to the count on every path'
     );
 });
+
+// Copied from live verdicts (2026-10-18): BB8's "Last Run" coverage and the
+// three not_requested obligations Don's song carried. A function obligation is
+// named by its code and its finding, and one thing not checked is one line.
+test('not_checked names a coded obligation by its code and finding, once', () => {
+  const live = {
+    ...verdict,
+    findings: [
+      ...verdict.findings,
+      {
+        code: 'FUNCTION_UNDECLARED',
+        severity: 'note',
+        message: "no section declares 'bridge'",
+        evidence: '',
+        locations: [],
+      },
+    ],
+    coverage: {
+      certified: true,
+      refused_obligations: [],
+      obligations: [
+        { id: 'function:draft', layer: 'function', status: 'answered' },
+        {
+          id: 'function:SINGLE_INSTANCE:0',
+          layer: 'function',
+          status: 'not_requested',
+          code: 'SINGLE_INSTANCE',
+        },
+        {
+          id: 'function:FUNCTION_UNDECLARED:0',
+          layer: 'function',
+          status: 'not_requested',
+          code: 'FUNCTION_UNDECLARED',
+        },
+        {
+          id: 'function:FUNCTION_UNDECLARED:1',
+          layer: 'function',
+          status: 'not_requested',
+          code: 'FUNCTION_UNDECLARED',
+        },
+        { id: 'meter:draft', layer: 'meter', status: 'answered' },
+        { id: 'slot_grid:draft', layer: 'slot_grid', status: 'answered' },
+        { id: 'setting:draft', layer: 'setting', status: 'not_requested' },
+        { id: 'return:7:9', layer: 'return', status: 'answered' },
+      ],
+    },
+  };
+  const short = JSON.parse(sessionView('lyric_revise', blocks(live))[1].text);
+  assert.deepEqual(short.not_checked, [
+    'function: SINGLE_INSTANCE',
+    "function: FUNCTION_UNDECLARED — no section declares 'bridge'",
+    'setting (which syllable sits on which pulse): no beat grid or isochrony declared',
+  ]);
+});

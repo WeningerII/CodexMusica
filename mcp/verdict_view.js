@@ -67,6 +67,22 @@ const NOT_CHECKED = {
   setting: 'setting (which syllable sits on which pulse): no beat grid or isochrony declared',
 };
 
+// One line per distinct thing not checked. An obligation that carries a
+// `code` (function:FUNCTION_UNDECLARED:0) is named by it and by the finding
+// that says what it means; a layer row (setting:draft) by what would ask it.
+function notCheckedOf(verdict) {
+  const findings = Array.isArray(verdict.findings) ? verdict.findings : [];
+  const out = new Set();
+  for (const o of verdict.coverage?.obligations || []) {
+    if (o.status !== 'not_requested') continue;
+    if (o.code) {
+      const f = findings.find((x) => x.code === o.code);
+      out.add(`${o.layer}: ${o.code}` + (f?.message ? ` — ${f.message}` : ''));
+    } else out.add(NOT_CHECKED[o.layer] ?? `${o.layer}: not requested`);
+  }
+  return [...out];
+}
+
 export const sha256 = (text) => createHash('sha256').update(text, 'utf8').digest('hex');
 
 // The lines a refused obligation id names, in the grader's own spelling:
@@ -323,9 +339,7 @@ export function sessionView(tool, content, { detail, lines } = {}) {
   short.notes_by_code = Object.fromEntries(
     Object.entries(byCode).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))
   );
-  const unasked = (verdict.coverage?.obligations || []).filter((o) => o.status === 'not_requested');
-  if (verdict.coverage)
-    short.not_checked = unasked.map((o) => NOT_CHECKED[o.layer] ?? `${o.layer}: not requested`);
+  if (verdict.coverage) short.not_checked = notCheckedOf(verdict);
   short.detail = DETAIL_NOTE;
   return [content[0], { type: 'text', text: JSON.stringify(short) }];
 }
