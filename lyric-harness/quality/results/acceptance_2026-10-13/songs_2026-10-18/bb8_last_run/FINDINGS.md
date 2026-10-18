@@ -112,6 +112,12 @@ against. Fixing the draw alone won't fix F1.
   - **Why it happens:** the per-member render only learns that it's part of a batch through
     `question`, which #585 now passes, so a fix has a handle.
   - **Status:** a separate guidance change.
+  - **Also pin the return-group `keep=[]` case (found verifying #585 @ b51180cef; R2 is leaving it
+    for this follow-up, since the follow-up rewrites the same parenthetical).** A return group
+    (L2, L6) with no clean line outside it prints the old parenthetical, "you are still only asked
+    for this one", and names no protected line. 7f's return-group fixture moved from `keep=[]` to
+    `keep=[4]` in that commit, so no test holds this case now. Evidence:
+    `../verify_585_b51180ce/` (case e).
 
 ## Verification status (19:05 UTC)
 
