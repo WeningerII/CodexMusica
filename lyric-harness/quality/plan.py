@@ -168,7 +168,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "BEATS_PER_SYLLABLE_MAX",
            "JOINT_CODES", "LAST_WORD", "placement_word",
            "bound_placements", "bound_token_share", "end_rhyme_groups",
-           "line_syllable_ceiling", "joint_findings"]
+           "line_syllable_ceiling", "line_pulses_and_heads", "joint_findings"]
 
 
 class PlanRefused(ValueError):
