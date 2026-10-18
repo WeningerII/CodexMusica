@@ -14,7 +14,7 @@
 It reads captured results only and calls nothing. Don checks the same evidence by his own method,
 without this script, so the two results can be compared.
 
-## Tested before use (17:25 UTC)
+## Tested before use (17:12 UTC)
 
 The input was the real `recover_only` export from the straddle test's pre-deploy half (16:35 UTC,
 live `df11e3b7`), plus copies broken on purpose. The inputs stay in BB8's scratchpad because their
