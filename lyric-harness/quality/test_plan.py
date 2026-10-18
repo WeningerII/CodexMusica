@@ -3986,6 +3986,59 @@ def test_the_delegated_rulings(FAILURES=None):
           "byte (M-97)",
           cap_ok and headers_ok)
 
+    # ── 2026-10-18: the pulses and heads the density notes count against ──
+    # Two songs written through /mcp to "up to 15" and "up to 122 syllables"
+    # drew CROWDED on every line of one and SPARSE on every line of the
+    # other: the ceiling is slots, and those notes read pulses and heads.
+    import quality.fit as _FT
+    from fractions import Fraction as _Fr
+    _pp = _PL.make_plan(23, form="verse-chorus", lines=16,
+                        functions=["verse", "chorus"],
+                        wants=["beats_per_line<=8"])
+    _places = _FT.from_blueprint(_PL.fill_plan(_pp, ["x"] * 16))[1]
+    _bl = _pp["writer_brief"].splitlines()
+    _hdr = [i for i, l in enumerate(_bl)
+            if re.match(r"^  \[[A-Z]", l) and l.rstrip().endswith("]")]
+    _rows_ok = len(_hdr) == len(_pp["sections"])
+    for i, sec in zip(_hdr, _pp["sections"]):
+        s0 = next(s for s in _pp["line_slots"] if s["section"] == sec["name"])
+        d, h = _PL.line_pulses_and_heads(sec, s0)
+        pulses = str(d.numerator) if d.denominator == 1 else f"{float(d):g}"
+        _rows_ok = _rows_ok and _bl[i + 2].startswith(
+            f"      {pulses} pulses and {h} group heads a line")
+    check("...and UNDER the ceiling, the pulses and group heads the density "
+          "and prominence notes count against (seed 23: 7.5 pulses and 2 "
+          "heads in the verse, 8 and 3 in the chorus)", _rows_ok and
+          "7.5 pulses and 2 group heads" in _pp["writer_brief"] and
+          "8 pulses and 3 group heads" in _pp["writer_brief"],
+          _pp["writer_brief"][:400])
+    # plan.py may not import fit (move-37), so it does fit's arithmetic
+    # itself; this holds the two equal on every line of two shapes.
+    _same, _seen = True, 0
+    for _plan in (_pp, _PL.make_plan(4, form="verse-chorus", lines=16,
+                                     functions=["verse", "chorus"])):
+        _pl = _FT.from_blueprint(_PL.fill_plan(_plan, ["x"] * 16))[1]
+        _secs = {sec["name"]: sec for sec in _plan["sections"]}
+        for s in _plan["line_slots"]:
+            got = _PL.line_pulses_and_heads(_secs[s["section"]], s)
+            want = (_pl[s["line"] - 1].duration, len(_pl[s["line"] - 1].heads()))
+            _same = _same and got == want
+            _seen += 1
+    check("...and plan.py's pulses and heads equal fit.Placement's own on "
+          "every line of seed 23 and seed 4, so the brief cannot drift from "
+          "the grade", _same and _seen == 32, f"{_seen} lines")
+    _chorus = _places[6]
+    _sub = _FT.Subdivision(_pp["subdivision"], source="test_plan brief row")
+    _codes = {f.code for f in _FT.fit_line(
+        "the light is on above the door", _chorus, subdivision=_sub,
+        line_index=6).findings}
+    check("...and a line written to those numbers (8 syllables, at most 3 "
+          "stresses, in the 8-pulse chorus) draws none of SPARSE, CROWDED, "
+          "HEADS_EXCEED_UNITS or PROMINENCE_EXCEEDS_HEADS",
+          _chorus.duration == _Fr(8) and not _codes & {
+              "SPARSE", "CROWDED", "HEADS_EXCEED_UNITS",
+              "PROMINENCE_EXCEEDS_HEADS"}, sorted(_codes))
+
     # ── M-193: the envelope is what the FORM can fill ──
     need = _PL.form_min_sections("verse-chorus")
     fill = _PL.fillable_line_counts("verse-chorus")

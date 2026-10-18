@@ -3831,6 +3831,55 @@ def render_song(plan, lines):
     return "\n".join(out).rstrip() + "\n"
 
 
+def line_pulses_and_heads(sec, slot):
+    """-> (pulses, group heads) a line spans, or None when its section's
+    meter declares no grouping.
+
+    The SAME arithmetic `quality.fit.Placement` does (`pulses` is the slot's
+    duration; heads are `meter.Cycle.heads_between` over [start, end)),
+    written here because plan.py may not import fit (move-37:
+    test_plan's import check). test_plan holds this equal to fit's own
+    Placement on every section it plans, so the two cannot drift."""
+    m = sec.get("meter") or {}
+    groups = m.get("groups") or ()
+    if not groups or not m.get("beats"):
+        return None
+    period = Fraction(m["beats"])
+    starts, at = [], Fraction(0)
+    for g in groups:
+        starts.append(at)
+        at += Fraction(g)
+    start = ((slot["bar"] - sec["start_bar"]) * period
+             + Fraction(slot["beat"]) - 1)
+    end = start + Fraction(slot["duration"])
+    heads, k = 0, start // period
+    while k * period < end:
+        heads += sum(1 for s in starts if start <= k * period + s < end)
+        k += 1
+    return Fraction(slot["duration"]), heads
+
+
+def _pulse_row(sec, slot):
+    """-> the brief row naming a line's pulses and group heads, or None."""
+    got = line_pulses_and_heads(sec, slot)
+    if got is None:
+        return None
+    d, heads = got
+    if d.denominator == 1:
+        pulses, fit = str(d.numerator), f"one syllable a pulse is {d.numerator}"
+    else:
+        # A fractional span has no count the density notes leave silent:
+        # fewer syllables than pulses is SPARSE, more is CROWDED (fit.py).
+        lo, hi = math.floor(d), math.ceil(d)
+        pulses = f"{float(d):g}"
+        fit = (f"{lo} syllables leaves part of a pulse open and {hi} asks "
+               f"for it to be divided, both notes about the setting, not "
+               f"faults")
+    return (f"      {pulses} pulses and {heads} group heads a line: "
+            f"{fit}; at most {heads} stressed syllables can each land "
+            f"on a head")
+
+
 def writer_brief(plan):
     """The plan as a blind writer's seed — shape and rhyme plan, nothing
     about the harness (the coverage experiment's bias rule, kept)."""
@@ -3851,6 +3900,16 @@ def writer_brief(plan):
                 slots[0]["duration"] * plan["subdivision"]))
             out.append(f"      up to {_cap} syllables a line after the "
                        f"pickup")
+            # THE TWO NUMBERS THE DENSITY AND PROMINENCE NOTES COUNT
+            # AGAINST, beside the ceiling (2026-10-18): two songs written to
+            # "up to 15" and "up to 122 syllables" drew CROWDED on every
+            # line of one and SPARSE on every line of the other, because the
+            # ceiling is slots and those notes read pulses and group heads
+            # (`quality/fit.py`). Computed as fit's Placement computes them,
+            # and held equal to it by test_plan.
+            _row = _pulse_row(sec, slots[0])
+            if _row:
+                out.append(_row)
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan.get("melody"):
