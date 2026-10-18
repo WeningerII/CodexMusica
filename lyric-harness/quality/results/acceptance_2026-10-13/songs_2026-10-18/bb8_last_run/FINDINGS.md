@@ -58,3 +58,34 @@ Session and operation ids are private (BB8's scratchpad).
   1 HOMEOTELEUTON stand, because banned pairs are notes and hold no line open. In the straddle
   test the loop did ask about MODAL_RHYME notes, but only on lines another FLAG had already
   opened.
+
+## Update, 17:40 UTC
+
+**Second draft (`song_v2.txt`), after Jony's critique.** Jony said the hook line and the smells
+line are strong, and that the rhyme was driving L2 ("between"), L12 ("nothing left to wait") and
+L15 ("the town was great"). I rewrote those three lines myself.
+- `lyric_grade` on the same plan: exit 0, certified, 9 banned pairs (10 before), 80 notes.
+- `lyric_revise new_run: true`: FINISHED, exit 0, 0 rounds, `final_draft_sha256` 43187701….
+- So starting again on a revised draft works as documented.
+
+**Two songs now confirm F3 and F4.** Don's song (seed 5, 20 lines) shows the same chorus-return
+notes (14 of them) and a 122-beat line. Jony, R2 and Don traced F3 independently. Don confirms F2
+on his song too: NO_SETTING on 20 of 20 lines, with `blocking: []`.
+
+**F1 is separate from F4.** The two songs fail in opposite directions:
+- Don's plan: 122 beats a line, "up to 122 syllables" → SPARSE.
+- Mine: 8 beats a line, 3 heads, "up to 15 syllables" → CROWDED.
+
+The brief gives a syllable ceiling that isn't tied to the number of heads the grader measures
+against. Fixing the draw alone won't fix F1.
+
+**F5, root cause traced (display only):**
+- The screen prints `best_score(...)["total"]`, the best span-similarity total, next to
+  "theta_rhyme=0.75". The cut applies only per relation the pair stands in
+  (`admitted_relations`, lyric_harness.py ~4050).
+- "route ~ lamp" stands in no relation at all (NO_RELATION), so its 0.850 is never compared with
+  any cut.
+- `unadmitted_reason` (~4066) gives the same sentence ("none of the relations it stands in is in
+  the declared admit set") for two different cases: a pair with no relation, and a pair whose
+  relations are outside the admit set.
+- No verdict is wrong; the display misleads.
