@@ -45,8 +45,30 @@ WHAT THE CALIBRATIONS SAID (run 39091378704, nightly job 117569376559).
   narrative pins, G2P slow) are green in both runs. Deployment freshness
   reported MATCH against the live connector (21 tools).
 
+THE `short` PROFILE, AND AN INDEPENDENT LOCAL REBUILD (asked for in review).
+The nightly runs the `song` profile only, so the memo was rebuilt a second time
+from nothing, locally, at fb323c08 (whose comparator is the one at 00a47e55):
+    python3 quality/length_curve_calibration.py compute --shard I/4 \
+        --out rows-I-of-4.tsv --cache-path memo-I-of-4.tsv      (I = 1..4)
+Every shard log opens `fingerprint 62551b50acf6 | new (no file yet) | hits 0,
+misses 0`. Shards: 2071 + 2133 + 2202 + 2179 = 8585 items, 23,558 CPU-s, no
+memo read or merged from anywhere else. The four memos were then joined with the
+module's own `merge-cache` (8,585 entries, every one under 62551b50acf6). On
+that memo:
+  * `song_profile_calibration.py --check --profile short`: "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces." 5,507 hits, 0 misses,
+    exit 0.
+  * `song_profile_calibration.py --check` (profile `song`): "asked 21, answered
+    21, refused 0 ... every shipped constant reproduces." 8,585 hits, 0 misses,
+    exit 0. This agrees with the CI run above.
+  * `length_curve_calibration.py check --rows rows-{1..4}-of-4.tsv`: "ROWS
+    from 4 file(s): 8585 items" and "RESULT: HOLDS — the lyric row's 5 curves
+    re-derive from the corpus", exit 0. This agrees with the CI run above.
+The rows and memos are not banked; the commands above regenerate them.
+
 WHAT THIS DOES NOT CLAIM.  The comparator pin says only that the comparator in
 the tree is the one these calibrations ran against. It does not make any row
-correct, and it moves no constant. The `short` profile was not re-run by these
-two jobs; the nightly runs the `song` profile only. Merging this pull request
-still needs the owner's explicit approval of the comparator change.
+correct, and it moves no constant. None of the checks above is the held-out E2
+comparison on `short` (quality/RESULTS_LENGTH_CURVE.md §9); this receipt says
+nothing about it. Merging this pull request still needs the owner's explicit
+approval of the comparator change.
