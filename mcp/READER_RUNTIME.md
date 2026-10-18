@@ -213,7 +213,10 @@ environment); a reader that does not answer with a known scheme is not
 mounted. A job queued or paused under another scheme, or under an identity
 that predates the field, no longer matches the identity the service computes,
 so its lease and its resume refuse `STALE_READING` and its checkpoints are not
-reused, also where neither side has an engine commit.
+reused, also where neither side has an engine commit. The mounted reader
+reports the same probed scheme as `reader.reader_scheme` on `/health` and
+`/ready`, so the running cut can be read without opening a job; the field is
+absent while no reader is mounted.
 
 ## Private pull API
 

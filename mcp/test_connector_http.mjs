@@ -488,6 +488,8 @@ readline.createInterface({input:process.stdin}).on('line',line=>{
         const health = await waitForHealth(base, child, () => output);
         assert.equal(health.reader.ready, true);
         assert.equal(health.reader.provider_calls, 0);
+        // The fixture worker answers the startup probe with v2; /health names it.
+        assert.equal(health.reader.reader_scheme, 'v2');
         const route = '/internal/reader/jobs',
           body = JSON.stringify({
             contract_version: 1,
