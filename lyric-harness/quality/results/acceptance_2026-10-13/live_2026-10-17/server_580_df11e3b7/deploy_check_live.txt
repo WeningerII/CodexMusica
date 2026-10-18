@@ -1,0 +1,8 @@
+2026-10-17T23:50:34.4264697Z [36;1mecho "verifying ${MCP_LIVE_URL:-the address check_live.mjs documents}"[0m
+2026-10-17T23:50:34.4265738Z [36;1muntil node mcp/check_live.mjs --commit="$TESTED_SHA" --ready --config=render --image-manifest=verified-image/lyrics-image.json; do[0m
+2026-10-17T23:53:35.1230405Z MATCH — the live server at https://mcp.codexmusica.com/mcp advertises the tree's own surface: 21 tool(s), full tool metadata and initialization match; /health reports commit df11e3b7b383
+2026-10-17T23:53:35.1497860Z ##[group]Run echo "verifying the documented endpoint (check_live.mjs's own default)"
+2026-10-17T23:53:35.1498490Z [36;1mecho "verifying the documented endpoint (check_live.mjs's own default)"[0m
+2026-10-17T23:53:35.1499542Z [36;1muntil node mcp/check_live.mjs --commit="$TESTED_SHA" --ready --config=render --image-manifest=verified-image/lyrics-image.json; do[0m
+2026-10-17T23:53:35.1647962Z verifying the documented endpoint (check_live.mjs's own default)
+2026-10-17T23:53:43.3232873Z MATCH — the live server at https://mcp.codexmusica.com/mcp advertises the tree's own surface: 21 tool(s), full tool metadata and initialization match; /health reports commit df11e3b7b383
