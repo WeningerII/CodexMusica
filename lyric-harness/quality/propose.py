@@ -676,8 +676,19 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     # refused any change to it: an 8-line batch question for L5 and L7 told
     # the writer "L3" alone. Derived here from the draft and the question,
     # not from the stored field, so a held run's old `keep` renders right.
+    # EVERY SENTENCE THAT WAS TRUE STAYS BYTE-IDENTICAL, because a
+    # checkpoint stores the hash of the question it asked and refuses to
+    # resume when the re-rendered question differs ("checkpoint replay
+    # question differs"; `quality/test_reader.py`'s recorded replays hold
+    # that). So: a list whose every line IS clean keeps "the grader found
+    # nothing on them"; a question that printed no list keeps its
+    # parenthetical. Only the FALSE case changes -- a list that left out a
+    # protected line because it carried a note, and a batch told "this one".
+    # The parenthetical's batch wording is a logged follow-up.
     asked = set(targets) | set(question or ())
     keep = [n for n in range(1, len(lines) + 1) if n not in asked]
+    clean = [n for n in _ordered(getattr(brief, "keep", ()) or ())
+             if n not in asked]
     findings = _ordered(getattr(brief, "findings", ()) or ())
     whole = _ordered(whole or ())
     decl = getattr(brief, "field_declaration", "field_depth=?, field_band=?")
@@ -977,12 +988,16 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None, prior=None,
     out.append("")
 
     out.append("LINES THAT MUST NOT CHANGE")
-    if keep:
+    if keep and keep == clean:
+        out.append("  " + ", ".join(f"L{n}" for n in keep)
+                   + " — the grader found nothing on them.")
+    elif keep and (clean or question):
         out.append("  " + ", ".join(f"L{n}" for n in keep)
                    + " — outside this question, whatever the grader found "
                    "on them.")
     else:
-        out.append("  (every line of the draft is part of this question)")
+        out.append("  (the grader found something on every line; you are "
+                   "still only asked for this one)")
     out.append(f"  The tool applies your one answer to "
                f"{', '.join('L%d' % n for n in targets)}. "
                f"Every other line stays byte-identical. Changing one is rejected")

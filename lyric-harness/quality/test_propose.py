@@ -1571,10 +1571,23 @@ def test_the_protected_lines_are_every_line_outside_the_question():
           "the grader found nothing on them" not in text, "")
     # A return group's members are all this answer's targets: none of them
     # is listed as protected, every other line is.
-    br = B(line_no=2, text=lines[1], keep=[], return_members=(2, 6))
+    br = B(line_no=2, text=lines[1], keep=[4], return_members=(2, 6))
     ret = protected(render_line(br, lines))
     check("a return group's members are targets, every other line protected",
           ret == [["1", "3", "4", "5", "7", "8"]], f"{ret}")
+    # THE ONE CASE THE OLD SENTENCE WAS TRUE, kept byte-identical: a single
+    # line asked, no clean line outside it. It printed no list, and "only
+    # asked for this one" is what rule 2 enforces. A BATCH with no clean
+    # line is not that case: "this one" would be false, so it lists.
+    allnoted = render_line(B(line_no=5, text=lines[4], keep=[]), lines)
+    check("a single-line question with a note on every other line keeps the "
+          "old sentence, byte for byte",
+          "  (the grader found something on every line; you are still only "
+          "asked for this one)" in allnoted, "")
+    bn = protected(render_batch([B(line_no=5, text=lines[4], keep=[]),
+                                 B(line_no=7, text=lines[6], keep=[])], lines))
+    check("...but a batch with a note on every other line lists them",
+          bn == [["1", "2", "3", "4", "6", "8"]] * 2, f"{bn}")
 
 
 if __name__ == "__main__":
