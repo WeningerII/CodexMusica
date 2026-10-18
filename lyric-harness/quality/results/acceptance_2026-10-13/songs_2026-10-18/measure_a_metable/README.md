@@ -46,3 +46,16 @@ a refused obligation. So the columns are:
 
 "Nothing can satisfy" above overstates it. Group heads are grid landmarks, not a required stress
 count. Log-uniform here means discrete weights of 1/n over the integer beat values 2–200.
+
+## Caveats from R2's check (19:52 UTC)
+
+- **R2 reproduced the no-head class** with the same wrapper. make_plan(11) gives a 3/8 bar in one
+  group, and all 16 lines have `Placement.heads() == ()`. Any stressed syllable draws
+  PROMINENCE_EXCEEDS_HEADS (fit.py ~1717).
+- **LATE_ENTRY is not counted here.** It fired on every pickup probe R2 tried. If it fires on every
+  pickup line by construction, it's another always-on note of the kind 3PO cautioned about.
+  Unmeasured.
+- **The form of log-uniform.** This table uses discrete weights 1/v. R2's #519 figures use
+  ln((v+1)/v). The two differ only at small v (at v=2, 0.5 against 0.405), so this table's 2–4
+  band is slightly heavier. That doesn't change the conclusion, but the definition John is shown
+  must be one of the two, named.
