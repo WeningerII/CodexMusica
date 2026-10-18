@@ -89,3 +89,19 @@ against. Fixing the draw alone won't fix F1.
   the declared admit set") for two different cases: a pair with no relation, and a pair whose
   relations are outside the admit set.
 - No verdict is wrong; the display misleads.
+
+## Follow-ups logged from the #584 review (18:55 UTC)
+
+- **The NO_RELATION sentence (Don and Jony).** For a pair in no relation, the grader still says
+  "none of the relations it stands in is in the declared admit set" (`unadmitted_reason`,
+  lyric_harness.py ~4076). Beside #584's new "span similarity … (no relation, so no cut
+  applies)" label, it reads as two voices disagreeing.
+  - **Why it isn't in #584:** the reader v1 oracle pins CLI stdout byte for byte
+    (`quality/test_reader.py`, `quality/fixtures/reader_v1_oracle.json`).
+  - **The fix:** a separate change that re-captures the oracle deliberately and says so.
+- **`lyric_check` keeps its full payload on every session surface.** `sessionView` leaves check
+  (and verify) unchanged, so #584's `not_checked` and `notes_by_code` don't reach check. In the
+  straddle test, check returned about 250 KB for 8 lines; Jony and 3PO report ~310 KB on the
+  ChatGPT surface. This is the pasted-lyrics (edit) journey.
+- **Optional wording (Jony):** "(no relation, so no cut applies — not a rhyme score)". It rides
+  #584's next push if there is one.
