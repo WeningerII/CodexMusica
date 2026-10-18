@@ -301,6 +301,7 @@ test('a queued job without the reader scheme is refused at lease even with null 
       },
     };
     const scheduler = new ReaderScheduler({ store, bridge, ...resolver });
+    assert.equal(scheduler.readiness().reader_scheme, scheme);
     try {
       await scheduler.pump();
       await scheduler.pump();

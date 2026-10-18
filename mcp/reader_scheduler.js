@@ -436,7 +436,9 @@ export function createCatalogResolver({
           .length,
     };
   };
-  return { resolveSource, resolveEntry, resolveIdentity, prepareRequest, probe };
+  // `readerScheme` travels with the resolver so the scheduler built from it
+  // reports the scheme every identity records (`readiness()`, /health).
+  return { resolveSource, resolveEntry, resolveIdentity, prepareRequest, probe, readerScheme };
 }
 
 export function packReaderPages(records) {
@@ -465,7 +467,15 @@ export function packReaderPages(records) {
 }
 
 export class ReaderScheduler {
-  constructor({ store, bridge, resolveSource, resolveIdentity, leaseMs = 600000, pollMs = 100 }) {
+  constructor({
+    store,
+    bridge,
+    resolveSource,
+    resolveIdentity,
+    readerScheme = null,
+    leaseMs = 600000,
+    pollMs = 100,
+  }) {
     if (!store || !bridge?.runReaderLease)
       throw new TypeError('Reader scheduler requires its durable store and shared bridge.');
     Object.assign(this, {
@@ -473,6 +483,7 @@ export class ReaderScheduler {
       bridge,
       resolveSource,
       resolveIdentity,
+      readerScheme,
       leaseMs: Math.min(600000, leaseMs),
       pollMs,
     });
@@ -605,6 +616,9 @@ export class ReaderScheduler {
       ready: !this.stopped,
       enabled: true,
       ...(this.catalog ? { catalog: this.catalog } : {}),
+      // The word cut this process reads under, as probed at startup. Public:
+      // it names a scheme (v1/v2), not a job, viewer or capability.
+      ...(this.readerScheme ? { reader_scheme: this.readerScheme } : {}),
       active: this.active,
       lease_ms: this.leaseMs,
       provider_calls: 0,
