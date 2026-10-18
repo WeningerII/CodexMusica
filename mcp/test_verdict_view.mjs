@@ -548,3 +548,103 @@ test('session short view retains numbering migration notices and normalized mand
   assert.deepEqual(short.numbering_notices, numbered.numbering_notices);
   assert.deepEqual(short.numbered_mandate, numbered.numbered_mandate);
 });
+
+// Two songs written through /mcp on 2026-10-18 finished "certified" with
+// `blocking: []` while every line carried meter notes and the setting layer
+// was never asked. The short verdict now says what the notes are and what
+// certification did not cover.
+test('the short verdict counts notes by kind and names the layers it did not check', () => {
+  const unasked = {
+    ...verdict,
+    coverage: {
+      ...verdict.coverage,
+      obligations: [
+        ...verdict.coverage.obligations,
+        { id: 'meter:draft', layer: 'meter', status: 'answered' },
+        { id: 'slot_grid:draft', layer: 'slot_grid', status: 'not_requested' },
+        { id: 'setting:draft', layer: 'setting', status: 'not_requested' },
+        { id: 'future:draft', layer: 'future', status: 'not_requested' },
+      ],
+    },
+  };
+  const short = JSON.parse(sessionView('lyric_revise', blocks(unasked))[1].text);
+  assert.equal(short.notes, 4);
+  assert.deepEqual(short.notes_by_code, { CROWDED: 2, MODAL_RHYME: 1, PROMINENCE_UNDECIDED: 1 });
+  assert.equal(
+    Object.values(short.notes_by_code).reduce((a, b) => a + b, 0),
+    short.notes,
+    'the kinds add up to the count'
+  );
+  assert.deepEqual(short.not_checked, [
+    'slot grid: no subdivision declared',
+    'setting (which syllable sits on which pulse): no beat grid or isochrony declared',
+    'future: not requested',
+  ]);
+  const asked = JSON.parse(sessionView('lyric_revise', blocks())[1].text);
+  assert.deepEqual(asked.not_checked, [], 'every layer asked: an empty list, not a missing field');
+  const none = { ...verdict };
+  delete none.coverage;
+  const bare = JSON.parse(sessionView('lyric_revise', blocks(none))[1].text);
+  assert.equal(bare.not_checked, undefined, 'no coverage: nothing is claimed either way');
+});
+
+test('a pair in no relation prints its total as span similarity that no cut applies to', () => {
+  const why =
+    "NO_RELATION: no admitted relation at its cut (theta_rhyme=0.75; per-relation cuts {'ASSONANCE': 0.75}) — none of the relations it stands in is in the declared admit set ['ASSONANCE']";
+  assert.match(
+    pairLine(pair('route', 'lamp', { score: 0.85, why, reason: null })),
+    /^route ~ lamp span similarity 0\.850 \(no relation, so no cut applies\) — no coarse relation — grade: NO_RELATION/
+  );
+  assert.match(
+    pairLine(
+      pair('home', 'alone', {
+        score: 0.974,
+        relations: ['ASSONANCE'],
+        coarse_relations: ['ASSONANCE'],
+        reason: null,
+      })
+    ),
+    /^home ~ alone 0\.974 — ASSONANCE/,
+    'a pair that stands in a relation keeps its bare total: that total is what the cut is compared with'
+  );
+  assert.match(
+    pairLine(pair('tape', 'mic', { score: 0.818 })),
+    /^tape ~ mic 0\.818 — /,
+    'an unresolved pair is not relabelled: the grader did not say NO_RELATION'
+  );
+  assert.match(
+    pairLine(pair('tape', 'zzyzx', { refused: true, why: 'NO_RELATION: x' })),
+    /^tape ~ zzyzx 0\.500 — REFUSED/,
+    'a refused pair is not relabelled'
+  );
+});
+
+// Every session surface (/mcp and /mcp/chatgpt*) is built by buildWorkflowServer and reads a
+// finished operation through publicToolResult -> sessionView, so pinning that path pins them all.
+test('grade and revise publish the same notes_by_code and not_checked through the session path', () => {
+  const v = {
+    ...verdict,
+    coverage: {
+      ...verdict.coverage,
+      obligations: [
+        ...verdict.coverage.obligations,
+        { id: 'setting:draft', layer: 'setting', status: 'not_requested' },
+      ],
+    },
+  };
+  const out = (tool) =>
+    JSON.parse(publicToolResult({ content: blocks(v) }, null, { tool }).content[1].text);
+  const grade = out('lyric_grade');
+  const revise = out('lyric_revise');
+  assert.deepEqual(grade.notes_by_code, revise.notes_by_code);
+  assert.deepEqual(grade.not_checked, revise.not_checked);
+  assert.deepEqual(revise.not_checked, [
+    'setting (which syllable sits on which pulse): no beat grid or isochrony declared',
+  ]);
+  for (const s of [grade, revise])
+    assert.equal(
+      Object.values(s.notes_by_code).reduce((a, b) => a + b, 0),
+      s.notes,
+      'the kinds add up to the count on every path'
+    );
+});
