@@ -168,7 +168,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "BEATS_PER_SYLLABLE_MAX",
            "JOINT_CODES", "LAST_WORD", "placement_word",
            "bound_placements", "bound_token_share", "end_rhyme_groups",
-           "line_syllable_ceiling", "joint_findings"]
+           "line_syllable_ceiling", "line_pulses_and_heads", "joint_findings"]
 
 
 class PlanRefused(ValueError):
@@ -3831,6 +3831,92 @@ def render_song(plan, lines):
     return "\n".join(out).rstrip() + "\n"
 
 
+def line_pulses_and_heads(sec, slot):
+    """-> (pulses, group heads) a line spans, or None when its section's
+    meter declares no grouping.
+
+    The SAME arithmetic `quality.fit.Placement` does (`pulses` is the slot's
+    duration; heads are `meter.Cycle.heads_between` over [start, end)),
+    written here because plan.py may not import fit (move-37:
+    test_plan's import check). test_plan holds this equal to fit's own
+    Placement on every section it plans, so the two cannot drift."""
+    m = sec.get("meter") or {}
+    groups = m.get("groups") or ()
+    if not groups or not m.get("beats"):
+        return None
+    period = Fraction(m["beats"])
+    starts, at = [], Fraction(0)
+    for g in groups:
+        starts.append(at)
+        at += Fraction(g)
+    start = ((slot["bar"] - sec["start_bar"]) * period
+             + Fraction(slot["beat"]) - 1)
+    end = start + Fraction(slot["duration"])
+    heads, k = 0, start // period
+    while k * period < end:
+        heads += sum(1 for s in starts if start <= k * period + s < end)
+        k += 1
+    return Fraction(slot["duration"]), heads
+
+
+_VULGAR = {(1, 2): "½", (1, 4): "¼", (3, 4): "¾", (1, 8): "⅛",
+           (3, 8): "⅜", (5, 8): "⅝", (7, 8): "⅞", (1, 3): "⅓", (2, 3): "⅔"}
+
+
+def _beats_text(d):
+    """A Fraction of pulses as a writer counts it: 7½, not 7.5."""
+    whole, part = math.floor(d), d - math.floor(d)
+    if not part:
+        return str(whole)
+    frac = _VULGAR.get((part.numerator, part.denominator),
+                       f" {part.numerator}/{part.denominator}")
+    return f"{whole}{frac}" if whole else frac.strip()
+
+
+def _pulse_rows(sec, slot):
+    """-> the brief rows naming a line's beats (pulses) and strong beats
+    (group heads), in a writer's words, or []. Disclosure, not instruction:
+    every count below is a note fit.py may write (SPARSE, CROWDED,
+    PROMINENCE_EXCEEDS_HEADS), and every one of them is a note."""
+    got = line_pulses_and_heads(sec, slot)
+    if got is None:
+        return []
+    d, heads = got
+    beats = (f"{_beats_text(d)} beat (pulse)" if d <= 1
+             else f"{_beats_text(d)} beats (pulses)")
+    if heads == 0:
+        strong = "none of them strong (no group head falls inside the line)"
+        stress = ("no strong beat falls inside the line, so any stressed "
+                  "syllable falls off one, a setting choice, not a fault")
+    elif heads == 1:
+        strong = "1 of them strong (a group head)"
+        stress = ("up to 1 stressed syllable can sit on the strong beat; "
+                  "any others fall off it, a setting choice, not a fault")
+    else:
+        strong = f"{heads} of them strong (group heads)"
+        stress = (f"up to {heads} stressed syllables can sit on strong "
+                  f"beats; any others fall between them, a setting choice, "
+                  f"not a fault")
+    if d.denominator == 1:
+        n = d.numerator
+        fit = (f"{n} syllable{'' if n == 1 else 's'} put"
+               f"{'s' if n == 1 else ''} one on each beat; fewer leave beats "
+               f"open and more divide them, notes about the setting, not "
+               f"faults")
+    else:
+        # A fractional span has no count the density notes leave silent:
+        # fewer syllables than pulses is SPARSE, more is CROWDED (fit.py).
+        lo, hi = math.floor(d), math.ceil(d)
+        head = (f"{lo} syllable{'' if lo == 1 else 's'} leave"
+                f"{'s' if lo == 1 else ''} part of a beat open and {hi} "
+                f"divide{'s' if hi == 1 else ''} one" if lo else
+                "any syllable divides the beat")
+        fit = f"{head}; every count is a note about the setting, not a fault"
+    return [f"      each line: {beats}, {strong}",
+            f"      {fit}; the ceiling below is room, not a target",
+            f"      {stress}"]
+
+
 def writer_brief(plan):
     """The plan as a blind writer's seed — shape and rhyme plan, nothing
     about the harness (the coverage experiment's bias rule, kept)."""
@@ -3847,6 +3933,16 @@ def writer_brief(plan):
         # inside it — the bracket is the measurement carrier every gate
         # reads byte for byte (M-97, check_render_form).
         if slots:
+            # THE TWO NUMBERS THE DENSITY AND PROMINENCE NOTES COUNT
+            # AGAINST, read FIRST (2026-10-18): four songs written to the
+            # ceiling alone ("up to 15", "up to 122 syllables") drew
+            # CROWDED, SPARSE or PROMINENCE_EXCEEDS_HEADS on nearly every
+            # line, because the ceiling is slots and those notes read pulses
+            # and group heads (`quality/fit.py`). The grid leads and the
+            # ceiling follows, so the writer meets the beat before the room
+            # (Jony's review of #587). Computed as fit's Placement computes
+            # them, and held equal to it by test_plan.
+            out.extend(_pulse_rows(sec, slots[0]))
             _cap = int(line_syllable_ceiling(
                 slots[0]["duration"] * plan["subdivision"]))
             out.append(f"      up to {_cap} syllables a line after the "

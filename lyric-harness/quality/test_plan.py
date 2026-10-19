@@ -3972,7 +3972,11 @@ def test_the_delegated_rulings(FAILURES=None):
             capn = int(_PL.line_syllable_ceiling(
                 slots[0]["duration"] * p["subdivision"]))
             exp = f"      up to {capn} syllables a line after the pickup"
-            cap_ok = cap_ok and lines_b[i + 1] == exp
+            # REPINNED 2026-10-18 from ~~lines_b[i + 1]~~: the beat and
+            # strong-beat rows lead and the ceiling follows them (Jony's
+            # review of #587), so the ceiling is the row after those.
+            cap_ok = cap_ok and lines_b[
+                i + 1 + len(_PL._pulse_rows(sec, slots[0]))] == exp
     check("...the brief carries a LEGEND: every place a group names and "
           "every relation it draws is glossed, derived from the slot "
           "vocabulary and the registry, with an inaudible relation saying "
@@ -3985,6 +3989,89 @@ def test_the_delegated_rulings(FAILURES=None):
           "the bracket is the measurement carrier every gate reads byte for "
           "byte (M-97)",
           cap_ok and headers_ok)
+
+    # ── 2026-10-18: the pulses and heads the density notes count against ──
+    # Two songs written through /mcp to "up to 15" and "up to 122 syllables"
+    # drew CROWDED on every line of one and SPARSE on every line of the
+    # other: the ceiling is slots, and those notes read pulses and heads.
+    import quality.fit as _FT
+    from fractions import Fraction as _Fr
+    _pp = _PL.make_plan(23, form="verse-chorus", lines=16,
+                        functions=["verse", "chorus"],
+                        wants=["beats_per_line<=8"])
+    _places = _FT.from_blueprint(_PL.fill_plan(_pp, ["x"] * 16))[1]
+    _bl = _pp["writer_brief"].splitlines()
+    _hdr = [i for i, l in enumerate(_bl)
+            if re.match(r"^  \[[A-Z]", l) and l.rstrip().endswith("]")]
+    _rows_ok = len(_hdr) == len(_pp["sections"])
+    for i, sec in zip(_hdr, _pp["sections"]):
+        s0 = next(s for s in _pp["line_slots"] if s["section"] == sec["name"])
+        d, h = _PL.line_pulses_and_heads(sec, s0)
+        rows = _PL._pulse_rows(sec, s0)
+        _rows_ok = (_rows_ok and len(rows) == 3
+                    and _bl[i + 1:i + 4] == rows
+                    and _bl[i + 4].startswith("      up to ")
+                    and f"{h} of them strong" in rows[0]
+                    and rows[1].endswith("the ceiling below is room, not a "
+                                         "target"))
+    check("...and UNDER the bracket, BEFORE the ceiling, the beats (pulses) "
+          "and strong beats (group heads) the density and prominence notes "
+          "count against, in a writer's words (seed 23: 7½ beats and 2 "
+          "strong in the verse, 8 and 3 in the chorus), with the ceiling "
+          "named room, not a target", _rows_ok and
+          "each line: 7½ beats (pulses), 2 of them strong (group heads)"
+          in _pp["writer_brief"] and
+          "each line: 8 beats (pulses), 3 of them strong (group heads)"
+          in _pp["writer_brief"] and
+          "every count is a note about the setting, not a fault"
+          in _pp["writer_brief"], _pp["writer_brief"][:600])
+    # The rows disclose the grid; they never prescribe the stresses.
+    _rw = [_PL._pulse_rows(*args) for args in (
+        ({"meter": {"beats": 4, "unit": 4, "groups": [4]}, "name": "x",
+          "start_bar": 1},
+         {"bar": 1, "beat": 2, "duration": 2}),
+        ({"meter": {"beats": 4, "unit": 4, "groups": [4]}, "name": "x",
+          "start_bar": 1},
+         {"bar": 1, "beat": 1, "duration": 1}))]
+    check("...and a line no strong beat falls inside says so and calls a "
+          "stress off it a setting choice; a one-beat line says 'beat "
+          "(pulse)'",
+          len(_rw) == 2 and all(_rw)
+          and "none of them strong" in _rw[0][0]
+          and "a setting choice, not a fault" in _rw[0][2]
+          and _rw[1][0] == "      each line: 1 beat (pulse), 1 of them "
+                           "strong (a group head)", f"{_rw}")
+    # plan.py may not import fit (move-37), so it does fit's arithmetic
+    # itself; this holds the two equal on every line of two shapes.
+    _same, _seen, _uniform = True, 0, True
+    for _plan in (_pp, _PL.make_plan(4, form="verse-chorus", lines=16,
+                                     functions=["verse", "chorus"])):
+        _pl = _FT.from_blueprint(_PL.fill_plan(_plan, ["x"] * 16))[1]
+        _secs = {sec["name"]: sec for sec in _plan["sections"]}
+        _per = {}
+        for s in _plan["line_slots"]:
+            got = _PL.line_pulses_and_heads(_secs[s["section"]], s)
+            want = (_pl[s["line"] - 1].duration, len(_pl[s["line"] - 1].heads()))
+            _same = _same and got == want
+            _per.setdefault(s["section"], set()).add(got)
+            _seen += 1
+        _uniform = _uniform and all(len(v) == 1 for v in _per.values())
+    check("...and plan.py's pulses and heads equal fit.Placement's own on "
+          "every line of seed 23 and seed 4, so the brief cannot drift from "
+          "the grade", _same and _seen == 32, f"{_seen} lines")
+    check("...and every line of a section shares them, since the brief "
+          "prints one row per section for all of its lines", _uniform)
+    _chorus = _places[6]
+    _sub = _FT.Subdivision(_pp["subdivision"], source="test_plan brief row")
+    _codes = {f.code for f in _FT.fit_line(
+        "the light is on above the door", _chorus, subdivision=_sub,
+        line_index=6).findings}
+    check("...and a line written to those numbers (8 syllables, at most 3 "
+          "stresses, in the 8-pulse chorus) draws none of SPARSE, CROWDED, "
+          "HEADS_EXCEED_UNITS or PROMINENCE_EXCEEDS_HEADS",
+          _chorus.duration == _Fr(8) and not _codes & {
+              "SPARSE", "CROWDED", "HEADS_EXCEED_UNITS",
+              "PROMINENCE_EXCEEDS_HEADS"}, sorted(_codes))
 
     # ── M-193: the envelope is what the FORM can fill ──
     need = _PL.form_min_sections("verse-chorus")
