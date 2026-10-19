@@ -2480,10 +2480,19 @@ def test_scope_reaches_the_collision_loop():
     # scope (L1/L15, L3/L15, L7/L15, L7/L41, L9/L27, L25/L27, L27/L29,
     # L27/L31) and 4 sat inside it (L15 against L34/L35/L36/L39). No pair
     # joined. superseded: 73 collisions, 49 UNDECLARED.
+    # REPINNED 2026-10-18, A DECLARED RETURN IS NOT A COLLISION (song "Last
+    # Run"; `test_a_declared_return_is_not_a_collision`): 61 -> 47. The 14
+    # that left are ALL inside the scope and every one is a pair this
+    # mandate requires, now in `required_echoes`: the five declared returns
+    # 13~33, 17~37, 18~38, 19~39 and 20~40 (REQUIRE_RETURN; L40 `hold` is
+    # not L20 `told`, which RETURN_NOT_VERBATIM still flags), and the rhymes
+    # carried through them -- 13~37, 17~33, 18~40, 19~35, 20~38, 33~37,
+    # 34~36, 35~39, 38~40 (REQUIRE_RHYME). No out-of-scope pair moved, so
+    # the 41 UNDECLARED are exactly the 41 they were. superseded: 61.
     und = [c for c in rep_s["collisions"] if c.get("undeclared")]
     check("the scoped run marks the collisions that touch a line the mandate "
           "does not speak about",
-          len(rep_s["collisions"]) == 61 and len(und) == 41,
+          len(rep_s["collisions"]) == 47 and len(und) == 41,
           f"{len(und)} of {len(rep_s['collisions'])} collisions are "
           f"UNDECLARED; the mandate speaks about {len(scoped.scope)} of 41 "
           f"lines. Before 2026-08-13 `grade()`'s collision loop never asked "
@@ -2492,7 +2501,7 @@ def test_scope_reaches_the_collision_loop():
     check("and the UNSCOPED mandate marks none of them — the default path is "
           "the one every production mandate takes",
           not any(c.get("undeclared") for c in rep_p["collisions"])
-          and len(rep_p["collisions"]) == 61)
+          and len(rep_p["collisions"]) == 47)
 
     # (2) RELABEL, NEVER DELETE (doctrine 24). The SET is the same set.
     check("the collision SET is unchanged by the scope — same 73 pairs",
@@ -2570,10 +2579,13 @@ def test_scope_reaches_the_collision_loop():
     # outside it. MEASURED: "of its 61 collision(s), 20 are inside that
     # scope and 41 touch a line it does not speak about". superseded: 24
     # inside, 49 outside, of 73.
+    # REPINNED 2026-10-18: the 14 declared-return pairs listed in this
+    # section's first check were all inside the scope, so "of its 61, 20
+    # inside" -> "of its 47, 6 inside"; the 41 outside do not move.
     check("the scope itself is disclosed once, with the two counts kept "
           "SEPARATE (doctrine 79)",
           len(disc) == 1 and "16 of 41" in disc[0].message
-          and "20 are inside that scope" in disc[0].message
+          and "47 collision(s), 6 are inside that scope" in disc[0].message
           and "41 touch a line it does not speak about" in disc[0].message,
           disc[0].message if disc else "not emitted")
     check("and an unscoped mandate discloses nothing, because it has nothing "
@@ -5465,6 +5477,159 @@ def test_a_slot_offer_names_only_words_the_slot_can_anchor():
           "swan" in f.offered, list(f.offered)[:12])
 
 
+def test_a_declared_return_is_not_a_collision():
+    print("\n— a chorus the mandate declares as returning is not charged as "
+          "a collision with itself (song \"Last Run\", 2026-10-18)")
+    # THE DEFECT: a 20-line song whose chorus L1-8 comes back verbatim at
+    # L13-20 was certified with 8 REPEAT_ACROSS_GROUPS and 6
+    # SCHEME_COLLISION notes, every one on a pair the mandate itself requires
+    # -- the same line (REQUIRE_RETURN) or a rhyme carried through the return
+    # (REQUIRE_RHYME). The collision loop asked only whether the RAW groups
+    # shared the pair, and a returned line is in none of them; it never asked
+    # `Mandate.requirement()`, the answer every other reader of the pair uses.
+    chorus = ["We ran the river all the way to night",
+              "and every bridge we crossed was burning down",
+              "the radio was singing something old",
+              "we held the wheel and steered into the light",
+              "the engine coughed a prayer beneath the hood",
+              "my sister laughed at nothing in the dark",
+              "we never knew which road would lead to town",
+              "and swore we'd stay as long as we still could"]
+    verse = ["the motel sign was flickering in red",
+             "a waitress poured the coffee black and slow",
+             "the trucker at the counter kept his hat",
+             "and nobody remembered what was said"]
+    lines = chorus + verse + chorus
+    groups = [[1, 4], [2, 7], [5, 8], [9, 12]]
+    m = SC.mandate(groups, n_lines=20, returns="13-20<=1-8")
+    rep = R.grade(lines, m)
+    declared = {(i, j) for i in range(1, 21) for j in range(i + 1, 21)
+                if m.requirement(i, j) in (SC.REQUIRE_RETURN,
+                                           SC.LICENSE_REPEAT,
+                                           SC.REQUIRE_RHYME)}
+    charged = sorted(tuple(c["lines"]) for c in rep["collisions"]
+                     if tuple(c["lines"]) in declared)
+    check("no pair the mandate requires (a return, or a rhyme carried "
+          "through one) is reported as a collision", charged == [], charged)
+    echoes = {tuple(c["lines"]) for c in rep.get("required_echoes", ())}
+    check("and the pairs are not deleted: each is kept as a required echo, "
+          "the verbatim returns and the carried rhymes alike",
+          {(1, 13), (8, 20), (1, 16), (4, 13), (13, 16)} <= echoes,
+          sorted(echoes))
+    ins = R.inspect(lines, m)
+    on_declared = [(f.code, f.locations) for fs in ins["per_line"].values()
+                   for f in fs if f.code in COLLISION_FINDINGS
+                   and tuple(sorted(f.locations)[:2]) in declared]
+    check("so inspect() files no collision finding on them either",
+          on_declared == [], on_declared[:6])
+
+    # CONTROL: the same draft with NO return declared is charged exactly as
+    # before -- the fix reads the declaration, it does not guess a refrain
+    # from the words.
+    plain = SC.mandate(groups, n_lines=20)
+    prep = R.grade(lines, plain)
+    got = {tuple(c["lines"]) for c in prep["collisions"]}
+    check("control: undeclared, L1~L13 is still a REPEAT collision and "
+          "L4~L13 a rhyme collision", {(1, 13), (4, 13)} <= got,
+          sorted(got))
+    check("control: undeclared, nothing is a required echo",
+          not prep.get("required_echoes"), prep.get("required_echoes"))
+
+    # THE REFRAIN MERGE MUST STILL SEE ITS EDGES. With the returned chorus
+    # given letters of its own, `group_merges` condition (a) needs every
+    # cross edge, and those edges are now required echoes rather than
+    # collisions; the declared merge has to survive the move.
+    own = groups + [[13, 16], [14, 19], [17, 20]]
+    mm = SC.mandate(own, n_lines=20, returns="13-20<=1-8")
+    merges = {tuple(sorted(mg["groups"])): mg["declared"]
+              for mg in R.group_merges(lines, mm)}
+    check("with the return given its own letters, A/E and C/G still merge "
+          "and are still DECLARED", merges.get((0, 4)) is True
+          and merges.get((2, 6)) is True, merges)
+
+    check("the excused pairs are listed in the coverage report, not simply "
+          "gone", {(1, 13), (4, 13)} <= {tuple(e["lines"]) for e in
+                                         ins["coverage"]["required_echoes"]},
+          ins["coverage"].get("required_echoes", [])[:4])
+
+    # A TRUE POSITIVE SURVIVES: a free verse line that happens to rhyme with
+    # the chorus is an unmandated rhyme on both sides of the return.
+    tl = list(lines)
+    tl[10] = "the trucker at the counter wasn't bright"
+    tr = {tuple(c["lines"]) for c in R.grade(tl, m)["collisions"]}
+    check("a free verse line rhyming with the chorus is still reported, "
+          "against the original and against the copy",
+          {(1, 11), (4, 11), (11, 13), (11, 16)} <= tr, sorted(tr))
+
+    # A REPEAT ON A COPY OF A MANDATED RHYME PAIR, verbatim: L4 now ends on
+    # L1's word. L4~L13 is then L4~L1 again, which grade() judges as the
+    # mandated pair -- reported there once, not a second time here.
+    rl = list(lines)
+    rl[3] = "we held the wheel and drove into the night"
+    rr = R.grade(rl, m)
+    check("a same word on a mandated pair is a violation of that pair "
+          "(L1/L4) and is not reported again on its verbatim copy L4~L13",
+          any(tuple(v["lines"]) == (1, 4) for v in rr["violations"])
+          and (4, 13) not in {tuple(c["lines"]) for c in rr["collisions"]},
+          (sorted(tuple(v["lines"]) for v in rr["violations"]),
+           sorted(tuple(c["lines"]) for c in rr["collisions"])))
+
+    # A BROKEN RETURN STILL SURFACES, and the copy that now repeats where the
+    # mandate needs a rhyme is reported with a sentence that is TRUE.
+    bl = list(lines)
+    bl[12] = "We drove the county all the way to light"
+    bi = R.inspect(bl, m)
+    bcol = {tuple(c["lines"]): c for c in bi["grade"]["collisions"]}
+    check("a copy that changed its end word: L4~L13 (light/light) is still "
+          "a collision, because no judged pair speaks for it",
+          (4, 13) in bcol and bcol[(4, 13)]["carried"] == (4, 1),
+          sorted(bcol))
+    msgs = [f.message for fs in bi["per_line"].values() for f in fs
+            if f.code in COLLISION_FINDINGS and f.locations[:2] == [4, 13]]
+    check("and its finding says the pair must rhyme through the return, not "
+          "that it shares no mandated group",
+          msgs and all("must RHYME through a declared return" in t
+                       and "L13 returns L1" in t
+                       and "share no mandated group" not in t for t in msgs),
+          msgs)
+    check("and the broken return itself is still a RETURN_NOT_VERBATIM flag",
+          any(f.code == "RETURN_NOT_VERBATIM"
+              for fs in list(bi["per_line"].values()) + [bi["whole"]]
+              for f in fs), sorted({f.code for fs in bi["per_line"].values()
+                                    for f in fs}))
+
+    # THE SECOND SONG'S SHAPE (BB8, same day): a two-line chorus group whose
+    # rhyme is only an assonance, returned at once. The copies drew
+    # REPEAT_ACROSS_GROUPS on 7~9 and 8~10 and NEAR_COLLISION on 7~10, 8~9
+    # and 9~10 -- every one a pair the mandate requires.
+    bb = ["the porch light flickered on the county road",
+          "my father counted fence posts in the rain",
+          "the dog was sleeping underneath the truck",
+          "and mother sang a hymn she didn't know",
+          "the radio was hissing out the score",
+          "the clock above the sink had stopped at ten",
+          "we painted every name along the wall",
+          "and nobody would sweep the kitchen floor",
+          "we painted every name along the wall",
+          "and nobody would sweep the kitchen floor"]
+    bm = SC.mandate([[1, 4], [7, 8]], n_lines=10, returns="7,9;8,10")
+    brep = R.grade(bb, bm)
+    bdecl = {(i, j) for i in range(1, 11) for j in range(i + 1, 11)
+             if bm.requirement(i, j) in (SC.REQUIRE_RETURN, SC.LICENSE_REPEAT,
+                                         SC.REQUIRE_RHYME)}
+    bleft = sorted(tuple(c["lines"]) for c in brep["collisions"]
+                   if tuple(c["lines"]) in bdecl)
+    check("BB8's shape: no REPEAT, rhyme or NEAR collision on any declared "
+          "pair (7~9, 8~10, 7~10, 8~9, 9~10)", bleft == [],
+          [(tuple(c["lines"]), c["relations"]) for c in brep["collisions"]])
+    check("and the copies of a failing mandated rhyme are echoes of it, "
+          "while the original pair is still judged",
+          {(7, 9), (8, 10)} <= {tuple(e["lines"])
+                                for e in brep["required_echoes"]}
+          and any(tuple(v["lines"]) == (7, 8) for v in brep["verdicts"]),
+          (sorted(tuple(e["lines"]) for e in brep["required_echoes"]),
+           [tuple(v["lines"]) for v in brep["verdicts"]]))
+
 if __name__ == "__main__":
     # DEALT ACROSS CI SHARDS AND TIMED, through the one idiom in
     # `quality/shard.py` (2026-09-05, `MISSING.md` M-244). `TEST_REVISE_SHARD=k/n`
@@ -5534,6 +5699,7 @@ if __name__ == "__main__":
                test_the_hook_is_read_from_the_slot_not_the_snapshot,
                test_an_offer_the_ban_emptied_points_at_the_group_backtrack,
                test_the_verdict_carries_the_judging_spans,
-               test_a_slot_offer_names_only_words_the_slot_can_anchor)
+               test_a_slot_offer_names_only_words_the_slot_can_anchor,
+               test_a_declared_return_is_not_a_collision)
     sys.exit(run_sections(_SECTIONS, "TEST_REVISE_SHARD", FAILURES,
                           footer="all revision-loop regressions pass"))
