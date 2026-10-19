@@ -11,7 +11,8 @@
 // default verdict is that and nothing else: the verdict fields, one line per
 // thing that stands (a flag — ~~or a banned pair~~, dropped 2026-10-04 by the
 // owner's ruling — merged where the same thing stands on several lines), one line per line a requested obligation could not
-// be judged on, and a count of notes. Everything else is still stored with the
+// be judged on, a count of notes with its kinds, and the coverage layers the
+// request did not ask (so "certified" is not read as "singable"). Everything else is still stored with the
 // operation, and `get_operation` with `detail` returns it.
 //
 // ONLY THE SESSION VIEW CHANGES. The engine's verdict is unchanged: the
@@ -56,6 +57,31 @@ const KEPT = [
   'final_draft_sha256',
   'lexicon',
 ];
+
+// A coverage layer the request did not ask, named with what would ask it
+// (quality/revise.py: "Undeclared setting coordinates remain outside
+// certification").
+const NOT_CHECKED = {
+  meter: 'meter: no blueprint declared',
+  slot_grid: 'slot grid: no subdivision declared',
+  setting: 'setting (which syllable sits on which pulse): no beat grid or isochrony declared',
+};
+
+// One line per distinct thing not checked. An obligation that carries a
+// `code` (function:FUNCTION_UNDECLARED:0) is named by it and by the finding
+// that says what it means; a layer row (setting:draft) by what would ask it.
+function notCheckedOf(verdict) {
+  const findings = Array.isArray(verdict.findings) ? verdict.findings : [];
+  const out = new Set();
+  for (const o of verdict.coverage?.obligations || []) {
+    if (o.status !== 'not_requested') continue;
+    if (o.code) {
+      const f = findings.find((x) => x.code === o.code);
+      out.add(`${o.layer}: ${o.code}` + (f?.message ? ` — ${f.message}` : ''));
+    } else out.add(NOT_CHECKED[o.layer] ?? `${o.layer}: not requested`);
+  }
+  return [...out];
+}
 
 export const sha256 = (text) => createHash('sha256').update(text, 'utf8').digest('hex');
 
@@ -236,8 +262,20 @@ const countSchemas = (text) =>
     (_m, label, list) => `${list.split(', ').length} ${label}`
   );
 
+// A pair the grader reports as standing in no relation is compared with no
+// cut, so its total is span similarity only. Printed bare beside the cut the
+// grader's sentence names, it read as a near pass (0.850 against 0.75).
+const comparedWithNoCut = (p) =>
+  !p.refused && !p.relations?.length && String(p.why ?? '').startsWith('NO_RELATION');
+
 export function pairLine(p) {
-  const out = [`${p.a} ~ ${p.b}` + (typeof p.score === 'number' ? ` ${p.score.toFixed(3)}` : '')];
+  const score =
+    typeof p.score !== 'number'
+      ? ''
+      : comparedWithNoCut(p)
+        ? ` span similarity ${p.score.toFixed(3)} (no relation, so no cut applies)`
+        : ` ${p.score.toFixed(3)}`;
+  const out = [`${p.a} ~ ${p.b}` + score];
   if (p.codes?.length) out.push(`BANNED: ${p.codes.join(', ')}`);
   if (p.refused) out.push(`REFUSED${p.reason ? `: ${p.reason}` : ''}`);
   out.push(p.coarse_relations?.length ? p.coarse_relations.join(', ') : 'no coarse relation');
@@ -291,7 +329,17 @@ export function sessionView(tool, content, { detail, lines } = {}) {
   if (typeof verdict.presentation_text === 'string')
     short.presentation_sha256 = sha256(verdict.presentation_text);
   short.blocking = blockingOf(verdict);
-  short.notes = (verdict.findings || []).filter((f) => !isStanding(f)).length;
+  const notes = (verdict.findings || []).filter((f) => !isStanding(f));
+  short.notes = notes.length;
+  // What the count is made of, so 48 meter notes on 16 lines are not read as
+  // 48 unrelated remarks; and what certification did NOT cover, so
+  // "certified" is not read as "singable" (both found on two songs, 2026-10-18).
+  const byCode = {};
+  for (const f of notes) byCode[f.code] = (byCode[f.code] || 0) + 1;
+  short.notes_by_code = Object.fromEntries(
+    Object.entries(byCode).sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1))
+  );
+  if (verdict.coverage) short.not_checked = notCheckedOf(verdict);
   short.detail = DETAIL_NOTE;
   return [content[0], { type: 'text', text: JSON.stringify(short) }];
 }

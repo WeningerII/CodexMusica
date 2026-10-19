@@ -54,7 +54,9 @@ recipe or song exactly as the tool wrote it; the last block is the envelope as J
 finished `lyric_grade` or `lyric_revise` publishes the song unchanged and a short
 verdict — exit code, meaning, certification and stop fields, `blocking` (one line per
 flag or banned pair standing, and per line a requested obligation could not be judged
-on) and a count of notes. `get_operation` with `detail` (`findings`, `report`,
+on), a count of notes with `notes_by_code` (the count by kind), and `not_checked`
+(each coverage layer the request did not ask, such as the syllable-to-pulse setting).
+`get_operation` with `detail` (`findings`, `report`,
 `coverage`, `pronunciations` or `full`, optionally narrowed by `lines`) returns the
 rest of that verdict from the stored result. A read of an
 operation whose tool refused is not itself an error: it reports `tool_error: true`.
