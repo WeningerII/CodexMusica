@@ -1,0 +1,12 @@
+{"at":"2026-10-19T03:24Z","live_commit":"63e9afc18e2bd8235b5393c570054bae2fccc74c",
+ "status":"recovered_artifact","source_connector_contract":3,
+ "source_semantic_identity":"05091700d8eea9859043e9b272181acdf66ba83a170cdbf7378b2604472aa999",
+ "checksum_verified":true,
+ "original_wire_sha256":"8811296ee5d78e6a77b3468db5a9267b509c6300694ef29f038c1eb00ff7f5ec","original_wire_bytes":9237,
+ "cursor_scorer":"171a2d48b9fb177a25871ef1875e51005bc82184126ba80fef1ff928ba136200",
+ "cursor_digest":"cd5fac3ba228c5bfddb82d630f9d8dcad66542867ccfdd0a5e43843953948a55",
+ "cursor_seal":"8b2fe8e15b7974f7ba0b700ca51a4e9bd83fd84f6ab98a304aaabea5e0a16385",
+ "connector_semantic_identity":"05091700d8eea9859043e9b272181acdf66ba83a170cdbf7378b2604472aa999",
+ "reader_scheme":"v2","lexicon_sha256":"bec6e6ddf8522b1f6ffc01bea806ef1ddb71584b2f8630670e8538de4c52fc51",
+ "keep_L5":[3],"keep_L7":[3],"resumable":false,"new_run_required":true,
+ "accepted_lines":["The kettle hums a tune it never learned","The window holds the light the morning earned","You left your coat across the kitchen chair","As if the cold could never find you there","And every road I take leads to your heart","But every map I fold just falls apart","So leave the porch light on another night","I'll find my way by what's left of the light"]}

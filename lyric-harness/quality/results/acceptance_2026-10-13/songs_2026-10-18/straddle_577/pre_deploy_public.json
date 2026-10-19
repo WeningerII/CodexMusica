@@ -1,0 +1,19 @@
+{
+ "at": "2026-10-18T16:35Z",
+ "live_commit": "df11e3b7",
+ "comparator": "51316f79",
+ "reader_scheme": "v2",
+ "lexicon": "v2 bec6e6dd",
+ "check": "certified true, 1 per-line flag (CLICHE_PAIR L5,L7)",
+ "revise": "exit 4 awaiting_proposal, batch L5,L7, round 1, answers_on_record 0, draft_fp e698bc3134",
+ "draft_sha256": "0e7d45953f7f1f25326dfe7c9d7c23584c4d555d9fc76a112217559a34146cbf",
+ "recover_only_at": "2026-10-18T16:36Z",
+ "original_wire_sha256": "8811296ee5d78e6a77b3468db5a9267b509c6300694ef29f038c1eb00ff7f5ec",
+ "original_wire_bytes": 9237,
+ "cursor_scorer": "171a2d48b9fb177a25871ef1875e51005bc82184126ba80fef1ff928ba136200",
+ "connector_semantic_identity": "05091700d8eea9859043e9b272181acdf66ba83a170cdbf7378b2604472aa999",
+ "cursor_seal": "8b2fe8e15b7974f7ba0b700ca51a4e9bd83fd84f6ab98a304aaabea5e0a16385",
+ "cursor_digest": "cd5fac3ba228c5bfddb82d630f9d8dcad66542867ccfdd0a5e43843953948a55",
+ "source_connector_contract": 3,
+ "checksum_verified": true
+}
