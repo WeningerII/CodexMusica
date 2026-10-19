@@ -108,6 +108,92 @@ def test_determinism():
           len(bodies) >= 2, f"{len(bodies)} distinct choice-set(s)")
 
 
+def test_the_denominator_is_drawn():
+    print("\n1b. the time signature's denominator is drawn, not derived from "
+          "the grouping")
+    # THE OWNER RULING THIS HOLDS (2026-10-19, #519 6257697449): "the
+    # planner should be allowed to pick 3/4, 5/4, 7/4, cut time and other
+    # bottom numbers on its own, instead of following the 'any 3 means /8'
+    # rule". `_unit_for` (8 if any group is 3, else 4) is gone, and every
+    # check below is one a revival of it would fail.
+    from quality.melody import NOTE_DENOMINATORS, validate_melody
+    import inspect as _inspect
+    check("the support is the DECLARABLE set — the one tuple melody's own "
+          "refusal reads, so a sampled meter can always be declared back by "
+          "hand — and not a second list",
+          NOTE_DENOMINATORS == (1, 2, 4, 8, 16, 32, 64)
+          and "NOTE_DENOMINATORS" in _inspect.getsource(validate_melody)
+          and not hasattr(PLN, "_unit_for"),
+          NOTE_DENOMINATORS)
+    check("the draw takes the rng and NOTHING ELSE — no beats, no grouping "
+          "— so no rule can tie the denominator to the grouping",
+          list(_inspect.signature(PLN._sample_unit).parameters) == ["rng"],
+          str(_inspect.signature(PLN._sample_unit)))
+    _r = random.Random(0)
+    _seen = Counter(PLN._sample_unit(_r) for _ in range(7000))
+    check("...and it is uniform over that support: 7000 draws, every "
+          "denominator within 4 sigma of 1/7",
+          set(_seen) == set(NOTE_DENOMINATORS)
+          and all(abs(c / 7000 - 1 / 7) <= 4 * math.sqrt((1 / 7) * (6 / 7) / 7000)
+                  for c in _seen.values()),
+          dict(sorted(_seen.items())))
+
+    # ENTROPY-LAST. A draw spent any earlier on the shared stream re-deals
+    # every later pick of every seed. Swap the draw for one that consumes
+    # NOTHING: if any coordinate other than the unit moves, the real draw
+    # was not last.
+    def _masked(p):
+        p = json.loads(json.dumps(p, sort_keys=True, default=str))
+        p.pop("writer_brief")
+        p["choices"].pop("unit", None)
+        for sec in p["sections"]:
+            sec["meter"]["unit"] = None
+        p["choices"]["meter"]["value"]["unit"] = None
+        return json.dumps(p, sort_keys=True)
+    _real = PLN._sample_unit
+    _seeds = (1, 7, 32)
+    try:
+        PLN._sample_unit = lambda rng: 4
+        _fixed = {k: _masked(make_plan(seed=k)) for k in _seeds}
+    finally:
+        PLN._sample_unit = _real
+    check("the denominator is drawn ENTROPY-LAST: with a draw that consumes "
+          "no randomness in its place, every other coordinate of the plan is "
+          "byte-identical",
+          all(_masked(make_plan(seed=k)) == _fixed[k] for k in _seeds),
+          f"seeds {_seeds}")
+
+    # REACHABLE FROM DEFAULT PLANS, pinned by seed (make_plan is a function
+    # of its seed, so these are pins, not statistics). The four Don named,
+    # and one of each denominator.
+    def _sig(k):
+        p = make_plan(seed=k)
+        m = p["sections"][0]["meter"]
+        units = {s["meter"]["unit"] for s in p["sections"]}
+        return p, m, units
+    for k, want in ((32, "3/4"), (77, "2/2"), (167, "5/4"), (270, "7/4")):
+        p, m, units = _sig(k)
+        check(f"default plan seed {k} is in {want}, and the brief says so",
+              f"{m['beats']}/{m['unit']}" == want and len(units) == 1
+              and f"Feel: {want} grouped" in p["writer_brief"]
+              and p["choices"]["unit"]["value"] == m["unit"],
+              f"{m['beats']}/{m['unit']} grouped {m['groups']}")
+    _units = {}
+    for k in (1, 2, 7, 9, 10, 17, 32):
+        p, m, units = _sig(k)
+        _units[m["unit"]] = (k, m["beats"], tuple(m["groups"]))
+    check("every declarable denominator is reachable from default plans",
+          set(_units) == set(NOTE_DENOMINATORS),
+          {u: v[:2] for u, v in sorted(_units.items())})
+    check("...independently of the grouping: a bar with a 3 in it comes out "
+          "other than /8, and a bar of 2s only comes out other than /4 — the "
+          "two outcomes `_unit_for` made unreachable",
+          any(3 in g and u != 8 for u, (_k, _b, g) in _units.items())
+          and any(3 not in g and u != 4 for u, (_k, _b, g) in _units.items()),
+          {u: (v[1], "has 3" if 3 in v[2] else "2s only")
+           for u, v in sorted(_units.items())})
+
+
 def test_refusals():
     print("\n2. refusals, not defaults (doctrine 20)")
     t_lo, t_hi = ENVELOPE["total_lines"]
@@ -861,13 +947,18 @@ def test_the_measure():
           abs(_o1 - _p1) <= 4 * math.sqrt(_p1 * (1 - _p1) / 200),
           f"median {bars_pl[100]} bars/line, one-bar {_o1:.1%} against "
           f"predicted {_p1:.1%}")
-    check("the 4/4 bias is dead: many distinct meters over 200 seeds, both "
-          "notation units, and 4/4 under 30% of plans. The COUNT is not "
-          "pinned at a literal — it moves with the derived envelope — so "
-          "what is asserted is that the sampler is not concentrated: at "
-          "least ten distinct cycles and 4/4 no more common than any "
-          "single-cycle share of the space would make it",
-          len(meters) >= 10 and units == {4, 8}
+    # ~~both notation units, `units == {4, 8}`~~ — REPINNED 2026-10-19: the
+    # denominator is drawn now (`_sample_unit`, owner ruling on #519), so
+    # 200 seeds reach every declarable one. `test_the_denominator_is_drawn`
+    # holds the draw itself.
+    from quality.melody import NOTE_DENOMINATORS
+    check("the 4/4 bias is dead: many distinct meters over 200 seeds, every "
+          "declarable denominator, and four beats a bar under 30% of plans. "
+          "The COUNT is not pinned at a literal — it moves with the derived "
+          "envelope — so what is asserted is that the sampler is not "
+          "concentrated: at least ten distinct cycles and 4/4 no more common "
+          "than any single-cycle share of the space would make it",
+          len(meters) >= 10 and units == set(NOTE_DENOMINATORS)
           and sum(1 for b in beats if b == 4) / 200 < 0.30,
           f"{len(meters)} meters, units {sorted(units)}, "
           f"4/4 {sum(1 for b in beats if b == 4) / 200:.1%}")
@@ -4268,6 +4359,7 @@ _SECTIONS = (
     test_the_relation_draw,
     test_the_grade_it_line_runs,
     test_determinism,
+    test_the_denominator_is_drawn,
     test_the_writers_declaration,
     test_the_rendering,
     test_the_bound_share,

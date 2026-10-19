@@ -43,11 +43,13 @@ GENERATOR over a space the enforcement layers already grade:
   uniform-over-enumerated-cycles hands nearly every plan the largest beat
   count the envelope admits — a weight-by-grouping-count table nobody
   declared, and a bias of exactly the kind v2 exists to remove.
-  THE TIME-SIGNATURE DENOMINATOR IS NOT BOUNDED AND NOT SAMPLED WIDE,
-  because it is not enforced: `fit.py`'s slot arithmetic is exact rational
-  fractions of the BEAT and never reads the unit. The planner notates its
-  cycle conventionally (4 for simple groupings, 8 for compound); a writer
-  hand-declaring 5/24 is grading-identical to 5/8 and nothing refuses it.
+  THE TIME-SIGNATURE DENOMINATOR IS DRAWN, uniformly over the declarable
+  note values and independently of the grouping (`_sample_unit`, owner
+  ruling 2026-10-19). ~~not sampled wide, because it is not enforced; the
+  planner notates its cycle conventionally (4 for simple groupings, 8 for
+  compound)~~ — `fit.py`'s slot arithmetic still never reads the unit, but
+  what the writer is shown does, and a convention written in as the only
+  answer is a hidden restriction on it.
 - LINES PER SECTION are sampled UNIFORMLY from the envelope, per function
   kind.
   V3 (2026-08-23) — AND THE ENVELOPE ITSELF IS DERIVED NOW. V2 replaced the
@@ -762,13 +764,33 @@ def _compositions_23(n):
     return tuple(out)
 
 
-def _unit_for(groups):
-    """Conventional notation for the sampled cycle: simple groupings in 4,
-    anything with a 3 in 8. NOTATION ONLY — the slot arithmetic never reads
-    the denominator, so 7/8 and 7/4 (and 7/10) grade identically; exotic
-    denominators stay hand-declarable and are not sampled because sampling
-    a label buys nothing the enforcement can see."""
-    return 8 if any(g == 3 for g in groups) else 4
+def _sample_unit(rng):
+    """The time signature's DENOMINATOR, drawn uniformly over
+    `melody.NOTE_DENOMINATORS` and independently of the beats and the grouping.
+
+    ~~`_unit_for(groups)`: 8 if any group is 3, else 4~~ — struck 2026-10-19
+    by owner ruling (John, relayed on #519 6257697449): *"the planner should
+    be allowed to pick 3/4, 5/4, 7/4, cut time and other bottom numbers on its
+    own, instead of following the 'any 3 means /8' rule."* The rule was a
+    common-practice habit written in as the only answer, so 3/4, 6/4, x/2 and
+    x/16 were unreachable for the sampler and every writer was shown the same
+    notation for the same grouping. Its docstring called it NOTATION ONLY,
+    which held for the slot arithmetic but not for what the writer is told:
+    `Cycle.note_value` reads the unit, so fit's note values and grid values
+    move with it.
+
+    THE SUPPORT IS THE DECLARABLE SET, not a guess: the power-of-two note
+    values through 64 that `melody.validate_melody` accepts, so every sampled
+    meter can be declared back by hand. `meter.Cycle` also represents
+    non-power-of-two denominators (`Cycle.irrational`); `melody` refuses
+    them, so they are not drawn.
+
+    DRAWN ENTROPY-LAST (the narrative line-up's placement): a draw spent on
+    the shared stream any earlier would re-deal every later pick of every
+    seed, so it is the last draw `_make_plan_candidate` makes and every other
+    coordinate of a seeded plan is what it was before this draw existed."""
+    from quality.melody import NOTE_DENOMINATORS
+    return NOTE_DENOMINATORS[rng.randrange(len(NOTE_DENOMINATORS))]
 
 
 @lru_cache(maxsize=None)
@@ -2820,8 +2842,9 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     else:
         bars, sub, beats, groups_m, (n_beats, n_fact, beats_pl) = \
             _sample_meter(rng)
-    meter = {"beats": beats, "unit": _unit_for(groups_m),
-             "groups": list(groups_m)}
+    # `unit` is drawn entropy-last (`_sample_unit`); None until then, so a
+    # read before the draw fails loudly instead of seeing a placeholder.
+    meter = {"beats": beats, "unit": None, "groups": list(groups_m)}
     if melody is not None:
         meter = dict(melody["meter"])
 
@@ -3118,8 +3141,9 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                      f"beat — and holds {beats_pl * sub} "
                                      f"slot(s). The pair share follows from "
                                      f"how many ways each beat count "
-                                     f"factorises. Unit is notation, never "
-                                     f"enforced"},
+                                     f"factorises. The denominator is drawn "
+                                     f"separately, last: see "
+                                     f"choices.unit"},
             # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
             # under — disclosed because it is the coordinate that stopped
             # this generator being end-rhyme-only, and because the measure
@@ -3610,6 +3634,19 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                   if k != "reason"}}
     plan["choices"]["audible"] = audible_share(plan)
     plan["choices"]["shape_attempts"] = _attempt + 1
+    if melody is None:
+        from quality.melody import NOTE_DENOMINATORS
+        unit = _sample_unit(rng)
+        for sec in plan["sections"]:
+            sec["meter"]["unit"] = unit
+        plan["choices"]["meter"]["value"]["unit"] = unit
+        plan["choices"]["unit"] = {
+            "value": unit,
+            "chosen_from": (
+                f"uniform over the {len(NOTE_DENOMINATORS)} declarable "
+                f"denominators {list(NOTE_DENOMINATORS)}, independent of the "
+                f"beats and the grouping, drawn entropy-last. It names the "
+                f"pulse's note value; the slot arithmetic never reads it.")}
     if melody is not None:
         plan["melody"] = melody
         plan["request"]["melody"] = deepcopy(melody)

@@ -13,6 +13,9 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | JOURNAL_BYTES | 1,114,112 (1,088 KB) | `lyric_harness.py` |
 | JOURNAL_LINE_CHARS | 200 | `lyric_harness.py` |
 | MATTR_WINDOW | 50 | `quality/features.py` |
+| BIN_MIN_TAIL | 200 | `quality/length_curve_calibration.py` |
+| NOMINAL | 0.05 | `quality/length_curve_calibration.py` |
+| IRLS_MAX | 200 | `quality/length_curve_calibration.py` |
 | MAX_EXPANDED_POSITIONS | 100,000 | `quality/meter.py` |
 | MAX_FIT_DP_CELLS | 1,000,000 | `quality/meter.py` |
 | MAX_BLUEPRINT_ITEMS | 10,000 | `quality/meter.py` |
@@ -46,6 +49,9 @@ Numeric caps and budgets: module-level constants in the harness files that ran f
 | END_PAIR_MEMO_CAP | 400,000 | `quality/revise.py` |
 | _BOUND_TOKEN_MEMO_CAP | 50,000 | `quality/revise.py` |
 | MEMBER_READING_CAP | 64 | `quality/rhyme_types.py` |
+| MAX_RECORDS | 256 | `quality/schema_instance_evidence.py` |
+| MAX_BYTES | 262,144 (256 KB) | `quality/schema_instance_evidence.py` |
+| MAX_CANDIDATES_PER_SCHEMA | 4,096 | `quality/schema_instance_evidence.py` |
 
 Connector:
 
