@@ -313,7 +313,7 @@ const EXIT_MEANING = {
   // make of it (M-186; M-188 turned the one known cause, a missing staged
   // resource, into a refusal at 2 — anything still reaching 1 is a crash).
   1: 'CRASHED — not an answer; the harness died before reaching a verdict, stderr follows',
-  2: 'REFUSED — the harness did not answer; the report names why',
+  2: 'REFUSED — turned down without a verdict; `refusal` and the report name why',
   // ~~or banned pair~~ dropped 2026-10-04 (owner's ruling): banned pairs are
   // reported as notes and no longer move an exit code.
   3: 'answered — at least one FLAG stands; the report names the lines',
