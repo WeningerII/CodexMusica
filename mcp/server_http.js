@@ -648,12 +648,14 @@ app.get('/health', (_req, res) => {
     recovery: {
       durable: jobStore.durable,
       retention_ms: jobStore.ttlMs,
+      records: jobStore.records.size,
       max_records: jobStore.maxRecords,
       max_payload_records: jobStore.maxPayloadRecords,
       healthy: !jobStore.failure,
       sessions: {
         durable: sessionStore.durable,
         retention_ms: sessionStore.ttlMs,
+        records: sessionStore.records.size,
         max_records: sessionStore.maxRecords,
         max_payload_records: sessionStore.maxPayloadRecords,
         max_bytes: sessionStore.maxBytes,
