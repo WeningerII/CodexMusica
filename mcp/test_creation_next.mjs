@@ -646,13 +646,15 @@ async function chatTurn({ shape, task, lyric, name, args, ctx }) {
   const dispatched = [];
   let step = 0;
   let refusal = null;
+  let seen = null;
   let follow = [];
   globalThis.fetch = async (_url, init) => {
     step++;
     if (step === 1) return reply([fc(name, args)]);
     if (step === 2) {
       const [r] = lastResponses(init);
-      refusal = r?.response?.error ?? null;
+      seen = r?.response?.error ?? null;
+      refusal = seen;
       if (!refusal || !/^CREATION_/.test(refusal) || !refusal.includes(' NEXT: '))
         return reply([{ text: 'done' }]);
       follow = parseNext(refusal, ctx);
@@ -673,7 +675,7 @@ async function chatTurn({ shape, task, lyric, name, args, ctx }) {
         return stubResult(shape, n, a);
       },
     });
-    return { out, refusal, follow, dispatched };
+    return { out, refusal, seen, follow, dispatched };
   } finally {
     globalThis.fetch = nativeFetch;
   }
@@ -682,7 +684,8 @@ async function chatTurn({ shape, task, lyric, name, args, ctx }) {
 test('/chat: the model reads NEXT, the calls row keeps the gate text, and NEXT passes wander, parked and the gate', async (t) => {
   let followed = 0,
     held = 0,
-    wandered = 0;
+    wandered = 0,
+    stepNine = 0;
   for (const shapeName of Object.keys(SHAPES)) {
     const { at, sweepArgs, planArgs, shape } = states(shapeName);
     const runs = carriedRuns(planArgs);
@@ -691,7 +694,7 @@ test('/chat: the model reads NEXT, the calls row keeps the gate text, and NEXT p
     for (const [k, r] of Object.entries(runs.chat)) cases.push([k, at.started, r]);
     for (const [state, task, lyric] of cases) {
       for (const [name, args] of wrongMoves(planArgs)) {
-        const { out, refusal, follow, dispatched } = await chatTurn({
+        const { out, refusal, seen, follow, dispatched } = await chatTurn({
           shape,
           task,
           lyric,
@@ -700,6 +703,22 @@ test('/chat: the model reads NEXT, the calls row keeps the gate text, and NEXT p
           ctx,
         });
         const row = out.calls[0];
+        // A held run names no NEXT in ANY text the model reads: the gate's,
+        // and /chat's own parked refusal, which for an uncertified run is
+        // F7 step 9's note (the page path, and the in-task route only on the
+        // person's request).
+        if (HELD.has(state) && seen) {
+          const where = `${shapeName}/${state} ${name}`;
+          assert(!/(?:^| )NEXT: /.test(seen), `${where}: a held run names no NEXT: ${seen}`);
+          if (
+            state === 'uncertified_parked' &&
+            /^(?:Error: )?REFUSED by the connector/.test(seen)
+          ) {
+            for (const phrase of ['Start independent work', '`new_run: true`'])
+              assert(seen.includes(phrase), `${where}: step 9's note: ${seen}`);
+            stepNine++;
+          }
+        }
         if (row?.refused_by_connector && !/^CREATION_/.test(row.error)) wandered++;
         if (!row?.error || !/^CREATION_/.test(row.error)) continue;
         const where = `${shapeName}/${state} ${name}`;
@@ -731,8 +750,9 @@ test('/chat: the model reads NEXT, the calls row keeps the gate text, and NEXT p
   assert(followed > 200, `followed ${followed}`);
   assert(held > 0, 'the held runs were reached');
   assert(wandered > 0, "/chat's own refusals were reached");
+  assert(stepNine > 0, "the uncertified run's parked refusal was reached");
   t.diagnostic(
-    `/chat: ${followed} refusals followed and admitted; ${held} held runs named nothing; ${wandered} moves refused by wander/parked before the gate`
+    `/chat: ${followed} refusals followed and admitted; ${held} held runs named nothing; ${stepNine} parked refusals carried step 9's note and no NEXT; ${wandered} moves refused by wander/parked before the gate`
   );
 });
 
@@ -799,6 +819,38 @@ test(
     const seed = Number(rawLine[1]);
     const expected = `NEXT: lyric_screen with the end-word pairs you mean to write, then lyric_plan with seed ${seed}, lines 12.`;
     const ctx = { sweepArgs };
+
+    // /chat: the same real sweep through runTurn, whose wrapper rewrites the
+    // report the model reads.
+    const chatServer = buildServer({ task: { domain: 'lyrics' } });
+    const [ca, cb] = InMemoryTransport.createLinkedPair();
+    await chatServer.connect(ca);
+    const chatClient = new Client({ name: 'chat', version: '1' }, { capabilities: {} });
+    await chatClient.connect(cb);
+    let chatSeen = null,
+      chatStep = 0;
+    globalThis.fetch = async (_url, init) => {
+      chatStep++;
+      if (chatStep === 1) return reply([fc('lyric_sweep', sweepArgs)]);
+      chatSeen = lastResponses(init)[0]?.response;
+      return reply([{ text: 'done' }]);
+    };
+    try {
+      await runTurn({
+        apiKey: 'offline',
+        surface,
+        userText: 'New love song.',
+        limits: { ...LIMITS, maxSteps: 4, maxTurnMs: 240_000, maxTurnUsd: 0 },
+        task: fresh(),
+        callTool: (n, a) => chatClient.callTool({ name: n, arguments: a }),
+      });
+    } finally {
+      globalThis.fetch = nativeFetch;
+      await chatClient.close();
+      await chatServer.close();
+    }
+    assert(chatSeen?.report?.includes(expected), JSON.stringify(chatSeen));
+    assert(!/NEXT: lyric_plan with seed \d+$/m.test(chatSeen.report), chatSeen.report);
 
     // The maintained client.
     const server = buildServer({ task: { domain: 'lyrics' } });
