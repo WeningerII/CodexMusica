@@ -702,3 +702,19 @@ test('not_checked names a coded obligation by its code and finding, once', () =>
     'setting (which syllable sits on which pulse): no beat grid or isochrony declared',
   ]);
 });
+
+// A grade at exit 0 or 3 that the creation gate records names the call that
+// takes this exact draft on (lyric_tools.js sets `next`). The short verdict
+// copies it as its last field and never invents one.
+test('the short verdict ends with the next call the grade names, and has none without one', () => {
+  const next =
+    "Call lyric_revise with this exact draft, unchanged, and this grade's seed and declarations.";
+  const out = (v, tool = 'lyric_grade') =>
+    JSON.parse(publicToolResult({ content: blocks(v) }, null, { tool }).content[1].text);
+  const withNext = out({ ...verdict, next });
+  assert.equal(withNext.next, next);
+  assert.equal(Object.keys(withNext).at(-1), 'next', 'next is the last field');
+  for (const tool of ['lyric_grade', 'lyric_revise'])
+    assert.equal(Object.hasOwn(out(verdict, tool), 'next'), false, `${tool} without next`);
+  assert.equal(Object.hasOwn(out({ ...verdict, next: { call: 'x' } }), 'next'), false);
+});

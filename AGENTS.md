@@ -90,8 +90,9 @@ pipeline plans and grades songs whose every line you write; no connector call re
 - **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
   A finished `lyric_grade` or `lyric_revise` read with `get_operation` is the song and a short
   verdict: status fields, `blocking` (what stands, and each line a requested obligation could not
-  be judged on), a count of notes with `notes_by_code` (the count by kind), and `not_checked`
-  (each coverage layer the request did not ask, such as the syllable-to-pulse setting).
+  be judged on), a count of notes with `notes_by_code` (the count by kind), `not_checked`
+  (each coverage layer the request did not ask, such as the syllable-to-pulse setting), and,
+  after a grade at exit 0 or 3, `next` (the call that takes this exact draft on).
   `get_operation` with `detail` (`findings`, `report`,
   `coverage`, `pronunciations` or `full`, narrowed by `lines`) returns the rest. A finished
   `lyric_screen` is one line per pair and the report's counts; `detail` `pairs` returns every pair.

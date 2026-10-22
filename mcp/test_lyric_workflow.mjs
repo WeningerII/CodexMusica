@@ -2,7 +2,12 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { LEXICON_MANIFEST } from './lexicon_basis.js';
 import { createHash } from 'node:crypto';
-import { creationRefusal, recordCreation, creationQualified } from './lyric_workflow.js';
+import {
+  creationRefusal,
+  recordCreation,
+  creationQualified,
+  gradeVerdictQualifies,
+} from './lyric_workflow.js';
 import { runTurn, LIMITS, declarationsFor } from './gemini_agent.js';
 import { _verdictInternals } from './lyric_tools.js';
 
@@ -703,4 +708,46 @@ test('a grade or revise with no usable draft is refused with the CREATION_DRAFT 
   }
   // Control: the same revise with the exact graded draft is admitted.
   assert.equal(creationRefusal(t, 'lyric_revise', { ...planArgs, draft }), null);
+});
+
+test('the grade-receipt verdict predicate holds exactly when a grade receipt is written', () => {
+  // The grade's `next` is set from this predicate alone (lyric_tools.js), so
+  // it must agree with the receipt recordCreation writes for the exact draft
+  // of the recorded plan.
+  const t = fresh();
+  const p = planned(t);
+  const certified = gradeReceipt(p, draft, { code: 0 });
+  const cases = [
+    ['exit 0, certified', certified, true],
+    ['exit 3, certified', gradeReceipt(p, draft, { code: 3 }), true],
+    [
+      'exit 2, uncertified',
+      gradeReceipt(p, draft, { code: 2, coverage: assessmentCoverage(true) }),
+      true,
+    ],
+    ['exit 2, certified', gradeReceipt(p, draft, { code: 2 }), false],
+    ['exit 1', { ...certified, exit_code: 1 }, false],
+    ['refused', { ...certified, measurement_status: 'refused' }, false],
+    ['no coverage', { ...certified, coverage: undefined }, false],
+    ['bare certification', { ...certified, coverage: { certified: true } }, false],
+    ['certified disagrees', { ...certified, certified: false }, false],
+    ['no reading basis', { ...certified, lexicon: undefined }, false],
+    [
+      'forged reading basis',
+      { ...certified, lexicon: { supplement_id: 'v1', sha256: 'x' } },
+      false,
+    ],
+  ];
+  for (const [label, verdict, qualifies] of cases) {
+    assert.equal(gradeVerdictQualifies(verdict), qualifies, label);
+    recordCreation(t, 'lyric_grade', { seed: 16, draft }, verdict);
+    assert.equal(!!t.workflow.grade, qualifies, label);
+  }
+  // The session half stays recordCreation's: a qualifying verdict for
+  // another draft writes no receipt.
+  const other = gradeReceipt(p, ['different', 'draft'], { code: 0 });
+  assert.equal(gradeVerdictQualifies(other), true);
+  recordCreation(t, 'lyric_grade', { seed: 16, draft }, other);
+  assert.equal(t.workflow.grade, null);
+  assert.equal(gradeVerdictQualifies(null), false);
 });

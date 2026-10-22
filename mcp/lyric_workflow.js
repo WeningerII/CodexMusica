@@ -279,6 +279,22 @@ export function creationRefusal(task, name, args, lyric = null) {
   return null;
 }
 
+// The verdict-only half of the grade receipt: the draft was measured under an
+// authenticated reading basis, with coverage that accounts for its
+// obligations. recordCreation adds the session half (this plan, this exact
+// draft); the grade's `next` names lyric_revise only when this holds.
+export function gradeVerdictQualifies(verdict) {
+  return !!(
+    verdict &&
+    [0, 2, 3].includes(verdict.exit_code) &&
+    verdict.measurement_status === 'graded' &&
+    assessmentCoverageValid(verdict.coverage) &&
+    verdict.certified === verdict.coverage.certified &&
+    (verdict.exit_code !== 2 || verdict.coverage.certified === false) &&
+    gradedLexicon(verdict)
+  );
+}
+
 export function recordCreation(task, name, args, verdict, isError = false) {
   if (isRecoveryOnly(name, args)) return;
   const w = workflowFor(task);
@@ -332,17 +348,12 @@ export function recordCreation(task, name, args, verdict, isError = false) {
   } else if (name === 'lyric_grade') {
     w.grade = null;
     if (
-      [0, 2, 3].includes(verdict.exit_code) &&
-      verdict.measurement_status === 'graded' &&
-      assessmentCoverageValid(verdict.coverage) &&
-      verdict.certified === verdict.coverage.certified &&
-      (verdict.exit_code !== 2 || verdict.coverage.certified === false) &&
+      gradeVerdictQualifies(verdict) &&
       w.plan &&
       verdict.plan_sha256 === w.plan.sha256 &&
       Array.isArray(verdict.final_draft) &&
       same(verdict.final_draft, args.draft) &&
-      verdict.final_draft_sha256 === hash(args.draft) &&
-      gradedLexicon(verdict)
+      verdict.final_draft_sha256 === hash(args.draft)
     )
       w.grade = {
         plan_sha256: w.plan.sha256,
