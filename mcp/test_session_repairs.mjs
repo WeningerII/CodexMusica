@@ -118,9 +118,13 @@ test('an end word refused by two or three overlapping checks keeps one id', asyn
   // at 24 lines (intro, chorus, ..., outro): outro->intro and outro->chorus both refuse L24, no
   // repeated chorus needed. Seed 9 at 24 lines: three checks refuse L8. Measured against the
   // revise.py this branch started from: two and three identical rows, and no grade receipt.
-  for (const [seed, line] of [
-    [7, 24],
-    [9, 8],
+  // Each row also names its PREMISE (Don 6348656619): the line's function and the sections
+  // whose overlapping checks reach it, so a later plan change that moves them fails here
+  // instead of passing without exercising the bug. The findings count cannot serve: the
+  // refusals are already merged into one finding per line; only the coverage rows doubled.
+  for (const [seed, line, fn, needs] of [
+    [7, 24, 'outro', ['intro', 'chorus', 'outro']],
+    [9, 8, 'chorus', ['chorus', 'chorus', 'reprise', 'outro']],
   ]) {
     const c = await connect();
     try {
@@ -137,7 +141,14 @@ test('an end word refused by two or three overlapping checks keeps one id', asyn
       const sw = verdict(await c.call('lyric_sweep', { seed_from: seed, count: 1, lines: 24 }));
       assert.deepEqual(sw.accepted_shown, [seed]);
       await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
-      await c.call('lyric_plan', { seed, lines: 24 });
+      const { plan } = verdict(await c.call('lyric_plan', { seed, lines: 24 }));
+      assert.equal(plan.line_slots.find((l) => l.line === line).function, fn, `seed ${seed}`);
+      const fns = plan.sections.map((x) => x.function);
+      for (const f of new Set(needs))
+        assert(
+          fns.filter((x) => x === f).length >= needs.filter((x) => x === f).length,
+          `seed ${seed} plans ${fns}`
+        );
       const draft = Array.from(
         { length: 24 },
         (_, i) => `the road I remember turns again ${i === line - 1 ? 'zorblax' : 'tonight'}`
