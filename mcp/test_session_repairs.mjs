@@ -112,6 +112,53 @@ test('two checks refusing one end word leave unique coverage ids and a grade rec
   }
 });
 
+test('an outro end word refused by its reprise of both the intro and the chorus keeps one id', async () => {
+  // A second trigger for the same duplicate (Jony, #519 6347183132 section 18): outro->intro and
+  // outro->chorus are separate reprise checks (quality/grid.py), each with its own dedup set, so
+  // both refuse the same outro end word; no repeated chorus is needed. Seed 7 at 24 lines plans
+  // intro, chorus, ..., outro. Measured against the revise.py this branch started from: two
+  // identical function:END_WORD_UNREADABLE:L24 rows and no grade receipt.
+  const c = await connect();
+  try {
+    const verdict = (result) =>
+      result.content
+        .flatMap((block) => {
+          try {
+            return [JSON.parse(block.text)];
+          } catch {
+            return [];
+          }
+        })
+        .find((value) => Number.isInteger(value.exit_code));
+    const sw = verdict(await c.call('lyric_sweep', { seed_from: 7, count: 1, lines: 24 }));
+    assert.deepEqual(sw.accepted_shown, [7]);
+    await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
+    await c.call('lyric_plan', { seed: 7, lines: 24 });
+    const draft = Array.from(
+      { length: 24 },
+      (_, i) => `the road I remember turns again ${i === 23 ? 'zorblax' : 'tonight'}`
+    );
+    const grade = verdict(await c.call('lyric_grade', { seed: 7, draft }));
+    assert.equal(grade.measurement_status, 'graded');
+    const rows = grade.coverage.obligations.filter(
+      (row) => row.id === 'function:END_WORD_UNREADABLE:L24'
+    );
+    assert.equal(rows.length, 1, JSON.stringify(rows));
+    assert.equal(rows[0].word, 'zorblax');
+    const ids = grade.coverage.obligations.map((row) => row.id);
+    assert.deepEqual(
+      ids.filter((id, i) => ids.indexOf(id) !== i),
+      []
+    );
+    assert(c.snapshot().task.workflow.grade, JSON.stringify(grade.coverage.refused_obligations));
+    const revised = await c.call('lyric_revise', { seed: 7, draft, attempts: 0 });
+    assert(!revised.isError, JSON.stringify(revised.content?.[0]?.text).slice(0, 400));
+    assert(Number.isInteger(verdict(revised).exit_code));
+  } finally {
+    await c.close();
+  }
+});
+
 test('moving a card changes primary order without rebuilding or mutating any card', () => {
   const original = startRecipe({ traditions: ['garage_rock', 'delta_blues'] });
   const target = original.workspace.cards.find((c) => c.traditionId === 'delta_blues');
