@@ -11422,9 +11422,11 @@ def main():
                       "at all is accepted — honest and useless, and there is "
                       "no default: a sweep does not decide what you want)")
             # THREE COUNTS, NEVER SUMMED (doctrine 79). `refused` is the
-            # planner turning a request down — an unattainable length, the
-            # joint gate — and charging it to the predicates would blame the
-            # declaration for the envelope.
+            # planner turning a request down — an unattainable length, or a
+            # seed whose every redraw the joint gate refused (since option
+            # (b) one refused draw is redrawn, not counted) — and charging
+            # it to the predicates would blame the declaration for the
+            # envelope.
             print(f"    swept {res['seeds']}  planned {res['planned']}  "
                   f"REFUSED by the planner {res['refused']}  "
                   f"accepted {len(res['accepted'])}"

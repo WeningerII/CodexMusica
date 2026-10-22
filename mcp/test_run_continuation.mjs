@@ -218,8 +218,9 @@ try {
   // cannot serve: an unchanged answer is applied to its whole return class
   // (`apply_candidate`, M-201) and repairs the return, so "unchanged answers
   // fix nothing" is false for it (seed 15, returns 1,8;2,9;3,10;4,11, asks a
-  // group pivot first and accepts at its second question). Pivot repair
-  // itself stays covered on fixed fixtures in quality/test_loop.py §4-§6.
+  // group pivot first and accepts at its second question). quality/test_loop.py
+  // §4-§6 cover the loop's tier-2 group repair on fixed fixtures, not this
+  // protocol's pivot before the door, which now has no MCP test (Jony 6347921225).
   const originalIndependent = [1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the

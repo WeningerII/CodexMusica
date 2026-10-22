@@ -65,6 +65,72 @@ test('native creation blocks bypass, records real sweep/screen/plan, survives re
   }
 });
 
+test('a redrawn seed keeps its 64-bit candidates exact through sweep, plan and grade', async () => {
+  // Option (b): a default draw the joint gate refuses is redrawn and disclosed in
+  // choices.seed_redraw; with wants, the wants path discloses its draws in brief_selection.
+  // Candidates are 64-bit integers, past what a JSON double holds, so both disclose seeds as
+  // strings: the verdict block (JSON.parse of plan.json) must name exactly what the report
+  // prints (Jony, #519 6347921225; 3PO 6348036141). At 12 lines seed 32 needs one redraw and
+  // seed 1204 two; seed 32 with a want takes the wants path.
+  for (const { seed, want, grade } of [
+    { seed: 32, grade: true },
+    { seed: 1204 },
+    { seed: 32, want: 'group<=99' },
+  ]) {
+    const c = await connect();
+    try {
+      const verdict = (result) =>
+        result.content
+          .flatMap((block) => {
+            try {
+              return [JSON.parse(block.text)];
+            } catch {
+              return [];
+            }
+          })
+          .find((value) => Number.isInteger(value.exit_code));
+      const wants = want ? { want: [want] } : {};
+      const sw = verdict(
+        await c.call('lyric_sweep', { seed_from: seed, count: 1, lines: 12, ...wants })
+      );
+      assert.deepEqual(sw.accepted_shown, [seed]);
+      await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
+      const planned = await c.call('lyric_plan', {
+        seed,
+        lines: 12,
+        ...(want ? { wants: [want] } : {}),
+      });
+      const [label, field] = want
+        ? ['BRIEF SELECTION', 'brief_selection']
+        : ['SEED REDRAW', 'seed_redraw'];
+      const printed = JSON.parse(planned.content[0].text.match(new RegExp(`${label}: (.*)`))[1]);
+      const { plan } = verdict(planned);
+      const disclosed = plan.choices[field];
+      const draws = disclosed[want ? 'attempts' : 'refused'].map((x) => x.seed);
+      assert.equal(plan.request.seed, seed);
+      assert.match(disclosed.candidate_seed, /^\d+$/);
+      assert.equal(disclosed.candidate_seed, printed.candidate_seed, `seed ${seed}`);
+      assert.deepEqual(
+        draws,
+        printed[want ? 'attempts' : 'refused'].map((x) => x.seed)
+      );
+      assert.equal(draws[0], String(seed));
+      for (const d of draws) assert.match(d, /^\d+$/);
+      if (!want && seed === 1204) assert.equal(draws.length, 2);
+      if (want) assert(draws.length >= 2, JSON.stringify(draws));
+      if (grade) {
+        // ... and grade re-plans the same candidate, so the receipt is recorded on it.
+        const draft = Array(12).fill('The kettle whistles by the stove');
+        const g = verdict(await c.call('lyric_grade', { seed, lines: 12, draft }));
+        assert.equal(g.measurement_status, 'graded');
+        assert(c.snapshot().task.workflow.grade, 'no grade receipt on the redrawn seed');
+      }
+    } finally {
+      await c.close();
+    }
+  }
+});
+
 test('moving a card changes primary order without rebuilding or mutating any card', () => {
   const original = startRecipe({ traditions: ['garage_rock', 'delta_blues'] });
   const target = original.workspace.cards.find((c) => c.traditionId === 'delta_blues');

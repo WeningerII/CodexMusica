@@ -3301,7 +3301,8 @@ export function registerLyricTools(server, tool) {
         "a creation session requires them, and requires this `want` list as lyric_plan's `wants`. FOUR COUNTS, NEVER " +
         'SUMMED: swept, planned, planner_refused and accepted_count (accepted_shown lists the accepted seeds) — ' +
         'planner_refused is the planner turning a request down (an unbuildable roster, an unattainable length) and ' +
-        'is NOT a predicate rejecting a shape, so `planned 0` means the DECLARATION is unbuildable and the ' +
+        'is NOT a predicate rejecting a shape, so `planned 0` means every seed was refused (an unbuildable ' +
+        'DECLARATION, or seeds whose bounded redraws all failed; the counts cannot tell which) and the ' +
         `predicates never ran. The window is bounded at ${MAX_SWEEP_SEEDS} seeds per call and sweeps compose ` +
         'exactly — continue from next_seed_from and add the counts. Selective wants may require more windows. ' +
         EXECUTION_CONTRACT,
@@ -3342,8 +3343,9 @@ export function registerLyricTools(server, tool) {
         // declared at all.
         if (counts.planned === 0)
           v.window_meaning =
-            'the planner refused EVERY seed in this window, so the DECLARATION ' +
-            '(form / lines / functions) is unbuildable — the predicates never ran, ' +
+            'the planner refused EVERY seed in this window: either the DECLARATION ' +
+            '(form / lines / functions) cannot be built, or every seed exhausted its ' +
+            'bounded redraws, and the counts cannot tell which — the predicates never ran, ' +
             'and this says nothing about them.';
         else if (r.code === 2)
           v.window_meaning =

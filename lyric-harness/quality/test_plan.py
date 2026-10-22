@@ -1045,7 +1045,10 @@ def test_the_measure():
             continue
         m = p["sections"][0]["meter"]
         beats.append(m["beats"])
-        meters.add((m["beats"], m["unit"]))
+        # (beats, groups), not (beats, unit): the unit is drawn
+        # independently now, so pairing it in would let the count pass on
+        # denominators alone (BB8 6348211556).
+        meters.add((m["beats"], tuple(m["groups"])))
         units.add(m["unit"])
         totals.add(p["total_lines"])
         funcs.update(s["function"] for s in p["sections"])
@@ -4674,13 +4677,32 @@ def test_the_seed_redraw():
           "the redraw is disclosed with the refused seed and its codes, the "
           "bound and the policy, and `request.seed` stays the caller's",
           p["request"]["seed"] == FAIL_SEED
-          and red.get("refused") == [{"seed": FAIL_SEED, "status": "refused",
-                                      "codes": ["NO_FREE_WORD"]}]
+          and [(x["seed"], x["status"], x["codes"])
+               for x in red.get("refused", [])]
+          == [(str(FAIL_SEED), "refused", ["NO_FREE_WORD"])]
           and red.get("bound") == REDRAW_BOUND == 64
-          and isinstance(cand, int) and cand != FAIL_SEED
+          and isinstance(cand, str) and cand.isdigit()
+          and int(cand) != FAIL_SEED
           and "no ranking" in red.get("policy", ""),
           f"seed_redraw {red}")
-    direct = PLN._make_plan_candidate(cand)
+    # WHY, NOT ONLY THE CODE (Jony 6347921225): each refused candidate
+    # carries the gate's per-line findings, and its codes are theirs.
+    fnd = (red.get("refused") or [{}])[0].get("findings") or []
+    check("...each refused candidate carries the joint gate's per-line "
+          "findings (code, line, detail), whose codes are the codes it "
+          "lists",
+          bool(fnd) and all(set(f) == {"code", "line", "detail"}
+                            and isinstance(f["line"], int) and f["detail"]
+                            for f in fnd)
+          and sorted({f["code"] for f in fnd}) == ["NO_FREE_WORD"],
+          f"findings {fnd}")
+    check("...and the meter's disclosure says what a delivered plan is: "
+          "the draw conditioned on the gate accepting it",
+          "conditioned on the gate accepting it"
+          in p["choices"]["meter"]["chosen_from"]
+          and "brief_selection when wants are declared"
+          in p["choices"]["meter"]["chosen_from"], "")
+    direct = PLN._make_plan_candidate(int(cand))
     strip = lambda d: {k: v for k, v in d.items()
                        if k not in ("request", "writer_brief", "choices")}
     check("...and it IS that candidate's plan: the same sections, meter and "
@@ -4695,11 +4717,21 @@ def test_the_seed_redraw():
         cwd=os.path.join(HERE, ".."), timeout=560)
     check("...the plan verb prints it (SEED REDRAW), as it prints a brief "
           "selection", r.returncode == 0 and "SEED REDRAW" in r.stdout
-          and f'"candidate_seed": {cand}' in r.stdout, f"rc {r.returncode}")
+          and f'"candidate_seed": "{cand}"' in r.stdout, f"rc {r.returncode}")
     sw = sweep([FAIL_SEED])
     check("...and a sweep over that one seed now PLANS it rather than "
           "counting a refusal", sw["planned"] == 1 and sw["refused"] == 0,
           f"{sw}")
+    # TWO REFUSED CANDIDATES (Jony 6347921225): a mutant keeping only the
+    # last refusal passed every check above, so pin a seed that needs two.
+    p2 = make_plan(seed=2025)
+    r2 = (p2["choices"].get("seed_redraw") or {}).get("refused", [])
+    check("...a seed needing two redraws discloses BOTH refused candidates, "
+          "in order, the first being the caller's own seed",
+          len(r2) == 2 and r2[0]["seed"] == "2025"
+          and r2[1]["seed"] != r2[0]["seed"]
+          and all(x["codes"] and x["findings"] for x in r2),
+          f"refused {[(x['seed'], x['codes']) for x in r2]}")
     a = json.dumps(make_plan(seed=7), sort_keys=True)
     b = json.dumps(PLN._make_plan_candidate(7), sort_keys=True)
     check("a seed whose first draw passes is untouched byte for byte: no "
@@ -4718,7 +4750,7 @@ def test_the_seed_redraw():
           "share one candidate sequence",
           sw2["accepted"] == [FAIL_SEED]
           and [(x["seed"], x["status"]) for x in sel.get("attempts", [])]
-          == [(FAIL_SEED, "refused"), (cand, "accepted")]
+          == [(str(FAIL_SEED), "refused"), (cand, "accepted")]
           and sel.get("candidate_seed") == cand
           and pw["request"]["seed"] == FAIL_SEED
           and pw["sections"] == p["sections"],
@@ -4761,12 +4793,13 @@ def test_the_seed_redraw():
         raised = None
         try:
             make_plan(seed=1, melody="planted")
-        except JointRefused as exc:
-            raised = str(exc)
+        except PlanRefused as exc:
+            raised = (type(exc).__name__, str(exc))
         check("...a declared melody is NEVER redrawn: the meter was not "
               "drawn, so a joint refusal is the request's and is raised at "
               "once — the planted refusal itself, after one draw",
-              len(calls) == 1 and raised == "planted joint refusal",
+              len(calls) == 1
+              and raised == ("JointRefused", "planted joint refusal"),
               f"{len(calls)} draw(s); raised {raised!r}")
         PLN._make_plan_candidate = request_refused
         calls.clear()
@@ -4808,7 +4841,8 @@ def test_the_seed_redraw():
         PLN._make_plan_candidate = real
 
     # (4) AN ALL-REFUSED SHORT WINDOW AGAINST THE CONNECTOR'S `planned === 0`
-    # MEANING ("the DECLARATION is unbuildable", mcp/lyric_tools.js). Before
+    # MEANING (~~"the DECLARATION is unbuildable"~~, mcp/lyric_tools.js, now
+    # narrowed to say the counts cannot tell the two apart). Before
     # this change a one-seed window over seed 55 read planned 0 and so
     # carried that meaning on a single unlucky draw; it now plans (case 1).
     # What reads planned 0 is a request no seed can build, OR a window whose

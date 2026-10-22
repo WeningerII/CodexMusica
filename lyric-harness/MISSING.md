@@ -12293,8 +12293,9 @@ predicted, **24.75%** at 65–200 against 24.49%, mean 43.00 against 42.67, all
 15.2% against 15.0%. `_sample_unit` is still the last draw: 0 rng calls follow
 it on the 19,428 seeds that planned.
 
-**WHAT A WRITER RECEIVES — THE 19,428 PLANNED SEEDS ALONE** (the refused 572
-removed, every one at 2 beats). Empirical: median **20** (50.03% of plans at 20
+**WHAT A WRITER RECEIVED UNDER OPTION (a) ALONE — THE 19,428 PLANNED SEEDS**
+(the refused 572 removed, every one at 2 beats; under option (b), below, those
+572 are redrawn instead, Jony 6347921225). Empirical: median **20** (50.03% of plans at 20
 or below, 48.88% at 19 or below), **45.24%** at 2–16 beats, **25.48%** at
 65–200. Predicted from the weights with that refusal mass taken out of k=2:
 median **21** (G(20) = 49.56%, G(21) = 50.60%; 3PO), 44.84% at 2–16 (BB8's
@@ -12345,6 +12346,23 @@ not prove a declaration unbuildable (~~"which is now the request's"~~, 3PO
 default request is about 0.0286^64 per seed: a MODEL estimate assuming
 independent draws at the measured default refusal rate, not a guarantee for
 an arbitrary request.
+
+**REVIEW FOLLOW-UPS (Jony 6347921225).** The redraw's seeds are disclosed as
+strings: a 64-bit candidate is past what a JSON double holds, and the
+connector's JSON.parse rounded it to a different song in the plan's verdict
+block (`mcp/test_lyrics_contract.mjs` now compares the report's seed with
+the verdict's). Each refused candidate carries its per-line `findings`
+(`{code, line, detail}`) as well as its codes. lyric_sweep's `planned 0`
+text no longer says the declaration IS unbuildable, for the reason above.
+**SHIPPING STRANDS HELD RUNS:** the continuation identity moves (f94a6b7b ->
+5be48da4, Jony's measurement), so held continuations are refused after the
+deploy; ship (b) with P9 in one merge so they are stranded once.
+The wants path's `brief_selection` seeds (`candidate_seed`, every
+`attempts[].seed`) are strings for the same reason (3PO 6348036141); no JS
+reads either field, and the Python consumers compare them as strings.
+**NOT CHANGED, follow-ups:** exhaustion still raises a plain `PlanRefused`
+(its codes are in the text only); the wants path still redraws with a
+declared melody (pre-existing).
 
 **M-75 CLOSED THE SAME DAY — THE WEIGHT, NOT THE THRESHOLD.**
 **The owner's ruling: _"do 101, derived envelope not rate-matching."_** The
