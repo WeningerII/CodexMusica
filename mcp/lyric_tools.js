@@ -32,7 +32,12 @@ import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 export { draftFromText } from './lyric_text.js';
-import { assessmentCoverageValid, PLAN_FIELDS, READING_FIELDS } from './lyric_workflow.js';
+import {
+  assessmentCoverageValid,
+  gradeVerdictQualifies,
+  PLAN_FIELDS,
+  READING_FIELDS,
+} from './lyric_workflow.js';
 import {
   applyLexiconBasis,
   assertRecordedLexicon,
@@ -2261,7 +2266,8 @@ function reviseDescription({ kitchen = false } = {}) {
     'continues it. To start again on a different draft, grade that draft first, then ' +
     'send it with `new_run: true`. ';
   const chat =
-    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the draft and the declarations; one call runs the ' +
+    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the exact draft lyric_grade graded, unchanged, and ' +
+    'the declarations; one call runs the ' +
     'loop to a stop condition, the writer answering each question (a group question asks for every line of ' +
     'the group at once). An interrupted call records a checkpoint that the next lyric_revise call for the ' +
     'same song resumes (the chat carries it for you), with `final_draft` as the exact accepted lines and ' +
@@ -2269,6 +2275,21 @@ function reviseDescription({ kitchen = false } = {}) {
     'unknown provider completion. After a migration refusal, `recover_only: true` with only the original ' +
     'checkpoint exports its accepted lyrics and journal without replay or restamping. ';
   return common + (kitchen ? chat : interview);
+}
+
+// The grade verdict's `next`: the call that takes this exact draft on. Set
+// only at exit 0 or 3 on a grade the creation gate records as a receipt
+// (gradeVerdictQualifies). At exit 2 the gate admits two moves (choose
+// readings and grade again, or revise as an uncertifiable repair), so no
+// single call is named there.
+function gradeNext(code) {
+  return (
+    (code === 0 ? 'To finish it, call' : 'Call') +
+    " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
+    (code === 0 ? '' : '; its revise loop works on the flagged lines') +
+    '. Add new_run: true if a revise run is still open. If you change any line yourself instead, ' +
+    'grade the changed draft with lyric_grade before starting a revision.'
+  );
 }
 
 // ── registration ───────────────────────────────────────────────────────────
@@ -2394,7 +2415,16 @@ export function registerLyricTools(server, tool) {
         '3 is measured and certified with a flag or a whole-draft flag standing; 2 is either ' +
         'measured with coverage incomplete (flags may stand too) or refused with nothing measured (refusal names why). ' +
         'The stamp says which. Banned pairs are notes: rewrite one only if you want to. Other NOTES are ' +
-        'measurements, not defects. Revise the flagged lines only and call again. ' +
+        'measurements, not defects. ' +
+        (server.kitchen
+          ? 'To finish the song or fix flagged lines, send this exact graded draft, unchanged, to ' +
+            'lyric_revise with the same seed and declarations; the service writer revises. If you ' +
+            'change any line yourself, grade the changed draft first. A parked run continues as its ' +
+            'own note says. '
+          : "At exit 0 or 3 the verdict's `next` names the next call: send this exact draft, " +
+            'unchanged, to lyric_revise, which finishes a clean draft and runs the revise loop on ' +
+            'flagged lines. If you rewrite lines yourself, grade the rewrite before starting a ' +
+            'revision. ') +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
@@ -2457,6 +2487,8 @@ export function registerLyricTools(server, tool) {
         const verdict = verdictOf(p3);
         verdict.plan_sha256 = createHash('sha256').update(JSON.stringify(plan)).digest('hex');
         verdict.plan_request = plan.request;
+        if ([0, 3].includes(verdict.exit_code) && gradeVerdictQualifies(verdict))
+          verdict.next = gradeNext(verdict.exit_code);
         // The SONG leads as its own plain-text block so a client presents
         // it instead of reformatting escaped JSON — the Wide Room
         // screenshot (2026-08-19) showed a Claude client rewriting the
@@ -3692,7 +3724,12 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'not 4/4, rhyme plan, hook slot) and write to its brief, honoring the verbatim returns — declare the `title` ' +
     'here if the song has one, because an undeclared title leaves "is the title in the hook?" REFUSED and a ' +
     'declared one that is not a run of words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed ' +
-    `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — without a session, a declaration dropped here grades a different plan; a session restores the ones its plan recorded) ` +
+    `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — ` +
+    (kitchen
+      ? 'this chat restores every declaration its plan recorded, so leave out any you are unsure of, and ' +
+        'never add one lyric_plan was not given) '
+      : 'a session restores every one its plan recorded and refuses one lyric_plan was not given, so ' +
+        'leave that one out; without a session, a declaration dropped here grades a different plan) ') +
     `and the draft, under the reading declarations (${READING_DECLARATIONS}) — its render is the INTERIM graded ` +
     'draft, and the [GRADED — seed …] stamp under it is a grade, not a finish; (4) lyric_revise with the SAME ' +
     'seed and declarations — it drives the revise loop and returns a song ONLY past a stop condition, under a ' +
