@@ -751,3 +751,101 @@ test('the grade-receipt verdict predicate holds exactly when a grade receipt is 
   assert.equal(t.workflow.grade, null);
   assert.equal(gradeVerdictQualifies(null), false);
 });
+
+test('a refused plan says what the recorded sweeps hold, bounded, and never prints a melody', () => {
+  const t = fresh();
+  preplan(t);
+  // A seed a sweep accepted: that sweep's coordinates and the fields this call differs in.
+  const differs = creationRefusal(t, 'lyric_plan', { seed: 16, lines: 12 });
+  assert.match(differs, /^CREATION_PLAN: plan a seed an accepted lyric_sweep returned, /);
+  assert.ok(
+    differs.includes(
+      'Recorded sweeps that accepted seed 16, newest first: (1) form verse-chorus, lines none, ' +
+        'functions none, melody none, want ["lines<=30"]; this call differs in lines, ' +
+        "wants (the sweep's `want`)."
+    ),
+    differs
+  );
+  // The call the text describes is admitted.
+  assert.equal(creationRefusal(t, 'lyric_plan', { seed: 16, wants: ['lines<=30'] }), null);
+  // A seed no sweep accepted: each recorded sweep's accepted seeds and coordinates.
+  const melody = JSON.stringify({ secret_melody_marker: [440, 880] });
+  recordCreation(
+    t,
+    'lyric_sweep',
+    { seed_from: 20, count: 10, lines: 12, functions: 'verse,chorus', melody, want: ['a=b,c'] },
+    { exit_code: 0, accepted_shown: [21, 22, 23, 24, 25, 26, 27] }
+  );
+  const none = creationRefusal(t, 'lyric_plan', { seed: 99 });
+  assert.ok(
+    none.includes(
+      'No recorded sweep accepted seed 99. Recorded sweeps, newest first: ' +
+        '(1) accepted seeds [21,22,23,24,25] and 2 more; form verse-chorus, lines 12, ' +
+        'functions ["chorus","verse"], melody declared, want ["a=b,c"]; ' +
+        '(2) accepted seeds [16,17]; form verse-chorus, lines none, functions none, ' +
+        'melody none, want ["lines<=30"].'
+    ),
+    none
+  );
+  assert.ok(!none.includes('secret_melody_marker'), 'a melody is never printed');
+  // Bounded: the newest three sweeps, and how many older ones were left out.
+  for (const from of [30, 40, 50])
+    recordCreation(
+      t,
+      'lyric_sweep',
+      { seed_from: from, count: 1 },
+      { exit_code: 0, accepted_shown: [from + 1] }
+    );
+  const bounded = creationRefusal(t, 'lyric_plan', { seed: 99 });
+  assert.match(bounded, /\(1\) accepted seeds \[51\].*\(3\) accepted seeds \[31\]/);
+  assert.ok(!bounded.includes('[21,'), bounded);
+  assert.match(bounded, / \(2 older recorded sweep\(s\) not shown\)\.$/);
+  assert.equal(creationRefusal(t, 'lyric_plan', { seed: 51 }), null);
+});
+
+test('a contradicted plan declaration names the recorded value, and leaving it out is admitted', () => {
+  const t = fresh();
+  const p = planned(t);
+  const before = structuredClone(t.workflow);
+  // lyric_plan was not given lines: the drawn length is a report, never a declaration.
+  assert.equal(
+    creationRefusal(t, 'lyric_grade', { seed: 16, draft, lines: 2 }),
+    'CREATION_PLAN: lines differs from the recorded program plan. lyric_plan was not given ' +
+      '`lines`; leave it out (the plan drew 2 lines; a report, not a declaration).'
+  );
+  assert.equal(
+    creationRefusal(t, 'lyric_grade', { seed: 16, draft, wants: ['lines<=20'] }),
+    'CREATION_PLAN: wants differs from the recorded program plan. The plan recorded wants ' +
+      '["lines<=30"]; leave `wants` out and the recorded value is used.'
+  );
+  assert.equal(
+    creationRefusal(t, 'lyric_grade', { seed: 17, draft }),
+    'CREATION_PLAN: seed differs from the recorded program plan. The plan recorded seed 16; ' +
+      'send seed 16.'
+  );
+  assert.deepEqual(t.workflow, before, 'a refusal records nothing');
+  const args = { seed: 16, draft };
+  assert.equal(creationRefusal(t, 'lyric_grade', args), null);
+  assert.deepEqual(args.wants, ['lines<=30'], 'the recorded value is used');
+  // The graded reading: leaving the key out is admitted and restores it.
+  const pronunciations = [
+    {
+      line: draft[0],
+      token: 2,
+      word: 'kettle',
+      phones: ['K', 'EH1', 'T', 'AH0', 'L'],
+      basis: 'dictionary',
+      source: 'writer: test',
+    },
+  ];
+  recordCreation(t, 'lyric_grade', { seed: 16, draft, pronunciations }, gradeReceipt(p));
+  assert.equal(
+    creationRefusal(t, 'lyric_revise', { seed: 16, draft, pronunciations: [] }),
+    'CREATION_GRADE: pronunciations differs from the graded reading; execute lyric_grade again ' +
+      'before starting a new revision. Leave `pronunciations` out and the graded reading is ' +
+      'used, or grade again with this reading.'
+  );
+  const revise = { seed: 16, draft };
+  assert.equal(creationRefusal(t, 'lyric_revise', revise), null);
+  assert.deepEqual(revise.pronunciations, pronunciations);
+});

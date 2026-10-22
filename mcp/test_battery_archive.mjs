@@ -466,3 +466,38 @@ test('workflow validates the secret before paid work and uploads no plaintext pa
     assert.doesNotMatch(workflow, /head -c|cat battery-out|Print.*transcripts/);
     assert.match(workflow, /battery_archive\.mjs summary --source=battery-out/);
   }));
+
+test('inspection classifies the grade and continuation refusals without printing them', () =>
+  withDir((dir) => {
+    const secret = 'private-reading-never-publish';
+    const texts = [
+      [
+        'CREATION_GRADE',
+        'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.',
+      ],
+      [
+        'CREATION_GRADE',
+        `CREATION_GRADE: pronunciations differs from the graded reading; ${secret}`,
+      ],
+      [
+        'CREATION_CONTINUATION',
+        `CREATION_CONTINUATION: draft differs from the recorded run. ${secret}`,
+      ],
+      ['CREATION_CONTINUATION', 'CREATION_CONTINUATION: this session has no receipt for that run.'],
+    ];
+    const tools = texts.flatMap(([, text]) =>
+      [text, `Error: ${text}`].map((error) => ({
+        name: 'lyric_revise',
+        refused_by_connector: true,
+        error,
+      }))
+    );
+    writeFileSync(join(dir, 'song0.checkpoint.json'), '{}');
+    writeFileSync(join(dir, 'song0.jsonl'), JSON.stringify({ turn: 0, tools }));
+    const out = projectRecord(dir).songs[0].turns[0].tools;
+    assert.deepEqual(
+      out.map((t) => t.refusal.category),
+      texts.flatMap(([category]) => [category, category])
+    );
+    assert.ok(!JSON.stringify(out).includes(secret), 'the headline is never printed');
+  }));

@@ -3724,7 +3724,12 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'not 4/4, rhyme plan, hook slot) and write to its brief, honoring the verbatim returns — declare the `title` ' +
     'here if the song has one, because an undeclared title leaves "is the title in the hook?" REFUSED and a ' +
     'declared one that is not a run of words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed ' +
-    `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — without a session, a declaration dropped here grades a different plan; a session restores the ones its plan recorded) ` +
+    `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — ` +
+    (kitchen
+      ? 'this chat restores every declaration its plan recorded, so leave out any you are unsure of, and ' +
+        'never add one lyric_plan was not given) '
+      : 'a session restores every one its plan recorded and refuses one lyric_plan was not given, so ' +
+        'leave that one out; without a session, a declaration dropped here grades a different plan) ') +
     `and the draft, under the reading declarations (${READING_DECLARATIONS}) — its render is the INTERIM graded ` +
     'draft, and the [GRADED — seed …] stamp under it is a grade, not a finish; (4) lyric_revise with the SAME ' +
     'seed and declarations — it drives the revise loop and returns a song ONLY past a stop condition, under a ' +

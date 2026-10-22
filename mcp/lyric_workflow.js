@@ -175,17 +175,100 @@ export function workflowFor(task) {
   return task.workflow;
 }
 
+// The coordinates a plan repeats from the sweep that accepted its seed; the
+// sweep's `want` list is compared on its own, as the plan's `wants`.
+export const SWEEP_COORDINATES = ['form', 'lines', 'functions', 'melody'];
+
 function sweepFor(w, args) {
   return [...w.sweeps]
     .reverse()
     .find(
       (s) =>
         s.accepted.includes(args.seed) &&
-        ['form', 'lines', 'functions', 'melody'].every((k) =>
-          same(norm(k, args[k]), norm(k, s.args[k]))
-        ) &&
+        SWEEP_COORDINATES.every((k) => same(norm(k, args[k]), norm(k, s.args[k]))) &&
         same(list(args.wants), list(s.args.want))
     );
+}
+
+// The argument form the gate writes back for a recorded plan declaration.
+const planArgument = (key, value) =>
+  key === 'functions' && Array.isArray(value)
+    ? value.join(',')
+    : key === 'narrative'
+      ? narrativeArgument(value)
+      : key === 'melody'
+        ? JSON.stringify(value)
+        : structuredClone(value);
+const unset = (v) => v === null || v === '' || (Array.isArray(v) && !v.length);
+
+// What the recorded sweeps hold, for a plan the gate refused, newest first and
+// bounded (the newest SHOWN_SWEEPS sweeps, the first SHOWN_SEEDS seeds of
+// each). A melody is never printed, only whether one was declared; want lists
+// print as JSON because a want can hold a comma.
+const SHOWN_SWEEPS = 3;
+const SHOWN_SEEDS = 5;
+function sweepCoordinates(s) {
+  const shown = SWEEP_COORDINATES.map((k) => {
+    const v = norm(k, s.args[k]);
+    if (k === 'melody') return `melody ${unset(v) ? 'none' : 'declared'}`;
+    return `${k} ${unset(v) ? 'none' : Array.isArray(v) ? JSON.stringify(v) : v}`;
+  });
+  return [...shown, `want ${JSON.stringify(list(s.args.want))}`].join(', ');
+}
+function recordedSweeps(w, args) {
+  const newest = [...w.sweeps].reverse();
+  const accepting = newest.filter((s) => s.accepted.includes(args.seed));
+  const pool = accepting.length ? accepting : newest;
+  const shown = pool.slice(0, SHOWN_SWEEPS);
+  const older =
+    pool.length > shown.length
+      ? ` (${pool.length - shown.length} older recorded sweep(s) not shown)`
+      : '';
+  if (accepting.length)
+    return (
+      `Recorded sweeps that accepted seed ${args.seed}, newest first: ` +
+      shown
+        .map((s, i) => {
+          const differs = SWEEP_COORDINATES.filter(
+            (k) => !same(norm(k, args[k]), norm(k, s.args[k]))
+          );
+          if (!same(list(args.wants), list(s.args.want)))
+            differs.push("wants (the sweep's `want`)");
+          return `(${i + 1}) ${sweepCoordinates(s)}; this call differs in ${differs.join(', ')}`;
+        })
+        .join('; ') +
+      `${older}.`
+    );
+  const seeds = (s) =>
+    JSON.stringify(s.accepted.slice(0, SHOWN_SEEDS)) +
+    (s.accepted.length > SHOWN_SEEDS ? ` and ${s.accepted.length - SHOWN_SEEDS} more` : '');
+  return (
+    (args.seed === undefined
+      ? 'This call names no seed. '
+      : `No recorded sweep accepted seed ${JSON.stringify(args.seed)}. `) +
+    'Recorded sweeps, newest first: ' +
+    shown
+      .map((s, i) => `(${i + 1}) accepted seeds ${seeds(s)}; ${sweepCoordinates(s)}`)
+      .join('; ') +
+    `${older}.`
+  );
+}
+
+// What the plan recorded for a declaration a grade or revise contradicted,
+// in the gate's own normalisation, and the call that works instead.
+function recordedField(key, request, lines) {
+  if (key === 'seed') return `The plan recorded seed ${request.seed}; send seed ${request.seed}.`;
+  const value = norm(key, request[key]);
+  if (unset(value))
+    return (
+      `lyric_plan was not given \`${key}\`; leave it out` +
+      (key === 'lines' ? ` (the plan drew ${lines} lines; a report, not a declaration).` : '.')
+    );
+  if (key === 'melody')
+    return 'The plan recorded a melody; leave `melody` out and the recorded one is used.';
+  const shown =
+    request[key] === null || request[key] === undefined ? value : planArgument(key, request[key]);
+  return `The plan recorded ${key} ${JSON.stringify(shown)}; leave \`${key}\` out and the recorded value is used.`;
 }
 
 // Called after host-carried continuation fields are restored and before any
@@ -213,7 +296,8 @@ export function creationRefusal(task, name, args, lyric = null) {
   if (name === 'lyric_plan') {
     return sweepFor(w, args)
       ? null
-      : "CREATION_PLAN: plan a seed an accepted lyric_sweep returned, with that sweep's form, lines, functions and melody, and its `want` list as `wants`.";
+      : "CREATION_PLAN: plan a seed an accepted lyric_sweep returned, with that sweep's form, lines, functions and melody, and its `want` list as `wants`. " +
+          recordedSweeps(w, args);
   }
   if (!w.plan)
     return 'CREATION_PLAN: execute lyric_plan successfully before grading or revising a new song.';
@@ -222,7 +306,7 @@ export function creationRefusal(task, name, args, lyric = null) {
   const request = w.plan.request;
   for (const key of PLAN_FIELDS) {
     if (args[key] !== undefined && !same(norm(key, args[key]), norm(key, request[key])))
-      return `CREATION_PLAN: ${key} differs from the recorded program plan.`;
+      return `CREATION_PLAN: ${key} differs from the recorded program plan. ${recordedField(key, request, w.plan.lines)}`;
     if (
       args[key] === undefined &&
       request[key] !== null &&
@@ -230,14 +314,7 @@ export function creationRefusal(task, name, args, lyric = null) {
       request[key] !== ''
     ) {
       // Restore the host's actual plan coordinates, not a model's recollection.
-      args[key] =
-        key === 'functions' && Array.isArray(request[key])
-          ? request[key].join(',')
-          : key === 'narrative'
-            ? narrativeArgument(request[key])
-            : key === 'melody'
-              ? JSON.stringify(request[key])
-              : structuredClone(request[key]);
+      args[key] = planArgument(key, request[key]);
     }
   }
   if (Array.isArray(args.draft)) args.draft = normalizeDraftLines(args.draft);
@@ -273,7 +350,7 @@ export function creationRefusal(task, name, args, lyric = null) {
     )
       args[key] = structuredClone(graded);
     if (args[key] !== undefined && !same(readingValue(key, args[key]), graded))
-      return `CREATION_GRADE: ${key} differs from the graded reading; execute lyric_grade again before starting a new revision.`;
+      return `CREATION_GRADE: ${key} differs from the graded reading; execute lyric_grade again before starting a new revision. Leave \`${key}\` out and the graded reading is used, or grade again with this reading.`;
     if (args[key] === undefined && graded !== null) args[key] = structuredClone(graded);
   }
   return null;
