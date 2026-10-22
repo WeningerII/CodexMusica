@@ -870,7 +870,7 @@ test('P8: a link that would push the parent past the per-record cap is refused b
           adopted ? { adopt: other.get(p) } : {}
         );
       if (over > 0) {
-        assert.throws(go, { code: 'JOB_CAPACITY' }, `adopted=${adopted}`);
+        assert.throws(go, { code: 'JOB_CAPACITY', oversize: true }, `adopted=${adopted}`);
         assert.deepEqual(snapshot(store), before, `adopted=${adopted}`);
       } else {
         go();

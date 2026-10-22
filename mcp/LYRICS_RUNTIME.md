@@ -132,9 +132,12 @@ both the byte cap and the payload-record cap, and only the fewest receipts that 
 room are retired. A call that cannot fit retires nothing. On the session endpoints it
 is refused, before any work is queued, as:
 
-- `SESSION_STORE_FULL` (`code` `JOB_CAPACITY`): the store is full of work it must keep,
-  running operations and interrupted receipts holding accepted lines. Retry the same
-  call once one completes or its receipt expires.
+- `SESSION_STORE_FULL` (`code` `JOB_CAPACITY`): insufficient capacity because the store is
+  full of work it must keep, running operations and interrupted receipts holding accepted
+  lines. Retry the same call once one completes or its receipt expires.
+- `SESSION_RECORD_TOO_LARGE` (`code` `JOB_CAPACITY`): one record of the admission, such as
+  the parent with its successor link, would be over the per-record cap. Free room or
+  waiting does not change that, so it names a new session instead of a retry.
 - `SESSION_RECORDS_FULL` (`code` `JOB_RECORDS_FULL`): the store holds its maximum number
   of receipt ids. `retry_at` is when the oldest receipt that can expire does, the
   earliest opportunity rather than a promise of admission; with only running work

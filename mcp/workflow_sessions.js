@@ -41,11 +41,21 @@ const fail = (code, message) =>
 // the same call to retry, keeping the store's `code` and `status` so
 // storeRefused() and a recipe's NOT SAVED path still recognise it. Nothing was
 // queued, adopted, linked or retired: the store decides before it writes.
-const storeAdmissionRefusal = (error, maxRecords) => {
+const storeAdmissionRefusal = (error, maxRecords, domain) => {
+  // A record over the per-record cap is refused the same way however much
+  // room is free, so it is never told to wait.
+  if (error?.code === 'JOB_CAPACITY' && error.oversize)
+    return Object.assign(
+      new Error(
+        'SESSION_RECORD_TOO_LARGE: Insufficient recovery-store capacity for this operation: one of its records would be larger than the store keeps for a single record, so this same call is refused again however much room is free; nothing was queued and no saved session was retired. ' +
+          restartStep(domain)
+      ),
+      { code: 'JOB_CAPACITY', status: 503, beforeDispatch: true }
+    );
   if (error?.code === 'JOB_CAPACITY')
     return Object.assign(
       new Error(
-        'SESSION_STORE_FULL: The session store is full of work it must keep: running operations, and interrupted ones holding accepted lines. Retry this same call once one of them completes or its receipt expires; nothing was queued and no saved session was retired.'
+        'SESSION_STORE_FULL: Insufficient recovery-store capacity for this operation: the store is full of work it must keep, running operations and interrupted ones holding accepted lines. Retry this same call once one of them completes or its receipt expires; nothing was queued and no saved session was retired.'
       ),
       { code: 'JOB_CAPACITY', status: 503, beforeDispatch: true }
     );
@@ -349,7 +359,7 @@ export class WorkflowSessions {
         }
       );
     } catch (error) {
-      throw storeAdmissionRefusal(error, this.store.maxRecords);
+      throw storeAdmissionRefusal(error, this.store.maxRecords, domain);
     }
     this.store.complete(id, 200, { session, result: { content: [] } });
     return this.status(id, domain);
@@ -508,7 +518,7 @@ export class WorkflowSessions {
         { adopt }
       );
     } catch (error) {
-      throw storeAdmissionRefusal(error, this.store.maxRecords);
+      throw storeAdmissionRefusal(error, this.store.maxRecords, domain);
     }
     if (domain === 'lyrics') this.queued.add(id);
     const promise = new Promise((resolve) => setImmediate(resolve))
