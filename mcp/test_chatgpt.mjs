@@ -1362,3 +1362,23 @@ test('P8: with 16 lyric slots on the real 64 MiB store, a call that cannot fit r
   for (const op of running) await sessions.wait(op.operation_id);
   assert.equal(sessions.open('lyrics').status, 'completed');
 });
+
+test('P8: a record over the per-record cap is refused as too large, never told to wait', () => {
+  const store = new JobStore(null, { maxRecordBytes: 256, maxBytes: 1 << 30, maxRecords: 64 });
+  const sessions = new WorkflowSessions({ store, execute: async () => ({}) });
+  const before = { size: store.records.size, bytes: store.bytes };
+  assert.throws(
+    () => sessions.open('lyrics'),
+    (error) =>
+      error.code === 'JOB_CAPACITY' &&
+      error.status === 503 &&
+      /^SESSION_RECORD_TOO_LARGE: Insufficient recovery-store capacity for this operation/.test(
+        error.message
+      ) &&
+      /refused again however much room is free/.test(error.message) &&
+      /Send a smaller request, or call begin_lyrics/.test(error.message) &&
+      /to open a new lyrics session\.$/.test(error.message) &&
+      !/Retry this same call/.test(error.message)
+  );
+  assert.deepEqual({ size: store.records.size, bytes: store.bytes }, before);
+});

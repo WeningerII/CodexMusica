@@ -373,7 +373,16 @@ export class JobStore {
     return plan;
   }
 
-  capacityRefusal() {
+  // `oversize`: one record of the admission is over the per-record cap, which
+  // no amount of free room or waiting changes.
+  capacityRefusal({ oversize = false } = {}) {
+    if (oversize)
+      return Object.assign(
+        new Error(
+          `Job storage capacity exceeded: a job record would exceed the ${this.maxRecordBytes}-byte per-record limit; nothing was written or retired`
+        ),
+        { code: 'JOB_CAPACITY', status: 503, oversize: true }
+      );
     return Object.assign(
       new Error(
         'Job storage capacity exceeded; active work and interrupted receipts holding accepted lines cannot be evicted, so nothing was retired'
@@ -521,7 +530,7 @@ export class JobStore {
       adoptBytes > this.maxRecordBytes ||
       linkedBytes > this.maxRecordBytes
     )
-      throw this.capacityRefusal();
+      throw this.capacityRefusal({ oversize: true });
     const needed =
       adoptBytes +
       childBytes +
