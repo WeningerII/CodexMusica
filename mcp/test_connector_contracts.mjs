@@ -887,3 +887,51 @@ test('a production deploy is verified with the Library stores loaded, not merely
   );
   assert.ok(libraryDrift(library, {}).length >= 2, 'an unreported state refuses');
 });
+
+// P2 F4: the grade names its next call on both surfaces. The website chat's
+// lyric_grade carries the agreed kitchen sentence (the service writer
+// revises); outside surfaces name both paths and the verdict's `next`. Each
+// rule lives in one text: lyric_revise's kitchen paragraph only says which
+// draft to send.
+test('lyric_grade names the next call per surface, and kitchen revise sends the graded draft', async () => {
+  const describe = async (kitchen) => {
+    const server = buildServer({ kitchen });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const client = new Client({ name: 'grade-next', version: '1' }, { capabilities: {} });
+    await client.connect(b);
+    try {
+      const { tools } = await client.listTools();
+      const of = (name) => tools.find((t) => t.name === name).description;
+      return { grade: of('lyric_grade'), revise: of('lyric_revise') };
+    } finally {
+      await client.close();
+    }
+  };
+  const chat = await describe(true);
+  const outside = await describe(false);
+  assert.ok(
+    chat.grade.includes(
+      'To finish the song or fix flagged lines, send this exact graded draft, unchanged, to ' +
+        'lyric_revise with the same seed and declarations; the service writer revises. If you ' +
+        'change any line yourself, grade the changed draft first. A parked run continues as its ' +
+        'own note says.'
+    )
+  );
+  assert.ok(
+    outside.grade.includes(
+      "At exit 0 or 3 the verdict's `next` names the next call: send this exact draft, " +
+        'unchanged, to lyric_revise, which finishes a clean draft and runs the revise loop on ' +
+        'flagged lines. If you rewrite lines yourself, grade the rewrite before starting a revision.'
+    )
+  );
+  assert.doesNotMatch(outside.grade, /service writer|kitchen/i);
+  for (const d of [chat.grade, outside.grade])
+    assert.doesNotMatch(d, /Revise the flagged lines only and call again/);
+  assert.ok(
+    chat.revise.includes(
+      'send the exact draft lyric_grade graded, unchanged, and the declarations; one call runs'
+    )
+  );
+  assert.doesNotMatch(chat.revise, /grade the changed draft first|its own note says/);
+});
