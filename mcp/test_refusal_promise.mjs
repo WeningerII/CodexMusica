@@ -272,7 +272,7 @@ row({
   code: 'CREATION_PLAN',
   where: 'lyric_workflow.js: a declaration differs from the recorded plan',
   shape: 'receipt',
-  owner: 'F5',
+  phrases: [/send seed \d+/],
   reach: async (r) =>
     r.call('lyric_grade', { session_id: r.seed('lyrics', lyrics(planned)), seed: 17, draft }),
 });
@@ -356,7 +356,7 @@ row({
   code: 'CREATION_GRADE',
   where: 'lyric_workflow.js: a reading differs from the graded one',
   shape: 'receipt',
-  owner: 'F5',
+  phrases: ['Leave `fallback` out', 'lyric_grade'],
   reach: async (r) =>
     r.call('lyric_revise', {
       session_id: r.seed('lyrics', lyrics(graded)),
@@ -839,24 +839,18 @@ for (const file of ['./workflow_tools.js', './tools.js'])
     reach: async () => ({ shape: 'source', text: assetText(file) }),
   });
 
-// P8's per-record size refusal (on its own branch at the time of writing):
-// judged on its source text when present, so the scan below finds a row.
-// TODO(merge): replace with a reached row once P8's SESSION_RECORD_TOO_LARGE
-// is in this tree; it must name begin_lyrics or start_recipe.
-{
-  const at = source('./workflow_sessions.js').indexOf('SESSION_RECORD_TOO_LARGE: ');
-  if (at !== -1)
-    row({
-      code: 'SESSION_RECORD_TOO_LARGE',
-      where: 'workflow_sessions.js storeAdmissionRefusal(): a record over the per-record cap',
-      shape: 'source',
-      phrases: [/begin_lyrics|start_recipe/],
-      reach: async () => ({
-        shape: 'source',
-        text: source('./workflow_sessions.js').slice(at, at + 800),
-      }),
-    });
-}
+// P8's per-record size refusal: no free room or wait admits it, so it names
+// the call that opens a new session.
+row({
+  code: 'SESSION_RECORD_TOO_LARGE',
+  where: 'workflow_sessions.js storeAdmissionRefusal(): a record over the per-record cap',
+  shape: 'bare',
+  phrases: ['Send a smaller request', 'begin_lyrics'],
+  rig: () => ({
+    store: new JobStore(null, { maxRecordBytes: 256, maxBytes: 1 << 30, maxRecords: 64 }),
+  }),
+  reach: async (r) => r.call('begin_lyrics', {}),
+});
 
 // --- The website writer (gemini_agent.js), called directly.
 const website = (text) => ({ shape: 'website', text });
@@ -984,7 +978,7 @@ test('each refusal arrives in the shape the receipt sentence promises', async ()
   // The init text's receipt sentence (workflow_tools.js) against the rows a
   // published schema reaches: either change to it shows here.
   console.log(`receipt split, published schema: ${JSON.stringify(shapes)}`);
-  assert.deepEqual(shapes, { receipt: 21, bare: 23 });
+  assert.deepEqual(shapes, { receipt: 21, bare: 24 });
 });
 
 test('every coded refusal in the source has a row, and the gate has 12 texts', () => {
@@ -996,7 +990,12 @@ test('every coded refusal in the source has a row, and the gate has 12 texts', (
   // Texts built with new Error, not fail(): storeAdmissionRefusal's store
   // translations and the result-size text. A new one needs its own row.
   for (const [, code] of sessions.matchAll(/[`'](SESSION_[A-Z_]+): /g)) sites[code] ||= 1;
-  for (const code of ['SESSION_STORE_FULL', 'SESSION_RECORDS_FULL', 'SESSION_RESULT_NOT_KEPT'])
+  for (const code of [
+    'SESSION_STORE_FULL',
+    'SESSION_RECORDS_FULL',
+    'SESSION_RECORD_TOO_LARGE',
+    'SESSION_RESULT_NOT_KEPT',
+  ])
     assert.ok(sites[code], `${code}: the scan no longer finds it`);
   assert.ok(Object.keys(sites).length >= 18, JSON.stringify(sites));
   for (const [code, n] of Object.entries(sites))

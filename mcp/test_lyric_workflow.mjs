@@ -673,9 +673,14 @@ test('grade receipt accepts its exact normalized reading alias without accepting
 });
 
 test('a grade or revise with no usable draft is refused with the CREATION_DRAFT text', () => {
-  // Anchored at the start only: the remedy that follows the first sentence
-  // may grow, and a search for the code still finds this pin.
-  const missing = /^CREATION_DRAFT: the exact complete draft is required\./;
+  // Option B (John's ruling): the session keeps requiring the draft and the
+  // text says how to send it. Whole string, anchored at both ends; the NEXT
+  // clause is appended later, at the client and /chat seams.
+  const remedy = (draft) =>
+    new RegExp(
+      `^CREATION_DRAFT: the exact complete draft is required\\. Send this same call again with ${draft} as \`draft\` \\(one line per item\\) or \`draft_text\` \\(one newline-separated string\\)\\.$`
+    );
+  const missing = remedy('the draft');
   const t = fresh();
   const p = planned(t);
   for (const shape of [
@@ -700,7 +705,7 @@ test('a grade or revise with no usable draft is refused with the CREATION_DRAFT 
   for (const shape of [{}, { draft_text: '' }]) {
     assert.match(
       creationRefusal(t, 'lyric_revise', { ...planArgs, ...shape }),
-      missing,
+      remedy('the exact draft lyric_grade graded'),
       JSON.stringify(shape)
     );
     assert.deepEqual(t.workflow.grade, graded, 'the grade receipt is unchanged');
