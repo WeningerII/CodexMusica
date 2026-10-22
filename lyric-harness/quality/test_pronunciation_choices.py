@@ -573,8 +573,8 @@ class PronunciationChoices(unittest.TestCase):
         coverage = []
         findings = Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
         refused = [o for o in coverage if o['status'] == 'refused']
-        self.assertEqual({o['id'] for o in refused}, {'function:draft'} |
-                         {f'function:END_WORD_UNREADABLE:L{n}' for n in range(1, 7)})
+        self.assertEqual(sorted(o['id'] for o in refused), sorted(['function:draft'] +
+                         [f'function:END_WORD_UNREADABLE:L{n}' for n in range(1, 7)]))
         note = next(f for f in findings if f.code == 'END_WORD_UNREADABLE')
         self.assertEqual(note.locations, list(range(1, 7)))
         for n in range(1, 7):
@@ -585,6 +585,75 @@ class PronunciationChoices(unittest.TestCase):
         self.assertNotIn('record', [o['word'] for o in P.reading_options(self.base, lines + ['Read record'], cov)['items']])
         cov['refused_obligations'].append('function:UNKNOWN:0')
         self.assertFalse(P.refused_lines(cov)[1])
+
+    def test_two_checks_refusing_one_end_word_give_one_coverage_row(self):
+        from quality.revise import Reviser
+        lines = ['We reach sixty-six', 'Wait for the night'] * 3
+        names = [('chorus0', 'chorus'), ('chorus1', 'chorus'), ('outro0', 'outro')]
+        bp = {'sections': [dict(name=n, function=f, bars=2, start_bar=2 * i + 1,
+                                meter={'beats': 4, 'unit': 4})
+                           for i, (n, f) in enumerate(names)],
+              'lines': [dict(text=t, bar=i + 1, beat=1, duration=4) for i, t in enumerate(lines)]}
+        coverage = []
+        findings = Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
+        # The chorus return and the outro's reprise each refuse L1's end word ...
+        notes = [f.locations for f in findings if f.code == 'END_WORD_UNREADABLE']
+        self.assertEqual(sorted(notes), [[1, 3], [1, 5]])
+        # ... and the coverage still holds one row per id.
+        ids = [o['id'] for o in coverage]
+        self.assertEqual(len(ids), len(set(ids)), ids)
+        self.assertEqual(ids.count('function:END_WORD_UNREADABLE:L1'), 1)
+
+    def test_an_outro_reprising_both_intro_and_chorus_gives_one_coverage_row(self):
+        # P9's second trigger (Jony 6347183132 section 18; Don 6347371223):
+        # outro->intro and outro->chorus are separate reprise checks, so both
+        # refuse the outro's end word; no repeated chorus is needed.
+        from quality.revise import Reviser
+        lines = ['Wait for the night', 'We reach sixty-six'] * 3
+        names = [('intro0', 'intro'), ('chorus0', 'chorus'), ('outro0', 'outro')]
+        bp = {'sections': [dict(name=n, function=f, bars=2, start_bar=2 * i + 1,
+                                meter={'beats': 4, 'unit': 4})
+                           for i, (n, f) in enumerate(names)],
+              'lines': [dict(text=t, bar=i + 1, beat=1, duration=4) for i, t in enumerate(lines)]}
+        coverage = []
+        findings = Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
+        notes = [f.locations for f in findings if f.code == 'END_WORD_UNREADABLE']
+        self.assertEqual(sorted(notes), [[2, 6], [4, 6]])
+        ids = [o['id'] for o in coverage]
+        self.assertEqual(len(ids), len(set(ids)), ids)
+        self.assertEqual(ids.count('function:END_WORD_UNREADABLE:L6'), 1)
+
+    def test_coverage_merges_identical_rows_only_and_keeps_differing_evidence(self):
+        # The merge is keyed on the WHOLE row, not the id (P9, 3PO 6345764378):
+        # two located refusals with one code on one line but different
+        # evidence keep both rows, so differing evidence is never dropped to
+        # make an id unique. Planted through the report, since at this
+        # baseline the producer reports one end-word occurrence per line.
+        from unittest import mock
+        from quality import grid as G
+        from quality.revise import Reviser
+        lines = ['We reach sixty-six', 'Wait for the night'] * 3
+        names = [('chorus0', 'chorus'), ('chorus1', 'chorus'), ('outro0', 'outro')]
+        bp = {'sections': [dict(name=n, function=f, bars=2, start_bar=2 * i + 1,
+                                meter={'beats': 4, 'unit': 4})
+                           for i, (n, f) in enumerate(names)],
+              'lines': [dict(text=t, bar=i + 1, beat=1, duration=4) for i, t in enumerate(lines)]}
+        same = G.EndWordFailure('chorus0', 1, lines[0], 3, 'sixty-six', line=1)
+        other = G.EndWordFailure('chorus0', 1, lines[0], 2, 'reach', line=1)
+        planted = [G.Refusal('END_WORD_UNREADABLE', 'first check', failed_words=(same,)),
+                   G.Refusal('END_WORD_UNREADABLE', 'second check', failed_words=(same,)),
+                   G.Refusal('END_WORD_UNREADABLE', 'third check', failed_words=(other,))]
+        real = G.song_function_report
+
+        def report(*a, **k):
+            return {**real(*a, **k), 'refusals': planted}
+        coverage = []
+        with mock.patch.object(G, 'song_function_report', report):
+            Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
+        rows = [o for o in coverage if o['id'] == 'function:END_WORD_UNREADABLE:L1']
+        # the identical pair merges to one row; the differing one survives
+        self.assertEqual(sorted((o['token'], o['word']) for o in rows),
+                         [(2, 'reach'), (3, 'sixty-six')])
 
     def test_function_oov_declaration_clears_only_its_exact_occurrence(self):
         from quality import grid as G
