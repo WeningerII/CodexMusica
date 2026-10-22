@@ -666,3 +666,41 @@ test('grade receipt accepts its exact normalized reading alias without accepting
     /CREATION_GRADE/
   );
 });
+
+test('a grade or revise with no usable draft is refused with the CREATION_DRAFT text', () => {
+  // Anchored at the start only: the remedy that follows the first sentence
+  // may grow, and a search for the code still finds this pin.
+  const missing = /^CREATION_DRAFT: the exact complete draft is required\./;
+  const t = fresh();
+  const p = planned(t);
+  for (const shape of [
+    {},
+    { draft: [] },
+    { draft: ['', '   '] },
+    { draft_text: '' },
+    { draft_text: '[VERSE]' },
+  ]) {
+    assert.match(
+      creationRefusal(t, 'lyric_grade', { seed: 16, ...shape }),
+      missing,
+      JSON.stringify(shape)
+    );
+    assert.equal(t.workflow.grade, null, 'a refused grade writes no receipt');
+  }
+  // The revise half: the exact draft was graded, then revise is sent with
+  // the seed and declarations but no draft.
+  recordCreation(t, 'lyric_grade', { seed: 16, draft }, gradeReceipt(p));
+  const graded = structuredClone(t.workflow.grade);
+  assert.ok(graded);
+  for (const shape of [{}, { draft_text: '' }]) {
+    assert.match(
+      creationRefusal(t, 'lyric_revise', { ...planArgs, ...shape }),
+      missing,
+      JSON.stringify(shape)
+    );
+    assert.deepEqual(t.workflow.grade, graded, 'the grade receipt is unchanged');
+    assert.equal(t.workflow.started, null, 'no revision was started');
+  }
+  // Control: the same revise with the exact graded draft is admitted.
+  assert.equal(creationRefusal(t, 'lyric_revise', { ...planArgs, draft }), null);
+});
