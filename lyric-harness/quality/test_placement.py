@@ -164,9 +164,11 @@ def test_planner_derives():
     check("NO plan violates the vocabulary's own definitions. Measured "
           "before this layer: 19 of 300, every one an `interlude` opening or "
           "closing the song — a span whose gloss is \"between sung sections\"",
-          # THE SKIP IS PINNED (3PO 6346083397): exactly these six refuse,
-          # so another refusal fails here instead of shrinking the sweep.
-          bad == 0 and refused == [55, 130, 143, 146, 190, 199],
+          # THE SKIP IS PINNED (3PO 6346083397): ~~exactly 55, 130, 143,
+          # 146, 190 and 199 refuse~~ — since option (b) (2026-10-22) a draw
+          # the joint gate refuses is redrawn, so none does; any refusal
+          # fails here instead of shrinking the sweep.
+          bad == 0 and refused == [],
           f"{plans} plans, {bad} violating (refused "
           f"NO_FREE_WORD: {refused or 'none'})")
     check("...and the constraint pruned nothing legitimate: the planner "
