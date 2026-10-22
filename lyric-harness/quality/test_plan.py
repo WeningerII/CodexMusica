@@ -1136,15 +1136,27 @@ def test_the_measure():
     _p1 = sum(_w[n] * sum(1 for (b, _s) in PLN.meter_factorisations(n)
                           if b == 1)
               / len(PLN.meter_factorisations(n)) for n in vals)
+    # CONDITIONED ON THE JOINT GATE (3PO 6346040235): a plan is a draw the
+    # gate accepted, so the population these 200 plans come from is the
+    # draw conditioned on acceptance, not the raw draw — and since option
+    # (b) a refused draw is replaced by a redrawn one rather than dropped.
+    # Every refusal measured is a one-bar line (572 of 20,000 default draws,
+    # `MISSING.md` M-81), so the accepted one-bar share is (p1 - r) / (1 - r)
+    # with r that measured rate; ~~the raw `_p1`~~ compared with accepted
+    # plans was biased by up to r.
+    _r1 = 572 / 20000
+    _p1c = (_p1 - _r1) / (1 - _r1)
     _o1 = sum(b == 1 for b in bars_pl) / _n_planned
     check("...and the ONE-BAR share is the sampler's own prediction from "
-          "`meter_factorisations` and the beat weights, which is what the "
+          "`meter_factorisations` and the beat weights, conditioned on the "
+          "joint gate's measured one-bar refusals, which is what the "
           "pair-uniform measure got "
           "wrong in the other direction: it spelled the same slots product "
           "as many short bars",
-          abs(_o1 - _p1) <= 4 * math.sqrt(_p1 * (1 - _p1) / _n_planned),
+          abs(_o1 - _p1c) <= 4 * math.sqrt(_p1c * (1 - _p1c) / _n_planned),
           f"median {bars_pl[_n_planned // 2]} bars/line, one-bar {_o1:.1%} "
-          f"against predicted {_p1:.1%} over {_n_planned} plans")
+          f"against predicted {_p1c:.1%} (raw draw {_p1:.1%}, less the "
+          f"measured {_r1:.2%} refused) over {_n_planned} plans")
     # ~~both notation units, `units == {4, 8}`~~ — REPINNED 2026-10-19: the
     # denominator is drawn now (`_sample_unit`, owner ruling on #519), so
     # 200 seeds reach every declarable one. `test_the_denominator_is_drawn`
