@@ -604,6 +604,25 @@ class PronunciationChoices(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)), ids)
         self.assertEqual(ids.count('function:END_WORD_UNREADABLE:L1'), 1)
 
+    def test_an_outro_reprising_both_intro_and_chorus_gives_one_coverage_row(self):
+        # P9's second trigger (Jony 6347183132 section 18; Don 6347371223):
+        # outro->intro and outro->chorus are separate reprise checks, so both
+        # refuse the outro's end word; no repeated chorus is needed.
+        from quality.revise import Reviser
+        lines = ['Wait for the night', 'We reach sixty-six'] * 3
+        names = [('intro0', 'intro'), ('chorus0', 'chorus'), ('outro0', 'outro')]
+        bp = {'sections': [dict(name=n, function=f, bars=2, start_bar=2 * i + 1,
+                                meter={'beats': 4, 'unit': 4})
+                           for i, (n, f) in enumerate(names)],
+              'lines': [dict(text=t, bar=i + 1, beat=1, duration=4) for i, t in enumerate(lines)]}
+        coverage = []
+        findings = Reviser(lex=self.base)._function_findings(lines, bp, coverage_out=coverage)
+        notes = [f.locations for f in findings if f.code == 'END_WORD_UNREADABLE']
+        self.assertEqual(sorted(notes), [[2, 6], [4, 6]])
+        ids = [o['id'] for o in coverage]
+        self.assertEqual(len(ids), len(set(ids)), ids)
+        self.assertEqual(ids.count('function:END_WORD_UNREADABLE:L6'), 1)
+
     def test_coverage_merges_identical_rows_only_and_keeps_differing_evidence(self):
         # The merge is keyed on the WHOLE row, not the id (P9, 3PO 6345764378):
         # two located refusals with one code on one line but different
