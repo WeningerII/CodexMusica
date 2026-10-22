@@ -96,8 +96,8 @@ stale.
    draw the joint gate refuses is redrawn, at most `plan.REDRAW_BOUND`
    times and disclosed in `choices.seed_redraw` (or `brief_selection` when
    wants are declared), so a delivered plan is the draw conditioned on the
-   gate accepting it — equal-weight over BUILDABLE plans, not exactly per
-   doubling**, never uniform over
+   gate accepting it — the weighted proposal conditioned on acceptance,
+   not exactly per doubling**, never uniform over
    the enumerated leaves (which weight a cycle by how many groupings it
    admits and hand nearly every plan the maximal beat count — the first
    smoke run's own finding. **§4's LAST TWO THRESHOLDS WENT WITH (B)**: the

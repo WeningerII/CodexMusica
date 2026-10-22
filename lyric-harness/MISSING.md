@@ -12333,7 +12333,8 @@ default seeds 0..19999: 572 redrawn (2.86%), exactly the seeds that refused
 before, none needing more than two refused candidates; `request.seed` kept on
 all 20,000. Delivered: 2 beats 6.34% of plans (8.8% of draws), median 20,
 45.35% at 2–16 beats, 25.49% at 65–200.** WHAT IT COSTS: delivered plans are
-equal-weight over BUILDABLE plans, not exactly the approved draw, and a
+the weighted proposal conditioned on acceptance (~~"equal-weight over
+BUILDABLE plans"~~, 3PO 6348547938), not exactly the approved draw, and a
 two-beat line at one bar, subdivision 1 does not appear where a rhyme is bound
 to it. `test_plan.py` §22 holds the four cases 3PO asked to keep (a real
 failing seed, raw plan against sweep; an accepted sweep then the conditioned
@@ -12350,8 +12351,9 @@ an arbitrary request.
 **REVIEW FOLLOW-UPS (Jony 6347921225).** The redraw's seeds are disclosed as
 strings: a 64-bit candidate is past what a JSON double holds, and the
 connector's JSON.parse rounded it to a different song in the plan's verdict
-block (`mcp/test_lyrics_contract.mjs` now compares the report's seed with
-the verdict's). Each refused candidate carries its per-line `findings`
+block (`mcp/test_session_repairs.mjs` now compares the report's seeds with
+the verdict's for one redraw, two, and the wants path; its grade-receipt
+check covers the first case only). Each refused candidate carries its per-line `findings`
 (`{code, line, detail}`) as well as its codes. lyric_sweep's `planned 0`
 text no longer says the declaration IS unbuildable, for the reason above.
 **SHIPPING STRANDS HELD RUNS:** the continuation identity moves (f94a6b7b ->

@@ -2644,8 +2644,8 @@ def _redraw_past_joint_gate(seed, kw):
     unchanged.
 
     WHAT IT COSTS, STATED: a delivered plan is the draw CONDITIONED ON THE
-    GATE ACCEPTING IT — equal-weight over BUILDABLE plans, not exactly the
-    approved draw. A two-beat line falls
+    GATE ACCEPTING IT — the weighted proposal conditioned on acceptance, not
+    exactly the approved draw. A two-beat line falls
     from 8.8% of draws to about 6% of plans, and a two-beat line at one bar,
     subdivision 1 does not appear where a rhyme is bound to it. Exhausting
     the bound raises `PlanRefused` saying so: a sampling outcome, not proof
@@ -3328,8 +3328,9 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                      f"when wants are declared), so a "
                                      f"delivered plan is the draw "
                                      f"conditioned on the gate accepting "
-                                     f"it: equal-weight over buildable "
-                                     f"plans, not exactly per doubling"},
+                                     f"it: the weighted proposal "
+                                     f"conditioned on acceptance, not "
+                                     f"exactly per doubling"},
             # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
             # under — disclosed because it is the coordinate that stopped
             # this generator being end-rhyme-only, and because the measure
