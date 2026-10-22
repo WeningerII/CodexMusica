@@ -12337,8 +12337,14 @@ two-beat line at one bar, subdivision 1 does not appear where a rhyme is bound
 to it. `test_plan.py` §22 holds the four cases 3PO asked to keep (a real
 failing seed, raw plan against sweep; an accepted sweep then the conditioned
 plan a create session makes, landing on the same candidate; forced
-exhaustion, and what is never retried; an all-refused window, which is now the
-request's), and §4's skip is now asserted empty.
+exhaustion, and what is never retried; an all-refused window, which reads
+planned 0 for a request no seed can build OR for a window that exhausted its
+redraws — the sweep's counts cannot tell those apart, so planned 0 still does
+not prove a declaration unbuildable (~~"which is now the request's"~~, 3PO
+6346541427)), and §4's skip is now asserted empty. Exhausting the bound on a
+default request is about 0.0286^64 per seed: a MODEL estimate assuming
+independent draws at the measured default refusal rate, not a guarantee for
+an arbitrary request.
 
 **M-75 CLOSED THE SAME DAY — THE WEIGHT, NOT THE THRESHOLD.**
 **The owner's ruling: _"do 101, derived envelope not rate-matching."_** The

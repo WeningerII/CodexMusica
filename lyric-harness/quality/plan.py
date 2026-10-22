@@ -200,7 +200,9 @@ class JointRefused(PlanRefused):
 #: THE REDRAW BOUND (option (b), 2026-10-22). How many candidate draws a
 #: default plan may make past the joint gate before it refuses. The same 64
 #: the wants path has always used, so one bound covers both; at the measured
-#: refusal rate (572 of 20,000 draws) exhausting it is about 0.0286^64, and
+#: refusal rate (572 of 20,000 draws) exhausting it is about 0.0286^64 — a
+#: model estimate for a DEFAULT request assuming independent draws, not a
+#: guarantee for an arbitrary one — and
 #: an exhaustion is still reported as one, never as an unbuildable request.
 REDRAW_BOUND = 64
 

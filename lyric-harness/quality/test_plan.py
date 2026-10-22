@@ -4816,7 +4816,9 @@ def test_the_seed_redraw():
     # reason, so planned 0 still does not PROVE the declaration unbuildable
     # (3PO 6346126883). ~~"an all-refused window is now the REQUEST's"~~,
     # narrowed. At the measured rate (572 of 20,000) exhaustion is about
-    # 0.0286^64 per seed, and its refusal text says it is not proof.
+    # 0.0286^64 per seed for a default request (a model estimate assuming
+    # independent draws at that rate, not a guarantee for an arbitrary
+    # request), and its refusal text says it is not proof.
     blocked = sweep(range(3), form="ghazal")
     check("a request no seed can build refuses every seed of a window "
           "(planned 0), while the default declaration's formerly refused "
