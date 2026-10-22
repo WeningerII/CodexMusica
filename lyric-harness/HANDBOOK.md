@@ -92,7 +92,10 @@ stale.
    uniform over its own set **except beats per line, which since 2026-10-21
    is drawn under the owner's EQUAL-WEIGHT default instead — P(k)
    proportional to ln((k+1)/k), equal mass per doubling of beats per line
-   (`plan.beats_weights`, `MISSING.md` M-81)**, never uniform over
+   (`plan.beats_weights`, `MISSING.md` M-81); and since 2026-10-22 a
+   draw the joint gate refuses is redrawn, at most `plan.REDRAW_BOUND`
+   times and disclosed in `choices.seed_redraw`, so delivered plans are
+   equal-weight over BUILDABLE plans**, never uniform over
    the enumerated leaves (which weight a cycle by how many groupings it
    admits and hand nearly every plan the maximal beat count — the first
    smoke run's own finding. **§4's LAST TWO THRESHOLDS WENT WITH (B)**: the

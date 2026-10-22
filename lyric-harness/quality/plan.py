@@ -165,6 +165,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
            "line_count_gaps", "song_line_counts", "stanza_line_floor",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
+           "JointRefused", "REDRAW_BOUND",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell",
@@ -180,6 +181,28 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
 
 class PlanRefused(ValueError):
     """A request the planner will not guess around. Message is the verdict."""
+
+
+class JointRefused(PlanRefused):
+    """The JOINT GATE's refusal of one candidate (`joint_findings`): every
+    layer passed on its own and their conjunction did not. `codes` are the
+    `JOINT_CODES` it found. A subclass, so every caller that catches
+    `PlanRefused` still does; `make_plan` alone tells it apart, because it
+    is the one refusal that belongs to a SEED rather than to the request
+    (2026-10-22, option (b)). `codes` defaults to empty so the exception
+    still pickles across a sweep's worker pool."""
+
+    def __init__(self, message, codes=()):
+        super().__init__(message)
+        self.codes = tuple(codes)
+
+
+#: THE REDRAW BOUND (option (b), 2026-10-22). How many candidate draws a
+#: default plan may make past the joint gate before it refuses. The same 64
+#: the wants path has always used, so one bound covers both; at the measured
+#: refusal rate (572 of 20,000 draws) exhausting it is about 0.0286^64, and
+#: an exhaustion is still reported as one, never as an unbuildable request.
+REDRAW_BOUND = 64
 
 
 #: The declared forms. ONE for now, plus a named refusal — `ghazal` is listed
@@ -2542,7 +2565,9 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
     kw = dict(form=form, lines=lines, relation=relation, functions=functions,
               title=title, narrative=narrative, _wants=parsed, melody=melody)
     if not parsed:
-        return _make_plan_candidate(seed, **kw)
+        if melody is not None:
+            return _make_plan_candidate(seed, **kw)
+        return _redraw_past_joint_gate(seed, kw)
     rng = random.Random(seed)
     attempts = []
     for attempt in range(64):
@@ -2568,6 +2593,66 @@ def make_plan(seed, form="verse-chorus", lines=None, relation=None,
         f"brief predicates found no accepted plan in {len(attempts)} bounded "
         f"candidate draws; declared wants={[ ''.join(w) for w in parsed ]}; "
         f"outcomes={attempts}")
+
+
+def _redraw_past_joint_gate(seed, kw):
+    """-> the plan for `seed`, or for the first candidate after it that the
+    JOINT GATE accepts. Option (b), 2026-10-22.
+
+    WHY. Under the equal-weight beat draw a two-beat line at one bar and
+    subdivision 1 can leave a line one slot holding a rhyme binding, which
+    the gate refuses (`NO_FREE_WORD`): 572 of 20,000 default seeds. Refusing
+    those seeds on every raw surface (exit 2, a message naming no call) is a
+    cost the writer pays for a property of the dice, so a refused draw is
+    redrawn instead.
+
+    THREE CONDITIONS (BB8 6332268019; 3PO 6332168823, 6332276891):
+      1. ONLY the joint gate's refusal (`JointRefused`) is redrawn, and ONLY
+         when the meter was drawn: `make_plan` routes a declared melody past
+         this function. A refusal of the REQUEST (form, lines, roster, a
+         melody) is raised at once, never after 64 draws.
+      2. THE REDRAW IS DISCLOSED: `choices.seed_redraw` names every refused
+         candidate with its codes, the accepted candidate, the bound and the
+         policy, and the plan verb prints it. A plan whose first draw passes
+         is untouched, byte for byte: only refused seeds re-deal.
+      3. `request.seed` STAYS THE CALLER'S, as the wants path keeps it, so
+         `plan --seed=N` reproduces the same redraw.
+    The candidates are the wants path's own sequence (`seed`, then
+    `random.Random(seed).getrandbits(64)` per attempt), so a plan with wants
+    at seed N reaches the same candidate a sweep reached without them.
+
+    WHAT IT COSTS, STATED: the delivered plans are equal-weight over
+    BUILDABLE plans, not exactly the approved draw. A two-beat line falls
+    from 8.8% of draws to about 6% of plans, and a two-beat line at one bar,
+    subdivision 1 does not appear where a rhyme is bound to it. Exhausting
+    the bound raises `PlanRefused` saying so: a sampling outcome, not proof
+    that the request cannot be built."""
+    rng = random.Random(seed)
+    refused = []
+    for attempt in range(REDRAW_BOUND):
+        candidate_seed = seed if attempt == 0 else rng.getrandbits(64)
+        try:
+            plan = _make_plan_candidate(candidate_seed, **kw)
+        except JointRefused as exc:
+            refused.append({"seed": candidate_seed, "status": "refused",
+                            "codes": list(exc.codes)})
+            continue
+        if not refused:
+            return plan
+        plan["request"]["seed"] = seed
+        plan["choices"]["seed_redraw"] = {
+            "refused": refused, "candidate_seed": candidate_seed,
+            "bound": REDRAW_BOUND,
+            "policy": ("the joint gate refused the requested seed's draw; "
+                       "candidates follow random.Random(seed).getrandbits(64), "
+                       "and the first the gate accepts is the plan; no "
+                       "ranking")}
+        plan["writer_brief"] = writer_brief(plan)
+        return plan
+    raise PlanRefused(
+        f"the joint gate refused all {REDRAW_BOUND} candidate draws for seed "
+        f"{seed}; this is a bounded sample, not proof that the request cannot "
+        f"be built — try another seed; outcomes={refused}")
 
 
 def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
@@ -3212,7 +3297,12 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                      f"how many ways each beat count "
                                      f"factorises. The denominator is drawn "
                                      f"separately, last: see "
-                                     f"choices.unit"},
+                                     f"choices.unit. A draw the joint "
+                                     f"gate refuses is redrawn and the "
+                                     f"redraw disclosed (choices."
+                                     f"seed_redraw), so the plans "
+                                     f"delivered are equal-weight over "
+                                     f"buildable plans"},
             # WHERE EACH REQUIREMENT BINDS, and the MEASURE it was drawn
             # under — disclosed because it is the coordinate that stopped
             # this generator being end-rhyme-only, and because the measure
@@ -3623,14 +3713,15 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
     joint = joint_findings(plan)
     if joint:
         codes = sorted({c for c, _, _ in joint})
-        raise PlanRefused(
+        raise JointRefused(
             "this seed's constraints cannot be satisfied together — "
             + f"{len(joint)} finding(s) over {len({ln for _, ln, _ in joint})}"
             + f" line(s), {', '.join(codes)}:\n"
             + "\n".join(f"  L{ln} {code}: {detail}"
                         for code, ln, detail in joint)
             + "\nEach gate this plan passed is a separate layer and no layer "
-              "held their conjunction; this one does. Try another seed.")
+              "held their conjunction; this one does. Try another seed.",
+            codes=codes)
 
     # THE NARRATIVE COLLAPSE (M-121, the joker card played). One atom per
     # sung section, one junction per seam, drawn UNIFORM over the legal

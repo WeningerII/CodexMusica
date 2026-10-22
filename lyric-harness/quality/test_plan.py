@@ -105,7 +105,14 @@ def _plan_unless_no_free_word(seed, **kw):
     measure loop and this file's other sweeps do, and names it in its
     detail. ANY OTHER refusal still raises, and so does a joint refusal with
     any other code among its findings: the skip is the one refusal the draw
-    is known to make, never a way for a new one to pass unseen."""
+    is known to make, never a way for a new one to pass unseen.
+
+    SINCE OPTION (b) (2026-10-22) IT RETURNS None ONLY ON AN EXHAUSTED
+    REDRAW: `make_plan` redraws a draw the joint gate refuses (§22), so a
+    seed reaches this skip only if all `REDRAW_BOUND` candidates refused,
+    and then the refusal text carries no finding lines and raises here.
+    It stays as the guard every sweep already calls, not as a skip anything
+    is expected to take."""
     try:
         return make_plan(seed=seed, **kw)
     except PlanRefused as exc:
@@ -1046,26 +1053,19 @@ def test_the_measure():
             ks[sm["lines"]] += 1
         bars_pl.append(p["choices"]["bars_per_line"])
     _n_planned = len(beats)
-    # BOUNDED, so a regression that refuses more seeds fails here instead of
-    # quietly shrinking the population every claim below is taken over
-    # (Jony 2026-10-22). The band is the MEASURED refusal rate plus four
-    # standard errors over `_N_MEASURE` seeds: 572 of 20,000 default seeds
-    # refuse (`MISSING.md` M-81, measured on the equal-weight draw,
-    # every one a two-beat line at one bar, subdivision 1). ~~the two-beat
-    # draw share (8.8%) plus four standard errors~~, struck the same day:
-    # only about a third of two-beat draws refuse, so that band let the
-    # refusals grow three- to fivefold before it failed. (~~`_n_planned +
-    # len(refused_m) == _N_MEASURE`~~, struck: it held by construction and
-    # tested nothing.)
-    _p0 = 572 / 20000
-    _refuse_cap = _N_MEASURE * _p0 + 4 * math.sqrt(
-        _N_MEASURE * _p0 * (1 - _p0))
-    check("the default seeds the measure could not plan were refused by the "
-          "JOINT GATE for NO_FREE_WORD alone, they are named, and there are "
-          "no more of them than the measured refusal rate allows (+4 SE)",
-          len(refused_m) <= _refuse_cap,
-          f"{_n_planned} of {_N_MEASURE} seeds planned; refused "
-          f"{refused_m} ({len(refused_m)} <= {_refuse_cap:.1f})")
+    # NONE, since option (b) (2026-10-22): `make_plan` redraws a default
+    # draw the joint gate refuses, boundedly and disclosed (§22), so no
+    # default seed reaches this skip and the population every claim below is
+    # taken over is all `_N_MEASURE` seeds again. ~~Bounded at the measured
+    # refusal rate (572 of 20,000) plus four standard errors~~ (Jony
+    # 2026-10-22, under option (a) alone), and before that ~~the two-beat
+    # draw share plus four standard errors~~, which bounded the two-beat
+    # draws rather than the refusals. (~~`_n_planned + len(refused_m) ==
+    # _N_MEASURE`~~, struck: it held by construction and tested nothing.)
+    check("no default seed the measure draws is refused: a draw the joint "
+          "gate refuses is redrawn (§22), so all of them plan",
+          refused_m == [] and _n_planned == _N_MEASURE,
+          f"{_n_planned} of {_N_MEASURE} seeds planned; refused {refused_m}")
     bs = sorted(beats)
     # THE LEAF MEASURE, ASKED AS A TWO-HYPOTHESIS TEST WITH NO THRESHOLD IN
     # IT AT ALL. ~~median beat count <= 8 and under 10% of plans at >= 40
@@ -4164,8 +4164,12 @@ def test_the_delegated_rulings(FAILURES=None):
     # A MUTANT the joint gate refuses for `NO_FREE_WORD` has no pattern to
     # compare (2026-10-21: under the equal-weight beat draw mutant seeds 2
     # and 16 draw a two-beat line), so the comparison is taken over the
-    # mutants that plan and the refused ones are named.
-    mutant, m_refused = {}, []
+    # mutants that plan and the refused ones are named. SINCE OPTION (b)
+    # (2026-10-22) such a mutant is REDRAWN instead (`seed_redraw`), and a
+    # redrawn plan is another candidate seed's whole plan, not the same
+    # draw with its pattern re-rejected, so it is left out of the moved
+    # comparison the same way and named.
+    mutant, m_refused, m_redrawn = {}, [], []
     try:
         _PL.form_min_sections = lambda form: 3
         _PL.FORM_RECURS.clear()
@@ -4173,6 +4177,10 @@ def test_the_delegated_rulings(FAILURES=None):
             mp = _plan_unless_no_free_word(k)
             if mp is None:
                 m_refused.append(k)
+                continue
+            if "seed_redraw" in mp["choices"] \
+                    or "seed_redraw" in plans[k]["choices"]:
+                m_redrawn.append(k)
                 continue
             mutant[k] = [x["function"] for x in mp["sections"]]
     finally:
@@ -4185,7 +4193,8 @@ def test_the_delegated_rulings(FAILURES=None):
           "chorus back, so the rule is READ",
           len(m_once) > 0, f"{len(m_once)} of {len(mutant)} mutant plans "
           f"draw one chorus without the rule (refused NO_FREE_WORD: "
-          f"{m_refused or 'none'})")
+          f"{m_refused or 'none'}; redrawn past the joint gate, left out: "
+          f"{m_redrawn or 'none'})")
     check("...and EXACTLY the seeds whose first admissible pattern lacked a "
           "second chorus moved — rejection sampling leaves every accepted "
           "pattern byte-identical, so the rule costs no seed whose draw "
@@ -4618,6 +4627,153 @@ def test_the_published_vocabulary_names_no_ticket():
           "the planted reference must match")
 
 
+def test_the_seed_redraw():
+    print("\n22. OPTION (b) — a default plan the JOINT GATE refuses is "
+          "redrawn, boundedly and out loud, and nothing else is")
+    # THE FOUR CASES 3PO ASKED TO KEEP (6332168823), on the conditions BB8
+    # set (6332268019): redraw only on the joint gate's refusal and only
+    # when the meter was drawn; disclose it; keep `request.seed`. Seed 55
+    # is a real failing seed of the equal-weight draw: §4's measure named it
+    # among the six of 200 the gate refused before this change.
+    from quality.plan import JointRefused, REDRAW_BOUND, sweep
+    FAIL_SEED = 55
+
+    # (1) AN ACTUAL FAILING SEED, RAW PLAN AGAINST SWEEP.
+    try:
+        PLN._make_plan_candidate(FAIL_SEED)
+        raw_codes = None
+    except JointRefused as exc:
+        raw_codes = exc.codes
+    check(f"seed {FAIL_SEED}'s own draw is refused by the JOINT GATE for "
+          "NO_FREE_WORD — the premise, so the cases below cannot pass on a "
+          "seed that no longer poses the question",
+          raw_codes == ("NO_FREE_WORD",), f"codes {raw_codes}")
+    p = make_plan(seed=FAIL_SEED)
+    red = p["choices"].get("seed_redraw") or {}
+    cand = red.get("candidate_seed")
+    check("...a raw plan for it is the first candidate the gate accepts, "
+          "the redraw is disclosed with the refused seed and its codes, the "
+          "bound and the policy, and `request.seed` stays the caller's",
+          p["request"]["seed"] == FAIL_SEED
+          and red.get("refused") == [{"seed": FAIL_SEED, "status": "refused",
+                                      "codes": ["NO_FREE_WORD"]}]
+          and red.get("bound") == REDRAW_BOUND == 64
+          and isinstance(cand, int) and cand != FAIL_SEED
+          and "no ranking" in red.get("policy", ""),
+          f"seed_redraw {red}")
+    direct = PLN._make_plan_candidate(cand)
+    strip = lambda d: {k: v for k, v in d.items()
+                       if k not in ("request", "writer_brief", "choices")}
+    check("...and it IS that candidate's plan: the same sections, meter and "
+          "lines as planning the candidate seed directly",
+          strip(p) == strip(direct)
+          and {k: v for k, v in p["choices"].items() if k != "seed_redraw"}
+          == direct["choices"], "")
+    import subprocess
+    r = subprocess.run(
+        [sys.executable, "lyric_harness.py", "plan", f"--seed={FAIL_SEED}"],
+        capture_output=True, text=True,
+        cwd=os.path.join(HERE, ".."), timeout=560)
+    check("...the plan verb prints it (SEED REDRAW), as it prints a brief "
+          "selection", r.returncode == 0 and "SEED REDRAW" in r.stdout
+          and f'"candidate_seed": {cand}' in r.stdout, f"rc {r.returncode}")
+    sw = sweep([FAIL_SEED])
+    check("...and a sweep over that one seed now PLANS it rather than "
+          "counting a refusal", sw["planned"] == 1 and sw["refused"] == 0,
+          f"{sw}")
+    a = json.dumps(make_plan(seed=7), sort_keys=True)
+    b = json.dumps(PLN._make_plan_candidate(7), sort_keys=True)
+    check("a seed whose first draw passes is untouched byte for byte: no "
+          "`seed_redraw`, only refused seeds re-deal", a == b
+          and "seed_redraw" not in json.loads(a)["choices"])
+
+    # (2) AN ACCEPTED SWEEP, THEN THE CONDITIONED PLAN A CREATE SESSION MAKES
+    # (it passes the sweep's want as the plan's wants, lyric_workflow.js).
+    want = "group<=99"
+    sw2 = sweep([FAIL_SEED], wants=[PLN.parse_sweep_want(want)])
+    pw = make_plan(seed=FAIL_SEED, wants=[want])
+    sel = pw["choices"].get("brief_selection") or {}
+    check("an accepted sweep's seed, planned again WITH the want, retries "
+          "past the same refusal, discloses the selection, and lands on the "
+          "candidate the redraw reached — the wants path and the redraw "
+          "share one candidate sequence",
+          sw2["accepted"] == [FAIL_SEED]
+          and [(x["seed"], x["status"]) for x in sel.get("attempts", [])]
+          == [(FAIL_SEED, "refused"), (cand, "accepted")]
+          and sel.get("candidate_seed") == cand
+          and pw["request"]["seed"] == FAIL_SEED
+          and pw["sections"] == p["sections"],
+          f"sweep {sw2}; selection {[(x['seed'], x['status']) for x in sel.get('attempts', [])]}")
+
+    # (3) FORCED EXHAUSTION, AND WHAT IS NEVER RETRIED.
+    real = PLN._make_plan_candidate
+    calls = []
+
+    def joint_always(seed, **kw):
+        calls.append(seed)
+        raise JointRefused("planted joint refusal", codes=("NO_FREE_WORD",))
+
+    def request_refused(seed, **kw):
+        calls.append(seed)
+        raise PlanRefused("planted request refusal")
+    try:
+        PLN._make_plan_candidate = joint_always
+        try:
+            make_plan(seed=1)
+            msg = None
+        except PlanRefused as exc:
+            msg = str(exc)
+        check(f"a gate that refuses every candidate exhausts the bound: "
+              f"exactly {REDRAW_BOUND} draws, then a refusal that says it "
+              "is a bounded sample and not proof the request cannot be built",
+              len(calls) == REDRAW_BOUND and msg is not None
+              and f"all {REDRAW_BOUND} candidate draws" in msg
+              and "not proof" in msg,
+              f"{len(calls)} draws; {str(msg)[:160]}")
+        calls.clear()
+        try:
+            make_plan(seed=1, wants=[want])
+        except PlanRefused as exc:
+            msg = str(exc)
+        check("...the wants path keeps its own bound of 64 and its own "
+              "exhaustion text", len(calls) == 64
+              and "bounded candidate draws" in msg, f"{len(calls)} draws")
+        calls.clear()
+        try:
+            make_plan(seed=1, melody="planted")
+        except JointRefused:
+            pass
+        check("...a declared melody is NEVER redrawn: the meter was not "
+              "drawn, so a joint refusal is the request's and is raised at "
+              "once", len(calls) == 1, f"{len(calls)} draw(s)")
+        PLN._make_plan_candidate = request_refused
+        calls.clear()
+        try:
+            make_plan(seed=1)
+        except PlanRefused:
+            pass
+        check("...and a refusal of the REQUEST (anything but the joint gate) "
+              "is raised at once, never after 64 draws",
+              len(calls) == 1, f"{len(calls)} draw(s)")
+    finally:
+        PLN._make_plan_candidate = real
+
+    # (4) AN ALL-REFUSED SHORT WINDOW AGAINST THE CONNECTOR'S `planned === 0`
+    # MEANING ("the DECLARATION is unbuildable", mcp/lyric_tools.js). Before
+    # this change a one-seed window over seed 55 read planned 0 and so
+    # carried that meaning on a stochastic draw; it now plans (case 1). What
+    # still reads planned 0 is a request no seed can build, which is what
+    # the meaning claims. A window can also exhaust the redraw bound, which
+    # is a bounded sample: at the measured rate (572 of 20,000) that is about
+    # 0.0286^64 per seed, and the refusal text says it is not proof.
+    blocked = sweep(range(3), form="ghazal")
+    check("an all-refused window is now the REQUEST's: a blocked form "
+          "refuses every seed (planned 0), while the default declaration's "
+          "formerly refused seed plans",
+          blocked["planned"] == 0 and blocked["refused"] == 3
+          and sw["planned"] == 1, f"blocked {blocked}; default {sw}")
+
+
 _SECTIONS = (
     test_the_seed_sweep_is_a_verb,
     test_the_form_is_read,
@@ -4641,6 +4797,7 @@ _SECTIONS = (
     test_refusals,
     test_the_legend_states_the_whole_schema,
     test_the_published_vocabulary_names_no_ticket,
+    test_the_seed_redraw,
 )
 
 if __name__ == "__main__":

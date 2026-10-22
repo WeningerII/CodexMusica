@@ -12310,8 +12310,34 @@ one slot holding a rhyme binding, which the joint gate refuses
 1,000 before, and 572 of 20,000 (2.9%)**, every one a two-beat draw (all 21 of
 the first thousand one bar at subdivision 1). The gate
 is unchanged and refusing a seed is its design (_"refusing here costs a
-seed"_); whether the new rate needs anything is the team's question and is
-not settled here.
+seed"_); ~~whether the new rate needs anything is the team's question and is
+not settled here~~ — answered the next day, below, pending the owner's choice.
+
+**OPTION (b) — A REFUSED DRAW IS REDRAWN, BOUNDEDLY AND OUT LOUD (2026-10-22).**
+The team's recommendation (BB8's three conditions, 3PO's bounded retry with
+disclosed provenance), built as its own change so the owner can take or leave
+it. `make_plan` with no wants and no declared melody now catches the joint
+gate's refusal (`plan.JointRefused`, a `PlanRefused` subclass carrying its
+`JOINT_CODES`) and draws the next candidate, `random.Random(seed)
+.getrandbits(64)`, the sequence the wants path already used, at most
+`plan.REDRAW_BOUND` = 64 times. A refusal of the REQUEST (form, lines,
+roster, a declared melody) is raised at once. A redraw is disclosed in
+`choices.seed_redraw` (every refused candidate with its codes, the accepted
+candidate, the bound, the policy) and printed by the plan verb; `request.seed`
+stays the caller's, so `plan --seed=N` reproduces it; a plan whose first draw
+passes is byte-identical. Exhausting the bound refuses with a text saying it
+is a bounded sample, not proof the request cannot be built. **MEASURED over
+default seeds 0..19999: 572 redrawn (2.86%), exactly the seeds that refused
+before, none needing more than two refused candidates; `request.seed` kept on
+all 20,000. Delivered: 2 beats 6.34% of plans (8.8% of draws), median 20,
+45.35% at 2–16 beats, 25.49% at 65–200.** WHAT IT COSTS: delivered plans are
+equal-weight over BUILDABLE plans, not exactly the approved draw, and a
+two-beat line at one bar, subdivision 1 does not appear where a rhyme is bound
+to it. `test_plan.py` §22 holds the four cases 3PO asked to keep (a real
+failing seed, raw plan against sweep; an accepted sweep then the conditioned
+plan a create session makes, landing on the same candidate; forced
+exhaustion, and what is never retried; an all-refused window, which is now the
+request's), and §4's skip is now asserted empty.
 
 **M-75 CLOSED THE SAME DAY — THE WEIGHT, NOT THE THRESHOLD.**
 **The owner's ruling: _"do 101, derived envelope not rate-matching."_** The

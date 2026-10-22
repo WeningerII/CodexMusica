@@ -11475,6 +11475,11 @@ def main():
         print(f"    (pattern drawn from {pat['chosen_from']})")
         if "brief_selection" in the_plan["choices"]:
             print("  BRIEF SELECTION: " + json.dumps(the_plan["choices"]["brief_selection"], sort_keys=True))
+        # A REDRAWN SEED IS SAID, as a brief selection is (option (b),
+        # 2026-10-22): the joint gate refused this seed's own draw and the
+        # plan is the first candidate after it that the gate accepted.
+        if "seed_redraw" in the_plan["choices"]:
+            print("  SEED REDRAW: " + json.dumps(the_plan["choices"]["seed_redraw"], sort_keys=True))
         # DECLARED, OUT LOUD. Silence here would make `plan --seed=3` and
         # `plan --seed=3 --relation=type:rime riche` look identical on a run
         # where the relation happens not to change the sampled shape — the
