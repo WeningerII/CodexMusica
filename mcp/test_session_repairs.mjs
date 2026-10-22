@@ -65,6 +65,53 @@ test('native creation blocks bypass, records real sweep/screen/plan, survives re
   }
 });
 
+test('two checks refusing one end word leave unique coverage ids and a grade receipt', async () => {
+  const c = await connect();
+  try {
+    const verdict = (result) =>
+      result.content
+        .flatMap((block) => {
+          try {
+            return [JSON.parse(block.text)];
+          } catch {
+            return [];
+          }
+        })
+        .find((value) => Number.isInteger(value.exit_code));
+    const sw = verdict(await c.call('lyric_sweep', { seed_from: 16, count: 1, lines: 24 }));
+    assert.deepEqual(sw.accepted_shown, [16]);
+    await c.call('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
+    await c.call('lyric_plan', { seed: 16, lines: 24 });
+    // Seed 16 at 24 lines: drop, verse, chorus (L3-L5), prechorus, chorus, outro. Only L3,
+    // the first chorus line, ends on a word the phonology cannot read.
+    const draft = Array.from(
+      { length: 24 },
+      (_, i) => `the road I remember turns again ${i === 2 ? 'zorblax' : 'tonight'}`
+    );
+    const grade = verdict(await c.call('lyric_grade', { seed: 16, draft }));
+    assert.equal(grade.measurement_status, 'graded');
+    // The chorus return and the outro's reprise both refuse L3 ...
+    const refusing = grade.findings.filter(
+      (f) => f.code === 'END_WORD_UNREADABLE' && f.locations.includes(3)
+    );
+    assert.equal(refusing.length, 2, JSON.stringify(refusing));
+    // ... and the coverage still holds one row per id, so the receipt is recorded.
+    const ids = grade.coverage.obligations.map((row) => row.id);
+    assert.deepEqual(
+      ids.filter((id, i) => ids.indexOf(id) !== i),
+      []
+    );
+    assert(c.snapshot().task.workflow.grade, JSON.stringify(grade.coverage.refused_obligations));
+    // ... and revision starts on that exact draft: the user-visible symptom was
+    // CREATION_GRADE here (3PO 6345764378). attempts 0 stops at the first stop.
+    const revised = await c.call('lyric_revise', { seed: 16, draft, attempts: 0 });
+    assert(!revised.isError, JSON.stringify(revised.content?.[0]?.text).slice(0, 400));
+    assert(Number.isInteger(verdict(revised).exit_code));
+  } finally {
+    await c.close();
+  }
+});
+
 test('moving a card changes primary order without rebuilding or mutating any card', () => {
   const original = startRecipe({ traditions: ['garage_rock', 'delta_blues'] });
   const target = original.workspace.cards.find((c) => c.traditionId === 'delta_blues');
