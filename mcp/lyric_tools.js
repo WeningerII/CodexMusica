@@ -2326,6 +2326,7 @@ export function registerLyricTools(server, tool) {
         'derived cycle grammar and are often not 4/4). It writes NO WORDS: the writer (model or human) writes to the brief, then ' +
         'lyric_grade checks the draft against this same plan. CHOOSE THE SEED WITH lyric_sweep, not by trying a few: declare what ' +
         "the shape must be and take one of the seeds that hold (the working order's step 0). In a creation session the plan " +
+        'comes after an accepted lyric_sweep and one successful lyric_screen, and ' +
         "must repeat the accepted sweep's form, lines, functions and melody and pass the sweep's `want` list as `wants`; " +
         '`wants` conditions the draw (the planner draws until they hold), so the planned shape satisfies them and can differ ' +
         "from the shape the sweep tested. Declaring a `title` answers 'is the title in the hook?' instead of leaving it " +
@@ -3298,7 +3299,8 @@ export function registerLyricTools(server, tool) {
         'come back in seed order and carry no score, because a floor enforces and does not order the region it ' +
         'already passed, and an argmax over a swept parameter is biased toward whichever end has more freedom. Pick ' +
         'from the list on taste, then call lyric_plan with that seed and the same form, lines, functions and melody; ' +
-        "a creation session requires them, and requires this `want` list as lyric_plan's `wants`. FOUR COUNTS, NEVER " +
+        "a creation session requires them, this `want` list as lyric_plan's `wants`, and one successful lyric_screen " +
+        'before the plan. FOUR COUNTS, NEVER ' +
         'SUMMED: swept, planned, planner_refused and accepted_count (accepted_shown lists the accepted seeds) — ' +
         'planner_refused is the planner turning a request down (an unbuildable roster, an unattainable length) and ' +
         'is NOT a predicate rejecting a shape, so with `planned 0` the predicates never ran; sweep_outcome names ' +
