@@ -887,3 +887,85 @@ test('a production deploy is verified with the Library stores loaded, not merely
   );
   assert.ok(libraryDrift(library, {}).length >= 2, 'an unreported state refuses');
 });
+
+test('sweep counts come from the machine record, not report prose; prose only for the seed list (P3, 3PO)', async () => {
+  const { _verdictInternals } = await import('./lyric_tools.js');
+  const { sweepVerdict } = _verdictInternals;
+  const record = (sweep) => ({ version: 1, sweep: { version: 1, ...sweep } });
+  const window = { from: 10, n: 4 };
+  // A valid record and a report with no recognizable count line.
+  const noProse = sweepVerdict(
+    {},
+    {
+      code: 2,
+      stdout: 'the report was reworded\n',
+      lyric_result: record({
+        outcome: 'no seed kept',
+        swept: 4,
+        planned: 3,
+        planner_refused: 1,
+        accepted_count: 0,
+        held_by: [{ want: 'lines<=12', held: 2 }],
+        planner_refusals: [{ scope: 'seed', reason: 'r', seeds: [11] }],
+      }),
+    },
+    window
+  );
+  assert.deepEqual(
+    [noProse.swept, noProse.planned, noProse.planner_refused, noProse.accepted_count],
+    [4, 3, 1, 0]
+  );
+  assert.deepEqual(noProse.window, { seed_from: 10, count: 4, next_seed_from: 14 });
+  assert.deepEqual(noProse.accepted_shown, []);
+  assert.equal(noProse.accepted_truncated, false);
+  assert.equal(
+    noProse.meaning,
+    'REFUSED — the harness answered: 3 of 4 seed(s) planned and none held every predicate'
+  );
+  assert.match(noProse.window_meaning, /held_by says how many/);
+  assert.doesNotMatch(JSON.stringify(noProse), /undefined/);
+  // Prose that disagrees with the record never wins; it supplies the seed list.
+  const disagree = sweepVerdict(
+    {},
+    {
+      code: 0,
+      stdout:
+        'swept 9  planned 9  REFUSED by the planner 0  accepted 9\n' +
+        'accepted (each a draw the planner made on its own bias):\n  12, 13\n',
+      lyric_result: record({
+        outcome: 'accepted',
+        swept: 4,
+        planned: 4,
+        planner_refused: 0,
+        accepted_count: 2,
+      }),
+    },
+    window
+  );
+  assert.deepEqual([disagree.swept, disagree.accepted_count], [4, 2]);
+  assert.deepEqual(disagree.accepted_shown, [12, 13]);
+  assert.match(disagree.meaning, /^answered — 2 of the 4 planned seed\(s\)/);
+  // Legacy: no machine record at all, so the report's counts are the only ones.
+  const legacy = sweepVerdict(
+    {},
+    {
+      code: 0,
+      stdout: 'swept 5  planned 5  REFUSED by the planner 0  accepted 1\nown bias):\n  7\n',
+    },
+    window
+  );
+  assert.deepEqual([legacy.swept, legacy.accepted_count, legacy.sweep_outcome], [5, 1, null]);
+  assert.deepEqual(legacy.accepted_shown, [7]);
+  // A malformed record (a count missing) yields no counts and no interpolated meaning.
+  const partial = sweepVerdict(
+    { meaning: 'kept' },
+    {
+      code: 2,
+      stdout: 'swept 9  planned 9  REFUSED by the planner 0  accepted 0\n',
+      lyric_result: record({ outcome: 'no seed kept', swept: 4, planned: 4, planner_refused: 0 }),
+    },
+    window
+  );
+  assert.equal(partial.swept, undefined);
+  assert.equal(partial.meaning, 'kept');
+});

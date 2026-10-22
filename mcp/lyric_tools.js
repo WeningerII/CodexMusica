@@ -1408,6 +1408,67 @@ function extractSweep(stdout) {
   };
 }
 
+// THE SWEEP'S OWN RECORD (P3 F1/F3, #519 6349551161), off the authenticated
+// result: its four counts and one outcome come from the machine record, never
+// from report prose. The report is read only for the accepted-seed list it
+// prints (accepted_shown, accepted_truncated). A harness that writes no
+// record (an earlier release) falls back to the counts its report prints;
+// that is the only prose-derived count.
+const SWEEP_COUNTS = ['swept', 'planned', 'planner_refused', 'accepted_count'];
+function sweepVerdict(v, r, { from, n }) {
+  const sweep =
+    r.lyric_result?.version === 1 && r.lyric_result.sweep?.version === 1
+      ? r.lyric_result.sweep
+      : null;
+  const recorded = sweep && SWEEP_COUNTS.every((key) => Number.isInteger(sweep[key]));
+  const prose = extractSweep(r.stdout || '');
+  if (recorded) {
+    for (const key of SWEEP_COUNTS) v[key] = sweep[key];
+    v.accepted_shown = prose?.accepted_shown ?? [];
+    v.accepted_truncated = prose?.accepted_truncated ?? false;
+  } else if (!sweep && prose) Object.assign(v, prose); // legacy: no machine record
+  if (recorded || (!sweep && prose)) {
+    v.window = { seed_from: from, count: n, next_seed_from: from + n };
+    // What emptied the window, as the planner and the predicates said.
+    const reasons = Array.isArray(sweep?.planner_refusals) ? sweep.planner_refusals : [];
+    if (v.planned === 0)
+      v.window_meaning = reasons.some((g) => g.scope === 'seed')
+        ? "the planner refused every seed in this window, and at least one reason is about that seed's own draw, so other seeds under the same declaration may plan; the predicates never ran."
+        : reasons.length
+          ? 'the planner refused every seed in this window for a reason about the request itself, so another window will refuse the same way until the request changes; the predicates never ran.'
+          : 'the planner refused every seed in this window; the predicates never ran.';
+    else if (r.code === 2)
+      v.window_meaning =
+        'no seed in THIS WINDOW satisfies every predicate. Before dropping a predicate: declare ' +
+        'a target length in `lines` if you have not (an undeclared length is drawn long, so a ' +
+        'length cap rarely holds), declare the section roster in `functions`, or continue from ' +
+        'next_seed_from; held_by says how many planned seeds held each predicate on its own.';
+  }
+  v.sweep_outcome = sweep?.outcome ?? null;
+  if (sweep) {
+    if (Array.isArray(sweep.held_by)) v.held_by = sweep.held_by.slice(0, 24);
+    if (Array.isArray(sweep.planner_refusals))
+      v.planner_refusals = sweep.planner_refusals.slice(0, 12);
+  }
+  // The outcome's meaning interpolates only recorded counts; an 'arguments
+  // refused' record carries none and its meaning needs none. The meaning is
+  // set here and not in verdictOf, so the shared exit meanings do not move.
+  if (sweep?.outcome === 'arguments refused')
+    v.meaning =
+      'REFUSED — the arguments were turned down before any seed was planned; `refusal` names why';
+  else if (recorded) {
+    const S = v.swept;
+    const P = v.planned;
+    if (sweep.outcome === 'accepted')
+      v.meaning = `answered — ${v.accepted_count} of the ${P} planned seed(s) in this window hold every predicate (${v.planner_refused} refused by the planner); accepted_shown lists ${v.accepted_truncated ? 'the first 40' : 'them'}`;
+    else if (sweep.outcome === 'no seed kept')
+      v.meaning = `REFUSED — the harness answered: ${P} of ${S} seed(s) planned and none held every predicate`;
+    else if (sweep.outcome === 'planner refused every seed')
+      v.meaning = `REFUSED — the planner refused all ${S} seed(s) in this window, so no predicate ran`;
+  }
+  return v;
+}
+
 function extractRender(stdout) {
   const m = stdout.match(/THE SONG, PERFORMANCE ORDER:\n\n([\s\S]*?)\n\s*WROTE /);
   return m ? m[1].trimEnd() : null;
@@ -1747,6 +1808,7 @@ export function answerFromRows(rows, pending) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  sweepVerdict,
   restoreEquivalentNumbering,
   numberingInputForRun,
   publishedReport,
@@ -3333,55 +3395,7 @@ export function registerLyricTools(server, tool) {
       if (a.melody !== undefined) args.push(`--melody=${a.melody}`);
       const r = await runVerb(args);
       const v = verdictOf(r);
-      // THE SWEEP'S OWN RECORD (P3 F1/F3, #519 6349551161), off the
-      // authenticated result: its four counts and one outcome, so no count
-      // is parsed out of report prose. extractSweep still reads the
-      // accepted-seed list the report prints.
-      const sweep =
-        r.lyric_result?.version === 1 && r.lyric_result.sweep?.version === 1
-          ? r.lyric_result.sweep
-          : null;
-      const counts = extractSweep(r.stdout);
-      if (counts) {
-        Object.assign(v, counts);
-        for (const key of ['swept', 'planned', 'planner_refused', 'accepted_count'])
-          if (Number.isInteger(sweep?.[key])) v[key] = sweep[key];
-        v.window = { seed_from: from, count: n, next_seed_from: from + n };
-        // What emptied the window, as the planner and the predicates said.
-        const reasons = Array.isArray(sweep?.planner_refusals) ? sweep.planner_refusals : [];
-        if (v.planned === 0)
-          v.window_meaning = reasons.some((g) => g.scope === 'seed')
-            ? "the planner refused every seed in this window, and at least one reason is about that seed's own draw, so other seeds under the same declaration may plan; the predicates never ran."
-            : reasons.length
-              ? 'the planner refused every seed in this window for a reason about the request itself, so another window will refuse the same way until the request changes; the predicates never ran.'
-              : 'the planner refused every seed in this window; the predicates never ran.';
-        else if (r.code === 2)
-          v.window_meaning =
-            'no seed in THIS WINDOW satisfies every predicate. Before dropping a predicate: declare ' +
-            'a target length in `lines` if you have not (an undeclared length is drawn long, so a ' +
-            'length cap rarely holds), declare the section roster in `functions`, or continue from ' +
-            'next_seed_from; held_by says how many planned seeds held each predicate on its own.';
-      }
-      v.sweep_outcome = sweep?.outcome ?? null;
-      if (sweep) {
-        if (Array.isArray(sweep.held_by)) v.held_by = sweep.held_by.slice(0, 24);
-        if (Array.isArray(sweep.planner_refusals))
-          v.planner_refusals = sweep.planner_refusals.slice(0, 12);
-        // The meaning is the sweep's own, set here and not in verdictOf, so
-        // the shared exit meanings every other verb reads do not move.
-        const S = v.swept;
-        const P = v.planned;
-        if (sweep.outcome === 'accepted')
-          v.meaning = `answered — ${v.accepted_count} of the ${P} planned seed(s) in this window hold every predicate (${v.planner_refused} refused by the planner); accepted_shown lists ${v.accepted_truncated ? 'the first 40' : 'them'}`;
-        else if (sweep.outcome === 'no seed kept')
-          v.meaning = `REFUSED — the harness answered: ${P} of ${S} seed(s) planned and none held every predicate`;
-        else if (sweep.outcome === 'planner refused every seed')
-          v.meaning = `REFUSED — the planner refused all ${S} seed(s) in this window, so no predicate ran`;
-        else if (sweep.outcome === 'arguments refused')
-          v.meaning =
-            'REFUSED — the arguments were turned down before any seed was planned; `refusal` names why';
-      }
-      return v;
+      return sweepVerdict(v, r, { from, n });
     }
   );
 
