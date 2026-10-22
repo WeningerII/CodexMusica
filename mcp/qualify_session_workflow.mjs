@@ -18,7 +18,6 @@ const decl = {
   relation: 'class:ASSONANCE',
   wants: [
     'group<=3',
-    'binding_cap<=1',
     'beats_per_line<=8',
     'slots_per_line>=16',
     'lines_per_section>=2',
@@ -53,13 +52,16 @@ async function call(name, args) {
   return { result, verdict };
 }
 try {
-  await call('lyric_sweep', {
+  const { verdict: swept } = await call('lyric_sweep', {
     seed_from: 5691,
     count: 1,
     lines: 30,
     functions: decl.functions,
     want: decl.wants,
   });
+  // Stop at the sweep when it keeps nothing, not one call later at the screen.
+  assert.equal(swept.exit_code, 0, JSON.stringify(swept));
+  assert(swept.accepted_shown?.includes(5691), JSON.stringify(swept.accepted_shown));
   await call('lyric_screen', { words: ['prize', 'time'], relation: decl.relation });
   await call('lyric_plan', decl);
   const draft = (

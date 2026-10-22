@@ -144,7 +144,7 @@ listed under **Read / write** above.
    - `render_recipe` with the latest `session_id` and `format: "prose"`.
    - `lyric_types` with `word_a: "heart"`, `word_b: "start"` → answers at once.
    - `begin_lyrics` → `lyric_sweep` with that `session_id`, `seed_from: 0`, `count: 5`,
-     `want: ["lines<=16"]` → poll `get_operation` with the returned `operation_id`
+     `lines: 16`, `functions: "verse,chorus"`, `want: ["before=verse,chorus"]` → poll `get_operation` with the returned `operation_id`
      until it is completed.
 
 Lookups are side-effect-free. Session tools write only the caller's own session;

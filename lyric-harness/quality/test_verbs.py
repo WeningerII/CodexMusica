@@ -4440,15 +4440,39 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
         rc, out, err = run(*args, expect_rc=2)
         check(f"`{' '.join(args[1:])}` REFUSES at exit 2, naming the cause",
               rc == 2 and needle in (out + err), needle)
-    # AND THE UNREACHABLE CASE CARRIES ITS RATE, because "no seed satisfies
-    # this" and "this range was too small" are different answers and the
-    # acceptance rate is what separates them.
+    # AND THE EMPTY WINDOW SAYS WHAT EMPTIED IT (P3 F1/F3, #519 6349551161):
+    # each predicate's count on its own, the sweep's own record with its
+    # outcome, and neither of the two overclaims it used to print
+    # (~~"unreachable in this range"~~, ~~"the acceptance rate above is the
+    # measurement that says which"~~: with nothing accepted the rate is 0).
     rc, out, _ = run("plan", "--sweep=0-20", "--want=sections<=1",
                      expect_rc=2)
-    check("...and the empty accepted set REFUSES with the acceptance rate "
-          "beside it, so unreachable and merely rare stay distinguishable",
-          "accepted 0" in out and "unreachable in this range" in out,
-          [l for l in out.splitlines() if "accepted 0" in l][:1])
+    rec = _machine_result(out) or {}
+    check("...and the empty accepted set REFUSES with each predicate's count "
+          "on its own and a record naming the outcome, without the "
+          "'unreachable' or 'acceptance rate' overclaims",
+          "accepted 0" in out and "HELD ALONE" in out
+          and "sections<=1 0" in out
+          and "unreachable in this range" not in out
+          and "acceptance rate above" not in out
+          and (rec.get("sweep") or {}).get("outcome") == "no seed kept",
+          [l for l in out.splitlines() if "HELD ALONE" in l][:1])
+    rc, out, _ = run("plan", "--sweep=0-3", "--functions=verse,prechorus",
+                     expect_rc=2)
+    rec = _machine_result(out) or {}
+    check("...a window the planner refused whole NAMES the planner, with "
+          "its reason marked as about the request",
+          "the planner refused every seed" in out
+          and "request — seed(s) 0, 1, 2" in out
+          and (rec.get("sweep") or {}).get("outcome")
+          == "planner refused every seed", (rec.get("sweep") or {}))
+    rc, out, _ = run("plan", "--sweep=0-4", "--lines=16")
+    rec = _machine_result(out) or {}
+    check("...and a sweep that keeps seeds writes its own record, status "
+          "'swept', outcome 'accepted'",
+          rc == 0 and rec.get("status") == "swept"
+          and (rec.get("sweep") or {}).get("outcome") == "accepted",
+          {k: rec.get(k) for k in ("status", "exit")})
 
 
 def test_fill_reads_a_draft_the_way_every_other_verb_does():

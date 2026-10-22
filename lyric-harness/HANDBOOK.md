@@ -170,8 +170,14 @@ stale.
    default would be the instrument deciding what the caller wants, and
    `before=verse,chorus` in particular is the rate-matching
    `plan.FORM_TENDENCIES` explicitly refuses. Three counts, never summed;
-   an empty accepted set REFUSES at exit 2 with the rate beside it, because
-   unreachable and merely rare are different answers. It returns SEEDS and no
+   ~~an empty accepted set REFUSES at exit 2 with the rate beside it, because
+   unreachable and merely rare are different answers~~ (struck 2026-10-22, P3
+   F3, #519 6349551161: with nothing accepted the rate is always 0, and an
+   empty window is a statement about these seeds, not proof a declaration is
+   unreachable); it prints how many planned seeds each predicate held for on
+   its own and the planner's reason for each seed it refused, marked as about
+   that seed or about the request, and an empty accepted set REFUSES at exit
+   2. It returns SEEDS and no
    plan (`--fill`/`--out` refused with it), since a plan is a pure function
    of its seed. `test_plan.py` §10 holds the API and `test_verbs.py` §40
    holds the half this rule is actually about — that a person can RUN it.

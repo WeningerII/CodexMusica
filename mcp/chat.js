@@ -900,6 +900,19 @@ export async function createChatRouter({
           // The harness's own REFUSED headline on an exit 2 (M-168's swerve:
           // round 10 banked three exit-2 calls with no reason on record).
           refusal: c.refusal ?? null,
+          // The sweep's own record (P3 F1/F3), copied by name.
+          meaning: c.meaning ?? null,
+          measurement_status: c.measurement_status ?? null,
+          sweep_outcome: c.sweep_outcome ?? null,
+          swept: c.swept ?? null,
+          planned: c.planned ?? null,
+          planner_refused: c.planner_refused ?? null,
+          accepted_count: c.accepted_count ?? null,
+          accepted_shown: c.accepted_shown ?? null,
+          window: c.window ?? null,
+          window_meaning: c.window_meaning ?? null,
+          held_by: c.held_by ?? null,
+          planner_refusals: c.planner_refusals ?? null,
           // THE M-216 FIELDS, AND THIS PROJECTION WAS THE SECOND SPELLING
           // THAT DROPPED THEM (M-219, round 11): `loopFields` put path, ms
           // and the run record on every call, this map re-spelled the row

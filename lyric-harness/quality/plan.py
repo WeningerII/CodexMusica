@@ -165,7 +165,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "tokens_per_line_band", "gradeable_line_counts",
            "line_count_gaps", "song_line_counts", "stanza_line_floor",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
-           "JointRefused", "REDRAW_BOUND",
+           "SeedRefused", "JointRefused", "REDRAW_BOUND",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell",
@@ -183,13 +183,26 @@ class PlanRefused(ValueError):
     """A request the planner will not guess around. Message is the verdict."""
 
 
-class JointRefused(PlanRefused):
+class SeedRefused(PlanRefused):
+    """A refusal about what ONE seed drew, not about the request: another
+    seed under the same declaration may plan (P3 F3, #519 6349551161; 3PO
+    6349586976). Raised where the message is about the seed's own draw:
+    500 draws finding no plan inside the envelope, the group bound finding
+    no scheme, a declared relation that cannot bind this plan's placement, a
+    declared narrative line-up illegal for the drawn shape, the joint gate
+    (`JointRefused`, a subclass), and an exhausted redraw bound. Every other
+    planner refusal reads only the declaration and stays `PlanRefused`.
+    A subclass, so every `except PlanRefused` still catches it; the sweep
+    reads the class to say which kind of refusal a seed met."""
+
+
+class JointRefused(SeedRefused):
     """The JOINT GATE's refusal of one candidate (`joint_findings`): every
     layer passed on its own and their conjunction did not. `codes` are the
     `JOINT_CODES` it found. A subclass, so every caller that catches
-    `PlanRefused` still does; `make_plan` alone tells it apart, because it
-    is the one refusal that belongs to a SEED rather than to the request
-    (2026-10-22, option (b)). `findings` are its per-line reasons, one
+    `PlanRefused` (or `SeedRefused`) still does; `make_plan` alone tells it
+    apart, because it is the one seed refusal it REDRAWS past (2026-10-22,
+    option (b)); the other seed refusals are not retried. `findings` are its per-line reasons, one
     `{code, line, detail}` each, so a redraw can disclose WHY a candidate
     was refused and not only its code (Jony 6347921225). Both default to
     empty so the exception still pickles across a sweep's worker pool."""
@@ -2264,8 +2277,8 @@ SWEEP_MEASURES = {
     # line under k" — and over a thirty-line song at a ceiling of four,
     # essentially every draw puts SOME line at the ceiling. Measured:
     # `pins_per_line<=3` accepts 0 of 39 seeds and `<=2` also 0, and the
-    # sweep's own refusal reads "unreachable in this range rather than
-    # merely rare". A max predicate cannot express a density preference; it
+    # sweep's own refusal then read "unreachable in this range rather than
+    # merely rare" (an overclaim, dropped 2026-10-22, P3 F3). A max predicate cannot express a density preference; it
     # can only express a hard per-line cap, which the draw violates almost
     # surely at song length.
     #
@@ -2488,7 +2501,7 @@ def sweep_holds(plan, want):
 
 
 def sweep(seeds, wants=(), **plan_kw):
-    """-> {accepted, refused, planned, wants, seeds} over a declared range.
+    """-> {accepted, refused, planned, wants, seeds, passed, refusals}.
 
     REJECTION, NOT SELECTION (doctrine 7). `accepted` is every seed whose
     plan satisfies every predicate, IN SEED ORDER — no ranking, no score, no
@@ -2500,6 +2513,15 @@ def sweep(seeds, wants=(), **plan_kw):
     (an unattainable request, or the joint gate), and `accepted` how many of
     the planned ones the predicates kept. A refusal is not a rejection and
     charging one to the other would blame the predicates for the envelope.
+
+    WHAT EMPTIED THE WINDOW (P3 F3, #519 6349551161). `passed[i]` is how
+    many planned seeds `wants[i]` held for ON ITS OWN, in declared order: a
+    window a combination empties shows no zero, but a predicate that alone
+    holds for none does. `refusals` groups the refused seeds by the
+    planner's reason (its first line, at most 240 characters) and its scope,
+    "seed" for a `SeedRefused` (another seed may plan) or "request" for any
+    other refusal (another window refuses the same way until the request
+    changes), each group's seeds in seed order.
 
     A PLAN IS A PURE FUNCTION OF ITS SEED, so this returns SEEDS and no
     plans: the caller runs `plan --seed=N` on one and gets the artifact,
@@ -2529,25 +2551,37 @@ def sweep(seeds, wants=(), **plan_kw):
                                              for s in seeds)))
     else:
         rows = [_sweep_one((s, wants, plan_kw)) for s in seeds]
-    accepted = [s for s, st, ok in rows if st == "planned" and ok]
-    planned = sum(1 for _, st, _ in rows if st == "planned")
-    refused = sum(1 for _, st, _ in rows if st == "refused")
+    accepted = [s for s, st, held, _ in rows if st == "planned" and all(held)]
+    planned = sum(1 for _, st, _, _ in rows if st == "planned")
+    refused = sum(1 for _, st, _, _ in rows if st == "refused")
+    passed = [sum(1 for _, st, held, _ in rows if st == "planned" and held[i])
+              for i in range(len(wants))]
+    groups = {}
+    for s, st, _, why in rows:
+        if st == "refused":
+            groups.setdefault(why, []).append(s)
+    refusals = [{"scope": scope, "reason": reason, "seeds": ss}
+                for (scope, reason), ss in groups.items()]
     return {"accepted": accepted, "planned": planned, "refused": refused,
-            "wants": wants, "seeds": len(seeds)}
+            "wants": wants, "seeds": len(seeds), "passed": passed,
+            "refusals": refusals}
 
 
 def _sweep_one(job):
-    """-> (seed, 'planned' | 'refused', holds) for ONE seed of `sweep`.
+    """-> (seed, 'planned' | 'refused', held, why) for ONE seed of `sweep`.
 
-    Module-level so a worker process can reach it; returns plain data so
-    a refusal travels back as a count rather than an exception stripped of
-    its seed."""
+    `held` is each predicate's own result, every one evaluated rather than
+    stopping at the first failure; `why` is (scope, first line of the
+    reason) for a refusal. Module-level so a worker process can reach it;
+    returns plain data so a refusal travels back with its reason rather
+    than as an exception stripped of its seed."""
     s, wants, plan_kw = job
     try:
         p = make_plan(seed=s, **plan_kw)
-    except PlanRefused:
-        return (s, "refused", False)
-    return (s, "planned", all(sweep_holds(p, w) for w in wants))
+    except PlanRefused as exc:
+        scope = "seed" if isinstance(exc, SeedRefused) else "request"
+        return (s, "refused", [], (scope, str(exc).split("\n", 1)[0][:240]))
+    return (s, "planned", [sweep_holds(p, w) for w in wants], None)
 
 
 
@@ -2673,7 +2707,7 @@ def _redraw_past_joint_gate(seed, kw):
                        "ranking")}
         plan["writer_brief"] = writer_brief(plan)
         return plan
-    raise PlanRefused(
+    raise SeedRefused(
         f"the joint gate refused all {REDRAW_BOUND} candidate draws for seed "
         f"{seed}; this is a bounded sample, not proof that the request cannot "
         f"be built — try another seed; outcomes={refused}")
@@ -2992,7 +3026,7 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             if _gaps else
             " with no uncalibrated run inside it — the lyric-sheet profile "
             "grades every length in the span with teeth")
-        raise PlanRefused(
+        raise SeedRefused(
             f"500 seeded draws found no plan matching the request inside "
             f"the envelope (sections {ENVELOPE['sections']}, lines/section "
             f"{ENVELOPE['lines_per_section']}, total {ENVELOPE['total_lines']}"
@@ -3034,7 +3068,7 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
             if max(code.count(x) for x in set(code)) <= _max_group:
                 break
         else:
-            raise PlanRefused("declared group bound found no scheme in 500 draws")
+            raise SeedRefused("declared group bound found no scheme in 500 draws")
         by_func[fn] = code
         scheme_meta[fn] = {"rgs": list(code), "chosen_from": pool,
                            "lines": ks[fn],
@@ -3688,7 +3722,7 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                     continue
                 _ok.append(_cand)
             if not _ok:
-                raise PlanRefused(
+                raise SeedRefused(
                     f"declared relation {relation!r} cannot bind group "
                     f"{SC.label((_gi,))} ({groups[_gi]}) together with this "
                     "plan's placement, cardinality and channel constraints")
@@ -3775,7 +3809,7 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
         _probs = _NV.validate_lineup(
             _fns, narrative.get("atoms", ()), narrative.get("junctions", ()))
         if _probs:
-            raise PlanRefused(
+            raise SeedRefused(
                 "the declared narrative line-up is illegal for this "
                 "shape:\n" + "\n".join("  " + p for p in _probs)
                 + "\nA declared coordinate is carried, never resampled — "

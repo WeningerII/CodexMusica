@@ -2263,7 +2263,7 @@ await check('validation: actionable errors', () => {
       // one step on record → only the other is named
       const t2 = buildSystemInstruction(surface, null, new Set(['lyric_sweep'])).parts[0].text;
       assert.ok(
-        t2.includes('lyric_screen') && !/not yet called lyric_sweep/.test(t2),
+        t2.includes('lyric_screen') && !/no successful lyric_sweep/.test(t2),
         'only the missing step is named'
       );
       // both on record → the base bytes, exactly: the note is gone
@@ -3214,6 +3214,19 @@ await check('validation: actionable errors', () => {
         // The lyrics page's Rhymes and Pronunciation option cards.
         'pairs',
         'pronunciation_options',
+        // The sweep's own record (P3 F1/F3).
+        'meaning',
+        'measurement_status',
+        'sweep_outcome',
+        'swept',
+        'planned',
+        'planner_refused',
+        'accepted_count',
+        'accepted_shown',
+        'window',
+        'window_meaning',
+        'held_by',
+        'planner_refusals',
       ]) {
         assert.ok(
           new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),

@@ -59,6 +59,72 @@ test('sweep applies advertised dotted predicates and leaves vocabulary refusal t
   }
 });
 
+test('a sweep says what happened from its own record: four outcomes, counts and reasons (P3 F1/F3)', async () => {
+  const { _agentInternals } = await import('./gemini_agent.js');
+  const c = await local({ domain: 'lyrics' });
+  const sweep = async (args) =>
+    JSON.parse((await c.client.callTool({ name: 'lyric_sweep', arguments: args })).content[0].text);
+  try {
+    const empty = await sweep({
+      seed_from: 0,
+      count: 28,
+      want: ['lines<=24', 'uses=verse,chorus', 'before=verse,chorus', 'group<=4'],
+    });
+    assert.equal(empty.exit_code, 2);
+    assert.equal(empty.sweep_outcome, 'no seed kept');
+    assert.deepEqual(
+      [empty.swept, empty.planned, empty.planner_refused, empty.accepted_count],
+      [28, 28, 0, 0]
+    );
+    assert.deepEqual(
+      empty.held_by.map((h) => h.want),
+      ['lines<=24', 'uses=verse,chorus', 'before=verse,chorus', 'group<=4']
+    );
+    assert.equal(empty.held_by[1].held, 28);
+    assert.match(empty.meaning, /^REFUSED — the harness answered: 28 of 28/);
+    assert.match(empty.window_meaning, /held_by says how many/);
+    assert.match(empty.window_meaning, /declare a target length in `lines`/);
+    assert.doesNotMatch(empty.window_meaning, /acceptance rate/);
+    assert.doesNotMatch(empty.report, /unreachable in this range/);
+
+    const request = await sweep({ seed_from: 0, count: 3, functions: 'verse,prechorus' });
+    assert.equal(request.sweep_outcome, 'planner refused every seed');
+    assert.deepEqual([request.swept, request.planned, request.planner_refused], [3, 0, 3]);
+    assert.deepEqual(
+      request.planner_refusals.map((g) => [g.scope, g.seeds]),
+      [['request', [0, 1, 2]]]
+    );
+    assert.match(request.window_meaning, /a reason about the request itself/);
+    assert.doesNotMatch(request.window_meaning, /unbuildable/);
+    assert.match(request.meaning, /^REFUSED — the planner refused all 3 seed\(s\)/);
+
+    const args = await sweep({ seed_from: 0, count: 2, want: ['vibes<=3'] });
+    assert.equal(args.exit_code, 2);
+    assert.equal(args.sweep_outcome, 'arguments refused');
+    assert.match(args.meaning, /^REFUSED — the arguments were turned down/);
+
+    const kept = await sweep({ seed_from: 0, count: 4, lines: 16 });
+    assert.equal(kept.exit_code, 0);
+    assert.equal(kept.sweep_outcome, 'accepted');
+    assert.equal(kept.measurement_status, 'swept');
+    assert.deepEqual(
+      [kept.swept, kept.planned, kept.planner_refused, kept.accepted_count],
+      [4, 4, 0, 4]
+    );
+    assert.match(kept.meaning, /^answered — 4 of the 4 planned seed\(s\)/);
+
+    for (const v of [empty, request, args, kept])
+      assert.doesNotMatch(v.meaning, /did not answer|findings are unknown/);
+    // The stored website row carries the outcome and the counts.
+    const row = _agentInternals.loopFields(request);
+    assert.equal(row.sweep_outcome, 'planner refused every seed');
+    assert.equal(row.planner_refused, 3);
+    assert.deepEqual(row.planner_refusals, request.planner_refusals);
+  } finally {
+    await c.close();
+  }
+});
+
 test('host-selected recipe endpoint exposes only recipe tools and retains full guidance', async () => {
   const server = buildServer({ task: { domain: 'recipe' } });
   const [a, b] = InMemoryTransport.createLinkedPair();

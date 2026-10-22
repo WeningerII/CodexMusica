@@ -13,7 +13,7 @@ Every lyric tool except `lyric_types` (a lookup that answers at once) needs the 
 
 ## New song
 
-1. Translate the user's structural requirements into `lyric_sweep` predicates. To set a length, declare an exact `lines` count on the sweep and carry the sweep's declarations unchanged to the plan. Retain the declared form, line count, functions and wants; inspect accepted seeds in their returned order.
+1. Call `lyric_sweep` with the user's target length in `lines` and the section roster in `functions`; use `want` predicates only to filter the shapes those declarations draw. Retain the declared form, lines, functions, melody and the `want` list (it becomes `lyric_plan`'s `wants`); inspect accepted seeds in their returned order.
 2. Screen candidate end words with `lyric_screen`. A refusal is not a successful screening.
 3. Call `lyric_plan` with an accepted seed and the same structural requirements. Carry declared title and rhyme relation when supplied. Read the returned plan and writer brief; a refused plan does not authorize drafting.
 4. Write the complete draft to that plan, preserving line counts, returns and section functions. Grade the exact draft with `lyric_grade` under the same declarations. The service restores omitted plan coordinates and refuses contradictory ones.

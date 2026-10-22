@@ -293,7 +293,9 @@ def _p_plan(out):
 
 def _p_sweep(out):
     facts = []
-    m = re.search(r"SWEEP: seeds (\S+) \((\d+)\), form=(\S+)", out)
+    # The form stops at a comma: with a roster declared the line reads
+    # "form=verse-chorus, roster=…" (P3 F3).
+    m = re.search(r"SWEEP: seeds (\S+) \((\d+)\), form=([^,\s]+)", out)
     if m:
         facts += [("sweep_range", m.group(1)), ("swept", m.group(2)),
                   ("form", m.group(3))]
@@ -306,11 +308,18 @@ def _p_sweep(out):
              for m in re.finditer(r"^\s*WANT (.+?) — ", out, re.M)]
     if wants:
         facts.append(("want", ";".join(wants)))
+    # The rate is optional: a window where nothing planned prints no rate,
+    # and its counts are still banked (P3 F3).
     m = re.search(r"swept (\d+)\s+planned (\d+)\s+REFUSED by the planner "
-                  r"(\d+)\s+accepted (\d+) \(([\d.]+)%", out)
+                  r"(\d+)\s+accepted (\d+)(?: \(([\d.]+)%)?", out)
     if m:
         facts += [("planned", m.group(2)), ("planner_refused", m.group(3)),
-                  ("accepted", m.group(4)), ("accepted_rate", m.group(5))]
+                  ("accepted", m.group(4))]
+        if m.group(5) is not None:
+            facts.append(("accepted_rate", m.group(5)))
+    m = re.search(r"HELD ALONE \([^)]*\): (.+)$", out, re.M)
+    if m:
+        facts.append(("held_by", m.group(1).strip()))
     m = re.search(r"ACCEPTED[^\n]*\n\s*([\d, ]+)$", out, re.M)
     if m:
         facts.append(("accepted_seeds", re.sub(r"\s+", "", m.group(1))))

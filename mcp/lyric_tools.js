@@ -3301,9 +3301,10 @@ export function registerLyricTools(server, tool) {
         "a creation session requires them, and requires this `want` list as lyric_plan's `wants`. FOUR COUNTS, NEVER " +
         'SUMMED: swept, planned, planner_refused and accepted_count (accepted_shown lists the accepted seeds) — ' +
         'planner_refused is the planner turning a request down (an unbuildable roster, an unattainable length) and ' +
-        'is NOT a predicate rejecting a shape, so `planned 0` means every seed was refused (an unbuildable ' +
-        'DECLARATION, or seeds whose bounded redraws all failed; the counts cannot tell which) and the ' +
-        `predicates never ran. The window is bounded at ${MAX_SWEEP_SEEDS} seeds per call and sweeps compose ` +
+        'is NOT a predicate rejecting a shape, so with `planned 0` the predicates never ran; sweep_outcome names ' +
+        'the case, planner_refusals gives each reason and whether it is about the request (another window ' +
+        "refuses the same way) or that seed's own draw (another seed may plan), and held_by counts, per " +
+        `predicate, the planned seeds it held for on its own. The window is bounded at ${MAX_SWEEP_SEEDS} seeds per call and sweeps compose ` +
         'exactly — continue from next_seed_from and add the counts. Selective wants may require more windows. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_sweep,
@@ -3332,27 +3333,53 @@ export function registerLyricTools(server, tool) {
       if (a.melody !== undefined) args.push(`--melody=${a.melody}`);
       const r = await runVerb(args);
       const v = verdictOf(r);
+      // THE SWEEP'S OWN RECORD (P3 F1/F3, #519 6349551161), off the
+      // authenticated result: its four counts and one outcome, so no count
+      // is parsed out of report prose. extractSweep still reads the
+      // accepted-seed list the report prints.
+      const sweep =
+        r.lyric_result?.version === 1 && r.lyric_result.sweep?.version === 1
+          ? r.lyric_result.sweep
+          : null;
       const counts = extractSweep(r.stdout);
       if (counts) {
         Object.assign(v, counts);
+        for (const key of ['swept', 'planned', 'planner_refused', 'accepted_count'])
+          if (Number.isInteger(sweep?.[key])) v[key] = sweep[key];
         v.window = { seed_from: from, count: n, next_seed_from: from + n };
-        // TWO MEANINGS THE CONNECTOR OWNS, both derived from the printed
-        // counts and neither invented. The harness's own headline on an
-        // empty accepted set blames the PREDICATES — which is wrong when the
-        // planner refused every seed, a case reachable with no predicate
-        // declared at all.
-        if (counts.planned === 0)
-          v.window_meaning =
-            'the planner refused EVERY seed in this window: either the DECLARATION ' +
-            '(form / lines / functions) cannot be built, or every seed exhausted its ' +
-            'bounded redraws, and the counts cannot tell which — the predicates never ran, ' +
-            'and this says nothing about them.';
+        // What emptied the window, as the planner and the predicates said.
+        const reasons = Array.isArray(sweep?.planner_refusals) ? sweep.planner_refusals : [];
+        if (v.planned === 0)
+          v.window_meaning = reasons.some((g) => g.scope === 'seed')
+            ? "the planner refused every seed in this window, and at least one reason is about that seed's own draw, so other seeds under the same declaration may plan; the predicates never ran."
+            : reasons.length
+              ? 'the planner refused every seed in this window for a reason about the request itself, so another window will refuse the same way until the request changes; the predicates never ran.'
+              : 'the planner refused every seed in this window; the predicates never ran.';
         else if (r.code === 2)
           v.window_meaning =
-            'no seed in THIS WINDOW satisfies every predicate. That is a statement ' +
-            'about these seeds, not about the declaration: continue from ' +
-            'next_seed_from, or drop a predicate — the acceptance rate above is the ' +
-            'measurement that says which.';
+            'no seed in THIS WINDOW satisfies every predicate. Before dropping a predicate: declare ' +
+            'a target length in `lines` if you have not (an undeclared length is drawn long, so a ' +
+            'length cap rarely holds), declare the section roster in `functions`, or continue from ' +
+            'next_seed_from; held_by says how many planned seeds held each predicate on its own.';
+      }
+      v.sweep_outcome = sweep?.outcome ?? null;
+      if (sweep) {
+        if (Array.isArray(sweep.held_by)) v.held_by = sweep.held_by.slice(0, 24);
+        if (Array.isArray(sweep.planner_refusals))
+          v.planner_refusals = sweep.planner_refusals.slice(0, 12);
+        // The meaning is the sweep's own, set here and not in verdictOf, so
+        // the shared exit meanings every other verb reads do not move.
+        const S = v.swept;
+        const P = v.planned;
+        if (sweep.outcome === 'accepted')
+          v.meaning = `answered — ${v.accepted_count} of the ${P} planned seed(s) in this window hold every predicate (${v.planner_refused} refused by the planner); accepted_shown lists ${v.accepted_truncated ? 'the first 40' : 'them'}`;
+        else if (sweep.outcome === 'no seed kept')
+          v.meaning = `REFUSED — the harness answered: ${P} of ${S} seed(s) planned and none held every predicate`;
+        else if (sweep.outcome === 'planner refused every seed')
+          v.meaning = `REFUSED — the planner refused all ${S} seed(s) in this window, so no predicate ran`;
+        else if (sweep.outcome === 'arguments refused')
+          v.meaning =
+            'REFUSED — the arguments were turned down before any seed was planned; `refusal` names why';
       }
       return v;
     }
@@ -3657,7 +3684,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'relation and every registry schema, and a group is satisfied when the words it binds stand in at least ' +
     'one (another word in the line relating does not count); planning ' +
     'draws none. Full figures and refused obligations remain explicit. The working order that produces ' +
-    'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you want the shape ' +
+    'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare `lines`, `functions` and what else you want the shape ' +
     'to be (`want`, a filter) and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
     'candidate end-word pairs BEFORE writing — a banned pair (HOMEOTELEUTON/MODAL_RHYME) is an answer, pick ' +
     "different words; (2) lyric_plan with an accepted seed and the sweep's form, lines, functions and melody " +

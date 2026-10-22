@@ -2730,7 +2730,7 @@ def test_the_seed_sweep_is_a_verb():
           "doctrine 6 forbids",
           many["accepted"] == sorted(many["accepted"])
           and set(res) == {"accepted", "planned", "refused", "wants",
-                           "seeds"},
+                           "seeds", "passed", "refusals"},
           f"{len(many['accepted'])} accepted, keys {sorted(res)}")
 
     # THE REFUSALS, each proven rather than described.
@@ -2760,11 +2760,20 @@ def test_the_seed_sweep_is_a_verb():
     # return an empty list that reads like a clean run.
     empty = PLN.sweep(range(20), wants=[PLN.parse_sweep_want("sections<=1")])
     check("an unreachable declaration accepts NOTHING, and the verb turns "
-          "that into a refusal at exit 2 rather than an empty list — "
-          "unreachable and merely rare are different answers and the "
-          "acceptance rate is what separates them",
+          "that into a refusal at exit 2 rather than an empty list",
           empty["accepted"] == [] and empty["planned"] > 0,
           f"planned {empty['planned']}, accepted 0")
+    # WHAT EMPTIED IT (P3 F3, #519 6349551161): `passed[i]` is how many
+    # planned seeds predicate i held for ON ITS OWN, which is exactly the
+    # size of the single-predicate sweep above (the singles all plan the
+    # same seeds), and the empty case's one predicate held for none.
+    check("`passed` counts, per predicate, the planned seeds it held for on "
+          "its own: the size of each single-predicate sweep, and [0] for the "
+          "predicate no seed meets",
+          res["passed"] == [len(singles[w]) for w in PREFS]
+          and empty["passed"] == [0],
+          f"passed {res['passed']} vs singles "
+          f"{[len(singles[w]) for w in PREFS]}; empty {empty['passed']}")
 
     # ------------------------------------------------------------------
     print("\n10c. THE THREE SCHEME COORDINATES — `MISSING.md` I-2's residue")
@@ -4829,13 +4838,21 @@ def test_the_seed_redraw():
                 os.environ.pop("SWEEP_WORKERS", None)
             else:
                 os.environ["SWEEP_WORKERS"] = _w0
+        # The counts alone match a request no seed can build; since P3 F3
+        # (3PO 6349586976) the sweep keeps each refusal's reason and SCOPE,
+        # and an exhausted redraw bound is about the seed, not the request.
+        _ex = exhausted.get("refusals") or []
         check("...and a window whose every seed exhausts the redraw reads "
-              "planned 0 and refused 2 through the sweep, the same counts a "
-              "request no seed can build gives — exhaustion is a bounded "
-              "sample the counts cannot tell apart from an unbuildable "
-              "request",
+              "planned 0 and refused 2 through the sweep, the counts a "
+              "request no seed can build also gives — and its refusals say "
+              "which: seed scope, an exhausted bounded sample, one reason "
+              "per seed since each names its own seed",
               exhausted["planned"] == 0 and exhausted["refused"] == 2
-              and len(calls) == 2 * REDRAW_BOUND,
+              and len(calls) == 2 * REDRAW_BOUND
+              and [g["scope"] for g in _ex] == ["seed", "seed"]
+              and [g["seeds"] for g in _ex] == [[0], [1]]
+              and all(f"all {REDRAW_BOUND} candidate draws" in g["reason"]
+                      for g in _ex),
               f"{exhausted}; {len(calls)} draws")
     finally:
         PLN._make_plan_candidate = real
@@ -4846,9 +4863,10 @@ def test_the_seed_redraw():
     # this change a one-seed window over seed 55 read planned 0 and so
     # carried that meaning on a single unlucky draw; it now plans (case 1).
     # What reads planned 0 is a request no seed can build, OR a window whose
-    # every seed exhausted the redraw bound (case 4b): the sweep keeps no
-    # reason, so planned 0 still does not PROVE the declaration unbuildable
-    # (3PO 6346126883). ~~"an all-refused window is now the REQUEST's"~~,
+    # every seed exhausted the redraw bound (case 4b): ~~the sweep keeps no
+    # reason~~, so planned 0 alone still does not PROVE the declaration
+    # unbuildable (3PO 6346126883); since P3 F3 the refusals' scope says
+    # which (request here, seed in 4b). ~~"an all-refused window is now the REQUEST's"~~,
     # narrowed. At the measured rate (572 of 20,000) exhaustion is about
     # 0.0286^64 per seed for a default request (a model estimate assuming
     # independent draws at that rate, not a guarantee for an arbitrary
@@ -4859,7 +4877,10 @@ def test_the_seed_redraw():
           "seed now plans — so one unlucky draw no longer reads as an "
           "unbuildable declaration",
           blocked["planned"] == 0 and blocked["refused"] == 3
-          and sw["planned"] == 1, f"blocked {blocked}; default {sw}")
+          and sw["planned"] == 1
+          and [g["scope"] for g in blocked["refusals"]] == ["request"]
+          and blocked["refusals"][0]["seeds"] == [0, 1, 2],
+          f"blocked {blocked}; default {sw}")
 
 
 _SECTIONS = (

@@ -209,7 +209,7 @@ export function creationRefusal(task, name, args, lyric = null) {
     return null;
   }
   if (!w.sweeps.length || !w.screen)
-    return 'CREATION_ORDER: execute lyric_sweep and lyric_screen before planning or writing a new song.';
+    return 'CREATION_ORDER: execute a successful lyric_sweep and a successful lyric_screen before planning or writing a new song.';
   if (name === 'lyric_plan') {
     return sweepFor(w, args)
       ? null

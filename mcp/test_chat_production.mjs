@@ -685,7 +685,7 @@ test('canonical brief, accepted instructions, current plan and step history surv
     const system = body.systemInstruction.parts[0].text;
     for (const kept of [t.brief, 'Keep the man deeply in love.', 'unique-plan', 'only plan'])
       assert.ok(system.includes(kept));
-    assert.doesNotMatch(system, /has not yet called lyric_sweep/);
+    assert.doesNotMatch(system, /no successful lyric_sweep/);
   } finally {
     globalThis.fetch = nativeFetch;
   }
