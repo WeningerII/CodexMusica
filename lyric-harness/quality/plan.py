@@ -2614,7 +2614,9 @@ def _redraw_past_joint_gate(seed, kw):
       2. THE REDRAW IS DISCLOSED: `choices.seed_redraw` names every refused
          candidate with its codes, the accepted candidate, the bound and the
          policy, and the plan verb prints it. A plan whose first draw passes
-         is untouched, byte for byte: only refused seeds re-deal.
+         is returned exactly as the candidate planner made it, byte for byte
+         within this tree (its explanatory strings differ from the tree
+         before option (b)): only refused seeds re-deal.
       3. `request.seed` STAYS THE CALLER'S, as the wants path keeps it, so
          `plan --seed=N` reproduces the same redraw.
     The candidates are the wants path's own sequence (`seed`, then

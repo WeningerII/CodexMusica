@@ -12325,7 +12325,8 @@ roster, a declared melody) is raised at once. A redraw is disclosed in
 `choices.seed_redraw` (every refused candidate with its codes, the accepted
 candidate, the bound, the policy) and printed by the plan verb; `request.seed`
 stays the caller's, so `plan --seed=N` reproduces it; a plan whose first draw
-passes is byte-identical. Exhausting the bound refuses with a text saying it
+passes is returned exactly as the candidate planner made it (byte-identical
+within this tree; the meter disclosure's wording differs from option (a)'s). Exhausting the bound refuses with a text saying it
 is a bounded sample, not proof the request cannot be built. **MEASURED over
 default seeds 0..19999: 572 redrawn (2.86%), exactly the seeds that refused
 before, none needing more than two refused candidates; `request.seed` kept on

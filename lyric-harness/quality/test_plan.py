@@ -4207,6 +4207,13 @@ def test_the_delegated_rulings(FAILURES=None):
           f"draw one chorus without the rule (refused NO_FREE_WORD: "
           f"{m_refused or 'none'}; redrawn past the joint gate, left out: "
           f"{m_redrawn or 'none'})")
+    # THE EXCLUSIONS ARE PINNED (3PO 6346126883), so the population this
+    # comparison is taken over cannot shrink silently: exactly mutants 2 and
+    # 16 are redrawn, and none refuses.
+    check("...and the mutants left out of that comparison are exactly the "
+          "two the joint gate redraws (2 and 16), none refused",
+          m_redrawn == [2, 16] and m_refused == [],
+          f"redrawn {m_redrawn}, refused {m_refused}")
     check("...and EXACTLY the seeds whose first admissible pattern lacked a "
           "second chorus moved — rejection sampling leaves every accepted "
           "pattern byte-identical, so the rule costs no seed whose draw "
@@ -4751,37 +4758,70 @@ def test_the_seed_redraw():
               "exhaustion text", len(calls) == 64
               and "bounded candidate draws" in msg, f"{len(calls)} draws")
         calls.clear()
+        raised = None
         try:
             make_plan(seed=1, melody="planted")
-        except JointRefused:
-            pass
+        except JointRefused as exc:
+            raised = str(exc)
         check("...a declared melody is NEVER redrawn: the meter was not "
               "drawn, so a joint refusal is the request's and is raised at "
-              "once", len(calls) == 1, f"{len(calls)} draw(s)")
+              "once — the planted refusal itself, after one draw",
+              len(calls) == 1 and raised == "planted joint refusal",
+              f"{len(calls)} draw(s); raised {raised!r}")
         PLN._make_plan_candidate = request_refused
         calls.clear()
+        raised = None
         try:
             make_plan(seed=1)
-        except PlanRefused:
-            pass
+        except PlanRefused as exc:
+            raised = (type(exc).__name__, str(exc))
         check("...and a refusal of the REQUEST (anything but the joint gate) "
-              "is raised at once, never after 64 draws",
-              len(calls) == 1, f"{len(calls)} draw(s)")
+              "is raised at once, never after 64 draws — the planted "
+              "refusal itself, unchanged",
+              len(calls) == 1
+              and raised == ("PlanRefused", "planted request refusal"),
+              f"{len(calls)} draw(s); raised {raised!r}")
+        # (4b) EXHAUSTION THROUGH THE SWEEP. A window can still read
+        # planned 0 on a declaration that IS buildable, if every seed
+        # exhausts its redraws; the sweep counts that as refused and keeps
+        # no reason, so it does not tell the two apart.
+        PLN._make_plan_candidate = joint_always
+        calls.clear()
+        _w0 = os.environ.get("SWEEP_WORKERS")
+        os.environ["SWEEP_WORKERS"] = "1"
+        try:
+            exhausted = sweep(range(2))
+        finally:
+            if _w0 is None:
+                os.environ.pop("SWEEP_WORKERS", None)
+            else:
+                os.environ["SWEEP_WORKERS"] = _w0
+        check("...and a window whose every seed exhausts the redraw reads "
+              "planned 0 and refused 2 through the sweep, the same counts a "
+              "request no seed can build gives — exhaustion is a bounded "
+              "sample the counts cannot tell apart from an unbuildable "
+              "request",
+              exhausted["planned"] == 0 and exhausted["refused"] == 2
+              and len(calls) == 2 * REDRAW_BOUND,
+              f"{exhausted}; {len(calls)} draws")
     finally:
         PLN._make_plan_candidate = real
 
     # (4) AN ALL-REFUSED SHORT WINDOW AGAINST THE CONNECTOR'S `planned === 0`
     # MEANING ("the DECLARATION is unbuildable", mcp/lyric_tools.js). Before
     # this change a one-seed window over seed 55 read planned 0 and so
-    # carried that meaning on a stochastic draw; it now plans (case 1). What
-    # still reads planned 0 is a request no seed can build, which is what
-    # the meaning claims. A window can also exhaust the redraw bound, which
-    # is a bounded sample: at the measured rate (572 of 20,000) that is about
-    # 0.0286^64 per seed, and the refusal text says it is not proof.
+    # carried that meaning on a single unlucky draw; it now plans (case 1).
+    # What reads planned 0 is a request no seed can build, OR a window whose
+    # every seed exhausted the redraw bound (case 4b): the sweep keeps no
+    # reason, so planned 0 still does not PROVE the declaration unbuildable
+    # (3PO 6346126883). ~~"an all-refused window is now the REQUEST's"~~,
+    # narrowed. At the measured rate (572 of 20,000) exhaustion is about
+    # 0.0286^64 per seed, and its refusal text says it is not proof.
     blocked = sweep(range(3), form="ghazal")
-    check("an all-refused window is now the REQUEST's: a blocked form "
-          "refuses every seed (planned 0), while the default declaration's "
-          "formerly refused seed plans",
+    check("a request no seed can build refuses every seed of a window "
+          "(planned 0), while the default declaration's formerly refused "
+          "seed now plans — so one unlucky draw no longer reads as an "
+          "unbuildable declaration",
           blocked["planned"] == 0 and blocked["refused"] == 3
           and sw["planned"] == 1, f"blocked {blocked}; default {sw}")
 
