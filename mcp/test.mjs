@@ -5191,6 +5191,8 @@ await check('validation: actionable errors', () => {
       'mcp/test_pronunciation_checkpoint.mjs':
         'localhost fixture pronunciation checkpoint regressions',
       'mcp/test_session_repairs.mjs': 'offline session workflow and Rich rendering regressions',
+      'mcp/test_session_coverage_ids.mjs':
+        'offline duplicate-coverage-id session regressions on the real lyric harness',
       'mcp/test_high_report.mjs':
         'native connector regressions for the high-severity report repairs, executed by CI (test:connector:live)',
       'mcp/test_loop_redesign.mjs':
