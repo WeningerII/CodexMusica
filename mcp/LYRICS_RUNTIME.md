@@ -137,7 +137,7 @@ is refused, before any work is queued, as:
   lines. Retry the same call once one completes or its receipt expires.
 - `SESSION_RECORD_TOO_LARGE` (`code` `JOB_CAPACITY`): one record of the admission, such as
   the parent with its successor link, would be over the per-record cap. Free room or
-  waiting does not change that, so it names a new session instead of a retry.
+  waiting does not change that, so it asks for a smaller request or a new session, never a retry.
 - `SESSION_RECORDS_FULL` (`code` `JOB_RECORDS_FULL`): the store holds its maximum number
   of receipt ids. `retry_at` is when the oldest receipt that can expire does, the
   earliest opportunity rather than a promise of admission; with only running work

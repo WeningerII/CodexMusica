@@ -47,8 +47,8 @@ const storeAdmissionRefusal = (error, maxRecords, domain) => {
   if (error?.code === 'JOB_CAPACITY' && error.oversize)
     return Object.assign(
       new Error(
-        'SESSION_RECORD_TOO_LARGE: Insufficient recovery-store capacity for this operation: one of its records would be larger than the store keeps for a single record, so this same call is refused again however much room is free; nothing was queued and no saved session was retired. ' +
-          restartStep(domain)
+        'SESSION_RECORD_TOO_LARGE: Insufficient recovery-store capacity for this operation: one of its records would be larger than the store keeps for a single record, so this same call is refused again however much room is free; nothing was queued and no saved session was retired. Send a smaller request, or ' +
+          restartStep(domain).replace(/^./, (c) => c.toLowerCase())
       ),
       { code: 'JOB_CAPACITY', status: 503, beforeDispatch: true }
     );

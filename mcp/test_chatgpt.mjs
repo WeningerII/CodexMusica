@@ -1286,7 +1286,8 @@ test('P8: a record over the per-record cap is refused as too large, never told t
         error.message
       ) &&
       /refused again however much room is free/.test(error.message) &&
-      /Call begin_lyrics to open a new lyrics session\.$/.test(error.message) &&
+      /Send a smaller request, or call begin_lyrics/.test(error.message) &&
+      /to open a new lyrics session\.$/.test(error.message) &&
       !/Retry this same call/.test(error.message)
   );
   assert.deepEqual({ size: store.records.size, bytes: store.bytes }, before);
