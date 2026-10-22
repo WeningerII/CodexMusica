@@ -37,6 +37,36 @@ const capability = () => randomBytes(32).toString('hex');
 const clone = (value) => structuredClone(value);
 const fail = (code, message) =>
   Object.assign(new Error(`${code}: ${message}`), { code, beforeDispatch: true });
+// A store that cannot admit a call refuses it as a session refusal that names
+// the same call to retry, keeping the store's `code` and `status` so
+// storeRefused() and a recipe's NOT SAVED path still recognise it. Nothing was
+// queued, adopted, linked or retired: the store decides before it writes.
+const storeAdmissionRefusal = (error, maxRecords) => {
+  if (error?.code === 'JOB_CAPACITY')
+    return Object.assign(
+      new Error(
+        'SESSION_STORE_FULL: The session store is full of work it must keep: running operations, and interrupted ones holding accepted lines. Retry this same call once one of them completes or its receipt expires; nothing was queued and no saved session was retired.'
+      ),
+      { code: 'JOB_CAPACITY', status: 503, beforeDispatch: true }
+    );
+  if (error?.code === 'JOB_RECORDS_FULL')
+    return Object.assign(
+      new Error(
+        `SESSION_RECORDS_FULL: The session store holds the most receipts it keeps (${maxRecords} ids). ` +
+          (error.retry_at != null
+            ? `Retry this same call after ${new Date(error.retry_at).toISOString()}, when the oldest receipt that can expire does`
+            : 'Every receipt it holds is running work; retry this same call once one completes and its receipt expires') +
+          '; nothing was queued or retired.'
+      ),
+      {
+        code: 'JOB_RECORDS_FULL',
+        status: 503,
+        beforeDispatch: true,
+        ...(error.retry_at != null ? { retry_at: error.retry_at } : {}),
+      }
+    );
+  return error;
+};
 const restartStep = (domain) =>
   domain === 'recipe'
     ? 'Call start_recipe to open a new recipe session.'
@@ -274,6 +304,18 @@ export class WorkflowSessions {
     return { record, session };
   }
 
+  // One hop only: the live successor of a receipt retired for space, checked
+  // as record() checks any id (integration, session, domain), and continuing
+  // exactly this id. A retired or missing successor, or a longer chain, gives
+  // null, and record() then refuses with SESSION_RETIRED: it fails closed.
+  liveSuccessor(id, domain) {
+    const retired = this.lookup(id);
+    if (retired?.state !== 'retired' || !retired.successor_id) return null;
+    const next = this.lookup(retired.successor_id);
+    if (!next || next.state === 'retired' || next.intent?.continuation_id !== id) return null;
+    return this.record(next.request_id, domain).record;
+  }
+
   fresh(domain, { phase = 'create', format = 'rich' } = {}) {
     const task = domain === 'recipe' ? { domain, format, maxChars: 1000 } : { domain, phase };
     return {
@@ -297,9 +339,18 @@ export class WorkflowSessions {
   open(domain, options = {}) {
     const session = this.fresh(domain, options);
     const id = capability();
-    this.store.begin(id, { request_id: id, integration: INTEGRATION, action: 'open' }, this.build, {
-      session,
-    });
+    try {
+      this.store.begin(
+        id,
+        { request_id: id, integration: INTEGRATION, action: 'open' },
+        this.build,
+        {
+          session,
+        }
+      );
+    } catch (error) {
+      throw storeAdmissionRefusal(error, this.store.maxRecords);
+    }
     this.store.complete(id, 200, { session, result: { content: [] } });
     return this.status(id, domain);
   }
@@ -351,6 +402,17 @@ export class WorkflowSessions {
         throw fail('SESSION_REQUIRED', `Pass the latest session_id. ${restartStep(domain)}`);
       session = this.fresh(domain, { format: args.format });
     } else {
+      // A parent retired for space keeps its successor_id. The identical call
+      // reaches the operation it already started; any other call is stale.
+      const successor = this.liveSuccessor(sessionId, domain);
+      if (successor) {
+        if (requestDigest(successor.intent.action) !== requestDigest(action))
+          throw fail(
+            'STALE_SESSION',
+            `This session's saved state was retired after it advanced to operation ${successor.request_id}. Read it with get_operation and continue from the session_id it returns.`
+          );
+        return this.status(successor.request_id, domain);
+      }
       let original;
       ({ record: parent, session: original } = this.record(sessionId, domain));
       if (parent.successor_id) {
@@ -420,28 +482,34 @@ export class WorkflowSessions {
         'The lyric operation queue is full. Retry this same call with the same session_id shortly; nothing was queued.'
       );
     // A receipt written by an earlier release is copied here unchanged, so the
-    // single-successor rule holds for it in the store that admits the successor.
-    if (parent && !this.store.get(sessionId)) this.store.adopt(parent);
+    // single-successor rule holds for it in the store that admits the
+    // successor; the store adopts it in the same admission as the new record.
+    const adopt = parent && !this.store.get(sessionId) ? parent : null;
     const id = capability();
-    this.store.begin(
-      id,
-      {
-        request_id: id,
-        ...(parent ? { continuation_id: sessionId } : {}),
-        integration: INTEGRATION,
-        action,
-      },
-      this.build,
-      {
-        session,
-        // The resumed worker may stop before emitting its first checkpoint.
-        // Preserve the parent's accepted words for export and retention only;
-        // they are not progress from this operation and cannot authorize replay.
-        ...(resumed && tool === 'lyric_revise'
-          ? { accepted_lines: clone(parent.progress.accepted_lines) }
-          : {}),
-      }
-    );
+    try {
+      this.store.begin(
+        id,
+        {
+          request_id: id,
+          ...(parent ? { continuation_id: sessionId } : {}),
+          integration: INTEGRATION,
+          action,
+        },
+        this.build,
+        {
+          session,
+          // The resumed worker may stop before emitting its first checkpoint.
+          // Preserve the parent's accepted words for export and retention only;
+          // they are not progress from this operation and cannot authorize replay.
+          ...(resumed && tool === 'lyric_revise'
+            ? { accepted_lines: clone(parent.progress.accepted_lines) }
+            : {}),
+        },
+        { adopt }
+      );
+    } catch (error) {
+      throw storeAdmissionRefusal(error, this.store.maxRecords);
+    }
     if (domain === 'lyrics') this.queued.add(id);
     const promise = new Promise((resolve) => setImmediate(resolve))
       .then(() => this.run(id, session, tool, args))
@@ -567,6 +635,17 @@ export class WorkflowSessions {
   // `domain` is null on the shared /mcp endpoint, which serves both families;
   // the operation's own session says which one it belongs to.
   resume(id, domain) {
+    // A parent retired for space keeps its successor_id. If that successor is
+    // this parent's own resume, return it; anything else is stale.
+    const successor = this.liveSuccessor(id, domain);
+    if (successor) {
+      if (successor.intent.action?.resumed !== true)
+        throw fail(
+          'STALE_SESSION',
+          `This operation's saved state was retired after it advanced to operation ${successor.request_id}, which is not its resume. Read that operation with get_operation and continue from the session_id it returns.`
+        );
+      return this.status(successor.request_id, domain);
+    }
     const { record, session } = this.record(id, domain);
     if (record.state !== 'interrupted')
       throw fail(
@@ -636,7 +715,10 @@ export class WorkflowSessions {
         operation_id: id,
         status: 'retired',
         interruption: found.interruption ?? 'receipt_payload_retired',
-        note: `This id's saved state was retired: its retention ended, or newer work needed the space. ${restartStep(domain)}`,
+        ...(found.successor_id ? { successor_id: found.successor_id } : {}),
+        note: found.successor_id
+          ? `This id's saved state was retired: its retention ended, or newer work needed the space. It had already advanced to operation ${found.successor_id}: read that with get_operation and continue from the session_id it returns.`
+          : `This id's saved state was retired: its retention ended, or newer work needed the space. ${restartStep(domain)}`,
         resumable: false,
         durable: this.store.durable,
         retention_ms: this.store.ttlMs,

@@ -1139,3 +1139,136 @@ test('each surface describes its own session mechanics, and only where they appl
     /^With session_id: [^]* Without session_id: true exports/
   );
 });
+
+// P8 (#519, Don 6349649672; Jony 6349672118; 3PO 6349681842). A receipt retired
+// for space keeps its successor_id; the call that advanced it, repeated, reaches
+// that live successor, one hop and no further. Retired here by hand, exactly as
+// reclaim() writes a tombstone.
+const retire = (store, id) =>
+  store.write(
+    {
+      ...store.get(id),
+      state: 'retired',
+      intent: null,
+      checkpoint: null,
+      progress: null,
+      proposer_usage: null,
+      response: null,
+      interruption: 'receipt_payload_retired',
+      retired_at: Date.now(),
+    },
+    { reclaim: false }
+  );
+
+test('P8: a retry on a retired parent reaches its live successor, one hop, failing closed', async () => {
+  const store = new JobStore();
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session) => ({ session, result: { content: [{ type: 'text', text: 'ok' }] } }),
+  });
+  const opened = sessions.open('lyrics');
+  const args = { draft: ['one line'] };
+  const first = sessions.submit(opened.session_id, 'lyrics', 'lyric_check', args);
+  await sessions.wait(first.operation_id);
+  retire(store, opened.session_id);
+  assert.throws(() => sessions.record(opened.session_id, 'lyrics'), /SESSION_RETIRED/);
+  // The identical call is the operation it already started; nothing new runs.
+  const again = sessions.submit(opened.session_id, 'lyrics', 'lyric_check', args);
+  assert.equal(again.operation_id, first.operation_id);
+  assert.equal(store.records.size, 2);
+  // A different call is stale, and get_operation names the successor.
+  assert.throws(
+    () => sessions.submit(opened.session_id, 'lyrics', 'lyric_check', { draft: ['other'] }),
+    /STALE_SESSION/
+  );
+  const shown = sessions.status(opened.session_id, 'lyrics');
+  assert.equal(shown.status, 'retired');
+  assert.equal(shown.successor_id, first.operation_id);
+  // The domain is still checked on the successor.
+  assert.throws(
+    () => sessions.submit(opened.session_id, 'recipe', 'edit_recipe', { edits: [] }),
+    /SESSION_SCOPE/
+  );
+  // Once the successor is retired too, the call fails closed.
+  retire(store, first.operation_id);
+  assert.throws(
+    () => sessions.submit(opened.session_id, 'lyrics', 'lyric_check', args),
+    /SESSION_RETIRED/
+  );
+});
+
+test("P8: resume_operation on a retired parent returns that parent's own resume, and nothing else", async (t) => {
+  const { store } = storeFor(t);
+  let executions = 0;
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session) => {
+      if (++executions === 1) {
+        requestContext().onCheckpoint(checkpoint());
+        throw new Error('lost result');
+      }
+      return { session, result: { content: [{ type: 'text', text: 'resumed' }] } };
+    },
+  });
+  const opened = sessions.open('lyrics');
+  const q = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', { seed: 31 });
+  await sessions.wait(q.operation_id);
+  assert.equal(sessions.status(q.operation_id, 'lyrics').resumable, true);
+  const resumed = sessions.resume(q.operation_id, 'lyrics');
+  await sessions.wait(resumed.operation_id);
+  retire(store, q.operation_id);
+  assert.equal(sessions.resume(q.operation_id, 'lyrics').operation_id, resumed.operation_id);
+  assert.equal(executions, 2);
+  retire(store, resumed.operation_id);
+  assert.throws(() => sessions.resume(q.operation_id, 'lyrics'), /SESSION_RETIRED/);
+  // A parent whose successor is not its resume refuses resume as stale.
+  const other = sessions.open('lyrics');
+  const next = sessions.submit(other.session_id, 'lyrics', 'lyric_check', { draft: ['x'] });
+  await sessions.wait(next.operation_id);
+  retire(store, other.session_id);
+  assert.throws(() => sessions.resume(other.session_id, 'lyrics'), /STALE_SESSION/);
+});
+
+test('P8: with 16 lyric slots on the real 64 MiB store, a call that cannot fit retires nothing', async () => {
+  const store = new JobStore(null, { ...SESSION_STORE_LIMITS });
+  const releases = [];
+  const sessions = new WorkflowSessions({
+    store,
+    maxActive: 16,
+    execute: async (session, tool) => {
+      if (tool === 'lyric_check') await new Promise((resolve) => releases.push(resolve));
+      return {
+        session: { ...session, workspace: session.workspace ?? { cards: [] } },
+        result: { content: [{ type: 'text', text: 'x'.repeat(32 * 1024) }] },
+      };
+    },
+  });
+  for (let i = 0; i < 20; i++) {
+    const r = sessions.submit(null, 'recipe', 'start_recipe', { traditions: ['delta_blues'] });
+    await sessions.wait(r.operation_id);
+  }
+  const running = [];
+  for (let i = 0; i < 3; i++) {
+    const s = sessions.open('lyrics');
+    running.push(sessions.submit(s.session_id, 'lyrics', 'lyric_check', { draft: ['l'] }));
+  }
+  await new Promise((resolve) => setImmediate(resolve));
+  const snapshot = () => [...store.records.values()].map((r) => [r.request_id, r.state]);
+  const before = { records: snapshot(), bytes: store.bytes };
+  const refused = (error) =>
+    error.code === 'JOB_CAPACITY' &&
+    error.status === 503 &&
+    /^SESSION_STORE_FULL: .*Retry this same call/.test(error.message) &&
+    /nothing was queued and no saved session was retired/.test(error.message);
+  assert.throws(() => sessions.open('lyrics'), refused);
+  assert.throws(
+    () => sessions.submit(null, 'recipe', 'start_recipe', { traditions: ['delta_blues'] }),
+    refused
+  );
+  assert.deepEqual({ records: snapshot(), bytes: store.bytes }, before);
+  assert.ok(sessions.storeRefused({ code: 'JOB_CAPACITY' }), 'recipes still answer NOT SAVED');
+  // When the running work finishes, the same call is admitted.
+  for (const release of releases) release();
+  for (const op of running) await sessions.wait(op.operation_id);
+  assert.equal(sessions.open('lyrics').status, 'completed');
+});
