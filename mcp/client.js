@@ -129,12 +129,16 @@ export async function connectConnector({
                   continue;
                 if (args[key] !== undefined && JSON.stringify(args[key]) !== JSON.stringify(value))
                   throw new Error(
-                    'CREATION_CONTINUATION: ' + key + ' differs from the recorded run.'
+                    'CREATION_CONTINUATION: ' +
+                      key +
+                      ' differs from the recorded run. To answer its pending question, call lyric_revise with only `answer` or `answers`; to revise a different draft, grade it with lyric_grade, then call lyric_revise with that exact draft and `new_run: true`.'
                   );
                 args[key] = structuredClone(value);
               }
             } else if (args.state || args.checkpoint) {
-              throw new Error('CREATION_CONTINUATION: this session has no receipt for that run.');
+              throw new Error(
+                'CREATION_CONTINUATION: this session has no receipt for that run. Send lyric_revise without `state` or `checkpoint`; to start a run, grade the draft with lyric_grade, then call lyric_revise with that exact draft.'
+              );
             }
           }
           const refusal = creationRefusal(workflowTask, name, args, continuation);

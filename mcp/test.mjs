@@ -5179,6 +5179,10 @@ await check('validation: actionable errors', () => {
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',
       'mcp/test_lyric_workflow.mjs':
         'offline lyrics creation order and task authorization regressions',
+      'mcp/test_creation_attempts.mjs':
+        'offline regressions for refusals after a screen or grade that left no receipt',
+      'mcp/test_refusal_promise.mjs':
+        'offline table holding every session refusal to naming the call that works',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
       'mcp/test_pronunciation_native.mjs':
         'offline real native pronunciation continuation regressions',

@@ -301,7 +301,7 @@ test('required production mode exports exact recovery without Python or assets w
       assert.equal(recovered.certified,false); assert.equal(recovered.resumable,false);
       assert.equal(_workerInternals.pid(),null);
       const ordinary=await client.callTool({name:'lyric_sweep',arguments:{seed_from:1,count:1}});
-      assert.equal(ordinary.isError,true); assert.match(ordinary.content[0].text,/LYRIC_ASSETS_UNAVAILABLE/);
+      assert.equal(ordinary.isError,true); assert.match(ordinary.content[0].text,/LYRIC_ASSETS_UNAVAILABLE/); assert.match(ordinary.content[0].text,/Retry this same call later/);
       // A lyrics session is refused too: opened now it would record an
       // identity without the assets and be refused once they are read.
       const {buildWorkflowServer}=await import('./workflow_tools.js');
@@ -313,7 +313,7 @@ test('required production mode exports exact recovery without Python or assets w
       const [c,d]=InMemoryTransport.createLinkedPair();
       await Promise.all([shared.connect(c),user.connect(d)]);
       const begun=await user.callTool({name:'begin_lyrics',arguments:{}});
-      assert.equal(begun.isError,true); assert.match(begun.content[0].text,/LYRIC_ASSETS_UNAVAILABLE/);
+      assert.equal(begun.isError,true); assert.match(begun.content[0].text,/LYRIC_ASSETS_UNAVAILABLE/); assert.match(begun.content[0].text,/Retry this same call later/);
       const recipe=await user.callTool({name:'start_recipe',arguments:{traditions:['bluegrass']}});
       assert.notEqual(recipe.isError,true,JSON.stringify(recipe).slice(0,400));
       await user.close(); await shared.close();

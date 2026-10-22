@@ -112,6 +112,40 @@ export function verdictOf(result) {
   return null;
 }
 
+// The store refused a finished result as larger than one receipt keeps. The
+// tool ran; nothing it produced was kept, and the same call returns the same
+// result, so the refusal names a smaller one instead (JobStore is not edited).
+const resultNotKept = (name, task, error) => {
+  const limit = /\((\d+)\)/.exec(error.message)?.[1];
+  return (
+    `SESSION_RESULT_NOT_KEPT: ${name} ran, but its result is over the ${limit ? `${limit}-byte ` : ''}limit this session can keep, so it was not saved and nothing the call produced was kept. ` +
+    (name === 'lyric_grade' && task.phase !== 'edit'
+      ? 'Grading the same draft again returns the same result: plan fewer lines (lyric_sweep declaring `lines`, then lyric_plan on a seed it accepts) and grade a draft of that plan. A different draft of this plan may be too large as well.'
+      : `Send ${name} again with a smaller request.`)
+  );
+};
+// For a new song's grade, the kept (pre-call) session is marked so its next
+// CREATION_GRADE can say this draft was measured but not kept. The hashes come
+// from what the call recorded, exit and measurement_status from its verdict.
+function resultNotKeptSession(session, out, name) {
+  const after = out.session?.native?.task?.workflow;
+  const measured = after?.grade || after?.grade_attempt;
+  const workflow = session.native?.task?.workflow;
+  if (name !== 'lyric_grade' || !workflow || !measured?.plan_sha256) return session;
+  const verdict = verdictOf(out.result);
+  const kept = clone(session);
+  kept.native.task.workflow.grade_attempt = {
+    plan_sha256: measured.plan_sha256,
+    draft_sha256: measured.draft_sha256,
+    exit_code: Number.isInteger(verdict?.exit_code) ? verdict.exit_code : null,
+    ...(typeof verdict?.measurement_status === 'string'
+      ? { measurement_status: verdict.measurement_status }
+      : {}),
+    cause: 'not_kept',
+  };
+  return kept;
+}
+
 // A revise the deadline stopped mid-run tells a caller-managed client to
 // resume with run_id or state, both of which a session withholds. In a
 // session the run's journal is carried, so the continuation is lyric_revise
@@ -523,10 +557,13 @@ export class WorkflowSessions {
 
   async run(id, session, name, args) {
     let budget;
+    // Kept in scope for the catch: a result the store refuses as too large was
+    // still executed, and the refusal says so.
+    let out;
     try {
       budget = this.createBudget({ id });
       const controller = new AbortController();
-      const out = await withExecutionContext(
+      out = await withExecutionContext(
         {
           task: session.task,
           signal: controller.signal,
@@ -566,12 +603,22 @@ export class WorkflowSessions {
           (name === 'lyric_revise' && !error.beforeDispatch)
         )
           this.store.interrupt(id, 'operation_interrupted');
-        else
+        else {
+          const notKept = out && error?.code === 'JOB_PAYLOAD_TOO_LARGE';
           this.store.complete(id, 200, {
-            session,
-            result: { isError: true, content: [{ type: 'text', text: error.message }] },
+            session: notKept ? resultNotKeptSession(session, out, name) : session,
+            result: {
+              isError: true,
+              content: [
+                {
+                  type: 'text',
+                  text: notKept ? resultNotKept(name, session.task, error) : error.message,
+                },
+              ],
+            },
             accounting: budget?.snapshot() || null,
           });
+        }
       } catch (storageError) {
         try {
           this.store.failedCompletion(id, storageError);
