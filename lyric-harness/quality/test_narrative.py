@@ -348,10 +348,15 @@ def test_measured_seeds():
             refused.append(seed)
             continue
         sweep[seed] = N.count_lineups(fns)
+    # THE SKIP IS PINNED, not open-ended (3PO 6346083397): exactly seed 55
+    # refuses here, so another refusal fails this check instead of silently
+    # shrinking the denominator below 99 plans.
     check("the complete current 100-seed denominator has exactly sixteen "
-          "zero shapes, four of them among the first forty",
+          "zero shapes, four of them among the first forty, over 99 plans "
+          "with exactly seed 55 refused",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
-          and sum(sweep[seed] > 0 for seed in range(1,41)) == 36,
+          and sum(sweep[seed] > 0 for seed in range(1,41)) == 36
+          and refused == [55],
           f"{len(sweep)} plans of 100 seeds; refused NO_FREE_WORD: "
           f"{refused or 'none'}")
     #: The claim above is only worth making if the KINDS of zero are
