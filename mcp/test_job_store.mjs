@@ -835,3 +835,48 @@ test('P8: adoption, the new record and the successor link are admitted together 
   assert.equal(order.get(older).successor_id, next);
   assert.equal(order.get(newer).state, 'retired');
 });
+
+test('P8: a link that would push the parent past the per-record cap is refused before any write', () => {
+  const limits = { maxRecordBytes: 4096, maxRecords: 64, maxBytes: 1 << 30 };
+  const childId = 'd'.repeat(64);
+  const snapshot = (store) => ({
+    bytes: store.bytes,
+    size: store.records.size,
+    records: [...store.records.keys()].sort().map((k) => JSON.stringify(store.get(k))),
+  });
+  for (const adopted of [false, true]) {
+    for (const over of [1, 0]) {
+      const store = new JobStore(null, limits);
+      const other = adopted ? new JobStore(null, limits) : store;
+      const p = id();
+      other.begin(p, { request_id: p });
+      other.complete(p, 200, { filler: '' });
+      const base = other.get(p);
+      const linked = Buffer.byteLength(JSON.stringify({ ...base, successor_id: childId }));
+      const pad = limits.maxRecordBytes + over - linked;
+      const parent = { ...base, response: { status: 200, body: { filler: 'y'.repeat(pad) } } };
+      other.write(parent);
+      assert.ok(Buffer.byteLength(JSON.stringify(parent)) <= limits.maxRecordBytes);
+      const keep = id();
+      store.begin(keep, { request_id: keep });
+      store.complete(keep, 200, { ok: 1 });
+      const before = snapshot(store);
+      const go = () =>
+        store.begin(
+          childId,
+          { request_id: childId, continuation_id: p },
+          {},
+          null,
+          adopted ? { adopt: other.get(p) } : {}
+        );
+      if (over > 0) {
+        assert.throws(go, { code: 'JOB_CAPACITY' }, `adopted=${adopted}`);
+        assert.deepEqual(snapshot(store), before, `adopted=${adopted}`);
+      } else {
+        go();
+        assert.equal(store.get(p).successor_id, childId, `adopted=${adopted}`);
+        assert.equal(store.get(childId).state, 'pending');
+      }
+    }
+  }
+});

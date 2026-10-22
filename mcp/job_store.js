@@ -510,11 +510,17 @@ export class JobStore {
     // the store.)
     const childBytes = Buffer.byteLength(JSON.stringify(record));
     const adoptBytes = adopting ? Buffer.byteLength(JSON.stringify(adopting)) : 0;
-    const linkGrowth = parent
-      ? Buffer.byteLength(JSON.stringify({ ...parent, successor_id: id })) -
-        Buffer.byteLength(JSON.stringify(parent))
+    // The linked parent is a record of its own: it must fit the per-record
+    // cap too, or its final write would refuse after the others had landed.
+    const linkedBytes = parent
+      ? Buffer.byteLength(JSON.stringify({ ...parent, successor_id: id }))
       : 0;
-    if (childBytes > this.maxRecordBytes || adoptBytes > this.maxRecordBytes)
+    const linkGrowth = parent ? linkedBytes - Buffer.byteLength(JSON.stringify(parent)) : 0;
+    if (
+      childBytes > this.maxRecordBytes ||
+      adoptBytes > this.maxRecordBytes ||
+      linkedBytes > this.maxRecordBytes
+    )
       throw this.capacityRefusal();
     const needed =
       adoptBytes +
