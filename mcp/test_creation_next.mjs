@@ -483,6 +483,14 @@ test('edit sessions, recipe tasks, other texts and raw results pass through unch
     withSweepNext(clone(at.swept), 'lyric_sweep', { ...sweep, isError: true }, null).content,
     sweep.content
   );
+  // A held run: the harness's raw plan line goes, and nothing replaces it.
+  const { at: started, planArgs } = states('want');
+  for (const held of HELD) {
+    const carried = carriedRuns(planArgs).chat[held];
+    const out = withSweepNext(clone(started.started), 'lyric_sweep', sweep, carried);
+    const shown = JSON.parse(out.content[0].text).report;
+    assert.equal(shown, 'ACCEPTED\n', `${held}: ${shown}`);
+  }
   const got = withSweepNext(clone(at.swept), 'lyric_sweep', sweep, null);
   assert.equal(
     JSON.parse(got.content[0].text).report,
@@ -792,6 +800,41 @@ test('/chat: a sweep result shows the derived NEXT to the model', async () => {
       'with seed 16, form "aaba", lines 2, functions "verse,chorus", wants ["before=verse,chorus","lines<=30"], ' +
       "melody: the sweep's melody unchanged.\n"
   );
+});
+
+test('/chat: a sweep during an unknown-outcome proposal shows no plan line at all', async () => {
+  const { at, sweepArgs, planArgs } = states('every');
+  const report = 'ACCEPTED\n      16, 17\n    NEXT: lyric_plan with seed 16\n';
+  let seen = null,
+    step = 0;
+  globalThis.fetch = async (_url, init) => {
+    step++;
+    if (step === 1) return reply([fc('lyric_sweep', sweepArgs)]);
+    seen = lastResponses(init)[0]?.response;
+    return reply([{ text: 'done' }]);
+  };
+  try {
+    await runTurn({
+      apiKey: 'offline',
+      surface,
+      userText: 'New love song.',
+      limits: { ...LIMITS, maxSteps: 8, maxTurnMs: 5000, maxTurnUsd: 0 },
+      task: clone(at.started),
+      lyric: clone(carriedRuns(planArgs).chat.uncertain_proposal),
+      callTool: async () => ({
+        content: [
+          {
+            type: 'text',
+            text: JSON.stringify({ exit_code: 0, accepted_shown: [16, 17], report }),
+          },
+        ],
+      }),
+    });
+  } finally {
+    globalThis.fetch = nativeFetch;
+  }
+  assert(seen, 'the sweep ran');
+  assert.equal(seen.report, 'ACCEPTED\n      16, 17\n');
 });
 
 // ── 4. The real harness: the client and a /mcp session ─────────────────────

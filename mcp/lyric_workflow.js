@@ -637,8 +637,11 @@ export function withSweepNext(task, name, result, carried) {
     return result;
   const w = workflowFor(task);
   if (!w || !w.sweeps.length) return result;
+  // A held run (an uncertified parked run, an unknown-outcome proposal) gets
+  // no NEXT; the harness's own "lyric_plan with seed N" line is removed too,
+  // since the surface refuses that plan.
   const line = formatNextCall(nextCreationCall(task, carried, 'lyric_plan'));
-  if (!line) return result;
+  const NEXT_LINE = new RegExp(`[ \\t]*${SWEEP_NEXT.source}\\n?`);
   let changed = false;
   const content = result.content.map((block) => {
     if (block?.type !== 'text') return block;
@@ -650,7 +653,8 @@ export function withSweepNext(task, name, result, carried) {
     }
     if (!v || typeof v.report !== 'string' || !SWEEP_NEXT.test(v.report)) return block;
     changed = true;
-    return { ...block, text: JSON.stringify({ ...v, report: v.report.replace(SWEEP_NEXT, line) }) };
+    const report = line ? v.report.replace(SWEEP_NEXT, line) : v.report.replace(NEXT_LINE, '');
+    return { ...block, text: JSON.stringify({ ...v, report }) };
   });
   return changed ? { ...result, content } : result;
 }
