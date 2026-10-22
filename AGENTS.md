@@ -84,8 +84,9 @@ pipeline plans and grades songs whose every line you write; no connector call re
 - **Recipe tools:** `start_recipe`, `edit_recipe`, `render_recipe`, `search_catalog`, `search_prefaces`, `get_instrument`, `get_tradition`, `list_traditions`, `list_options`.
 - **Lyric tools:** `lyric_sweep`, `lyric_screen`, `lyric_plan`, `lyric_grade`, `lyric_revise`, `lyric_recover`, `lyric_check`, `lyric_verify`, `lyric_types`.
   A new song: `begin_lyrics` → `lyric_sweep` → `lyric_screen` → `lyric_plan` → write the draft →
-  `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). Lyrics the user
-  pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
+  `lyric_grade` → `lyric_revise` (answer each question it asks until it stops). To set a length,
+  declare an exact `lines` count on the sweep and carry the sweep's declarations unchanged to the
+  plan. Lyrics the user pasted: `begin_lyrics {phase:"edit"}` → `lyric_recover` → `lyric_check` → `lyric_revise` without a seed.
 - **Session controls** (on `/mcp`): `begin_lyrics`, `get_operation`, `resume_operation`.
   A finished `lyric_grade` or `lyric_revise` read with `get_operation` is the song and a short
   verdict: status fields, `blocking` (what stands, and each line a requested obligation could not
@@ -133,7 +134,8 @@ pipeline plans and grades songs whose every line you write; no connector call re
 - Use `/mcp` for one shared connection. Consume initialization instructions and
   full tool descriptions/schemas. The shared `/mcp` endpoint exposes both families and
   cannot infer an external host's task. Use session IDs for saved recipe workspaces and background lyrics; caller-managed state remains supported. Recipes default to Rich with a 1,000-character
-  ceiling. A recipe request does not authorize lyric work.
+  ceiling. A recipe request does not authorize lyric work. On `/mcp` and `/mcp/chatgpt`, a
+  request to write a song is a lyric request.
 - Published tool schemas on every connector surface — the raw engine and the session endpoints
   alike — stay inside the shape a restricted function-calling client can represent: no
   `additionalProperties`, `propertyNames`, `anyOf`/`oneOf`/`allOf`, `$ref` or empty schema nodes,

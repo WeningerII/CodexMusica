@@ -116,19 +116,19 @@ function sessionGuide(domains, compatibility) {
     .join(', and ');
   const text = [
     recipe && lyrics
-      ? "Codex Musica serves recording recipes and lyrics on this one connection. Use the tools the user's request calls for: a recipe request does not start lyrics, and a combined request uses both. Keep each workflow's latest session_id separately."
+      ? "Codex Musica serves recording recipes and lyrics on this one connection. Use the tools the user's request calls for: a request to write a song is a lyric request, a recipe request does not start lyrics, and a combined request uses both. Keep each workflow's latest session_id separately."
       : `Codex Musica ${recipe ? 'recording recipes' : 'lyrics'}, with sessions kept by the server.`,
     `SESSIONS. ${opens} and return a session_id; pass the latest session_id to that workflow's next call. The server carries what the engine guidance below has a caller-managed client thread by hand — ${carried} — so never send those with a session_id.`,
-    "Every call that opens a session or takes a session_id, and get_operation, ends its content with a receipt (a JSON object) holding the next session_id. Every block before the receipt is the tool's own output with private state withheld (workspace, run state and ids are removed from its JSON, and a continue footnote is rewritten for the session); the deliverable text — song, plan, recipe string — is exact, and the first block is the deliverable the guidance below says to reproduce exactly.",
+    "Every call that opens a session or takes a session_id, and get_operation, ends its content with a receipt (a JSON object) holding the next session_id; an immediate refusal has none. Every block before the receipt is the tool's own output with private state withheld (workspace, run state and ids are removed from its JSON, and a continue footnote is rewritten for the session); the deliverable text — song, plan, recipe string — is exact, and the first block is the deliverable the guidance below says to reproduce exactly.",
     lyrics
       ? 'A finished lyric_grade or lyric_revise is published with a SHORT verdict: exit_code, meaning, certified, status and stop fields, `blocking` (what stands, one line each, and each line a requested obligation could not be judged on, with the words there that have more than one reading), a count of notes with `notes_by_code`, and `not_checked` (the coverage layers the request did not ask). Where the guidance below says to read findings, report, coverage, pronunciation_options or pronunciations, read them with get_operation and `detail` (optionally `lines`). A finished lyric_screen is published as one line per pair (the ban, the coarse relations, the schemas it stands in, the declared relation\'s answer) and the report\'s own counts; `detail` "pairs" returns every pair in full.'
       : null,
     recipe ? 'Recipe calls answer at once.' : null,
     lyrics
-      ? 'Lyric calls queue a background operation and return its operation_id (lyric_types, a lookup, answers at once and takes no session): poll get_operation until it is no longer pending, never submit to a session while its operation is pending, and continue from the session_id in the completed receipt.'
+      ? 'Lyric calls queue a background operation and return its operation_id (lyric_types, a lookup, answers at once and takes no session): poll get_operation until it is no longer pending, never submit to a session while its operation is pending, and continue from the session_id in the completed receipt, even when the tool refused; a refusal without one names its own next step.'
       : null,
     lyrics
-      ? "begin_lyrics phase 'create' is for a new song: the server enforces sweep → screen → plan → exact-draft grade → revise from receipts it records itself. Phase 'edit' is only for lyrics the user supplied; it skips those receipts, and this argument is the only thing that selects it."
+      ? "begin_lyrics phase 'create' is for a new song, in the order the server enforces: lyric_sweep, lyric_screen, lyric_plan, write every line, lyric_grade on that exact draft, lyric_revise. To set a length, declare an exact `lines` count on the sweep and carry the sweep's declarations unchanged to the plan. Phase 'edit' is only for lyrics the user supplied; it skips those receipts, and this argument is the only thing that selects it."
       : null,
     'An interrupted operation continues with resume_operation only when resumable is true. Every refusal names the call that works instead. Session and operation ids are private: keep them out of what you show the user.',
     compatibility
@@ -141,7 +141,7 @@ function sessionGuide(domains, compatibility) {
 function sessionParagraph(name, domain, shape, compatibility) {
   if (name === 'start_recipe')
     return (
-      "SESSION: opens a recipe session. The first content block is this tool's own output" +
+      "SESSION: opens a Codex Musica recipe session. The first content block is this tool's own output" +
       (compatibility
         ? ' — the recipe, its cards and the caller-managed `workspace` — with the new session_id added'
         : ', with private state withheld') +
@@ -221,6 +221,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
   const server = new McpServer(
     {
       name: domain ? `codex-musica-${domain}` : 'codex-musica',
+      title: 'Codex Musica',
       version: WORKFLOW_CONNECTOR_VERSION,
     },
     { instructions }
@@ -285,7 +286,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
       {
         title: 'Begin a lyric task',
         description:
-          "Open a private lyrics session and return its session_id. Phase 'create' (the default) is for a new song: the session enforces sweep → screen → plan → exact-draft grade → revise from receipts the server records. Phase 'edit' is only for lyrics the user supplied: it skips those receipts, so choose it only then — this argument is the only thing that selects it. The phase is fixed for the session. You write every line; the service plans and grades, and lyric_revise asks you each question it needs answered. No lyric call reaches a model provider or spends money.",
+          "Open a private Codex Musica lyrics session and return its session_id. Phase 'create' (the default) is for a new song: the session enforces sweep → screen → plan → exact-draft grade → revise from receipts the server records. Phase 'edit' is only for lyrics the user supplied: it skips those receipts, so choose it only then — this argument is the only thing that selects it. The phase is fixed for the session. You write every line; the service plans and grades, and lyric_revise asks you each question it needs answered. No lyric call reaches a model provider or spends money.",
         inputSchema: z.object({
           phase: z
             .enum(['create', 'edit'])
