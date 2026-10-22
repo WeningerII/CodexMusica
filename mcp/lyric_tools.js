@@ -1386,11 +1386,9 @@ function planArgs(a) {
 // the report prints is TRUNCATED AT 40 by the harness, so a field called
 // `accepted` parsed from it would be silently incomplete: the count and the
 // shown list are separate keys and the truncation is disclosed.
-function extractSweep(stdout) {
-  const c = stdout.match(
-    /swept (\d+)\s+planned (\d+)\s+REFUSED by the planner (\d+)\s+accepted (\d+)/
-  );
-  if (!c) return null;
+// The accepted-seed list the sweep report prints, read on its own so a
+// reworded count line never empties it.
+function extractAcceptedList(stdout) {
   const listed = stdout.match(/own bias\):\n\s*([0-9, ]*)/);
   const shown = listed?.[1]?.trim()
     ? listed[1]
@@ -1398,13 +1396,20 @@ function extractSweep(stdout) {
         .map((x) => Number(x.trim()))
         .filter((x) => Number.isSafeInteger(x) && x >= 0)
     : [];
+  return { accepted_shown: shown, accepted_truncated: /\.\.\. and \d+ more/.test(stdout) };
+}
+
+// Legacy only: the four counts a harness without the machine record prints.
+function extractSweepCounts(stdout) {
+  const c = stdout.match(
+    /swept (\d+)\s+planned (\d+)\s+REFUSED by the planner (\d+)\s+accepted (\d+)/
+  );
+  if (!c) return null;
   return {
     swept: Number(c[1]),
     planned: Number(c[2]),
     planner_refused: Number(c[3]),
     accepted_count: Number(c[4]),
-    accepted_shown: shown,
-    accepted_truncated: /\.\.\. and \d+ more/.test(stdout),
   };
 }
 
@@ -1421,13 +1426,12 @@ function sweepVerdict(v, r, { from, n }) {
       ? r.lyric_result.sweep
       : null;
   const recorded = sweep && SWEEP_COUNTS.every((key) => Number.isInteger(sweep[key]));
-  const prose = extractSweep(r.stdout || '');
-  if (recorded) {
-    for (const key of SWEEP_COUNTS) v[key] = sweep[key];
-    v.accepted_shown = prose?.accepted_shown ?? [];
-    v.accepted_truncated = prose?.accepted_truncated ?? false;
-  } else if (!sweep && prose) Object.assign(v, prose); // legacy: no machine record
-  if (recorded || (!sweep && prose)) {
+  const stdout = r.stdout || '';
+  const legacy = sweep ? null : extractSweepCounts(stdout); // no machine record
+  if (recorded) for (const key of SWEEP_COUNTS) v[key] = sweep[key];
+  else if (legacy) Object.assign(v, legacy);
+  if (recorded || legacy) {
+    Object.assign(v, extractAcceptedList(stdout));
     v.window = { seed_from: from, count: n, next_seed_from: from + n };
     // What emptied the window, as the planner and the predicates said.
     const reasons = Array.isArray(sweep?.planner_refusals) ? sweep.planner_refusals : [];

@@ -924,6 +924,27 @@ test('sweep counts come from the machine record, not report prose; prose only fo
   );
   assert.match(noProse.window_meaning, /held_by says how many/);
   assert.doesNotMatch(JSON.stringify(noProse), /undefined/);
+  // An accepted record whose count line was reworded still gets its seed list.
+  const reworded = sweepVerdict(
+    {},
+    {
+      code: 0,
+      stdout:
+        'counts: four swept, all planned\n' +
+        'accepted (each a draw the planner made on its own bias):\n  10, 12, 13 ... and 1 more\n',
+      lyric_result: record({
+        outcome: 'accepted',
+        swept: 4,
+        planned: 4,
+        planner_refused: 0,
+        accepted_count: 4,
+      }),
+    },
+    window
+  );
+  assert.deepEqual(reworded.accepted_shown, [10, 12, 13]);
+  assert.equal(reworded.accepted_truncated, true);
+  assert.match(reworded.meaning, /^answered — 4 of the 4 planned seed\(s\).*the first 40$/);
   // Prose that disagrees with the record never wins; it supplies the seed list.
   const disagree = sweepVerdict(
     {},
