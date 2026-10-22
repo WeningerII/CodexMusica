@@ -118,6 +118,44 @@ const norm = (key, value) =>
             : (value ?? null);
 const create = (task) => task?.domain === 'lyrics' && task.phase !== 'edit';
 const answered = (v) => v && Number.isInteger(v.exit_code) && [0, 3].includes(v.exit_code);
+// A screen or grade that ran but left no receipt is kept as an ATTEMPT beside
+// the receipts: what it exited with, and a flag for the one cause the refusal
+// texts can act on. Nothing that admits a call reads it; the report the call
+// returned says why. 'overflow' is the bridge's output-cap refusal, keyed on
+// its phrase (python_bridge.js); 'not_kept' is marked by the session layer
+// when the store refused a measured result as too large (workflow_sessions.js).
+const OVERFLOW = /printed more than this connector can carry/;
+const attemptOf = (verdict, extra = {}) => ({
+  ...extra,
+  exit_code: Number.isInteger(verdict.exit_code) ? verdict.exit_code : null,
+  ...(typeof verdict.measurement_status === 'string'
+    ? { measurement_status: verdict.measurement_status }
+    : {}),
+  cause: OVERFLOW.test(String(verdict.refusal || '')) ? 'overflow' : 'other',
+});
+const attemptFacts = (a) =>
+  [
+    a.exit_code != null ? `exit ${a.exit_code}` : null,
+    a.measurement_status ? `measurement_status ${a.measurement_status}` : null,
+  ]
+    .filter(Boolean)
+    .join(', ');
+const screenAttemptNote = (a) =>
+  ` lyric_screen ran in this session but did not answer${attemptFacts(a) ? ` (${attemptFacts(a)})` : ''}` +
+  (a.cause === 'overflow'
+    ? ': it printed more than this connector can carry, so screening the same request again returns the same result. A plan needs one lyric_screen that answers (exit 0 or 3): call lyric_screen again with a smaller request.'
+    : '; its report names why. A plan needs one lyric_screen that answers (exit 0 or 3): call lyric_screen again once that cause is fixed.');
+// Never a shorter draft of the same plan: the line-count gate refuses it.
+const gradeAttemptNote = (a, lines) => {
+  const facts = attemptFacts(a) ? ` (${attemptFacts(a)})` : '';
+  const fewer =
+    'plan fewer lines (lyric_sweep declaring `lines`, then lyric_plan on a seed it accepts) and grade a draft of that plan';
+  if (a.cause === 'not_kept')
+    return ` lyric_grade measured this exact draft${facts}, but its result was over the size this session can keep, so nothing it produced was kept and no grade receipt was written. Grading this same draft again returns the same result: ${fewer}. A different draft of this plan may be too large as well.`;
+  if (a.cause === 'overflow')
+    return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}: it printed more than this connector can carry. Grading this same draft again returns the same result: ${fewer}, or grade a different draft of this plan's ${lines} lines. Neither is known to be the only cure.`;
+  return ` lyric_grade ran on this exact draft but did not answer with a grade receipt${facts}; its report names why. Read that report for the cause, then call lyric_grade again on this draft once it is fixed.`;
+};
 // The handler validates the original envelope and forbids all execution fields.
 // A requested export must reach it unchanged, even when malformed, and never
 // counts as planning, repair or completed work.
@@ -292,7 +330,10 @@ export function creationRefusal(task, name, args, lyric = null) {
     return null;
   }
   if (!w.sweeps.length || !w.screen)
-    return 'CREATION_ORDER: execute a successful lyric_sweep and a successful lyric_screen before planning or writing a new song.';
+    return (
+      'CREATION_ORDER: execute a successful lyric_sweep and a successful lyric_screen before planning or writing a new song.' +
+      (w.sweeps.length && w.screen_attempt ? screenAttemptNote(w.screen_attempt) : '')
+    );
   if (name === 'lyric_plan') {
     return sweepFor(w, args)
       ? null
@@ -301,8 +342,9 @@ export function creationRefusal(task, name, args, lyric = null) {
   }
   if (!w.plan)
     return 'CREATION_PLAN: execute lyric_plan successfully before grading or revising a new song.';
-  if (UNPLANNED_FIELDS.some((k) => args[k] !== undefined))
-    return 'CREATION_PLAN: hand-authored mandate or placement fields cannot replace the canonical program plan.';
+  const handAuthored = UNPLANNED_FIELDS.filter((k) => args[k] !== undefined);
+  if (handAuthored.length)
+    return `CREATION_PLAN: hand-authored mandate or placement fields cannot replace the canonical program plan. This call sent ${handAuthored.join(', ')}, which the recorded plan supplies: send this same call again without ${handAuthored.length === 1 ? 'it' : 'them'}.`;
   const request = w.plan.request;
   for (const key of PLAN_FIELDS) {
     if (args[key] !== undefined && !same(norm(key, args[key]), norm(key, request[key])))
@@ -325,9 +367,13 @@ export function creationRefusal(task, name, args, lyric = null) {
     args.draft = draft;
   }
   if (!Array.isArray(args.draft) || !args.draft.length)
-    return 'CREATION_DRAFT: the exact complete draft is required.';
+    return (
+      'CREATION_DRAFT: the exact complete draft is required. Send this same call again with ' +
+      (name === 'lyric_revise' ? 'the exact draft lyric_grade graded' : 'the draft') +
+      ' as `draft` (one line per item) or `draft_text` (one newline-separated string).'
+    );
   if (args.draft.length !== w.plan.lines)
-    return 'CREATION_DRAFT: the draft line count differs from the canonical program plan.';
+    return `CREATION_DRAFT: the draft line count differs from the canonical program plan. The plan has ${w.plan.lines} lines and this draft has ${args.draft.length}: send this same call again with a draft of ${w.plan.lines} lines.`;
   if (name === 'lyric_grade') return null;
   const continuing =
     !args.new_run &&
@@ -340,7 +386,13 @@ export function creationRefusal(task, name, args, lyric = null) {
     w.grade.plan_sha256 !== w.plan.sha256 ||
     w.grade.draft_sha256 !== hash(args.draft)
   )
-    return 'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.';
+    return (
+      'CREATION_GRADE: lyric_grade must answer for this exact draft and canonical plan before revision starts.' +
+      (w.grade_attempt?.plan_sha256 === w.plan.sha256 &&
+      w.grade_attempt.draft_sha256 === hash(args.draft)
+        ? gradeAttemptNote(w.grade_attempt, w.plan.lines)
+        : '')
+    );
   for (const key of READING_FIELDS) {
     const graded = readingValue(key, w.grade.readings?.[key]);
     if (
@@ -388,12 +440,16 @@ export function recordCreation(task, name, args, verdict, isError = false) {
     // checked depends on which sweep window the seed came from.
     if (accepted.length)
       w.sweeps = [...w.sweeps, { args: structuredClone(args), accepted }].slice(-8);
-  } else if (name === 'lyric_screen' && answered(verdict) && w.sweeps.length) {
-    w.screen = { words: structuredClone(args.words || []), relation: args.relation ?? null };
+  } else if (name === 'lyric_screen' && w.sweeps.length) {
+    if (answered(verdict)) {
+      w.screen = { words: structuredClone(args.words || []), relation: args.relation ?? null };
+      delete w.screen_attempt;
+    } else w.screen_attempt = attemptOf(verdict);
   } else if (name === 'lyric_plan') {
     w.plan = null;
     w.grade = null;
     w.started = null;
+    delete w.grade_attempt;
     const p = verdict.plan;
     if (
       verdict.exit_code !== 0 ||
@@ -447,6 +503,13 @@ export function recordCreation(task, name, args, verdict, isError = false) {
           ...gradedLexicon(verdict),
         },
       };
+    // The attempt is not a receipt: nothing that admits a call reads it.
+    if (w.grade) delete w.grade_attempt;
+    else if (w.plan)
+      w.grade_attempt = attemptOf(verdict, {
+        plan_sha256: w.plan.sha256,
+        draft_sha256: hash(args.draft ?? null),
+      });
   } else if (name === 'lyric_revise' && w.plan && [0, 3, 4].includes(verdict.exit_code)) {
     w.started = { plan_sha256: w.plan.sha256 };
   }

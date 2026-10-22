@@ -797,3 +797,64 @@ test('real warm/cold CLI refuses invalid usage and truncated candidates with aut
     await rm(dir, { recursive: true, force: true });
   }
 });
+
+test('an overflow refusal names the verb, not a leading flag, and the cap that fired', async () => {
+  // Its own harness: the verb is the first argument that is not a flag, and
+  // the mode follows it, as a real call puts flags first.
+  const dir = await mkdtemp(path.join(tmpdir(), 'lyrics-bridge-overflow-'));
+  const harnessDir = path.join(dir, 'lyric-harness');
+  await mkdir(harnessDir);
+  await mkdir(path.join(dir, 'mcp'));
+  const workerPath = path.join(dir, 'mcp', 'worker.py');
+  await copyFile(path.join(here, 'worker.py'), workerPath);
+  await writeFile(
+    path.join(harnessDir, 'lyric_harness.py'),
+    `import sys, os
+
+def cli():
+    words = [a for a in sys.argv[1:] if not a.startswith('-')]
+    mode = words[1]
+    if mode == 'report':
+        for i in range(3000):
+            print('x' * 1000, flush=True)
+    elif mode == 'control':
+        sys.stdout.write('  lyric checkpoint: ' + 'y' * (19 * 1024 * 1024) + '\\n')
+        sys.stdout.flush()
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(cli())
+`
+  );
+  const bridge = createPythonBridge({
+    python: 'python3',
+    harnessDir,
+    workerPath,
+    harnessEnv: () => ({ ...process.env, PYTHONDONTWRITEBYTECODE: '1', PYTHONPATH: here }),
+    timeoutMs: 100000,
+    maxOutputBytes: 1024 * 1024,
+    workerEnabled: true,
+  });
+  try {
+    for (const run of [bridge.runVerb, bridge.internals.runCold]) {
+      const report = await run(['--lexicon-supplement=v2', 'song', 'report']);
+      assert.equal(report.code, 2, report.stdout + report.stderr);
+      assert.match(
+        report.stdout,
+        /REFUSED — song printed more than this connector can carry: its report ran past the 1 MiB output cap\./
+      );
+      assert.doesNotMatch(report.stdout, /--lexicon-supplement/);
+    }
+    // An 18 MiB record is slow to stream, so the control cap runs once, on
+    // the warm path a call takes by default.
+    const control = await bridge.runVerb(['--lexicon-supplement=v2', 'song', 'control']);
+    assert.equal(control.code, 2, control.stdout + control.stderr);
+    assert.match(
+      control.stdout,
+      /REFUSED — song printed more than this connector can carry: a machine record ran past the 18 MiB control-record cap\./
+    );
+  } finally {
+    await bridge.internals.kill();
+    await rm(dir, { recursive: true, force: true });
+  }
+});

@@ -1086,7 +1086,10 @@ function uncertifiedRunNote() {
     'The lyric_revise run is UNCERTIFIED at exit 2 (no question pending). ' +
     'Preserve its accepted draft and inspect the returned coverage and lyric_grade pronunciation options. ' +
     "Copy each pronunciation option's numbering marker unchanged with its token; never stamp unmarked held choices. Resolve only readings you can establish explicitly; do not guess pronunciations or rewrite nonexistent open lines. " +
-    'Start independent work with the retained draft and the resolved declarations in a new lyrics task. ' +
+    // A parked run is never set aside behind the person's back (the Lyrics
+    // page's Writer tab); only an explicit new_run starts independent work.
+    'Do not start new work on your own. The person can choose Start independent work on the Writer tab, which keeps this run under History. ' +
+    'Only if they ask you to continue here, grade the retained draft with lyric_grade under the resolved declarations, then call lyric_revise with that exact draft and `new_run: true`. ' +
     'This result is not a certified song.'
   );
 }

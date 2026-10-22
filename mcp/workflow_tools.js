@@ -305,7 +305,7 @@ export async function buildWorkflowServer({ domain = null, sessions, compatibili
         // refused now, exactly as the lyric_ tools are (tools.js).
         if (process.env.LYRIC_RELEASE_ASSETS_REQUIRED === '1' && !runtimeAssets().ok)
           throw new Error(
-            'LYRIC_ASSETS_UNAVAILABLE: the installed grading assets failed the release check.'
+            'LYRIC_ASSETS_UNAVAILABLE: the installed grading assets failed the release check. The server cannot run lyric tools until it is repaired; nothing was started and no session was opened. Retry this same call later.'
           );
         return response(sessions.open('lyrics', args));
       }

@@ -101,7 +101,10 @@ function capture(maxBytes, context = {}, controlToken) {
           ? RESULT
           : USAGE;
       if (Buffer.byteLength(text) > CONTROL_CAP)
-        throw interrupted('harness control record exceeds cap', { overflowed: true });
+        throw interrupted('harness control record exceeds cap', {
+          overflowed: true,
+          cap: 'control',
+        });
       let record;
       try {
         record = JSON.parse(text.slice(prefix.length));
@@ -155,7 +158,14 @@ function capture(maxBytes, context = {}, controlToken) {
         (pending[stream].startsWith(CHECKPOINT) ||
           pending[stream].startsWith(USAGE) ||
           pending[stream].startsWith(RESULT));
-      if (Buffer.byteLength(pending[stream]) > (control ? CONTROL_CAP : maxBytes))
+      // A control-prefixed line still arriving is a machine record, and it is
+      // refused as one: the same message, and the same cap named, as a whole one.
+      if (control && Buffer.byteLength(pending[stream]) > CONTROL_CAP)
+        throw interrupted('harness control record exceeds cap', {
+          overflowed: true,
+          cap: 'control',
+        });
+      if (!control && Buffer.byteLength(pending[stream]) > maxBytes)
         throw interrupted('harness output exceeds its record cap', { overflowed: true });
     },
     finish() {
@@ -667,7 +677,14 @@ export function createPythonBridge({
     if (error.overflowed) {
       result.code = 2;
       // Only control records survive: no prefix of a truncated grade is an answer.
-      result.stdout = `  REFUSED — ${args[0]} printed more than this connector can carry: its report ran past the ${(maxOutputBytes / 1048576).toFixed(0)} MiB output cap. The latest checkpoint and usage record remain available.\n`;
+      // The verb is the first argument that is not a flag, and the cap is the
+      // one that fired: a machine (control) record's, or the report's.
+      const verb = args.find((arg) => !String(arg).startsWith('-')) ?? 'the harness';
+      const cap =
+        error.cap === 'control'
+          ? `a machine record ran past the ${(CONTROL_CAP / 1048576).toFixed(0)} MiB control-record cap`
+          : `its report ran past the ${(maxOutputBytes / 1048576).toFixed(0)} MiB output cap`;
+      result.stdout = `  REFUSED — ${verb} printed more than this connector can carry: ${cap}. The latest checkpoint and usage record remain available.\n`;
     }
     return result;
   };
