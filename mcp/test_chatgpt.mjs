@@ -9,6 +9,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, SESSION_STORE_LIMITS, publicToolResult } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
+import { buildServer } from './tools.js';
 import { startRecipe, editRecipe, renderRecipe } from './engine.js';
 import { requestContext } from './execution_context.js';
 import { continuationSemanticIdentity, decodeState } from './state_codec.js';
@@ -737,6 +738,81 @@ test('one connection exposes both workflows, preserving independent sessions acr
   );
 });
 
+// A host shows the first 4,096 characters of the session guide and truncates the rest, so
+// what a new song needs has to sit whole inside them (P5, Don 6343884435; Jony 6347183132).
+// Each fix pins its own phrases, so one can ship without the other.
+const GUIDE_WINDOW = 4096;
+async function guideOf(t, build) {
+  const server = await build();
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'guide-window-test', version: '1' }, { capabilities: {} });
+  await server.connect(a);
+  await client.connect(b);
+  t.after(async () => {
+    await client.close();
+    await server.close();
+  });
+  return { text: client.getInstructions() ?? '', info: client.getServerVersion() };
+}
+const assertInWindow = (text, phrase, where) => {
+  const at = text.indexOf(phrase);
+  assert.ok(at >= 0, `${where}: missing ${JSON.stringify(phrase)}`);
+  assert.ok(
+    at + phrase.length <= GUIDE_WINDOW,
+    `${where}: ${JSON.stringify(phrase)} ends at ${at + phrase.length}, past ${GUIDE_WINDOW}`
+  );
+};
+const sessionSurfaces = (sessions) => ({
+  '/mcp': () => buildWorkflowServer({ sessions, compatibility: true }),
+  '/mcp/chatgpt': () => buildWorkflowServer({ sessions }),
+  '/mcp/chatgpt/lyrics': () => buildWorkflowServer({ domain: 'lyrics', sessions }),
+});
+
+test("F4: a new song's order, its length and how to continue sit inside the guide window", async (t) => {
+  const sessions = new WorkflowSessions({ store: new JobStore() });
+  for (const [where, build] of Object.entries(sessionSurfaces(sessions))) {
+    const { text } = await guideOf(t, build);
+    for (const phrase of [
+      "begin_lyrics phase 'create' is for a new song",
+      'lyric_sweep, lyric_screen, lyric_plan, write every line, lyric_grade on that exact draft, lyric_revise',
+      "To set a length, declare an exact `lines` count on the sweep and carry the sweep's declarations unchanged to the plan.",
+      'continue from the session_id in the completed receipt, even when the tool refused; a refusal without one names its own next step.',
+      'holding the next session_id; an immediate refusal has none.',
+    ])
+      assertInWindow(text, phrase, where);
+    // ...without pushing the recipe rule out where both families are served.
+    if (where !== '/mcp/chatgpt/lyrics')
+      assertInWindow(text, 'follow with edit_recipe before presenting', where);
+  }
+});
+
+test('F3: on the session connector, a request to write a song is a lyric request', async (t) => {
+  const sessions = new WorkflowSessions({ store: new JobStore() });
+  const surfaces = sessionSurfaces(sessions);
+  for (const where of ['/mcp', '/mcp/chatgpt']) {
+    const { text } = await guideOf(t, surfaces[where]);
+    assertInWindow(
+      text,
+      "Use the tools the user's request calls for: a request to write a song is a lyric request, a recipe request does not start lyrics, and a combined request uses both.",
+      where
+    );
+    assertInWindow(text, 'follow with edit_recipe before presenting', where);
+  }
+  // Nowhere else: a later ruling for these surfaces has to change this test on purpose.
+  const elsewhere = {
+    '/mcp/chatgpt/lyrics': surfaces['/mcp/chatgpt/lyrics'],
+    '/mcp/chatgpt/recipe': () => buildWorkflowServer({ domain: 'recipe', sessions }),
+    '/mcp/lyrics (raw)': () =>
+      buildServer({ task: { domain: 'lyrics', format: 'rich', maxChars: 1000 } }),
+    '/mcp/recipe (raw)': () =>
+      buildServer({ task: { domain: 'recipe', format: 'rich', maxChars: 1000 } }),
+    'stdio (untasked)': () => buildServer({}),
+    'website kitchen': () => buildServer({ kitchen: true }),
+  };
+  for (const [where, build] of Object.entries(elsewhere))
+    assert.doesNotMatch((await guideOf(t, build)).text, /write a song/i, where);
+});
+
 test('shared surface preserves raw consumers and carries text-only session capabilities', async (t) => {
   const { store } = storeFor(t);
   const sessions = new WorkflowSessions({ store });
@@ -1138,4 +1214,18 @@ test('each surface describes its own session mechanics, and only where they appl
     find(shared, 'lyric_revise').inputSchema.properties.recover_only.description,
     /^With session_id: [^]* Without session_id: true exports/
   );
+  // F6 (Don 6345028074 section 3): the product name sits in the two entry tools' text and in
+  // the session server's display title, and NOT in the raw server's identity, where even a
+  // title makes the maintained client refuse to connect (client.js, surface_contract.js).
+  for (const tools of [alias, shared]) {
+    assert.match(find(tools, 'begin_lyrics').description, /^Open a private Codex Musica lyrics/);
+    assert.match(find(tools, 'start_recipe').description, /SESSION: opens a Codex Musica recipe/);
+  }
+  for (const build of [
+    ...Object.values(sessionSurfaces(sessions)),
+    () => buildWorkflowServer({ domain: 'recipe', sessions }),
+  ])
+    assert.equal((await guideOf(t, build)).info.title, 'Codex Musica');
+  for (const build of [() => buildServer({}), () => buildServer({ task: { domain: 'lyrics' } })])
+    assert.equal((await guideOf(t, build)).info.title, undefined);
 });

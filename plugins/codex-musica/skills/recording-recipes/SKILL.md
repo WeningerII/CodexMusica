@@ -17,6 +17,6 @@ Use `get_operation` to recover a result after a lost response. Repeating an edit
 
 If an operation was interrupted, call `resume_operation` only when `get_operation` reports `resumable: true`. It restores the exact workspace and repeats the recorded deterministic edit. Changed engine semantics or unavailable storage can prevent continuation.
 
-A recipe is a text description for recording or audio generation. It does not establish a rendered recording or measured acoustic result. A recipe request does not start lyric work.
+A recipe is a text description for recording or audio generation. It does not establish a rendered recording or measured acoustic result. A recipe request does not start lyric work, and a request to write a song is a lyric request, not a recipe request.
 
 The same connection exposes recipes and lyrics. For a combined user request, use both tool families and keep their latest session IDs separately.

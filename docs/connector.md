@@ -93,7 +93,12 @@ Beside the recipes — and never touching them — the `lyric_*` family plans an
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
 On `/mcp` the server keeps each workflow in a session, and the lyric calls run as background
-operations: poll `get_operation`, and continue from the `session_id` in each completed receipt.
+operations: poll `get_operation`, and continue from the `session_id` in each completed receipt,
+even when the tool refused; a refusal with no receipt names its own next step. A new song runs in
+the order the server enforces: `lyric_sweep`, `lyric_screen`, `lyric_plan`, write every line,
+`lyric_grade` on that exact draft, `lyric_revise`. To set a length, declare an exact `lines` count
+on the sweep and carry the sweep's declarations unchanged to the plan. On `/mcp` and
+`/mcp/chatgpt` a request to write a song is a lyric request.
 
 | Session control | What it does |
 |---|---|
