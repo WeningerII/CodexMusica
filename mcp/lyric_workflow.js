@@ -175,18 +175,34 @@ export function workflowFor(task) {
   return task.workflow;
 }
 
+// The coordinates a plan must repeat from the sweep that accepted its seed.
+export const SWEEP_COORDINATES = ['form', 'lines', 'functions', 'melody'];
+// The `wants` a creation session requires a plan to carry for a sweep: today,
+// that sweep's `want` list. The one place the rule is read, by the gate and
+// by the call it names (nextCreationCall).
+const sweepWants = (sweep) => list(sweep.args.want);
+
 function sweepFor(w, args) {
   return [...w.sweeps]
     .reverse()
     .find(
       (s) =>
         s.accepted.includes(args.seed) &&
-        ['form', 'lines', 'functions', 'melody'].every((k) =>
-          same(norm(k, args[k]), norm(k, s.args[k]))
-        ) &&
-        same(list(args.wants), list(s.args.want))
+        SWEEP_COORDINATES.every((k) => same(norm(k, args[k]), norm(k, s.args[k]))) &&
+        same(list(args.wants), sweepWants(s))
     );
 }
+
+// A recorded plan declaration in the argument form the tools take, as the
+// gate writes it back when a call leaves the declaration out.
+const planArgument = (key, value) =>
+  key === 'functions' && Array.isArray(value)
+    ? value.join(',')
+    : key === 'narrative'
+      ? narrativeArgument(value)
+      : key === 'melody'
+        ? JSON.stringify(value)
+        : structuredClone(value);
 
 // Called after host-carried continuation fields are restored and before any
 // tool dispatch. Returned refusals consume no tool/provider operation.
@@ -230,14 +246,7 @@ export function creationRefusal(task, name, args, lyric = null) {
       request[key] !== ''
     ) {
       // Restore the host's actual plan coordinates, not a model's recollection.
-      args[key] =
-        key === 'functions' && Array.isArray(request[key])
-          ? request[key].join(',')
-          : key === 'narrative'
-            ? narrativeArgument(request[key])
-            : key === 'melody'
-              ? JSON.stringify(request[key])
-              : structuredClone(request[key]);
+      args[key] = planArgument(key, request[key]);
     }
   }
   if (Array.isArray(args.draft)) args.draft = normalizeDraftLines(args.draft);
@@ -376,4 +385,127 @@ export function creationQualified(task) {
     w.grade.plan_sha256 === w.plan.sha256 &&
     w.started.plan_sha256 === w.plan.sha256
   );
+}
+
+// THE NEXT CALL THE GATE ADMITS (P2 F1). Read from what creationRefusal reads:
+// the receipts, the carried run (the client's continuation, or /chat's carried
+// record) and the tool the caller was trying to reach. It names a tool and
+// the arguments the receipts fix, never a draft, title, narrative or melody
+// text, and leaves the other plan declarations for the gate to restore.
+// -> null outside a create session, and for a carried record /chat will not
+// continue in this task (an uncertified parked run, an unknown-outcome
+// proposal), whose way on is the person's choice.
+function carriedMove(carried) {
+  if (!carried || typeof carried !== 'object') return null;
+  const parked = carried.parked === true && typeof carried.state !== 'string';
+  if (carried.uncertain_proposal || (parked && carried.uncertified)) return 'hold';
+  if (parked) return 'rewrite';
+  const run = carried.args && typeof carried.args === 'object' ? carried.args : carried;
+  return carried.resumable || (typeof run.state !== 'string' && run.checkpoint != null)
+    ? 'resume'
+    : 'answer';
+}
+
+export function nextCreationCall(task, carried, name) {
+  const w = workflowFor(task);
+  if (!w) return null;
+  const move = carriedMove(carried);
+  if (move === 'hold') return null;
+  if (!w.sweeps.length) return { tool: 'lyric_sweep', args: {} };
+  if (!w.screen || !w.plan || name === 'lyric_plan') {
+    const s = w.sweeps[w.sweeps.length - 1];
+    const args = { seed: s.accepted[0] };
+    if (s.args.form) args.form = planArgument('form', s.args.form);
+    if (s.args.lines != null) args.lines = planArgument('lines', s.args.lines);
+    if (list(s.args.functions).length) args.functions = planArgument('functions', s.args.functions);
+    if (sweepWants(s).length) args.wants = sweepWants(s);
+    return {
+      ...(w.screen ? {} : { first: 'lyric_screen' }),
+      tool: 'lyric_plan',
+      args,
+      melody: s.args.melody !== undefined && s.args.melody !== null,
+    };
+  }
+  const seed = w.plan.request.seed;
+  const lines = w.plan.lines;
+  if (
+    move &&
+    w.started?.plan_sha256 === w.plan.sha256 &&
+    (carried.seed === seed || carried.decl?.seed === seed)
+  )
+    return { tool: 'lyric_revise', args: { seed }, continues: move, lines };
+  if (w.grade?.plan_sha256 === w.plan.sha256 && name !== 'lyric_grade')
+    return {
+      tool: 'lyric_revise',
+      args: { seed, ...(move ? { new_run: true } : {}) },
+      draft: 'graded',
+      lines,
+    };
+  return { tool: 'lyric_grade', args: { seed }, draft: 'complete', lines };
+}
+
+const argumentText = (v) => (typeof v === 'number' ? String(v) : JSON.stringify(v));
+// -> the call as one line starting "NEXT: ", or null.
+export function formatNextCall(next) {
+  if (!next) return null;
+  const { tool, args } = next;
+  if (tool === 'lyric_sweep')
+    return 'NEXT: lyric_sweep, declaring the form, lines, functions, melody and want you mean to plan with.';
+  if (tool === 'lyric_plan') {
+    const parts = Object.entries(args).map(([k, v]) => `${k} ${argumentText(v)}`);
+    if (next.melody) parts.push("melody: the sweep's melody unchanged");
+    const plan = `lyric_plan with ${parts.join(', ')}.`;
+    return next.first
+      ? `NEXT: lyric_screen with the end-word pairs you mean to write, then ${plan}`
+      : `NEXT: ${plan}`;
+  }
+  if (tool === 'lyric_grade')
+    return `NEXT: lyric_grade with seed ${args.seed} and the complete ${next.lines}-line draft.`;
+  if (next.continues === 'answer')
+    return `NEXT: lyric_revise with seed ${args.seed} and \`answer\` to the run's pending question; the recorded run supplies its draft and declarations.`;
+  if (next.continues === 'resume')
+    return `NEXT: lyric_revise with seed ${args.seed} to resume the interrupted run; the recorded run supplies its draft and declarations.`;
+  if (next.continues === 'rewrite')
+    return `NEXT: lyric_revise with seed ${args.seed} and the complete rewritten ${next.lines}-line draft as draft_text.`;
+  return (
+    `NEXT: lyric_revise with seed ${args.seed}${args.new_run ? ', new_run: true' : ''} and the exact ${next.lines}-line draft lyric_grade graded. ` +
+    'To change a line, grade the changed draft first.'
+  );
+}
+
+// A CREATION_* text keeps its code and words first; the derived NEXT follows
+// after a space. Any other text, and every text outside a create session,
+// passes through unchanged.
+export function withNextCall(text, task, carried, name) {
+  if (typeof text !== 'string' || !text.startsWith('CREATION_')) return text;
+  const line = formatNextCall(nextCreationCall(task, carried, name));
+  return line ? `${text} ${line}` : text;
+}
+
+// A create session's successful lyric_sweep: the report's "NEXT: lyric_plan
+// with seed N" line (written by the harness, published by lyric_tools.js)
+// becomes the call the gate admits, worked out after this sweep's receipt is
+// recorded. Every other result passes through unchanged.
+const SWEEP_NEXT = /NEXT: lyric_plan with seed -?\d+[^\n]*/;
+export function withSweepNext(task, name, result, carried) {
+  if (name !== 'lyric_sweep' || !result || result.isError || !Array.isArray(result.content))
+    return result;
+  const w = workflowFor(task);
+  if (!w || !w.sweeps.length) return result;
+  const line = formatNextCall(nextCreationCall(task, carried, 'lyric_plan'));
+  if (!line) return result;
+  let changed = false;
+  const content = result.content.map((block) => {
+    if (block?.type !== 'text') return block;
+    let v;
+    try {
+      v = JSON.parse(block.text);
+    } catch {
+      return block;
+    }
+    if (!v || typeof v.report !== 'string' || !SWEEP_NEXT.test(v.report)) return block;
+    changed = true;
+    return { ...block, text: JSON.stringify({ ...v, report: v.report.replace(SWEEP_NEXT, line) }) };
+  });
+  return changed ? { ...result, content } : result;
 }

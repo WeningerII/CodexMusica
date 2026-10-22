@@ -18,6 +18,8 @@ import {
   recordCreation,
   creationQualified,
   isRecoveryOnly,
+  withNextCall,
+  withSweepNext,
 } from './lyric_workflow.js';
 import { decodeState } from './state_codec.js';
 import { requestContext } from './execution_context.js';
@@ -2172,7 +2174,12 @@ export async function runTurn({
         }
         const creationError = creationRefusal(task, fc.name, args, lyr);
         if (creationError) {
-          result = { isError: true, content: [{ type: 'text', text: creationError }] };
+          // The model reads the next call the gate admits (P2 F1); the calls
+          // row keeps the gate's own text, which the battery groups by.
+          result = {
+            isError: true,
+            content: [{ type: 'text', text: withNextCall(creationError, task, lyr, fc.name) }],
+          };
           calls.push({
             name: fc.name,
             args,
@@ -2286,6 +2293,7 @@ export async function runTurn({
             }
           }
           recordCreation(task, fc.name, args, lyricVerdict, isError);
+          result = withSweepNext(task, fc.name, result, lyr);
           if (task?.domain === 'lyrics' && task.phase === 'create' && fc.name === 'lyric_plan') {
             artifact = null;
             task.artifact = null;
