@@ -7790,6 +7790,11 @@ try {
     // below states the length, and the lines are written for that plan.
     // REPINNED 2026-10-04: the plan ties rhymes only at line ends now
     // (1,2,3;4,5;6,7), so L3 ends ~~'cheap cologne'~~ 'afternoon'.
+    // RE-MEASURED 2026-10-21: under the owner's equal-weight beat draw seed
+    // 176 at 12 lines keeps its sections, returns (6,8;7,9) and hook (L6)
+    // and re-deals its meter (~~9/1~~ 2/4) and the intro's scheme, so the
+    // ends tie ~~1,2,3~~ 1,3;4,5;6,7. The draft is unchanged and still
+    // grades clean.
     const qualifiedDraft = [
       'Buttons gleam where wheat was sown by a balloon',
       "Bone cold, my mother's herbs came up in June",
@@ -8066,6 +8071,11 @@ try {
     // judged instead of refused. MEASURED at the connector's own budget
     // (attempts 1, backtrack 1): group [1,5,6,7,8,13], then L1, then the batch
     // [2,14,15,17,19,21,23] on continuation 2 (133050 state bytes).
+    // ~~That walk~~ is NOT re-measured here since 2026-10-21: the owner's
+    // equal-weight beat draw re-deals seed 1 at 24 lines, and
+    // test_run_continuation.mjs measures its door opening on continuation 0
+    // at the harness's prefetch. Nothing below pins the walk before the door,
+    // so the claim measured here is unchanged.
     // The walk below answers every question with the
     // draft's own unchanged line(s) — exactly as test_run_continuation.mjs
     // does, so no accepted edit can close an obligation — until the first
@@ -8151,7 +8161,14 @@ try {
     passed++;
     const revisionSeed = 176;
     const revisionDraft = [...qualifiedDraft];
-    revisionDraft[0] = 'Bone buttons gleam beneath the rain in June';
+    // THE DEFECT IS L1 ENDING ON ITS GROUP PARTNER'S OWN WORD: a word rhymed
+    // with itself (REPEAT_IN_VERSE) in a group that requires class:RHYME
+    // (SCHEME_VIOLATION), so a fresh run suspends on L1 and a zero-attempt
+    // run stops at exit 3. ~~'Bone buttons gleam beneath the rain in June'~~
+    // ended on L2's 'June' while L2 shared L1's group; RE-MEASURED
+    // 2026-10-21, L1's partner is L3 now (1,3 above) and 'June' finishes
+    // clean, so L1 ends on L3's 'afternoon' instead, the same defect.
+    revisionDraft[0] = 'Bone buttons gleam beneath the rain all afternoon';
     const withRevision = (extra) => ({
       seed: revisionSeed,
       lines: 12,

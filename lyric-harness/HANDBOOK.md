@@ -85,10 +85,14 @@ stale.
    Read the first row and (A)'s contribution comes into focus: it fixed how
    the length was SPELLED and could not fix the length, because the quantity
    it drew uniformly was still the wrong one. The pair marginal is now a
-   REALISABILITY share, predicted from `meter_factorisations` alone and held
+   REALISABILITY share, predicted from `meter_factorisations` ~~alone~~
+   **and the beat weights (since 2026-10-21)** and held
    to four sigma — deliberately not flat, because a beat count one
    factorisation can make must not be rarer than one fifteen can), each
-   uniform over its own set, never uniform over
+   uniform over its own set **except beats per line, which since 2026-10-21
+   is drawn under the owner's EQUAL-WEIGHT default instead — P(k)
+   proportional to ln((k+1)/k), equal mass per doubling of beats per line
+   (`plan.beats_weights`, `MISSING.md` M-81)**, never uniform over
    the enumerated leaves (which weight a cycle by how many groupings it
    admits and hand nearly every plan the maximal beat count — the first
    smoke run's own finding. **§4's LAST TWO THRESHOLDS WENT WITH (B)**: the

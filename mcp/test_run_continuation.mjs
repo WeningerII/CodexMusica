@@ -202,7 +202,14 @@ try {
   // attempts 0, 1 and 2 -- and the door opens on continuation 4 with the
   // other ten, all admitted (125291 state bytes on main; ~~125291~~ 304438
   // with PR #479's revise-loop redesign, same walk, measured 2026-10-08).
-  const originalIndependent = [2, 3, 4, 5, 14, 15, 17, 19, 21, 23];
+  // ~~[2, 3, 4, 5, 14, 15, 17, 19, 21, 23]~~ REPINNED 2026-10-21 (measured at
+  // the harness's prefetch, and again with the journal ceiling lifted, which
+  // admits the same set): the beat count is drawn under the owner's
+  // equal-weight default (`plan.beats_weights`), so seed 1 at 24 lines
+  // re-deals its meter and line ends, L1 is no longer asked as a pivot
+  // before the door, and the door opens on continuation 0 with thirteen
+  // independent briefs, all admitted (283059 state bytes).
+  const originalIndependent = [1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -297,7 +304,9 @@ try {
   // ~~[2, 14, 15, 17, 19, 21, 23]~~ -> all eleven (2026-10-04; measured).
   // ~~all eleven~~ -> the ten after L1 (2026-10-07, bound-word rule;
   // measured): L1 is asked as a pivot before the door, as on 2026-10-01.
-  assert.deepEqual(firstSubset, [2, 3, 4, 5, 14, 15, 17, 19, 21, 23]);
+  // ~~the ten after L1~~ -> all thirteen, L1 among them (2026-10-21,
+  // equal-weight beat draw; measured): no pivot precedes the door.
+  assert.deepEqual(firstSubset, [1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)

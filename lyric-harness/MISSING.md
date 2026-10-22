@@ -12254,6 +12254,65 @@ shell whose working directory had moved. An untracked `MISSING.md` two
 directories up reads exactly like a recorded supersession to everything
 except the instrument that looks.
 
+**AMENDED 2026-10-22 — (A)'s UNIFORM BEAT COUNT IS REPLACED BY THE OWNER'S
+EQUAL-WEIGHT DEFAULT, FOR BEATS PER LINE ONLY.** (A) made `_sample_meter`
+draw the declared coordinate uniformly, and after (B) that coordinate is beats
+per line. Since the 2026-09-28 ruling removed the density band the beats
+envelope is 2..200 (`MAX_LINE_CHARS`), so the uniform draw put the median
+default line at **101 beats** and **68.3%** of lines past 64. The owner's
+ruling, relayed by Jony on #519 (6325464833, 2026-10-21): _"go on the
+denominator change, use the equal-weight default, after you verify with the
+team."_ Verified by 3PO (6325563066), R2 (6325674595) and BB8 (6325811786);
+Jony made it final in 6328230321, recording that it replaces the owner's own
+_"do A"_ for beats per line.
+
+**WHAT CHANGED.** `plan.beats_weights()` is P(k) proportional to
+ln((k+1)/k) over `beats_values()`, normalised by the sum of those weights
+(ln(201/2) while all of 2..200 is realisable), and `_sample_meter` picks the
+beat count with one `rng.random()` against their running sums, so a seed
+still fixes the draw. Every complete doubling of beats per line carries the same
+mass (3PO's precision: the truncated last interval, 128..200, carries less),
+and every count keeps a nonzero weight: predicted median **20**, **46.4%** of
+draws at 2–16 beats, **24.5%** at 65–200. Nothing else in the derivation
+moved: the factorisation and the grouping stay uniform, a declared `melody`
+still replaces the draw, `beats_per_line` wants still filter by whole-candidate
+rejection, and the total-lines default is untouched (out of scope, still open
+with the owner). It ships with the denominator draw (`_sample_unit`), which
+stays the last draw on the plan's rng, so every seed re-deals once.
+`test_plan.py` §4 holds the draw to predictions computed from the weights —
+each count, the mean, every complete doubling, the 2–16 and 65–200 shares and
+the median, at four standard errors — and asks it as a two-hypothesis test
+against the struck uniform measure.
+
+**MEASURED over 20,000 default seeds (seeds 0..19999), of which 19,428 plan;
+these figures are every meter draw, the 572 refused included** (~~20,000
+default plans~~, Jony 2026-10-22: 572 of them are not plans): median **19** (the predicted 20 sits on a step of the CDF: 49.95%
+of the mass is at 19 or below), **46.80%** at 2–16 beats against 46.42%
+predicted, **24.75%** at 65–200 against 24.49%, mean 43.00 against 42.67, all
+**199** realisable counts seen, and each complete doubling between 14.4% and
+15.2% against 15.0%. `_sample_unit` is still the last draw: 0 rng calls follow
+it on the 19,428 seeds that planned.
+
+**WHAT A WRITER RECEIVES — THE 19,428 PLANNED SEEDS ALONE** (the refused 572
+removed, every one at 2 beats). Empirical: median **20** (50.03% of plans at 20
+or below, 48.88% at 19 or below), **45.24%** at 2–16 beats, **25.48%** at
+65–200. Predicted from the weights with that refusal mass taken out of k=2:
+median **21** (G(20) = 49.56%, G(21) = 50.60%; 3PO), 44.84% at 2–16 (BB8's
+44.8%), 25.21% at 65–200. At 20 beats the empirical CDF (50.03%) and the
+predicted one (49.56%) differ by 0.47 points, about 1.3 standard errors (0.36
+points at the midpoint over 19,428 plans), so the median lands on 20 or 21 by
+sampling alone and the claim either supports is "about 20".
+
+**AND ONE COST, STATED RATHER THAN ABSORBED.** A two-beat line is now 8.8% of
+draws (0.5% uniform), and a two-beat line at subdivision 1 can leave a line
+one slot holding a rhyme binding, which the joint gate refuses
+(`NO_FREE_WORD`). **21 of the first 1,000 default seeds refuse, against 0 of
+1,000 before, and 572 of 20,000 (2.9%)**, every one a two-beat draw (all 21 of
+the first thousand one bar at subdivision 1). The gate
+is unchanged and refusing a seed is its design (_"refusing here costs a
+seed"_); whether the new rate needs anything is the team's question and is
+not settled here.
+
 **M-75 CLOSED THE SAME DAY — THE WEIGHT, NOT THE THRESHOLD.**
 **The owner's ruling: _"do 101, derived envelope not rate-matching."_** The
 sizing above ends by saying the remedy is a calibration sitting: register a

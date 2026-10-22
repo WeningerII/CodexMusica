@@ -35,8 +35,11 @@ GENERATOR over a space the enforcement layers already grade:
   is a subdivision unit, so it called a twelve-beat line and a forty-eight-
   beat line the same thing and let one lyric line be set across two dozen
   bars.
-  THE MEASURE IS BY DERIVATION, NOT BY LEAF — beats per line uniform over
-  what the envelope realises, the (bars, subdivision) factorisation uniform
+  THE MEASURE IS BY DERIVATION, NOT BY LEAF — beats per line ~~uniform over
+  what the envelope realises~~ under the EQUAL-WEIGHT default over what the
+  envelope realises (`beats_weights`, owner ruling 2026-10-21: P(k)
+  proportional to ln((k+1)/k), the same mass for every doubling of beats
+  per line), the (bars, subdivision) factorisation uniform
   over the ways to make it, the grouping exact-uniform over the resulting
   beat count's compositions. This module's own first smoke run (2026-08-18) convicted
   the leaf measure: compositions of n into {2,3} grow ~1.3247^n, so
@@ -140,6 +143,7 @@ Run:  python3 lyric_harness.py plan --seed=N [--form=verse-chorus]
 Test: python3 quality/test_plan.py
 """
 
+from bisect import bisect_right
 from copy import deepcopy
 import os
 import json
@@ -148,6 +152,7 @@ import math
 import random
 from fractions import Fraction
 from functools import lru_cache
+from itertools import accumulate
 
 from quality import schemes as SC
 from quality import relations as _RL
@@ -163,7 +168,7 @@ __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
            "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell",
-           "meter_factorisations", "beats_values",
+           "meter_factorisations", "beats_values", "beats_weights",
            "SWEEP_MEASURES", "SWEEP_SETS", "SWEEP_ORDERS",
            "SWEEP_OPS", "parse_sweep_want", "sweep_holds",
            "sweep",
@@ -960,6 +965,49 @@ def beats_values():
     return tuple(n for n in range(lo, hi + 1) if meter_factorisations(n))
 
 
+@lru_cache(maxsize=None)
+def beats_weights():
+    """-> P(k) for each count `beats_values()` names, in the same order: the
+    EQUAL-WEIGHT default, P(k) proportional to ln((k+1)/k).
+
+    ~~uniform over `beats_values()`~~ — struck 2026-10-21 by owner ruling
+    (John, relayed by Jony on #519 6325464833; verified by 3PO 6325563066,
+    R2 6325674595 and BB8 6325811786): *"go on the denominator change, use
+    the equal-weight default, after you verify with the team."* It replaces
+    the uniform draw M-81 set (`MISSING.md`, the owner's *"do A"*) for beats
+    per line and nothing else. Uniform over 2..200 put the median line at
+    101 beats and more than two thirds of all lines past 64, so a plan
+    nobody narrowed was nearly always a very long line.
+
+    WHY THIS WEIGHT. ln((k+1)/k) is the log-length of the unit interval
+    [k, k+1), so the weights telescope: counts a..b together carry
+    ln((b+1)/a), and every complete doubling a..2a-1 carries ln 2 whatever
+    a is. Lines of 2-3, 4-7, 8-15, 16-31, 32-63 and 64-127 beats are equally
+    likely; the last interval is truncated by the ceiling (128..200 today)
+    and carries ln(201/128), less than a doubling. Over 2..200 the total is
+    ln(201/2): median 20, 46.4% of draws at 2-16 beats, 24.5% at 65-200.
+
+    A RE-WEIGHTING, NEVER A CAP: ln((k+1)/k) > 0 for every k, so every
+    realisable count stays reachable, the envelope is unchanged, and nothing
+    is sampled from the corpus. `beats_per_line` wants still narrow it by
+    whole-candidate rejection (`make_plan`), and a declared melody still
+    replaces the draw.
+
+    COMPUTED FROM `beats_values()` and normalised by the sum of what it
+    returns, never by ln(201/2) written out: if the envelope moves, or a
+    count stops being realisable, the weights follow and put no mass on a
+    count the sampler cannot make — the argument `beats_values` makes."""
+    raw = [math.log1p(1 / k) for k in beats_values()]
+    total = math.fsum(raw)
+    return tuple(w / total for w in raw)
+
+
+@lru_cache(maxsize=None)
+def _beats_cumulative():
+    """Running sums of `beats_weights()`: one inverse-CDF pick per draw."""
+    return tuple(accumulate(beats_weights()))
+
+
 def _sample_meter(rng):
     """One meter draw under the DERIVATION measure (module docstring).
 
@@ -985,12 +1033,22 @@ def _sample_meter(rng):
     [5, 48] envelope, with only 4.6% of lines given a grid a band-legal line
     could fill.
 
+    THE BEAT COUNT IS DRAWN UNDER THE EQUAL-WEIGHT DEFAULT (`beats_weights`,
+    owner ruling 2026-10-21): ~~uniform over `beats_values()`~~, which
+    centred the line on the envelope's midpoint (median 101 of 2..200), is
+    replaced by P(k) proportional to ln((k+1)/k) — equal mass per doubling
+    of beats per line, median 20 — with one `rng.random()` per draw against
+    the precomputed running sums, so a seed still fixes the draw. Every
+    realisable count keeps a nonzero weight. The factorisation and the
+    grouping below are uniform, as before.
+
     THE PAIR MARGINAL IS NOW A REALISABILITY SHARE and that is the correct
     direction, not a new bias: a beat count one factorisation can make
     should not be rarer than one six can make, which is exactly what
     weighting by pair did. It is a PREDICTION rather than an accident —
-    `P(bars, sub)` is computable from `meter_factorisations` alone, and
-    `test_plan.py` §4 holds the sampler to it.
+    `P(bars, sub)` is computable from `meter_factorisations` and
+    `beats_weights` alone (~~`meter_factorisations` alone~~, while the beat
+    count was uniform), and `test_plan.py` §4 holds the sampler to it.
 
     Uniform over the flat enumeration remains wrong for the reason it always
     was: compositions into {2,3} grow ~1.3247^n, so leaves concentrate on
@@ -1002,7 +1060,15 @@ def _sample_meter(rng):
     tail is the disclosure's raw material.
     """
     vals = beats_values()
-    per_line = vals[rng.randrange(len(vals))]
+    cum = _beats_cumulative()
+    # Both are cached; if `beats_values()` ever moves without the weights
+    # following, the draw would silently re-weight (its own docstring warns
+    # of this), so say so here rather than in the tests alone.
+    assert len(cum) == len(vals), (len(cum), len(vals))
+    # The `min` only guards float rounding at the top: `rng.random()` is
+    # below 1, but its product with the total can round up to it.
+    per_line = vals[min(bisect_right(cum, rng.random() * cum[-1]),
+                        len(vals) - 1)]
     fact = meter_factorisations(per_line)
     bars, sub = fact[rng.randrange(len(fact))]
     beats = per_line // bars
@@ -3128,7 +3194,10 @@ def _make_plan_candidate(seed, form="verse-chorus", lines=None, relation=None,
                                      f"{list(ENVELOPE['slots_per_line'])}), "
                                      f"measured BY DERIVATION ON THE "
                                      f"DECLARED COORDINATE: 1 of {n_beats} "
-                                     f"beats-per-line values, then 1 of "
+                                     f"beats-per-line values, weighted "
+                                     f"equally per doubling of beats per line "
+                                     f"(P(k) proportional to "
+                                     f"ln((k+1)/k)), then 1 of "
                                      f"{n_fact} bars x subdivision "
                                      f"factorisation(s) of {beats_pl} beats, "
                                      f"then 1 of {_n_compositions_23(beats)} "

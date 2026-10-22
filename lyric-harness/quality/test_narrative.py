@@ -5,6 +5,7 @@ MODULE's internal consistency and the counter's behavior, so a later
 ruling's row edit moves pins loudly instead of silently."""
 
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -329,13 +330,30 @@ def test_measured_seeds():
     check("all eighteen historical seeds and all sixteen current zero "
           "exemplars re-derive exactly under the plan envelope",
           got == pins and set(historical_pins_2026_09_05) <= set(pins), got)
-    sweep = {seed: N.count_lineups([section["function"] for section in
-                                   P.make_plan(seed)["sections"]])
-             for seed in range(1, 101)}
+    # A SEED THE JOINT GATE REFUSES FOR `NO_FREE_WORD` ALONE HAS NO PLAN
+    # (2026-10-21). Under the owner's equal-weight beat draw a two-beat line
+    # can leave a line one slot with a rhyme bound on it, and seed 55 now
+    # draws one; the roster is drawn BEFORE the meter, so every other seed's
+    # count is unchanged, and seed 55 was neither a zero nor a pin. It is
+    # left out of the denominator and named; any other refusal still raises.
+    sweep, refused = {}, []
+    for seed in range(1, 101):
+        try:
+            fns = [section["function"]
+                   for section in P.make_plan(seed)["sections"]]
+        except P.PlanRefused as exc:
+            if set(re.findall(r"^  L\d+ (\w+): ", str(exc), re.M)) \
+                    != {"NO_FREE_WORD"}:
+                raise
+            refused.append(seed)
+            continue
+        sweep[seed] = N.count_lineups(fns)
     check("the complete current 100-seed denominator has exactly sixteen "
           "zero shapes, four of them among the first forty",
           {seed for seed, count in sweep.items() if count == 0} == set(ZEROS)
-          and sum(sweep[seed] > 0 for seed in range(1,41)) == 36)
+          and sum(sweep[seed] > 0 for seed in range(1,41)) == 36,
+          f"{len(sweep)} plans of 100 seeds; refused NO_FREE_WORD: "
+          f"{refused or 'none'}")
     #: The claim above is only worth making if the KINDS of zero are
     #: actually distinguishable, so the position is asserted rather than
     #: described: an opening refusal collapses at prefix length 1, and
@@ -497,11 +515,17 @@ def test_the_wired_draw():
     #: REPINNED 2026-10-04 (measured): the planner ties rhymes only at line
     #: ends (owner's ruling), so the mid-line bindings leave the spelling:
     #: 272 -> 29 characters; lines and labels do not move.
-    check("seed 31 draws 18 lines again, with a 29-character groups "
+    #: REPINNED 2026-10-21 (measured): the beat count is drawn under the
+    #: owner's equal-weight default (`plan.beats_weights`), so seed 31's
+    #: meter re-deals (~~4/2~~ 11/2) and the end groups with it:
+    #: ~~'1,3,4,6;2,7;12,13,14,15;17,18'~~ -> '1,2,4,5;3,7;13,14;17,18',
+    #: 29 -> 23 characters; lines, labels and the narrative draw do not
+    #: move (the roster is drawn before the meter).
+    check("seed 31 draws 18 lines again, with a 23-character groups "
           "spelling (end rhyme only) and 0 labels; the capped 12/79/0 draw "
           "is recorded above",
           pl["total_lines"] == 18
-          and len(pl["groups"]) == 29 and len(pl["relations"]) == 0,
+          and len(pl["groups"]) == 23 and len(pl["relations"]) == 0,
           f"lines {pl['total_lines']}, groups {len(pl['groups'])}, labels {len(pl['relations'])}")
     nar = pl["narrative"]
     #: REPINNED 2026-09-05 (M-239) WITH THE LENGTH: seed 31's roster is
