@@ -10,10 +10,10 @@ Everything tracked under `lyric-harness/`, sized in tokens (bytes ÷ 3.6, rounde
 | data tables (read at run time) | 39 | 7,500k |
 | notes and records (.md) | 130 | 1,500k |
 | Python: tests | 158 | 1,400k |
-| Python: song program (ran) | 58 | 1,300k |
+| Python: song program (ran) | 57 | 1,300k |
 | Python: research and record tools (never loaded) | 157 | 920k |
 | Python: loadable by the song program, not loaded | 12 | 88k |
-| Python: imported by the song program, unused | 6 | 14k |
+| Python: imported by the song program, unused | 7 | 28k |
 
 ## Data the song program opened (73 files, 0 under corpus/)
 
@@ -21,13 +21,13 @@ In the repo: `data/CHANNELS.md` 2.5k, `data/LICENSE.cmudict` <1k, `data/LICENSE.
 
 Fetched or staged, not in the repo: `cmudict.dict`, `data/concreteness.txt`, `data/moby/mpron.txt`, `data/nltk/corpora/` (18 files), `data/nltk/taggers/` (3 files).
 
-## Python — ran (58)
+## Python — ran (57)
 
-`lyric_harness.py` 230k, `quality/relations.py` 140k, `quality/revise.py` 110k, `quality/plan.py` 66k, `quality/grid.py` 65k, `quality/floor.py` 51k, `quality/loop.py` 49k, `quality/schemes.py` 45k, `quality/rhyme_types.py` 35k, `quality/fit.py` 34k, `quality/song_profile_calibration.py` 28k, `quality/canon_sources.py` 24k, `quality/propose.py` 24k, `library/analysis.py` 21k, `quality/rhyme_constraints.py` 21k, `quality/phonology/cym.py` 20k, `quality/g2p.py` 16k, `quality/phonology/fin.py` 15k, `quality/length_curve_calibration.py` 14k, `quality/phonology/msa.py` 14k, `quality/phonology/non.py` 13k, `quality/features.py` 13k, `quality/phonology/fas.py` 12k, `quality/phonology/ltc.py` 11k, `quality/chance_rate.py` 11k, `quality/frequency.py` 11k, `quality/phonology/eng.py` 9.7k, `quality/readability.py` 9.2k, `quality/slots.py` 9.1k, `quality/lexicon_supplement.py` 8.9k, `quality/discriminate.py` 8.8k, `quality/provenance.py` 8.7k, `quality/recover.py` 8.4k, `quality/release_assets.py` 7.8k, `quality/phonology/san.py` 7.8k, `quality/meter.py` 7.7k, `quality/pronunciation.py` 7.4k, `quality/meter_bands.py` 7.2k, `quality/field_store.py` 6.8k, `quality/phonology/__init__.py` 5.8k, `quality/morphology.py` 5.5k, `quality/type_canon.py` 5.4k, `quality/quotients.py` 5.2k, `quality/narrative.py` 4.4k, `quality/brief_provenance.py` 4.2k, `quality/sentencehood.py` 4.2k, `quality/replay_memo.py` 3.8k, `quality/structures.py` 3.6k, `quality/within_item.py` 3.2k, `quality/calibration_rebuild.py` 3.2k, `library/contracts.py` 3.1k, `quality/schema_instance_evidence.py` 2.8k, `quality/phonology/som.py` 2.7k, `quality/lyric_reader.py` 2k, `quality/source_identity.py` 2k, `quality/tempo.py` 1.9k, `quality/line_relations.py` 1.1k, `quality/span_rules.py` <1k
+`lyric_harness.py` 230k, `quality/relations.py` 140k, `quality/revise.py` 110k, `quality/plan.py` 66k, `quality/grid.py` 65k, `quality/floor.py` 51k, `quality/loop.py` 49k, `quality/schemes.py` 45k, `quality/rhyme_types.py` 35k, `quality/fit.py` 34k, `quality/song_profile_calibration.py` 28k, `quality/canon_sources.py` 24k, `quality/propose.py` 24k, `library/analysis.py` 21k, `quality/rhyme_constraints.py` 21k, `quality/phonology/cym.py` 20k, `quality/g2p.py` 16k, `quality/phonology/fin.py` 15k, `quality/phonology/msa.py` 14k, `quality/phonology/non.py` 13k, `quality/features.py` 13k, `quality/phonology/fas.py` 12k, `quality/phonology/ltc.py` 11k, `quality/chance_rate.py` 11k, `quality/frequency.py` 11k, `quality/phonology/eng.py` 9.7k, `quality/readability.py` 9.2k, `quality/slots.py` 9.1k, `quality/lexicon_supplement.py` 8.9k, `quality/discriminate.py` 8.8k, `quality/provenance.py` 8.7k, `quality/recover.py` 8.4k, `quality/release_assets.py` 7.8k, `quality/phonology/san.py` 7.8k, `quality/meter.py` 7.7k, `quality/pronunciation.py` 7.4k, `quality/meter_bands.py` 7.2k, `quality/field_store.py` 6.8k, `quality/phonology/__init__.py` 5.8k, `quality/morphology.py` 5.5k, `quality/type_canon.py` 5.4k, `quality/quotients.py` 5.2k, `quality/narrative.py` 4.4k, `quality/brief_provenance.py` 4.2k, `quality/sentencehood.py` 4.2k, `quality/replay_memo.py` 3.8k, `quality/structures.py` 3.6k, `quality/within_item.py` 3.2k, `quality/calibration_rebuild.py` 3.2k, `library/contracts.py` 3.1k, `quality/schema_instance_evidence.py` 2.8k, `quality/phonology/som.py` 2.7k, `quality/lyric_reader.py` 2k, `quality/source_identity.py` 2k, `quality/tempo.py` 1.9k, `quality/line_relations.py` 1.1k, `quality/span_rules.py` <1k
 
-## Python — imported, no function ran (6)
+## Python — imported, no function ran (7)
 
-`quality/redteam_band.py` 9.5k, `library/registry.py` 1.9k, `quality/corpus.py` 1.2k, `quality/melody.py` 1k, `quality/battery_pin.py` <1k, `quality/__init__.py` <1k
+`quality/length_curve_calibration.py` 14k, `quality/redteam_band.py` 9.5k, `library/registry.py` 1.9k, `quality/corpus.py` 1.2k, `quality/melody.py` 1k, `quality/battery_pin.py` <1k, `quality/__init__.py` <1k
 
 ## Python — loadable, not loaded (12)
 
