@@ -838,7 +838,7 @@ jobs:
           echo "${TRIVY_SHA256}  $RUNNER_TEMP/trivy.tgz" | sha256sum -c -
           tar -xzf "$RUNNER_TEMP/trivy.tgz" -C "$RUNNER_TEMP" trivy
           trivy="$RUNNER_TEMP/trivy"
-          "$trivy" image --scanners vuln --image-src docker --exit-code 0 \
+          "$trivy" image --scanners vuln --list-all-pkgs --image-src docker --exit-code 0 \
             --format json --output image-vuln-evidence/trivy-report.json "$IMAGE_ID"
           "$trivy" version --format json > image-vuln-evidence/trivy-version.json
           docker image inspect --format '{{.Os}}/{{.Architecture}}' "$IMAGE_ID" \
@@ -853,6 +853,26 @@ jobs:
             throw new Error(`report names ${report.Metadata?.ImageID}, not the tested image ${imageId}`);
           if (!report.Metadata?.OS?.Family || !Array.isArray(report.Results) || !report.Results.length)
             throw new Error('report has no detected OS or no results: refusing to treat it as clean');
+          // Coverage, not just a non-empty report: an OS-only result must not
+          // pass for a full scan. Each expected inventory must be present, with
+          // the exact installed versions kept as evidence.
+          const pkgs = (pred) => report.Results.filter(pred).flatMap((r) => r.Packages || []);
+          const os = pkgs((r) => r.Class === 'os-pkgs');
+          const py = pkgs((r) => r.Type === 'python-pkg');
+          const appNode = pkgs((r) => r.Type === 'node-pkg').filter((p) =>
+            /(^|\/)app\/mcp\/node_modules\//.test(p.FilePath || ''));
+          const find = (list, name) => list.filter((p) => p.Name === name).map((p) => p.Version);
+          const coverage = {
+            debian_python3: os.filter((p) => /^python3(\.\d+)?(-minimal)?$/.test(p.Name)).map((p) => `${p.Name} ${p.Version}`),
+            python_nltk: find(py, 'nltk'),
+            node_zod: find(appNode, 'zod'),
+            node_mcp_sdk: find(appNode, '@modelcontextprotocol/sdk'),
+            totals: { os: os.length, python: py.length, node_app: appNode.length },
+          };
+          const missing = Object.entries(coverage).filter(([k, v]) => k !== 'totals' && !v.length).map(([k]) => k);
+          fs.writeFileSync(`${dir}/coverage.json`, JSON.stringify({ ...coverage, missing }, null, 2) + '\n');
+          if (missing.length)
+            throw new Error(`coverage incomplete, expected inventories absent: ${missing.join(', ')}`);
           const counts = {};
           for (const r of report.Results)
             for (const v of r.Vulnerabilities || []) {
@@ -865,6 +885,7 @@ jobs:
             os: `${report.Metadata.OS.Family} ${report.Metadata.OS.Name}`,
             scanner: `trivy ${version.Version}`,
             db_updated_at: version.VulnerabilityDB?.UpdatedAt,
+            coverage,
             counts,
           };
           if (!meta.db_updated_at) throw new Error('scanner reported no vulnerability DB timestamp');
