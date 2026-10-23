@@ -177,7 +177,7 @@ function scanSchema(toolName, schema) {
       if (Object.keys(node).length === 0) found.push(`${at}:EMPTY`);
     }
     for (const [key, value] of Object.entries(node)) {
-      walk(value, `${at}.${key}`, key === 'properties');
+      walk(value, `${at}.${key}`, !insideProperties && key === 'properties');
     }
   })(schema, toolName, false);
   return found;
@@ -195,7 +195,7 @@ function unboundedArrays(toolName, schema) {
     if (Array.isArray(node)) return node.forEach((n, i) => walk(n, `${at}[${i}]`, false));
     if (!insideProperties && node.type === 'array' && node.maxItems === undefined) found.push(at);
     for (const [key, value] of Object.entries(node)) {
-      walk(value, `${at}.${key}`, key === 'properties');
+      walk(value, `${at}.${key}`, !insideProperties && key === 'properties');
     }
   })(schema, toolName, false);
   return found;
@@ -238,6 +238,19 @@ function unboundedArrays(toolName, schema) {
   }
 
   // ── schema subset ─────────────────────────────────────────────────────────
+  // A field may itself be NAMED `properties`; only a `properties` keyword opens
+  // the field-name map. Before this, both scanners skipped such a field's schema.
+  const fieldNamedProperties = {
+    type: 'object',
+    properties: { properties: { type: 'array', items: { type: 'string' }, anyOf: [] } },
+  };
+  check(
+    'scanners read a field named `properties` as a schema, not a field map',
+    JSON.stringify(unboundedArrays('test', fieldNamedProperties)) ===
+      JSON.stringify(['test.properties.properties']) &&
+      scanSchema('test', fieldNamedProperties).includes('test.properties.properties.anyOf'),
+    `${unboundedArrays('test', fieldNamedProperties)} / ${scanSchema('test', fieldNamedProperties)}`
+  );
   console.log('\n=== Published schema subset (live listTools, draft-07) ===');
   let unexpected = 0;
   let exemptSeen = 0;

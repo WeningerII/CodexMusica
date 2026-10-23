@@ -9041,7 +9041,8 @@ await check(
         arguments: { operation_id: 'a'.repeat(64), detail: 'findings', lines },
       });
     const atCap = await read(Array.from({ length: MAX_LINES }, (_, i) => i + 1));
-    assert.ok(!/Input validation/.test(text(atCap)), `${MAX_LINES} lines pass input validation`);
+    // Past validation, the handler answers for the unknown id.
+    assert.match(text(atCap), /^SESSION_UNAVAILABLE:/, `${MAX_LINES} lines reach the handler`);
     for (const lines of [
       Array.from({ length: MAX_LINES + 1 }, (_, i) => i + 1),
       Array(HUGE).fill(-1),
