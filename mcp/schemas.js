@@ -20,6 +20,7 @@ import {
   ENV_FIELDS,
   LIST_TRADITIONS_MAX,
   OPTION_KINDS,
+  SEARCH_TYPES,
 } from './engine.js';
 
 export const renderShape = {
@@ -241,20 +242,6 @@ export function unknownEditKeys(args) {
   return unknown;
 }
 
-// One entry per record type at most: the cap bounds what a request can make the
-// validator walk (GHSA-mrhx-c7xc-m3w5 was memory exhaustion on oversized arrays).
-const SEARCH_TYPES = [
-  'tradition',
-  'instrument',
-  'variant',
-  'room',
-  'tuning',
-  'arrangement',
-  'aesthetic',
-  'preface',
-  'chain',
-];
-
 export const TOOL_SCHEMAS = {
   start_recipe: z.object({
     traditions: z
@@ -282,6 +269,8 @@ export const TOOL_SCHEMAS = {
     query: z.string().describe('Words from the request, e.g. "garage rock fuzz".'),
     types: z
       .array(z.enum(SEARCH_TYPES))
+      // One entry per record type at most: an unbounded array lets a request
+      // make the validator build one issue per failing item (GHSA-mrhx-c7xc-m3w5).
       .max(SEARCH_TYPES.length)
       .optional()
       .describe('Restrict to these record types.'),
