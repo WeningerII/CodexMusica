@@ -1417,6 +1417,14 @@ def test_baseline_fingerprint_includes_data_and_runtime():
     check("a different kernel moves the full fingerprint", full_a != full_b)
     check("a different kernel leaves the portable fingerprint", port_a == port_b)
     check("a data change still moves the portable fingerprint", port_b != port_c)
+    with patch.object(mutate, "ROOT", directory), \
+            patch.object(mutate, "SIBLING_RULES", ()), \
+            patch.dict(os.environ, {"NLTK_DATA": "", "LYRIC_STAGED_DATA": ""}):
+        with patch.object(platform, "libc_ver", return_value=("glibc", "2.39")):
+            libc_a = mutate.source_fingerprint(portable=True)
+        with patch.object(platform, "libc_ver", return_value=("glibc", "2.41")):
+            libc_b = mutate.source_fingerprint(portable=True)
+    check("a different libc still moves the portable fingerprint", libc_a != libc_b)
 
 
 def _parser():

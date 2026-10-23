@@ -1973,11 +1973,14 @@ def source_fingerprint(portable=False):
     A data-only change must invalidate the baseline just like a Python edit.
     Digests, not contents or environment values, are emitted in the report.
 
-    `portable` leaves out `platform.platform()` (kernel and libc), the one
-    runtime field two runners on one label can differ in while running the
-    same Python, packages, data and environment. Production qualification
-    compares this across its matrix jobs, which may land on different
-    runner image releases; the baseline cache keeps the full fingerprint.
+    `portable` replaces `platform.platform()` with the libc version and
+    machine architecture, leaving out only the kernel release: the one
+    runtime field two runners on one label differ in while running the same
+    Python, packages, data and environment. Production qualification compares
+    this across its matrix jobs, which may land on different runner image
+    releases; the baseline cache keeps the full fingerprint. (The plain
+    runtime facts themselves are recorded in qualification receipts, by
+    scripts/production_qualification.py, not in this module's report.)
     """
     import importlib.metadata
     h = hashlib.sha256()
@@ -2014,7 +2017,10 @@ def source_fingerprint(portable=False):
             packages[name] = None
     runtime = runtime_description(packages)
     if portable:
+        import platform
         runtime.pop("platform")
+        runtime["libc"] = list(platform.libc_ver())
+        runtime["machine"] = platform.machine()
     h.update(json.dumps(runtime, sort_keys=True).encode())
     return h.hexdigest()
 
