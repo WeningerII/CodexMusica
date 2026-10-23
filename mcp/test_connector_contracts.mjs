@@ -59,6 +59,72 @@ test('sweep applies advertised dotted predicates and leaves vocabulary refusal t
   }
 });
 
+test('a sweep says what happened from its own record: four outcomes, counts and reasons (P3 F1/F3)', async () => {
+  const { _agentInternals } = await import('./gemini_agent.js');
+  const c = await local({ domain: 'lyrics' });
+  const sweep = async (args) =>
+    JSON.parse((await c.client.callTool({ name: 'lyric_sweep', arguments: args })).content[0].text);
+  try {
+    const empty = await sweep({
+      seed_from: 0,
+      count: 28,
+      want: ['lines<=24', 'uses=verse,chorus', 'before=verse,chorus', 'group<=4'],
+    });
+    assert.equal(empty.exit_code, 2);
+    assert.equal(empty.sweep_outcome, 'no seed kept');
+    assert.deepEqual(
+      [empty.swept, empty.planned, empty.planner_refused, empty.accepted_count],
+      [28, 28, 0, 0]
+    );
+    assert.deepEqual(
+      empty.held_by.map((h) => h.want),
+      ['lines<=24', 'uses=verse,chorus', 'before=verse,chorus', 'group<=4']
+    );
+    assert.equal(empty.held_by[1].held, 28);
+    assert.match(empty.meaning, /^REFUSED — the harness answered: 28 of 28/);
+    assert.match(empty.window_meaning, /held_by says how many/);
+    assert.match(empty.window_meaning, /declare a target length in `lines`/);
+    assert.doesNotMatch(empty.window_meaning, /acceptance rate/);
+    assert.doesNotMatch(empty.report, /unreachable in this range/);
+
+    const request = await sweep({ seed_from: 0, count: 3, functions: 'verse,prechorus' });
+    assert.equal(request.sweep_outcome, 'planner refused every seed');
+    assert.deepEqual([request.swept, request.planned, request.planner_refused], [3, 0, 3]);
+    assert.deepEqual(
+      request.planner_refusals.map((g) => [g.scope, g.seeds]),
+      [['request', [0, 1, 2]]]
+    );
+    assert.match(request.window_meaning, /a reason about the request itself/);
+    assert.doesNotMatch(request.window_meaning, /unbuildable/);
+    assert.match(request.meaning, /^REFUSED — the planner refused all 3 seed\(s\)/);
+
+    const args = await sweep({ seed_from: 0, count: 2, want: ['vibes<=3'] });
+    assert.equal(args.exit_code, 2);
+    assert.equal(args.sweep_outcome, 'arguments refused');
+    assert.match(args.meaning, /^REFUSED — the arguments were turned down/);
+
+    const kept = await sweep({ seed_from: 0, count: 4, lines: 16 });
+    assert.equal(kept.exit_code, 0);
+    assert.equal(kept.sweep_outcome, 'accepted');
+    assert.equal(kept.measurement_status, 'swept');
+    assert.deepEqual(
+      [kept.swept, kept.planned, kept.planner_refused, kept.accepted_count],
+      [4, 4, 0, 4]
+    );
+    assert.match(kept.meaning, /^answered — 4 of the 4 planned seed\(s\)/);
+
+    for (const v of [empty, request, args, kept])
+      assert.doesNotMatch(v.meaning, /did not answer|findings are unknown/);
+    // The stored website row carries the outcome and the counts.
+    const row = _agentInternals.loopFields(request);
+    assert.equal(row.sweep_outcome, 'planner refused every seed');
+    assert.equal(row.planner_refused, 3);
+    assert.deepEqual(row.planner_refusals, request.planner_refusals);
+  } finally {
+    await c.close();
+  }
+});
+
 test('host-selected recipe endpoint exposes only recipe tools and retains full guidance', async () => {
   const server = buildServer({ task: { domain: 'recipe' } });
   const [a, b] = InMemoryTransport.createLinkedPair();
@@ -820,4 +886,155 @@ test('a production deploy is verified with the Library stores loaded, not merely
     2
   );
   assert.ok(libraryDrift(library, {}).length >= 2, 'an unreported state refuses');
+});
+
+// P2 F4: the grade names its next call on both surfaces. The website chat's
+// lyric_grade carries the agreed kitchen sentence (the service writer
+// revises); outside surfaces name both paths and the verdict's `next`. Each
+// rule lives in one text: lyric_revise's kitchen paragraph only says which
+// draft to send.
+test('lyric_grade names the next call per surface, and kitchen revise sends the graded draft', async () => {
+  const describe = async (kitchen) => {
+    const server = buildServer({ kitchen });
+    const [a, b] = InMemoryTransport.createLinkedPair();
+    await server.connect(a);
+    const client = new Client({ name: 'grade-next', version: '1' }, { capabilities: {} });
+    await client.connect(b);
+    try {
+      const { tools } = await client.listTools();
+      const of = (name) => tools.find((t) => t.name === name).description;
+      return { grade: of('lyric_grade'), revise: of('lyric_revise') };
+    } finally {
+      await client.close();
+    }
+  };
+  const chat = await describe(true);
+  const outside = await describe(false);
+  assert.ok(
+    chat.grade.includes(
+      'To finish the song or fix flagged lines, send this exact graded draft, unchanged, to ' +
+        'lyric_revise with the same seed and declarations; the service writer revises. If you ' +
+        'change any line yourself, grade the changed draft first. A parked run continues as its ' +
+        'own note says.'
+    )
+  );
+  assert.ok(
+    outside.grade.includes(
+      "At exit 0 or 3 the verdict's `next` names the next call: send this exact draft, " +
+        'unchanged, to lyric_revise, which finishes a clean draft and runs the revise loop on ' +
+        'flagged lines. If you rewrite lines yourself, grade the rewrite before starting a revision.'
+    )
+  );
+  assert.doesNotMatch(outside.grade, /service writer|kitchen/i);
+  for (const d of [chat.grade, outside.grade])
+    assert.doesNotMatch(d, /Revise the flagged lines only and call again/);
+  assert.ok(
+    chat.revise.includes(
+      'send the exact draft lyric_grade graded, unchanged, and the declarations; one call runs'
+    )
+  );
+  assert.doesNotMatch(chat.revise, /grade the changed draft first|its own note says/);
+});
+
+test('sweep counts come from the machine record, not report prose; prose only for the seed list (P3, 3PO)', async () => {
+  const { _verdictInternals } = await import('./lyric_tools.js');
+  const { sweepVerdict } = _verdictInternals;
+  const record = (sweep) => ({ version: 1, sweep: { version: 1, ...sweep } });
+  const window = { from: 10, n: 4 };
+  // A valid record and a report with no recognizable count line.
+  const noProse = sweepVerdict(
+    {},
+    {
+      code: 2,
+      stdout: 'the report was reworded\n',
+      lyric_result: record({
+        outcome: 'no seed kept',
+        swept: 4,
+        planned: 3,
+        planner_refused: 1,
+        accepted_count: 0,
+        held_by: [{ want: 'lines<=12', held: 2 }],
+        planner_refusals: [{ scope: 'seed', reason: 'r', seeds: [11] }],
+      }),
+    },
+    window
+  );
+  assert.deepEqual(
+    [noProse.swept, noProse.planned, noProse.planner_refused, noProse.accepted_count],
+    [4, 3, 1, 0]
+  );
+  assert.deepEqual(noProse.window, { seed_from: 10, count: 4, next_seed_from: 14 });
+  assert.deepEqual(noProse.accepted_shown, []);
+  assert.equal(noProse.accepted_truncated, false);
+  assert.equal(
+    noProse.meaning,
+    'REFUSED — the harness answered: 3 of 4 seed(s) planned and none held every predicate'
+  );
+  assert.match(noProse.window_meaning, /held_by says how many/);
+  assert.doesNotMatch(JSON.stringify(noProse), /undefined/);
+  // An accepted record whose count line was reworded still gets its seed list.
+  const reworded = sweepVerdict(
+    {},
+    {
+      code: 0,
+      stdout:
+        'counts: four swept, all planned\n' +
+        'accepted (each a draw the planner made on its own bias):\n  10, 12, 13 ... and 1 more\n',
+      lyric_result: record({
+        outcome: 'accepted',
+        swept: 4,
+        planned: 4,
+        planner_refused: 0,
+        accepted_count: 4,
+      }),
+    },
+    window
+  );
+  assert.deepEqual(reworded.accepted_shown, [10, 12, 13]);
+  assert.equal(reworded.accepted_truncated, true);
+  assert.match(reworded.meaning, /^answered — 4 of the 4 planned seed\(s\).*the first 40$/);
+  // Prose that disagrees with the record never wins; it supplies the seed list.
+  const disagree = sweepVerdict(
+    {},
+    {
+      code: 0,
+      stdout:
+        'swept 9  planned 9  REFUSED by the planner 0  accepted 9\n' +
+        'accepted (each a draw the planner made on its own bias):\n  12, 13\n',
+      lyric_result: record({
+        outcome: 'accepted',
+        swept: 4,
+        planned: 4,
+        planner_refused: 0,
+        accepted_count: 2,
+      }),
+    },
+    window
+  );
+  assert.deepEqual([disagree.swept, disagree.accepted_count], [4, 2]);
+  assert.deepEqual(disagree.accepted_shown, [12, 13]);
+  assert.match(disagree.meaning, /^answered — 2 of the 4 planned seed\(s\)/);
+  // Legacy: no machine record at all, so the report's counts are the only ones.
+  const legacy = sweepVerdict(
+    {},
+    {
+      code: 0,
+      stdout: 'swept 5  planned 5  REFUSED by the planner 0  accepted 1\nown bias):\n  7\n',
+    },
+    window
+  );
+  assert.deepEqual([legacy.swept, legacy.accepted_count, legacy.sweep_outcome], [5, 1, null]);
+  assert.deepEqual(legacy.accepted_shown, [7]);
+  // A malformed record (a count missing) yields no counts and no interpolated meaning.
+  const partial = sweepVerdict(
+    { meaning: 'kept' },
+    {
+      code: 2,
+      stdout: 'swept 9  planned 9  REFUSED by the planner 0  accepted 0\n',
+      lyric_result: record({ outcome: 'no seed kept', swept: 4, planned: 4, planner_refused: 0 }),
+    },
+    window
+  );
+  assert.equal(partial.swept, undefined);
+  assert.equal(partial.meaning, 'kept');
 });

@@ -9,6 +9,7 @@ import { InMemoryTransport } from '@modelcontextprotocol/sdk/inMemory.js';
 import { JobStore } from './job_store.js';
 import { WorkflowSessions, SESSION_STORE_LIMITS, publicToolResult } from './workflow_sessions.js';
 import { buildWorkflowServer } from './workflow_tools.js';
+import { buildServer } from './tools.js';
 import { startRecipe, editRecipe, renderRecipe } from './engine.js';
 import { requestContext } from './execution_context.js';
 import { continuationSemanticIdentity, decodeState } from './state_codec.js';
@@ -737,6 +738,81 @@ test('one connection exposes both workflows, preserving independent sessions acr
   );
 });
 
+// A host shows the first 4,096 characters of the session guide and truncates the rest, so
+// what a new song needs has to sit whole inside them (P5, Don 6343884435; Jony 6347183132).
+// Each fix pins its own phrases, so one can ship without the other.
+const GUIDE_WINDOW = 4096;
+async function guideOf(t, build) {
+  const server = await build();
+  const [a, b] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'guide-window-test', version: '1' }, { capabilities: {} });
+  await server.connect(a);
+  await client.connect(b);
+  t.after(async () => {
+    await client.close();
+    await server.close();
+  });
+  return { text: client.getInstructions() ?? '', info: client.getServerVersion() };
+}
+const assertInWindow = (text, phrase, where) => {
+  const at = text.indexOf(phrase);
+  assert.ok(at >= 0, `${where}: missing ${JSON.stringify(phrase)}`);
+  assert.ok(
+    at + phrase.length <= GUIDE_WINDOW,
+    `${where}: ${JSON.stringify(phrase)} ends at ${at + phrase.length}, past ${GUIDE_WINDOW}`
+  );
+};
+const sessionSurfaces = (sessions) => ({
+  '/mcp': () => buildWorkflowServer({ sessions, compatibility: true }),
+  '/mcp/chatgpt': () => buildWorkflowServer({ sessions }),
+  '/mcp/chatgpt/lyrics': () => buildWorkflowServer({ domain: 'lyrics', sessions }),
+});
+
+test("F4: a new song's order, its length and how to continue sit inside the guide window", async (t) => {
+  const sessions = new WorkflowSessions({ store: new JobStore() });
+  for (const [where, build] of Object.entries(sessionSurfaces(sessions))) {
+    const { text } = await guideOf(t, build);
+    for (const phrase of [
+      "begin_lyrics phase 'create' is for a new song",
+      'lyric_sweep, lyric_screen, lyric_plan, write every line, lyric_grade on that exact draft, lyric_revise',
+      "To set a length, declare an exact `lines` count on the sweep and carry the sweep's declarations unchanged to the plan.",
+      'continue from the session_id in the completed receipt, even when the tool refused; a refusal without one names its own next step.',
+      'holding the next session_id; an immediate refusal has none.',
+    ])
+      assertInWindow(text, phrase, where);
+    // ...without pushing the recipe rule out where both families are served.
+    if (where !== '/mcp/chatgpt/lyrics')
+      assertInWindow(text, 'follow with edit_recipe before presenting', where);
+  }
+});
+
+test('F3: on the session connector, a request to write a song is a lyric request', async (t) => {
+  const sessions = new WorkflowSessions({ store: new JobStore() });
+  const surfaces = sessionSurfaces(sessions);
+  for (const where of ['/mcp', '/mcp/chatgpt']) {
+    const { text } = await guideOf(t, surfaces[where]);
+    assertInWindow(
+      text,
+      "Use the tools the user's request calls for: a request to write a song is a lyric request, a recipe request does not start lyrics, and a combined request uses both.",
+      where
+    );
+    assertInWindow(text, 'follow with edit_recipe before presenting', where);
+  }
+  // Nowhere else: a later ruling for these surfaces has to change this test on purpose.
+  const elsewhere = {
+    '/mcp/chatgpt/lyrics': surfaces['/mcp/chatgpt/lyrics'],
+    '/mcp/chatgpt/recipe': () => buildWorkflowServer({ domain: 'recipe', sessions }),
+    '/mcp/lyrics (raw)': () =>
+      buildServer({ task: { domain: 'lyrics', format: 'rich', maxChars: 1000 } }),
+    '/mcp/recipe (raw)': () =>
+      buildServer({ task: { domain: 'recipe', format: 'rich', maxChars: 1000 } }),
+    'stdio (untasked)': () => buildServer({}),
+    'website kitchen': () => buildServer({ kitchen: true }),
+  };
+  for (const [where, build] of Object.entries(elsewhere))
+    assert.doesNotMatch((await guideOf(t, build)).text, /write a song/i, where);
+});
+
 test('shared surface preserves raw consumers and carries text-only session capabilities', async (t) => {
   const { store } = storeFor(t);
   const sessions = new WorkflowSessions({ store });
@@ -1138,4 +1214,171 @@ test('each surface describes its own session mechanics, and only where they appl
     find(shared, 'lyric_revise').inputSchema.properties.recover_only.description,
     /^With session_id: [^]* Without session_id: true exports/
   );
+  // F6 (Don 6345028074 section 3): the product name sits in the two entry tools' text and in
+  // the session server's display title, and NOT in the raw server's identity, where even a
+  // title makes the maintained client refuse to connect (client.js, surface_contract.js).
+  for (const tools of [alias, shared]) {
+    assert.match(find(tools, 'begin_lyrics').description, /^Open a private Codex Musica lyrics/);
+    assert.match(find(tools, 'start_recipe').description, /SESSION: opens a Codex Musica recipe/);
+  }
+  for (const build of [
+    ...Object.values(sessionSurfaces(sessions)),
+    () => buildWorkflowServer({ domain: 'recipe', sessions }),
+  ])
+    assert.equal((await guideOf(t, build)).info.title, 'Codex Musica');
+  for (const build of [() => buildServer({}), () => buildServer({ task: { domain: 'lyrics' } })])
+    assert.equal((await guideOf(t, build)).info.title, undefined);
+});
+
+// P8 (#519, Don 6349649672; Jony 6349672118; 3PO 6349681842). A receipt retired
+// for space keeps its successor_id; the call that advanced it, repeated, reaches
+// that live successor, one hop and no further. Retired here by hand, exactly as
+// reclaim() writes a tombstone.
+const retire = (store, id) =>
+  store.write(
+    {
+      ...store.get(id),
+      state: 'retired',
+      intent: null,
+      checkpoint: null,
+      progress: null,
+      proposer_usage: null,
+      response: null,
+      interruption: 'receipt_payload_retired',
+      retired_at: Date.now(),
+    },
+    { reclaim: false }
+  );
+
+test('P8: a retry on a retired parent reaches its live successor, one hop, failing closed', async () => {
+  const store = new JobStore();
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session) => ({ session, result: { content: [{ type: 'text', text: 'ok' }] } }),
+  });
+  const opened = sessions.open('lyrics');
+  const args = { draft: ['one line'] };
+  const first = sessions.submit(opened.session_id, 'lyrics', 'lyric_check', args);
+  await sessions.wait(first.operation_id);
+  retire(store, opened.session_id);
+  assert.throws(() => sessions.record(opened.session_id, 'lyrics'), /SESSION_RETIRED/);
+  // The identical call is the operation it already started; nothing new runs.
+  const again = sessions.submit(opened.session_id, 'lyrics', 'lyric_check', args);
+  assert.equal(again.operation_id, first.operation_id);
+  assert.equal(store.records.size, 2);
+  // A different call is stale, and get_operation names the successor.
+  assert.throws(
+    () => sessions.submit(opened.session_id, 'lyrics', 'lyric_check', { draft: ['other'] }),
+    /STALE_SESSION/
+  );
+  const shown = sessions.status(opened.session_id, 'lyrics');
+  assert.equal(shown.status, 'retired');
+  assert.equal(shown.successor_id, first.operation_id);
+  // The domain is still checked on the successor.
+  assert.throws(
+    () => sessions.submit(opened.session_id, 'recipe', 'edit_recipe', { edits: [] }),
+    /SESSION_SCOPE/
+  );
+  // Once the successor is retired too, the call fails closed.
+  retire(store, first.operation_id);
+  assert.throws(
+    () => sessions.submit(opened.session_id, 'lyrics', 'lyric_check', args),
+    /SESSION_RETIRED/
+  );
+});
+
+test("P8: resume_operation on a retired parent returns that parent's own resume, and nothing else", async (t) => {
+  const { store } = storeFor(t);
+  let executions = 0;
+  const sessions = new WorkflowSessions({
+    store,
+    execute: async (session) => {
+      if (++executions === 1) {
+        requestContext().onCheckpoint(checkpoint());
+        throw new Error('lost result');
+      }
+      return { session, result: { content: [{ type: 'text', text: 'resumed' }] } };
+    },
+  });
+  const opened = sessions.open('lyrics');
+  const q = sessions.submit(opened.session_id, 'lyrics', 'lyric_revise', { seed: 31 });
+  await sessions.wait(q.operation_id);
+  assert.equal(sessions.status(q.operation_id, 'lyrics').resumable, true);
+  const resumed = sessions.resume(q.operation_id, 'lyrics');
+  await sessions.wait(resumed.operation_id);
+  retire(store, q.operation_id);
+  assert.equal(sessions.resume(q.operation_id, 'lyrics').operation_id, resumed.operation_id);
+  assert.equal(executions, 2);
+  retire(store, resumed.operation_id);
+  assert.throws(() => sessions.resume(q.operation_id, 'lyrics'), /SESSION_RETIRED/);
+  // A parent whose successor is not its resume refuses resume as stale.
+  const other = sessions.open('lyrics');
+  const next = sessions.submit(other.session_id, 'lyrics', 'lyric_check', { draft: ['x'] });
+  await sessions.wait(next.operation_id);
+  retire(store, other.session_id);
+  assert.throws(() => sessions.resume(other.session_id, 'lyrics'), /STALE_SESSION/);
+});
+
+test('P8: with 16 lyric slots on the real 64 MiB store, a call that cannot fit retires nothing', async () => {
+  const store = new JobStore(null, { ...SESSION_STORE_LIMITS });
+  const releases = [];
+  const sessions = new WorkflowSessions({
+    store,
+    maxActive: 16,
+    execute: async (session, tool) => {
+      if (tool === 'lyric_check') await new Promise((resolve) => releases.push(resolve));
+      return {
+        session: { ...session, workspace: session.workspace ?? { cards: [] } },
+        result: { content: [{ type: 'text', text: 'x'.repeat(32 * 1024) }] },
+      };
+    },
+  });
+  for (let i = 0; i < 20; i++) {
+    const r = sessions.submit(null, 'recipe', 'start_recipe', { traditions: ['delta_blues'] });
+    await sessions.wait(r.operation_id);
+  }
+  const running = [];
+  for (let i = 0; i < 3; i++) {
+    const s = sessions.open('lyrics');
+    running.push(sessions.submit(s.session_id, 'lyrics', 'lyric_check', { draft: ['l'] }));
+  }
+  await new Promise((resolve) => setImmediate(resolve));
+  const snapshot = () => [...store.records.values()].map((r) => [r.request_id, r.state]);
+  const before = { records: snapshot(), bytes: store.bytes };
+  const refused = (error) =>
+    error.code === 'JOB_CAPACITY' &&
+    error.status === 503 &&
+    /^SESSION_STORE_FULL: .*Retry this same call/.test(error.message) &&
+    /nothing was queued and no saved session was retired/.test(error.message);
+  assert.throws(() => sessions.open('lyrics'), refused);
+  assert.throws(
+    () => sessions.submit(null, 'recipe', 'start_recipe', { traditions: ['delta_blues'] }),
+    refused
+  );
+  assert.deepEqual({ records: snapshot(), bytes: store.bytes }, before);
+  assert.ok(sessions.storeRefused({ code: 'JOB_CAPACITY' }), 'recipes still answer NOT SAVED');
+  // When the running work finishes, the same call is admitted.
+  for (const release of releases) release();
+  for (const op of running) await sessions.wait(op.operation_id);
+  assert.equal(sessions.open('lyrics').status, 'completed');
+});
+
+test('P8: a record over the per-record cap is refused as too large, never told to wait', () => {
+  const store = new JobStore(null, { maxRecordBytes: 256, maxBytes: 1 << 30, maxRecords: 64 });
+  const sessions = new WorkflowSessions({ store, execute: async () => ({}) });
+  const before = { size: store.records.size, bytes: store.bytes };
+  assert.throws(
+    () => sessions.open('lyrics'),
+    (error) =>
+      error.code === 'JOB_CAPACITY' &&
+      error.status === 503 &&
+      /^SESSION_RECORD_TOO_LARGE: Insufficient recovery-store capacity for this operation/.test(
+        error.message
+      ) &&
+      /refused again however much room is free/.test(error.message) &&
+      /Send a smaller request, or call begin_lyrics/.test(error.message) &&
+      /to open a new lyrics session\.$/.test(error.message) &&
+      !/Retry this same call/.test(error.message)
+  );
+  assert.deepEqual({ size: store.records.size, bytes: store.bytes }, before);
 });

@@ -95,13 +95,15 @@ function copy(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+const PAYLOAD_FIELDS = ['intent', 'checkpoint', 'progress', 'proposer_usage', 'response'];
+
 function compactRecord(record) {
   // Retain payloads in their bounded UTF-8 wire representation. A single
   // non-Latin-1 character can otherwise double an entire large V8 string.
   // Metadata scans (expiry, reservations, reclamation) never decode payloads;
   // reads and writes still expose the original JSON and preserve disk format.
   const stored = { ...record };
-  for (const key of ['intent', 'checkpoint', 'progress', 'proposer_usage', 'response']) {
+  for (const key of PAYLOAD_FIELDS) {
     if (stored[key] == null) continue;
     const bytes = Buffer.from(JSON.stringify(stored[key]), 'utf8');
     Object.defineProperty(stored, key, {
@@ -110,6 +112,25 @@ function compactRecord(record) {
     });
   }
   return stored;
+}
+
+// The tombstone a retired receipt leaves: its id, digest and links, with every
+// payload dropped. Built key by key so no payload is decoded to be discarded;
+// the JSON is the same bytes, in the same key order, as spreading the record.
+function retiredStub(record, now) {
+  const stub = {};
+  for (const key of Object.keys(record))
+    stub[key] = PAYLOAD_FIELDS.includes(key) ? null : record[key];
+  return Object.assign(stub, {
+    state: 'retired',
+    intent: null,
+    checkpoint: null,
+    progress: null,
+    proposer_usage: null,
+    response: null,
+    interruption: 'receipt_payload_retired',
+    retired_at: now,
+  });
 }
 
 function interruptedRecord(record, reason, now) {
@@ -180,6 +201,9 @@ export class JobStore {
     this.maxRecordBytes = maxRecordBytes;
     this.now = now;
     this.records = new Map();
+    // Each record's serialized size, as `bytes` counts it, so admission can
+    // plan reclamation without re-encoding payloads.
+    this.sizes = new Map();
     this.bytes = 0;
     this.failure = null;
     if (!this.directory) return;
@@ -204,7 +228,8 @@ export class JobStore {
       this.validate(record);
       if (name !== `${record.request_id}.json`) throw new Error('Job record identity mismatch');
       this.records.set(record.request_id, compactRecord(record));
-      this.bytes += Buffer.byteLength(JSON.stringify(record));
+      this.sizes.set(record.request_id, Buffer.byteLength(JSON.stringify(record)));
+      this.bytes += this.sizes.get(record.request_id);
     }
     // The process cannot know which upstream work completed before its crash.
     // Persist that uncertainty, retaining both the intent and last checkpoint.
@@ -248,21 +273,35 @@ export class JobStore {
     if (this.failure) throw new Error(`Job persistence unavailable: ${this.failure}`);
   }
 
-  write(record, { reclaim = true } = {}) {
+  sizeOf(id) {
+    if (!this.sizes.has(id) && this.records.has(id))
+      this.sizes.set(id, Buffer.byteLength(JSON.stringify(this.records.get(id))));
+    return this.sizes.get(id) ?? 0;
+  }
+
+  // Bytes held back for every active request other than `except`: a later
+  // receipt must not fail because another job consumed its completion space.
+  pendingReserve(except = null) {
+    let reserve = 0;
+    for (const [id, pending] of this.records)
+      if (id !== except && pending.state === 'pending')
+        reserve += Math.max(0, this.maxRecordBytes - this.sizeOf(id));
+    return reserve;
+  }
+
+  write(record, { reclaim = true, protect = [] } = {}) {
     this.assertHealthy();
     this.validate(record);
     const text = JSON.stringify(record);
     const bytes = Buffer.byteLength(text);
     const old = this.records.get(record.request_id);
-    const oldBytes = old ? Buffer.byteLength(JSON.stringify(old)) : 0;
-    // Reserve the complete record allowance for every active request. A later
-    // receipt must not fail because another job consumed its completion space.
-    let reserve = record.state === 'pending' ? Math.max(0, this.maxRecordBytes - bytes) : 0;
-    for (const [id, pending] of this.records)
-      if (id !== record.request_id && pending.state === 'pending')
-        reserve += Math.max(0, this.maxRecordBytes - Buffer.byteLength(JSON.stringify(pending)));
+    const oldBytes = old ? this.sizeOf(record.request_id) : 0;
+    // Reserve the complete record allowance for every active request.
+    const reserve =
+      (record.state === 'pending' ? Math.max(0, this.maxRecordBytes - bytes) : 0) +
+      this.pendingReserve(record.request_id);
     if (reclaim && bytes <= this.maxRecordBytes)
-      this.reclaim(record.request_id, bytes - oldBytes + reserve, !old);
+      this.reclaim([record.request_id, ...protect], bytes - oldBytes + reserve, !old);
     if (bytes > this.maxRecordBytes || this.bytes - oldBytes + bytes + reserve > this.maxBytes) {
       throw Object.assign(
         new Error('Job storage capacity exceeded; no additional work may be admitted'),
@@ -277,12 +316,19 @@ export class JobStore {
       throw err;
     }
     this.records.set(record.request_id, compactRecord(record));
+    this.sizes.set(record.request_id, bytes);
     this.bytes += bytes - oldBytes;
     return record;
   }
 
-  reclaim(protectedId, additionalBytes = 0, newPayload = false) {
-    const payloads = () => [...this.records.values()].filter((r) => r.state !== 'retired').length;
+  // The receipts reclaim() would retire to make room for `additionalBytes` and
+  // `newPayloads` more records, in eviction order and no more than it needs,
+  // or null when retiring every candidate would still not make room. Pure: it
+  // decides before anything is retired, so a refusal retires nothing.
+  reclamationPlan(protectedIds, additionalBytes = 0, newPayloads = 0) {
+    const kept = new Set(protectedIds);
+    let payloads = 0;
+    for (const r of this.records.values()) if (r.state !== 'retired') payloads++;
     // Eviction order, cheapest loss first: a completed receipt that a later
     // operation already superseded (its only remaining use is a duplicate
     // submission's answer), then any other completed receipt, then an
@@ -303,38 +349,71 @@ export class JobStore {
     const terminal = [...this.records.values()]
       .filter(
         (r) =>
-          r.request_id !== protectedId &&
-          ['completed', 'interrupted'].includes(r.state) &&
-          rank(r) < 3
+          !kept.has(r.request_id) && ['completed', 'interrupted'].includes(r.state) && rank(r) < 3
       )
       .sort((a, b) => rank(a) - rank(b) || a.updated_at - b.updated_at);
+    // Both limits bind: a store under its byte cap can be at its payload cap
+    // (2,048 recipe receipts are only about 64 MiB), and each retirement frees
+    // its stub-adjusted bytes and one payload slot.
+    let bytes = this.bytes;
+    const plan = [];
+    const now = this.now();
     while (
-      this.bytes + additionalBytes > this.maxBytes ||
-      payloads() + Number(newPayload) > this.maxPayloadRecords
+      bytes + additionalBytes > this.maxBytes ||
+      payloads + newPayloads > this.maxPayloadRecords
     ) {
-      const record = terminal.shift();
-      if (!record)
-        throw Object.assign(
-          new Error('Job storage capacity exceeded; active work cannot be evicted'),
-          { code: 'JOB_CAPACITY', status: 503 }
-        );
-      // Retain the id/digest until the metadata TTL expires. Payload eviction
-      // must never make the same capability look like permission to execute.
-      this.write(
-        {
-          ...record,
-          state: 'retired',
-          intent: null,
-          checkpoint: null,
-          progress: null,
-          proposer_usage: null,
-          response: null,
-          interruption: 'receipt_payload_retired',
-          retired_at: this.now(),
-        },
-        { reclaim: false }
-      );
+      const record = terminal[plan.length];
+      if (!record) return null;
+      bytes -=
+        this.sizeOf(record.request_id) -
+        Buffer.byteLength(JSON.stringify(retiredStub(record, now)));
+      payloads--;
+      plan.push(record);
     }
+    return plan;
+  }
+
+  // `oversize`: one record of the admission is over the per-record cap, which
+  // no amount of free room or waiting changes.
+  capacityRefusal({ oversize = false } = {}) {
+    if (oversize)
+      return Object.assign(
+        new Error(
+          `Job storage capacity exceeded: a job record would exceed the ${this.maxRecordBytes}-byte per-record limit; nothing was written or retired`
+        ),
+        { code: 'JOB_CAPACITY', status: 503, oversize: true }
+      );
+    return Object.assign(
+      new Error(
+        'Job storage capacity exceeded; active work and interrupted receipts holding accepted lines cannot be evicted, so nothing was retired'
+      ),
+      { code: 'JOB_CAPACITY', status: 503 }
+    );
+  }
+
+  // When the oldest receipt that can expire does: a pending one never expires,
+  // so with only pending work there is no known time, and none is given.
+  recordsFull() {
+    let earliest = null;
+    for (const r of this.records.values())
+      if (r.state !== 'pending' && (earliest == null || r.updated_at < earliest))
+        earliest = r.updated_at;
+    return Object.assign(
+      new Error('Recovery store is full; retry after existing receipts expire'),
+      {
+        code: 'JOB_RECORDS_FULL',
+        status: 503,
+        ...(earliest == null ? {} : { retry_at: earliest + this.ttlMs }),
+      }
+    );
+  }
+
+  reclaim(protectedIds, additionalBytes = 0, newPayload = false) {
+    const plan = this.reclamationPlan(protectedIds, additionalBytes, Number(newPayload));
+    if (!plan) throw this.capacityRefusal();
+    // Retain the id/digest until the metadata TTL expires. Payload eviction
+    // must never make the same capability look like permission to execute.
+    for (const record of plan) this.write(retiredStub(record, this.now()), { reclaim: false });
   }
 
   prune() {
@@ -357,8 +436,9 @@ export class JobStore {
           throw err;
         }
       }
+      this.bytes -= this.sizeOf(id);
       this.records.delete(id);
-      this.bytes -= Buffer.byteLength(JSON.stringify(record));
+      this.sizes.delete(id);
     }
   }
 
@@ -369,7 +449,9 @@ export class JobStore {
     return record ? copy(record) : null;
   }
 
-  begin(id, body, build = {}, inheritedCheckpoint = null) {
+  // `adopt` is a finished receipt from another store that `body` continues;
+  // it is taken in as part of this admission (see adopt()).
+  begin(id, body, build = {}, inheritedCheckpoint = null, { adopt = null } = {}) {
     this.assertHealthy();
     if (!ID.test(id))
       throw Object.assign(
@@ -388,12 +470,13 @@ export class JobStore {
         });
       return { created: false, record: previous };
     }
-    if (this.records.size >= this.maxRecords)
-      throw Object.assign(
-        new Error('Recovery store is full; retry after existing receipts expire'),
-        { status: 503 }
-      );
-    const parent = body.continuation_id == null ? null : this.get(body.continuation_id);
+    const adopting =
+      adopt && body.continuation_id === adopt.request_id && !this.get(adopt.request_id)
+        ? this.adoptable(adopt)
+        : null;
+    if (this.records.size + 1 + (adopting ? 1 : 0) > this.maxRecords) throw this.recordsFull();
+    const parent =
+      body.continuation_id == null ? null : (adopting ?? this.get(body.continuation_id));
     if (
       body.continuation_id != null &&
       (!parent || !['completed', 'interrupted'].includes(parent.state))
@@ -428,11 +511,46 @@ export class JobStore {
       boundedPayload(inheritedCheckpoint, CHECKPOINT_BYTES, 'Inherited continuation');
       record.checkpoint = copy(inheritedCheckpoint);
     }
-    const saved = this.write(record);
+    // ONE ADMISSION, DECIDED BEFORE ANY WRITE. An adopted parent, the new
+    // record and the parent's successor link are planned together: if any of
+    // them cannot fit, nothing is adopted, written, linked or retired. The
+    // writes below then retire exactly what the plan counted, and never the
+    // parent being linked. (A disk failure is a separate guarantee: it latches
+    // the store.)
+    const childBytes = Buffer.byteLength(JSON.stringify(record));
+    const adoptBytes = adopting ? Buffer.byteLength(JSON.stringify(adopting)) : 0;
+    // The linked parent is a record of its own: it must fit the per-record
+    // cap too, or its final write would refuse after the others had landed.
+    const linkedBytes = parent
+      ? Buffer.byteLength(JSON.stringify({ ...parent, successor_id: id }))
+      : 0;
+    const linkGrowth = parent ? linkedBytes - Buffer.byteLength(JSON.stringify(parent)) : 0;
+    if (
+      childBytes > this.maxRecordBytes ||
+      adoptBytes > this.maxRecordBytes ||
+      linkedBytes > this.maxRecordBytes
+    )
+      throw this.capacityRefusal({ oversize: true });
+    const needed =
+      adoptBytes +
+      childBytes +
+      linkGrowth +
+      Math.max(0, this.maxRecordBytes - childBytes) +
+      this.pendingReserve();
+    const kept = parent ? [id, parent.request_id] : [id];
+    if (!this.reclamationPlan(kept, needed, 1 + (adopting ? 1 : 0))) throw this.capacityRefusal();
+    if (adopting) this.write(copy(adopting), { protect: [id] });
+    const saved = this.write(record, { protect: kept });
     // Persist a single successor before dispatch. If either disk write fails,
     // admission fails closed; concurrent IDs cannot branch a paid turn.
     if (parent) this.write({ ...this.records.get(parent.request_id), successor_id: id });
     return { created: true, record: copy(saved) };
+  }
+
+  adoptable(record) {
+    if (!['completed', 'interrupted'].includes(record?.state))
+      throw new Error('Only a finished receipt can be adopted');
+    return copy(record);
   }
 
   // Take in a finished receipt written by another store, unchanged, so work can
@@ -442,14 +560,9 @@ export class JobStore {
     this.assertHealthy();
     const held = this.get(record?.request_id);
     if (held) return held;
-    if (!['completed', 'interrupted'].includes(record?.state))
-      throw new Error('Only a finished receipt can be adopted');
-    if (this.records.size >= this.maxRecords)
-      throw Object.assign(
-        new Error('Recovery store is full; retry after existing receipts expire'),
-        { status: 503 }
-      );
-    return copy(this.write(copy(record)));
+    const adopting = this.adoptable(record);
+    if (this.records.size >= this.maxRecords) throw this.recordsFull();
+    return copy(this.write(adopting));
   }
 
   checkpoint(id, payload) {

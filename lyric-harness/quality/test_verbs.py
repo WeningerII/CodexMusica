@@ -4440,15 +4440,39 @@ def test_the_seed_sweep_is_reachable_from_the_command_line():
         rc, out, err = run(*args, expect_rc=2)
         check(f"`{' '.join(args[1:])}` REFUSES at exit 2, naming the cause",
               rc == 2 and needle in (out + err), needle)
-    # AND THE UNREACHABLE CASE CARRIES ITS RATE, because "no seed satisfies
-    # this" and "this range was too small" are different answers and the
-    # acceptance rate is what separates them.
+    # AND THE EMPTY WINDOW SAYS WHAT EMPTIED IT (P3 F1/F3, #519 6349551161):
+    # each predicate's count on its own, the sweep's own record with its
+    # outcome, and neither of the two overclaims it used to print
+    # (~~"unreachable in this range"~~, ~~"the acceptance rate above is the
+    # measurement that says which"~~: with nothing accepted the rate is 0).
     rc, out, _ = run("plan", "--sweep=0-20", "--want=sections<=1",
                      expect_rc=2)
-    check("...and the empty accepted set REFUSES with the acceptance rate "
-          "beside it, so unreachable and merely rare stay distinguishable",
-          "accepted 0" in out and "unreachable in this range" in out,
-          [l for l in out.splitlines() if "accepted 0" in l][:1])
+    rec = _machine_result(out) or {}
+    check("...and the empty accepted set REFUSES with each predicate's count "
+          "on its own and a record naming the outcome, without the "
+          "'unreachable' or 'acceptance rate' overclaims",
+          "accepted 0" in out and "HELD ALONE" in out
+          and "sections<=1 0" in out
+          and "unreachable in this range" not in out
+          and "acceptance rate above" not in out
+          and (rec.get("sweep") or {}).get("outcome") == "no seed kept",
+          [l for l in out.splitlines() if "HELD ALONE" in l][:1])
+    rc, out, _ = run("plan", "--sweep=0-3", "--functions=verse,prechorus",
+                     expect_rc=2)
+    rec = _machine_result(out) or {}
+    check("...a window the planner refused whole NAMES the planner, with "
+          "its reason marked as about the request",
+          "the planner refused every seed" in out
+          and "request — seed(s) 0, 1, 2" in out
+          and (rec.get("sweep") or {}).get("outcome")
+          == "planner refused every seed", (rec.get("sweep") or {}))
+    rc, out, _ = run("plan", "--sweep=0-4", "--lines=16")
+    rec = _machine_result(out) or {}
+    check("...and a sweep that keeps seeds writes its own record, status "
+          "'swept', outcome 'accepted'",
+          rc == 0 and rec.get("status") == "swept"
+          and (rec.get("sweep") or {}).get("outcome") == "accepted",
+          {k: rec.get(k) for k in ("status", "exit")})
 
 
 def test_fill_reads_a_draft_the_way_every_other_verb_does():
@@ -6124,8 +6148,11 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # for a question the harness could not answer at all. The three counts
     # ride out separately (doctrine 79): what was fixed, what new FLAG
     # rejected it, and what new NOTE did not.
-    # One hundred syllables ("area" x33, then "king") in a bar of 99/8 with
-    # a one-beat pickup: more syllables than slots, so the meter layer's
+    # One hundred syllables ("area" x33, then "king") in a bar of ~~99/8
+    # with a one-beat pickup~~ 11/64 with a half-beat pickup (re-measured
+    # 2026-10-21: the beat count is drawn under the owner's equal-weight
+    # default now, and the unit last): more syllables than slots, so the
+    # meter layer's
     # SLOTS_EXCEEDED rejects it, and the end word newly collides with the
     # free L11/L12 ('wing', 'thing') — a new NOTE beside the new FLAG.
     # (Re-measured 2026-10-01: "a king" was rejected only by the prominence
@@ -6209,9 +6236,14 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # RE-MEASURED 2026-10-04: the plan ties rhymes only at line ends now
     # (4,5;6,7,10,11;8,9 — owner's ruling), so L9's 'stone' no longer stands
     # with L8's 'about' and joins the batch: ~~[3, 5]~~ [3, 5, 9].
+    # RE-MEASURED 2026-10-21: the beat count is drawn under the owner's
+    # equal-weight default (`plan.beats_weights`), so seed 7 at 12 lines
+    # draws 11-beat lines in 11/64 (~~99~~) with the same sections, and the
+    # ends tie 4,5;6,8,9 under the declared relation: L9 stands with L6 and
+    # L8 and leaves the batch, ~~[3, 5, 9]~~ [3, 5].
     check("the loop suspends on the fixture with a batch open",
           rc == 4 and pend.get("kind") == "propose_batch"
-          and members == [3, 5, 9],
+          and members == [3, 5],
           f"{rc} {pend.get('kind')} {members}")
     # while nothing has moved, the state and the file are the same draft.
     # ~~'Stay by the door and pray'~~ — 'pray' is in L5's forbidden modal
@@ -6224,9 +6256,9 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           "that nothing has moved yet",
           rc == 0 and row.get("against") == "state"
           and row.get("moved_since_handed_in") == []
-          and row.get("open_question") == [3, 5, 9]
+          and row.get("open_question") == [3, 5]
           and "AGAINST: the loop's CURRENT draft" in out
-          and "OPEN   : the loop's open question is L3, L5, L9" in out,
+          and "OPEN   : the loop's open question is L3, L5" in out,
           out[-600:])
     l5_before = bool(row.get("accepted"))
     rc, out, _ = run("tryline", draft, "3", "nothing here is very still",
@@ -6255,9 +6287,10 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     # since M-305; the third row answers L7 with the candidate accepted above
     # L9 joined the batch 2026-10-04; its answer is REJECTED (measured), so
     # the fold below is unchanged: L3 and L5 accepted, L2 riding with L3.
+    # ~~"L9: carry the cold stones out"~~ — L9 left the batch 2026-10-21
+    # (above), so its row goes; the fold is unchanged (measured).
     stj["pending"]["answer"] = ("L3: nothing here is very still\n"
-                                "L5: Stay by the door until the holiday\n"
-                                "L9: carry the cold stones out")
+                                "L5: Stay by the door until the holiday")
     with _io.open(st, "w", encoding="utf-8") as fh:
         json.dump(stj, fh)
     rc, out, _ = run("finish", draft, "--seed=7", "--lines=12", REL,
@@ -6285,7 +6318,11 @@ def test_tryline_is_the_loops_own_acceptance_decision():
     check("asked against the FILE once the state has moved past it, the "
           "verb REFUSES and names the state to ask instead",
           rc == 2 and "past this file" in out and st in out, out[-400:])
-    rc, out, _ = run("tryline", draft, "9", "carry the cold light",
+    # ~~L9, "carry the cold light"~~ — RE-MEASURED 2026-10-21: L9 is a
+    # member of the group the fold opens now (below), so the line asked
+    # about here moves to L10, which the loop does not have open; that is
+    # what the second check is about.
+    rc, out, _ = run("tryline", draft, "10", "marry the old light",
                      "--seed=7", "--lines=12", REL, f"--propose=defer:{st}")
     row = _machine_result(out)
     check("asked through the state, it answers against the CURRENT draft "
@@ -6294,23 +6331,28 @@ def test_tryline_is_the_loops_own_acceptance_decision():
           and row.get("moved_since_handed_in") == moved, out[-500:])
     check("...and a line the loop does not have open is answered as a "
           "verdict, not an answer — said in so many words",
-          9 not in (row.get("open_question") or []) and "NOT among them" in out,
+          10 not in (row.get("open_question") or [])
+          and "NOT among them" in out,
           out[-500:])
     # a state whose pending brief and current draft disagree is refused
     bad = os.path.join(tmpd, "state_bad.json")
     bj = dict(stj)
     bj["accepted_lines"] = list(stj["accepted_lines"])
-    # the open question is a GROUP on [6, 7, 10, 11] — a group record names
-    # its draft by its members' texts, so the tamper lands on a member.
+    # the open question is a GROUP on ~~[6, 7, 10, 11]~~ [6, 8, 9] — a group
+    # record names its draft by its members' texts, so the tamper lands on a
+    # member.
     # Re-measured 2026-09-28: after the fold the loop opens the group on
     # [6, 7, 10, 11] (`propose_group`), so the tamper on L6 is pinned here
     # rather than assumed.
+    # Re-measured 2026-10-21: under the equal-weight beat draw the fold opens
+    # the group on [6, 8, 9] (the 6,8,9 end tie above); L6 is still a member,
+    # so the tamper is unchanged and its text is the one pinned.
     post = stj.get("pending") or {}
-    check("after the fold the open question is the GROUP on [6, 7, 10, 11], "
+    check("after the fold the open question is the GROUP on [6, 8, 9], "
           "which is what the tamper below relies on",
           post.get("kind") == "propose_group"
-          and (post.get("record") or {}).get("members") == [6, 7, 10, 11]
-          and "hold the door for rain"
+          and (post.get("record") or {}).get("members") == [6, 8, 9]
+          and "say what the river wrote"
           in ((post.get("record") or {}).get("texts") or []),
           f"{post.get('kind')} {(post.get('record') or {}).get('members')}")
     bj["accepted_lines"][5] = "a line nobody accepted"

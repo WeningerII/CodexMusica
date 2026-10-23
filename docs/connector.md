@@ -88,17 +88,22 @@ Beside the recipes — and never touching them — the `lyric_*` family plans an
 | `lyric_revise` | The finishing step: drives the revise loop over a graded draft (same seed and declarations, or a pasted song's mandate) and asks you one question per call — you write every answer — until a stop condition; only its `[FINISHED …]` song is finished. |
 | `lyric_recover` | The first step for pasted lyrics: counts sung lines and syllables, reads sections, and recovers the rhyme groups and returns the text actually carries, as the `mandate` to pass to `lyric_check` and `lyric_revise`; names the coordinates you must declare (always the meter). |
 | `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes. |
-| `lyric_sweep` | Find seeds whose shape matches a declared want (`lines>=16`, `uses=bridge`, `before=verse,chorus`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; its counts (swept, planned, planner-refused, accepted) are never summed; windows compose, so continue from `next_seed_from`. Pass its `want` list to `lyric_plan` as `wants`. |
+| `lyric_sweep` | Find seeds whose shape matches a declared want (`uses=bridge`, `before=verse,chorus`; declare a target length in `lines`) over a bounded window of consecutive seeds. Returns seeds in SEED ORDER and does not rank; its counts (swept, planned, planner-refused, accepted) are never summed; windows compose, so continue from `next_seed_from`. Pass its `want` list to `lyric_plan` as `wants`. |
 | `lyric_verify` | Did this revision earn it? Hand it a draft BEFORE and AFTER under the same mandate and it reports what the change FIXED and INTRODUCED, including bans it introduced. Read `accepted`, not `exit_code` — both verdicts exit 0. A DIFF, not a grade: it says nothing about defects the change left untouched. |
 | `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
 
 On `/mcp` the server keeps each workflow in a session, and the lyric calls run as background
-operations: poll `get_operation`, and continue from the `session_id` in each completed receipt.
+operations: poll `get_operation`, and continue from the `session_id` in each completed receipt,
+even when the tool refused; a refusal with no receipt names its own next step. A new song runs in
+the order the server enforces: `lyric_sweep`, `lyric_screen`, `lyric_plan`, write every line,
+`lyric_grade` on that exact draft, `lyric_revise`. To set a length, declare an exact `lines` count
+on the sweep and carry the sweep's declarations unchanged to the plan. On `/mcp` and
+`/mcp/chatgpt` a request to write a song is a lyric request.
 
 | Session control | What it does |
 |---|---|
 | `begin_lyrics` | Open a lyrics session: `create` for a new song (the server enforces sweep → screen → plan → exact-draft grade → revise), `edit` for lyrics the user supplied. |
-| `get_operation` | Read an operation by id: pending, the completed result (the tool's own blocks first, then the receipt with the next `session_id`), or an interruption. A finished `lyric_grade` or `lyric_revise` comes back as the song and a short verdict (what stands, what could not be judged, a count of notes by kind, and the layers it did not check); `detail` returns its findings, report, coverage, pronunciations or the whole verdict, narrowed by `lines` when given. A finished `lyric_screen` comes back as one line per pair and the report's counts; `detail` `pairs` returns every pair in full. |
+| `get_operation` | Read an operation by id: pending, the completed result (the tool's own blocks first, then the receipt with the next `session_id`), or an interruption. A finished `lyric_grade` or `lyric_revise` comes back as the song and a short verdict (what stands, what could not be judged, a count of notes by kind, the layers it did not check, and, after a grade at exit 0 or 3, `next`: the call that takes this exact draft on); `detail` returns its findings, report, coverage, pronunciations or the whole verdict, narrowed by `lines` when given. A finished `lyric_screen` comes back as one line per pair and the report's counts; `detail` `pairs` returns every pair in full. |
 | `resume_operation` | Continue an interrupted operation when it reports `resumable: true`. |
 
 You answer every question `lyric_revise` asks; no connector call reaches a model provider. `/chat` uses durable receipts to recover accepted work. See

@@ -54,8 +54,9 @@ recipe or song exactly as the tool wrote it; the last block is the envelope as J
 finished `lyric_grade` or `lyric_revise` publishes the song unchanged and a short
 verdict — exit code, meaning, certification and stop fields, `blocking` (one line per
 flag or banned pair standing, and per line a requested obligation could not be judged
-on), a count of notes with `notes_by_code` (the count by kind), and `not_checked`
-(each coverage layer the request did not ask, such as the syllable-to-pulse setting).
+on), a count of notes with `notes_by_code` (the count by kind), `not_checked`
+(each coverage layer the request did not ask, such as the syllable-to-pulse setting), and,
+after a grade at exit 0 or 3, `next` (the call that takes this exact draft on).
 `get_operation` with `detail` (`findings`, `report`,
 `coverage`, `pronunciations` or `full`, optionally narrowed by `lines`) returns the
 rest of that verdict from the stored result. A read of an
@@ -67,7 +68,9 @@ interrupted operation; a completed lyric tool's own verdict describes whether it
 revision can continue through `lyric_revise`.
 
 Creation executes sweep → screen → plan → exact-draft grade → revise through
-the maintained client. The server persists executed receipts and rejects skipped
+the maintained client. To set a length, declare an exact `lines` count on the
+sweep and carry the sweep's declarations unchanged to the plan. A request to
+write a song is a lyric request. The server persists executed receipts and rejects skipped
 steps or fabricated state. Edit phase is for user-supplied existing lyrics.
 ChatGPT writes every line — the draft and every answer the revise loop asks
 for. The service's own Gemini writer runs only inside the website chat, where
@@ -191,6 +194,8 @@ installed plugin for these conversations:
 | Check/revise supplied existing lyrics. | Edit phase; actual coverage and stop/certification reported; ChatGPT answers every revise question. |
 | Disconnect while lyric work is pending, then reconnect. | Poll retrieves the same operation without repeating it; latest session continues the task. |
 | Restart after a safe checkpoint or an unknown provider outcome. | Safe explicit resume preserves accepted work; unknown outcome exports the draft and blocks replay. |
+| “Write a song.” | Lyric creation (`begin_lyrics` phase create, then the sweep); no recipe call. |
+| “Write a song and tell me how to record it.” | Both families: lyric creation and a recipe, each with its own latest session ID. |
 | Indirect recipe wording and a request that needs neither tool family. | Appropriate tool selection and skill triggering; recipe requests do not start lyrics. |
 
 Record actual tool traces and delivered artifacts; a text claim by the model or

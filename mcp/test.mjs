@@ -2263,7 +2263,7 @@ await check('validation: actionable errors', () => {
       // one step on record → only the other is named
       const t2 = buildSystemInstruction(surface, null, new Set(['lyric_sweep'])).parts[0].text;
       assert.ok(
-        t2.includes('lyric_screen') && !/not yet called lyric_sweep/.test(t2),
+        t2.includes('lyric_screen') && !/no successful lyric_sweep/.test(t2),
         'only the missing step is named'
       );
       // both on record → the base bytes, exactly: the note is gone
@@ -3214,6 +3214,19 @@ await check('validation: actionable errors', () => {
         // The lyrics page's Rhymes and Pronunciation option cards.
         'pairs',
         'pronunciation_options',
+        // The sweep's own record (P3 F1/F3).
+        'meaning',
+        'measurement_status',
+        'sweep_outcome',
+        'swept',
+        'planned',
+        'planner_refused',
+        'accepted_count',
+        'accepted_shown',
+        'window',
+        'window_meaning',
+        'held_by',
+        'planner_refusals',
       ]) {
         assert.ok(
           new RegExp(`^\\s+${f}: c\\.${f} \\?\\? null,`, 'm').test(chat),
@@ -5166,12 +5179,20 @@ await check('validation: actionable errors', () => {
       'mcp/test_runtime_assets.mjs': 'offline immutable runtime asset inventory regressions',
       'mcp/test_lyric_workflow.mjs':
         'offline lyrics creation order and task authorization regressions',
+      'mcp/test_creation_next.mjs':
+        'creation-order NEXT derivation regressions, offline and on the real lyric harness, executed by CI',
+      'mcp/test_creation_attempts.mjs':
+        'offline regressions for refusals after a screen or grade that left no receipt',
+      'mcp/test_refusal_promise.mjs':
+        'offline table holding every session refusal to naming the call that works',
       'mcp/test_pronunciation_choices.mjs': 'offline occurrence pronunciation contract regressions',
       'mcp/test_pronunciation_native.mjs':
         'offline real native pronunciation continuation regressions',
       'mcp/test_pronunciation_checkpoint.mjs':
         'localhost fixture pronunciation checkpoint regressions',
       'mcp/test_session_repairs.mjs': 'offline session workflow and Rich rendering regressions',
+      'mcp/test_session_coverage_ids.mjs':
+        'offline duplicate-coverage-id session regressions on the real lyric harness',
       'mcp/test_high_report.mjs':
         'native connector regressions for the high-severity report repairs, executed by CI (test:connector:live)',
       'mcp/test_loop_redesign.mjs':
@@ -7790,6 +7811,11 @@ try {
     // below states the length, and the lines are written for that plan.
     // REPINNED 2026-10-04: the plan ties rhymes only at line ends now
     // (1,2,3;4,5;6,7), so L3 ends ~~'cheap cologne'~~ 'afternoon'.
+    // RE-MEASURED 2026-10-21: under the owner's equal-weight beat draw seed
+    // 176 at 12 lines keeps its sections, returns (6,8;7,9) and hook (L6)
+    // and re-deals its meter (~~9/1~~ 2/4) and the intro's scheme, so the
+    // ends tie ~~1,2,3~~ 1,3;4,5;6,7. The draft is unchanged and still
+    // grades clean.
     const qualifiedDraft = [
       'Buttons gleam where wheat was sown by a balloon',
       "Bone cold, my mother's herbs came up in June",
@@ -8066,6 +8092,11 @@ try {
     // judged instead of refused. MEASURED at the connector's own budget
     // (attempts 1, backtrack 1): group [1,5,6,7,8,13], then L1, then the batch
     // [2,14,15,17,19,21,23] on continuation 2 (133050 state bytes).
+    // ~~That walk~~ is NOT re-measured here since 2026-10-21: the owner's
+    // equal-weight beat draw re-deals seed 1 at 24 lines, and
+    // test_run_continuation.mjs measures its door opening on continuation 0
+    // at the harness's prefetch. Nothing below pins the walk before the door,
+    // so the claim measured here is unchanged.
     // The walk below answers every question with the
     // draft's own unchanged line(s) — exactly as test_run_continuation.mjs
     // does, so no accepted edit can close an obligation — until the first
@@ -8151,7 +8182,14 @@ try {
     passed++;
     const revisionSeed = 176;
     const revisionDraft = [...qualifiedDraft];
-    revisionDraft[0] = 'Bone buttons gleam beneath the rain in June';
+    // THE DEFECT IS L1 ENDING ON ITS GROUP PARTNER'S OWN WORD: a word rhymed
+    // with itself (REPEAT_IN_VERSE) in a group that requires class:RHYME
+    // (SCHEME_VIOLATION), so a fresh run suspends on L1 and a zero-attempt
+    // run stops at exit 3. ~~'Bone buttons gleam beneath the rain in June'~~
+    // ended on L2's 'June' while L2 shared L1's group; RE-MEASURED
+    // 2026-10-21, L1's partner is L3 now (1,3 above) and 'June' finishes
+    // clean, so L1 ends on L3's 'afternoon' instead, the same defect.
+    revisionDraft[0] = 'Bone buttons gleam beneath the rain all afternoon';
     const withRevision = (extra) => ({
       seed: revisionSeed,
       lines: 12,

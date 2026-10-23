@@ -83,3 +83,61 @@ test('a parked new song continues exactly as its note says', { timeout: 300_000 
   assert(!resumed.tool_error, JSON.stringify(resumed));
   assert([0, 3].includes(verdictOf(resumed.tool_result).exit_code), JSON.stringify(resumed));
 });
+
+// The grade names the call that takes its exact draft on (`next`, the short
+// verdict's last field), and following it is admitted; a changed draft, or a
+// regraded rewrite while a run is open, is refused unless it says new_run.
+test(
+  'the next call a grade names is admitted, and only the exact graded draft follows it',
+  { timeout: 300_000 },
+  async (t) => {
+    const sessions = new WorkflowSessions({ store: storeFor(t).store });
+    let session_id = sessions.open('lyrics').session_id;
+    const run = async (name, args) => {
+      const q = sessions.submit(session_id, 'lyrics', name, args);
+      await sessions.wait(q.operation_id);
+      const r = sessions.status(q.operation_id, 'lyrics');
+      if (r.session_id) session_id = r.session_id;
+      return r;
+    };
+    const text = (r) => r.tool_result.content[0].text;
+    const swept = await run('lyric_sweep', { seed_from: 31, count: 1, lines: 12 });
+    const seed = verdictOf(swept.tool_result).accepted_shown[0];
+    await run('lyric_screen', { words: ['stove', 'coat'], relation: 'class:ASSONANCE' });
+    await run('lyric_plan', { seed, lines: 12 });
+    const draft = [
+      'The kettle hums a low and steady tone',
+      'I hear it singing when I am alone',
+      'Morning light',
+      'The window holds the frost',
+      'I count the things I lost',
+      'Morning lights',
+      'Down the road the old dog sleeps',
+      'Down the lane the cold fog creeps',
+      'Nobody calls the house at night',
+      'Nobody walls the mouse from sight',
+      'I will keep the fire going',
+      'I will keep the fire glowing',
+    ];
+    const graded = await run('lyric_grade', { seed, draft });
+    const short = verdictOf(graded.tool_result);
+    assert([0, 3].includes(short.exit_code), JSON.stringify(short));
+    assert.equal(Object.keys(short).at(-1), 'next', JSON.stringify(short));
+    assert.match(short.next, /lyric_revise with this exact draft, unchanged/);
+    const rewritten = draft.map((line) =>
+      line === 'Morning light' ? 'Morning comes in slow' : line
+    );
+    const edited = await run('lyric_revise', { seed, draft: rewritten });
+    assert.match(text(edited), /CREATION_GRADE: lyric_grade must answer/);
+    // As `next` says: this exact draft, unchanged, with the grade's seed.
+    const opened = await run('lyric_revise', { seed, draft });
+    assert(!opened.tool_error, JSON.stringify(opened));
+    const open = verdictOf(opened.tool_result);
+    assert.equal(open.exit_code, 4, 'the interview run is open: it asks its first question');
+    await run('lyric_grade', { seed, draft: rewritten });
+    const kept = await run('lyric_revise', { seed, draft: rewritten });
+    assert.match(text(kept), /CREATION_CONTINUATION: draft differs from the recorded run/);
+    const fresh = await run('lyric_revise', { seed, draft: rewritten, new_run: true });
+    assert(!fresh.tool_error, JSON.stringify(fresh));
+  }
+);

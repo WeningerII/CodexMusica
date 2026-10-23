@@ -85,10 +85,19 @@ stale.
    Read the first row and (A)'s contribution comes into focus: it fixed how
    the length was SPELLED and could not fix the length, because the quantity
    it drew uniformly was still the wrong one. The pair marginal is now a
-   REALISABILITY share, predicted from `meter_factorisations` alone and held
+   REALISABILITY share, predicted from `meter_factorisations` ~~alone~~
+   **and the beat weights (since 2026-10-21)** and held
    to four sigma — deliberately not flat, because a beat count one
    factorisation can make must not be rarer than one fifteen can), each
-   uniform over its own set, never uniform over
+   uniform over its own set **except beats per line, which since 2026-10-21
+   is drawn under the owner's EQUAL-WEIGHT default instead — P(k)
+   proportional to ln((k+1)/k), equal mass per doubling of beats per line
+   (`plan.beats_weights`, `MISSING.md` M-81); and since 2026-10-22 a
+   draw the joint gate refuses is redrawn, at most `plan.REDRAW_BOUND`
+   times and disclosed in `choices.seed_redraw` (or `brief_selection` when
+   wants are declared), so a delivered plan is the draw conditioned on the
+   gate accepting it — the weighted proposal conditioned on acceptance,
+   not exactly per doubling**, never uniform over
    the enumerated leaves (which weight a cycle by how many groupings it
    admits and hand nearly every plan the maximal beat count — the first
    smoke run's own finding. **§4's LAST TWO THRESHOLDS WENT WITH (B)**: the
@@ -161,8 +170,14 @@ stale.
    default would be the instrument deciding what the caller wants, and
    `before=verse,chorus` in particular is the rate-matching
    `plan.FORM_TENDENCIES` explicitly refuses. Three counts, never summed;
-   an empty accepted set REFUSES at exit 2 with the rate beside it, because
-   unreachable and merely rare are different answers. It returns SEEDS and no
+   ~~an empty accepted set REFUSES at exit 2 with the rate beside it, because
+   unreachable and merely rare are different answers~~ (struck 2026-10-22, P3
+   F3, #519 6349551161: with nothing accepted the rate is always 0, and an
+   empty window is a statement about these seeds, not proof a declaration is
+   unreachable); it prints how many planned seeds each predicate held for on
+   its own and the planner's reason for each seed it refused, marked as about
+   that seed or about the request, and an empty accepted set REFUSES at exit
+   2. It returns SEEDS and no
    plan (`--fill`/`--out` refused with it), since a plan is a pure function
    of its seed. `test_plan.py` §10 holds the API and `test_verbs.py` §40
    holds the half this rule is actually about — that a person can RUN it.

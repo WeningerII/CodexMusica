@@ -7286,9 +7286,10 @@ the quality layer (each says which module answered):
                           the numbers in a --want are the caller's
                           declaration about THIS song. Three counts, never
                           summed -- swept, planned, REFUSED-by-the-planner
-                          -- and an empty accepted set REFUSES at exit 2
-                          with the rate, because unreachable and merely
-                          rare are different answers
+                          -- plus how many planned seeds each predicate held
+                          for on its own and the planner's reason for each
+                          seed it refused; an empty accepted set REFUSES at
+                          exit 2
   tryline DRAFT LINE "the new line" --seed=N [the same plan flags as finish]
          [--propose=defer:PATH]
                           THE PRE-FLIGHT: would this one line be ACCEPTED?
@@ -11384,29 +11385,33 @@ def main():
                 _refuse("plan takes --seed OR --sweep, never both",
                         detail=["a sweep FINDS seeds and a seed NAMES one; "
                                 "reading both would leave a caller unable to "
-                                "tell which produced the answer"])
+                                "tell which produced the answer"],
+                        machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             if fill is not None or out_path is not None:
                 _refuse("plan --sweep does not take --fill or --out",
                         detail=["a sweep returns SEEDS and no plan, because "
                                 "a plan is a pure function of its seed — run "
                                 "`plan --seed=N` on one of them and the "
                                 "artifact is reproducible with nothing "
-                                "carried over from the search"])
+                                "carried over from the search"],
+                        machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             lo_hi = str(sweep_raw).split("-")
             try:
                 lo, hi = int(lo_hi[0]), int(lo_hi[-1])
             except (ValueError, IndexError):
                 _refuse(f"--sweep={sweep_raw!r} is not a range",
                         detail=["--sweep=LO-HI over integer seeds, e.g. "
-                                "--sweep=0-600"])
+                                "--sweep=0-600"],
+                        machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             if hi < lo:
-                _refuse(f"--sweep={sweep_raw!r} runs backwards")
+                _refuse(f"--sweep={sweep_raw!r} runs backwards",
+                        machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             try:
                 wants = [PLN.parse_sweep_want(w)
                          for w in str(want_raw or "").split(";") if w.strip()]
                 res = PLN.sweep(range(lo, hi), wants=wants, **plan_kw)
             except PLN.PlanRefused as e:
-                _refuse(str(e))
+                _refuse(str(e), machine={"sweep": {"version": 1, "outcome": "arguments refused"}})
             print(f"  SWEEP: seeds {lo}..{hi - 1} ({res['seeds']}), "
                   f"form={form}"
                   + (f", lines={nlines}" if nlines else "")
@@ -11422,24 +11427,67 @@ def main():
                       "at all is accepted — honest and useless, and there is "
                       "no default: a sweep does not decide what you want)")
             # THREE COUNTS, NEVER SUMMED (doctrine 79). `refused` is the
-            # planner turning a request down — an unattainable length, the
-            # joint gate — and charging it to the predicates would blame the
-            # declaration for the envelope.
+            # planner turning a request down — an unattainable length, or a
+            # seed whose every redraw the joint gate refused (since option
+            # (b) one refused draw is redrawn, not counted) — and charging
+            # it to the predicates would blame the declaration for the
+            # envelope.
             print(f"    swept {res['seeds']}  planned {res['planned']}  "
                   f"REFUSED by the planner {res['refused']}  "
                   f"accepted {len(res['accepted'])}"
                   + (f" ({100.0 * len(res['accepted']) / res['planned']:.1f}%"
                      f" of the planned)" if res["planned"] else ""))
+            # WHAT EMPTIED IT (P3 F3, #519 6349551161): each predicate's
+            # count on its own, and the planner's reason for each seed it
+            # refused, marked as about that SEED's draw or about the REQUEST.
+            held_by = [{"want": f"{nm}{op}{val}", "held": k}
+                       for (nm, op, val), k in zip(wants, res["passed"])]
+            if wants and res["planned"]:
+                print(f"    HELD ALONE (each predicate on its own, of the "
+                      f"{res['planned']} planned): "
+                      + "; ".join(f"{h['want']} {h['held']}" for h in held_by))
+            reasons = []
+            if res["refusals"]:
+                print(f"    THE PLANNER'S REASONS ({res['refused']} seed(s) "
+                      f"refused; first line of each):")
+                for g in res["refusals"][:12]:
+                    ss, more = g["seeds"][:12], len(g["seeds"]) - 12
+                    print(f"      {g['scope']} — seed(s) "
+                          + ", ".join(str(x) for x in ss)
+                          + (f" and {more} more" if more > 0 else "")
+                          + f": {g['reason']}")
+                    reasons.append({"scope": g["scope"], "reason": g["reason"],
+                                    "seeds": ss, "more_seeds": max(0, more)})
+                if len(res["refusals"]) > 12:
+                    print(f"      … and {len(res['refusals']) - 12} more "
+                          f"reason(s)")
+            # THE SWEEP'S OWN RECORD (P3 F1): the four counts the line above
+            # prints, from the same variables, and one outcome; the
+            # connector reads these instead of parsing the report.
+            record = {"version": 1, "swept": res["seeds"],
+                      "planned": res["planned"],
+                      "planner_refused": res["refused"],
+                      "accepted_count": len(res["accepted"]),
+                      "held_by": held_by, "planner_refusals": reasons}
+            if not res["accepted"] and not res["planned"]:
+                _refuse(
+                    f"the planner refused every seed in {lo}..{hi - 1}",
+                    detail=["no seed planned, so no predicate ran; the "
+                            "reasons above say whether the request or each "
+                            "seed was refused",
+                            "fix what a request-scope reason names, or try "
+                            "other seeds"],
+                    machine={"sweep": {**record,
+                                       "outcome": "planner refused every seed"}})
             if not res["accepted"]:
                 _refuse(
                     f"no seed in {lo}..{hi - 1} satisfies every declared "
                     f"predicate",
-                    detail=[f"{res['planned']} seed(s) planned and none was "
-                            f"kept, so the declaration is unreachable in this "
-                            f"range rather than merely rare",
-                            "widen the range, or drop a predicate — and the "
-                            "acceptance rate above is the measurement that "
-                            "says which"])
+                    detail=[f"{res['planned']} seed(s) planned and none held "
+                            f"every predicate; the HELD ALONE counts above "
+                            f"say how many held each one",
+                            "widen the range, or drop a predicate"],
+                    machine={"sweep": {**record, "outcome": "no seed kept"}})
             print(f"    ACCEPTED (in seed order — this does NOT rank them; "
                   f"doctrine 7 enforces a floor and does not order the "
                   f"permitted region, and an argmax over a swept parameter "
@@ -11452,6 +11500,8 @@ def main():
                   + (f" --form={form}" if form != "verse-chorus" else "")
                   + (f" --lines={nlines}" if nlines else "")
                   + (f" --functions={funcs_raw}" if funcs_raw else ""))
+            _lyric_result(status="swept", exit=0,
+                          sweep={**record, "outcome": "accepted"})
             return 0
         try:
             # ONE SPELLING OF THE ARGUMENT LIST. This branch used to build its
@@ -11475,6 +11525,11 @@ def main():
         print(f"    (pattern drawn from {pat['chosen_from']})")
         if "brief_selection" in the_plan["choices"]:
             print("  BRIEF SELECTION: " + json.dumps(the_plan["choices"]["brief_selection"], sort_keys=True))
+        # A REDRAWN SEED IS SAID, as a brief selection is (option (b),
+        # 2026-10-22): the joint gate refused this seed's own draw and the
+        # plan is the first candidate after it that the gate accepted.
+        if "seed_redraw" in the_plan["choices"]:
+            print("  SEED REDRAW: " + json.dumps(the_plan["choices"]["seed_redraw"], sort_keys=True))
         # DECLARED, OUT LOUD. Silence here would make `plan --seed=3` and
         # `plan --seed=3 --relation=type:rime riche` look identical on a run
         # where the relation happens not to change the sampled shape — the

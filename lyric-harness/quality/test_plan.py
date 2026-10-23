@@ -92,6 +92,36 @@ def check(name, cond, detail=""):
         FAILURES.append(name)
 
 
+def _plan_unless_no_free_word(seed, **kw):
+    """-> `make_plan(seed, **kw)`, or None when the JOINT GATE refuses the
+    seed for `NO_FREE_WORD` and nothing else.
+
+    WHY A SWEEP NEEDS THIS (2026-10-21). Under the owner's equal-weight beat
+    draw (`beats_weights`) a two-beat line is ~9% of draws (~~0.5%~~ while
+    the draw was uniform), and a two-beat line at subdivision 1 can leave a
+    line one slot with a rhyme bound on it, which `NO_FREE_WORD` refuses —
+    "refusing here costs a seed" (plan.py, `JOINT_CODES`). Such a seed has
+    no plan to check, so a sweep over a fixed seed range skips it, as §4's
+    measure loop and this file's other sweeps do, and names it in its
+    detail. ANY OTHER refusal still raises, and so does a joint refusal with
+    any other code among its findings: the skip is the one refusal the draw
+    is known to make, never a way for a new one to pass unseen.
+
+    SINCE OPTION (b) (2026-10-22) IT RETURNS None ONLY ON AN EXHAUSTED
+    REDRAW: `make_plan` redraws a draw the joint gate refuses (§22), so a
+    seed reaches this skip only if all `REDRAW_BOUND` candidates refused,
+    and then the refusal text carries no finding lines and raises here.
+    It stays as the guard every sweep already calls, not as a skip anything
+    is expected to take."""
+    try:
+        return make_plan(seed=seed, **kw)
+    except PlanRefused as exc:
+        if set(re.findall(r"^  L\d+ (\w+): ", str(exc), re.M)) \
+                != {"NO_FREE_WORD"}:
+            raise
+        return None
+
+
 def test_determinism():
     print("\n1. a plan is a function of its request — seeded, reproducible")
     a = json.dumps(make_plan(seed=7), sort_keys=True)
@@ -106,6 +136,104 @@ def test_determinism():
     check("across ten seeds the CHOICES differ — the seed is READ, and the "
           "echoed request cannot stand in for read behaviour",
           len(bodies) >= 2, f"{len(bodies)} distinct choice-set(s)")
+
+
+def test_the_denominator_is_drawn():
+    print("\n1b. the time signature's denominator is drawn, not derived from "
+          "the grouping")
+    # THE OWNER RULING THIS HOLDS (2026-10-19, #519 6257697449): "the
+    # planner should be allowed to pick 3/4, 5/4, 7/4, cut time and other
+    # bottom numbers on its own, instead of following the 'any 3 means /8'
+    # rule". `_unit_for` (8 if any group is 3, else 4) is gone, and every
+    # check below is one a revival of it would fail.
+    from quality.melody import NOTE_DENOMINATORS, validate_melody
+    import inspect as _inspect
+    check("the support is the DECLARABLE set — the one tuple melody's own "
+          "refusal reads, so a sampled meter can always be declared back by "
+          "hand — and not a second list",
+          NOTE_DENOMINATORS == (1, 2, 4, 8, 16, 32, 64)
+          and "NOTE_DENOMINATORS" in _inspect.getsource(validate_melody)
+          and not hasattr(PLN, "_unit_for"),
+          NOTE_DENOMINATORS)
+    check("the draw takes the rng and NOTHING ELSE — no beats, no grouping "
+          "— so no rule can tie the denominator to the grouping",
+          list(_inspect.signature(PLN._sample_unit).parameters) == ["rng"],
+          str(_inspect.signature(PLN._sample_unit)))
+    _r = random.Random(0)
+    _seen = Counter(PLN._sample_unit(_r) for _ in range(7000))
+    check("...and it is uniform over that support: 7000 draws, every "
+          "denominator within 4 sigma of 1/7",
+          set(_seen) == set(NOTE_DENOMINATORS)
+          and all(abs(c / 7000 - 1 / 7) <= 4 * math.sqrt((1 / 7) * (6 / 7) / 7000)
+                  for c in _seen.values()),
+          dict(sorted(_seen.items())))
+
+    # ENTROPY-LAST. A draw spent any earlier on the shared stream re-deals
+    # every later pick of every seed. Swap the draw for one that consumes
+    # NOTHING: if any coordinate other than the unit moves, the real draw
+    # was not last.
+    def _masked(p):
+        p = json.loads(json.dumps(p, sort_keys=True, default=str))
+        p.pop("writer_brief")
+        p["choices"].pop("unit", None)
+        for sec in p["sections"]:
+            sec["meter"]["unit"] = None
+        p["choices"]["meter"]["value"]["unit"] = None
+        return json.dumps(p, sort_keys=True)
+    _real = PLN._sample_unit
+    _seeds = (1, 7, 32)
+    try:
+        PLN._sample_unit = lambda rng: 4
+        _fixed = {k: _masked(make_plan(seed=k)) for k in _seeds}
+    finally:
+        PLN._sample_unit = _real
+    check("the denominator is drawn ENTROPY-LAST: with a draw that consumes "
+          "no randomness in its place, every other coordinate of the plan is "
+          "byte-identical",
+          all(_masked(make_plan(seed=k)) == _fixed[k] for k in _seeds),
+          f"seeds {_seeds}")
+
+    # REACHABLE FROM DEFAULT PLANS, pinned by seed (make_plan is a function
+    # of its seed, so these are pins, not statistics). The four meters Don
+    # named, and one of each denominator.
+    # ~~seeds 32 (3/4), 77 (2/2), 167 (5/4), 270 (7/4)~~ — REPINNED
+    # 2026-10-21: the beat count is drawn under the owner's equal-weight
+    # default now (`beats_weights`), and the unit is drawn LAST, so every
+    # seed's unit re-deals (32 is 92/64 now, 77 is 2/4, 167 is 3/2, and 270
+    # draws a two-beat line the joint gate refuses). The METERS are the
+    # pin; each seed below is the first default seed in that meter under
+    # the new draw, re-measured by running `make_plan`.
+    def _sig(k):
+        p = make_plan(seed=k)
+        m = p["sections"][0]["meter"]
+        units = {s["meter"]["unit"] for s in p["sections"]}
+        return p, m, units
+    for k, want in ((115, "3/4"), (116, "2/2"), (162, "5/4"), (237, "7/4")):
+        p, m, units = _sig(k)
+        check(f"default plan seed {k} is in {want}, and the brief says so",
+              f"{m['beats']}/{m['unit']}" == want and len(units) == 1
+              and f"Feel: {want} grouped" in p["writer_brief"]
+              and p["choices"]["unit"]["value"] == m["unit"],
+              f"{m['beats']}/{m['unit']} grouped {m['groups']}")
+    _units = {}
+    # ~~(1, 2, 7, 9, 10, 17, 32)~~ — REPINNED 2026-10-21 with the draw
+    # above: the first default seed of each denominator under the
+    # equal-weight beat count (0 is /8, 1 /64, 3 /16, 7 /32, 13 /4, 17 /1,
+    # 19 /2), and among them 19 is /2 with a 3 in its bar and 17 is /1 with
+    # 2s only, the two outcomes the independence check needs.
+    for k in (0, 1, 3, 7, 13, 17, 19):
+        p, m, units = _sig(k)
+        _units[m["unit"]] = (k, m["beats"], tuple(m["groups"]))
+    check("every declarable denominator is reachable from default plans",
+          set(_units) == set(NOTE_DENOMINATORS),
+          {u: v[:2] for u, v in sorted(_units.items())})
+    check("...independently of the grouping: a bar with a 3 in it comes out "
+          "other than /8, and a bar of 2s only comes out other than /4 — the "
+          "two outcomes `_unit_for` made unreachable",
+          any(3 in g and u != 8 for u, (_k, _b, g) in _units.items())
+          and any(3 not in g and u != 4 for u, (_k, _b, g) in _units.items()),
+          {u: (v[1], "has 3" if 3 in v[2] else "2s only")
+           for u, v in sorted(_units.items())})
 
 
 def test_refusals():
@@ -579,8 +707,10 @@ def test_the_round_trip():
 
 
 def test_the_measure():
-    print("\n4. THE MEASURE — uniform by derivation, and the v1 biases "
-          "stay dead")
+    # ~~uniform by derivation~~ — since 2026-10-21 the beat count is drawn
+    # under the owner's equal-weight default and the rest stay uniform.
+    print("\n4. THE MEASURE — by derivation (beats per line equal-weight, "
+          "the rest uniform), and the v1 biases stay dead")
 
     # The samplers are held to their own enumerations (enumerate-to-verify,
     # count-to-sample).
@@ -673,9 +803,9 @@ def test_the_measure():
     # actually stated in: measured at median 35 of a [5, 48] envelope, with
     # 4.6% of lines given a grid a band-legal line could fill.
     #
-    # WHAT IS ASSERTED NOW is the declared coordinate's own uniformity, the
+    # WHAT IS ASSERTED NOW is the declared coordinate's own measure, the
     # coverage the old check was really protecting, and the pair marginal as
-    # a PREDICTION computed from `meter_factorisations` alone.
+    # a PREDICTION computed from `meter_factorisations` and the beat weights.
     def _tv(a, b):
         """Total variation between two distributions given as counts. Used
         for every 'which hypothesis does this look like' question below, so
@@ -684,9 +814,43 @@ def test_the_measure():
         return 0.5 * sum(abs(a.get(k, 0) / _ka - b.get(k, 0) / _kb)
                          for k in set(a) | set(b))
 
-    _sshare = N / len(vals)
+    # ~~drawn UNIFORM over what the envelope can realise~~ — REPOINTED
+    # 2026-10-21 by owner ruling (John, relayed by Jony on #519 6325464833:
+    # "use the equal-weight default"; verified 6325563066, 6325674595,
+    # 6325811786). The beat count is P(k) proportional to ln((k+1)/k) over
+    # `beats_values()`, the uniform draw M-81 set is struck for beats per
+    # line, and every prediction below is COMPUTED from those weights. The
+    # weights are recomputed here from the ruling's own formula rather than
+    # read back from `beats_weights`, so a drifted weight cannot predict
+    # itself.
+    _raw = {k: math.log((k + 1) / k) for k in vals}
+    _wsum = math.fsum(_raw.values())
+    _w = {k: _raw[k] / _wsum for k in vals}
+    _cum, _acc = {}, 0.0
+    for _k in vals:
+        _acc += _w[_k]
+        _cum[_k] = _acc
+    check("the beat weights ARE the ruling's equal-weight default: "
+          "`beats_weights` is ln((k+1)/k) over `beats_values()` normalised by "
+          "its own sum, every realisable count carries a NONZERO weight (a "
+          "re-weighting, never a cap), and every complete doubling a..2a-1 "
+          "inside the envelope carries the same mass, ln 2 over that sum",
+          len(PLN.beats_weights()) == len(vals)
+          and all(abs(a - _w[k]) <= 1e-12
+                  for k, a in zip(vals, PLN.beats_weights()))
+          and all(_w[k] > 0 for k in vals)
+          and all(abs(sum(_w.get(k, 0.0) for k in range(a, 2 * a))
+                      - math.log(2) / _wsum)
+                  <= 1e-12
+                  for a in vals if 2 * a - 1 <= vals[-1]),
+          f"{len(vals)} weights over {vals[0]}..{vals[-1]}, normaliser "
+          f"{_wsum:.6f} (ln({vals[-1] + 1}/{vals[0]}) = "
+          f"{math.log((vals[-1] + 1) / vals[0]):.6f}), smallest "
+          f"{min(_w.values()):.5f} at {min(_w, key=_w.get)}")
+
     _smean = sum(slot_n.elements()) / N
-    _smid = (vals[0] + vals[-1]) / 2
+    _pmean = sum(k * _w[k] for k in vals)
+    _psd = math.sqrt(sum(k * k * _w[k] for k in vals) - _pmean ** 2)
     # ~~within 15% of its share, mean within 1.0 of the midpoint~~ — sized
     # for the 2..12 envelope (11 values, ~2,180 draws each, so 15% was about
     # seven standard deviations). The 12-beat ceiling is deleted (owner
@@ -694,23 +858,76 @@ def test_the_measure():
     # standard deviation is ~9%, and a fixed 15% fails a uniform draw by
     # chance. Both tolerances are now FOUR STANDARD ERRORS of the draw
     # itself, derived from N and the value count, never typed.
-    _stol = 4 * math.sqrt(_sshare * (1 - 1 / len(vals)))
-    _mtol = 4 * math.sqrt((len(vals) ** 2 - 1) / 12) / math.sqrt(N)
+    # ~~each within four standard errors of N/|vals|, the mean within four
+    # standard errors of the envelope's midpoint~~ — the uniform draw's own
+    # prediction, REPOINTED 2026-10-21 to the equal-weight one: each count
+    # within four binomial standard errors of N x P(k), the mean within four
+    # standard errors (the predicted SD over sqrt N) of the predicted mean.
+    _stol = {k: 4 * math.sqrt(N * _w[k] * (1 - _w[k])) for k in vals}
+    _mtol = 4 * _psd / math.sqrt(N)
     check("BEATS PER LINE — the coordinate the envelope is stated in, and "
-          "the length a listener hears — is drawn UNIFORM over what the "
-          "envelope can realise: every value reached, each within four "
-          "standard errors of its share, and the observed mean within four "
-          "standard errors of the envelope's own midpoint. ~~SLOTS per line~~ (M-81(A)) had the ORDER right "
+          "the length a listener hears — is drawn under the EQUAL-WEIGHT "
+          "default over what the envelope can realise: every value reached, "
+          "each within four standard errors of its predicted count, and the "
+          "observed mean within four standard errors of the predicted mean. "
+          "~~SLOTS per line~~ (M-81(A)) had the ORDER right "
           "and the UNIT wrong: a slot is a subdivision unit, so drawing "
           "uniformly over slots made a line's LENGTH a function of its grid "
           "resolution — 48 slots is twelve beats at subdivision 4 and "
           "forty-eight at subdivision 1",
           len(slot_n) == len(vals)
-          and all(abs(v - _sshare) <= _stol for v in slot_n.values())
-          and abs(_smean - _smid) <= _mtol,
-          f"{len(slot_n)}/{len(vals)} values, mean {_smean:.2f}, midpoint "
-          f"{_smid}, max deviation "
-          f"{max(abs(v - _sshare) / _sshare for v in slot_n.values()):.1%}")
+          and all(abs(slot_n[k] - N * _w[k]) <= _stol[k] for k in vals)
+          and abs(_smean - _pmean) <= _mtol,
+          f"{len(slot_n)}/{len(vals)} values, mean {_smean:.2f} against "
+          f"predicted {_pmean:.2f} (tolerance {_mtol:.2f}), worst "
+          f"{max(abs(slot_n[k] - N * _w[k]) / (_stol[k] / 4) for k in vals):.2f}"
+          f" standard errors")
+    # THE RULING'S OWN FIGURES, each asked of the draw at four binomial
+    # standard errors and each COMPUTED from the weights (they move with the
+    # envelope): the share in every complete doubling, the 2-16 and 65-200
+    # shares, and the median, held to the predicted quantiles four standard
+    # errors either side of one half.
+    _bands = []
+    _a = vals[0]
+    while 2 * _a - 1 <= vals[-1]:
+        _bands.append((_a, 2 * _a - 1))
+        _a *= 2
+    _bands += [(lo_, hi_) for lo_, hi_ in ((vals[0], 16), (65, vals[-1]))
+               if vals[0] <= lo_ < hi_ <= vals[-1]]
+
+    def _share_ok(lo_, hi_):
+        _p = sum(_w[k] for k in vals if lo_ <= k <= hi_)
+        _o = sum(slot_n[k] for k in vals if lo_ <= k <= hi_) / N
+        return abs(_o - _p) <= 4 * math.sqrt(_p * (1 - _p) / N), _o, _p
+    _bres = {b: _share_ok(*b) for b in _bands}
+    _q = 4 * math.sqrt(0.25 / N)
+    _qlo = next(k for k in vals if _cum[k] >= 0.5 - _q)
+    _qhi = next(k for k in vals if _cum[k] >= 0.5 + _q)
+    _pmed = next(k for k in vals if _cum[k] >= 0.5)
+    _omed = sorted(slot_n.elements())[N // 2]
+    check("...and the ruling's own figures hold on the draw: every complete "
+          "doubling of beats per line takes the same share, the 2-16 and "
+          "65-200 shares are the predicted ones, and the median sits at the "
+          "predicted median — each at four standard errors",
+          all(ok_ for ok_, _o, _p in _bres.values())
+          and _qlo <= _omed <= _qhi,
+          f"median {_omed} (predicted {_pmed}, band {_qlo}..{_qhi}); "
+          + ", ".join(f"{lo_}-{hi_} {o_:.1%}/{p_:.1%}"
+                      for (lo_, hi_), (_ok, o_, p_) in _bres.items()))
+    # THE STRUCK MEASURE AS THE OTHER HYPOTHESIS, the same two-hypothesis
+    # shape as the pair and leaf checks below: no threshold, both sides
+    # computed, and the second half stops it comparing a thing with itself.
+    _uni = Counter({k: 1.0 for k in vals})
+    _eq = Counter(_w)
+    check("...and the observed beat count is the EQUAL-WEIGHT measure and "
+          "not the struck uniform one — closer to the first in total "
+          "variation, and the two predictions further apart than the "
+          "observation is from the first",
+          _tv(slot_n, _eq) < _tv(slot_n, _uni)
+          and _tv(_eq, _uni) > _tv(slot_n, _eq),
+          f"total variation to equal-weight {_tv(slot_n, _eq):.4f}, to "
+          f"uniform {_tv(slot_n, _uni):.4f}; predictions differ by "
+          f"{_tv(_eq, _uni):.4f}")
     check("...and the ADMITTED PAIR SET is the same set derived two ways — "
           "`meter_dims`' non-empty beat range and `meter_factorisations`' "
           "divisibility — so the sampler and the disclosure's denominator "
@@ -718,17 +935,38 @@ def test_the_measure():
           "(doctrine 1)",
           {p for n in vals for p in PLN.meter_factorisations(n)} == set(dims),
           f"{len(dims)} pairs both ways")
-    check("...and EVERY pair the envelope admits is still REACHED, which is "
-          "the coverage the uniformity check was really protecting",
-          len(pair_n) == len(dims), f"{len(pair_n)}/{len(dims)} pairs")
     # THE PAIR MARGINAL IS A PREDICTION, NOT AN ACCIDENT. Computed from
-    # `meter_factorisations` and nothing else: a slots count is drawn 1/|vals|
-    # of the time and then splits its mass evenly over its factorisations.
+    # `meter_factorisations` and the beat weights and nothing else: a beat
+    # count is drawn P(k) of the time (~~1/|vals|~~ while it was uniform)
+    # and then splits its mass evenly over its factorisations.
     pred = Counter()
     for n in vals:
         f = PLN.meter_factorisations(n)
         for p in f:
-            pred[p] += N / len(vals) / len(f)
+            pred[p] += N * _w[n] / len(f)
+    # ~~EVERY pair reached in the 24,000 draws above~~ — under the uniform
+    # draw that expected 1.5 pairs unreached, so it held on this seed's
+    # luck; under the equal-weight draw it expects ~28, because a high-bars
+    # pair is made only by the longest lines (`bars=100` only by 200 beats).
+    # The coverage claim is kept and the draw is SIZED FROM THE PREDICTION:
+    # enough draws that a correct sampler misses ANY admitted pair with
+    # probability under 1/1000 (union bound over the pairs), stopping as soon
+    # as every pair is in. Every pair has a nonzero predicted share, so this
+    # is reachability and not luck.
+    _pmin = min(pred.values()) / N
+    _n_reach = math.ceil(math.log(1000 * len(dims)) / _pmin)
+    _rrng, _reach, _used = random.Random(20260818), set(), 0
+    while _used < _n_reach and len(_reach) < len(dims):
+        _d = PLN._sample_meter(_rrng)
+        _reach.add((_d[0], _d[1]))
+        _used += 1
+    check("...and EVERY pair the envelope admits is still REACHED, which is "
+          "the coverage the uniformity check was really protecting: every "
+          "pair has a nonzero predicted share, and a draw sized so a correct "
+          "sampler misses one with probability under 1/1000 reaches them all",
+          all(pred[p] > 0 for p in dims) and _reach == set(dims),
+          f"{len(_reach)}/{len(dims)} pairs in {_used} of at most "
+          f"{_n_reach} draws (rarest pair's share {_pmin:.2e})")
     _sigma = max(abs(pair_n[p] - pred[p]) / (pred[p] ** 0.5) for p in dims)
     check("...and the pair marginal MATCHES that prediction, every pair "
           "inside four sigma of its own expected count — so the shares "
@@ -785,16 +1023,52 @@ def test_the_measure():
     #: named 2026-09-05 so the coverage expectation below cannot drift from
     #: the loop it is an expectation for (M-239 repin).
     _N_MEASURE = 200
+    # A SEED THE JOINT GATE REFUSES HAS NO PLAN TO MEASURE (2026-10-21).
+    # Under the equal-weight beat draw a two-beat line is ~9% of draws
+    # (~~0.5%~~ uniform), and a two-beat line at subdivision 1 can leave a
+    # line one slot with a rhyme bound on it, which `NO_FREE_WORD` refuses
+    # ("refusing here costs a seed"). The loop skips such a seed, as this
+    # file's other sweeps do, and the check after it names every one, so the
+    # population each claim below is taken over is stated rather than
+    # silently smaller; `bars_pl` is read off the SAME plans, and every
+    # count that was `_N_MEASURE` is now the number of plans.
+    # The skip goes through `_plan_unless_no_free_word`, as every other sweep
+    # here does: NO_FREE_WORD alone, read off the finding lines, and any
+    # other refusal raises (~~any `PlanRefused` with a `JOINT_CODES` name
+    # anywhere in its message~~, BB8 and Jony 2026-10-22).
+    refused_m = []
+    bars_pl = []
     for seed in range(_N_MEASURE):
-        p = make_plan(seed=seed)
+        p = _plan_unless_no_free_word(seed)
+        if p is None:
+            refused_m.append(seed)
+            continue
         m = p["sections"][0]["meter"]
         beats.append(m["beats"])
-        meters.add((m["beats"], m["unit"]))
+        # (beats, groups), not (beats, unit): the unit is drawn
+        # independently now, so pairing it in would let the count pass on
+        # denominators alone (BB8 6348211556).
+        meters.add((m["beats"], tuple(m["groups"])))
         units.add(m["unit"])
         totals.add(p["total_lines"])
         funcs.update(s["function"] for s in p["sections"])
         for sm in p["choices"]["schemes"].values():
             ks[sm["lines"]] += 1
+        bars_pl.append(p["choices"]["bars_per_line"])
+    _n_planned = len(beats)
+    # NONE, since option (b) (2026-10-22): `make_plan` redraws a default
+    # draw the joint gate refuses, boundedly and disclosed (§22), so no
+    # default seed reaches this skip and the population every claim below is
+    # taken over is all `_N_MEASURE` seeds again. ~~Bounded at the measured
+    # refusal rate (572 of 20,000) plus four standard errors~~ (Jony
+    # 2026-10-22, under option (a) alone), and before that ~~the two-beat
+    # draw share plus four standard errors~~, which bounded the two-beat
+    # draws rather than the refusals. (~~`_n_planned + len(refused_m) ==
+    # _N_MEASURE`~~, struck: it held by construction and tested nothing.)
+    check("no default seed the measure draws is refused: a draw the joint "
+          "gate refuses is redrawn (§22), so all of them plan",
+          refused_m == [] and _n_planned == _N_MEASURE,
+          f"{_n_planned} of {_N_MEASURE} seeds planned; refused {refused_m}")
     bs = sorted(beats)
     # THE LEAF MEASURE, ASKED AS A TWO-HYPOTHESIS TEST WITH NO THRESHOLD IN
     # IT AT ALL. ~~median beat count <= 8 and under 10% of plans at >= 40
@@ -807,7 +1081,8 @@ def test_the_measure():
     #
     # WHAT IS ASKED INSTEAD is which of two COMPUTED distributions the
     # observation actually looks like: this sampler's own prediction
-    # (beats-per-line uniform, then a factorisation) or uniform-over-
+    # (beats per line under the equal-weight default — ~~uniform~~ until
+    # 2026-10-21 — then a factorisation) or uniform-over-
     # enumerated-cycles. Neither side is a number somebody chose, and the
     # second check is what stops it being a comparison of one hypothesis
     # with itself.
@@ -815,7 +1090,7 @@ def test_the_measure():
     for _n in vals:
         _f = PLN.meter_factorisations(_n)
         for (_bars, _sub) in _f:
-            _own[_n // _bars] += 1.0 / len(vals) / len(_f)
+            _own[_n // _bars] += _w[_n] / len(_f)
     _leaf = Counter()
     for (_b, _s2), (_lo2, _hi2) in dims.items():
         for _n in range(_lo2, _hi2 + 1):
@@ -823,15 +1098,19 @@ def test_the_measure():
     _obs = Counter(d[2] for d in draws)
 
     _d_own, _d_leaf = _tv(_obs, _own), _tv(_obs, _leaf)
+    _top = max(_leaf, key=_leaf.get)
     check("the beats-per-bar marginal is the SAMPLER'S OWN prediction and "
           "not the LEAF measure's — a two-hypothesis test, both sides "
           "computed, no threshold anywhere in it (compositions into {2,3} "
           "grow ~1.3247^n, so leaves still pile on the envelope's maximal "
-          "beat count: 0.202 of the leaf's mass sits at 12 against this "
-          "sampler's 0.018)",
+          "beat count: ~~0.202 of the leaf's mass sits at 12 against this "
+          "sampler's 0.018~~, figures of the 2..12 envelope; the detail "
+          "computes both at the leaf's own peak)",
           _d_own < _d_leaf,
           f"total variation to this sampler {_d_own:.4f}, to the leaf "
-          f"{_d_leaf:.4f}")
+          f"{_d_leaf:.4f}; at {_top} beats a bar the leaf holds "
+          f"{_leaf[_top] / sum(_leaf.values()):.3f} of its mass against "
+          f"this sampler's {_own[_top] / sum(_own.values()):.4f}")
     check("...and the two hypotheses are genuinely DIFFERENT, so that is not "
           "a comparison of one thing with itself — they part further from "
           "each other than the observation parts from either",
@@ -846,31 +1125,56 @@ def test_the_measure():
     # envelope, where most beat counts have few factorisations. With the
     # 12-beat ceiling deleted (owner ruling 2026-09-28) a 150-beat line has
     # many, so the one-bar share is what THIS sampler predicts — beats
-    # uniform, then one factorisation uniform — and that prediction is what
+    # ~~uniform~~ under the equal-weight default (2026-10-21), then one
+    # factorisation uniform — and that prediction is what
     # the pair-uniform measure could not match. Held to four binomial
-    # standard errors over the 200 plans.
-    bars_pl = sorted(p["choices"]["bars_per_line"] for p in
-                     [make_plan(seed=s) for s in range(200)])
-    _p1 = sum(sum(1 for (b, _s) in PLN.meter_factorisations(n) if b == 1)
-              / len(PLN.meter_factorisations(n)) for n in vals) / len(vals)
-    _o1 = sum(b == 1 for b in bars_pl) / 200
+    # standard errors over the ~~200~~ plans the loop above made (its
+    # refused seeds, every one so far a one-bar two-beat line, are not
+    # plans; leaving them out can only lower the one-bar share, by at most
+    # refused/planned).
+    # ~~`[make_plan(seed=s) for s in range(200)]`~~ — the same 200 seeds the
+    # loop above already planned, read off those plans rather than planned
+    # twice.
+    bars_pl = sorted(bars_pl)
+    _p1 = sum(_w[n] * sum(1 for (b, _s) in PLN.meter_factorisations(n)
+                          if b == 1)
+              / len(PLN.meter_factorisations(n)) for n in vals)
+    # CONDITIONED ON THE JOINT GATE (3PO 6346040235): a plan is a draw the
+    # gate accepted, so the population these 200 plans come from is the
+    # draw conditioned on acceptance, not the raw draw — and since option
+    # (b) a refused draw is replaced by a redrawn one rather than dropped.
+    # Every refusal measured is a one-bar line (572 of 20,000 default draws,
+    # `MISSING.md` M-81), so the accepted one-bar share is (p1 - r) / (1 - r)
+    # with r that measured rate; ~~the raw `_p1`~~ compared with accepted
+    # plans was biased by up to r.
+    _r1 = 572 / 20000
+    _p1c = (_p1 - _r1) / (1 - _r1)
+    _o1 = sum(b == 1 for b in bars_pl) / _n_planned
     check("...and the ONE-BAR share is the sampler's own prediction from "
-          "`meter_factorisations`, which is what the pair-uniform measure got "
+          "`meter_factorisations` and the beat weights, conditioned on the "
+          "joint gate's measured one-bar refusals, which is what the "
+          "pair-uniform measure got "
           "wrong in the other direction: it spelled the same slots product "
           "as many short bars",
-          abs(_o1 - _p1) <= 4 * math.sqrt(_p1 * (1 - _p1) / 200),
-          f"median {bars_pl[100]} bars/line, one-bar {_o1:.1%} against "
-          f"predicted {_p1:.1%}")
-    check("the 4/4 bias is dead: many distinct meters over 200 seeds, both "
-          "notation units, and 4/4 under 30% of plans. The COUNT is not "
-          "pinned at a literal — it moves with the derived envelope — so "
-          "what is asserted is that the sampler is not concentrated: at "
-          "least ten distinct cycles and 4/4 no more common than any "
-          "single-cycle share of the space would make it",
-          len(meters) >= 10 and units == {4, 8}
-          and sum(1 for b in beats if b == 4) / 200 < 0.30,
+          abs(_o1 - _p1c) <= 4 * math.sqrt(_p1c * (1 - _p1c) / _n_planned),
+          f"median {bars_pl[_n_planned // 2]} bars/line, one-bar {_o1:.1%} "
+          f"against predicted {_p1c:.1%} (raw draw {_p1:.1%}, less the "
+          f"measured {_r1:.2%} refused) over {_n_planned} plans")
+    # ~~both notation units, `units == {4, 8}`~~ — REPINNED 2026-10-19: the
+    # denominator is drawn now (`_sample_unit`, owner ruling on #519), so
+    # 200 seeds reach every declarable one. `test_the_denominator_is_drawn`
+    # holds the draw itself.
+    from quality.melody import NOTE_DENOMINATORS
+    check("the 4/4 bias is dead: many distinct meters over 200 seeds, every "
+          "declarable denominator, and four beats a bar under 30% of plans. "
+          "The COUNT is not pinned at a literal — it moves with the derived "
+          "envelope — so what is asserted is that the sampler is not "
+          "concentrated: at least ten distinct cycles and 4/4 no more common "
+          "than any single-cycle share of the space would make it",
+          len(meters) >= 10 and units == set(NOTE_DENOMINATORS)
+          and sum(1 for b in beats if b == 4) / _n_planned < 0.30,
           f"{len(meters)} meters, units {sorted(units)}, "
-          f"4/4 {sum(1 for b in beats if b == 4) / 200:.1%}")
+          f"4/4 {sum(1 for b in beats if b == 4) / _n_planned:.1%}")
     k_total = sum(ks.values())
     # ~~every k in the envelope's section range~~ — REPINNED 2026-08-23. The
     # section range is no longer a literal `(1, 16)`: its ceiling is the whole
@@ -942,13 +1246,16 @@ def test_the_measure():
     # against a literal share, so it cannot go stale when the set moves
     # again. Both ends within 5 of the derived limits, as before.
     import math as _m
-    _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** _N_MEASURE)
+    # ~~`** _N_MEASURE`~~ and ~~`/ _N_MEASURE`~~ below — the totals observed
+    # are the PLANS' (`_n_planned`, 2026-10-21): a refused seed drew a total
+    # nobody sees, so both expectations are taken over the draws observed.
+    _expect = len(_env) * (1 - (1 - 1 / len(_env)) ** _n_planned)
     # ~~both ends within 5~~ — with the 31-line cap deleted (owner ruling
     # 2026-09-28) the draw spans 12..463 again, and a uniform draw of 200
     # misses an end by more than 5 about one time in fourteen. The end
     # tolerance is now the distance a uniform draw overshoots with
     # probability 1/1000: ceil(|env| * ln(1000) / draws).
-    _end_tol = _m.ceil(len(_env) * _m.log(1000) / _N_MEASURE)
+    _end_tol = _m.ceil(len(_env) * _m.log(1000) / _n_planned)
     check("totals cover the envelope's order, not one shape: the distinct "
           "totals reached are most of what a UNIFORM draw over the DERIVED "
           "envelope reaches in this many seeds, both ends included",
@@ -1414,8 +1721,15 @@ def test_the_disclosure():
     def _hook_walk(seeds):
         seen_with = seen_without = False
         ok = why_ok = True
+        skipped = []
         for seed in seeds:
-            p = make_plan(seed=seed)
+            # A seed the joint gate refuses for `NO_FREE_WORD` has no hook
+            # to check (2026-10-21, `_plan_unless_no_free_word`): under the
+            # mutation below seeds 2 and 37 now are, the shipped sweep none.
+            p = _plan_unless_no_free_word(seed)
+            if p is None:
+                skipped.append(seed)
+                continue
             drawn = {}
             for sec in p["sections"]:
                 drawn[sec["function"]] = drawn.get(sec["function"], 0) + 1
@@ -1437,19 +1751,20 @@ def test_the_disclosure():
                           if s2["line"] == got) if got else None
                 ok = ok and got is not None and drawn.get(fn, 0) > 1
                 seen_with = True
-        return ok, why_ok, seen_with, seen_without
-    ok, _why, seen_with, seen_without = _hook_walk(range(40))
+        return ok, why_ok, seen_with, seen_without, skipped
+    ok, _why, seen_with, seen_without, skipped = _hook_walk(range(40))
     check("hook_slot sits in a function this plan drew MORE THAN ONCE on "
           "every seed of the sweep — and since M-190 NO plan lacks one, "
           "because the form's chorus recurs by rule: the recurrence is what "
           "makes the two hook flags askable of every plan",
           ok and seen_with and not seen_without,
           f"with {seen_with}, without {seen_without} (the None branch is "
-          f"unreachable by design under the shipped table)")
+          f"unreachable by design under the shipped table); refused "
+          f"NO_FREE_WORD: {skipped or 'none'}")
     saved_recurs = dict(PLN.FORM_RECURS)
     try:
         PLN.FORM_RECURS.clear()
-        m_ok, m_why, _m_with, m_without = _hook_walk(range(40))
+        m_ok, m_why, _m_with, m_without, m_skipped = _hook_walk(range(40))
     finally:
         PLN.FORM_RECURS.clear()
         PLN.FORM_RECURS.update(saved_recurs)
@@ -1457,7 +1772,8 @@ def test_the_disclosure():
           "None branch is reached and holds — BOTH branches exercised, "
           "neither asserted on a shape nothing produces",
           m_ok and m_without,
-          f"without {m_without} under the mutation")
+          f"without {m_without} under the mutation; refused NO_FREE_WORD: "
+          f"{m_skipped or 'none'}")
     check("...and a plan declaring no hook says WHY, so 'nothing recurs' and "
           "'nobody asked' stop looking identical in an empty field "
           "(doctrine 20) — asked under the same mutation, since the shipped "
@@ -1478,9 +1794,14 @@ def test_the_disclosure():
     # (doctrine 91: the words cannot drift from the numbers), and every
     # section in the first 100 seeds is held to it.
     n_secs, n_inst = 0, 0
-    misses = []
+    misses, brief_skipped = [], []
     for seed in range(100):
-        p = make_plan(seed=seed)
+        # Seed 55 is refused for `NO_FREE_WORD` under the equal-weight beat
+        # draw (2026-10-21) and has no brief to read.
+        p = _plan_unless_no_free_word(seed)
+        if p is None:
+            brief_skipped.append(seed)
+            continue
         for s in p["sections"]:
             n_secs += 1
             im = s["meter"]
@@ -1509,7 +1830,9 @@ def test_the_disclosure():
           "measured-and-followed means surfaced, on sung and instrumental "
           "rows alike",
           n_secs > 0 and n_inst > 0 and not misses,
-          f"{n_secs} section(s) ({n_inst} instrumental) over 100 seeds; "
+          f"{n_secs} section(s) ({n_inst} instrumental) over "
+          f"{100 - len(brief_skipped)} plans of 100 seeds (refused "
+          f"NO_FREE_WORD: {brief_skipped or 'none'}); "
           f"misses: {misses[:2] or 'none'}")
 
 
@@ -2407,7 +2730,7 @@ def test_the_seed_sweep_is_a_verb():
           "doctrine 6 forbids",
           many["accepted"] == sorted(many["accepted"])
           and set(res) == {"accepted", "planned", "refused", "wants",
-                           "seeds"},
+                           "seeds", "passed", "refusals"},
           f"{len(many['accepted'])} accepted, keys {sorted(res)}")
 
     # THE REFUSALS, each proven rather than described.
@@ -2437,11 +2760,20 @@ def test_the_seed_sweep_is_a_verb():
     # return an empty list that reads like a clean run.
     empty = PLN.sweep(range(20), wants=[PLN.parse_sweep_want("sections<=1")])
     check("an unreachable declaration accepts NOTHING, and the verb turns "
-          "that into a refusal at exit 2 rather than an empty list — "
-          "unreachable and merely rare are different answers and the "
-          "acceptance rate is what separates them",
+          "that into a refusal at exit 2 rather than an empty list",
           empty["accepted"] == [] and empty["planned"] > 0,
           f"planned {empty['planned']}, accepted 0")
+    # WHAT EMPTIED IT (P3 F3, #519 6349551161): `passed[i]` is how many
+    # planned seeds predicate i held for ON ITS OWN, which is exactly the
+    # size of the single-predicate sweep above (the singles all plan the
+    # same seeds), and the empty case's one predicate held for none.
+    check("`passed` counts, per predicate, the planned seeds it held for on "
+          "its own: the size of each single-predicate sweep, and [0] for the "
+          "predicate no seed meets",
+          res["passed"] == [len(singles[w]) for w in PREFS]
+          and empty["passed"] == [0],
+          f"passed {res['passed']} vs singles "
+          f"{[len(singles[w]) for w in PREFS]}; empty {empty['passed']}")
 
     # ------------------------------------------------------------------
     print("\n10c. THE THREE SCHEME COORDINATES — `MISSING.md` I-2's residue")
@@ -2625,8 +2957,16 @@ def test_the_section_header_keeps_its_apparatus_inside_the_bracket():
     # ROUND TRIP over its own output rather than a guess about someone else's.
     shapes = meters = drops = 0
     total = 0
-    for seed in range(HEADER_SWEEP):
-        p = make_plan(seed=seed)
+    # ONE population for every check below, so "0 breaks" and the header
+    # count describe the same sweep (`HEADER_SWEEP`'s reason). A seed the
+    # joint gate refuses for `NO_FREE_WORD` (2026-10-21: seed 55, a two-beat
+    # line under the equal-weight beat draw) renders no header and no song,
+    # so it is left out of both and named.
+    swept = {seed: _plan_unless_no_free_word(seed)
+             for seed in range(HEADER_SWEEP)}
+    hdr_refused = [seed for seed, p in swept.items() if p is None]
+    swept = {seed: p for seed, p in swept.items() if p is not None}
+    for seed, p in swept.items():
         for sec in p["sections"]:
             slots = [s for s in p["line_slots"] if s["section"] == sec["name"]]
             h = PLN.section_header(sec, slots)
@@ -2638,7 +2978,9 @@ def test_the_section_header_keeps_its_apparatus_inside_the_bracket():
             meters += f"{im['beats']}/{im['unit']}" in h
             drops += bool(LH.is_apparatus_line(h))
     check("the population is real, so this section cannot pass by examining "
-          "nothing", total > 0, f"{total} headers over {HEADER_SWEEP} plans")
+          "nothing", total > 0,
+          f"{total} headers over {len(swept)} plans of {HEADER_SWEEP} seeds "
+          f"(refused NO_FREE_WORD: {hdr_refused or 'none'})")
     check("every header is ONE closed bracket with NOTHING outside it — the "
           "owner's rule, and the reason a header cannot leak into the rhyme "
           "calculation", shapes == total, f"{total - shapes} malformed")
@@ -2654,8 +2996,7 @@ def test_the_section_header_keeps_its_apparatus_inside_the_bracket():
     # the lines to come back exactly. Anything the renderer emits that is not
     # a lyric — header, blank, apparatus of any kind — must vanish.
     breaks = 0
-    for seed in range(HEADER_SWEEP):
-        p = make_plan(seed=seed)
+    for seed, p in swept.items():
         body = [f"line {i} holds its own place" for i in
                 range(1, p["total_lines"] + 1)]
         with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
@@ -2670,7 +3011,7 @@ def test_the_section_header_keeps_its_apparatus_inside_the_bracket():
           "`load_lyric_lines` is EXACTLY the lines that went in, so no "
           "header, blank or pickup phrase the renderer writes can reach the "
           "grader as a word", breaks == 0,
-          f"{breaks} of {HEADER_SWEEP} songs did not round-trip")
+          f"{breaks} of {len(swept)} songs did not round-trip")
     # THE MUTATION: move the apparatus outside the bracket, exactly as it was
     # rendered in chat, and require the round-trip to BREAK. Without this the
     # checks above pass on any tree whose renderer emits nothing at all.
@@ -2950,16 +3291,33 @@ def test_the_song_length_is_the_songs_own(FAILURES=None):
     # THE MEASUREMENT THE OWNER ASKED FOR, taken the way the bias was
     # found: per SECTION INSTANCE off the emitted plan, not per kind.
     per, tot, nsec = [], [], []
+    len_refused = []
     for seed in range(1, 121):
-        pl = make_plan(seed=seed)
+        # A `NO_FREE_WORD` refusal is the joint gate's, never the band's
+        # (`_plan_unless_no_free_word` re-raises anything else, a refusal
+        # naming the envelope included): seed 55 since the equal-weight
+        # beat draw (2026-10-21).
+        pl = _plan_unless_no_free_word(seed)
+        if pl is None:
+            len_refused.append(seed)
+            continue
         c = collections.Counter(x["section"] for x in pl["line_slots"])
         tot.append(pl["total_lines"])
         nsec.append(len(pl["sections"]))
         per.extend(c.get(sec["name"], 0) for sec in pl["sections"])
     sung = [x for x in per if x]
     ones = sum(1 for x in sung if x == 1) / len(sung)
-    check("no seed is lost to the narrower band — 120 of 120 still plan",
-          len(tot) == 120, f"{len(tot)} plans")
+    # ~~120 of 120 still plan~~ — RESTATED 2026-10-21: under the
+    # equal-weight beat draw seed 55 draws a two-beat line the JOINT GATE
+    # refuses for `NO_FREE_WORD`, which is not the band. The claim is the
+    # band's, so it is asked of the band: every seed plans or is refused by
+    # that gate for that code alone, and a refusal for anything else — a
+    # total outside the envelope included — still raises above.
+    check("no seed is lost to the narrower band — each of the 120 seeds "
+          "plans, or is refused by the joint gate for NO_FREE_WORD and "
+          "named",
+          len(tot) + len(len_refused) == 120,
+          f"{len(tot)} plans; refused NO_FREE_WORD: {len_refused or 'none'}")
     check("every drawn total is INSIDE the lyric-sheet profile's own band "
           "(`lyric` since M-239, repinned 2026-09-05), so the "
           "planner volunteers no length that profile cannot hold to "
@@ -3015,8 +3373,14 @@ def test_the_end_rhyme_pass_is_additive(FAILURES=None):
     all_added, mirrored, off_scheme = 0, 0, []
     collides, over_ceiling = [], []
     ceiling = None
+    end_refused = []
     for seed in SEEDS:
-        pl = make_plan(seed=seed)
+        # Seed 55 is refused for `NO_FREE_WORD` under the equal-weight beat
+        # draw (2026-10-21) and carries no pass to read.
+        pl = _plan_unless_no_free_word(seed)
+        if pl is None:
+            end_refused.append(seed)
+            continue
         say = pl["choices"]["end_rhyme"]
         added_n += say["added"]
         blocked_n += say["blocked"]
@@ -3146,7 +3510,9 @@ def test_the_end_rhyme_pass_is_additive(FAILURES=None):
           after_end > before_end
           and after_end / lines_n > 0.6 > before_end / lines_n,
           f"{100 * before_end / lines_n:.1f}% -> "
-          f"{100 * after_end / lines_n:.1f}% of {lines_n} lines")
+          f"{100 * after_end / lines_n:.1f}% of {lines_n} lines over "
+          f"{len(SEEDS) - len(end_refused)} plans (refused NO_FREE_WORD: "
+          f"{end_refused or 'none'})")
 
 
 def test_the_relation_draw():
@@ -3819,27 +4185,53 @@ def test_the_delegated_rulings(FAILURES=None):
     # shipped 3 for the duration, so only the pattern rejection differs.
     saved = dict(_PL.FORM_RECURS)
     real_min = _PL.form_min_sections
+    # A MUTANT the joint gate refuses for `NO_FREE_WORD` has no pattern to
+    # compare (2026-10-21: under the equal-weight beat draw mutant seeds 2
+    # and 16 draw a two-beat line), so the comparison is taken over the
+    # mutants that plan and the refused ones are named. SINCE OPTION (b)
+    # (2026-10-22) such a mutant is REDRAWN instead (`seed_redraw`), and a
+    # redrawn plan is another candidate seed's whole plan, not the same
+    # draw with its pattern re-rejected, so it is left out of the moved
+    # comparison the same way and named.
+    mutant, m_refused, m_redrawn = {}, [], []
     try:
         _PL.form_min_sections = lambda form: 3
         _PL.FORM_RECURS.clear()
-        mutant = {k: [x["function"] for x in make_plan(seed=k)["sections"]]
-                  for k in SEEDS}
+        for k in SEEDS:
+            mp = _plan_unless_no_free_word(k)
+            if mp is None:
+                m_refused.append(k)
+                continue
+            if "seed_redraw" in mp["choices"] \
+                    or "seed_redraw" in plans[k]["choices"]:
+                m_redrawn.append(k)
+                continue
+            mutant[k] = [x["function"] for x in mp["sections"]]
     finally:
         _PL.FORM_RECURS.clear()
         _PL.FORM_RECURS.update(saved)
         _PL.form_min_sections = real_min
     m_once = [k for k, fns in mutant.items() if fns.count("chorus") < 2]
-    moved = [k for k in SEEDS if mutant[k] != shipped[k]]
+    moved = [k for k in mutant if mutant[k] != shipped[k]]
     check("...the MUTATION that empties the table brings the once-drawn "
           "chorus back, so the rule is READ",
-          len(m_once) > 0, f"{len(m_once)} of 40 seeds draw one chorus "
-          f"without the rule")
+          len(m_once) > 0, f"{len(m_once)} of {len(mutant)} mutant plans "
+          f"draw one chorus without the rule (refused NO_FREE_WORD: "
+          f"{m_refused or 'none'}; redrawn past the joint gate, left out: "
+          f"{m_redrawn or 'none'})")
+    # THE EXCLUSIONS ARE PINNED (3PO 6346126883), so the population this
+    # comparison is taken over cannot shrink silently: exactly mutants 2 and
+    # 16 are redrawn, and none refuses.
+    check("...and the mutants left out of that comparison are exactly the "
+          "two the joint gate redraws (2 and 16), none refused",
+          m_redrawn == [2, 16] and m_refused == [],
+          f"redrawn {m_redrawn}, refused {m_refused}")
     check("...and EXACTLY the seeds whose first admissible pattern lacked a "
           "second chorus moved — rejection sampling leaves every accepted "
           "pattern byte-identical, so the rule costs no seed whose draw "
           "already recurred (measured 28 moved, 12 same)",
           set(moved) == set(m_once),
-          f"moved {len(moved)}, same {len(SEEDS) - len(moved)}; "
+          f"moved {len(moved)}, same {len(mutant) - len(moved)}; "
           f"moved == once-drawn: {set(moved) == set(m_once)}")
 
     # ── M-191: ~~the plan draws its own density cap~~ ──
@@ -3883,6 +4275,12 @@ def test_the_delegated_rulings(FAILURES=None):
     # words and reported per pair (`relations.audible_relations`).
     m120_eb = sum(p["choices"]["audible"]["end_bound"] for p in plans.values())
     m120_bare = sum(p["choices"]["audible"]["bare"] for p in plans.values())
+    # REPINNED 2026-10-21: ~~2293~~ -> 2280 end-bound groups. The beat
+    # count is drawn under the owner's equal-weight default now
+    # (`beats_weights`), so every seed's meter re-deals and the groups it
+    # spells with it (section functions and line counts are drawn before
+    # the meter and do not move); the claim — every one of them bare — is
+    # unchanged.
     # REPINNED 2026-10-04: ~~1314~~ -> 2293 end-bound groups. The planner
     # binds every member at its line's end now (owner's ruling), so every
     # drawn scheme group is end-bound; the claim is unchanged.
@@ -3891,9 +4289,9 @@ def test_the_delegated_rulings(FAILURES=None):
     # seeds 1-40 draw their full lengths and carry more groups; the claim —
     # every one of them bare — is unchanged.
     check("M-120 superseded: over seeds 1-40 every END-BOUND group is bare "
-          "(judged against every relation) — 2293 end-bound groups, 2293 "
+          "(judged against every relation) — 2280 end-bound groups, 2280 "
           "bare, none carries an audible or inaudible drawn schema",
-          m120_eb == m120_bare == 2293
+          m120_eb == m120_bare == 2280
           and not any(p["choices"]["audible"]["inaudible"]
                       or p["choices"]["audible"]["audible"]
                       for p in plans.values())
@@ -3996,7 +4394,15 @@ def test_the_delegated_rulings(FAILURES=None):
     # other: the ceiling is slots, and those notes read pulses and heads.
     import quality.fit as _FT
     from fractions import Fraction as _Fr
-    _pp = _PL.make_plan(23, form="verse-chorus", lines=16,
+    # ~~seed 23~~ — REPINNED 2026-10-21: under the owner's equal-weight beat
+    # draw seed 23's first candidate meeting `beats_per_line<=8` is 5/16,
+    # 4 and 4¼ pulses with one strong beat each, and the fixture line
+    # below is CROWDED on it. The seed was chosen for its SHAPE, so the
+    # shape is kept and the seed moved: 1822 is the first seed under the new
+    # draw with the same rows (verse 7½ pulses and 2 strong, chorus 8 and
+    # 3, verse 6 bars and chorus 2 as before, in 8/64 where 23 was 8/16)
+    # and an 8-pulse chorus at line 7 that the fixture line fits.
+    _pp = _PL.make_plan(1822, form="verse-chorus", lines=16,
                         functions=["verse", "chorus"],
                         wants=["beats_per_line<=8"])
     _places = _FT.from_blueprint(_PL.fill_plan(_pp, ["x"] * 16))[1]
@@ -4016,7 +4422,7 @@ def test_the_delegated_rulings(FAILURES=None):
                                          "target"))
     check("...and UNDER the bracket, BEFORE the ceiling, the beats (pulses) "
           "and strong beats (group heads) the density and prominence notes "
-          "count against, in a writer's words (seed 23: 7½ beats and 2 "
+          "count against, in a writer's words (seed 1822: 7½ beats and 2 "
           "strong in the verse, 8 and 3 in the chorus), with the ceiling "
           "named room, not a target", _rows_ok and
           "each line: 7½ beats (pulses), 2 of them strong (group heads)"
@@ -4057,7 +4463,7 @@ def test_the_delegated_rulings(FAILURES=None):
             _seen += 1
         _uniform = _uniform and all(len(v) == 1 for v in _per.values())
     check("...and plan.py's pulses and heads equal fit.Placement's own on "
-          "every line of seed 23 and seed 4, so the brief cannot drift from "
+          "every line of seed 1822 and seed 4, so the brief cannot drift from "
           "the grade", _same and _seen == 32, f"{_seen} lines")
     check("...and every line of a section shares them, since the brief "
           "prints one row per section for all of its lines", _uniform)
@@ -4252,6 +4658,231 @@ def test_the_published_vocabulary_names_no_ticket():
           "the planted reference must match")
 
 
+def test_the_seed_redraw():
+    print("\n22. OPTION (b) — a default plan the JOINT GATE refuses is "
+          "redrawn, boundedly and out loud, and nothing else is")
+    # THE FOUR CASES 3PO ASKED TO KEEP (6332168823), on the conditions BB8
+    # set (6332268019): redraw only on the joint gate's refusal and only
+    # when the meter was drawn; disclose it; keep `request.seed`. Seed 55
+    # is a real failing seed of the equal-weight draw: §4's measure named it
+    # among the six of 200 the gate refused before this change.
+    from quality.plan import JointRefused, REDRAW_BOUND, sweep
+    FAIL_SEED = 55
+
+    # (1) AN ACTUAL FAILING SEED, RAW PLAN AGAINST SWEEP.
+    try:
+        PLN._make_plan_candidate(FAIL_SEED)
+        raw_codes = None
+    except JointRefused as exc:
+        raw_codes = exc.codes
+    check(f"seed {FAIL_SEED}'s own draw is refused by the JOINT GATE for "
+          "NO_FREE_WORD — the premise, so the cases below cannot pass on a "
+          "seed that no longer poses the question",
+          raw_codes == ("NO_FREE_WORD",), f"codes {raw_codes}")
+    p = make_plan(seed=FAIL_SEED)
+    red = p["choices"].get("seed_redraw") or {}
+    cand = red.get("candidate_seed")
+    check("...a raw plan for it is the first candidate the gate accepts, "
+          "the redraw is disclosed with the refused seed and its codes, the "
+          "bound and the policy, and `request.seed` stays the caller's",
+          p["request"]["seed"] == FAIL_SEED
+          and [(x["seed"], x["status"], x["codes"])
+               for x in red.get("refused", [])]
+          == [(str(FAIL_SEED), "refused", ["NO_FREE_WORD"])]
+          and red.get("bound") == REDRAW_BOUND == 64
+          and isinstance(cand, str) and cand.isdigit()
+          and int(cand) != FAIL_SEED
+          and "no ranking" in red.get("policy", ""),
+          f"seed_redraw {red}")
+    # WHY, NOT ONLY THE CODE (Jony 6347921225): each refused candidate
+    # carries the gate's per-line findings, and its codes are theirs.
+    fnd = (red.get("refused") or [{}])[0].get("findings") or []
+    check("...each refused candidate carries the joint gate's per-line "
+          "findings (code, line, detail), whose codes are the codes it "
+          "lists",
+          bool(fnd) and all(set(f) == {"code", "line", "detail"}
+                            and isinstance(f["line"], int) and f["detail"]
+                            for f in fnd)
+          and sorted({f["code"] for f in fnd}) == ["NO_FREE_WORD"],
+          f"findings {fnd}")
+    check("...and the meter's disclosure says what a delivered plan is: "
+          "the draw conditioned on the gate accepting it",
+          "conditioned on the gate accepting it"
+          in p["choices"]["meter"]["chosen_from"]
+          and "brief_selection when wants are declared"
+          in p["choices"]["meter"]["chosen_from"], "")
+    direct = PLN._make_plan_candidate(int(cand))
+    strip = lambda d: {k: v for k, v in d.items()
+                       if k not in ("request", "writer_brief", "choices")}
+    check("...and it IS that candidate's plan: the same sections, meter and "
+          "lines as planning the candidate seed directly",
+          strip(p) == strip(direct)
+          and {k: v for k, v in p["choices"].items() if k != "seed_redraw"}
+          == direct["choices"], "")
+    import subprocess
+    r = subprocess.run(
+        [sys.executable, "lyric_harness.py", "plan", f"--seed={FAIL_SEED}"],
+        capture_output=True, text=True,
+        cwd=os.path.join(HERE, ".."), timeout=560)
+    check("...the plan verb prints it (SEED REDRAW), as it prints a brief "
+          "selection", r.returncode == 0 and "SEED REDRAW" in r.stdout
+          and f'"candidate_seed": "{cand}"' in r.stdout, f"rc {r.returncode}")
+    sw = sweep([FAIL_SEED])
+    check("...and a sweep over that one seed now PLANS it rather than "
+          "counting a refusal", sw["planned"] == 1 and sw["refused"] == 0,
+          f"{sw}")
+    # TWO REFUSED CANDIDATES (Jony 6347921225): a mutant keeping only the
+    # last refusal passed every check above, so pin a seed that needs two.
+    p2 = make_plan(seed=2025)
+    r2 = (p2["choices"].get("seed_redraw") or {}).get("refused", [])
+    check("...a seed needing two redraws discloses BOTH refused candidates, "
+          "in order, the first being the caller's own seed",
+          len(r2) == 2 and r2[0]["seed"] == "2025"
+          and r2[1]["seed"] != r2[0]["seed"]
+          and all(x["codes"] and x["findings"] for x in r2),
+          f"refused {[(x['seed'], x['codes']) for x in r2]}")
+    a = json.dumps(make_plan(seed=7), sort_keys=True)
+    b = json.dumps(PLN._make_plan_candidate(7), sort_keys=True)
+    check("a seed whose first draw passes is untouched byte for byte: no "
+          "`seed_redraw`, only refused seeds re-deal", a == b
+          and "seed_redraw" not in json.loads(a)["choices"])
+
+    # (2) AN ACCEPTED SWEEP, THEN THE CONDITIONED PLAN A CREATE SESSION MAKES
+    # (it passes the sweep's want as the plan's wants, lyric_workflow.js).
+    want = "group<=99"
+    sw2 = sweep([FAIL_SEED], wants=[PLN.parse_sweep_want(want)])
+    pw = make_plan(seed=FAIL_SEED, wants=[want])
+    sel = pw["choices"].get("brief_selection") or {}
+    check("an accepted sweep's seed, planned again WITH the want, retries "
+          "past the same refusal, discloses the selection, and lands on the "
+          "candidate the redraw reached — the wants path and the redraw "
+          "share one candidate sequence",
+          sw2["accepted"] == [FAIL_SEED]
+          and [(x["seed"], x["status"]) for x in sel.get("attempts", [])]
+          == [(str(FAIL_SEED), "refused"), (cand, "accepted")]
+          and sel.get("candidate_seed") == cand
+          and pw["request"]["seed"] == FAIL_SEED
+          and pw["sections"] == p["sections"],
+          f"sweep {sw2}; selection {[(x['seed'], x['status']) for x in sel.get('attempts', [])]}")
+
+    # (3) FORCED EXHAUSTION, AND WHAT IS NEVER RETRIED.
+    real = PLN._make_plan_candidate
+    calls = []
+
+    def joint_always(seed, **kw):
+        calls.append(seed)
+        raise JointRefused("planted joint refusal", codes=("NO_FREE_WORD",))
+
+    def request_refused(seed, **kw):
+        calls.append(seed)
+        raise PlanRefused("planted request refusal")
+    try:
+        PLN._make_plan_candidate = joint_always
+        try:
+            make_plan(seed=1)
+            msg = None
+        except PlanRefused as exc:
+            msg = str(exc)
+        check(f"a gate that refuses every candidate exhausts the bound: "
+              f"exactly {REDRAW_BOUND} draws, then a refusal that says it "
+              "is a bounded sample and not proof the request cannot be built",
+              len(calls) == REDRAW_BOUND and msg is not None
+              and f"all {REDRAW_BOUND} candidate draws" in msg
+              and "not proof" in msg,
+              f"{len(calls)} draws; {str(msg)[:160]}")
+        calls.clear()
+        try:
+            make_plan(seed=1, wants=[want])
+        except PlanRefused as exc:
+            msg = str(exc)
+        check("...the wants path keeps its own bound of 64 and its own "
+              "exhaustion text", len(calls) == 64
+              and "bounded candidate draws" in msg, f"{len(calls)} draws")
+        calls.clear()
+        raised = None
+        try:
+            make_plan(seed=1, melody="planted")
+        except PlanRefused as exc:
+            raised = (type(exc).__name__, str(exc))
+        check("...a declared melody is NEVER redrawn: the meter was not "
+              "drawn, so a joint refusal is the request's and is raised at "
+              "once — the planted refusal itself, after one draw",
+              len(calls) == 1
+              and raised == ("JointRefused", "planted joint refusal"),
+              f"{len(calls)} draw(s); raised {raised!r}")
+        PLN._make_plan_candidate = request_refused
+        calls.clear()
+        raised = None
+        try:
+            make_plan(seed=1)
+        except PlanRefused as exc:
+            raised = (type(exc).__name__, str(exc))
+        check("...and a refusal of the REQUEST (anything but the joint gate) "
+              "is raised at once, never after 64 draws — the planted "
+              "refusal itself, unchanged",
+              len(calls) == 1
+              and raised == ("PlanRefused", "planted request refusal"),
+              f"{len(calls)} draw(s); raised {raised!r}")
+        # (4b) EXHAUSTION THROUGH THE SWEEP. A window can still read
+        # planned 0 on a declaration that IS buildable, if every seed
+        # exhausts its redraws; the sweep counts that as refused and keeps
+        # no reason, so it does not tell the two apart.
+        PLN._make_plan_candidate = joint_always
+        calls.clear()
+        _w0 = os.environ.get("SWEEP_WORKERS")
+        os.environ["SWEEP_WORKERS"] = "1"
+        try:
+            exhausted = sweep(range(2))
+        finally:
+            if _w0 is None:
+                os.environ.pop("SWEEP_WORKERS", None)
+            else:
+                os.environ["SWEEP_WORKERS"] = _w0
+        # The counts alone match a request no seed can build; since P3 F3
+        # (3PO 6349586976) the sweep keeps each refusal's reason and SCOPE,
+        # and an exhausted redraw bound is about the seed, not the request.
+        _ex = exhausted.get("refusals") or []
+        check("...and a window whose every seed exhausts the redraw reads "
+              "planned 0 and refused 2 through the sweep, the counts a "
+              "request no seed can build also gives — and its refusals say "
+              "which: seed scope, an exhausted bounded sample, one reason "
+              "per seed since each names its own seed",
+              exhausted["planned"] == 0 and exhausted["refused"] == 2
+              and len(calls) == 2 * REDRAW_BOUND
+              and [g["scope"] for g in _ex] == ["seed", "seed"]
+              and [g["seeds"] for g in _ex] == [[0], [1]]
+              and all(f"all {REDRAW_BOUND} candidate draws" in g["reason"]
+                      for g in _ex),
+              f"{exhausted}; {len(calls)} draws")
+    finally:
+        PLN._make_plan_candidate = real
+
+    # (4) AN ALL-REFUSED SHORT WINDOW AGAINST THE CONNECTOR'S `planned === 0`
+    # MEANING (~~"the DECLARATION is unbuildable"~~, mcp/lyric_tools.js, now
+    # narrowed to say the counts cannot tell the two apart). Before
+    # this change a one-seed window over seed 55 read planned 0 and so
+    # carried that meaning on a single unlucky draw; it now plans (case 1).
+    # What reads planned 0 is a request no seed can build, OR a window whose
+    # every seed exhausted the redraw bound (case 4b): ~~the sweep keeps no
+    # reason~~, so planned 0 alone still does not PROVE the declaration
+    # unbuildable (3PO 6346126883); since P3 F3 the refusals' scope says
+    # which (request here, seed in 4b). ~~"an all-refused window is now the REQUEST's"~~,
+    # narrowed. At the measured rate (572 of 20,000) exhaustion is about
+    # 0.0286^64 per seed for a default request (a model estimate assuming
+    # independent draws at that rate, not a guarantee for an arbitrary
+    # request), and its refusal text says it is not proof.
+    blocked = sweep(range(3), form="ghazal")
+    check("a request no seed can build refuses every seed of a window "
+          "(planned 0), while the default declaration's formerly refused "
+          "seed now plans — so one unlucky draw no longer reads as an "
+          "unbuildable declaration",
+          blocked["planned"] == 0 and blocked["refused"] == 3
+          and sw["planned"] == 1
+          and [g["scope"] for g in blocked["refusals"]] == ["request"]
+          and blocked["refusals"][0]["seeds"] == [0, 1, 2],
+          f"blocked {blocked}; default {sw}")
+
+
 _SECTIONS = (
     test_the_seed_sweep_is_a_verb,
     test_the_form_is_read,
@@ -4268,12 +4899,14 @@ _SECTIONS = (
     test_the_relation_draw,
     test_the_grade_it_line_runs,
     test_determinism,
+    test_the_denominator_is_drawn,
     test_the_writers_declaration,
     test_the_rendering,
     test_the_bound_share,
     test_refusals,
     test_the_legend_states_the_whole_schema,
     test_the_published_vocabulary_names_no_ticket,
+    test_the_seed_redraw,
 )
 
 if __name__ == "__main__":
@@ -4304,6 +4937,6 @@ if __name__ == "__main__":
     from quality.shard import run_sections
     sys.exit(run_sections(_SECTIONS, "TEST_PLAN_SHARD", FAILURES,
                           footer="the planning phase plans, the graders "
-                                 "accept what it plans, and the dice are "
-                                 "uniform over derived spaces",
+                                 "accept what it plans, and the dice draw "
+                                 "by derivation over derived spaces",
                           always=(test_the_round_trip,)))

@@ -5477,6 +5477,61 @@ def test_a_slot_offer_names_only_words_the_slot_can_anchor():
           "swan" in f.offered, list(f.offered)[:12])
 
 
+def test_a_denominator_changes_no_verdict_but_meter_locked():
+    print("\n— the planner draws the denominator (owner ruling 2026-10-19): "
+          "same beats, same grouping, same verdicts")
+    # `plan._sample_unit` replaced `_unit_for` (8 if any group is 3, else 4),
+    # so the same bars now reach the grader as 3/4, 3/8 or 3/16. The slot
+    # arithmetic never reads the unit; this holds the WHOLE finding set to
+    # that, per line and whole-draft, and names the one judgment that does
+    # read it: `grid.uniformity` scores `four_four` as (beats, unit) ==
+    # (4, 4), so METER_LOCKED fires on 4/4 and not on the same bars as 4/8 or
+    # 2/2. That reading is a grader input and is left as it is here; whether
+    # it should test pulses and grouping instead is the owner's call (#519).
+    lines = ["My kettle whistles by the stove",
+             "Your fingers brush my heavy coat",
+             "The window holds a sleeping town",
+             "And every lamp is turning down",
+             "I count the cars that never stop",
+             "Their headlights pooling on the top",
+             "Of hills I walked when I was small",
+             "And now I hardly see at all"]
+    sub = FT.Subdivision(slots_per_pulse=2,
+                         source="test_revise.py denominator test, a declared choice "
+                                "for this fixture only")
+    m = SC.mandate("AABBCCDD", default_relation="ASSONANCE")
+
+    def graded(beats, groups, unit):
+        meter = {"beats": beats, "unit": unit, "groups": groups}
+        bp = {"sections": [
+                  {"name": f"V{k + 1}", "bars": 4, "start_bar": 4 * k + 1,
+                   "meter": dict(meter)} for k in range(2)],
+              "lines": [{"text": t, "bar": i + 1, "beat": 1,
+                         "duration": beats, "section": f"V{i // 4 + 1}"}
+                        for i, t in enumerate(lines)]}
+        f = R.inspect(lines, m, blueprint=bp, subdivision=sub)
+        per = sorted((ln, x.code, x.severity)
+                     for ln, fs in f["per_line"].items() for x in fs)
+        whole = sorted((x.code, x.severity) for x in f["whole"])
+        return per, whole
+
+    three = {u: graded(3, [3], u) for u in (4, 8, 16)}
+    check("3/4, 3/8 and 3/16 over the same bars grade IDENTICALLY — every "
+          "per-line and whole-draft finding, code and severity",
+          three[4] == three[8] == three[16] and three[4][0],
+          sorted({c for _ln, c, _s in three[4][0]}))
+    four = {u: graded(4, [2, 2], u) for u in (4, 8, 2)}
+    check("4/4, 4/8 and 4/2 grade identically line by line",
+          four[4][0] == four[8][0] == four[2][0] and four[4][0])
+    _d8 = sorted(set(four[4][1]) ^ set(four[8][1]))
+    _d2 = sorted(set(four[4][1]) ^ set(four[2][1]))
+    check("...and whole-draft the ONLY difference is METER_LOCKED, which "
+          "reads the literal 4/4 — present at /4, absent at /8 and /2",
+          _d8 == _d2 == [("METER_LOCKED", "note")]
+          and ("METER_LOCKED", "note") in four[4][1],
+          {"4/8": _d8, "4/2": _d2})
+
+
 def test_a_declared_return_is_not_a_collision():
     print("\n— a chorus the mandate declares as returning is not charged as "
           "a collision with itself (song \"Last Run\", 2026-10-18)")
@@ -5700,6 +5755,7 @@ if __name__ == "__main__":
                test_an_offer_the_ban_emptied_points_at_the_group_backtrack,
                test_the_verdict_carries_the_judging_spans,
                test_a_slot_offer_names_only_words_the_slot_can_anchor,
-               test_a_declared_return_is_not_a_collision)
+               test_a_declared_return_is_not_a_collision,
+               test_a_denominator_changes_no_verdict_but_meter_locked)
     sys.exit(run_sections(_SECTIONS, "TEST_REVISE_SHARD", FAILURES,
                           footer="all revision-loop regressions pass"))

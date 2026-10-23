@@ -17,6 +17,7 @@ Sections:
 
 import sys
 import os
+import re
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 ".."))
@@ -137,8 +138,23 @@ def test_planner_derives():
           f"first={first} last={last}")
     bad = plans = 0
     emitted = set()
+    refused = []
     for seed in range(200):
-        p = PL.make_plan(seed, form="verse-chorus")
+        # A seed the JOINT GATE refuses for `NO_FREE_WORD` alone has no plan
+        # to read (2026-10-21: under the owner's equal-weight beat draw a
+        # two-beat line can leave a line one slot with a rhyme bound on it —
+        # seeds 55, 130, 143, 146, 190 and 199 here). The functions this
+        # section reads are drawn BEFORE the meter, so they are unchanged on
+        # every seed that plans; it is skipped and named, and any other
+        # refusal still raises.
+        try:
+            p = PL.make_plan(seed, form="verse-chorus")
+        except PL.PlanRefused as exc:
+            if set(re.findall(r"^  L\d+ (\w+): ", str(exc), re.M)) \
+                    != {"NO_FREE_WORD"}:
+                raise
+            refused.append(seed)
+            continue
         plans += 1
         fns = [s.get("function") for s in p.get("sections", [])
                if s.get("function")]
@@ -148,7 +164,13 @@ def test_planner_derives():
     check("NO plan violates the vocabulary's own definitions. Measured "
           "before this layer: 19 of 300, every one an `interlude` opening or "
           "closing the song — a span whose gloss is \"between sung sections\"",
-          bad == 0, f"{plans} plans, {bad} violating")
+          # THE SKIP IS PINNED (3PO 6346083397): ~~exactly 55, 130, 143,
+          # 146, 190 and 199 refuse~~ — since option (b) (2026-10-22) a draw
+          # the joint gate refuses is redrawn, so none does; any refusal
+          # fails here instead of shrinking the sweep.
+          bad == 0 and refused == [],
+          f"{plans} plans, {bad} violating (refused "
+          f"NO_FREE_WORD: {refused or 'none'})")
     check("...and the constraint pruned nothing legitimate: the planner "
           "still emits every SECTION-kind function the vocabulary "
           "declares",

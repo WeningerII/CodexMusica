@@ -18,6 +18,8 @@ import {
   recordCreation,
   creationQualified,
   isRecoveryOnly,
+  withNextCall,
+  withSweepNext,
 } from './lyric_workflow.js';
 import { decodeState } from './state_codec.js';
 import { requestContext } from './execution_context.js';
@@ -413,6 +415,20 @@ function loopFields(v) {
     // later reader can say whether the window held no seed, a predicate was
     // misspelled or the declaration was unbuildable. Extraction, as M-169.
     refusal: typeof v?.refusal === 'string' ? v.refusal : null,
+    // THE SWEEP'S OWN RECORD (P3 F1/F3): what the window held and what
+    // emptied it, so a stored row says it without the report.
+    meaning: typeof v?.meaning === 'string' ? v.meaning : null,
+    measurement_status: typeof v?.measurement_status === 'string' ? v.measurement_status : null,
+    sweep_outcome: typeof v?.sweep_outcome === 'string' ? v.sweep_outcome : null,
+    swept: typeof v?.swept === 'number' ? v.swept : null,
+    planned: typeof v?.planned === 'number' ? v.planned : null,
+    planner_refused: typeof v?.planner_refused === 'number' ? v.planner_refused : null,
+    accepted_count: typeof v?.accepted_count === 'number' ? v.accepted_count : null,
+    accepted_shown: Array.isArray(v?.accepted_shown) ? v.accepted_shown.slice(0, 40) : null,
+    window: v?.window ?? null,
+    window_meaning: typeof v?.window_meaning === 'string' ? v.window_meaning : null,
+    held_by: Array.isArray(v?.held_by) ? v.held_by : null,
+    planner_refusals: Array.isArray(v?.planner_refusals) ? v.planner_refusals : null,
     // THE PATH, THE CLOCK, THE MEMO, THE STALE COUNT, THE SHAPE (M-216):
     // the four numbers ten battery rounds could not read. `path` says
     // whether the deployed box answered warm or cold; `ms` separates
@@ -763,9 +779,9 @@ function SKIPPED_STEPS_NOTE(record) {
       'lyric_screen checks candidate end-word pairs BEFORE you write — a banned pair (HOMEOTELEUTON / MODAL_RHYME) is an answer, pick other words',
   };
   return (
-    'WORKING ORDER (mechanical reminder): this conversation has not yet called ' +
+    'WORKING ORDER (mechanical reminder): this conversation has no successful ' +
     missing.join(' or ') +
-    '. Nothing skips a step — sweep, then screen, then plan, then write, then grade, then revise to a stop condition. ' +
+    ' yet. Nothing skips a step — sweep, then screen, then plan, then write, then grade, then revise to a stop condition. ' +
     missing.map((n) => what[n]).join('; ') +
     '. ' +
     (planned
@@ -1072,7 +1088,10 @@ function uncertifiedRunNote() {
     'The lyric_revise run is UNCERTIFIED at exit 2 (no question pending). ' +
     'Preserve its accepted draft and inspect the returned coverage and lyric_grade pronunciation options. ' +
     "Copy each pronunciation option's numbering marker unchanged with its token; never stamp unmarked held choices. Resolve only readings you can establish explicitly; do not guess pronunciations or rewrite nonexistent open lines. " +
-    'Start independent work with the retained draft and the resolved declarations in a new lyrics task. ' +
+    // A parked run is never set aside behind the person's back (the Lyrics
+    // page's Writer tab); only an explicit new_run starts independent work.
+    'Do not start new work on your own. The person can choose Start independent work on the Writer tab, which keeps this run under History. ' +
+    'Only if they ask you to continue here, grade the retained draft with lyric_grade under the resolved declarations, then call lyric_revise with that exact draft and `new_run: true`. ' +
     'This result is not a certified song.'
   );
 }
@@ -2158,7 +2177,12 @@ export async function runTurn({
         }
         const creationError = creationRefusal(task, fc.name, args, lyr);
         if (creationError) {
-          result = { isError: true, content: [{ type: 'text', text: creationError }] };
+          // The model reads the next call the gate admits (P2 F1); the calls
+          // row keeps the gate's own text, which the battery groups by.
+          result = {
+            isError: true,
+            content: [{ type: 'text', text: withNextCall(creationError, task, lyr, fc.name) }],
+          };
           calls.push({
             name: fc.name,
             args,
@@ -2272,6 +2296,7 @@ export async function runTurn({
             }
           }
           recordCreation(task, fc.name, args, lyricVerdict, isError);
+          result = withSweepNext(task, fc.name, result, lyr);
           if (task?.domain === 'lyrics' && task.phase === 'create' && fc.name === 'lyric_plan') {
             artifact = null;
             task.artifact = null;

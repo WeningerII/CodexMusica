@@ -4,7 +4,7 @@ import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp.js';
 import { assertToolTask, instructionsForTask, taskDomain } from './task_contract.js';
 import { TOOL_BUDGET_MS, TOOL_DELIVERY_MARGIN_MS } from './budget.js';
-import { creationRefusal, recordCreation } from './lyric_workflow.js';
+import { creationRefusal, recordCreation, withNextCall, withSweepNext } from './lyric_workflow.js';
 import { CONNECTOR_CONTRACT_VERSION } from './contract_version.js';
 import {
   expectedSurface,
@@ -129,16 +129,31 @@ export async function connectConnector({
                   continue;
                 if (args[key] !== undefined && JSON.stringify(args[key]) !== JSON.stringify(value))
                   throw new Error(
-                    'CREATION_CONTINUATION: ' + key + ' differs from the recorded run.'
+                    withNextCall(
+                      'CREATION_CONTINUATION: ' +
+                        key +
+                        ' differs from the recorded run. To answer its pending question, call lyric_revise with only `answer` or `answers`; to revise a different draft, grade it with lyric_grade, then call lyric_revise with that exact draft and `new_run: true`.',
+                      workflowTask,
+                      continuation,
+                      name
+                    )
                   );
                 args[key] = structuredClone(value);
               }
             } else if (args.state || args.checkpoint) {
-              throw new Error('CREATION_CONTINUATION: this session has no receipt for that run.');
+              throw new Error(
+                withNextCall(
+                  'CREATION_CONTINUATION: this session has no receipt for that run. Send lyric_revise without `state` or `checkpoint`; to start a run, grade the draft with lyric_grade, then call lyric_revise with that exact draft.',
+                  workflowTask,
+                  continuation,
+                  name
+                )
+              );
             }
           }
           const refusal = creationRefusal(workflowTask, name, args, continuation);
-          if (refusal) throw new Error(refusal);
+          // The refusal names the next call the gate admits (P2 F1).
+          if (refusal) throw new Error(withNextCall(refusal, workflowTask, continuation, name));
         } catch (error) {
           // Durable hosts can distinguish a rejected request from an unknown
           // outcome after dispatch. This flag never comes from model arguments.
@@ -180,7 +195,8 @@ export async function connectConnector({
               continuation = { seed: args.seed, args: next };
             }
           }
-          return result;
+          // A create session's sweep names the call the gate admits next.
+          return withSweepNext(workflowTask, name, result, continuation);
         } finally {
           inFlight = false;
         }

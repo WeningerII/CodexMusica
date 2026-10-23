@@ -6,6 +6,12 @@ pitch_hz=null for rests. This is a writing constraint, not pitch certification.
 """
 import math
 
+#: The time-signature denominators a declared meter may carry: the
+#: power-of-two note values through the sixty-fourth. One tuple, read by this
+#: refusal and by `plan.py`'s denominator draw, so the planner never samples a
+#: meter a writer could not declare back by hand.
+NOTE_DENOMINATORS = (1, 2, 4, 8, 16, 32, 64)
+
 
 def validate_melody(value):
     """Return an owned, canonical declaration or raise ValueError by coordinate."""
@@ -26,7 +32,7 @@ def validate_melody(value):
         refuse('meter.groups must use the supported 2/3 grouping grammar')
     if sum(groups) != meter['beats']:
         refuse('meter.groups must sum to meter.beats')
-    if meter['unit'] not in (1, 2, 4, 8, 16, 32, 64):
+    if meter['unit'] not in NOTE_DENOMINATORS:
         refuse('meter.unit must be a power-of-two note denominator through 64')
     if value['subdivision'] not in (1, 2, 4):
         refuse('subdivision must be 1, 2 or 4')

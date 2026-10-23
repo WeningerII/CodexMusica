@@ -32,7 +32,12 @@ import { probeReaderScheme } from './reader_scheduler.js';
 import { requestContext } from './execution_context.js';
 import { draftFromText, normalizeDraftLines } from './lyric_text.js';
 export { draftFromText } from './lyric_text.js';
-import { assessmentCoverageValid, PLAN_FIELDS, READING_FIELDS } from './lyric_workflow.js';
+import {
+  assessmentCoverageValid,
+  gradeVerdictQualifies,
+  PLAN_FIELDS,
+  READING_FIELDS,
+} from './lyric_workflow.js';
 import {
   applyLexiconBasis,
   assertRecordedLexicon,
@@ -313,7 +318,7 @@ const EXIT_MEANING = {
   // make of it (M-186; M-188 turned the one known cause, a missing staged
   // resource, into a refusal at 2 — anything still reaching 1 is a crash).
   1: 'CRASHED — not an answer; the harness died before reaching a verdict, stderr follows',
-  2: 'REFUSED — the harness did not answer; the report names why',
+  2: 'REFUSED — turned down without a verdict; `refusal` and the report name why',
   // ~~or banned pair~~ dropped 2026-10-04 (owner's ruling): banned pairs are
   // reported as notes and no longer move an exit code.
   3: 'answered — at least one FLAG stands; the report names the lines',
@@ -1386,11 +1391,9 @@ function planArgs(a) {
 // the report prints is TRUNCATED AT 40 by the harness, so a field called
 // `accepted` parsed from it would be silently incomplete: the count and the
 // shown list are separate keys and the truncation is disclosed.
-function extractSweep(stdout) {
-  const c = stdout.match(
-    /swept (\d+)\s+planned (\d+)\s+REFUSED by the planner (\d+)\s+accepted (\d+)/
-  );
-  if (!c) return null;
+// The accepted-seed list the sweep report prints, read on its own so a
+// reworded count line never empties it.
+function extractAcceptedList(stdout) {
   const listed = stdout.match(/own bias\):\n\s*([0-9, ]*)/);
   const shown = listed?.[1]?.trim()
     ? listed[1]
@@ -1398,14 +1401,81 @@ function extractSweep(stdout) {
         .map((x) => Number(x.trim()))
         .filter((x) => Number.isSafeInteger(x) && x >= 0)
     : [];
+  return { accepted_shown: shown, accepted_truncated: /\.\.\. and \d+ more/.test(stdout) };
+}
+
+// Legacy only: the four counts a harness without the machine record prints.
+function extractSweepCounts(stdout) {
+  const c = stdout.match(
+    /swept (\d+)\s+planned (\d+)\s+REFUSED by the planner (\d+)\s+accepted (\d+)/
+  );
+  if (!c) return null;
   return {
     swept: Number(c[1]),
     planned: Number(c[2]),
     planner_refused: Number(c[3]),
     accepted_count: Number(c[4]),
-    accepted_shown: shown,
-    accepted_truncated: /\.\.\. and \d+ more/.test(stdout),
   };
+}
+
+// THE SWEEP'S OWN RECORD (P3 F1/F3, #519 6349551161), off the authenticated
+// result: its four counts and one outcome come from the machine record, never
+// from report prose. The report is read only for the accepted-seed list it
+// prints (accepted_shown, accepted_truncated). A harness that writes no
+// record (an earlier release) falls back to the counts its report prints;
+// that is the only prose-derived count.
+const SWEEP_COUNTS = ['swept', 'planned', 'planner_refused', 'accepted_count'];
+function sweepVerdict(v, r, { from, n }) {
+  const sweep =
+    r.lyric_result?.version === 1 && r.lyric_result.sweep?.version === 1
+      ? r.lyric_result.sweep
+      : null;
+  const recorded = sweep && SWEEP_COUNTS.every((key) => Number.isInteger(sweep[key]));
+  const stdout = r.stdout || '';
+  const legacy = sweep ? null : extractSweepCounts(stdout); // no machine record
+  if (recorded) for (const key of SWEEP_COUNTS) v[key] = sweep[key];
+  else if (legacy) Object.assign(v, legacy);
+  if (recorded || legacy) {
+    Object.assign(v, extractAcceptedList(stdout));
+    v.window = { seed_from: from, count: n, next_seed_from: from + n };
+    // What emptied the window, as the planner and the predicates said.
+    const reasons = Array.isArray(sweep?.planner_refusals) ? sweep.planner_refusals : [];
+    if (v.planned === 0)
+      v.window_meaning = reasons.some((g) => g.scope === 'seed')
+        ? "the planner refused every seed in this window, and at least one reason is about that seed's own draw, so other seeds under the same declaration may plan; the predicates never ran."
+        : reasons.length
+          ? 'the planner refused every seed in this window for a reason about the request itself, so another window will refuse the same way until the request changes; the predicates never ran.'
+          : 'the planner refused every seed in this window; the predicates never ran.';
+    else if (r.code === 2)
+      v.window_meaning =
+        'no seed in THIS WINDOW satisfies every predicate. Before dropping a predicate: declare ' +
+        'a target length in `lines` if you have not (an undeclared length is drawn long, so a ' +
+        'length cap rarely holds), declare the section roster in `functions`, or continue from ' +
+        'next_seed_from; held_by says how many planned seeds held each predicate on its own.';
+  }
+  v.sweep_outcome = sweep?.outcome ?? null;
+  if (sweep) {
+    if (Array.isArray(sweep.held_by)) v.held_by = sweep.held_by.slice(0, 24);
+    if (Array.isArray(sweep.planner_refusals))
+      v.planner_refusals = sweep.planner_refusals.slice(0, 12);
+  }
+  // The outcome's meaning interpolates only recorded counts; an 'arguments
+  // refused' record carries none and its meaning needs none. The meaning is
+  // set here and not in verdictOf, so the shared exit meanings do not move.
+  if (sweep?.outcome === 'arguments refused')
+    v.meaning =
+      'REFUSED — the arguments were turned down before any seed was planned; `refusal` names why';
+  else if (recorded) {
+    const S = v.swept;
+    const P = v.planned;
+    if (sweep.outcome === 'accepted')
+      v.meaning = `answered — ${v.accepted_count} of the ${P} planned seed(s) in this window hold every predicate (${v.planner_refused} refused by the planner); accepted_shown lists ${v.accepted_truncated ? 'the first 40' : 'them'}`;
+    else if (sweep.outcome === 'no seed kept')
+      v.meaning = `REFUSED — the harness answered: ${P} of ${S} seed(s) planned and none held every predicate`;
+    else if (sweep.outcome === 'planner refused every seed')
+      v.meaning = `REFUSED — the planner refused all ${S} seed(s) in this window, so no predicate ran`;
+  }
+  return v;
 }
 
 function extractRender(stdout) {
@@ -1747,6 +1817,7 @@ export function answerFromRows(rows, pending) {
 export const _argvInternals = { globalsFor, planArgs };
 
 export const _verdictInternals = {
+  sweepVerdict,
   restoreEquivalentNumbering,
   numberingInputForRun,
   publishedReport,
@@ -2261,7 +2332,8 @@ function reviseDescription({ kitchen = false } = {}) {
     'continues it. To start again on a different draft, grade that draft first, then ' +
     'send it with `new_run: true`. ';
   const chat =
-    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the draft and the declarations; one call runs the ' +
+    'ON THIS SURFACE THE SERVICE WRITER ANSWERS: send the exact draft lyric_grade graded, unchanged, and ' +
+    'the declarations; one call runs the ' +
     'loop to a stop condition, the writer answering each question (a group question asks for every line of ' +
     'the group at once). An interrupted call records a checkpoint that the next lyric_revise call for the ' +
     'same song resumes (the chat carries it for you), with `final_draft` as the exact accepted lines and ' +
@@ -2269,6 +2341,21 @@ function reviseDescription({ kitchen = false } = {}) {
     'unknown provider completion. After a migration refusal, `recover_only: true` with only the original ' +
     'checkpoint exports its accepted lyrics and journal without replay or restamping. ';
   return common + (kitchen ? chat : interview);
+}
+
+// The grade verdict's `next`: the call that takes this exact draft on. Set
+// only at exit 0 or 3 on a grade the creation gate records as a receipt
+// (gradeVerdictQualifies). At exit 2 the gate admits two moves (choose
+// readings and grade again, or revise as an uncertifiable repair), so no
+// single call is named there.
+function gradeNext(code) {
+  return (
+    (code === 0 ? 'To finish it, call' : 'Call') +
+    " lyric_revise with this exact draft, unchanged, and this grade's seed and declarations" +
+    (code === 0 ? '' : '; its revise loop works on the flagged lines') +
+    '. Add new_run: true if a revise run is still open. If you change any line yourself instead, ' +
+    'grade the changed draft with lyric_grade before starting a revision.'
+  );
 }
 
 // ── registration ───────────────────────────────────────────────────────────
@@ -2326,6 +2413,7 @@ export function registerLyricTools(server, tool) {
         'derived cycle grammar and are often not 4/4). It writes NO WORDS: the writer (model or human) writes to the brief, then ' +
         'lyric_grade checks the draft against this same plan. CHOOSE THE SEED WITH lyric_sweep, not by trying a few: declare what ' +
         "the shape must be and take one of the seeds that hold (the working order's step 0). In a creation session the plan " +
+        'comes after an accepted lyric_sweep and one successful lyric_screen, and ' +
         "must repeat the accepted sweep's form, lines, functions and melody and pass the sweep's `want` list as `wants`; " +
         '`wants` conditions the draw (the planner draws until they hold), so the planned shape satisfies them and can differ ' +
         "from the shape the sweep tested. Declaring a `title` answers 'is the title in the hook?' instead of leaving it " +
@@ -2394,7 +2482,16 @@ export function registerLyricTools(server, tool) {
         '3 is measured and certified with a flag or a whole-draft flag standing; 2 is either ' +
         'measured with coverage incomplete (flags may stand too) or refused with nothing measured (refusal names why). ' +
         'The stamp says which. Banned pairs are notes: rewrite one only if you want to. Other NOTES are ' +
-        'measurements, not defects. Revise the flagged lines only and call again. ' +
+        'measurements, not defects. ' +
+        (server.kitchen
+          ? 'To finish the song or fix flagged lines, send this exact graded draft, unchanged, to ' +
+            'lyric_revise with the same seed and declarations; the service writer revises. If you ' +
+            'change any line yourself, grade the changed draft first. A parked run continues as its ' +
+            'own note says. '
+          : "At exit 0 or 3 the verdict's `next` names the next call: send this exact draft, " +
+            'unchanged, to lyric_revise, which finishes a clean draft and runs the revise loop on ' +
+            'flagged lines. If you rewrite lines yourself, grade the rewrite before starting a ' +
+            'revision. ') +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
@@ -2457,6 +2554,8 @@ export function registerLyricTools(server, tool) {
         const verdict = verdictOf(p3);
         verdict.plan_sha256 = createHash('sha256').update(JSON.stringify(plan)).digest('hex');
         verdict.plan_request = plan.request;
+        if ([0, 3].includes(verdict.exit_code) && gradeVerdictQualifies(verdict))
+          verdict.next = gradeNext(verdict.exit_code);
         // The SONG leads as its own plain-text block so a client presents
         // it instead of reformatting escaped JSON — the Wide Room
         // screenshot (2026-08-19) showed a Claude client rewriting the
@@ -3298,11 +3397,14 @@ export function registerLyricTools(server, tool) {
         'come back in seed order and carry no score, because a floor enforces and does not order the region it ' +
         'already passed, and an argmax over a swept parameter is biased toward whichever end has more freedom. Pick ' +
         'from the list on taste, then call lyric_plan with that seed and the same form, lines, functions and melody; ' +
-        "a creation session requires them, and requires this `want` list as lyric_plan's `wants`. FOUR COUNTS, NEVER " +
+        "a creation session requires them, this `want` list as lyric_plan's `wants`, and one successful lyric_screen " +
+        'before the plan. FOUR COUNTS, NEVER ' +
         'SUMMED: swept, planned, planner_refused and accepted_count (accepted_shown lists the accepted seeds) — ' +
         'planner_refused is the planner turning a request down (an unbuildable roster, an unattainable length) and ' +
-        'is NOT a predicate rejecting a shape, so `planned 0` means the DECLARATION is unbuildable and the ' +
-        `predicates never ran. The window is bounded at ${MAX_SWEEP_SEEDS} seeds per call and sweeps compose ` +
+        'is NOT a predicate rejecting a shape, so with `planned 0` the predicates never ran; sweep_outcome names ' +
+        'the case, planner_refusals gives each reason and whether it is about the request (another window ' +
+        "refuses the same way) or that seed's own draw (another seed may plan), and held_by counts, per " +
+        `predicate, the planned seeds it held for on its own. The window is bounded at ${MAX_SWEEP_SEEDS} seeds per call and sweeps compose ` +
         'exactly — continue from next_seed_from and add the counts. Selective wants may require more windows. ' +
         EXECUTION_CONTRACT,
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_sweep,
@@ -3331,28 +3433,7 @@ export function registerLyricTools(server, tool) {
       if (a.melody !== undefined) args.push(`--melody=${a.melody}`);
       const r = await runVerb(args);
       const v = verdictOf(r);
-      const counts = extractSweep(r.stdout);
-      if (counts) {
-        Object.assign(v, counts);
-        v.window = { seed_from: from, count: n, next_seed_from: from + n };
-        // TWO MEANINGS THE CONNECTOR OWNS, both derived from the printed
-        // counts and neither invented. The harness's own headline on an
-        // empty accepted set blames the PREDICATES — which is wrong when the
-        // planner refused every seed, a case reachable with no predicate
-        // declared at all.
-        if (counts.planned === 0)
-          v.window_meaning =
-            'the planner refused EVERY seed in this window, so the DECLARATION ' +
-            '(form / lines / functions) is unbuildable — the predicates never ran, ' +
-            'and this says nothing about them.';
-        else if (r.code === 2)
-          v.window_meaning =
-            'no seed in THIS WINDOW satisfies every predicate. That is a statement ' +
-            'about these seeds, not about the declaration: continue from ' +
-            'next_seed_from, or drop a predicate — the acceptance rate above is the ' +
-            'measurement that says which.';
-      }
-      return v;
+      return sweepVerdict(v, r, { from, n });
     }
   );
 
@@ -3655,7 +3736,7 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'relation and every registry schema, and a group is satisfied when the words it binds stand in at least ' +
     'one (another word in the line relating does not count); planning ' +
     'draws none. Full figures and refused obligations remain explicit. The working order that produces ' +
-    'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare what you want the shape ' +
+    'one-draft songs: (0) lyric_sweep to CHOOSE the seed rather than guess it — declare `lines`, `functions` and what else you want the shape ' +
     'to be (`want`, a filter) and it returns the seeds that hold, in seed order, unranked; (1) lyric_screen ' +
     'candidate end-word pairs BEFORE writing — a banned pair (HOMEOTELEUTON/MODAL_RHYME) is an answer, pick ' +
     "different words; (2) lyric_plan with an accepted seed and the sweep's form, lines, functions and melody " +
@@ -3663,7 +3744,12 @@ export function lyricInstructions({ kitchen = false } = {}) {
     'not 4/4, rhyme plan, hook slot) and write to its brief, honoring the verbatim returns — declare the `title` ' +
     'here if the song has one, because an undeclared title leaves "is the title in the hook?" REFUSED and a ' +
     'declared one that is not a run of words inside the hook line is a FLAG; (3) lyric_grade with the SAME seed ' +
-    `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — without a session, a declaration dropped here grades a different plan; a session restores the ones its plan recorded) ` +
+    `AND THE SAME PLAN DECLARATIONS (${PLAN_DECLARATIONS} — ` +
+    (kitchen
+      ? 'this chat restores every declaration its plan recorded, so leave out any you are unsure of, and ' +
+        'never add one lyric_plan was not given) '
+      : 'a session restores every one its plan recorded and refuses one lyric_plan was not given, so ' +
+        'leave that one out; without a session, a declaration dropped here grades a different plan) ') +
     `and the draft, under the reading declarations (${READING_DECLARATIONS}) — its render is the INTERIM graded ` +
     'draft, and the [GRADED — seed …] stamp under it is a grade, not a finish; (4) lyric_revise with the SAME ' +
     'seed and declarations — it drives the revise loop and returns a song ONLY past a stop condition, under a ' +

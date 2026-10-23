@@ -341,6 +341,8 @@ export function sessionView(tool, content, { detail, lines } = {}) {
   );
   if (verdict.coverage) short.not_checked = notCheckedOf(verdict);
   short.detail = DETAIL_NOTE;
+  // The grade's own next call (exit 0 or 3), copied last; never invented here.
+  if (typeof verdict.next === 'string') short.next = verdict.next;
   return [content[0], { type: 'text', text: JSON.stringify(short) }];
 }
 

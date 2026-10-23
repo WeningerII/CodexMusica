@@ -635,3 +635,248 @@ test('after a timed-out, then a failed, then a passing asset check, identities m
   const { record } = store.begin(request_id, { request_id, action: 'x' }, identity);
   assert.equal(record.build.assets_sha256, 'a'.repeat(64));
 });
+
+// P8 (#519, Don 6349649672 with Jony 6349672118 and 3PO 6349681842): a store
+// that cannot admit a call decides so before it writes, and retires nothing.
+const states = (store) =>
+  [...store.records.values()].map((r) => [r.request_id, r.state, r.successor_id ?? null]);
+const held = (store) => ({ states: states(store), bytes: store.bytes, size: store.records.size });
+
+test('P8: a refused admission retires nothing, on the byte cap and on the payload cap', async () => {
+  const { SESSION_STORE_LIMITS } = await import('./workflow_sessions.js');
+  // The real session limits: 30 completed 376 KB receipts, then 3 pending calls
+  // reserving 18 MiB each. A 4th cannot fit even if every receipt were retired.
+  const store = new JobStore(null, { ...SESSION_STORE_LIMITS });
+  const body = 'x'.repeat(376 * 1024);
+  for (let i = 0; i < 30; i++) {
+    const r = id();
+    store.begin(r, { request_id: r });
+    store.complete(r, 200, { body });
+  }
+  for (let i = 0; i < 3; i++) {
+    const r = id();
+    store.begin(r, { request_id: r });
+  }
+  const kept = states(store).filter(([, s]) => s === 'completed').length;
+  assert.ok(kept > 0, 'some saved receipts survive three pending calls');
+  const before = held(store);
+  const r = id();
+  assert.throws(() => store.begin(r, { request_id: r }), { code: 'JOB_CAPACITY', status: 503 });
+  assert.deepEqual(held(store), before);
+
+  // The payload-record cap binds with bytes to spare (Jony): admission retires
+  // exactly the one receipt it needs, oldest first; a refusal retires none.
+  const capped = new JobStore(null, { maxPayloadRecords: 4, maxRecords: 64 });
+  const [a, b, c, d, e, f, g] = Array.from({ length: 7 }, id);
+  for (const done of [a, b]) {
+    capped.begin(done, { request_id: done });
+    capped.complete(done, 200, { ok: done });
+  }
+  for (const running of [c, d]) capped.begin(running, { request_id: running });
+  capped.begin(e, { request_id: e });
+  assert.equal(capped.get(a).state, 'retired');
+  assert.equal(capped.get(b).state, 'completed');
+  capped.begin(f, { request_id: f });
+  assert.equal(capped.get(b).state, 'retired');
+  const full = held(capped);
+  assert.throws(() => capped.begin(g, { request_id: g }), { code: 'JOB_CAPACITY' });
+  assert.deepEqual(held(capped), full);
+});
+
+test('P8: interrupted receipts holding accepted lines are kept with no pending work at all', () => {
+  // 3PO: JOB_CAPACITY is not only running work. Two protected receipts, zero
+  // pending: the refusal retires neither.
+  const store = new JobStore(null, { maxPayloadRecords: 2, maxRecords: 64 });
+  for (let i = 0; i < 2; i++) {
+    const r = id();
+    store.begin(r, { request_id: r });
+    store.checkpoint(r, { version: 1, status: 'accepted', accepted_lines: [`kept ${i}`] });
+    store.interrupt(r, 'operation_interrupted');
+  }
+  const before = held(store);
+  const r = id();
+  assert.throws(() => store.begin(r, { request_id: r }), { code: 'JOB_CAPACITY' });
+  assert.deepEqual(held(store), before);
+  for (const record of store.records.values())
+    assert.equal(record.progress.accepted_lines.length, 1);
+});
+
+test('P8: running out of ids has its own code, and retry_at only when a receipt can expire', () => {
+  let now = 1000;
+  const store = new JobStore(null, { maxRecords: 4, ttlMs: 100, now: () => now });
+  for (const at of [1000, 1010]) {
+    now = at;
+    const r = id();
+    store.begin(r, { request_id: r });
+    store.complete(r, 200, { ok: 1 });
+  }
+  for (let i = 0; i < 2; i++) {
+    const r = id();
+    store.begin(r, { request_id: r });
+  }
+  const before = held(store);
+  const r = id();
+  assert.throws(
+    () => store.begin(r, { request_id: r }),
+    (error) =>
+      error.code === 'JOB_RECORDS_FULL' &&
+      error.status === 503 &&
+      error.retry_at === 1100 &&
+      /full/.test(error.message)
+  );
+  assert.deepEqual(held(store), before);
+  // With only running work there is no expiry to name.
+  const running = new JobStore(null, { maxRecords: 2 });
+  for (let i = 0; i < 2; i++) {
+    const p = id();
+    running.begin(p, { request_id: p });
+  }
+  assert.throws(
+    () => running.begin(id(), { message: 'x' }),
+    (error) => error.code === 'JOB_RECORDS_FULL' && !('retry_at' in error)
+  );
+});
+
+test('P8: adoption, the new record and the successor link are admitted together or not at all', () => {
+  const finished = () => {
+    const other = new JobStore();
+    const p = id();
+    other.begin(p, { request_id: p, message: 'from an earlier release' });
+    other.complete(p, 200, { ok: 'parent' });
+    return other.get(p);
+  };
+  const continuing = (store, parent, options) => {
+    const child = id();
+    return () =>
+      store.begin(
+        child,
+        { request_id: child, continuation_id: parent.request_id },
+        {},
+        null,
+        options
+      );
+  };
+
+  // Two ids needed, one slot left: nothing is adopted or written.
+  const ids = new JobStore(null, { maxRecords: 3 });
+  for (let i = 0; i < 2; i++) {
+    const r = id();
+    ids.begin(r, { request_id: r });
+    ids.complete(r, 200, { ok: i });
+  }
+  const legacy = finished();
+  let before = held(ids);
+  assert.throws(continuing(ids, legacy, { adopt: legacy }), { code: 'JOB_RECORDS_FULL' });
+  assert.deepEqual(held(ids), before);
+
+  // Adoption fits on its own, by retiring a receipt; adoption plus the child
+  // does not. Neither the adoption nor the retirement happens.
+  const small = { maxRecordBytes: 4096, maxRecords: 64 };
+  const filler = 'y'.repeat(2500);
+  const probe = new JobStore(null, small);
+  const spare = id();
+  probe.begin(spare, { request_id: spare });
+  probe.complete(spare, 200, { filler });
+  const bigParent = (() => {
+    const other = new JobStore(null, small);
+    const p = id();
+    other.begin(p, { request_id: p });
+    other.complete(p, 200, { filler });
+    return other.get(p);
+  })();
+  const maxBytes = probe.bytes + Buffer.byteLength(JSON.stringify(bigParent)) - 1;
+  assert.ok(maxBytes >= small.maxRecordBytes, 'a single admission still fits');
+  const bytes = new JobStore(null, { ...small, maxBytes });
+  bytes.begin(spare, { request_id: spare });
+  bytes.complete(spare, 200, { filler });
+  before = held(bytes);
+  assert.throws(continuing(bytes, bigParent, { adopt: bigParent }), { code: 'JOB_CAPACITY' });
+  assert.deepEqual(held(bytes), before);
+  assert.equal(bytes.get(bigParent.request_id), null);
+  assert.equal(bytes.get(spare).state, 'completed');
+
+  // The child fits; the parent's successor link does not. Before P8 the child
+  // was written and left unlinked. Now nothing is written, and one byte more
+  // admits both.
+  const link = (maxBytes) => {
+    const store = new JobStore(null, { ...small, maxBytes });
+    const p = id();
+    store.begin(p, { request_id: p, message: 'parent' });
+    store.complete(p, 200, { ok: 'parent' });
+    return { store, parent: store.get(p) };
+  };
+  const { store: sizing, parent: sized } = link(1 << 30);
+  const childId = 'c'.repeat(64);
+  const growth =
+    Buffer.byteLength(JSON.stringify({ ...sized, successor_id: childId })) -
+    Buffer.byteLength(JSON.stringify(sized));
+  const exact = sizing.bytes + small.maxRecordBytes + growth;
+  const tight = link(exact - 1);
+  before = held(tight.store);
+  assert.throws(
+    () =>
+      tight.store.begin(childId, { request_id: childId, continuation_id: tight.parent.request_id }),
+    { code: 'JOB_CAPACITY' }
+  );
+  assert.deepEqual(held(tight.store), before);
+  const roomy = link(exact);
+  roomy.store.begin(childId, { request_id: childId, continuation_id: roomy.parent.request_id });
+  assert.equal(roomy.store.get(roomy.parent.request_id).successor_id, childId);
+
+  // And the parent being linked is never the receipt retired to make room.
+  const order = new JobStore(null, { maxPayloadRecords: 2, maxRecords: 64 });
+  const [older, newer, next] = [id(), id(), id()];
+  for (const r of [older, newer]) {
+    order.begin(r, { request_id: r });
+    order.complete(r, 200, { ok: r });
+  }
+  order.begin(next, { request_id: next, continuation_id: older });
+  assert.equal(order.get(older).state, 'completed');
+  assert.equal(order.get(older).successor_id, next);
+  assert.equal(order.get(newer).state, 'retired');
+});
+
+test('P8: a link that would push the parent past the per-record cap is refused before any write', () => {
+  const limits = { maxRecordBytes: 4096, maxRecords: 64, maxBytes: 1 << 30 };
+  const childId = 'd'.repeat(64);
+  const snapshot = (store) => ({
+    bytes: store.bytes,
+    size: store.records.size,
+    records: [...store.records.keys()].sort().map((k) => JSON.stringify(store.get(k))),
+  });
+  for (const adopted of [false, true]) {
+    for (const over of [1, 0]) {
+      const store = new JobStore(null, limits);
+      const other = adopted ? new JobStore(null, limits) : store;
+      const p = id();
+      other.begin(p, { request_id: p });
+      other.complete(p, 200, { filler: '' });
+      const base = other.get(p);
+      const linked = Buffer.byteLength(JSON.stringify({ ...base, successor_id: childId }));
+      const pad = limits.maxRecordBytes + over - linked;
+      const parent = { ...base, response: { status: 200, body: { filler: 'y'.repeat(pad) } } };
+      other.write(parent);
+      assert.ok(Buffer.byteLength(JSON.stringify(parent)) <= limits.maxRecordBytes);
+      const keep = id();
+      store.begin(keep, { request_id: keep });
+      store.complete(keep, 200, { ok: 1 });
+      const before = snapshot(store);
+      const go = () =>
+        store.begin(
+          childId,
+          { request_id: childId, continuation_id: p },
+          {},
+          null,
+          adopted ? { adopt: other.get(p) } : {}
+        );
+      if (over > 0) {
+        assert.throws(go, { code: 'JOB_CAPACITY', oversize: true }, `adopted=${adopted}`);
+        assert.deepEqual(snapshot(store), before, `adopted=${adopted}`);
+      } else {
+        go();
+        assert.equal(store.get(p).successor_id, childId, `adopted=${adopted}`);
+        assert.equal(store.get(childId).state, 'pending');
+      }
+    }
+  }
+});

@@ -98,7 +98,7 @@ function tool(server, name, config, fn) {
         !runtimeAssets().ok
       )
         throw new Error(
-          'LYRIC_ASSETS_UNAVAILABLE: the installed grading assets failed the release check.'
+          'LYRIC_ASSETS_UNAVAILABLE: the installed grading assets failed the release check. The server cannot run lyric tools until it is repaired, and nothing was started. Retry this same call later; lyric_revise with recover_only: true still exports a held journal.'
         );
       const out = await withExecutionContext(
         childExecutionContext({

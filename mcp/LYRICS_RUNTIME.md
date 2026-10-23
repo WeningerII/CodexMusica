@@ -124,7 +124,30 @@ connector traffic (`SESSION_STORE_LIMITS` in `mcp/workflow_sessions.js`); the sa
 retirement rules apply to it. To admit new requests within these limits, the oldest completed
 or interrupted payload can be retired early. Its small `retired` tombstone retains
 the identifier and request digest, preventing that identifier from executing again.
-A retired receipt returns no checkpoint or response and cannot be resumed.
+A retired receipt returns no checkpoint or response and cannot itself be resumed.
+
+The store decides an admission before it writes anything: an adopted earlier-release
+parent, the new record and the parent's successor link are planned together, against
+both the byte cap and the payload-record cap, and only the fewest receipts that make
+room are retired. A call that cannot fit retires nothing. On the session endpoints it
+is refused, before any work is queued, as:
+
+- `SESSION_STORE_FULL` (`code` `JOB_CAPACITY`): insufficient capacity because the store is
+  full of work it must keep, running operations and interrupted receipts holding accepted
+  lines. Retry the same call once one completes or its receipt expires.
+- `SESSION_RECORD_TOO_LARGE` (`code` `JOB_CAPACITY`): one record of the admission, such as
+  the parent with its successor link, would be over the per-record cap. Free room or
+  waiting does not change that, so it asks for a smaller request or a new session, never a retry.
+- `SESSION_RECORDS_FULL` (`code` `JOB_RECORDS_FULL`): the store holds its maximum number
+  of receipt ids. `retry_at` is when the oldest receipt that can expire does, the
+  earliest opportunity rather than a promise of admission; with only running work
+  there is no known time, and `retry_at` is omitted.
+
+A retired receipt keeps its `successor_id`, and `get_operation` shows it. The identical
+retry of the call that advanced it, or `resume_operation` when that successor is its
+own resume, reaches the live successor; any other call is refused as stale. This
+follows one hop only: when the successor is retired or gone too, the call is refused
+with `SESSION_RETIRED`.
 
 Terminal receipt metadata expires 24 hours after the last work update. Pending
 records never expire or retire inside a running process. Full storage with no

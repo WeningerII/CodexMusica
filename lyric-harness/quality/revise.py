@@ -3549,15 +3549,21 @@ class Reviser:
                                  "status": ("refused" if blocking else "answered")
                                  if requested else "not_requested"})
             if requested:
+                seen_located = set()
                 for index, refusal in enumerate(rep["refusals"]):
                     located = [f for f in refusal.failed_words if f.line is not None]
                     unlocated = [f for f in refusal.failed_words if f.line is None]
                     for f in located:
-                        coverage_out.append({
+                        row = {
                             "id": f"function:{refusal.code}:L{f.line}",
                             "layer": "function", "status": "refused", "code": refusal.code,
                             "line": f.line, "token": f.token, "word": f.word,
-                            "text": f.text})
+                            "text": f.text}
+                        key = tuple(sorted(row.items()))
+                        if key in seen_located:
+                            continue
+                        seen_located.add(key)
+                        coverage_out.append(row)
                     if located and not unlocated:
                         continue
                     record = {"id": f"function:{refusal.code}:{index}",

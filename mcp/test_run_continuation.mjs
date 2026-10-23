@@ -202,7 +202,26 @@ try {
   // attempts 0, 1 and 2 -- and the door opens on continuation 4 with the
   // other ten, all admitted (125291 state bytes on main; ~~125291~~ 304438
   // with PR #479's revise-loop redesign, same walk, measured 2026-10-08).
-  const originalIndependent = [2, 3, 4, 5, 14, 15, 17, 19, 21, 23];
+  // ~~[2, 3, 4, 5, 14, 15, 17, 19, 21, 23]~~ REPINNED 2026-10-21 (measured at
+  // the harness's prefetch, and again with the journal ceiling lifted, which
+  // admits the same set): the beat count is drawn under the owner's
+  // equal-weight default (`plan.beats_weights`), so seed 1 at 24 lines
+  // re-deals its meter and line ends, L1 is no longer asked as a pivot
+  // before the door, and the door opens on continuation 0 with thirteen
+  // independent briefs, all admitted (283059 state bytes).
+  // THE PIVOT BEFORE THE DOOR IS NOT EXERCISED HERE ANY MORE, and no seed was
+  // found to restore it (searched 2026-10-22, at the harness's prefetch, with
+  // this draft at 24 lines and attempts 3). Over seeds 1-199 only 1, 43 and
+  // 169 declare no return this draft breaks (it repeats L1/L20, L2/L21,
+  // L3/L22, L4/L23, L5/L24 and L17/L18 and nothing else), and all three open
+  // the door on their first question. A seed that breaks a declared return
+  // cannot serve: an unchanged answer is applied to its whole return class
+  // (`apply_candidate`, M-201) and repairs the return, so "unchanged answers
+  // fix nothing" is false for it (seed 15, returns 1,8;2,9;3,10;4,11, asks a
+  // group pivot first and accepts at its second question). quality/test_loop.py
+  // §4-§6 cover the loop's tier-2 group repair on fixed fixtures, not this
+  // protocol's pivot before the door, which now has no MCP test (Jony 6347921225).
+  const originalIndependent = [1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23];
   // Any question before the batch is a tier-2 group rewrite or a tier-1
   // retry of its pivot; ~~the door opened on continuation 16~~ (M-305) the
   // door opens on continuation 0 (measured 2026-09-24). ~~18~~ -> 2.
@@ -297,7 +316,9 @@ try {
   // ~~[2, 14, 15, 17, 19, 21, 23]~~ -> all eleven (2026-10-04; measured).
   // ~~all eleven~~ -> the ten after L1 (2026-10-07, bound-word rule;
   // measured): L1 is asked as a pivot before the door, as on 2026-10-01.
-  assert.deepEqual(firstSubset, [2, 3, 4, 5, 14, 15, 17, 19, 21, 23]);
+  // ~~the ten after L1~~ -> all thirteen, L1 among them (2026-10-21,
+  // equal-weight beat draw; measured): no pivot precedes the door.
+  assert.deepEqual(firstSubset, [1, 2, 3, 4, 5, 6, 7, 14, 15, 17, 19, 21, 23]);
   const omittedTail = originalIndependent.filter((n) => !firstSubset.includes(n));
   // ~~[21, 23]~~ ~~[21, 24]~~ (M-305) [21, 23] (2026-09-24; measured)
   // ~~[19, 21, 23]~~ (2026-09-28; measured) [] (2026-10-01; measured)
