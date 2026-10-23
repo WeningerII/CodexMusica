@@ -156,6 +156,35 @@ class ReaderAcceptance(unittest.TestCase):
             self.assertEqual(result["coverage"], "refused")
             self.assertEqual(result["refusal"]["kind"], "reading_combinations")
 
+    def test_each_reading_combination_cap_refuses_the_method(self):
+        # BB8 and Jony on #590: a cap that never fires is untested. With
+        # `zoddet` first read B AH1 T, the first readings rhyme identically
+        # (not a perfect rhyme), so the pair is a candidate on the work's own
+        # stream and is searched there: four combinations, past a cap of two.
+        # With D EH1 T the pair is reachable only through each line's
+        # discovery: two combinations a line, past a cap of one. Either way
+        # the method is refused and the pair is never answered true.
+        import lyric_harness as LH
+        original = LH.Lexicon.__init__
+        reading = source("I saw the zibbet\nAnd then the zoddet")
+        for zoddet, cap, scope in ((["B", "AH1", "T"], 2, "a pair's words"),
+                                   (["D", "EH1", "T"], 1, "a line's words")):
+            def with_fixture_words(self, *args, **kwargs):
+                original(self, *args, **kwargs)
+                self.entries["zibbet"] = [["B", "AH1", "T"], ["AH0", "B", "IY1", "T"]]
+                self.entries["zoddet"] = [zoddet, ["AH0", "D", "IY1", "T"]]
+
+            with self.subTest(scope=scope), patch.object(LH.Lexicon, "__init__", with_fixture_words):
+                _, rows, _ = complete(reading, schemas=["perfect rhyme"])
+                self.assertEqual([r["verdict"] for r in rows if r["kind"] == "relation_instance"], ["true"])
+                with patch.object(AnalysisSession, "EDGE_COMBOS", cap):
+                    _, capped, _ = complete(reading, schemas=["perfect rhyme"])
+                result = next(r for r in capped if r["kind"] == "method_result")
+                self.assertEqual(result["coverage"], "refused")
+                self.assertEqual(result["refusal"]["kind"], "reading_combinations")
+                self.assertIn(scope, result["refusal"]["detail"])
+                self.assertNotIn("true", [r["verdict"] for r in capped if r["kind"] == "relation_instance"])
+
     def test_alternate_reading_records_keep_the_partner_word_exact(self):
         # Jony's probe on #590: under `us = Y UW2 EH1 S`, `confess` rhymes
         # on its second syllable only, and the record must say so -- not
