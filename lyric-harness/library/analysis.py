@@ -483,15 +483,26 @@ class AnalysisSession:
         return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx
                 if (st.units[i].line, st.units[i].token) in self._disputed}
 
-    @staticmethod
-    def _span_key(span):
-        return (span.origin, span.anchor_pos, span.direction, span.search_k)
+    def _span_key(self, span, st):
+        """What a span IS across readings: its rule's provenance and, unit by
+        unit, the word each syllable belongs to and -- outside a disputed
+        word, whose syllables are what the readings change -- which syllable
+        of that word it is. Two streams' spans with one key are the same
+        member read two ways."""
+        cells = []
+        for i in span.idx:
+            u = st.units[i]
+            tok = (u.line, u.token)
+            cell = tok if tok in self._disputed else (u.line, u.token, u.tok_syl)
+            if not cells or cells[-1] != cell:
+                cells.append(cell)
+        return (span.origin, span.direction, span.search_k, tuple(cells))
 
     def _spans_by_key(self, st, rule):
         memo = self._span_index.setdefault((id(st), id(rule)), {})
         if not memo:
             for span in self.RL.enumerate_spans(rule, st):
-                memo.setdefault(self._span_key(span), []).append(span)
+                memo.setdefault(self._span_key(span, st), []).append(span)
         return memo
 
     def _any_reading(self, name, a, b, st):
@@ -521,8 +532,8 @@ class AnalysisSession:
             if alt is None:
                 open_ = True
                 continue
-            matches = [(x, y) for x in self._spans_by_key(alt, schema.spans[0]).get(self._span_key(a), ())
-                       for y in self._spans_by_key(alt, schema.spans[1]).get(self._span_key(b), ())]
+            matches = [(x, y) for x in self._spans_by_key(alt, schema.spans[0]).get(self._span_key(a, st), ())
+                       for y in self._spans_by_key(alt, schema.spans[1]).get(self._span_key(b, st), ())]
             if not matches:
                 continue
             for x, y in matches:
@@ -581,7 +592,7 @@ class AnalysisSession:
         layout = [(x, tuple(RL._cand_buckets(schema, x, alt, RL.DEFAULT_CHANNELS, idx, wild))) for x in aa]
         mirror = schema.spans[0] == schema.spans[1]
         for x, y, _reverse in RL._candidate_pairs(schema, layout, alt, akeys, bkeys, None, prune=True):
-            key = (self._span_key(x), self._span_key(y))
+            key = (self._span_key(x, alt), self._span_key(y, alt))
             # The narrowed passes cannot mirror-deduplicate as one full pass
             # does, so a same-rule pair already met reversed is the same pair.
             if key in seen or mirror and key[::-1] in seen:
@@ -986,7 +997,8 @@ class AnalysisSession:
         _resource_guard("relation bucket preparation")
         seen = set()
         for a, b, reverse in RL._candidate_pairs(schema, layout, st, akeys, bkeys, None, prune=True):
-            seen.add((self._span_key(a), self._span_key(b)))
+            if self._disputed:
+                seen.add((self._span_key(a, st), self._span_key(b, st)))
             yield "edge", (a, b)
         yield from self._alternate_edges(name, schema, seen)
 

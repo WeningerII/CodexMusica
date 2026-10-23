@@ -100,6 +100,45 @@ class ReaderAcceptance(unittest.TestCase):
         self.assertEqual(restarted["summary"]["coverage"], full["summary"]["coverage"])
         self.assertEqual(len({r["id"] for r in resumed}), len(resumed))
 
+    def test_syllable_disputed_words_hold_under_any_reading(self):
+        # Owner ruling 2026-10-23: `us` (AH1 S | Y UW2 EH1 S) and `fine`
+        # (F AY1 N | F IH1 N AH0) differ in syllable count. The Library reads
+        # them, and a check holds when ANY reading holds it -- `us`/`yes`
+        # rhymes only as the letters U.S., and says so.
+        reading = source("Between the two of us\nI only answered yes\n"
+                         "The evening sun was fine\nThe wine was red as dine")
+        session, rows, last = complete(reading, schemas=["perfect rhyme"])
+        self.assertEqual(sorted(session._disputed), [(0, 4), (2, 4)])
+        tokens = {r["text"]: r for r in rows if r["kind"] == "token"}
+        for word in ("us", "fine"):
+            self.assertTrue(tokens[word]["readable"])
+            self.assertEqual(tokens[word]["reading_status"], "disputed")
+        edges = {(r["a"]["origin"], r["b"]["origin"]): r for r in rows if r["kind"] == "relation_instance"}
+        self.assertEqual(edges[("L2.final", "L3.final")]["verdict"], "true")
+        self.assertNotIn("reading", edges[("L2.final", "L3.final")])
+        us = edges[("L0.final", "L1.final")]
+        self.assertEqual(us["verdict"], "true")
+        self.assertEqual(us["reading"], {"rule": "any_reading", "witness": ["us = Y UW2 EH1 S"]})
+        # Judged under another reading, the record still names the work's
+        # own syllables of the word, never the pinned stream's numbering.
+        self.assertEqual(us["a"]["unit_ids"], [f"syllable:{i}" for i in session.stream.tokens[(0, 4)]])
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual(result["coverage"], "answered")
+        self.assertNotIn("unreadable_tokens", result["counts"])
+        _, resumed, _ = complete(reading, schemas=["perfect rhyme"], batch=1, restart=True)
+        self.assertEqual(canonical_json(resumed), canonical_json(rows))
+
+    def test_graders_still_refuse_syllable_disputed_words(self):
+        from quality.phonology.eng import English
+        grader, library = English(), English(syllable_disputes="first")
+        self.assertEqual(grader.syllabify("fine"), [])
+        self.assertEqual(grader.reading_status("fine")[0], "unalignable")
+        self.assertNotIn("syllable_disputes", grader.declaration())
+        self.assertEqual(len(library.syllabify("fine")), 1)
+        self.assertEqual(library.declaration()["syllable_disputes"], "first")
+        with self.assertRaises(ValueError):
+            English(syllable_disputes="any")
+
     def test_whole_dictionary_witness_and_occurrence_override(self):
         reading = source("wind\nfind")
         _, rows, _ = complete(reading, schemas=["perfect rhyme"])

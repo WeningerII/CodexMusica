@@ -11,6 +11,10 @@ and revision graders separately require unanimous endpoint-reading verdicts.~~
 Since 2026-10-01 (owner ruling, CLAUDE.md standing rule 5) the graders ask
 whether ANY whole reading holds an obligation, and charge a prohibition only
 when every reading triggers it; the measurement instruments keep unanimity.
+Since 2026-10-23 (owner ruling) the Library reader is the exception: it
+declares `syllable_disputes="first"`, so a word whose readings differ in
+syllable count is read rather than refused, and a Library relation holds when
+ANY reading holds it, with the readings it rests on recorded beside it.
 
 WHY THIS FILE EXISTS AND WHY IT IS LATE
 
