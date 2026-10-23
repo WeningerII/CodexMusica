@@ -53,7 +53,7 @@ test('CI completion dispatches only an exact trusted head and preserves existing
       head_sha: sha,
       head_branch: 'main',
       head_repository: { full_name: repository },
-      created_at: new Date().toISOString(),
+      // Stamped at dispatch, as GitHub does (see the handoff test below).
       ...createdPatch,
     };
     await runInNewContext(code, {
@@ -85,6 +85,8 @@ test('CI completion dispatches only an exact trusted head and preserves existing
               assert.equal(ref, 'main');
               assert.equal(workflow_id, 202);
               dispatches++;
+              if (!('created_at' in createdPatch))
+                qualificationRun.created_at = new Date().toISOString();
               if (dispatchError) throw dispatchError;
             },
           },
@@ -176,13 +178,10 @@ test('a bot-dispatched qualification hands its deploy off itself, only at main, 
   } = {}) => {
     let dispatches = 0;
     const errors = [];
-    const deployRun = {
-      id: 77,
-      workflow_id: 303,
-      event: 'workflow_dispatch',
-      created_at: new Date().toISOString(),
-      ...createdPatch,
-    };
+    // GitHub creates the run after the POST, so it is stamped at dispatch
+    // (below). Stamping it here, before the script floors its own start to
+    // the second, failed whenever the two straddled a second boundary.
+    const deployRun = { id: 77, workflow_id: 303, event: 'workflow_dispatch', ...createdPatch };
     // The script itself must never reject: verify_ci.mjs refuses a
     // qualification holding any failed job, so a throw here would void the
     // evidence this run just produced.
@@ -214,6 +213,7 @@ test('a bot-dispatched qualification hands its deploy off itself, only at main, 
               assert.equal(ref, 'main');
               assert.equal(workflow_id, 303);
               dispatches++;
+              if (!('created_at' in createdPatch)) deployRun.created_at = new Date().toISOString();
               if (dispatchError) throw dispatchError;
             },
           },
