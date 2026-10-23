@@ -96,7 +96,7 @@ jobs:
       # fetch-depth 0 is load-bearing: deploy_guard.sh asks `merge-base` and
       # `rev-list --count` about the distance between two commits, and a
       # shallow clone answers neither.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           fetch-depth: 0
 
@@ -112,7 +112,7 @@ jobs:
           fi
           echo "sha=$SHA" >> "$GITHUB_OUTPUT"
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: '22'
       # THREE ANSWERS HERE TOO: 0 with both halves of the evidence, 10 with
@@ -178,7 +178,7 @@ jobs:
 
       - name: Download the exact verified run's image manifest
         if: steps.evidence.outputs.qualified == 'yes'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: lyrics-image
           run-id: ${{ steps.evidence.outputs.run_id }}
@@ -187,7 +187,7 @@ jobs:
 
       - name: Download the complete qualification from its verified attempt
         if: steps.evidence.outputs.qualified == 'yes'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: production-qualification-${{ steps.evidence.outputs.qualification_attempt }}
           run-id: ${{ steps.evidence.outputs.qualification_run_id }}
