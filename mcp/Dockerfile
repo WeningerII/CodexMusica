@@ -62,6 +62,12 @@ RUN cd /source/lyric-harness \
  && rm -f /library/corpus/*.part-*
 
 FROM runtime-base AS production
+# npm ran once, above, to install dependencies; the server, every CI gate and
+# every qualification run start `node` or `python3`, never npm or npx. Removed
+# from the final image because npm's own bundled packages were the only
+# fixable findings left in the base (Trivy 0.76.1, 2026-10-23: brace-expansion,
+# ip-address, pacote, picomatch, sigstore, under /usr/local/lib/node_modules/npm).
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/bin/npm /usr/local/bin/npx
 WORKDIR /app
 COPY scripts ./scripts
 COPY references ./references
