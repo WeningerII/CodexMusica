@@ -128,6 +128,34 @@ class ReaderAcceptance(unittest.TestCase):
         _, resumed, _ = complete(reading, schemas=["perfect rhyme"], batch=1, restart=True)
         self.assertEqual(canonical_json(resumed), canonical_json(rows))
 
+    def test_joint_alternate_readings_are_discovered_or_refused(self):
+        # 3PO's case on #590: each word's first reading, and either single
+        # switch, leave the end words in different rhyme buckets; only BOTH
+        # alternates rhyme (IY1 T). Discovery must reach that pair through
+        # the public path, and a bounded search must say it is incomplete.
+        import lyric_harness as LH
+        original = LH.Lexicon.__init__
+
+        def with_fixture_words(self, *args, **kwargs):
+            original(self, *args, **kwargs)
+            self.entries["zibbet"] = [["B", "AH1", "T"], ["AH0", "B", "IY1", "T"]]
+            self.entries["zoddet"] = [["D", "EH1", "T"], ["AH0", "D", "IY1", "T"]]
+
+        reading = source("I saw the zibbet\nAnd then the zoddet")
+        with patch.object(LH.Lexicon, "__init__", with_fixture_words):
+            session, rows, _ = complete(reading, schemas=["perfect rhyme"])
+            self.assertEqual(sorted(session._disputed), [(0, 3), (1, 3)])
+            edge = next(r for r in rows if r["kind"] == "relation_instance")
+            self.assertEqual(edge["verdict"], "true")
+            self.assertEqual(edge["reading"]["witness"], ["zibbet = AH0 B IY1 T", "zoddet = AH0 D IY1 T"])
+            result = next(r for r in rows if r["kind"] == "method_result")
+            self.assertEqual(result["coverage"], "answered")
+            with patch.object(AnalysisSession, "PIN_CAP", 0):
+                _, capped, _ = complete(reading, schemas=["perfect rhyme"])
+            result = next(r for r in capped if r["kind"] == "method_result")
+            self.assertEqual(result["coverage"], "refused")
+            self.assertEqual(result["refusal"]["kind"], "reading_combinations")
+
     def test_graders_still_refuse_syllable_disputed_words(self):
         from quality.phonology.eng import English
         grader, library = English(), English(syllable_disputes="first")

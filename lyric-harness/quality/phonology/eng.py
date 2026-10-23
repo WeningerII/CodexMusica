@@ -624,8 +624,10 @@ class English(Phonology):
         if memo is None:
             return self._merged(word)
         lex = self._lexicon()
-        key = (id(self), id(lex), word, self.readings, self.fallback,
-               self.syllable_disputes)
+        key = (id(self), id(lex), word, self.readings, self.fallback)
+        if self.syllable_disputes != "refuse":
+            # Only when read: a grader's memo key is the one it always was.
+            key += (self.syllable_disputes,)
         hit = memo.get(key)
         if hit is None:
             hit = memo[key] = self._merged(word)
