@@ -150,7 +150,7 @@ class ReaderAcceptance(unittest.TestCase):
             self.assertEqual(edge["reading"]["witness"], ["zibbet = AH0 B IY1 T", "zoddet = AH0 D IY1 T"])
             result = next(r for r in rows if r["kind"] == "method_result")
             self.assertEqual(result["coverage"], "answered")
-            with patch.object(AnalysisSession, "PIN_CAP", 0):
+            with patch.object(AnalysisSession, "MINI_CAP", 0):
                 _, capped, _ = complete(reading, schemas=["perfect rhyme"])
             result = next(r for r in capped if r["kind"] == "method_result")
             self.assertEqual(result["coverage"], "refused")
@@ -167,15 +167,56 @@ class ReaderAcceptance(unittest.TestCase):
         self.assertEqual(edge["b"]["unit_ids"], [f"syllable:{session.stream.tokens[(1, 5)][-1]}"])
 
     def test_first_reading_only_verdicts_are_counted(self):
-        # Only a line-ending disputed word is varied; `every` opening both
-        # lines keeps its first-listed reading, and the method says how many
-        # of its verdicts rest on that alone.
-        session, rows, _ = complete(source("Every night I wait\nEvery day I wait"), schemas=["anaphora"])
-        self.assertEqual(sorted(session._disputed), [(0, 0), (1, 0)])
-        self.assertEqual(session._varied, frozenset())
+        # A searched rule enumerates sub-spans inside a word, which another
+        # syllable count leaves without counterparts: such a schema keeps the
+        # first-listed reading, and says how many verdicts rest on it alone.
+        session, rows, _ = complete(source("every day\nheavy clay"), schemas=["multisyllabic rhyme"])
+        self.assertEqual(sorted(session._disputed), [(0, 0)])
         result = next(r for r in rows if r["kind"] == "method_result")
         self.assertEqual(result["coverage"], "answered")
-        self.assertEqual(result["counts"]["first_reading_only"], 1)
+        self.assertGreater(result["counts"]["first_reading_only"], 0)
+        self.assertTrue(all("reading" not in r for r in rows if r["kind"] == "relation_instance"))
+
+    def test_rebuilt_lines_judge_every_pair_as_the_whole_work_does(self):
+        # The any-reading search judges a pair on its own one or two lines,
+        # rebuilt. That is only sound if, under the work's own readings, the
+        # rebuilt lines give every pair exactly the verdict the whole work
+        # gives -- for every schema the search covers, on every candidate.
+        reading = source("Every hour of our family fire\nDifferent nights and every lonely desire\n"
+                         "We sat by the fire with our camera and wine\nEvery interest naturally fine\n"
+                         "Our hour is over and the fire is low\nEvery family knows what different people know")
+        session = AnalysisSession(reading, None, {"layers": ["sound"]}, None, load_records=lambda mid: iter(()))
+        checked = 0
+        for name in session.schema_names:
+            schema = RL.REGISTRY[name]
+            if not session._varies(schema):
+                continue
+            try:
+                candidates = list(session._candidates(name))
+            except Exception:
+                continue
+            for kind, value in candidates:
+                if kind != "edge":
+                    continue
+                a, b = value
+                whole = RL.evaluate(schema, a, b, session.stream)
+                lines = sorted({session.stream.units[i].line for span in (a, b) for i in span.idx})
+                mini = session._line_stream(lines, {})
+                xs = session._spans_by_key(mini, schema.spans[0]).get(session._span_key(a, session.stream), ())
+                ys = session._spans_by_key(mini, schema.spans[1]).get(session._span_key(b, session.stream), ())
+                got = [RL.evaluate(schema, x, y, mini) for x in xs for y in ys]
+                self.assertEqual(len(got), 1, (name, a.origin, b.origin))
+                self.assertEqual(None if whole is None else whole.verdict,
+                                 None if got[0] is None else got[0].verdict, (name, a.origin, b.origin))
+                checked += 1
+        self.assertGreater(checked, 2000)
+
+    def test_relation_instance_ids_are_unique_under_any_reading(self):
+        _, rows, _ = complete(source("Every hour of our family fire\nDifferent nights and every lonely desire\n"
+                                     "The camera sees us every time we fly\nOur desire was natural and so was our goodbye"),
+                              layers=["sound"])
+        ids = [r["id"] for r in rows if r["kind"] == "relation_instance"]
+        self.assertEqual(len(ids), len(set(ids)))
 
     def test_every_syllable_disputed_word_is_read_by_the_library_only(self):
         # The whole dictionary, not a chosen word: every CMUdict entry whose
