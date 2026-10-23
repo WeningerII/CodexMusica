@@ -177,7 +177,25 @@ function scanSchema(toolName, schema) {
       if (Object.keys(node).length === 0) found.push(`${at}:EMPTY`);
     }
     for (const [key, value] of Object.entries(node)) {
-      walk(value, `${at}.${key}`, key === 'properties');
+      walk(value, `${at}.${key}`, !insideProperties && key === 'properties');
+    }
+  })(schema, toolName, false);
+  return found;
+}
+
+// Every array a caller can send carries maxItems. An unbounded array whose
+// items all fail validation makes the validator build one issue per item:
+// measured 2026-10-23 at 308-365 MiB per 4.2 MiB request on zod 4.4.3 AND on
+// 4.6.7, whose GHSA-mrhx-c7xc-m3w5 fix only helps when a size check exists.
+// With maxItems the same request is refused in 4 ms with no growth.
+function unboundedArrays(toolName, schema) {
+  const found = [];
+  (function walk(node, at, insideProperties) {
+    if (!node || typeof node !== 'object') return;
+    if (Array.isArray(node)) return node.forEach((n, i) => walk(n, `${at}[${i}]`, false));
+    if (!insideProperties && node.type === 'array' && node.maxItems === undefined) found.push(at);
+    for (const [key, value] of Object.entries(node)) {
+      walk(value, `${at}.${key}`, !insideProperties && key === 'properties');
     }
   })(schema, toolName, false);
   return found;
@@ -220,6 +238,19 @@ function scanSchema(toolName, schema) {
   }
 
   // ── schema subset ─────────────────────────────────────────────────────────
+  // A field may itself be NAMED `properties`; only a `properties` keyword opens
+  // the field-name map. Before this, both scanners skipped such a field's schema.
+  const fieldNamedProperties = {
+    type: 'object',
+    properties: { properties: { type: 'array', items: { type: 'string' }, anyOf: [] } },
+  };
+  check(
+    'scanners read a field named `properties` as a schema, not a field map',
+    JSON.stringify(unboundedArrays('test', fieldNamedProperties)) ===
+      JSON.stringify(['test.properties.properties']) &&
+      scanSchema('test', fieldNamedProperties).includes('test.properties.properties.anyOf'),
+    `${unboundedArrays('test', fieldNamedProperties)} / ${scanSchema('test', fieldNamedProperties)}`
+  );
   console.log('\n=== Published schema subset (live listTools, draft-07) ===');
   let unexpected = 0;
   let exemptSeen = 0;
@@ -235,6 +266,8 @@ function scanSchema(toolName, schema) {
     }
   }
   check(`no unexempted structural keywords`, unexpected === 0, `${unexpected} found`);
+  const unbounded = tools.flatMap((t) => unboundedArrays(t.name, t.inputSchema));
+  check(`every input array declares maxItems`, unbounded.length === 0, unbounded.join(', '));
   // Stale exemptions are their own kind of rot: if one stops being needed, the
   // list should lose it rather than quietly cover nothing.
   check(
@@ -602,6 +635,12 @@ function scanSchema(toolName, schema) {
       `${surface.label}: no unexempted structural keywords`,
       structural.length === 0,
       structural.join(', ')
+    );
+    const unboundedHere = surface.tools.flatMap((t) => unboundedArrays(t.name, t.inputSchema));
+    check(
+      `${surface.label}: every input array declares maxItems`,
+      unboundedHere.length === 0,
+      unboundedHere.join(', ')
     );
     const derived = toGeminiDeclarations(surface.tools);
     const rejected = [

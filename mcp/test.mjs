@@ -8978,4 +8978,86 @@ try {
   }
 }
 
+// GHSA-mrhx-c7xc-m3w5: an array whose items all fail makes zod build one issue
+// per item, and the refusal grows with it (measured: 20,000 bad items -> a
+// 2.8 MB error and +300 MiB per 4.2 MiB request, on zod 4.4.3 and 4.6.7 alike).
+// A maxItems cap is checked first, so the refusal is one issue whatever the
+// size. Issue counts and response sizes, not RSS, so the check is deterministic.
+await check(
+  'oversized arrays are refused before per-item validation (GHSA-mrhx-c7xc-m3w5)',
+  async () => {
+    const here = new URL('.', import.meta.url).pathname;
+    const sdkPath = (m) => import(createRequire(import.meta.url).resolve(m, { paths: [here] }));
+    const { Client } = await sdkPath('@modelcontextprotocol/sdk/client/index.js');
+    const { InMemoryTransport } = await sdkPath('@modelcontextprotocol/sdk/inMemory.js');
+    const { buildServer } = await import('./tools.js');
+    const { buildWorkflowServer } = await import('./workflow_tools.js');
+    const { WorkflowSessions } = await import('./workflow_sessions.js');
+    const { JobStore } = await import('./job_store.js');
+    const { TOOL_SCHEMAS } = await import('./schemas.js');
+    const { SEARCH_TYPES } = E;
+    const { MAX_LINES } = await import('./lyric_tools.js');
+    const connect = async (server) => {
+      const [c, s] = InMemoryTransport.createLinkedPair();
+      const client = new Client({ name: 'array-caps', version: '0' }, { capabilities: {} });
+      await Promise.all([server.connect(s), client.connect(c)]);
+      return client;
+    };
+    const text = (r) => r.content?.[0]?.text ?? '';
+    const HUGE = 20000;
+
+    const parse = (types) => TOOL_SCHEMAS.search_catalog.safeParse({ query: 'q', types });
+    assert.ok(parse([...SEARCH_TYPES]).success, 'one of each record type is accepted');
+    for (const types of [[...SEARCH_TYPES, 'room'], Array(HUGE).fill('x')]) {
+      const issues = parse(types).error.issues;
+      assert.deepEqual(
+        issues.map((i) => i.code),
+        ['too_big'],
+        `${types.length} items: one issue`
+      );
+    }
+
+    const raw = await connect(buildServer());
+    const search = (types) =>
+      raw.callTool({ name: 'search_catalog', arguments: { query: 'bluegrass', types } });
+    assert.ok(
+      !(await search([...SEARCH_TYPES])).isError,
+      `${SEARCH_TYPES.length} types are answered`
+    );
+    for (const types of [[...SEARCH_TYPES, 'room'], Array(HUGE).fill('x')]) {
+      const r = await search(types);
+      assert.ok(
+        r.isError && /Too big/.test(text(r)),
+        `${types.length} types are refused as too big`
+      );
+      assert.ok(text(r).length < 1000, `${types.length} types: ${text(r).length}-char refusal`);
+    }
+
+    const sessions = new WorkflowSessions({ store: new JobStore() });
+    const flow = await connect(await buildWorkflowServer({ sessions }));
+    const read = (lines) =>
+      flow.callTool({
+        name: 'get_operation',
+        arguments: { operation_id: 'a'.repeat(64), detail: 'findings', lines },
+      });
+    const atCap = await read(Array.from({ length: MAX_LINES }, (_, i) => i + 1));
+    // Past validation, the handler answers for the unknown id.
+    assert.match(text(atCap), /^SESSION_UNAVAILABLE:/, `${MAX_LINES} lines reach the handler`);
+    for (const lines of [
+      Array.from({ length: MAX_LINES + 1 }, (_, i) => i + 1),
+      Array(HUGE).fill(-1),
+      Array(HUGE).fill('x'),
+    ]) {
+      const r = await read(lines);
+      assert.ok(
+        r.isError && /Too big/.test(text(r)),
+        `${lines.length} lines are refused as too big`
+      );
+      assert.ok(text(r).length < 1000, `${lines.length} lines: ${text(r).length}-char refusal`);
+    }
+    await raw.close();
+    await flow.close();
+  }
+);
+
 console.log(`\n${passed} checks passed${process.exitCode ? ' (with failures)' : ''}`);

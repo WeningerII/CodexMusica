@@ -724,7 +724,9 @@ export function renderRecipe(params = {}) {
 
 // ─────────────────────────── discovery ───────────────────────────
 
-const ALL_TYPES = [
+// The record types search_catalog covers; its schema enumerates (and caps) the
+// same list.
+export const SEARCH_TYPES = [
   'tradition',
   'instrument',
   'variant',
@@ -882,7 +884,7 @@ function scoreRecord(matchers, id, name, prose, gloss = '') {
 // get_instrument. Multi-term: records rank by how many query terms they match.
 export function searchCatalog({ query, types, limit = 20 } = {}) {
   if (!query || !String(query).trim()) throw new EngineError('search_catalog needs a query.');
-  const want = new Set(Array.isArray(types) && types.length ? types : ALL_TYPES);
+  const want = new Set(Array.isArray(types) && types.length ? types : SEARCH_TYPES);
   const matchers = queryMatchers(query);
   const rows = [];
   // `extra` carries fields that make a hit USABLE, not merely findable. Today

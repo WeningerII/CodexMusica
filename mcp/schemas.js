@@ -20,6 +20,7 @@ import {
   ENV_FIELDS,
   LIST_TRADITIONS_MAX,
   OPTION_KINDS,
+  SEARCH_TYPES,
 } from './engine.js';
 
 export const renderShape = {
@@ -267,19 +268,10 @@ export const TOOL_SCHEMAS = {
   search_catalog: z.object({
     query: z.string().describe('Words from the request, e.g. "garage rock fuzz".'),
     types: z
-      .array(
-        z.enum([
-          'tradition',
-          'instrument',
-          'variant',
-          'room',
-          'tuning',
-          'arrangement',
-          'aesthetic',
-          'preface',
-          'chain',
-        ])
-      )
+      .array(z.enum(SEARCH_TYPES))
+      // One entry per record type at most: an unbounded array lets a request
+      // make the validator build one issue per failing item (GHSA-mrhx-c7xc-m3w5).
+      .max(SEARCH_TYPES.length)
       .optional()
       .describe('Restrict to these record types.'),
     limit: z
