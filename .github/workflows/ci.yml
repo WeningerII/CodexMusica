@@ -817,6 +817,72 @@ jobs:
           path: reader-image-evidence/
           if-no-files-found: error
           retention-days: 30
+      # REPORT-FIRST VULNERABILITY SCAN OF THE EXACT TESTED IMAGE (2026-10-23).
+      # The base image alone was scanned by hand; the apt-installed python3 and
+      # the application layers exist only here. Findings do not fail the job
+      # yet (a gate policy for fixable HIGH/CRITICAL is a separate decision);
+      # a scanner error, a checksum mismatch, or a report that does not name
+      # this image ID does, so an error can never pass as an empty report.
+      # The local image needs no registry credential and no extra permission.
+      - name: Report known vulnerabilities in the exact tested image
+        timeout-minutes: 15
+        env:
+          TRIVY_VERSION: 0.76.1
+          TRIVY_SHA256: c7cbe3137fb8a48a17574bede3dd6beb16742d1e9772929940fc90082c39d9c0
+          IMAGE_ID: ${{ steps.image.outputs.image_id }}
+        run: |
+          set -euo pipefail
+          mkdir -p image-vuln-evidence
+          curl -fsSL --retry 2 -o "$RUNNER_TEMP/trivy.tgz" \
+            "https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz"
+          echo "${TRIVY_SHA256}  $RUNNER_TEMP/trivy.tgz" | sha256sum -c -
+          tar -xzf "$RUNNER_TEMP/trivy.tgz" -C "$RUNNER_TEMP" trivy
+          trivy="$RUNNER_TEMP/trivy"
+          "$trivy" image --scanners vuln --image-src docker --exit-code 0 \
+            --format json --output image-vuln-evidence/trivy-report.json "$IMAGE_ID"
+          "$trivy" version --format json > image-vuln-evidence/trivy-version.json
+          docker image inspect --format '{{.Os}}/{{.Architecture}}' "$IMAGE_ID" \
+            > image-vuln-evidence/platform.txt
+          node - <<'NODE'
+          const fs = require('fs');
+          const dir = 'image-vuln-evidence';
+          const report = JSON.parse(fs.readFileSync(`${dir}/trivy-report.json`, 'utf8'));
+          const version = JSON.parse(fs.readFileSync(`${dir}/trivy-version.json`, 'utf8'));
+          const imageId = process.env.IMAGE_ID;
+          if (report.Metadata?.ImageID !== imageId)
+            throw new Error(`report names ${report.Metadata?.ImageID}, not the tested image ${imageId}`);
+          if (!report.Metadata?.OS?.Family || !Array.isArray(report.Results) || !report.Results.length)
+            throw new Error('report has no detected OS or no results: refusing to treat it as clean');
+          const counts = {};
+          for (const r of report.Results)
+            for (const v of r.Vulnerabilities || []) {
+              const key = `${v.Severity} ${v.FixedVersion ? 'fix available' : (v.Status || 'no fix')}`;
+              counts[key] = (counts[key] || 0) + 1;
+            }
+          const meta = {
+            image_id: imageId,
+            platform: fs.readFileSync(`${dir}/platform.txt`, 'utf8').trim(),
+            os: `${report.Metadata.OS.Family} ${report.Metadata.OS.Name}`,
+            scanner: `trivy ${version.Version}`,
+            db_updated_at: version.VulnerabilityDB?.UpdatedAt,
+            counts,
+          };
+          if (!meta.db_updated_at) throw new Error('scanner reported no vulnerability DB timestamp');
+          fs.writeFileSync(`${dir}/scan-meta.json`, JSON.stringify(meta, null, 2) + '\n');
+          const rows = Object.entries(counts).sort().map(([k, n]) => `| ${k} | ${n} |`).join('\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY,
+            `### Known vulnerabilities in the tested image (report-first)\n\n` +
+            `${meta.image_id} · ${meta.platform} · ${meta.os} · ${meta.scanner} · DB ${meta.db_updated_at}\n\n` +
+            `| severity / status | count |\n|---|---|\n${rows}\n`);
+          console.log(JSON.stringify(meta, null, 2));
+          NODE
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: image-vuln-evidence-${{ github.run_attempt }}
+          path: image-vuln-evidence/
+          if-no-files-found: error
+          retention-days: 30
       # THE CAPACITY MATRIX STOOD HERE FROM 2026-09-08 UNTIL 2026-09-12 and
       # became `.github/workflows/capacity-matrix.yml`. Since M-282's
       # 2026-09-17 placement decision, production qualification calls it;
