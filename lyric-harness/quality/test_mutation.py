@@ -1395,6 +1395,28 @@ def test_baseline_fingerprint_includes_data_and_runtime():
                 runtime = mutate.source_fingerprint()
     check("data-only changes invalidate the mutation baseline", first != changed)
     check("runtime changes invalidate the mutation baseline", changed != runtime)
+    # The portable fingerprint (production qualification's cross-runner
+    # identity) ignores only the kernel/libc string; data still moves it.
+    with tempfile.TemporaryDirectory() as directory:
+        data = os.path.join(directory, "labels.json")
+        with open(data, "w") as stream:
+            stream.write('{"value": 1}')
+        with patch.object(mutate, "ROOT", directory), \
+                patch.object(mutate, "SIBLING_RULES", ()), \
+                patch.dict(os.environ, {"NLTK_DATA": "", "LYRIC_STAGED_DATA": ""}):
+            import platform
+            with patch.object(platform, "platform", return_value="Linux-6.8.0-azure"):
+                full_a = mutate.source_fingerprint()
+                port_a = mutate.source_fingerprint(portable=True)
+            with patch.object(platform, "platform", return_value="Linux-6.11.0-azure"):
+                full_b = mutate.source_fingerprint()
+                port_b = mutate.source_fingerprint(portable=True)
+            with open(data, "w") as stream:
+                stream.write('{"value": 2}')
+            port_c = mutate.source_fingerprint(portable=True)
+    check("a different kernel moves the full fingerprint", full_a != full_b)
+    check("a different kernel leaves the portable fingerprint", port_a == port_b)
+    check("a data change still moves the portable fingerprint", port_b != port_c)
 
 
 def _parser():

@@ -77,7 +77,8 @@ class MatrixPlacementTests(unittest.TestCase):
 class EvidenceTests(unittest.TestCase):
     def setUp(self):
         self.kw = dict(commit="a" * 40, repository="owner/repo", run_id=23, run_attempt=2, names=[f"M{i}" for i in range(1, 59)])
-        self.identity = dict(commit=self.kw["commit"], source_sha256="b"*64, inputs_sha256="c"*64)
+        self.identity = dict(commit=self.kw["commit"], source_sha256="b"*64, inputs_sha256="c"*64,
+                             portable_inputs_sha256="e"*64, runtime={"platform": "Linux-6.8"})
         self.rows = [dict(version=1, component=c, command=spec(c)[0], budget_s=spec(c)[1], identity=self.identity,
                           identity_after=self.identity, inventory=self.kw["names"], repository="owner/repo",
                           run_id=23, run_attempt=2, status="completed", exit_code=0) for c in COMPONENTS]
@@ -139,6 +140,25 @@ class EvidenceTests(unittest.TestCase):
         self.check_bad(lambda r: r[0].__setitem__("run_id", 22))
         with self.assertRaises(ValueError):
             aggregate(self.rows, **{**self.kw, "commit": "d"*40})
+        self.check_bad(lambda r: r[0].__setitem__("identity", {**self.identity, "portable_inputs_sha256": "d"*64}))
+        self.check_bad(lambda r: r[0]["identity"].pop("portable_inputs_sha256"))
+
+    def test_runner_image_split_qualifies_when_portable_identity_agrees(self):
+        # 2026-10-20..22: one matrix on two ubuntu-24.04 image releases gave two
+        # full inputs fingerprints; the portable one (no kernel/libc) agrees.
+        rows = copy.deepcopy(self.rows)
+        other = {**self.identity, "inputs_sha256": "f"*64, "runtime": {"platform": "Linux-6.11"}}
+        for r in rows[::3]:
+            r["identity"] = r["identity_after"] = copy.deepcopy(other)
+        result = aggregate(rows, **self.kw)
+        self.assertEqual(result["identity"], {k: self.identity[k] for k in Q.SHARED_IDENTITY})
+
+    def test_refusal_names_the_receipt_and_field(self):
+        rows = copy.deepcopy(self.rows)
+        rows[5]["identity"] = {**self.identity, "source_sha256": "d"*64}
+        rows[5]["identity_after"] = rows[5]["identity"]
+        with self.assertRaisesRegex(ValueError, rf"{rows[5]['component']!r} fails identity"):
+            aggregate(rows, **self.kw)
 
 if __name__ == "__main__":
     unittest.main()

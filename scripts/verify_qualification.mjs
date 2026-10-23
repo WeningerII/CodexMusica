@@ -33,6 +33,14 @@ function fullCommand(component) {
     ];
   return ['quality/length_curve_calibration.py', 'check'];
 }
+// What every matrix job must share (production_qualification.py's
+// SHARED_IDENTITY): jobs on one runner label can land on different image
+// releases, so each receipt's full inputs_sha256 and runtime are per runner and
+// checked only against that receipt's identity_after.
+export const SHARED_IDENTITY = Object.freeze(['commit', 'source_sha256', 'portable_inputs_sha256']);
+const shared = (identity) =>
+  JSON.stringify(SHARED_IDENTITY.map((key) => (identity ? identity[key] : undefined)));
+const HEX64 = /^[a-f0-9]{64}$/;
 export function validateQualification(value, image, verified, repository) {
   const evidence = verified?.qualification;
   if (
@@ -52,7 +60,7 @@ export function validateQualification(value, image, verified, repository) {
     evidence.commit !== verified.commit ||
     !/^[a-f0-9]{40}$/.test(verified.commit || '') ||
     !/^[a-f0-9]{64}$/.test(value.identity?.source_sha256 || '') ||
-    !/^[a-f0-9]{64}$/.test(value.identity?.inputs_sha256 || '') ||
+    !HEX64.test(value.identity?.portable_inputs_sha256 || '') ||
     value.identity.source_sha256 !== image.repository_source_sha256 ||
     JSON.stringify(value.components) !== JSON.stringify(COMPONENTS) ||
     !Array.isArray(value.receipts) ||
@@ -71,8 +79,9 @@ export function validateQualification(value, image, verified, repository) {
         r.run_id !== evidence.run_id ||
         r.run_attempt !== evidence.run_attempt ||
         r.repository !== repository ||
-        JSON.stringify(r.identity) !== JSON.stringify(value.identity) ||
-        JSON.stringify(r.identity_after) !== JSON.stringify(value.identity)
+        shared(r.identity) !== shared(value.identity) ||
+        !HEX64.test(r.identity?.inputs_sha256 || '') ||
+        JSON.stringify(r.identity_after) !== JSON.stringify(r.identity)
     )
   ) {
     throw new Error(

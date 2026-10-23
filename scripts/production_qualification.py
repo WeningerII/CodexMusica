@@ -275,7 +275,12 @@ def identity():
     if subprocess.check_output(["git", "diff", "HEAD", "--name-only"], cwd=ROOT):
         raise ValueError("Tracked source differs from the named commit")
     source = subprocess.check_output(["node", "--input-type=module", "-e", "import {runtimeSourceFingerprint} from './mcp/build_identity.js'; console.log(runtimeSourceFingerprint());"], cwd=ROOT, text=True).strip()
-    return {"commit": sha, "source_sha256": source, "inputs_sha256": mutate.source_fingerprint()}
+    # inputs_sha256 is this runner's full fingerprint (it must not move
+    # during the run); portable_inputs_sha256 leaves out the kernel/libc
+    # string and is what every matrix job must share (aggregate below).
+    return {"commit": sha, "source_sha256": source, "inputs_sha256": mutate.source_fingerprint(),
+            "portable_inputs_sha256": mutate.source_fingerprint(portable=True),
+            "runtime": mutate.runtime_description()}
 
 
 def save(path, value):
@@ -329,24 +334,49 @@ def run_component(component, out):
     return 0 if receipt["status"] == "completed" else 1
 
 
+# What every matrix job must share. inputs_sha256 and runtime are per runner:
+# jobs on one `ubuntu-24.04` label can land on different image releases
+# (kernel and libc), so they are checked only within a job (identity_after).
+SHARED_IDENTITY = ("commit", "source_sha256", "portable_inputs_sha256")
+
+
+def shared_identity(identity):
+    if not isinstance(identity, dict):
+        return None
+    return {key: identity.get(key) for key in SHARED_IDENTITY}
+
+
 def aggregate(receipts, *, commit, repository, run_id, run_attempt, names):
     if len(receipts) != len(COMPONENTS) or sorted(r.get("component", "") for r in receipts) != sorted(COMPONENTS):
         raise ValueError(f"Every one of {MUTATION_SHARDS} unique mutation shards and all three full calibration comparisons is required")
     if not names or len(set(names)) != len(names):
         raise ValueError("Mutation inventory is missing or duplicated")
-    common = receipts[0].get("identity")
+    common = shared_identity(receipts[0].get("identity"))
     for r in receipts:
         command, budget = spec(r["component"])
-        if (r.get("version") != 1 or r.get("status") != "completed" or type(r.get("exit_code")) is not int or r["exit_code"] != 0
-                or r.get("command") != command or r.get("budget_s") != budget
-                or r.get("identity") != common or r.get("identity_after") != common
-                or r.get("inventory") != names or r.get("repository") != repository
-                or type(r.get("run_id")) is not int or r["run_id"] != run_id or run_id < 1
-                or type(r.get("run_attempt")) is not int or r["run_attempt"] != run_attempt or run_attempt < 1):
-            raise ValueError("Incomplete, reduced, stale, mismatched or unsuccessful qualification evidence")
-        for key in ("source_sha256", "inputs_sha256"):
-            if not isinstance(common.get(key), str) or len(common[key]) != 64 or any(c not in "0123456789abcdef" for c in common[key]):
-                raise ValueError("Missing source/input fingerprint")
+        # Each failed condition is named with its receipt: the bare refusal
+        # hid a runner-image split for three nights (2026-10-20..22).
+        checks = (
+            ("version", r.get("version") == 1),
+            ("status", r.get("status") == "completed"),
+            ("exit_code", type(r.get("exit_code")) is int and r["exit_code"] == 0),
+            ("command", r.get("command") == command),
+            ("budget_s", r.get("budget_s") == budget),
+            ("identity (commit, source, portable inputs)", shared_identity(r.get("identity")) == common),
+            ("identity_after (moved during the run)", r.get("identity_after") == r.get("identity")),
+            ("inventory", r.get("inventory") == names),
+            ("repository", r.get("repository") == repository),
+            ("run_id", type(r.get("run_id")) is int and r["run_id"] == run_id and run_id >= 1),
+            ("run_attempt", type(r.get("run_attempt")) is int and r["run_attempt"] == run_attempt and run_attempt >= 1),
+        )
+        failed = [name for name, ok in checks if not ok]
+        if failed:
+            raise ValueError("Incomplete, reduced, stale, mismatched or unsuccessful qualification evidence: "
+                             f"{r.get('component')!r} fails {', '.join(failed)}")
+        for key in ("source_sha256", "inputs_sha256", "portable_inputs_sha256"):
+            value = (r.get("identity") or {}).get(key)
+            if not isinstance(value, str) or len(value) != 64 or any(c not in "0123456789abcdef" for c in value):
+                raise ValueError(f"Missing source/input fingerprint: {r.get('component')!r} {key}")
         if common.get("commit") != commit or len(commit) != 40 or any(c not in "0123456789abcdef" for c in commit):
             raise ValueError("Qualification commit mismatch")
     return {"version": 1, "scope": "complete-maintained-mutation-and-calibration-comparisons",
