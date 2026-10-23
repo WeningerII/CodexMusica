@@ -1967,14 +1967,22 @@ def report_baseline(results, inventory=None):
               "a timeout is not a failing check or a passing sweep.")
 
 
-def source_fingerprint():
+def source_fingerprint(portable=False):
     """Hash executable source, every input file, sibling contracts and runtime.
 
     A data-only change must invalidate the baseline just like a Python edit.
     Digests, not contents or environment values, are emitted in the report.
+
+    `portable` replaces `platform.platform()` with the libc version and
+    machine architecture, leaving out only the kernel release: the one
+    runtime field two runners on one label differ in while running the same
+    Python, packages, data and environment. Production qualification compares
+    this across its matrix jobs, which may land on different runner image
+    releases; the baseline cache keeps the full fingerprint. (The plain
+    runtime facts themselves are recorded in qualification receipts, by
+    scripts/production_qualification.py, not in this module's report.)
     """
     import importlib.metadata
-    import platform
     h = hashlib.sha256()
     def visit(root, prefix, recursive=True):
         if not os.path.isdir(root):
@@ -2007,12 +2015,31 @@ def source_fingerprint():
             packages[name] = importlib.metadata.version(name)
         except importlib.metadata.PackageNotFoundError:
             packages[name] = None
-    runtime = {"python": sys.version, "platform": platform.platform(),
-               "packages": packages,
-               "environment": {k: os.environ.get(k) for k in
-                   ("PYTHONPATH", "PYTHONHASHSEED", "LANG", "LC_ALL")}}
+    runtime = runtime_description(packages)
+    if portable:
+        import platform
+        runtime.pop("platform")
+        runtime["libc"] = list(platform.libc_ver())
+        runtime["machine"] = platform.machine()
     h.update(json.dumps(runtime, sort_keys=True).encode())
     return h.hexdigest()
+
+
+def runtime_description(packages=None):
+    """The runtime facts source_fingerprint hashes, as plain values."""
+    import importlib.metadata
+    import platform
+    if packages is None:
+        packages = {}
+        for name in ("nltk", "numpy", "scikit-learn"):
+            try:
+                packages[name] = importlib.metadata.version(name)
+            except importlib.metadata.PackageNotFoundError:
+                packages[name] = None
+    return {"python": sys.version, "platform": platform.platform(),
+            "packages": packages,
+            "environment": {k: os.environ.get(k) for k in
+                ("PYTHONPATH", "PYTHONHASHSEED", "LANG", "LC_ALL")}}
 
 
 def baseline(tests, jobs, cache_path, force=False, confirm_all=False,

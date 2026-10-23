@@ -1057,7 +1057,14 @@ test('the deploy workflow trusts exactly the declared qualification events', asy
 test('qualification artifact cannot cross source, attempt or incomplete calibration boundaries', async () => {
   const { COMPONENTS, expectedCommand, validateQualification } =
     await import('../scripts/verify_qualification.mjs');
-  const identity = { commit: sha, source_sha256: 'b'.repeat(64), inputs_sha256: 'c'.repeat(64) };
+  // The aggregate names only what every job shares; each receipt carries its
+  // runner's full identity, whose inputs_sha256 may differ between jobs.
+  const identity = {
+    commit: sha,
+    source_sha256: 'b'.repeat(64),
+    portable_inputs_sha256: 'e'.repeat(64),
+  };
+  const runner = { ...identity, inputs_sha256: 'c'.repeat(64) };
   const receipt = {
     version: 1,
     scope: 'complete-maintained-mutation-and-calibration-comparisons',
@@ -1081,8 +1088,8 @@ test('qualification artifact cannot cross source, attempt or incomplete calibrat
       inventory: ['M1', 'M4', 'M5', 'M9', 'M11'],
       status: 'completed',
       exit_code: 0,
-      identity,
-      identity_after: identity,
+      identity: runner,
+      identity_after: runner,
       repository,
       run_id: 21,
       run_attempt: 2,
@@ -1095,7 +1102,21 @@ test('qualification artifact cannot cross source, attempt or incomplete calibrat
   };
   const verified = { commit: sha, qualification: { run_id: 21, run_attempt: 2, commit: sha } };
   assert(validateQualification(receipt, manifest, verified, repository));
+  // Two runner image releases in one matrix (2026-10-20..22): a job whose full
+  // inputs fingerprint differs, with the same portable one, still qualifies.
+  const mixed = structuredClone(receipt);
+  mixed.receipts[3].identity = mixed.receipts[3].identity_after = {
+    ...runner,
+    inputs_sha256: 'f'.repeat(64),
+  };
+  assert(validateQualification(mixed, manifest, verified, repository));
   for (const change of [
+    (r) =>
+      (r.receipts[2].identity = r.receipts[2].identity_after =
+        { ...runner, portable_inputs_sha256: 'd'.repeat(64) }),
+    (r) => (r.receipts[2].identity_after = { ...runner, inputs_sha256: 'd'.repeat(64) }),
+    (r) => delete r.receipts[1].identity.inputs_sha256,
+    (r) => delete r.identity.portable_inputs_sha256,
     (r) => r.receipts.pop(),
     (r) => (r.receipts[0].exit_code = 124),
     (r) => (r.run_attempt = 1),

@@ -1395,6 +1395,54 @@ def test_baseline_fingerprint_includes_data_and_runtime():
                 runtime = mutate.source_fingerprint()
     check("data-only changes invalidate the mutation baseline", first != changed)
     check("runtime changes invalidate the mutation baseline", changed != runtime)
+    # The portable fingerprint (production qualification's cross-runner
+    # identity) ignores only the kernel/libc string; data still moves it.
+    with tempfile.TemporaryDirectory() as directory:
+        data = os.path.join(directory, "labels.json")
+        with open(data, "w") as stream:
+            stream.write('{"value": 1}')
+        with patch.object(mutate, "ROOT", directory), \
+                patch.object(mutate, "SIBLING_RULES", ()), \
+                patch.dict(os.environ, {"NLTK_DATA": "", "LYRIC_STAGED_DATA": ""}):
+            import platform
+            with patch.object(platform, "platform", return_value="Linux-6.8.0-azure"):
+                full_a = mutate.source_fingerprint()
+                port_a = mutate.source_fingerprint(portable=True)
+            with patch.object(platform, "platform", return_value="Linux-6.11.0-azure"):
+                full_b = mutate.source_fingerprint()
+                port_b = mutate.source_fingerprint(portable=True)
+            with open(data, "w") as stream:
+                stream.write('{"value": 2}')
+            port_c = mutate.source_fingerprint(portable=True)
+    check("a different kernel moves the full fingerprint", full_a != full_b)
+    check("a different kernel leaves the portable fingerprint", port_a == port_b)
+    check("a data change still moves the portable fingerprint", port_b != port_c)
+    with patch.object(mutate, "ROOT", directory), \
+            patch.object(mutate, "SIBLING_RULES", ()), \
+            patch.dict(os.environ, {"NLTK_DATA": "", "LYRIC_STAGED_DATA": ""}):
+        with patch.object(platform, "libc_ver", return_value=("glibc", "2.39")):
+            libc_a = mutate.source_fingerprint(portable=True)
+        with patch.object(platform, "libc_ver", return_value=("glibc", "2.41")):
+            libc_b = mutate.source_fingerprint(portable=True)
+    check("a different libc still moves the portable fingerprint", libc_a != libc_b)
+    # Python build, package versions and environment stay in the portable
+    # fingerprint: only the kernel release is left out (3PO, #519).
+    import importlib.metadata
+    with patch.object(mutate, "ROOT", directory), \
+            patch.object(mutate, "SIBLING_RULES", ()), \
+            patch.dict(os.environ, {"NLTK_DATA": "", "LYRIC_STAGED_DATA": ""}):
+        base = mutate.source_fingerprint(portable=True)
+        with patch.object(sys, "version", sys.version + " (other build)"):
+            python = mutate.source_fingerprint(portable=True)
+        real = importlib.metadata.version
+        with patch.object(importlib.metadata, "version",
+                          lambda name: "0.0" if name == "numpy" else real(name)):
+            package = mutate.source_fingerprint(portable=True)
+        with patch.dict(os.environ, {"PYTHONHASHSEED": "19"}):
+            environment = mutate.source_fingerprint(portable=True)
+    check("a different Python build moves the portable fingerprint", python != base)
+    check("a different package version moves the portable fingerprint", package != base)
+    check("a different environment moves the portable fingerprint", environment != base)
 
 
 def _parser():
