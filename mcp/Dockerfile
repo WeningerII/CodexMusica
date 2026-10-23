@@ -1,6 +1,6 @@
 # Build once in CI, qualify this image ID, and promote its registry digest.
-# Official node:22.23.2-bookworm-slim manifest, verified 2026-09-08.
-FROM node:22.23.2-bookworm-slim@sha256:83f487e0a63425e5b4d146fb5e5be574bcbe1b7b843d3ebafdd95eaf7767a7e5 AS runtime-base
+# Official node:22.23.4-bookworm-slim manifest (Node security release 2026-10-21), verified 2026-10-23.
+FROM node:22.23.4-bookworm-slim@sha256:de170b39439eb0e5a3444ad7d60b015614a381e10fecae2e30ec9e735122f38d AS runtime-base
 RUN apt-get update \
  && apt-get install -y --no-install-recommends python3 python3-pip \
  && rm -rf /var/lib/apt/lists/*
