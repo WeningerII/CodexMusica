@@ -185,6 +185,30 @@ class ReaderAcceptance(unittest.TestCase):
                 self.assertIn(scope, result["refusal"]["detail"])
                 self.assertNotIn("true", [r["verdict"] for r in capped if r["kind"] == "relation_instance"])
 
+    def test_only_pairs_over_disputed_words_are_kept_for_discovery(self):
+        # #590's memory regression: every candidate pair of the work was kept
+        # to deduplicate alternate-reading discovery, +295 MiB on a 325-word
+        # text. Discovery only ever asks about pairs with a member over a
+        # disputed word, so only those are kept, whatever the words.
+        captured = []
+        original = AnalysisSession._alternate_edges
+
+        def capture(self, name, schema, seen):
+            captured.append((self, seen))
+            return original(self, name, schema, seen)
+
+        reading = source("Between the two of us\nI only answered yes\n"
+                         "The evening sun went down\nThe river ran through town\n"
+                         "We walked along the shore\nAnd talked of nothing more")
+        with patch.object(AnalysisSession, "_alternate_edges", capture):
+            session, rows, _ = complete(reading, schemas=["perfect rhyme", "multisyllabic rhyme"])
+        self.assertTrue(session._disputed)
+        self.assertTrue(any(seen for _, seen in captured))
+        for owner, seen in captured:
+            for pair in seen:
+                self.assertTrue(any(cell in owner._disputed for key in pair for cell in key[2]), pair)
+        self.assertTrue(any(r["kind"] == "relation_instance" and r["verdict"] == "true" for r in rows))
+
     def test_alternate_reading_records_keep_the_partner_word_exact(self):
         # Jony's probe on #590: under `us = Y UW2 EH1 S`, `confess` rhymes
         # on its second syllable only, and the record must say so -- not

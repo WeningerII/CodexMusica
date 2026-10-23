@@ -1207,7 +1207,10 @@ class AnalysisSession:
         _resource_guard("relation bucket preparation")
         seen = set()
         for a, b, reverse in RL._candidate_pairs(schema, layout, st, akeys, bkeys, None, prune=True):
-            if self._disputed:
+            # Only a pair over a disputed word is ever looked up again (every
+            # alternate pair has a member over one); the rest stay unkept, or
+            # the set holds every candidate pair of the work.
+            if self._disputed and self._touched(st, a, b):
                 seen.add((self._span_key(a, st), self._span_key(b, st)))
             yield "edge", (a, b)
         yield from self._alternate_edges(name, schema, seen)
