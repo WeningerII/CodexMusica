@@ -45,8 +45,8 @@ jobs:
     # the server runs at boot, on this interpreter, against this tree.
     timeout-minutes: 55
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
           python-version: '3.11.16'
           architecture: 'x64'
@@ -88,7 +88,7 @@ jobs:
       # it was on this run (doctrine 58: a saving is a measurement).
       - name: Restore the newest runner receipt banked on this branch or main
         id: seed
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: capacity-proof/capacity_verification.json
           key: runner-proof-v1-${{ hashFiles('mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-${{ github.sha }}
@@ -136,11 +136,11 @@ jobs:
           printf 'digest=%s\nsave=%s\n' "$digest" "$save" >> "$GITHUB_OUTPUT"
       - name: Bank the receipt under its own bytes
         if: steps.receipt.outputs.save == 'yes'
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         with:
           path: capacity-proof/capacity_verification.json
           key: runner-proof-v1-${{ hashFiles('mcp/requirements-runtime.txt', 'lyric-harness/data/runtime_assets.json') }}-${{ steps.receipt.outputs.digest }}-${{ github.run_id }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: capacity-proof-${{ github.run_attempt }}
           path: capacity-proof/
