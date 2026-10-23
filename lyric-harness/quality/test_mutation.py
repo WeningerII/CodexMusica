@@ -1425,6 +1425,24 @@ def test_baseline_fingerprint_includes_data_and_runtime():
         with patch.object(platform, "libc_ver", return_value=("glibc", "2.41")):
             libc_b = mutate.source_fingerprint(portable=True)
     check("a different libc still moves the portable fingerprint", libc_a != libc_b)
+    # Python build, package versions and environment stay in the portable
+    # fingerprint: only the kernel release is left out (3PO, #519).
+    import importlib.metadata
+    with patch.object(mutate, "ROOT", directory), \
+            patch.object(mutate, "SIBLING_RULES", ()), \
+            patch.dict(os.environ, {"NLTK_DATA": "", "LYRIC_STAGED_DATA": ""}):
+        base = mutate.source_fingerprint(portable=True)
+        with patch.object(sys, "version", sys.version + " (other build)"):
+            python = mutate.source_fingerprint(portable=True)
+        real = importlib.metadata.version
+        with patch.object(importlib.metadata, "version",
+                          lambda name: "0.0" if name == "numpy" else real(name)):
+            package = mutate.source_fingerprint(portable=True)
+        with patch.dict(os.environ, {"PYTHONHASHSEED": "19"}):
+            environment = mutate.source_fingerprint(portable=True)
+    check("a different Python build moves the portable fingerprint", python != base)
+    check("a different package version moves the portable fingerprint", package != base)
+    check("a different environment moves the portable fingerprint", environment != base)
 
 
 def _parser():
