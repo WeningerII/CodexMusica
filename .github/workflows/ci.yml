@@ -817,14 +817,22 @@ jobs:
           path: reader-image-evidence/
           if-no-files-found: error
           retention-days: 30
-      # REPORT-FIRST VULNERABILITY SCAN OF THE EXACT TESTED IMAGE (2026-10-23).
+      # VULNERABILITY SCAN AND GATE ON THE EXACT TESTED IMAGE (2026-10-23).
       # The base image alone was scanned by hand; the apt-installed python3 and
-      # the application layers exist only here. Findings do not fail the job
-      # yet (a gate policy for fixable HIGH/CRITICAL is a separate decision);
-      # a scanner error, a checksum mismatch, or a report that does not name
-      # this image ID does, so an error can never pass as an empty report.
+      # the application layers exist only here. One unfiltered scan is the
+      # evidence: a scanner error, a checksum mismatch, a report that does not
+      # name this image ID, or a missing inventory fails, so an error can never
+      # pass as an empty report. After the evidence is written, the gate is
+      # derived from that SAME report (never a second scan whose database may
+      # differ): every HIGH or CRITICAL finding with a published fixed version,
+      # in any package (OS, language, or retained tooling), fails the job on
+      # pull requests and on main alike, before the image is published. A newly
+      # published fix for an unchanged image fails an unrelated PR too: that is
+      # the point. Findings without a fix stay in the report for triage; a pass
+      # means no fixable serious finding, not that the image is secure. An
+      # exception must name one finding and be reviewed, never a blanket class.
       # The local image needs no registry credential and no extra permission.
-      - name: Report known vulnerabilities in the exact tested image
+      - name: Scan the exact tested image and gate fixable HIGH/CRITICAL findings
         timeout-minutes: 15
         env:
           TRIVY_VERSION: 0.76.1
@@ -863,7 +871,10 @@ jobs:
             /(^|\/)app\/mcp\/node_modules\//.test(p.FilePath || ''));
           const find = (list, name) => list.filter((p) => p.Name === name).map((p) => p.Version);
           const coverage = {
-            debian_python3: os.filter((p) => /^python3(\.\d+)?(-minimal)?$/.test(p.Name)).map((p) => `${p.Name} ${p.Version}`),
+            // Debian packages by Trivy's ID (epoch and revision included) and PURL.
+            debian_python3: os.filter((p) => /^python3(\.\d+)?(-minimal)?$/.test(p.Name))
+              .map((p) => `${p.ID} ${p.Identifier?.PURL || ''}`.trim()),
+            debian_tzdata: os.filter((p) => p.Name === 'tzdata').map((p) => `${p.ID} ${p.Identifier?.PURL || ''}`.trim()),
             python_nltk: find(py, 'nltk'),
             node_zod: find(appNode, 'zod'),
             node_mcp_sdk: find(appNode, '@modelcontextprotocol/sdk'),
@@ -896,6 +907,22 @@ jobs:
             `${meta.image_id} · ${meta.platform} · ${meta.os} · ${meta.scanner} · DB ${meta.db_updated_at}\n\n` +
             `| severity / status | count |\n|---|---|\n${rows}\n`);
           console.log(JSON.stringify(meta, null, 2));
+          // The gate, from the same report. Written before failing, so the
+          // uploaded evidence always names exactly what blocked.
+          const blockers = report.Results.flatMap((r) => (r.Vulnerabilities || [])
+            .filter((v) => (v.Severity === 'HIGH' || v.Severity === 'CRITICAL') && v.FixedVersion)
+            .map((v) => ({ id: v.VulnerabilityID, severity: v.Severity, package: v.PkgName,
+                           package_id: v.PkgID || null, installed: v.InstalledVersion,
+                           fixed: v.FixedVersion, path: v.PkgPath || null, target: r.Target })));
+          fs.writeFileSync(`${dir}/blockers.json`, JSON.stringify(blockers, null, 2) + '\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, blockers.length
+            ? `\n**Gate: ${blockers.length} fixable HIGH/CRITICAL finding(s) block this image.**\n\n` +
+              `| id | severity | package | installed | fixed |\n|---|---|---|---|---|\n` +
+              blockers.map((b) => `| ${b.id} | ${b.severity} | ${b.package_id || b.package} | ${b.installed} | ${b.fixed} |`).join('\n') + '\n'
+            : `\n**Gate: no fixable HIGH/CRITICAL finding.** Unfixed findings above remain open.\n`);
+          if (blockers.length)
+            throw new Error(`${blockers.length} fixable HIGH/CRITICAL finding(s): ` +
+              blockers.map((b) => `${b.id} ${b.package_id || b.package} -> ${b.fixed}`).join('; '));
           NODE
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
