@@ -211,6 +211,16 @@ class ReaderAcceptance(unittest.TestCase):
                 checked += 1
         self.assertGreater(checked, 2000)
 
+    def test_a_member_with_no_referent_under_another_reading_is_absent(self):
+        # BB8's texts on #590: with `fire` / `hour` read as one syllable, the
+        # line-final penult has no referent anywhere (cynghanedd lusg,
+        # syllabic rhyme). The default run over every schema must finish.
+        for text in ("I sat beside the fire\nand watched the night go by",
+                     "we waited for an hour\nthe rain came down"):
+            _, rows, last = complete(source(text))
+            self.assertTrue(last["done"], text)
+            self.assertTrue(any(r["kind"] == "method_result" for r in rows), text)
+
     def test_relation_instance_ids_are_unique_under_any_reading(self):
         _, rows, _ = complete(source("Every hour of our family fire\nDifferent nights and every lonely desire\n"
                                      "The camera sees us every time we fly\nOur desire was natural and so was our goodbye"),
