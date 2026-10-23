@@ -156,13 +156,48 @@ class ReaderAcceptance(unittest.TestCase):
             self.assertEqual(result["coverage"], "refused")
             self.assertEqual(result["refusal"]["kind"], "reading_combinations")
 
-    def test_graders_still_refuse_syllable_disputed_words(self):
+    def test_alternate_reading_records_keep_the_partner_word_exact(self):
+        # Jony's probe on #590: under `us = Y UW2 EH1 S`, `confess` rhymes
+        # on its second syllable only, and the record must say so -- not
+        # widen the undisputed partner to the whole word.
+        session, rows, _ = complete(source("Between the two of us\nI have one thing to confess"),
+                                    schemas=["perfect rhyme"])
+        edge = next(r for r in rows if r["kind"] == "relation_instance")
+        self.assertEqual(edge["verdict"], "true")
+        self.assertEqual(edge["b"]["unit_ids"], [f"syllable:{session.stream.tokens[(1, 5)][-1]}"])
+
+    def test_first_reading_only_verdicts_are_counted(self):
+        # Only a line-ending disputed word is varied; `every` opening both
+        # lines keeps its first-listed reading, and the method says how many
+        # of its verdicts rest on that alone.
+        session, rows, _ = complete(source("Every night I wait\nEvery day I wait"), schemas=["anaphora"])
+        self.assertEqual(sorted(session._disputed), [(0, 0), (1, 0)])
+        self.assertEqual(session._varied, frozenset())
+        result = next(r for r in rows if r["kind"] == "method_result")
+        self.assertEqual(result["coverage"], "answered")
+        self.assertEqual(result["counts"]["first_reading_only"], 1)
+
+    def test_every_syllable_disputed_word_is_read_by_the_library_only(self):
+        # The whole dictionary, not a chosen word: every CMUdict entry whose
+        # readings differ in syllable count (1,698 at the pinned cmudict) is
+        # read by the Library under exactly its first-listed reading, and
+        # refused by the graders exactly as before.
+        import lyric_harness as LH
+        from quality.phonology import UNALIGNABLE, merge_readings
         from quality.phonology.eng import English
         grader, library = English(), English(syllable_disputes="first")
-        self.assertEqual(grader.syllabify("fine"), [])
-        self.assertEqual(grader.reading_status("fine")[0], "unalignable")
+        lex = grader._lexicon()
+        disputed = [w for w, prons in lex.entries.items()
+                    if len(prons) > 1 and merge_readings(grader.parses(w))[1] == UNALIGNABLE]
+        self.assertGreater(len(disputed), 1000)
+        for word in disputed:
+            first = next(p for p in lex.pronunciation_variants(word) if p)
+            self.assertEqual(grader.syllabify(word), [], word)
+            self.assertEqual(grader.reading_status(word)[0], "unalignable", word)
+            self.assertEqual([(s.onset, s.nucleus, s.coda) for s in library.syllabify(word)],
+                             [(tuple(s["onset"]), s["nucleus"], tuple(s["coda"])) for s in LH.syllabify(first)], word)
+            self.assertEqual(library.reading_status(word)[0], "disputed", word)
         self.assertNotIn("syllable_disputes", grader.declaration())
-        self.assertEqual(len(library.syllabify("fine")), 1)
         self.assertEqual(library.declaration()["syllable_disputes"], "first")
         with self.assertRaises(ValueError):
             English(syllable_disputes="any")

@@ -7,6 +7,7 @@ without either losing its negative population or duplicating evidence.
 """
 from __future__ import annotations
 
+import collections
 import copy
 import hashlib
 import itertools
@@ -374,8 +375,14 @@ class AnalysisSession:
         # it. `_disputed` is those tokens; `_pinned` the stream rebuilt with
         # one combination of their readings declared, built once each.
         self._disputed = self._disputed_tokens()
-        self._pinned, self._pinned_witness, self._span_index = {}, {}, {}
-        self._incomplete = {}
+        # Only a LINE-ENDING disputed word is judged under every reading
+        # (owner ruling 2026-10-23, as the graders' line pairs are); every
+        # other one keeps its first-listed reading, and its verdicts say so.
+        self._varied = self._disputed & frozenset(
+            (li, len(words) - 1) for li, words in enumerate(self.stream.lexical_tokens) if words)
+        self._work_unit = {(u.line, u.token, u.tok_syl): u.i for u in self.stream.units}
+        self._pinned, self._span_index = collections.OrderedDict(), {}
+        self._incomplete, self._asked = {}, {}
         registry = list(RL.REGISTRY)
         selected = self.requested["schemas"]
         lookup = {method_id("schema", n): n for n in registry}
@@ -466,136 +473,195 @@ class AnalysisSession:
                     out.add((li, ti))
         return frozenset(out)
 
+    #: Pinned streams kept at once. Eviction only costs a rebuild: every
+    #: stream is a pure function of the work and its combination.
+    STREAM_CACHE = 48
+
     def _pinned_stream(self, combo):
         """The work's stream with `combo`'s readings declared, or None."""
         key = self._combo_key(combo)
-        if key not in self._pinned:
-            phon = self.RL.pinned_phonology(self.stream, combo)
-            st = None
-            if phon is not None:
-                placed = self._beat_placed
-                st = self._build_stream(phon)[0]
-                self._beat_placed = placed
-                self._pinned_witness[id(st)] = self.RL.reading_witness(combo)
-            self._pinned[key] = st
-        return self._pinned[key]
+        if key in self._pinned:
+            self._pinned.move_to_end(key)
+            return self._pinned[key]
+        phon = self.RL.pinned_phonology(self.stream, combo)
+        st = None
+        if phon is not None:
+            placed = self._beat_placed
+            st = self._build_stream(phon)[0]
+            self._beat_placed = placed
+            st.any_reading_witness = self.RL.reading_witness(combo)
+        self._pinned[key] = st
+        while len(self._pinned) > self.STREAM_CACHE:
+            _, old = self._pinned.popitem(last=False)
+            for k in [k for k in self._span_index if k[0] == id(old)]:
+                del self._span_index[k]
+        return st
 
     def _touched(self, st, *spans):
+        """-> {(line, token)} disputed words the spans cover."""
         return {(st.units[i].line, st.units[i].token) for span in spans for i in span.idx
                 if (st.units[i].line, st.units[i].token) in self._disputed}
 
+    def _origin(self, span, st):
+        """The span's provenance with any unit number (`@c`, a caesura's
+        unit) replaced by that unit's word and syllable: the same locus in
+        every reading."""
+        head, at, unit = span.origin.rpartition("@")
+        if at and unit.isdigit() and int(unit) < len(st.units):
+            u = st.units[int(unit)]
+            return f"{head}@{self._cell(u)}"
+        return span.origin
+
+    def _cell(self, u):
+        tok = (u.line, u.token)
+        return tok if tok in self._varied else (u.line, u.token, u.tok_syl)
+
     def _span_key(self, span, st):
-        """What a span IS across readings: its rule's provenance and, unit by
-        unit, the word each syllable belongs to and -- outside a disputed
+        """What a span IS across readings: its locus and, unit by unit, the
+        word each syllable belongs to and -- outside a line-ending disputed
         word, whose syllables are what the readings change -- which syllable
-        of that word it is. Two streams' spans with one key are the same
-        member read two ways."""
+        of that word it is. Not `search_k`: that counts a searched line's
+        hypotheses, which a reading changes, and is no part of the member."""
         cells = []
         for i in span.idx:
-            u = st.units[i]
-            tok = (u.line, u.token)
-            cell = tok if tok in self._disputed else (u.line, u.token, u.tok_syl)
+            cell = self._cell(st.units[i])
             if not cells or cells[-1] != cell:
                 cells.append(cell)
-        return (span.origin, span.direction, span.search_k, tuple(cells))
+        return (self._origin(span, st), span.direction, tuple(cells))
 
     def _spans_by_key(self, st, rule):
-        memo = self._span_index.setdefault((id(st), id(rule)), {})
-        if not memo:
+        memo = self._span_index.get((id(st), id(rule)))
+        if memo is None:
+            memo = self._span_index[(id(st), id(rule))] = {}
             for span in self.RL.enumerate_spans(rule, st):
                 memo.setdefault(self._span_key(span, st), []).append(span)
+                memo.setdefault(("locus", self._origin(span, st), span.direction), []).append(span)
         return memo
 
     def _any_reading(self, name, a, b, st):
-        """-> (inst, stream, witness): the edge judged under every
-        combination of its disputed words' readings. True when ANY
-        combination holds it (the first such, with its readings); False when
-        every combination is judged False; otherwise the first-listed
-        reading's own verdict, or None where a combination stayed open."""
+        """-> (inst, stream, witness, first_only).
+
+        THE RULE (owner ruling 2026-10-23): a disputed word at a LINE END is
+        judged under every one of its readings -- the edge holds when ANY
+        combination of its line-ending words' readings holds it (the first
+        such, with its readings); False only when every combination is
+        judged False; otherwise the first-listed verdict, or None where a
+        combination stayed open. Every other disputed word is read under its
+        first-listed reading only, and `first_only` says so."""
         RL = self.RL
         schema = RL.REGISTRY[name]
         inst = RL.evaluate(schema, a, b, st)
-        if inst is not None and inst.verdict is True:
-            return inst, st, self._pinned_witness.get(id(st))
         touched = self._touched(st, a, b)
-        if (not touched or "beat" in schema.capabilities() or not RL.pair_scope_representable(schema)
-                or st is not self.stream and id(st) not in self._pinned_witness):
-            return inst, st, None
-        combos, complete = RL.reading_combos(self.stream, touched)
+        varied = touched & self._varied
+        searchable = (varied and "beat" not in schema.capabilities() and RL.pair_scope_representable(schema)
+                      and (st is self.stream or getattr(st, "any_reading_witness", None) is not None))
+        first_only = bool(touched - varied) or bool(varied) and not searchable
+        if inst is not None and inst.verdict is True:
+            return inst, st, getattr(st, "any_reading_witness", None), first_only
+        if not searchable:
+            return inst, st, None, first_only
+        combos, complete = RL.reading_combos(self.stream, varied)
         if not combos:
-            return inst, st, None
-        # A combination under which the pair is no candidate at all, or has
-        # no such span, is a judged absence (False); only a combination the
-        # judge leaves undecided, or more combinations than the cap, is open.
+            return inst, st, None, first_only
+        if st is self.stream:
+            combos = combos[1:]          # the first-listed reading is the work's own
+        asked = self._asked.setdefault(name, set())
+        asked.update(self._combo_key(c) for c in combos)
+        if len(asked) > self.PIN_CAP:
+            self._incomplete.setdefault(name, f"its line-ending words' readings need more than "
+                                              f"{self.PIN_CAP} combinations")
+            complete = False
+            combos = []
         open_ = not complete or inst is not None and inst.verdict is None
         for combo in combos:
             alt = self._pinned_stream(combo)
             if alt is None:
                 open_ = True
                 continue
-            matches = [(x, y) for x in self._spans_by_key(alt, schema.spans[0]).get(self._span_key(a, st), ())
-                       for y in self._spans_by_key(alt, schema.spans[1]).get(self._span_key(b, st), ())]
-            if not matches:
-                continue
-            for x, y in matches:
-                got = RL.evaluate(schema, x, y, alt)
-                if got is not None and got.verdict is True:
-                    return got, alt, RL.reading_witness(combo)
-                if got is not None and got.verdict is None:
+            sides = []
+            for rule, span in ((schema.spans[0], a), (schema.spans[1], b)):
+                index = self._spans_by_key(alt, rule)
+                found = index.get(self._span_key(span, st), ())
+                # No span at all at this locus under this reading is a judged
+                # absence; spans there that match none is a key the reader
+                # cannot pair, and that stays open rather than False.
+                if not found and index.get(("locus", self._origin(span, st), span.direction)):
                     open_ = True
+                sides.append(found)
+            for x in sides[0]:
+                for y in sides[1]:
+                    got = RL.evaluate(schema, x, y, alt)
+                    if got is not None and got.verdict is True:
+                        return got, alt, alt.any_reading_witness, first_only
+                    if got is not None and got.verdict is None:
+                        open_ = True
         if inst is not None and open_ and inst.verdict is False:
-            from dataclasses import replace as _replace
-            inst = _replace(inst, verdict=None)
-        return inst, st, None
+            inst = replace(inst, verdict=None)
+        return inst, st, None, first_only
 
-    #: Pinned streams one schema's discovery may build (combinations of its
-    #: groups, then joint unions). Past it the method is refused as
-    #: incomplete, never answered over the combinations it did not try.
+    def _shape_first_only(self, kind, value):
+        """-> bool: a full-shape candidate over a disputed word, which only
+        its first-listed reading judges."""
+        if kind == "token_shape":
+            li, members = value
+            return any((li, ti) in self._disputed for ti in members)
+        lines = value if kind == "line_shape" else (value,)
+        return any(li in lines for li, _ in self._disputed)
+
+    #: Reading combinations one schema may search, in discovery and in
+    #: judging. Past it the method is refused as incomplete, never answered
+    #: over the combinations it did not try.
     PIN_CAP = 128
 
     def _alternate_edges(self, name, schema, seen):
-        """Candidates no first-listed reading offers: an edge over disputed
-        words that only other readings bring into a bucket.
+        """Candidates no first-listed reading offers: an edge over line-ending
+        disputed words that only other readings bring into a bucket.
 
-        1. One stream per combination of each GROUP of disputed words a
-           single span covers (a lone word is a group of one).
+        1. One stream per combination of each GROUP of line-ending disputed
+           words a single span covers (a lone word is a group of one).
         2. Every alternate-reading span is bucketed by its own stream's frame
            and bucket key; where an A-variant and a B-variant from two
            compatible combinations collide and their union is no stream yet,
-           the union stream is built -- a pair that only a JOINT switch
-           brings into one bucket.
+           the union stream is searched too -- a pair that only a JOINT
+           switch brings into one bucket.
         In each stream the engine's own `_candidate_pairs` runs over pairs
         touching that stream's pinned words. Deterministic: groups, combos
         and unions are sorted. Over `PIN_CAP` the method is marked
         incomplete (`_incomplete`) instead of silently answered."""
         RL = self.RL
-        if (not self._disputed or self._schema_stream is not self.stream or "beat" in schema.capabilities()
+        if (not self._varied or self._schema_stream is not self.stream or "beat" in schema.capabilities()
                 or not RL.pair_scope_representable(schema)):
             return
         plan = self._reading_plan(schema)
-        if plan is not None:
-            unions = self._joint_unions(schema, plan)
+        unions = self._joint_unions(schema, plan) if plan is not None else None
         if plan is None or unions is None:
-            self._incomplete[name] = (f"the readings of this work's disputed words need more than "
-                                      f"{self.PIN_CAP} pinned streams to search for this method")
+            self._incomplete[name] = (f"its line-ending words' readings need more than "
+                                      f"{self.PIN_CAP} combinations")
             return
-        for combo, alt in plan + unions:
-            yield from self._discover(schema, alt, combo, seen)
+        self._asked.setdefault(name, set()).update(self._combo_key(c) for c in plan + unions)
+        for combo in plan + unions:
+            alt = self._pinned_stream(combo)
+            if alt is not None:
+                yield from self._discover(schema, alt, combo, seen)
 
     def _combo_key(self, combo):
         return tuple(sorted((tok, tuple(choice[2])) for tok, choice in combo.items()))
 
     def _reading_plan(self, schema):
+        """-> [combo], sorted: every non-first combination of each group of
+        line-ending disputed words one span covers, or None over the cap."""
         RL = self.RL
-        groups = {frozenset([tok]) for tok in self._disputed}
+        groups = {frozenset([tok]) for tok in self._varied}
         rules = [schema.spans[0]] + ([] if schema.spans[1] is schema.spans[0] else [schema.spans[1]])
         try:
             for rule in rules:
-                for spans in self._spans_by_key(self.stream, rule).values():
+                for key, spans in self._spans_by_key(self.stream, rule).items():
+                    if key[0] == "locus":
+                        continue
                     for span in spans:
-                        touched = self._touched(self.stream, span)
-                        if len(touched) > 1:
-                            groups.add(frozenset(touched))
+                        varied = self._touched(self.stream, span) & self._varied
+                        if len(varied) > 1:
+                            groups.add(frozenset(varied))
         except RL.NoReferent:
             return []
         combos = {}
@@ -607,37 +673,39 @@ class AnalysisSession:
                 combos.setdefault(self._combo_key(combo), combo)
             if len(combos) > self.PIN_CAP:
                 return None
-        out = []
-        for key in sorted(combos):
-            alt = self._pinned_stream(combos[key])
-            if alt is not None:
-                out.append((combos[key], alt))
-        return out
+        return [combos[k] for k in sorted(combos)]
 
     def _joint_unions(self, schema, plan):
+        """-> [combo], sorted: unions of two compatible plan combinations
+        whose alternate spans collide on a bucket key, or None over the cap."""
         RL = self.RL
         tables = ({}, {})
-        for combo, alt in plan:
+        for combo in plan:
+            alt = self._pinned_stream(combo)
+            if alt is None:
+                continue
             toks, ckey = set(combo), self._combo_key(combo)
             for side in (0, 1):
                 rule = schema.spans[side]
                 try:
-                    groups = self._spans_by_key(alt, rule).values()
+                    index = self._spans_by_key(alt, rule)
                 except RL.NoReferent:
                     continue
-                for spans in groups:
+                for key, spans in index.items():
+                    if key[0] == "locus":
+                        continue
                     for span in spans:
                         if not toks & self._touched(alt, span):
                             continue
-                        key = RL._bucket_key(schema, span, alt, RL.DEFAULT_CHANNELS, rule=rule)
+                        bucket = RL._bucket_key(schema, span, alt, RL.DEFAULT_CHANNELS, rule=rule)
                         # A keyless span pairs with its whole frame inside
                         # its own stream already, and the verdict then tries
                         # every combination: no union is needed for it.
-                        if key is not None:
-                            tables[side].setdefault(key, {})[(RL._frame_key(schema, span, alt), ckey)] = combo
+                        if bucket is not None:
+                            tables[side].setdefault(bucket, {})[(RL._frame_key(schema, span, alt), ckey)] = combo
         unions = {}
-        for key, left in tables[0].items():
-            right = tables[1].get(key, {})
+        for bucket, left in tables[0].items():
+            right = tables[1].get(bucket, {})
             for (fa, ka), ca in left.items():
                 for (fb, kb), cb in right.items():
                     if ka == kb or not (fa is None or fb is None or fa == fb):
@@ -649,14 +717,9 @@ class AnalysisSession:
                     if ukey in (ka, kb):
                         continue
                     unions.setdefault(ukey, union)
-                    if len(unions) > self.PIN_CAP:
+                    if len(plan) + len(unions) > self.PIN_CAP:
                         return None
-        out = []
-        for ukey in sorted(unions):
-            alt = self._pinned_stream(unions[ukey])
-            if alt is not None:
-                out.append((unions[ukey], alt))
-        return out
+        return [unions[k] for k in sorted(unions)]
 
     def _discover(self, schema, alt, combo, seen):
         """The engine's own candidate pairs in `alt` with a member over one
@@ -665,9 +728,9 @@ class AnalysisSession:
         RL = self.RL
         ids = {i for tok in combo for i in alt.tokens.get(tok, ())}
         try:
-            aa = [x for spans in self._spans_by_key(alt, schema.spans[0]).values() for x in spans]
+            aa = [x for k, spans in self._spans_by_key(alt, schema.spans[0]).items() if k[0] != "locus" for x in spans]
             bb = (aa if schema.spans[0] == schema.spans[1] else
-                  [y for spans in self._spans_by_key(alt, schema.spans[1]).values() for y in spans])
+                  [y for k, spans in self._spans_by_key(alt, schema.spans[1]).items() if k[0] != "locus" for y in spans])
         except RL.NoReferent:
             return
         hits = lambda span: bool(ids & set(span.idx))
@@ -997,18 +1060,30 @@ class AnalysisSession:
         RL = self.RL
         mid = method_id("schema", inst.schema)
         a, b = self._span(inst.a, st), self._span(inst.b, st)
+        key = [inst.a.origin, inst.a.idx, inst.b.origin, inst.b.idx]
         extra = {}
         if st is not self.stream and st is not self._schema_stream:
-            # Judged under another reading: its syllables are that stream's,
-            # so the record names the WORDS, and the work's own syllables of
-            # them, never another stream's unit numbers.
+            # Judged under another reading: its syllables are that stream's.
+            # The record names the work's own syllables -- one for one where
+            # the word's reading did not change, the whole word where it did
+            # -- and its id is built from those, so it does not depend on
+            # which reading held.
+            ids = []
             for side, span in ((a, inst.a), (b, inst.b)):
-                toks = list(dict.fromkeys((st.units[i].line, st.units[i].token) for i in span.idx))
-                side["unit_ids"] = [f"syllable:{i}" for tok in toks for i in self.stream.tokens.get(tok, ())]
+                work = []
+                for i in span.idx:
+                    u = st.units[i]
+                    tok = (u.line, u.token)
+                    got = (self.stream.tokens.get(tok, ()) if tok in self._varied
+                           else (self._work_unit.get((u.line, u.token, u.tok_syl)),))
+                    work.extend(j for j in got if j is not None and j not in work)
+                side["unit_ids"] = [f"syllable:{j}" for j in work]
+                ids.append(tuple(work))
+            key = [self._origin(inst.a, st), ids[0], self._origin(inst.b, st), ids[1]]
             extra["reading"] = {"rule": "any_reading", "witness": witness or []}
         elif witness:
             extra["reading"] = {"rule": "any_reading", "witness": witness}
-        return self._record("relation_instance", mid, [inst.a.origin, inst.a.idx, inst.b.origin, inst.b.idx],
+        return self._record("relation_instance", mid, key,
             namespace="schema", schema_name=inst.schema, verdict=verdict(inst.verdict),
             a=a, b=b, **extra, alignment=json_safe(inst.alignment),
             channel_reads=json_safe(inst.reads), placement_reads=json_safe(inst.placement_reads),
@@ -1481,7 +1556,11 @@ class AnalysisSession:
         """Rebuild the current binding; only its emission cursor is persisted."""
         cp, RL = self.checkpoint, self.RL
         _resource_guard("reader traversal")
-        delta = {"candidates": 0, "true": 0, "false": 0, "undecided": 0, "refused_questions": 0}
+        delta = {"candidates": 0, "true": 0, "false": 0, "undecided": 0, "refused_questions": 0,
+                 # Verdicts over a disputed word that only its first-listed
+                 # reading judged (owner ruling 2026-10-23): kept answered,
+                 # and counted so the limit is visible.
+                 "first_reading_only": 0}
         action = "candidate"
         try:
             if self._generator is None:
@@ -1494,15 +1573,19 @@ class AnalysisSession:
                 new = [self._coordinate(*binding)]
             elif phase == "native_pairs":
                 new = [self._native_pair(binding)]
+                (la, _), (lb, _) = binding
+                delta["first_reading_only"] += any(
+                    (li, len(self.stream.lexical_tokens[li]) - 1) in self._disputed for li in (la, lb))
             elif phase == "native_work":
                 new = [self._native_measure(*binding)]
             elif phase == "schema":
                 kind, value = binding
                 if kind in ("edge", "alt_edge"):
                     a, b, found = value if kind == "alt_edge" else (*value, self._schema_stream)
-                    inst, judged, witness = self._any_reading(name, a, b, found)
+                    inst, judged, witness, first_only = self._any_reading(name, a, b, found)
                     if inst is not None:
                         delta[verdict(inst.verdict)] += 1
+                        delta["first_reading_only"] += first_only
                         if inst.verdict is not False:
                             record = self._edge_record(inst, judged, witness)
                             new.append(record)
@@ -1512,8 +1595,10 @@ class AnalysisSession:
                     shapes = self._shape(name, kind, value)
                     if isinstance(shapes, RL.Refusal):
                         raise _Refused(shapes)
+                    first_only = self._shape_first_only(kind, value)
                     for frame, edges, v in shapes:
                         delta[verdict(v)] += 1
+                        delta["first_reading_only"] += first_only
                         new.append(self._figure_record(name, frame, edges, v))
             else:
                 new = [binding]
