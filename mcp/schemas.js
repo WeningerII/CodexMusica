@@ -241,6 +241,20 @@ export function unknownEditKeys(args) {
   return unknown;
 }
 
+// One entry per record type at most: the cap bounds what a request can make the
+// validator walk (GHSA-mrhx-c7xc-m3w5 was memory exhaustion on oversized arrays).
+const SEARCH_TYPES = [
+  'tradition',
+  'instrument',
+  'variant',
+  'room',
+  'tuning',
+  'arrangement',
+  'aesthetic',
+  'preface',
+  'chain',
+];
+
 export const TOOL_SCHEMAS = {
   start_recipe: z.object({
     traditions: z
@@ -267,19 +281,8 @@ export const TOOL_SCHEMAS = {
   search_catalog: z.object({
     query: z.string().describe('Words from the request, e.g. "garage rock fuzz".'),
     types: z
-      .array(
-        z.enum([
-          'tradition',
-          'instrument',
-          'variant',
-          'room',
-          'tuning',
-          'arrangement',
-          'aesthetic',
-          'preface',
-          'chain',
-        ])
-      )
+      .array(z.enum(SEARCH_TYPES))
+      .max(SEARCH_TYPES.length)
       .optional()
       .describe('Restrict to these record types.'),
     limit: z

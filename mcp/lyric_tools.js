@@ -98,7 +98,7 @@ const MAX_WORD_CHARS = 40;
 // ~~Executable creation has its separate registry-derived bound~~ (the 31-line
 // writable capacity, `EXECUTABLE_MAX_LINES`) — DELETED 2026-09-28 by owner
 // ruling: every plan the planner draws can be written, graded and revised.
-const MAX_LINES = 463;
+export const MAX_LINES = 463;
 const MAX_LINE_CHARS = 200;
 // Two closed vocabularies the schemas enumerate, checked the same way:
 // `quality/plan.py` PLAN_FORMS and `quality/rhyme_types.py` POSITION.
